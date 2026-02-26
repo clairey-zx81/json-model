@@ -42,7 +42,7 @@ function json_model_2(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected a [.'$a'.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"a\" [.'$a'.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$a']", (path ? lpath : null)])
         return false;
     }
@@ -122,7 +122,7 @@ function json_model_4(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected string [.'$Nabc'.t.'^'.0]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$Nabc'.t.'^'.0]", (path ? lpath : null)])
     }
     // .'$Nabc'.t.'^'.1
     xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
@@ -132,7 +132,7 @@ function json_model_4(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected _a [.'$Nabc'.t.'^'.1]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_a\" [.'$Nabc'.t.'^'.1]", (path ? lpath : null)])
     }
     if (xc_0 <= 1)
     {
@@ -144,7 +144,7 @@ function json_model_4(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected _b [.'$Nabc'.t.'^'.2]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_b\" [.'$Nabc'.t.'^'.2]", (path ? lpath : null)])
         }
     }
     if (xc_0 <= 1)
@@ -157,7 +157,7 @@ function json_model_4(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected _c [.'$Nabc'.t.'^'.3]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_c\" [.'$Nabc'.t.'^'.3]", (path ? lpath : null)])
         }
     }
     res = xc_0 == 1;

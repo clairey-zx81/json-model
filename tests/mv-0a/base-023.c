@@ -18,42 +18,20 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
+    // .'@'
     bool res = json_is_string(val);
-    if (res)
-    {
-        // .'&'.0
-        res = true;
-        if (likely(res))
-        {
-            // .'&'.1
-            // .'&'.1.'@'
-            res = json_is_string(val);
-            if (likely(res))
-            {
-                int64_t ival_0 = jm_str_len(json_string_value(val));
-                res = ival_0 <= 5;
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "constraints failed [.'&'.1]", path);
-                }
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'&'.1.'@']", path);
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected string [.'&'.0]", path);
-        }
-    }
     if (likely(res))
     {
-        if (rep) jm_report_free_entries(rep);
+        int64_t ival_0 = jm_str_len(json_string_value(val));
+        res = ival_0 <= 5;
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        }
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not all model match [.'&']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'@']", path);
     }
     return res;
 }

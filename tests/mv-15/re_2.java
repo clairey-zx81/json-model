@@ -26,7 +26,7 @@ public class re_2 extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $REGEX [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$REGEX\" [.]", path);
         }
         return res;
     }

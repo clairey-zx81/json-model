@@ -19,7 +19,7 @@ function json_model_1(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val.startsWith("Hello");
     if (! res)
     {
-        rep !== null && rep.push(["unexpected /^Hello/ [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"/^Hello/\" [.]", path])
     }
     return res;
 }

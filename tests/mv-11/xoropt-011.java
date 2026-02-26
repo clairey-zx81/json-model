@@ -47,7 +47,7 @@ public class xoropt_011 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 10;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =10 [.'|'.0.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=10\" [.'|'.0.a]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -81,7 +81,7 @@ public class xoropt_011 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =1 [.'|'.1.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'|'.1.a]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -115,7 +115,7 @@ public class xoropt_011 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =0 [.'|'.2.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=0\" [.'|'.2.a]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.2]", (path != null ? lpath : null));
             return false;
         }

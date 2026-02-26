@@ -40,7 +40,7 @@ function _jm_obj_0(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected a [.'|'.0.tag]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"a\" [.'|'.0.tag]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <tag> [.'|'.0]", (path ? lpath : null)])
         return false;
     }
@@ -55,7 +55,7 @@ function _jm_obj_0(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'|'.0.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'|'.0.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.0]", (path ? lpath : null)])
         return false;
     }
@@ -90,7 +90,7 @@ function _jm_obj_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "b";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected b [.'|'.1.tag]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"b\" [.'|'.1.tag]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <tag> [.'|'.1]", (path ? lpath : null)])
         return false;
     }
@@ -105,7 +105,7 @@ function _jm_obj_1(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'|'.1.b]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'|'.1]", (path ? lpath : null)])
         return false;
     }
@@ -140,7 +140,7 @@ function _jm_obj_2(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "c";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected c [.'|'.2.tag]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"c\" [.'|'.2.tag]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <tag> [.'|'.2]", (path ? lpath : null)])
         return false;
     }
@@ -155,7 +155,7 @@ function _jm_obj_2(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'|'.2.c]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'|'.2.c]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <c> [.'|'.2]", (path ? lpath : null)])
         return false;
     }

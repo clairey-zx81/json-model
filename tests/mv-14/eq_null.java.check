@@ -1,4 +1,4 @@
 eq_null.values.json[0]: PASS
-eq_null.values.json[1]: FAIL (: unexpected =null [.])
-eq_null.values.json[2]: FAIL (: unexpected =null [.])
-eq_null.values.json[3]: FAIL (: unexpected =null [.])
+eq_null.values.json[1]: FAIL (: unexpected value for model "=null" [.])
+eq_null.values.json[2]: FAIL (: unexpected value for model "=null" [.])
+eq_null.values.json[3]: FAIL (: unexpected value for model "=null" [.])

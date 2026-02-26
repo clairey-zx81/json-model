@@ -43,7 +43,7 @@ function json_model_1(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.hello]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.hello]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <hello> [.]", (path ? lpath : null)])
         return false;
     }
@@ -59,7 +59,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("!");
     if (! res)
     {
-        rep !== null && rep.push(["unexpected /^!/ [.world]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"/^!/\" [.world]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <world> [.]", (path ? lpath : null)])
         return false;
     }

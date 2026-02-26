@@ -75,7 +75,7 @@ public class trafo_0 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $zero [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$zero\" [.]", path);
         }
         return res;
     }

@@ -26,7 +26,7 @@ public class pDATETIME extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_datetime(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $DATETIME [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$DATETIME\" [.]", path);
         }
         return res;
     }

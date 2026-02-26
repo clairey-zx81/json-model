@@ -18,7 +18,7 @@ function json_model_1(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie and Calvin";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _Susie and Calvin [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"_Susie and Calvin\" [.]", path])
     }
     return res;
 }

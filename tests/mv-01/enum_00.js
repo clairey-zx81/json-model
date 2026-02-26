@@ -55,7 +55,7 @@ function json_model_1(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected $p1 [.'^'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$p1\" [.'^'.0]", path])
     }
     // .'^'.1
     xr_0 = json_model_3(val, path, rep);
@@ -65,7 +65,7 @@ function json_model_1(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected $p2 [.'^'.1]", path])
+        rep !== null && rep.push(["unexpected value for model \"$p2\" [.'^'.1]", path])
     }
     res = xc_0 == 1;
     if (res)

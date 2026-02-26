@@ -53,7 +53,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             else
             {
-                if (rep) jm_report_add_entry(rep, "unexpected /[0-9]/ [.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"/[0-9]/\" [.'|'.0]", path);
                 if (rep) jm_report_add_entry(rep, "no model matched [.'|']", path);
             }
         }

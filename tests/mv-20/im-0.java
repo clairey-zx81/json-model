@@ -26,7 +26,7 @@ public class im_0 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("a") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _a [.'$a']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_a\" [.'$a']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class im_0 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("b") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _b [.'$b']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_b\" [.'$b']", path);
         }
         return res;
     }

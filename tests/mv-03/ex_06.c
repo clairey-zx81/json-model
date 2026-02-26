@@ -26,12 +26,12 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_5(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Ex05a [.'$ex5'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ex05a\" [.'$ex5'.'|'.0]", path);
         // .'$ex5'.'|'.1
         res = json_model_6(val, path, rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Ex05b [.'$ex5'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ex05b\" [.'$ex5'.'|'.1]", path);
         }
     }
     if (likely(res))
@@ -79,17 +79,17 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_model_3(json_array_get(val, 2), (path ? &lpath_0 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $Ex06 [.2]", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ex06\" [.2]", (path ? &lpath_0 : NULL));
                 }
             }
             else
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $ex5#Ex05b [.1]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$ex5#Ex05b\" [.1]", (path ? &lpath_0 : NULL));
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $ex5#Ex05a [.0]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$ex5#Ex05a\" [.0]", (path ? &lpath_0 : NULL));
         }
     }
     if (unlikely(! res))
@@ -118,7 +118,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$ex5#Ex05b']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$ex5#Ex05b']", path);
     }
     return res;
 }

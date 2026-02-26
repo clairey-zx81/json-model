@@ -147,7 +147,7 @@ public class loose_strict extends ModelChecker
         boolean res = json_model_4(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $combined [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$combined\" [.]", path);
         }
         return res;
     }

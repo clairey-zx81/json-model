@@ -49,7 +49,7 @@ public class re_3 extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).length() > 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /./s [.nz]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/./s\" [.nz]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.nz]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -63,7 +63,7 @@ public class re_3 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /.*/ [.all]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/.*/\" [.all]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.all]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -77,7 +77,7 @@ public class re_3 extends ModelChecker
                 res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /./ [.some]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/./\" [.some]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.some]", (path != null ? lpath_0 : null));
                     return false;
                 }

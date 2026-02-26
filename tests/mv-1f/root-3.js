@@ -18,7 +18,7 @@ function json_model_3(val, path, rep)
     let res = json_model_5(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Foo [.'$foo']", path])
+        rep !== null && rep.push(["unexpected value for model \"$Foo\" [.'$foo']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
     let res = json_model_5(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $foo#Foo [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$foo#Foo\" [.]", path])
     }
     return res;
 }
@@ -64,7 +64,7 @@ function json_model_5(val, path, rep)
     res = json_model_12(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $root#Root [.'$foo#Foo'.rt]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"$root#Root\" [.'$foo#Foo'.rt]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <rt> [.'$foo#Foo']", (path ? lpath : null)])
         return false;
     }
@@ -100,7 +100,7 @@ function json_model_12(val, path, rep)
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =1 [.'$foo#root#root#Root'.id]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=1\" [.'$foo#root#root#Root'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", (path ? lpath : null)])
         return false;
     }
@@ -115,7 +115,7 @@ function json_model_12(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$foo#root#root#Root'.name]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$foo#root#root#Root'.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$foo#root#root#Root']", (path ? lpath : null)])
         return false;
     }

@@ -65,7 +65,7 @@ public class obj_01 extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $DATE [.foo]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.foo]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.foo]", (path != null ? lpath_0 : null));
                     return false;
                 }

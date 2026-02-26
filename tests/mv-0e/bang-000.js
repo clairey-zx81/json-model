@@ -47,7 +47,7 @@ function json_model_1(val, path, rep)
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 17;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected =17 [.'/']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"=17\" [.'/']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'/']", (path ? lpath_0 : null)])
                 return false;
             }

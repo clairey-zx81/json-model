@@ -48,7 +48,7 @@ public class x2o_0 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected a [.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"a\" [.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -124,7 +124,7 @@ public class x2o_0 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.2.t.'^'.0]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.2.t.'^'.0]", (path != null ? lpath : null));
         }
         // .'|'.2.t.'^'.1
         xr_0 = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
@@ -134,7 +134,7 @@ public class x2o_0 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected _a [.'|'.2.t.'^'.1]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_a\" [.'|'.2.t.'^'.1]", (path != null ? lpath : null));
         }
         if (xc_0 <= 1)
         {
@@ -146,7 +146,7 @@ public class x2o_0 extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected _b [.'|'.2.t.'^'.2]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_b\" [.'|'.2.t.'^'.2]", (path != null ? lpath : null));
             }
         }
         if (xc_0 <= 1)
@@ -159,7 +159,7 @@ public class x2o_0 extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected _c [.'|'.2.t.'^'.3]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_c\" [.'|'.2.t.'^'.3]", (path != null ? lpath : null));
             }
         }
         res = xc_0 == 1;

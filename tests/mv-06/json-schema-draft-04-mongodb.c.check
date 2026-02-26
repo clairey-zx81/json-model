@@ -2,7 +2,7 @@ json-schema-draft-04-mongodb.values.json[0]: PASS
 json-schema-draft-04-mongodb.values.json[1]: PASS
 json-schema-draft-04-mongodb.values.json[2]: PASS
 json-schema-draft-04-mongodb.values.json[3]: PASS
-json-schema-draft-04-mongodb.values.json[4]: FAIL (.type: invalid optional prop value [.'$schema'.type]; .type: no model matched [.'$schema'.type.'|']; .type: unexpected $typeArray [.'$schema'.type.'|'.1]; .type: not array or unexpected array [.'$schema#typeArray'.'@']; .type: unexpected $simpleTypes [.'$schema'.type.'|'.0]; .type: value not in enum [.'$schema#simpleTypes'.'|'])
+json-schema-draft-04-mongodb.values.json[4]: FAIL (.type: invalid optional prop value [.'$schema'.type]; .type: no model matched [.'$schema'.type.'|']; .type: unexpected value for model "$typeArray" [.'$schema'.type.'|'.1]; .type: not array or unexpected array [.'$schema#typeArray'.'@']; .type: unexpected value for model "$simpleTypes" [.'$schema'.type.'|'.0]; .type: value not in enum [.'$schema#simpleTypes'.'|'])
 json-schema-draft-04-mongodb.values.json[5]: FAIL (.$ref: unexpected prop [.'$schema'])
 json-schema-draft-04-mongodb.values.json[6]: FAIL (.$schema: unexpected prop [.'$schema'])
 json-schema-draft-04-mongodb.values.json[7]: FAIL (.format: unexpected prop [.'$schema'])

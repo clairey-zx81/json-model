@@ -72,7 +72,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $DATE [.foo]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.foo]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.foo]", (path ? &lpath_0 : NULL));
                 return false;
             }

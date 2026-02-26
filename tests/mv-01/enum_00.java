@@ -63,7 +63,7 @@ public class enum_00 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected $p1 [.'^'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$p1\" [.'^'.0]", path);
         }
         // .'^'.1
         xr_0 = json_model_3(val, path, rep);
@@ -73,7 +73,7 @@ public class enum_00 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected $p2 [.'^'.1]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$p2\" [.'^'.1]", path);
         }
         res = xc_0 == 1;
         if (res)

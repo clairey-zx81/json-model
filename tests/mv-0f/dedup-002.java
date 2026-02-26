@@ -50,7 +50,7 @@ public class dedup_002 extends ModelChecker
             is_0 = json.isString(val);
             if (! is_0)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'^'.7]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.7]", path);
             }
             res = ! is_0;
         }

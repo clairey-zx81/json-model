@@ -26,7 +26,7 @@ public class ex_09 extends ModelChecker
         boolean res = json_model_9(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Ex08 [.'$ex08']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Ex08\" [.'$ex08']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class ex_09 extends ModelChecker
         boolean res = json_model_9(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $ex08#Ex08 [.'$Ex08']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$ex08#Ex08\" [.'$Ex08']", path);
         }
         return res;
     }
@@ -66,7 +66,7 @@ public class ex_09 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ex09'.'#']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ex09'.'#']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ex09'.'#']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -79,7 +79,7 @@ public class ex_09 extends ModelChecker
                 res = json_model_6(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ex08#Val [.'$Ex09'.'$URL']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$ex08#Val\" [.'$Ex09'.'$URL']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -99,7 +99,7 @@ public class ex_09 extends ModelChecker
         boolean res = json_model_4(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Ex09 [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Ex09\" [.]", path);
         }
         return res;
     }
@@ -124,17 +124,17 @@ public class ex_09 extends ModelChecker
         boolean res = json_model_8(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $map [.'$ex08#Ex08'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$map\" [.'$ex08#Ex08'.'|'.0]", path);
             // .'$ex08#Ex08'.'|'.1
             res = json.isString(val) && rt.is_valid_url(json.asString(val));
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $URL [.'$ex08#Ex08'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$ex08#Ex08'.'|'.1]", path);
                 // .'$ex08#Ex08'.'|'.2
                 res = json_model_6(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Val [.'$ex08#Ex08'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Val\" [.'$ex08#Ex08'.'|'.2]", path);
                 }
             }
         }
@@ -172,7 +172,7 @@ public class ex_09 extends ModelChecker
                 res = json_model_6(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Val [.'$ex08#map'.'$URL']", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Val\" [.'$ex08#map'.'$URL']", (path != null ? lpath_1 : null));
                     return false;
                 }
             }

@@ -57,7 +57,7 @@ function json_model_1(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected /'($character:\\w+)'.*'($character:\\w+)'/X [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"/'($character:\\\\w+)'.*'($character:\\\\w+)'/X\" [.]", path])
     }
     return res;
 }

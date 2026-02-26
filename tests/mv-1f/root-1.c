@@ -24,7 +24,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_5(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Root [.'$root']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Root\" [.'$root']", path);
     }
     return res;
 }
@@ -36,7 +36,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_5(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $root#Root [.'$Root']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$root#Root\" [.'$Root']", path);
     }
     return res;
 }
@@ -48,7 +48,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_5(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Root [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Root\" [.]", path);
     }
     return res;
 }
@@ -77,7 +77,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) == 1;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =1 [.'$root#Root'.id]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=1\" [.'$root#Root'.id]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$root#Root'.id]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -91,7 +91,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$root#Root'.name]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$root#Root'.name]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$root#Root'.name]", (path ? &lpath_0 : NULL));
                 return false;
             }

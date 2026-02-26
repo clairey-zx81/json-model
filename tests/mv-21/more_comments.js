@@ -38,7 +38,7 @@ function json_model_3(val, path, rep)
             res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Pp [.'$Qq'.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Pp\" [.'$Qq'.0]", (path ? arr_0_lpath : null)])
                 break;
             }
         }
@@ -69,7 +69,7 @@ function _jm_obj_0(val, path, rep)
             res = json_model_2(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Pp [.o.p]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Pp\" [.o.p]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.o.p]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -82,7 +82,7 @@ function _jm_obj_0(val, path, rep)
             res = json_model_3(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Qq [.o.q]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Qq\" [.o.q]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.o.q]", (path ? lpath_1 : null)])
                 return false;
             }

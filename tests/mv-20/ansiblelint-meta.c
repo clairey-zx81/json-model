@@ -234,7 +234,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00584941);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _AIX [.'$AIXPlatformModel'.name]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_AIX\" [.'$AIXPlatformModel'.name]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AIXPlatformModel'.name]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -297,7 +297,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000656e69706c41LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Alpine [.'$AlpinePlatformModel'.name]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Alpine\" [.'$AlpinePlatformModel'.name]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AlpinePlatformModel'.name]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -319,7 +319,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_1_item) && jm_str_eq_4(json_string_value(arr_1_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$AlpinePlatformModel'.versions.0]", ((path ? &lpath_1 : NULL) ? &arr_1_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$AlpinePlatformModel'.versions.0]", ((path ? &lpath_1 : NULL) ? &arr_1_lpath : NULL));
                         break;
                     }
                 }
@@ -371,7 +371,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "Amazon Linux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Amazon Linux [.'$AmazonLinuxPlatformModel'.name]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Amazon Linux\" [.'$AmazonLinuxPlatformModel'.name]", (path ? &lpath_2 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AmazonLinuxPlatformModel'.name]", (path ? &lpath_2 : NULL));
                 return false;
             }
@@ -455,7 +455,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6f7a616d41LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Amazon [.'$AmazonPlatformModel'.name]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Amazon\" [.'$AmazonPlatformModel'.name]", (path ? &lpath_3 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AmazonPlatformModel'.name]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -518,7 +518,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "ArchLinux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _ArchLinux [.'$ArchLinuxPlatformModel'.name]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ArchLinux\" [.'$ArchLinuxPlatformModel'.name]", (path ? &lpath_4 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$ArchLinuxPlatformModel'.name]", (path ? &lpath_4 : NULL));
                 return false;
             }
@@ -540,7 +540,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_4_item) && jm_str_eq_4(json_string_value(arr_4_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? &lpath_4 : NULL) ? &arr_4_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? &lpath_4 : NULL) ? &arr_4_lpath : NULL));
                         break;
                     }
                 }
@@ -593,7 +593,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "Astra Linux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Astra Linux [.'$AstraLinuxPlatformModel'.name]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Astra Linux\" [.'$AstraLinuxPlatformModel'.name]", (path ? &lpath_5 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AstraLinuxPlatformModel'.name]", (path ? &lpath_5 : NULL));
                 return false;
             }
@@ -656,7 +656,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "ClearLinux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _ClearLinux [.'$ClearLinuxPlatformModel'.name]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ClearLinux\" [.'$ClearLinuxPlatformModel'.name]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$ClearLinuxPlatformModel'.name]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -678,7 +678,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_6_item) && jm_str_eq_4(json_string_value(arr_6_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? &lpath_6 : NULL) ? &arr_6_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? &lpath_6 : NULL) ? &arr_6_lpath : NULL));
                         break;
                     }
                 }
@@ -734,7 +734,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0073756c756d7543LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Cumulus [.'$CumulusPlatformModel'.name]", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Cumulus\" [.'$CumulusPlatformModel'.name]", (path ? &lpath_7 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$CumulusPlatformModel'.name]", (path ? &lpath_7 : NULL));
                 return false;
             }
@@ -816,7 +816,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6169626544LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Debian [.'$DebianPlatformModel'.name]", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Debian\" [.'$DebianPlatformModel'.name]", (path ? &lpath_8 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DebianPlatformModel'.name]", (path ? &lpath_8 : NULL));
                 return false;
             }
@@ -890,7 +890,7 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000534f6c6c6544LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _DellOS [.'$DellOSPlatformModel'.name]", (path ? &lpath_9 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_DellOS\" [.'$DellOSPlatformModel'.name]", (path ? &lpath_9 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DellOSPlatformModel'.name]", (path ? &lpath_9 : NULL));
                 return false;
             }
@@ -966,7 +966,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6175766544LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Devuan [.'$DevuanPlatformModel'.name]", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Devuan\" [.'$DevuanPlatformModel'.name]", (path ? &lpath_10 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DevuanPlatformModel'.name]", (path ? &lpath_10 : NULL));
                 return false;
             }
@@ -1044,7 +1044,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "DragonFlyBSD");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _DragonFlyBSD [.'$DragonFlyBSDPlatformModel'.name]", (path ? &lpath_11 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_DragonFlyBSD\" [.'$DragonFlyBSDPlatformModel'.name]", (path ? &lpath_11 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DragonFlyBSDPlatformModel'.name]", (path ? &lpath_11 : NULL));
                 return false;
             }
@@ -1121,7 +1121,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00004c45);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _EL [.'$ELPlatformModel'.name]", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_EL\" [.'$ELPlatformModel'.name]", (path ? &lpath_12 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$ELPlatformModel'.name]", (path ? &lpath_12 : NULL));
                 return false;
             }
@@ -1219,7 +1219,7 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000061726f646546LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Fedora [.'$FedoraPlatformModel'.name]", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Fedora\" [.'$FedoraPlatformModel'.name]", (path ? &lpath_13 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$FedoraPlatformModel'.name]", (path ? &lpath_13 : NULL));
                 return false;
             }
@@ -1316,7 +1316,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0044534265657246LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _FreeBSD [.'$FreeBSDPlatformModel'.name]", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_FreeBSD\" [.'$FreeBSDPlatformModel'.name]", (path ? &lpath_14 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$FreeBSDPlatformModel'.name]", (path ? &lpath_14 : NULL));
                 return false;
             }
@@ -1379,7 +1379,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "GenericBSD");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _GenericBSD [.'$GenericBSDPlatformModel'.name]", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_GenericBSD\" [.'$GenericBSDPlatformModel'.name]", (path ? &lpath_15 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GenericBSDPlatformModel'.name]", (path ? &lpath_15 : NULL));
                 return false;
             }
@@ -1401,7 +1401,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_15_item) && jm_str_eq_4(json_string_value(arr_15_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericBSDPlatformModel'.versions.0]", ((path ? &lpath_15 : NULL) ? &arr_15_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$GenericBSDPlatformModel'.versions.0]", ((path ? &lpath_15 : NULL) ? &arr_15_lpath : NULL));
                         break;
                     }
                 }
@@ -1442,7 +1442,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "GenericLinux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _GenericLinux [.'$GenericLinuxPlatformModel'.name]", (path ? &lpath_16 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_GenericLinux\" [.'$GenericLinuxPlatformModel'.name]", (path ? &lpath_16 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GenericLinuxPlatformModel'.name]", (path ? &lpath_16 : NULL));
                 return false;
             }
@@ -1464,7 +1464,7 @@ static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_16_item) && jm_str_eq_4(json_string_value(arr_16_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? &lpath_16 : NULL) ? &arr_16_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? &lpath_16 : NULL) ? &arr_16_lpath : NULL));
                         break;
                     }
                 }
@@ -1505,7 +1505,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "GenericUNIX");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _GenericUNIX [.'$GenericUNIXPlatformModel'.name]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_GenericUNIX\" [.'$GenericUNIXPlatformModel'.name]", (path ? &lpath_17 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GenericUNIXPlatformModel'.name]", (path ? &lpath_17 : NULL));
                 return false;
             }
@@ -1527,7 +1527,7 @@ static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_17_item) && jm_str_eq_4(json_string_value(arr_17_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? &lpath_17 : NULL) ? &arr_17_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? &lpath_17 : NULL) ? &arr_17_lpath : NULL));
                         break;
                     }
                 }
@@ -1568,7 +1568,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006f6f746e6547LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Gentoo [.'$GentooPlatformModel'.name]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Gentoo\" [.'$GentooPlatformModel'.name]", (path ? &lpath_18 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GentooPlatformModel'.name]", (path ? &lpath_18 : NULL));
                 return false;
             }
@@ -1590,7 +1590,7 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_18_item) && jm_str_eq_4(json_string_value(arr_18_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$GentooPlatformModel'.versions.0]", ((path ? &lpath_18 : NULL) ? &arr_18_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$GentooPlatformModel'.versions.0]", ((path ? &lpath_18 : NULL) ? &arr_18_lpath : NULL));
                         break;
                     }
                 }
@@ -1641,7 +1641,7 @@ static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "HardenedBSD");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _HardenedBSD [.'$HardenedBSDPlatformModel'.name]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_HardenedBSD\" [.'$HardenedBSDPlatformModel'.name]", (path ? &lpath_19 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$HardenedBSDPlatformModel'.name]", (path ? &lpath_19 : NULL));
                 return false;
             }
@@ -1704,7 +1704,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00534f49);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _IOS [.'$IOSPlatformModel'.name]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_IOS\" [.'$IOSPlatformModel'.name]", (path ? &lpath_20 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$IOSPlatformModel'.name]", (path ? &lpath_20 : NULL));
                 return false;
             }
@@ -1726,7 +1726,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_20_item) && jm_str_eq_4(json_string_value(arr_20_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$IOSPlatformModel'.versions.0]", ((path ? &lpath_20 : NULL) ? &arr_20_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$IOSPlatformModel'.versions.0]", ((path ? &lpath_20 : NULL) ? &arr_20_lpath : NULL));
                         break;
                     }
                 }
@@ -1767,7 +1767,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000736f6e754aLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Junos [.'$JunosPlatformModel'.name]", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Junos\" [.'$JunosPlatformModel'.name]", (path ? &lpath_21 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$JunosPlatformModel'.name]", (path ? &lpath_21 : NULL));
                 return false;
             }
@@ -1789,7 +1789,7 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_21_item) && jm_str_eq_4(json_string_value(arr_21_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$JunosPlatformModel'.versions.0]", ((path ? &lpath_21 : NULL) ? &arr_21_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$JunosPlatformModel'.versions.0]", ((path ? &lpath_21 : NULL) ? &arr_21_lpath : NULL));
                         break;
                     }
                 }
@@ -1847,7 +1847,7 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000696c614bLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Kali [.'$KaliPlatformModel'.name]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Kali\" [.'$KaliPlatformModel'.name]", (path ? &lpath_22 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$KaliPlatformModel'.name]", (path ? &lpath_22 : NULL));
                 return false;
             }
@@ -1927,7 +1927,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000696c614bLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Kali [.'$MacOSXPlatformModel'.name]", (path ? &lpath_23 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Kali\" [.'$MacOSXPlatformModel'.name]", (path ? &lpath_23 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$MacOSXPlatformModel'.name]", (path ? &lpath_23 : NULL));
                 return false;
             }
@@ -2000,7 +2000,7 @@ static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000061696567654dLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Megeia [.'$MageiaPlatformModel'.name]", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Megeia\" [.'$MageiaPlatformModel'.name]", (path ? &lpath_24 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$MageiaPlatformModel'.name]", (path ? &lpath_24 : NULL));
                 return false;
             }
@@ -2063,7 +2063,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000534f584eLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _NXOS [.'$NXOSPlatformModel'.name]", (path ? &lpath_25 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_NXOS\" [.'$NXOSPlatformModel'.name]", (path ? &lpath_25 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$NXOSPlatformModel'.name]", (path ? &lpath_25 : NULL));
                 return false;
             }
@@ -2085,7 +2085,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_25_item) && jm_str_eq_4(json_string_value(arr_25_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$NXOSPlatformModel'.versions.0]", ((path ? &lpath_25 : NULL) ? &arr_25_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$NXOSPlatformModel'.versions.0]", ((path ? &lpath_25 : NULL) ? &arr_25_lpath : NULL));
                         break;
                     }
                 }
@@ -2142,7 +2142,7 @@ static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000044534274654eLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _NetBSD [.'$NetBSDPlatformModel'.name]", (path ? &lpath_26 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_NetBSD\" [.'$NetBSDPlatformModel'.name]", (path ? &lpath_26 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$NetBSDPlatformModel'.name]", (path ? &lpath_26 : NULL));
                 return false;
             }
@@ -2231,7 +2231,7 @@ static bool json_model_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x004453426e65704fLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _OpenBSD [.'$OpenBSDPlatformModel'.name]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_OpenBSD\" [.'$OpenBSDPlatformModel'.name]", (path ? &lpath_27 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OpenBSDPlatformModel'.name]", (path ? &lpath_27 : NULL));
                 return false;
             }
@@ -2309,7 +2309,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x007472576e65704fLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _OpenWrt [.'$OpenWrtPlatformModel'.name]", (path ? &lpath_28 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_OpenWrt\" [.'$OpenWrtPlatformModel'.name]", (path ? &lpath_28 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OpenWrtPlatformModel'.name]", (path ? &lpath_28 : NULL));
                 return false;
             }
@@ -2406,7 +2406,7 @@ static bool json_model_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "OracleLinux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _OracleLinux [.'$OracleLinuxPlatformModel'.name]", (path ? &lpath_29 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_OracleLinux\" [.'$OracleLinuxPlatformModel'.name]", (path ? &lpath_29 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$OracleLinuxPlatformModel'.name]", (path ? &lpath_29 : NULL));
                 return false;
             }
@@ -2481,7 +2481,7 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000534f2d4e4150LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _PAN-OS [.'$PAN-OSPlatformModel'.name]", (path ? &lpath_30 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_PAN-OS\" [.'$PAN-OSPlatformModel'.name]", (path ? &lpath_30 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$PAN-OSPlatformModel'.name]", (path ? &lpath_30 : NULL));
                 return false;
             }
@@ -2564,7 +2564,7 @@ static bool json_model_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000796b636f52LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Rocky [.'$RockyLinuxPlatformModel'.name]", (path ? &lpath_31 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Rocky\" [.'$RockyLinuxPlatformModel'.name]", (path ? &lpath_31 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$RockyLinuxPlatformModel'.name]", (path ? &lpath_31 : NULL));
                 return false;
             }
@@ -2655,7 +2655,7 @@ static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x0000000053454c53LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _SLES [.'$SLESPlatformModel'.name]", (path ? &lpath_32 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_SLES\" [.'$SLESPlatformModel'.name]", (path ? &lpath_32 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$SLESPlatformModel'.name]", (path ? &lpath_32 : NULL));
                 return false;
             }
@@ -2718,7 +2718,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x00534f7472616d53LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _SmartOS [.'$SmartOSPlatformModel'.name]", (path ? &lpath_33 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_SmartOS\" [.'$SmartOSPlatformModel'.name]", (path ? &lpath_33 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$SmartOSPlatformModel'.name]", (path ? &lpath_33 : NULL));
                 return false;
             }
@@ -2740,7 +2740,7 @@ static bool json_model_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_33_item) && jm_str_eq_4(json_string_value(arr_33_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$SmartOSPlatformModel'.versions.0]", ((path ? &lpath_33 : NULL) ? &arr_33_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$SmartOSPlatformModel'.versions.0]", ((path ? &lpath_33 : NULL) ? &arr_33_lpath : NULL));
                         break;
                     }
                 }
@@ -2795,7 +2795,7 @@ static bool json_model_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x00736972616c6f53LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Solaris [.'$SolarisPlatformModel'.name]", (path ? &lpath_34 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Solaris\" [.'$SolarisPlatformModel'.name]", (path ? &lpath_34 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$SolarisPlatformModel'.name]", (path ? &lpath_34 : NULL));
                 return false;
             }
@@ -2870,7 +2870,7 @@ static bool json_model_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "Synology");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Synology [.'$SynologyPlatformModel'.name]", (path ? &lpath_35 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Synology\" [.'$SynologyPlatformModel'.name]", (path ? &lpath_35 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$SynologyPlatformModel'.name]", (path ? &lpath_35 : NULL));
                 return false;
             }
@@ -2945,7 +2945,7 @@ static bool json_model_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000534f4d54LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _TMOS [.'$TMOSPlatformModel'.name]", (path ? &lpath_36 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_TMOS\" [.'$TMOSPlatformModel'.name]", (path ? &lpath_36 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$TMOSPlatformModel'.name]", (path ? &lpath_36 : NULL));
                 return false;
             }
@@ -3050,7 +3050,7 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000075746e756255LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Ubuntu [.'$UbuntuPlatformModel'.name]", (path ? &lpath_37 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Ubuntu\" [.'$UbuntuPlatformModel'.name]", (path ? &lpath_37 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$UbuntuPlatformModel'.name]", (path ? &lpath_37 : NULL));
                 return false;
             }
@@ -3113,7 +3113,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "Void Linux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Void Linux [.'$Void_LinuxPlatformModel'.name]", (path ? &lpath_38 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Void Linux\" [.'$Void_LinuxPlatformModel'.name]", (path ? &lpath_38 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Void_LinuxPlatformModel'.name]", (path ? &lpath_38 : NULL));
                 return false;
             }
@@ -3135,7 +3135,7 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_38_item) && jm_str_eq_4(json_string_value(arr_38_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? &lpath_38 : NULL) ? &arr_38_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? &lpath_38 : NULL) ? &arr_38_lpath : NULL));
                         break;
                     }
                 }
@@ -3193,7 +3193,7 @@ static bool json_model_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0073776f646e6957LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Windows [.'$WindowsPlatformModel'.name]", (path ? &lpath_39 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Windows\" [.'$WindowsPlatformModel'.name]", (path ? &lpath_39 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$WindowsPlatformModel'.name]", (path ? &lpath_39 : NULL));
                 return false;
             }
@@ -3256,7 +3256,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00736f61);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _aos [.'$aosPlatformModel'.name]", (path ? &lpath_40 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_aos\" [.'$aosPlatformModel'.name]", (path ? &lpath_40 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$aosPlatformModel'.name]", (path ? &lpath_40 : NULL));
                 return false;
             }
@@ -3278,7 +3278,7 @@ static bool json_model_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_40_item) && jm_str_eq_4(json_string_value(arr_40_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$aosPlatformModel'.versions.0]", ((path ? &lpath_40 : NULL) ? &arr_40_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$aosPlatformModel'.versions.0]", ((path ? &lpath_40 : NULL) ? &arr_40_lpath : NULL));
                         break;
                     }
                 }
@@ -3319,7 +3319,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00736f65);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _eos [.'$eosPlatformModel'.name]", (path ? &lpath_41 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_eos\" [.'$eosPlatformModel'.name]", (path ? &lpath_41 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$eosPlatformModel'.name]", (path ? &lpath_41 : NULL));
                 return false;
             }
@@ -3341,7 +3341,7 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_41_item) && jm_str_eq_4(json_string_value(arr_41_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$eosPlatformModel'.versions.0]", ((path ? &lpath_41 : NULL) ? &arr_41_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$eosPlatformModel'.versions.0]", ((path ? &lpath_41 : NULL) ? &arr_41_lpath : NULL));
                         break;
                     }
                 }
@@ -3398,7 +3398,7 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000534f63616dLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _macOS [.'$macOSPlatformModel'.name]", (path ? &lpath_42 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_macOS\" [.'$macOSPlatformModel'.name]", (path ? &lpath_42 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$macOSPlatformModel'.name]", (path ? &lpath_42 : NULL));
                 return false;
             }
@@ -3483,7 +3483,7 @@ static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "opensuse");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _opensuse [.'$opensusePlatformModel'.name]", (path ? &lpath_43 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_opensuse\" [.'$opensusePlatformModel'.name]", (path ? &lpath_43 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$opensusePlatformModel'.name]", (path ? &lpath_43 : NULL));
                 return false;
             }
@@ -3546,7 +3546,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000003031736fLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _os10 [.'$os10PlatformModel'.name]", (path ? &lpath_44 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_os10\" [.'$os10PlatformModel'.name]", (path ? &lpath_44 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$os10PlatformModel'.name]", (path ? &lpath_44 : NULL));
                 return false;
             }
@@ -3568,7 +3568,7 @@ static bool json_model_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_44_item) && jm_str_eq_4(json_string_value(arr_44_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$os10PlatformModel'.versions.0]", ((path ? &lpath_44 : NULL) ? &arr_44_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$os10PlatformModel'.versions.0]", ((path ? &lpath_44 : NULL) ? &arr_44_lpath : NULL));
                         break;
                     }
                 }
@@ -3623,7 +3623,7 @@ static bool json_model_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x007265746e654376LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _vCenter [.'$vCenterPlatformModel'.name]", (path ? &lpath_45 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_vCenter\" [.'$vCenterPlatformModel'.name]", (path ? &lpath_45 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$vCenterPlatformModel'.name]", (path ? &lpath_45 : NULL));
                 return false;
             }
@@ -3700,7 +3700,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0065726568705376LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _vSphere [.'$vSpherePlatformModel'.name]", (path ? &lpath_46 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_vSphere\" [.'$vSpherePlatformModel'.name]", (path ? &lpath_46 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$vSpherePlatformModel'.name]", (path ? &lpath_46 : NULL));
                 return false;
             }
@@ -3750,237 +3750,237 @@ static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_2(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$AIXPlatformModel\" [.'$any_platform'.'|'.0]", path);
         // .'$any_platform'.'|'.1
         res = json_model_3(val, path, rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$AlpinePlatformModel\" [.'$any_platform'.'|'.1]", path);
             // .'$any_platform'.'|'.2
             res = json_model_5(val, path, rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$AmazonPlatformModel\" [.'$any_platform'.'|'.2]", path);
                 // .'$any_platform'.'|'.3
                 res = json_model_4(val, path, rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path);
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$AmazonLinuxPlatformModel\" [.'$any_platform'.'|'.3]", path);
                     // .'$any_platform'.'|'.4
                     res = json_model_42(val, path, rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path);
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$aosPlatformModel\" [.'$any_platform'.'|'.4]", path);
                         // .'$any_platform'.'|'.5
                         res = json_model_6(val, path, rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path);
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$ArchLinuxPlatformModel\" [.'$any_platform'.'|'.5]", path);
                             // .'$any_platform'.'|'.6
                             res = json_model_7(val, path, rep);
                             if (unlikely(! res))
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path);
+                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$AstraLinuxPlatformModel\" [.'$any_platform'.'|'.6]", path);
                                 // .'$any_platform'.'|'.7
                                 res = json_model_8(val, path, rep);
                                 if (unlikely(! res))
                                 {
-                                    if (rep) jm_report_add_entry(rep, "unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path);
+                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$ClearLinuxPlatformModel\" [.'$any_platform'.'|'.7]", path);
                                     // .'$any_platform'.'|'.8
                                     res = json_model_9(val, path, rep);
                                     if (unlikely(! res))
                                     {
-                                        if (rep) jm_report_add_entry(rep, "unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path);
+                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$CumulusPlatformModel\" [.'$any_platform'.'|'.8]", path);
                                         // .'$any_platform'.'|'.9
                                         res = json_model_28(val, path, rep);
                                         if (unlikely(! res))
                                         {
-                                            if (rep) jm_report_add_entry(rep, "unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path);
+                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NetBSDPlatformModel\" [.'$any_platform'.'|'.9]", path);
                                             // .'$any_platform'.'|'.10
                                             res = json_model_10(val, path, rep);
                                             if (unlikely(! res))
                                             {
-                                                if (rep) jm_report_add_entry(rep, "unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path);
+                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DebianPlatformModel\" [.'$any_platform'.'|'.10]", path);
                                                 // .'$any_platform'.'|'.11
                                                 res = json_model_11(val, path, rep);
                                                 if (unlikely(! res))
                                                 {
-                                                    if (rep) jm_report_add_entry(rep, "unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path);
+                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DellOSPlatformModel\" [.'$any_platform'.'|'.11]", path);
                                                     // .'$any_platform'.'|'.12
                                                     res = json_model_12(val, path, rep);
                                                     if (unlikely(! res))
                                                     {
-                                                        if (rep) jm_report_add_entry(rep, "unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path);
+                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DevuanPlatformModel\" [.'$any_platform'.'|'.12]", path);
                                                         // .'$any_platform'.'|'.13
                                                         res = json_model_13(val, path, rep);
                                                         if (unlikely(! res))
                                                         {
-                                                            if (rep) jm_report_add_entry(rep, "unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path);
+                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DragonFlyBSDPlatformModel\" [.'$any_platform'.'|'.13]", path);
                                                             // .'$any_platform'.'|'.14
                                                             res = json_model_14(val, path, rep);
                                                             if (unlikely(! res))
                                                             {
-                                                                if (rep) jm_report_add_entry(rep, "unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path);
+                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$ELPlatformModel\" [.'$any_platform'.'|'.14]", path);
                                                                 // .'$any_platform'.'|'.15
                                                                 res = json_model_43(val, path, rep);
                                                                 if (unlikely(! res))
                                                                 {
-                                                                    if (rep) jm_report_add_entry(rep, "unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path);
+                                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$eosPlatformModel\" [.'$any_platform'.'|'.15]", path);
                                                                     // .'$any_platform'.'|'.16
                                                                     res = json_model_15(val, path, rep);
                                                                     if (unlikely(! res))
                                                                     {
-                                                                        if (rep) jm_report_add_entry(rep, "unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path);
+                                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$FedoraPlatformModel\" [.'$any_platform'.'|'.16]", path);
                                                                         // .'$any_platform'.'|'.17
                                                                         res = json_model_16(val, path, rep);
                                                                         if (unlikely(! res))
                                                                         {
-                                                                            if (rep) jm_report_add_entry(rep, "unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path);
+                                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$FreeBSDPlatformModel\" [.'$any_platform'.'|'.17]", path);
                                                                             // .'$any_platform'.'|'.18
                                                                             res = json_model_17(val, path, rep);
                                                                             if (unlikely(! res))
                                                                             {
-                                                                                if (rep) jm_report_add_entry(rep, "unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path);
+                                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$GenericBSDPlatformModel\" [.'$any_platform'.'|'.18]", path);
                                                                                 // .'$any_platform'.'|'.19
                                                                                 res = json_model_18(val, path, rep);
                                                                                 if (unlikely(! res))
                                                                                 {
-                                                                                    if (rep) jm_report_add_entry(rep, "unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path);
+                                                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$GenericLinuxPlatformModel\" [.'$any_platform'.'|'.19]", path);
                                                                                     // .'$any_platform'.'|'.20
                                                                                     res = json_model_19(val, path, rep);
                                                                                     if (unlikely(! res))
                                                                                     {
-                                                                                        if (rep) jm_report_add_entry(rep, "unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path);
+                                                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$GenericUNIXPlatformModel\" [.'$any_platform'.'|'.20]", path);
                                                                                         // .'$any_platform'.'|'.21
                                                                                         res = json_model_20(val, path, rep);
                                                                                         if (unlikely(! res))
                                                                                         {
-                                                                                            if (rep) jm_report_add_entry(rep, "unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path);
+                                                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$GentooPlatformModel\" [.'$any_platform'.'|'.21]", path);
                                                                                             // .'$any_platform'.'|'.22
                                                                                             res = json_model_21(val, path, rep);
                                                                                             if (unlikely(! res))
                                                                                             {
-                                                                                                if (rep) jm_report_add_entry(rep, "unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path);
+                                                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$HardenedBSDPlatformModel\" [.'$any_platform'.'|'.22]", path);
                                                                                                 // .'$any_platform'.'|'.23
                                                                                                 res = json_model_22(val, path, rep);
                                                                                                 if (unlikely(! res))
                                                                                                 {
-                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path);
+                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$IOSPlatformModel\" [.'$any_platform'.'|'.23]", path);
                                                                                                     // .'$any_platform'.'|'.24
                                                                                                     res = json_model_23(val, path, rep);
                                                                                                     if (unlikely(! res))
                                                                                                     {
-                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path);
+                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$JunosPlatformModel\" [.'$any_platform'.'|'.24]", path);
                                                                                                         // .'$any_platform'.'|'.25
                                                                                                         res = json_model_24(val, path, rep);
                                                                                                         if (unlikely(! res))
                                                                                                         {
-                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path);
+                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$KaliPlatformModel\" [.'$any_platform'.'|'.25]", path);
                                                                                                             // .'$any_platform'.'|'.26
                                                                                                             res = json_model_44(val, path, rep);
                                                                                                             if (unlikely(! res))
                                                                                                             {
-                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path);
+                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$macOSPlatformModel\" [.'$any_platform'.'|'.26]", path);
                                                                                                                 // .'$any_platform'.'|'.27
                                                                                                                 res = json_model_25(val, path, rep);
                                                                                                                 if (unlikely(! res))
                                                                                                                 {
-                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path);
+                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$MacOSXPlatformModel\" [.'$any_platform'.'|'.27]", path);
                                                                                                                     // .'$any_platform'.'|'.28
                                                                                                                     res = json_model_26(val, path, rep);
                                                                                                                     if (unlikely(! res))
                                                                                                                     {
-                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path);
+                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$MageiaPlatformModel\" [.'$any_platform'.'|'.28]", path);
                                                                                                                         // .'$any_platform'.'|'.29
                                                                                                                         res = json_model_27(val, path, rep);
                                                                                                                         if (unlikely(! res))
                                                                                                                         {
-                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path);
+                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NXOSPlatformModel\" [.'$any_platform'.'|'.29]", path);
                                                                                                                             // .'$any_platform'.'|'.30
                                                                                                                             res = json_model_29(val, path, rep);
                                                                                                                             if (unlikely(! res))
                                                                                                                             {
-                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path);
+                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$OpenBSDPlatformModel\" [.'$any_platform'.'|'.30]", path);
                                                                                                                                 // .'$any_platform'.'|'.31
                                                                                                                                 res = json_model_45(val, path, rep);
                                                                                                                                 if (unlikely(! res))
                                                                                                                                 {
-                                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path);
+                                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$opensusePlatformModel\" [.'$any_platform'.'|'.31]", path);
                                                                                                                                     // .'$any_platform'.'|'.32
                                                                                                                                     res = json_model_30(val, path, rep);
                                                                                                                                     if (unlikely(! res))
                                                                                                                                     {
-                                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path);
+                                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$OpenWrtPlatformModel\" [.'$any_platform'.'|'.32]", path);
                                                                                                                                         // .'$any_platform'.'|'.33
                                                                                                                                         res = json_model_31(val, path, rep);
                                                                                                                                         if (unlikely(! res))
                                                                                                                                         {
-                                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path);
+                                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$OracleLinuxPlatformModel\" [.'$any_platform'.'|'.33]", path);
                                                                                                                                             // .'$any_platform'.'|'.34
                                                                                                                                             res = json_model_46(val, path, rep);
                                                                                                                                             if (unlikely(! res))
                                                                                                                                             {
-                                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path);
+                                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$os10PlatformModel\" [.'$any_platform'.'|'.34]", path);
                                                                                                                                                 // .'$any_platform'.'|'.35
                                                                                                                                                 res = json_model_32(val, path, rep);
                                                                                                                                                 if (unlikely(! res))
                                                                                                                                                 {
-                                                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path);
+                                                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$PAN-OSPlatformModel\" [.'$any_platform'.'|'.35]", path);
                                                                                                                                                     // .'$any_platform'.'|'.36
                                                                                                                                                     res = json_model_33(val, path, rep);
                                                                                                                                                     if (unlikely(! res))
                                                                                                                                                     {
-                                                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path);
+                                                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$RockyLinuxPlatformModel\" [.'$any_platform'.'|'.36]", path);
                                                                                                                                                         // .'$any_platform'.'|'.37
                                                                                                                                                         res = json_model_34(val, path, rep);
                                                                                                                                                         if (unlikely(! res))
                                                                                                                                                         {
-                                                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path);
+                                                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$SLESPlatformModel\" [.'$any_platform'.'|'.37]", path);
                                                                                                                                                             // .'$any_platform'.'|'.38
                                                                                                                                                             res = json_model_35(val, path, rep);
                                                                                                                                                             if (unlikely(! res))
                                                                                                                                                             {
-                                                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path);
+                                                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$SmartOSPlatformModel\" [.'$any_platform'.'|'.38]", path);
                                                                                                                                                                 // .'$any_platform'.'|'.39
                                                                                                                                                                 res = json_model_36(val, path, rep);
                                                                                                                                                                 if (unlikely(! res))
                                                                                                                                                                 {
-                                                                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path);
+                                                                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$SolarisPlatformModel\" [.'$any_platform'.'|'.39]", path);
                                                                                                                                                                     // .'$any_platform'.'|'.40
                                                                                                                                                                     res = json_model_37(val, path, rep);
                                                                                                                                                                     if (unlikely(! res))
                                                                                                                                                                     {
-                                                                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path);
+                                                                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$SynologyPlatformModel\" [.'$any_platform'.'|'.40]", path);
                                                                                                                                                                         // .'$any_platform'.'|'.41
                                                                                                                                                                         res = json_model_38(val, path, rep);
                                                                                                                                                                         if (unlikely(! res))
                                                                                                                                                                         {
-                                                                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path);
+                                                                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$TMOSPlatformModel\" [.'$any_platform'.'|'.41]", path);
                                                                                                                                                                             // .'$any_platform'.'|'.42
                                                                                                                                                                             res = json_model_39(val, path, rep);
                                                                                                                                                                             if (unlikely(! res))
                                                                                                                                                                             {
-                                                                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path);
+                                                                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$UbuntuPlatformModel\" [.'$any_platform'.'|'.42]", path);
                                                                                                                                                                                 // .'$any_platform'.'|'.43
                                                                                                                                                                                 res = json_model_47(val, path, rep);
                                                                                                                                                                                 if (unlikely(! res))
                                                                                                                                                                                 {
-                                                                                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path);
+                                                                                                                                                                                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$vCenterPlatformModel\" [.'$any_platform'.'|'.43]", path);
                                                                                                                                                                                     // .'$any_platform'.'|'.44
                                                                                                                                                                                     res = json_model_40(val, path, rep);
                                                                                                                                                                                     if (unlikely(! res))
                                                                                                                                                                                     {
-                                                                                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path);
+                                                                                                                                                                                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Void_LinuxPlatformModel\" [.'$any_platform'.'|'.44]", path);
                                                                                                                                                                                         // .'$any_platform'.'|'.45
                                                                                                                                                                                         res = json_model_48(val, path, rep);
                                                                                                                                                                                         if (unlikely(! res))
                                                                                                                                                                                         {
-                                                                                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path);
+                                                                                                                                                                                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$vSpherePlatformModel\" [.'$any_platform'.'|'.45]", path);
                                                                                                                                                                                             // .'$any_platform'.'|'.46
                                                                                                                                                                                             res = json_model_41(val, path, rep);
                                                                                                                                                                                             if (unlikely(! res))
                                                                                                                                                                                             {
-                                                                                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path);
+                                                                                                                                                                                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$WindowsPlatformModel\" [.'$any_platform'.'|'.46]", path);
                                                                                                                                                                                             }
                                                                                                                                                                                         }
                                                                                                                                                                                     }
@@ -4077,7 +4077,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0073776f646e6957LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Windows [.'$platforms'.0.'|'.46.name]", (path ? &lpath_47 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Windows\" [.'$platforms'.0.'|'.46.name]", (path ? &lpath_47 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.46.name]", (path ? &lpath_47 : NULL));
                 return false;
             }
@@ -4152,7 +4152,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0065726568705376LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _vSphere [.'$platforms'.0.'|'.45.name]", (path ? &lpath_48 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_vSphere\" [.'$platforms'.0.'|'.45.name]", (path ? &lpath_48 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.45.name]", (path ? &lpath_48 : NULL));
                 return false;
             }
@@ -4213,7 +4213,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "Void Linux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", (path ? &lpath_49 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Void Linux\" [.'$platforms'.0.'|'.44.name]", (path ? &lpath_49 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.44.name]", (path ? &lpath_49 : NULL));
                 return false;
             }
@@ -4235,7 +4235,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                     res = json_is_string(arr_50_item) && jm_str_eq_4(json_string_value(arr_50_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.44.versions.0]", ((path ? &lpath_49 : NULL) ? &arr_50_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.44.versions.0]", ((path ? &lpath_49 : NULL) ? &arr_50_lpath : NULL));
                         break;
                     }
                 }
@@ -4288,7 +4288,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x007265746e654376LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _vCenter [.'$platforms'.0.'|'.43.name]", (path ? &lpath_50 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_vCenter\" [.'$platforms'.0.'|'.43.name]", (path ? &lpath_50 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.43.name]", (path ? &lpath_50 : NULL));
                 return false;
             }
@@ -4391,7 +4391,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000075746e756255LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", (path ? &lpath_51 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Ubuntu\" [.'$platforms'.0.'|'.42.name]", (path ? &lpath_51 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.42.name]", (path ? &lpath_51 : NULL));
                 return false;
             }
@@ -4464,7 +4464,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000534f4d54LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _TMOS [.'$platforms'.0.'|'.41.name]", (path ? &lpath_52 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_TMOS\" [.'$platforms'.0.'|'.41.name]", (path ? &lpath_52 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.41.name]", (path ? &lpath_52 : NULL));
                 return false;
             }
@@ -4537,7 +4537,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "Synology");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Synology [.'$platforms'.0.'|'.40.name]", (path ? &lpath_53 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Synology\" [.'$platforms'.0.'|'.40.name]", (path ? &lpath_53 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.40.name]", (path ? &lpath_53 : NULL));
                 return false;
             }
@@ -4612,7 +4612,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x00736972616c6f53LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Solaris [.'$platforms'.0.'|'.39.name]", (path ? &lpath_54 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Solaris\" [.'$platforms'.0.'|'.39.name]", (path ? &lpath_54 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.39.name]", (path ? &lpath_54 : NULL));
                 return false;
             }
@@ -4673,7 +4673,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x00534f7472616d53LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", (path ? &lpath_55 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_SmartOS\" [.'$platforms'.0.'|'.38.name]", (path ? &lpath_55 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.38.name]", (path ? &lpath_55 : NULL));
                 return false;
             }
@@ -4695,7 +4695,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                     res = json_is_string(arr_56_item) && jm_str_eq_4(json_string_value(arr_56_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.38.versions.0]", ((path ? &lpath_55 : NULL) ? &arr_56_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.38.versions.0]", ((path ? &lpath_55 : NULL) ? &arr_56_lpath : NULL));
                         break;
                     }
                 }
@@ -4762,7 +4762,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x0000000053454c53LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _SLES [.'$platforms'.0.'|'.37.name]", (path ? &lpath_56 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_SLES\" [.'$platforms'.0.'|'.37.name]", (path ? &lpath_56 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.37.name]", (path ? &lpath_56 : NULL));
                 return false;
             }
@@ -4843,7 +4843,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000796b636f52LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Rocky [.'$platforms'.0.'|'.36.name]", (path ? &lpath_57 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Rocky\" [.'$platforms'.0.'|'.36.name]", (path ? &lpath_57 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.36.name]", (path ? &lpath_57 : NULL));
                 return false;
             }
@@ -4916,7 +4916,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000534f2d4e4150LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", (path ? &lpath_58 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_PAN-OS\" [.'$platforms'.0.'|'.35.name]", (path ? &lpath_58 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.35.name]", (path ? &lpath_58 : NULL));
                 return false;
             }
@@ -4977,7 +4977,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000003031736fLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _os10 [.'$platforms'.0.'|'.34.name]", (path ? &lpath_59 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_os10\" [.'$platforms'.0.'|'.34.name]", (path ? &lpath_59 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.34.name]", (path ? &lpath_59 : NULL));
                 return false;
             }
@@ -4999,7 +4999,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_60_item) && jm_str_eq_4(json_string_value(arr_60_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.34.versions.0]", ((path ? &lpath_59 : NULL) ? &arr_60_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.34.versions.0]", ((path ? &lpath_59 : NULL) ? &arr_60_lpath : NULL));
                         break;
                     }
                 }
@@ -5072,7 +5072,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "OracleLinux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", (path ? &lpath_60 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_OracleLinux\" [.'$platforms'.0.'|'.33.name]", (path ? &lpath_60 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.33.name]", (path ? &lpath_60 : NULL));
                 return false;
             }
@@ -5148,7 +5148,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x007472576e65704fLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", (path ? &lpath_61 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_OpenWrt\" [.'$platforms'.0.'|'.32.name]", (path ? &lpath_61 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.32.name]", (path ? &lpath_61 : NULL));
                 return false;
             }
@@ -5231,7 +5231,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "opensuse");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _opensuse [.'$platforms'.0.'|'.31.name]", (path ? &lpath_62 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_opensuse\" [.'$platforms'.0.'|'.31.name]", (path ? &lpath_62 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.31.name]", (path ? &lpath_62 : NULL));
                 return false;
             }
@@ -5318,7 +5318,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x004453426e65704fLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", (path ? &lpath_63 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_OpenBSD\" [.'$platforms'.0.'|'.30.name]", (path ? &lpath_63 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.30.name]", (path ? &lpath_63 : NULL));
                 return false;
             }
@@ -5379,7 +5379,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000534f584eLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _NXOS [.'$platforms'.0.'|'.29.name]", (path ? &lpath_64 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_NXOS\" [.'$platforms'.0.'|'.29.name]", (path ? &lpath_64 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.29.name]", (path ? &lpath_64 : NULL));
                 return false;
             }
@@ -5401,7 +5401,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_65_item) && jm_str_eq_4(json_string_value(arr_65_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.29.versions.0]", ((path ? &lpath_64 : NULL) ? &arr_65_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.29.versions.0]", ((path ? &lpath_64 : NULL) ? &arr_65_lpath : NULL));
                         break;
                     }
                 }
@@ -5450,7 +5450,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000061696567654dLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Megeia [.'$platforms'.0.'|'.28.name]", (path ? &lpath_65 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Megeia\" [.'$platforms'.0.'|'.28.name]", (path ? &lpath_65 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.28.name]", (path ? &lpath_65 : NULL));
                 return false;
             }
@@ -5528,7 +5528,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000696c614bLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Kali [.'$platforms'.0.'|'.27.name]", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Kali\" [.'$platforms'.0.'|'.27.name]", (path ? &lpath_66 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.27.name]", (path ? &lpath_66 : NULL));
                 return false;
             }
@@ -5605,7 +5605,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000534f63616dLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _macOS [.'$platforms'.0.'|'.26.name]", (path ? &lpath_67 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_macOS\" [.'$platforms'.0.'|'.26.name]", (path ? &lpath_67 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.26.name]", (path ? &lpath_67 : NULL));
                 return false;
             }
@@ -5683,7 +5683,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000696c614bLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Kali [.'$platforms'.0.'|'.25.name]", (path ? &lpath_68 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Kali\" [.'$platforms'.0.'|'.25.name]", (path ? &lpath_68 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.25.name]", (path ? &lpath_68 : NULL));
                 return false;
             }
@@ -5744,7 +5744,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x000000736f6e754aLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Junos [.'$platforms'.0.'|'.24.name]", (path ? &lpath_69 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Junos\" [.'$platforms'.0.'|'.24.name]", (path ? &lpath_69 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.24.name]", (path ? &lpath_69 : NULL));
                 return false;
             }
@@ -5766,7 +5766,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_70_item) && jm_str_eq_4(json_string_value(arr_70_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.24.versions.0]", ((path ? &lpath_69 : NULL) ? &arr_70_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.24.versions.0]", ((path ? &lpath_69 : NULL) ? &arr_70_lpath : NULL));
                         break;
                     }
                 }
@@ -5805,7 +5805,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00534f49);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _IOS [.'$platforms'.0.'|'.23.name]", (path ? &lpath_70 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_IOS\" [.'$platforms'.0.'|'.23.name]", (path ? &lpath_70 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.23.name]", (path ? &lpath_70 : NULL));
                 return false;
             }
@@ -5827,7 +5827,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_71_item) && jm_str_eq_4(json_string_value(arr_71_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.23.versions.0]", ((path ? &lpath_70 : NULL) ? &arr_71_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.23.versions.0]", ((path ? &lpath_70 : NULL) ? &arr_71_lpath : NULL));
                         break;
                     }
                 }
@@ -5876,7 +5876,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "HardenedBSD");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", (path ? &lpath_71 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_HardenedBSD\" [.'$platforms'.0.'|'.22.name]", (path ? &lpath_71 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.22.name]", (path ? &lpath_71 : NULL));
                 return false;
             }
@@ -5937,7 +5937,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006f6f746e6547LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", (path ? &lpath_72 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Gentoo\" [.'$platforms'.0.'|'.21.name]", (path ? &lpath_72 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.21.name]", (path ? &lpath_72 : NULL));
                 return false;
             }
@@ -5959,7 +5959,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_73_item) && jm_str_eq_4(json_string_value(arr_73_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.21.versions.0]", ((path ? &lpath_72 : NULL) ? &arr_73_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.21.versions.0]", ((path ? &lpath_72 : NULL) ? &arr_73_lpath : NULL));
                         break;
                     }
                 }
@@ -5998,7 +5998,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "GenericUNIX");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", (path ? &lpath_73 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_GenericUNIX\" [.'$platforms'.0.'|'.20.name]", (path ? &lpath_73 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.20.name]", (path ? &lpath_73 : NULL));
                 return false;
             }
@@ -6020,7 +6020,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_74_item) && jm_str_eq_4(json_string_value(arr_74_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.20.versions.0]", ((path ? &lpath_73 : NULL) ? &arr_74_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.20.versions.0]", ((path ? &lpath_73 : NULL) ? &arr_74_lpath : NULL));
                         break;
                     }
                 }
@@ -6059,7 +6059,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "GenericLinux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", (path ? &lpath_74 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_GenericLinux\" [.'$platforms'.0.'|'.19.name]", (path ? &lpath_74 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.19.name]", (path ? &lpath_74 : NULL));
                 return false;
             }
@@ -6081,7 +6081,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_75_item) && jm_str_eq_4(json_string_value(arr_75_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.19.versions.0]", ((path ? &lpath_74 : NULL) ? &arr_75_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.19.versions.0]", ((path ? &lpath_74 : NULL) ? &arr_75_lpath : NULL));
                         break;
                     }
                 }
@@ -6120,7 +6120,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "GenericBSD");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", (path ? &lpath_75 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_GenericBSD\" [.'$platforms'.0.'|'.18.name]", (path ? &lpath_75 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.18.name]", (path ? &lpath_75 : NULL));
                 return false;
             }
@@ -6142,7 +6142,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_76_item) && jm_str_eq_4(json_string_value(arr_76_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.18.versions.0]", ((path ? &lpath_75 : NULL) ? &arr_76_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.18.versions.0]", ((path ? &lpath_75 : NULL) ? &arr_76_lpath : NULL));
                         break;
                     }
                 }
@@ -6215,7 +6215,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0044534265657246LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", (path ? &lpath_76 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_FreeBSD\" [.'$platforms'.0.'|'.17.name]", (path ? &lpath_76 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.17.name]", (path ? &lpath_76 : NULL));
                 return false;
             }
@@ -6311,7 +6311,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000061726f646546LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Fedora [.'$platforms'.0.'|'.16.name]", (path ? &lpath_77 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Fedora\" [.'$platforms'.0.'|'.16.name]", (path ? &lpath_77 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.16.name]", (path ? &lpath_77 : NULL));
                 return false;
             }
@@ -6372,7 +6372,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00736f65);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _eos [.'$platforms'.0.'|'.15.name]", (path ? &lpath_78 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_eos\" [.'$platforms'.0.'|'.15.name]", (path ? &lpath_78 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.15.name]", (path ? &lpath_78 : NULL));
                 return false;
             }
@@ -6394,7 +6394,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_79_item) && jm_str_eq_4(json_string_value(arr_79_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.15.versions.0]", ((path ? &lpath_78 : NULL) ? &arr_79_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.15.versions.0]", ((path ? &lpath_78 : NULL) ? &arr_79_lpath : NULL));
                         break;
                     }
                 }
@@ -6447,7 +6447,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x00004c45);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _EL [.'$platforms'.0.'|'.14.name]", (path ? &lpath_79 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_EL\" [.'$platforms'.0.'|'.14.name]", (path ? &lpath_79 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.14.name]", (path ? &lpath_79 : NULL));
                 return false;
             }
@@ -6523,7 +6523,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "DragonFlyBSD");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", (path ? &lpath_80 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_DragonFlyBSD\" [.'$platforms'.0.'|'.13.name]", (path ? &lpath_80 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.13.name]", (path ? &lpath_80 : NULL));
                 return false;
             }
@@ -6597,7 +6597,7 @@ static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6175766544LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Devuan [.'$platforms'.0.'|'.12.name]", (path ? &lpath_81 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Devuan\" [.'$platforms'.0.'|'.12.name]", (path ? &lpath_81 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.12.name]", (path ? &lpath_81 : NULL));
                 return false;
             }
@@ -6669,7 +6669,7 @@ static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000534f6c6c6544LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _DellOS [.'$platforms'.0.'|'.11.name]", (path ? &lpath_82 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_DellOS\" [.'$platforms'.0.'|'.11.name]", (path ? &lpath_82 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.11.name]", (path ? &lpath_82 : NULL));
                 return false;
             }
@@ -6749,7 +6749,7 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6169626544LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Debian [.'$platforms'.0.'|'.10.name]", (path ? &lpath_83 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Debian\" [.'$platforms'.0.'|'.10.name]", (path ? &lpath_83 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.10.name]", (path ? &lpath_83 : NULL));
                 return false;
             }
@@ -6826,7 +6826,7 @@ static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000044534274654eLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", (path ? &lpath_84 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_NetBSD\" [.'$platforms'.0.'|'.9.name]", (path ? &lpath_84 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.9.name]", (path ? &lpath_84 : NULL));
                 return false;
             }
@@ -6902,7 +6902,7 @@ static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x0073756c756d7543LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", (path ? &lpath_85 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Cumulus\" [.'$platforms'.0.'|'.8.name]", (path ? &lpath_85 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.8.name]", (path ? &lpath_85 : NULL));
                 return false;
             }
@@ -6963,7 +6963,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "ClearLinux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", (path ? &lpath_86 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ClearLinux\" [.'$platforms'.0.'|'.7.name]", (path ? &lpath_86 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.7.name]", (path ? &lpath_86 : NULL));
                 return false;
             }
@@ -6985,7 +6985,7 @@ static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_87_item) && jm_str_eq_4(json_string_value(arr_87_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.7.versions.0]", ((path ? &lpath_86 : NULL) ? &arr_87_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.7.versions.0]", ((path ? &lpath_86 : NULL) ? &arr_87_lpath : NULL));
                         break;
                     }
                 }
@@ -7036,7 +7036,7 @@ static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "Astra Linux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", (path ? &lpath_87 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Astra Linux\" [.'$platforms'.0.'|'.6.name]", (path ? &lpath_87 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.6.name]", (path ? &lpath_87 : NULL));
                 return false;
             }
@@ -7097,7 +7097,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "ArchLinux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", (path ? &lpath_88 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ArchLinux\" [.'$platforms'.0.'|'.5.name]", (path ? &lpath_88 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.5.name]", (path ? &lpath_88 : NULL));
                 return false;
             }
@@ -7119,7 +7119,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_89_item) && jm_str_eq_4(json_string_value(arr_89_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.5.versions.0]", ((path ? &lpath_88 : NULL) ? &arr_89_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.5.versions.0]", ((path ? &lpath_88 : NULL) ? &arr_89_lpath : NULL));
                         break;
                     }
                 }
@@ -7158,7 +7158,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00736f61);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _aos [.'$platforms'.0.'|'.4.name]", (path ? &lpath_89 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_aos\" [.'$platforms'.0.'|'.4.name]", (path ? &lpath_89 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.4.name]", (path ? &lpath_89 : NULL));
                 return false;
             }
@@ -7180,7 +7180,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_90_item) && jm_str_eq_4(json_string_value(arr_90_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.4.versions.0]", ((path ? &lpath_89 : NULL) ? &arr_90_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.4.versions.0]", ((path ? &lpath_89 : NULL) ? &arr_90_lpath : NULL));
                         break;
                     }
                 }
@@ -7230,7 +7230,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "Amazon Linux");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", (path ? &lpath_90 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Amazon Linux\" [.'$platforms'.0.'|'.3.name]", (path ? &lpath_90 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.3.name]", (path ? &lpath_90 : NULL));
                 return false;
             }
@@ -7312,7 +7312,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x00006e6f7a616d41LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Amazon [.'$platforms'.0.'|'.2.name]", (path ? &lpath_91 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Amazon\" [.'$platforms'.0.'|'.2.name]", (path ? &lpath_91 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.2.name]", (path ? &lpath_91 : NULL));
                 return false;
             }
@@ -7373,7 +7373,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000656e69706c41LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Alpine [.'$platforms'.0.'|'.1.name]", (path ? &lpath_92 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Alpine\" [.'$platforms'.0.'|'.1.name]", (path ? &lpath_92 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.1.name]", (path ? &lpath_92 : NULL));
                 return false;
             }
@@ -7395,7 +7395,7 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(arr_93_item) && jm_str_eq_4(json_string_value(arr_93_item), 0x006c6c61);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _all [.'$platforms'.0.'|'.1.versions.0]", ((path ? &lpath_92 : NULL) ? &arr_93_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_all\" [.'$platforms'.0.'|'.1.versions.0]", ((path ? &lpath_92 : NULL) ? &arr_93_lpath : NULL));
                         break;
                     }
                 }
@@ -7445,7 +7445,7 @@ static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && jm_str_eq_4(json_string_value(pval), 0x00584941);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _AIX [.'$platforms'.0.'|'.0.name]", (path ? &lpath_93 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_AIX\" [.'$platforms'.0.'|'.0.name]", (path ? &lpath_93 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$platforms'.0.'|'.0.name]", (path ? &lpath_93 : NULL));
                 return false;
             }
@@ -7853,7 +7853,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         res = json_is_string(arr_95_item);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? &lpath_94 : NULL) ? &arr_95_lpath : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? &lpath_94 : NULL) ? &arr_95_lpath : NULL));
                             break;
                         }
                     }
@@ -7886,7 +7886,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? &lpath_94 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? &lpath_94 : NULL));
                     return false;
                 }
@@ -7903,7 +7903,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_94 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModelCollection'.namespace]", (path ? &lpath_94 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", (path ? &lpath_94 : NULL));
                     return false;
                 }
@@ -7916,7 +7916,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_model_50(pval, (path ? &lpath_94 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$platforms\" [.'$GalaxyInfoModelCollection'.platforms]", (path ? &lpath_94 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", (path ? &lpath_94 : NULL));
                     return false;
                 }
@@ -7930,7 +7930,7 @@ static bool json_model_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_94 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", (path ? &lpath_94 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModelCollection'.role_name]", (path ? &lpath_94 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", (path ? &lpath_94 : NULL));
                     return false;
                 }
@@ -7975,7 +7975,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.description]", (path ? &lpath_95 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.description]", (path ? &lpath_95 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", (path ? &lpath_95 : NULL));
                 return false;
             }
@@ -7991,7 +7991,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.license]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.license]", (path ? &lpath_95 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path ? &lpath_95 : NULL));
                     return false;
                 }
@@ -8004,7 +8004,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.github_branch]", (path ? &lpath_95 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", (path ? &lpath_95 : NULL));
                     return false;
                 }
@@ -8017,7 +8017,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? &lpath_95 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? &lpath_95 : NULL));
                     return false;
                 }
@@ -8033,7 +8033,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.author]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.author]", (path ? &lpath_95 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", (path ? &lpath_95 : NULL));
                     return false;
                 }
@@ -8046,7 +8046,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.company]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.company]", (path ? &lpath_95 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", (path ? &lpath_95 : NULL));
                     return false;
                 }
@@ -8059,7 +8059,7 @@ static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? &lpath_95 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? &lpath_95 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? &lpath_95 : NULL));
                     return false;
                 }
@@ -8107,7 +8107,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.author]", (path ? &lpath_96 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.author]", (path ? &lpath_96 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", (path ? &lpath_96 : NULL));
                 return false;
             }
@@ -8121,7 +8121,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.license]", (path ? &lpath_96 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.license]", (path ? &lpath_96 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", (path ? &lpath_96 : NULL));
                 return false;
             }
@@ -8135,7 +8135,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_boolean(pval) && json_boolean_value(pval) == true;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path ? &lpath_96 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=true\" [.'$GalaxyInfoModelStandalone'.standalone]", (path ? &lpath_96 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path ? &lpath_96 : NULL));
                 return false;
             }
@@ -8149,7 +8149,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path ? &lpath_96 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.description]", (path ? &lpath_96 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path ? &lpath_96 : NULL));
                 return false;
             }
@@ -8163,7 +8163,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path ? &lpath_96 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path ? &lpath_96 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path ? &lpath_96 : NULL));
                 return false;
             }
@@ -8180,7 +8180,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_96 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", (path ? &lpath_96 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModelStandalone'.namespace]", (path ? &lpath_96 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelStandalone'.namespace]", (path ? &lpath_96 : NULL));
                     return false;
                 }
@@ -8194,7 +8194,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_96 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", (path ? &lpath_96 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModelStandalone'.role_name]", (path ? &lpath_96 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelStandalone'.role_name]", (path ? &lpath_96 : NULL));
                     return false;
                 }
@@ -8216,7 +8216,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         res = json_is_string(arr_96_item);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path ? &lpath_96 : NULL) ? &arr_96_lpath : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path ? &lpath_96 : NULL) ? &arr_96_lpath : NULL));
                             break;
                         }
                     }
@@ -8249,7 +8249,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? &lpath_96 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? &lpath_96 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? &lpath_96 : NULL));
                     return false;
                 }
@@ -8265,7 +8265,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.company]", (path ? &lpath_96 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.company]", (path ? &lpath_96 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", (path ? &lpath_96 : NULL));
                     return false;
                 }
@@ -8278,7 +8278,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_model_50(pval, (path ? &lpath_96 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", (path ? &lpath_96 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$platforms\" [.'$GalaxyInfoModelStandalone'.platforms]", (path ? &lpath_96 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelStandalone'.platforms]", (path ? &lpath_96 : NULL));
                     return false;
                 }
@@ -8291,7 +8291,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? &lpath_96 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? &lpath_96 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? &lpath_96 : NULL));
                     return false;
                 }
@@ -8311,7 +8311,7 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? &lpath_96 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? &lpath_96 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? &lpath_96 : NULL));
                     return false;
                 }
@@ -8374,7 +8374,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_boolean(pval) && json_boolean_value(pval) == false;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? &lpath_97 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=false\" [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? &lpath_97 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? &lpath_97 : NULL));
                 return false;
             }
@@ -8388,7 +8388,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", (path ? &lpath_97 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.description]", (path ? &lpath_97 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path ? &lpath_97 : NULL));
                 return false;
             }
@@ -8404,7 +8404,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.license]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.license]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8418,7 +8418,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_97 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.1.namespace]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.namespace]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8432,7 +8432,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_97 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.role_name]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.1.role_name]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.role_name]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8454,7 +8454,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_is_string(arr_97_item);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", ((path ? &lpath_97 : NULL) ? &arr_97_lpath : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", ((path ? &lpath_97 : NULL) ? &arr_97_lpath : NULL));
                             break;
                         }
                     }
@@ -8487,7 +8487,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8500,7 +8500,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8513,7 +8513,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8529,7 +8529,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.author]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.author]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.author]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8542,7 +8542,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.company]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.company]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.company]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8555,7 +8555,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_50(pval, (path ? &lpath_97 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModel'.'|'.1.platforms]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$platforms\" [.'$GalaxyInfoModel'.'|'.1.platforms]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.platforms]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8575,7 +8575,7 @@ static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? &lpath_97 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? &lpath_97 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? &lpath_97 : NULL));
                     return false;
                 }
@@ -8626,7 +8626,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", (path ? &lpath_98 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.description]", (path ? &lpath_98 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path ? &lpath_98 : NULL));
                 return false;
             }
@@ -8642,7 +8642,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.license]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.license]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8656,7 +8656,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_98 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.2.namespace]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.namespace]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8670,7 +8670,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_98 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.2.role_name]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.role_name]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8692,7 +8692,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_is_string(arr_98_item);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", ((path ? &lpath_98 : NULL) ? &arr_98_lpath : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", ((path ? &lpath_98 : NULL) ? &arr_98_lpath : NULL));
                             break;
                         }
                     }
@@ -8725,7 +8725,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8738,7 +8738,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8751,7 +8751,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8767,7 +8767,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.author]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.author]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8780,7 +8780,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.company]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.company]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8793,7 +8793,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_50(pval, (path ? &lpath_98 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$platforms\" [.'$GalaxyInfoModel'.'|'.2.platforms]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.platforms]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8813,7 +8813,7 @@ static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? &lpath_98 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? &lpath_98 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? &lpath_98 : NULL));
                     return false;
                 }
@@ -8911,7 +8911,7 @@ static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(arr_99_item) && _jm_re_2(json_string_value(arr_99_item), (path ? &arr_99_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected /^[a-z_]+\\.[a-z_]+$/ [.'$collections'.0]", (path ? &arr_99_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z_]+\\\\.[a-z_]+$/\" [.'$collections'.0]", (path ? &arr_99_lpath : NULL));
                 break;
             }
         }
@@ -8936,7 +8936,7 @@ static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = json_is_string(val);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected string [.'$complex_conditional'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$complex_conditional'.'|'.1]", path);
             // .'$complex_conditional'.'|'.2
             res = json_is_array(val);
             if (likely(res))
@@ -8950,7 +8950,7 @@ static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_100_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$complex_conditional'.'|'.2.0]", (path ? &arr_100_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$complex_conditional'.'|'.2.0]", (path ? &arr_100_lpath : NULL));
                         break;
                     }
                 }
@@ -9034,7 +9034,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.src]", (path ? &lpath_99 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModelLoose'.src]", (path ? &lpath_99 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DependencyModelLoose'.src]", (path ? &lpath_99 : NULL));
                     return false;
                 }
@@ -9047,7 +9047,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.name]", (path ? &lpath_99 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModelLoose'.name]", (path ? &lpath_99 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DependencyModelLoose'.name]", (path ? &lpath_99 : NULL));
                     return false;
                 }
@@ -9060,7 +9060,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.role]", (path ? &lpath_99 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModelLoose'.role]", (path ? &lpath_99 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DependencyModelLoose'.role]", (path ? &lpath_99 : NULL));
                     return false;
                 }
@@ -9077,7 +9077,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path ? &lpath_99 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModelLoose'.tags.'|'.0]", (path ? &lpath_99 : NULL));
                     // .'$DependencyModelLoose'.tags.'|'.1
                     res = json_is_array(pval);
                     if (likely(res))
@@ -9091,7 +9091,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
                             res = json_is_string(arr_101_item);
                             if (unlikely(! res))
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? &lpath_99 : NULL) ? &arr_101_lpath : NULL));
+                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? &lpath_99 : NULL) ? &arr_101_lpath : NULL));
                                 break;
                             }
                         }
@@ -9133,7 +9133,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_model_56(pval, (path ? &lpath_99 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path ? &lpath_99 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$complex_conditional\" [.'$DependencyModelLoose'.when]", (path ? &lpath_99 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DependencyModelLoose'.when]", (path ? &lpath_99 : NULL));
                     return false;
                 }
@@ -9159,7 +9159,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModelLoose'.version]", (path ? &lpath_99 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModelLoose'.version]", (path ? &lpath_99 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DependencyModelLoose'.version]", (path ? &lpath_99 : NULL));
                     return false;
                 }
@@ -9194,7 +9194,7 @@ static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", (path ? &lpath_100 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.2.name]", (path ? &lpath_100 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$DependencyModel'.'&'.1.'|'.2.name]", (path ? &lpath_100 : NULL));
                 return false;
             }
@@ -9239,7 +9239,7 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", (path ? &lpath_101 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.1.src]", (path ? &lpath_101 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$DependencyModel'.'&'.1.'|'.1.src]", (path ? &lpath_101 : NULL));
                 return false;
             }
@@ -9284,7 +9284,7 @@ static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", (path ? &lpath_102 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.0.role]", (path ? &lpath_102 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$DependencyModel'.'&'.1.'|'.0.role]", (path ? &lpath_102 : NULL));
                 return false;
             }
@@ -9356,7 +9356,7 @@ static bool json_model_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DependencyModelLoose\" [.'$DependencyModel'.'&'.0]", path);
         }
     }
     if (likely(res))
@@ -9392,7 +9392,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_55(pval, (path ? &lpath_103 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $collections [.'$AnsibleMetaObj'.collections]", (path ? &lpath_103 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$collections\" [.'$AnsibleMetaObj'.collections]", (path ? &lpath_103 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path ? &lpath_103 : NULL));
                 return false;
             }
@@ -9405,7 +9405,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_54(pval, (path ? &lpath_103 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path ? &lpath_103 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$GalaxyInfoModel\" [.'$AnsibleMetaObj'.galaxy_info]", (path ? &lpath_103 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? &lpath_103 : NULL));
                 return false;
             }
@@ -9428,12 +9428,12 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_102_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? &lpath_103 : NULL) ? &arr_102_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? &lpath_103 : NULL) ? &arr_102_lpath : NULL));
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.1
                         res = json_model_58(arr_102_item, ((path ? &lpath_103 : NULL) ? &arr_102_lpath : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? &lpath_103 : NULL) ? &arr_102_lpath : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DependencyModel\" [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? &lpath_103 : NULL) ? &arr_102_lpath : NULL));
                         }
                     }
                     if (likely(res))
@@ -9488,7 +9488,7 @@ static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = json_model_59(val, path, rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$AnsibleMetaObj\" [.'$AnsibleMeta'.'|'.1]", path);
         }
     }
     if (likely(res))
@@ -9509,7 +9509,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_60(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $AnsibleMeta [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$AnsibleMeta\" [.]", path);
     }
     return res;
 }

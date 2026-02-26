@@ -47,7 +47,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000061);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _a [.'$oA'.t]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_a\" [.'$oA'.t]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$oA'.t]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -225,7 +225,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_2(json_string_value(pval), 0x00000064);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _d [.'$oL'.t]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_d\" [.'$oL'.t]", (path ? &lpath_2 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$oL'.t]", (path ? &lpath_2 : NULL));
                 return false;
             }

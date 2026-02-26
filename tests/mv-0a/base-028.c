@@ -37,7 +37,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "South Africa");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _South Africa [.country]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_South Africa\" [.country]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.country]", (path ? &lpath_0 : NULL));
                 return false;
             }

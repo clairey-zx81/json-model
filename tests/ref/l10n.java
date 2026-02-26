@@ -45,7 +45,7 @@ public class l10n extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("$https://json-model.org/models/json-model") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _$https://json-model.org/models/json-model [.'$'.Model]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_$https://json-model.org/models/json-model\" [.'$'.Model]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$'.Model]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -58,7 +58,7 @@ public class l10n extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'$'.'']", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$'.'']", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$'.'']", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -113,7 +113,7 @@ public class l10n extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'%'.'/^#/']", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'%'.'/^#/']", (path != null ? lpath_2 : null));
                     return false;
                 }
             }
@@ -125,7 +125,7 @@ public class l10n extends ModelChecker
                 res = json.isString(pval) && _jm_re_1(json.asString(pval), (path != null ? lpath_2 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^([#~$%@|&+^/*=]|[<>!]=?)$/ [.'%'.'/^\\\\..+$/']", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^([#~$%@|&+^/*=]|[<>!]=?)$/\" [.'%'.'/^\\\\..+$/']", (path != null ? lpath_2 : null));
                     return false;
                 }
             }
@@ -193,7 +193,7 @@ public class l10n extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("$Model") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _$Model [.'@']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_$Model\" [.'@']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'@']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -207,7 +207,7 @@ public class l10n extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("https://json-model.org/models/l10n") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _https://json-model.org/models/l10n [.'~']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'~']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -220,7 +220,7 @@ public class l10n extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'/^#/']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'/^#/']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }

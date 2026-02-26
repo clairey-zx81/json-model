@@ -53,7 +53,7 @@ function json_model_3(val, path, rep)
             res = runtime.jm_is_valid_url(arr_1_item);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $URL [.'$ls0'.0]", (path ? arr_1_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$ls0'.0]", (path ? arr_1_lpath : null)])
                 break;
             }
         }
@@ -80,7 +80,7 @@ function json_model_4(val, path, rep)
             res = (typeof arr_2_item === 'boolean' || arr_2_item instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $BOOL [.'$lb0'.0]", (path ? arr_2_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.'$lb0'.0]", (path ? arr_2_lpath : null)])
                 break;
             }
         }
@@ -127,22 +127,22 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $li0 [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$li0\" [.'|'.0]", path])
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $ls0 [.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$ls0\" [.'|'.1]", path])
             // .'|'.2
             res = json_model_4(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $lb0 [.'|'.2]", path])
+                rep !== null && rep.push(["unexpected value for model \"$lb0\" [.'|'.2]", path])
                 // .'|'.3
                 res = json_model_5(val, path, rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected $lf0 [.'|'.3]", path])
+                    rep !== null && rep.push(["unexpected value for model \"$lf0\" [.'|'.3]", path])
                 }
             }
         }

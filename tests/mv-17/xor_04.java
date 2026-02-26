@@ -40,7 +40,7 @@ public class xor_04 extends ModelChecker
             res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected /^[a-z]+$/i [.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z]+$/i\" [.'|'.1]", path);
             }
         }
         if (res)

@@ -44,7 +44,7 @@ public class base_014 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.nom]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.nom]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.nom]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -68,7 +68,7 @@ public class base_014 extends ModelChecker
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'']", (path != null ? lpath_0 : null));
                 return false;
             }
         }

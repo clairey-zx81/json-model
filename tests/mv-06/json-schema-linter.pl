@@ -235,11 +235,11 @@ sub json_model_3($$$)
     if ($res)
     {
         # .'$enum'.'|'.0
-        for my $arr_2_idx (0 .. $#$val)
+        for my $arr_3_idx (0 .. $#$val)
         {
-            my $arr_2_item = $$val[$arr_2_idx];
+            my $arr_3_item = $$val[$arr_3_idx];
             # .'$enum'.'|'.0.0
-            $res = jm_is_string($arr_2_item);
+            $res = jm_is_string($arr_3_item);
             if (! $res)
             {
                 last;
@@ -248,11 +248,11 @@ sub json_model_3($$$)
         if (! $res)
         {
             # .'$enum'.'|'.1
-            for my $arr_1_idx (0 .. $#$val)
+            for my $arr_2_idx (0 .. $#$val)
             {
-                my $arr_1_item = $$val[$arr_1_idx];
+                my $arr_2_item = $$val[$arr_2_idx];
                 # .'$enum'.'|'.1.0
-                $res = jm_is_integer($arr_1_item);
+                $res = jm_is_integer($arr_2_item);
                 if (! $res)
                 {
                     last;
@@ -261,14 +261,28 @@ sub json_model_3($$$)
             if (! $res)
             {
                 # .'$enum'.'|'.2
-                for my $arr_0_idx (0 .. $#$val)
+                for my $arr_1_idx (0 .. $#$val)
                 {
-                    my $arr_0_item = $$val[$arr_0_idx];
+                    my $arr_1_item = $$val[$arr_1_idx];
                     # .'$enum'.'|'.2.0
-                    $res = jm_is_boolean($arr_0_item);
+                    $res = jm_is_boolean($arr_1_item);
                     if (! $res)
                     {
                         last;
+                    }
+                }
+                if (! $res)
+                {
+                    # .'$enum'.'|'.3
+                    for my $arr_0_idx (0 .. $#$val)
+                    {
+                        my $arr_0_item = $$val[$arr_0_idx];
+                        # .'$enum'.'|'.3.0
+                        $res = jm_is_numeric($arr_0_item);
+                        if (! $res)
+                        {
+                            last;
+                        }
                     }
                 }
             }
@@ -285,11 +299,11 @@ sub json_model_4($$$)
     my $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_3_idx (0 .. $#$val)
+        for my $arr_4_idx (0 .. $#$val)
         {
-            my $arr_3_item = $$val[$arr_3_idx];
+            my $arr_4_item = $$val[$arr_4_idx];
             # .'$schemaArray'.0
-            $res = json_model_24($arr_3_item, undef, undef);
+            $res = json_model_24($arr_4_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -523,11 +537,11 @@ sub json_model_7($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_4_idx (0 .. $#$pval)
+                for my $arr_5_idx (0 .. $#$pval)
                 {
-                    my $arr_4_item = $$pval[$arr_4_idx];
+                    my $arr_5_item = $$pval[$arr_5_idx];
                     # .'$objectKeywords'.required.0
-                    $res = jm_is_string($arr_4_item);
+                    $res = jm_is_string($arr_5_item);
                     if (! $res)
                     {
                         last;
@@ -1337,11 +1351,11 @@ sub _jm_f_49($$$)
     my $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_5_idx (0 .. $#$val)
+        for my $arr_6_idx (0 .. $#$val)
         {
-            my $arr_5_item = $$val[$arr_5_idx];
+            my $arr_6_item = $$val[$arr_6_idx];
             # .'$Object'.required.0
-            $res = jm_is_string($arr_5_item);
+            $res = jm_is_string($arr_6_item);
             if (! $res)
             {
                 last;

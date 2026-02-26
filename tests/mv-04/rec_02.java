@@ -42,7 +42,7 @@ public class rec_02 extends ModelChecker
                 res = json_model_1(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $foo [.foo]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$foo\" [.foo]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.foo]", (path != null ? lpath_0 : null));
                     return false;
                 }

@@ -35,7 +35,7 @@ public class xx_1 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.'^'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.0]", path);
         }
         // .'^'.1
         xr_0 = json.isString(val) && json.asString(val).compareTo("world") == 0;
@@ -45,7 +45,7 @@ public class xx_1 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected _world [.'^'.1]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_world\" [.'^'.1]", path);
         }
         if (xc_0 <= 1)
         {
@@ -57,7 +57,7 @@ public class xx_1 extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected _! [.'^'.2]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"_!\" [.'^'.2]", path);
             }
         }
         if (xc_0 <= 1)
@@ -70,7 +70,7 @@ public class xx_1 extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected _hello [.'^'.3]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"_hello\" [.'^'.3]", path);
             }
         }
         res = xc_0 == 1;

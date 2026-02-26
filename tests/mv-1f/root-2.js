@@ -18,7 +18,7 @@ function json_model_4(val, path, rep)
     let res = json_model_5(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Root [.'$root']", path])
+        rep !== null && rep.push(["unexpected value for model \"$Root\" [.'$root']", path])
     }
     return res;
 }
@@ -52,7 +52,7 @@ function json_model_3(val, path, rep)
     res = json_model_5(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $root#Root [.'$Foo'.rt]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"$root#Root\" [.'$Foo'.rt]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <rt> [.'$Foo']", (path ? lpath : null)])
         return false;
     }
@@ -66,7 +66,7 @@ function json_model_1(val, path, rep)
     let res = json_model_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Foo [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Foo\" [.]", path])
     }
     return res;
 }
@@ -100,7 +100,7 @@ function json_model_5(val, path, rep)
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =0 [.'$root#Root'.id]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=0\" [.'$root#Root'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$root#Root']", (path ? lpath : null)])
         return false;
     }
@@ -115,7 +115,7 @@ function json_model_5(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$root#Root'.name]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$root#Root'.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$root#Root']", (path ? lpath : null)])
         return false;
     }

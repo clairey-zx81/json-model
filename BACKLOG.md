@@ -20,13 +20,12 @@
 - [x] python-backend: numerical workarounds for .mo extension implementation
 - [x] backend: add support for `.in` extension without other constraints
 - [ ] tests: rerun with updated JSTS before release
+- [ ] tests: test `.mo` and test `.in`
 - [ ] python-backend: fix precision issue with modulo: _0.0075 % 0.0001 != 0.0_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
 - [ ] \*-backend:: add support for `.mo` and `.in` extensions
 - [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
-- [ ] tests: test `.mo` and test `.in`
 - [ ] doc: add _known limitations_ stuff
-- [ ] jsu: implement extensions for jsu compilation backend: .mo .in?
 - [ ] optim: implement stupid any type but one constrained optimization (jsu)
 - [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
 - [ ] optim: merge `&` list when possible, eg inclusions or compatibility

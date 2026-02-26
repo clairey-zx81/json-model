@@ -80,7 +80,7 @@ public class geo extends ModelChecker
                 res = json_model_2(arr_1_item, (path != null ? arr_1_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $position [.'$coord_array'.'@'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
@@ -120,7 +120,7 @@ public class geo extends ModelChecker
                 res = json_model_2(arr_2_item, (path != null ? arr_2_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $position [.'$linear_ring'.'@'.0]", (path != null ? arr_2_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", (path != null ? arr_2_lpath : null));
                     break;
                 }
             }
@@ -166,7 +166,7 @@ public class geo extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Point") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected Point [.'$Point'.type]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"Point\" [.'$Point'.type]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Point'.type]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -180,7 +180,7 @@ public class geo extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $position [.'$Point'.coordinates]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$Point'.coordinates]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Point'.coordinates]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -263,7 +263,7 @@ public class geo extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("MultiPoint") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected MultiPoint [.'$MultiPoint'.type]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"MultiPoint\" [.'$MultiPoint'.type]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPoint'.type]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -288,7 +288,7 @@ public class geo extends ModelChecker
                         res = json_model_2(arr_4_item, ((path != null ? lpath_1 : null) != null ? arr_4_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $position [.'$MultiPoint'.coordinates.0]", ((path != null ? lpath_1 : null) != null ? arr_4_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", ((path != null ? lpath_1 : null) != null ? arr_4_lpath : null));
                             break;
                         }
                     }
@@ -378,7 +378,7 @@ public class geo extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("LineString") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected LineString [.'$LineString'.type]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"LineString\" [.'$LineString'.type]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$LineString'.type]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -392,7 +392,7 @@ public class geo extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_2 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $coord_array [.'$LineString'.coordinates]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$coord_array\" [.'$LineString'.coordinates]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$LineString'.coordinates]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -475,7 +475,7 @@ public class geo extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("MultiLineString") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected MultiLineString [.'$MultiLineString'.type]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"MultiLineString\" [.'$MultiLineString'.type]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiLineString'.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -500,7 +500,7 @@ public class geo extends ModelChecker
                         res = json_model_3(arr_7_item, ((path != null ? lpath_3 : null) != null ? arr_7_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $coord_array [.'$MultiLineString'.coordinates.0]", ((path != null ? lpath_3 : null) != null ? arr_7_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", ((path != null ? lpath_3 : null) != null ? arr_7_lpath : null));
                             break;
                         }
                     }
@@ -590,7 +590,7 @@ public class geo extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Polygon") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected Polygon [.'$Polygon'.type]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"Polygon\" [.'$Polygon'.type]", (path != null ? lpath_4 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Polygon'.type]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -615,7 +615,7 @@ public class geo extends ModelChecker
                         res = json_model_4(arr_9_item, ((path != null ? lpath_4 : null) != null ? arr_9_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $linear_ring [.'$Polygon'.coordinates.0]", ((path != null ? lpath_4 : null) != null ? arr_9_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", ((path != null ? lpath_4 : null) != null ? arr_9_lpath : null));
                             break;
                         }
                     }
@@ -705,7 +705,7 @@ public class geo extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("MultiPolygon") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected MultiPolygon [.'$MultiPolygon'.type]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"MultiPolygon\" [.'$MultiPolygon'.type]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$MultiPolygon'.type]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -741,7 +741,7 @@ public class geo extends ModelChecker
                                 res = json_model_4(arr_12_item, (((path != null ? lpath_5 : null) != null ? arr_11_lpath : null) != null ? arr_12_lpath : null), rep);
                                 if (! res)
                                 {
-                                    if (rep != null) rep.addEntry("unexpected $linear_ring [.'$MultiPolygon'.coordinates.0.0]", (((path != null ? lpath_5 : null) != null ? arr_11_lpath : null) != null ? arr_12_lpath : null));
+                                    if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", (((path != null ? lpath_5 : null) != null ? arr_11_lpath : null) != null ? arr_12_lpath : null));
                                     break;
                                 }
                             }
@@ -835,7 +835,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("Point") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected Point [.'$geometry'.'|'.0.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"Point\" [.'$geometry'.'|'.0.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -849,7 +849,7 @@ public class geo extends ModelChecker
         res = json_model_2(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $position [.'$geometry'.'|'.0.coordinates]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$geometry'.'|'.0.coordinates]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -908,7 +908,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("MultiPoint") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected MultiPoint [.'$geometry'.'|'.1.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"MultiPoint\" [.'$geometry'.'|'.1.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -933,7 +933,7 @@ public class geo extends ModelChecker
                 res = json_model_2(arr_15_item, ((path != null ? lpath : null) != null ? arr_15_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $position [.'$geometry'.'|'.1.coordinates.0]", ((path != null ? lpath : null) != null ? arr_15_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$geometry'.'|'.1.coordinates.0]", ((path != null ? lpath : null) != null ? arr_15_lpath : null));
                     break;
                 }
             }
@@ -999,7 +999,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("LineString") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected LineString [.'$geometry'.'|'.2.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"LineString\" [.'$geometry'.'|'.2.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
@@ -1013,7 +1013,7 @@ public class geo extends ModelChecker
         res = json_model_3(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $coord_array [.'$geometry'.'|'.2.coordinates]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"$coord_array\" [.'$geometry'.'|'.2.coordinates]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
@@ -1072,7 +1072,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("MultiLineString") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected MultiLineString [.'$geometry'.'|'.3.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"MultiLineString\" [.'$geometry'.'|'.3.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.3]", (path != null ? lpath : null));
             return false;
         }
@@ -1097,7 +1097,7 @@ public class geo extends ModelChecker
                 res = json_model_3(arr_18_item, ((path != null ? lpath : null) != null ? arr_18_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $coord_array [.'$geometry'.'|'.3.coordinates.0]", ((path != null ? lpath : null) != null ? arr_18_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$coord_array\" [.'$geometry'.'|'.3.coordinates.0]", ((path != null ? lpath : null) != null ? arr_18_lpath : null));
                     break;
                 }
             }
@@ -1163,7 +1163,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("Polygon") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected Polygon [.'$geometry'.'|'.4.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"Polygon\" [.'$geometry'.'|'.4.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.4]", (path != null ? lpath : null));
             return false;
         }
@@ -1188,7 +1188,7 @@ public class geo extends ModelChecker
                 res = json_model_4(arr_20_item, ((path != null ? lpath : null) != null ? arr_20_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $linear_ring [.'$geometry'.'|'.4.coordinates.0]", ((path != null ? lpath : null) != null ? arr_20_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.4.coordinates.0]", ((path != null ? lpath : null) != null ? arr_20_lpath : null));
                     break;
                 }
             }
@@ -1254,7 +1254,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("MultiPolygon") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected MultiPolygon [.'$geometry'.'|'.5.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"MultiPolygon\" [.'$geometry'.'|'.5.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$geometry'.'|'.5]", (path != null ? lpath : null));
             return false;
         }
@@ -1290,7 +1290,7 @@ public class geo extends ModelChecker
                         res = json_model_4(arr_23_item, (((path != null ? lpath : null) != null ? arr_22_lpath : null) != null ? arr_23_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $linear_ring [.'$geometry'.'|'.5.coordinates.0.0]", (((path != null ? lpath : null) != null ? arr_22_lpath : null) != null ? arr_23_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.5.coordinates.0.0]", (((path != null ? lpath : null) != null ? arr_22_lpath : null) != null ? arr_23_lpath : null));
                             break;
                         }
                     }
@@ -1401,7 +1401,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("GeometryCollection") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected GeometryCollection [.'$GeometryCollection'.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"GeometryCollection\" [.'$GeometryCollection'.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$GeometryCollection']", (path != null ? lpath : null));
             return false;
         }
@@ -1426,7 +1426,7 @@ public class geo extends ModelChecker
                 res = json_model_11(arr_25_item, ((path != null ? lpath : null) != null ? arr_25_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $geometry [.'$GeometryCollection'.geometries.0]", ((path != null ? lpath : null) != null ? arr_25_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", ((path != null ? lpath : null) != null ? arr_25_lpath : null));
                     break;
                 }
             }
@@ -1505,7 +1505,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("Feature") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected Feature [.'$Feature'.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"Feature\" [.'$Feature'.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Feature']", (path != null ? lpath : null));
             return false;
         }
@@ -1525,12 +1525,12 @@ public class geo extends ModelChecker
             res = json_model_11(pval, (path != null ? lpath : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $geometry [.'$Feature'.geometry.'|'.1]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$geometry\" [.'$Feature'.geometry.'|'.1]", (path != null ? lpath : null));
                 // .'$Feature'.geometry.'|'.2
                 res = json_model_12(pval, (path != null ? lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", (path != null ? lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$GeometryCollection\" [.'$Feature'.geometry.'|'.2]", (path != null ? lpath : null));
                 }
             }
         }
@@ -1581,7 +1581,7 @@ public class geo extends ModelChecker
             res = json.isString(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$Feature'.id.'|'.0]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Feature'.id.'|'.0]", (path != null ? lpath : null));
                 // .'$Feature'.id.'|'.1
                 res = json.isNumber(pval);
                 if (! res)
@@ -1656,7 +1656,7 @@ public class geo extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("FeatureCollection") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected FeatureCollection [.'$FeatureCollection'.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"FeatureCollection\" [.'$FeatureCollection'.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$FeatureCollection']", (path != null ? lpath : null));
             return false;
         }
@@ -1681,7 +1681,7 @@ public class geo extends ModelChecker
                 res = json_model_13(arr_28_item, ((path != null ? lpath : null) != null ? arr_28_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Feature [.'$FeatureCollection'.features.0]", ((path != null ? lpath : null) != null ? arr_28_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", ((path != null ? lpath : null) != null ? arr_28_lpath : null));
                     break;
                 }
             }

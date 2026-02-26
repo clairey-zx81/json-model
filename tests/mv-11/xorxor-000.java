@@ -66,7 +66,7 @@ public class xorxor_000 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Xx [.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Xx\" [.'|'.0]", path);
             // .'|'.1
             res = json.isArray(val);
             if (res)
@@ -82,7 +82,7 @@ public class xorxor_000 extends ModelChecker
                     res = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $Xx [.'|'.1.0]", (path != null ? arr_0_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"$Xx\" [.'|'.1.0]", (path != null ? arr_0_lpath : null));
                         break;
                     }
                 }

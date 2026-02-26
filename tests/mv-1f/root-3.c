@@ -24,7 +24,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_5(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Foo [.'$foo']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Foo\" [.'$foo']", path);
     }
     return res;
 }
@@ -36,7 +36,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_5(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $foo#Foo [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$foo#Foo\" [.]", path);
     }
     return res;
 }
@@ -65,7 +65,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_12(pval, (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $root#Root [.'$foo#Foo'.rt]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$root#Root\" [.'$foo#Foo'.rt]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$foo#Foo'.rt]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -112,7 +112,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) == 1;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =1 [.'$foo#root#root#Root'.id]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=1\" [.'$foo#root#root#Root'.id]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$foo#root#root#Root'.id]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -126,7 +126,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$foo#root#root#Root'.name]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$foo#root#root#Root'.name]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$foo#root#root#Root'.name]", (path ? &lpath_1 : NULL));
                 return false;
             }

@@ -62,7 +62,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = jm_is_valid_url(json_string_value(arr_1_item), (path ? &arr_1_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$ls0'.0]", (path ? &arr_1_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$URL\" [.'$ls0'.0]", (path ? &arr_1_lpath : NULL));
                 break;
             }
         }
@@ -90,7 +90,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_boolean(arr_2_item);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $BOOL [.'$lb0'.0]", (path ? &arr_2_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$BOOL\" [.'$lb0'.0]", (path ? &arr_2_lpath : NULL));
                 break;
             }
         }
@@ -138,22 +138,22 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_2(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $li0 [.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$li0\" [.'|'.0]", path);
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $ls0 [.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$ls0\" [.'|'.1]", path);
             // .'|'.2
             res = json_model_4(val, path, rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $lb0 [.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$lb0\" [.'|'.2]", path);
                 // .'|'.3
                 res = json_model_5(val, path, rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $lf0 [.'|'.3]", path);
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$lf0\" [.'|'.3]", path);
                 }
             }
         }

@@ -54,7 +54,7 @@ public class exob00 extends ModelChecker
                 // handle may a property
                 // .'|'.1.a
                 res = false;
-                if (rep != null) rep.addEntry("unexpected $NONE [.'|'.1.a]", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'|'.1.a]", (path != null ? lpath_0 : null));
                 if (rep != null) rep.addEntry("invalid optional prop value [.'|'.1.a]", (path != null ? lpath_0 : null));
                 return false;
             }
@@ -116,7 +116,7 @@ public class exob00 extends ModelChecker
                 // handle may b property
                 // .'|'.0.b
                 res = false;
-                if (rep != null) rep.addEntry("unexpected $NONE [.'|'.0.b]", (path != null ? lpath_1 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'|'.0.b]", (path != null ? lpath_1 : null));
                 if (rep != null) rep.addEntry("invalid optional prop value [.'|'.0.b]", (path != null ? lpath_1 : null));
                 return false;
             }

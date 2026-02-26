@@ -13,19 +13,11 @@ DECLARE
   ival_0 int;
 BEGIN
   -- .
+  -- .'@'
   res := JSONB_TYPEOF(val) = 'string';
   IF res THEN
-    -- .'&'.0
-    res := TRUE;
-    IF res THEN
-      -- .'&'.1
-      -- .'&'.1.'@'
-      res := JSONB_TYPEOF(val) = 'string';
-      IF res THEN
-        ival_0 := LENGTH(JSON_VALUE(val, '$' RETURNING TEXT));
-        res := ival_0 <= 5;
-      END IF;
-    END IF;
+    ival_0 := LENGTH(JSON_VALUE(val, '$' RETURNING TEXT));
+    res := ival_0 <= 5;
   END IF;
   RETURN res;
 END;

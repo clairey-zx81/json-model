@@ -18,7 +18,7 @@ function json_model_4(val, path, rep)
     let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $BOOLEAN [.'$bla']", path])
+        rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.'$bla']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
     let res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $BOOLEAN [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.]", path])
     }
     return res;
 }

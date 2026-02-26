@@ -15,42 +15,20 @@ var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
+    // .'@'
     let res = (typeof val === 'string' || val instanceof String);
     if (res)
     {
-        // .'&'.0
-        res = true;
-        if (res)
+        let ival_0 = val.length;
+        res = ival_0 <= 5;
+        if (! res)
         {
-            // .'&'.1
-            // .'&'.1.'@'
-            res = (typeof val === 'string' || val instanceof String);
-            if (res)
-            {
-                let ival_0 = val.length;
-                res = ival_0 <= 5;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.'&'.1]", path])
-                }
-            }
-            else
-            {
-                rep !== null && rep.push(["unexpected string [.'&'.1.'@']", path])
-            }
+            rep !== null && rep.push(["constraints failed [.]", path])
         }
-        else
-        {
-            rep !== null && rep.push(["unexpected string [.'&'.0]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
     }
     else
     {
-        rep !== null && rep.push(["not all model match [.'&']", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'@']", path])
     }
     return res;
 }

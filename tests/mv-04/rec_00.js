@@ -29,7 +29,7 @@ function json_model_2(val, path, rep)
         res = json_model_3(pval, (path ? lpath_0 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $rec [.'$obj'.'']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$rec\" [.'$obj'.'']", (path ? lpath_0 : null)])
             return false;
         }
     }
@@ -49,7 +49,7 @@ function json_model_3(val, path, rep)
         res = json_model_2(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $obj [.'$rec'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$obj\" [.'$rec'.'|'.1]", path])
         }
     }
     if (res)
@@ -70,7 +70,7 @@ function json_model_1(val, path, rep)
     let res = json_model_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $rec [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$rec\" [.]", path])
     }
     return res;
 }

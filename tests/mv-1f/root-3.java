@@ -26,7 +26,7 @@ public class root_3 extends ModelChecker
         boolean res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Foo [.'$foo']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Foo\" [.'$foo']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class root_3 extends ModelChecker
         boolean res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $foo#Foo [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$foo#Foo\" [.]", path);
         }
         return res;
     }
@@ -71,7 +71,7 @@ public class root_3 extends ModelChecker
         res = json_model_12(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $root#Root [.'$foo#Foo'.rt]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"$root#Root\" [.'$foo#Foo'.rt]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <rt> [.'$foo#Foo']", (path != null ? lpath : null));
             return false;
         }
@@ -106,7 +106,7 @@ public class root_3 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =1 [.'$foo#root#root#Root'.id]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'$foo#root#root#Root'.id]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", (path != null ? lpath : null));
             return false;
         }
@@ -120,7 +120,7 @@ public class root_3 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$foo#root#root#Root'.name]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$foo#root#root#Root'.name]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'$foo#root#root#Root']", (path != null ? lpath : null));
             return false;
         }

@@ -34,7 +34,7 @@ public class untype00 extends ModelChecker
             res = json.isString(val);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'@'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'@'.'|'.1]", path);
             }
         }
         if (res)

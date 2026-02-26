@@ -37,7 +37,7 @@ public class or_07 extends ModelChecker
                 res = json.isString(val);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.2]", path);
                 }
             }
         }

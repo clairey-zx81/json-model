@@ -38,12 +38,12 @@ public class scope_1 extends ModelChecker
                 res = json_model_5(json.arrayItem(val, 1), (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $s [.'$r'.1]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$s\" [.'$r'.1]", (path != null ? lpath_0 : null));
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected $s [.'$r'.0]", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$s\" [.'$r'.0]", (path != null ? lpath_0 : null));
             }
         }
         if (! res)
@@ -66,7 +66,7 @@ public class scope_1 extends ModelChecker
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'$s']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/[a-z]/\" [.'$s']", path);
         }
         return res;
     }
@@ -80,12 +80,12 @@ public class scope_1 extends ModelChecker
         boolean res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $s [.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$s\" [.'|'.0]", path);
             // .'|'.1
             res = json_model_5(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $r#s [.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$r#s\" [.'|'.1]", path);
             }
         }
         if (res)
@@ -112,7 +112,7 @@ public class scope_1 extends ModelChecker
         boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'$r#s']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/[0-9]/\" [.'$r#s']", path);
         }
         return res;
     }

@@ -26,7 +26,7 @@ public class exreg extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_exreg(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $EXREG [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$EXREG\" [.]", path);
         }
         return res;
     }

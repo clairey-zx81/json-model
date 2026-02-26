@@ -35,7 +35,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$URI-REFERENCE']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$URI-REFERENCE']", path);
         }
         return res;
     }
@@ -60,7 +60,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_1 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$core'.'$defs'.'']", (path != null ? lpath_1 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$core'.'$defs'.'']", (path != null ? lpath_1 : null));
                 return false;
             }
         }
@@ -125,7 +125,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$id']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URI-REFERENCE\" [.'$core'.'$id']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$id']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -138,7 +138,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$ref']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URI-REFERENCE\" [.'$core'.'$ref']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$ref']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -164,7 +164,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$anchor']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URI-REFERENCE\" [.'$core'.'$anchor']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$anchor']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -177,7 +177,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URI [.'$core'.'$schema']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$core'.'$schema']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$schema']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -190,7 +190,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$core'.'$comment']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$core'.'$comment']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$comment']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -203,7 +203,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$dynamicRef']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URI-REFERENCE\" [.'$core'.'$dynamicRef']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$dynamicRef']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -229,7 +229,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URI-REFERENCE [.'$core'.'$dynamicAnchor']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URI-REFERENCE\" [.'$core'.'$dynamicAnchor']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$core'.'$dynamicAnchor']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -264,7 +264,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$meta'.title]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$meta'.title]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.title]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -336,7 +336,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$meta'.description]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$meta'.description]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$meta'.description]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -376,7 +376,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("null") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _null [.'$Null'.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_null\" [.'$Null'.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Null']", (path != null ? lpath : null));
             return false;
         }
@@ -411,7 +411,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("boolean") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _boolean [.'$Boolean'.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_boolean\" [.'$Boolean'.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Boolean']", (path != null ? lpath : null));
             return false;
         }
@@ -443,7 +443,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("number") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _number [.'$Number'.type]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_number\" [.'$Number'.type]", (path != null ? lpath_4 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Number'.type]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -631,7 +631,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("integer") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _integer [.'$Integer'.type]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_integer\" [.'$Integer'.type]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Integer'.type]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -744,7 +744,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("string") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _string [.'$String'.type]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_string\" [.'$String'.type]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$String'.type]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -757,7 +757,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$String'.format]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.format]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$String'.format]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -770,7 +770,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_regex(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $REGEX [.'$String'.pattern]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$REGEX\" [.'$String'.pattern]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$String'.pattern]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -809,7 +809,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_6 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$String'.contentSchema]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$String'.contentSchema]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$String'.contentSchema]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -822,7 +822,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$String'.contentEncoding]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.contentEncoding]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$String'.contentEncoding]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -835,7 +835,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$String'.contentMediaType]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.contentMediaType]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$String'.contentMediaType]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -877,7 +877,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(arr_0_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$stringArray'.'@'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$stringArray'.'@'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
@@ -917,7 +917,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(arr_1_item, (path != null ? arr_1_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$schemaArray'.'@'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
@@ -963,7 +963,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("array") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _array [.'$Array'.type]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_array\" [.'$Array'.type]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Array'.type]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -976,7 +976,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Array'.items]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Array'.items]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.items]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -989,7 +989,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Array'.contains]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Array'.contains]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.contains]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1054,7 +1054,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_11(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$Array'.prefixItems]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$Array'.prefixItems]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.prefixItems]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1080,7 +1080,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Array'.unevaluatedItems]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Array'.unevaluatedItems]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.unevaluatedItems]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1123,7 +1123,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_9 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.properties.'']", (path != null ? lpath_9 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.properties.'']", (path != null ? lpath_9 : null));
                 return false;
             }
         }
@@ -1150,7 +1150,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_10 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.dependentSchemas.'']", (path != null ? lpath_10 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.dependentSchemas.'']", (path != null ? lpath_10 : null));
                 return false;
             }
         }
@@ -1177,7 +1177,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_10(pval, (path != null ? lpath_11 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $stringArray [.'$Object'.dependentRequired.'']", (path != null ? lpath_11 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$stringArray\" [.'$Object'.dependentRequired.'']", (path != null ? lpath_11 : null));
                 return false;
             }
         }
@@ -1206,7 +1206,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_12 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.patternProperties.'$REGEX']", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.patternProperties.'$REGEX']", (path != null ? lpath_12 : null));
                     return false;
                 }
             }
@@ -1244,7 +1244,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("object") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _object [.'$Object'.type]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_object\" [.'$Object'.type]", (path != null ? lpath_8 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Object'.type]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -1257,7 +1257,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_10(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $stringArray [.'$Object'.required]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$stringArray\" [.'$Object'.required]", (path != null ? lpath_8 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.required]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -1309,7 +1309,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.propertyNames]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.propertyNames]", (path != null ? lpath_8 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.propertyNames]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -1361,7 +1361,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.additionalProperties]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.additionalProperties]", (path != null ? lpath_8 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.additionalProperties]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -1374,7 +1374,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.unevaluatedProperties]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.unevaluatedProperties]", (path != null ? lpath_8 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.unevaluatedProperties]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -1420,7 +1420,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Misc'.if]", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Misc'.if]", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Misc'.if]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1433,7 +1433,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Misc'.not]", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Misc'.not]", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Misc'.not]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1446,7 +1446,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Misc'.else]", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Misc'.else]", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Misc'.else]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1472,7 +1472,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Misc'.then]", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Misc'.then]", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Misc'.then]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1485,7 +1485,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_11(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$Misc'.allOf]", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$Misc'.allOf]", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Misc'.allOf]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1498,7 +1498,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_11(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$Misc'.anyOf]", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$Misc'.anyOf]", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Misc'.anyOf]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1518,7 +1518,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_11(pval, (path != null ? lpath_13 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$Misc'.oneOf]", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$Misc'.oneOf]", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Misc'.oneOf]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1537,7 +1537,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.0.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.0.'$comment']", path);
         }
         return res;
     }
@@ -1563,7 +1563,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_15 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.0.'$defs'.'']", (path != null ? lpath_15 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.0.'$defs'.'']", (path != null ? lpath_15 : null));
                 return false;
             }
         }
@@ -1577,7 +1577,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.0.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$TightSchema'.'|'.0.'$schema']", path);
         }
         return res;
     }
@@ -1646,7 +1646,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.0.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.0.description]", path);
         }
         return res;
     }
@@ -1682,7 +1682,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.0.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.0.title]", path);
         }
         return res;
     }
@@ -1725,7 +1725,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("null") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _null [.'$TightSchema'.'|'.0.type]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_null\" [.'$TightSchema'.'|'.0.type]", (path != null ? lpath_14 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.0.type]", (path != null ? lpath_14 : null));
                     return false;
                 }
@@ -1765,7 +1765,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.1.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.1.'$comment']", path);
         }
         return res;
     }
@@ -1791,7 +1791,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_18 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.1.'$defs'.'']", (path != null ? lpath_18 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.1.'$defs'.'']", (path != null ? lpath_18 : null));
                 return false;
             }
         }
@@ -1805,7 +1805,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.1.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$TightSchema'.'|'.1.'$schema']", path);
         }
         return res;
     }
@@ -1874,7 +1874,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.1.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.1.description]", path);
         }
         return res;
     }
@@ -1910,7 +1910,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.1.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.1.title]", path);
         }
         return res;
     }
@@ -1953,7 +1953,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("boolean") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _boolean [.'$TightSchema'.'|'.1.type]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_boolean\" [.'$TightSchema'.'|'.1.type]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.1.type]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -1993,7 +1993,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.2.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.2.'$comment']", path);
         }
         return res;
     }
@@ -2019,7 +2019,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_21 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.2.'$defs'.'']", (path != null ? lpath_21 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.2.'$defs'.'']", (path != null ? lpath_21 : null));
                 return false;
             }
         }
@@ -2033,7 +2033,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.2.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$TightSchema'.'|'.2.'$schema']", path);
         }
         return res;
     }
@@ -2102,7 +2102,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.2.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.2.description]", path);
         }
         return res;
     }
@@ -2273,7 +2273,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.2.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.2.title]", path);
         }
         return res;
     }
@@ -2316,7 +2316,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("number") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _number [.'$TightSchema'.'|'.2.type]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_number\" [.'$TightSchema'.'|'.2.type]", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.2.type]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -2356,7 +2356,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.3.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.3.'$comment']", path);
         }
         return res;
     }
@@ -2382,7 +2382,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_24 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.3.'$defs'.'']", (path != null ? lpath_24 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.3.'$defs'.'']", (path != null ? lpath_24 : null));
                 return false;
             }
         }
@@ -2396,7 +2396,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.3.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$TightSchema'.'|'.3.'$schema']", path);
         }
         return res;
     }
@@ -2465,7 +2465,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.3.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.3.description]", path);
         }
         return res;
     }
@@ -2561,7 +2561,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.3.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.3.title]", path);
         }
         return res;
     }
@@ -2604,7 +2604,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("integer") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _integer [.'$TightSchema'.'|'.3.type]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_integer\" [.'$TightSchema'.'|'.3.type]", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.3.type]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2644,7 +2644,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.4.'$comment']", path);
         }
         return res;
     }
@@ -2670,7 +2670,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_27 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.4.'$defs'.'']", (path != null ? lpath_27 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.4.'$defs'.'']", (path != null ? lpath_27 : null));
                 return false;
             }
         }
@@ -2684,7 +2684,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.4.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$TightSchema'.'|'.4.'$schema']", path);
         }
         return res;
     }
@@ -2732,7 +2732,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.contentEncoding]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.4.contentEncoding]", path);
         }
         return res;
     }
@@ -2744,7 +2744,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.contentMediaType]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.4.contentMediaType]", path);
         }
         return res;
     }
@@ -2777,7 +2777,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.4.description]", path);
         }
         return res;
     }
@@ -2801,7 +2801,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.format]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.4.format]", path);
         }
         return res;
     }
@@ -2837,7 +2837,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $REGEX [.'$TightSchema'.'|'.4.pattern]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$REGEX\" [.'$TightSchema'.'|'.4.pattern]", path);
         }
         return res;
     }
@@ -2861,7 +2861,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.4.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.4.title]", path);
         }
         return res;
     }
@@ -2904,7 +2904,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("string") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _string [.'$TightSchema'.'|'.4.type]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_string\" [.'$TightSchema'.'|'.4.type]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.4.type]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2944,7 +2944,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.5.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.5.'$comment']", path);
         }
         return res;
     }
@@ -2970,7 +2970,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_30 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.5.'$defs'.'']", (path != null ? lpath_30 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.5.'$defs'.'']", (path != null ? lpath_30 : null));
                 return false;
             }
         }
@@ -2984,7 +2984,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.5.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$TightSchema'.'|'.5.'$schema']", path);
         }
         return res;
     }
@@ -3053,7 +3053,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.5.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.5.description]", path);
         }
         return res;
     }
@@ -3137,7 +3137,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.5.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.5.title]", path);
         }
         return res;
     }
@@ -3192,7 +3192,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("array") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _array [.'$TightSchema'.'|'.5.type]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_array\" [.'$TightSchema'.'|'.5.type]", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.5.type]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -3232,7 +3232,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.6.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.6.'$comment']", path);
         }
         return res;
     }
@@ -3258,7 +3258,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_33 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.6.'$defs'.'']", (path != null ? lpath_33 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.6.'$defs'.'']", (path != null ? lpath_33 : null));
                 return false;
             }
         }
@@ -3272,7 +3272,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.6.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$TightSchema'.'|'.6.'$schema']", path);
         }
         return res;
     }
@@ -3343,7 +3343,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_10(pval, (path != null ? lpath_35 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $stringArray [.'$TightSchema'.'|'.6.dependentRequired.'']", (path != null ? lpath_35 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$stringArray\" [.'$TightSchema'.'|'.6.dependentRequired.'']", (path != null ? lpath_35 : null));
                 return false;
             }
         }
@@ -3371,7 +3371,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_36 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.6.dependentSchemas.'']", (path != null ? lpath_36 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.6.dependentSchemas.'']", (path != null ? lpath_36 : null));
                 return false;
             }
         }
@@ -3397,7 +3397,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.6.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.6.description]", path);
         }
         return res;
     }
@@ -3461,7 +3461,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_37 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", (path != null ? lpath_37 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", (path != null ? lpath_37 : null));
                     return false;
                 }
             }
@@ -3495,7 +3495,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_38 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.6.properties.'']", (path != null ? lpath_38 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.6.properties.'']", (path != null ? lpath_38 : null));
                 return false;
             }
         }
@@ -3521,7 +3521,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.6.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.6.title]", path);
         }
         return res;
     }
@@ -3564,7 +3564,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("object") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _object [.'$TightSchema'.'|'.6.type]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_object\" [.'$TightSchema'.'|'.6.type]", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$TightSchema'.'|'.6.type]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -3604,7 +3604,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.7.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.7.'$comment']", path);
         }
         return res;
     }
@@ -3630,7 +3630,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_16(pval, (path != null ? lpath_40 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$TightSchema'.'|'.7.'$defs'.'']", (path != null ? lpath_40 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$TightSchema'.'|'.7.'$defs'.'']", (path != null ? lpath_40 : null));
                 return false;
             }
         }
@@ -3644,7 +3644,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$TightSchema'.'|'.7.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$TightSchema'.'|'.7.'$schema']", path);
         }
         return res;
     }
@@ -3722,7 +3722,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.7.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.7.description]", path);
         }
         return res;
     }
@@ -3770,7 +3770,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$TightSchema'.'|'.7.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$TightSchema'.'|'.7.title]", path);
         }
         return res;
     }
@@ -3878,7 +3878,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
             res = json_model_15(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $TightSchema [.'$Schema'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$TightSchema\" [.'$Schema'.'|'.1]", path);
             }
         }
         if (res)
@@ -3899,7 +3899,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json_model_16(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Schema [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.]", path);
         }
         return res;
     }

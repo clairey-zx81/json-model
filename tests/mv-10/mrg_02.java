@@ -26,7 +26,7 @@ public class mrg_02 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("cst_02") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_02 [.'$t']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_02\" [.'$t']", path);
         }
         return res;
     }
@@ -59,7 +59,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.'$r'.a]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'$r']", (path != null ? lpath : null));
             return false;
         }
@@ -73,7 +73,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.b]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.'$r'.b]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.'$r']", (path != null ? lpath : null));
             return false;
         }
@@ -87,7 +87,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.c]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.'$r'.c]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.'$r']", (path != null ? lpath : null));
             return false;
         }
@@ -101,7 +101,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.'$r'.d]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.'$r'.d]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <d> [.'$r']", (path != null ? lpath : null));
             return false;
         }
@@ -136,7 +136,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_02 [.'$z'.e]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_02\" [.'$z'.e]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <e> [.'$z']", (path != null ? lpath : null));
             return false;
         }
@@ -150,7 +150,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_02 [.'$z'.f]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_02\" [.'$z'.f]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <f> [.'$z']", (path != null ? lpath : null));
             return false;
         }
@@ -185,7 +185,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.a]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.]", (path != null ? lpath : null));
             return false;
         }
@@ -199,7 +199,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.b]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.b]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.]", (path != null ? lpath : null));
             return false;
         }
@@ -213,7 +213,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_02 [.e]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_02\" [.e]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <e> [.]", (path != null ? lpath : null));
             return false;
         }
@@ -227,7 +227,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_02 [.f]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_02\" [.f]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <f> [.]", (path != null ? lpath : null));
             return false;
         }
@@ -241,7 +241,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.c]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.c]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.]", (path != null ? lpath : null));
             return false;
         }
@@ -255,7 +255,7 @@ public class mrg_02 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _cst_01 [.d]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.d]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <d> [.]", (path != null ? lpath : null));
             return false;
         }

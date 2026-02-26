@@ -40,7 +40,7 @@ function _jm_obj_0(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "fr";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected fr [.movie.'|'.0.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"fr\" [.movie.'|'.0.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.0]", (path ? lpath : null)])
         return false;
     }
@@ -55,7 +55,7 @@ function _jm_obj_0(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.movie.'|'.0.titre]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.0.titre]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <titre> [.movie.'|'.0]", (path ? lpath : null)])
         return false;
     }
@@ -90,7 +90,7 @@ function _jm_obj_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "en";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected en [.movie.'|'.1.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"en\" [.movie.'|'.1.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.1]", (path ? lpath : null)])
         return false;
     }
@@ -105,7 +105,7 @@ function _jm_obj_1(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.movie.'|'.1.title]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.1.title]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <title> [.movie.'|'.1]", (path ? lpath : null)])
         return false;
     }
@@ -140,7 +140,7 @@ function _jm_obj_2(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ru";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected ru [.movie.'|'.2.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"ru\" [.movie.'|'.2.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.movie.'|'.2]", (path ? lpath : null)])
         return false;
     }
@@ -155,7 +155,7 @@ function _jm_obj_2(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.movie.'|'.2.suti]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.movie.'|'.2.suti]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <suti> [.movie.'|'.2]", (path ? lpath : null)])
         return false;
     }

@@ -18,7 +18,7 @@ function json_model_4(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _Susie [.'$x1']", path])
+        rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x1']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_5(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _Susie [.'$x2']", path])
+        rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x2']", path])
     }
     return res;
 }
@@ -64,7 +64,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _Susie [.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_Susie\" [.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.]", (path ? lpath : null)])
         return false;
     }
@@ -79,7 +79,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _Susie [.b]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_Susie\" [.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.]", (path ? lpath : null)])
         return false;
     }

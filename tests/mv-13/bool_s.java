@@ -26,7 +26,7 @@ public class bool_s extends ModelChecker
         boolean res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $BOOL [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$BOOL\" [.]", path);
         }
         return res;
     }

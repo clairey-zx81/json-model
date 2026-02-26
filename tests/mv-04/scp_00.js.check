@@ -2,7 +2,7 @@ scp_00.values.json[0]: PASS
 scp_00.values.json[1]: PASS
 scp_00.values.json[2]: FAIL (.Z: unexpected prop [.])
 scp_00.values.json[3]: FAIL (.A: unexpected prop [.])
-scp_00.values.json[4]: FAIL (.a: invalid optional prop value [.a]; .a: unexpected $Aa [.a]; .a: unexpected string [.'$Aa'])
+scp_00.values.json[4]: FAIL (.a: invalid optional prop value [.a]; .a: unexpected value for model "$Aa" [.a]; .a: unexpected value for model "" [.'$Aa'])
 scp_00.values.json[5]: FAIL (.: not an object [.])
 scp_00.values.json[6]: FAIL (.: not an object [.])
 scp_00.values.json[7]: FAIL (.: not an object [.])

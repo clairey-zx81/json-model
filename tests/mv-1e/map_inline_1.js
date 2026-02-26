@@ -88,7 +88,7 @@ function json_model_1(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.ma2]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.ma2]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.ma2]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -101,7 +101,7 @@ function json_model_1(val, path, rep)
             res = runtime.jm_is_valid_date(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $DATE [.ma3]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$DATE\" [.ma3]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.ma3]", (path ? lpath_0 : null)])
                 return false;
             }

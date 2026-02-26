@@ -34,12 +34,12 @@ function json_model_1(val, path, rep)
             res = _jm_re_0(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /[0-9]/ [.'&'.1]", path])
+                rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'&'.1]", path])
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected /[a-z]/ [.'&'.0]", path])
+            rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'&'.0]", path])
         }
     }
     if (res)

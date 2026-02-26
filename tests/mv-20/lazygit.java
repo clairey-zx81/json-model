@@ -72,7 +72,7 @@ public class lazygit extends ModelChecker
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("unexpected /^#[0-9a-fA-F]{6}$/ [.'$color'.'|'.0]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^#[0-9a-fA-F]{6}$/\" [.'$color'.'|'.0]", path);
                     if (rep != null) rep.addEntry("no model matched [.'$color'.'|']", path);
                 }
             }
@@ -103,7 +103,7 @@ public class lazygit extends ModelChecker
                 res = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $color [.'$colorArray'.'@'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$color\" [.'$colorArray'.'@'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
@@ -137,7 +137,7 @@ public class lazygit extends ModelChecker
             res = json.isString(val);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$keybinding'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$keybinding'.'|'.1]", path);
             }
         }
         if (res)
@@ -171,7 +171,7 @@ public class lazygit extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$custom-commands-prompts-title-property']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$custom-commands-prompts-title-property']", path);
         }
         return res;
     }
@@ -183,7 +183,7 @@ public class lazygit extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$custom-commands-prompts-key-property']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$custom-commands-prompts-key-property']", path);
         }
         return res;
     }
@@ -205,7 +205,7 @@ public class lazygit extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$neString'.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$neString'.'@']", path);
         }
         return res;
     }
@@ -229,7 +229,7 @@ public class lazygit extends ModelChecker
                 res = json_model_8(arr_1_item, (path != null ? arr_1_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neString [.'$stringArray'.'@'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neString\" [.'$stringArray'.'@'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
@@ -276,7 +276,7 @@ public class lazygit extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -342,7 +342,7 @@ public class lazygit extends ModelChecker
                 res = json_model_7(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.0.key]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.0.key]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.0.key]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -356,7 +356,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("input") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected input [.'$Prompts'.'|'.0.type]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"input\" [.'$Prompts'.'|'.0.type]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.0.type]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -370,7 +370,7 @@ public class lazygit extends ModelChecker
                 res = json_model_6(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.0.title]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.0.title]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.0.title]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -435,7 +435,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.0.initialValue]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.0.initialValue]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.0.initialValue]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -490,7 +490,7 @@ public class lazygit extends ModelChecker
                 res = json_model_7(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.1.key]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.1.key]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.key]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -504,7 +504,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("confirm") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected confirm [.'$Prompts'.'|'.1.type]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"confirm\" [.'$Prompts'.'|'.1.type]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.type]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -518,7 +518,7 @@ public class lazygit extends ModelChecker
                 res = json_model_6(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.1.title]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.1.title]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.1.title]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -531,7 +531,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.1.body]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.1.body]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.1.body]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -586,7 +586,7 @@ public class lazygit extends ModelChecker
                 res = json_model_8(pval, (path != null ? lpath_2 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neString [.'$Prompts'.'|'.2.options.'@'.0.value]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neString\" [.'$Prompts'.'|'.2.options.'@'.0.value]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.2.options.'@'.0.value]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -599,7 +599,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.2.options.'@'.0.name]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.2.options.'@'.0.name]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.name]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -612,7 +612,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.2.options.'@'.0.description]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.2.options.'@'.0.description]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.description]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -662,7 +662,7 @@ public class lazygit extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("menu") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected menu [.'$Prompts'.'|'.2.type]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"menu\" [.'$Prompts'.'|'.2.type]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
@@ -676,7 +676,7 @@ public class lazygit extends ModelChecker
         res = json_model_6(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.2.title]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
@@ -690,7 +690,7 @@ public class lazygit extends ModelChecker
         res = json_model_7(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.2.key]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", (path != null ? lpath : null));
             return false;
         }
@@ -765,7 +765,7 @@ public class lazygit extends ModelChecker
                 res = json_model_7(pval, (path != null ? lpath_3 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.3.key]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.3.key]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.key]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -779,7 +779,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("menuFromCommand") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected menuFromCommand [.'$Prompts'.'|'.3.type]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"menuFromCommand\" [.'$Prompts'.'|'.3.type]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -793,7 +793,7 @@ public class lazygit extends ModelChecker
                 res = json_model_6(pval, (path != null ? lpath_3 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.3.title]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.3.title]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.title]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -807,7 +807,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.command]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.3.command]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Prompts'.'|'.3.command]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -820,7 +820,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.filter]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.3.filter]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.filter]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -833,7 +833,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.labelFormat]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.3.labelFormat]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.labelFormat]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -846,7 +846,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Prompts'.'|'.3.valueFormat]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Prompts'.'|'.3.valueFormat]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Prompts'.'|'.3.valueFormat]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -989,7 +989,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.customCommands.'@'.0.key]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.customCommands.'@'.0.key]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.key]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -1003,7 +1003,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.command]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.customCommands.'@'.0.command]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.customCommands.'@'.0.command]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -1067,7 +1067,7 @@ public class lazygit extends ModelChecker
                         res = json_model_10(arr_4_item, ((path != null ? lpath_5 : null) != null ? arr_4_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Prompts [.customCommands.'@'.0.prompts.0]", ((path != null ? lpath_5 : null) != null ? arr_4_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$Prompts\" [.customCommands.'@'.0.prompts.0]", ((path != null ? lpath_5 : null) != null ? arr_4_lpath : null));
                             break;
                         }
                     }
@@ -1113,7 +1113,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.description]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.customCommands.'@'.0.description]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.description]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -1126,7 +1126,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.customCommands.'@'.0.loadingText]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.customCommands.'@'.0.loadingText]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.customCommands.'@'.0.loadingText]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -1215,7 +1215,7 @@ public class lazygit extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.git.allBranchesLogCmd]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.git.allBranchesLogCmd]", path);
         }
         return res;
     }
@@ -1251,7 +1251,7 @@ public class lazygit extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.git.branchLogCmd]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.git.branchLogCmd]", path);
         }
         return res;
     }
@@ -1323,7 +1323,7 @@ public class lazygit extends ModelChecker
         res = json_model_8(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"$neString\" [.git.commitPrefixes.'/./'.pattern]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", (path != null ? lpath : null));
             return false;
         }
@@ -1337,7 +1337,7 @@ public class lazygit extends ModelChecker
         res = json_model_8(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"$neString\" [.git.commitPrefixes.'/./'.replace]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <replace> [.git.commitPrefixes.'/./']", (path != null ? lpath : null));
             return false;
         }
@@ -1502,7 +1502,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.git.merging.args]", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.git.merging.args]", (path != null ? lpath_11 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.git.merging.args]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -1573,7 +1573,7 @@ public class lazygit extends ModelChecker
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.git.paging.pager.'@']", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.git.paging.pager.'@']", (path != null ? lpath_12 : null));
                 }
                 if (! res)
                 {
@@ -1633,7 +1633,7 @@ public class lazygit extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.git.skipHookPrefix]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.git.skipHookPrefix]", path);
         }
         return res;
     }
@@ -1706,7 +1706,7 @@ public class lazygit extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_14 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $color [.gui.authorColors.'/./']", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$color\" [.gui.authorColors.'/./']", (path != null ? lpath_14 : null));
                     return false;
                 }
             }
@@ -1755,7 +1755,7 @@ public class lazygit extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_15 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $color [.gui.branchColors.'/./']", (path != null ? lpath_15 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$color\" [.gui.branchColors.'/./']", (path != null ? lpath_15 : null));
                     return false;
                 }
             }
@@ -1885,7 +1885,7 @@ public class lazygit extends ModelChecker
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.gui.nerdFontsVersion.'|'.0]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.gui.nerdFontsVersion.'|'.0]", path);
                     if (rep != null) rep.addEntry("no model matched [.gui.nerdFontsVersion.'|']", path);
                 }
             }
@@ -1928,7 +1928,7 @@ public class lazygit extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.gui.shortTimeFormat]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.gui.shortTimeFormat]", path);
         }
         return res;
     }
@@ -2099,7 +2099,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.defaultFgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.defaultFgColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.defaultFgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2112,7 +2112,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.optionsTextColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.optionsTextColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.optionsTextColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2125,7 +2125,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.activeBorderColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.activeBorderColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.activeBorderColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2138,7 +2138,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.inactiveBorderColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.inactiveBorderColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2151,7 +2151,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.selectedLineBgColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.selectedLineBgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2164,7 +2164,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.selectedRangeBgColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2177,7 +2177,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.unstagedChangesColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.unstagedChangesColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2190,7 +2190,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.cherryPickedCommitBgColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2203,7 +2203,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.cherryPickedCommitFgColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2216,7 +2216,7 @@ public class lazygit extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$colorArray\" [.gui.theme.searchingActiveBorderColor]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2235,7 +2235,7 @@ public class lazygit extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.gui.timeFormat]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.gui.timeFormat]", path);
         }
         return res;
     }
@@ -2308,7 +2308,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_19 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.pickBothHunks]", (path != null ? lpath_19 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.main.pickBothHunks]", (path != null ? lpath_19 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.pickBothHunks]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -2321,7 +2321,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_19 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path != null ? lpath_19 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.main.toggleDragSelect]", (path != null ? lpath_19 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleDragSelect]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -2334,7 +2334,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_19 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_19 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_19 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -2347,7 +2347,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_19 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_19 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_19 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -2413,7 +2413,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_21 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.stash.popStash]", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.stash.popStash]", (path != null ? lpath_21 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash.popStash]", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -2426,7 +2426,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_21 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.stash.renameStash]", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.stash.renameStash]", (path != null ? lpath_21 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.stash.renameStash]", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -2460,7 +2460,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_22 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.recentRepos]", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.status.recentRepos]", (path != null ? lpath_22 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.recentRepos]", (path != null ? lpath_22 : null));
                     return false;
                 }
@@ -2473,7 +2473,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_22 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.status.checkForUpdate]", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.status.checkForUpdate]", (path != null ? lpath_22 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.status.checkForUpdate]", (path != null ? lpath_22 : null));
                     return false;
                 }
@@ -2627,7 +2627,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.init]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.submodules.init]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.init]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2640,7 +2640,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.update]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.submodules.update]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.update]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2653,7 +2653,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_26 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.submodules.bulkMenu]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.submodules.bulkMenu]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2687,7 +2687,7 @@ public class lazygit extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_27 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$keybinding\" [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_27 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path != null ? lpath_27 : null));
                     return false;
                 }
@@ -2875,7 +2875,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.os.edit]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.os.edit]", (path != null ? lpath_28 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.edit]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -2888,7 +2888,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.os.open]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.os.open]", (path != null ? lpath_28 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.open]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -2901,7 +2901,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.os.openLink]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.os.openLink]", (path != null ? lpath_28 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.openLink]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -2914,7 +2914,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.os.editAtLine]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.os.editAtLine]", (path != null ? lpath_28 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.editAtLine]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -2939,7 +2939,7 @@ public class lazygit extends ModelChecker
                         }
                         else
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.os.editPreset.'|'.0]", (path != null ? lpath_28 : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.os.editPreset.'|'.0]", (path != null ? lpath_28 : null));
                             if (rep != null) rep.addEntry("no model matched [.os.editPreset.'|']", (path != null ? lpath_28 : null));
                         }
                     }
@@ -2962,7 +2962,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.os.editAtLineAndWait]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.os.editAtLineAndWait]", (path != null ? lpath_28 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.editAtLineAndWait]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -2975,7 +2975,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.os.copyToClipboardCmd]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.os.copyToClipboardCmd]", (path != null ? lpath_28 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.copyToClipboardCmd]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -3088,7 +3088,7 @@ public class lazygit extends ModelChecker
                 res = json.isString(pval) && _jm_re_2(json.asString(pval), (path != null ? lpath_30 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path != null ? lpath_30 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^[^:]+:[^:]+$/\" [.services.'/./']", (path != null ? lpath_30 : null));
                     return false;
                 }
             }

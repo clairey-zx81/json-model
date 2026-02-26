@@ -48,7 +48,7 @@ public class aa_0 extends ModelChecker
                         res = json.isString(arr_1_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.0.0]", ((path != null ? arr_0_lpath : null) != null ? arr_1_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.0.0]", ((path != null ? arr_0_lpath : null) != null ? arr_1_lpath : null));
                             break;
                         }
                     }

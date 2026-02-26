@@ -18,7 +18,7 @@ function json_model_2(val, path, rep)
     let res = val === null;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =null [.'$n']", path])
+        rep !== null && rep.push(["unexpected value for model \"=null\" [.'$n']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_3(val, path, rep)
     let res = ((typeof val === 'number' || val instanceof Number)) && val == 10.0;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =10.0 [.'$x']", path])
+        rep !== null && rep.push(["unexpected value for model \"=10.0\" [.'$x']", path])
     }
     return res;
 }
@@ -42,7 +42,7 @@ function json_model_4(val, path, rep)
     let res = ((typeof val === 'boolean' || val instanceof Boolean)) && val == false;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =false [.'$f']", path])
+        rep !== null && rep.push(["unexpected value for model \"=false\" [.'$f']", path])
     }
     return res;
 }
@@ -75,7 +75,7 @@ function _jm_obj_0(val, path, rep)
     res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =false [.'|'.4.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=false\" [.'|'.4.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.4]", (path ? lpath : null)])
         return false;
     }
@@ -110,7 +110,7 @@ function _jm_obj_1(val, path, rep)
     res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =true [.'|'.3.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=true\" [.'|'.3.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.3]", (path ? lpath : null)])
         return false;
     }
@@ -145,7 +145,7 @@ function _jm_obj_2(val, path, rep)
     res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 1.0;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =1.0 [.'|'.2.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=1.0\" [.'|'.2.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.2]", (path ? lpath : null)])
         return false;
     }
@@ -180,7 +180,7 @@ function _jm_obj_3(val, path, rep)
     res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 10.0;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =10.0 [.'|'.1.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=10.0\" [.'|'.1.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.1]", (path ? lpath : null)])
         return false;
     }
@@ -215,7 +215,7 @@ function _jm_obj_4(val, path, rep)
     res = pval === null;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =null [.'|'.0.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=null\" [.'|'.0.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'|'.0]", (path ? lpath : null)])
         return false;
     }

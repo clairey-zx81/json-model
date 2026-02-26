@@ -27,22 +27,22 @@ public class obj_03 extends ModelChecker
         boolean res = json_model_4(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $li0 [.'$foo'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$li0\" [.'$foo'.'|'.0]", path);
             // .'$foo'.'|'.1
             res = json_model_5(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $ls0 [.'$foo'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$ls0\" [.'$foo'.'|'.1]", path);
                 // .'$foo'.'|'.2
                 res = json_model_6(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $lb0 [.'$foo'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"$lb0\" [.'$foo'.'|'.2]", path);
                     // .'$foo'.'|'.3
                     res = json_model_7(val, path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $lf0 [.'$foo'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected value for model \"$lf0\" [.'$foo'.'|'.3]", path);
                     }
                 }
             }
@@ -65,7 +65,7 @@ public class obj_03 extends ModelChecker
         boolean res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $foo#ls0 [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$foo#ls0\" [.]", path);
         }
         return res;
     }
@@ -118,7 +118,7 @@ public class obj_03 extends ModelChecker
                 res = json.isString(arr_1_item) && rt.is_valid_date(json.asString(arr_1_item));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $DATE [.'$foo#ls0'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.'$foo#ls0'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
@@ -148,7 +148,7 @@ public class obj_03 extends ModelChecker
                 res = json.isBoolean(arr_2_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $BOOL [.'$foo#lb0'.0]", (path != null ? arr_2_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$BOOL\" [.'$foo#lb0'.0]", (path != null ? arr_2_lpath : null));
                     break;
                 }
             }

@@ -34,7 +34,7 @@ function _jm_obj_0(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "$https://json-model.org/models/json-model";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _$https://json-model.org/models/json-model [.'$'.Model]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_$https://json-model.org/models/json-model\" [.'$'.Model]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$'.Model]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -47,7 +47,7 @@ function _jm_obj_0(val, path, rep)
             res = runtime.jm_is_valid_url(pval);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $URL [.'$'.'']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$'.'']", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$'.'']", (path ? lpath_1 : null)])
                 return false;
             }
@@ -93,7 +93,7 @@ function _jm_obj_1(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'%'.'/^#/']", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'%'.'/^#/']", (path ? lpath_2 : null)])
                 return false;
             }
         }
@@ -105,7 +105,7 @@ function _jm_obj_1(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^([#~$%@|&+^/*=]|[<>!]=?)$/ [.'%'.'/^\\\\..+$/']", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^([#~$%@|&+^/*=]|[<>!]=?)$/\" [.'%'.'/^\\\\..+$/']", (path ? lpath_2 : null)])
                 return false;
             }
         }
@@ -170,7 +170,7 @@ function json_model_1(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "$Model";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _$Model [.'@']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_$Model\" [.'@']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'@']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -184,7 +184,7 @@ function json_model_1(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "https://json-model.org/models/l10n";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _https://json-model.org/models/l10n [.'~']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'~']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -197,7 +197,7 @@ function json_model_1(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'/^#/']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'/^#/']", (path ? lpath_0 : null)])
                 return false;
             }
         }

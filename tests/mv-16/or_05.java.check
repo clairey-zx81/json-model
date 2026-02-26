@@ -1,5 +1,5 @@
 or_05.values.json[0]: PASS
-or_05.values.json[1]: FAIL (: unexpected /[0-9]/ [.'|'.0]; : unexpected /[a-z]/ [.'|'.1]; : unexpected /[A-Z]/ [.'|'.2]; : no model matched [.'|'])
+or_05.values.json[1]: FAIL (: unexpected value for model "/[0-9]/" [.'|'.0]; : unexpected value for model "/[a-z]/" [.'|'.1]; : unexpected value for model "/[A-Z]/" [.'|'.2]; : no model matched [.'|'])
 or_05.values.json[2]: FAIL (: unexpected type [.'|'])
 or_05.values.json[3]: FAIL (: unexpected type [.'|'])
 or_05.values.json[4]: FAIL (: unexpected type [.'|'])

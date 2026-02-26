@@ -58,7 +58,7 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Xx [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Xx\" [.'|'.0]", path])
         // .'|'.1
         res = Array.isArray(val);
         if (res)
@@ -71,7 +71,7 @@ function json_model_1(val, path, rep)
                 res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected $Xx [.'|'.1.0]", (path ? arr_0_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"$Xx\" [.'|'.1.0]", (path ? arr_0_lpath : null)])
                     break;
                 }
             }

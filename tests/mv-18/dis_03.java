@@ -47,7 +47,7 @@ public class dis_03 extends ModelChecker
         res = json.isBoolean(pval) && json.asBoolean(pval) == true;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =true [.'|'.0.discriminator]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=true\" [.'|'.0.discriminator]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <discriminator> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -61,7 +61,7 @@ public class dis_03 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.0.x]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.0.x]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <x> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -95,7 +95,7 @@ public class dis_03 extends ModelChecker
         res = json.isBoolean(pval) && json.asBoolean(pval) == false;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =false [.'|'.1.discriminator]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=false\" [.'|'.1.discriminator]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <discriminator> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -109,7 +109,7 @@ public class dis_03 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.1.y]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.1.y]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <y> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }

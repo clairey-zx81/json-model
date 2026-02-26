@@ -143,7 +143,7 @@ function json_model_1(val, path, rep)
     let res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $combined [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$combined\" [.]", path])
     }
     return res;
 }

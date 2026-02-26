@@ -30,7 +30,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json_model_18(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Schema [.'$schema'.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema'.'@']", path);
         }
         return res;
     }
@@ -42,7 +42,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $schema [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$schema\" [.]", path);
         }
         return res;
     }
@@ -60,7 +60,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_17(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$schema#Schema'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$ObjectSchema\" [.'$schema#Schema'.'|'.1]", path);
             }
         }
         if (res)
@@ -81,7 +81,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#ObjectSchema'.'$comment']", path);
         }
         return res;
     }
@@ -107,7 +107,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_18(pval, (path != null ? lpath_1 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#ObjectSchema'.'$defs'.'']", (path != null ? lpath_1 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema#ObjectSchema'.'$defs'.'']", (path != null ? lpath_1 : null));
                 return false;
             }
         }
@@ -121,7 +121,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.'$schema#ObjectSchema'.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.'$schema#ObjectSchema'.'$schema']", path);
         }
         return res;
     }
@@ -178,7 +178,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.contentEncoding]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#ObjectSchema'.contentEncoding]", path);
         }
         return res;
     }
@@ -190,7 +190,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.contentMediaType]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#ObjectSchema'.contentMediaType]", path);
         }
         return res;
     }
@@ -225,7 +225,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_18(pval, (path != null ? lpath_3 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#ObjectSchema'.definitions.'']", (path != null ? lpath_3 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema#ObjectSchema'.definitions.'']", (path != null ? lpath_3 : null));
                 return false;
             }
         }
@@ -254,12 +254,12 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_18(pval, (path != null ? lpath_4 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#ObjectSchema'.dependencies.''.'|'.0]", (path != null ? lpath_4 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema#ObjectSchema'.dependencies.''.'|'.0]", (path != null ? lpath_4 : null));
                 // .'$schema#ObjectSchema'.dependencies.''.'|'.1
                 res = json_model_12(pval, (path != null ? lpath_4 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $stringArray [.'$schema#ObjectSchema'.dependencies.''.'|'.1]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$stringArray\" [.'$schema#ObjectSchema'.dependencies.''.'|'.1]", (path != null ? lpath_4 : null));
                 }
             }
             if (res)
@@ -296,7 +296,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_12(pval, (path != null ? lpath_5 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $stringArray [.'$schema#ObjectSchema'.dependentRequired.'']", (path != null ? lpath_5 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$stringArray\" [.'$schema#ObjectSchema'.dependentRequired.'']", (path != null ? lpath_5 : null));
                 return false;
             }
         }
@@ -324,7 +324,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_18(pval, (path != null ? lpath_6 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#ObjectSchema'.dependentSchemas.'']", (path != null ? lpath_6 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema#ObjectSchema'.dependentSchemas.'']", (path != null ? lpath_6 : null));
                 return false;
             }
         }
@@ -350,7 +350,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#ObjectSchema'.description]", path);
         }
         return res;
     }
@@ -410,7 +410,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.format]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#ObjectSchema'.format]", path);
         }
         return res;
     }
@@ -458,7 +458,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.pattern]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#ObjectSchema'.pattern]", path);
         }
         return res;
     }
@@ -484,7 +484,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_18(pval, (path != null ? lpath_7 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#ObjectSchema'.patternProperties.'']", (path != null ? lpath_7 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema#ObjectSchema'.patternProperties.'']", (path != null ? lpath_7 : null));
                 return false;
             }
         }
@@ -512,7 +512,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_18(pval, (path != null ? lpath_8 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#ObjectSchema'.properties.'']", (path != null ? lpath_8 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema#ObjectSchema'.properties.'']", (path != null ? lpath_8 : null));
                 return false;
             }
         }
@@ -539,7 +539,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
             res = json_model_18(pval, (path != null ? lpath_10 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#ObjectSchema'.propertyDependencies.''.'']", (path != null ? lpath_10 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema#ObjectSchema'.propertyDependencies.''.'']", (path != null ? lpath_10 : null));
                 return false;
             }
         }
@@ -593,7 +593,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$schema#ObjectSchema'.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#ObjectSchema'.title]", path);
         }
         return res;
     }
@@ -606,12 +606,12 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json_model_10(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$schema#ObjectSchema'.type.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypes\" [.'$schema#ObjectSchema'.type.'|'.0]", path);
             // .'$schema#ObjectSchema'.type.'|'.1
             res = json_model_11(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $simpleTypesArray [.'$schema#ObjectSchema'.type.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypesArray\" [.'$schema#ObjectSchema'.type.'|'.1]", path);
             }
         }
         if (res)
@@ -688,7 +688,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$schema#URI-REFERENCE']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#URI-REFERENCE']", path);
         }
         return res;
     }
@@ -725,7 +725,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
                 res = json_model_10(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$schema#simpleTypesArray'.'@'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypes\" [.'$schema#simpleTypesArray'.'@'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
@@ -765,7 +765,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
                 res = json.isString(arr_1_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$schema#stringArray'.'@'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#stringArray'.'@'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
@@ -816,7 +816,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
                 res = json_model_18(arr_2_item, (path != null ? arr_2_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$schema#schemaArray'.'@'.0]", (path != null ? arr_2_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schema#schemaArray'.'@'.0]", (path != null ? arr_2_lpath : null));
                     break;
                 }
             }

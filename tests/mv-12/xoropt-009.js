@@ -33,7 +33,7 @@ function _jm_obj_0(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'^'.0.'/a/']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0.'/a/']", (path ? lpath_0 : null)])
                 return false;
             }
         }

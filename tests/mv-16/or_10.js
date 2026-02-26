@@ -39,7 +39,7 @@ function _jm_obj_0(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'|'.1.name]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'|'.1]", (path ? lpath : null)])
         return false;
     }

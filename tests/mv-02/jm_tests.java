@@ -38,7 +38,7 @@ public class jm_tests extends ModelChecker
                 res = json.isString(arr_0_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.0.'|'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.0.'|'.0]", (path != null ? arr_0_lpath : null));
                     // .0.'|'.1
                     res = json.isArray(arr_0_item) && json.arrayLength(arr_0_item) == 2;
                     if (res)
@@ -80,7 +80,7 @@ public class jm_tests extends ModelChecker
                                 }
                                 else
                                 {
-                                    if (rep != null) rep.addEntry("unexpected string [.0.'|'.2.1]", ((path != null ? arr_0_lpath : null) != null ? lpath_0 : null));
+                                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.0.'|'.2.1]", ((path != null ? arr_0_lpath : null) != null ? lpath_0 : null));
                                 }
                             }
                             else

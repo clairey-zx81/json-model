@@ -32,7 +32,7 @@ function _jm_obj_0(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'|'.1.b]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.b]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.b]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -82,7 +82,7 @@ function _jm_obj_1(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'|'.0.a]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'|'.0.a]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.a]", (path ? lpath_1 : null)])
                 return false;
             }

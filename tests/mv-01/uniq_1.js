@@ -26,7 +26,7 @@ function json_model_1(val, path, rep)
             res = (typeof arr_0_item === 'string' || arr_0_item instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.0]", (path ? arr_0_lpath : null)])
                 break;
             }
         }

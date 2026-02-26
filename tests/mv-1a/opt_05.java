@@ -25,7 +25,7 @@ public class opt_05 extends ModelChecker
         boolean res;
         // .
         res = false;
-        if (rep != null) rep.addEntry("unexpected $NONE [.]", path);
+        if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.]", path);
         return res;
     }
 

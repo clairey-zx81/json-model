@@ -30,7 +30,7 @@ function json_model_3(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$Ex05b']", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$Ex05b']", path])
     }
     return res;
 }
@@ -43,12 +43,12 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Ex05a [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Ex05a\" [.'|'.0]", path])
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Ex05b [.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$Ex05b\" [.'|'.1]", path])
         }
     }
     if (res)

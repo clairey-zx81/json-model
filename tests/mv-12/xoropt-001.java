@@ -74,7 +74,7 @@ public class xoropt_001 extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Ss']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ss']", path);
         }
         return res;
     }
@@ -97,7 +97,7 @@ public class xoropt_001 extends ModelChecker
                 res = json_model_9(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Any [.'$Aa'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Any\" [.'$Aa'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
@@ -130,7 +130,7 @@ public class xoropt_001 extends ModelChecker
             res = json_model_9(pval, (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Any [.'$Oo'.'']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Any\" [.'$Oo'.'']", (path != null ? lpath_0 : null));
                 return false;
             }
         }
@@ -150,32 +150,32 @@ public class xoropt_001 extends ModelChecker
             res = json_model_3(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Bb [.'$Any'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$Bb\" [.'$Any'.'|'.1]", path);
                 // .'$Any'.'|'.2
                 res = json_model_4(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Ii [.'$Any'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Ii\" [.'$Any'.'|'.2]", path);
                     // .'$Any'.'|'.3
                     res = json_model_5(val, path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $Ff [.'$Any'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected value for model \"$Ff\" [.'$Any'.'|'.3]", path);
                         // .'$Any'.'|'.4
                         res = json_model_6(val, path, rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $Ss [.'$Any'.'|'.4]", path);
+                            if (rep != null) rep.addEntry("unexpected value for model \"$Ss\" [.'$Any'.'|'.4]", path);
                             // .'$Any'.'|'.5
                             res = json_model_7(val, path, rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $Aa [.'$Any'.'|'.5]", path);
+                                if (rep != null) rep.addEntry("unexpected value for model \"$Aa\" [.'$Any'.'|'.5]", path);
                                 // .'$Any'.'|'.6
                                 res = json_model_8(val, path, rep);
                                 if (! res)
                                 {
-                                    if (rep != null) rep.addEntry("unexpected $Oo [.'$Any'.'|'.6]", path);
+                                    if (rep != null) rep.addEntry("unexpected value for model \"$Oo\" [.'$Any'.'|'.6]", path);
                                 }
                             }
                         }
@@ -201,7 +201,7 @@ public class xoropt_001 extends ModelChecker
         boolean res = json_model_9(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Any [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Any\" [.]", path);
         }
         return res;
     }

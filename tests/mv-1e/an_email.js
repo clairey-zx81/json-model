@@ -18,7 +18,7 @@ function json_model_1(val, path, rep)
     let res = runtime.jm_is_valid_email(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $EMAIL [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.]", path])
     }
     return res;
 }

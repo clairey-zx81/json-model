@@ -43,7 +43,7 @@ public class base_028 extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("South Africa") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _South Africa [.country]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_South Africa\" [.country]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.country]", (path != null ? lpath_0 : null));
                     return false;
                 }

@@ -26,7 +26,7 @@ public class ex_01 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie [.'$x1']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.'$x1']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class ex_01 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie [.'$x2']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.'$x2']", path);
         }
         return res;
     }
@@ -71,7 +71,7 @@ public class ex_01 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie [.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.a]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.]", (path != null ? lpath : null));
             return false;
         }
@@ -85,7 +85,7 @@ public class ex_01 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie [.b]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.b]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.]", (path != null ? lpath : null));
             return false;
         }

@@ -40,7 +40,7 @@ function _jm_obj_0(val, path, rep)
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =1 [.'|'.0.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=1\" [.'|'.0.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.0]", (path ? lpath : null)])
         return false;
     }
@@ -90,7 +90,7 @@ function _jm_obj_1(val, path, rep)
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =2 [.'|'.1.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=2\" [.'|'.1.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.1]", (path ? lpath : null)])
         return false;
     }

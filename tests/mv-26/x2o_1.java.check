@@ -3,7 +3,7 @@ x2o_1.values.json[1]: PASS
 x2o_1.values.json[2]: PASS
 x2o_1.values.json[3]: PASS
 x2o_1.values.json[4]: PASS
-x2o_1.values.json[5]: FAIL (: tag <t> value not found [.'|']; t: unexpected string [.'$Nabc'.t.'^'.0]; t: unexpected _a [.'$Nabc'.t.'^'.1]; t: unexpected _b [.'$Nabc'.t.'^'.2]; t: unexpected _c [.'$Nabc'.t.'^'.3]; t: not one model match [.'$Nabc'.t.'^']; t: unexpected value for mandatory prop <t> [.'$Nabc'])
+x2o_1.values.json[5]: FAIL (: tag <t> value not found [.'|']; t: unexpected value for model "" [.'$Nabc'.t.'^'.0]; t: unexpected value for model "_a" [.'$Nabc'.t.'^'.1]; t: unexpected value for model "_b" [.'$Nabc'.t.'^'.2]; t: unexpected value for model "_c" [.'$Nabc'.t.'^'.3]; t: not one model match [.'$Nabc'.t.'^']; t: unexpected value for mandatory prop <t> [.'$Nabc'])
 x2o_1.values.json[6]: FAIL (: bad property count [.'$a']; : bad property count [.'$Nabc'])
 x2o_1.values.json[7]: FAIL (: tag prop <t> is missing [.'|']; : bad property count [.'$Nabc'])
 x2o_1.values.json[8]: FAIL (: value is not an object [.'|']; : not an object [.'$Nabc'])

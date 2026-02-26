@@ -58,7 +58,7 @@ public class bang_000 extends ModelChecker
                 res = json.isInteger(pval) && json.asLong(pval) == 17;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =17 [.'/']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=17\" [.'/']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'/']", (path != null ? lpath_0 : null));
                     return false;
                 }

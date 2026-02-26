@@ -1,7 +1,7 @@
 xoropt-010.values.json[0]: PASS
 xoropt-010.values.json[1]: PASS
 xoropt-010.values.json[2]: PASS
-xoropt-010.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .a: invalid optional prop value [.'|'.1.a]; .a: unexpected element [.'|'.1.a]; .a: not an object [.'|'.1.a]; .: unexpected element [.'|'.0]; .a: invalid mandatory prop value [.'|'.0.a]; .a: unexpected string [.'|'.0.a])
+xoropt-010.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .a: invalid optional prop value [.'|'.1.a]; .a: unexpected element [.'|'.1.a]; .a: not an object [.'|'.1.a]; .: unexpected element [.'|'.0]; .a: invalid mandatory prop value [.'|'.0.a]; .a: unexpected value for model "" [.'|'.0.a])
 xoropt-010.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: missing mandatory prop <b> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <b> [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
 xoropt-010.values.json[5]: FAIL (.: unexpected type [.'|'])
 xoropt-010.values.json[6]: FAIL (.: unexpected type [.'|'])

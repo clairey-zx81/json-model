@@ -25,7 +25,7 @@ public class eval_00 extends ModelChecker
         boolean res;
         // .'$false'
         res = false;
-        if (rep != null) rep.addEntry("unexpected $NONE [.'$false']", path);
+        if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'$false']", path);
         return res;
     }
 

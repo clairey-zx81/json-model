@@ -31,7 +31,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_1(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $self [.'$array'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$self\" [.'$array'.0]", (path ? &arr_0_lpath : NULL));
                 break;
             }
         }
@@ -65,7 +65,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_1(pval, (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $self [.prop]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$self\" [.prop]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.prop]", (path ? &lpath_0 : NULL));
                 return false;
             }

@@ -26,7 +26,7 @@ public class ex_02 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie [.'$x1']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.'$x1']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class ex_02 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie [.'$x2']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.'$x2']", path);
         }
         return res;
     }
@@ -50,7 +50,7 @@ public class ex_02 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie [.'$x3']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.'$x3']", path);
         }
         return res;
     }
@@ -62,7 +62,7 @@ public class ex_02 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie [.'$__external_0']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.'$__external_0']", path);
         }
         return res;
     }
@@ -94,22 +94,22 @@ public class ex_02 extends ModelChecker
                         res = json.isString(json.arrayItem(val, 3)) && json.asString(json.arrayItem(val, 3)).compareTo("Susie") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _Susie [.3]", (path != null ? lpath_0 : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.3]", (path != null ? lpath_0 : null));
                         }
                     }
                     else
                     {
-                        if (rep != null) rep.addEntry("unexpected _Susie [.2]", (path != null ? lpath_0 : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.2]", (path != null ? lpath_0 : null));
                     }
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("unexpected _Susie [.1]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.1]", (path != null ? lpath_0 : null));
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected _Susie [.0]", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.0]", (path != null ? lpath_0 : null));
             }
         }
         if (! res)

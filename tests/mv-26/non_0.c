@@ -27,7 +27,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         xc_0 += 1;
     else
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'^'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'^'.0]", path);
     }
     // .'^'.1
     xr_0 = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000021);
@@ -35,7 +35,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         xc_0 += 1;
     else
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _! [.'^'.1]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_!\" [.'^'.1]", path);
     }
     if (xc_0 <= 1)
     {
@@ -45,7 +45,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             xc_0 += 1;
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected _world [.'^'.2]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"_world\" [.'^'.2]", path);
         }
     }
     res = xc_0 == 1;

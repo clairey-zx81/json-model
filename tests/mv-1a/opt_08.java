@@ -26,7 +26,7 @@ public class opt_08 extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) == 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =1 [.'$one']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'$one']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class opt_08 extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) == 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =1 [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.]", path);
         }
         return res;
     }

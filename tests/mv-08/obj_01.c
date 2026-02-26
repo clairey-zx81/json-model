@@ -22,7 +22,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_boolean(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $BOOLEAN [.'$bla']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$BOOLEAN\" [.'$bla']", path);
     }
     return res;
 }
@@ -34,7 +34,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_boolean(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $BOOLEAN [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$BOOLEAN\" [.]", path);
     }
     return res;
 }

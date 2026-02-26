@@ -47,7 +47,7 @@ public class dis_01 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 18;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =18 [.'|'.0.tag]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=18\" [.'|'.0.tag]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <tag> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -61,7 +61,7 @@ public class dis_01 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.0.a]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.0.a]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <a> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -95,7 +95,7 @@ public class dis_01 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 42;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =42 [.'|'.1.tag]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=42\" [.'|'.1.tag]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <tag> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -109,7 +109,7 @@ public class dis_01 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.1.b]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.1.b]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <b> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -143,7 +143,7 @@ public class dis_01 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 1024;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =1024 [.'|'.2.tag]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=1024\" [.'|'.2.tag]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <tag> [.'|'.2]", (path != null ? lpath : null));
             return false;
         }
@@ -157,7 +157,7 @@ public class dis_01 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.2.c]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.2.c]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.'|'.2]", (path != null ? lpath : null));
             return false;
         }

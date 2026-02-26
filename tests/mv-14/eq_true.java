@@ -26,7 +26,7 @@ public class eq_true extends ModelChecker
         boolean res = json.isBoolean(val) && json.asBoolean(val) == true;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =true [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=true\" [.]", path);
         }
         return res;
     }

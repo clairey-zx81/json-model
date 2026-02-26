@@ -18,7 +18,7 @@ function json_model_1(val, path, rep)
     let res = ((typeof val === 'boolean' || val instanceof Boolean)) && val == false;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =false [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"=false\" [.]", path])
     }
     return res;
 }

@@ -26,7 +26,7 @@ public class pU64 extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $U64 [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$U64\" [.]", path);
         }
         return res;
     }

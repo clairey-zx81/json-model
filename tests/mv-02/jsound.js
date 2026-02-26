@@ -33,7 +33,7 @@ function _jm_obj_0(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Schema'.metadata.date]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.date]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.date]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -46,7 +46,7 @@ function _jm_obj_0(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Schema'.metadata.name]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.name]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.name]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -67,7 +67,7 @@ function _jm_obj_0(val, path, rep)
                     res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$Schema'.metadata.authors.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.authors.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
                         break;
                     }
                 }
@@ -87,7 +87,7 @@ function _jm_obj_0(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Schema'.metadata.previous]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.previous]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.previous]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -129,7 +129,7 @@ function json_model_2(val, path, rep)
                     res = json_model_3(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Type [.'$Schema'.types.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$Type\" [.'$Schema'.types.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
                         break;
                     }
                 }
@@ -250,7 +250,7 @@ function json_model_5(val, path, rep)
                     res = (typeof val === 'string' || val instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$atomic'.'|'.4]", path])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$atomic'.'|'.4]", path])
                     }
                 }
             }
@@ -291,7 +291,7 @@ function json_model_6(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "atomic";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected atomic [.'$Atomic'.kind]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"atomic\" [.'$Atomic'.kind]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.kind]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -305,7 +305,7 @@ function json_model_6(val, path, rep)
             res = json_model_4(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $atomic-types [.'$Atomic'.baseType]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$atomic-types\" [.'$Atomic'.baseType]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.baseType]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -318,7 +318,7 @@ function json_model_6(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Atomic'.name]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Atomic'.name]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.name]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -344,7 +344,7 @@ function json_model_6(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -391,7 +391,7 @@ function json_model_6(val, path, rep)
                     res = json_model_5(arr_2_item, ((path ? lpath_2 : null) ? arr_2_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.enumeration.0]", ((path ? lpath_2 : null) ? arr_2_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.enumeration.0]", ((path ? lpath_2 : null) ? arr_2_lpath : null)])
                         break;
                     }
                 }
@@ -424,7 +424,7 @@ function json_model_6(val, path, rep)
             res = json_model_5(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.maxExclusive]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.maxExclusive]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxExclusive]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -437,7 +437,7 @@ function json_model_6(val, path, rep)
             res = json_model_5(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.maxInclusive]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.maxInclusive]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxInclusive]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -450,7 +450,7 @@ function json_model_6(val, path, rep)
             res = json_model_5(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.minExclusive]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.minExclusive]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minExclusive]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -463,7 +463,7 @@ function json_model_6(val, path, rep)
             res = json_model_5(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $atomic [.'$Atomic'.minInclusive]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.minInclusive]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minInclusive]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -538,7 +538,7 @@ function json_model_7(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected object [.'$Object'.kind]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"object\" [.'$Object'.kind]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.kind]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -551,7 +551,7 @@ function json_model_7(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Object'.name]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.name]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.name]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -585,7 +585,7 @@ function json_model_7(val, path, rep)
                     res = json_model_8(arr_3_item, ((path ? lpath_3 : null) ? arr_3_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Fields [.'$Object'.content.0]", ((path ? lpath_3 : null) ? arr_3_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$Fields\" [.'$Object'.content.0]", ((path ? lpath_3 : null) ? arr_3_lpath : null)])
                         break;
                     }
                 }
@@ -605,7 +605,7 @@ function json_model_7(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Object'.baseType]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.baseType]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.baseType]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -650,7 +650,7 @@ function json_model_8(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Fields'.name]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Fields'.name]", (path ? lpath_4 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.name]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -664,7 +664,7 @@ function json_model_8(val, path, rep)
             res = json_model_11(pval, (path ? lpath_4 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $type-or-ref [.'$Fields'.type]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$type-or-ref\" [.'$Fields'.type]", (path ? lpath_4 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.type]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -747,7 +747,7 @@ function json_model_9(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected array [.'$Array'.kind]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"array\" [.'$Array'.kind]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.kind]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -760,7 +760,7 @@ function json_model_9(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Array'.name]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.name]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.name]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -773,7 +773,7 @@ function json_model_9(val, path, rep)
             res = json_model_11(pval, (path ? lpath_5 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $type-or-ref [.'$Array'.content]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$type-or-ref\" [.'$Array'.content]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.content]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -786,7 +786,7 @@ function json_model_9(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Array'.baseType]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.baseType]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.baseType]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -858,7 +858,7 @@ function json_model_10(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "union";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected union [.'$Union'.kind]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected value for model \"union\" [.'$Union'.kind]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.kind]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -872,7 +872,7 @@ function json_model_10(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Union'.name]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Union'.name]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.name]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -894,7 +894,7 @@ function json_model_10(val, path, rep)
                     res = json_model_11(arr_4_item, ((path ? lpath_6 : null) ? arr_4_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $type-or-ref [.'$Union'.content.0]", ((path ? lpath_6 : null) ? arr_4_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$type-or-ref\" [.'$Union'.content.0]", ((path ? lpath_6 : null) ? arr_4_lpath : null)])
                         break;
                     }
                 }
@@ -914,7 +914,7 @@ function json_model_10(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Union'.baseType]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Union'.baseType]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Union'.baseType]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -953,12 +953,12 @@ function json_model_11(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$type-or-ref'.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$type-or-ref'.'|'.0]", path])
         // .'$type-or-ref'.'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Type [.'$type-or-ref'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$Type\" [.'$type-or-ref'.'|'.1]", path])
         }
     }
     if (res)
@@ -979,7 +979,7 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Schema [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Schema\" [.]", path])
     }
     return res;
 }

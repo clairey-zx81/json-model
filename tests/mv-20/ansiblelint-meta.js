@@ -101,7 +101,7 @@ function json_model_2(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "AIX";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _AIX [.'$AIXPlatformModel'.name]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_AIX\" [.'$AIXPlatformModel'.name]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$AIXPlatformModel'.name]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -161,7 +161,7 @@ function json_model_3(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Alpine";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Alpine [.'$AlpinePlatformModel'.name]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Alpine\" [.'$AlpinePlatformModel'.name]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$AlpinePlatformModel'.name]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -182,7 +182,7 @@ function json_model_3(val, path, rep)
                     res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && arr_1_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$AlpinePlatformModel'.versions.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$AlpinePlatformModel'.versions.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
                         break;
                     }
                 }
@@ -222,7 +222,7 @@ function json_model_4(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon Linux";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Amazon Linux [.'$AmazonLinuxPlatformModel'.name]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Amazon Linux\" [.'$AmazonLinuxPlatformModel'.name]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$AmazonLinuxPlatformModel'.name]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -283,7 +283,7 @@ function json_model_5(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Amazon [.'$AmazonPlatformModel'.name]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Amazon\" [.'$AmazonPlatformModel'.name]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$AmazonPlatformModel'.name]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -343,7 +343,7 @@ function json_model_6(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ArchLinux";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _ArchLinux [.'$ArchLinuxPlatformModel'.name]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_ArchLinux\" [.'$ArchLinuxPlatformModel'.name]", (path ? lpath_4 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$ArchLinuxPlatformModel'.name]", (path ? lpath_4 : null)])
                 return false;
             }
@@ -364,7 +364,7 @@ function json_model_6(val, path, rep)
                     res = ((typeof arr_4_item === 'string' || arr_4_item instanceof String)) && arr_4_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? lpath_4 : null) ? arr_4_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$ArchLinuxPlatformModel'.versions.0]", ((path ? lpath_4 : null) ? arr_4_lpath : null)])
                         break;
                     }
                 }
@@ -404,7 +404,7 @@ function json_model_7(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Astra Linux";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Astra Linux [.'$AstraLinuxPlatformModel'.name]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Astra Linux\" [.'$AstraLinuxPlatformModel'.name]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$AstraLinuxPlatformModel'.name]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -464,7 +464,7 @@ function json_model_8(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ClearLinux";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _ClearLinux [.'$ClearLinuxPlatformModel'.name]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_ClearLinux\" [.'$ClearLinuxPlatformModel'.name]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$ClearLinuxPlatformModel'.name]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -485,7 +485,7 @@ function json_model_8(val, path, rep)
                     res = ((typeof arr_6_item === 'string' || arr_6_item instanceof String)) && arr_6_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? lpath_6 : null) ? arr_6_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$ClearLinuxPlatformModel'.versions.0]", ((path ? lpath_6 : null) ? arr_6_lpath : null)])
                         break;
                     }
                 }
@@ -525,7 +525,7 @@ function json_model_9(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Cumulus";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Cumulus [.'$CumulusPlatformModel'.name]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Cumulus\" [.'$CumulusPlatformModel'.name]", (path ? lpath_7 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$CumulusPlatformModel'.name]", (path ? lpath_7 : null)])
                 return false;
             }
@@ -586,7 +586,7 @@ function json_model_10(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Debian";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Debian [.'$DebianPlatformModel'.name]", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Debian\" [.'$DebianPlatformModel'.name]", (path ? lpath_8 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$DebianPlatformModel'.name]", (path ? lpath_8 : null)])
                 return false;
             }
@@ -647,7 +647,7 @@ function json_model_11(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DellOS";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _DellOS [.'$DellOSPlatformModel'.name]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_DellOS\" [.'$DellOSPlatformModel'.name]", (path ? lpath_9 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$DellOSPlatformModel'.name]", (path ? lpath_9 : null)])
                 return false;
             }
@@ -708,7 +708,7 @@ function json_model_12(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Devuan";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Devuan [.'$DevuanPlatformModel'.name]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Devuan\" [.'$DevuanPlatformModel'.name]", (path ? lpath_10 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$DevuanPlatformModel'.name]", (path ? lpath_10 : null)])
                 return false;
             }
@@ -769,7 +769,7 @@ function json_model_13(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DragonFlyBSD";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _DragonFlyBSD [.'$DragonFlyBSDPlatformModel'.name]", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_DragonFlyBSD\" [.'$DragonFlyBSDPlatformModel'.name]", (path ? lpath_11 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$DragonFlyBSDPlatformModel'.name]", (path ? lpath_11 : null)])
                 return false;
             }
@@ -830,7 +830,7 @@ function json_model_14(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "EL";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _EL [.'$ELPlatformModel'.name]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_EL\" [.'$ELPlatformModel'.name]", (path ? lpath_12 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$ELPlatformModel'.name]", (path ? lpath_12 : null)])
                 return false;
             }
@@ -891,7 +891,7 @@ function json_model_15(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Fedora";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Fedora [.'$FedoraPlatformModel'.name]", (path ? lpath_13 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Fedora\" [.'$FedoraPlatformModel'.name]", (path ? lpath_13 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$FedoraPlatformModel'.name]", (path ? lpath_13 : null)])
                 return false;
             }
@@ -952,7 +952,7 @@ function json_model_16(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FreeBSD";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _FreeBSD [.'$FreeBSDPlatformModel'.name]", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_FreeBSD\" [.'$FreeBSDPlatformModel'.name]", (path ? lpath_14 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$FreeBSDPlatformModel'.name]", (path ? lpath_14 : null)])
                 return false;
             }
@@ -1012,7 +1012,7 @@ function json_model_17(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericBSD";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _GenericBSD [.'$GenericBSDPlatformModel'.name]", (path ? lpath_15 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_GenericBSD\" [.'$GenericBSDPlatformModel'.name]", (path ? lpath_15 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericBSDPlatformModel'.name]", (path ? lpath_15 : null)])
                 return false;
             }
@@ -1033,7 +1033,7 @@ function json_model_17(val, path, rep)
                     res = ((typeof arr_15_item === 'string' || arr_15_item instanceof String)) && arr_15_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$GenericBSDPlatformModel'.versions.0]", ((path ? lpath_15 : null) ? arr_15_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$GenericBSDPlatformModel'.versions.0]", ((path ? lpath_15 : null) ? arr_15_lpath : null)])
                         break;
                     }
                 }
@@ -1072,7 +1072,7 @@ function json_model_18(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericLinux";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _GenericLinux [.'$GenericLinuxPlatformModel'.name]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_GenericLinux\" [.'$GenericLinuxPlatformModel'.name]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericLinuxPlatformModel'.name]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -1093,7 +1093,7 @@ function json_model_18(val, path, rep)
                     res = ((typeof arr_16_item === 'string' || arr_16_item instanceof String)) && arr_16_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? lpath_16 : null) ? arr_16_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$GenericLinuxPlatformModel'.versions.0]", ((path ? lpath_16 : null) ? arr_16_lpath : null)])
                         break;
                     }
                 }
@@ -1132,7 +1132,7 @@ function json_model_19(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericUNIX";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _GenericUNIX [.'$GenericUNIXPlatformModel'.name]", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_GenericUNIX\" [.'$GenericUNIXPlatformModel'.name]", (path ? lpath_17 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GenericUNIXPlatformModel'.name]", (path ? lpath_17 : null)])
                 return false;
             }
@@ -1153,7 +1153,7 @@ function json_model_19(val, path, rep)
                     res = ((typeof arr_17_item === 'string' || arr_17_item instanceof String)) && arr_17_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? lpath_17 : null) ? arr_17_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$GenericUNIXPlatformModel'.versions.0]", ((path ? lpath_17 : null) ? arr_17_lpath : null)])
                         break;
                     }
                 }
@@ -1192,7 +1192,7 @@ function json_model_20(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Gentoo";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Gentoo [.'$GentooPlatformModel'.name]", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Gentoo\" [.'$GentooPlatformModel'.name]", (path ? lpath_18 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GentooPlatformModel'.name]", (path ? lpath_18 : null)])
                 return false;
             }
@@ -1213,7 +1213,7 @@ function json_model_20(val, path, rep)
                     res = ((typeof arr_18_item === 'string' || arr_18_item instanceof String)) && arr_18_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$GentooPlatformModel'.versions.0]", ((path ? lpath_18 : null) ? arr_18_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$GentooPlatformModel'.versions.0]", ((path ? lpath_18 : null) ? arr_18_lpath : null)])
                         break;
                     }
                 }
@@ -1253,7 +1253,7 @@ function json_model_21(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "HardenedBSD";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _HardenedBSD [.'$HardenedBSDPlatformModel'.name]", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_HardenedBSD\" [.'$HardenedBSDPlatformModel'.name]", (path ? lpath_19 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$HardenedBSDPlatformModel'.name]", (path ? lpath_19 : null)])
                 return false;
             }
@@ -1313,7 +1313,7 @@ function json_model_22(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "IOS";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _IOS [.'$IOSPlatformModel'.name]", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_IOS\" [.'$IOSPlatformModel'.name]", (path ? lpath_20 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$IOSPlatformModel'.name]", (path ? lpath_20 : null)])
                 return false;
             }
@@ -1334,7 +1334,7 @@ function json_model_22(val, path, rep)
                     res = ((typeof arr_20_item === 'string' || arr_20_item instanceof String)) && arr_20_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$IOSPlatformModel'.versions.0]", ((path ? lpath_20 : null) ? arr_20_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$IOSPlatformModel'.versions.0]", ((path ? lpath_20 : null) ? arr_20_lpath : null)])
                         break;
                     }
                 }
@@ -1373,7 +1373,7 @@ function json_model_23(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Junos";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Junos [.'$JunosPlatformModel'.name]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Junos\" [.'$JunosPlatformModel'.name]", (path ? lpath_21 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$JunosPlatformModel'.name]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -1394,7 +1394,7 @@ function json_model_23(val, path, rep)
                     res = ((typeof arr_21_item === 'string' || arr_21_item instanceof String)) && arr_21_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$JunosPlatformModel'.versions.0]", ((path ? lpath_21 : null) ? arr_21_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$JunosPlatformModel'.versions.0]", ((path ? lpath_21 : null) ? arr_21_lpath : null)])
                         break;
                     }
                 }
@@ -1434,7 +1434,7 @@ function json_model_24(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Kali [.'$KaliPlatformModel'.name]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Kali\" [.'$KaliPlatformModel'.name]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$KaliPlatformModel'.name]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -1495,7 +1495,7 @@ function json_model_25(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Kali [.'$MacOSXPlatformModel'.name]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Kali\" [.'$MacOSXPlatformModel'.name]", (path ? lpath_23 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$MacOSXPlatformModel'.name]", (path ? lpath_23 : null)])
                 return false;
             }
@@ -1556,7 +1556,7 @@ function json_model_26(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Megeia";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Megeia [.'$MageiaPlatformModel'.name]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Megeia\" [.'$MageiaPlatformModel'.name]", (path ? lpath_24 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$MageiaPlatformModel'.name]", (path ? lpath_24 : null)])
                 return false;
             }
@@ -1616,7 +1616,7 @@ function json_model_27(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NXOS";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _NXOS [.'$NXOSPlatformModel'.name]", (path ? lpath_25 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_NXOS\" [.'$NXOSPlatformModel'.name]", (path ? lpath_25 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$NXOSPlatformModel'.name]", (path ? lpath_25 : null)])
                 return false;
             }
@@ -1637,7 +1637,7 @@ function json_model_27(val, path, rep)
                     res = ((typeof arr_25_item === 'string' || arr_25_item instanceof String)) && arr_25_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$NXOSPlatformModel'.versions.0]", ((path ? lpath_25 : null) ? arr_25_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$NXOSPlatformModel'.versions.0]", ((path ? lpath_25 : null) ? arr_25_lpath : null)])
                         break;
                     }
                 }
@@ -1677,7 +1677,7 @@ function json_model_28(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NetBSD";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _NetBSD [.'$NetBSDPlatformModel'.name]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_NetBSD\" [.'$NetBSDPlatformModel'.name]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$NetBSDPlatformModel'.name]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -1738,7 +1738,7 @@ function json_model_29(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenBSD";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _OpenBSD [.'$OpenBSDPlatformModel'.name]", (path ? lpath_27 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_OpenBSD\" [.'$OpenBSDPlatformModel'.name]", (path ? lpath_27 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$OpenBSDPlatformModel'.name]", (path ? lpath_27 : null)])
                 return false;
             }
@@ -1799,7 +1799,7 @@ function json_model_30(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenWrt";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _OpenWrt [.'$OpenWrtPlatformModel'.name]", (path ? lpath_28 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_OpenWrt\" [.'$OpenWrtPlatformModel'.name]", (path ? lpath_28 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$OpenWrtPlatformModel'.name]", (path ? lpath_28 : null)])
                 return false;
             }
@@ -1860,7 +1860,7 @@ function json_model_31(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OracleLinux";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _OracleLinux [.'$OracleLinuxPlatformModel'.name]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_OracleLinux\" [.'$OracleLinuxPlatformModel'.name]", (path ? lpath_29 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$OracleLinuxPlatformModel'.name]", (path ? lpath_29 : null)])
                 return false;
             }
@@ -1921,7 +1921,7 @@ function json_model_32(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "PAN-OS";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _PAN-OS [.'$PAN-OSPlatformModel'.name]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_PAN-OS\" [.'$PAN-OSPlatformModel'.name]", (path ? lpath_30 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$PAN-OSPlatformModel'.name]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -1982,7 +1982,7 @@ function json_model_33(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Rocky";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Rocky [.'$RockyLinuxPlatformModel'.name]", (path ? lpath_31 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Rocky\" [.'$RockyLinuxPlatformModel'.name]", (path ? lpath_31 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$RockyLinuxPlatformModel'.name]", (path ? lpath_31 : null)])
                 return false;
             }
@@ -2043,7 +2043,7 @@ function json_model_34(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SLES";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _SLES [.'$SLESPlatformModel'.name]", (path ? lpath_32 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_SLES\" [.'$SLESPlatformModel'.name]", (path ? lpath_32 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$SLESPlatformModel'.name]", (path ? lpath_32 : null)])
                 return false;
             }
@@ -2103,7 +2103,7 @@ function json_model_35(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SmartOS";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _SmartOS [.'$SmartOSPlatformModel'.name]", (path ? lpath_33 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_SmartOS\" [.'$SmartOSPlatformModel'.name]", (path ? lpath_33 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$SmartOSPlatformModel'.name]", (path ? lpath_33 : null)])
                 return false;
             }
@@ -2124,7 +2124,7 @@ function json_model_35(val, path, rep)
                     res = ((typeof arr_33_item === 'string' || arr_33_item instanceof String)) && arr_33_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$SmartOSPlatformModel'.versions.0]", ((path ? lpath_33 : null) ? arr_33_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$SmartOSPlatformModel'.versions.0]", ((path ? lpath_33 : null) ? arr_33_lpath : null)])
                         break;
                     }
                 }
@@ -2164,7 +2164,7 @@ function json_model_36(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Solaris";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Solaris [.'$SolarisPlatformModel'.name]", (path ? lpath_34 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Solaris\" [.'$SolarisPlatformModel'.name]", (path ? lpath_34 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$SolarisPlatformModel'.name]", (path ? lpath_34 : null)])
                 return false;
             }
@@ -2225,7 +2225,7 @@ function json_model_37(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Synology";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Synology [.'$SynologyPlatformModel'.name]", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Synology\" [.'$SynologyPlatformModel'.name]", (path ? lpath_35 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$SynologyPlatformModel'.name]", (path ? lpath_35 : null)])
                 return false;
             }
@@ -2286,7 +2286,7 @@ function json_model_38(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "TMOS";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _TMOS [.'$TMOSPlatformModel'.name]", (path ? lpath_36 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_TMOS\" [.'$TMOSPlatformModel'.name]", (path ? lpath_36 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$TMOSPlatformModel'.name]", (path ? lpath_36 : null)])
                 return false;
             }
@@ -2347,7 +2347,7 @@ function json_model_39(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Ubuntu";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Ubuntu [.'$UbuntuPlatformModel'.name]", (path ? lpath_37 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Ubuntu\" [.'$UbuntuPlatformModel'.name]", (path ? lpath_37 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$UbuntuPlatformModel'.name]", (path ? lpath_37 : null)])
                 return false;
             }
@@ -2407,7 +2407,7 @@ function json_model_40(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Void Linux";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Void Linux [.'$Void_LinuxPlatformModel'.name]", (path ? lpath_38 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Void Linux\" [.'$Void_LinuxPlatformModel'.name]", (path ? lpath_38 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Void_LinuxPlatformModel'.name]", (path ? lpath_38 : null)])
                 return false;
             }
@@ -2428,7 +2428,7 @@ function json_model_40(val, path, rep)
                     res = ((typeof arr_38_item === 'string' || arr_38_item instanceof String)) && arr_38_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? lpath_38 : null) ? arr_38_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$Void_LinuxPlatformModel'.versions.0]", ((path ? lpath_38 : null) ? arr_38_lpath : null)])
                         break;
                     }
                 }
@@ -2468,7 +2468,7 @@ function json_model_41(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Windows";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _Windows [.'$WindowsPlatformModel'.name]", (path ? lpath_39 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_Windows\" [.'$WindowsPlatformModel'.name]", (path ? lpath_39 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$WindowsPlatformModel'.name]", (path ? lpath_39 : null)])
                 return false;
             }
@@ -2528,7 +2528,7 @@ function json_model_42(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "aos";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _aos [.'$aosPlatformModel'.name]", (path ? lpath_40 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_aos\" [.'$aosPlatformModel'.name]", (path ? lpath_40 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$aosPlatformModel'.name]", (path ? lpath_40 : null)])
                 return false;
             }
@@ -2549,7 +2549,7 @@ function json_model_42(val, path, rep)
                     res = ((typeof arr_40_item === 'string' || arr_40_item instanceof String)) && arr_40_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$aosPlatformModel'.versions.0]", ((path ? lpath_40 : null) ? arr_40_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$aosPlatformModel'.versions.0]", ((path ? lpath_40 : null) ? arr_40_lpath : null)])
                         break;
                     }
                 }
@@ -2588,7 +2588,7 @@ function json_model_43(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "eos";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _eos [.'$eosPlatformModel'.name]", (path ? lpath_41 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_eos\" [.'$eosPlatformModel'.name]", (path ? lpath_41 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$eosPlatformModel'.name]", (path ? lpath_41 : null)])
                 return false;
             }
@@ -2609,7 +2609,7 @@ function json_model_43(val, path, rep)
                     res = ((typeof arr_41_item === 'string' || arr_41_item instanceof String)) && arr_41_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$eosPlatformModel'.versions.0]", ((path ? lpath_41 : null) ? arr_41_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$eosPlatformModel'.versions.0]", ((path ? lpath_41 : null) ? arr_41_lpath : null)])
                         break;
                     }
                 }
@@ -2649,7 +2649,7 @@ function json_model_44(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "macOS";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _macOS [.'$macOSPlatformModel'.name]", (path ? lpath_42 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_macOS\" [.'$macOSPlatformModel'.name]", (path ? lpath_42 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$macOSPlatformModel'.name]", (path ? lpath_42 : null)])
                 return false;
             }
@@ -2710,7 +2710,7 @@ function json_model_45(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "opensuse";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _opensuse [.'$opensusePlatformModel'.name]", (path ? lpath_43 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_opensuse\" [.'$opensusePlatformModel'.name]", (path ? lpath_43 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$opensusePlatformModel'.name]", (path ? lpath_43 : null)])
                 return false;
             }
@@ -2770,7 +2770,7 @@ function json_model_46(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "os10";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _os10 [.'$os10PlatformModel'.name]", (path ? lpath_44 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_os10\" [.'$os10PlatformModel'.name]", (path ? lpath_44 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$os10PlatformModel'.name]", (path ? lpath_44 : null)])
                 return false;
             }
@@ -2791,7 +2791,7 @@ function json_model_46(val, path, rep)
                     res = ((typeof arr_44_item === 'string' || arr_44_item instanceof String)) && arr_44_item == "all";
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected _all [.'$os10PlatformModel'.versions.0]", ((path ? lpath_44 : null) ? arr_44_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"_all\" [.'$os10PlatformModel'.versions.0]", ((path ? lpath_44 : null) ? arr_44_lpath : null)])
                         break;
                     }
                 }
@@ -2831,7 +2831,7 @@ function json_model_47(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vCenter";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _vCenter [.'$vCenterPlatformModel'.name]", (path ? lpath_45 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_vCenter\" [.'$vCenterPlatformModel'.name]", (path ? lpath_45 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$vCenterPlatformModel'.name]", (path ? lpath_45 : null)])
                 return false;
             }
@@ -2892,7 +2892,7 @@ function json_model_48(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vSphere";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _vSphere [.'$vSpherePlatformModel'.name]", (path ? lpath_46 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_vSphere\" [.'$vSpherePlatformModel'.name]", (path ? lpath_46 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$vSpherePlatformModel'.name]", (path ? lpath_46 : null)])
                 return false;
             }
@@ -2941,237 +2941,237 @@ function json_model_49(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$AIXPlatformModel\" [.'$any_platform'.'|'.0]", path])
         // .'$any_platform'.'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$AlpinePlatformModel\" [.'$any_platform'.'|'.1]", path])
             // .'$any_platform'.'|'.2
             res = json_model_5(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path])
+                rep !== null && rep.push(["unexpected value for model \"$AmazonPlatformModel\" [.'$any_platform'.'|'.2]", path])
                 // .'$any_platform'.'|'.3
                 res = json_model_4(val, path, rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path])
+                    rep !== null && rep.push(["unexpected value for model \"$AmazonLinuxPlatformModel\" [.'$any_platform'.'|'.3]", path])
                     // .'$any_platform'.'|'.4
                     res = json_model_42(val, path, rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path])
+                        rep !== null && rep.push(["unexpected value for model \"$aosPlatformModel\" [.'$any_platform'.'|'.4]", path])
                         // .'$any_platform'.'|'.5
                         res = json_model_6(val, path, rep);
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path])
+                            rep !== null && rep.push(["unexpected value for model \"$ArchLinuxPlatformModel\" [.'$any_platform'.'|'.5]", path])
                             // .'$any_platform'.'|'.6
                             res = json_model_7(val, path, rep);
                             if (! res)
                             {
-                                rep !== null && rep.push(["unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path])
+                                rep !== null && rep.push(["unexpected value for model \"$AstraLinuxPlatformModel\" [.'$any_platform'.'|'.6]", path])
                                 // .'$any_platform'.'|'.7
                                 res = json_model_8(val, path, rep);
                                 if (! res)
                                 {
-                                    rep !== null && rep.push(["unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path])
+                                    rep !== null && rep.push(["unexpected value for model \"$ClearLinuxPlatformModel\" [.'$any_platform'.'|'.7]", path])
                                     // .'$any_platform'.'|'.8
                                     res = json_model_9(val, path, rep);
                                     if (! res)
                                     {
-                                        rep !== null && rep.push(["unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path])
+                                        rep !== null && rep.push(["unexpected value for model \"$CumulusPlatformModel\" [.'$any_platform'.'|'.8]", path])
                                         // .'$any_platform'.'|'.9
                                         res = json_model_28(val, path, rep);
                                         if (! res)
                                         {
-                                            rep !== null && rep.push(["unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path])
+                                            rep !== null && rep.push(["unexpected value for model \"$NetBSDPlatformModel\" [.'$any_platform'.'|'.9]", path])
                                             // .'$any_platform'.'|'.10
                                             res = json_model_10(val, path, rep);
                                             if (! res)
                                             {
-                                                rep !== null && rep.push(["unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path])
+                                                rep !== null && rep.push(["unexpected value for model \"$DebianPlatformModel\" [.'$any_platform'.'|'.10]", path])
                                                 // .'$any_platform'.'|'.11
                                                 res = json_model_11(val, path, rep);
                                                 if (! res)
                                                 {
-                                                    rep !== null && rep.push(["unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path])
+                                                    rep !== null && rep.push(["unexpected value for model \"$DellOSPlatformModel\" [.'$any_platform'.'|'.11]", path])
                                                     // .'$any_platform'.'|'.12
                                                     res = json_model_12(val, path, rep);
                                                     if (! res)
                                                     {
-                                                        rep !== null && rep.push(["unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path])
+                                                        rep !== null && rep.push(["unexpected value for model \"$DevuanPlatformModel\" [.'$any_platform'.'|'.12]", path])
                                                         // .'$any_platform'.'|'.13
                                                         res = json_model_13(val, path, rep);
                                                         if (! res)
                                                         {
-                                                            rep !== null && rep.push(["unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path])
+                                                            rep !== null && rep.push(["unexpected value for model \"$DragonFlyBSDPlatformModel\" [.'$any_platform'.'|'.13]", path])
                                                             // .'$any_platform'.'|'.14
                                                             res = json_model_14(val, path, rep);
                                                             if (! res)
                                                             {
-                                                                rep !== null && rep.push(["unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path])
+                                                                rep !== null && rep.push(["unexpected value for model \"$ELPlatformModel\" [.'$any_platform'.'|'.14]", path])
                                                                 // .'$any_platform'.'|'.15
                                                                 res = json_model_43(val, path, rep);
                                                                 if (! res)
                                                                 {
-                                                                    rep !== null && rep.push(["unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path])
+                                                                    rep !== null && rep.push(["unexpected value for model \"$eosPlatformModel\" [.'$any_platform'.'|'.15]", path])
                                                                     // .'$any_platform'.'|'.16
                                                                     res = json_model_15(val, path, rep);
                                                                     if (! res)
                                                                     {
-                                                                        rep !== null && rep.push(["unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path])
+                                                                        rep !== null && rep.push(["unexpected value for model \"$FedoraPlatformModel\" [.'$any_platform'.'|'.16]", path])
                                                                         // .'$any_platform'.'|'.17
                                                                         res = json_model_16(val, path, rep);
                                                                         if (! res)
                                                                         {
-                                                                            rep !== null && rep.push(["unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path])
+                                                                            rep !== null && rep.push(["unexpected value for model \"$FreeBSDPlatformModel\" [.'$any_platform'.'|'.17]", path])
                                                                             // .'$any_platform'.'|'.18
                                                                             res = json_model_17(val, path, rep);
                                                                             if (! res)
                                                                             {
-                                                                                rep !== null && rep.push(["unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path])
+                                                                                rep !== null && rep.push(["unexpected value for model \"$GenericBSDPlatformModel\" [.'$any_platform'.'|'.18]", path])
                                                                                 // .'$any_platform'.'|'.19
                                                                                 res = json_model_18(val, path, rep);
                                                                                 if (! res)
                                                                                 {
-                                                                                    rep !== null && rep.push(["unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path])
+                                                                                    rep !== null && rep.push(["unexpected value for model \"$GenericLinuxPlatformModel\" [.'$any_platform'.'|'.19]", path])
                                                                                     // .'$any_platform'.'|'.20
                                                                                     res = json_model_19(val, path, rep);
                                                                                     if (! res)
                                                                                     {
-                                                                                        rep !== null && rep.push(["unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path])
+                                                                                        rep !== null && rep.push(["unexpected value for model \"$GenericUNIXPlatformModel\" [.'$any_platform'.'|'.20]", path])
                                                                                         // .'$any_platform'.'|'.21
                                                                                         res = json_model_20(val, path, rep);
                                                                                         if (! res)
                                                                                         {
-                                                                                            rep !== null && rep.push(["unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path])
+                                                                                            rep !== null && rep.push(["unexpected value for model \"$GentooPlatformModel\" [.'$any_platform'.'|'.21]", path])
                                                                                             // .'$any_platform'.'|'.22
                                                                                             res = json_model_21(val, path, rep);
                                                                                             if (! res)
                                                                                             {
-                                                                                                rep !== null && rep.push(["unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path])
+                                                                                                rep !== null && rep.push(["unexpected value for model \"$HardenedBSDPlatformModel\" [.'$any_platform'.'|'.22]", path])
                                                                                                 // .'$any_platform'.'|'.23
                                                                                                 res = json_model_22(val, path, rep);
                                                                                                 if (! res)
                                                                                                 {
-                                                                                                    rep !== null && rep.push(["unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path])
+                                                                                                    rep !== null && rep.push(["unexpected value for model \"$IOSPlatformModel\" [.'$any_platform'.'|'.23]", path])
                                                                                                     // .'$any_platform'.'|'.24
                                                                                                     res = json_model_23(val, path, rep);
                                                                                                     if (! res)
                                                                                                     {
-                                                                                                        rep !== null && rep.push(["unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path])
+                                                                                                        rep !== null && rep.push(["unexpected value for model \"$JunosPlatformModel\" [.'$any_platform'.'|'.24]", path])
                                                                                                         // .'$any_platform'.'|'.25
                                                                                                         res = json_model_24(val, path, rep);
                                                                                                         if (! res)
                                                                                                         {
-                                                                                                            rep !== null && rep.push(["unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path])
+                                                                                                            rep !== null && rep.push(["unexpected value for model \"$KaliPlatformModel\" [.'$any_platform'.'|'.25]", path])
                                                                                                             // .'$any_platform'.'|'.26
                                                                                                             res = json_model_44(val, path, rep);
                                                                                                             if (! res)
                                                                                                             {
-                                                                                                                rep !== null && rep.push(["unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path])
+                                                                                                                rep !== null && rep.push(["unexpected value for model \"$macOSPlatformModel\" [.'$any_platform'.'|'.26]", path])
                                                                                                                 // .'$any_platform'.'|'.27
                                                                                                                 res = json_model_25(val, path, rep);
                                                                                                                 if (! res)
                                                                                                                 {
-                                                                                                                    rep !== null && rep.push(["unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path])
+                                                                                                                    rep !== null && rep.push(["unexpected value for model \"$MacOSXPlatformModel\" [.'$any_platform'.'|'.27]", path])
                                                                                                                     // .'$any_platform'.'|'.28
                                                                                                                     res = json_model_26(val, path, rep);
                                                                                                                     if (! res)
                                                                                                                     {
-                                                                                                                        rep !== null && rep.push(["unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path])
+                                                                                                                        rep !== null && rep.push(["unexpected value for model \"$MageiaPlatformModel\" [.'$any_platform'.'|'.28]", path])
                                                                                                                         // .'$any_platform'.'|'.29
                                                                                                                         res = json_model_27(val, path, rep);
                                                                                                                         if (! res)
                                                                                                                         {
-                                                                                                                            rep !== null && rep.push(["unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path])
+                                                                                                                            rep !== null && rep.push(["unexpected value for model \"$NXOSPlatformModel\" [.'$any_platform'.'|'.29]", path])
                                                                                                                             // .'$any_platform'.'|'.30
                                                                                                                             res = json_model_29(val, path, rep);
                                                                                                                             if (! res)
                                                                                                                             {
-                                                                                                                                rep !== null && rep.push(["unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path])
+                                                                                                                                rep !== null && rep.push(["unexpected value for model \"$OpenBSDPlatformModel\" [.'$any_platform'.'|'.30]", path])
                                                                                                                                 // .'$any_platform'.'|'.31
                                                                                                                                 res = json_model_45(val, path, rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
-                                                                                                                                    rep !== null && rep.push(["unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path])
+                                                                                                                                    rep !== null && rep.push(["unexpected value for model \"$opensusePlatformModel\" [.'$any_platform'.'|'.31]", path])
                                                                                                                                     // .'$any_platform'.'|'.32
                                                                                                                                     res = json_model_30(val, path, rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
-                                                                                                                                        rep !== null && rep.push(["unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path])
+                                                                                                                                        rep !== null && rep.push(["unexpected value for model \"$OpenWrtPlatformModel\" [.'$any_platform'.'|'.32]", path])
                                                                                                                                         // .'$any_platform'.'|'.33
                                                                                                                                         res = json_model_31(val, path, rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
-                                                                                                                                            rep !== null && rep.push(["unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path])
+                                                                                                                                            rep !== null && rep.push(["unexpected value for model \"$OracleLinuxPlatformModel\" [.'$any_platform'.'|'.33]", path])
                                                                                                                                             // .'$any_platform'.'|'.34
                                                                                                                                             res = json_model_46(val, path, rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
-                                                                                                                                                rep !== null && rep.push(["unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path])
+                                                                                                                                                rep !== null && rep.push(["unexpected value for model \"$os10PlatformModel\" [.'$any_platform'.'|'.34]", path])
                                                                                                                                                 // .'$any_platform'.'|'.35
                                                                                                                                                 res = json_model_32(val, path, rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
-                                                                                                                                                    rep !== null && rep.push(["unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path])
+                                                                                                                                                    rep !== null && rep.push(["unexpected value for model \"$PAN-OSPlatformModel\" [.'$any_platform'.'|'.35]", path])
                                                                                                                                                     // .'$any_platform'.'|'.36
                                                                                                                                                     res = json_model_33(val, path, rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
-                                                                                                                                                        rep !== null && rep.push(["unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path])
+                                                                                                                                                        rep !== null && rep.push(["unexpected value for model \"$RockyLinuxPlatformModel\" [.'$any_platform'.'|'.36]", path])
                                                                                                                                                         // .'$any_platform'.'|'.37
                                                                                                                                                         res = json_model_34(val, path, rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
-                                                                                                                                                            rep !== null && rep.push(["unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path])
+                                                                                                                                                            rep !== null && rep.push(["unexpected value for model \"$SLESPlatformModel\" [.'$any_platform'.'|'.37]", path])
                                                                                                                                                             // .'$any_platform'.'|'.38
                                                                                                                                                             res = json_model_35(val, path, rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
-                                                                                                                                                                rep !== null && rep.push(["unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path])
+                                                                                                                                                                rep !== null && rep.push(["unexpected value for model \"$SmartOSPlatformModel\" [.'$any_platform'.'|'.38]", path])
                                                                                                                                                                 // .'$any_platform'.'|'.39
                                                                                                                                                                 res = json_model_36(val, path, rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
-                                                                                                                                                                    rep !== null && rep.push(["unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path])
+                                                                                                                                                                    rep !== null && rep.push(["unexpected value for model \"$SolarisPlatformModel\" [.'$any_platform'.'|'.39]", path])
                                                                                                                                                                     // .'$any_platform'.'|'.40
                                                                                                                                                                     res = json_model_37(val, path, rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
-                                                                                                                                                                        rep !== null && rep.push(["unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path])
+                                                                                                                                                                        rep !== null && rep.push(["unexpected value for model \"$SynologyPlatformModel\" [.'$any_platform'.'|'.40]", path])
                                                                                                                                                                         // .'$any_platform'.'|'.41
                                                                                                                                                                         res = json_model_38(val, path, rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
-                                                                                                                                                                            rep !== null && rep.push(["unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path])
+                                                                                                                                                                            rep !== null && rep.push(["unexpected value for model \"$TMOSPlatformModel\" [.'$any_platform'.'|'.41]", path])
                                                                                                                                                                             // .'$any_platform'.'|'.42
                                                                                                                                                                             res = json_model_39(val, path, rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
-                                                                                                                                                                                rep !== null && rep.push(["unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path])
+                                                                                                                                                                                rep !== null && rep.push(["unexpected value for model \"$UbuntuPlatformModel\" [.'$any_platform'.'|'.42]", path])
                                                                                                                                                                                 // .'$any_platform'.'|'.43
                                                                                                                                                                                 res = json_model_47(val, path, rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
-                                                                                                                                                                                    rep !== null && rep.push(["unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path])
+                                                                                                                                                                                    rep !== null && rep.push(["unexpected value for model \"$vCenterPlatformModel\" [.'$any_platform'.'|'.43]", path])
                                                                                                                                                                                     // .'$any_platform'.'|'.44
                                                                                                                                                                                     res = json_model_40(val, path, rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
-                                                                                                                                                                                        rep !== null && rep.push(["unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path])
+                                                                                                                                                                                        rep !== null && rep.push(["unexpected value for model \"$Void_LinuxPlatformModel\" [.'$any_platform'.'|'.44]", path])
                                                                                                                                                                                         // .'$any_platform'.'|'.45
                                                                                                                                                                                         res = json_model_48(val, path, rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
-                                                                                                                                                                                            rep !== null && rep.push(["unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path])
+                                                                                                                                                                                            rep !== null && rep.push(["unexpected value for model \"$vSpherePlatformModel\" [.'$any_platform'.'|'.45]", path])
                                                                                                                                                                                             // .'$any_platform'.'|'.46
                                                                                                                                                                                             res = json_model_41(val, path, rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
-                                                                                                                                                                                                rep !== null && rep.push(["unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path])
+                                                                                                                                                                                                rep !== null && rep.push(["unexpected value for model \"$WindowsPlatformModel\" [.'$any_platform'.'|'.46]", path])
                                                                                                                                                                                             }
                                                                                                                                                                                         }
                                                                                                                                                                                     }
@@ -3251,7 +3251,7 @@ function _jm_obj_0(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Windows";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Windows [.'$platforms'.0.'|'.46.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Windows\" [.'$platforms'.0.'|'.46.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", (path ? lpath : null)])
             return false;
         }
@@ -3308,7 +3308,7 @@ function _jm_obj_1(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vSphere";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _vSphere [.'$platforms'.0.'|'.45.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_vSphere\" [.'$platforms'.0.'|'.45.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", (path ? lpath : null)])
             return false;
         }
@@ -3364,7 +3364,7 @@ function _jm_obj_2(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Void Linux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Void Linux\" [.'$platforms'.0.'|'.44.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", (path ? lpath : null)])
             return false;
         }
@@ -3385,7 +3385,7 @@ function _jm_obj_2(val, path, rep)
                 res = ((typeof arr_50_item === 'string' || arr_50_item instanceof String)) && arr_50_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.44.versions.0]", ((path ? lpath : null) ? arr_50_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.44.versions.0]", ((path ? lpath : null) ? arr_50_lpath : null)])
                     break;
                 }
             }
@@ -3421,7 +3421,7 @@ function _jm_obj_3(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "vCenter";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _vCenter [.'$platforms'.0.'|'.43.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_vCenter\" [.'$platforms'.0.'|'.43.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", (path ? lpath : null)])
             return false;
         }
@@ -3478,7 +3478,7 @@ function _jm_obj_4(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Ubuntu";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Ubuntu\" [.'$platforms'.0.'|'.42.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", (path ? lpath : null)])
             return false;
         }
@@ -3535,7 +3535,7 @@ function _jm_obj_5(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "TMOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _TMOS [.'$platforms'.0.'|'.41.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_TMOS\" [.'$platforms'.0.'|'.41.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", (path ? lpath : null)])
             return false;
         }
@@ -3592,7 +3592,7 @@ function _jm_obj_6(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Synology";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Synology [.'$platforms'.0.'|'.40.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Synology\" [.'$platforms'.0.'|'.40.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", (path ? lpath : null)])
             return false;
         }
@@ -3649,7 +3649,7 @@ function _jm_obj_7(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Solaris";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Solaris [.'$platforms'.0.'|'.39.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Solaris\" [.'$platforms'.0.'|'.39.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", (path ? lpath : null)])
             return false;
         }
@@ -3705,7 +3705,7 @@ function _jm_obj_8(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SmartOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_SmartOS\" [.'$platforms'.0.'|'.38.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", (path ? lpath : null)])
             return false;
         }
@@ -3726,7 +3726,7 @@ function _jm_obj_8(val, path, rep)
                 res = ((typeof arr_56_item === 'string' || arr_56_item instanceof String)) && arr_56_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.38.versions.0]", ((path ? lpath : null) ? arr_56_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.38.versions.0]", ((path ? lpath : null) ? arr_56_lpath : null)])
                     break;
                 }
             }
@@ -3762,7 +3762,7 @@ function _jm_obj_9(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "SLES";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _SLES [.'$platforms'.0.'|'.37.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_SLES\" [.'$platforms'.0.'|'.37.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", (path ? lpath : null)])
             return false;
         }
@@ -3819,7 +3819,7 @@ function _jm_obj_10(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Rocky";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Rocky [.'$platforms'.0.'|'.36.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Rocky\" [.'$platforms'.0.'|'.36.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", (path ? lpath : null)])
             return false;
         }
@@ -3876,7 +3876,7 @@ function _jm_obj_11(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "PAN-OS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_PAN-OS\" [.'$platforms'.0.'|'.35.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", (path ? lpath : null)])
             return false;
         }
@@ -3932,7 +3932,7 @@ function _jm_obj_12(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "os10";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _os10 [.'$platforms'.0.'|'.34.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_os10\" [.'$platforms'.0.'|'.34.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", (path ? lpath : null)])
             return false;
         }
@@ -3953,7 +3953,7 @@ function _jm_obj_12(val, path, rep)
                 res = ((typeof arr_60_item === 'string' || arr_60_item instanceof String)) && arr_60_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.34.versions.0]", ((path ? lpath : null) ? arr_60_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.34.versions.0]", ((path ? lpath : null) ? arr_60_lpath : null)])
                     break;
                 }
             }
@@ -3989,7 +3989,7 @@ function _jm_obj_13(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OracleLinux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_OracleLinux\" [.'$platforms'.0.'|'.33.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", (path ? lpath : null)])
             return false;
         }
@@ -4046,7 +4046,7 @@ function _jm_obj_14(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenWrt";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_OpenWrt\" [.'$platforms'.0.'|'.32.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", (path ? lpath : null)])
             return false;
         }
@@ -4103,7 +4103,7 @@ function _jm_obj_15(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "opensuse";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _opensuse [.'$platforms'.0.'|'.31.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_opensuse\" [.'$platforms'.0.'|'.31.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", (path ? lpath : null)])
             return false;
         }
@@ -4160,7 +4160,7 @@ function _jm_obj_16(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "OpenBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_OpenBSD\" [.'$platforms'.0.'|'.30.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", (path ? lpath : null)])
             return false;
         }
@@ -4216,7 +4216,7 @@ function _jm_obj_17(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NXOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _NXOS [.'$platforms'.0.'|'.29.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_NXOS\" [.'$platforms'.0.'|'.29.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", (path ? lpath : null)])
             return false;
         }
@@ -4237,7 +4237,7 @@ function _jm_obj_17(val, path, rep)
                 res = ((typeof arr_65_item === 'string' || arr_65_item instanceof String)) && arr_65_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.29.versions.0]", ((path ? lpath : null) ? arr_65_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.29.versions.0]", ((path ? lpath : null) ? arr_65_lpath : null)])
                     break;
                 }
             }
@@ -4273,7 +4273,7 @@ function _jm_obj_18(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Megeia";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Megeia [.'$platforms'.0.'|'.28.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Megeia\" [.'$platforms'.0.'|'.28.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", (path ? lpath : null)])
             return false;
         }
@@ -4330,7 +4330,7 @@ function _jm_obj_19(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Kali [.'$platforms'.0.'|'.27.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Kali\" [.'$platforms'.0.'|'.27.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", (path ? lpath : null)])
             return false;
         }
@@ -4387,7 +4387,7 @@ function _jm_obj_20(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "macOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _macOS [.'$platforms'.0.'|'.26.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_macOS\" [.'$platforms'.0.'|'.26.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", (path ? lpath : null)])
             return false;
         }
@@ -4444,7 +4444,7 @@ function _jm_obj_21(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Kali";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Kali [.'$platforms'.0.'|'.25.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Kali\" [.'$platforms'.0.'|'.25.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", (path ? lpath : null)])
             return false;
         }
@@ -4500,7 +4500,7 @@ function _jm_obj_22(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Junos";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Junos [.'$platforms'.0.'|'.24.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Junos\" [.'$platforms'.0.'|'.24.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", (path ? lpath : null)])
             return false;
         }
@@ -4521,7 +4521,7 @@ function _jm_obj_22(val, path, rep)
                 res = ((typeof arr_70_item === 'string' || arr_70_item instanceof String)) && arr_70_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.24.versions.0]", ((path ? lpath : null) ? arr_70_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.24.versions.0]", ((path ? lpath : null) ? arr_70_lpath : null)])
                     break;
                 }
             }
@@ -4556,7 +4556,7 @@ function _jm_obj_23(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "IOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _IOS [.'$platforms'.0.'|'.23.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_IOS\" [.'$platforms'.0.'|'.23.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", (path ? lpath : null)])
             return false;
         }
@@ -4577,7 +4577,7 @@ function _jm_obj_23(val, path, rep)
                 res = ((typeof arr_71_item === 'string' || arr_71_item instanceof String)) && arr_71_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.23.versions.0]", ((path ? lpath : null) ? arr_71_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.23.versions.0]", ((path ? lpath : null) ? arr_71_lpath : null)])
                     break;
                 }
             }
@@ -4613,7 +4613,7 @@ function _jm_obj_24(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "HardenedBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_HardenedBSD\" [.'$platforms'.0.'|'.22.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", (path ? lpath : null)])
             return false;
         }
@@ -4669,7 +4669,7 @@ function _jm_obj_25(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Gentoo";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Gentoo\" [.'$platforms'.0.'|'.21.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", (path ? lpath : null)])
             return false;
         }
@@ -4690,7 +4690,7 @@ function _jm_obj_25(val, path, rep)
                 res = ((typeof arr_73_item === 'string' || arr_73_item instanceof String)) && arr_73_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.21.versions.0]", ((path ? lpath : null) ? arr_73_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.21.versions.0]", ((path ? lpath : null) ? arr_73_lpath : null)])
                     break;
                 }
             }
@@ -4725,7 +4725,7 @@ function _jm_obj_26(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericUNIX";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_GenericUNIX\" [.'$platforms'.0.'|'.20.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", (path ? lpath : null)])
             return false;
         }
@@ -4746,7 +4746,7 @@ function _jm_obj_26(val, path, rep)
                 res = ((typeof arr_74_item === 'string' || arr_74_item instanceof String)) && arr_74_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.20.versions.0]", ((path ? lpath : null) ? arr_74_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.20.versions.0]", ((path ? lpath : null) ? arr_74_lpath : null)])
                     break;
                 }
             }
@@ -4781,7 +4781,7 @@ function _jm_obj_27(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericLinux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_GenericLinux\" [.'$platforms'.0.'|'.19.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", (path ? lpath : null)])
             return false;
         }
@@ -4802,7 +4802,7 @@ function _jm_obj_27(val, path, rep)
                 res = ((typeof arr_75_item === 'string' || arr_75_item instanceof String)) && arr_75_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.19.versions.0]", ((path ? lpath : null) ? arr_75_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.19.versions.0]", ((path ? lpath : null) ? arr_75_lpath : null)])
                     break;
                 }
             }
@@ -4837,7 +4837,7 @@ function _jm_obj_28(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GenericBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_GenericBSD\" [.'$platforms'.0.'|'.18.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", (path ? lpath : null)])
             return false;
         }
@@ -4858,7 +4858,7 @@ function _jm_obj_28(val, path, rep)
                 res = ((typeof arr_76_item === 'string' || arr_76_item instanceof String)) && arr_76_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.18.versions.0]", ((path ? lpath : null) ? arr_76_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.18.versions.0]", ((path ? lpath : null) ? arr_76_lpath : null)])
                     break;
                 }
             }
@@ -4894,7 +4894,7 @@ function _jm_obj_29(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FreeBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_FreeBSD\" [.'$platforms'.0.'|'.17.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", (path ? lpath : null)])
             return false;
         }
@@ -4951,7 +4951,7 @@ function _jm_obj_30(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Fedora";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Fedora [.'$platforms'.0.'|'.16.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Fedora\" [.'$platforms'.0.'|'.16.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", (path ? lpath : null)])
             return false;
         }
@@ -5007,7 +5007,7 @@ function _jm_obj_31(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "eos";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _eos [.'$platforms'.0.'|'.15.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_eos\" [.'$platforms'.0.'|'.15.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", (path ? lpath : null)])
             return false;
         }
@@ -5028,7 +5028,7 @@ function _jm_obj_31(val, path, rep)
                 res = ((typeof arr_79_item === 'string' || arr_79_item instanceof String)) && arr_79_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.15.versions.0]", ((path ? lpath : null) ? arr_79_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.15.versions.0]", ((path ? lpath : null) ? arr_79_lpath : null)])
                     break;
                 }
             }
@@ -5064,7 +5064,7 @@ function _jm_obj_32(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "EL";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _EL [.'$platforms'.0.'|'.14.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_EL\" [.'$platforms'.0.'|'.14.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", (path ? lpath : null)])
             return false;
         }
@@ -5121,7 +5121,7 @@ function _jm_obj_33(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DragonFlyBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_DragonFlyBSD\" [.'$platforms'.0.'|'.13.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", (path ? lpath : null)])
             return false;
         }
@@ -5178,7 +5178,7 @@ function _jm_obj_34(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Devuan";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Devuan [.'$platforms'.0.'|'.12.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Devuan\" [.'$platforms'.0.'|'.12.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", (path ? lpath : null)])
             return false;
         }
@@ -5235,7 +5235,7 @@ function _jm_obj_35(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "DellOS";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _DellOS [.'$platforms'.0.'|'.11.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_DellOS\" [.'$platforms'.0.'|'.11.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", (path ? lpath : null)])
             return false;
         }
@@ -5292,7 +5292,7 @@ function _jm_obj_36(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Debian";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Debian [.'$platforms'.0.'|'.10.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Debian\" [.'$platforms'.0.'|'.10.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", (path ? lpath : null)])
             return false;
         }
@@ -5349,7 +5349,7 @@ function _jm_obj_37(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "NetBSD";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_NetBSD\" [.'$platforms'.0.'|'.9.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", (path ? lpath : null)])
             return false;
         }
@@ -5406,7 +5406,7 @@ function _jm_obj_38(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Cumulus";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Cumulus\" [.'$platforms'.0.'|'.8.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", (path ? lpath : null)])
             return false;
         }
@@ -5462,7 +5462,7 @@ function _jm_obj_39(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ClearLinux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_ClearLinux\" [.'$platforms'.0.'|'.7.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", (path ? lpath : null)])
             return false;
         }
@@ -5483,7 +5483,7 @@ function _jm_obj_39(val, path, rep)
                 res = ((typeof arr_87_item === 'string' || arr_87_item instanceof String)) && arr_87_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.7.versions.0]", ((path ? lpath : null) ? arr_87_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.7.versions.0]", ((path ? lpath : null) ? arr_87_lpath : null)])
                     break;
                 }
             }
@@ -5519,7 +5519,7 @@ function _jm_obj_40(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Astra Linux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Astra Linux\" [.'$platforms'.0.'|'.6.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", (path ? lpath : null)])
             return false;
         }
@@ -5575,7 +5575,7 @@ function _jm_obj_41(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ArchLinux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_ArchLinux\" [.'$platforms'.0.'|'.5.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", (path ? lpath : null)])
             return false;
         }
@@ -5596,7 +5596,7 @@ function _jm_obj_41(val, path, rep)
                 res = ((typeof arr_89_item === 'string' || arr_89_item instanceof String)) && arr_89_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.5.versions.0]", ((path ? lpath : null) ? arr_89_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.5.versions.0]", ((path ? lpath : null) ? arr_89_lpath : null)])
                     break;
                 }
             }
@@ -5631,7 +5631,7 @@ function _jm_obj_42(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "aos";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _aos [.'$platforms'.0.'|'.4.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_aos\" [.'$platforms'.0.'|'.4.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", (path ? lpath : null)])
             return false;
         }
@@ -5652,7 +5652,7 @@ function _jm_obj_42(val, path, rep)
                 res = ((typeof arr_90_item === 'string' || arr_90_item instanceof String)) && arr_90_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.4.versions.0]", ((path ? lpath : null) ? arr_90_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.4.versions.0]", ((path ? lpath : null) ? arr_90_lpath : null)])
                     break;
                 }
             }
@@ -5688,7 +5688,7 @@ function _jm_obj_43(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon Linux";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Amazon Linux\" [.'$platforms'.0.'|'.3.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", (path ? lpath : null)])
             return false;
         }
@@ -5745,7 +5745,7 @@ function _jm_obj_44(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Amazon";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Amazon [.'$platforms'.0.'|'.2.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Amazon\" [.'$platforms'.0.'|'.2.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", (path ? lpath : null)])
             return false;
         }
@@ -5801,7 +5801,7 @@ function _jm_obj_45(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Alpine";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _Alpine [.'$platforms'.0.'|'.1.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_Alpine\" [.'$platforms'.0.'|'.1.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", (path ? lpath : null)])
             return false;
         }
@@ -5822,7 +5822,7 @@ function _jm_obj_45(val, path, rep)
                 res = ((typeof arr_93_item === 'string' || arr_93_item instanceof String)) && arr_93_item == "all";
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected _all [.'$platforms'.0.'|'.1.versions.0]", ((path ? lpath : null) ? arr_93_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"_all\" [.'$platforms'.0.'|'.1.versions.0]", ((path ? lpath : null) ? arr_93_lpath : null)])
                     break;
                 }
             }
@@ -5858,7 +5858,7 @@ function _jm_obj_46(val, path, rep)
         res = ((typeof pval === 'string' || pval instanceof String)) && pval == "AIX";
         if (! res)
         {
-            rep !== null && rep.push(["unexpected _AIX [.'$platforms'.0.'|'.0.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_AIX\" [.'$platforms'.0.'|'.0.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", (path ? lpath : null)])
             return false;
         }
@@ -6242,7 +6242,7 @@ function json_model_51(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_47 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModelCollection'.namespace]", (path ? lpath_47 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", (path ? lpath_47 : null)])
                 return false;
             }
@@ -6255,7 +6255,7 @@ function json_model_51(val, path, rep)
             res = json_model_50(pval, (path ? lpath_47 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$platforms\" [.'$GalaxyInfoModelCollection'.platforms]", (path ? lpath_47 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", (path ? lpath_47 : null)])
                 return false;
             }
@@ -6269,7 +6269,7 @@ function json_model_51(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_47 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModelCollection'.role_name]", (path ? lpath_47 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", (path ? lpath_47 : null)])
                 return false;
             }
@@ -6290,7 +6290,7 @@ function json_model_51(val, path, rep)
                     res = (typeof arr_95_item === 'string' || arr_95_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? lpath_47 : null) ? arr_95_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path ? lpath_47 : null) ? arr_95_lpath : null)])
                         break;
                     }
                 }
@@ -6330,7 +6330,7 @@ function json_model_51(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path ? lpath_47 : null)])
                 return false;
             }
@@ -6365,7 +6365,7 @@ function json_model_52(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.description]", (path ? lpath_48 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.description]", (path ? lpath_48 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -6378,7 +6378,7 @@ function json_model_52(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.author]", (path ? lpath_48 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.author]", (path ? lpath_48 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -6391,7 +6391,7 @@ function json_model_52(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.company]", (path ? lpath_48 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.company]", (path ? lpath_48 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -6404,7 +6404,7 @@ function json_model_52(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -6417,7 +6417,7 @@ function json_model_52(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", (path ? lpath_48 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.github_branch]", (path ? lpath_48 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -6430,7 +6430,7 @@ function json_model_52(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? lpath_48 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? lpath_48 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -6443,7 +6443,7 @@ function json_model_52(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? lpath_48 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? lpath_48 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path ? lpath_48 : null)])
                 return false;
             }
@@ -6488,7 +6488,7 @@ function json_model_53(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.author]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.author]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6502,7 +6502,7 @@ function json_model_53(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.license]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.license]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6516,7 +6516,7 @@ function json_model_53(val, path, rep)
             res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"=true\" [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6530,7 +6530,7 @@ function json_model_53(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6544,7 +6544,7 @@ function json_model_53(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6557,7 +6557,7 @@ function json_model_53(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.company]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.company]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6571,7 +6571,7 @@ function json_model_53(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_49 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModelStandalone'.namespace]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.namespace]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6584,7 +6584,7 @@ function json_model_53(val, path, rep)
             res = json_model_50(pval, (path ? lpath_49 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$platforms\" [.'$GalaxyInfoModelStandalone'.platforms]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.platforms]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6598,7 +6598,7 @@ function json_model_53(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_49 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModelStandalone'.role_name]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.role_name]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6619,7 +6619,7 @@ function json_model_53(val, path, rep)
                     res = (typeof arr_96_item === 'string' || arr_96_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path ? lpath_49 : null) ? arr_96_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path ? lpath_49 : null) ? arr_96_lpath : null)])
                         break;
                     }
                 }
@@ -6652,7 +6652,7 @@ function json_model_53(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6672,7 +6672,7 @@ function json_model_53(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6685,7 +6685,7 @@ function json_model_53(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -6745,7 +6745,7 @@ function _jm_obj_47(val, path, rep)
             res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"=false\" [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6759,7 +6759,7 @@ function _jm_obj_47(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6772,7 +6772,7 @@ function _jm_obj_47(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.author]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.author]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.author]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6785,7 +6785,7 @@ function _jm_obj_47(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.company]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.company]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.company]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6798,7 +6798,7 @@ function _jm_obj_47(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.license]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.license]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6812,7 +6812,7 @@ function _jm_obj_47(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_50 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.1.namespace]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.namespace]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6825,7 +6825,7 @@ function _jm_obj_47(val, path, rep)
             res = json_model_50(pval, (path ? lpath_50 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModel'.'|'.1.platforms]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$platforms\" [.'$GalaxyInfoModel'.'|'.1.platforms]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.platforms]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6839,7 +6839,7 @@ function _jm_obj_47(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_50 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.role_name]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.1.role_name]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.role_name]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6860,7 +6860,7 @@ function _jm_obj_47(val, path, rep)
                     res = (typeof arr_97_item === 'string' || arr_97_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", ((path ? lpath_50 : null) ? arr_97_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", ((path ? lpath_50 : null) ? arr_97_lpath : null)])
                         break;
                     }
                 }
@@ -6893,7 +6893,7 @@ function _jm_obj_47(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.github_branch]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6913,7 +6913,7 @@ function _jm_obj_47(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6926,7 +6926,7 @@ function _jm_obj_47(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6939,7 +6939,7 @@ function _jm_obj_47(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -6987,7 +6987,7 @@ function _jm_obj_48(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.description]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7000,7 +7000,7 @@ function _jm_obj_48(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.author]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.author]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7013,7 +7013,7 @@ function _jm_obj_48(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.company]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.company]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7026,7 +7026,7 @@ function _jm_obj_48(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.license]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.license]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7040,7 +7040,7 @@ function _jm_obj_48(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_51 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.2.namespace]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.namespace]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7053,7 +7053,7 @@ function _jm_obj_48(val, path, rep)
             res = json_model_50(pval, (path ? lpath_51 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$platforms\" [.'$GalaxyInfoModel'.'|'.2.platforms]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.platforms]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7067,7 +7067,7 @@ function _jm_obj_48(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, (path ? lpath_51 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.2.role_name]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.role_name]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7088,7 +7088,7 @@ function _jm_obj_48(val, path, rep)
                     res = (typeof arr_98_item === 'string' || arr_98_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", ((path ? lpath_51 : null) ? arr_98_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", ((path ? lpath_51 : null) ? arr_98_lpath : null)])
                         break;
                     }
                 }
@@ -7121,7 +7121,7 @@ function _jm_obj_48(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.github_branch]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7141,7 +7141,7 @@ function _jm_obj_48(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7154,7 +7154,7 @@ function _jm_obj_48(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7167,7 +7167,7 @@ function _jm_obj_48(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", (path ? lpath_51 : null)])
                 return false;
             }
@@ -7255,7 +7255,7 @@ function json_model_55(val, path, rep)
             res = ((typeof arr_99_item === 'string' || arr_99_item instanceof String)) && _jm_re_2(arr_99_item, (path ? arr_99_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[a-z_]+\\.[a-z_]+$/ [.'$collections'.0]", (path ? arr_99_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[a-z_]+\\\\.[a-z_]+$/\" [.'$collections'.0]", (path ? arr_99_lpath : null)])
                 break;
             }
         }
@@ -7280,7 +7280,7 @@ function json_model_56(val, path, rep)
         res = (typeof val === 'string' || val instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$complex_conditional'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$complex_conditional'.'|'.1]", path])
             // .'$complex_conditional'.'|'.2
             res = Array.isArray(val);
             if (res)
@@ -7293,7 +7293,7 @@ function json_model_56(val, path, rep)
                     res = (typeof arr_100_item === 'string' || arr_100_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$complex_conditional'.'|'.2.0]", (path ? arr_100_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$complex_conditional'.'|'.2.0]", (path ? arr_100_lpath : null)])
                         break;
                     }
                 }
@@ -7365,7 +7365,7 @@ function json_model_57(val, path, rep)
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.name]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.name]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <name> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
@@ -7378,7 +7378,7 @@ function json_model_57(val, path, rep)
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.role]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.role]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <role> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
@@ -7391,7 +7391,7 @@ function json_model_57(val, path, rep)
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.src]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.src]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <src> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
@@ -7418,7 +7418,7 @@ function json_model_57(val, path, rep)
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.tags.'|'.0]", (path ? lpath : null)])
             // .'$DependencyModelLoose'.tags.'|'.1
             res = Array.isArray(pval);
             if (res)
@@ -7431,7 +7431,7 @@ function json_model_57(val, path, rep)
                     res = (typeof arr_101_item === 'string' || arr_101_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? lpath : null) ? arr_101_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path ? lpath : null) ? arr_101_lpath : null)])
                         break;
                     }
                 }
@@ -7473,7 +7473,7 @@ function json_model_57(val, path, rep)
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$DependencyModelLoose'.version]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModelLoose'.version]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <version> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
@@ -7486,7 +7486,7 @@ function json_model_57(val, path, rep)
         res = json_model_56(pval, (path ? lpath : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"$complex_conditional\" [.'$DependencyModelLoose'.when]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <when> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
@@ -7517,7 +7517,7 @@ function _jm_obj_50(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.2.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", (path ? lpath : null)])
         return false;
     }
@@ -7547,7 +7547,7 @@ function _jm_obj_51(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.1.src]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", (path ? lpath : null)])
         return false;
     }
@@ -7577,7 +7577,7 @@ function _jm_obj_52(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.0.role]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", (path ? lpath : null)])
         return false;
     }
@@ -7634,7 +7634,7 @@ function json_model_58(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path])
+            rep !== null && rep.push(["unexpected value for model \"$DependencyModelLoose\" [.'$DependencyModel'.'&'.0]", path])
         }
     }
     if (res)
@@ -7668,7 +7668,7 @@ function json_model_59(val, path, rep)
             res = json_model_55(pval, (path ? lpath_52 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $collections [.'$AnsibleMetaObj'.collections]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$collections\" [.'$AnsibleMetaObj'.collections]", (path ? lpath_52 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path ? lpath_52 : null)])
                 return false;
             }
@@ -7681,7 +7681,7 @@ function json_model_59(val, path, rep)
             res = json_model_54(pval, (path ? lpath_52 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_52 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$GalaxyInfoModel\" [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_52 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path ? lpath_52 : null)])
                 return false;
             }
@@ -7703,12 +7703,12 @@ function json_model_59(val, path, rep)
                     res = (typeof arr_102_item === 'string' || arr_102_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.1
                         res = json_model_58(arr_102_item, ((path ? lpath_52 : null) ? arr_102_lpath : null), rep);
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$DependencyModel\" [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
                         }
                     }
                     if (res)
@@ -7763,7 +7763,7 @@ function json_model_60(val, path, rep)
         res = json_model_59(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$AnsibleMetaObj\" [.'$AnsibleMeta'.'|'.1]", path])
         }
     }
     if (res)
@@ -7784,7 +7784,7 @@ function json_model_1(val, path, rep)
     let res = json_model_60(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $AnsibleMeta [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$AnsibleMeta\" [.]", path])
     }
     return res;
 }

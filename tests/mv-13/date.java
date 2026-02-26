@@ -26,7 +26,7 @@ public class date extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_date(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $DATE [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.]", path);
         }
         return res;
     }

@@ -60,7 +60,7 @@ public class dst_00 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.1.c]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.1.c]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <c> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }

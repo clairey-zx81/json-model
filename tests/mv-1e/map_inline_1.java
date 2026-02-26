@@ -99,7 +99,7 @@ public class map_inline_1 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.ma2]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.ma2]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.ma2]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -112,7 +112,7 @@ public class map_inline_1 extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $DATE [.ma3]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.ma3]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.ma3]", (path != null ? lpath_0 : null));
                     return false;
                 }

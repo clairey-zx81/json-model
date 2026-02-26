@@ -80,7 +80,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         xc_0 += 1;
     else
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $p1 [.'^'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$p1\" [.'^'.0]", path);
     }
     // .'^'.1
     xr_0 = json_model_3(val, path, rep);
@@ -88,7 +88,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         xc_0 += 1;
     else
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $p2 [.'^'.1]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$p2\" [.'^'.1]", path);
     }
     res = xc_0 == 1;
     if (likely(res))

@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
             res = (typeof val[0] === 'string' || val[0] instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'@'.0]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'@'.0]", (path ? lpath_0 : null)])
             }
         }
         // no array tail value checks needed

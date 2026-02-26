@@ -33,7 +33,7 @@ public class scope_0 extends ModelChecker
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'$s']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/[0-9]/\" [.'$s']", path);
         }
         return res;
     }
@@ -55,12 +55,12 @@ public class scope_0 extends ModelChecker
                 res = json_model_2(json.arrayItem(val, 1), (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $s [.1]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$s\" [.1]", (path != null ? lpath_0 : null));
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected $s [.0]", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$s\" [.0]", (path != null ? lpath_0 : null));
             }
         }
         if (! res)

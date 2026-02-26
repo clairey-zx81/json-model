@@ -48,7 +48,7 @@ public class mixed_xor2 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("c") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected c [.'$cs'.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"c\" [.'$cs'.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$cs'.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -96,7 +96,7 @@ public class mixed_xor2 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("s") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected s [.'$cs'.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"s\" [.'$cs'.'|'.1.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$cs'.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -181,7 +181,7 @@ public class mixed_xor2 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("m") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected m [.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"m\" [.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -229,7 +229,7 @@ public class mixed_xor2 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("h") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected h [.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"h\" [.'|'.1.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }

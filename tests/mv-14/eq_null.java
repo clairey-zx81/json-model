@@ -26,7 +26,7 @@ public class eq_null extends ModelChecker
         boolean res = json.isNull(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =null [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=null\" [.]", path);
         }
         return res;
     }

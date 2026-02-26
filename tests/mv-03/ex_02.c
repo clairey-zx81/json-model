@@ -25,7 +25,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006569737553LL);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _Susie [.'$x1']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.'$x1']", path);
     }
     return res;
 }
@@ -37,7 +37,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006569737553LL);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _Susie [.'$x2']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.'$x2']", path);
     }
     return res;
 }
@@ -49,7 +49,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006569737553LL);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _Susie [.'$x3']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.'$x3']", path);
     }
     return res;
 }
@@ -61,7 +61,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006569737553LL);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _Susie [.'$__external_0']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.'$__external_0']", path);
     }
     return res;
 }
@@ -93,22 +93,22 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(json_array_get(val, 3)) && jm_str_eq_6(json_string_value(json_array_get(val, 3)), 0x0000006569737553LL);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected _Susie [.3]", (path ? &lpath_0 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.3]", (path ? &lpath_0 : NULL));
                     }
                 }
                 else
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected _Susie [.2]", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.2]", (path ? &lpath_0 : NULL));
                 }
             }
             else
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Susie [.1]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.1]", (path ? &lpath_0 : NULL));
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected _Susie [.0]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.0]", (path ? &lpath_0 : NULL));
         }
     }
     if (unlikely(! res))

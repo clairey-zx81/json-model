@@ -52,7 +52,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_integer(pval) && json_integer_value(pval) == 17;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =17 [.'/']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=17\" [.'/']", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'/']", (path ? &lpath_0 : NULL));
                 return false;
             }

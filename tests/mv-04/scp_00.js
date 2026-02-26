@@ -18,7 +18,7 @@ function json_model_2(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "a";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _a [.'$a']", path])
+        rep !== null && rep.push(["unexpected value for model \"_a\" [.'$a']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_3(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$Aa']", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$Aa']", path])
     }
     return res;
 }
@@ -55,7 +55,7 @@ function json_model_1(val, path, rep)
             res = json_model_3(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Aa [.a]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Aa\" [.a]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_0 : null)])
                 return false;
             }

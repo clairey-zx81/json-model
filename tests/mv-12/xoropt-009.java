@@ -47,7 +47,7 @@ public class xoropt_009 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'^'.0.'/a/']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.0.'/a/']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }

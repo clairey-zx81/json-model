@@ -2,7 +2,7 @@ xoropt-004.values.json[0]: PASS
 xoropt-004.values.json[1]: PASS
 xoropt-004.values.json[2]: PASS
 xoropt-004.values.json[3]: PASS
-xoropt-004.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .Calvin: unexpected $NONE [.'|'.1.'/a/']; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
+xoropt-004.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .Calvin: unexpected value for model "$NONE" [.'|'.1.'/a/']; .: unexpected element [.'|'.0]; .: bad property count [.'|'.0])
 xoropt-004.values.json[5]: FAIL (.: unexpected type [.'|'])
 xoropt-004.values.json[6]: FAIL (.: unexpected type [.'|'])
 xoropt-004.values.json[7]: FAIL (.: unexpected type [.'|'])

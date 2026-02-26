@@ -26,7 +26,7 @@ public class pTIME extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_time(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $TIME [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$TIME\" [.]", path);
         }
         return res;
     }

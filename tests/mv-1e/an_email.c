@@ -21,7 +21,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = jm_is_valid_email(json_string_value(val), path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $EMAIL [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EMAIL\" [.]", path);
     }
     return res;
 }

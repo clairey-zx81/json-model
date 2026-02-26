@@ -22,7 +22,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq_1(json_string_value(val), 0x53);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected /^S/ [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^S/\" [.]", path);
     }
     return res;
 }

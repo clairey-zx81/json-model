@@ -27,7 +27,7 @@ public class ends extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).endsWith("Susie");
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /Susie$/ [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/Susie$/\" [.]", path);
         }
         return res;
     }

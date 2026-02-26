@@ -22,7 +22,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_integer(val) && json_integer_value(val) == 1;
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =1 [.'$one']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"=1\" [.'$one']", path);
     }
     return res;
 }
@@ -34,7 +34,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_integer(val) && json_integer_value(val) == 1;
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =1 [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"=1\" [.]", path);
     }
     return res;
 }

@@ -23,7 +23,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006569737553LL);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _Susie [.'$x1']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.'$x1']", path);
     }
     return res;
 }
@@ -35,7 +35,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006569737553LL);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _Susie [.'$x2']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.'$x2']", path);
     }
     return res;
 }
@@ -64,7 +64,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000006569737553LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Susie [.a]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.a]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -78,7 +78,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000006569737553LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _Susie [.b]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.b]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.b]", (path ? &lpath_0 : NULL));
                 return false;
             }

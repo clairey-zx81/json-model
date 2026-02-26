@@ -26,7 +26,7 @@ public class pUUID extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_uuid(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $UUID [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$UUID\" [.]", path);
         }
         return res;
     }

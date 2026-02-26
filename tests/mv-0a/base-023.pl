@@ -19,22 +19,12 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
+    # .'@'
     my $res = jm_is_string($val);
     if ($res)
     {
-        # .'&'.0
-        $res = 1;
-        if ($res)
-        {
-            # .'&'.1
-            # .'&'.1.'@'
-            $res = jm_is_string($val);
-            if ($res)
-            {
-                my $ival_0 = length $val;
-                $res = $ival_0 <= 5;
-            }
-        }
+        my $ival_0 = length $val;
+        $res = $ival_0 <= 5;
     }
     return $res;
 }

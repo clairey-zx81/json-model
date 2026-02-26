@@ -40,7 +40,7 @@ public class rec_01 extends ModelChecker
             res = json_model_1(pval, (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $# [.'']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$#\" [.'']", (path != null ? lpath_0 : null));
                 return false;
             }
         }

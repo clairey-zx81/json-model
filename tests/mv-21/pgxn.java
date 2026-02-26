@@ -41,7 +41,7 @@ public class pgxn extends ModelChecker
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /./ [.'$neStr']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/./\" [.'$neStr']", path);
         }
         return res;
     }
@@ -65,7 +65,7 @@ public class pgxn extends ModelChecker
                 res = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neStr [.'$neStrList'.'@'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neStr\" [.'$neStrList'.'@'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
@@ -118,7 +118,7 @@ public class pgxn extends ModelChecker
                 res = json_model_4(arr_1_item, (path != null ? arr_1_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $License [.'$LicenseList'.'@'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$License\" [.'$LicenseList'.'@'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
@@ -169,7 +169,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Provide'.file]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Provide'.file]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Provide'.file]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -183,7 +183,7 @@ public class pgxn extends ModelChecker
                 res = json_model_10(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Version [.'$Provide'.version]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Version\" [.'$Provide'.version]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Provide'.version]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -196,7 +196,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -209,7 +209,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Provide'.abstract]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Provide'.abstract]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.abstract]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -280,7 +280,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'$Resources'.bugtracker.web]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$Resources'.bugtracker.web]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.bugtracker.web]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -293,7 +293,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_email(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $EMAIL [.'$Resources'.bugtracker.mailto]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$EMAIL\" [.'$Resources'.bugtracker.mailto]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.bugtracker.mailto]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -336,7 +336,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'$Resources'.repository.url]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$Resources'.repository.url]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.url]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -349,7 +349,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'$Resources'.repository.web]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$Resources'.repository.web]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.web]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -363,7 +363,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_3 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /./ [.'$Resources'.repository.type]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/./\" [.'$Resources'.repository.type]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.repository.type]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -398,7 +398,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'$Resources'.homepage]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$Resources'.homepage]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Resources'.homepage]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -449,7 +449,7 @@ public class pgxn extends ModelChecker
         boolean res = json.isString(val) && _jm_re_2(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/ [.'$SemVer']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*$/\" [.'$SemVer']", path);
         }
         return res;
     }
@@ -462,12 +462,12 @@ public class pgxn extends ModelChecker
         boolean res = json_model_9(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $SemVer [.'$Version'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$SemVer\" [.'$Version'.'|'.0]", path);
             // .'$Version'.'|'.1
             res = json.isInteger(val) && json.asLong(val) == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected =0 [.'$Version'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"=0\" [.'$Version'.'|'.1]", path);
             }
         }
         if (res)
@@ -494,7 +494,7 @@ public class pgxn extends ModelChecker
         boolean res = json.isString(val) && _jm_re_3(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^(<=|<|>=|>|!=|==)$/ [.'$Ops']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^(<=|<|>=|>|!=|==)$/\" [.'$Ops']", path);
         }
         return res;
     }
@@ -512,7 +512,7 @@ public class pgxn extends ModelChecker
         boolean res = json.isString(val) && _jm_re_4(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/ [.'$VersionRange']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^\\\\s*(<=|<|>=|>|!=|==)\\\\s*(\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*)\\\\s*(,\\\\s*(<=|<|>=|>|!=|==)\\\\s*(\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*))*\\\\s*$/\" [.'$VersionRange']", path);
         }
         return res;
     }
@@ -565,12 +565,12 @@ public class pgxn extends ModelChecker
             res = json_model_10(pval, (path != null ? lpath_4 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Version [.'$Prereq'.''.'|'.0]", (path != null ? lpath_4 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Version\" [.'$Prereq'.''.'|'.0]", (path != null ? lpath_4 : null));
                 // .'$Prereq'.''.'|'.1
                 res = json_model_12(pval, (path != null ? lpath_4 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $VersionRange [.'$Prereq'.''.'|'.1]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$VersionRange\" [.'$Prereq'.''.'|'.1]", (path != null ? lpath_4 : null));
                 }
             }
             if (res)
@@ -608,7 +608,7 @@ public class pgxn extends ModelChecker
                 res = json_model_15(pval, (path != null ? lpath_6 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Prereq [.'$Prereqs'.'$Phase'.'$Relation']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Prereq\" [.'$Prereqs'.'$Phase'.'$Relation']", (path != null ? lpath_6 : null));
                     return false;
                 }
             }
@@ -689,7 +689,7 @@ public class pgxn extends ModelChecker
             res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $URL [.license.'|'.2.'']", (path != null ? lpath_8 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.license.'|'.2.'']", (path != null ? lpath_8 : null));
                 return false;
             }
         }
@@ -716,7 +716,7 @@ public class pgxn extends ModelChecker
             res = json_model_6(pval, (path != null ? lpath_9 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Provide [.provides.'']", (path != null ? lpath_9 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Provide\" [.provides.'']", (path != null ? lpath_9 : null));
                 return false;
             }
         }
@@ -747,7 +747,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("1.0.0") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _1.0.0 [.'meta-spec'.version]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_1.0.0\" [.'meta-spec'.version]", (path != null ? lpath_10 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'meta-spec'.version]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -760,7 +760,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'meta-spec'.url]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'meta-spec'.url]", (path != null ? lpath_10 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'meta-spec'.url]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -814,7 +814,7 @@ public class pgxn extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neStrList [.no_index.file]", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neStrList\" [.no_index.file]", (path != null ? lpath_11 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.no_index.file]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -827,7 +827,7 @@ public class pgxn extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neStrList [.no_index.directory]", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neStrList\" [.no_index.directory]", (path != null ? lpath_11 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.no_index.directory]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -864,7 +864,7 @@ public class pgxn extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neStr [.name]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neStr\" [.name]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.name]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -879,12 +879,12 @@ public class pgxn extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $License [.license.'|'.0]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$License\" [.license.'|'.0]", (path != null ? lpath_7 : null));
                     // .license.'|'.1
                     res = json_model_5(pval, (path != null ? lpath_7 : null), rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $LicenseList [.license.'|'.1]", (path != null ? lpath_7 : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"$LicenseList\" [.license.'|'.1]", (path != null ? lpath_7 : null));
                         // .license.'|'.2
                         res = _jm_obj_3(pval, (path != null ? lpath_7 : null), rep);
                         if (! res)
@@ -913,7 +913,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.version]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.version]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.version]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -927,7 +927,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.abstract]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.abstract]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.abstract]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -970,12 +970,12 @@ public class pgxn extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neStr [.maintainer.'|'.0]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neStr\" [.maintainer.'|'.0]", (path != null ? lpath_7 : null));
                     // .maintainer.'|'.1
                     res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $neStrList [.maintainer.'|'.1]", (path != null ? lpath_7 : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"$neStrList\" [.maintainer.'|'.1]", (path != null ? lpath_7 : null));
                     }
                 }
                 if (res)
@@ -997,7 +997,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.url]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.url]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.url]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1010,7 +1010,7 @@ public class pgxn extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $neStrList [.tags]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neStrList\" [.tags]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.tags]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1023,7 +1023,7 @@ public class pgxn extends ModelChecker
                 res = json_model_16(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Prereqs [.prereqs]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Prereqs\" [.prereqs]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.prereqs]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1049,7 +1049,7 @@ public class pgxn extends ModelChecker
                 res = json_model_8(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Resources [.resources]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Resources\" [.resources]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.resources]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1062,7 +1062,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.description]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.description]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.description]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1075,7 +1075,7 @@ public class pgxn extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.generated_by]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.generated_by]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.generated_by]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1088,7 +1088,7 @@ public class pgxn extends ModelChecker
                 res = json_model_7(pval, (path != null ? lpath_7 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Status [.release_status]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Status\" [.release_status]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.release_status]", (path != null ? lpath_7 : null));
                     return false;
                 }

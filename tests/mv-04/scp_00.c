@@ -23,7 +23,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000061);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _a [.'$a']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_a\" [.'$a']", path);
     }
     return res;
 }
@@ -35,7 +35,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Aa']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Aa']", path);
     }
     return res;
 }
@@ -62,7 +62,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Aa [.a]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Aa\" [.a]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.a]", (path ? &lpath_0 : NULL));
                 return false;
             }

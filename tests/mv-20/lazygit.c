@@ -130,7 +130,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             else
             {
-                if (rep) jm_report_add_entry(rep, "unexpected /^#[0-9a-fA-F]{6}$/ [.'$color'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^#[0-9a-fA-F]{6}$/\" [.'$color'.'|'.0]", path);
                 if (rep) jm_report_add_entry(rep, "no model matched [.'$color'.'|']", path);
             }
         }
@@ -159,7 +159,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_2(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $color [.'$colorArray'.'@'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$color\" [.'$colorArray'.'@'.0]", (path ? &arr_0_lpath : NULL));
                 break;
             }
         }
@@ -193,7 +193,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = json_is_string(val);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected string [.'$keybinding'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$keybinding'.'|'.1]", path);
         }
     }
     if (likely(res))
@@ -237,7 +237,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$custom-commands-prompts-title-property']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$custom-commands-prompts-title-property']", path);
     }
     return res;
 }
@@ -249,7 +249,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$custom-commands-prompts-key-property']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$custom-commands-prompts-key-property']", path);
     }
     return res;
 }
@@ -271,7 +271,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$neString'.'@']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$neString'.'@']", path);
     }
     return res;
 }
@@ -293,7 +293,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_8(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.'$stringArray'.'@'.0]", (path ? &arr_1_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$neString\" [.'$stringArray'.'@'.0]", (path ? &arr_1_lpath : NULL));
                 break;
             }
         }
@@ -336,7 +336,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -442,7 +442,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_7(pval, (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.0.key]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.0.key]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.key]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -456,7 +456,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_6(json_string_value(pval), 0x0000007475706e69LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected input [.'$Prompts'.'|'.0.type]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"input\" [.'$Prompts'.'|'.0.type]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.type]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -470,7 +470,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_6(pval, (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.0.title]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.0.title]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.0.title]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -522,7 +522,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.0.initialValue]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.0.initialValue]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.0.initialValue]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -576,7 +576,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_7(pval, (path ? &lpath_3 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.1.key]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.1.key]", (path ? &lpath_3 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.1.key]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -590,7 +590,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_8(json_string_value(pval), 0x006d7269666e6f63LL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected confirm [.'$Prompts'.'|'.1.type]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"confirm\" [.'$Prompts'.'|'.1.type]", (path ? &lpath_3 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.1.type]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -604,7 +604,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_6(pval, (path ? &lpath_3 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.1.title]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.1.title]", (path ? &lpath_3 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.1.title]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -617,7 +617,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.1.body]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.1.body]", (path ? &lpath_3 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.1.body]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -671,7 +671,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_8(pval, (path ? &lpath_5 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$neString\" [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? &lpath_5 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? &lpath_5 : NULL));
                 return false;
             }
@@ -684,7 +684,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? &lpath_5 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? &lpath_5 : NULL));
                 return false;
             }
@@ -697,7 +697,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? &lpath_5 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? &lpath_5 : NULL));
                 return false;
             }
@@ -743,7 +743,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_7(pval, (path ? &lpath_4 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.2.key]", (path ? &lpath_4 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.2.key]", (path ? &lpath_4 : NULL));
                 return false;
             }
@@ -757,7 +757,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x00000000756e656dLL);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected menu [.'$Prompts'.'|'.2.type]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"menu\" [.'$Prompts'.'|'.2.type]", (path ? &lpath_4 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.2.type]", (path ? &lpath_4 : NULL));
                 return false;
             }
@@ -771,7 +771,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_6(pval, (path ? &lpath_4 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.2.title]", (path ? &lpath_4 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.2.title]", (path ? &lpath_4 : NULL));
                 return false;
             }
@@ -871,7 +871,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_7(pval, (path ? &lpath_6 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.3.key]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.3.key]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.3.key]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -885,7 +885,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "menuFromCommand");
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected menuFromCommand [.'$Prompts'.'|'.3.type]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"menuFromCommand\" [.'$Prompts'.'|'.3.type]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.3.type]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -899,7 +899,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_6(pval, (path ? &lpath_6 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.3.title]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.3.title]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.3.title]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -913,7 +913,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.3.command]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.3.command]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Prompts'.'|'.3.command]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -926,7 +926,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.3.filter]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.3.filter]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.3.filter]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -939,7 +939,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.3.labelFormat]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.3.labelFormat]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.3.labelFormat]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -952,7 +952,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Prompts'.'|'.3.valueFormat]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Prompts'.'|'.3.valueFormat]", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Prompts'.'|'.3.valueFormat]", (path ? &lpath_6 : NULL));
                 return false;
             }
@@ -1069,7 +1069,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.os.open]", (path ? &lpath_8 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.os.open]", (path ? &lpath_8 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os.open]", (path ? &lpath_8 : NULL));
                     return false;
                 }
@@ -1082,7 +1082,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.os.openLink]", (path ? &lpath_8 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.os.openLink]", (path ? &lpath_8 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os.openLink]", (path ? &lpath_8 : NULL));
                     return false;
                 }
@@ -1098,7 +1098,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.os.edit]", (path ? &lpath_8 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.os.edit]", (path ? &lpath_8 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os.edit]", (path ? &lpath_8 : NULL));
                     return false;
                 }
@@ -1111,7 +1111,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.os.editAtLine]", (path ? &lpath_8 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.os.editAtLine]", (path ? &lpath_8 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os.editAtLine]", (path ? &lpath_8 : NULL));
                     return false;
                 }
@@ -1136,7 +1136,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                         }
                         else
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected string [.os.editPreset.'|'.0]", (path ? &lpath_8 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.os.editPreset.'|'.0]", (path ? &lpath_8 : NULL));
                             if (rep) jm_report_add_entry(rep, "no model matched [.os.editPreset.'|']", (path ? &lpath_8 : NULL));
                         }
                     }
@@ -1159,7 +1159,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.os.editAtLineAndWait]", (path ? &lpath_8 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.os.editAtLineAndWait]", (path ? &lpath_8 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os.editAtLineAndWait]", (path ? &lpath_8 : NULL));
                     return false;
                 }
@@ -1172,7 +1172,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.os.copyToClipboardCmd]", (path ? &lpath_8 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.os.copyToClipboardCmd]", (path ? &lpath_8 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os.copyToClipboardCmd]", (path ? &lpath_8 : NULL));
                     return false;
                 }
@@ -1212,7 +1212,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_model_2(pval, (path ? &lpath_10 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.branchColors.'/./']", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$color\" [.gui.branchColors.'/./']", (path ? &lpath_10 : NULL));
                 return false;
             }
         }
@@ -1292,7 +1292,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.defaultFgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.defaultFgColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.defaultFgColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1305,7 +1305,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.inactiveBorderColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.inactiveBorderColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1318,7 +1318,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.selectedLineBgColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedLineBgColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1331,7 +1331,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.selectedRangeBgColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1347,7 +1347,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.optionsTextColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.optionsTextColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.optionsTextColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1360,7 +1360,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.activeBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.activeBorderColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.activeBorderColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1373,7 +1373,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.unstagedChangesColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.unstagedChangesColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1386,7 +1386,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1399,7 +1399,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1412,7 +1412,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_3(pval, (path ? &lpath_12 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_12 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$colorArray\" [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_12 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path ? &lpath_12 : NULL));
                     return false;
                 }
@@ -1492,7 +1492,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_2(pval, (path ? &lpath_13 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $color [.gui.authorColors.'/./']", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$color\" [.gui.authorColors.'/./']", (path ? &lpath_13 : NULL));
                 return false;
             }
         }
@@ -1592,7 +1592,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                     res = json_is_string(pval);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.gui.timeFormat]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.gui.timeFormat]", (path ? &lpath_9 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.timeFormat]", (path ? &lpath_9 : NULL));
                         return false;
                     }
@@ -1682,7 +1682,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                             }
                             else
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected string [.gui.nerdFontsVersion.'|'.0]", (path ? &lpath_9 : NULL));
+                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.gui.nerdFontsVersion.'|'.0]", (path ? &lpath_9 : NULL));
                                 if (rep) jm_report_add_entry(rep, "no model matched [.gui.nerdFontsVersion.'|']", (path ? &lpath_9 : NULL));
                             }
                         }
@@ -1805,7 +1805,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
                     res = json_is_string(pval);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.gui.shortTimeFormat]", (path ? &lpath_9 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.gui.shortTimeFormat]", (path ? &lpath_9 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.shortTimeFormat]", (path ? &lpath_9 : NULL));
                         return false;
                     }
@@ -2094,7 +2094,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             else
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.paging.pager.'@']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.git.paging.pager.'@']", (path ? &lpath_17 : NULL));
             }
             if (unlikely(! res))
             {
@@ -2156,7 +2156,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.git.merging.args]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.git.merging.args]", (path ? &lpath_18 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.merging.args]", (path ? &lpath_18 : NULL));
                 return false;
             }
@@ -2237,7 +2237,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_8(pval, (path ? &lpath_21 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$neString\" [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_21 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.pattern]", (path ? &lpath_21 : NULL));
                 return false;
             }
@@ -2251,7 +2251,7 @@ static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_8(pval, (path ? &lpath_21 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$neString\" [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_21 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.git.commitPrefixes.'/./'.replace]", (path ? &lpath_21 : NULL));
                 return false;
             }
@@ -2444,7 +2444,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(pval);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.git.allBranchesLogCmd]", (path ? &lpath_16 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.git.allBranchesLogCmd]", (path ? &lpath_16 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.allBranchesLogCmd]", (path ? &lpath_16 : NULL));
                         return false;
                     }
@@ -2531,7 +2531,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(pval);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.git.branchLogCmd]", (path ? &lpath_16 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.git.branchLogCmd]", (path ? &lpath_16 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.branchLogCmd]", (path ? &lpath_16 : NULL));
                         return false;
                     }
@@ -2544,7 +2544,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_9(pval, (path ? &lpath_16 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $stringArray [.git.mainBranches]", (path ? &lpath_16 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$stringArray\" [.git.mainBranches]", (path ? &lpath_16 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.mainBranches]", (path ? &lpath_16 : NULL));
                         return false;
                     }
@@ -2625,7 +2625,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_is_string(pval);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.git.skipHookPrefix]", (path ? &lpath_16 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.git.skipHookPrefix]", (path ? &lpath_16 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.git.skipHookPrefix]", (path ? &lpath_16 : NULL));
                         return false;
                     }
@@ -2667,7 +2667,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval) && _jm_re_2(json_string_value(pval), (path ? &lpath_23 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path ? &lpath_23 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[^:]+:[^:]+$/\" [.services.'/./']", (path ? &lpath_23 : NULL));
                 return false;
             }
         }
@@ -2701,7 +2701,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.pickBothHunks]", (path ? &lpath_25 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.main.pickBothHunks]", (path ? &lpath_25 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.pickBothHunks]", (path ? &lpath_25 : NULL));
                 return false;
             }
@@ -2714,7 +2714,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path ? &lpath_25 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.main.toggleDragSelect]", (path ? &lpath_25 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.toggleDragSelect]", (path ? &lpath_25 : NULL));
                 return false;
             }
@@ -2727,7 +2727,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path ? &lpath_25 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.main.toggleSelectHunk]", (path ? &lpath_25 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path ? &lpath_25 : NULL));
                 return false;
             }
@@ -2740,7 +2740,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_25 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_25 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_25 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path ? &lpath_25 : NULL));
                 return false;
             }
@@ -2773,7 +2773,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.stash.popStash]", (path ? &lpath_26 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.stash.popStash]", (path ? &lpath_26 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash.popStash]", (path ? &lpath_26 : NULL));
                 return false;
             }
@@ -2786,7 +2786,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_26 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.stash.renameStash]", (path ? &lpath_26 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.stash.renameStash]", (path ? &lpath_26 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.stash.renameStash]", (path ? &lpath_26 : NULL));
                 return false;
             }
@@ -2819,7 +2819,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_27 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.status.recentRepos]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.status.recentRepos]", (path ? &lpath_27 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status.recentRepos]", (path ? &lpath_27 : NULL));
                 return false;
             }
@@ -2832,7 +2832,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_27 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.status.checkForUpdate]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.status.checkForUpdate]", (path ? &lpath_27 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.status.checkForUpdate]", (path ? &lpath_27 : NULL));
                 return false;
             }
@@ -2868,7 +2868,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.createTag]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.createTag]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.createTag]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2881,7 +2881,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.fetchRemote]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.fetchRemote]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.fetchRemote]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2894,7 +2894,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.setUpstream]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.setUpstream]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.setUpstream]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2907,7 +2907,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.rebaseBranch]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.rebaseBranch]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.rebaseBranch]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2920,7 +2920,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.renameBranch]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.renameBranch]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.renameBranch]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2933,7 +2933,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.createPullRequest]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.createPullRequest]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.createPullRequest]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2946,7 +2946,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.forceCheckoutBranch]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.forceCheckoutBranch]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.forceCheckoutBranch]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2959,7 +2959,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.checkoutBranchByName]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.checkoutBranchByName]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.checkoutBranchByName]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2975,7 +2975,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.pushTag]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.pushTag]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.pushTag]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -2988,7 +2988,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.fastForward]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.fastForward]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.fastForward]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -3001,7 +3001,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.viewGitFlowOptions]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.viewGitFlowOptions]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.viewGitFlowOptions]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -3014,7 +3014,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.mergeIntoCurrentBranch]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.mergeIntoCurrentBranch]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.mergeIntoCurrentBranch]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -3027,7 +3027,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_28 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.branches.viewPullRequestOptions]", (path ? &lpath_28 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.branches.viewPullRequestOptions]", (path ? &lpath_28 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.branches.viewPullRequestOptions]", (path ? &lpath_28 : NULL));
                     return false;
                 }
@@ -3068,7 +3068,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.new]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.new]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.new]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3081,7 +3081,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.select]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.select]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.select]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3094,7 +3094,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.confirm]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.confirm]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.confirm]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3107,7 +3107,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.diffingMenu]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.diffingMenu]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.diffingMenu]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3120,7 +3120,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'diffingMenu-alt']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'diffingMenu-alt']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'diffingMenu-alt']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3133,7 +3133,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.executeCustomCommand]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.executeCustomCommand]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.executeCustomCommand]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3146,7 +3146,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.createPatchOptionsMenu]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.createPatchOptionsMenu]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.createPatchOptionsMenu]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3159,7 +3159,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.createRebaseOptionsMenu]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.createRebaseOptionsMenu]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.createRebaseOptionsMenu]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3175,7 +3175,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.pushFiles]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.pushFiles]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.pushFiles]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3201,7 +3201,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.togglePanel]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.togglePanel]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.togglePanel]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3214,7 +3214,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'optionMenu-alt1']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'optionMenu-alt1']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'optionMenu-alt1']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3227,7 +3227,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.toggleWhitespaceInDiffView]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.toggleWhitespaceInDiffView]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.toggleWhitespaceInDiffView]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3246,7 +3246,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.redo]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.redo]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.redo]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3259,7 +3259,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.undo]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.undo]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.undo]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3272,7 +3272,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.goInto]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.goInto]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.goInto]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3285,7 +3285,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.remove]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.remove]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.remove]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3298,7 +3298,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.openFile]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.openFile]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.openFile]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3311,7 +3311,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.pullFiles]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.pullFiles]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.pullFiles]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3324,7 +3324,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.openRecentRepos]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.openRecentRepos]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.openRecentRepos]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3337,7 +3337,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.submitEditorText]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.submitEditorText]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.submitEditorText]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3353,7 +3353,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollLeft]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.scrollLeft]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollLeft]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3366,7 +3366,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollRight]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.scrollRight]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollRight]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3379,7 +3379,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollUpMain]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.scrollUpMain]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollUpMain]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3392,7 +3392,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.scrollDownMain]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.scrollDownMain]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.scrollDownMain]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3405,7 +3405,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollUpMain-alt1']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'scrollUpMain-alt1']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollUpMain-alt1']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3418,7 +3418,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollUpMain-alt2']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'scrollUpMain-alt2']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollUpMain-alt2']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3431,7 +3431,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollDownMain-alt1']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'scrollDownMain-alt1']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollDownMain-alt1']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3444,7 +3444,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'scrollDownMain-alt2']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'scrollDownMain-alt2']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'scrollDownMain-alt2']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3466,7 +3466,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.edit]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.edit]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.edit]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3479,7 +3479,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.gotoTop]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.gotoTop]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.gotoTop]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3492,7 +3492,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.refresh]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.refresh]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.refresh]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3505,7 +3505,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.extrasMenu]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.extrasMenu]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.extrasMenu]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3518,7 +3518,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.gotoBottom]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.gotoBottom]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.gotoBottom]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3544,7 +3544,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.decreaseContextInDiffView]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.decreaseContextInDiffView]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.decreaseContextInDiffView]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3557,7 +3557,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.increaseContextInDiffView]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.increaseContextInDiffView]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.increaseContextInDiffView]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3573,7 +3573,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.quit]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.quit]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.quit]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3586,7 +3586,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'quit-alt1']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'quit-alt1']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'quit-alt1']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3599,7 +3599,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.filteringMenu]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.filteringMenu]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.filteringMenu]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3612,7 +3612,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.quitWithoutChangingDirectory]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.quitWithoutChangingDirectory]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.quitWithoutChangingDirectory]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3631,7 +3631,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.return]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.return]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.return]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3644,7 +3644,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextTab]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.nextTab]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextTab]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3657,7 +3657,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextItem]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.nextItem]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextItem]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3670,7 +3670,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextPage]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.nextPage]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextPage]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3683,7 +3683,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextBlock]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.nextBlock]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextBlock]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3696,7 +3696,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextMatch]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.nextMatch]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextMatch]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3709,7 +3709,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'nextItem-alt']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'nextItem-alt']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'nextItem-alt']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3722,7 +3722,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'nextBlock-alt']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'nextBlock-alt']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'nextBlock-alt']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3735,7 +3735,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.nextScreenMode]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.nextScreenMode]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.nextScreenMode]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3751,7 +3751,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevTab]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.prevTab]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevTab]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3764,7 +3764,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevItem]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.prevItem]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevItem]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3777,7 +3777,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevPage]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.prevPage]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevPage]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3790,7 +3790,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevBlock]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.prevBlock]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevBlock]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3803,7 +3803,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevMatch]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.prevMatch]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevMatch]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3816,7 +3816,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'prevItem-alt']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'prevItem-alt']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'prevItem-alt']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3829,7 +3829,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.'prevBlock-alt']", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.'prevBlock-alt']", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.'prevBlock-alt']", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3842,7 +3842,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.prevScreenMode]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.prevScreenMode]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.prevScreenMode]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3855,7 +3855,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_4(pval, (path ? &lpath_29 : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.universal.copyToClipboard]", (path ? &lpath_29 : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.universal.copyToClipboard]", (path ? &lpath_29 : NULL));
                             if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.universal.copyToClipboard]", (path ? &lpath_29 : NULL));
                             return false;
                         }
@@ -3894,7 +3894,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.fetch]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.fetch]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.fetch]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -3907,7 +3907,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChanges]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.commitChanges]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChanges]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -3920,7 +3920,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.toggleTreeView]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.toggleTreeView]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.toggleTreeView]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -3933,7 +3933,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.toggleStagedAll]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.toggleStagedAll]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.toggleStagedAll]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -3946,7 +3946,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChangesWithEditor]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.commitChangesWithEditor]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChangesWithEditor]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -3959,7 +3959,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.commitChangesWithoutHook]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.commitChangesWithoutHook]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.commitChangesWithoutHook]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -3975,7 +3975,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.ignoreFile]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.ignoreFile]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.ignoreFile]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -3988,7 +3988,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.refreshFiles]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.refreshFiles]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.refreshFiles]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -4001,7 +4001,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.openMergeTool]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.openMergeTool]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.openMergeTool]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -4014,7 +4014,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.amendLastCommit]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.amendLastCommit]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.amendLastCommit]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -4027,7 +4027,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.stashAllChanges]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.stashAllChanges]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.stashAllChanges]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -4040,7 +4040,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.openStatusFilter]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.openStatusFilter]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.openStatusFilter]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -4053,7 +4053,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.viewResetOptions]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.viewResetOptions]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.viewResetOptions]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -4066,7 +4066,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_model_4(pval, (path ? &lpath_30 : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.files.viewStashOptions]", (path ? &lpath_30 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.files.viewStashOptions]", (path ? &lpath_30 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.files.viewStashOptions]", (path ? &lpath_30 : NULL));
                     return false;
                 }
@@ -4105,7 +4105,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.tagCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.tagCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.tagCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4118,7 +4118,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.renameCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.renameCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.renameCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4131,7 +4131,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.createFixupCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.createFixupCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.createFixupCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4144,7 +4144,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.renameCommitWithEditor]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.renameCommitWithEditor]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.renameCommitWithEditor]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4160,7 +4160,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.squashDown]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.squashDown]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.squashDown]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4173,7 +4173,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.revertCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.revertCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.revertCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4186,7 +4186,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.checkoutCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.checkoutCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.checkoutCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4199,7 +4199,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.resetCherryPick]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.resetCherryPick]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.resetCherryPick]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4212,7 +4212,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.squashAboveCommits]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.squashAboveCommits]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.squashAboveCommits]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4231,7 +4231,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.pickCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.pickCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.pickCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4244,7 +4244,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.moveUpCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.moveUpCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.moveUpCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4257,7 +4257,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.moveDownCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.moveDownCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.moveDownCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4270,7 +4270,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.markCommitAsFixup]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.markCommitAsFixup]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.markCommitAsFixup]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4286,7 +4286,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.openLogMenu]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.openLogMenu]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.openLogMenu]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4299,7 +4299,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.pasteCommits]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.pasteCommits]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.pasteCommits]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4312,7 +4312,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.amendToCommit]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.amendToCommit]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.amendToCommit]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4325,7 +4325,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.cherryPickCopy]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.cherryPickCopy]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.cherryPickCopy]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4338,7 +4338,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.viewResetOptions]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.viewResetOptions]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.viewResetOptions]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4351,7 +4351,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.viewBisectOptions]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.viewBisectOptions]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.viewBisectOptions]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4364,7 +4364,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.cherryPickCopyRange]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.cherryPickCopyRange]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.cherryPickCopyRange]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4377,7 +4377,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
                     res = json_model_4(pval, (path ? &lpath_31 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commits.copyCommitMessageToClipboard]", (path ? &lpath_31 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commits.copyCommitMessageToClipboard]", (path ? &lpath_31 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commits.copyCommitMessageToClipboard]", (path ? &lpath_31 : NULL));
                         return false;
                     }
@@ -4412,7 +4412,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.init]", (path ? &lpath_32 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.submodules.init]", (path ? &lpath_32 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.init]", (path ? &lpath_32 : NULL));
                 return false;
             }
@@ -4425,7 +4425,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.update]", (path ? &lpath_32 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.submodules.update]", (path ? &lpath_32 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.update]", (path ? &lpath_32 : NULL));
                 return false;
             }
@@ -4438,7 +4438,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_32 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path ? &lpath_32 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.submodules.bulkMenu]", (path ? &lpath_32 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.submodules.bulkMenu]", (path ? &lpath_32 : NULL));
                 return false;
             }
@@ -4471,7 +4471,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_33 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_33 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_33 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path ? &lpath_33 : NULL));
                 return false;
             }
@@ -4703,7 +4703,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_model_4(pval, (path ? &lpath_34 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $keybinding [.customCommands.'@'.0.key]", (path ? &lpath_34 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$keybinding\" [.customCommands.'@'.0.key]", (path ? &lpath_34 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.customCommands.'@'.0.key]", (path ? &lpath_34 : NULL));
                 return false;
             }
@@ -4717,7 +4717,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
             res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.customCommands.'@'.0.command]", (path ? &lpath_34 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.customCommands.'@'.0.command]", (path ? &lpath_34 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.customCommands.'@'.0.command]", (path ? &lpath_34 : NULL));
                 return false;
             }
@@ -4760,7 +4760,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.customCommands.'@'.0.description]", (path ? &lpath_34 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.customCommands.'@'.0.description]", (path ? &lpath_34 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.customCommands.'@'.0.description]", (path ? &lpath_34 : NULL));
                     return false;
                 }
@@ -4773,7 +4773,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                 res = json_is_string(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected string [.customCommands.'@'.0.loadingText]", (path ? &lpath_34 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.customCommands.'@'.0.loadingText]", (path ? &lpath_34 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.customCommands.'@'.0.loadingText]", (path ? &lpath_34 : NULL));
                     return false;
                 }
@@ -4811,7 +4811,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
                         res = json_model_10(arr_4_item, ((path ? &lpath_34 : NULL) ? &arr_4_lpath : NULL), rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $Prompts [.customCommands.'@'.0.prompts.0]", ((path ? &lpath_34 : NULL) ? &arr_4_lpath : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Prompts\" [.customCommands.'@'.0.prompts.0]", ((path ? &lpath_34 : NULL) ? &arr_4_lpath : NULL));
                             break;
                         }
                     }

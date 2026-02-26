@@ -41,7 +41,7 @@ function json_model_2(val, path, rep)
     res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =true [.'$Aa'.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=true\" [.'$Aa'.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$Aa']", (path ? lpath : null)])
         return false;
     }
@@ -92,7 +92,7 @@ function json_model_3(val, path, rep)
     res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =false [.'$Bb'.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=false\" [.'$Bb'.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$Bb']", (path ? lpath : null)])
         return false;
     }

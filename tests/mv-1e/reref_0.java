@@ -68,7 +68,7 @@ public class reref_0 extends ModelChecker
         boolean res = json.isString(val) && _jm_xre_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /'($character:\\w+)'.*'($character:\\w+)'/X [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/'($character:\\\\w+)'.*'($character:\\\\w+)'/X\" [.]", path);
         }
         return res;
     }

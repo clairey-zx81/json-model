@@ -18,7 +18,7 @@ function json_model_1(val, path, rep)
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =42 [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"=42\" [.]", path])
     }
     return res;
 }

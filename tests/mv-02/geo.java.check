@@ -39,8 +39,8 @@ geo.values.json[37]: FAIL (: not an object [.'$Point'])
 geo.values.json[38]: FAIL (: not an object [.'$Point'])
 geo.values.json[39]: FAIL (: not an object [.'$Point'])
 geo.values.json[40]: PASS
-geo.values.json[41]: FAIL (type: unexpected MultiPoint [.'$MultiPoint'.type]; type: invalid mandatory prop value [.'$MultiPoint'.type])
-geo.values.json[42]: FAIL (type: unexpected MultiPoint [.'$MultiPoint'.type]; type: invalid mandatory prop value [.'$MultiPoint'.type])
+geo.values.json[41]: FAIL (type: unexpected value for model "MultiPoint" [.'$MultiPoint'.type]; type: invalid mandatory prop value [.'$MultiPoint'.type])
+geo.values.json[42]: FAIL (type: unexpected value for model "MultiPoint" [.'$MultiPoint'.type]; type: invalid mandatory prop value [.'$MultiPoint'.type])
 geo.values.json[43]: PASS
-geo.values.json[44]: FAIL (coordinates: constraints failed [.'$coord_array']; coordinates: unexpected $coord_array [.'$LineString'.coordinates]; coordinates: invalid mandatory prop value [.'$LineString'.coordinates])
-geo.values.json[45]: FAIL (type: unexpected LineString [.'$LineString'.type]; type: invalid mandatory prop value [.'$LineString'.type])
+geo.values.json[44]: FAIL (coordinates: constraints failed [.'$coord_array']; coordinates: unexpected value for model "$coord_array" [.'$LineString'.coordinates]; coordinates: invalid mandatory prop value [.'$LineString'.coordinates])
+geo.values.json[45]: FAIL (type: unexpected value for model "LineString" [.'$LineString'.type]; type: invalid mandatory prop value [.'$LineString'.type])

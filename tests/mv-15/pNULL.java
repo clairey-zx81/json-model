@@ -26,7 +26,7 @@ public class pNULL extends ModelChecker
         boolean res = json.isNull(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $NULL [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$NULL\" [.]", path);
         }
         return res;
     }

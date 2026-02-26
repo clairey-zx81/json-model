@@ -26,7 +26,7 @@ public class int_cons_2 extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) == 42;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =42 [.'$forty-two']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=42\" [.'$forty-two']", path);
         }
         return res;
     }

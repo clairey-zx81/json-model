@@ -4,7 +4,7 @@ bang-000.values.json[2]: FAIL (!: not a 0 strict int [.'!']; !: invalid mandator
 bang-000.values.json[3]: FAIL (_: not a bool [._]; _: invalid mandatory prop value [._])
 bang-000.values.json[4]: FAIL (a: not a 0 strict int [.a]; a: invalid mandatory prop value [.a])
 bang-000.values.json[5]: FAIL (?: not a 0.0 strict float [.'?']; ?: invalid mandatory prop value [.'?'])
-bang-000.values.json[6]: FAIL (/: unexpected =17 [.'/']; /: invalid mandatory prop value [.'/'])
+bang-000.values.json[6]: FAIL (/: unexpected value for model "=17" [.'/']; /: invalid mandatory prop value [.'/'])
 bang-000.values.json[7]: FAIL (: missing mandatory prop <!> [.]; : missing mandatory prop <?> [.])
 bang-000.values.json[8]: FAIL (: missing mandatory prop <?> [.]; : missing mandatory prop <_> [.])
 bang-000.values.json[9]: FAIL (: missing mandatory prop <?> [.]; : missing mandatory prop <a> [.])

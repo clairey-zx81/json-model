@@ -35,7 +35,7 @@ function json_model_1(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval.length > 0;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /./s [.nz]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/./s\" [.nz]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.nz]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -49,7 +49,7 @@ function json_model_1(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String));
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /.*/ [.all]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/.*/\" [.all]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.all]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -63,7 +63,7 @@ function json_model_1(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /./ [.some]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/./\" [.some]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.some]", (path ? lpath_0 : null)])
                 return false;
             }

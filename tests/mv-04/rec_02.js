@@ -31,7 +31,7 @@ function json_model_1(val, path, rep)
             res = json_model_1(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $foo [.foo]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$foo\" [.foo]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.foo]", (path ? lpath_0 : null)])
                 return false;
             }

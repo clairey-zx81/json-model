@@ -36,7 +36,7 @@ function json_model_1(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["unexpected /[0-9]/ [.'|'.0]", path])
+                rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'|'.0]", path])
                 rep !== null && rep.push(["no model matched [.'|']", path])
             }
         }

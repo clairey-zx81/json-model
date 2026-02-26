@@ -43,7 +43,7 @@ public class must_0 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.name]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.name]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.]", (path != null ? lpath : null));
             return false;
         }
@@ -57,7 +57,7 @@ public class must_0 extends ModelChecker
         res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $DATE [.born]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.born]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <born> [.]", (path != null ? lpath : null));
             return false;
         }

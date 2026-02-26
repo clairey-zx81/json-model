@@ -94,7 +94,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $DATE [.'$Oo0'.'']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.'$Oo0'.'']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
@@ -345,17 +345,17 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_2(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Oo0 [.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Oo0\" [.'|'.0]", path);
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Oo1 [.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Oo1\" [.'|'.1]", path);
             // .'|'.2
             res = json_model_4(val, path, rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Oo2 [.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Oo2\" [.'|'.2]", path);
             }
         }
     }

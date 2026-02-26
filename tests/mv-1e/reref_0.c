@@ -78,7 +78,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && _jm_xre_0(json_string_value(val), path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected /'($character:\\w+)'.*'($character:\\w+)'/X [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"/'($character:\\\\w+)'.*'($character:\\\\w+)'/X\" [.]", path);
     }
     return res;
 }

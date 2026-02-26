@@ -42,7 +42,7 @@ function json_model_1(val, path, rep)
         is_0 = (typeof val === 'string' || val instanceof String);
         if (! is_0)
         {
-            rep !== null && rep.push(["unexpected string [.'^'.7]", path])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'^'.7]", path])
         }
         res = ! is_0;
     }

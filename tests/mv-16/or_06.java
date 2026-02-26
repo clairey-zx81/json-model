@@ -36,13 +36,13 @@ public class or_06 extends ModelChecker
             res = json.asString(val).compareTo("Susie") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Susie [.'|'.0]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.'|'.0]", path);
                 // .'|'.1
                 // "/^[a-z]+$/"
                 res = _jm_re_0(json.asString(val), path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[a-z]+$/ [.'|'.1]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z]+$/\" [.'|'.1]", path);
                 }
             }
             if (res)

@@ -46,7 +46,7 @@ public class array_3 extends ModelChecker
                         res = json.isString(json.arrayItem(val, 3));
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.3]", (path != null ? lpath_0 : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.3]", (path != null ? lpath_0 : null));
                         }
                     }
                     else

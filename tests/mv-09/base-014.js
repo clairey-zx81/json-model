@@ -33,7 +33,7 @@ function json_model_1(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.nom]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.nom]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.nom]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -57,7 +57,7 @@ function json_model_1(val, path, rep)
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'']", (path ? lpath_0 : null)])
             return false;
         }
     }

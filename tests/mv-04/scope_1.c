@@ -40,12 +40,12 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_5(json_array_get(val, 1), (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $s [.'$r'.1]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$s\" [.'$r'.1]", (path ? &lpath_0 : NULL));
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $s [.'$r'.0]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$s\" [.'$r'.0]", (path ? &lpath_0 : NULL));
         }
     }
     if (unlikely(! res))
@@ -69,7 +69,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && _jm_re_0(json_string_value(val), path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected /[a-z]/ [.'$s']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"/[a-z]/\" [.'$s']", path);
     }
     return res;
 }
@@ -83,12 +83,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_3(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $s [.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$s\" [.'|'.0]", path);
         // .'|'.1
         res = json_model_5(val, path, rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $r#s [.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$r#s\" [.'|'.1]", path);
         }
     }
     if (likely(res))
@@ -116,7 +116,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && _jm_re_1(json_string_value(val), path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected /[0-9]/ [.'$r#s']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"/[0-9]/\" [.'$r#s']", path);
     }
     return res;
 }

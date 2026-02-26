@@ -18,7 +18,7 @@ function json_model_1(val, path, rep)
     let res = runtime.jm_is_valid_time(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $TIME [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$TIME\" [.]", path])
     }
     return res;
 }

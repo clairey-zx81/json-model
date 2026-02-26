@@ -38,7 +38,7 @@ public class ex_08 extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URL [.'$Key']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$Key']", path);
         }
         return res;
     }
@@ -66,7 +66,7 @@ public class ex_08 extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Val [.'$map'.'$URL']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Val\" [.'$map'.'$URL']", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
@@ -87,17 +87,17 @@ public class ex_08 extends ModelChecker
         boolean res = json_model_4(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $map [.'$Ex08'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$map\" [.'$Ex08'.'|'.0]", path);
             // .'$Ex08'.'|'.1
             res = json.isString(val) && rt.is_valid_url(json.asString(val));
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $URL [.'$Ex08'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$Ex08'.'|'.1]", path);
                 // .'$Ex08'.'|'.2
                 res = json_model_2(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Val [.'$Ex08'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Val\" [.'$Ex08'.'|'.2]", path);
                 }
             }
         }
@@ -119,7 +119,7 @@ public class ex_08 extends ModelChecker
         boolean res = json_model_5(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Ex08 [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Ex08\" [.]", path);
         }
         return res;
     }

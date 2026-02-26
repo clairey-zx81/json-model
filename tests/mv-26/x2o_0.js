@@ -41,7 +41,7 @@ function _jm_obj_0(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected a [.'|'.0.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"a\" [.'|'.0.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.0]", (path ? lpath : null)])
         return false;
     }
@@ -119,7 +119,7 @@ function _jm_obj_2(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected string [.'|'.2.t.'^'.0]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'|'.2.t.'^'.0]", (path ? lpath : null)])
     }
     // .'|'.2.t.'^'.1
     xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
@@ -129,7 +129,7 @@ function _jm_obj_2(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected _a [.'|'.2.t.'^'.1]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_a\" [.'|'.2.t.'^'.1]", (path ? lpath : null)])
     }
     if (xc_0 <= 1)
     {
@@ -141,7 +141,7 @@ function _jm_obj_2(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected _b [.'|'.2.t.'^'.2]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_b\" [.'|'.2.t.'^'.2]", (path ? lpath : null)])
         }
     }
     if (xc_0 <= 1)
@@ -154,7 +154,7 @@ function _jm_obj_2(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected _c [.'|'.2.t.'^'.3]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"_c\" [.'|'.2.t.'^'.3]", (path ? lpath : null)])
         }
     }
     res = xc_0 == 1;

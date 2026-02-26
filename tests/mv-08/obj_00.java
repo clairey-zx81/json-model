@@ -26,7 +26,7 @@ public class obj_00 extends ModelChecker
         boolean res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $BOOLEAN [.'$foo']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$BOOLEAN\" [.'$foo']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class obj_00 extends ModelChecker
         boolean res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $BOOLEAN [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$BOOLEAN\" [.]", path);
         }
         return res;
     }

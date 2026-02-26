@@ -49,7 +49,7 @@ public class xoropt_013 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'^'.0.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.0.a]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'^'.0.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -61,7 +61,7 @@ public class xoropt_013 extends ModelChecker
             res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected /.../ [.'^'.0.'']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"/.../\" [.'^'.0.'']", (path != null ? lpath_0 : null));
                 return false;
             }
         }
@@ -103,7 +103,7 @@ public class xoropt_013 extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'^'.1.b]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.1.b]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'^'.1.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -115,7 +115,7 @@ public class xoropt_013 extends ModelChecker
             res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_1 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected /.../ [.'^'.1.'']", (path != null ? lpath_1 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"/.../\" [.'^'.1.'']", (path != null ? lpath_1 : null));
                 return false;
             }
         }

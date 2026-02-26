@@ -25,7 +25,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_6(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $zero [.'$Zz']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$zero\" [.'$Zz']", path);
     }
     return res;
 }
@@ -37,7 +37,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_6(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Zz#zero [.'$z']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Zz#zero\" [.'$z']", path);
     }
     return res;
 }
@@ -58,7 +58,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_6(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $z [.'$l'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$z\" [.'$l'.0]", (path ? &arr_0_lpath : NULL));
                 break;
             }
         }
@@ -77,7 +77,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_4(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $l [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$l\" [.]", path);
     }
     return res;
 }

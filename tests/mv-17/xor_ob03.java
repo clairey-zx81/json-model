@@ -47,7 +47,7 @@ public class xor_ob03 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("fr") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected fr [.movie.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"fr\" [.movie.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -61,7 +61,7 @@ public class xor_ob03 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.0.titre]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.movie.'|'.0.titre]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <titre> [.movie.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -95,7 +95,7 @@ public class xor_ob03 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("en") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected en [.movie.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"en\" [.movie.'|'.1.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -109,7 +109,7 @@ public class xor_ob03 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.1.title]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.movie.'|'.1.title]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <title> [.movie.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -143,7 +143,7 @@ public class xor_ob03 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("ru") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected ru [.movie.'|'.2.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"ru\" [.movie.'|'.2.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.movie.'|'.2]", (path != null ? lpath : null));
             return false;
         }
@@ -157,7 +157,7 @@ public class xor_ob03 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.movie.'|'.2.suti]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.movie.'|'.2.suti]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <suti> [.movie.'|'.2]", (path != null ? lpath : null));
             return false;
         }

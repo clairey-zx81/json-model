@@ -47,7 +47,7 @@ public class root_0 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =0 [.'$Root'.id]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=0\" [.'$Root'.id]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <id> [.'$Root']", (path != null ? lpath : null));
             return false;
         }
@@ -61,7 +61,7 @@ public class root_0 extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Root'.name]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Root'.name]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'$Root']", (path != null ? lpath : null));
             return false;
         }
@@ -75,7 +75,7 @@ public class root_0 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Root [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Root\" [.]", path);
         }
         return res;
     }

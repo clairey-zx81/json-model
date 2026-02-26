@@ -32,7 +32,7 @@ function json_model_1(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "South Africa";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _South Africa [.country]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_South Africa\" [.country]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.country]", (path ? lpath_0 : null)])
                 return false;
             }

@@ -2,7 +2,7 @@ xor_ob03.values.json[0]: PASS
 xor_ob03.values.json[1]: PASS
 xor_ob03.values.json[2]: FAIL (.movie: invalid mandatory prop value [.movie]; .movie: tag <t> value not found [.movie.'|'])
 xor_ob03.values.json[3]: FAIL (.movie: invalid mandatory prop value [.movie]; .movie: missing mandatory prop <titre> [.movie.'|'.0])
-xor_ob03.values.json[4]: FAIL (.movie: invalid mandatory prop value [.movie]; .movie.titre: invalid mandatory prop value [.movie.'|'.0.titre]; .movie.titre: unexpected string [.movie.'|'.0.titre])
+xor_ob03.values.json[4]: FAIL (.movie: invalid mandatory prop value [.movie]; .movie.titre: invalid mandatory prop value [.movie.'|'.0.titre]; .movie.titre: unexpected value for model "" [.movie.'|'.0.titre])
 xor_ob03.values.json[5]: FAIL (.movie: invalid mandatory prop value [.movie]; .movie.audio: unexpected prop [.movie.'|'.0])
 xor_ob03.values.json[6]: FAIL (.movie: invalid mandatory prop value [.movie]; .movie: tag prop <t> is missing [.movie.'|'])
 xor_ob03.values.json[7]: FAIL (.: missing mandatory prop <movie> [.])

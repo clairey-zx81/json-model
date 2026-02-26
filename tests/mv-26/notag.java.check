@@ -1,6 +1,6 @@
 notag.values.json[0]: PASS
 notag.values.json[1]: PASS
-notag.values.json[2]: FAIL (t: unexpected A [.'|'.1.t]; t: unexpected value for mandatory prop <t> [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
+notag.values.json[2]: FAIL (t: unexpected value for model "A" [.'|'.1.t]; t: unexpected value for mandatory prop <t> [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
 notag.values.json[3]: FAIL (: no model matched [.'|'])
 notag.values.json[4]: FAIL (: no model matched [.'|'])
 notag.values.json[5]: FAIL (: unexpected type [.'|'])

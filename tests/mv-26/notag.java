@@ -46,7 +46,7 @@ public class notag extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("A") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected A [.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"A\" [.'|'.1.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -60,7 +60,7 @@ public class notag extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.1.bla]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.1.bla]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <bla> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -94,7 +94,7 @@ public class notag extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("A") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected A [.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"A\" [.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -108,7 +108,7 @@ public class notag extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'|'.0.foo]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.0.foo]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <foo> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }

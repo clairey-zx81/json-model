@@ -35,7 +35,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ex05b']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Ex05b']", path);
     }
     return res;
 }
@@ -48,12 +48,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_2(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Ex05a [.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ex05a\" [.'|'.0]", path);
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Ex05b [.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ex05b\" [.'|'.1]", path);
         }
     }
     if (likely(res))

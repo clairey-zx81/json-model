@@ -38,7 +38,7 @@ function json_model_1(val, path, rep)
                     res = (typeof val[3] === 'string' || val[3] instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.3]", (path ? lpath_0 : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.3]", (path ? lpath_0 : null)])
                     }
                 }
                 else

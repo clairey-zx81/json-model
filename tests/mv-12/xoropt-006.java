@@ -26,7 +26,7 @@ public class xoropt_006 extends ModelChecker
         boolean res;
         // .'$None'
         res = false;
-        if (rep != null) rep.addEntry("unexpected $NONE [.'$None']", path);
+        if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'$None']", path);
         return res;
     }
 
@@ -55,7 +55,7 @@ public class xoropt_006 extends ModelChecker
                 // handle 1 re props
                 // .'|'.2.'/^[ab]$/'
                 res = false;
-                if (rep != null) rep.addEntry("unexpected $NONE [.'|'.2.'/^[ab]$/']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'|'.2.'/^[ab]$/']", (path != null ? lpath_0 : null));
                 return false;
             }
             else

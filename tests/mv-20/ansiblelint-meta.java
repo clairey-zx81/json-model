@@ -114,7 +114,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("AIX") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _AIX [.'$AIXPlatformModel'.name]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_AIX\" [.'$AIXPlatformModel'.name]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AIXPlatformModel'.name]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -180,7 +180,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Alpine") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Alpine [.'$AlpinePlatformModel'.name]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Alpine\" [.'$AlpinePlatformModel'.name]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AlpinePlatformModel'.name]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -204,7 +204,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_1_item) && json.asString(arr_1_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$AlpinePlatformModel'.versions.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$AlpinePlatformModel'.versions.0]", ((path != null ? lpath_1 : null) != null ? arr_1_lpath : null));
                             break;
                         }
                     }
@@ -247,7 +247,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Amazon Linux") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Amazon Linux [.'$AmazonLinuxPlatformModel'.name]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Amazon Linux\" [.'$AmazonLinuxPlatformModel'.name]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonLinuxPlatformModel'.name]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -314,7 +314,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Amazon") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Amazon [.'$AmazonPlatformModel'.name]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Amazon\" [.'$AmazonPlatformModel'.name]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AmazonPlatformModel'.name]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -380,7 +380,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("ArchLinux") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _ArchLinux [.'$ArchLinuxPlatformModel'.name]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_ArchLinux\" [.'$ArchLinuxPlatformModel'.name]", (path != null ? lpath_4 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ArchLinuxPlatformModel'.name]", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -404,7 +404,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_4_item) && json.asString(arr_4_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$ArchLinuxPlatformModel'.versions.0]", ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$ArchLinuxPlatformModel'.versions.0]", ((path != null ? lpath_4 : null) != null ? arr_4_lpath : null));
                             break;
                         }
                     }
@@ -447,7 +447,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Astra Linux") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Astra Linux [.'$AstraLinuxPlatformModel'.name]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Astra Linux\" [.'$AstraLinuxPlatformModel'.name]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AstraLinuxPlatformModel'.name]", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -513,7 +513,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("ClearLinux") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _ClearLinux [.'$ClearLinuxPlatformModel'.name]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_ClearLinux\" [.'$ClearLinuxPlatformModel'.name]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ClearLinuxPlatformModel'.name]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -537,7 +537,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_6_item) && json.asString(arr_6_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$ClearLinuxPlatformModel'.versions.0]", ((path != null ? lpath_6 : null) != null ? arr_6_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$ClearLinuxPlatformModel'.versions.0]", ((path != null ? lpath_6 : null) != null ? arr_6_lpath : null));
                             break;
                         }
                     }
@@ -580,7 +580,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Cumulus") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Cumulus [.'$CumulusPlatformModel'.name]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Cumulus\" [.'$CumulusPlatformModel'.name]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$CumulusPlatformModel'.name]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -647,7 +647,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Debian") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Debian [.'$DebianPlatformModel'.name]", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Debian\" [.'$DebianPlatformModel'.name]", (path != null ? lpath_8 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DebianPlatformModel'.name]", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -714,7 +714,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("DellOS") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _DellOS [.'$DellOSPlatformModel'.name]", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_DellOS\" [.'$DellOSPlatformModel'.name]", (path != null ? lpath_9 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DellOSPlatformModel'.name]", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -781,7 +781,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Devuan") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Devuan [.'$DevuanPlatformModel'.name]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Devuan\" [.'$DevuanPlatformModel'.name]", (path != null ? lpath_10 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DevuanPlatformModel'.name]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -848,7 +848,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("DragonFlyBSD") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _DragonFlyBSD [.'$DragonFlyBSDPlatformModel'.name]", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_DragonFlyBSD\" [.'$DragonFlyBSDPlatformModel'.name]", (path != null ? lpath_11 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DragonFlyBSDPlatformModel'.name]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -915,7 +915,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("EL") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _EL [.'$ELPlatformModel'.name]", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_EL\" [.'$ELPlatformModel'.name]", (path != null ? lpath_12 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$ELPlatformModel'.name]", (path != null ? lpath_12 : null));
                     return false;
                 }
@@ -982,7 +982,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Fedora") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Fedora [.'$FedoraPlatformModel'.name]", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Fedora\" [.'$FedoraPlatformModel'.name]", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FedoraPlatformModel'.name]", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -1049,7 +1049,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("FreeBSD") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _FreeBSD [.'$FreeBSDPlatformModel'.name]", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_FreeBSD\" [.'$FreeBSDPlatformModel'.name]", (path != null ? lpath_14 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$FreeBSDPlatformModel'.name]", (path != null ? lpath_14 : null));
                     return false;
                 }
@@ -1115,7 +1115,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("GenericBSD") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _GenericBSD [.'$GenericBSDPlatformModel'.name]", (path != null ? lpath_15 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_GenericBSD\" [.'$GenericBSDPlatformModel'.name]", (path != null ? lpath_15 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericBSDPlatformModel'.name]", (path != null ? lpath_15 : null));
                     return false;
                 }
@@ -1139,7 +1139,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_15_item) && json.asString(arr_15_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$GenericBSDPlatformModel'.versions.0]", ((path != null ? lpath_15 : null) != null ? arr_15_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$GenericBSDPlatformModel'.versions.0]", ((path != null ? lpath_15 : null) != null ? arr_15_lpath : null));
                             break;
                         }
                     }
@@ -1181,7 +1181,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("GenericLinux") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _GenericLinux [.'$GenericLinuxPlatformModel'.name]", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_GenericLinux\" [.'$GenericLinuxPlatformModel'.name]", (path != null ? lpath_16 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericLinuxPlatformModel'.name]", (path != null ? lpath_16 : null));
                     return false;
                 }
@@ -1205,7 +1205,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_16_item) && json.asString(arr_16_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$GenericLinuxPlatformModel'.versions.0]", ((path != null ? lpath_16 : null) != null ? arr_16_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$GenericLinuxPlatformModel'.versions.0]", ((path != null ? lpath_16 : null) != null ? arr_16_lpath : null));
                             break;
                         }
                     }
@@ -1247,7 +1247,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("GenericUNIX") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _GenericUNIX [.'$GenericUNIXPlatformModel'.name]", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_GenericUNIX\" [.'$GenericUNIXPlatformModel'.name]", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GenericUNIXPlatformModel'.name]", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -1271,7 +1271,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_17_item) && json.asString(arr_17_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$GenericUNIXPlatformModel'.versions.0]", ((path != null ? lpath_17 : null) != null ? arr_17_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$GenericUNIXPlatformModel'.versions.0]", ((path != null ? lpath_17 : null) != null ? arr_17_lpath : null));
                             break;
                         }
                     }
@@ -1313,7 +1313,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Gentoo") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Gentoo [.'$GentooPlatformModel'.name]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Gentoo\" [.'$GentooPlatformModel'.name]", (path != null ? lpath_18 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GentooPlatformModel'.name]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -1337,7 +1337,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_18_item) && json.asString(arr_18_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$GentooPlatformModel'.versions.0]", ((path != null ? lpath_18 : null) != null ? arr_18_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$GentooPlatformModel'.versions.0]", ((path != null ? lpath_18 : null) != null ? arr_18_lpath : null));
                             break;
                         }
                     }
@@ -1380,7 +1380,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("HardenedBSD") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _HardenedBSD [.'$HardenedBSDPlatformModel'.name]", (path != null ? lpath_19 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_HardenedBSD\" [.'$HardenedBSDPlatformModel'.name]", (path != null ? lpath_19 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$HardenedBSDPlatformModel'.name]", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -1446,7 +1446,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("IOS") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _IOS [.'$IOSPlatformModel'.name]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_IOS\" [.'$IOSPlatformModel'.name]", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$IOSPlatformModel'.name]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1470,7 +1470,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_20_item) && json.asString(arr_20_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$IOSPlatformModel'.versions.0]", ((path != null ? lpath_20 : null) != null ? arr_20_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$IOSPlatformModel'.versions.0]", ((path != null ? lpath_20 : null) != null ? arr_20_lpath : null));
                             break;
                         }
                     }
@@ -1512,7 +1512,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Junos") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Junos [.'$JunosPlatformModel'.name]", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Junos\" [.'$JunosPlatformModel'.name]", (path != null ? lpath_21 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$JunosPlatformModel'.name]", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -1536,7 +1536,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_21_item) && json.asString(arr_21_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$JunosPlatformModel'.versions.0]", ((path != null ? lpath_21 : null) != null ? arr_21_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$JunosPlatformModel'.versions.0]", ((path != null ? lpath_21 : null) != null ? arr_21_lpath : null));
                             break;
                         }
                     }
@@ -1579,7 +1579,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Kali [.'$KaliPlatformModel'.name]", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Kali\" [.'$KaliPlatformModel'.name]", (path != null ? lpath_22 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$KaliPlatformModel'.name]", (path != null ? lpath_22 : null));
                     return false;
                 }
@@ -1646,7 +1646,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Kali [.'$MacOSXPlatformModel'.name]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Kali\" [.'$MacOSXPlatformModel'.name]", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MacOSXPlatformModel'.name]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -1713,7 +1713,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Megeia") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Megeia [.'$MageiaPlatformModel'.name]", (path != null ? lpath_24 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Megeia\" [.'$MageiaPlatformModel'.name]", (path != null ? lpath_24 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$MageiaPlatformModel'.name]", (path != null ? lpath_24 : null));
                     return false;
                 }
@@ -1779,7 +1779,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("NXOS") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _NXOS [.'$NXOSPlatformModel'.name]", (path != null ? lpath_25 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_NXOS\" [.'$NXOSPlatformModel'.name]", (path != null ? lpath_25 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NXOSPlatformModel'.name]", (path != null ? lpath_25 : null));
                     return false;
                 }
@@ -1803,7 +1803,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_25_item) && json.asString(arr_25_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$NXOSPlatformModel'.versions.0]", ((path != null ? lpath_25 : null) != null ? arr_25_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$NXOSPlatformModel'.versions.0]", ((path != null ? lpath_25 : null) != null ? arr_25_lpath : null));
                             break;
                         }
                     }
@@ -1846,7 +1846,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("NetBSD") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _NetBSD [.'$NetBSDPlatformModel'.name]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_NetBSD\" [.'$NetBSDPlatformModel'.name]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$NetBSDPlatformModel'.name]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -1913,7 +1913,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("OpenBSD") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _OpenBSD [.'$OpenBSDPlatformModel'.name]", (path != null ? lpath_27 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_OpenBSD\" [.'$OpenBSDPlatformModel'.name]", (path != null ? lpath_27 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenBSDPlatformModel'.name]", (path != null ? lpath_27 : null));
                     return false;
                 }
@@ -1980,7 +1980,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("OpenWrt") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _OpenWrt [.'$OpenWrtPlatformModel'.name]", (path != null ? lpath_28 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_OpenWrt\" [.'$OpenWrtPlatformModel'.name]", (path != null ? lpath_28 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OpenWrtPlatformModel'.name]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -2047,7 +2047,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("OracleLinux") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _OracleLinux [.'$OracleLinuxPlatformModel'.name]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_OracleLinux\" [.'$OracleLinuxPlatformModel'.name]", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OracleLinuxPlatformModel'.name]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2114,7 +2114,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("PAN-OS") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _PAN-OS [.'$PAN-OSPlatformModel'.name]", (path != null ? lpath_30 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_PAN-OS\" [.'$PAN-OSPlatformModel'.name]", (path != null ? lpath_30 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$PAN-OSPlatformModel'.name]", (path != null ? lpath_30 : null));
                     return false;
                 }
@@ -2181,7 +2181,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Rocky") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Rocky [.'$RockyLinuxPlatformModel'.name]", (path != null ? lpath_31 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Rocky\" [.'$RockyLinuxPlatformModel'.name]", (path != null ? lpath_31 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$RockyLinuxPlatformModel'.name]", (path != null ? lpath_31 : null));
                     return false;
                 }
@@ -2248,7 +2248,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("SLES") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _SLES [.'$SLESPlatformModel'.name]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_SLES\" [.'$SLESPlatformModel'.name]", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SLESPlatformModel'.name]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2314,7 +2314,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("SmartOS") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _SmartOS [.'$SmartOSPlatformModel'.name]", (path != null ? lpath_33 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_SmartOS\" [.'$SmartOSPlatformModel'.name]", (path != null ? lpath_33 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SmartOSPlatformModel'.name]", (path != null ? lpath_33 : null));
                     return false;
                 }
@@ -2338,7 +2338,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_33_item) && json.asString(arr_33_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$SmartOSPlatformModel'.versions.0]", ((path != null ? lpath_33 : null) != null ? arr_33_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$SmartOSPlatformModel'.versions.0]", ((path != null ? lpath_33 : null) != null ? arr_33_lpath : null));
                             break;
                         }
                     }
@@ -2381,7 +2381,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Solaris") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Solaris [.'$SolarisPlatformModel'.name]", (path != null ? lpath_34 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Solaris\" [.'$SolarisPlatformModel'.name]", (path != null ? lpath_34 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SolarisPlatformModel'.name]", (path != null ? lpath_34 : null));
                     return false;
                 }
@@ -2448,7 +2448,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Synology") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Synology [.'$SynologyPlatformModel'.name]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Synology\" [.'$SynologyPlatformModel'.name]", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$SynologyPlatformModel'.name]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -2515,7 +2515,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("TMOS") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _TMOS [.'$TMOSPlatformModel'.name]", (path != null ? lpath_36 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_TMOS\" [.'$TMOSPlatformModel'.name]", (path != null ? lpath_36 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$TMOSPlatformModel'.name]", (path != null ? lpath_36 : null));
                     return false;
                 }
@@ -2582,7 +2582,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Ubuntu") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Ubuntu [.'$UbuntuPlatformModel'.name]", (path != null ? lpath_37 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Ubuntu\" [.'$UbuntuPlatformModel'.name]", (path != null ? lpath_37 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$UbuntuPlatformModel'.name]", (path != null ? lpath_37 : null));
                     return false;
                 }
@@ -2648,7 +2648,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Void Linux") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Void Linux [.'$Void_LinuxPlatformModel'.name]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Void Linux\" [.'$Void_LinuxPlatformModel'.name]", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Void_LinuxPlatformModel'.name]", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -2672,7 +2672,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_38_item) && json.asString(arr_38_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$Void_LinuxPlatformModel'.versions.0]", ((path != null ? lpath_38 : null) != null ? arr_38_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$Void_LinuxPlatformModel'.versions.0]", ((path != null ? lpath_38 : null) != null ? arr_38_lpath : null));
                             break;
                         }
                     }
@@ -2715,7 +2715,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Windows") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Windows [.'$WindowsPlatformModel'.name]", (path != null ? lpath_39 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Windows\" [.'$WindowsPlatformModel'.name]", (path != null ? lpath_39 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$WindowsPlatformModel'.name]", (path != null ? lpath_39 : null));
                     return false;
                 }
@@ -2781,7 +2781,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("aos") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _aos [.'$aosPlatformModel'.name]", (path != null ? lpath_40 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_aos\" [.'$aosPlatformModel'.name]", (path != null ? lpath_40 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$aosPlatformModel'.name]", (path != null ? lpath_40 : null));
                     return false;
                 }
@@ -2805,7 +2805,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_40_item) && json.asString(arr_40_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$aosPlatformModel'.versions.0]", ((path != null ? lpath_40 : null) != null ? arr_40_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$aosPlatformModel'.versions.0]", ((path != null ? lpath_40 : null) != null ? arr_40_lpath : null));
                             break;
                         }
                     }
@@ -2847,7 +2847,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("eos") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _eos [.'$eosPlatformModel'.name]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_eos\" [.'$eosPlatformModel'.name]", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$eosPlatformModel'.name]", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -2871,7 +2871,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_41_item) && json.asString(arr_41_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$eosPlatformModel'.versions.0]", ((path != null ? lpath_41 : null) != null ? arr_41_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$eosPlatformModel'.versions.0]", ((path != null ? lpath_41 : null) != null ? arr_41_lpath : null));
                             break;
                         }
                     }
@@ -2914,7 +2914,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("macOS") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _macOS [.'$macOSPlatformModel'.name]", (path != null ? lpath_42 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_macOS\" [.'$macOSPlatformModel'.name]", (path != null ? lpath_42 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$macOSPlatformModel'.name]", (path != null ? lpath_42 : null));
                     return false;
                 }
@@ -2981,7 +2981,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("opensuse") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _opensuse [.'$opensusePlatformModel'.name]", (path != null ? lpath_43 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_opensuse\" [.'$opensusePlatformModel'.name]", (path != null ? lpath_43 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$opensusePlatformModel'.name]", (path != null ? lpath_43 : null));
                     return false;
                 }
@@ -3047,7 +3047,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("os10") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _os10 [.'$os10PlatformModel'.name]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_os10\" [.'$os10PlatformModel'.name]", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$os10PlatformModel'.name]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -3071,7 +3071,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_44_item) && json.asString(arr_44_item).compareTo("all") == 0;
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected _all [.'$os10PlatformModel'.versions.0]", ((path != null ? lpath_44 : null) != null ? arr_44_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$os10PlatformModel'.versions.0]", ((path != null ? lpath_44 : null) != null ? arr_44_lpath : null));
                             break;
                         }
                     }
@@ -3114,7 +3114,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("vCenter") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _vCenter [.'$vCenterPlatformModel'.name]", (path != null ? lpath_45 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_vCenter\" [.'$vCenterPlatformModel'.name]", (path != null ? lpath_45 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vCenterPlatformModel'.name]", (path != null ? lpath_45 : null));
                     return false;
                 }
@@ -3181,7 +3181,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("vSphere") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _vSphere [.'$vSpherePlatformModel'.name]", (path != null ? lpath_46 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_vSphere\" [.'$vSpherePlatformModel'.name]", (path != null ? lpath_46 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$vSpherePlatformModel'.name]", (path != null ? lpath_46 : null));
                     return false;
                 }
@@ -3233,237 +3233,237 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $AIXPlatformModel [.'$any_platform'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$AIXPlatformModel\" [.'$any_platform'.'|'.0]", path);
             // .'$any_platform'.'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $AlpinePlatformModel [.'$any_platform'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$AlpinePlatformModel\" [.'$any_platform'.'|'.1]", path);
                 // .'$any_platform'.'|'.2
                 res = json_model_5(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $AmazonPlatformModel [.'$any_platform'.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"$AmazonPlatformModel\" [.'$any_platform'.'|'.2]", path);
                     // .'$any_platform'.'|'.3
                     res = json_model_4(val, path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $AmazonLinuxPlatformModel [.'$any_platform'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected value for model \"$AmazonLinuxPlatformModel\" [.'$any_platform'.'|'.3]", path);
                         // .'$any_platform'.'|'.4
                         res = json_model_42(val, path, rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $aosPlatformModel [.'$any_platform'.'|'.4]", path);
+                            if (rep != null) rep.addEntry("unexpected value for model \"$aosPlatformModel\" [.'$any_platform'.'|'.4]", path);
                             // .'$any_platform'.'|'.5
                             res = json_model_6(val, path, rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $ArchLinuxPlatformModel [.'$any_platform'.'|'.5]", path);
+                                if (rep != null) rep.addEntry("unexpected value for model \"$ArchLinuxPlatformModel\" [.'$any_platform'.'|'.5]", path);
                                 // .'$any_platform'.'|'.6
                                 res = json_model_7(val, path, rep);
                                 if (! res)
                                 {
-                                    if (rep != null) rep.addEntry("unexpected $AstraLinuxPlatformModel [.'$any_platform'.'|'.6]", path);
+                                    if (rep != null) rep.addEntry("unexpected value for model \"$AstraLinuxPlatformModel\" [.'$any_platform'.'|'.6]", path);
                                     // .'$any_platform'.'|'.7
                                     res = json_model_8(val, path, rep);
                                     if (! res)
                                     {
-                                        if (rep != null) rep.addEntry("unexpected $ClearLinuxPlatformModel [.'$any_platform'.'|'.7]", path);
+                                        if (rep != null) rep.addEntry("unexpected value for model \"$ClearLinuxPlatformModel\" [.'$any_platform'.'|'.7]", path);
                                         // .'$any_platform'.'|'.8
                                         res = json_model_9(val, path, rep);
                                         if (! res)
                                         {
-                                            if (rep != null) rep.addEntry("unexpected $CumulusPlatformModel [.'$any_platform'.'|'.8]", path);
+                                            if (rep != null) rep.addEntry("unexpected value for model \"$CumulusPlatformModel\" [.'$any_platform'.'|'.8]", path);
                                             // .'$any_platform'.'|'.9
                                             res = json_model_28(val, path, rep);
                                             if (! res)
                                             {
-                                                if (rep != null) rep.addEntry("unexpected $NetBSDPlatformModel [.'$any_platform'.'|'.9]", path);
+                                                if (rep != null) rep.addEntry("unexpected value for model \"$NetBSDPlatformModel\" [.'$any_platform'.'|'.9]", path);
                                                 // .'$any_platform'.'|'.10
                                                 res = json_model_10(val, path, rep);
                                                 if (! res)
                                                 {
-                                                    if (rep != null) rep.addEntry("unexpected $DebianPlatformModel [.'$any_platform'.'|'.10]", path);
+                                                    if (rep != null) rep.addEntry("unexpected value for model \"$DebianPlatformModel\" [.'$any_platform'.'|'.10]", path);
                                                     // .'$any_platform'.'|'.11
                                                     res = json_model_11(val, path, rep);
                                                     if (! res)
                                                     {
-                                                        if (rep != null) rep.addEntry("unexpected $DellOSPlatformModel [.'$any_platform'.'|'.11]", path);
+                                                        if (rep != null) rep.addEntry("unexpected value for model \"$DellOSPlatformModel\" [.'$any_platform'.'|'.11]", path);
                                                         // .'$any_platform'.'|'.12
                                                         res = json_model_12(val, path, rep);
                                                         if (! res)
                                                         {
-                                                            if (rep != null) rep.addEntry("unexpected $DevuanPlatformModel [.'$any_platform'.'|'.12]", path);
+                                                            if (rep != null) rep.addEntry("unexpected value for model \"$DevuanPlatformModel\" [.'$any_platform'.'|'.12]", path);
                                                             // .'$any_platform'.'|'.13
                                                             res = json_model_13(val, path, rep);
                                                             if (! res)
                                                             {
-                                                                if (rep != null) rep.addEntry("unexpected $DragonFlyBSDPlatformModel [.'$any_platform'.'|'.13]", path);
+                                                                if (rep != null) rep.addEntry("unexpected value for model \"$DragonFlyBSDPlatformModel\" [.'$any_platform'.'|'.13]", path);
                                                                 // .'$any_platform'.'|'.14
                                                                 res = json_model_14(val, path, rep);
                                                                 if (! res)
                                                                 {
-                                                                    if (rep != null) rep.addEntry("unexpected $ELPlatformModel [.'$any_platform'.'|'.14]", path);
+                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$ELPlatformModel\" [.'$any_platform'.'|'.14]", path);
                                                                     // .'$any_platform'.'|'.15
                                                                     res = json_model_43(val, path, rep);
                                                                     if (! res)
                                                                     {
-                                                                        if (rep != null) rep.addEntry("unexpected $eosPlatformModel [.'$any_platform'.'|'.15]", path);
+                                                                        if (rep != null) rep.addEntry("unexpected value for model \"$eosPlatformModel\" [.'$any_platform'.'|'.15]", path);
                                                                         // .'$any_platform'.'|'.16
                                                                         res = json_model_15(val, path, rep);
                                                                         if (! res)
                                                                         {
-                                                                            if (rep != null) rep.addEntry("unexpected $FedoraPlatformModel [.'$any_platform'.'|'.16]", path);
+                                                                            if (rep != null) rep.addEntry("unexpected value for model \"$FedoraPlatformModel\" [.'$any_platform'.'|'.16]", path);
                                                                             // .'$any_platform'.'|'.17
                                                                             res = json_model_16(val, path, rep);
                                                                             if (! res)
                                                                             {
-                                                                                if (rep != null) rep.addEntry("unexpected $FreeBSDPlatformModel [.'$any_platform'.'|'.17]", path);
+                                                                                if (rep != null) rep.addEntry("unexpected value for model \"$FreeBSDPlatformModel\" [.'$any_platform'.'|'.17]", path);
                                                                                 // .'$any_platform'.'|'.18
                                                                                 res = json_model_17(val, path, rep);
                                                                                 if (! res)
                                                                                 {
-                                                                                    if (rep != null) rep.addEntry("unexpected $GenericBSDPlatformModel [.'$any_platform'.'|'.18]", path);
+                                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$GenericBSDPlatformModel\" [.'$any_platform'.'|'.18]", path);
                                                                                     // .'$any_platform'.'|'.19
                                                                                     res = json_model_18(val, path, rep);
                                                                                     if (! res)
                                                                                     {
-                                                                                        if (rep != null) rep.addEntry("unexpected $GenericLinuxPlatformModel [.'$any_platform'.'|'.19]", path);
+                                                                                        if (rep != null) rep.addEntry("unexpected value for model \"$GenericLinuxPlatformModel\" [.'$any_platform'.'|'.19]", path);
                                                                                         // .'$any_platform'.'|'.20
                                                                                         res = json_model_19(val, path, rep);
                                                                                         if (! res)
                                                                                         {
-                                                                                            if (rep != null) rep.addEntry("unexpected $GenericUNIXPlatformModel [.'$any_platform'.'|'.20]", path);
+                                                                                            if (rep != null) rep.addEntry("unexpected value for model \"$GenericUNIXPlatformModel\" [.'$any_platform'.'|'.20]", path);
                                                                                             // .'$any_platform'.'|'.21
                                                                                             res = json_model_20(val, path, rep);
                                                                                             if (! res)
                                                                                             {
-                                                                                                if (rep != null) rep.addEntry("unexpected $GentooPlatformModel [.'$any_platform'.'|'.21]", path);
+                                                                                                if (rep != null) rep.addEntry("unexpected value for model \"$GentooPlatformModel\" [.'$any_platform'.'|'.21]", path);
                                                                                                 // .'$any_platform'.'|'.22
                                                                                                 res = json_model_21(val, path, rep);
                                                                                                 if (! res)
                                                                                                 {
-                                                                                                    if (rep != null) rep.addEntry("unexpected $HardenedBSDPlatformModel [.'$any_platform'.'|'.22]", path);
+                                                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$HardenedBSDPlatformModel\" [.'$any_platform'.'|'.22]", path);
                                                                                                     // .'$any_platform'.'|'.23
                                                                                                     res = json_model_22(val, path, rep);
                                                                                                     if (! res)
                                                                                                     {
-                                                                                                        if (rep != null) rep.addEntry("unexpected $IOSPlatformModel [.'$any_platform'.'|'.23]", path);
+                                                                                                        if (rep != null) rep.addEntry("unexpected value for model \"$IOSPlatformModel\" [.'$any_platform'.'|'.23]", path);
                                                                                                         // .'$any_platform'.'|'.24
                                                                                                         res = json_model_23(val, path, rep);
                                                                                                         if (! res)
                                                                                                         {
-                                                                                                            if (rep != null) rep.addEntry("unexpected $JunosPlatformModel [.'$any_platform'.'|'.24]", path);
+                                                                                                            if (rep != null) rep.addEntry("unexpected value for model \"$JunosPlatformModel\" [.'$any_platform'.'|'.24]", path);
                                                                                                             // .'$any_platform'.'|'.25
                                                                                                             res = json_model_24(val, path, rep);
                                                                                                             if (! res)
                                                                                                             {
-                                                                                                                if (rep != null) rep.addEntry("unexpected $KaliPlatformModel [.'$any_platform'.'|'.25]", path);
+                                                                                                                if (rep != null) rep.addEntry("unexpected value for model \"$KaliPlatformModel\" [.'$any_platform'.'|'.25]", path);
                                                                                                                 // .'$any_platform'.'|'.26
                                                                                                                 res = json_model_44(val, path, rep);
                                                                                                                 if (! res)
                                                                                                                 {
-                                                                                                                    if (rep != null) rep.addEntry("unexpected $macOSPlatformModel [.'$any_platform'.'|'.26]", path);
+                                                                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$macOSPlatformModel\" [.'$any_platform'.'|'.26]", path);
                                                                                                                     // .'$any_platform'.'|'.27
                                                                                                                     res = json_model_25(val, path, rep);
                                                                                                                     if (! res)
                                                                                                                     {
-                                                                                                                        if (rep != null) rep.addEntry("unexpected $MacOSXPlatformModel [.'$any_platform'.'|'.27]", path);
+                                                                                                                        if (rep != null) rep.addEntry("unexpected value for model \"$MacOSXPlatformModel\" [.'$any_platform'.'|'.27]", path);
                                                                                                                         // .'$any_platform'.'|'.28
                                                                                                                         res = json_model_26(val, path, rep);
                                                                                                                         if (! res)
                                                                                                                         {
-                                                                                                                            if (rep != null) rep.addEntry("unexpected $MageiaPlatformModel [.'$any_platform'.'|'.28]", path);
+                                                                                                                            if (rep != null) rep.addEntry("unexpected value for model \"$MageiaPlatformModel\" [.'$any_platform'.'|'.28]", path);
                                                                                                                             // .'$any_platform'.'|'.29
                                                                                                                             res = json_model_27(val, path, rep);
                                                                                                                             if (! res)
                                                                                                                             {
-                                                                                                                                if (rep != null) rep.addEntry("unexpected $NXOSPlatformModel [.'$any_platform'.'|'.29]", path);
+                                                                                                                                if (rep != null) rep.addEntry("unexpected value for model \"$NXOSPlatformModel\" [.'$any_platform'.'|'.29]", path);
                                                                                                                                 // .'$any_platform'.'|'.30
                                                                                                                                 res = json_model_29(val, path, rep);
                                                                                                                                 if (! res)
                                                                                                                                 {
-                                                                                                                                    if (rep != null) rep.addEntry("unexpected $OpenBSDPlatformModel [.'$any_platform'.'|'.30]", path);
+                                                                                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$OpenBSDPlatformModel\" [.'$any_platform'.'|'.30]", path);
                                                                                                                                     // .'$any_platform'.'|'.31
                                                                                                                                     res = json_model_45(val, path, rep);
                                                                                                                                     if (! res)
                                                                                                                                     {
-                                                                                                                                        if (rep != null) rep.addEntry("unexpected $opensusePlatformModel [.'$any_platform'.'|'.31]", path);
+                                                                                                                                        if (rep != null) rep.addEntry("unexpected value for model \"$opensusePlatformModel\" [.'$any_platform'.'|'.31]", path);
                                                                                                                                         // .'$any_platform'.'|'.32
                                                                                                                                         res = json_model_30(val, path, rep);
                                                                                                                                         if (! res)
                                                                                                                                         {
-                                                                                                                                            if (rep != null) rep.addEntry("unexpected $OpenWrtPlatformModel [.'$any_platform'.'|'.32]", path);
+                                                                                                                                            if (rep != null) rep.addEntry("unexpected value for model \"$OpenWrtPlatformModel\" [.'$any_platform'.'|'.32]", path);
                                                                                                                                             // .'$any_platform'.'|'.33
                                                                                                                                             res = json_model_31(val, path, rep);
                                                                                                                                             if (! res)
                                                                                                                                             {
-                                                                                                                                                if (rep != null) rep.addEntry("unexpected $OracleLinuxPlatformModel [.'$any_platform'.'|'.33]", path);
+                                                                                                                                                if (rep != null) rep.addEntry("unexpected value for model \"$OracleLinuxPlatformModel\" [.'$any_platform'.'|'.33]", path);
                                                                                                                                                 // .'$any_platform'.'|'.34
                                                                                                                                                 res = json_model_46(val, path, rep);
                                                                                                                                                 if (! res)
                                                                                                                                                 {
-                                                                                                                                                    if (rep != null) rep.addEntry("unexpected $os10PlatformModel [.'$any_platform'.'|'.34]", path);
+                                                                                                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$os10PlatformModel\" [.'$any_platform'.'|'.34]", path);
                                                                                                                                                     // .'$any_platform'.'|'.35
                                                                                                                                                     res = json_model_32(val, path, rep);
                                                                                                                                                     if (! res)
                                                                                                                                                     {
-                                                                                                                                                        if (rep != null) rep.addEntry("unexpected $PAN-OSPlatformModel [.'$any_platform'.'|'.35]", path);
+                                                                                                                                                        if (rep != null) rep.addEntry("unexpected value for model \"$PAN-OSPlatformModel\" [.'$any_platform'.'|'.35]", path);
                                                                                                                                                         // .'$any_platform'.'|'.36
                                                                                                                                                         res = json_model_33(val, path, rep);
                                                                                                                                                         if (! res)
                                                                                                                                                         {
-                                                                                                                                                            if (rep != null) rep.addEntry("unexpected $RockyLinuxPlatformModel [.'$any_platform'.'|'.36]", path);
+                                                                                                                                                            if (rep != null) rep.addEntry("unexpected value for model \"$RockyLinuxPlatformModel\" [.'$any_platform'.'|'.36]", path);
                                                                                                                                                             // .'$any_platform'.'|'.37
                                                                                                                                                             res = json_model_34(val, path, rep);
                                                                                                                                                             if (! res)
                                                                                                                                                             {
-                                                                                                                                                                if (rep != null) rep.addEntry("unexpected $SLESPlatformModel [.'$any_platform'.'|'.37]", path);
+                                                                                                                                                                if (rep != null) rep.addEntry("unexpected value for model \"$SLESPlatformModel\" [.'$any_platform'.'|'.37]", path);
                                                                                                                                                                 // .'$any_platform'.'|'.38
                                                                                                                                                                 res = json_model_35(val, path, rep);
                                                                                                                                                                 if (! res)
                                                                                                                                                                 {
-                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected $SmartOSPlatformModel [.'$any_platform'.'|'.38]", path);
+                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$SmartOSPlatformModel\" [.'$any_platform'.'|'.38]", path);
                                                                                                                                                                     // .'$any_platform'.'|'.39
                                                                                                                                                                     res = json_model_36(val, path, rep);
                                                                                                                                                                     if (! res)
                                                                                                                                                                     {
-                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected $SolarisPlatformModel [.'$any_platform'.'|'.39]", path);
+                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected value for model \"$SolarisPlatformModel\" [.'$any_platform'.'|'.39]", path);
                                                                                                                                                                         // .'$any_platform'.'|'.40
                                                                                                                                                                         res = json_model_37(val, path, rep);
                                                                                                                                                                         if (! res)
                                                                                                                                                                         {
-                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected $SynologyPlatformModel [.'$any_platform'.'|'.40]", path);
+                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected value for model \"$SynologyPlatformModel\" [.'$any_platform'.'|'.40]", path);
                                                                                                                                                                             // .'$any_platform'.'|'.41
                                                                                                                                                                             res = json_model_38(val, path, rep);
                                                                                                                                                                             if (! res)
                                                                                                                                                                             {
-                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected $TMOSPlatformModel [.'$any_platform'.'|'.41]", path);
+                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected value for model \"$TMOSPlatformModel\" [.'$any_platform'.'|'.41]", path);
                                                                                                                                                                                 // .'$any_platform'.'|'.42
                                                                                                                                                                                 res = json_model_39(val, path, rep);
                                                                                                                                                                                 if (! res)
                                                                                                                                                                                 {
-                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected $UbuntuPlatformModel [.'$any_platform'.'|'.42]", path);
+                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$UbuntuPlatformModel\" [.'$any_platform'.'|'.42]", path);
                                                                                                                                                                                     // .'$any_platform'.'|'.43
                                                                                                                                                                                     res = json_model_47(val, path, rep);
                                                                                                                                                                                     if (! res)
                                                                                                                                                                                     {
-                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected $vCenterPlatformModel [.'$any_platform'.'|'.43]", path);
+                                                                                                                                                                                        if (rep != null) rep.addEntry("unexpected value for model \"$vCenterPlatformModel\" [.'$any_platform'.'|'.43]", path);
                                                                                                                                                                                         // .'$any_platform'.'|'.44
                                                                                                                                                                                         res = json_model_40(val, path, rep);
                                                                                                                                                                                         if (! res)
                                                                                                                                                                                         {
-                                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected $Void_LinuxPlatformModel [.'$any_platform'.'|'.44]", path);
+                                                                                                                                                                                            if (rep != null) rep.addEntry("unexpected value for model \"$Void_LinuxPlatformModel\" [.'$any_platform'.'|'.44]", path);
                                                                                                                                                                                             // .'$any_platform'.'|'.45
                                                                                                                                                                                             res = json_model_48(val, path, rep);
                                                                                                                                                                                             if (! res)
                                                                                                                                                                                             {
-                                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected $vSpherePlatformModel [.'$any_platform'.'|'.45]", path);
+                                                                                                                                                                                                if (rep != null) rep.addEntry("unexpected value for model \"$vSpherePlatformModel\" [.'$any_platform'.'|'.45]", path);
                                                                                                                                                                                                 // .'$any_platform'.'|'.46
                                                                                                                                                                                                 res = json_model_41(val, path, rep);
                                                                                                                                                                                                 if (! res)
                                                                                                                                                                                                 {
-                                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected $WindowsPlatformModel [.'$any_platform'.'|'.46]", path);
+                                                                                                                                                                                                    if (rep != null) rep.addEntry("unexpected value for model \"$WindowsPlatformModel\" [.'$any_platform'.'|'.46]", path);
                                                                                                                                                                                                 }
                                                                                                                                                                                             }
                                                                                                                                                                                         }
@@ -3542,7 +3542,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Windows") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Windows [.'$platforms'.0.'|'.46.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Windows\" [.'$platforms'.0.'|'.46.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.46]", (path != null ? lpath : null));
                 return false;
             }
@@ -3600,7 +3600,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("vSphere") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _vSphere [.'$platforms'.0.'|'.45.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_vSphere\" [.'$platforms'.0.'|'.45.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.45]", (path != null ? lpath : null));
                 return false;
             }
@@ -3657,7 +3657,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Void Linux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Void Linux [.'$platforms'.0.'|'.44.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Void Linux\" [.'$platforms'.0.'|'.44.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.44]", (path != null ? lpath : null));
                 return false;
             }
@@ -3680,7 +3680,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_50_item) && json.asString(arr_50_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.44.versions.0]", ((path != null ? lpath : null) != null ? arr_50_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.44.versions.0]", ((path != null ? lpath : null) != null ? arr_50_lpath : null));
                         break;
                     }
                 }
@@ -3715,7 +3715,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("vCenter") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _vCenter [.'$platforms'.0.'|'.43.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_vCenter\" [.'$platforms'.0.'|'.43.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.43]", (path != null ? lpath : null));
                 return false;
             }
@@ -3773,7 +3773,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Ubuntu") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Ubuntu [.'$platforms'.0.'|'.42.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Ubuntu\" [.'$platforms'.0.'|'.42.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.42]", (path != null ? lpath : null));
                 return false;
             }
@@ -3831,7 +3831,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("TMOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _TMOS [.'$platforms'.0.'|'.41.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_TMOS\" [.'$platforms'.0.'|'.41.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.41]", (path != null ? lpath : null));
                 return false;
             }
@@ -3889,7 +3889,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Synology") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Synology [.'$platforms'.0.'|'.40.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Synology\" [.'$platforms'.0.'|'.40.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.40]", (path != null ? lpath : null));
                 return false;
             }
@@ -3947,7 +3947,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Solaris") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Solaris [.'$platforms'.0.'|'.39.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Solaris\" [.'$platforms'.0.'|'.39.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.39]", (path != null ? lpath : null));
                 return false;
             }
@@ -4004,7 +4004,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("SmartOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _SmartOS [.'$platforms'.0.'|'.38.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_SmartOS\" [.'$platforms'.0.'|'.38.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.38]", (path != null ? lpath : null));
                 return false;
             }
@@ -4027,7 +4027,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_56_item) && json.asString(arr_56_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.38.versions.0]", ((path != null ? lpath : null) != null ? arr_56_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.38.versions.0]", ((path != null ? lpath : null) != null ? arr_56_lpath : null));
                         break;
                     }
                 }
@@ -4062,7 +4062,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("SLES") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _SLES [.'$platforms'.0.'|'.37.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_SLES\" [.'$platforms'.0.'|'.37.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.37]", (path != null ? lpath : null));
                 return false;
             }
@@ -4120,7 +4120,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Rocky") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Rocky [.'$platforms'.0.'|'.36.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Rocky\" [.'$platforms'.0.'|'.36.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.36]", (path != null ? lpath : null));
                 return false;
             }
@@ -4178,7 +4178,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("PAN-OS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _PAN-OS [.'$platforms'.0.'|'.35.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_PAN-OS\" [.'$platforms'.0.'|'.35.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.35]", (path != null ? lpath : null));
                 return false;
             }
@@ -4235,7 +4235,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("os10") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _os10 [.'$platforms'.0.'|'.34.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_os10\" [.'$platforms'.0.'|'.34.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.34]", (path != null ? lpath : null));
                 return false;
             }
@@ -4258,7 +4258,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_60_item) && json.asString(arr_60_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.34.versions.0]", ((path != null ? lpath : null) != null ? arr_60_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.34.versions.0]", ((path != null ? lpath : null) != null ? arr_60_lpath : null));
                         break;
                     }
                 }
@@ -4293,7 +4293,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("OracleLinux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _OracleLinux [.'$platforms'.0.'|'.33.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_OracleLinux\" [.'$platforms'.0.'|'.33.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.33]", (path != null ? lpath : null));
                 return false;
             }
@@ -4351,7 +4351,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("OpenWrt") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _OpenWrt [.'$platforms'.0.'|'.32.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_OpenWrt\" [.'$platforms'.0.'|'.32.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.32]", (path != null ? lpath : null));
                 return false;
             }
@@ -4409,7 +4409,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("opensuse") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _opensuse [.'$platforms'.0.'|'.31.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_opensuse\" [.'$platforms'.0.'|'.31.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.31]", (path != null ? lpath : null));
                 return false;
             }
@@ -4467,7 +4467,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("OpenBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _OpenBSD [.'$platforms'.0.'|'.30.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_OpenBSD\" [.'$platforms'.0.'|'.30.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.30]", (path != null ? lpath : null));
                 return false;
             }
@@ -4524,7 +4524,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("NXOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _NXOS [.'$platforms'.0.'|'.29.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_NXOS\" [.'$platforms'.0.'|'.29.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.29]", (path != null ? lpath : null));
                 return false;
             }
@@ -4547,7 +4547,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_65_item) && json.asString(arr_65_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.29.versions.0]", ((path != null ? lpath : null) != null ? arr_65_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.29.versions.0]", ((path != null ? lpath : null) != null ? arr_65_lpath : null));
                         break;
                     }
                 }
@@ -4582,7 +4582,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Megeia") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Megeia [.'$platforms'.0.'|'.28.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Megeia\" [.'$platforms'.0.'|'.28.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.28]", (path != null ? lpath : null));
                 return false;
             }
@@ -4640,7 +4640,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Kali [.'$platforms'.0.'|'.27.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Kali\" [.'$platforms'.0.'|'.27.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.27]", (path != null ? lpath : null));
                 return false;
             }
@@ -4698,7 +4698,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("macOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _macOS [.'$platforms'.0.'|'.26.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_macOS\" [.'$platforms'.0.'|'.26.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.26]", (path != null ? lpath : null));
                 return false;
             }
@@ -4756,7 +4756,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Kali") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Kali [.'$platforms'.0.'|'.25.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Kali\" [.'$platforms'.0.'|'.25.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.25]", (path != null ? lpath : null));
                 return false;
             }
@@ -4813,7 +4813,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Junos") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Junos [.'$platforms'.0.'|'.24.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Junos\" [.'$platforms'.0.'|'.24.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.24]", (path != null ? lpath : null));
                 return false;
             }
@@ -4836,7 +4836,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_70_item) && json.asString(arr_70_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.24.versions.0]", ((path != null ? lpath : null) != null ? arr_70_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.24.versions.0]", ((path != null ? lpath : null) != null ? arr_70_lpath : null));
                         break;
                     }
                 }
@@ -4870,7 +4870,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("IOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _IOS [.'$platforms'.0.'|'.23.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_IOS\" [.'$platforms'.0.'|'.23.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.23]", (path != null ? lpath : null));
                 return false;
             }
@@ -4893,7 +4893,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_71_item) && json.asString(arr_71_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.23.versions.0]", ((path != null ? lpath : null) != null ? arr_71_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.23.versions.0]", ((path != null ? lpath : null) != null ? arr_71_lpath : null));
                         break;
                     }
                 }
@@ -4928,7 +4928,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("HardenedBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _HardenedBSD [.'$platforms'.0.'|'.22.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_HardenedBSD\" [.'$platforms'.0.'|'.22.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.22]", (path != null ? lpath : null));
                 return false;
             }
@@ -4985,7 +4985,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Gentoo") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Gentoo [.'$platforms'.0.'|'.21.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Gentoo\" [.'$platforms'.0.'|'.21.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.21]", (path != null ? lpath : null));
                 return false;
             }
@@ -5008,7 +5008,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_73_item) && json.asString(arr_73_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.21.versions.0]", ((path != null ? lpath : null) != null ? arr_73_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.21.versions.0]", ((path != null ? lpath : null) != null ? arr_73_lpath : null));
                         break;
                     }
                 }
@@ -5042,7 +5042,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("GenericUNIX") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _GenericUNIX [.'$platforms'.0.'|'.20.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_GenericUNIX\" [.'$platforms'.0.'|'.20.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.20]", (path != null ? lpath : null));
                 return false;
             }
@@ -5065,7 +5065,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_74_item) && json.asString(arr_74_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.20.versions.0]", ((path != null ? lpath : null) != null ? arr_74_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.20.versions.0]", ((path != null ? lpath : null) != null ? arr_74_lpath : null));
                         break;
                     }
                 }
@@ -5099,7 +5099,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("GenericLinux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _GenericLinux [.'$platforms'.0.'|'.19.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_GenericLinux\" [.'$platforms'.0.'|'.19.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.19]", (path != null ? lpath : null));
                 return false;
             }
@@ -5122,7 +5122,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_75_item) && json.asString(arr_75_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.19.versions.0]", ((path != null ? lpath : null) != null ? arr_75_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.19.versions.0]", ((path != null ? lpath : null) != null ? arr_75_lpath : null));
                         break;
                     }
                 }
@@ -5156,7 +5156,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("GenericBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _GenericBSD [.'$platforms'.0.'|'.18.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_GenericBSD\" [.'$platforms'.0.'|'.18.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.18]", (path != null ? lpath : null));
                 return false;
             }
@@ -5179,7 +5179,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_76_item) && json.asString(arr_76_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.18.versions.0]", ((path != null ? lpath : null) != null ? arr_76_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.18.versions.0]", ((path != null ? lpath : null) != null ? arr_76_lpath : null));
                         break;
                     }
                 }
@@ -5214,7 +5214,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("FreeBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _FreeBSD [.'$platforms'.0.'|'.17.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_FreeBSD\" [.'$platforms'.0.'|'.17.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.17]", (path != null ? lpath : null));
                 return false;
             }
@@ -5272,7 +5272,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Fedora") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Fedora [.'$platforms'.0.'|'.16.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Fedora\" [.'$platforms'.0.'|'.16.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.16]", (path != null ? lpath : null));
                 return false;
             }
@@ -5329,7 +5329,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("eos") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _eos [.'$platforms'.0.'|'.15.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_eos\" [.'$platforms'.0.'|'.15.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.15]", (path != null ? lpath : null));
                 return false;
             }
@@ -5352,7 +5352,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_79_item) && json.asString(arr_79_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.15.versions.0]", ((path != null ? lpath : null) != null ? arr_79_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.15.versions.0]", ((path != null ? lpath : null) != null ? arr_79_lpath : null));
                         break;
                     }
                 }
@@ -5387,7 +5387,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("EL") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _EL [.'$platforms'.0.'|'.14.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_EL\" [.'$platforms'.0.'|'.14.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.14]", (path != null ? lpath : null));
                 return false;
             }
@@ -5445,7 +5445,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("DragonFlyBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _DragonFlyBSD [.'$platforms'.0.'|'.13.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_DragonFlyBSD\" [.'$platforms'.0.'|'.13.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.13]", (path != null ? lpath : null));
                 return false;
             }
@@ -5503,7 +5503,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Devuan") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Devuan [.'$platforms'.0.'|'.12.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Devuan\" [.'$platforms'.0.'|'.12.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.12]", (path != null ? lpath : null));
                 return false;
             }
@@ -5561,7 +5561,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("DellOS") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _DellOS [.'$platforms'.0.'|'.11.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_DellOS\" [.'$platforms'.0.'|'.11.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.11]", (path != null ? lpath : null));
                 return false;
             }
@@ -5619,7 +5619,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Debian") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Debian [.'$platforms'.0.'|'.10.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Debian\" [.'$platforms'.0.'|'.10.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.10]", (path != null ? lpath : null));
                 return false;
             }
@@ -5677,7 +5677,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("NetBSD") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _NetBSD [.'$platforms'.0.'|'.9.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_NetBSD\" [.'$platforms'.0.'|'.9.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.9]", (path != null ? lpath : null));
                 return false;
             }
@@ -5735,7 +5735,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Cumulus") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Cumulus [.'$platforms'.0.'|'.8.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Cumulus\" [.'$platforms'.0.'|'.8.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.8]", (path != null ? lpath : null));
                 return false;
             }
@@ -5792,7 +5792,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("ClearLinux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _ClearLinux [.'$platforms'.0.'|'.7.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_ClearLinux\" [.'$platforms'.0.'|'.7.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.7]", (path != null ? lpath : null));
                 return false;
             }
@@ -5815,7 +5815,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_87_item) && json.asString(arr_87_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.7.versions.0]", ((path != null ? lpath : null) != null ? arr_87_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.7.versions.0]", ((path != null ? lpath : null) != null ? arr_87_lpath : null));
                         break;
                     }
                 }
@@ -5850,7 +5850,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Astra Linux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Astra Linux [.'$platforms'.0.'|'.6.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Astra Linux\" [.'$platforms'.0.'|'.6.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.6]", (path != null ? lpath : null));
                 return false;
             }
@@ -5907,7 +5907,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("ArchLinux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _ArchLinux [.'$platforms'.0.'|'.5.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_ArchLinux\" [.'$platforms'.0.'|'.5.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.5]", (path != null ? lpath : null));
                 return false;
             }
@@ -5930,7 +5930,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_89_item) && json.asString(arr_89_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.5.versions.0]", ((path != null ? lpath : null) != null ? arr_89_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.5.versions.0]", ((path != null ? lpath : null) != null ? arr_89_lpath : null));
                         break;
                     }
                 }
@@ -5964,7 +5964,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("aos") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _aos [.'$platforms'.0.'|'.4.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_aos\" [.'$platforms'.0.'|'.4.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.4]", (path != null ? lpath : null));
                 return false;
             }
@@ -5987,7 +5987,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_90_item) && json.asString(arr_90_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.4.versions.0]", ((path != null ? lpath : null) != null ? arr_90_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.4.versions.0]", ((path != null ? lpath : null) != null ? arr_90_lpath : null));
                         break;
                     }
                 }
@@ -6022,7 +6022,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Amazon Linux") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Amazon Linux [.'$platforms'.0.'|'.3.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Amazon Linux\" [.'$platforms'.0.'|'.3.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.3]", (path != null ? lpath : null));
                 return false;
             }
@@ -6080,7 +6080,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Amazon") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Amazon [.'$platforms'.0.'|'.2.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Amazon\" [.'$platforms'.0.'|'.2.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.2]", (path != null ? lpath : null));
                 return false;
             }
@@ -6137,7 +6137,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("Alpine") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _Alpine [.'$platforms'.0.'|'.1.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_Alpine\" [.'$platforms'.0.'|'.1.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.1]", (path != null ? lpath : null));
                 return false;
             }
@@ -6160,7 +6160,7 @@ public class ansiblelint_meta extends ModelChecker
                     res = json.isString(arr_93_item) && json.asString(arr_93_item).compareTo("all") == 0;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected _all [.'$platforms'.0.'|'.1.versions.0]", ((path != null ? lpath : null) != null ? arr_93_lpath : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"_all\" [.'$platforms'.0.'|'.1.versions.0]", ((path != null ? lpath : null) != null ? arr_93_lpath : null));
                         break;
                     }
                 }
@@ -6195,7 +6195,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(pval) && json.asString(pval).compareTo("AIX") == 0;
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected _AIX [.'$platforms'.0.'|'.0.name]", (path != null ? lpath : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"_AIX\" [.'$platforms'.0.'|'.0.name]", (path != null ? lpath : null));
                 if (rep != null) rep.addEntry("unexpected value for optional prop <name> [.'$platforms'.0.'|'.0]", (path != null ? lpath : null));
                 return false;
             }
@@ -6593,7 +6593,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_47 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.namespace]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModelCollection'.namespace]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.namespace]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -6606,7 +6606,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json_model_50(pval, (path != null ? lpath_47 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModelCollection'.platforms]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$platforms\" [.'$GalaxyInfoModelCollection'.platforms]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.platforms]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -6620,7 +6620,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && _jm_re_1(json.asString(pval), (path != null ? lpath_47 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelCollection'.role_name]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModelCollection'.role_name]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.role_name]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -6644,7 +6644,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_95_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path != null ? lpath_47 : null) != null ? arr_95_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelCollection'.galaxy_tags.0]", ((path != null ? lpath_47 : null) != null ? arr_95_lpath : null));
                             break;
                         }
                     }
@@ -6684,7 +6684,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelCollection'.min_ansible_version]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -6722,7 +6722,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_48 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelLoose'.description]", (path != null ? lpath_48 : null));
                     return false;
                 }
@@ -6735,7 +6735,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.author]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.author]", (path != null ? lpath_48 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.author]", (path != null ? lpath_48 : null));
                     return false;
                 }
@@ -6748,7 +6748,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.company]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.company]", (path != null ? lpath_48 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.company]", (path != null ? lpath_48 : null));
                     return false;
                 }
@@ -6761,7 +6761,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.license]", (path != null ? lpath_48 : null));
                     return false;
                 }
@@ -6774,7 +6774,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.github_branch]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.github_branch]", (path != null ? lpath_48 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.github_branch]", (path != null ? lpath_48 : null));
                     return false;
                 }
@@ -6787,7 +6787,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path != null ? lpath_48 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.issue_tracker_url]", (path != null ? lpath_48 : null));
                     return false;
                 }
@@ -6800,7 +6800,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path != null ? lpath_48 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path != null ? lpath_48 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelLoose'.min_ansible_container_version]", (path != null ? lpath_48 : null));
                     return false;
                 }
@@ -6848,7 +6848,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.author]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6862,7 +6862,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.license]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6876,7 +6876,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isBoolean(pval) && json.asBoolean(pval) == true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =true [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=true\" [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.standalone]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6890,7 +6890,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.description]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6904,7 +6904,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModelStandalone'.min_ansible_version]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6917,7 +6917,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.company]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.company]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.company]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6931,7 +6931,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_49 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.namespace]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModelStandalone'.namespace]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.namespace]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6944,7 +6944,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json_model_50(pval, (path != null ? lpath_49 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $platforms [.'$GalaxyInfoModelStandalone'.platforms]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$platforms\" [.'$GalaxyInfoModelStandalone'.platforms]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.platforms]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6958,7 +6958,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval) && _jm_re_1(json.asString(pval), (path != null ? lpath_49 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModelStandalone'.role_name]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModelStandalone'.role_name]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.role_name]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -6982,7 +6982,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_96_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path != null ? lpath_49 : null) != null ? arr_96_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.galaxy_tags.0]", ((path != null ? lpath_49 : null) != null ? arr_96_lpath : null));
                             break;
                         }
                     }
@@ -7015,7 +7015,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.github_branch]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -7035,7 +7035,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.issue_tracker_url]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -7048,7 +7048,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$GalaxyInfoModelStandalone'.min_ansible_container_version]", (path != null ? lpath_49 : null));
                     return false;
                 }
@@ -7094,7 +7094,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.author]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.author]", path);
         }
         return res;
     }
@@ -7115,7 +7115,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.company]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.company]", path);
         }
         return res;
     }
@@ -7138,7 +7138,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(arr_97_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", (path != null ? arr_97_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", (path != null ? arr_97_lpath : null));
                     break;
                 }
             }
@@ -7157,7 +7157,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.github_branch]", path);
         }
         return res;
     }
@@ -7169,7 +7169,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", path);
         }
         return res;
     }
@@ -7181,7 +7181,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.license]", path);
         }
         return res;
     }
@@ -7193,7 +7193,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", path);
         }
         return res;
     }
@@ -7205,7 +7205,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", path);
         }
         return res;
     }
@@ -7218,7 +7218,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.1.namespace]", path);
         }
         return res;
     }
@@ -7231,7 +7231,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.role_name]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.1.role_name]", path);
         }
         return res;
     }
@@ -7274,7 +7274,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isBoolean(pval) && json.asBoolean(pval) == false;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=false\" [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_50 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path != null ? lpath_50 : null));
                     return false;
                 }
@@ -7288,7 +7288,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_50 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_50 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path != null ? lpath_50 : null));
                     return false;
                 }
@@ -7332,7 +7332,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.author]", path);
         }
         return res;
     }
@@ -7353,7 +7353,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.company]", path);
         }
         return res;
     }
@@ -7376,7 +7376,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(arr_98_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", (path != null ? arr_98_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", (path != null ? arr_98_lpath : null));
                     break;
                 }
             }
@@ -7395,7 +7395,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.github_branch]", path);
         }
         return res;
     }
@@ -7407,7 +7407,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path);
         }
         return res;
     }
@@ -7419,7 +7419,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.license]", path);
         }
         return res;
     }
@@ -7431,7 +7431,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path);
         }
         return res;
     }
@@ -7443,7 +7443,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path);
         }
         return res;
     }
@@ -7456,7 +7456,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z][-a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.2.namespace]", path);
         }
         return res;
     }
@@ -7469,7 +7469,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json.isString(val) && _jm_re_1(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z][a-z0-9_]+$/\" [.'$GalaxyInfoModel'.'|'.2.role_name]", path);
         }
         return res;
     }
@@ -7512,7 +7512,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_51 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_51 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path != null ? lpath_51 : null));
                     return false;
                 }
@@ -7616,7 +7616,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(arr_99_item) && _jm_re_2(json.asString(arr_99_item), (path != null ? arr_99_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^[a-z_]+\\.[a-z_]+$/ [.'$collections'.0]", (path != null ? arr_99_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z_]+\\\\.[a-z_]+$/\" [.'$collections'.0]", (path != null ? arr_99_lpath : null));
                     break;
                 }
             }
@@ -7641,7 +7641,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json.isString(val);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'$complex_conditional'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$complex_conditional'.'|'.1]", path);
                 // .'$complex_conditional'.'|'.2
                 res = json.isArray(val);
                 if (res)
@@ -7657,7 +7657,7 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_100_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$complex_conditional'.'|'.2.0]", (path != null ? arr_100_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$complex_conditional'.'|'.2.0]", (path != null ? arr_100_lpath : null));
                             break;
                         }
                     }
@@ -7731,7 +7731,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.src]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -7744,7 +7744,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.name]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModelLoose'.name]", (path != null ? lpath_52 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.name]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -7757,7 +7757,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.role]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -7771,7 +7771,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.0]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModelLoose'.tags.'|'.0]", (path != null ? lpath_52 : null));
                     // .'$DependencyModelLoose'.tags.'|'.1
                     res = json.isArray(pval);
                     if (res)
@@ -7787,7 +7787,7 @@ public class ansiblelint_meta extends ModelChecker
                             res = json.isString(arr_101_item);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path != null ? lpath_52 : null) != null ? arr_101_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModelLoose'.tags.'|'.1.0]", ((path != null ? lpath_52 : null) != null ? arr_101_lpath : null));
                                 break;
                             }
                         }
@@ -7829,7 +7829,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json_model_56(pval, (path != null ? lpath_52 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $complex_conditional [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$complex_conditional\" [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.when]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -7855,7 +7855,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.version]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -7888,7 +7888,7 @@ public class ansiblelint_meta extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.2.name]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.2.name]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", (path != null ? lpath : null));
             return false;
         }
@@ -7917,7 +7917,7 @@ public class ansiblelint_meta extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.1.src]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.1.src]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -7946,7 +7946,7 @@ public class ansiblelint_meta extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$DependencyModel'.'&'.1.'|'.0.role]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.0.role]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -8003,7 +8003,7 @@ public class ansiblelint_meta extends ModelChecker
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected $DependencyModelLoose [.'$DependencyModel'.'&'.0]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$DependencyModelLoose\" [.'$DependencyModel'.'&'.0]", path);
             }
         }
         if (res)
@@ -8040,7 +8040,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json_model_55(pval, (path != null ? lpath_53 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $collections [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$collections\" [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.collections]", (path != null ? lpath_53 : null));
                     return false;
                 }
@@ -8053,7 +8053,7 @@ public class ansiblelint_meta extends ModelChecker
                 res = json_model_54(pval, (path != null ? lpath_53 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $GalaxyInfoModel [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$GalaxyInfoModel\" [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnsibleMetaObj'.galaxy_info]", (path != null ? lpath_53 : null));
                     return false;
                 }
@@ -8078,12 +8078,12 @@ public class ansiblelint_meta extends ModelChecker
                         res = json.isString(arr_102_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AnsibleMetaObj'.dependencies.0.'|'.0]", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
                             // .'$AnsibleMetaObj'.dependencies.0.'|'.1
                             res = json_model_58(arr_102_item, ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null), rep);
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected $DependencyModel [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"$DependencyModel\" [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path != null ? lpath_53 : null) != null ? arr_102_lpath : null));
                             }
                         }
                         if (res)
@@ -8138,7 +8138,7 @@ public class ansiblelint_meta extends ModelChecker
             res = json_model_59(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $AnsibleMetaObj [.'$AnsibleMeta'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$AnsibleMetaObj\" [.'$AnsibleMeta'.'|'.1]", path);
             }
         }
         if (res)
@@ -8159,7 +8159,7 @@ public class ansiblelint_meta extends ModelChecker
         boolean res = json_model_60(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $AnsibleMeta [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$AnsibleMeta\" [.]", path);
         }
         return res;
     }

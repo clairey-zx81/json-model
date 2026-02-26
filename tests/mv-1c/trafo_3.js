@@ -18,7 +18,7 @@ function json_model_3(val, path, rep)
     let res = json_model_6(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $l [.'$Dd']", path])
+        rep !== null && rep.push(["unexpected value for model \"$l\" [.'$Dd']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
     let res = json_model_6(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Dd [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Dd\" [.]", path])
     }
     return res;
 }
@@ -50,7 +50,7 @@ function json_model_6(val, path, rep)
             res = json_model_12(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $u [.'$Dd#l'.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$u\" [.'$Dd#l'.0]", (path ? arr_0_lpath : null)])
                 break;
             }
         }
@@ -69,7 +69,7 @@ function json_model_10(val, path, rep)
     let res = json_model_12(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Uu#un [.'$Dd#u']", path])
+        rep !== null && rep.push(["unexpected value for model \"$Uu#un\" [.'$Dd#u']", path])
     }
     return res;
 }

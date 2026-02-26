@@ -1,13 +1,13 @@
 trafo_2.values.json[0]: PASS
 trafo_2.values.json[1]: PASS
 trafo_2.values.json[2]: PASS
-trafo_2.values.json[3]: FAIL (.: not array or unexpected array [.'$l']; .0: unexpected $z [.'$l'.0]; .0: bad property count [.'$Zz#zero'])
-trafo_2.values.json[4]: FAIL (.: not array or unexpected array [.'$l']; .0: unexpected $z [.'$l'.0]; .0: bad property count [.'$Zz#zero'])
-trafo_2.values.json[5]: FAIL (.: not array or unexpected array [.'$l']; .0: unexpected $z [.'$l'.0]; .0: bad property count [.'$Zz#zero'])
+trafo_2.values.json[3]: FAIL (.: not array or unexpected array [.'$l']; .0: unexpected value for model "$z" [.'$l'.0]; .0: bad property count [.'$Zz#zero'])
+trafo_2.values.json[4]: FAIL (.: not array or unexpected array [.'$l']; .0: unexpected value for model "$z" [.'$l'.0]; .0: bad property count [.'$Zz#zero'])
+trafo_2.values.json[5]: FAIL (.: not array or unexpected array [.'$l']; .0: unexpected value for model "$z" [.'$l'.0]; .0: bad property count [.'$Zz#zero'])
 trafo_2.values.json[6]: FAIL (.: not array or unexpected array [.'$l'])
 trafo_2.values.json[7]: FAIL (.: not array or unexpected array [.'$l'])
 trafo_2.values.json[8]: FAIL (.: not array or unexpected array [.'$l'])
 trafo_2.values.json[9]: FAIL (.: not array or unexpected array [.'$l'])
 trafo_2.values.json[10]: FAIL (.: not array or unexpected array [.'$l'])
 trafo_2.values.json[11]: FAIL (.: not array or unexpected array [.'$l'])
-trafo_2.values.json[12]: FAIL (.: not array or unexpected array [.'$l']; .0: unexpected $z [.'$l'.0]; .0: not an object [.'$Zz#zero'])
+trafo_2.values.json[12]: FAIL (.: not array or unexpected array [.'$l']; .0: unexpected value for model "$z" [.'$l'.0]; .0: not an object [.'$Zz#zero'])

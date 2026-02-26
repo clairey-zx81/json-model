@@ -2335,6 +2335,8 @@ CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
+  arr_5_idx INT8;
+  arr_5_item JSONB;
   arr_4_idx INT8;
   arr_4_item JSONB;
   arr_3_idx INT8;
@@ -2346,34 +2348,45 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     -- .'$tight#enum'.'|'.0
-    FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_4_item := val -> arr_4_idx;
+    FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_5_item := val -> arr_5_idx;
       -- .'$tight#enum'.'|'.0.0
-      res := JSONB_TYPEOF(arr_4_item) = 'string';
+      res := JSONB_TYPEOF(arr_5_item) = 'string';
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
     IF NOT res THEN
       -- .'$tight#enum'.'|'.1
-      FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-        arr_3_item := val -> arr_3_idx;
+      FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+        arr_4_item := val -> arr_4_idx;
         -- .'$tight#enum'.'|'.1.0
-        res := JSONB_TYPEOF(arr_3_item) = 'number' AND (arr_3_item)::INT8 = (arr_3_item)::FLOAT8;
+        res := JSONB_TYPEOF(arr_4_item) = 'number' AND (arr_4_item)::INT8 = (arr_4_item)::FLOAT8;
         IF NOT res THEN
           EXIT;
         END IF;
       END LOOP;
       IF NOT res THEN
         -- .'$tight#enum'.'|'.2
-        FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-          arr_2_item := val -> arr_2_idx;
+        FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+          arr_3_item := val -> arr_3_idx;
           -- .'$tight#enum'.'|'.2.0
-          res := JSONB_TYPEOF(arr_2_item) = 'boolean';
+          res := JSONB_TYPEOF(arr_3_item) = 'boolean';
           IF NOT res THEN
             EXIT;
           END IF;
         END LOOP;
+        IF NOT res THEN
+          -- .'$tight#enum'.'|'.3
+          FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+            arr_2_item := val -> arr_2_idx;
+            -- .'$tight#enum'.'|'.3.0
+            res := JSONB_TYPEOF(arr_2_item) = 'number';
+            IF NOT res THEN
+              EXIT;
+            END IF;
+          END LOOP;
+        END IF;
       END IF;
     END IF;
   END IF;
@@ -2882,8 +2895,8 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
-  arr_5_idx INT8;
-  arr_5_item JSONB;
+  arr_6_idx INT8;
+  arr_6_item JSONB;
 BEGIN
   -- .'$tight#EnumString'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -2897,10 +2910,10 @@ BEGIN
       -- .'$tight#EnumString'.enum
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_5_item := pval -> arr_5_idx;
+        FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_6_item := pval -> arr_6_idx;
           -- .'$tight#EnumString'.enum.0
-          res := JSONB_TYPEOF(arr_5_item) = 'string';
+          res := JSONB_TYPEOF(arr_6_item) = 'string';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -3072,8 +3085,8 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
-  arr_6_idx INT8;
-  arr_6_item JSONB;
+  arr_7_idx INT8;
+  arr_7_item JSONB;
 BEGIN
   -- .'$tight#EnumNum'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -3087,10 +3100,10 @@ BEGIN
       -- .'$tight#EnumNum'.enum
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_6_item := pval -> arr_6_idx;
+        FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_7_item := pval -> arr_7_idx;
           -- .'$tight#EnumNum'.enum.0
-          res := JSONB_TYPEOF(arr_6_item) = 'number';
+          res := JSONB_TYPEOF(arr_7_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -3262,8 +3275,8 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
-  arr_7_idx INT8;
-  arr_7_item JSONB;
+  arr_8_idx INT8;
+  arr_8_item JSONB;
 BEGIN
   -- .'$tight#EnumInt'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -3277,10 +3290,10 @@ BEGIN
       -- .'$tight#EnumInt'.enum
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_7_item := pval -> arr_7_idx;
+        FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_8_item := pval -> arr_8_idx;
           -- .'$tight#EnumInt'.enum.0
-          res := JSONB_TYPEOF(arr_7_item) = 'number' AND (arr_7_item)::INT8 = (arr_7_item)::FLOAT8;
+          res := JSONB_TYPEOF(arr_8_item) = 'number' AND (arr_8_item)::INT8 = (arr_8_item)::FLOAT8;
           IF NOT res THEN
             EXIT;
           END IF;

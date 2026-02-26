@@ -33,7 +33,7 @@ public class re0 extends ModelChecker
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /a{3}/ [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/a{3}/\" [.]", path);
         }
         return res;
     }

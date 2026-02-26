@@ -19,7 +19,7 @@ function json_model_2(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "https://json-model.org/models/json-model";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected https://json-model.org/models/json-model [.'$u1']", path])
+        rep !== null && rep.push(["unexpected value for model \"https://json-model.org/models/json-model\" [.'$u1']", path])
     }
     return res;
 }
@@ -31,7 +31,7 @@ function json_model_3(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "file://./url_looking.model.json";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected file://./url_looking.model.json [.'$u2']", path])
+        rep !== null && rep.push(["unexpected value for model \"file://./url_looking.model.json\" [.'$u2']", path])
     }
     return res;
 }

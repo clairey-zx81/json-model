@@ -20,7 +20,7 @@ function _jm_f_0(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$schema'.'$schema']", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.'$schema']", path])
     }
     return res;
 }
@@ -38,7 +38,7 @@ function _jm_f_1(val, path, rep)
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.additionalProperties.'|'.1]", path])
         }
     }
     if (res)
@@ -59,7 +59,7 @@ function _jm_f_2(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$schema'.contentEncoding]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.contentEncoding]", path])
     }
     return res;
 }
@@ -80,7 +80,7 @@ function _jm_f_4(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$schema'.description]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.description]", path])
     }
     return res;
 }
@@ -93,12 +93,12 @@ function _jm_f_5(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$schema'.disallow.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.disallow.'|'.0]", path])
         // .'$schema'.disallow.'|'.1
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $distinctStringArray [.'$schema'.disallow.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$distinctStringArray\" [.'$schema'.disallow.'|'.1]", path])
         }
     }
     if (res)
@@ -155,7 +155,7 @@ function _jm_f_8(val, path, rep)
     let res = json_model_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.extends.'|'.0]", path])
         // .'$schema'.extends.'|'.1
         res = Array.isArray(val);
         if (res)
@@ -168,7 +168,7 @@ function _jm_f_8(val, path, rep)
                 res = json_model_3(arr_0_item, (path ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected $Schema [.'$schema'.extends.'|'.1.0]", (path ? arr_0_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.extends.'|'.1.0]", (path ? arr_0_lpath : null)])
                     break;
                 }
             }
@@ -196,7 +196,7 @@ function _jm_f_9(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$schema'.format]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.format]", path])
     }
     return res;
 }
@@ -208,7 +208,7 @@ function _jm_f_10(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$schema'.id]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.id]", path])
     }
     return res;
 }
@@ -221,7 +221,7 @@ function _jm_f_11(val, path, rep)
     let res = json_model_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Schema [.'$schema'.items.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.items.'|'.0]", path])
         // .'$schema'.items.'|'.1
         res = Array.isArray(val);
         if (res)
@@ -234,7 +234,7 @@ function _jm_f_11(val, path, rep)
                 res = json_model_3(arr_1_item, (path ? arr_1_lpath : null), rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected $Schema [.'$schema'.items.'|'.1.0]", (path ? arr_1_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.items.'|'.1.0]", (path ? arr_1_lpath : null)])
                     break;
                 }
             }
@@ -370,7 +370,7 @@ function _jm_f_21(val, path, rep)
     let res = runtime.jm_is_valid_regex(val, false);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $REGEX [.'$schema'.pattern]", path])
+        rep !== null && rep.push(["unexpected value for model \"$REGEX\" [.'$schema'.pattern]", path])
     }
     return res;
 }
@@ -393,7 +393,7 @@ function _jm_f_22(val, path, rep)
         res = json_model_3(pval, (path ? lpath_1 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema'.properties.'']", (path ? lpath_1 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.properties.'']", (path ? lpath_1 : null)])
             return false;
         }
     }
@@ -408,12 +408,12 @@ function _jm_f_23(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$schema'.requires.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.requires.'|'.0]", path])
         // .'$schema'.requires.'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema'.requires.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.requires.'|'.1]", path])
         }
     }
     if (res)
@@ -434,7 +434,7 @@ function _jm_f_24(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$schema'.title]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.title]", path])
     }
     return res;
 }
@@ -447,7 +447,7 @@ function _jm_f_25(val, path, rep)
     let res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $allTypes [.'$schema'.type.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$allTypes\" [.'$schema'.type.'|'.0]", path])
         // .'$schema'.type.'|'.1
         res = Array.isArray(val);
         if (res)
@@ -461,12 +461,12 @@ function _jm_f_25(val, path, rep)
                 res = (typeof arr_2_item === 'string' || arr_2_item instanceof String);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", (path ? arr_2_lpath : null)])
+                    rep !== null && rep.push(["unexpected value for model \"\" [.'$schema'.type.'|'.1.0.'|'.0]", (path ? arr_2_lpath : null)])
                     // .'$schema'.type.'|'.1.0.'|'.1
                     res = json_model_3(arr_2_item, (path ? arr_2_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", (path ? arr_2_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.type.'|'.1.0.'|'.1]", (path ? arr_2_lpath : null)])
                     }
                 }
                 if (res)
@@ -539,7 +539,7 @@ function json_model_3(val, path, rep)
         res = json_model_3(pval, (path ? lpath_0 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema'.'']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schema'.'']", (path ? lpath_0 : null)])
             return false;
         }
     }
@@ -553,7 +553,7 @@ function json_model_1(val, path, rep)
     let res = json_model_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $schema [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$schema\" [.]", path])
     }
     return res;
 }
@@ -587,7 +587,7 @@ function json_model_5(val, path, rep)
             res = (typeof arr_3_item === 'string' || arr_3_item instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$schema#distinctStringArray'.'@'.0]", (path ? arr_3_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$schema#distinctStringArray'.'@'.0]", (path ? arr_3_lpath : null)])
                 break;
             }
         }

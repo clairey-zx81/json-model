@@ -1,9 +1,9 @@
 opt_00.values.json[0]: PASS
 opt_00.values.json[1]: PASS
 opt_00.values.json[2]: PASS
-opt_00.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected =3 [.'|'.2]; .: unexpected =2 [.'|'.1]; .: unexpected =1 [.'|'.0])
-opt_00.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected =3 [.'|'.2]; .: unexpected =2 [.'|'.1]; .: unexpected =1 [.'|'.0])
-opt_00.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected =3 [.'|'.2]; .: unexpected =2 [.'|'.1]; .: unexpected =1 [.'|'.0])
+opt_00.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=3" [.'|'.2]; .: unexpected value for model "=2" [.'|'.1]; .: unexpected value for model "=1" [.'|'.0])
+opt_00.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=3" [.'|'.2]; .: unexpected value for model "=2" [.'|'.1]; .: unexpected value for model "=1" [.'|'.0])
+opt_00.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected value for model "=3" [.'|'.2]; .: unexpected value for model "=2" [.'|'.1]; .: unexpected value for model "=1" [.'|'.0])
 opt_00.values.json[6]: FAIL (.: unexpected type [.'|'])
 opt_00.values.json[7]: FAIL (.: unexpected type [.'|'])
 opt_00.values.json[8]: FAIL (.: unexpected type [.'|'])

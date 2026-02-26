@@ -49,7 +49,7 @@ public class xoropt_003 extends ModelChecker
                     res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'$Aa'.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected value for model \"/[a-z]/\" [.'$Aa'.'|'.3]", path);
                     }
                 }
             }
@@ -72,7 +72,7 @@ public class xoropt_003 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Aa [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Aa\" [.]", path);
         }
         return res;
     }

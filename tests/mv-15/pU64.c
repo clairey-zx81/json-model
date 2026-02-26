@@ -21,7 +21,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $U64 [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$U64\" [.]", path);
     }
     return res;
 }

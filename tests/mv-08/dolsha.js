@@ -26,7 +26,7 @@ function json_model_2(val, path, rep)
             res = json_model_1(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $self [.'$array'.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$self\" [.'$array'.0]", (path ? arr_0_lpath : null)])
                 break;
             }
         }
@@ -58,7 +58,7 @@ function json_model_1(val, path, rep)
             res = json_model_1(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $self [.prop]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$self\" [.prop]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.prop]", (path ? lpath_0 : null)])
                 return false;
             }

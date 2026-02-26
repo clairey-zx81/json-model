@@ -48,7 +48,7 @@ function json_model_2(val, path, rep)
             res = json_model_2(arr_0_item, ((path ? lpath : null) ? arr_0_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $bibi [.'$bibi'.bibi.0]", ((path ? lpath : null) ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$bibi\" [.'$bibi'.bibi.0]", ((path ? lpath : null) ? arr_0_lpath : null)])
                 break;
             }
         }
@@ -69,7 +69,7 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $bibi [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$bibi\" [.]", path])
     }
     return res;
 }

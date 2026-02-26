@@ -1,5 +1,5 @@
 and_str00.values.json[0]: PASS
-and_str00.values.json[1]: FAIL (.: not all model match [.'&']; .: unexpected /[a-z]/ [.'&'.0])
+and_str00.values.json[1]: FAIL (.: not all model match [.'&']; .: unexpected value for model "/[a-z]/" [.'&'.0])
 and_str00.values.json[2]: FAIL (.: not all model match [.'&'])
 and_str00.values.json[3]: FAIL (.: not all model match [.'&'])
 and_str00.values.json[4]: FAIL (.: not all model match [.'&'])

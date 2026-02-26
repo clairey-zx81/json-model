@@ -35,7 +35,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("A") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _A [.'$a']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_A\" [.'$a']", path);
         }
         return res;
     }
@@ -47,7 +47,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("A") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _A [.'$b']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_A\" [.'$b']", path);
         }
         return res;
     }
@@ -183,12 +183,12 @@ public class everything extends ModelChecker
                         res = json.isString(pval) && json.asString(pval).startsWith("2020-");
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected /^2020-/ [.and.a0.'&'.1]", (path != null ? lpath_1 : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", (path != null ? lpath_1 : null));
                         }
                     }
                     else
                     {
-                        if (rep != null) rep.addEntry("unexpected $DATE [.and.a0.'&'.0]", (path != null ? lpath_1 : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.and.a0.'&'.0]", (path != null ? lpath_1 : null));
                     }
                 }
                 if (res)
@@ -275,7 +275,7 @@ public class everything extends ModelChecker
                         res = json.isString(arr_1_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.array.a1.0]", ((path != null ? lpath_2 : null) != null ? arr_1_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.array.a1.0]", ((path != null ? lpath_2 : null) != null ? arr_1_lpath : null));
                             break;
                         }
                     }
@@ -306,7 +306,7 @@ public class everything extends ModelChecker
                         res = json.isString(arr_2_item) && rt.is_valid_date(json.asString(arr_2_item));
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected $DATE [.array.a2.0]", ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.array.a2.0]", ((path != null ? lpath_2 : null) != null ? arr_2_lpath : null));
                             break;
                         }
                     }
@@ -407,7 +407,7 @@ public class everything extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $BOOL [.bool.b1]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$BOOL\" [.bool.b1]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b1]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -420,7 +420,7 @@ public class everything extends ModelChecker
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $BOOLEAN [.bool.b2]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$BOOLEAN\" [.bool.b2]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b2]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -433,7 +433,7 @@ public class everything extends ModelChecker
                 res = json.isBoolean(pval) && json.asBoolean(pval) == true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =true [.bool.b3]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=true\" [.bool.b3]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b3]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -446,7 +446,7 @@ public class everything extends ModelChecker
                 res = json.isBoolean(pval) && json.asBoolean(pval) == false;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =false [.bool.b4]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=false\" [.bool.b4]", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.bool.b4]", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -598,7 +598,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) == 10;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =10 [.constraints.cii0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=10\" [.constraints.cii0]", path);
         }
         return res;
     }
@@ -832,7 +832,7 @@ public class everything extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.cis0.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.constraints.cis0.'@']", path);
         }
         return res;
     }
@@ -854,7 +854,7 @@ public class everything extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.cis1.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.constraints.cis1.'@']", path);
         }
         return res;
     }
@@ -876,7 +876,7 @@ public class everything extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.cis2.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.constraints.cis2.'@']", path);
         }
         return res;
     }
@@ -888,7 +888,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) == 42;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =42 [.constraints.cni0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=42\" [.constraints.cni0]", path);
         }
         return res;
     }
@@ -923,7 +923,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) == 42;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =42 [.constraints.cni2]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=42\" [.constraints.cni2]", path);
         }
         return res;
     }
@@ -1011,7 +1011,7 @@ public class everything extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.css0.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.constraints.css0.'@']", path);
         }
         return res;
     }
@@ -1033,7 +1033,7 @@ public class everything extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.css1.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.constraints.css1.'@']", path);
         }
         return res;
     }
@@ -1055,7 +1055,7 @@ public class everything extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.constraints.css2.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.constraints.css2.'@']", path);
         }
         return res;
     }
@@ -1257,7 +1257,7 @@ public class everything extends ModelChecker
                 res = json.isDouble(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $FLOAT [.float.f3]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$FLOAT\" [.float.f3]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f3]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1270,7 +1270,7 @@ public class everything extends ModelChecker
                 res = json.isDouble(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $F32 [.float.f4]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$F32\" [.float.f4]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f4]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1283,7 +1283,7 @@ public class everything extends ModelChecker
                 res = json.isDouble(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $F64 [.float.f5]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$F64\" [.float.f5]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f5]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1296,7 +1296,7 @@ public class everything extends ModelChecker
                 res = json.isDouble(pval) && json.asDouble(pval) == 3.1415927;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =3.1415927 [.float.f6]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=3.1415927\" [.float.f6]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f6]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1309,7 +1309,7 @@ public class everything extends ModelChecker
                 res = json.isDouble(pval) && json.asDouble(pval) == 1e+100;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =1.0E100 [.float.f7]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=1.0E100\" [.float.f7]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f7]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1322,7 +1322,7 @@ public class everything extends ModelChecker
                 res = json.isDouble(pval) && json.asDouble(pval) == -42.1;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =-42.1 [.float.f8]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=-42.1\" [.float.f8]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.float.f8]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1397,7 +1397,7 @@ public class everything extends ModelChecker
                 res = json.isInteger(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $INT [.int.i3]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$INT\" [.int.i3]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i3]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1410,7 +1410,7 @@ public class everything extends ModelChecker
                 res = json.isInteger(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $INTEGER [.int.i4]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$INTEGER\" [.int.i4]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i4]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1423,7 +1423,7 @@ public class everything extends ModelChecker
                 res = json.isInteger(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $I32 [.int.i5]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$I32\" [.int.i5]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i5]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1436,7 +1436,7 @@ public class everything extends ModelChecker
                 res = json.isInteger(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $I64 [.int.i6]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$I64\" [.int.i6]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i6]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1449,7 +1449,7 @@ public class everything extends ModelChecker
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $U32 [.int.i7]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$U32\" [.int.i7]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i7]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1462,7 +1462,7 @@ public class everything extends ModelChecker
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $U64 [.int.i8]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$U64\" [.int.i8]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i8]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1475,7 +1475,7 @@ public class everything extends ModelChecker
                 res = json.isInteger(pval) && json.asLong(pval) == 42;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =42 [.int.i9]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=42\" [.int.i9]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.i9]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1488,7 +1488,7 @@ public class everything extends ModelChecker
                 res = json.isInteger(pval) && json.asLong(pval) == -42;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =-42 [.int.ia]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=-42\" [.int.ia]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.int.ia]", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -2298,7 +2298,7 @@ public class everything extends ModelChecker
                 res = json.isNull(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $NULL [.null.n1]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$NULL\" [.null.n1]", (path != null ? lpath_10 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.null.n1]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -2311,7 +2311,7 @@ public class everything extends ModelChecker
                 res = json.isNull(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected =null [.null.n2]", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"=null\" [.null.n2]", (path != null ? lpath_10 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.null.n2]", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -2495,7 +2495,7 @@ public class everything extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.object.o4.'$DATE']", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.object.o4.'$DATE']", (path != null ? lpath_14 : null));
                     return false;
                 }
             }
@@ -2726,12 +2726,12 @@ public class everything extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $DATE [.or.o1.'|'.0]", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path != null ? lpath_16 : null));
                     // .or.o1.'|'.1
                     res = json.isString(pval) && rt.is_valid_time(json.asString(pval));
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $TIME [.or.o1.'|'.1]", (path != null ? lpath_16 : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path != null ? lpath_16 : null));
                     }
                 }
                 if (res)
@@ -2759,7 +2759,7 @@ public class everything extends ModelChecker
                     res = json.isString(pval) && rt.is_valid_uuid(json.asString(pval));
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $UUID [.or.o2.'|'.1]", (path != null ? lpath_16 : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"$UUID\" [.or.o2.'|'.1]", (path != null ? lpath_16 : null));
                         // .or.o2.'|'.2
                         res = json.isArray(pval);
                         if (! res)
@@ -2808,7 +2808,7 @@ public class everything extends ModelChecker
         boolean res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $BOOL [.predefs.BOOL]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$BOOL\" [.predefs.BOOL]", path);
         }
         return res;
     }
@@ -2820,7 +2820,7 @@ public class everything extends ModelChecker
         boolean res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $BOOLEAN [.predefs.BOOLEAN]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$BOOLEAN\" [.predefs.BOOLEAN]", path);
         }
         return res;
     }
@@ -2832,7 +2832,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_date(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $DATE [.predefs.DATE]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.predefs.DATE]", path);
         }
         return res;
     }
@@ -2844,7 +2844,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_datetime(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $DATETIME [.predefs.DATETIME]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$DATETIME\" [.predefs.DATETIME]", path);
         }
         return res;
     }
@@ -2856,7 +2856,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_email(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $EMAIL [.predefs.EMAIL]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", path);
         }
         return res;
     }
@@ -2868,7 +2868,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_exreg(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $EXREG [.predefs.EXREG]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$EXREG\" [.predefs.EXREG]", path);
         }
         return res;
     }
@@ -2880,7 +2880,7 @@ public class everything extends ModelChecker
         boolean res = json.isDouble(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $F32 [.predefs.F32]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$F32\" [.predefs.F32]", path);
         }
         return res;
     }
@@ -2892,7 +2892,7 @@ public class everything extends ModelChecker
         boolean res = json.isDouble(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $F64 [.predefs.F64]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$F64\" [.predefs.F64]", path);
         }
         return res;
     }
@@ -2904,7 +2904,7 @@ public class everything extends ModelChecker
         boolean res = json.isDouble(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $FLOAT [.predefs.FLOAT]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", path);
         }
         return res;
     }
@@ -2916,7 +2916,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $I32 [.predefs.I32]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$I32\" [.predefs.I32]", path);
         }
         return res;
     }
@@ -2928,7 +2928,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $I64 [.predefs.I64]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$I64\" [.predefs.I64]", path);
         }
         return res;
     }
@@ -2940,7 +2940,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $INT [.predefs.INT]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$INT\" [.predefs.INT]", path);
         }
         return res;
     }
@@ -2952,7 +2952,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $INTEGER [.predefs.INTEGER]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$INTEGER\" [.predefs.INTEGER]", path);
         }
         return res;
     }
@@ -2964,7 +2964,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_json(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $JSON [.predefs.JSON]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$JSON\" [.predefs.JSON]", path);
         }
         return res;
     }
@@ -2975,7 +2975,7 @@ public class everything extends ModelChecker
         boolean res;
         // .predefs.NONE
         res = false;
-        if (rep != null) rep.addEntry("unexpected $NONE [.predefs.NONE]", path);
+        if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.predefs.NONE]", path);
         return res;
     }
 
@@ -2986,7 +2986,7 @@ public class everything extends ModelChecker
         boolean res = json.isNull(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $NULL [.predefs.NULL]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$NULL\" [.predefs.NULL]", path);
         }
         return res;
     }
@@ -2998,7 +2998,7 @@ public class everything extends ModelChecker
         boolean res = json.isNumber(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $NUMBER [.predefs.NUMBER]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", path);
         }
         return res;
     }
@@ -3010,7 +3010,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $REGEX [.predefs.REGEX]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$REGEX\" [.predefs.REGEX]", path);
         }
         return res;
     }
@@ -3022,7 +3022,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $STRING [.predefs.STRING]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$STRING\" [.predefs.STRING]", path);
         }
         return res;
     }
@@ -3034,7 +3034,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_time(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $TIME [.predefs.TIME]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$TIME\" [.predefs.TIME]", path);
         }
         return res;
     }
@@ -3046,7 +3046,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $U32 [.predefs.U32]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$U32\" [.predefs.U32]", path);
         }
         return res;
     }
@@ -3058,7 +3058,7 @@ public class everything extends ModelChecker
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $U64 [.predefs.U64]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$U64\" [.predefs.U64]", path);
         }
         return res;
     }
@@ -3070,7 +3070,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URI [.predefs.URI]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URI\" [.predefs.URI]", path);
         }
         return res;
     }
@@ -3082,7 +3082,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $URL [.predefs.URL]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.predefs.URL]", path);
         }
         return res;
     }
@@ -3094,7 +3094,7 @@ public class everything extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_uuid(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $UUID [.predefs.UUID]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$UUID\" [.predefs.UUID]", path);
         }
         return res;
     }
@@ -3162,7 +3162,7 @@ public class everything extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.string.s0]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.string.s0]", (path != null ? lpath_18 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s0]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -3175,7 +3175,7 @@ public class everything extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $STRING [.string.s1]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$STRING\" [.string.s1]", (path != null ? lpath_18 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s1]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -3188,7 +3188,7 @@ public class everything extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Susie") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected Susie [.string.s2]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"Susie\" [.string.s2]", (path != null ? lpath_18 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s2]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -3201,7 +3201,7 @@ public class everything extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("Calvin") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _Calvin [.string.s3]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_Calvin\" [.string.s3]", (path != null ? lpath_18 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s3]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -3215,7 +3215,7 @@ public class everything extends ModelChecker
                 res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_18 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /^(Calvin|Susie)$/ [.string.s4]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^(Calvin|Susie)$/\" [.string.s4]", (path != null ? lpath_18 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s4]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -3356,7 +3356,7 @@ public class everything extends ModelChecker
                             res = json.isString(json.arrayItem(pval, 2));
                             if (! res)
                             {
-                                if (rep != null) rep.addEntry("unexpected string [.tuple.t3.2]", ((path != null ? lpath_19 : null) != null ? lpath_21 : null));
+                                if (rep != null) rep.addEntry("unexpected value for model \"\" [.tuple.t3.2]", ((path != null ? lpath_19 : null) != null ? lpath_21 : null));
                             }
                         }
                         else
@@ -3394,7 +3394,7 @@ public class everything extends ModelChecker
                         res = json.isString(json.arrayItem(pval, 0));
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.tuple.t4.'@'.0]", ((path != null ? lpath_19 : null) != null ? lpath_22 : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.tuple.t4.'@'.0]", ((path != null ? lpath_19 : null) != null ? lpath_22 : null));
                         }
                     }
                     if (res)
@@ -3498,7 +3498,7 @@ public class everything extends ModelChecker
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("unexpected /^a/ [.xor.x1.'^'.0]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^a/\" [.xor.x1.'^'.0]", (path != null ? lpath_23 : null));
                 }
                 // .xor.x1.'^'.1
                 // "/z$/"
@@ -3509,7 +3509,7 @@ public class everything extends ModelChecker
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("unexpected /z$/ [.xor.x1.'^'.1]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"/z$/\" [.xor.x1.'^'.1]", (path != null ? lpath_23 : null));
                 }
                 res = xc_0 == 1;
                 if (res)

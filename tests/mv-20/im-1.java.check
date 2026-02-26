@@ -1,6 +1,6 @@
 im-1.values.json[0]: PASS
 im-1.values.json[1]: PASS
 im-1.values.json[2]: PASS
-im-1.values.json[3]: FAIL (: unexpected _a [.'$a'])
-im-1.values.json[4]: FAIL (: unexpected _b [.'$b'])
-im-1.values.json[5]: FAIL (: unexpected _c [.'$c'])
+im-1.values.json[3]: FAIL (: unexpected value for model "_a" [.'$a'])
+im-1.values.json[4]: FAIL (: unexpected value for model "_b" [.'$b'])
+im-1.values.json[5]: FAIL (: unexpected value for model "_c" [.'$c'])

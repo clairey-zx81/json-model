@@ -27,7 +27,7 @@ function json_model_1(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected string [.'^'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0]", path])
     }
     // .'^'.1
     xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "world";
@@ -37,7 +37,7 @@ function json_model_1(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected _world [.'^'.1]", path])
+        rep !== null && rep.push(["unexpected value for model \"_world\" [.'^'.1]", path])
     }
     if (xc_0 <= 1)
     {
@@ -49,7 +49,7 @@ function json_model_1(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected _! [.'^'.2]", path])
+            rep !== null && rep.push(["unexpected value for model \"_!\" [.'^'.2]", path])
         }
     }
     if (xc_0 <= 1)
@@ -62,7 +62,7 @@ function json_model_1(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected _hello [.'^'.3]", path])
+            rep !== null && rep.push(["unexpected value for model \"_hello\" [.'^'.3]", path])
         }
     }
     res = xc_0 == 1;

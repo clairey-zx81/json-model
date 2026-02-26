@@ -26,7 +26,7 @@ public class obj_04 extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_date(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $DATE [.'$bla']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.'$bla']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class obj_04 extends ModelChecker
         boolean res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $bla [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$bla\" [.]", path);
         }
         return res;
     }

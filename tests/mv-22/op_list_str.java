@@ -48,7 +48,7 @@ public class op_list_str extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _a [.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_a\" [.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }

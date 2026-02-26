@@ -28,7 +28,7 @@ function _jm_obj_0(val, path, rep)
         res = json_model_2(pval, (path ? lpath_0 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $rec [.'$rec'.'|'.1.'']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$rec\" [.'$rec'.'|'.1.'']", (path ? lpath_0 : null)])
             return false;
         }
     }
@@ -69,7 +69,7 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $rec [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$rec\" [.]", path])
     }
     return res;
 }

@@ -39,7 +39,7 @@ public class dl_00 extends ModelChecker
             res = json_model_2(pval, (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $rec [.'$rec'.'|'.1.'']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$rec\" [.'$rec'.'|'.1.'']", (path != null ? lpath_0 : null));
                 return false;
             }
         }
@@ -80,7 +80,7 @@ public class dl_00 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $rec [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$rec\" [.]", path);
         }
         return res;
     }

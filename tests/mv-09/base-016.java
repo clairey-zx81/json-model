@@ -32,7 +32,7 @@ public class base_016 extends ModelChecker
             res = json.isString(val);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected string [.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.1]", path);
                 // .'|'.2
                 res = json.isBoolean(val);
                 if (! res)

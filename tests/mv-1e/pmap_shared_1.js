@@ -86,7 +86,7 @@ function json_model_2(val, path, rep)
         res = runtime.jm_is_valid_date(pval, (path ? lpath_0 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $DATE [.'$Oo0'.'']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$DATE\" [.'$Oo0'.'']", (path ? lpath_0 : null)])
             return false;
         }
     }
@@ -333,17 +333,17 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Oo0 [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Oo0\" [.'|'.0]", path])
         // .'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Oo1 [.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$Oo1\" [.'|'.1]", path])
             // .'|'.2
             res = json_model_4(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Oo2 [.'|'.2]", path])
+                rep !== null && rep.push(["unexpected value for model \"$Oo2\" [.'|'.2]", path])
             }
         }
     }

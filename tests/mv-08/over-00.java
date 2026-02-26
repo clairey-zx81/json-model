@@ -42,7 +42,7 @@ public class over_00 extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("initial foo") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected _initial foo [.'$Foo'.foo]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"_initial foo\" [.'$Foo'.foo]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Foo'.foo]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -61,7 +61,7 @@ public class over_00 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Foo [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Foo\" [.]", path);
         }
         return res;
     }

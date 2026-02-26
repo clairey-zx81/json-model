@@ -55,7 +55,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_boolean(pval) && json_boolean_value(pval) == true;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =true [.'$Aa'.t]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=true\" [.'$Aa'.t]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Aa'.t]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -120,7 +120,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_boolean(pval) && json_boolean_value(pval) == false;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =false [.'$Bb'.t]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=false\" [.'$Bb'.t]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Bb'.t]", (path ? &lpath_1 : NULL));
                 return false;
             }

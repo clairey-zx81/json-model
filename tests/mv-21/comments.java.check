@@ -1,8 +1,8 @@
 comments.values.json[0]: PASS
 comments.values.json[1]: PASS
-comments.values.json[2]: FAIL (hello: unexpected string [.hello]; hello: unexpected value for mandatory prop <hello> [.])
-comments.values.json[3]: FAIL (world: unexpected /^!/ [.world]; world: unexpected value for mandatory prop <world> [.])
-comments.values.json[4]: FAIL (world: unexpected /^!/ [.world]; world: unexpected value for mandatory prop <world> [.])
+comments.values.json[2]: FAIL (hello: unexpected value for model "" [.hello]; hello: unexpected value for mandatory prop <hello> [.])
+comments.values.json[3]: FAIL (world: unexpected value for model "/^!/" [.world]; world: unexpected value for mandatory prop <world> [.])
+comments.values.json[4]: FAIL (world: unexpected value for model "/^!/" [.world]; world: unexpected value for mandatory prop <world> [.])
 comments.values.json[5]: FAIL (: bad property count [.])
 comments.values.json[6]: FAIL (: bad property count [.])
 comments.values.json[7]: FAIL (: bad property count [.])

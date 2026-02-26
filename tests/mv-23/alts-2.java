@@ -60,7 +60,7 @@ public class alts_2 extends ModelChecker
             res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $r [.'$a'.''.'|'.0]", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$r\" [.'$a'.''.'|'.0]", (path != null ? lpath_0 : null));
                 // .'$a'.''.'|'.1
                 res = _jm_obj_0(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
@@ -108,7 +108,7 @@ public class alts_2 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $a [.'$r'.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$a\" [.'$r'.'|'.0]", path);
             // .'$r'.'|'.1
             res = _jm_obj_1(val, path, rep);
             if (! res)
@@ -134,7 +134,7 @@ public class alts_2 extends ModelChecker
         boolean res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $r [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$r\" [.]", path);
         }
         return res;
     }

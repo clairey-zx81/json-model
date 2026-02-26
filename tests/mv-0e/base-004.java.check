@@ -1,6 +1,6 @@
 base-004.values.json[0]: PASS
 base-004.values.json[1]: FAIL (: bad property count [.])
-base-004.values.json[2]: FAIL (a: unexpected string [.a]; a: unexpected value for mandatory prop <a> [.])
+base-004.values.json[2]: FAIL (a: unexpected value for model "" [.a]; a: unexpected value for mandatory prop <a> [.])
 base-004.values.json[3]: FAIL (: missing mandatory prop <a> [.])
 base-004.values.json[4]: FAIL (: not an object [.])
 base-004.values.json[5]: FAIL (: not an object [.])

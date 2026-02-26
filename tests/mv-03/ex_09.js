@@ -18,7 +18,7 @@ function json_model_5(val, path, rep)
     let res = json_model_9(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Ex08 [.'$ex08']", path])
+        rep !== null && rep.push(["unexpected value for model \"$Ex08\" [.'$ex08']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_3(val, path, rep)
     let res = json_model_9(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $ex08#Ex08 [.'$Ex08']", path])
+        rep !== null && rep.push(["unexpected value for model \"$ex08#Ex08\" [.'$Ex08']", path])
     }
     return res;
 }
@@ -55,7 +55,7 @@ function json_model_4(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Ex09'.'#']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Ex09'.'#']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Ex09'.'#']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -68,7 +68,7 @@ function json_model_4(val, path, rep)
             res = json_model_6(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ex08#Val [.'$Ex09'.'$URL']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$ex08#Val\" [.'$Ex09'.'$URL']", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -88,7 +88,7 @@ function json_model_1(val, path, rep)
     let res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Ex09 [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Ex09\" [.]", path])
     }
     return res;
 }
@@ -113,17 +113,17 @@ function json_model_9(val, path, rep)
     let res = json_model_8(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $map [.'$ex08#Ex08'.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$map\" [.'$ex08#Ex08'.'|'.0]", path])
         // .'$ex08#Ex08'.'|'.1
         res = runtime.jm_is_valid_url(val);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $URL [.'$ex08#Ex08'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$ex08#Ex08'.'|'.1]", path])
             // .'$ex08#Ex08'.'|'.2
             res = json_model_6(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Val [.'$ex08#Ex08'.'|'.2]", path])
+                rep !== null && rep.push(["unexpected value for model \"$Val\" [.'$ex08#Ex08'.'|'.2]", path])
             }
         }
     }
@@ -158,7 +158,7 @@ function json_model_8(val, path, rep)
             res = json_model_6(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Val [.'$ex08#map'.'$URL']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Val\" [.'$ex08#map'.'$URL']", (path ? lpath_1 : null)])
                 return false;
             }
         }

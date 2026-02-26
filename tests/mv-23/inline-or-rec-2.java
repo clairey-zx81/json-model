@@ -48,7 +48,7 @@ public class inline_or_rec_2 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected a [.'$ab'.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"a\" [.'$ab'.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$ab'.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -96,7 +96,7 @@ public class inline_or_rec_2 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("b") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected b [.'$ab'.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"b\" [.'$ab'.'|'.1.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$ab'.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -181,7 +181,7 @@ public class inline_or_rec_2 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("c") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected c [.'$cd'.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"c\" [.'$cd'.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$cd'.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -229,7 +229,7 @@ public class inline_or_rec_2 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected d [.'$cd'.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"d\" [.'$cd'.'|'.1.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$cd'.'|'.1]", (path != null ? lpath : null));
             return false;
         }
@@ -294,7 +294,7 @@ public class inline_or_rec_2 extends ModelChecker
         boolean res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $cd [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$cd\" [.]", path);
         }
         return res;
     }

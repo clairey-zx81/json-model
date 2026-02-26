@@ -3,7 +3,7 @@ dst_03.values.json[1]: PASS
 dst_03.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .b: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .b: unexpected prop [.'|'.0])
 dst_03.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: unexpected element [.'|'.0]; .c: unexpected prop [.'|'.0])
 dst_03.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .a: invalid mandatory prop value [.'|'.1.a]; .a: not a 0 strict int [.'|'.1.a]; .: unexpected element [.'|'.0]; .a: invalid mandatory prop value [.'|'.0.a]; .a: not a 0 strict int [.'|'.0.a])
-dst_03.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .c: invalid mandatory prop value [.'|'.1.c]; .c: unexpected string [.'|'.1.c]; .: unexpected element [.'|'.0]; .c: unexpected prop [.'|'.0])
+dst_03.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .c: invalid mandatory prop value [.'|'.1.c]; .c: unexpected value for model "" [.'|'.1.c]; .: unexpected element [.'|'.0]; .c: unexpected prop [.'|'.0])
 dst_03.values.json[6]: FAIL (.: unexpected type [.'|'])
 dst_03.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: unexpected element [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
 dst_03.values.json[8]: FAIL (.: unexpected type [.'|'])

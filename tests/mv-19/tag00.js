@@ -41,7 +41,7 @@ function json_model_2(val, path, rep)
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =1 [.'$Aa'.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=1\" [.'$Aa'.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$Aa']", (path ? lpath : null)])
         return false;
     }
@@ -92,7 +92,7 @@ function json_model_3(val, path, rep)
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected =2 [.'$Bb'.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"=2\" [.'$Bb'.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$Bb']", (path ? lpath : null)])
         return false;
     }

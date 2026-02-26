@@ -19,22 +19,22 @@ function json_model_3(val, path, rep)
     let res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $li0 [.'$foo'.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$li0\" [.'$foo'.'|'.0]", path])
         // .'$foo'.'|'.1
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $ls0 [.'$foo'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$ls0\" [.'$foo'.'|'.1]", path])
             // .'$foo'.'|'.2
             res = json_model_6(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $lb0 [.'$foo'.'|'.2]", path])
+                rep !== null && rep.push(["unexpected value for model \"$lb0\" [.'$foo'.'|'.2]", path])
                 // .'$foo'.'|'.3
                 res = json_model_7(val, path, rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected $lf0 [.'$foo'.'|'.3]", path])
+                    rep !== null && rep.push(["unexpected value for model \"$lf0\" [.'$foo'.'|'.3]", path])
                 }
             }
         }
@@ -57,7 +57,7 @@ function json_model_1(val, path, rep)
     let res = json_model_5(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $foo#ls0 [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$foo#ls0\" [.]", path])
     }
     return res;
 }
@@ -104,7 +104,7 @@ function json_model_5(val, path, rep)
             res = runtime.jm_is_valid_date(arr_1_item, (path ? arr_1_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $DATE [.'$foo#ls0'.0]", (path ? arr_1_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$DATE\" [.'$foo#ls0'.0]", (path ? arr_1_lpath : null)])
                 break;
             }
         }
@@ -131,7 +131,7 @@ function json_model_6(val, path, rep)
             res = (typeof arr_2_item === 'boolean' || arr_2_item instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $BOOL [.'$foo#lb0'.0]", (path ? arr_2_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.'$foo#lb0'.0]", (path ? arr_2_lpath : null)])
                 break;
             }
         }

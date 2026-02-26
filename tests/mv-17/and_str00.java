@@ -48,12 +48,12 @@ public class and_str00 extends ModelChecker
                 res = _jm_re_0(json.asString(val), path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'&'.1]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"/[0-9]/\" [.'&'.1]", path);
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'&'.0]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"/[a-z]/\" [.'&'.0]", path);
             }
         }
         if (res)

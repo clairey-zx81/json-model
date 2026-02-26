@@ -33,7 +33,7 @@ public class pattern_1 extends ModelChecker
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^[a-z]+$/ [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z]+$/\" [.]", path);
         }
         return res;
     }

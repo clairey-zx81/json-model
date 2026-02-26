@@ -49,7 +49,7 @@ public class varlen_0 extends ModelChecker
                     res = json.isString(json.arrayItem(val, 1));
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected string [.'@'.1]", (path != null ? lpath_0 : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"\" [.'@'.1]", (path != null ? lpath_0 : null));
                     }
                 }
                 if (res)

@@ -38,7 +38,7 @@ public class ex_05 extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Ex05b']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ex05b']", path);
         }
         return res;
     }
@@ -51,12 +51,12 @@ public class ex_05 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Ex05a [.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Ex05a\" [.'|'.0]", path);
             // .'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Ex05b [.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$Ex05b\" [.'|'.1]", path);
             }
         }
         if (res)

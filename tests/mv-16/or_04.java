@@ -50,13 +50,13 @@ public class or_04 extends ModelChecker
                 res = _jm_re_1(json.asString(val), path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'|'.0]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"/[0-9]/\" [.'|'.0]", path);
                     // .'|'.1
                     // "/[a-z]/"
                     res = _jm_re_0(json.asString(val), path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected /[a-z]/ [.'|'.1]", path);
+                        if (rep != null) rep.addEntry("unexpected value for model \"/[a-z]/\" [.'|'.1]", path);
                     }
                 }
                 if (res)

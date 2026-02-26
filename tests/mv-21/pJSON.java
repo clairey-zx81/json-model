@@ -26,7 +26,7 @@ public class pJSON extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_json(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $JSON [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$JSON\" [.]", path);
         }
         return res;
     }

@@ -40,7 +40,7 @@ function json_model_1(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.name]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.]", (path ? lpath : null)])
         return false;
     }

@@ -25,7 +25,7 @@ public class empty_cons_0 extends ModelChecker
         boolean res;
         // .'$n0'
         res = false;
-        if (rep != null) rep.addEntry("unexpected $NONE [.'$n0']", path);
+        if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'$n0']", path);
         return res;
     }
 
@@ -35,7 +35,7 @@ public class empty_cons_0 extends ModelChecker
         boolean res;
         // .'$n1'
         res = false;
-        if (rep != null) rep.addEntry("unexpected $NONE [.'$n1']", path);
+        if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'$n1']", path);
         return res;
     }
 
@@ -45,7 +45,7 @@ public class empty_cons_0 extends ModelChecker
         boolean res;
         // .'$n2'
         res = false;
-        if (rep != null) rep.addEntry("unexpected $NONE [.'$n2']", path);
+        if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'$n2']", path);
         return res;
     }
 
@@ -55,7 +55,7 @@ public class empty_cons_0 extends ModelChecker
         boolean res;
         // .
         res = false;
-        if (rep != null) rep.addEntry("unexpected $NONE [.]", path);
+        if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.]", path);
         return res;
     }
 

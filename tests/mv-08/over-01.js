@@ -18,7 +18,7 @@ function json_model_3(val, path, rep)
     let res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Foo [.'$over']", path])
+        rep !== null && rep.push(["unexpected value for model \"$Foo\" [.'$over']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
     let res = json_model_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $over#Foo [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$over#Foo\" [.]", path])
     }
     return res;
 }
@@ -55,7 +55,7 @@ function json_model_4(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "rewritten foo";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected _rewritten foo [.'$over#Foo'.foo]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"_rewritten foo\" [.'$over#Foo'.foo]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$over#Foo'.foo]", (path ? lpath_0 : null)])
                 return false;
             }

@@ -26,7 +26,7 @@ public class an_email extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_email(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $EMAIL [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$EMAIL\" [.]", path);
         }
         return res;
     }

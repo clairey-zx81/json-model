@@ -22,7 +22,7 @@ function json_model_1(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected /a{3}/ [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"/a{3}/\" [.]", path])
     }
     return res;
 }

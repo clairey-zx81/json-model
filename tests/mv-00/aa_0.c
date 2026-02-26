@@ -39,7 +39,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = json_is_string(arr_1_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.0.0]", ((path ? &arr_0_lpath : NULL) ? &arr_1_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.0.0]", ((path ? &arr_0_lpath : NULL) ? &arr_1_lpath : NULL));
                         break;
                     }
                 }

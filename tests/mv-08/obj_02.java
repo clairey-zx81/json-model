@@ -67,7 +67,7 @@ public class obj_02 extends ModelChecker
                 res = json.isString(arr_1_item) && rt.is_valid_url(json.asString(arr_1_item));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'$ls0'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$ls0'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
@@ -97,7 +97,7 @@ public class obj_02 extends ModelChecker
                 res = json.isBoolean(arr_2_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $BOOL [.'$lb0'.0]", (path != null ? arr_2_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$BOOL\" [.'$lb0'.0]", (path != null ? arr_2_lpath : null));
                     break;
                 }
             }
@@ -147,22 +147,22 @@ public class obj_02 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $li0 [.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$li0\" [.'|'.0]", path);
             // .'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $ls0 [.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$ls0\" [.'|'.1]", path);
                 // .'|'.2
                 res = json_model_4(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $lb0 [.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"$lb0\" [.'|'.2]", path);
                     // .'|'.3
                     res = json_model_5(val, path, rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $lf0 [.'|'.3]", path);
+                        if (rep != null) rep.addEntry("unexpected value for model \"$lf0\" [.'|'.3]", path);
                     }
                 }
             }

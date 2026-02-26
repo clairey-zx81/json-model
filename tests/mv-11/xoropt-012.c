@@ -29,7 +29,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_null(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =null [.'$n']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"=null\" [.'$n']", path);
     }
     return res;
 }
@@ -41,7 +41,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_real(val) && json_real_value(val) == 10.0;
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =10.0 [.'$x']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"=10.0\" [.'$x']", path);
     }
     return res;
 }
@@ -53,7 +53,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_boolean(val) && json_boolean_value(val) == false;
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected =false [.'$f']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"=false\" [.'$f']", path);
     }
     return res;
 }
@@ -81,7 +81,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_boolean(pval) && json_boolean_value(pval) == false;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =false [.'|'.4.a]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=false\" [.'|'.4.a]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.4.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
@@ -127,7 +127,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_boolean(pval) && json_boolean_value(pval) == true;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =true [.'|'.3.a]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=true\" [.'|'.3.a]", (path ? &lpath_1 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.3.a]", (path ? &lpath_1 : NULL));
                 return false;
             }
@@ -173,7 +173,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_real(pval) && json_real_value(pval) == 1.0;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =1.0 [.'|'.2.a]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=1.0\" [.'|'.2.a]", (path ? &lpath_2 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.a]", (path ? &lpath_2 : NULL));
                 return false;
             }
@@ -219,7 +219,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_real(pval) && json_real_value(pval) == 10.0;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =10.0 [.'|'.1.a]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=10.0\" [.'|'.1.a]", (path ? &lpath_3 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.a]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -265,7 +265,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             res = json_is_null(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected =null [.'|'.0.a]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=null\" [.'|'.0.a]", (path ? &lpath_4 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.0.a]", (path ? &lpath_4 : NULL));
                 return false;
             }

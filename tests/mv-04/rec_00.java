@@ -40,7 +40,7 @@ public class rec_00 extends ModelChecker
             res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $rec [.'$obj'.'']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$rec\" [.'$obj'.'']", (path != null ? lpath_0 : null));
                 return false;
             }
         }
@@ -60,7 +60,7 @@ public class rec_00 extends ModelChecker
             res = json_model_2(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $obj [.'$rec'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$obj\" [.'$rec'.'|'.1]", path);
             }
         }
         if (res)
@@ -81,7 +81,7 @@ public class rec_00 extends ModelChecker
         boolean res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $rec [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$rec\" [.]", path);
         }
         return res;
     }

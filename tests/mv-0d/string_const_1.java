@@ -26,7 +26,7 @@ public class string_const_1 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("Susie and Calvin") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _Susie and Calvin [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_Susie and Calvin\" [.]", path);
         }
         return res;
     }

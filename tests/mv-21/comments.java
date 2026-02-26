@@ -50,7 +50,7 @@ public class comments extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.hello]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.hello]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <hello> [.]", (path != null ? lpath : null));
             return false;
         }
@@ -65,7 +65,7 @@ public class comments extends ModelChecker
         res = json.isString(pval) && json.asString(pval).startsWith("!");
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^!/ [.world]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"/^!/\" [.world]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <world> [.]", (path != null ? lpath : null));
             return false;
         }

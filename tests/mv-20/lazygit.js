@@ -57,7 +57,7 @@ function json_model_2(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["unexpected /^#[0-9a-fA-F]{6}$/ [.'$color'.'|'.0]", path])
+                rep !== null && rep.push(["unexpected value for model \"/^#[0-9a-fA-F]{6}$/\" [.'$color'.'|'.0]", path])
                 rep !== null && rep.push(["no model matched [.'$color'.'|']", path])
             }
         }
@@ -85,7 +85,7 @@ function json_model_3(val, path, rep)
             res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $color [.'$colorArray'.'@'.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$color\" [.'$colorArray'.'@'.0]", (path ? arr_0_lpath : null)])
                 break;
             }
         }
@@ -119,7 +119,7 @@ function json_model_4(val, path, rep)
         res = (typeof val === 'string' || val instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$keybinding'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$keybinding'.'|'.1]", path])
         }
     }
     if (res)
@@ -153,7 +153,7 @@ function json_model_6(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$custom-commands-prompts-title-property']", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$custom-commands-prompts-title-property']", path])
     }
     return res;
 }
@@ -165,7 +165,7 @@ function json_model_7(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$custom-commands-prompts-key-property']", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$custom-commands-prompts-key-property']", path])
     }
     return res;
 }
@@ -187,7 +187,7 @@ function json_model_8(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["unexpected string [.'$neString'.'@']", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$neString'.'@']", path])
     }
     return res;
 }
@@ -208,7 +208,7 @@ function json_model_9(val, path, rep)
             res = json_model_8(arr_1_item, (path ? arr_1_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $neString [.'$stringArray'.'@'.0]", (path ? arr_1_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$neString\" [.'$stringArray'.'@'.0]", (path ? arr_1_lpath : null)])
                 break;
             }
         }
@@ -256,7 +256,7 @@ function _jm_obj_1(val, path, rep)
     res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path ? lpath : null)])
         return false;
     }
@@ -320,7 +320,7 @@ function _jm_obj_0(val, path, rep)
             res = json_model_7(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.0.key]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.0.key]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.0.key]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -334,7 +334,7 @@ function _jm_obj_0(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "input";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected input [.'$Prompts'.'|'.0.type]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"input\" [.'$Prompts'.'|'.0.type]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.0.type]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -348,7 +348,7 @@ function _jm_obj_0(val, path, rep)
             res = json_model_6(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.0.title]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.0.title]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.0.title]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -413,7 +413,7 @@ function _jm_obj_0(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.0.initialValue]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.0.initialValue]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.0.initialValue]", (path ? lpath_0 : null)])
                 return false;
             }
@@ -465,7 +465,7 @@ function _jm_obj_3(val, path, rep)
             res = json_model_7(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.1.key]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.1.key]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.1.key]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -479,7 +479,7 @@ function _jm_obj_3(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "confirm";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected confirm [.'$Prompts'.'|'.1.type]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"confirm\" [.'$Prompts'.'|'.1.type]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.1.type]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -493,7 +493,7 @@ function _jm_obj_3(val, path, rep)
             res = json_model_6(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.1.title]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.1.title]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.1.title]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -506,7 +506,7 @@ function _jm_obj_3(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.1.body]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.1.body]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.1.body]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -558,7 +558,7 @@ function _jm_obj_5(val, path, rep)
             res = json_model_8(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $neString [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$neString\" [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.2.options.'@'.0.value]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -571,7 +571,7 @@ function _jm_obj_5(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.name]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -584,7 +584,7 @@ function _jm_obj_5(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.2.options.'@'.0.description]", (path ? lpath_2 : null)])
                 return false;
             }
@@ -635,7 +635,7 @@ function _jm_obj_4(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "menu";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected menu [.'$Prompts'.'|'.2.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"menu\" [.'$Prompts'.'|'.2.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Prompts'.'|'.2]", (path ? lpath : null)])
         return false;
     }
@@ -650,7 +650,7 @@ function _jm_obj_4(val, path, rep)
     res = json_model_6(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.2.title]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.2.title]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <title> [.'$Prompts'.'|'.2]", (path ? lpath : null)])
         return false;
     }
@@ -665,7 +665,7 @@ function _jm_obj_4(val, path, rep)
     res = json_model_7(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.2.key]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.2.key]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <key> [.'$Prompts'.'|'.2]", (path ? lpath : null)])
         return false;
     }
@@ -735,7 +735,7 @@ function _jm_obj_6(val, path, rep)
             res = json_model_7(pval, (path ? lpath_3 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $custom-commands-prompts-key-property [.'$Prompts'.'|'.3.key]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$custom-commands-prompts-key-property\" [.'$Prompts'.'|'.3.key]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.3.key]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -749,7 +749,7 @@ function _jm_obj_6(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && pval == "menuFromCommand";
             if (! res)
             {
-                rep !== null && rep.push(["unexpected menuFromCommand [.'$Prompts'.'|'.3.type]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"menuFromCommand\" [.'$Prompts'.'|'.3.type]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.3.type]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -763,7 +763,7 @@ function _jm_obj_6(val, path, rep)
             res = json_model_6(pval, (path ? lpath_3 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $custom-commands-prompts-title-property [.'$Prompts'.'|'.3.title]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$custom-commands-prompts-title-property\" [.'$Prompts'.'|'.3.title]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.3.title]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -777,7 +777,7 @@ function _jm_obj_6(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.3.command]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.3.command]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Prompts'.'|'.3.command]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -790,7 +790,7 @@ function _jm_obj_6(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.3.filter]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.3.filter]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.3.filter]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -803,7 +803,7 @@ function _jm_obj_6(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.3.labelFormat]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.3.labelFormat]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.3.labelFormat]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -816,7 +816,7 @@ function _jm_obj_6(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$Prompts'.'|'.3.valueFormat]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.3.valueFormat]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.3.valueFormat]", (path ? lpath_3 : null)])
                 return false;
             }
@@ -908,7 +908,7 @@ function _jm_obj_7(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.os.edit]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.os.edit]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.os.edit]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -921,7 +921,7 @@ function _jm_obj_7(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.os.open]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.os.open]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.os.open]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -934,7 +934,7 @@ function _jm_obj_7(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.os.openLink]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.os.openLink]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.os.openLink]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -947,7 +947,7 @@ function _jm_obj_7(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.os.editAtLine]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.os.editAtLine]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.os.editAtLine]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -972,7 +972,7 @@ function _jm_obj_7(val, path, rep)
                     }
                     else
                     {
-                        rep !== null && rep.push(["unexpected string [.os.editPreset.'|'.0]", (path ? lpath_5 : null)])
+                        rep !== null && rep.push(["unexpected value for model \"\" [.os.editPreset.'|'.0]", (path ? lpath_5 : null)])
                         rep !== null && rep.push(["no model matched [.os.editPreset.'|']", (path ? lpath_5 : null)])
                     }
                 }
@@ -995,7 +995,7 @@ function _jm_obj_7(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.os.editAtLineAndWait]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.os.editAtLineAndWait]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.os.editAtLineAndWait]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -1008,7 +1008,7 @@ function _jm_obj_7(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.os.copyToClipboardCmd]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.os.copyToClipboardCmd]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.os.copyToClipboardCmd]", (path ? lpath_5 : null)])
                 return false;
             }
@@ -1140,7 +1140,7 @@ function _jm_obj_11(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["unexpected string [.git.paging.pager.'@']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.git.paging.pager.'@']", (path ? lpath_9 : null)])
             }
             if (! res)
             {
@@ -1200,7 +1200,7 @@ function _jm_obj_12(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.git.merging.args]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.git.merging.args]", (path ? lpath_10 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.git.merging.args]", (path ? lpath_10 : null)])
                 return false;
             }
@@ -1255,7 +1255,7 @@ function _jm_obj_14(val, path, rep)
     res = json_model_8(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $neString [.git.commitPrefixes.'/./'.pattern]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"$neString\" [.git.commitPrefixes.'/./'.pattern]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", (path ? lpath : null)])
         return false;
     }
@@ -1270,7 +1270,7 @@ function _jm_obj_14(val, path, rep)
     res = json_model_8(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $neString [.git.commitPrefixes.'/./'.replace]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"$neString\" [.git.commitPrefixes.'/./'.replace]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <replace> [.git.commitPrefixes.'/./']", (path ? lpath : null)])
         return false;
     }
@@ -1445,7 +1445,7 @@ function _jm_obj_8(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.git.branchLogCmd]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.git.branchLogCmd]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.git.branchLogCmd]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -1458,7 +1458,7 @@ function _jm_obj_8(val, path, rep)
             res = json_model_9(pval, (path ? lpath_6 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $stringArray [.git.mainBranches]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$stringArray\" [.git.mainBranches]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.git.mainBranches]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -1484,7 +1484,7 @@ function _jm_obj_8(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.git.skipHookPrefix]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.git.skipHookPrefix]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.git.skipHookPrefix]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -1510,7 +1510,7 @@ function _jm_obj_8(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.git.allBranchesLogCmd]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.git.allBranchesLogCmd]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.git.allBranchesLogCmd]", (path ? lpath_6 : null)])
                 return false;
             }
@@ -1567,7 +1567,7 @@ function _jm_f_1(val, path, rep)
             res = json_model_2(pval, (path ? lpath_13 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $color [.gui.authorColors.'/./']", (path ? lpath_13 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$color\" [.gui.authorColors.'/./']", (path ? lpath_13 : null)])
                 return false;
             }
         }
@@ -1613,7 +1613,7 @@ function _jm_f_3(val, path, rep)
             res = json_model_2(pval, (path ? lpath_14 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $color [.gui.branchColors.'/./']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$color\" [.gui.branchColors.'/./']", (path ? lpath_14 : null)])
                 return false;
             }
         }
@@ -1740,7 +1740,7 @@ function _jm_f_10(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["unexpected string [.gui.nerdFontsVersion.'|'.0]", path])
+                rep !== null && rep.push(["unexpected value for model \"\" [.gui.nerdFontsVersion.'|'.0]", path])
                 rep !== null && rep.push(["no model matched [.gui.nerdFontsVersion.'|']", path])
             }
         }
@@ -1783,7 +1783,7 @@ function _jm_f_13(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.gui.shortTimeFormat]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.gui.shortTimeFormat]", path])
     }
     return res;
 }
@@ -1951,7 +1951,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.defaultFgColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.defaultFgColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.defaultFgColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -1964,7 +1964,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.optionsTextColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.optionsTextColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.optionsTextColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -1977,7 +1977,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.activeBorderColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.activeBorderColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.activeBorderColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -1990,7 +1990,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.inactiveBorderColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.inactiveBorderColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.inactiveBorderColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2003,7 +2003,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.selectedLineBgColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.selectedLineBgColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.selectedLineBgColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2016,7 +2016,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.selectedRangeBgColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.selectedRangeBgColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.selectedRangeBgColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2029,7 +2029,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.unstagedChangesColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.unstagedChangesColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.unstagedChangesColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2042,7 +2042,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.cherryPickedCommitBgColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.cherryPickedCommitBgColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.cherryPickedCommitBgColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2055,7 +2055,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.cherryPickedCommitFgColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.cherryPickedCommitFgColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.cherryPickedCommitFgColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2068,7 +2068,7 @@ function _jm_f_25(val, path, rep)
             res = json_model_3(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $colorArray [.gui.theme.searchingActiveBorderColor]", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$colorArray\" [.gui.theme.searchingActiveBorderColor]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.gui.theme.searchingActiveBorderColor]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2087,7 +2087,7 @@ function _jm_f_26(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected string [.gui.timeFormat]", path])
+        rep !== null && rep.push(["unexpected value for model \"\" [.gui.timeFormat]", path])
     }
     return res;
 }
@@ -2201,7 +2201,7 @@ function _jm_obj_17(val, path, rep)
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_2(pval, (path ? lpath_18 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected /^[^:]+:[^:]+$/ [.services.'/./']", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^[^:]+:[^:]+$/\" [.services.'/./']", (path ? lpath_18 : null)])
                 return false;
             }
         }
@@ -2277,7 +2277,7 @@ function _jm_obj_20(val, path, rep)
             res = json_model_4(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.pickBothHunks]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.main.pickBothHunks]", (path ? lpath_21 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main.pickBothHunks]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2290,7 +2290,7 @@ function _jm_obj_20(val, path, rep)
             res = json_model_4(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.toggleDragSelect]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.main.toggleDragSelect]", (path ? lpath_21 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main.toggleDragSelect]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2303,7 +2303,7 @@ function _jm_obj_20(val, path, rep)
             res = json_model_4(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.toggleSelectHunk]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.main.toggleSelectHunk]", (path ? lpath_21 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main.toggleSelectHunk]", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2316,7 +2316,7 @@ function _jm_obj_20(val, path, rep)
             res = json_model_4(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.main.'toggleDragSelect-alt']", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.main.'toggleDragSelect-alt']", (path ? lpath_21 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", (path ? lpath_21 : null)])
                 return false;
             }
@@ -2347,7 +2347,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.fetch]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.fetch]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.fetch]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2360,7 +2360,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.ignoreFile]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.ignoreFile]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.ignoreFile]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2373,7 +2373,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.refreshFiles]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.refreshFiles]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.refreshFiles]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2386,7 +2386,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.commitChanges]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.commitChanges]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChanges]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2399,7 +2399,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.openMergeTool]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.openMergeTool]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.openMergeTool]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2412,7 +2412,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.toggleTreeView]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.toggleTreeView]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.toggleTreeView]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2425,7 +2425,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.amendLastCommit]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.amendLastCommit]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.amendLastCommit]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2438,7 +2438,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.stashAllChanges]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.stashAllChanges]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.stashAllChanges]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2451,7 +2451,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.toggleStagedAll]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.toggleStagedAll]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.toggleStagedAll]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2464,7 +2464,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.openStatusFilter]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.openStatusFilter]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.openStatusFilter]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2477,7 +2477,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.viewResetOptions]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.viewResetOptions]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.viewResetOptions]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2490,7 +2490,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.viewStashOptions]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.viewStashOptions]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.viewStashOptions]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2503,7 +2503,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.commitChangesWithEditor]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.commitChangesWithEditor]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChangesWithEditor]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2516,7 +2516,7 @@ function _jm_obj_21(val, path, rep)
             res = json_model_4(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.files.commitChangesWithoutHook]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.files.commitChangesWithoutHook]", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.files.commitChangesWithoutHook]", (path ? lpath_22 : null)])
                 return false;
             }
@@ -2547,7 +2547,7 @@ function _jm_obj_22(val, path, rep)
             res = json_model_4(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.stash.popStash]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.stash.popStash]", (path ? lpath_23 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.stash.popStash]", (path ? lpath_23 : null)])
                 return false;
             }
@@ -2560,7 +2560,7 @@ function _jm_obj_22(val, path, rep)
             res = json_model_4(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.stash.renameStash]", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.stash.renameStash]", (path ? lpath_23 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.stash.renameStash]", (path ? lpath_23 : null)])
                 return false;
             }
@@ -2591,7 +2591,7 @@ function _jm_obj_23(val, path, rep)
             res = json_model_4(pval, (path ? lpath_24 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.status.recentRepos]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.status.recentRepos]", (path ? lpath_24 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.status.recentRepos]", (path ? lpath_24 : null)])
                 return false;
             }
@@ -2604,7 +2604,7 @@ function _jm_obj_23(val, path, rep)
             res = json_model_4(pval, (path ? lpath_24 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.status.checkForUpdate]", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.status.checkForUpdate]", (path ? lpath_24 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.status.checkForUpdate]", (path ? lpath_24 : null)])
                 return false;
             }
@@ -2664,7 +2664,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.pushTag]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.pushTag]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.pushTag]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2677,7 +2677,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.createTag]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.createTag]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.createTag]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2690,7 +2690,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.fastForward]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.fastForward]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.fastForward]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2703,7 +2703,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.fetchRemote]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.fetchRemote]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.fetchRemote]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2716,7 +2716,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.setUpstream]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.setUpstream]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.setUpstream]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2729,7 +2729,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.rebaseBranch]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.rebaseBranch]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.rebaseBranch]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2742,7 +2742,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.renameBranch]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.renameBranch]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.renameBranch]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2755,7 +2755,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.createPullRequest]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.createPullRequest]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.createPullRequest]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2768,7 +2768,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.viewGitFlowOptions]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.viewGitFlowOptions]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.viewGitFlowOptions]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2781,7 +2781,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.forceCheckoutBranch]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.forceCheckoutBranch]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.forceCheckoutBranch]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2794,7 +2794,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.checkoutBranchByName]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.checkoutBranchByName]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.checkoutBranchByName]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2807,7 +2807,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.mergeIntoCurrentBranch]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.mergeIntoCurrentBranch]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.mergeIntoCurrentBranch]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2820,7 +2820,7 @@ function _jm_obj_25(val, path, rep)
             res = json_model_4(pval, (path ? lpath_26 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.branches.viewPullRequestOptions]", (path ? lpath_26 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.branches.viewPullRequestOptions]", (path ? lpath_26 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.branches.viewPullRequestOptions]", (path ? lpath_26 : null)])
                 return false;
             }
@@ -2904,7 +2904,7 @@ function _jm_obj_27(val, path, rep)
             res = json_model_4(pval, (path ? lpath_28 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.init]", (path ? lpath_28 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.submodules.init]", (path ? lpath_28 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.init]", (path ? lpath_28 : null)])
                 return false;
             }
@@ -2917,7 +2917,7 @@ function _jm_obj_27(val, path, rep)
             res = json_model_4(pval, (path ? lpath_28 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.update]", (path ? lpath_28 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.submodules.update]", (path ? lpath_28 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.update]", (path ? lpath_28 : null)])
                 return false;
             }
@@ -2930,7 +2930,7 @@ function _jm_obj_27(val, path, rep)
             res = json_model_4(pval, (path ? lpath_28 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.submodules.bulkMenu]", (path ? lpath_28 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.submodules.bulkMenu]", (path ? lpath_28 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.submodules.bulkMenu]", (path ? lpath_28 : null)])
                 return false;
             }
@@ -2961,7 +2961,7 @@ function _jm_obj_28(val, path, rep)
             res = json_model_4(pval, (path ? lpath_29 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.keybinding.commitFiles.checkoutCommitFile]", (path ? lpath_29 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.keybinding.commitFiles.checkoutCommitFile]", (path ? lpath_29 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", (path ? lpath_29 : null)])
                 return false;
             }
@@ -3161,7 +3161,7 @@ function _jm_obj_29(val, path, rep)
             res = json_model_4(pval, (path ? lpath_30 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $keybinding [.customCommands.'@'.0.key]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$keybinding\" [.customCommands.'@'.0.key]", (path ? lpath_30 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.key]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -3175,7 +3175,7 @@ function _jm_obj_29(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.command]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.customCommands.'@'.0.command]", (path ? lpath_30 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.customCommands.'@'.0.command]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -3236,7 +3236,7 @@ function _jm_obj_29(val, path, rep)
                     res = json_model_10(arr_4_item, ((path ? lpath_30 : null) ? arr_4_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $Prompts [.customCommands.'@'.0.prompts.0]", ((path ? lpath_30 : null) ? arr_4_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$Prompts\" [.customCommands.'@'.0.prompts.0]", ((path ? lpath_30 : null) ? arr_4_lpath : null)])
                         break;
                     }
                 }
@@ -3282,7 +3282,7 @@ function _jm_obj_29(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.description]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.customCommands.'@'.0.description]", (path ? lpath_30 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.description]", (path ? lpath_30 : null)])
                 return false;
             }
@@ -3295,7 +3295,7 @@ function _jm_obj_29(val, path, rep)
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.customCommands.'@'.0.loadingText]", (path ? lpath_30 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.customCommands.'@'.0.loadingText]", (path ? lpath_30 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.customCommands.'@'.0.loadingText]", (path ? lpath_30 : null)])
                 return false;
             }

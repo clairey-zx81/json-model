@@ -177,7 +177,7 @@ function json_model_3(val, path, rep)
         res = json_model_2(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Aa [.'$Bb'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$Aa\" [.'$Bb'.'|'.1]", path])
         }
     }
     if (res)
@@ -198,7 +198,7 @@ function json_model_1(val, path, rep)
     let res = json_model_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Bb [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$Bb\" [.]", path])
     }
     return res;
 }

@@ -35,7 +35,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         res = json_model_2(pval, (path ? &lpath_0 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $rec [.'$rec'.'|'.1.'']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$rec\" [.'$rec'.'|'.1.'']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
@@ -76,7 +76,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_2(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $rec [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$rec\" [.]", path);
     }
     return res;
 }

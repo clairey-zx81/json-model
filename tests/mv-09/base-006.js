@@ -53,7 +53,7 @@ function json_model_1(val, path, rep)
         }
         else
         {
-            rep !== null && rep.push(["unexpected string [.0]", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.0]", (path ? lpath_0 : null)])
         }
     }
     if (! res)

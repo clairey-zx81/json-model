@@ -49,7 +49,7 @@ function json_model_2(val, path, rep)
         res = json_model_3(pval, (path ? lpath_0 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $r [.'$a'.''.'|'.0]", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$r\" [.'$a'.''.'|'.0]", (path ? lpath_0 : null)])
             // .'$a'.''.'|'.1
             res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
@@ -97,7 +97,7 @@ function json_model_3(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $a [.'$r'.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$a\" [.'$r'.'|'.0]", path])
         // .'$r'.'|'.1
         res = _jm_obj_1(val, path, rep);
         if (! res)
@@ -123,7 +123,7 @@ function json_model_1(val, path, rep)
     let res = json_model_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $r [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$r\" [.]", path])
     }
     return res;
 }

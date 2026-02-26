@@ -33,7 +33,7 @@ function json_model_1(val, path, rep)
             res = json_model_1(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $root [.foo.'|'.0]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$root\" [.foo.'|'.0]", (path ? lpath_0 : null)])
                 // .foo.'|'.1
                 res = Array.isArray(pval);
                 if (res)
@@ -46,7 +46,7 @@ function json_model_1(val, path, rep)
                         res = json_model_1(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected $root [.foo.'|'.1.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
+                            rep !== null && rep.push(["unexpected value for model \"$root\" [.foo.'|'.1.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
                             break;
                         }
                     }

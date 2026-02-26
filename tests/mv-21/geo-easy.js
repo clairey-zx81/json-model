@@ -66,7 +66,7 @@ function json_model_3(val, path, rep)
             res = json_model_2(arr_1_item, (path ? arr_1_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $position [.'$coord_array'.'@'.0]", (path ? arr_1_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", (path ? arr_1_lpath : null)])
                 break;
             }
         }
@@ -103,7 +103,7 @@ function json_model_4(val, path, rep)
             res = json_model_2(arr_2_item, (path ? arr_2_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $position [.'$linear_ring'.'@'.0]", (path ? arr_2_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", (path ? arr_2_lpath : null)])
                 break;
             }
         }
@@ -148,7 +148,7 @@ function json_model_5(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Point";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected Point [.'$Point'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"Point\" [.'$Point'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Point']", (path ? lpath : null)])
         return false;
     }
@@ -163,7 +163,7 @@ function json_model_5(val, path, rep)
     res = json_model_2(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $position [.'$Point'.coordinates]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"$position\" [.'$Point'.coordinates]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'$Point']", (path ? lpath : null)])
         return false;
     }
@@ -222,7 +222,7 @@ function json_model_6(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPoint";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected MultiPoint [.'$MultiPoint'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"MultiPoint\" [.'$MultiPoint'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$MultiPoint']", (path ? lpath : null)])
         return false;
     }
@@ -245,7 +245,7 @@ function json_model_6(val, path, rep)
             res = json_model_2(arr_4_item, ((path ? lpath : null) ? arr_4_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $position [.'$MultiPoint'.coordinates.0]", ((path ? lpath : null) ? arr_4_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", ((path ? lpath : null) ? arr_4_lpath : null)])
                 break;
             }
         }
@@ -311,7 +311,7 @@ function json_model_7(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "LineString";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected LineString [.'$LineString'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"LineString\" [.'$LineString'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$LineString']", (path ? lpath : null)])
         return false;
     }
@@ -326,7 +326,7 @@ function json_model_7(val, path, rep)
     res = json_model_3(pval, (path ? lpath : null), rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $coord_array [.'$LineString'.coordinates]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"$coord_array\" [.'$LineString'.coordinates]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <coordinates> [.'$LineString']", (path ? lpath : null)])
         return false;
     }
@@ -385,7 +385,7 @@ function json_model_8(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiLineString";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected MultiLineString [.'$MultiLineString'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"MultiLineString\" [.'$MultiLineString'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$MultiLineString']", (path ? lpath : null)])
         return false;
     }
@@ -408,7 +408,7 @@ function json_model_8(val, path, rep)
             res = json_model_3(arr_7_item, ((path ? lpath : null) ? arr_7_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $coord_array [.'$MultiLineString'.coordinates.0]", ((path ? lpath : null) ? arr_7_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", ((path ? lpath : null) ? arr_7_lpath : null)])
                 break;
             }
         }
@@ -474,7 +474,7 @@ function json_model_9(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Polygon";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected Polygon [.'$Polygon'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"Polygon\" [.'$Polygon'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Polygon']", (path ? lpath : null)])
         return false;
     }
@@ -497,7 +497,7 @@ function json_model_9(val, path, rep)
             res = json_model_4(arr_9_item, ((path ? lpath : null) ? arr_9_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $linear_ring [.'$Polygon'.coordinates.0]", ((path ? lpath : null) ? arr_9_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", ((path ? lpath : null) ? arr_9_lpath : null)])
                 break;
             }
         }
@@ -563,7 +563,7 @@ function json_model_10(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPolygon";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected MultiPolygon [.'$MultiPolygon'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"MultiPolygon\" [.'$MultiPolygon'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$MultiPolygon']", (path ? lpath : null)])
         return false;
     }
@@ -594,7 +594,7 @@ function json_model_10(val, path, rep)
                     res = json_model_4(arr_12_item, (((path ? lpath : null) ? arr_11_lpath : null) ? arr_12_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected $linear_ring [.'$MultiPolygon'.coordinates.0.0]", (((path ? lpath : null) ? arr_11_lpath : null) ? arr_12_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", (((path ? lpath : null) ? arr_11_lpath : null) ? arr_12_lpath : null)])
                         break;
                     }
                 }
@@ -704,7 +704,7 @@ function json_model_12(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GeometryCollection";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected GeometryCollection [.'$GeometryCollection'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"GeometryCollection\" [.'$GeometryCollection'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$GeometryCollection']", (path ? lpath : null)])
         return false;
     }
@@ -727,7 +727,7 @@ function json_model_12(val, path, rep)
             res = json_model_11(arr_14_item, ((path ? lpath : null) ? arr_14_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $geometry [.'$GeometryCollection'.geometries.0]", ((path ? lpath : null) ? arr_14_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", ((path ? lpath : null) ? arr_14_lpath : null)])
                 break;
             }
         }
@@ -805,7 +805,7 @@ function json_model_13(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Feature";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected Feature [.'$Feature'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"Feature\" [.'$Feature'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$Feature']", (path ? lpath : null)])
         return false;
     }
@@ -826,12 +826,12 @@ function json_model_13(val, path, rep)
         res = json_model_11(pval, (path ? lpath : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $geometry [.'$Feature'.geometry.'|'.1]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"$geometry\" [.'$Feature'.geometry.'|'.1]", (path ? lpath : null)])
             // .'$Feature'.geometry.'|'.2
             res = json_model_12(pval, (path ? lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", (path ? lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$GeometryCollection\" [.'$Feature'.geometry.'|'.2]", (path ? lpath : null)])
             }
         }
     }
@@ -884,7 +884,7 @@ function json_model_13(val, path, rep)
         res = (typeof pval === 'string' || pval instanceof String);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected string [.'$Feature'.id.'|'.0]", (path ? lpath : null)])
+            rep !== null && rep.push(["unexpected value for model \"\" [.'$Feature'.id.'|'.0]", (path ? lpath : null)])
             // .'$Feature'.id.'|'.1
             res = (typeof pval === 'number' || pval instanceof Number);
             if (! res)
@@ -958,7 +958,7 @@ function json_model_14(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FeatureCollection";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected FeatureCollection [.'$FeatureCollection'.type]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"FeatureCollection\" [.'$FeatureCollection'.type]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <type> [.'$FeatureCollection']", (path ? lpath : null)])
         return false;
     }
@@ -981,7 +981,7 @@ function json_model_14(val, path, rep)
             res = json_model_13(arr_17_item, ((path ? lpath : null) ? arr_17_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $Feature [.'$FeatureCollection'.features.0]", ((path ? lpath : null) ? arr_17_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", ((path ? lpath : null) ? arr_17_lpath : null)])
                 break;
             }
         }

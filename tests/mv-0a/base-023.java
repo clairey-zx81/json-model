@@ -23,42 +23,20 @@ public class base_023 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
+        // .'@'
         boolean res = json.isString(val);
         if (res)
         {
-            // .'&'.0
-            res = true;
-            if (res)
+            long ival_0 = json.asString(val).length();
+            res = ival_0 <= 5;
+            if (! res)
             {
-                // .'&'.1
-                // .'&'.1.'@'
-                res = json.isString(val);
-                if (res)
-                {
-                    long ival_0 = json.asString(val).length();
-                    res = ival_0 <= 5;
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("constraints failed [.'&'.1]", path);
-                    }
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("unexpected string [.'&'.1.'@']", path);
-                }
+                if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected string [.'&'.0]", path);
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
         }
         else
         {
-            if (rep != null) rep.addEntry("not all model match [.'&']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'@']", path);
         }
         return res;
     }

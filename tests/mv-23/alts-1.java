@@ -60,7 +60,7 @@ public class alts_1 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _a [.'$oA'.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_a\" [.'$oA'.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oA']", (path != null ? lpath : null));
             return false;
         }
@@ -186,7 +186,7 @@ public class alts_1 extends ModelChecker
         res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _d [.'$oL'.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"_d\" [.'$oL'.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'$oL']", (path != null ? lpath : null));
             return false;
         }

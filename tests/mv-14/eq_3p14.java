@@ -26,7 +26,7 @@ public class eq_3p14 extends ModelChecker
         boolean res = json.isDouble(val) && json.asDouble(val) == 3.14;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =3.14 [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"=3.14\" [.]", path);
         }
         return res;
     }

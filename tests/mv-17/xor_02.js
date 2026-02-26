@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     let res;
     // .
     res = false;
-    rep !== null && rep.push(["unexpected $NONE [.]", path])
+    rep !== null && rep.push(["unexpected value for model \"$NONE\" [.]", path])
     return res;
 }
 

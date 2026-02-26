@@ -1,7 +1,7 @@
 mrg_03.values.json[0]: PASS
 mrg_03.values.json[1]: FAIL (c: not a 1.0 strict float [.c]; c: unexpected value for mandatory prop <c> [.])
 mrg_03.values.json[2]: FAIL (a: not a 1 strict int [.a]; a: unexpected value for mandatory prop <a> [.])
-mrg_03.values.json[3]: FAIL (b: unexpected string [.b]; b: unexpected value for mandatory prop <b> [.])
+mrg_03.values.json[3]: FAIL (b: unexpected value for model "" [.b]; b: unexpected value for mandatory prop <b> [.])
 mrg_03.values.json[4]: FAIL (: bad property count [.])
 mrg_03.values.json[5]: FAIL (: bad property count [.])
 mrg_03.values.json[6]: FAIL (: bad property count [.])

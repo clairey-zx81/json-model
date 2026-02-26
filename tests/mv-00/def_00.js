@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $pos [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$pos\" [.]", path])
     }
     return res;
 }

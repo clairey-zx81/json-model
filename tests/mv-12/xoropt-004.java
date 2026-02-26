@@ -45,7 +45,7 @@ public class xoropt_004 extends ModelChecker
                 // handle 1 re props
                 // .'|'.1.'/a/'
                 res = false;
-                if (rep != null) rep.addEntry("unexpected $NONE [.'|'.1.'/a/']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'|'.1.'/a/']", (path != null ? lpath_0 : null));
                 return false;
             }
             else

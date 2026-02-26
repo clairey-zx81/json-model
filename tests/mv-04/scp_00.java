@@ -26,7 +26,7 @@ public class scp_00 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("a") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _a [.'$a']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_a\" [.'$a']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class scp_00 extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Aa']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Aa']", path);
         }
         return res;
     }
@@ -66,7 +66,7 @@ public class scp_00 extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Aa [.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Aa\" [.a]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.a]", (path != null ? lpath_0 : null));
                     return false;
                 }

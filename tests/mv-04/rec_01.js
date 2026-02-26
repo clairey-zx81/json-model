@@ -29,7 +29,7 @@ function json_model_1(val, path, rep)
         res = json_model_1(pval, (path ? lpath_0 : null), rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $# [.'']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$#\" [.'']", (path ? lpath_0 : null)])
             return false;
         }
     }

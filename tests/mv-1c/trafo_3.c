@@ -25,7 +25,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_6(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $l [.'$Dd']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$l\" [.'$Dd']", path);
     }
     return res;
 }
@@ -37,7 +37,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_6(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Dd [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Dd\" [.]", path);
     }
     return res;
 }
@@ -58,7 +58,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_12(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $u [.'$Dd#l'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$u\" [.'$Dd#l'.0]", (path ? &arr_0_lpath : NULL));
                 break;
             }
         }
@@ -77,7 +77,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_12(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Uu#un [.'$Dd#u']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Uu#un\" [.'$Dd#u']", path);
     }
     return res;
 }

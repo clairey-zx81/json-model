@@ -26,7 +26,7 @@ public class trafo_3 extends ModelChecker
         boolean res = json_model_6(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $l [.'$Dd']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$l\" [.'$Dd']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class trafo_3 extends ModelChecker
         boolean res = json_model_6(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Dd [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Dd\" [.]", path);
         }
         return res;
     }
@@ -61,7 +61,7 @@ public class trafo_3 extends ModelChecker
                 res = json_model_12(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $u [.'$Dd#l'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$u\" [.'$Dd#l'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
@@ -80,7 +80,7 @@ public class trafo_3 extends ModelChecker
         boolean res = json_model_12(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Uu#un [.'$Dd#u']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Uu#un\" [.'$Dd#u']", path);
         }
         return res;
     }

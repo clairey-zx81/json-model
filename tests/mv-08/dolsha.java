@@ -37,7 +37,7 @@ public class dolsha extends ModelChecker
                 res = json_model_1(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $self [.'$array'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$self\" [.'$array'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
@@ -72,7 +72,7 @@ public class dolsha extends ModelChecker
                 res = json_model_1(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $self [.prop]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$self\" [.prop]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.prop]", (path != null ? lpath_0 : null));
                     return false;
                 }

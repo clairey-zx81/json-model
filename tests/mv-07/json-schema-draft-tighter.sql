@@ -24,6 +24,8 @@ CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
+  arr_3_idx INT8;
+  arr_3_item JSONB;
   arr_2_idx INT8;
   arr_2_item JSONB;
   arr_1_idx INT8;
@@ -35,34 +37,45 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
     -- .'$enum'.'|'.0
-    FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_2_item := val -> arr_2_idx;
+    FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_3_item := val -> arr_3_idx;
       -- .'$enum'.'|'.0.0
-      res := JSONB_TYPEOF(arr_2_item) = 'string';
+      res := JSONB_TYPEOF(arr_3_item) = 'string';
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
     IF NOT res THEN
       -- .'$enum'.'|'.1
-      FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-        arr_1_item := val -> arr_1_idx;
+      FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+        arr_2_item := val -> arr_2_idx;
         -- .'$enum'.'|'.1.0
-        res := JSONB_TYPEOF(arr_1_item) = 'number' AND (arr_1_item)::INT8 = (arr_1_item)::FLOAT8;
+        res := JSONB_TYPEOF(arr_2_item) = 'number' AND (arr_2_item)::INT8 = (arr_2_item)::FLOAT8;
         IF NOT res THEN
           EXIT;
         END IF;
       END LOOP;
       IF NOT res THEN
         -- .'$enum'.'|'.2
-        FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-          arr_0_item := val -> arr_0_idx;
+        FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+          arr_1_item := val -> arr_1_idx;
           -- .'$enum'.'|'.2.0
-          res := JSONB_TYPEOF(arr_0_item) = 'boolean';
+          res := JSONB_TYPEOF(arr_1_item) = 'boolean';
           IF NOT res THEN
             EXIT;
           END IF;
         END LOOP;
+        IF NOT res THEN
+          -- .'$enum'.'|'.3
+          FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+            arr_0_item := val -> arr_0_idx;
+            -- .'$enum'.'|'.3.0
+            res := JSONB_TYPEOF(arr_0_item) = 'number';
+            IF NOT res THEN
+              EXIT;
+            END IF;
+          END LOOP;
+        END IF;
       END IF;
     END IF;
   END IF;
@@ -75,16 +88,16 @@ CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_3_idx INT8;
-  arr_3_item JSONB;
+  arr_4_idx INT8;
+  arr_4_item JSONB;
 BEGIN
   -- .'$schemaArray'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_3_item := val -> arr_3_idx;
+    FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_4_item := val -> arr_4_idx;
       -- .'$schemaArray'.0
-      res := json_model_24(arr_3_item, NULL, NULL);
+      res := json_model_24(arr_4_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -283,8 +296,8 @@ DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
-  arr_4_idx INT8;
-  arr_4_item JSONB;
+  arr_5_idx INT8;
+  arr_5_item JSONB;
 BEGIN
   -- not included: dependentRequired, min/maxProps…
   -- .'$objectKeywords'
@@ -297,10 +310,10 @@ BEGIN
       -- .'$objectKeywords'.required
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_4_item := pval -> arr_4_idx;
+        FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_5_item := pval -> arr_5_idx;
           -- .'$objectKeywords'.required.0
-          res := JSONB_TYPEOF(arr_4_item) = 'string';
+          res := JSONB_TYPEOF(arr_5_item) = 'string';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1124,16 +1137,16 @@ CREATE OR REPLACE FUNCTION _jm_f_49(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_5_idx INT8;
-  arr_5_item JSONB;
+  arr_6_idx INT8;
+  arr_6_item JSONB;
 BEGIN
   -- .'$Object'.required
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_5_item := val -> arr_5_idx;
+    FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_6_item := val -> arr_6_idx;
       -- .'$Object'.required.0
-      res := JSONB_TYPEOF(arr_5_item) = 'string';
+      res := JSONB_TYPEOF(arr_6_item) = 'string';
       IF NOT res THEN
         EXIT;
       END IF;

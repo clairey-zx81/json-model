@@ -37,7 +37,7 @@ public class uniq_1 extends ModelChecker
                 res = json.isString(arr_0_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }

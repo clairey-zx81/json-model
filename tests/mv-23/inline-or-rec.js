@@ -40,7 +40,7 @@ function _jm_obj_0(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected a [.'$ab'.'|'.0.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"a\" [.'$ab'.'|'.0.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$ab'.'|'.0]", (path ? lpath : null)])
         return false;
     }
@@ -90,7 +90,7 @@ function _jm_obj_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "b";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected b [.'$ab'.'|'.1.t]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"b\" [.'$ab'.'|'.1.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$ab'.'|'.1]", (path ? lpath : null)])
         return false;
     }
@@ -156,7 +156,7 @@ function json_model_1(val, path, rep)
     let res = json_model_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $ab [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$ab\" [.]", path])
     }
     return res;
 }

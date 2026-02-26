@@ -18,7 +18,7 @@ function json_model_1(val, path, rep)
     let res = (typeof val === 'number' || val instanceof Number);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $NUMBER [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"$NUMBER\" [.]", path])
     }
     return res;
 }

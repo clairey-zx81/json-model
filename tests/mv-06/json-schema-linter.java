@@ -54,7 +54,7 @@ public class json_schema_linter extends ModelChecker
                         res = json.isString(val);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$const'.'|'.4]", path);
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$const'.'|'.4]", path);
                         }
                     }
                 }
@@ -79,18 +79,18 @@ public class json_schema_linter extends ModelChecker
         if (res)
         {
             // .'$enum'.'|'.0
-            int arr_2_idx = -1;
-            Iterator<Object> arr_2_item_loop = json.arrayIterator(val);
-            while (arr_2_item_loop.hasNext())
+            int arr_3_idx = -1;
+            Iterator<Object> arr_3_item_loop = json.arrayIterator(val);
+            while (arr_3_item_loop.hasNext())
             {
-                arr_2_idx++;
-                Object arr_2_item = arr_2_item_loop.next();
-                Path arr_2_lpath = new Path(arr_2_idx, path);
+                arr_3_idx++;
+                Object arr_3_item = arr_3_item_loop.next();
+                Path arr_3_lpath = new Path(arr_3_idx, path);
                 // .'$enum'.'|'.0.0
-                res = json.isString(arr_2_item);
+                res = json.isString(arr_3_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$enum'.'|'.0.0]", (path != null ? arr_2_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$enum'.'|'.0.0]", (path != null ? arr_3_lpath : null));
                     break;
                 }
             }
@@ -98,18 +98,18 @@ public class json_schema_linter extends ModelChecker
             {
                 if (rep != null) rep.addEntry("not array or unexpected array [.'$enum'.'|'.0]", path);
                 // .'$enum'.'|'.1
-                int arr_1_idx = -1;
-                Iterator<Object> arr_1_item_loop = json.arrayIterator(val);
-                while (arr_1_item_loop.hasNext())
+                int arr_2_idx = -1;
+                Iterator<Object> arr_2_item_loop = json.arrayIterator(val);
+                while (arr_2_item_loop.hasNext())
                 {
-                    arr_1_idx++;
-                    Object arr_1_item = arr_1_item_loop.next();
-                    Path arr_1_lpath = new Path(arr_1_idx, path);
+                    arr_2_idx++;
+                    Object arr_2_item = arr_2_item_loop.next();
+                    Path arr_2_lpath = new Path(arr_2_idx, path);
                     // .'$enum'.'|'.1.0
-                    res = json.isInteger(arr_1_item);
+                    res = json.isInteger(arr_2_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1 strict int [.'$enum'.'|'.1.0]", (path != null ? arr_1_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1 strict int [.'$enum'.'|'.1.0]", (path != null ? arr_2_lpath : null));
                         break;
                     }
                 }
@@ -117,24 +117,44 @@ public class json_schema_linter extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$enum'.'|'.1]", path);
                     // .'$enum'.'|'.2
-                    int arr_0_idx = -1;
-                    Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
-                    while (arr_0_item_loop.hasNext())
+                    int arr_1_idx = -1;
+                    Iterator<Object> arr_1_item_loop = json.arrayIterator(val);
+                    while (arr_1_item_loop.hasNext())
                     {
-                        arr_0_idx++;
-                        Object arr_0_item = arr_0_item_loop.next();
-                        Path arr_0_lpath = new Path(arr_0_idx, path);
+                        arr_1_idx++;
+                        Object arr_1_item = arr_1_item_loop.next();
+                        Path arr_1_lpath = new Path(arr_1_idx, path);
                         // .'$enum'.'|'.2.0
-                        res = json.isBoolean(arr_0_item);
+                        res = json.isBoolean(arr_1_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("not a bool [.'$enum'.'|'.2.0]", (path != null ? arr_0_lpath : null));
+                            if (rep != null) rep.addEntry("not a bool [.'$enum'.'|'.2.0]", (path != null ? arr_1_lpath : null));
                             break;
                         }
                     }
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("not array or unexpected array [.'$enum'.'|'.2]", path);
+                        // .'$enum'.'|'.3
+                        int arr_0_idx = -1;
+                        Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
+                        while (arr_0_item_loop.hasNext())
+                        {
+                            arr_0_idx++;
+                            Object arr_0_item = arr_0_item_loop.next();
+                            Path arr_0_lpath = new Path(arr_0_idx, path);
+                            // .'$enum'.'|'.3.0
+                            res = json.isDouble(arr_0_item);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("not a -1.0 strict float [.'$enum'.'|'.3.0]", (path != null ? arr_0_lpath : null));
+                                break;
+                            }
+                        }
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("not array or unexpected array [.'$enum'.'|'.3]", path);
+                        }
                     }
                 }
             }
@@ -161,18 +181,18 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_3_idx = -1;
-            Iterator<Object> arr_3_item_loop = json.arrayIterator(val);
-            while (arr_3_item_loop.hasNext())
+            int arr_4_idx = -1;
+            Iterator<Object> arr_4_item_loop = json.arrayIterator(val);
+            while (arr_4_item_loop.hasNext())
             {
-                arr_3_idx++;
-                Object arr_3_item = arr_3_item_loop.next();
-                Path arr_3_lpath = new Path(arr_3_idx, path);
+                arr_4_idx++;
+                Object arr_4_item = arr_4_item_loop.next();
+                Path arr_4_lpath = new Path(arr_4_idx, path);
                 // .'$schemaArray'.0
-                res = json_model_24(arr_3_item, (path != null ? arr_3_lpath : null), rep);
+                res = json_model_24(arr_4_item, (path != null ? arr_4_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$schemaArray'.0]", (path != null ? arr_3_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schemaArray'.0]", (path != null ? arr_4_lpath : null));
                     break;
                 }
             }
@@ -221,7 +241,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_regex(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $REGEX [.'$stringKeywords'.pattern]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$REGEX\" [.'$stringKeywords'.pattern]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.pattern]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -284,12 +304,12 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_24(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$arrayKeywords'.items.'|'.0]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$arrayKeywords'.items.'|'.0]", (path != null ? lpath_1 : null));
                     // .'$arrayKeywords'.items.'|'.1
                     res = json_model_4(pval, (path != null ? lpath_1 : null), rep);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected $schemaArray [.'$arrayKeywords'.items.'|'.1]", (path != null ? lpath_1 : null));
+                        if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$arrayKeywords'.items.'|'.1]", (path != null ? lpath_1 : null));
                     }
                 }
                 if (res)
@@ -337,7 +357,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -363,7 +383,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_24(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$arrayKeywords'.additionalItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$arrayKeywords'.additionalItems]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.additionalItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -395,7 +415,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_3 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$objectKeywords'.properties.'']", (path != null ? lpath_3 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$objectKeywords'.properties.'']", (path != null ? lpath_3 : null));
                 return false;
             }
         }
@@ -424,7 +444,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_24(pval, (path != null ? lpath_4 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$objectKeywords'.patternProperties.'$REGEX']", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$objectKeywords'.patternProperties.'$REGEX']", (path != null ? lpath_4 : null));
                     return false;
                 }
             }
@@ -461,18 +481,18 @@ public class json_schema_linter extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_4_idx = -1;
-                    Iterator<Object> arr_4_item_loop = json.arrayIterator(pval);
-                    while (arr_4_item_loop.hasNext())
+                    int arr_5_idx = -1;
+                    Iterator<Object> arr_5_item_loop = json.arrayIterator(pval);
+                    while (arr_5_item_loop.hasNext())
                     {
-                        arr_4_idx++;
-                        Object arr_4_item = arr_4_item_loop.next();
-                        Path arr_4_lpath = new Path(arr_4_idx, (path != null ? lpath_2 : null));
+                        arr_5_idx++;
+                        Object arr_5_item = arr_5_item_loop.next();
+                        Path arr_5_lpath = new Path(arr_5_idx, (path != null ? lpath_2 : null));
                         // .'$objectKeywords'.required.0
-                        res = json.isString(arr_4_item);
+                        res = json.isString(arr_5_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected string [.'$objectKeywords'.required.0]", ((path != null ? lpath_2 : null) != null ? arr_4_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$objectKeywords'.required.0]", ((path != null ? lpath_2 : null) != null ? arr_5_lpath : null));
                             break;
                         }
                     }
@@ -518,7 +538,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_24(pval, (path != null ? lpath_2 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$objectKeywords'.additionalProperties]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$objectKeywords'.additionalProperties]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.additionalProperties]", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -599,7 +619,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_7 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$metas'.'$defs'.'']", (path != null ? lpath_7 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$metas'.'$defs'.'']", (path != null ? lpath_7 : null));
                 return false;
             }
         }
@@ -626,7 +646,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_8 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$metas'.definitions.'']", (path != null ? lpath_8 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$metas'.definitions.'']", (path != null ? lpath_8 : null));
                 return false;
             }
         }
@@ -662,7 +682,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.id]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$metas'.id]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.id]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -675,7 +695,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$id']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$metas'.'$id']", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$id']", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -701,7 +721,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.title]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$metas'.title]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.title]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -714,7 +734,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$schema']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$metas'.'$schema']", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$schema']", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -734,7 +754,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.'$comment']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$metas'.'$comment']", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.'$comment']", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -773,7 +793,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$metas'.description]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$metas'.description]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$metas'.description]", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -801,7 +821,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$String'.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.'$comment']", path);
         }
         return res;
     }
@@ -827,7 +847,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_10 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$String'.'$defs'.'']", (path != null ? lpath_10 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$String'.'$defs'.'']", (path != null ? lpath_10 : null));
                 return false;
             }
         }
@@ -841,7 +861,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$String'.'$id']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.'$id']", path);
         }
         return res;
     }
@@ -853,7 +873,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$String'.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.'$schema']", path);
         }
         return res;
     }
@@ -888,7 +908,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_11 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$String'.definitions.'']", (path != null ? lpath_11 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$String'.definitions.'']", (path != null ? lpath_11 : null));
                 return false;
             }
         }
@@ -902,7 +922,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$String'.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.description]", path);
         }
         return res;
     }
@@ -939,7 +959,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$String'.id]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.id]", path);
         }
         return res;
     }
@@ -975,7 +995,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $REGEX [.'$String'.pattern]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$REGEX\" [.'$String'.pattern]", path);
         }
         return res;
     }
@@ -987,7 +1007,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$String'.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$String'.title]", path);
         }
         return res;
     }
@@ -1019,7 +1039,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("string") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$String'.type]", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"string\" [.'$String'.type]", (path != null ? lpath_9 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$String'.type]", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -1068,7 +1088,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Array'.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Array'.'$comment']", path);
         }
         return res;
     }
@@ -1094,7 +1114,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_13 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Array'.'$defs'.'']", (path != null ? lpath_13 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Array'.'$defs'.'']", (path != null ? lpath_13 : null));
                 return false;
             }
         }
@@ -1108,7 +1128,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Array'.'$id']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Array'.'$id']", path);
         }
         return res;
     }
@@ -1120,7 +1140,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Array'.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Array'.'$schema']", path);
         }
         return res;
     }
@@ -1155,7 +1175,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_14 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Array'.definitions.'']", (path != null ? lpath_14 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Array'.definitions.'']", (path != null ? lpath_14 : null));
                 return false;
             }
         }
@@ -1169,7 +1189,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Array'.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Array'.description]", path);
         }
         return res;
     }
@@ -1193,7 +1213,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Array'.id]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Array'.id]", path);
         }
         return res;
     }
@@ -1206,12 +1226,12 @@ public class json_schema_linter extends ModelChecker
         boolean res = json_model_24(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Schema [.'$Array'.items.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Array'.items.'|'.0]", path);
             // .'$Array'.items.'|'.1
             res = json_model_4(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $schemaArray [.'$Array'.items.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$Array'.items.'|'.1]", path);
             }
         }
         if (res)
@@ -1256,7 +1276,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Array'.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Array'.title]", path);
         }
         return res;
     }
@@ -1300,7 +1320,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("array") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected array [.'$Array'.type]", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"array\" [.'$Array'.type]", (path != null ? lpath_12 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Array'.type]", (path != null ? lpath_12 : null));
                     return false;
                 }
@@ -1349,7 +1369,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Object'.'$comment']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.'$comment']", path);
         }
         return res;
     }
@@ -1375,7 +1395,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_16 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.'$defs'.'']", (path != null ? lpath_16 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.'$defs'.'']", (path != null ? lpath_16 : null));
                 return false;
             }
         }
@@ -1389,7 +1409,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Object'.'$id']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.'$id']", path);
         }
         return res;
     }
@@ -1401,7 +1421,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Object'.'$schema']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.'$schema']", path);
         }
         return res;
     }
@@ -1436,7 +1456,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_17 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.definitions.'']", (path != null ? lpath_17 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.definitions.'']", (path != null ? lpath_17 : null));
                 return false;
             }
         }
@@ -1450,7 +1470,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Object'.description]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.description]", path);
         }
         return res;
     }
@@ -1474,7 +1494,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Object'.id]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.id]", path);
         }
         return res;
     }
@@ -1502,7 +1522,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_24(pval, (path != null ? lpath_18 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.patternProperties.'$REGEX']", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.patternProperties.'$REGEX']", (path != null ? lpath_18 : null));
                     return false;
                 }
             }
@@ -1536,7 +1556,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_19 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Object'.properties.'']", (path != null ? lpath_19 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Object'.properties.'']", (path != null ? lpath_19 : null));
                 return false;
             }
         }
@@ -1550,18 +1570,18 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_5_idx = -1;
-            Iterator<Object> arr_5_item_loop = json.arrayIterator(val);
-            while (arr_5_item_loop.hasNext())
+            int arr_6_idx = -1;
+            Iterator<Object> arr_6_item_loop = json.arrayIterator(val);
+            while (arr_6_item_loop.hasNext())
             {
-                arr_5_idx++;
-                Object arr_5_item = arr_5_item_loop.next();
-                Path arr_5_lpath = new Path(arr_5_idx, path);
+                arr_6_idx++;
+                Object arr_6_item = arr_6_item_loop.next();
+                Path arr_6_lpath = new Path(arr_6_idx, path);
                 // .'$Object'.required.0
-                res = json.isString(arr_5_item);
+                res = json.isString(arr_6_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Object'.required.0]", (path != null ? arr_5_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.required.0]", (path != null ? arr_6_lpath : null));
                     break;
                 }
             }
@@ -1580,7 +1600,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Object'.title]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.title]", path);
         }
         return res;
     }
@@ -1612,7 +1632,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("object") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected object [.'$Object'.type]", (path != null ? lpath_15 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"object\" [.'$Object'.type]", (path != null ? lpath_15 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Object'.type]", (path != null ? lpath_15 : null));
                     return false;
                 }
@@ -1674,7 +1694,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_21 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Integer'.'$defs'.'']", (path != null ? lpath_21 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Integer'.'$defs'.'']", (path != null ? lpath_21 : null));
                 return false;
             }
         }
@@ -1701,7 +1721,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_22 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Integer'.definitions.'']", (path != null ? lpath_22 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Integer'.definitions.'']", (path != null ? lpath_22 : null));
                 return false;
             }
         }
@@ -1733,7 +1753,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("integer") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected integer [.'$Integer'.type]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"integer\" [.'$Integer'.type]", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Integer'.type]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1746,7 +1766,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.id]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Integer'.id]", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.id]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1759,7 +1779,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$id']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Integer'.'$id']", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$id']", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1785,7 +1805,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.title]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Integer'.title]", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.title]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1798,7 +1818,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$schema']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Integer'.'$schema']", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$schema']", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1844,7 +1864,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.'$comment']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Integer'.'$comment']", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.'$comment']", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1883,7 +1903,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Integer'.description]", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Integer'.description]", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Integer'.description]", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -1935,7 +1955,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_24 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Number'.'$defs'.'']", (path != null ? lpath_24 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Number'.'$defs'.'']", (path != null ? lpath_24 : null));
                 return false;
             }
         }
@@ -1962,7 +1982,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_25 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Number'.definitions.'']", (path != null ? lpath_25 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Number'.definitions.'']", (path != null ? lpath_25 : null));
                 return false;
             }
         }
@@ -1994,7 +2014,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("number") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected number [.'$Number'.type]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"number\" [.'$Number'.type]", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Number'.type]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2007,7 +2027,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.id]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Number'.id]", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.id]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2020,7 +2040,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$id']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Number'.'$id']", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$id']", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2046,7 +2066,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.title]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Number'.title]", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.title]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2059,7 +2079,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$schema']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Number'.'$schema']", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$schema']", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2105,7 +2125,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.'$comment']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Number'.'$comment']", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.'$comment']", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2144,7 +2164,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Number'.description]", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Number'.description]", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Number'.description]", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -2196,7 +2216,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_27 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Bool'.'$defs'.'']", (path != null ? lpath_27 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Bool'.'$defs'.'']", (path != null ? lpath_27 : null));
                 return false;
             }
         }
@@ -2223,7 +2243,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_28 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Bool'.definitions.'']", (path != null ? lpath_28 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Bool'.definitions.'']", (path != null ? lpath_28 : null));
                 return false;
             }
         }
@@ -2255,7 +2275,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("boolean") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected boolean [.'$Bool'.type]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"boolean\" [.'$Bool'.type]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Bool'.type]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2268,7 +2288,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.id]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Bool'.id]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.id]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2281,7 +2301,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$id']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Bool'.'$id']", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$id']", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2307,7 +2327,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.title]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Bool'.title]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.title]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2320,7 +2340,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$schema']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Bool'.'$schema']", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$schema']", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2340,7 +2360,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.'$comment']", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Bool'.'$comment']", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.'$comment']", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2379,7 +2399,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Bool'.description]", (path != null ? lpath_26 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Bool'.description]", (path != null ? lpath_26 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Bool'.description]", (path != null ? lpath_26 : null));
                     return false;
                 }
@@ -2431,7 +2451,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_30 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Null'.'$defs'.'']", (path != null ? lpath_30 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Null'.'$defs'.'']", (path != null ? lpath_30 : null));
                 return false;
             }
         }
@@ -2458,7 +2478,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_31 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Null'.definitions.'']", (path != null ? lpath_31 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Null'.definitions.'']", (path != null ? lpath_31 : null));
                 return false;
             }
         }
@@ -2490,7 +2510,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && json.asString(pval).compareTo("null") == 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected null [.'$Null'.type]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"null\" [.'$Null'.type]", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Null'.type]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2503,7 +2523,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.id]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Null'.id]", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.id]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2516,7 +2536,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$id']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Null'.'$id']", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$id']", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2542,7 +2562,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.title]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Null'.title]", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.title]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2555,7 +2575,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$schema']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Null'.'$schema']", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$schema']", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2575,7 +2595,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.'$comment']", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Null'.'$comment']", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.'$comment']", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2614,7 +2634,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Null'.description]", (path != null ? lpath_29 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Null'.description]", (path != null ? lpath_29 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Null'.description]", (path != null ? lpath_29 : null));
                     return false;
                 }
@@ -2666,7 +2686,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_33 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$AllOf'.'$defs'.'']", (path != null ? lpath_33 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$AllOf'.'$defs'.'']", (path != null ? lpath_33 : null));
                 return false;
             }
         }
@@ -2693,7 +2713,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_34 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$AllOf'.definitions.'']", (path != null ? lpath_34 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$AllOf'.definitions.'']", (path != null ? lpath_34 : null));
                 return false;
             }
         }
@@ -2725,7 +2745,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_32 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$AllOf'.allOf]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$AllOf'.allOf]", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$AllOf'.allOf]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2738,7 +2758,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.id]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AllOf'.id]", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.id]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2751,7 +2771,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$id']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AllOf'.'$id']", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$id']", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2777,7 +2797,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.title]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AllOf'.title]", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.title]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2790,7 +2810,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$schema']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AllOf'.'$schema']", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$schema']", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2810,7 +2830,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.'$comment']", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AllOf'.'$comment']", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.'$comment']", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2849,7 +2869,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AllOf'.description]", (path != null ? lpath_32 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AllOf'.description]", (path != null ? lpath_32 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AllOf'.description]", (path != null ? lpath_32 : null));
                     return false;
                 }
@@ -2901,7 +2921,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_36 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$AnyOf'.'$defs'.'']", (path != null ? lpath_36 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$AnyOf'.'$defs'.'']", (path != null ? lpath_36 : null));
                 return false;
             }
         }
@@ -2928,7 +2948,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_37 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$AnyOf'.definitions.'']", (path != null ? lpath_37 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$AnyOf'.definitions.'']", (path != null ? lpath_37 : null));
                 return false;
             }
         }
@@ -2960,7 +2980,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_35 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$AnyOf'.anyOf]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$AnyOf'.anyOf]", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$AnyOf'.anyOf]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -2973,7 +2993,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.id]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AnyOf'.id]", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.id]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -2986,7 +3006,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$id']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AnyOf'.'$id']", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$id']", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -3012,7 +3032,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.title]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AnyOf'.title]", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.title]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -3025,7 +3045,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$schema']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AnyOf'.'$schema']", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$schema']", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -3045,7 +3065,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.'$comment']", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AnyOf'.'$comment']", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.'$comment']", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -3084,7 +3104,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$AnyOf'.description]", (path != null ? lpath_35 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$AnyOf'.description]", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$AnyOf'.description]", (path != null ? lpath_35 : null));
                     return false;
                 }
@@ -3136,7 +3156,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_39 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$OneOf'.'$defs'.'']", (path != null ? lpath_39 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$OneOf'.'$defs'.'']", (path != null ? lpath_39 : null));
                 return false;
             }
         }
@@ -3163,7 +3183,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_40 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$OneOf'.definitions.'']", (path != null ? lpath_40 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$OneOf'.definitions.'']", (path != null ? lpath_40 : null));
                 return false;
             }
         }
@@ -3195,7 +3215,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_4(pval, (path != null ? lpath_38 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$OneOf'.oneOf]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$OneOf'.oneOf]", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$OneOf'.oneOf]", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3208,7 +3228,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.id]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$OneOf'.id]", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.id]", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3221,7 +3241,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$id']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$OneOf'.'$id']", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$id']", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3247,7 +3267,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.title]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$OneOf'.title]", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.title]", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3260,7 +3280,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$schema']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$OneOf'.'$schema']", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$schema']", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3280,7 +3300,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.'$comment']", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$OneOf'.'$comment']", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.'$comment']", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3319,7 +3339,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$OneOf'.description]", (path != null ? lpath_38 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$OneOf'.description]", (path != null ? lpath_38 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$OneOf'.description]", (path != null ? lpath_38 : null));
                     return false;
                 }
@@ -3371,7 +3391,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_42 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Enum'.'$defs'.'']", (path != null ? lpath_42 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Enum'.'$defs'.'']", (path != null ? lpath_42 : null));
                 return false;
             }
         }
@@ -3398,7 +3418,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_43 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Enum'.definitions.'']", (path != null ? lpath_43 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Enum'.definitions.'']", (path != null ? lpath_43 : null));
                 return false;
             }
         }
@@ -3430,7 +3450,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_41 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $enum [.'$Enum'.enum]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$enum\" [.'$Enum'.enum]", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Enum'.enum]", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3443,7 +3463,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.id]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Enum'.id]", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.id]", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3456,7 +3476,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$id']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Enum'.'$id']", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$id']", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3482,7 +3502,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.title]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Enum'.title]", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.title]", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3495,7 +3515,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$schema']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Enum'.'$schema']", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$schema']", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3515,7 +3535,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.'$comment']", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Enum'.'$comment']", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.'$comment']", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3554,7 +3574,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Enum'.description]", (path != null ? lpath_41 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Enum'.description]", (path != null ? lpath_41 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Enum'.description]", (path != null ? lpath_41 : null));
                     return false;
                 }
@@ -3606,7 +3626,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_45 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Const'.'$defs'.'']", (path != null ? lpath_45 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Const'.'$defs'.'']", (path != null ? lpath_45 : null));
                 return false;
             }
         }
@@ -3633,7 +3653,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_46 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Const'.definitions.'']", (path != null ? lpath_46 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Const'.definitions.'']", (path != null ? lpath_46 : null));
                 return false;
             }
         }
@@ -3665,7 +3685,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_44 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $const [.'$Const'.const]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$const\" [.'$Const'.const]", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Const'.const]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -3678,7 +3698,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.id]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Const'.id]", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.id]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -3691,7 +3711,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$id']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Const'.'$id']", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$id']", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -3717,7 +3737,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.title]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Const'.title]", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.title]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -3730,7 +3750,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$schema']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Const'.'$schema']", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$schema']", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -3750,7 +3770,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.'$comment']", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Const'.'$comment']", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.'$comment']", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -3789,7 +3809,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Const'.description]", (path != null ? lpath_44 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Const'.description]", (path != null ? lpath_44 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Const'.description]", (path != null ? lpath_44 : null));
                     return false;
                 }
@@ -3841,7 +3861,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_48 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Ref'.'$defs'.'']", (path != null ? lpath_48 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Ref'.'$defs'.'']", (path != null ? lpath_48 : null));
                 return false;
             }
         }
@@ -3868,7 +3888,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_24(pval, (path != null ? lpath_49 : null), rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Schema [.'$Ref'.definitions.'']", (path != null ? lpath_49 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$Ref'.definitions.'']", (path != null ? lpath_49 : null));
                 return false;
             }
         }
@@ -3900,7 +3920,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $URL [.'$Ref'.'$ref']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.'$Ref'.'$ref']", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Ref'.'$ref']", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -3913,7 +3933,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.id]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ref'.id]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.id]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -3926,7 +3946,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$id']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ref'.'$id']", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$id']", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -3952,7 +3972,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.title]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ref'.title]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.title]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -3965,7 +3985,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$schema']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ref'.'$schema']", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$schema']", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -3985,7 +4005,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.'$comment']", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ref'.'$comment']", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.'$comment']", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -4024,7 +4044,7 @@ public class json_schema_linter extends ModelChecker
                 res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'$Ref'.description]", (path != null ? lpath_47 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Ref'.description]", (path != null ? lpath_47 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Ref'.description]", (path != null ? lpath_47 : null));
                     return false;
                 }
@@ -4107,7 +4127,7 @@ public class json_schema_linter extends ModelChecker
             res = json_model_23(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$Schema'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$ObjectSchema\" [.'$Schema'.'|'.1]", path);
             }
         }
         if (res)
@@ -4143,7 +4163,7 @@ public class json_schema_linter extends ModelChecker
         res = json.isString(pval);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$RootSchema'.'&'.0.'$schema']", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$RootSchema'.'&'.0.'$schema']", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <$schema> [.'$RootSchema'.'&'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -4166,7 +4186,7 @@ public class json_schema_linter extends ModelChecker
                 res = json_model_23(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$RootSchema'.'&'.1]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"$ObjectSchema\" [.'$RootSchema'.'&'.1]", path);
                 }
             }
             else
@@ -4192,7 +4212,7 @@ public class json_schema_linter extends ModelChecker
         boolean res = json_model_25(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $RootSchema [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$RootSchema\" [.]", path);
         }
         return res;
     }

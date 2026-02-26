@@ -37,7 +37,7 @@ public class compl00 extends ModelChecker
         boolean is_0 = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! is_0)
         {
-            if (rep != null) rep.addEntry("unexpected /^[a-z]+$/i [.'^'.1]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[a-z]+$/i\" [.'^'.1]", path);
         }
         res = ! is_0;
         if (res)

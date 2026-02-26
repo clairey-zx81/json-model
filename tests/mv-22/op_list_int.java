@@ -49,7 +49,7 @@ public class op_list_int extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =0 [.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=0\" [.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -195,7 +195,7 @@ public class op_list_int extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 10;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =10 [.'|'.3.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=10\" [.'|'.3.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.3]", (path != null ? lpath : null));
             return false;
         }

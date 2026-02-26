@@ -97,7 +97,7 @@ public class pmap_shared_1 extends ModelChecker
             res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $DATE [.'$Oo0'.'']", (path != null ? lpath_0 : null));
+                if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.'$Oo0'.'']", (path != null ? lpath_0 : null));
                 return false;
             }
         }
@@ -350,17 +350,17 @@ public class pmap_shared_1 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Oo0 [.'|'.0]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Oo0\" [.'|'.0]", path);
             // .'|'.1
             res = json_model_3(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Oo1 [.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$Oo1\" [.'|'.1]", path);
                 // .'|'.2
                 res = json_model_4(val, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Oo2 [.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Oo2\" [.'|'.2]", path);
                 }
             }
         }

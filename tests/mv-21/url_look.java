@@ -27,7 +27,7 @@ public class url_look extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("https://json-model.org/models/json-model") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected https://json-model.org/models/json-model [.'$u1']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"https://json-model.org/models/json-model\" [.'$u1']", path);
         }
         return res;
     }
@@ -39,7 +39,7 @@ public class url_look extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("file://./url_looking.model.json") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected file://./url_looking.model.json [.'$u2']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"file://./url_looking.model.json\" [.'$u2']", path);
         }
         return res;
     }

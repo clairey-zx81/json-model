@@ -47,7 +47,7 @@ public class or_01 extends ModelChecker
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("unexpected /[0-9]/ [.'|'.0]", path);
+                    if (rep != null) rep.addEntry("unexpected value for model \"/[0-9]/\" [.'|'.0]", path);
                     if (rep != null) rep.addEntry("no model matched [.'|']", path);
                 }
             }

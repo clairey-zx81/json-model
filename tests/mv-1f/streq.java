@@ -27,7 +27,7 @@ public class streq extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^Susie$/ [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^Susie$/\" [.]", path);
         }
         return res;
     }

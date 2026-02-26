@@ -34,13 +34,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = jm_str_eq_6(json_string_value(val), 0x0000006569737553LL);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected _Susie [.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Susie\" [.'|'.0]", path);
             // .'|'.1
             // "/^[a-z]+$/"
             res = _jm_re_0(json_string_value(val), path, rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected /^[a-z]+$/ [.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^[a-z]+$/\" [.'|'.1]", path);
             }
         }
         if (likely(res))

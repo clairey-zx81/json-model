@@ -182,7 +182,7 @@ public class dis_004 extends ModelChecker
             res = json_model_2(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $Aa [.'$Bb'.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected value for model \"$Aa\" [.'$Bb'.'|'.1]", path);
             }
         }
         if (res)
@@ -203,7 +203,7 @@ public class dis_004 extends ModelChecker
         boolean res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Bb [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$Bb\" [.]", path);
         }
         return res;
     }

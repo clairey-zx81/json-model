@@ -26,7 +26,7 @@ public class scp_01 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).compareTo("b") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _b [.'$b']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_b\" [.'$b']", path);
         }
         return res;
     }
@@ -38,7 +38,7 @@ public class scp_01 extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Bb']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Bb']", path);
         }
         return res;
     }
@@ -66,7 +66,7 @@ public class scp_01 extends ModelChecker
                 res = json_model_7(pval, (path != null ? lpath_0 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Aa [.'$Rr'.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Aa\" [.'$Rr'.a]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Rr'.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -103,7 +103,7 @@ public class scp_01 extends ModelChecker
                 res = json_model_5(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Rr [.RA]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Rr\" [.RA]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.RA]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -116,7 +116,7 @@ public class scp_01 extends ModelChecker
                 res = json_model_7(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Rr#Aa [.a]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Rr#Aa\" [.a]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.a]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -129,7 +129,7 @@ public class scp_01 extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Bb [.b]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Bb\" [.b]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -159,7 +159,7 @@ public class scp_01 extends ModelChecker
         boolean res = json.isString(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected string [.'$Rr#Aa']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Rr#Aa']", path);
         }
         return res;
     }

@@ -27,7 +27,7 @@ public class re_0 extends ModelChecker
         boolean res = json.isString(val) && json.asString(val).startsWith("S");
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^S/ [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^S/\" [.]", path);
         }
         return res;
     }

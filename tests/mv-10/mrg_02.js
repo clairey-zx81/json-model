@@ -18,7 +18,7 @@ function json_model_2(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "cst_02";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_02 [.'$t']", path])
+        rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$t']", path])
     }
     return res;
 }
@@ -52,7 +52,7 @@ function json_model_5(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$r'.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'$r']", (path ? lpath : null)])
         return false;
     }
@@ -67,7 +67,7 @@ function json_model_5(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$r'.b]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'$r']", (path ? lpath : null)])
         return false;
     }
@@ -82,7 +82,7 @@ function json_model_5(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$r'.c]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.c]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <c> [.'$r']", (path ? lpath : null)])
         return false;
     }
@@ -97,7 +97,7 @@ function json_model_5(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$r'.d]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.d]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <d> [.'$r']", (path ? lpath : null)])
         return false;
     }
@@ -133,7 +133,7 @@ function json_model_4(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_02 [.'$z'.e]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$z'.e]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <e> [.'$z']", (path ? lpath : null)])
         return false;
     }
@@ -148,7 +148,7 @@ function json_model_4(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_02 [.'$z'.f]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$z'.f]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <f> [.'$z']", (path ? lpath : null)])
         return false;
     }
@@ -184,7 +184,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.]", (path ? lpath : null)])
         return false;
     }
@@ -199,7 +199,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.b]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.]", (path ? lpath : null)])
         return false;
     }
@@ -214,7 +214,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_02 [.e]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.e]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <e> [.]", (path ? lpath : null)])
         return false;
     }
@@ -229,7 +229,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_02 [.f]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.f]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <f> [.]", (path ? lpath : null)])
         return false;
     }
@@ -244,7 +244,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.c]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.c]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <c> [.]", (path ? lpath : null)])
         return false;
     }
@@ -259,7 +259,7 @@ function json_model_1(val, path, rep)
     res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _cst_01 [.d]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.d]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <d> [.]", (path ? lpath : null)])
         return false;
     }

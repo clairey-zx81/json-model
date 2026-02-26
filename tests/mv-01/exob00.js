@@ -43,7 +43,7 @@ function _jm_obj_0(val, path, rep)
             // handle may a property
             // .'|'.1.a
             res = false;
-            rep !== null && rep.push(["unexpected $NONE [.'|'.1.a]", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'|'.1.a]", (path ? lpath_0 : null)])
             rep !== null && rep.push(["invalid optional prop value [.'|'.1.a]", (path ? lpath_0 : null)])
             return false;
         }
@@ -102,7 +102,7 @@ function _jm_obj_1(val, path, rep)
             // handle may b property
             // .'|'.0.b
             res = false;
-            rep !== null && rep.push(["unexpected $NONE [.'|'.0.b]", (path ? lpath_1 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'|'.0.b]", (path ? lpath_1 : null)])
             rep !== null && rep.push(["invalid optional prop value [.'|'.0.b]", (path ? lpath_1 : null)])
             return false;
         }

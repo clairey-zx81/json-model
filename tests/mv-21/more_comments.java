@@ -49,7 +49,7 @@ public class more_comments extends ModelChecker
                 res = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Pp [.'$Qq'.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Pp\" [.'$Qq'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
@@ -83,7 +83,7 @@ public class more_comments extends ModelChecker
                 res = json_model_2(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Pp [.o.p]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Pp\" [.o.p]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.o.p]", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -96,7 +96,7 @@ public class more_comments extends ModelChecker
                 res = json_model_3(pval, (path != null ? lpath_1 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $Qq [.o.q]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Qq\" [.o.q]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.o.q]", (path != null ? lpath_1 : null));
                     return false;
                 }

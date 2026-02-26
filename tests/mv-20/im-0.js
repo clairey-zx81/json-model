@@ -18,7 +18,7 @@ function json_model_2(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "a";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _a [.'$a']", path])
+        rep !== null && rep.push(["unexpected value for model \"_a\" [.'$a']", path])
     }
     return res;
 }
@@ -30,7 +30,7 @@ function json_model_3(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && val == "b";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _b [.'$b']", path])
+        rep !== null && rep.push(["unexpected value for model \"_b\" [.'$b']", path])
     }
     return res;
 }

@@ -47,7 +47,7 @@ public class tag02 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =1 [.'|'.0.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'|'.0.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.0]", (path != null ? lpath : null));
             return false;
         }
@@ -95,7 +95,7 @@ public class tag02 extends ModelChecker
         res = json.isInteger(pval) && json.asLong(pval) == 2;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected =2 [.'|'.1.t]", (path != null ? lpath : null));
+            if (rep != null) rep.addEntry("unexpected value for model \"=2\" [.'|'.1.t]", (path != null ? lpath : null));
             if (rep != null) rep.addEntry("unexpected value for mandatory prop <t> [.'|'.1]", (path != null ? lpath : null));
             return false;
         }

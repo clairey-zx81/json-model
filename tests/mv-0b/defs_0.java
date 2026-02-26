@@ -38,7 +38,7 @@ public class defs_0 extends ModelChecker
         boolean res = json_model_2(val, path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $an_int [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$an_int\" [.]", path);
         }
         return res;
     }

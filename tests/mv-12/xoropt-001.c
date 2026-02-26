@@ -77,7 +77,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [.'$Ss']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Ss']", path);
     }
     return res;
 }
@@ -98,7 +98,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_model_9(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Any [.'$Aa'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Any\" [.'$Aa'.0]", (path ? &arr_0_lpath : NULL));
                 break;
             }
         }
@@ -130,7 +130,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = json_model_9(pval, (path ? &lpath_0 : NULL), rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Any [.'$Oo'.'']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Any\" [.'$Oo'.'']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
@@ -150,32 +150,32 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = json_model_3(val, path, rep);
         if (unlikely(! res))
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Bb [.'$Any'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Bb\" [.'$Any'.'|'.1]", path);
             // .'$Any'.'|'.2
             res = json_model_4(val, path, rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Ii [.'$Any'.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ii\" [.'$Any'.'|'.2]", path);
                 // .'$Any'.'|'.3
                 res = json_model_5(val, path, rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $Ff [.'$Any'.'|'.3]", path);
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ff\" [.'$Any'.'|'.3]", path);
                     // .'$Any'.'|'.4
                     res = json_model_6(val, path, rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $Ss [.'$Any'.'|'.4]", path);
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Ss\" [.'$Any'.'|'.4]", path);
                         // .'$Any'.'|'.5
                         res = json_model_7(val, path, rep);
                         if (unlikely(! res))
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $Aa [.'$Any'.'|'.5]", path);
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Aa\" [.'$Any'.'|'.5]", path);
                             // .'$Any'.'|'.6
                             res = json_model_8(val, path, rep);
                             if (unlikely(! res))
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected $Oo [.'$Any'.'|'.6]", path);
+                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Oo\" [.'$Any'.'|'.6]", path);
                             }
                         }
                     }
@@ -201,7 +201,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_9(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Any [.]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Any\" [.]", path);
     }
     return res;
 }

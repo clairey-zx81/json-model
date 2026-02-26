@@ -1,6 +1,6 @@
 re_3.values.json[0]: PASS
 re_3.values.json[1]: PASS
-re_3.values.json[2]: FAIL (all: unexpected /.*/ [.all]; all: invalid optional prop value [.all])
-re_3.values.json[3]: FAIL (nz: unexpected /./s [.nz]; nz: invalid optional prop value [.nz])
-re_3.values.json[4]: FAIL (nz: unexpected /./s [.nz]; nz: invalid optional prop value [.nz])
-re_3.values.json[5]: FAIL (some: unexpected /./ [.some]; some: invalid optional prop value [.some])
+re_3.values.json[2]: FAIL (all: unexpected value for model "/.*/" [.all]; all: invalid optional prop value [.all])
+re_3.values.json[3]: FAIL (nz: unexpected value for model "/./s" [.nz]; nz: invalid optional prop value [.nz])
+re_3.values.json[4]: FAIL (nz: unexpected value for model "/./s" [.nz]; nz: invalid optional prop value [.nz])
+re_3.values.json[5]: FAIL (some: unexpected value for model "/./" [.some]; some: invalid optional prop value [.some])

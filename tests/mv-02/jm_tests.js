@@ -27,7 +27,7 @@ function json_model_1(val, path, rep)
             res = (typeof arr_0_item === 'string' || arr_0_item instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.0.'|'.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.0.'|'.0]", (path ? arr_0_lpath : null)])
                 // .0.'|'.1
                 res = Array.isArray(arr_0_item) && arr_0_item.length == 2;
                 if (res)
@@ -69,7 +69,7 @@ function json_model_1(val, path, rep)
                             }
                             else
                             {
-                                rep !== null && rep.push(["unexpected string [.0.'|'.2.1]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
+                                rep !== null && rep.push(["unexpected value for model \"\" [.0.'|'.2.1]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
                             }
                         }
                         else

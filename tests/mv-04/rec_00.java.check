@@ -3,10 +3,10 @@ rec_00.values.json[1]: PASS
 rec_00.values.json[2]: PASS
 rec_00.values.json[3]: PASS
 rec_00.values.json[4]: PASS
-rec_00.values.json[5]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected $obj [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
-rec_00.values.json[6]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected $obj [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
-rec_00.values.json[7]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected $obj [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
-rec_00.values.json[8]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected $obj [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
-rec_00.values.json[9]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected $obj [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
-rec_00.values.json[10]: FAIL (: not a bool [.'$rec'.'|'.0]; a: not a bool [.'$rec'.'|'.0]; a: not an object [.'$obj']; a: unexpected $obj [.'$rec'.'|'.1]; a: no model matched [.'$rec'.'|']; a: unexpected $rec [.'$obj'.'']; : unexpected $obj [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
-rec_00.values.json[11]: FAIL (: not a bool [.'$rec'.'|'.0]; a: not a bool [.'$rec'.'|'.0]; a, b: not a bool [.'$rec'.'|'.0]; a, b: not an object [.'$obj']; a, b: unexpected $obj [.'$rec'.'|'.1]; a, b: no model matched [.'$rec'.'|']; a, b: unexpected $rec [.'$obj'.'']; a: unexpected $obj [.'$rec'.'|'.1]; a: no model matched [.'$rec'.'|']; a: unexpected $rec [.'$obj'.'']; : unexpected $obj [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
+rec_00.values.json[5]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected value for model "$obj" [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
+rec_00.values.json[6]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected value for model "$obj" [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
+rec_00.values.json[7]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected value for model "$obj" [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
+rec_00.values.json[8]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected value for model "$obj" [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
+rec_00.values.json[9]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$obj']; : unexpected value for model "$obj" [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
+rec_00.values.json[10]: FAIL (: not a bool [.'$rec'.'|'.0]; a: not a bool [.'$rec'.'|'.0]; a: not an object [.'$obj']; a: unexpected value for model "$obj" [.'$rec'.'|'.1]; a: no model matched [.'$rec'.'|']; a: unexpected value for model "$rec" [.'$obj'.'']; : unexpected value for model "$obj" [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])
+rec_00.values.json[11]: FAIL (: not a bool [.'$rec'.'|'.0]; a: not a bool [.'$rec'.'|'.0]; a, b: not a bool [.'$rec'.'|'.0]; a, b: not an object [.'$obj']; a, b: unexpected value for model "$obj" [.'$rec'.'|'.1]; a, b: no model matched [.'$rec'.'|']; a, b: unexpected value for model "$rec" [.'$obj'.'']; a: unexpected value for model "$obj" [.'$rec'.'|'.1]; a: no model matched [.'$rec'.'|']; a: unexpected value for model "$rec" [.'$obj'.'']; : unexpected value for model "$obj" [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|'])

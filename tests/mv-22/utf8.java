@@ -37,7 +37,7 @@ public class utf8 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected string [.'@']", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'@']", path);
         }
         return res;
     }

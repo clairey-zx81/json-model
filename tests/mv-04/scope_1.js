@@ -30,12 +30,12 @@ function json_model_4(val, path, rep)
             res = json_model_5(val[1], (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $s [.'$r'.1]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$s\" [.'$r'.1]", (path ? lpath_0 : null)])
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected $s [.'$r'.0]", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$s\" [.'$r'.0]", (path ? lpath_0 : null)])
         }
     }
     if (! res)
@@ -55,7 +55,7 @@ function json_model_3(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected /[a-z]/ [.'$s']", path])
+        rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'$s']", path])
     }
     return res;
 }
@@ -69,12 +69,12 @@ function json_model_1(val, path, rep)
     let res = json_model_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $s [.'|'.0]", path])
+        rep !== null && rep.push(["unexpected value for model \"$s\" [.'|'.0]", path])
         // .'|'.1
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $r#s [.'|'.1]", path])
+            rep !== null && rep.push(["unexpected value for model \"$r#s\" [.'|'.1]", path])
         }
     }
     if (res)
@@ -98,7 +98,7 @@ function json_model_5(val, path, rep)
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected /[0-9]/ [.'$r#s']", path])
+        rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'$r#s']", path])
     }
     return res;
 }

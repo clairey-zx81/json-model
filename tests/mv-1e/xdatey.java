@@ -49,7 +49,7 @@ public class xdatey extends ModelChecker
         boolean res = json.isString(val) && _jm_xre_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected /^X-($DATE)-Y$/X [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^X-($DATE)-Y$/X\" [.]", path);
         }
         return res;
     }

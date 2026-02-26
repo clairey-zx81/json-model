@@ -51,7 +51,7 @@ function json_model_1(val, path, rep)
             res = runtime.jm_is_valid_date(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $DATE [.foo]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"$DATE\" [.foo]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.foo]", (path ? lpath_0 : null)])
                 return false;
             }

@@ -24,7 +24,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "https://json-model.org/models/json-model");
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected https://json-model.org/models/json-model [.'$u1']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"https://json-model.org/models/json-model\" [.'$u1']", path);
     }
     return res;
 }
@@ -36,7 +36,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "file://./url_looking.model.json");
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected file://./url_looking.model.json [.'$u2']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"file://./url_looking.model.json\" [.'$u2']", path);
     }
     return res;
 }

@@ -26,7 +26,7 @@ public class pNUMBER extends ModelChecker
         boolean res = json.isNumber(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $NUMBER [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"$NUMBER\" [.]", path);
         }
         return res;
     }

@@ -62,7 +62,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_model_2(val, path, rep);
     if (unlikely(! res))
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Xx\" [.'|'.0]", path);
         // .'|'.1
         res = json_is_array(val);
         if (likely(res))
@@ -76,7 +76,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_model_2(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $Xx [.'|'.1.0]", (path ? &arr_0_lpath : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Xx\" [.'|'.1.0]", (path ? &arr_0_lpath : NULL));
                     break;
                 }
             }
