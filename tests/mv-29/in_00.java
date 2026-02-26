@@ -34,15 +34,16 @@ public class in_00 extends ModelChecker
             {
                 arr_0_idx++;
                 Object arr_0_item = arr_0_item_loop.next();
+                Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .'@'.0
                 res = json.isString(arr_0_item);
                 if (! res)
                 {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'@'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
         }
-        // .in at .
         if (res)
         {
             res = false;
@@ -52,6 +53,7 @@ public class in_00 extends ModelChecker
             {
                 arr_1_idx++;
                 Object arr_1_item = arr_1_item_loop.next();
+                Path arr_1_lpath = new Path(arr_1_idx, path);
                 // .'.in'
                 // "/^a/"
                 res = json.isString(arr_1_item) && json.asString(arr_1_item).startsWith("a");
@@ -59,8 +61,17 @@ public class in_00 extends ModelChecker
                 {
                     break;
                 }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"/^a/\" [.'.in']", (path != null ? arr_1_lpath : null));
+                }
             }
         }
+        else
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
+        }
+        // .in at .
         return res;
     }
 

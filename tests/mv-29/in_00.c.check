@@ -1,0 +1,15 @@
+in_00.values.json[0]: PASS
+in_00.values.json[1]: PASS
+in_00.values.json[2]: FAIL
+in_00.values.json[3]: FAIL (.0: unexpected value for model "/^a/" [.'.in'])
+in_00.values.json[4]: FAIL (.1: unexpected value for model "/^a/" [.'.in']; .0: unexpected value for model "/^a/" [.'.in'])
+in_00.values.json[5]: FAIL (.: not array or unexpected array [.'@']; .0: unexpected value for model "" [.'@'.0])
+in_00.values.json[6]: FAIL (.: not array or unexpected array [.'@'])
+in_00.values.json[7]: FAIL (.: not array or unexpected array [.'@'])
+in_00.values.json[8]: FAIL (.: not array or unexpected array [.'@'])
+in_00.values.json[9]: FAIL (.: not array or unexpected array [.'@'])
+in_00.values.json[10]: FAIL (.: not array or unexpected array [.'@'])
+in_00.values.json[11]: FAIL (.: not array or unexpected array [.'@'])
+in_00.values.json[12]: FAIL (.: not array or unexpected array [.'@'])
+in_00.values.json[13]: FAIL (.: not array or unexpected array [.'@'])
+in_00.values.json[14]: FAIL (.: not array or unexpected array [.'@'])

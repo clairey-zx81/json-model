@@ -31,19 +31,26 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
+            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # .'@'.0
             res = isinstance(arr_0_item, str)
             if not res:
+                rep is None or rep.append(("unexpected value for model \"\" [.'@'.0]", arr_0_lpath if path is not None else None))
                 break
-    # .in at .
     if res:
         res = False
         for arr_1_idx, arr_1_item in enumerate(val):
+            arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # .'.in'
             # "/^a/"
             res = isinstance(arr_1_item, str) and arr_1_item.startswith("a")
             if res:
                 break
+            else:
+                rep is None or rep.append(("unexpected value for model \"/^a/\" [.'.in']", arr_1_lpath if path is not None else None))
+    else:
+        rep is None or rep.append(("not array or unexpected array [.'@']", path))
+    # .in at .
     return res
 
 

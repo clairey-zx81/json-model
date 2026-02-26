@@ -229,6 +229,18 @@ EXPECT: dict[str, int] = {
     "mv-28:cmp-opts": {"strcmp": True, "report": False, "strcmp_cset_partition_threshold": 32},
     "mv-28:models": 7,
     "mv-28:values": 159,
+    # mv-29: extensions
+    "mv-29:models": 1,
+    "mv-29:values": 15,
+    "mv-29:mod-opts": {"extend": True},
+    "mv-29:models:errors-jsg": 1,
+    "mv-29:models:errors-jsm": 1,
+    "mv-29:models:errors-js": 1,
+    "mv-29:models:errors-py": 1,
+    "mv-29:models:errors-pl": 1,
+    "mv-29:models:errors-java": 1,
+    "mv-29:models:errors-c": 1,
+    "mv-29:models:errors": 1,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,
@@ -237,7 +249,7 @@ EXPECT: dict[str, int] = {
     "draft4:jsts": 160,
     "draft6:jsts": 232,
     "draft7:jsts": 257,
-    "draft2019-09:jsts": 367,
+    "draft2019-09:jsts": 368,
     "draft2020-12:jsts": 377,
     "draft-next:jsts": 368,
 }
@@ -277,7 +289,7 @@ def has_exec(program: str) -> bool:
         "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d",
         "./mv-1e", "./mv-1f", "./mv-20", "./mv-21", "./mv-22",
         "./mv-23", "./mv-24", "./mv-25", "./mv-26", "./mv-27",
-        "./mv-28",
+        "./mv-28", "./mv-29",
     ]
 )
 def directory(request):
@@ -753,25 +765,27 @@ def check_models(directory, jmchecker: str, errors: int = 0):
 
 @pytest.mark.skipif(not has_exec("cc"), reason="missing cc")
 def test_models_c(directory, jmchecker):
-    check_models(directory, jmchecker)
+    check_models(directory, jmchecker, EXPECT.get(f"{directory}:models:errors-c", 0))
 
 def test_models_py(directory):
-    check_models(directory, "./ref/json-model.py")
+    check_models(directory, "./ref/json-model.py", EXPECT.get(f"{directory}:models:errors-py", 0))
 
 @pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_models_js(directory):
-    check_models(directory, "./ref/json-model.js")
+    check_models(directory, "./ref/json-model.js", EXPECT.get(f"{directory}:models:errors-js", 0))
 
 @pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_models_pl(directory):
-    check_models(directory, "./ref/json-model.pl")
+    check_models(directory, "./ref/json-model.pl", EXPECT.get(f"{directory}:models:errors-pl", 0))
 
 @pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_models_java(directory):
-    check_models(directory, "./test_java.sh ./ref/json-model.java")
+    check_models(directory, "./test_java.sh ./ref/json-model.java",
+                 EXPECT.get(f"{directory}:models:errors-java", 0))
 
 def test_models_jsm(directory):
-    check_models(directory, "jsu-check --quiet json-model.schema.json")
+    check_models(directory, "jsu-check --quiet json-model.schema.json",
+                 EXPECT.get(f"{directory}:models:errors-jsm", 0))
 
 def test_models_jsg(directory):
     check_models(directory, "jsu-check -e jschon --quiet ./ref/json-model.schema.json",
@@ -781,7 +795,7 @@ def test_models_dpy(directory):
     """Check test model conformity to JSON Model meta model."""
     resolver = Resolver(None, dirmap(directory))
     checker = model_checker_from_url("https://json-model.org/models/json-model", resolver=resolver)
-    ntests = 0
+    ntests, nerrors = 0, 0
 
     for fpath in sorted(directory.glob(f"*.model.json")):
         fname = "./" + str(fpath)
@@ -790,11 +804,13 @@ def test_models_dpy(directory):
             model = json.load(f)
         report = []
         ntests += 1
-        assert checker(model)  # no report
-        assert checker(model, "", report)  # with report
+        valid = checker(model)
+        if not valid:
+            nerrors += 1
+        assert valid == checker(model, "", report)
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
-
+    assert nerrors == EXPECT.get(f"{directory}:models:errors", 0)
 
 #
 # BAD MODELS
