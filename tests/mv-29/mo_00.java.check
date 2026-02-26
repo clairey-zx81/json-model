@@ -1,0 +1,18 @@
+mo_00.values.json[0]: PASS
+mo_00.values.json[1]: PASS
+mo_00.values.json[2]: PASS
+mo_00.values.json[3]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[4]: FAIL (: constraints failed [.])
+mo_00.values.json[5]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[6]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[7]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[8]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[9]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[10]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[11]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[12]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[13]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[14]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[15]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[16]: FAIL (: not a 1 strict int [.'@'])
+mo_00.values.json[17]: FAIL (: not a 1 strict int [.'@'])

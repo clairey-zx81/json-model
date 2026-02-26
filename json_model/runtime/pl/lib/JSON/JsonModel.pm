@@ -44,6 +44,7 @@ our @EXPORT = qw(
     jm_obj_size
     jm_any_len
     jm_is_unique_array
+    jm_float_modulo
     jm_check_constraint
     jm_starts_with
     jm_ends_with
@@ -334,6 +335,14 @@ sub jm_is_unique_array($$$)
         () = sort jm_cmp_unique @$a;
     };
     return $@ eq "";  # no exceptions means no equal items where found
+}
+
+# unsound float modulo for .mo extension
+sub jm_float_modulo($$)
+{
+    my ($a, $b) = @_;
+    my $m = $a / $b;
+    return $m - int $m;
 }
 
 # handle constraints

@@ -4,3 +4,5 @@ Revision history for JSON::JsonModel
         First version, released on an unsuspecting world, as a Perl module.
 2.0b4   2025-08-13
         Add $JSON predef.
+2.0b37  2026-02-26
+        Add jm_float_modulo

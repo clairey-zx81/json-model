@@ -1,0 +1,6 @@
+{
+  "description": "quarter floats",
+  "type": "number",
+  "minimum": 0.0,
+  "multipleOf": 0.25
+}

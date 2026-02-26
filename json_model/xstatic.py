@@ -204,7 +204,7 @@ class CodeGenerator:
         if re.match(r"^/\^?\.\*\$?/[mis]?$", regex):
             return gen.true()
         elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
-            return gen.num_cmp(gen.str_len(sval), ">", gen.const(0))
+            return gen.num_cmp(gen.str_len(sval), ">", gen.const(0), is_int=True)
         elif re.match(r"^/\^[^[({|.+*?\\^$]+/$", regex):  # starts with
             return gen.str_start(sval, regex[2:-1])
         elif re.match(r"^/[^[({|.+*?\\^$]+\$/$", regex):  # ends with
@@ -386,13 +386,13 @@ class CodeGenerator:
                 vop = model[op]
                 if isinstance(vop, int):
                     if tmodel is float:
-                        checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # type: ignore
+                        checks.append(gen.num_cmp(fval, op, gen.const(vop), is_int=False))  # type: ignore
                     else:
-                        checks.append(gen.num_cmp(ival, op, gen.const(vop)))  # type: ignore
+                        checks.append(gen.num_cmp(ival, op, gen.const(vop), is_int=True))  # type: ignore
                 elif isinstance(vop, str):
                     checks.append(gen.str_cmp(sval, op, gen.const(vop)))  # type: ignore
                 elif isinstance(vop, float):
-                    checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # type: ignore
+                    checks.append(gen.num_cmp(fval, op, gen.const(vop), is_int=False))  # type: ignore
 
 
         assert checks
@@ -555,11 +555,11 @@ class CodeGenerator:
         gen = self._lang
         if len(codes) == 2:
             first, second = min(codes.keys()), max(codes.keys())
-            return gen.if_stmt(gen.num_cmp(var, "<=", first, True), codes[first], codes[second])
+            return gen.if_stmt(gen.num_cmp(var, "<=", first, hexa=True, is_int=True), codes[first], codes[second])
         else:
             limit = list(sorted(codes.keys()))[len(codes) // 2 - 1]
             return gen.if_stmt(
-                        gen.num_cmp(var, "<=", limit, True),
+                        gen.num_cmp(var, "<=", limit, hexa=True, is_int=True),
                         self._gen_parts(var, { v: c for v, c in codes.items() if v <= limit }),
                         self._gen_parts(var, { v: c for v, c in codes.items() if v > limit })
             )
@@ -616,7 +616,7 @@ class CodeGenerator:
                         likely=False) +
             # filter ahead on the number of properties
             # NOTE necessary to detect unexpected misc property as the object is not scanned
-            gen.if_stmt(gen.num_cmp(gen.obj_len(val), "!=", gen.const(len(must))),
+            gen.if_stmt(gen.num_cmp(gen.obj_len(val), "!=", gen.const(len(must)), is_int=True),
                         self._gen_fail(f"bad property count [{smpath}]", vpath),
                         likely=False)
         )
@@ -779,7 +779,7 @@ class CodeGenerator:
             if not oth:  # empty object
                 code += \
                     gen.if_stmt(
-                        gen.num_cmp(gen.obj_len(val), "=", gen.const(0)),
+                        gen.num_cmp(gen.obj_len(val), "=", gen.const(0), is_int=True),
                         gen.ret(gen.true()),
                         self._gen_fail(f"expecting empty object [{smpath}]", vpath),
                         likely=True
@@ -1115,7 +1115,7 @@ class CodeGenerator:
                                 likely=None
                     )
             code += \
-                gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must))),
+                gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must)), is_int=True),
                             self._gen_reporting(missing) +
                             gen.ret(gen.false()),
                             likely=False
@@ -1366,10 +1366,10 @@ class CodeGenerator:
                     if i < 2:
                         xcode += icode
                     else:  # maybe skip
-                        xcode += gen.if_stmt(gen.num_cmp(count, "<=", gen.const(1)), icode)
+                        xcode += gen.if_stmt(gen.num_cmp(count, "<=", gen.const(1), is_int=True), icode)
 
                 # verify that only one matched
-                xcode += gen.bool_var(res, gen.num_cmp(count, "=", gen.const(1)))
+                xcode += gen.bool_var(res, gen.num_cmp(count, "=", gen.const(1), is_int=True))
 
         if dups:
             code += gen.if_stmt(res, xcode)
@@ -1451,14 +1451,16 @@ class CodeGenerator:
                     if not expr:
                         expr = gen.true()
                 elif model == 0:
+                    # TODO add cast to int?
                     compare = gen.num_cmp(
                         gen.value(val, Number if jm._loose_int else int),  # type: ignore
-                                  ">=", gen.const(0))
+                                  ">=", gen.const(0), is_int=False if jm._loose_int else True)
                     expr = gen.and_op(expr, compare) if expr else compare
                 elif model == 1:
+                    # TODO add cast to int?
                     compare = gen.num_cmp(
                         gen.value(val, Number if jm._loose_int else int),  # type: ignore
-                                  ">=", gen.const(1))
+                                  ">=", gen.const(1), is_int=False if jm._loose_int else True)
                     expr = gen.and_op(expr, compare) if expr else compare
                 else:
                     raise ModelError(f"unexpected int value {model} at {smpath}")
@@ -1482,12 +1484,12 @@ class CodeGenerator:
                 elif model == 0.0:
                     compare = gen.num_cmp(
                         gen.value(val, Number if jm._loose_float else float),  # type: ignore
-                                  ">=", gen.const(0.0))
+                                  ">=", gen.const(0.0), is_int=False)
                     expr = gen.and_op(expr, compare) if expr else compare
                 elif model == 1.0:
                     compare = gen.num_cmp(
                         gen.value(val, Number if jm._loose_float else float),  # type: ignore
-                                  ">", gen.const(0.0))
+                                  ">", gen.const(0.0), is_int=False)
                     expr = gen.and_op(expr, compare) if expr else compare
                 else:
                     raise ModelError(f"unexpected float value {model} at {mpath}")
@@ -1524,14 +1526,15 @@ class CodeGenerator:
                         code += gen.bool_var(res, gen.is_a(val, None))
                     elif isinstance(value, bool):
                         ttest = gen.is_a(val, bool)
-                        expr = gen.num_cmp(gen.value(val, bool), "=", gen.const(value))
+                        # FIXME bool is not a num!
+                        expr = gen.num_cmp(gen.value(val, bool), "=", gen.const(value), is_int=True)
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += gen.bool_var(res, expr)
                     elif isinstance(value, int):
                         ttest = gen.is_a(val, int, jm._loose_int)
                         # FIXME cast depends on type?
-                        expr = gen.num_cmp(gen.value(val, int), "=", gen.const(value))
+                        expr = gen.num_cmp(gen.value(val, int), "=", gen.const(value), is_int=True)
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += gen.bool_var(res, expr)
@@ -1539,7 +1542,7 @@ class CodeGenerator:
                         ttest = gen.is_a(val, float, jm._loose_float)
                         expr = gen.num_cmp(
                             gen.value(val, Number if jm._loose_float else float),  # type: ignore
-                                      "=", gen.const(value))
+                                      "=", gen.const(value), is_int=False)
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += gen.bool_var(res, expr)
@@ -1576,7 +1579,7 @@ class CodeGenerator:
                         known.add(expr)
 
                 if len(model) == 0:  # []
-                    length = gen.num_cmp(gen.arr_len(val), "=", gen.const(0))
+                    length = gen.num_cmp(gen.arr_len(val), "=", gen.const(0), is_int=True)
                     expr = gen.and_op(expr, length) if expr else length
                     code += gen.bool_var(res, expr)
                     # SHORT RES?
@@ -1606,7 +1609,7 @@ class CodeGenerator:
                     lpath = gen.ident("lpath")
                     lpath_ref: PathExpr = gen.path_lvar(lpath, vpath)  # type: ignore
                     if not constrained:
-                        length = gen.num_cmp(gen.arr_len(val), "=", gen.const(len(model)))
+                        length = gen.num_cmp(gen.arr_len(val), "=", gen.const(len(model)), is_int=True)
                         expr = gen.and_op(expr, length) if expr else length
                         code += gen.bool_var(res, expr)
                         # else inside a @ with constraints, so we do not check the len
@@ -1643,7 +1646,7 @@ class CodeGenerator:
 
                         for i, m in reversed(list(enumerate(model[:-1]))):
                             ith_check = \
-                                gen.if_stmt(gen.num_cmp(arlen, ">", i),
+                                gen.if_stmt(gen.num_cmp(arlen, ">", i, is_int=True),
                                     gen.path_var(lpath, gen.path_val(vpath, i, False, False)) +
                                     self._compileModel(jm, m, mpath + [i], res,
                                                        gen.arr_item_val(val, i), lpath_ref))

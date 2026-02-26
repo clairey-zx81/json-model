@@ -123,11 +123,11 @@ class Python(Language):
     def str_end(self, val: str, end: str) -> BoolExpr:
         return f"{val}.endswith({self.esc(end)})"
 
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False) -> BoolExpr:
-        if op == ".mo":
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+        if op == ".mo" and not is_int:
             # this is a pain, % is not stable enough, / has infinity issues
             return f"int({e1} / {e2}) == {e1} / {e2} if {e1} / {e2} not in (math.inf, -math.inf) else False"
-        return super().num_cmp(e1, op, e2, hexa)
+        return super().num_cmp(e1, op, e2, hexa, is_int)
 
     def any_len(self, var: Var) -> IntExpr:
         return f"len({var})"

@@ -69,6 +69,7 @@ extern int jm_json_cmp(const json_t *, const json_t *);
 extern int jm_json_array_cmp(const json_t *, const json_t *);
 extern int jm_json_object_cmp(const json_t *, const json_t *);
 extern bool jm_json_array_unique(const json_t *);
+extern double jm_float_modulo(double d1, double d2);
 
 /*
  * reporting

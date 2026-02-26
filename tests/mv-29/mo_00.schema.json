@@ -1,0 +1,6 @@
+{
+  "description": "even positive integers",
+  "type": "integer",
+  "minimum": 1,
+  "multipleOf": 2
+}

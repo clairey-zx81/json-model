@@ -1084,8 +1084,8 @@ class IRep(Language):
     def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
         return _j("sc", e1=_l(e1), op=op, e2=_l(e2))
 
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False) -> BoolExpr:
-        return _j("nc", e1=_l(e1), op=op, e2=_l(e2), hexa=hexa)
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = True) -> BoolExpr:
+        return _j("nc", e1=_l(e1), op=op, e2=_l(e2), hexa=hexa, is_int=is_int)
 
     def nope(self) -> Block:
         return [ _j("no") ]
@@ -1338,7 +1338,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "cu": return gen.check_unique(val=ev("val"), path=ev("path"))
             case "ct": return gen.check_constraint(op=jv["op"], vop=jv["vop"], val=ev("val"), path=ev("path"))
             case "sc": return gen.str_cmp(e1=ev("e1"), op=jv["op"], e2=ev("e2"))
-            case "nc": return gen.num_cmp(e1=ev("e1"), op=jv["op"], e2=ev("e2"), hexa=jv["hexa"])
+            case "nc": return gen.num_cmp(e1=ev("e1"), op=jv["op"], e2=ev("e2"), hexa=jv["hexa"], is_int=jv["is_int"])
             case "()": return gen.paren(e=ev("e"))
             case "not": return gen.not_op(e=ev("e"))
             case "&": return gen.and_op(*[ _eval(e, gen) for e in jv["exprs"] ])

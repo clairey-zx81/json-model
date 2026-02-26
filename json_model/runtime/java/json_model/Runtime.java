@@ -270,6 +270,13 @@ public class Runtime
         return true;
     }
 
+    /** Unsound float modulo for .mo extension */
+    public double float_modulo(double d1, double d2)
+    {
+        double m = d1 / d2;
+        return m - (long) m;
+    }
+
     /** Get an int out of a JSON thing */
     public long any_int(Object o)
     {

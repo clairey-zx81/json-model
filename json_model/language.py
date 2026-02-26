@@ -216,7 +216,7 @@ class Language:
             return self.is_a(var, int)
         elif name in ("$U32", "$U64"):
             return self.and_op(self.is_a(var, int),
-                               self.num_cmp(self.value(var, int), ">=", self.const(0)))
+                               self.num_cmp(self.value(var, int), ">=", self.const(0), False, True))
         elif name in ("$FLOAT", "$F32", "$F64"):
             return self.is_a(var, float)
         elif name == "$NUMBER":
@@ -382,7 +382,8 @@ class Language:
     #
     # inline comparison expressions for numbers
     #
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False) -> BoolExpr:
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr,
+                hexa: bool = False, is_int: bool = False) -> BoolExpr:
         """Numerical comparison."""
         assert op in ("=", "!=", "<", "<=", ">=", ">", ".mo")
         if hexa and isinstance(e2, int):
@@ -400,7 +401,7 @@ class Language:
         elif op == ">":
             return f"{e1} {self._gt} {e2}"
         elif op == ".mo":
-            return f"({e1} {self._mod} {e2}) {self._eq} 0"
+            return f"({e1} {self._mod} {e2}) {self._eq} {0 if is_int else 0.0}"
         else:
             raise Exception(f"num_cmp unexpected op {op}")
 

@@ -1,7 +1,7 @@
 import re
 import json
 from .language import Language, Block, Var, PropMap, ConstList
-from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
+from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr, NumExpr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 from .utils import log, partition
 
@@ -334,6 +334,11 @@ class CLangJansson(Language):
         else:
             raise Exception(f"str_cmp unexpected operator {op}")
 
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+        if op == ".mo" and not is_int:
+            return f"jm_float_modulo({e1}, {e2}) == 0.0"
+        return super().num_cmp(e1, op, e2, hexa, is_int)
+
     #
     # simple instructions
     #
@@ -593,7 +598,7 @@ class CLangJansson(Language):
             return list(part_code.values())[0]
         elif nparts == 2:
             first, second = min(part_code.keys()), max(part_code.keys())
-            return (f"({self.num_cmp(var, '<=', first, True)}) "
+            return (f"({self.num_cmp(var, '<=', first, True, True)}) "
                     f"? (\n           {part_code[first]}        ) : (\n           {part_code[second]}        )")
         else:
             limit = list(sorted(part_code.keys()))[nparts // 2 - 1]

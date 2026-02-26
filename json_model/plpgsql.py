@@ -1,7 +1,7 @@
 import re
 import json
 from .language import Language, Block, Var, PropMap, ConstList
-from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
+from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _DECL = "%PL_DECL% "
@@ -134,7 +134,7 @@ class PLpgSQL(Language):
             return cktype + f"jm_is_valid_json({val}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str)
-    
+
     def value(self, var: Var, tvar: type) -> Expr:
         """Known type value extraction."""
         if tvar is type(None):
@@ -157,6 +157,12 @@ class PLpgSQL(Language):
 
     def obj_prop_val(self, obj: Var, prop: str|Var, is_var: bool = False) -> JsonExpr:
         return f"{obj} -> {prop}" if is_var else f"{obj} -> {self.esc(prop)}"
+
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+        if op == ".mo" and not is_int:
+            return f"({e1}::NUMERIC % {e2}) = 0.0"
+        return super().num_cmp(e1, op, e2, hexa, is_int)
+
     #
     # inlined length computation
     #

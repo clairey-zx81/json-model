@@ -1,6 +1,6 @@
 import json
 from .language import Language, Block, Var, PropMap, ConstList
-from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
+from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
@@ -260,6 +260,11 @@ class Java(Language):
             return f"{e1}.compareTo({e2}) < 0"
         else:
             raise Exception(f"str_cmp unexpected operator {op}")
+
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+        if op == ".mo" and not is_int:
+            return f"rt.float_modulo({e1}, {e2}) == 0.0"
+        return super().num_cmp(e1, op, e2, hexa, is_int)
 
     #
     # simple instructions

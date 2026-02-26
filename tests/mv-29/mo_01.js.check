@@ -1,0 +1,24 @@
+mo_01.values.json[0]: PASS
+mo_01.values.json[1]: PASS
+mo_01.values.json[2]: PASS
+mo_01.values.json[3]: PASS
+mo_01.values.json[4]: PASS
+mo_01.values.json[5]: PASS
+mo_01.values.json[6]: PASS
+mo_01.values.json[7]: PASS
+mo_01.values.json[8]: PASS
+mo_01.values.json[9]: ERROR unexpected PASS
+mo_01.values.json[10]: ERROR unexpected PASS
+mo_01.values.json[11]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[12]: FAIL (.: constraints failed [.])
+mo_01.values.json[13]: FAIL (.: constraints failed [.])
+mo_01.values.json[14]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[15]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[16]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[17]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[18]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[19]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[20]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[21]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[22]: FAIL (.: not a 0.0 strict float [.'@'])
+mo_01.values.json[23]: FAIL (.: not a 0.0 strict float [.'@'])

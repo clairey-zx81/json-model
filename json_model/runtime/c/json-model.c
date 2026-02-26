@@ -983,6 +983,14 @@ jm_is_valid_json(const char *json, jm_path_t *path, jm_report_t *rep)
     return *s == '\0';
 }
 
+double
+jm_float_modulo(double d1, double d2)
+{
+    // for .mo extension (js backend), however not numerically sound
+    double m = d1 / d2;
+    return m - ((int64_t) m);
+}
+
 // generic constraint check.
 bool
 jm_check_constraint(const json_t * val, jm_constraint_op_t op, const jm_constant_t *cst,
