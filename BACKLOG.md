@@ -21,8 +21,8 @@
 - [x] backend: add support for `.in` extension without other constraints
 - [x] tests: minimal tests for `.mo` and `.in`
 - [x] \*-backend:: add support for `.mo` and `.in` extensions
+- [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] tests: rerun with updated JSTS before release
-- [ ] python-backend: fix precision issue with modulo: _0.0075 % 0.0001 != 0.0_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
 - [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
 - [ ] doc: add _known limitations_ stuff
