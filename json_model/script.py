@@ -44,7 +44,7 @@ def process_model(model: JsonModel, *,
     if debug or check:
         for m in all_models:
             if not analyze.valid(m, extend=extend):
-                raise ModelError(f"invalid initial model {m._id}")
+                raise ModelError(f"invalid initial model {m._url}:{m._id}")
 
     # simplify before merging
     if optimize:
@@ -56,7 +56,7 @@ def process_model(model: JsonModel, *,
         # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
         for m in all_models:
             if not analyze.valid(m, extend=extend):
-                raise ModelError(f"invalid optimized model {m._id}")
+                raise ModelError(f"invalid optimized model {m._url}:{m._id}")
 
     # merge in reverse order to move alts up before inlining?!
     if merge:
@@ -72,7 +72,7 @@ def process_model(model: JsonModel, *,
     if debug or check:
         for m in all_models:
             if not analyze.valid(m, extend=extend):
-                raise ModelError(f"invalid merged model {m._id}")
+                raise ModelError(f"invalid merged model {m._url}:{m._id}")
 
 
 def model_from_json(
