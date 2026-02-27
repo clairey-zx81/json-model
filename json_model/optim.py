@@ -1,11 +1,9 @@
 #
 # Model Optimizations
 #
-import copy
-
 from .mtypes import ModelPath, ModelType
-from .utils import log, is_cst, _structurally_distinct_models, model_type, same_types, is_base_model
-from .utils import constant_values, same_model, model_in_models, is_a_simple_object, model_eq
+from .utils import log, is_cst, _structurally_distinct_models, model_type, is_base_model
+from .utils import constant_values, same_model, model_eq
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .analyze import ultimate_type
@@ -110,7 +108,7 @@ def and_not_simpler(jm: JsonModel) -> bool:
 
             contain, notm = ands[1-idx], ands[idx]
 
-            if (tcontain := is_base_model(contain)) != None:
+            if (tcontain := is_base_model(contain)) is not None:
                 # do not bother with null and bools
                 if tcontain in (bool, type(None)):
                     return model
@@ -564,7 +562,7 @@ def partial_eval(jm: JsonModel):
             else:  # simple object
                 anys = list(filter(lambda p: p in ANY_PROP, model.keys()))
                 if len(anys) > 1:
-                    log.warning(f"multiple concurrent catch-all properties")
+                    log.warning(f"multiple concurrent catch-all properties: {anys}")
                 # beware of masking { "$STRING": "$NONE", "": "$ANY" }
                 kept = None
                 for prop in ANY_PROP:  # we must rescan for priority

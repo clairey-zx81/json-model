@@ -8,7 +8,7 @@ from importlib.metadata import version as pkg_version
 from importlib.resources import files as data_files
 import logging
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
-from .mtypes import Jsonable, JsonObject, ValueType, Symbols
+from .mtypes import Jsonable, JsonObject, ValueType
 from .runtime import ConstSet
 
 __version__ = pkg_version("json_model_compiler")
@@ -827,7 +827,7 @@ def partition(names: set[str], limit: int, byte_order: str) -> tuple[int, dict[i
         log.warning(f"cannot partition properties: {names}")
         return None
     # number of partitions is a power of 2 to generate a dichotomy
-    max_nparts, max_depth = 2, 1
+    max_nparts = 2
     while n_part_names > 2 * max_nparts:
         max_nparts *= 2
     # but we want not too small partitions!
@@ -914,4 +914,4 @@ def is_base_model(m: ModelType) -> type|None:
         else:
             return None
     else:
-        raise ModelError(f"unexpected model type")
+        raise ModelError(f"unexpected model type: {tname(m)}")

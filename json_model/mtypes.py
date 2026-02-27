@@ -32,6 +32,22 @@ JsonModel = typing.NewType("JsonModel", None)
 type Symbols = typing.MutableMapping[str, JsonModel]
 type JsonSchema = bool|dict[str, Jsonable]
 type TestHint = bool|None
+
+# name
+type Var = str
+
+# typed expressions
+type JsonExpr = str
+type BoolExpr = str|bool
+type IntExpr = str|int
+type FloatExpr = str
+type NumExpr = str|int
+type StrExpr = str
+type PathExpr = Var|str
+type Expr = JsonExpr|BoolExpr|IntExpr|FloatExpr|NumExpr|StrExpr
+
+type Block = list[str]
+
 type Conditionals = list[tuple[BoolExpr, TestHint, Block]]
 # del JsonModel
 

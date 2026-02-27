@@ -3,7 +3,7 @@ import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr, NumExpr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
-from .utils import log, partition
+from .utils import partition
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
@@ -278,7 +278,7 @@ class CLangJansson(Language):
         if self._strcmp_opt:
             try:
                 return _str_cmp(val, json.dumps(start), self._byte_order == "le", True, True)
-            except:  # if rejected, proceed with generic solution
+            except Exception:  # if rejected, proceed with generic solution
                 pass
         return f"strncmp({val}, {self.esc(start)}, strlen({self.esc(start)})) == 0"
 

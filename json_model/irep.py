@@ -21,7 +21,7 @@ def _l(s: str) -> Jsonable:
     # FIXME true/false/null handling is adhoc and can be wrong
     try:
         return json.loads(s) if isinstance(s, str) and s and (s[0] in '{["0123456789-' or s in ("null", "true", "false")) else s
-    except:
+    except Exception:
         # FIXME triggered on strange property names, eg "[a-z]"
         log.warning(f"shamefully ignoring json oops on {s}")
         return s
@@ -126,7 +126,7 @@ def _getEffect(op: Jsonable, bool_vars: set[str], reporting: bool) -> Effect:
         case "oL"|"aL"|"iL":
             read, write, value = _optimSeq(op["body"], bool_vars, reporting)
         case _:
-            if not op["o"] in NO_BOOL_EFFECT:
+            if op["o"] not in NO_BOOL_EFFECT:
                 raise Exception(f"missing effect computation on operation {op['o']}")
 
     return read, write, value

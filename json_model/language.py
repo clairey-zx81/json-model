@@ -1,23 +1,7 @@
 import re
-from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
+from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals, Block
+from .mtypes import Var, JsonExpr, BoolExpr, IntExpr, NumExpr, StrExpr, PathExpr, Expr
 from .utils import log, __version__, load_data_file
-
-# name
-type Var = str
-
-# typed expressions
-type JsonExpr = str
-type BoolExpr = str|bool
-type IntExpr = str|int
-type FloatExpr = str
-type NumExpr = str|int
-type StrExpr = str
-type PathExpr = Var|str
-# all value expressions
-type Expr = JsonExpr|BoolExpr|IntExpr|FloatExpr|NumExpr|StrExpr
-
-# actual code
-type Block = list[str]
 
 # must or may property name -> corresponding check function
 type PropMap = dict[str, str]
@@ -225,12 +209,12 @@ class Language:
         elif name == "$NUMBER":
             return self.is_a(var, Number)  # type: ignore
         elif name == "$STRING":
-            return self.is_a(var, str) if not is_str else selt.true()
+            return self.is_a(var, str) if not is_str else self.true()
         elif self.str_content_predef(name):
             if self._with_predef:
                 raise NotImplementedError(f"predef: {name}")
             else:  # just check for string
-                return self.is_a(var, str) if not is_str else selt.true()
+                return self.is_a(var, str) if not is_str else self.true()
         else:
             raise NotImplementedError(f"unexpected predef {name}")
 

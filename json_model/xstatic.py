@@ -1798,7 +1798,7 @@ class CodeGenerator:
         shortcuts: dict[str, str] = {}
 
         for ref, jm0 in head._globs.items():
-            mid, fun0, fun, jm = jm0._id, f"json_model_{jm0._id}", None, jm0
+            fun0, fun, jm = f"json_model_{jm0._id}", None, jm0
 
             if ref == "$#" or fun0 in shortcuts:
                 continue
