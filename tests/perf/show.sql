@@ -4,7 +4,7 @@
 .print
 .print ## Tool Performance Summary
 .print
-.print For each tool: number of best performance, number of case failures, overall
+.print For each tool: number of best performance, number of case failures (if any), overall
 .print validation speed in bytes per µs, maximum/geometrical average/minimum performance ratio.
 .print
 .print <!-- LRRRRRRR -->

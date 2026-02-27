@@ -384,7 +384,7 @@ CREATE TABLE ShowPerfSummary AS WITH
   ORDER BY 1;
 
 -- cleanup broken count row if empty
-DELETE FROM RelativeComparison
+DELETE FROM ShowPerfSummary
 WHERE ordre = 2
   AND blaze + c + js + jv1 + jv2 + jv3 + py = 0;
 
