@@ -860,12 +860,12 @@ def partition(names: set[str], limit: int, byte_order: str) -> tuple[int, dict[i
             limits = { i: limit for i, limit in enumerate(sorted(part_names.keys())) }
             # find first smallest neighboring limits
             mini, weight = None, None
-            for i in range(0, len(limits)-1):
-                iweight = len(part_names[limits[i]]) + len(part_names[limits[i+1]])
+            for i in range(0, len(limits) - 1):
+                iweight = len(part_names[limits[i]]) + len(part_names[limits[i + 1]])
                 if mini is None or iweight < weight:
                     mini, weight = i, iweight
             # merge minimum found with next
-            part_names[limits[mini+1]] |= part_names[limits[mini]]
+            part_names[limits[mini + 1]] |= part_names[limits[mini]]
             del part_names[limits[mini]]
     return hash_size, part_names
 

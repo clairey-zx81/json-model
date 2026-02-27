@@ -26,7 +26,7 @@ def _mergeInlining(jm: JsonModel):
                 if jm._isPredef(m):
                     return m
                 changes += 1
-                jmr, mo, seen  = jm, m, set()
+                jmr, mo, seen = jm, m, set()
                 while isinstance(mo, str):
                     jmr = jmr.resolveRef(mo, p)
                     # loop guard, really needed?
@@ -41,6 +41,7 @@ def _mergeInlining(jm: JsonModel):
                     if jm._loose_int != jmr._loose_int or jm._loose_float != jmr._loose_float:
                         log.warning("should not combine models with distinct int/float looseness: "
                                     f"{jm._url} and {jmr._url}")
+
                     # substitute local references
                     def subRefRwt(m, p):
                         return jmr._defs.gget(m) if jmr._isRef(m) else m

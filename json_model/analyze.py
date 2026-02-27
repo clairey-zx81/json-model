@@ -88,7 +88,7 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
 
     # allowed keywords
     AB_KW = {"@", "!", "=", "!=", "<", "<=", ">=", ">", "#", "$", "%", "~"}
-    if extend: # multiple-of: number, contains: model
+    if extend:  # multiple-of: number, contains: model
         AB_KW.add(".mo")
         AB_KW.add(".in")
 
@@ -191,7 +191,6 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
     # TODO also check other instances?!
 
     return is_valid
-
 
 
 # ultimate type of predefs

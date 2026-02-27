@@ -106,7 +106,7 @@ def and_not_simpler(jm: JsonModel) -> bool:
             if idx is None:
                 return model
 
-            contain, notm = ands[1-idx], ands[idx]
+            contain, notm = ands[1 - idx], ands[idx]
 
             if (tcontain := is_base_model(contain)) is not None:
                 # do not bother with null and bools
@@ -311,6 +311,7 @@ def const_prop(jm: JsonModel):
 
     return changes > 0
 
+
 # TODO normalization?
 ANY_PROP = [
     "",
@@ -456,7 +457,8 @@ def partial_eval(jm: JsonModel):
                 elif len(list(filter(lambda m: m == "$ANY", lxor))) >= 2:
                     changes += 1
                     return "$NONE"
-                elif all(map(lambda m: isinstance(m, str) and (m == "" or m[0] not in "$/="), lxor)):
+                elif all(map(lambda m: isinstance(m, str) and (m == "" or m[0] not in "$/="),
+                             lxor)):
 
                     # beware of type inclusions!
                     if len(list(filter(lambda m: m == "", lxor))) == 2:
@@ -648,12 +650,18 @@ def simplify(jm: JsonModel):
                             changes += 1
                             return "$NONE"
                 # detect redundant or infeasible int constraints
-                le = None if "<=" not in model or not isinstance(model["<="], (int, float)) else model["<="]
-                lt = None if "<" not in model or not isinstance(model["<"], (int, float)) else model["<"]
-                eq = None if "=" not in model or not isinstance(model["="], (int, float)) else model["="]
-                ne = None if "!=" not in model or not isinstance(model["!="], (int, float)) else model["!="]
-                ge = None if ">=" not in model or not isinstance(model[">="], (int, float)) else model[">="]
-                gt = None if ">" not in model or not isinstance(model[">"], (int, float)) else model[">"]
+                le = None if "<=" not in model or not isinstance(model["<="], (int, float)) else \
+                    model["<="]
+                lt = None if "<" not in model or not isinstance(model["<"], (int, float)) else \
+                    model["<"]
+                eq = None if "=" not in model or not isinstance(model["="], (int, float)) else \
+                    model["="]
+                ne = None if "!=" not in model or not isinstance(model["!="], (int, float)) else \
+                    model["!="]
+                ge = None if ">=" not in model or not isinstance(model[">="], (int, float)) else \
+                    model[">="]
+                gt = None if ">" not in model or not isinstance(model[">"], (int, float)) else \
+                    model[">"]
                 # handle floats for int constraints
                 if isinstance(le, float):
                     le = int(le)
@@ -737,7 +745,8 @@ def simplify(jm: JsonModel):
                             del model["!="]
                 # integer target
                 # TODO set maxint?
-                if isinstance(model["@"], str) and model["@"] in ("$INT", "$INTEGER", "$I32", "$I64"):
+                if (isinstance(model["@"], str) and
+                        model["@"] in ("$INT", "$INTEGER", "$I32", "$I64")):
                     changes += 1
                     model["@"] = -1
                 elif isinstance(model["@"], str) and model["@"] in ("$U32", "$U64"):

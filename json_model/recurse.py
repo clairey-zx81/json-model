@@ -35,7 +35,10 @@ def _recModel(
 
     # actual recursion
     if isinstance(model, list):
-        return rwt([_recModel(m, path + [i], flt, rwt, keys, False) for i, m in enumerate(model)], path)
+        return rwt(
+            [ _recModel(m, path + [i], flt, rwt, keys, False) for i, m in enumerate(model) ],
+            path
+        )
     elif isinstance(model, dict):
         mkeys: list[str] = list(model.keys())
         for prop in mkeys:
@@ -73,7 +76,9 @@ def _recModel(
                     if k == "#":
                         assert isinstance(v, str), f"# is a string {lpath}"
                     elif k == "<":
-                        is_ref = lambda s: isinstance(s, str) and s and s[0] == "$"
+
+                        def is_ref(s):
+                            return isinstance(s, str) and s and s[0] == "$"
                         assert is_ref(v) or isinstance(v, list) and all(map(is_ref, v)), \
                             "%.< is a reference or list of references"
                     elif k.startswith("."):  # rename

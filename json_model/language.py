@@ -17,7 +17,8 @@ class Language:
     TODO move non generic methods to Python, to avoid generating python if unimplemented
     """
 
-    def __init__(self,
+    def __init__(
+            self,
             name: str, *,
             debug: bool = False,
             short_version: bool = False,
@@ -131,7 +132,7 @@ class Language:
         body = self.indent(self.indent(block, False), False)
         bidx = code.index("CODE_BLOCK")
         assert bidx >= 0, "CODE_BLOCK marker found in file"
-        code = code[:bidx] + body + code[bidx+1:]
+        code = code[:bidx] + body + code[bidx + 1:]
         return code
 
     def file_header(self, exe: bool = True) -> Block:
@@ -268,7 +269,9 @@ class Language:
         """Whether testing for a property can be combined with an assignment."""
         return True
 
-    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+    def obj_has_prop_val(
+            self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False
+        ) -> BoolExpr:
         """Combined property test and value extraction, if assign_obj_prop."""
         raise NotImplementedError("obj_has_prop_val")
 
@@ -355,8 +358,10 @@ class Language:
 
     def and_op(self, *exprs: BoolExpr) -> BoolExpr:
         """And logical operator."""
-        return f" {self._and} ".join(self.paren(e) if self._or in e else e  # type: ignore
-                                        for e in exprs)
+        return f" {self._and} ".join(
+            self.paren(e) if self._or in e else e  # type: ignore
+                for e in exprs
+        )
 
     def or_op(self, *exprs: BoolExpr) -> BoolExpr:
         """Or logical operator."""
@@ -596,7 +601,9 @@ class Language:
         """Loop over all property-values pairs of an object."""
         raise NotImplementedError("obj_loop")
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
+    def if_stmt(
+            self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None
+        ) -> Block:
         """Generate a if-then[-else] statement."""
         raise NotImplementedError("if_stmt")
 
@@ -691,7 +698,9 @@ class Language:
         """Get a match result for string variable var value."""
         raise NotImplementedError("see derived classes")
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
+    def match_val(
+            self, mname: str, rname: str, sname: str, dname: str, declare: bool = False
+        ) -> Block:
         """Assign match "name" to variable sname."""
         raise NotImplementedError("see derived classes")
 
@@ -743,10 +752,11 @@ class Language:
                     for line in code
         ]
 
-    def gen_full_code(self,
-                defs: Block, inis: Block, dels: Block, subs: Block,
-                entry: str, package: str|None, exe: bool
-            ) -> Block:
+    def gen_full_code(
+            self,
+            defs: Block, inis: Block, dels: Block, subs: Block,
+            entry: str, package: str|None, exe: bool
+        ) -> Block:
         """Generate final code block."""
 
         # FIXME TODO remove, this is a bad idea

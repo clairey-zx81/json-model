@@ -124,7 +124,7 @@ def m2py(name: str, model: ModelType) -> Block:
             else:
                 return [f"type {name} = {mtype}"]
         return [f"type {name} = Any"]
-    if "|" in model  or "^" in model:
+    if "|" in model or "^" in model:
         lm = model["|" if "|" in model else "^"]
         assert isinstance(lm, list)
         return [f"type {name} = {ml2type(lm)}  # alt"]

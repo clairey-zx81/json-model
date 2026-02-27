@@ -158,7 +158,9 @@ class PLpgSQL(Language):
     def obj_prop_val(self, obj: Var, prop: str|Var, is_var: bool = False) -> JsonExpr:
         return f"{obj} -> {prop}" if is_var else f"{obj} -> {self.esc(prop)}"
 
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+    def num_cmp(
+            self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False
+        ) -> BoolExpr:
         if op == ".mo" and not is_int:
             return f"({e1}::NUMERIC % {e2}) = 0.0"
         return super().num_cmp(e1, op, e2, hexa, is_int)
@@ -211,7 +213,9 @@ class PLpgSQL(Language):
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         """Call inefficient type-unaware constraint check."""
-        return f"jm_check_constraint({val}, '{op}', {self._cst(vop)}, {self.path(path)}, {self.rep()})"
+        return (
+            f"jm_check_constraint({val}, '{op}', {self._cst(vop)}, {self.path(path)}, {self.rep()})"
+        )
 
     #
     # simple instructions
@@ -268,7 +272,10 @@ class PLpgSQL(Language):
         return f"array_append({pvar}, {sseg})" if self._with_path else "NULL"
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
-        return f"(CASE WHEN {rvar} IS NOT NULL THEN {lvar} ELSE NULL END)" if self._with_path else "NULL"
+        return (
+            f"(CASE WHEN {rvar} IS NOT NULL THEN {lvar} ELSE NULL END)" if self._with_path else
+            "NULL"
+        )
 
     #
     # blocks
@@ -293,13 +300,17 @@ class PLpgSQL(Language):
             f"FOR {idx} IN {start} .. {end}-1 LOOP",
         ] + self.indent(body) + [ "END LOOP;" ]
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
+    def if_stmt(
+            self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None
+        ) -> Block:
         if true and false:
-            return [ f"IF {cond} THEN" ] + self.indent(true) + ["ELSE"] + self.indent(false) + ["END IF;"]
+            return [
+                f"IF {cond} THEN"
+            ] + self.indent(true) + ["ELSE"] + self.indent(false) + [ "END IF;" ]
         elif true:
-            return [ f"IF {cond} THEN" ] + self.indent(true) + ["END IF;"]
+            return [ f"IF {cond} THEN" ] + self.indent(true) + [ "END IF;" ]
         else:
-            return [ f"IF NOT ({cond}) THEN" ] + self.indent(false) + ["END IF;"]
+            return [ f"IF NOT ({cond}) THEN" ] + self.indent(false) + [ "END IF;" ]
 
     def mif_stmt(self, cond_true: Conditionals, false: Block = []) -> Block:
         code, op = [], "IF"
@@ -309,11 +320,11 @@ class PLpgSQL(Language):
             op = "ELSEIF"
         if false:
             if cond_true:
-                code += ["ELSE"] + self.indent(false) + ["END IF;"]
+                code += [ "ELSE" ] + self.indent(false) + [ "END IF;" ]
             else:
                 code += false
         else:
-            code += ["END IF;"]
+            code += [ "END IF;" ]
         return code
 
     #
@@ -350,7 +361,9 @@ class PLpgSQL(Language):
             opts = "n" + opts
         return f"regexp_match({var}, {self.esc(regex)}, {self.esc(opts)})"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
+    def match_val(
+            self, mname: str, rname: str, sname: str, dname: str, declare: bool = False
+        ) -> Block:
         return [ f"{dname} := {mname}[{sname[1:]}];" ]
 
     def match_ko(self, var: str) -> BoolExpr:
@@ -376,7 +389,6 @@ class PLpgSQL(Language):
             f"CREATE OR REPLACE FUNCTION {name}(val TEXT, path TEXT[], rep jm_report_entry[])",
             r"RETURNS BOOL CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
         ] + self._plbody(body) + [ "$$ LANGUAGE PLpgSQL;"]
-
 
     #
     # Property Map
@@ -436,8 +448,10 @@ class PLpgSQL(Language):
 
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         sname = self.esc(name)
-        code = [ f"  ({sname}, {self.json_cst(tv)}, {self.esc(val)})"
-                    for tv, val in mapping.items() ]
+        code = [
+            f"  ({sname}, {self.json_cst(tv)}, {self.esc(val)})"
+                for tv, val in mapping.items()
+        ]
         for i in range(len(code) - 1):
             code[i] += ","
         return [ "INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES" ] + code + [";"]

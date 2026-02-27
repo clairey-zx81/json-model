@@ -49,7 +49,8 @@ def typed_eq(v1: Jsonable, v2: Jsonable):
     elif isinstance(v1, (bool, int, float, str)):
         return v1 == v2
     elif isinstance(v1, list):
-        return len(v1) == len(v2) and all(typed_eq(i1, i2) for i1, i2 in zip(v1, v2))  # pyright: ignore
+        return (len(v1) == len(v2) and
+                all(typed_eq(i1, i2) for i1, i2 in zip(v1, v2)))  # pyright: ignore
     else:
         assert isinstance(v1, dict)
         if len(v1) != len(v2) or set(v1.keys()) != set(v2.keys()):  # type: ignore
@@ -268,10 +269,12 @@ def is_valid_exreg(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         # remplace references with named subpattern
         count = 0
+
         def repl(_):
             nonlocal count
             count += 1
             return f"(P<x{count}>"
+
         value = re.sub(r"\(\$\w+", repl, value)
     return is_valid_regex(value, path, rep)
 
@@ -440,7 +443,7 @@ def main(jm_fun, jm_map, jmc_version):
                 # result
                 avg = sum1 / args.time
                 stdev = math.sqrt( sum2 / args.time - avg * avg)
-                print(f"py validation: pass={len(values)-errors} fail={errors} "
+                print(f"py validation: pass={len(values) - errors} fail={errors} "
                       f"{avg:.03f} ± {stdev:.03f} µs", file=sys.stderr)
 
                 # cold-run-ns,warm-run-ns
@@ -471,7 +474,7 @@ def main(jm_fun, jm_map, jmc_version):
                 else:
                     expect, name, val = tvect
 
-                info = f"[{index+1}]" if args.jsonl else f"[{index}]" if args.test else ""
+                info = f"[{index + 1}]" if args.jsonl else f"[{index}]" if args.test else ""
 
                 try:
                     checker: CheckFun = jm_fun(name)

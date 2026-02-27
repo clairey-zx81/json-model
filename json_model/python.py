@@ -114,7 +114,9 @@ class Python(Language):
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"{self.esc(prop)} in {obj}"
 
-    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+    def obj_has_prop_val(
+            self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False
+        ) -> BoolExpr:
         return f"({dst} := {self.obj_prop_val(obj, prop, is_var)}) != UNDEFINED"
 
     def str_start(self, val: str, start: str) -> BoolExpr:
@@ -123,10 +125,13 @@ class Python(Language):
     def str_end(self, val: str, end: str) -> BoolExpr:
         return f"{val}.endswith({self.esc(end)})"
 
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+    def num_cmp(
+            self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False
+        ) -> BoolExpr:
         if op == ".mo" and not is_int:
             # this is a pain, % is not stable enough, / has infinity issues
-            return f"int({e1} / {e2}) == {e1} / {e2} if {e1} / {e2} not in (math.inf, -math.inf) else False"
+            expr = f"int({e1} / {e2}) == {e1} / {e2}"
+            return f"{expr} if {e1} / {e2} not in (math.inf, -math.inf) else False"
         return super().num_cmp(e1, op, e2, hexa, is_int)
 
     def any_len(self, var: Var) -> IntExpr:
@@ -144,7 +149,9 @@ class Python(Language):
         # avoid nested if expressions
         pvar = f"({pvar})" if " if " in pvar else pvar
         sseg = pseg if is_var else self.esc(pseg) if is_prop else pseg
-        return f"({pvar} + [ {sseg} ]) if {pvar} is not None else None" if self._with_path else "None"
+        return (
+            f"({pvar} + [ {sseg} ]) if {pvar} is not None else None" if self._with_path else "None"
+        )
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         # avoid nested if expressions
@@ -168,7 +175,9 @@ class Python(Language):
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
         return [ f"for {idx} in range({start}, {end}):" ] + self.indent(body)
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
+    def if_stmt(
+            self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None
+        ) -> Block:
         if true and false:
             return [ f"if {cond}:" ] + self.indent(true) + ["else:"] + self.indent(false)
         elif true:
@@ -196,10 +205,11 @@ class Python(Language):
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [
             f"global {name}",
-            f"{name} = {{" ] + [
-                (self._indent + self.esc(p) + ": " + f + ",")
-                    for p, f in pmap.items()
-                ] + [ "}" ]
+            f"{name} = {{"
+        ] + [
+            (self._indent + self.esc(p) + ": " + f + ",")
+                for p, f in pmap.items()
+        ] + [ "}" ]
 
     def def_cset(self, name: str, constants: ConstList) -> Block:
         return [ f"{name}: set[str]" ]
@@ -253,7 +263,9 @@ class Python(Language):
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         return f"{name}_reco.search({var})"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
+    def match_val(
+            self, mname: str, rname: str, sname: str, dname: str, declare: bool = False
+        ) -> Block:
         decl = ": str" if declare else ""
         return [
             f"{dname}{decl} = {mname}.groupdict()[{self.esc(sname)}]"

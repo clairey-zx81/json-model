@@ -8,9 +8,11 @@ _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 class JavaScript(Language):
     """JavaScript Code Generator."""
 
-    def __init__(self, *,
-                 debug: bool = False, relib: str = "re", with_predef: bool = True,
-                 with_path: bool = True, with_report: bool = True, with_comment: bool = True):
+    def __init__(
+            self, *,
+            debug: bool = False, relib: str = "re", with_predef: bool = True,
+            with_path: bool = True, with_report: bool = True, with_comment: bool = True
+        ):
 
         super().__init__(
             "JS",
@@ -57,7 +59,10 @@ class JavaScript(Language):
         return f"(typeof {var} === 'number' || {var} instanceof Number)"
 
     def is_scalar(self, var: Var) -> BoolExpr:
-        return f"({var} === null || {self.is_num(var)} || {self.is_a(var, bool)} || {self.is_a(var, str)})"
+        return (
+            f"({var} === null || {self.is_num(var)} ||"
+            f" {self.is_a(var, bool)} || {self.is_a(var, str)})"
+        )
 
     def is_def(self, var: Var) -> BoolExpr:
         return f"{var} !== undefined"
@@ -133,7 +138,7 @@ class JavaScript(Language):
             return f"runtime.jm_is_valid_json({val})"
         else:
             return super().predef(var, name, path, is_str)
-    
+
     #
     # inlined length computation
     #
@@ -148,6 +153,7 @@ class JavaScript(Language):
 
     def any_len(self, var: Var) -> IntExpr:
         return f"_any_len({var})"
+
     #
     # misc expressions
     #
@@ -164,7 +170,10 @@ class JavaScript(Language):
         return f"runtime.jm_array_is_unique({val}, {self.path(path)}, {self.rep()})"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"runtime.jm_check_constraint({val}, {self.esc(op)}, {self.const(vop)}, {self.path(path)}, {self.rep()})"
+        return (
+            f"runtime.jm_check_constraint({val}, {self.esc(op)},"
+            f" {self.const(vop)}, {self.path(path)}, {self.rep()})"
+        )
 
     def nope(self) -> Block:
         return []
@@ -218,7 +227,9 @@ class JavaScript(Language):
             f"for (const [{key}, {val}] of Object.entries({obj}))"
         ] + self.indent(body)
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
+    def if_stmt(
+            self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None
+        ) -> Block:
         if true and false:
             return [ f"if ({cond})" ] + self.indent(true) + ["else"] + self.indent(false)
         elif true:
@@ -258,7 +269,9 @@ class JavaScript(Language):
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         return f"{name}_re.exec({var})"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
+    def match_val(
+            self, mname: str, rname: str, sname: str, dname: str, declare: bool = False
+        ) -> Block:
         return [ f"{dname} = {mname}.groups[{self.esc(sname)}]" ]
 
     def sub_strfun(self, name: str, body: Block) -> Block:
@@ -308,7 +321,8 @@ class JavaScript(Language):
 
     def gen_init(self, init: Block) -> Block:
         code = [
-            "runtime.jm_set_rx(require('re2'))" if self._relib == "re2" else "runtime.jm_set_rx(RegExp)"
+            "runtime.jm_set_rx(require('re2'))" if self._relib == "re2" else
+            "runtime.jm_set_rx(RegExp)"
         ] + init
         return self.file_subs("javascript_init.js", code)
 

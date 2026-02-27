@@ -123,7 +123,7 @@ class CodeGenerator:
         code += checks
 
         # generate the string check function
-        self._code.strfun(name,  code)
+        self._code.strfun(name, code)
 
         return []
 
@@ -248,7 +248,9 @@ class CodeGenerator:
         assert tmodel in (bool, int, float, str, list, dict, type(None), None)
 
         # get which props are set
-        cmp_props = set(filter(lambda k: k in {"<", ">", "=", "!=", ">=", "<=", ".mo"}, model.keys()))
+        cmp_props = set(
+            filter(lambda k: k in {"<", ">", "=", "!=", ">=", "<=", ".mo"}, model.keys())
+        )
         has_unique = "!" in model
         if has_unique and not isinstance(model["!"], bool):  # should not get there
             raise ModelError("unique constraint value must be a boolean")
@@ -256,8 +258,8 @@ class CodeGenerator:
 
         # simplify non empty string check based on length
         if (tmodel is str and len(cmp_props) == 1 and
-            ((">=" in cmp_props and isinstance(model[">="], (int, float)) and 0 < model[">="] <= 1) or
-             (">" in cmp_props and isinstance(model[">"], (int, float)) and 0 <= model[">"] < 1))):
+            (">" in cmp_props and isinstance(model[">"], (int, float)) and 0 <= model[">"] < 1 or
+             ">=" in cmp_props and isinstance(model[">="], (int, float)) and 0 < model[">="] <= 1)):
             del model[">" if ">" in cmp_props else ">="]
             model["!="] = ""
             cmp_props = {"!="}
@@ -318,7 +320,7 @@ class CodeGenerator:
             #         if res; break;
             arrayid = gen.ident("arr")
             idx, item, lpath = f"{arrayid}_idx", f"{arrayid}_item", f"{arrayid}_lpath"
-            code +=  (
+            code += (
                 gen.lcom(f".in at {smpath}") +
                 gen.if_stmt(res,
                     gen.bool_var(res, gen.false()) +
@@ -386,20 +388,26 @@ class CodeGenerator:
                 vop = model[op]
                 if isinstance(vop, int):
                     if tmodel is float:
-                        checks.append(gen.num_cmp(fval, op, gen.const(vop), is_int=False))  # type: ignore
+                        checks.append(
+                            gen.num_cmp(fval, op, gen.const(vop), is_int=False)
+                        )  # type: ignore
                     else:
-                        checks.append(gen.num_cmp(ival, op, gen.const(vop), is_int=True))  # type: ignore
+                        checks.append(
+                            gen.num_cmp(ival, op, gen.const(vop), is_int=True)
+                        )  # type: ignore
                 elif isinstance(vop, str):
                     checks.append(gen.str_cmp(sval, op, gen.const(vop)))  # type: ignore
                 elif isinstance(vop, float):
-                    checks.append(gen.num_cmp(fval, op, gen.const(vop), is_int=False))  # type: ignore
-
+                    checks.append(
+                        gen.num_cmp(fval, op, gen.const(vop), is_int=False)
+                    )  # type: ignore
 
         assert checks
         if self._debug:
             log.debug(f"checks={checks}")
 
-        code += gen.if_stmt(res,
+        code += gen.if_stmt(
+            res,
             cvars + gen.bool_var(res, gen.and_op(*checks)) +
             self._gen_report(res, f"constraints failed [{smpath}]", vpath),
             likely=True
@@ -478,10 +486,11 @@ class CodeGenerator:
                 gen.has_prop(val, tag_name),
                 itag +
                 ifun +
-                gen.if_stmt(gen.is_def(fun),
+                gen.if_stmt(
+                    gen.is_def(fun),
                     icall,
                     gen.bool_var(res, gen.false()) +
-                    gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath),
+                        gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath),
                     likely=True  # there is a tag
                 ),
                 gen.bool_var(res, gen.false()) +
@@ -555,13 +564,16 @@ class CodeGenerator:
         gen = self._lang
         if len(codes) == 2:
             first, second = min(codes.keys()), max(codes.keys())
-            return gen.if_stmt(gen.num_cmp(var, "<=", first, hexa=True, is_int=True), codes[first], codes[second])
+            return gen.if_stmt(
+                gen.num_cmp(var, "<=", first, hexa=True, is_int=True),
+                codes[first], codes[second]
+            )
         else:
             limit = list(sorted(codes.keys()))[len(codes) // 2 - 1]
             return gen.if_stmt(
-                        gen.num_cmp(var, "<=", limit, hexa=True, is_int=True),
-                        self._gen_parts(var, { v: c for v, c in codes.items() if v <= limit }),
-                        self._gen_parts(var, { v: c for v, c in codes.items() if v > limit })
+                gen.num_cmp(var, "<=", limit, hexa=True, is_int=True),
+                self._gen_parts(var, { v: c for v, c in codes.items() if v <= limit }),
+                self._gen_parts(var, { v: c for v, c in codes.items() if v > limit })
             )
 
     def _propmap_name(self, model: ModelObject, default: str) -> str:
@@ -599,9 +611,11 @@ class CodeGenerator:
         self._code.pmap(name, prop_map)
 
     # TODO known?
-    def _closeMuObject(self, jm: JsonModel, must: dict[str, ModelType],
-                        mpath: ModelPath, oname: str,
-                        res: Var, val: JsonExpr, vpath: PathExpr) -> Block:
+    def _closeMuObject(
+            self, jm: JsonModel, must: dict[str, ModelType],
+            mpath: ModelPath, oname: str,
+            res: Var, val: JsonExpr, vpath: PathExpr
+        ) -> Block:
         """Optimize `{"x": ..., "": "y": ...}`."""
 
         assert isinstance(must, dict)
@@ -794,7 +808,7 @@ class CodeGenerator:
         # TODO accept any other prop?
         if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
             # if there are many may values, this may be too costly…
-            ## if (len(may) / (len(must) + len(may)) < self._may_must_open_ratio or
+            # # if (len(may) / (len(must) + len(may)) < self._may_must_open_ratio or
             if (len(must) + len(may)) <= self._may_must_open_threshold:
                 return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
 
@@ -1100,25 +1114,29 @@ class CodeGenerator:
             smpath = json_path(mpath)
             ot_code = self._gen_fail(f"unexpected prop [{smpath}]", lpath_ref)
 
-        code += gen.obj_loop(val, prop, pval,
+        code += gen.obj_loop(
+            val, prop, pval,
             gen.path_var(lpath, gen.path_val(vpath, prop, True, True), True) +
             body_code +
-            gen.mif_stmt(multi_if, ot_code))
+            gen.mif_stmt(multi_if, ot_code)
+        )
 
         # check that all must were seen, with some effort to report the missing ones
         if must:
             missing = []
             for prop in sorted(must.keys()):
                 missing += \
-                    gen.if_stmt(gen.not_op(gen.has_prop(val, prop)),
-                                gen.report(f"missing mandatory prop <{prop}> [{smpath}]", vpath),
-                                likely=None
+                    gen.if_stmt(
+                        gen.not_op(gen.has_prop(val, prop)),
+                        gen.report(f"missing mandatory prop <{prop}> [{smpath}]", vpath),
+                        likely=None
                     )
             code += \
-                gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must)), is_int=True),
-                            self._gen_reporting(missing) +
-                            gen.ret(gen.false()),
-                            likely=False
+                gen.if_stmt(
+                    gen.num_cmp(must_c, "!=", gen.const(len(must)), is_int=True),
+                    self._gen_reporting(missing) +
+                    gen.ret(gen.false()),
+                    likely=False
                 )
 
         # early returns so no need to look at res
@@ -1206,13 +1224,14 @@ class CodeGenerator:
         # TODO same is too restrictive
         mandatory_props: list[tuple[str, bool]|None] = (
             distinct_prop_objects(jm, models)
-                if same and expected is dict and self._or_must_prop and len(models) >= self._or_must_prop else
+                if (same and expected is dict and
+                    self._or_must_prop and len(models) >= self._or_must_prop) else
             [ None ] * len(models)
         )
 
         # TODO on partial, merge common property tests if any?
         if False:  # self._reorder_models:
-            commons: dict[str, list[int]]  = {}
+            commons: dict[str, list[int]] = {}
             for i, prop, full in enumerate(mandatory_props):
                 if not full:
                     if prop in commons:
@@ -1235,7 +1254,11 @@ class CodeGenerator:
                 cond = gen.has_prop(val, pname)
                 if full:
                     # full discriminant, only one test is required
-                    icode = gen.if_stmt(cond, m_code, icode if icode else gen.bool_var(res, gen.false()), likely=len(icode)==0)
+                    icode = gen.if_stmt(
+                        cond,
+                        m_code,
+                        icode if icode else gen.bool_var(res, gen.false()), likely=(len(icode) == 0)
+                    )
                 else:
                     # partial, we still have to test others
                     m_code = gen.if_stmt(cond, m_code, gen.bool_var(res, gen.false()))
@@ -1361,12 +1384,17 @@ class CodeGenerator:
                 # flat if…
                 for i, m in enumerate(models):
                     idx = models_i[i]
-                    icode = self._compileModel(jm, m, mpath + [idx], test, val, vpath) + \
+                    icode = (
+                        self._compileModel(jm, m, mpath + [idx], test, val, vpath) +
                         gen.if_stmt(test, gen.inc_var(count))
+                    )
                     if i < 2:
                         xcode += icode
                     else:  # maybe skip
-                        xcode += gen.if_stmt(gen.num_cmp(count, "<=", gen.const(1), is_int=True), icode)
+                        xcode += gen.if_stmt(
+                            gen.num_cmp(count, "<=", gen.const(1), is_int=True),
+                            icode
+                        )
 
                 # verify that only one matched
                 xcode += gen.bool_var(res, gen.num_cmp(count, "=", gen.const(1), is_int=True))
@@ -1408,7 +1436,8 @@ class CodeGenerator:
         # build in reverse order the if structure
         acode: Block = []
         for i, m in reversed(list(enumerate(models))):
-            acode = gen.if_stmt(res,
+            acode = gen.if_stmt(
+                res,
                 self._compileModel(jm, m, mpath + [i], res, val, vpath, and_known) +
                 acode
             )
@@ -1566,7 +1595,9 @@ class CodeGenerator:
                     code += gen.bool_var(res, expr)
                 if self._report:
                     smodel = gen._lang.esc(model)
-                    code += self._gen_report(res, f"unexpected value for model {smodel} [{smpath}]", vpath)
+                    code += self._gen_report(
+                        res, f"unexpected value for model {smodel} [{smpath}]", vpath
+                    )
 
             case list():
                 expr: BoolExpr|None = gen.is_a(val, list)
@@ -1609,7 +1640,9 @@ class CodeGenerator:
                     lpath = gen.ident("lpath")
                     lpath_ref: PathExpr = gen.path_lvar(lpath, vpath)  # type: ignore
                     if not constrained:
-                        length = gen.num_cmp(gen.arr_len(val), "=", gen.const(len(model)), is_int=True)
+                        length = gen.num_cmp(
+                            gen.arr_len(val), "=", gen.const(len(model)), is_int=True
+                        )
                         expr = gen.and_op(expr, length) if expr else length
                         code += gen.bool_var(res, expr)
                         # else inside a @ with constraints, so we do not check the len
@@ -1618,7 +1651,9 @@ class CodeGenerator:
                         for i, m in reversed(list(enumerate(model))):
                             body = gen.if_stmt(
                                 res,
-                                gen.path_var(lpath, gen.path_val(vpath, i, False, False), declare=i==0) +
+                                gen.path_var(
+                                    lpath, gen.path_val(vpath, i, False, False), declare=(i == 0)
+                                ) +
                                 # FIXME generated variable reference…
                                 self._compileModel(
                                     jm, model[i], mpath + [i],
@@ -1633,7 +1668,7 @@ class CodeGenerator:
                         body = []
 
                         # last model for repeats
-                        lmodel, start = model[-1], len(model)-1
+                        lmodel, start = model[-1], len(model) - 1
 
                         if lmodel != "$ANY":
                             idx = gen.ident("idx")
@@ -1927,7 +1962,8 @@ def xstatic_compile(
     - sort_may: whether to sort may properties
     - partition_threshold: property test partition if over this threshold, 0 for no partitioning
     - or_must_prop: length threshold for or-list shortcut based on mandatory properties
-    - strcmp_cset_partition_threshold: string set partitioning target chunk size, 0 for no partitioning
+    - strcmp_cset_partition_threshold: string set partitioning target chunk size,
+      0 for no partitioning
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
@@ -1968,7 +2004,7 @@ def xstatic_compile(
         "plpgsql": 0,  # FIXME not tested
     }
     if may_must_open_threshold is None:
-       may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(lang, 16)
+        may_must_open_threshold = MAY_MUST_OPEN_THRESHOLD.get(lang, 16)
 
     # set default map threshold depending on target language
     MAP_THRESHOLD: dict[str, int] = {
@@ -2019,11 +2055,12 @@ def xstatic_compile(
                           with_predef=predef, relib=relib or "re2")
     elif lang == "c":
         from .clang import CLangJansson
-        language = CLangJansson(debug=debug, with_report=report, with_path=report,
-                                with_predef=predef, relib=relib or "re2",
-                                inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
-                                max_strcmp_cset=max_strcmp_cset,
-                                partition_threshold=strcmp_cset_partition_threshold
+        language = CLangJansson(
+            debug=debug, with_report=report, with_path=report,
+            with_predef=predef, relib=relib or "re2",
+            inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
+            max_strcmp_cset=max_strcmp_cset,
+            partition_threshold=strcmp_cset_partition_threshold
         )
     elif lang == "js":
         from .javascript import JavaScript

@@ -11,9 +11,10 @@ class Perl(Language):
     def __init__(self, *, relib: str = "re2", with_package: bool = False, with_predef: bool = True,
                  debug: bool = False, with_report: bool = True, with_path: bool = True):
 
-        super().__init__("Perl",
-            debug=debug, relib=relib, with_report=with_report, with_path=with_path,
-            with_package=with_package, with_predef=with_predef,
+        super().__init__(
+            "Perl", debug=debug, relib=relib,
+            with_report=with_report, with_path=with_path, with_package=with_package,
+            with_predef=with_predef,
             not_op="!", and_op="&&", or_op="||", lcom="#",
             true="1", false="0", null="undef", check_t="", json_t="",
             path_t="", float_t="", str_t="", match_t="", eoi=";", set_caps=(str,)
@@ -76,7 +77,9 @@ class Perl(Language):
     def get_value(self, var: Var, tvar: type) -> Expr:
         return self._val(var)
 
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+    def num_cmp(
+            self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False
+        ) -> BoolExpr:
         ve1: Expr = self._val(e1)
         if op == ".mo" and not is_int:
             return f"jm_float_modulo({ve1}, {e2}) == 0.0"
@@ -103,7 +106,7 @@ class Perl(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        is_str_and  = self.is_a(var, str) + " && "  # type: ignore
+        is_str_and = self.is_a(var, str) + " && "  # type: ignore
         var, path = self._val(var), self._val(path)  # type: ignore
         if name in ("$URL", "$URI"):  # approximate
             return is_str_and + f"jm_is_valid_url({var}, {self.path(path)}, {self.rep()})"
@@ -132,7 +135,10 @@ class Perl(Language):
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         path = self.path(self._val(path))
-        return f"jm_check_constraint({self._val(val)}, {self.esc(op)}, {self.const(vop)}, {path}, {self.rep()})"
+        return (
+            f"jm_check_constraint({self._val(val)}, "
+            f"{self.esc(op)}, {self.const(vop)}, {path}, {self.rep()})"
+        )
 
     def file_header(self, exe: bool = True) -> Block:
         code: Block = self.file_load("perl_exe.pl") if exe else []
@@ -174,7 +180,9 @@ class Perl(Language):
     def assign_obj_prop(self) -> bool:
         return False
 
-    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+    def obj_has_prop_val(
+            self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False
+        ) -> BoolExpr:
         return f"defined(${dst} = {self.obj_prop_val(obj, prop, is_var)})"
 
     def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
@@ -289,7 +297,9 @@ class Perl(Language):
     def ret(self, res: BoolExpr) -> Block:
         return super().ret(f"${res}" if self.is_a_var(res) else res)
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
+    def if_stmt(
+            self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None
+        ) -> Block:
         cond = f"${cond}" if self.is_a_var(cond) else cond
         if true and false:
             return [ f"if ({cond})" ] + self.indent(true) + ["else"] + self.indent(false)
@@ -382,7 +392,9 @@ class Perl(Language):
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         return f"${var} =~ /{self._escRegEx(regex)}/{opts}"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
+    def match_val(
+            self, mname: str, rname: str, sname: str, dname: str, declare: bool = False
+        ) -> Block:
         return [ f"${dname} = $+{{{self.esc(sname)}}};" ]
 
     # constants map
@@ -393,15 +405,17 @@ class Perl(Language):
         return [ f"my %{name};" ]
 
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ f"%{name} = (" ] + [
-                f"{self._indent}{self.const(v)} => \\&{f}," for v, f in mapping.items()
-            ] + [ ");" ]
+        return [
+            f"%{name} = ("
+        ] + [
+            f"{self._indent}{self.const(v)} => \\&{f}," for v, f in mapping.items()
+        ] + [ ");" ]
 
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [ f"%{name} = ();" ]
 
     def indent(self, block: Block, sep: bool = True) -> Block:
-        indented =  super().indent(block)
+        indented = super().indent(block)
         return (["{"] + indented + ["}"]) if sep else indented
 
     def filter_code(self, code: Block) -> Block:

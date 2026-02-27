@@ -166,18 +166,19 @@ class JsonModel:
         "https://json-model.org/models/json-model-v2",
     }
 
-    def __init__(self,
-                 model: ModelType,
-                 resolver: Resolver|None,
-                 *,
-                 url: str = "",
-                 head: JsonModel|None = None,
-                 scope: Symbols|None = None,
-                 debug: int = 0,
-                 loose_int: bool|None = None,
-                 loose_float: bool|None = None,
-                 dname: str|None = None,
-            ):
+    def __init__(
+            self,
+            model: ModelType,
+            resolver: Resolver|None,
+            *,
+            url: str = "",
+            head: JsonModel|None = None,
+            scope: Symbols|None = None,
+            debug: int = 0,
+            loose_int: bool|None = None,
+            loose_float: bool|None = None,
+            dname: str|None = None,
+        ):
 
         # the root model cannot share a scope
         assert head is not None or head is None and scope is None
@@ -387,7 +388,8 @@ class JsonModel:
                 if len(jsub._defs) > 0:
                     for name, jm in jsub._defs.items():
                         if name in self._defs:
-                            raise ModelError(f"cannot override definition {name} in {self._url} from {ref}")
+                            raise ModelError(f"cannot override definition {name} "
+                                             f"in {self._url} from {ref}")
                         self._defs[name] = jm
                 else:
                     log.warning(f"no definition to import from {ref}")
@@ -452,8 +454,10 @@ class JsonModel:
                 log.debug(f"{self._id}: loading {url}")
                 followed.add(url)
                 jm = self.load(url, path)
-                log.debug(f"{self._id}: head models: "
-                          f"{[mid for mid in sorted(self._head._models.keys())]}")  # pyright: ignore
+                log.debug(
+                    f"{self._id}: head models: "
+                    f"{[mid for mid in sorted(self._head._models.keys())]}"
+                )  # pyright: ignore
 
                 # handle sequence of fragments
                 while frag:
@@ -792,7 +796,8 @@ class JsonModel:
         else:
             if not create:
                 if self._debug:
-                    log.debug(f"{self._id}: ref={ref} model={self._model} defs={list(self._defs.keys())}")
+                    log.debug(f"{self._id}: ref={ref} model={self._model} "
+                              f"defs={list(self._defs.keys())}")
                 raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
             # creation only allowed while rewriting, as new defs may be added _after_ a reference
             log.info(f"{self._id}: creating empty definition \"{name}\"")
@@ -1044,7 +1049,6 @@ class JsonModel:
                 if isinstance(j, dict):
                     for k, v in add.items():
                         if k in j:
-                            # raise ModelError(f"cannot overwrite property {k} at {path}, remove first")
                             log.warning(f"overwriting property {k} at {path}")
                         j[k] = v
                 else:

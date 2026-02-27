@@ -398,7 +398,8 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                             addProp = False
                     elif prop[0] == "$":
                         # NOTE should be ok if simple enough so that constant propagation removed it
-                        raise Exception(f"JSON Schema: no support for property ref {prop} at {lpath}")
+                        raise Exception("JSON Schema: no support for "
+                                        f"property ref {prop} at {lpath}")
                     else:  # standard property
                         required.append(prop)
                         properties[prop] = _m2s(val, lpath, defs)

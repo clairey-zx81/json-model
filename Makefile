@@ -39,7 +39,7 @@ check.src: check.ruff check.pyright
 .PHONY: check
 check: check.src check.tests
 
-IGNORE  = E121,E125,E131,E227,E251,E302,W504,F841
+IGNORE  = E121,E125,E128,E131,E201,E202,E226,E227,E251,E302,E702,W504,F841
 
 .PHONY: check.flake8
 check.flake8: dev

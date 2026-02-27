@@ -38,13 +38,14 @@ class Resolver:
     - `maps`: url to directory mapping for testing.
     """
 
-    def __init__(self,
-                 cache_dir: str|None = None,
-                 maps: dict[str, str]|None = None,
-                 *,
-                 allow_duplicates: bool = False,
-                 cache_ignore: bool = False,
-            ):
+    def __init__(
+            self,
+            cache_dir: str|None = None,
+            maps: dict[str, str]|None = None,
+            *,
+            allow_duplicates: bool = False,
+            cache_ignore: bool = False,
+        ):
         self._cache = JsonURLCache(cache_dir, cache_ignore)
         self._maps: dict[str, str] = maps if maps else {}
         self._jsons: dict[str, Jsonable] = {}

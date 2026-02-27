@@ -34,7 +34,9 @@ def _str_cmp_chunk(s: str, chunk: bytes, size: int,
         x = "0x" + ((zeros + x) if little else (x + zeros)) + ("LL" if size > 4 else "")
         return f"{cmp_fun}_{size}({s}, {x})"
 
-def _str_cmp(s: str, cst: str, little: bool = True, eq: bool = True, start: bool = False) -> BoolExpr:
+def _str_cmp(
+        s: str, cst: str, little: bool = True, eq: bool = True, start: bool = False
+    ) -> BoolExpr:
     """Generate a fast byte string comparison for known constants."""
     bcst = json.loads(cst).encode("UTF8")
     remain = len(bcst) + (0 if start else 1)  # add implicit null termination
@@ -70,12 +72,13 @@ class CLangJansson(Language):
     class heavy parameterization about operators, end-of-instruction and the like.
     """
 
-    def __init__(self, *,
-             debug: bool = False,
-             with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-             with_predef: bool = True, strcmp_opt: bool = True, byte_order: str = "le",
-             inline: bool = True, with_hints: bool = True, max_strcmp_cset: int = 64,
-             partition_threshold: int = 32, relib: str = "pcre2", int_t: str = "int64_t"
+    def __init__(
+            self, *,
+            debug: bool = False,
+            with_path: bool = True, with_report: bool = True, with_comment: bool = True,
+            with_predef: bool = True, strcmp_opt: bool = True, byte_order: str = "le",
+            inline: bool = True, with_hints: bool = True, max_strcmp_cset: int = 64,
+            partition_threshold: int = 32, relib: str = "pcre2", int_t: str = "int64_t"
         ):
 
         super().__init__(
@@ -238,7 +241,9 @@ class CLangJansson(Language):
         return f"json_object_get({obj}, {prop})" if is_var else \
                f"json_object_get({obj}, {self.esc(prop)})"  # type: ignore
 
-    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+    def obj_has_prop_val(
+            self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False
+        ) -> BoolExpr:
         return f"({dst} = {self.obj_prop_val(obj, prop, is_var)}) != NULL"
 
     #
@@ -304,7 +309,10 @@ class CLangJansson(Language):
             "<=": "op_le", "<": "op_lt",
             ">=": "op_ge", ">": "op_gt"
         }
-        return f"jm_check_constraint({val}, {OPS[op]}, &{self._cst(vop)}, {self.path(path)}, {self.rep()})"
+        return (
+            f"jm_check_constraint({val}, {OPS[op]}, &{self._cst(vop)}, "
+            f"{self.path(path)}, {self.rep()})"
+        )
 
     #
     # inline comparison expressions for strings
@@ -334,7 +342,9 @@ class CLangJansson(Language):
         else:
             raise Exception(f"str_cmp unexpected operator {op}")
 
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+    def num_cmp(
+            self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False
+        ) -> BoolExpr:
         if op == ".mo" and not is_int:
             return f"jm_float_modulo({e1}, {e2}) == 0.0"
         return super().num_cmp(e1, op, e2, hexa, is_int)
@@ -413,12 +423,13 @@ class CLangJansson(Language):
         else:
             return e
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
-
+    def if_stmt(
+            self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None
+        ) -> Block:
         # handle expectation hints
-
         if true and false:
-            return [ f"if ({self._hint(cond, likely)})" ] + self.indent(true) + ["else"] + self.indent(false)
+            return [ f"if ({self._hint(cond, likely)})" ] + self.indent(true) + \
+                ["else"] + self.indent(false)
         elif true:
             return [ f"if ({self._hint(cond, likely)})" ] + self.indent(true)
         else:
@@ -530,11 +541,13 @@ class CLangJansson(Language):
             return f"cre2_match({name}_re2, {var}, strlen({var}), 0, strlen({var}), " \
                    f"CRE2_UNANCHORED, matches, {name}_nn) != 0"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
+    def match_val(
+            self, mname: str, rname: str, sname: str, dname: str, declare: bool = False
+        ) -> Block:
         if self._relib == "pcre2":
             return [
                 f"{dname}_len = {dname}_size;",
-                f"rc = pcre2_substring_copy_byname({rname}_data, (PCRE2_SPTR) {self.esc(sname)}," \
+                f"rc = pcre2_substring_copy_byname({rname}_data, (PCRE2_SPTR) {self.esc(sname)},"
                 f" (PCRE2_UCHAR *) {dname}, &{dname}_len);",
                 r"if (rc != 0)",
                 r"    return false;",
@@ -550,8 +563,9 @@ class CLangJansson(Language):
         return [ f"static {self._inline}bool {name}(const char *, jm_path_t *, jm_report_t *);" ]
 
     def sub_strfun(self, name: str, body: Block) -> Block:
-        return [ f"static {self._inline}bool {name}(const char *val, jm_path_t *path, jm_report_t *rep)" ] + \
-                    self.indent(body)
+        return [
+            f"static {self._inline}bool {name}(const char *val, jm_path_t *path, jm_report_t *rep)"
+        ] + self.indent(body)
 
     #
     # Property Map
@@ -599,13 +613,15 @@ class CLangJansson(Language):
         elif nparts == 2:
             first, second = min(part_code.keys()), max(part_code.keys())
             return (f"({self.num_cmp(var, '<=', first, True, True)}) "
-                    f"? (\n           {part_code[first]}        ) : (\n           {part_code[second]}        )")
+                    f"? (\n           {part_code[first]}        ) "
+                    f": (\n           {part_code[second]}        )")
         else:
             limit = list(sorted(part_code.keys()))[nparts // 2 - 1]
+            _ex = self._part_expr
             return (
                 f"({self.num_cmp(var, '<=', limit, True)})"
-                f" ? (\n        {self._part_expr(var, {p: s for p, s in part_code.items() if p <= limit})})"
-                f" : (\n        {self._part_expr(var, {p: s for p, s in part_code.items() if p > limit})})"
+                f" ? (\n        {_ex(var, {p: s for p, s in part_code.items() if p <= limit})})"
+                f" : (\n        {_ex(var, {p: s for p, s in part_code.items() if p > limit})})"
             )
 
     def _sub_str_cset(self, name: str, constants: ConstList) -> Block:
@@ -648,7 +664,7 @@ class CLangJansson(Language):
         code = []
         if len(types) > 1:
             code += [ f"static bool {name}_test(const json_t *);" ]
-        return  code + [ f"static jm_constant_t {name}[{len(constants)}];" ]
+        return code + [ f"static jm_constant_t {name}[{len(constants)}];" ]
 
     def sub_cset(self, name: str, constants: ConstList) -> Block:
         if self._str_cset_opt(constants):
@@ -676,7 +692,10 @@ class CLangJansson(Language):
         elif vtype is float:
             return f"(jm_constant_t) {{ cst_is_float, {{ .f = {self.value(var, float)} }} }}"
         elif vtype is str:
-            return f"(jm_constant_t) {{ strlen({self.value(var, str)}) + 1, {{ .s = {self.value(var, str)} }} }}"
+            return (
+                f"(jm_constant_t) {{ strlen({self.value(var, str)}) + 1, "
+                f"{{ .s = {self.value(var, str)} }} }}"
+            )
         else:
             raise NotImplementedError(f"type {vtype}")
 
@@ -722,7 +741,7 @@ class CLangJansson(Language):
 
     def _fun(self, name: str, inline: bool = False) -> str:
         declare = f"static {self._inline}" if inline else "static "
-        return  f"{declare}bool {name}(const json_t *val, jm_path_t *path, jm_report_t *rep)"
+        return f"{declare}bool {name}(const json_t *val, jm_path_t *path, jm_report_t *rep)"
 
     def def_fun(self, name: str) -> Block:
         return [ self._fun(name, False) + ";" ]

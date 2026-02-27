@@ -87,8 +87,8 @@ def model_from_json(
         resolver = Resolver()
 
     # possibly add resolver mapping rule
-    if auto and (isinstance(mjson, dict) and "$" in mjson and \
-            isinstance(mjson["$"], dict) and "" in mjson["$"]):
+    if auto and (isinstance(mjson, dict) and "$" in mjson and
+                 isinstance(mjson["$"], dict) and "" in mjson["$"]):
         url = mjson["$"][""]
         assert isinstance(url, str), ".\"$\"." f" expects a string: {tname(url)}"
         fn = re.sub(r"(\.model)?(\.js(on)?|\.yaml)?$", "", murl)  # drop suffix
@@ -155,11 +155,11 @@ def model_checker(jm: JsonModel, *, debug: bool = False, **options) -> EntryChec
 
 
 def model_checker_from_json(
-            mjson: Jsonable, *, auto: bool = False, debug: int = 0,
-            resolver: Resolver|None = None,
-            loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
-            **options,
-        ) -> EntryCheckFun:
+        mjson: Jsonable, *, auto: bool = False, debug: int = 0,
+        resolver: Resolver|None = None,
+        loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
+        **options,
+    ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver,
                          loose_int=loose_int, loose_float=loose_float, extend=extend)
@@ -167,11 +167,11 @@ def model_checker_from_json(
 
 
 def model_checker_from_url(
-            murl: str, *, auto: bool = False, debug: int = 0,
-            resolver: Resolver|None = None, follow: bool = True,
-            loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
-            **options,
-        ) -> EntryCheckFun:
+        murl: str, *, auto: bool = False, debug: int = 0,
+        resolver: Resolver|None = None, follow: bool = True,
+        loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
+        **options,
+    ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
                         loose_int=loose_int, loose_float=loose_float, extend=extend)
@@ -188,9 +188,12 @@ def create_model(murl: str, resolver: Resolver, *,
                           loose_int=loose_int, loose_float=loose_float,
                           check=check, merge=merge, optimize=optimize, extend=extend)
 
+
 DEFAULT_CC = "cc"
-DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable " \
+DEFAULT_CFLAGS = (
+    "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable "
     "-Wno-unused-function -Wno-unused-but-set-variable -Wno-parentheses -Ofast"
+)
 DEFAULT_LDFLAGS_PCRE2 = "-ljansson -lpcre2-8 -lm"
 # pkgconf --libs cre2
 DEFAULT_LDFLAGS_CRE2 = "-L/usr/local/lib -ljansson -lcre2 -lpthread -lre2 -lm -lstdc++"
@@ -593,7 +596,8 @@ def jmc_script():
         log.error(f"Testing JSON values requires -C for Python: {args.op} {args.format}")
         sys.exit(1)
     if args.gen == "source" and (args.op != "C" or args.format not in LANG):
-        log.error(f"Showing code requires -C for C, Java, JavaScript, Perl, Python and PL/pgSQL: {args.op} {args.format}")
+        log.error("Showing code requires -C for C, Java, JavaScript, Perl, Python and PL/pgSQL: "
+                  f"{args.op} {args.format}")
         sys.exit(1)
 
     # strict/loose numbers
@@ -684,7 +688,9 @@ def jmc_script():
         # FIXME PL/pgSQL?
         if args.format in ("plpgsql", "js", "pl") and \
                 (not model._loose_int or not model._loose_float):
-            log.warning(f"{args.model}: {LANG[args.format]} backend does not support strict numbers")
+            log.warning(
+                f"{args.model}: {LANG[args.format]} backend does not support strict numbers"
+            )
 
         # compile to source
         code = xstatic_compile(
@@ -720,8 +726,9 @@ def jmc_script():
             exec(source, env)
             env[args.entry + "_init"]()
 
-            def checker(v: Jsonable, model: str, rep: Report = None) -> bool:
+            def _checker(v: Jsonable, model: str, rep: Report = None) -> bool:
                 return env[args.entry](v, model, rep)
+            checker = _checker
 
     elif args.op == "E":
         if args.format in ("json", "yaml"):
@@ -772,8 +779,10 @@ def jmc_script():
                 # parse JSON
                 if args.jsonl:
                     lines = contents.split("\n")[:-1]
-                    value = [ [ None, json_loads(line, allow_duplicates=args.allow_duplicates) ]
-                                for line in lines ]
+                    value = [
+                        [ None, json_loads(line, allow_duplicates=args.allow_duplicates) ]
+                            for line in lines
+                    ]
                 else:
                     value = json_loads(contents, allow_duplicates=args.allow_duplicates)
                 # process values
@@ -796,7 +805,9 @@ def jmc_script():
                             nerrors += 1
 
                 else:  # direct value testing
-                    if not _process(checker, args.name, value, fn, args.expect, output):  # type: ignore
+                    if not _process(
+                            checker, args.name, value, fn, args.expect, output
+                        ):  # type: ignore
                         nerrors += 1
             except Exception as e:
                 nerrors += 1

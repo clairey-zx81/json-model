@@ -22,7 +22,8 @@ class Java(Language):
              true="true", false="false", null="null", check_t="Checker", json_t="Object",
              path_t="Path", float_t="double", str_t="String", bool_t="boolean", int_t="long",
              match_t="boolean", eoi=";", relib=relib, debug=debug,
-             set_caps=(type(None), bool, int, float, str))  # type: ignore
+             set_caps=(type(None), bool, int, float, str)
+        )  # type: ignore
 
         assert relib in ("re"), f"regex engine {relib} is not supported"
 
@@ -191,7 +192,9 @@ class Java(Language):
         return f"json.objectValue({obj}, {prop})" if is_var else \
                f"json.objectValue({obj}, {self.esc(prop)})"  # type: ignore
 
-    def obj_has_prop_val(self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False) -> BoolExpr:
+    def obj_has_prop_val(
+            self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False
+        ) -> BoolExpr:
         return f"({dst} = {self.obj_prop_val(obj, prop, is_var)}) != null"
 
     def check_call(self, name: Var, val: JsonExpr, path: Var, *,
@@ -238,7 +241,10 @@ class Java(Language):
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         """Call inefficient type-unaware constraint check."""
-        return f"rt.check_constraint({val}, {self.CMP_OPS[op]}, {self.json_cst(vop)}, {self.path(path)}, {self.rep()})"
+        return (
+            f"rt.check_constraint({val}, {self.CMP_OPS[op]}, "
+            f"{self.json_cst(vop)}, {self.path(path)}, {self.rep()})"
+        )
 
     #
     # inline comparison expressions for strings
@@ -261,7 +267,9 @@ class Java(Language):
         else:
             raise Exception(f"str_cmp unexpected operator {op}")
 
-    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False) -> BoolExpr:
+    def num_cmp(
+            self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False
+        ) -> BoolExpr:
         if op == ".mo" and not is_int:
             return f"rt.float_modulo({e1}, {e2}) == 0.0"
         return super().num_cmp(e1, op, e2, hexa, is_int)
@@ -335,7 +343,9 @@ class Java(Language):
             f"for (int {idx} = {start}; {idx} < {end}; {idx}++)"
         ] + self.indent(body)
 
-    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None) -> Block:
+    def if_stmt(
+            self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None
+        ) -> Block:
         if true and false:
             return [ f"if ({cond})" ] + self.indent(true) + ["else"] + self.indent(false)
         elif true:
@@ -385,20 +395,26 @@ class Java(Language):
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         return f"({name}_match = {name}_pat.matcher({var})).find()"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
+    def match_val(
+            self, mname: str, rname: str, sname: str, dname: str, declare: bool = False
+        ) -> Block:
         decl = "String " if declare else ""
         return [ f"{decl}{dname} = {rname}_match.group({self.esc(sname)});" ]
 
     def sub_strfun(self, name: str, body: Block) -> Block:
-        return [ f"public boolean {name}(String val, Path path, Report rep)" ] + \
-                    self.indent(body)
+        return [
+            f"public boolean {name}(String val, Path path, Report rep)"
+        ] + self.indent(body)
 
     #
     # Property Map
     #
     def _checker(self, name: str) -> str:
         """Create a checker wrapper around a check function."""
-        return f"new Checker() {{ public boolean call(Object o, Path p, Report r) {{ return {name}(o, p, r);}} }}"
+        return (
+            "new Checker() { public boolean call(Object o, Path p, Report r) {"
+            f" return {name}(o, p, r);}} }}"
+        )
 
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [ f"{'public ' if public else ''}Map<String, Checker> {name}_pmap;" ]
