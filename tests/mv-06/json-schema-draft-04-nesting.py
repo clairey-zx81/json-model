@@ -77,10 +77,8 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_3_map_default (.'$schema'.default)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema'.default
-    res = True
-    return res
+    return True
 
 # check json_model_3_map_definitions (.'$schema'.definitions)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:

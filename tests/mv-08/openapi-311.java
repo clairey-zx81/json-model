@@ -4628,10 +4628,8 @@ public class openapi_311 extends ModelChecker
     // check json_model_32_map_const (.'$Schema'.const)
     public boolean _jm_f_9(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Schema'.const
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_32_map_contentEncoding (.'$Schema'.contentEncoding)
@@ -4661,10 +4659,8 @@ public class openapi_311 extends ModelChecker
     // check json_model_32_map_default (.'$Schema'.default)
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Schema'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_32_map_dependentRequired (.'$Schema'.dependentRequired)
@@ -4762,10 +4758,8 @@ public class openapi_311 extends ModelChecker
     // check json_model_32_map_example (.'$Schema'.example)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Schema'.example
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_32_map_examples (.'$Schema'.examples)
@@ -6622,10 +6616,8 @@ public class openapi_311 extends ModelChecker
     // check json_model_59_map_const (.'$schema#ObjectSchema'.const)
     public boolean _jm_f_38(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.const
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_59_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -6655,10 +6647,8 @@ public class openapi_311 extends ModelChecker
     // check json_model_59_map_default (.'$schema#ObjectSchema'.default)
     public boolean _jm_f_41(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$schema#ObjectSchema'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_59_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)

@@ -313,6 +313,9 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
     cum_read, cum_write, cum_value = set(), set(), {}
 
+    if len(seq) == 0:
+        return cum_read, cum_write, cum_value
+
     # MERGE IF in sequence using effects with pattern:
     #
     # if [not] b:
@@ -352,9 +355,9 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
             if var in cum_value:
                 # drop if
-                seq = op["true" if direct == cum_value[var] else "false"]
+                nseq = op["true" if direct == cum_value[var] else "false"]
                 op.clear()
-                op.update(o="seq", seq=seq)
+                op.update(o="seq", seq=nseq)
                 op["#"] = "IRO dropped constant if"
                 prev_var = None
                 # NOTE could update effects?!

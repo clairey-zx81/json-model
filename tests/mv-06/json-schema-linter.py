@@ -565,10 +565,8 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_10_map_default (.'$String'.default)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$String'.default
-    res = True
-    return res
+    return True
 
 # check json_model_10_map_definitions (.'$String'.definitions)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -737,10 +735,8 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_11_map_default (.'$Array'.default)
 def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Array'.default
-    res = True
-    return res
+    return True
 
 # check json_model_11_map_definitions (.'$Array'.definitions)
 def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -917,10 +913,8 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_12_map_default (.'$Object'.default)
 def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Object'.default
-    res = True
-    return res
+    return True
 
 # check json_model_12_map_definitions (.'$Object'.definitions)
 def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1110,10 +1104,8 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_13_map_default (.'$Integer'.default)
 def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Integer'.default
-    res = True
-    return res
+    return True
 
 # check json_model_13_map_definitions (.'$Integer'.definitions)
 def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1265,10 +1257,8 @@ def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_14_map_default (.'$Number'.default)
 def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Number'.default
-    res = True
-    return res
+    return True
 
 # check json_model_14_map_definitions (.'$Number'.definitions)
 def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:

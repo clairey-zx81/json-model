@@ -14,29 +14,23 @@ var check_model_map = new Map()
 // check $false (.'$false')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$false'
-    res = false;
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$false']", path])
-    return res;
+    return false;
 }
 
 // check $true (.'$true')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$true'
-    res = true;
-    return res;
+    return true;
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = true;
-    return res;
+    return true;
 }
 
 

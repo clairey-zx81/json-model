@@ -1621,10 +1621,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_6_map_default (.'$TightSchema'.'|'.0.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.0.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_6_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
@@ -1849,10 +1847,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_7_map_default (.'$TightSchema'.'|'.1.default)
     public boolean _jm_f_15(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.1.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_7_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
@@ -2077,10 +2073,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_8_map_default (.'$TightSchema'.'|'.2.default)
     public boolean _jm_f_26(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.2.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_8_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
@@ -2440,10 +2434,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_9_map_default (.'$TightSchema'.'|'.3.default)
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.3.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_9_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
@@ -2752,10 +2744,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_10_map_default (.'$TightSchema'.'|'.4.default)
     public boolean _jm_f_60(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.4.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_10_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
@@ -3028,10 +3018,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_11_map_default (.'$TightSchema'.'|'.5.default)
     public boolean _jm_f_75(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.5.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_11_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
@@ -3316,10 +3304,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_12_map_default (.'$TightSchema'.'|'.6.default)
     public boolean _jm_f_91(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.6.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_12_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
@@ -3688,19 +3674,15 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check _jm_obj_13_map_const (.'$TightSchema'.'|'.7.const)
     public boolean _jm_f_108(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.const
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_13_map_default (.'$TightSchema'.'|'.7.default)
     public boolean _jm_f_109(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'.'|'.7.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_13_map_deprecated (.'$TightSchema'.'|'.7.deprecated)

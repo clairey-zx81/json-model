@@ -153,10 +153,8 @@ public class json_schema_draft_07 extends ModelChecker
     // check json_model_6_map_const (.'$ObjectSchema'.const)
     public boolean _jm_f_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ObjectSchema'.const
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_6_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -186,10 +184,8 @@ public class json_schema_draft_07 extends ModelChecker
     // check json_model_6_map_default (.'$ObjectSchema'.default)
     public boolean _jm_f_5(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ObjectSchema'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_6_map_definitions (.'$ObjectSchema'.definitions)

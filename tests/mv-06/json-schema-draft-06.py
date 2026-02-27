@@ -112,17 +112,13 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_7_map_const (.'$ObjectSchema'.const)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ObjectSchema'.const
-    res = True
-    return res
+    return True
 
 # check json_model_7_map_default (.'$ObjectSchema'.default)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ObjectSchema'.default
-    res = True
-    return res
+    return True
 
 # check json_model_7_map_definitions (.'$ObjectSchema'.definitions)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:

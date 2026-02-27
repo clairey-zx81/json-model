@@ -594,10 +594,8 @@ public class json_schema_draft_next extends ModelChecker
     // check json_model_12_map_const (.'$validation'.const)
     public boolean _jm_f_0(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$validation'.const
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_12_map_dependentRequired (.'$validation'.dependentRequired)
@@ -1095,10 +1093,8 @@ public class json_schema_draft_next extends ModelChecker
     // check json_model_15_map_const (.'$ObjectSchema'.const)
     public boolean _jm_f_19(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ObjectSchema'.const
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_15_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
@@ -1128,10 +1124,8 @@ public class json_schema_draft_next extends ModelChecker
     // check json_model_15_map_default (.'$ObjectSchema'.default)
     public boolean _jm_f_22(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ObjectSchema'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_15_map_dependentRequired (.'$ObjectSchema'.dependentRequired)

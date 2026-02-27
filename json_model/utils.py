@@ -288,23 +288,22 @@ def constant_values(model: ModelType, mpath: ModelPath) -> tuple[bool, list[Valu
         c, v = constant_value(model, mpath)
         return c, ([v] if c else None)
 
-def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, type|None]:
-    first, current_type = True, None
-    for i, m in enumerate(models):
-        is_known, has_type = model_type(m, mpath + [i])
-        if is_known:
-            if first:
-                current_type = has_type
-                first = False
-            elif current_type != has_type:
-                return False, None
-        else:
-            return False, None
-    if first:
-        # empty list
-        return False, None
-    else:
-        return True, current_type
+def resolve_model(m: ModelType, jm, path: ModelPath) -> ModelType:
+    """Follow definitions and @ to find the underlying type, if possible."""
+    changed, resolved = True, set()
+    while changed and jm._id not in resolved:
+        changed = False
+        if jm._isRef(m):
+            njm = jm.resolveRef(m, path)
+            changed = jm._id != njm._id
+            if changed:
+                resolved.add(jm._id)
+                path = path + [m]
+                jm = njm
+                m = njm._model
+        if isinstance(m, dict) and "@" in m:
+            m, changed, path = m["@"], True, (path + ["@"])
+    return m
 
 def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, type|None]:
     """Tell the type of the model, if known."""
@@ -366,22 +365,23 @@ def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, type|None]:
         case _:
             raise ModelError(f"unexpected model: {model} ({tname(model)})")
 
-def resolve_model(m: ModelType, jm, path: ModelPath) -> ModelType:
-    """Follow definitions and @ to find the underlying type, if possible."""
-    changed, resolved = True, set()
-    while changed and jm._id not in resolved:
-        changed = False
-        if jm._isRef(m):
-            njm = jm.resolveRef(m, path)
-            changed = jm._id != njm._id
-            if changed:
-                resolved.add(jm._id)
-                path = path + [m]
-                jm = njm
-                m = njm._model
-        if isinstance(m, dict) and "@" in m:
-            m, changed, path = m["@"], True, (path + ["@"])
-    return m
+def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, type|None]:
+    first, current_type = True, None
+    for i, m in enumerate(models):
+        is_known, has_type = model_type(m, mpath + [i])
+        if is_known:
+            if first:
+                current_type = has_type
+                first = False
+            elif current_type != has_type:
+                return False, None
+        else:
+            return False, None
+    if first:
+        # empty list
+        return False, None
+    else:
+        return True, current_type
 
 def openfiles(args: list[str] = []):
     if not args:  # empty list is same as stdin
@@ -894,6 +894,7 @@ def is_base_model(m: ModelType) -> type|None:
     elif isinstance(m, list):
         return list if m == [ "$ANY" ] else None
     elif isinstance(m, dict):
+        # TODO handle comments
         return dict if m == {"": "$ANY"} else None
     elif isinstance(m, str):
         if m in ("", "$STRING"):

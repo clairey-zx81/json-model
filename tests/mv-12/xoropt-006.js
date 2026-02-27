@@ -15,11 +15,9 @@ var check_model_map = new Map()
 // check $None (.'$None')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$None'
-    res = false;
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$None']", path])
-    return res;
+    return false;
 }
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null

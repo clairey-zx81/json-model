@@ -287,10 +287,8 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_12_map_default (.'$tight#String'.default)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$tight#String'.default
-    res = True
-    return res
+    return True
 
 # check json_model_12_map_definitions (.'$tight#String'.definitions)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -454,10 +452,8 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_13_map_default (.'$tight#Array'.default)
 def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$tight#Array'.default
-    res = True
-    return res
+    return True
 
 # check json_model_13_map_definitions (.'$tight#Array'.definitions)
 def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -645,10 +641,8 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_14_map_default (.'$tight#Object'.default)
 def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$tight#Object'.default
-    res = True
-    return res
+    return True
 
 # check json_model_14_map_definitions (.'$tight#Object'.definitions)
 def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -833,10 +827,8 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_15_map_default (.'$tight#Integer'.default)
 def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$tight#Integer'.default
-    res = True
-    return res
+    return True
 
 # check json_model_15_map_definitions (.'$tight#Integer'.definitions)
 def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -983,10 +975,8 @@ def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_16_map_default (.'$tight#Number'.default)
 def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$tight#Number'.default
-    res = True
-    return res
+    return True
 
 # check json_model_16_map_definitions (.'$tight#Number'.definitions)
 def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:

@@ -881,10 +881,8 @@ public class json_schema_linter extends ModelChecker
     // check json_model_10_map_default (.'$String'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$String'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_10_map_definitions (.'$String'.definitions)
@@ -1148,10 +1146,8 @@ public class json_schema_linter extends ModelChecker
     // check json_model_11_map_default (.'$Array'.default)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Array'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_11_map_definitions (.'$Array'.definitions)
@@ -1429,10 +1425,8 @@ public class json_schema_linter extends ModelChecker
     // check json_model_12_map_default (.'$Object'.default)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Object'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_12_map_definitions (.'$Object'.definitions)

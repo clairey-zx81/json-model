@@ -418,10 +418,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_12_map_default (.'$tight#String'.default)
     public boolean _jm_f_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#String'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_12_map_definitions (.'$tight#String'.definitions)
@@ -676,10 +674,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_13_map_default (.'$tight#Array'.default)
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Array'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_13_map_definitions (.'$tight#Array'.definitions)
@@ -978,10 +974,8 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check json_model_14_map_default (.'$tight#Object'.default)
     public boolean _jm_f_32(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$tight#Object'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_14_map_definitions (.'$tight#Object'.definitions)

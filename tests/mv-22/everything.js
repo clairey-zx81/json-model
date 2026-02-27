@@ -2531,10 +2531,8 @@ function _jm_obj_30(val, path, rep)
 // check _jm_obj_31_map_ANY (.predefs.ANY)
 function _jm_f_0(val, path, rep)
 {
-    let res;
     // .predefs.ANY
-    res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_31_map_BOOL (.predefs.BOOL)
@@ -2708,11 +2706,9 @@ function _jm_f_14(val, path, rep)
 // check _jm_obj_31_map_NONE (.predefs.NONE)
 function _jm_f_15(val, path, rep)
 {
-    let res;
     // .predefs.NONE
-    res = false;
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.predefs.NONE]", path])
-    return res;
+    return false;
 }
 
 // check _jm_obj_31_map_NULL (.predefs.NULL)

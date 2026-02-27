@@ -596,20 +596,16 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $Any (.'$Any')
 static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$Any'
-    res = true;
-    return res;
+    return true;
 }
 
 // check $None (.'$None')
 static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$None'
-    res = false;
     if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NONE\" [.'$None']", path);
-    return res;
+    return false;
 }
 
 // check $CModel (.'$CModel')

@@ -2163,10 +2163,8 @@ function _jm_f_3(val, path, rep)
 // check _jm_obj_12_map_default (.'$TightSchema'.'|'.2.default)
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .'$TightSchema'.'|'.2.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_12_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
@@ -2517,10 +2515,8 @@ function _jm_f_19(val, path, rep)
 // check _jm_obj_13_map_default (.'$TightSchema'.'|'.3.default)
 function _jm_f_20(val, path, rep)
 {
-    let res;
     // .'$TightSchema'.'|'.3.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_13_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
@@ -2820,10 +2816,8 @@ function _jm_f_37(val, path, rep)
 // check _jm_obj_14_map_default (.'$TightSchema'.'|'.4.default)
 function _jm_f_38(val, path, rep)
 {
-    let res;
     // .'$TightSchema'.'|'.4.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_14_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
@@ -3087,10 +3081,8 @@ function _jm_f_52(val, path, rep)
 // check _jm_obj_15_map_default (.'$TightSchema'.'|'.5.default)
 function _jm_f_53(val, path, rep)
 {
-    let res;
     // .'$TightSchema'.'|'.5.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_15_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
@@ -3366,10 +3358,8 @@ function _jm_f_68(val, path, rep)
 // check _jm_obj_16_map_default (.'$TightSchema'.'|'.6.default)
 function _jm_f_69(val, path, rep)
 {
-    let res;
     // .'$TightSchema'.'|'.6.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_16_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
@@ -3717,19 +3707,15 @@ function _jm_f_85(val, path, rep)
 // check _jm_obj_17_map_const (.'$TightSchema'.'|'.7.const)
 function _jm_f_86(val, path, rep)
 {
-    let res;
     // .'$TightSchema'.'|'.7.const
-    res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_17_map_default (.'$TightSchema'.'|'.7.default)
 function _jm_f_87(val, path, rep)
 {
-    let res;
     // .'$TightSchema'.'|'.7.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check _jm_obj_17_map_deprecated (.'$TightSchema'.'|'.7.deprecated)

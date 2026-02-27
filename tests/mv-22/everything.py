@@ -1874,10 +1874,8 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_47_map_ANY (.predefs.ANY)
 def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .predefs.ANY
-    res = True
-    return res
+    return True
 
 # check _jm_f_47_map_BOOL (.predefs.BOOL)
 def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1993,11 +1991,9 @@ def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_f_47_map_NONE (.predefs.NONE)
 def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .predefs.NONE
-    res = False
     rep is None or rep.append(("unexpected value for model \"$NONE\" [.predefs.NONE]", path))
-    return res
+    return False
 
 # check _jm_f_47_map_NULL (.predefs.NULL)
 def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:

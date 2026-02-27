@@ -259,10 +259,10 @@ def _ultimate_type(jm: JsonModel, model: ModelType, names: set[str]) -> type|Non
             return type(model)
 
 def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
-    """Get the utimate type by following definitions.
+    """Get the utimate JSON type by following definitions.
 
     Return _None_ if unknown, eg several are possible.
-    Note: this is also return of the type system is not feasible, eg "&(int, str)"
+    Note: this is also returned iff the type system is not feasible, eg "&(int, str)"
     """
     return _ultimate_type(jm, model, set())
 

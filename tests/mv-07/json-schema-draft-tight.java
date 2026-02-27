@@ -802,10 +802,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_9_map_default (.'$metas'.default)
     public boolean _jm_f_7(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$metas'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_9_map_definitions (.'$metas'.definitions)
@@ -1081,10 +1079,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_10_map_default (.'$String'.default)
     public boolean _jm_f_23(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$String'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_10_map_definitions (.'$String'.definitions)
@@ -1435,10 +1431,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_11_map_default (.'$Array'.default)
     public boolean _jm_f_43(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Array'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_11_map_definitions (.'$Array'.definitions)
@@ -1803,10 +1797,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_12_map_default (.'$Object'.default)
     public boolean _jm_f_63(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Object'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_12_map_definitions (.'$Object'.definitions)
@@ -2226,10 +2218,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_13_map_default (.'$Integer'.default)
     public boolean _jm_f_84(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Integer'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_13_map_definitions (.'$Integer'.definitions)
@@ -2555,10 +2545,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_14_map_default (.'$Number'.default)
     public boolean _jm_f_102(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Number'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_14_map_definitions (.'$Number'.definitions)
@@ -2884,10 +2872,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_15_map_default (.'$Bool'.default)
     public boolean _jm_f_120(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Bool'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_15_map_definitions (.'$Bool'.definitions)
@@ -3189,10 +3175,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_16_map_default (.'$Null'.default)
     public boolean _jm_f_136(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Null'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_16_map_definitions (.'$Null'.definitions)
@@ -3494,10 +3478,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_17_map_default (.'$AllOf'.default)
     public boolean _jm_f_152(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$AllOf'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_17_map_definitions (.'$AllOf'.definitions)
@@ -3799,10 +3781,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_18_map_default (.'$AnyOf'.default)
     public boolean _jm_f_168(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$AnyOf'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_18_map_definitions (.'$AnyOf'.definitions)
@@ -4104,10 +4084,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_19_map_default (.'$OneOf'.default)
     public boolean _jm_f_184(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$OneOf'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_19_map_definitions (.'$OneOf'.definitions)
@@ -4409,10 +4387,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_20_map_default (.'$Enum'.default)
     public boolean _jm_f_200(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Enum'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_20_map_definitions (.'$Enum'.definitions)
@@ -4714,10 +4690,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_21_map_default (.'$Const'.default)
     public boolean _jm_f_216(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Const'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_21_map_definitions (.'$Const'.definitions)
@@ -5019,10 +4993,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_22_map_default (.'$Ref'.default)
     public boolean _jm_f_232(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Ref'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_22_map_definitions (.'$Ref'.definitions)
@@ -5324,10 +5296,8 @@ public class json_schema_draft_tight extends ModelChecker
     // check json_model_23_map_default (.'$DynRef'.default)
     public boolean _jm_f_248(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$DynRef'.default
-        res = true;
-        return res;
+        return true;
     }
 
     // check json_model_23_map_definitions (.'$DynRef'.definitions)

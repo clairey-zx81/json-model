@@ -4500,10 +4500,8 @@ function _jm_f_3(val, path, rep)
 // check json_model_32_map_const (.'$Schema'.const)
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .'$Schema'.const
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_contentEncoding (.'$Schema'.contentEncoding)
@@ -4533,10 +4531,8 @@ function _jm_f_6(val, path, rep)
 // check json_model_32_map_default (.'$Schema'.default)
 function _jm_f_7(val, path, rep)
 {
-    let res;
     // .'$Schema'.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_dependentRequired (.'$Schema'.dependentRequired)
@@ -4628,10 +4624,8 @@ function _jm_f_12(val, path, rep)
 // check json_model_32_map_example (.'$Schema'.example)
 function _jm_f_13(val, path, rep)
 {
-    let res;
     // .'$Schema'.example
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_32_map_examples (.'$Schema'.examples)
@@ -6422,10 +6416,8 @@ function _jm_f_32(val, path, rep)
 // check json_model_59_map_const (.'$schema#ObjectSchema'.const)
 function _jm_f_33(val, path, rep)
 {
-    let res;
     // .'$schema#ObjectSchema'.const
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_59_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -6455,10 +6447,8 @@ function _jm_f_35(val, path, rep)
 // check json_model_59_map_default (.'$schema#ObjectSchema'.default)
 function _jm_f_36(val, path, rep)
 {
-    let res;
     // .'$schema#ObjectSchema'.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_59_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)

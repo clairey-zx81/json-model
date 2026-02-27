@@ -107,11 +107,14 @@ def and_not_simpler(jm: JsonModel) -> bool:
                     break
             if idx is None:
                 return model
+
             contain, notm = ands[1-idx], ands[idx]
-            # FIXME model eq
-            if contain != "" and not (isinstance(contain, (int, float)) or contain == -1):
-                return model
-            tcontain = type(contain)
+
+            if (tcontain := is_base_model(contain)) != None:
+                # do not bother with null and bools
+                if tcontain in (bool, type(None)):
+                    return model
+                # we have int, float, str, list or dict
 
             def _same_type(m) -> bool:
                 ok, tm = model_type(m, path)
@@ -161,6 +164,7 @@ def and_to_merge(jm: JsonModel) -> bool:
     log.debug(f"{jm._id}: a2m {changes}")
     return changes > 0
 
+# FIXME this is the inverse of no2n in some cases…
 def xor_to_or(jm: JsonModel) -> bool:
     """Change xor to less coslty or if possible."""
 
@@ -171,6 +175,10 @@ def xor_to_or(jm: JsonModel) -> bool:
         if isinstance(model, dict) and "^" in model:
             xor, lpath = model["^"], path + ["^"]
             assert isinstance(xor, list) and "|" not in model
+
+            # FIXME is this enough?
+            if "$ANY" in xor:  # this is really a not
+                return model
 
             consts = [constant_values(m, lpath + [i]) for i, m in enumerate(xor)]
 
@@ -206,9 +214,10 @@ def xor_to_or(jm: JsonModel) -> bool:
 
         return model
 
+    # log.debug(f"{jm._id}: x2o in = {jm._model}")
     jm._model = recModel(jm._model, builtFlt, x2oRwt)
-
     log.debug(f"{jm._id}: x2o {changes}")
+    # log.debug(f"{jm._id}: x2o ou = {jm._model}")
 
     return changes > 0
 
@@ -240,9 +249,10 @@ def notor_to_not(jm: JsonModel) -> bool:
                 model["^"] = [lox[gen_idx]] + lor
         return model
 
+    # log.debug(f"{jm._id}: no2n in = {jm._model}")
     jm._model = recModel(jm._model, builtFlt, no2nRwt)
-
     log.debug(f"{jm._id}: no2n {changes}")
+    # log.debug(f"{jm._id}: no2n ou = {jm._model}")
     return changes > 0
 
 def flatten(jm: JsonModel) -> bool:
@@ -417,9 +427,7 @@ def partial_eval(jm: JsonModel):
                     return "$NONE"
 
                 # &( T, <T>...) -> &(<T>...)
-                tland = list(map(lambda m: model_type(m, path), land))
-                log.debug(f"tland = {tland}")
-                if same_types(tland):
+                if None not in utypes and len(utypes) == 1:
                     remove = []
                     for m in land:
                         if is_base_model(m):
@@ -578,9 +586,10 @@ def partial_eval(jm: JsonModel):
                     del model[kept]
         return model
 
+    # log.debug(f"{jm._id}: eval in = {jm._model}")
     jm._model = recModel(jm._model, allFlt, evalRwt)
-
     log.debug(f"{jm._id}: eval {changes}")
+    # log.debug(f"{jm._id}: eval ou = {jm._model}")
     return changes > 0
 
 # NOTE could also follow empty @
@@ -774,9 +783,12 @@ def simplify(jm: JsonModel):
 
 def optimize(jm: JsonModel, *, debug: bool = False):
     """Optimize model, probably not very efficient."""
+    loops = 100
     changed = True
-    while changed:
+
+    while changed and loops > 0:
         # print(f"model: {jm._model}")
+        loops -= 1
         changed = False
         changed |= const_prop(jm)
         changed |= simplify(jm)
@@ -786,3 +798,6 @@ def optimize(jm: JsonModel, *, debug: bool = False):
         changed |= and_to_merge(jm)
         changed |= xor_to_or(jm)
         changed |= notor_to_not(jm)
+
+    if loops == 0:
+        log.error("shorten optim loop on {jm._id}")

@@ -415,20 +415,16 @@ function json_model_15(val, path, rep)
 // check $Any (.'$Any')
 function json_model_16(val, path, rep)
 {
-    let res;
     // .'$Any'
-    res = true;
-    return res;
+    return true;
 }
 
 // check $None (.'$None')
 function json_model_17(val, path, rep)
 {
-    let res;
     // .'$None'
-    res = false;
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$None']", path])
-    return res;
+    return false;
 }
 
 // check $CModel (.'$CModel')

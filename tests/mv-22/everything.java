@@ -2795,10 +2795,8 @@ public class everything extends ModelChecker
     // check _jm_f_36_map_ANY (.predefs.ANY)
     public boolean _jm_f_37(Object val, Path path, Report rep)
     {
-        boolean res;
         // .predefs.ANY
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_f_36_map_BOOL (.predefs.BOOL)
@@ -2972,11 +2970,9 @@ public class everything extends ModelChecker
     // check _jm_f_36_map_NONE (.predefs.NONE)
     public boolean _jm_f_52(Object val, Path path, Report rep)
     {
-        boolean res;
         // .predefs.NONE
-        res = false;
         if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.predefs.NONE]", path);
-        return res;
+        return false;
     }
 
     // check _jm_f_36_map_NULL (.predefs.NULL)

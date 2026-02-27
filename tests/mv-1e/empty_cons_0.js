@@ -14,41 +14,33 @@ var check_model_map = new Map()
 // check $n0 (.'$n0')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$n0'
-    res = false;
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$n0']", path])
-    return res;
+    return false;
 }
 
 // check $n1 (.'$n1')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$n1'
-    res = false;
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$n1']", path])
-    return res;
+    return false;
 }
 
 // check $n2 (.'$n2')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$n2'
-    res = false;
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$n2']", path])
-    return res;
+    return false;
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    res = false;
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.]", path])
-    return res;
+    return false;
 }
 
 

@@ -154,19 +154,15 @@ function _jm_f_0(val, path, rep)
 // check json_model_7_map_const (.'$ObjectSchema'.const)
 function _jm_f_1(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.const
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_7_map_default (.'$ObjectSchema'.default)
 function _jm_f_2(val, path, rep)
 {
-    let res;
     // .'$ObjectSchema'.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_7_map_definitions (.'$ObjectSchema'.definitions)

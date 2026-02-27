@@ -25,25 +25,19 @@ check_model_map: PropMap
 
 # check $false (.'$false')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$false'
-    res = False
     rep is None or rep.append(("unexpected value for model \"$NONE\" [.'$false']", path))
-    return res
+    return False
 
 # check $true (.'$true')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$true'
-    res = True
-    return res
+    return True
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    res = True
-    return res
+    return True
 
 
 # initialization guard

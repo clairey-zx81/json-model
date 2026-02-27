@@ -90,10 +90,8 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_1_map_default (.default)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .default
-    res = True
-    return res
+    return True
 
 # check json_model_1_map_description (.description)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:

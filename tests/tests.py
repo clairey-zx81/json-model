@@ -230,8 +230,8 @@ EXPECT: dict[str, int] = {
     "mv-28:models": 7,
     "mv-28:values": 159,
     # mv-29: extensions
-    "mv-29:models": 3,
-    "mv-29:values": 57,
+    "mv-29:models": 4,
+    "mv-29:values": 68,
     "mv-29:mod-opts": {"extend": True},
     "mv-29:models:errors-jsg": 3,
     "mv-29:models:errors-jsm": 3,

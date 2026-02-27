@@ -93,10 +93,8 @@ function _jm_f_1(val, path, rep)
 // check json_model_8_map_const (.'$schema#ObjectSchema'.const)
 function _jm_f_2(val, path, rep)
 {
-    let res;
     // .'$schema#ObjectSchema'.const
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_8_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
@@ -126,10 +124,8 @@ function _jm_f_4(val, path, rep)
 // check json_model_8_map_default (.'$schema#ObjectSchema'.default)
 function _jm_f_5(val, path, rep)
 {
-    let res;
     // .'$schema#ObjectSchema'.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_8_map_definitions (.'$schema#ObjectSchema'.definitions)

@@ -392,10 +392,8 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_12_map_const (.'$validation'.const)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$validation'.const
-    res = True
-    return res
+    return True
 
 # check json_model_12_map_dependentRequired (.'$validation'.dependentRequired)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -701,10 +699,8 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_15_map_const (.'$ObjectSchema'.const)
 def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ObjectSchema'.const
-    res = True
-    return res
+    return True
 
 # check json_model_15_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
 def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -724,10 +720,8 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_15_map_default (.'$ObjectSchema'.default)
 def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$ObjectSchema'.default
-    res = True
-    return res
+    return True
 
 # check json_model_15_map_dependentRequired (.'$ObjectSchema'.dependentRequired)
 def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:

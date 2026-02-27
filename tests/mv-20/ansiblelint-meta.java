@@ -7102,10 +7102,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
     public boolean _jm_f_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
@@ -7340,10 +7338,8 @@ public class ansiblelint_meta extends ModelChecker
     // check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-        res = true;
-        return res;
+        return true;
     }
 
     // check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)

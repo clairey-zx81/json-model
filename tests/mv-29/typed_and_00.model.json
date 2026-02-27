@@ -1,0 +1,12 @@
+{
+  "#": "remove redundant base object from and",
+  "$": {
+    "foo": {
+      "bla": 1
+    }
+  },
+  "&": [
+    { "": "$ANY" },
+    "$foo"
+  ]
+}

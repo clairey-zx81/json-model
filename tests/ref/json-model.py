@@ -336,18 +336,14 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Any (.'$Any')
 def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Any'
-    res = True
-    return res
+    return True
 
 # check $None (.'$None')
 def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$None'
-    res = False
     rep is None or rep.append(("unexpected value for model \"$NONE\" [.'$None']", path))
-    return res
+    return False
 
 # check $CModel (.'$CModel')
 def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:

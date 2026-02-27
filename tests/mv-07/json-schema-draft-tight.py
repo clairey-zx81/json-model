@@ -517,10 +517,8 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_9_map_default (.'$metas'.default)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$metas'.default
-    res = True
-    return res
+    return True
 
 # check json_model_9_map_definitions (.'$metas'.definitions)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -696,10 +694,8 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_10_map_default (.'$String'.default)
 def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$String'.default
-    res = True
-    return res
+    return True
 
 # check json_model_10_map_definitions (.'$String'.definitions)
 def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -924,10 +920,8 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_11_map_default (.'$Array'.default)
 def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Array'.default
-    res = True
-    return res
+    return True
 
 # check json_model_11_map_definitions (.'$Array'.definitions)
 def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1160,10 +1154,8 @@ def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_12_map_default (.'$Object'.default)
 def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Object'.default
-    res = True
-    return res
+    return True
 
 # check json_model_12_map_definitions (.'$Object'.definitions)
 def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1425,10 +1417,8 @@ def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_13_map_default (.'$Integer'.default)
 def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Integer'.default
-    res = True
-    return res
+    return True
 
 # check json_model_13_map_definitions (.'$Integer'.definitions)
 def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1636,10 +1626,8 @@ def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_14_map_default (.'$Number'.default)
 def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Number'.default
-    res = True
-    return res
+    return True
 
 # check json_model_14_map_definitions (.'$Number'.definitions)
 def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1847,10 +1835,8 @@ def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_15_map_default (.'$Bool'.default)
 def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Bool'.default
-    res = True
-    return res
+    return True
 
 # check json_model_15_map_definitions (.'$Bool'.definitions)
 def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2042,10 +2028,8 @@ def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_16_map_default (.'$Null'.default)
 def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Null'.default
-    res = True
-    return res
+    return True
 
 # check json_model_16_map_definitions (.'$Null'.definitions)
 def _jm_f_137(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2237,10 +2221,8 @@ def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_17_map_default (.'$AllOf'.default)
 def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$AllOf'.default
-    res = True
-    return res
+    return True
 
 # check json_model_17_map_definitions (.'$AllOf'.definitions)
 def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2432,10 +2414,8 @@ def _jm_f_167(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_18_map_default (.'$AnyOf'.default)
 def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$AnyOf'.default
-    res = True
-    return res
+    return True
 
 # check json_model_18_map_definitions (.'$AnyOf'.definitions)
 def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2627,10 +2607,8 @@ def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_19_map_default (.'$OneOf'.default)
 def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$OneOf'.default
-    res = True
-    return res
+    return True
 
 # check json_model_19_map_definitions (.'$OneOf'.definitions)
 def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2822,10 +2800,8 @@ def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_20_map_default (.'$Enum'.default)
 def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Enum'.default
-    res = True
-    return res
+    return True
 
 # check json_model_20_map_definitions (.'$Enum'.definitions)
 def _jm_f_201(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -3017,10 +2993,8 @@ def _jm_f_215(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_21_map_default (.'$Const'.default)
 def _jm_f_216(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Const'.default
-    res = True
-    return res
+    return True
 
 # check json_model_21_map_definitions (.'$Const'.definitions)
 def _jm_f_217(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -3212,10 +3186,8 @@ def _jm_f_231(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_22_map_default (.'$Ref'.default)
 def _jm_f_232(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Ref'.default
-    res = True
-    return res
+    return True
 
 # check json_model_22_map_definitions (.'$Ref'.definitions)
 def _jm_f_233(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -3407,10 +3379,8 @@ def _jm_f_247(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_23_map_default (.'$DynRef'.default)
 def _jm_f_248(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$DynRef'.default
-    res = True
-    return res
+    return True
 
 # check json_model_23_map_definitions (.'$DynRef'.definitions)
 def _jm_f_249(val: Jsonable, path: Path, rep: Report) -> bool:

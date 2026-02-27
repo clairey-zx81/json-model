@@ -4398,10 +4398,8 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_47_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$GalaxyInfoModel'.'|'.1.cloud_platforms
-    res = True
-    return res
+    return True
 
 # check _jm_obj_47_map_company (.'$GalaxyInfoModel'.'|'.1.company)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -4551,10 +4549,8 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check _jm_obj_48_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-    res = True
-    return res
+    return True
 
 # check _jm_obj_48_map_company (.'$GalaxyInfoModel'.'|'.2.company)
 def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:

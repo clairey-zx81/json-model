@@ -94,10 +94,8 @@ function _jm_f_3(val, path, rep)
 // check json_model_3_map_default (.'$schema'.default)
 function _jm_f_4(val, path, rep)
 {
-    let res;
     // .'$schema'.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_3_map_definitions (.'$schema'.definitions)

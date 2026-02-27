@@ -110,6 +110,9 @@ class Language:
         self.set_caps = tuple(set_caps)      # constant types in a set
         self.reindent = False
 
+        # Hmmm…
+        self._lang = self
+
     def version(self) -> str:
         """Version string in generated code."""
         return self._version.split(".", 1)[0] if self._short_version else self._version

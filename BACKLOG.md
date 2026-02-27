@@ -21,6 +21,10 @@
 - [x] backend: add support for `.in` extension without other constraints
 - [x] tests: minimal tests for `.mo` and `.in`
 - [x] \*-backend:: add support for `.mo` and `.in` extensions
+- [x] optim: optimize typed and _"" & "xxx"_ involving references
+- [x] optim: arbitrary guard against infinite loops
+- [x] ir: fix stupid bug in ir opts
+- [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] tests: rerun with updated JSTS before release
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)

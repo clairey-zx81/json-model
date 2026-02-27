@@ -453,20 +453,16 @@ public class json_model extends ModelChecker
     // check $Any (.'$Any')
     public boolean json_model_16(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Any'
-        res = true;
-        return res;
+        return true;
     }
 
     // check $None (.'$None')
     public boolean json_model_17(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$None'
-        res = false;
         if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.'$None']", path);
-        return res;
+        return false;
     }
 
     // check $CModel (.'$CModel')

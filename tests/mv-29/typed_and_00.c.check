@@ -1,0 +1,11 @@
+typed_and_00.values.json[0]: PASS
+typed_and_00.values.json[1]: FAIL (.: missing mandatory prop <bla> [.'$foo'])
+typed_and_00.values.json[2]: FAIL (.bla: invalid mandatory prop value [.'$foo'.bla]; .bla: not a 1 strict int [.'$foo'.bla])
+typed_and_00.values.json[3]: FAIL (.: not an object [.'$foo'])
+typed_and_00.values.json[4]: FAIL (.: not an object [.'$foo'])
+typed_and_00.values.json[5]: FAIL (.: not an object [.'$foo'])
+typed_and_00.values.json[6]: FAIL (.: not an object [.'$foo'])
+typed_and_00.values.json[7]: FAIL (.: not an object [.'$foo'])
+typed_and_00.values.json[8]: FAIL (.: not an object [.'$foo'])
+typed_and_00.values.json[9]: FAIL (.: not an object [.'$foo'])
+typed_and_00.values.json[10]: FAIL (.: not an object [.'$foo'])

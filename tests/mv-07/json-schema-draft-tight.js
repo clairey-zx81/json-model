@@ -1421,10 +1421,8 @@ function _jm_f_6(val, path, rep)
 // check json_model_11_map_default (.'$Array'.default)
 function _jm_f_7(val, path, rep)
 {
-    let res;
     // .'$Array'.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_11_map_definitions (.'$Array'.definitions)
@@ -1777,10 +1775,8 @@ function _jm_f_26(val, path, rep)
 // check json_model_12_map_default (.'$Object'.default)
 function _jm_f_27(val, path, rep)
 {
-    let res;
     // .'$Object'.default
-    res = true;
-    return res;
+    return true;
 }
 
 // check json_model_12_map_definitions (.'$Object'.definitions)

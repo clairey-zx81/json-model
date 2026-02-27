@@ -116,10 +116,8 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_17_map_const (.'$schema#ObjectSchema'.const)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema#ObjectSchema'.const
-    res = True
-    return res
+    return True
 
 # check json_model_17_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -139,10 +137,8 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check json_model_17_map_default (.'$schema#ObjectSchema'.default)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$schema#ObjectSchema'.default
-    res = True
-    return res
+    return True
 
 # check json_model_17_map_definitions (.'$schema#ObjectSchema'.definitions)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
