@@ -12,10 +12,12 @@ DECLARE
   res bool;
   arr_0_idx INT8;
   arr_0_item JSONB;
+  arr_1_inlen int;
   arr_1_idx INT8;
   arr_1_item JSONB;
+  arr_1_inres bool;
 BEGIN
-  -- an array of string with one starting with an a
+  -- .in with constraint: two strings starts with an a
   -- .
   -- .'@'
   res := JSONB_TYPEOF(val) = 'array';
@@ -29,18 +31,19 @@ BEGIN
       END IF;
     END LOOP;
   END IF;
-  -- .in test at .
+  -- .in len at .
+  arr_1_inlen := 0;
   IF res THEN
-    res := FALSE;
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'.in'
       -- "/^a/"
-      res := JSONB_TYPEOF(arr_1_item) = 'string' AND STARTS_WITH(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), 'a');
-      IF res THEN
-        EXIT;
+      arr_1_inres := JSONB_TYPEOF(arr_1_item) = 'string' AND STARTS_WITH(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), 'a');
+      IF arr_1_inres THEN
+        arr_1_inlen := arr_1_inlen + 1;
       END IF;
     END LOOP;
+    res := arr_1_inlen = 2;
   END IF;
   RETURN res;
 END;

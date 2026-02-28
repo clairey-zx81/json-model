@@ -14,7 +14,7 @@ var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    // an array of string with one starting with an a
+    // .in with constraint: two strings starts with an a
     // .
     // .'@'
     let res = Array.isArray(val);
@@ -33,31 +33,36 @@ function json_model_1(val, path, rep)
             }
         }
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'@']", path])
+    }
+    // .in len at .
+    let arr_1_inlen = 0;
     if (res)
     {
-        res = false;
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
         {
             let arr_1_item = val[arr_1_idx]
             let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
             // .'.in'
             // "/^a/"
-            res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && arr_1_item.startsWith("a");
-            if (res)
+            let arr_1_inres = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && arr_1_item.startsWith("a");
+            if (arr_1_inres)
             {
-                break;
+                arr_1_inlen += 1;
             }
             else
             {
                 rep !== null && rep.push(["unexpected value for model \"/^a/\" [.'.in']", (path ? arr_1_lpath : null)])
             }
         }
+        res = arr_1_inlen == 2;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.]", path])
+        }
     }
-    else
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'@']", path])
-    }
-    // .in test at .
     return res;
 }
 

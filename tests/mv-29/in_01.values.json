@@ -1,0 +1,21 @@
+[
+  [ true,  ["a", "a"] ],
+  [ true,  ["z", "aa", "w", "y", "ab"] ],
+  [ false, [] ],
+  [ false, ["a"] ],
+  [ false, ["a", "aa", "aaa"] ],
+  [ false, ["x", "a", "b", "aa", "z", "aaa"] ],
+  [ false, ["b", "a"] ],
+  [ false, ["a", "A"] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, "aa" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ],
+  [ false, {"a": 1, "aa": 2} ]
+]
