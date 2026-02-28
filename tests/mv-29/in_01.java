@@ -13,16 +13,16 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 @SuppressWarnings("unchecked")
-public class in_00 extends ModelChecker
+public class in_01 extends ModelChecker
 {
     static public final String VERSION = "2";
 
-    public Map<String, Checker> in_00_map_pmap;
+    public Map<String, Checker> in_01_map_pmap;
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        // an array of string with one starting with an a
+        // .in with constraint: two strings starts with an a
         // .
         // .'@'
         boolean res = json.isArray(val);
@@ -44,9 +44,14 @@ public class in_00 extends ModelChecker
                 }
             }
         }
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
+        }
+        // .in len at .
+        long arr_1_inlen = 0;
         if (res)
         {
-            res = false;
             int arr_1_idx = -1;
             Iterator<Object> arr_1_item_loop = json.arrayIterator(val);
             while (arr_1_item_loop.hasNext())
@@ -56,22 +61,22 @@ public class in_00 extends ModelChecker
                 Path arr_1_lpath = new Path(arr_1_idx, path);
                 // .'.in'
                 // "/^a/"
-                res = json.isString(arr_1_item) && json.asString(arr_1_item).startsWith("a");
-                if (res)
+                boolean arr_1_inres = json.isString(arr_1_item) && json.asString(arr_1_item).startsWith("a");
+                if (arr_1_inres)
                 {
-                    break;
+                    arr_1_inlen += 1;
                 }
                 else
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^a/\" [.'.in']", (path != null ? arr_1_lpath : null));
                 }
             }
+            res = arr_1_inlen == 2;
+            if (! res)
+            {
+                if (rep != null) rep.addEntry("constraints failed [.]", path);
+            }
         }
-        else
-        {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'@']", path);
-        }
-        // .in test at .
         return res;
     }
 
@@ -81,8 +86,8 @@ public class in_00 extends ModelChecker
         if (!initialized)
         {
             try {
-            in_00_map_pmap = new HashMap<String, Checker>();
-            in_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            in_01_map_pmap = new HashMap<String, Checker>();
+            in_01_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -96,23 +101,23 @@ public class in_00 extends ModelChecker
         if (initialized)
         {
             super.free();
-            in_00_map_pmap = null;
+            in_01_map_pmap = null;
         }
     }
 
     public Checker get(String name)
     {
-        return in_00_map_pmap.get(name);
+        return in_01_map_pmap.get(name);
     }
 
     public Set<String> models()
     {
-        return in_00_map_pmap.keySet();
+        return in_01_map_pmap.keySet();
     }
 
     static public void main(String[] args) throws Exception
     {
-        ModelChecker checker = new in_00();
-        Main.main("in_00", checker, VERSION, args);
+        ModelChecker checker = new in_01();
+        Main.main("in_01", checker, VERSION, args);
     }
 }

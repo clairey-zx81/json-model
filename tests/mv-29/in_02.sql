@@ -10,37 +10,27 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
+  arr_0_inlen int;
   arr_0_idx INT8;
   arr_0_item JSONB;
-  arr_1_idx INT8;
-  arr_1_item JSONB;
+  arr_0_inres bool;
 BEGIN
-  -- an array of string with one starting with an a
+  -- one 1 in the array
   -- .
   -- .'@'
   res := JSONB_TYPEOF(val) = 'array';
+  -- .in len at .
+  arr_0_inlen := 0;
   IF res THEN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
-      -- .'@'.0
-      res := JSONB_TYPEOF(arr_0_item) = 'string';
-      IF NOT res THEN
-        EXIT;
-      END IF;
-    END LOOP;
-  END IF;
-  -- .in test at .
-  IF res THEN
-    res := FALSE;
-    FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_1_item := val -> arr_1_idx;
       -- .'.in'
-      -- "/^a/"
-      res := JSONB_TYPEOF(arr_1_item) = 'string' AND STARTS_WITH(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), 'a');
-      IF res THEN
-        EXIT;
+      arr_0_inres := JSONB_TYPEOF(arr_0_item) = 'number' AND (arr_0_item)::INT8 = (arr_0_item)::FLOAT8 AND (arr_0_item)::INT8 = 1;
+      IF arr_0_inres THEN
+        arr_0_inlen := arr_0_inlen + 1;
       END IF;
     END LOOP;
+    res := arr_0_inlen = 1;
   END IF;
   RETURN res;
 END;
