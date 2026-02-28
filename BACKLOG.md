@@ -2,31 +2,10 @@
 
 ## Current Tasks
 
-- [x] test: improve output determinism
-- [x] container: allow to use `podman` instead of `docker`
-- [x] perf: estimate measure overhead over 100 iterations
-- [x] perf: share overhead estimation between tests
-- [x] perf: try to prevent performance loops from being optimized out with some computation
-- [x] container: add podman-in-podman or docker-in-docker
-- [x] python-backend: add support for embedded nul characters in strings
-- [x] optim: fix inappriopriate model deduplication in or-lists
-- [x] dynamic: allow arbitrary options to dynamic interfaces
-- [x] lang: extend list of predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION
-- [x] bug: fix unwise regex optimization
-- [x] python-backend: add support for `.mo`
-- [x] optim: remove bad transform _A & (T ^ B)) != A ^ B_
-- [x] python-backend: escape more strange characters in string constants
-- [x] perf: do not report broken count if nothing is broken
-- [x] python-backend: numerical workarounds for .mo extension implementation
-- [x] backend: add support for `.in` extension without other constraints
-- [x] tests: minimal tests for `.mo` and `.in`
-- [x] \*-backend:: add support for `.mo` and `.in` extensions
-- [x] optim: optimize typed and _"" & "xxx"_ involving references
-- [x] optim: arbitrary guard against infinite loops
-- [x] ir: fix stupid bug in ir opts
+- [x] pr: publish python jmc package
+- [ ] static: add support for `.in` with constraints
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
-- [ ] tests: rerun with updated JSTS before release
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
 - [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
 - [ ] doc: add _known limitations_ stuff
@@ -110,12 +89,14 @@
 
 - [ ] pr: publish web page
 - [ ] pr: publish python jmc package
+- [ ] pr: publish python jsu package
 - [ ] pr: publish js runtime package
 - [ ] pr: publish pgxn package
 - [ ] pr: publish docker image
 - [ ] pr: publish perl package
 - [ ] pr: publish java package
 - [ ] pr: check jsonschema-benchmark integration
+- [ ] pr: check jsu jsts coverage
 - [ ] pr: renew domain
 
 ## To Do
@@ -779,3 +760,26 @@
 - [x] pr: add explicit winner column to per case perf
 - [x] model: simplify `{"": "$NONE"}`
 - [x] ~model: avoid dead code in `mv-0f/dedup-002`~ (simple pair ok, multiple seldom useful)
+- [x] test: improve output determinism
+- [x] container: allow to use `podman` instead of `docker`
+- [x] perf: estimate measure overhead over 100 iterations
+- [x] perf: share overhead estimation between tests
+- [x] perf: try to prevent performance loops from being optimized out with some computation
+- [x] container: add podman-in-podman or docker-in-docker
+- [x] python-backend: add support for embedded nul characters in strings
+- [x] optim: fix inappriopriate model deduplication in or-lists
+- [x] dynamic: allow arbitrary options to dynamic interfaces
+- [x] lang: extend list of predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION
+- [x] bug: fix unwise regex optimization
+- [x] python-backend: add support for `.mo`
+- [x] optim: remove bad transform _A & (T ^ B)) != A ^ B_
+- [x] python-backend: escape more strange characters in string constants
+- [x] perf: do not report broken count if nothing is broken
+- [x] python-backend: numerical workarounds for .mo extension implementation
+- [x] backend: add support for `.in` extension without other constraints
+- [x] tests: minimal tests for `.mo` and `.in`
+- [x] \*-backend:: add support for `.mo` and `.in` extensions
+- [x] optim: optimize typed and _"" & "xxx"_ involving references
+- [x] optim: arbitrary guard against infinite loops
+- [x] ir: fix stupid bug in ir opts
+- [x] tests: rerun with updated JSTS before release
