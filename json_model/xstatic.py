@@ -279,7 +279,7 @@ class CodeGenerator:
         if has_str and has_flt:
             elim += gen.lcom("cannot mix float and string constraints")
 
-        # per model type
+        # per model type checks
         if tmodel in (bool, type(None)) and (cmp_props or has_unique or has_in):
             elim += gen.lcom("no constraint allowed on bool or null")
             # else type check will be enough, standard case below
@@ -290,11 +290,11 @@ class CodeGenerator:
         elif tmodel in (int, float) and has_str:
             elim += gen.lcom("no string constraints on numbers")
 
-        # NOTE ! and .in require a known array type
+        # ! and .in require a known array type
         if has_unique and tmodel is not list:
             elim += gen.lcom(f"no unique constraint on {tname(tmodel)}")
         if has_in and tmodel is not list:
-            elim += gen.lcom(f"in constraint on {tname(tmodel)}")
+            elim += gen.lcom(f"no in constraint on {tname(tmodel)}")
 
         # TODO value-based elimination
 
@@ -311,29 +311,55 @@ class CodeGenerator:
         if not cmp_props and not has_unique and not has_in:
             return code
 
+        # NOTE we could optimize some stuff, but let us not bother
+        inlen: str|None = None
         if has_in:
-            # .in without comparisons for now (draft7)
-            # if res:
-            #     res = False
-            #     for v in val:
-            #         res = has_in_model(v)
-            #         if res; break;
             arrayid = gen.ident("arr")
             idx, item, lpath = f"{arrayid}_idx", f"{arrayid}_item", f"{arrayid}_lpath"
-            code += (
-                gen.lcom(f".in at {smpath}") +
-                gen.if_stmt(res,
-                    gen.bool_var(res, gen.false()) +
-                    gen.arr_loop(
-                        val, idx, item,
-                        gen.path_var(lpath, gen.path_val(vpath, idx, False, True), True) +
-                        self._compileModel(jm, model[".in"], mpath + [".in"],
-                                           res, item,
-                                           gen.path_lvar(lpath, vpath)) +  # type: ignore
-                        gen.if_stmt(res, gen.brk(), likely=False)
+            if cmp_props:
+                # l = 0
+                # for v in val:
+                #     tres = val_is_model(v, m_in)
+                #     if tres:
+                #         l += 1
+                inlen = f"{arrayid}_inlen"
+                inres = f"{arrayid}_inres"
+                code += (
+                    gen.lcom(f".in len at {smpath}") +
+                    gen.int_var(inlen, gen.const(0), declare=True) +
+                    gen.if_stmt(
+                        res,
+                        gen.arr_loop(
+                            val, idx, item,
+                            gen.path_var(lpath, gen.path_val(vpath, idx, False, True), True) +
+                            gen.bool_var(inres, None, declare=True) +
+                            self._compileModel(jm, model[".in"], mpath + [".in"],
+                                               inres, item,
+                                               gen.path_lvar(lpath, vpath)) +  # type: ignore
+                            gen.if_stmt(inres, gen.inc_var(inlen), likely=True)
+                        )
                     )
                 )
-            )
+            else:
+                # if res:
+                #     res = False
+                #     for v in val:
+                #         res = val_is_model(v, m_in)
+                #         if res; break;
+                code += (
+                    gen.lcom(f".in test at {smpath}") +
+                    gen.if_stmt(res,
+                        gen.bool_var(res, gen.false()) +
+                        gen.arr_loop(
+                            val, idx, item,
+                            gen.path_var(lpath, gen.path_val(vpath, idx, False, True), True) +
+                            self._compileModel(jm, model[".in"], mpath + [".in"],
+                                               res, item,
+                                               gen.path_lvar(lpath, vpath)) +  # type: ignore
+                            gen.if_stmt(res, gen.brk(), likely=False)
+                        )
+                    )
+                )
 
         # shorcut after .in check
         if not cmp_props and not has_unique:
@@ -350,7 +376,7 @@ class CodeGenerator:
                 checks.append(gen.check_constraint(op, model[op], val, vpath))  # type: ignore
         else:
             # optimized known-type-specific code
-            # NOTE we know that constraints make sense for the target type
+            # NOTE we already know that constraints make sense for the target type
             fval, sval, ival = None, None, None
 
             if has_unique:
@@ -358,7 +384,11 @@ class CodeGenerator:
                 # TODO add const-based versions if more is known?
                 checks.append(gen.check_unique(val, vpath))
             if has_int:
-                if tmodel in (int, str, list, dict):
+                if has_in and tmodel is list:
+                    # use computed length
+                    assert isinstance(inlen, str)
+                    ival = inlen
+                elif tmodel in (int, str, list, dict):
                     # skip float
                     ival = gen.ident("ival")
                     cvars += gen.int_var(ival, gen.any_int_val(val, tmodel), declare=True)

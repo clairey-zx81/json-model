@@ -1,0 +1,6 @@
+{
+  "#": ".in with constraint: two strings starts with an a",
+  "@": [ "" ],
+  ".in": "/^a/",
+  "=": 2
+}

@@ -17,7 +17,7 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // an array of string with one starting with an a
+    // .in with constraint: two strings starts with an a
     // .
     // .'@'
     bool res = json_is_array(val);
@@ -37,9 +37,14 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
-    if (likely(res))
+    if (unlikely(! res))
     {
-        res = false;
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'@']", path);
+    }
+    // .in len at .
+    int64_t arr_1_inlen = 0;
+    if (res)
+    {
         size_t arr_1_idx;
         json_t *arr_1_item;
         json_array_foreach(val, arr_1_idx, arr_1_item)
@@ -47,20 +52,20 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
             // .'.in'
             // "/^a/"
-            res = json_is_string(arr_1_item) && jm_str_eq_1(json_string_value(arr_1_item), 0x61);
-            if (likely(res))
-                break;
+            bool arr_1_inres = json_is_string(arr_1_item) && jm_str_eq_1(json_string_value(arr_1_item), 0x61);
+            if (likely(arr_1_inres))
+                arr_1_inlen += 1;
             else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^a/\" [.'.in']", (path ? &arr_1_lpath : NULL));
             }
         }
+        res = arr_1_inlen == 2;
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        }
     }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'@']", path);
-    }
-    // .in test at .
     return res;
 }
 

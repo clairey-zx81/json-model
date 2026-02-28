@@ -25,7 +25,7 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # an array of string with one starting with an a
+    # .in with constraint: two strings starts with an a
     # .
     # .'@'
     res: bool = isinstance(val, list)
@@ -37,20 +37,23 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected value for model \"\" [.'@'.0]", arr_0_lpath if path is not None else None))
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'@']", path))
+    # .in len at .
+    arr_1_inlen: int = 0
     if res:
-        res = False
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # .'.in'
             # "/^a/"
-            res = isinstance(arr_1_item, str) and arr_1_item.startswith("a")
-            if res:
-                break
+            arr_1_inres: bool = isinstance(arr_1_item, str) and arr_1_item.startswith("a")
+            if arr_1_inres:
+                arr_1_inlen += 1
             else:
                 rep is None or rep.append(("unexpected value for model \"/^a/\" [.'.in']", arr_1_lpath if path is not None else None))
-    else:
-        rep is None or rep.append(("not array or unexpected array [.'@']", path))
-    # .in test at .
+        res = arr_1_inlen == 2
+        if not res:
+            rep is None or rep.append(("constraints failed [.]", path))
     return res
 
 

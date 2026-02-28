@@ -332,7 +332,9 @@
           "items": {
             "type": "integer",
             "minimum": 0
-          }
+          },
+          "minItems": 1,
+          "maxItems": 1
         },
         "t2": {
           "type": "array",
@@ -878,7 +880,9 @@
           "items": {
             "type": "integer",
             "minimum": 0
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "cia1": {
           "type": "array",
@@ -887,7 +891,8 @@
             "minimum": 0
           },
           "maxItems": 5,
-          "minItems": 2
+          "minItems": 2,
+          "$comment": "ignoring != constraint"
         },
         "cia2": {
           "type": "array",

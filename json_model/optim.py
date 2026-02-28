@@ -705,7 +705,7 @@ def simplify(jm: JsonModel):
                     if le < ge:
                         changes += 1
                         return "$NONE"
-                    if le == ge:
+                    elif le == ge:
                         changes += 1
                         eq, le, ge = le, None, None
                 # eq consistency and redundancy
@@ -715,21 +715,27 @@ def simplify(jm: JsonModel):
                             changes += 1
                             return "$NONE"
                         le = None
-                        del model["<="]
                         changes += 1
+                    if "<=" in model:
+                        del model["<="]
                     if ge is not None:
                         if eq < ge:
                             changes += 1
                             return "$NONE"
                         ge = None
-                        del model[">="]
                         changes += 1
+                    if ">=" in model:
+                        del model[">="]
                     if ne is not None:
                         if eq == ne:
                             changes += 1
                             return "$NONE"
                         ne = None
+                        changes += 1
+                    if "!=" in model:
                         del model["!="]
+                    if "=" not in model:
+                        model["="] = eq
                         changes += 1
                 # ne redundancy
                 if ne is not None:
@@ -793,8 +799,8 @@ def optimize(jm: JsonModel, *, debug: bool = False):
     loops = 100
     changed = True
 
+
     while changed and loops > 0:
-        # print(f"model: {jm._model}")
         loops -= 1
         changed = False
         changed |= const_prop(jm)

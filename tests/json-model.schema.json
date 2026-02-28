@@ -87,6 +87,7 @@
       "required": [ "+" ]
     },
     "constraintModel": {
+      "$comment": "no extensions .mo and .in",
       "type": "object",
       "$ref": "#/$defs/common",
       "properties": {

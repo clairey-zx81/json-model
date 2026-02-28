@@ -1,0 +1,16 @@
+[
+  [ true,  [ 1 ] ],
+  [ true,  [ 1, 2 ] ],
+  [ true,  [ 3, 2, 1 ] ],
+  [ true,  [ 3, 1, 2, 4 ] ],
+  [ false, [] ],
+  [ false, [ 1.0001, [ "foo" ], {"1": 1}, "1", "one", true, false, null ] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "oops" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

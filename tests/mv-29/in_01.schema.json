@@ -1,0 +1,13 @@
+{
+  "description": ".in with constraint: two strings starts with an a",
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "contains": {
+    "type": "string",
+    "pattern": "^a"
+  },
+  "minContains": 2,
+  "maxContains": 2
+}

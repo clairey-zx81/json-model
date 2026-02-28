@@ -3,7 +3,8 @@
 ## Current Tasks
 
 - [x] pr: publish python jmc package
-- [ ] static: add support for `.in` with constraints
+- [x] static: add support for `.in` with constraints
+- [x] optim: fix constraint simplification mixup
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)

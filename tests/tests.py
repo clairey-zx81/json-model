@@ -204,7 +204,7 @@ EXPECT: dict[str, int] = {
     # mv-22
     "mv-22:models": 6,
     "mv-22:values": 709,
-    "mv-22:verrors:schema": 36,
+    "mv-22:verrors:schema": 29,
     # mv-23
     "mv-23:models": 4,
     "mv-23:values": 83,
@@ -230,17 +230,17 @@ EXPECT: dict[str, int] = {
     "mv-28:models": 7,
     "mv-28:values": 159,
     # mv-29: extensions
-    "mv-29:models": 4,
-    "mv-29:values": 68,
+    "mv-29:models": 6,
+    "mv-29:values": 101,
     "mv-29:mod-opts": {"extend": True},
-    "mv-29:models:errors-jsg": 3,
-    "mv-29:models:errors-jsm": 3,
-    "mv-29:models:errors-js": 3,
-    "mv-29:models:errors-py": 3,
-    "mv-29:models:errors-pl": 3,
-    "mv-29:models:errors-java": 3,
-    "mv-29:models:errors-c": 3,
-    "mv-29:models:errors": 3,
+    "mv-29:models:errors-jsg": 5,
+    "mv-29:models:errors-jsm": 5,
+    "mv-29:models:errors-js": 5,
+    "mv-29:models:errors-py": 5,
+    "mv-29:models:errors-pl": 5,
+    "mv-29:models:errors-java": 5,
+    "mv-29:models:errors-c": 5,
+    "mv-29:models:errors": 5,
     "mv-29:errors.js": 3,
     "mv-29:errors.pl": 3,
     "mv-29:errors.sql": 3,
@@ -788,12 +788,14 @@ def test_models_java(directory):
                  EXPECT.get(f"{directory}:models:errors-java", 0))
 
 def test_models_jsm(directory):
-    check_models(directory, "jsu-check --quiet json-model.schema.json",
+    check_models(directory, "jsu-check --quiet --engine jsonschema json-model.schema.json",
                  EXPECT.get(f"{directory}:models:errors-jsm", 0))
 
 def test_models_jsg(directory):
     check_models(directory, "jsu-check -e jschon --quiet ./ref/json-model.schema.json",
                  EXPECT.get(f"{directory}:models:errors-jsg", 0))
+
+# TODO jmc backend
 
 def test_models_dpy(directory):
     """Check test model conformity to JSON Model meta model."""
@@ -857,10 +859,12 @@ def test_bads_java():
     check_bads("./test_java.sh ./ref/json-model.java")
 
 def test_bads_jsm():
-    check_bads("jsu-check --quiet ./json-model.schema.json")
+    check_bads("jsu-check -e jsonschema --quiet ./json-model.schema.json")
 
 def test_bads_jsg():
     check_bads("jsu-check -e jschon --quiet ./ref/json-model.schema.json")
+
+# TODO add jmc backend
 
 #
 # JSON SCHEMA DRAFT TESTS

@@ -17,50 +17,38 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // an array of string with one starting with an a
+    // one 1 in the array
     // .
     // .'@'
     bool res = json_is_array(val);
-    if (likely(res))
+    if (unlikely(! res))
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'@']", path);
+    }
+    // .in len at .
+    int64_t arr_0_inlen = 0;
+    if (res)
     {
         size_t arr_0_idx;
         json_t *arr_0_item;
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
             jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
-            // .'@'.0
-            res = json_is_string(arr_0_item);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'@'.0]", (path ? &arr_0_lpath : NULL));
-                break;
-            }
-        }
-    }
-    if (likely(res))
-    {
-        res = false;
-        size_t arr_1_idx;
-        json_t *arr_1_item;
-        json_array_foreach(val, arr_1_idx, arr_1_item)
-        {
-            jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
             // .'.in'
-            // "/^a/"
-            res = json_is_string(arr_1_item) && jm_str_eq_1(json_string_value(arr_1_item), 0x61);
-            if (likely(res))
-                break;
+            bool arr_0_inres = json_is_integer(arr_0_item) && json_integer_value(arr_0_item) == 1;
+            if (likely(arr_0_inres))
+                arr_0_inlen += 1;
             else
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^a/\" [.'.in']", (path ? &arr_1_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"=1\" [.'.in']", (path ? &arr_0_lpath : NULL));
             }
         }
+        res = arr_0_inlen == 1;
+        if (unlikely(! res))
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        }
     }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'@']", path);
-    }
-    // .in test at .
     return res;
 }
 

@@ -18,38 +18,25 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    # an array of string with one starting with an a
+    # one 1 in the array
     # .
     # .'@'
     my $res = jm_is_array($val);
+    # .in len at .
+    my $arr_0_inlen = 0;
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
-            # .'@'.0
-            $res = jm_is_string($arr_0_item);
-            if (! $res)
-            {
-                last;
-            }
-        }
-    }
-    # .in test at .
-    if ($res)
-    {
-        $res = 0;
-        for my $arr_1_idx (0 .. $#$val)
-        {
-            my $arr_1_item = $$val[$arr_1_idx];
             # .'.in'
-            # "/^a/"
-            $res = jm_is_string($arr_1_item) && jm_starts_with($arr_1_item, 'a');
-            if ($res)
+            my $arr_0_inres = jm_is_integer($arr_0_item) && $arr_0_item == 1;
+            if ($arr_0_inres)
             {
-                last;
+                $arr_0_inlen++;
             }
         }
+        $res = $arr_0_inlen == 1;
     }
     return $res;
 }

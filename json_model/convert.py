@@ -288,21 +288,33 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                             if ">" in model:
                                 assert isinstance(model[">"], int)
                                 schema["minContains"] = model[">"] + 1
-                            # TODO
-                        # else:
-                        # FIXME check comparison value types!
-                        if "<=" in model:
-                            assert isinstance(model["<="], int)
-                            schema["maxItems"] = model["<="]
-                        if "<" in model:
-                            assert isinstance(model["<"], int)
-                            schema["maxItems"] = model["<"] - 1
-                        if ">=" in model:
-                            assert isinstance(model[">="], int)
-                            schema["minItems"] = model[">="]
-                        if ">" in model:
-                            assert isinstance(model[">"], int)
-                            schema["minItems"] = model[">"] + 1
+                            if "=" in model:
+                                assert isinstance(model["="], int)
+                                schema["minContains"] = model["="]
+                                schema["maxContains"] = model["="]
+                            if "!=" in model:
+                                schema["$comment"] = "ignoring != constraint"
+                        else:
+                            # FIXME check comparison value types!
+                            if "<=" in model:
+                                assert isinstance(model["<="], int)
+                                schema["maxItems"] = model["<="]
+                            if "<" in model:
+                                assert isinstance(model["<"], int)
+                                schema["maxItems"] = model["<"] - 1
+                            if ">=" in model:
+                                assert isinstance(model[">="], int)
+                                schema["minItems"] = model[">="]
+                            if ">" in model:
+                                assert isinstance(model[">"], int)
+                                schema["minItems"] = model[">"] + 1
+                            if "=" in model:
+                                assert isinstance(model["="], int)
+                                schema["minItems"] = model["="]
+                                schema["maxItems"] = model["="]
+                            if "!=" in model:
+                                schema["$comment"] = "ignoring != constraint"
+                        # common
                         if "!" in model:
                             v = model["!"]
                             assert isinstance(v, bool)

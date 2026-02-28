@@ -18,7 +18,7 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    # an array of string with one starting with an a
+    # .in with constraint: two strings starts with an a
     # .
     # .'@'
     my $res = jm_is_array($val);
@@ -35,21 +35,22 @@ sub json_model_1($$$)
             }
         }
     }
-    # .in test at .
+    # .in len at .
+    my $arr_1_inlen = 0;
     if ($res)
     {
-        $res = 0;
         for my $arr_1_idx (0 .. $#$val)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             # .'.in'
             # "/^a/"
-            $res = jm_is_string($arr_1_item) && jm_starts_with($arr_1_item, 'a');
-            if ($res)
+            my $arr_1_inres = jm_is_string($arr_1_item) && jm_starts_with($arr_1_item, 'a');
+            if ($arr_1_inres)
             {
-                last;
+                $arr_1_inlen++;
             }
         }
+        $res = $arr_1_inlen == 2;
     }
     return $res;
 }
