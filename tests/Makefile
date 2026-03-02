@@ -41,3 +41,13 @@ gen:
 .PHONY: java
 java:
 	$(MAKE) TARGET=java $(D.java)
+
+# show statistics about tests
+.PHONY: stats
+stats:
+	@echo -n "- positive test cases: "
+	ls mv-*/*.model.json ref/*.model.json | wc -l
+	echo -n "- (basic) test values: "
+	egrep '^  *\[ (true|false), ' mv-*/*.values.json ref/*.values.json | wc -l
+	echo -n "- negative test cases: "
+	ls bads/*.model.json | wc -l
