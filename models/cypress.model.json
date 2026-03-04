@@ -1,5 +1,7 @@
 {
   "#": "JSON model for https://cypress.io Test Runner's configuration file",
+  "#.ref": "https://docs.cypress.io/app/references/configuration",
+  "#.note": "JSON configuration format, which seems now to be .js or .ts",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "cypressConfig": {
@@ -11,13 +13,16 @@
       "?port": 1,
       "?reporter": {
         "|": [
+          "# standard reporters:",
           "spec", "dot", "nyan", "tap", "landing", "list", "progress", "json",
-          "json-stream", "min", "doc", "markdown", "xunit", "teamcity", "html", "junit",
+          "json-stream", "min", "doc", "markdown", "xunit", "teamcity", "html",
+          "junit",
           "# multi reporters:",
           "cypress-multi-reporters", "mocha-multi-reporters",
           "# combine reporter:",
           "mochawesome", "cypress-mochawesome-reporter",
-          "# custom reporter:", "/\\.js$/"
+          "# custom reporter through a loadable .js file:",
+          "/\\.js$/"
         ]
       },
       "?reporterOptions": { "": "$ANY" },
