@@ -135,7 +135,7 @@
         "~": {
           "description": "Meta Model URL",
           "type": "string",
-          "format": "url"
+          "format": "uri"
         },
         "$": {
           "description": "local definitions",
