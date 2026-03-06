@@ -52,8 +52,8 @@ public class Main
         double cold_run = 0.001 * (System.nanoTime() - cold_start);
 
         // warmup
-        int niters = (int) (10 * 1E6 / cold_run);
-        if (niters > time) niters = time;
+        int niters = 1 + (int) (10 * 1E6 / cold_run);
+        if (niters > 1000) niters = 1000;
         while (niters-- > 0)
             for (Object value: values)
                 check.call(value);
