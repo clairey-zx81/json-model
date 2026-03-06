@@ -6,6 +6,7 @@
 - [x] static: add support for `.in` with constraints
 - [x] optim: fix constraint simplification mixup
 - [x] tests: add _stats_ target
+- [x] perf: add missing warmup to C runtime for jsonschema benchmark
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)

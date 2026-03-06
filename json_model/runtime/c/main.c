@@ -28,6 +28,7 @@ static INLINE double now(void)
     return 1000000.0 * ts.tv_sec + 0.001 * ts.tv_nsec;
 }
 
+// small computation to avoid compiler optimizations that could remove empty loops
 #define NEXT_STUFF(v, pi) v = frexp(3.141592653589793 * v + 2.718281828459045, pi)
 
 // overhead estimation µs on a nearly empty loop
@@ -49,8 +50,10 @@ static double overhead_estimation(int loop, double *value)
 
 // check value and report if there was some error wrt expectations
 static bool
-process_value(const char *name, const json_t * value,
-    const char *fname, size_t index, process_mode_t mode, bool report, int loop, double empty)
+process_value(
+    const char *name, const json_t * value,
+    const char *fname, size_t index, process_mode_t mode,
+    bool report, bool show_time, int loop, double empty)
 {
     // get checker function
     const jm_check_fun_t checker = CHECK_fun(name);
@@ -66,7 +69,7 @@ process_value(const char *name, const json_t * value,
     double v = frexp(loop / 13.0, &exponent);
 
     // performance loop in µs
-    if (loop > 1)
+    if (show_time)
     {
         // validation estimation
         double sum = 0.0, sum2 = 0.0;
@@ -104,7 +107,7 @@ process_value(const char *name, const json_t * value,
         fprintf(stdout, "%s[%zu]: %s", fname, index, valid ? "PASS" : "FAIL");
 
     // maybe second pass with report collection
-    if ((loop > 1 || !valid) && report)
+    if ((show_time || !valid) && report)
     {
         jm_path_t path;
         jm_report_t report;
@@ -112,7 +115,7 @@ process_value(const char *name, const json_t * value,
         bool valid2 = true;
 
         // loop just for measuring performance, including cleanup
-        if (loop > 1)
+        if (show_time)
         {
             double sum = 0.0, sum2 = 0.0;
 
@@ -211,7 +214,7 @@ static void jsonschema_benchmark_run(int argc, char *argv[], const char *name, i
         }
     }
 
-    // evaluate empty run
+    // evaluate measure overheads, only for information
     int count = 0;
     double empty_start = now();
     for (int i = 0; i < nvalues; i++)
@@ -219,7 +222,7 @@ static void jsonschema_benchmark_run(int argc, char *argv[], const char *name, i
             count++;
     double empty_delay = now() - empty_start;
 
-    // run once in for counting
+    // run once, count pass/fail
     int npass = 0, nfail = 0;
     double cold_start = now();
     for (int i = 0; i < nvalues; i++)
@@ -229,7 +232,14 @@ static void jsonschema_benchmark_run(int argc, char *argv[], const char *name, i
             nfail++;
     double cold_delay = now() - cold_start;
 
-    // collect performance data over a loop
+    // max 1000 warmup runs up to 10 seconds, probably useless
+    int ten_secs_loop = 1 + (int) (10000000.0 / cold_delay);
+    int warmup = ten_secs_loop < 1000 ? ten_secs_loop : 1000;
+    for (int n = warmup; n; n--)
+        for (int i = 0; i < nvalues; i++)
+            checker(values[i], NULL, NULL);
+
+    // collect performance data, possibly over a loop… of 1
     double sum = 0.0, sum2 = 0.0;
     for (int n = loop; n; n--)
     {
@@ -264,6 +274,7 @@ int main(int argc, char* argv[])
     bool jsonl = false;
     bool list = false;
     bool version = false;
+    bool show_time = false;
     bool jsonschema_benchmark = false;
     int loop = 1;
 
@@ -311,6 +322,8 @@ int main(int argc, char* argv[])
                 break;
             case 'T':
                 loop = atoi(optarg);
+                show_time = loop > 0;
+                loop = loop ? loop : 1;
                 break;
             case 'L':
                 jsonl = true;
@@ -367,18 +380,21 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    // minimal overhead estimation
+    // minimal non-zero measure overhead estimation
     double empty = 0.0;
-    if (loop > 1)
+    if (show_time && loop > 1)
     {
         int exponent;
         double v = frexp(loop / 13.0, &exponent);
-        empty = overhead_estimation(loop, &v);
-        for (int i = 1; i < 100; i++)
+        int count = 100;
+        while (count)
         {
             double e = overhead_estimation(loop, &v);
-            if (e < empty)
-                empty = e;
+            if (e) {
+                count--;
+                if (empty == 0.0 || e < empty)
+                    empty = e;
+            }
         }
     }
 
@@ -416,7 +432,8 @@ int main(int argc, char* argv[])
                                        JSON_DISABLE_EOF_CHECK|JSON_DECODE_ANY|JSON_ALLOW_NUL,
                                        &error)))
             {
-                if (!process_value(name, value, argv[i], count, expect_anything, report, loop, empty))
+                if (!process_value(name, value, argv[i], count, expect_anything,
+                                   report, show_time, loop, empty))
                     errors++;
                 count++;
                 json_decref(value);
@@ -491,14 +508,16 @@ int main(int argc, char* argv[])
                     const json_t *value = size == 3 ? json_array_get(val, 2) : second;
                     process_mode_t mode = json_is_true(first) ? expect_pass : expect_fail;
 
-                    if (!process_value(tname, value, argv[i], index, mode, report, loop, empty))
+                    if (!process_value(tname, value, argv[i], index, mode,
+                                       report, show_time, loop, empty))
                         errors++;
 
                     index++;
                 }
             }
             else
-                if (!process_value(name, value, argv[i], 0, expect_nothing, report, loop, empty))
+                if (!process_value(name, value, argv[i], 0, expect_nothing,
+                                   report, show_time, loop, empty))
                     errors++;
 
             // free json value

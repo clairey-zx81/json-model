@@ -424,9 +424,8 @@ def main(jm_fun, jm_map, jmc_version):
                         errors += 1
                 cold_delay = 1_000_000.0 * (time.clock_gettime(time.CLOCK_REALTIME) - cold_start)
 
-                # more runs to trigger a potential JIT?
-                # NOTE probaly useless: JIT should be triggered by previous loop
-                for _ in range(min(20, int(10_000_000.0 / cold_delay))):
+                # warmup runs to trigger a potential JIT?
+                for _ in range(min(1000, 1 + int(10_000_000.0 / cold_delay))):
                     for v in values:
                         checker(v, None, None)
 

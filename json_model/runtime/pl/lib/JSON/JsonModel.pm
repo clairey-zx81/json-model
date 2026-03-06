@@ -430,8 +430,8 @@ sub jsonschema_benchmark($$$$)
     my $cold_delay = $cold_stop - $cold_start;  # seconds
 
     # warmup, at most 10 seconds
-    my $max = int(10.0 / $cold_delay);
-    my $n = min($time, $max);
+    my $max = 1 + int(10.0 / $cold_delay);
+    my $n = min(1000, $max);
 
     while ($n--)
     {
