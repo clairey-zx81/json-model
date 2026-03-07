@@ -24,6 +24,7 @@ EXPECT: dict[str, int] = {
     "ref:models": 9,
     "ref:values": 111,
     "ref:verrors:schema": 56,
+    "ref:models:errors-jsm": 2,
     # chunk 00
     "mv-00:models": 10,
     "mv-00:values": 95,
@@ -764,6 +765,7 @@ def check_models(directory, jmchecker: str, errors: int = 0):
         ntests += 1
         if ": PASS" not in line:
             nerrors += 1
+            log.error(f"{str(dir)}[{ntests}] failed: {line}")
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nerrors == errors
 
