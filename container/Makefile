@@ -44,7 +44,7 @@ pod.cleaner:
 #
 # POD (docker ou podman)
 #
-NOCACHE = --no-cache
+POD.opts = --no-cache
 JMC     = $(BRANCH)
 JSU     = main
 
@@ -52,7 +52,7 @@ JSU     = main
 pod.build: .build
 
 .build: Containerfile jmc
-	$(POD) build $(NOCACHE) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
+	$(POD) build $(POD.opts) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
 	    -t jmc -f Containerfile . && date -Iseconds > $@
 
 .PHONY: pod.run
@@ -79,8 +79,7 @@ pod.tag: .build
 	export POD=$(POD)
 	$(POD) tag jmc $(ZX80)/jmc:$(TAG)
 	$(POD) tag jmc $(ZX80)/jmc:$(BRANCH)
-	# $(POD) tag jmc $(ZX80)/jmc:$(GITVERS)
-	$(POD) tag jmc $(ZX80)/jmc:$$(JMC=$(BRANCH) ./jmc --version)
+	[ "$(TAG)" != "latest" ] && $(POD) tag jmc $(ZX80)/jmc:$$(JMC=$(BRANCH) ./jmc --version)
 
 .PHONY: pod.push
 pod.push: pod.tag
