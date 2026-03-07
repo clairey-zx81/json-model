@@ -1,6 +1,6 @@
 {
  "#": "Geo JSON Model JSON_MODEL_LOOSE_FLOAT",
- "#.doc": "see [specification](https://datatracker.ietf.org/doc/html/rfc7946)",
+ "#.md": "See [specification](https://datatracker.ietf.org/doc/html/rfc7946)",
  "~": "https://json-model.org/models/json-model",
  "$": {
     "#": "should all position be either 2 or 3 for consistency?",
@@ -40,10 +40,9 @@
     },
     "geometry": {
       "+": [
-        { "": "$ANY" },
         { "^": [ "$Point", "$MultiPoint", "$LineString",
-                 "$MultiLineString", "$Polygon", "$MultiPolygon" ]
-        }
+                 "$MultiLineString", "$Polygon", "$MultiPolygon" ] },
+        { "": "$ANY" }
       ]
     },
     "GeometryCollection": {
