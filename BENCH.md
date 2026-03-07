@@ -1,31 +1,33 @@
 # JSON Model Compiler Benchmark Artifacts
 
 These artifacts compare
-[JSON Model Compiler](https://github.com/clairey-zx81/json-model) generated code in
-C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
-[Sourcemeta Blaze CLI](https://github.com/sourcemeta/jsonschema) using test cases from
+[JSON Model Compiler (jmc)](https://github.com/clairey-zx81/json-model) generated code using the
+[JSON Schema Utils (jsu)](https://hub.docker.com/repository/docker/zx80/json-schema-utils)
+schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
+[Sourcemeta Blaze CLI (sbc)](https://github.com/sourcemeta/jsonschema) using test cases from
 [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark).
 
 ## Recent Artifacts
 
-- [2026030700](benchmarks/2026030700.md) clang, no predefs, jmc 2.0b37 vs jsc 14.13.4, 5 runs, 1000 iterations.
-- [2026022400](benchmarks/2026022400.md) clang, no predefs, jmc 2.0b36 vs jsc 14.13.4, 11 runs, 1000 iterations.
-- [2026022000](benchmarks/2026022000.md) clang, no predefs, jmc 2.0b36 vs jsc 14.13.3, 11 runs, 1000 iterations.
-- [2026021900](benchmarks/2026021900.md) clang, no predefs, jmc 2.0b36 vs jsc 14.13.1, 11 runs, 1000 iterations.
-- [2026021702](benchmarks/2026021702.md) clang, no predefs, jmc 2.0b36 vs jsc 14.13.0, 11 runs, 1000 iterations.
-- [2026021701](benchmarks/2026021701.md) clang, no predefs, jmc 2.0b36 vs jsc 14.12.0, 11 runs, 1000 iterations.
-- [2026021700](benchmarks/2026021700.md) clang, no predefs, jmc 2.0b36 vs jsc 14.11.0, 11 runs, 1000 iterations.
-- [2026021300](benchmarks/2026021300.md) clang, no predefs, jmc 2.0b36 vs jsc 14.10.0, 11 runs, 1000 iterations.
-- [2026021000](benchmarks/2026021000.md) clang, no predefs, jmc 2.0b36 vs jsc 14.7.2, 11 runs, 1000 iterations.
-- [2026020600](benchmarks/2026020600.md) clang, no predefs, jmc 2.0b36 vs jsc 14.7.1, 11 runs, 1000 iterations.
-- [2026020500](benchmarks/2026020500.md) clang, no predefs, jmc 2.0b36 vs jsc 14.6.1, 11 runs, 1000 iterations.
-- [2026012700](benchmarks/2026012700.md) clang, no predefs, jmc 2.0b36 vs jsc 14.5.0, 11 runs, 1000 iterations.
-- [2026012400](benchmarks/2026012400.md) clang, no predefs, jmc 2.0b36 vs jsc 14.4.0, 11 runs, 1000 iterations.
-- [2026012200](benchmarks/2026012200.md) clang, no predefs, jmc 2.0b36 vs jsc 14.2.0, 11 runs, 1000 iterations.
-- [2026012000](benchmarks/2026012000.md) clang, no predefs, jmc 2.0b36 vs jsc 14.1.0, 11 runs, 1000 iterations.
-- [2026011500](benchmarks/2026011500.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.4, 11 runs, 1000 iterations.
-- [2026010900](benchmarks/2026010900.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.3, 11 runs, 1000 iterations.
-- [2026010600](benchmarks/2026010600.md) clang, no predefs, jmc 2.0b36 vs jsc 14.0.2, 11 runs, 1000 iterations.
+- [2026030703](benchmarks/2026030703.md) clang, no predefs, jmc 2.0b37 vs sbc 14.14.2, 11 runs, 1000 iterations.
+- [2026030700](benchmarks/2026030700.md) clang, no predefs, jmc 2.0b37 vs sbc 14.13.4, 5 runs, 1000 iterations.
+- [2026022400](benchmarks/2026022400.md) clang, no predefs, jmc 2.0b36 vs sbc 14.13.4, 11 runs, 1000 iterations.
+- [2026022000](benchmarks/2026022000.md) clang, no predefs, jmc 2.0b36 vs sbc 14.13.3, 11 runs, 1000 iterations.
+- [2026021900](benchmarks/2026021900.md) clang, no predefs, jmc 2.0b36 vs sbc 14.13.1, 11 runs, 1000 iterations.
+- [2026021702](benchmarks/2026021702.md) clang, no predefs, jmc 2.0b36 vs sbc 14.13.0, 11 runs, 1000 iterations.
+- [2026021701](benchmarks/2026021701.md) clang, no predefs, jmc 2.0b36 vs sbc 14.12.0, 11 runs, 1000 iterations.
+- [2026021700](benchmarks/2026021700.md) clang, no predefs, jmc 2.0b36 vs sbc 14.11.0, 11 runs, 1000 iterations.
+- [2026021300](benchmarks/2026021300.md) clang, no predefs, jmc 2.0b36 vs sbc 14.10.0, 11 runs, 1000 iterations.
+- [2026021000](benchmarks/2026021000.md) clang, no predefs, jmc 2.0b36 vs sbc 14.7.2, 11 runs, 1000 iterations.
+- [2026020600](benchmarks/2026020600.md) clang, no predefs, jmc 2.0b36 vs sbc 14.7.1, 11 runs, 1000 iterations.
+- [2026020500](benchmarks/2026020500.md) clang, no predefs, jmc 2.0b36 vs sbc 14.6.1, 11 runs, 1000 iterations.
+- [2026012700](benchmarks/2026012700.md) clang, no predefs, jmc 2.0b36 vs sbc 14.5.0, 11 runs, 1000 iterations.
+- [2026012400](benchmarks/2026012400.md) clang, no predefs, jmc 2.0b36 vs sbc 14.4.0, 11 runs, 1000 iterations.
+- [2026012200](benchmarks/2026012200.md) clang, no predefs, jmc 2.0b36 vs sbc 14.2.0, 11 runs, 1000 iterations.
+- [2026012000](benchmarks/2026012000.md) clang, no predefs, jmc 2.0b36 vs sbc 14.1.0, 11 runs, 1000 iterations.
+- [2026011500](benchmarks/2026011500.md) clang, no predefs, jmc 2.0b36 vs sbc 14.0.4, 11 runs, 1000 iterations.
+- [2026010900](benchmarks/2026010900.md) clang, no predefs, jmc 2.0b36 vs sbc 14.0.3, 11 runs, 1000 iterations.
+- [2026010600](benchmarks/2026010600.md) clang, no predefs, jmc 2.0b36 vs sbc 14.0.2, 11 runs, 1000 iterations.
 
 ## Benchmarking Script
 
