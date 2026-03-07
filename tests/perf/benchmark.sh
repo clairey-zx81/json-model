@@ -52,6 +52,7 @@ while [[ "$1" == -* ]] ; do
     -v|--version)
       # NOTE depends on docker.io/zx80/jmc container image
       jmc --version
+      jmc exec jsu-model --version
       exit 0
       ;;
     --id=*) ID=${opt#*=} ;;
@@ -264,7 +265,8 @@ or deselect tools for easier comparisons.
 - **cpu model:** $cpu_model
 - **cpu cores:** $cpu_count
 - **jmc version:** $(jmc --version)
-- **jsonschema version:** $(js-cli --version)
+- **jsu version:** $(jmc exec jsu-model --version)
+- **jsonschema-cli version:** $(js-cli --version)
 - **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD), $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) unique tests
 - **duration:** $SECONDS seconds
 
