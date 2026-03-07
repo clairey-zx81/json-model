@@ -72,8 +72,10 @@ pod.build: docker.build podman.build
 .PHONY: build
 build: .$(POD)-$(VARIANT)-build.$(BRANCH)
 
+POD.opts    = --no-cache
+
 .$(POD)-$(VARIANT)-build.$(BRANCH): $(VARIANT)-file
-	$(POD) build -t jmc-bench-$(VARIANT) -f $(VARIANT)-file . && date -Iseconds > $@
+	$(POD) build $(POD.opts) -t jmc-bench-$(VARIANT) -f $(VARIANT)-file . && date -Iseconds > $@
 
 .PHONY: docker.build
 docker.build:
