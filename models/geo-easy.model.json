@@ -1,6 +1,6 @@
 {
  "#": "Easy Geo JSON Model JSON_MODEL_LOOSE_FLOAT",
- "#.doc": "see [specification](https://datatracker.ietf.org/doc/html/rfc7946)",
+ "#.md": "see [specification](https://datatracker.ietf.org/doc/html/rfc7946)",
  "#.note": "avoid merge operator so that geometry submodels are named, for pydantic export",
  "~": "https://json-model.org/models/json-model",
  "$": {
