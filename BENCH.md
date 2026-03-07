@@ -8,6 +8,7 @@ C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
 
 ## Recent Artifacts
 
+- [2026030700](benchmarks/2026030700.md) clang, no predefs, jmc 2.0b37 vs jsc 14.13.4, 5 runs, 1000 iterations.
 - [2026022400](benchmarks/2026022400.md) clang, no predefs, jmc 2.0b36 vs jsc 14.13.4, 11 runs, 1000 iterations.
 - [2026022000](benchmarks/2026022000.md) clang, no predefs, jmc 2.0b36 vs jsc 14.13.3, 11 runs, 1000 iterations.
 - [2026021900](benchmarks/2026021900.md) clang, no predefs, jmc 2.0b36 vs jsc 14.13.1, 11 runs, 1000 iterations.
@@ -56,16 +57,18 @@ The main script options are:
 
 JSON schemas for the benchmark are translated to models based on
 [JSON Schema Utils](https://github.com/zx80/json-schema-utils).
+This is mostly an automatic conversion of the test schema to a model, but
+for a few cases which have a _native_ model which is used instead.
 
 Runs are performed in _fast_ mode: the rejection reasons are not collected, and
 the run stops as soon as possible.
 
 - To smooth out the wide range of collected performances (from 10 ns to
   over 300 µs for validating one value), a relative comparison ratio is shown.
-- Compilation times are the _minimum_ encountered of over the runs.
+- Compilation times are the _minimum_ encountered over the runs.
   whereas performance times are the _median_ over the runs.
 - The C backend also includes the _runtime_ compilation from sources.
-- JSON Schema to JSON Model conversion times are recorded separately.
+- JSON Schema to JSON Model conversion times are also recorded separately for information.
 
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
@@ -118,8 +121,8 @@ It should be noted that benchmarking conditions are quite different:
    a warming phase loop and a _hot_ one-shot measure: This may tend to mask effects from
    occasional GC runs.
 2. The benchmark focuses on schema conformance, including (buggy) schemas which
-   are mostly dead code: It rejects tools which do not validate all strictly conformant values,
-   even if these values would be rejected by the target application.
+   are mostly dead code: It rejects tools which do not validate all strictly conformant
+   values, even if these values would be rejected by the target application.
 
 This latest point explains the under 100% validation results displayed JMC for
 _ansible-meta_, _cypress_ and _yamllint_ tests: the model translation or native models
