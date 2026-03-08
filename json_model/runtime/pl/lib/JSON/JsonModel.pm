@@ -12,7 +12,7 @@ use warnings;
 
 our $VERSION = 1.999012;  # aka 2.0b12
 
-use re::engine::RE2;   # replace regex engine
+eval "use re::engine::RE2";   # try to replace regex engine
 use List::Util qw( min );
 use JSON::MaybeXS qw( decode_json from_json is_bool );
 use Getopt::Long qw(:config no_ignore_case);
