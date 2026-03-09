@@ -79,7 +79,7 @@ pod.tag: .build
 	export POD=$(POD)
 	$(POD) tag jmc $(ZX80)/jmc:$(TAG)
 	$(POD) tag jmc $(ZX80)/jmc:$(BRANCH)
-	[ "$(TAG)" != "latest" ] && $(POD) tag jmc $(ZX80)/jmc:$$(JMC=$(BRANCH) ./jmc --version)
+	$(POD) tag jmc $(ZX80)/jmc:$$(JMC=$(BRANCH) ./jmc --version)
 
 .PHONY: pod.push
 pod.push: pod.tag
