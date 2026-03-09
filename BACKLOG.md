@@ -2,20 +2,14 @@
 
 ## Current Tasks
 
-- [x] pr: publish python jmc package
-- [x] static: add support for `.in` with constraints
-- [x] optim: fix constraint simplification mixup
-- [x] tests: add _stats_ target
-- [x] perf: add missing warmup to C runtime for jsonschema benchmark
-- [x] perl-backend: be resilient on missing RE2 module
+- [ ] optim: implement stupid any type but one constrained optimization (jsu)
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
+- [ ] optim: merge `&` list when possible, eg inclusions or compatibility
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
 - [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
 - [ ] doc: add _known limitations_ stuff
-- [ ] optim: implement stupid any type but one constrained optimization (jsu)
 - [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
-- [ ] optim: merge `&` list when possible, eg inclusions or compatibility
 - [ ] test: add test categories (mark?)
 - [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
@@ -787,3 +781,9 @@
 - [x] optim: arbitrary guard against infinite loops
 - [x] ir: fix stupid bug in ir opts
 - [x] tests: rerun with updated JSTS before release
+- [x] pr: publish python jmc package
+- [x] static: add support for `.in` with constraints
+- [x] optim: fix constraint simplification mixup
+- [x] tests: add _stats_ target
+- [x] perf: add missing warmup to C runtime for jsonschema benchmark
+- [x] perl-backend: be resilient on missing RE2 module
