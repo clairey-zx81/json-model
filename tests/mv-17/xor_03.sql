@@ -10,14 +10,12 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  is_0 bool;
 BEGIN
   -- (any xor m) is (not m)
   -- .
   -- not-case xor list
   -- .'^'.1
-  is_0 := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
-  RETURN NOT is_0;
+  RETURN NOT (JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0);
 END;
 $$ LANGUAGE PLpgSQL;
 

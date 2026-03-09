@@ -1,0 +1,39 @@
+{
+  "description": "typical jsu output for undertyped schemas, whatever but",
+  "anyOf": [
+    {
+      "type": "null"
+    },
+    {
+      "type": "boolean"
+    },
+    {
+      "type": "integer"
+    },
+    {
+      "type": "number"
+    },
+    {
+      "type": "string"
+    },
+    {
+      "type": "array",
+      "items": true
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "string"
+        },
+        "b": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

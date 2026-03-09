@@ -312,6 +312,39 @@ def invertBool(op: Jsonable) -> Jsonable:
     else:
         return {"o": "not", "e": op}
 
+def bvar_uses(op: Jsonable, var: str) -> int:
+    """Count boolean variable occurrences in boolean expression."""
+    if isinstance(op, str):
+        return 1 if op == var else 0
+    elif isinstance(op, dict) and "o" in op:
+        match op["o"]:
+            case "|"|"&":
+                return sum(map(lambda e: bvar_is_used(e, var), op["exprs"]))
+            case "not"|"()":
+                return bvar_is_used(op["e"], var)
+            case _:  # is this safe?
+                return 0
+    else:  # safe, probably dead code
+        return 0
+
+def bvar_subs(op: Jsonable, var: str, val: Jsonable) -> Jsonable:
+    """Replace boolean variable reference by value in boolean expression."""
+    if isinstance(op, str):  # maybe actual substitition
+        return val if op == var else op
+    elif isinstance(op, dict) and "o" in op:
+        match op["o"]:
+            case "|"|"&":
+                op["exprs"] = [ bvar_subs(e, var, val) for e in op["exprs"] ]
+            case "not"|"()":
+                op["e"] = bvar_subs(op["e"], var, val)
+            case _:  # no propagation out of boolean expression
+                pass
+    return op
+
+def bvar_is_used(op: Jsonable, var: str) -> bool:
+    """Whether boolean variable is used in boolean expression."""
+    return bvar_uses(op, var) != 0
+
 # FIXME full simplification should require several passes
 def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     """Optimize instruction sequence if/then patterns on boolean variables in place."""
@@ -539,13 +572,13 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             # reset previous if return
             ifop = None
 
-    # simplify X = E1; X = E2;
+    # simplify X = E1; X = E2 (no X!);
     assign: Jsonable|None = None
     for op in seq:
         if _noOp(op, False):
             pass
         elif _isOp(op, "bv"):
-            if assign and assign["var"] == op["var"]:
+            if assign and assign["var"] == op["var"] and not bvar_is_used(op["val"], op["var"]):
                 op["declare"] = assign["declare"]
                 assign.clear()
                 assign.update(o="ign")
@@ -559,6 +592,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
         if _noOp(op, reporting):
             pass
         elif _isOp(op, "bv") and op["val"] is None:
+            assert op["declare"]
             decl = op
         elif _isOp(op, "ret") and decl is not None:
             decl.clear()
@@ -652,6 +686,7 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     # simplify "V = E; ret V;" to "ret E;"
     prev: Jsonable|None = None
     for op in seq:
+        # FIXME reporting?
         if _noOp(op, False):
             pass
         elif _isOp(op, "bv") and op["val"] is not None:
@@ -663,6 +698,21 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             prev = None
         else:
             prev = None
+
+    # simplify "V = E; ret f(V where V appears once)" to "ret f(E)"
+    val: Jsonable|None = None
+    for op in seq:
+        if _noOp(op, reporting):
+            pass
+        elif _isOp(op, "bv") and op["val"] is not None:
+            val = op
+        elif val is not None and _isOp(op, "ret") and bvar_uses(op["res"], val["var"]) == 1:
+            op["res"] = bvar_subs(op["res"], val["var"], val["val"])
+            val.clear()
+            val.update({"o": "ign", "#": "IRO subs boolean var in return"})
+            val = None
+        else:
+            val = None
 
     # remove nopes (unless alone)
     rm, nco = [], 0

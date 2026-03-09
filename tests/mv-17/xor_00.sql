@@ -17,10 +17,9 @@ BEGIN
   -- remove duplicate xor list
   res := TRUE;
   -- .'^'.2
-  is_0 := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
   -- singleton xor list
   -- .'^'.0
-  RETURN NOT is_0 AND JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
+  RETURN NOT (JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1) AND JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
 END;
 $$ LANGUAGE PLpgSQL;
 

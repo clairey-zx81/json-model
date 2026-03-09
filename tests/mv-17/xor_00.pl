@@ -25,10 +25,9 @@ sub json_model_1($$$)
     my $is_0;
     $res = 1;
     # .'^'.2
-    $is_0 = jm_is_integer($val) && $val >= 1;
     # singleton xor list
     # .'^'.0
-    return ! $is_0 && jm_is_integer($val) && $val >= 0;
+    return ! (jm_is_integer($val) && $val >= 1) && jm_is_integer($val) && $val >= 0;
 }
 
 

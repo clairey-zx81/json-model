@@ -11,27 +11,59 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub json_model_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-sub _jm_re_0($$$)
+# check $Obj (.'$Obj')
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[a-z]+$/i;
-    return $res;
+    # .'$Obj'
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'a')
+        {
+            # handle must a property
+            $must_count++;
+            # .'$Obj'.a
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        if ($prop eq 'b')
+        {
+            # handle may b property
+            # .'$Obj'.b
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        return 0;
+    }
+    return $must_count == 1;
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
-    # not a word
+    # with a reference
     # .
-    # not-case xor list
-    # .'^'.1
-    # "/^[a-z]+$/i"
-    return ! (jm_is_string($val) && _jm_re_0($val, undef, undef));
+    return ! jm_is_object($val) || json_model_2($val, undef, undef);
 }
 
 
@@ -46,6 +78,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
+            'Obj' => \&json_model_2,
         );
     }
 }

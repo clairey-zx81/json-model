@@ -1,0 +1,16 @@
+[
+  [ true,  null ],
+  [ true,  true ],
+  [ true,  false ],
+  [ true,  -42 ],
+  [ true,  3.1415927 ],
+  [ true,  "hello world!" ],
+  [ true,  [] ],
+  [ true,  ["this", "is", "expected"] ],
+  [ true,  {"a": "Susie"} ],
+  [ true,  {"a": "Calvin", "b": "Hobbes"} ],
+  [ false, {} ],
+  [ false, {"a": 42} ],
+  [ false, {"a": "Hello", "world": "!"} ],
+  [ false, {"a": "Foo", "b": "Bla", "x": "unexpected"} ]
+]

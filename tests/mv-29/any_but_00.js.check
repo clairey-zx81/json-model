@@ -1,0 +1,14 @@
+any_but_00.values.json[0]: PASS
+any_but_00.values.json[1]: PASS
+any_but_00.values.json[2]: PASS
+any_but_00.values.json[3]: PASS
+any_but_00.values.json[4]: PASS
+any_but_00.values.json[5]: PASS
+any_but_00.values.json[6]: PASS
+any_but_00.values.json[7]: PASS
+any_but_00.values.json[8]: PASS
+any_but_00.values.json[9]: PASS
+any_but_00.values.json[10]: FAIL (.: unexpected element [.'|'.6]; .: missing mandatory prop <a> [.'|'.6])
+any_but_00.values.json[11]: FAIL (.: unexpected element [.'|'.6]; .a: invalid mandatory prop value [.'|'.6.a]; .a: unexpected value for model "" [.'|'.6.a])
+any_but_00.values.json[12]: FAIL (.: unexpected element [.'|'.6]; .world: unexpected prop [.'|'.6])
+any_but_00.values.json[13]: FAIL (.: unexpected element [.'|'.6]; .x: unexpected prop [.'|'.6])

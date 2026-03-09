@@ -23,8 +23,7 @@ sub json_model_1($$$)
     # .
     # not-case xor list
     # .'^'.1
-    my $is_0 = jm_is_integer($val) && $val >= 0;
-    return ! $is_0;
+    return ! (jm_is_integer($val) && $val >= 0);
 }
 
 

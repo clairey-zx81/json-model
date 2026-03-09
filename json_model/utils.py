@@ -790,6 +790,7 @@ def load_data_file(fn: str) -> str:
     return data_files("json_model.data").joinpath(fn).read_text()
 
 def hasher(s: str, size: int, byte_order: str = "le") -> int:
+    """Compute string prefix hash as 4 bytes int."""
     assert 1 <= size <= 4 and byte_order in ("le", "be")
     h = 0
     if s:

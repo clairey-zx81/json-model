@@ -5,8 +5,9 @@ import json
 
 from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
 from .mtypes import Jsonable, Number, JsonScalar
-from .utils import split_object, model_in_models, all_model_type, constant_value, is_a_simple_object
-from .utils import log, tname, MODEL_PREDEFS, partition
+from .utils import split_object, model_in_models, all_model_type, constant_value
+from .utils import is_a_simple_object, partition, is_base_model, resolve_model, model_type
+from .utils import log, tname, MODEL_PREDEFS
 from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse, distinct_prop_objects
 from .model import JsonModel
@@ -1174,6 +1175,27 @@ class CodeGenerator:
 
         return code
 
+    def _checkAllButOne(self, jm: JsonModel, models: ModelArray, mpath: ModelPath) -> \
+            tuple[ModelType, type, int] | None:
+        """List of all basic types but one with something else."""
+        if len(models) != 7:
+            return None
+        bmodels = list(map(is_base_model, models))
+        if len(set(bmodels)) != 7 or None not in bmodels:
+            return None
+        im = bmodels.index(None)  # which model is non trivial?
+        model = models[im]
+        # the resolved model is _just_ for type resolution, it may have skipped constraints
+        resolved = resolve_model(model, jm, mpath + [im])
+        typed, mtype = model_type(resolved, mpath + [im])
+        if not typed:
+            return None
+        # WARN bmodels contains type(None) for None…
+        if mtype is None and type(None) in bmodels or mtype in bmodels:
+            return None
+        # ok!
+        return model, mtype, im
+
     def _compileOr(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
                    res: str, val: str, vpath: str, known: set[BoolExpr]|None = None) -> Block:
         """Compile a general or-list of models."""
@@ -1227,6 +1249,39 @@ class CodeGenerator:
                     # all constants were tested, we are done
                     return code
                 need_if = True
+
+        # all types but one
+        all_but_one = self._checkAllButOne(jm, models, mpath)
+        if all_but_one:
+            # res = type(val) is mtype
+            # if res:
+            #    res = ...
+            # else:
+            #    res = True
+            model, mtype, im = all_but_one
+            tcode = []
+
+            type_test = gen.is_a(val, mtype)
+            if type_test in known:
+                # not need for testing the type if known, and no alternative branch
+                else_code = []
+            else:
+                tcode += gen.bool_var(res, type_test)
+                else_code = gen.bool_var(res, gen.const(True))
+
+            check_code = self._compileModel(
+                jm, model, mpath + [im], res, val, vpath, known | {type_test}
+            )
+
+            if else_code:
+                tcode += gen.if_stmt(res, check_code, else_code, likely=True)
+            else:
+                tcode += check_code
+
+            if need_if:
+                return code + gen.if_stmt(gen.not_op(res), tcode)
+            else:
+                return code + tcode
 
         # discriminant optimization for list of objects, None if fails
         tmp: ModelType = {"|": models}

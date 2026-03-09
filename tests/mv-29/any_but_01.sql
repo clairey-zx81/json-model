@@ -5,33 +5,60 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- regex=^[a-z]+$ opts=ni
-CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
+-- check $Obj (.'$Obj')
+CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
 BEGIN
-  RETURN regexp_like(val, '^[a-z]+$', 'ni');
+  -- .'$Obj'
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'a' THEN
+      -- handle must a property
+      must_count := must_count + 1;
+      -- .'$Obj'.a
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    END IF;
+    IF prop = 'b' THEN
+      -- handle may b property
+      -- .'$Obj'.b
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    END IF;
+    RETURN FALSE;
+  END LOOP;
+  RETURN must_count = 1;
 END;
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE PLpgSQL;
 
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
 BEGIN
-  -- not a word
+  -- with a reference
   -- .
-  -- not-case xor list
-  -- .'^'.1
-  -- "/^[a-z]+$/i"
-  RETURN NOT (JSONB_TYPEOF(val) = 'string' AND _jm_re_0(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL));
+  RETURN NOT (JSONB_TYPEOF(val) = 'object') OR json_model_2(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1"}';
+  map JSONB := JSONB '{"":"json_model_1","Obj":"json_model_2"}';
 BEGIN
   RETURN map->>name;
 END;
