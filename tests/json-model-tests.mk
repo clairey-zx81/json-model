@@ -336,3 +336,8 @@ check.schema: $(F.sXc)
 	    $*.java $*.java.check
 
 # TODO JSON Schema checks on test values?
+
+.PHONY: stats
+stats:
+	@echo "# models:" $$(ls *.model.json | wc -l)
+	echo "# vector tests:" $$(grep "^  *\[" *.values.json | wc -l)
