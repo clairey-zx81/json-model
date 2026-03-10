@@ -16,13 +16,28 @@ typedef enum {
     expect_pass
 } process_mode_t;
 
-// return realtime µs
+// NOTE CLOCK_REALTIME resolution seems low at 0.250 µs
+static clockid_t current_clock = CLOCK_MONOTONIC;
+
+// return realtime(?) µs
 static INLINE double now(void)
 {
     struct timespec ts;
-    if (unlikely(clock_gettime(CLOCK_REALTIME, &ts)))
+    if (unlikely(clock_gettime(current_clock, &ts)))
     {
         fprintf(stderr, "cannot get time (%d): %s\n", errno, strerror(errno));
+        exit(2);
+    }
+    return 1000000.0 * ts.tv_sec + 0.001 * ts.tv_nsec;
+}
+
+// return clock resolution in µs (may be probably optimistic)
+static double getres(void)
+{
+    struct timespec ts;
+    if (unlikely(clock_getres(current_clock, &ts)))
+    {
+        fprintf(stderr, "cannot get clock resolution (%d): %s\n", errno, strerror(errno));
         exit(2);
     }
     return 1000000.0 * ts.tv_sec + 0.001 * ts.tv_nsec;
@@ -291,6 +306,8 @@ int main(int argc, char* argv[])
         { "slow", no_argument, NULL, 1001 },
         { "jsonschema-benchmark", no_argument, NULL, 1002 },
         { "no-report", no_argument, NULL, 1003 },
+        { "resolution", no_argument, NULL, 1004 },
+        { "clock", required_argument, NULL, 1005 },
         { NULL, 0, NULL, 0 }
     };
 
@@ -342,6 +359,19 @@ int main(int argc, char* argv[])
                 break;
             case 1003:
                 report = false;
+                break;
+            case 1004:
+                fprintf(stderr, "clock resolution: %.03f µs\n", getres());
+                break;
+            case 1005:
+                if (strcmp(optarg, "monotonic") == 0)
+                    current_clock = CLOCK_MONOTONIC;
+                else if (strcmp(optarg, "realtime") == 0)
+                    current_clock = CLOCK_REALTIME;
+                else {
+                    fprintf(stderr, "unexpected clock %s for monotonic/realtime\n", optarg);
+                    return 1;
+                }
                 break;
             case '?':
             default:

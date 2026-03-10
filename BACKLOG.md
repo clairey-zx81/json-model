@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] c-backend: use monotonic instead of realtime clock which has a better precision
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] optim: merge `&` list when possible, eg inclusions or compatibility
