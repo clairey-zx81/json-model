@@ -294,7 +294,7 @@ int main(int argc, char* argv[])
         { NULL, 0, NULL, 0 }
     };
 
-    while ((opt = getopt_long(argc, argv, "hvln:rtT:", options, &optind)) != -1)
+    while ((opt = getopt_long(argc, argv, "hvln:rtT:", options, NULL)) != -1)
     {
         switch (opt) {
             case 'h':  // FIXME expand help!

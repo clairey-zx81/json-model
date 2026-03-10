@@ -5,6 +5,7 @@
 - [x] optim: implement any type but one constrained optimization (jsu)
 - [x] ir: fix bad elimination when bool var was used
 - [x] ir: add bool var assign elimination on return with only one use
+- [x] c-backend: fix long option parsing
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] optim: merge `&` list when possible, eg inclusions or compatibility
