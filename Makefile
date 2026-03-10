@@ -15,6 +15,8 @@ venv:
 
 .PHONY: dev
 dev: venv
+	npm install
+	$(MAKE) -C json_model/runtime/java jar
 
 .PHONY: clean
 clean: clean.site
