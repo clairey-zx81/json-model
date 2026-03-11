@@ -47,7 +47,7 @@ public class Main
         // cold run
         long cold_start = System.nanoTime();
         for (Object value: values)
-            if (check.call(value))
+            if (!check.call(value))
                 errors++;
         double cold_run = 0.001 * (System.nanoTime() - cold_start);
 
@@ -60,7 +60,7 @@ public class Main
 
         // measure
         double sum = 0.0, sum2 = 0.0;
-        for (int n = time; n > 0; time--)
+        for (int n = time; n > 0; n--)
         {
             long start = System.nanoTime();
             for (Object value: values)
@@ -231,6 +231,8 @@ public class Main
                     break;
                 case 1002:  // --jsonschema-benchmark
                     jsbench = true;
+                    jsonl = true;
+                    if (time <= 0) time = 1;
                     break;
                 case 1003:  // --no-report
                     report = false;
