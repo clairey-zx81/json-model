@@ -9,6 +9,8 @@
 
 #include <json-model.h>
 
+#define str_eq(s1, s2) (strcmp(s1, s2) == 0)
+
 typedef enum {
     expect_nothing,
     expect_anything,
@@ -307,11 +309,11 @@ int main(int argc, char* argv[])
         { "jsonschema-benchmark", no_argument, NULL, 1002 },
         { "no-report", no_argument, NULL, 1003 },
         { "resolution", no_argument, NULL, 1004 },
-        { "clock", required_argument, NULL, 1005 },
+        { "clock", required_argument, NULL, 'C' },
         { NULL, 0, NULL, 0 }
     };
 
-    while ((opt = getopt_long(argc, argv, "hvln:rtT:", options, NULL)) != -1)
+    while ((opt = getopt_long(argc, argv, "hvln:rtT:C:", options, NULL)) != -1)
     {
         switch (opt) {
             case 'h':  // FIXME expand help!
@@ -363,13 +365,21 @@ int main(int argc, char* argv[])
             case 1004:
                 fprintf(stderr, "clock resolution: %.03f µs\n", getres());
                 break;
-            case 1005:
-                if (strcmp(optarg, "monotonic") == 0)
+            case 'C':
+                if (str_eq(optarg, "monotonic") || str_eq(optarg, "m"))
                     current_clock = CLOCK_MONOTONIC;
-                else if (strcmp(optarg, "realtime") == 0)
+                else if (str_eq(optarg, "realtime") || str_eq(optarg, "r"))
                     current_clock = CLOCK_REALTIME;
+#ifdef CLOCK_PROCESS_CPUTIME_ID
+                else if (str_eq(optarg, "process") || str_eq(optarg, "p"))
+                    current_clock = CLOCK_PROCESS_CPUTIME_ID;
+#endif
+#ifdef CLOCK_THREAD_CPUTIME_ID
+                else if (str_eq(optarg, "thread") || str_eq(optarg, "t"))
+                    current_clock = CLOCK_THREAD_CPUTIME_ID;
+#endif
                 else {
-                    fprintf(stderr, "unexpected clock %s for monotonic/realtime\n", optarg);
+                    fprintf(stderr, "unexpected clock %s for [mrpt]\n", optarg);
                     return 1;
                 }
                 break;
@@ -416,7 +426,7 @@ int main(int argc, char* argv[])
     {
         int exponent;
         double v = frexp(loop / 13.0, &exponent);
-        int count = 100;
+        int count = 1000;
         while (count)
         {
             double e = overhead_estimation(loop, &v);
