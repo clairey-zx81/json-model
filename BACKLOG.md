@@ -2,8 +2,6 @@
 
 ## Current Tasks
 
-- [x] c-backend: use monotonic instead of realtime clock which has a better precision
-- [x] java-backend: fix previously untested `--jsonschema-benchmark` implementation
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] optim: merge `&` list when possible, eg inclusions or compatibility
@@ -792,3 +790,5 @@
 - [x] ir: fix bad elimination when bool var was used
 - [x] ir: add bool var assign elimination on return with only one use
 - [x] c-backend: fix long option parsing
+- [x] c-backend: use monotonic instead of realtime clock which has a better precision
+- [x] java-backend: fix previously untested `--jsonschema-benchmark` implementation
