@@ -24,13 +24,6 @@ schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon)
 - [2026021000](benchmarks/2026021000.md) clang, no predefs, jmc 2.0b36 vs sbc 14.7.2, 11 runs, 1000 iterations.
 - [2026020600](benchmarks/2026020600.md) clang, no predefs, jmc 2.0b36 vs sbc 14.7.1, 11 runs, 1000 iterations.
 - [2026020500](benchmarks/2026020500.md) clang, no predefs, jmc 2.0b36 vs sbc 14.6.1, 11 runs, 1000 iterations.
-- [2026012700](benchmarks/2026012700.md) clang, no predefs, jmc 2.0b36 vs sbc 14.5.0, 11 runs, 1000 iterations.
-- [2026012400](benchmarks/2026012400.md) clang, no predefs, jmc 2.0b36 vs sbc 14.4.0, 11 runs, 1000 iterations.
-- [2026012200](benchmarks/2026012200.md) clang, no predefs, jmc 2.0b36 vs sbc 14.2.0, 11 runs, 1000 iterations.
-- [2026012000](benchmarks/2026012000.md) clang, no predefs, jmc 2.0b36 vs sbc 14.1.0, 11 runs, 1000 iterations.
-- [2026011500](benchmarks/2026011500.md) clang, no predefs, jmc 2.0b36 vs sbc 14.0.4, 11 runs, 1000 iterations.
-- [2026010900](benchmarks/2026010900.md) clang, no predefs, jmc 2.0b36 vs sbc 14.0.3, 11 runs, 1000 iterations.
-- [2026010600](benchmarks/2026010600.md) clang, no predefs, jmc 2.0b36 vs sbc 14.0.2, 11 runs, 1000 iterations.
 
 ## Benchmarking Script
 
