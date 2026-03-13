@@ -78,7 +78,7 @@ function jsonschema_benchmark(values, checker, times)
     const WARMUP_ITERATIONS = 1000  // unless too long
     const max_iterations = Math.ceil(WARMUP_MAX_TIME * 1000.0 / cold_delay)
     const warmup_iterations = Math.min(WARMUP_ITERATIONS, max_iterations)
-    console.error(`warmup iterations: ${warmup_iterations}`)
+    // console.error(`warmup iterations: ${warmup_iterations}`)
     for (let i = 0; i < warmup_iterations; i++)
         for (const v of values)
             checker(v, '', null)
