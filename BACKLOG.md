@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] optim: do not recheck object if not necessary
+- [x] command: show runtime directory with `--runtime`
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] optim: merge `&` list when possible, eg inclusions or compatibility

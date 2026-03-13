@@ -286,6 +286,7 @@ def jmc_script():
     arg("--doc", choices=["pod", "syn", "help", "man"], default=None,
         help="show documentation and exit")
     arg("--man", dest="doc", action="store_const", const="man", help="show man page")
+    arg("--runtime", default=False, action="store_true", help="show runtime source directory")
 
     # verbosity and checks
     arg("--version", action="store_true", help="show current version and exit")
@@ -462,6 +463,10 @@ def jmc_script():
 
     if args.version:
         print(pkg_version("json_model_compiler"))
+        sys.exit(0)
+
+    if args.runtime:
+        print(files("json_model.runtime"))
         sys.exit(0)
 
     # POD - Plain Old Documentation
