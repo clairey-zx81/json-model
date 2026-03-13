@@ -1,0 +1,38 @@
+{
+  "description": "merge object stuff if possible, cannot have ss",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "i": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "b": {
+          "type": "boolean"
+        },
+        "ss": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "i",
+        "b"
+      ],
+      "additionalProperties": true
+    },
+    {
+      "type": "object",
+      "patternProperties": {
+        "^s": {
+          "type": "boolean"
+        },
+        "^i": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": true
+    }
+  ]
+}

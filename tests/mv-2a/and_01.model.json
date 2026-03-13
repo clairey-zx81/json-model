@@ -1,0 +1,10 @@
+{
+  "#": "merge object stuff if possible, cannot have ss",
+  "&": [
+    { "?ss": "", "": "$ANY" },
+    { "i": 1, "": "$ANY" },
+    { "b": true, "": "$ANY" },
+    { "/^s/": true, "": "$ANY" },
+    { "/^i/": 1, "": "$ANY" }
+  ]
+}

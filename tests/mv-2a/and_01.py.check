@@ -1,0 +1,22 @@
+and_01.values.json[0]: PASS
+and_01.values.json[1]: PASS
+and_01.values.json[2]: PASS
+and_01.values.json[3]: PASS
+and_01.values.json[4]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.1]; .ss: not a bool [.'&'.1.'/^s/'])
+and_01.values.json[5]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .ss: unexpected value for optional prop <ss> [.'&'.0]; .ss: unexpected value for model "" [.'&'.0.ss])
+and_01.values.json[6]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .: missing mandatory prop <i> [.'&'.0])
+and_01.values.json[7]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .i: unexpected value for mandatory prop <i> [.'&'.0]; .i: not a 1 strict int [.'&'.0.i])
+and_01.values.json[8]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .b: unexpected value for mandatory prop <b> [.'&'.0]; .b: not a bool [.'&'.0.b])
+and_01.values.json[9]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.1]; .sfoo: not a bool [.'&'.1.'/^s/'])
+and_01.values.json[10]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.1]; .ifoo: not a 1 strict int [.'&'.1.'/^i/'])
+and_01.values.json[11]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .: missing mandatory prop <i> [.'&'.0])
+and_01.values.json[12]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .: missing mandatory prop <b> [.'&'.0])
+and_01.values.json[13]: FAIL (.: not all model match [.'&'])
+and_01.values.json[14]: FAIL (.: not all model match [.'&'])
+and_01.values.json[15]: FAIL (.: not all model match [.'&'])
+and_01.values.json[16]: FAIL (.: not all model match [.'&'])
+and_01.values.json[17]: FAIL (.: not all model match [.'&'])
+and_01.values.json[18]: FAIL (.: not all model match [.'&'])
+and_01.values.json[19]: FAIL (.: not all model match [.'&'])
+and_01.values.json[20]: FAIL (.: not all model match [.'&'])
+and_01.values.json[21]: FAIL (.: not all model match [.'&'])

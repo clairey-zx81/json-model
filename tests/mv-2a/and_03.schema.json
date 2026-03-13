@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "patternProperties": {
+    "^xs": {
+      "type": "string"
+    },
+    "^xb": {
+      "type": "boolean"
+    },
+    "^xi": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "^xf": {
+      "type": "number",
+      "exclusiveMinimum": 0.0
+    }
+  },
+  "properties": {
+    "s": {
+      "type": "string"
+    },
+    "b": {
+      "type": "boolean"
+    },
+    "i": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "f": {
+      "type": "number",
+      "exclusiveMinimum": 0.0
+    }
+  },
+  "required": [
+    "s"
+  ],
+  "additionalProperties": true
+}

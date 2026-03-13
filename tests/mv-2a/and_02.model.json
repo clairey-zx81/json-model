@@ -1,0 +1,12 @@
+{
+  "#": "merge object stuff if possible",
+  "&": [
+    { "s": "", "/^z/": "$ANY", "": "$ANY" },
+    { "?u": 1, "": "$ANY" },
+    { "_b": true, "": "$ANY" },
+    { "!f": 1.0, "": "$ANY" },
+    "# these won't do because same prefix",
+    { "/^d[a-z]/": "", "": "$ANY" },
+    { "/^d[0-9]/": 1, "": "$ANY" }
+  ]
+}

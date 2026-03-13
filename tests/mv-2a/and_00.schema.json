@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "patternProperties": {
+    "^d": {
+      "type": "string"
+    },
+    "^e": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "properties": {
+    "s": {
+      "type": "string"
+    },
+    "i": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "b": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

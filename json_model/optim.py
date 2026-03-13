@@ -1,6 +1,7 @@
 #
 # Model Optimizations
 #
+import re
 from .mtypes import ModelPath, ModelType
 from .utils import log, is_cst, _structurally_distinct_models, model_type, is_base_model
 from .utils import constant_values, same_model, model_eq
@@ -53,35 +54,6 @@ def normalizeModels(models: list[ModelType]) -> int:
 
     return changes
 
-def _simple_open_object(model: ModelType, jm: JsonModel, path: ModelPath) -> list[str]|None:
-    """Detect simple may/must open objects, return property names."""
-    if jm._isRef(model):
-        model = jm.resolveRef(model, path)._model
-    if isinstance(model, dict):
-        props, is_open = [], False
-        for prop in model.keys():
-            assert isinstance(prop, str)
-            if prop == "":
-                is_open = model[""] == "$ANY"
-                if not is_open:
-                    return None
-            elif prop in ("$", "%", "~") or prop[0] == "#":
-                pass
-            elif prop[0] in ("$", "/"):
-                return None
-            elif prop[0] in ("?", "_", "!"):
-                name = prop[1:]
-                if name in props:  # not safe?
-                    return None
-                props.append(name)
-            else:
-                if prop in props:  # not safe?
-                    return None
-                props.append(prop)
-        return props if is_open else None
-    else:
-        return None
-
 def and_not_simpler(jm: JsonModel) -> bool:
     """Change and(T, xor(ANY, …)) to xor(T, and(T, …))."""
     # this does not generalize, the idea is to forward the type to both sides
@@ -131,6 +103,77 @@ def and_not_simpler(jm: JsonModel) -> bool:
     log.debug(f"{jm._id}: ans {changes}")
     return changes > 0
 
+def _simple_open_object(model: ModelType, jm: JsonModel, path: ModelPath) -> list[str]|None:
+    """Detect simple may/must/regs open objects, return property names and regs."""
+    if jm._isRef(model):
+        model = jm.resolveRef(model, path)._model
+    if isinstance(model, dict):
+        props, is_open = [], False
+        for prop in model.keys():
+            assert isinstance(prop, str)
+            if prop == "":
+                is_open = model[""] == "$ANY"
+                # NOTE it could also be partially open…
+                if not is_open:
+                    return None
+            elif prop in ("$", "%", "~") or prop[0] == "#":
+                pass
+            elif prop[0] == "$":
+                # TODO follow definition!
+                return None
+            elif prop[0] == "/":
+                props.append(prop)
+            elif prop[0] in ("?", "_", "!"):
+                name = "_" + prop[1:]
+                if name in props:  # not safe?
+                    return None
+                props.append(name)
+            else:
+                name = "_" + prop
+                if name in props:  # not safe?
+                    return None
+                props.append(name)
+        return props if is_open else None
+    else:
+        return None
+
+def _prefix_reg(reg: str) -> str|None:
+    """Prefix of simple prefix regex."""
+    # FIXME must handle ignore-case option
+    m = re.match(r"/\^([-_A-Za-z0-9]+)", reg)
+    return m.group(1) if m else None
+
+def _bad_regs(lobj: list[list[str]|None]) -> set[str]:
+    """Identify regs which cannot be merged, based on prefix compatibilities."""
+    # NOTE we could check only with regs with props from **other** objects
+    all_props, all_regs, bad_regs = set(), set(), set()
+    for lp in lobj:
+        if lp is not None:
+            assert isinstance(lp, list)
+            all_props.update(filter(lambda s: s[0] == "_", lp))
+            all_regs.update(filter(lambda s: s[0] == "/", lp))
+    # drop leading "_"
+    all_props = { s[1:] for s in all_props }
+    prefixes = {}
+    for r in all_regs:
+        # regex incompatibilities between themselves
+        prefix = _prefix_reg(r)
+        if prefix is None:
+            bad_regs.add(r)
+            continue
+        # check for prefix inclusions, including ==
+        for p, pr in prefixes.items():
+            if prefix.startswith(p) or p.startswith(prefix):
+                bad_regs.add(r)
+                bad_regs.add(pr)
+        prefixes[prefix] = r
+        # rough regex incompatibilities with properties
+        for p in all_props:
+            if p.startswith(prefix):
+                bad_regs.add(r)
+    # log.debug(f"bad_regs={bad_regs}")
+    return bad_regs
+
 def and_to_merge(jm: JsonModel) -> bool:
     """Change and to less costly merge if possible."""
 
@@ -142,19 +185,43 @@ def and_to_merge(jm: JsonModel) -> bool:
             land = model["&"]
             assert isinstance(land, list)
             lobj: list[list[str]|None] = list(map(lambda i: _simple_open_object(i, jm, path), land))
-            if all(map(lambda i: i is not None, lobj)):
-                # property intersection
-                sprops, nprops = set(), 0
-                for lp in lobj:
-                    nprops += len(lp)
-                    sprops.update(lp)
-                if nprops == len(sprops):
-                    # no property intersection, change is safe
-                    # TODO it is also ok if values are compatible
-                    changes += 1
-                    model["+"] = land
+            # subset of mergeables
+            n_merges = sum(map(lambda i: 1 if i is not None else 0, lobj))
+            if n_merges <= 1:
+                return  model
+            # else something to try
+            # FIXME for now partial merges may fail
+            sprops, nprops, sregs, nregs, move = set(), 0, set(), 0, []
+            # regular expressions to skip
+            bad_regs = _bad_regs(lobj)
+            for i, lp in enumerate(lobj):
+                if lp is not None:
+                    props = list(filter(lambda s: s[0] == "_", lp))
+                    regs = list(filter(lambda s: s[0] == "/", lp))
+                    # skip objects with a bad regular expression for merging
+                    if any(filter(lambda r: r in bad_regs, regs)):
+                        # skip object
+                        continue
+                    # else let us accumulate
+                    nprops += len(props)
+                    sprops.update(props)
+                    nregs += len(regs)
+                    sregs.update(regs)
+                    move.append(i)
+            # log.debug(f"move={move} sprops={sprops} sregs={sregs}")
+            # no property intersection, change is safe
+            if len(move) > 1 and nprops == len(sprops) and nregs == len(sregs):
+                # FIXME the generated merge may fail, which may denote an unfeasible model?
+                changes += 1
+                merge = [ land[i] for i in move ]
+                for i in reversed(move):
+                    land.pop(i)
+                if len(land) == 0:
                     del model["&"]
-                # else property collision, probably not safe
+                    model["+"] = merge
+                else:
+                    land.append({"+": merge})
+            # else property collision, probably not safe
         return model
 
     jm._model = recModel(jm._model, builtFlt, a2mRwt)

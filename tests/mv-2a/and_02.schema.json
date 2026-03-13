@@ -1,0 +1,52 @@
+{
+  "description": "merge object stuff if possible",
+  "allOf": [
+    {
+      "type": "object",
+      "patternProperties": {
+        "^d[a-z]": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    {
+      "type": "object",
+      "patternProperties": {
+        "^d[0-9]": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    {
+      "type": "object",
+      "patternProperties": {
+        "^z": true
+      },
+      "properties": {
+        "s": {
+          "type": "string"
+        },
+        "b": {
+          "type": "boolean"
+        },
+        "f": {
+          "type": "number",
+          "exclusiveMinimum": 0.0
+        },
+        "u": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "s",
+        "b",
+        "f"
+      ],
+      "additionalProperties": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "#": "merge object stuff if possible",
+  "&": [
+    { "s": "", "/^xs/": "", "": "$ANY" },
+    { "?b": true, "/^xb/": true, "": "$ANY" },
+    { "?i": 1, "/^xi/": 1, "": "$ANY" },
+    { "?f": 1.0, "/^xf/": 1.0, "": "$ANY" }
+  ]
+}
