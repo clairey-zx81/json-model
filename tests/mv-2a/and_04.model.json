@@ -1,0 +1,22 @@
+{
+  "#": "merge also works with references",
+  "$": {
+    "foo": {
+      "?s": "",
+      "/^xs/": "",
+      "": "$ANY"
+    },
+    "bla": {
+      "?b": true,
+      "/^xb/": true,
+      "": "$ANY"
+    }
+  },
+  "&": [
+    {"?u": 1, "/^xu/": 1, "": "$ANY"},
+    "$foo",
+    {"?a": ["$ANY"], "/^xa/": ["$ANY"], "": "$ANY"},
+    "$bla",
+    {"": "$ANY"}
+  ]
+}

@@ -247,8 +247,8 @@ EXPECT: dict[str, int] = {
     "mv-29:errors.sql": 3,
     "mv-29:verrors:schema": 3,
     # mv-2a
-    "mv-2a:models": 5,
-    "mv-2a:values": 104,
+    "mv-2a:models": 6,
+    "mv-2a:values": 127,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,

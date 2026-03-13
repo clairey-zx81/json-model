@@ -1,0 +1,46 @@
+[
+  {
+    "?u": 1,
+    "?s": "",
+    "?a": [
+      "$ANY"
+    ],
+    "?b": true,
+    "/^xu/": 1,
+    "/^xs/": "",
+    "/^xa/": [
+      "$ANY"
+    ],
+    "/^xb/": true,
+    "": "$ANY",
+    "#": "JsonModel 1",
+    "$": {
+      "foo": {
+        "?s": "",
+        "/^xs/": "",
+        "": "$ANY",
+        "#": "JsonModel 2"
+      },
+      "bla": {
+        "?b": true,
+        "/^xb/": true,
+        "": "$ANY",
+        "#": "JsonModel 3"
+      },
+      "#": "Symbol 1",
+      "": "./and_04.model.json"
+    }
+  },
+  {
+    "?s": "",
+    "/^xs/": "",
+    "": "$ANY",
+    "#": "JsonModel 2"
+  },
+  {
+    "?b": true,
+    "/^xb/": true,
+    "": "$ANY",
+    "#": "JsonModel 3"
+  }
+]
