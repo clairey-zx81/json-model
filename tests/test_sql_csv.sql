@@ -12,7 +12,7 @@
 
 CREATE TEMPORARY TABLE json_model_test(
     jid SERIAL PRIMARY KEY,
-    expect BOOLEAN,
+    expect BOOLEAN DEFAULT NULL,
     name TEXT NOT NULL,
     jval JSONB NOT NULL,
     checked BOOLEAN DEFAULT NULL
@@ -22,8 +22,9 @@ CREATE TEMPORARY TABLE json_model_test(
 
 UPDATE json_model_test
 SET
-  jid = jid - 1,
-  checked = check_model(jval, name, NULL);
+  jid = jid - 1,                           -- array index
+  checked = check_model(jval, name, NULL)  -- check result
+;
 
 SELECT
   :'input' || '[' || jid || ']: ' ||
