@@ -246,6 +246,9 @@ EXPECT: dict[str, int] = {
     "mv-29:errors.pl": 3,
     "mv-29:errors.sql": 3,
     "mv-29:verrors:schema": 3,
+    # mv-2a
+    "mv-2a:models": 1,
+    "mv-2a:values": 19,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,
@@ -294,7 +297,7 @@ def has_exec(program: str) -> bool:
         "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d",
         "./mv-1e", "./mv-1f", "./mv-20", "./mv-21", "./mv-22",
         "./mv-23", "./mv-24", "./mv-25", "./mv-26", "./mv-27",
-        "./mv-28", "./mv-29",
+        "./mv-28", "./mv-29", "./mv-2a",
     ]
 )
 def directory(request):

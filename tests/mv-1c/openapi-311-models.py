@@ -374,9 +374,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#License'.'|'.1
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#License'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -419,9 +417,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#License'.'|'.0
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#License'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -1312,9 +1308,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#Parameter'.'|'.1
 def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Parameter'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -1428,9 +1422,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#Parameter'.'|'.0
 def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Parameter'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -2103,9 +2095,7 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#Link'.'|'.1
 def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Link'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -2176,9 +2166,7 @@ def _jm_obj_28(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#Link'.'|'.0
 def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Link'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -2278,9 +2266,7 @@ def _jm_obj_30(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#Header'.'|'.1
 def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Header'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     for prop, pval in val.items():
         lpath_45: Path = (path + [ prop ]) if path is not None else None
@@ -2365,9 +2351,7 @@ def _jm_obj_32(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#Header'.'|'.0
 def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#Header'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     for prop, pval in val.items():
         lpath_47: Path = (path + [ prop ]) if path is not None else None
@@ -3149,9 +3133,7 @@ def json_model_69(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#model#Element'.'|'.5
 def _jm_obj_40(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#model#Element'.'|'.5]", path))
-        return False
+    # value known to be an object
     res: bool
     for prop, pval in val.items():
         lpath_61: Path = (path + [ prop ]) if path is not None else None
@@ -3182,9 +3164,7 @@ def _jm_obj_40(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#model#Element'.'|'.4
 def _jm_obj_41(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#model#Element'.'|'.4]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -3232,9 +3212,7 @@ def _jm_obj_41(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#model#Element'.'|'.3
 def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#model#Element'.'|'.3]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -3282,9 +3260,7 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#model#Element'.'|'.2
 def _jm_obj_43(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#model#Element'.'|'.2]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -3332,9 +3308,7 @@ def _jm_obj_43(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#model#Element'.'|'.1
 def _jm_obj_44(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#model#Element'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -3384,9 +3358,7 @@ def _jm_obj_44(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$openapi#model#Element'.'|'.0
 def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$openapi#model#Element'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():

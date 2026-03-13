@@ -23,11 +23,7 @@ public class xor_ob00 extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Aa'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'$Aa'.'|'.1]", path);
@@ -57,11 +53,7 @@ public class xor_ob00 extends ModelChecker
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Aa'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'$Aa'.'|'.0]", path);
@@ -139,11 +131,7 @@ public class xor_ob00 extends ModelChecker
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Bb'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'$Bb'.'|'.1]", path);
@@ -173,11 +161,7 @@ public class xor_ob00 extends ModelChecker
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Bb'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'$Bb'.'|'.0]", path);
@@ -255,11 +239,7 @@ public class xor_ob00 extends ModelChecker
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.3]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 2)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.3]", path);
@@ -303,11 +283,7 @@ public class xor_ob00 extends ModelChecker
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 2)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.2]", path);
@@ -351,11 +327,7 @@ public class xor_ob00 extends ModelChecker
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 2)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.1]", path);
@@ -399,11 +371,7 @@ public class xor_ob00 extends ModelChecker
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 2)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.0]", path);

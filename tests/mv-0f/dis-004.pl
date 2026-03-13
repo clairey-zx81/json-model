@@ -24,10 +24,7 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     if (jm_obj_size($val) != 1)
     {
         return 0;
@@ -48,10 +45,7 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     if (jm_obj_size($val) != 1)
     {
         return 0;

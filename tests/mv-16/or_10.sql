@@ -14,9 +14,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
@@ -39,7 +37,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN JSONB_TYPEOF(val) = 'object' AND jm_object_size(val) = 0;
+  -- value known to be an object
+  RETURN jm_object_size(val) = 0;
 END;
 $$ LANGUAGE PLpgSQL;
 

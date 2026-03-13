@@ -14,10 +14,7 @@ var check_model_map = new Map()
 // object .'|'.2
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -76,10 +73,7 @@ function _jm_obj_0(val, path, rep)
 // object .'|'.1
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -138,10 +132,7 @@ function _jm_obj_1(val, path, rep)
 // object .'|'.0
 function _jm_obj_2(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))

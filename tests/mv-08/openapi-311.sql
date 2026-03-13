@@ -338,9 +338,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'url' THEN
@@ -383,9 +381,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'name' THEN
@@ -1633,9 +1629,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'in' THEN
@@ -1827,9 +1821,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'in' THEN
@@ -2449,9 +2441,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'operationId' THEN
@@ -2524,9 +2514,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'operationRef' THEN
@@ -2623,9 +2611,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = 'content' THEN
       -- handle may content property
@@ -2787,9 +2773,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF _jm_obj_22_map(prop) IS NOT NULL THEN
       -- handle 10 may props

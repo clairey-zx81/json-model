@@ -548,11 +548,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#License'.'|'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#License'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -622,11 +618,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#License'.'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#License'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -2133,11 +2125,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#Parameter'.'|'.1
     public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#Parameter'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -2315,11 +2303,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#Parameter'.'|'.0
     public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#Parameter'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3385,11 +3369,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#Link'.'|'.1
     public boolean _jm_obj_26(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#Link'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3499,11 +3479,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#Link'.'|'.0
     public boolean _jm_obj_28(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#Link'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3663,11 +3639,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#Header'.'|'.1
     public boolean _jm_obj_30(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#Header'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -3800,11 +3772,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#Header'.'|'.0
     public boolean _jm_obj_32(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#Header'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -5047,11 +5015,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#model#Element'.'|'.5
     public boolean _jm_obj_41(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#model#Element'.'|'.5]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -5101,11 +5065,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#model#Element'.'|'.4
     public boolean _jm_obj_42(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#model#Element'.'|'.4]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -5188,11 +5148,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#model#Element'.'|'.3
     public boolean _jm_obj_43(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#model#Element'.'|'.3]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -5275,11 +5231,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#model#Element'.'|'.2
     public boolean _jm_obj_44(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#model#Element'.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -5362,11 +5314,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#model#Element'.'|'.1
     public boolean _jm_obj_45(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#model#Element'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -5459,11 +5407,7 @@ public class openapi_311_models extends ModelChecker
     // object .'$openapi#model#Element'.'|'.0
     public boolean _jm_obj_46(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$openapi#model#Element'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);

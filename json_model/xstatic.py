@@ -446,8 +446,10 @@ class CodeGenerator:
 
         return code
 
-    def _disjunction(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
-                     res: str, val: str, vpath: str, known: set[str]|None) -> Block|None:
+    def _disjunction(
+                self, jm: JsonModel, model: ModelType, mpath: ModelPath,
+                res: str, val: str, vpath: str, known: set[BoolExpr]|None = None,
+            ) -> Block|None:
         """Generate optimized disjunction check, return None if failed."""
 
         assert isinstance(model, dict) and "|" in model and isinstance(model["|"], list)
@@ -641,26 +643,37 @@ class CodeGenerator:
 
         self._code.pmap(name, prop_map)
 
-    # TODO known?
     def _closeMuObject(
             self, jm: JsonModel, must: dict[str, ModelType],
             mpath: ModelPath, oname: str,
-            res: Var, val: JsonExpr, vpath: PathExpr
+            res: Var, val: JsonExpr, vpath: PathExpr,
+            known: set[BoolExpr]|None = None,
         ) -> Block:
         """Optimize `{"x": ..., "": "y": ...}`."""
 
         assert isinstance(must, dict)
         gen = self._lang
         smpath = json_path(mpath)
+        if known is None:
+            known = set()
 
-        code = (
-            gen.lcom("check close must only props") +
+        code = gen.lcom("check close must only props")
+
+        obj_test = gen.is_a(val, dict)
+        if obj_test not in known:
             # filter non object
-            gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
-                        self._gen_fail(f"not an object [{smpath}]", vpath),
-                        likely=False) +
-            # filter ahead on the number of properties
-            # NOTE necessary to detect unexpected misc property as the object is not scanned
+            code += (
+                gen.if_stmt(gen.not_op(obj_test),
+                            self._gen_fail(f"not an object [{smpath}]", vpath),
+                            likely=False)
+            )
+            known = known | {obj_test}
+        else:
+            code += gen.lcom("value known to be an object")
+
+        # filter ahead on the number of properties
+        # NOTE necessary to detect unexpected misc property as the object is not scanned
+        code += (
             gen.if_stmt(gen.num_cmp(gen.obj_len(val), "!=", gen.const(len(must)), is_int=True),
                         self._gen_fail(f"bad property count [{smpath}]", vpath),
                         likely=False)
@@ -709,21 +722,32 @@ class CodeGenerator:
 
     # TODO known?
     # TODO fix vpath
-    def _openMuMaObject(self, jm: JsonModel, must: dict[str, ModelType], may: dict[str, ModelType],
-                        mpath: ModelPath, oname: str,
-                        res: Var, val: JsonExpr, vpath: PathExpr) -> Block:
+    def _openMuMaObject(
+                self, jm: JsonModel, must: dict[str, ModelType], may: dict[str, ModelType],
+                mpath: ModelPath, oname: str,
+                res: Var, val: JsonExpr, vpath: PathExpr,
+                known: set[BoolExpr]|None = None,
+            ) -> Block:
         """Optimize `{"x": ..., "": "?y": ..., "": "$ANY"}`."""
 
         assert isinstance(must, dict)
         gen = self._lang
         smpath = json_path(mpath)
+        if known is None:
+            known = set()
 
-        code = (
-            gen.lcom("check open must/may only props") +
-            gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
-                        self._gen_fail(f"not an object [{smpath}]", vpath),
-                        likely=False)
-        )
+        code = gen.lcom("check open must/may only props")
+
+        obj_test = gen.is_a(val, dict)
+        if obj_test not in known:
+            code += (
+                gen.if_stmt(gen.not_op(obj_test),
+                            self._gen_fail(f"not an object [{smpath}]", vpath),
+                            likely=False)
+            )
+            known = known | {obj_test}
+        else:
+            code += gen.lcom("value known to be an object")
 
         # value checks?
         if any(m != "$ANY" for m in must.values()) or any(m != "$ANY" for m in may.values()):
@@ -792,8 +816,11 @@ class CodeGenerator:
 
         return code + gen.ret(gen.true())
 
-    def _compileObject(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
-                       oname: str, res: str, val: JsonExpr, vpath: PathExpr) -> Block:
+    def _compileObject(
+                self, jm: JsonModel, model: ModelType, mpath: ModelPath,
+                oname: str, res: str, val: JsonExpr, vpath: PathExpr,
+                known: set[BoolExpr]|None = None,
+            ) -> Block:
         """Generate the body of a function which checks an actual object."""
 
         assert isinstance(model, dict)
@@ -803,6 +830,20 @@ class CodeGenerator:
         must, may, defs, regs, oth = split_object(model, mpath)
         smpath = json_path(mpath)
 
+        # shortcut for open object with simple props only
+        # TODO accept any other prop?
+        if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
+            # if there are many may values, this may be too costly…
+            # # if (len(may) / (len(must) + len(may)) < self._may_must_open_ratio or
+            if (len(must) + len(may)) <= self._may_must_open_threshold:
+                return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath, known)
+
+        # shortcut for must-only close object
+        # NOTE we assume that this strategy is always beneficial, but it may depend on the target
+        if must and not may and not defs and not regs and not oth and \
+                len(must) <= self._must_only_threshold:
+            return self._closeMuObject(jm, must, mpath, oname, res, val, vpath, known)
+
         # generated code helpers
         code: Block = []
         body_code: Block = []
@@ -810,9 +851,14 @@ class CodeGenerator:
         prop, pval, must_c, pfun = "prop", "pval", "must_count", "pfun"
 
         # should be an object
-        code += gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
-                            self._gen_fail(f"not an object [{smpath}]", vpath),
-                            likely=False)
+        obj_test = gen.is_a(val, dict)
+        if obj_test not in known:
+            code += gen.if_stmt(gen.not_op(obj_test),
+                                self._gen_fail(f"not an object [{smpath}]", vpath),
+                                likely=False)
+            known = known | {obj_test}
+        else:
+            code += gen.lcom("value known to be an object")
 
         # NOTE there may be different tradeoffs depending on the target languages,
         # libraries and the complexity of underlying operations.
@@ -835,19 +881,6 @@ class CodeGenerator:
                 return code
             # only check values, fine code will be generated below
 
-        # shortcut for open object with simple props only
-        # TODO accept any other prop?
-        if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
-            # if there are many may values, this may be too costly…
-            # # if (len(may) / (len(must) + len(may)) < self._may_must_open_ratio or
-            if (len(must) + len(may)) <= self._may_must_open_threshold:
-                return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
-
-        # shortcut for must-only close object
-        # NOTE we assume that this strategy is always beneficial, but it may depend on the target
-        if must and not may and not defs and not regs and not oth and \
-                len(must) <= self._must_only_threshold:
-            return self._closeMuObject(jm, must, mpath, oname, res, val, vpath)
 
         # used for evaluating likely-ness
         expected_nprops = (
@@ -1196,8 +1229,11 @@ class CodeGenerator:
         # ok!
         return model, mtype, im
 
-    def _compileOr(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
-                   res: str, val: str, vpath: str, known: set[BoolExpr]|None = None) -> Block:
+    def _compileOr(
+                self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
+                res: str, val: str, vpath: str,
+                known: set[BoolExpr]|None = None,
+            ) -> Block:
         """Compile a general or-list of models."""
 
         code = []
@@ -1366,8 +1402,11 @@ class CodeGenerator:
 
         return code
 
-    def _compileXor(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
-                    res: str, val: str, vpath: str, known: set[BoolExpr]|None = None) -> Block:
+    def _compileXor(
+                self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
+                res: str, val: str, vpath: str,
+                known: set[BoolExpr]|None = None
+            ) -> Block:
         """Compile a xor-list of models."""
 
         assert isinstance(models, list)  # pyright hint
@@ -1493,9 +1532,11 @@ class CodeGenerator:
 
         return code
 
-    def _compileAnd(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
-                    res: Var, val: JsonExpr, vpath: PathExpr,
-                    known: set[BoolExpr]|None = None) -> Block:
+    def _compileAnd(
+                self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
+                res: Var, val: JsonExpr, vpath: PathExpr,
+                known: set[BoolExpr]|None = None,
+            ) -> Block:
         """Compile an and-list of models."""
 
         assert isinstance(models, list)  # pyright hint
@@ -1532,16 +1573,19 @@ class CodeGenerator:
 
         return code
 
-    def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
-                      res: str, val: str, vpath: str, known: set[BoolExpr]|None = None,
-                      constrained: bool = False, name: str|None = None) -> Block:
+    def _compileModel(
+                self, jm: JsonModel, model: ModelType, mpath: ModelPath,
+                res: str, val: str, vpath: str,
+                known: set[BoolExpr]|None = None,
+                constrained: bool = False, name: str|None = None,
+            ) -> Block:
         # TODO break each level into a separate function and let the compiler inline
-        # known = expression already verified
-        log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath}")
+        log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath} known={known}")
         assert isinstance(mpath, list)
         smpath = json_path(mpath)
         gen = self._lang
-        known = known or set()
+        if known is None:
+            known = set()
 
         code = gen.lcom(f"{json_path(mpath)}")
         match model:
@@ -1561,7 +1605,7 @@ class CodeGenerator:
                 if model == -1:
                     if known is not None:
                         if expr is not None:
-                            known.add(expr)
+                            known = known | {expr}
                     if not expr:
                         expr = gen.true()
                 elif model == 0:
@@ -1592,7 +1636,7 @@ class CodeGenerator:
                 if model == -1.0:
                     if known is not None:
                         if expr is not None:
-                            known.add(expr)
+                            known = known | {expr}
                     if not expr:
                         expr = gen.true()
                 elif model == 0.0:
@@ -1623,7 +1667,7 @@ class CodeGenerator:
                 if model == "":
                     if known is not None:
                         if expr is not None:
-                            known.add(expr)
+                            known = known | {expr}
                     code += gen.bool_var(res, expr if expr else gen.true())
                 elif model[0] == "_":
                     compare = gen.str_cmp(gen.value(val, str), "=",  # type: ignore
@@ -1692,7 +1736,7 @@ class CodeGenerator:
                     if expr in known:
                         expr = None
                     if expr is not None:
-                        known.add(expr)
+                        known = known | {expr}
 
                 if len(model) == 0:  # []
                     length = gen.num_cmp(gen.arr_len(val), "=", gen.const(0), is_int=True)
@@ -1808,13 +1852,13 @@ class CodeGenerator:
                 else:
                     if name:
                         objid = name
-                        code += self._compileObject(jm, model, mpath, name, res, val, vpath)
+                        code += self._compileObject(jm, model, mpath, name, res, val, vpath, known)
                     else:
                         # new function to check the object
                         objid = gen.ident(self._prefix + "obj")
                         self._code.sub(
                             objid,
-                            self._compileObject(jm, model, mpath, objid, "res", "val", "path"),
+                            self._compileObject(jm, model, mpath, objid, "res", "val", "path", known),
                             comment=f"object {json_path(mpath)}",
                             inline=True
                         )

@@ -342,9 +342,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$License'.'|'.1
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$License'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -387,9 +385,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$License'.'|'.0
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$License'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -1553,9 +1549,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Parameter'.'|'.1
 def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Parameter'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -1669,9 +1663,7 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Parameter'.'|'.0
 def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Parameter'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -2334,9 +2326,7 @@ def _jm_obj_28(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Link'.'|'.1
 def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Link'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -2407,9 +2397,7 @@ def _jm_obj_30(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Link'.'|'.0
 def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Link'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -2509,9 +2497,7 @@ def _jm_obj_32(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Header'.'|'.1
 def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Header'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     for prop, pval in val.items():
         lpath_51: Path = (path + [ prop ]) if path is not None else None
@@ -2596,9 +2582,7 @@ def _jm_obj_34(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Header'.'|'.0
 def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Header'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     for prop, pval in val.items():
         lpath_53: Path = (path + [ prop ]) if path is not None else None

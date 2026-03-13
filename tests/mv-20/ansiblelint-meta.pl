@@ -6066,10 +6066,7 @@ sub _jm_obj_50($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $pval;
     my $res;
     if (! exists $$val{'name'})
@@ -6086,10 +6083,7 @@ sub _jm_obj_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $pval;
     my $res;
     if (! exists $$val{'src'})
@@ -6106,10 +6100,7 @@ sub _jm_obj_52($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $pval;
     my $res;
     if (! exists $$val{'role'})

@@ -92,9 +92,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Ee'.'|'.1
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Ee'.'|'.1]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -129,9 +127,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$Ee'.'|'.0
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Ee'.'|'.0]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():

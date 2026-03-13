@@ -482,11 +482,7 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 // object .'$License'.'|'.1
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$License'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -553,11 +549,7 @@ function _jm_obj_1(val, path, rep)
 // object .'$License'.'|'.0
 function _jm_obj_2(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$License'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -2482,11 +2474,7 @@ function _jm_obj_18(val, path, rep)
 // object .'$Parameter'.'|'.1
 function _jm_obj_17(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Parameter'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -2658,11 +2646,7 @@ function _jm_obj_20(val, path, rep)
 // object .'$Parameter'.'|'.0
 function _jm_obj_19(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Parameter'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -3666,11 +3650,7 @@ function _jm_obj_29(val, path, rep)
 // object .'$Link'.'|'.1
 function _jm_obj_28(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Link'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -3777,11 +3757,7 @@ function _jm_obj_31(val, path, rep)
 // object .'$Link'.'|'.0
 function _jm_obj_30(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Link'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -3935,11 +3911,7 @@ function _jm_obj_33(val, path, rep)
 // object .'$Header'.'|'.1
 function _jm_obj_32(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Header'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -4066,11 +4038,7 @@ function _jm_obj_35(val, path, rep)
 // object .'$Header'.'|'.0
 function _jm_obj_34(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Header'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     for (const [prop, pval] of Object.entries(val))
     {

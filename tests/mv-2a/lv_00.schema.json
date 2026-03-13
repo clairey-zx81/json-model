@@ -1,0 +1,16 @@
+{
+  "type": "array",
+  "items": {
+    "type": "array",
+    "prefixItems": [
+      {
+        "type": "string"
+      },
+      {
+        "type": "string"
+      }
+    ],
+    "items": false,
+    "minItems": 2
+  }
+}

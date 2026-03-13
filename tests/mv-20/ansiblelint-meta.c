@@ -9174,11 +9174,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$DependencyModel'.'&'.1.'|'.2
 static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModel'.'&'.1.'|'.2]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -9219,11 +9215,7 @@ static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$DependencyModel'.'&'.1.'|'.1
 static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModel'.'&'.1.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -9264,11 +9256,7 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$DependencyModel'.'&'.1.'|'.0
 static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModel'.'&'.1.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;

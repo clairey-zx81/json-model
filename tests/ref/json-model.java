@@ -989,11 +989,7 @@ public class json_model extends ModelChecker
     // object .'$Element'.'|'.5
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Element'.'|'.5]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -1043,11 +1039,7 @@ public class json_model extends ModelChecker
     // object .'$Element'.'|'.4
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Element'.'|'.4]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -1130,11 +1122,7 @@ public class json_model extends ModelChecker
     // object .'$Element'.'|'.3
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Element'.'|'.3]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -1217,11 +1205,7 @@ public class json_model extends ModelChecker
     // object .'$Element'.'|'.2
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Element'.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -1304,11 +1288,7 @@ public class json_model extends ModelChecker
     // object .'$Element'.'|'.1
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Element'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -1391,11 +1371,7 @@ public class json_model extends ModelChecker
     // object .'$Element'.'|'.0
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Element'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -2477,11 +2453,7 @@ public class json_model extends ModelChecker
     // object .'$Root'.'|'.5
     public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Root'.'|'.5]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -2749,11 +2721,7 @@ public class json_model extends ModelChecker
     // object .'$Root'.'|'.4
     public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Root'.'|'.4]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3054,11 +3022,7 @@ public class json_model extends ModelChecker
     // object .'$Root'.'|'.3
     public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Root'.'|'.3]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3359,11 +3323,7 @@ public class json_model extends ModelChecker
     // object .'$Root'.'|'.2
     public boolean _jm_obj_20(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Root'.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3664,11 +3624,7 @@ public class json_model extends ModelChecker
     // object .'$Root'.'|'.1
     public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Root'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3969,11 +3925,7 @@ public class json_model extends ModelChecker
     // object .'$Root'.'|'.0
     public boolean _jm_obj_26(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Root'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);

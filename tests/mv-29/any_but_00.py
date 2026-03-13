@@ -25,9 +25,7 @@ check_model_map: PropMap
 
 # object .'|'.6
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.6]", path))
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():

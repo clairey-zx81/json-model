@@ -1,0 +1,21 @@
+[
+  [ true,  [] ],
+  [ true,  [ ["hello", "world!"] ] ],
+  [ true,  [ ["calvin", "susie"], ["hobbes", "moe"] ] ],
+  [ false, [ "hello" ] ],
+  [ false, [ [] ] ],
+  [ false, [ ["hello"] ] ],
+  [ false, [ ["hello", "world", "!"] ] ],
+  [ false, [ ["calvin", "susie"], ["rosalyn"], ["hobbes", "moe"] ] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "[]" ],
+  [ false, "hello world!" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ],
+  [ false, {"1": "one", "2": "two"} ]
+]

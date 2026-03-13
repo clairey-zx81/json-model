@@ -30,11 +30,7 @@ const size_t check_model_map_size = 4;
 // object .'$Aa'.'|'.1
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Aa'.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -76,11 +72,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$Aa'.'|'.0
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Aa'.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -157,11 +149,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$Bb'.'|'.1
 static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Bb'.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -203,11 +191,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$Bb'.'|'.0
 static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Bb'.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -284,11 +268,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$Cc'.'|'.1
 static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Cc'.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -330,11 +310,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$Cc'.'|'.0
 static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Cc'.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -411,11 +387,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'|'.3
 static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'|'.3]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -475,11 +447,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'|'.2
 static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'|'.2]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -557,11 +525,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'|'.1
 static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -621,11 +585,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'|'.0
 static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;

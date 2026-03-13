@@ -339,10 +339,7 @@ sub _jm_obj_1($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -405,10 +402,7 @@ sub _jm_obj_3($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -487,10 +481,7 @@ sub _jm_obj_5($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -569,10 +560,7 @@ sub _jm_obj_7($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -651,10 +639,7 @@ sub _jm_obj_9($$$)
 sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -747,10 +732,7 @@ sub _jm_re_4($$$)
 sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -1141,10 +1123,7 @@ sub _jm_obj_17($$$)
 sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1424,10 +1403,7 @@ sub _jm_obj_23($$$)
 sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -1723,10 +1699,7 @@ sub _jm_obj_29($$$)
 sub _jm_obj_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -2022,10 +1995,7 @@ sub _jm_obj_35($$$)
 sub _jm_obj_30($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -2321,10 +2291,7 @@ sub _jm_obj_41($$$)
 sub _jm_obj_36($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -2620,10 +2587,7 @@ sub _jm_obj_47($$$)
 sub _jm_obj_42($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;

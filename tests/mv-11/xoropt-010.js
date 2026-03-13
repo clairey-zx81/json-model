@@ -33,11 +33,7 @@ function _jm_obj_1(val, path, rep)
 // object .'|'.1
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -91,11 +87,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.0]", path])

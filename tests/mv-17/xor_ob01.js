@@ -15,11 +15,7 @@ var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Bb'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$Bb'.'|'.1]", path])
@@ -50,11 +46,7 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Bb'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$Bb'.'|'.0]", path])
@@ -133,11 +125,7 @@ function json_model_2(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Cc'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$Cc'.'|'.1]", path])
@@ -168,11 +156,7 @@ function _jm_obj_2(val, path, rep)
 function _jm_obj_3(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Cc'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$Cc'.'|'.0]", path])
@@ -251,11 +235,7 @@ function json_model_3(val, path, rep)
 function _jm_obj_4(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.3]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.3]", path])
@@ -301,11 +281,7 @@ function _jm_obj_4(val, path, rep)
 function _jm_obj_5(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.2]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.2]", path])
@@ -351,11 +327,7 @@ function _jm_obj_5(val, path, rep)
 function _jm_obj_6(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.1]", path])
@@ -401,11 +373,7 @@ function _jm_obj_6(val, path, rep)
 function _jm_obj_7(val, path, rep)
 {
     // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'|'.0]", path])

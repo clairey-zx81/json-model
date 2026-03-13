@@ -26,9 +26,7 @@ check_model_map: PropMap
 # object .'|'.5
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.5]", path))
-        return False
+    # value known to be an object
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.5]", path))
         return False
@@ -61,9 +59,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'|'.4
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.4]", path))
-        return False
+    # value known to be an object
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.4]", path))
         return False
@@ -95,9 +91,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'|'.3
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.3]", path))
-        return False
+    # value known to be an object
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.3]", path))
         return False
@@ -129,9 +123,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'|'.2
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.2]", path))
-        return False
+    # value known to be an object
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.2]", path))
         return False
@@ -163,9 +155,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'|'.1
 def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.1]", path))
-        return False
+    # value known to be an object
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.1]", path))
         return False
@@ -197,9 +187,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'|'.0
 def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'|'.0]", path))
-        return False
+    # value known to be an object
     if len(val) != 2:
         rep is None or rep.append(("bad property count [.'|'.0]", path))
         return False

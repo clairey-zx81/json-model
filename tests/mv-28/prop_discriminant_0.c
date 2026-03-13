@@ -20,8 +20,7 @@ const size_t check_model_map_size = 1;
 // object .'|'.2
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-        return false;
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -74,8 +73,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'|'.1
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-        return false;
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -128,8 +126,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'|'.0
 static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-        return false;
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;

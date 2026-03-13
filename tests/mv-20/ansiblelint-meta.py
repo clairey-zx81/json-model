@@ -4870,9 +4870,7 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'$DependencyModel'.'&'.1.'|'.2
 def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     # check open must/may only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.2]", path))
-        return False
+    # value known to be an object
     lpath: Path
     pval: Jsonable
     res: bool
@@ -4891,9 +4889,7 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'$DependencyModel'.'&'.1.'|'.1
 def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
     # check open must/may only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.1]", path))
-        return False
+    # value known to be an object
     lpath: Path
     pval: Jsonable
     res: bool
@@ -4912,9 +4908,7 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'$DependencyModel'.'&'.1.'|'.0
 def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
     # check open must/may only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$DependencyModel'.'&'.1.'|'.0]", path))
-        return False
+    # value known to be an object
     lpath: Path
     pval: Jsonable
     res: bool

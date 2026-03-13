@@ -23,11 +23,7 @@ public class dis_005 extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.1]", path);
@@ -57,11 +53,7 @@ public class dis_005 extends ModelChecker
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 2)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.0]", path);

@@ -7498,11 +7498,7 @@ function json_model_57(val, path, rep)
 function _jm_obj_50(val, path, rep)
 {
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.2]", path])
-        return false;
-    }
+    // value known to be an object
     let lpath;
     let pval;
     let res;
@@ -7528,11 +7524,7 @@ function _jm_obj_50(val, path, rep)
 function _jm_obj_51(val, path, rep)
 {
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let lpath;
     let pval;
     let res;
@@ -7558,11 +7550,7 @@ function _jm_obj_51(val, path, rep)
 function _jm_obj_52(val, path, rep)
 {
     // check open must/may only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$DependencyModel'.'&'.1.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let lpath;
     let pval;
     let res;

@@ -281,9 +281,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '#' THEN
       -- handle may # property
@@ -324,9 +322,7 @@ DECLARE
   arr_1_idx INT8;
   arr_1_item JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '+' THEN
@@ -381,9 +377,7 @@ DECLARE
   arr_2_idx INT8;
   arr_2_item JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '^' THEN
@@ -438,9 +432,7 @@ DECLARE
   arr_3_idx INT8;
   arr_3_item JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '&' THEN
@@ -495,9 +487,7 @@ DECLARE
   arr_4_idx INT8;
   arr_4_item JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '|' THEN
@@ -566,9 +556,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '@' THEN
@@ -850,9 +838,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '#' THEN
       -- handle may # property
@@ -1038,9 +1024,7 @@ DECLARE
   arr_6_idx INT8;
   arr_6_item JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '+' THEN
@@ -1240,9 +1224,7 @@ DECLARE
   arr_8_idx INT8;
   arr_8_item JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '^' THEN
@@ -1442,9 +1424,7 @@ DECLARE
   arr_10_idx INT8;
   arr_10_item JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '&' THEN
@@ -1644,9 +1624,7 @@ DECLARE
   arr_12_idx INT8;
   arr_12_item JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '|' THEN
@@ -1844,9 +1822,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
+  -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '@' THEN

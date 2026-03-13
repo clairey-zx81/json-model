@@ -36,11 +36,7 @@ public class xoropt_006 extends ModelChecker
     // object .'|'.2
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -75,11 +71,7 @@ public class xoropt_006 extends ModelChecker
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.1]", path);
@@ -109,11 +101,7 @@ public class xoropt_006 extends ModelChecker
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.0]", path);

@@ -512,11 +512,7 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 // object .'$openapi#License'.'|'.1
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#License'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -583,11 +579,7 @@ function _jm_obj_1(val, path, rep)
 // object .'$openapi#License'.'|'.0
 function _jm_obj_2(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#License'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -2107,11 +2099,7 @@ function _jm_obj_16(val, path, rep)
 // object .'$openapi#Parameter'.'|'.1
 function _jm_obj_15(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#Parameter'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -2283,11 +2271,7 @@ function _jm_obj_18(val, path, rep)
 // object .'$openapi#Parameter'.'|'.0
 function _jm_obj_17(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#Parameter'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -3305,11 +3289,7 @@ function _jm_obj_27(val, path, rep)
 // object .'$openapi#Link'.'|'.1
 function _jm_obj_26(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#Link'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -3416,11 +3396,7 @@ function _jm_obj_29(val, path, rep)
 // object .'$openapi#Link'.'|'.0
 function _jm_obj_28(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#Link'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -3574,11 +3550,7 @@ function _jm_obj_31(val, path, rep)
 // object .'$openapi#Header'.'|'.1
 function _jm_obj_30(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#Header'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -3705,11 +3677,7 @@ function _jm_obj_33(val, path, rep)
 // object .'$openapi#Header'.'|'.0
 function _jm_obj_32(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#Header'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -4904,11 +4872,7 @@ function json_model_69(val, path, rep)
 // object .'$openapi#model#Element'.'|'.5
 function _jm_obj_41(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#model#Element'.'|'.5]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
@@ -4955,11 +4919,7 @@ function _jm_obj_41(val, path, rep)
 // object .'$openapi#model#Element'.'|'.4
 function _jm_obj_42(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#model#Element'.'|'.4]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -5036,11 +4996,7 @@ function _jm_obj_42(val, path, rep)
 // object .'$openapi#model#Element'.'|'.3
 function _jm_obj_43(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#model#Element'.'|'.3]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -5117,11 +5073,7 @@ function _jm_obj_43(val, path, rep)
 // object .'$openapi#model#Element'.'|'.2
 function _jm_obj_44(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#model#Element'.'|'.2]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -5198,11 +5150,7 @@ function _jm_obj_44(val, path, rep)
 // object .'$openapi#model#Element'.'|'.1
 function _jm_obj_45(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#model#Element'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -5283,11 +5231,7 @@ const _jm_re_5 = (s) => _jm_re_5_re.exec(s) !== null
 // object .'$openapi#model#Element'.'|'.0
 function _jm_obj_46(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#model#Element'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))

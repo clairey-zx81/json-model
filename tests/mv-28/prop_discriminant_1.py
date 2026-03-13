@@ -25,8 +25,7 @@ check_model_map: PropMap
 
 # object .'|'.4
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -74,8 +73,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'|'.3
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -114,8 +112,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'|'.2
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -154,8 +151,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'|'.1
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():
@@ -194,8 +190,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'|'.0
 def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        return False
+    # value known to be an object
     res: bool
     must_count: int = 0
     for prop, pval in val.items():

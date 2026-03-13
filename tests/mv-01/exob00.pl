@@ -20,10 +20,7 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -63,10 +60,7 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;

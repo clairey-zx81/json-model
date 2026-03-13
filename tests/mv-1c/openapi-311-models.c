@@ -659,11 +659,7 @@ static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 // object .'$openapi#License'.'|'.1
 static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#License'.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -730,11 +726,7 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
 // object .'$openapi#License'.'|'.0
 static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#License'.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -2318,11 +2310,7 @@ static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#Parameter'.'|'.1
 static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#Parameter'.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -2506,11 +2494,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#Parameter'.'|'.0
 static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#Parameter'.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -3566,11 +3550,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#Link'.'|'.1
 static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#Link'.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -3677,11 +3657,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#Link'.'|'.0
 static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#Link'.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -3837,11 +3813,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#Header'.'|'.1
 static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#Header'.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     const char *prop;
     json_t *pval;
@@ -3970,11 +3942,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#Header'.'|'.0
 static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#Header'.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     const char *prop;
     json_t *pval;
@@ -5211,11 +5179,7 @@ static bool json_model_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // object .'$openapi#model#Element'.'|'.5
 static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#model#Element'.'|'.5]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     const char *prop;
     json_t *pval;
@@ -5262,11 +5226,7 @@ static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#model#Element'.'|'.4
 static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#model#Element'.'|'.4]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -5344,11 +5304,7 @@ static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#model#Element'.'|'.3
 static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#model#Element'.'|'.3]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -5426,11 +5382,7 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#model#Element'.'|'.2
 static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#model#Element'.'|'.2]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -5508,11 +5460,7 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
 // object .'$openapi#model#Element'.'|'.1
 static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#model#Element'.'|'.1]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;
@@ -5602,11 +5550,7 @@ static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep)
 // object .'$openapi#model#Element'.'|'.0
 static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$openapi#model#Element'.'|'.0]", path);
-        return false;
-    }
+    // value known to be an object
     bool res;
     int64_t must_count = 0;
     const char *prop;

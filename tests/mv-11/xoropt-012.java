@@ -59,11 +59,7 @@ public class xoropt_012 extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.4]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.4]", path);
@@ -93,11 +89,7 @@ public class xoropt_012 extends ModelChecker
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.3]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.3]", path);
@@ -127,11 +119,7 @@ public class xoropt_012 extends ModelChecker
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.2]", path);
@@ -161,11 +149,7 @@ public class xoropt_012 extends ModelChecker
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.1]", path);
@@ -195,11 +179,7 @@ public class xoropt_012 extends ModelChecker
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
         // check close must only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         if (json.objectSize(val) != 1)
         {
             if (rep != null) rep.addEntry("bad property count [.'|'.0]", path);

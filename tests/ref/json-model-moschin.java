@@ -447,11 +447,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Element'.'|'.5
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.5]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -526,11 +522,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Element'.'|'.4
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.4]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -638,11 +630,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Element'.'|'.3
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.3]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -750,11 +738,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Element'.'|'.2
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -862,11 +846,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Element'.'|'.1
     public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -984,11 +964,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Element'.'|'.0
     public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -1578,11 +1554,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Root'.'|'.5
     public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.5]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -1925,11 +1897,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Root'.'|'.4
     public boolean _jm_obj_18(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.4]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -2305,11 +2273,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Root'.'|'.3
     public boolean _jm_obj_24(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.3]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -2685,11 +2649,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Root'.'|'.2
     public boolean _jm_obj_30(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3065,11 +3025,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Root'.'|'.1
     public boolean _jm_obj_36(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3445,11 +3401,7 @@ public class json_model_moschin extends ModelChecker
     // object .'$Model#Root'.'|'.0
     public boolean _jm_obj_42(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);

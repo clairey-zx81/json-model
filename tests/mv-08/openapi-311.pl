@@ -597,10 +597,7 @@ sub _jm_re_1($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -648,10 +645,7 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -1916,10 +1910,7 @@ sub _jm_obj_7($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -2106,10 +2097,7 @@ sub _jm_f_32($$$)
 sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $pfun;
     my $must_count = 0;
@@ -2807,10 +2795,7 @@ sub _jm_obj_17($$$)
 sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -2894,10 +2879,7 @@ sub _jm_obj_19($$$)
 sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -3006,10 +2988,7 @@ sub _jm_obj_21($$$)
 sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -3170,10 +3149,7 @@ sub _jm_f_40($$$)
 sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    # value known to be an object
     my $res;
     my $pfun;
     scalar keys %$val;

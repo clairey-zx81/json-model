@@ -22,10 +22,7 @@ public class prop_discriminant_0 extends ModelChecker
     // object .'|'.2
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -87,10 +84,7 @@ public class prop_discriminant_0 extends ModelChecker
     // object .'|'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -152,10 +146,7 @@ public class prop_discriminant_0 extends ModelChecker
     // object .'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);

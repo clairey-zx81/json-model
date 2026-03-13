@@ -119,11 +119,7 @@ public class xoropt_015 extends ModelChecker
     // object .'$Ee'.'|'.1
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Ee'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -179,11 +175,7 @@ public class xoropt_015 extends ModelChecker
     // object .'$Ee'.'|'.0
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Ee'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);

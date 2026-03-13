@@ -26,9 +26,7 @@ check_model_map: PropMap
 # object .'$Aa'.'|'.1
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Aa'.'|'.1]", path))
-        return False
+    # value known to be an object
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Aa'.'|'.1]", path))
         return False
@@ -50,9 +48,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 # object .'$Aa'.'|'.0
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Aa'.'|'.0]", path))
-        return False
+    # value known to be an object
     if len(val) != 1:
         rep is None or rep.append(("bad property count [.'$Aa'.'|'.0]", path))
         return False

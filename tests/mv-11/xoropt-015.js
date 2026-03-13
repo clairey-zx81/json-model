@@ -113,11 +113,7 @@ function json_model_4(val, path, rep)
 // object .'$Ee'.'|'.1
 function _jm_obj_0(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Ee'.'|'.1]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
@@ -170,11 +166,7 @@ function _jm_obj_0(val, path, rep)
 // object .'$Ee'.'|'.0
 function _jm_obj_1(val, path, rep)
 {
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Ee'.'|'.0]", path])
-        return false;
-    }
+    // value known to be an object
     let res;
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))

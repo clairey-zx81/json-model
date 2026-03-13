@@ -518,11 +518,7 @@ public class openapi_311 extends ModelChecker
     // object .'$License'.'|'.1
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$License'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -592,11 +588,7 @@ public class openapi_311 extends ModelChecker
     // object .'$License'.'|'.0
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$License'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -2526,11 +2518,7 @@ public class openapi_311 extends ModelChecker
     // object .'$Parameter'.'|'.1
     public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Parameter'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -2708,11 +2696,7 @@ public class openapi_311 extends ModelChecker
     // object .'$Parameter'.'|'.0
     public boolean _jm_obj_19(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Parameter'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3764,11 +3748,7 @@ public class openapi_311 extends ModelChecker
     // object .'$Link'.'|'.1
     public boolean _jm_obj_28(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Link'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -3878,11 +3858,7 @@ public class openapi_311 extends ModelChecker
     // object .'$Link'.'|'.0
     public boolean _jm_obj_30(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Link'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -4042,11 +4018,7 @@ public class openapi_311 extends ModelChecker
     // object .'$Header'.'|'.1
     public boolean _jm_obj_32(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Header'.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -4179,11 +4151,7 @@ public class openapi_311 extends ModelChecker
     // object .'$Header'.'|'.0
     public boolean _jm_obj_34(Object val, Path path, Report rep)
     {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Header'.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())

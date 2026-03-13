@@ -7866,11 +7866,7 @@ public class ansiblelint_meta extends ModelChecker
     public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
         // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.2]", path);
-            return false;
-        }
+        // value known to be an object
         Path lpath;
         Object pval;
         boolean res;
@@ -7895,11 +7891,7 @@ public class ansiblelint_meta extends ModelChecker
     public boolean _jm_obj_51(Object val, Path path, Report rep)
     {
         // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.1]", path);
-            return false;
-        }
+        // value known to be an object
         Path lpath;
         Object pval;
         boolean res;
@@ -7924,11 +7916,7 @@ public class ansiblelint_meta extends ModelChecker
     public boolean _jm_obj_52(Object val, Path path, Report rep)
     {
         // check open must/may only props
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$DependencyModel'.'&'.1.'|'.0]", path);
-            return false;
-        }
+        // value known to be an object
         Path lpath;
         Object pval;
         boolean res;
