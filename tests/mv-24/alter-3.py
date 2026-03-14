@@ -102,8 +102,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             res = fun_0 != UNDEFINED and fun_0(val, None, None)
         else:
             res = False
-    else:
-        pass
     # .'$alternative'.'|'.0
     return res or _jm_obj_0(val, None, None)
 

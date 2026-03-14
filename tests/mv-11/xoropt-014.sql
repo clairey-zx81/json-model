@@ -194,8 +194,6 @@ BEGIN
         ELSE
           res := FALSE;
         END IF;
-      ELSE
-        NULL;
       END IF;
       IF NOT res THEN
         RETURN FALSE;

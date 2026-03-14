@@ -4009,8 +4009,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   -- .'$SecurityScheme'.'|'.5
   -- .'$SecurityScheme'.'|'.2

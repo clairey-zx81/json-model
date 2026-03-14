@@ -104,8 +104,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   RETURN res;
 END;
@@ -210,8 +208,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   RETURN res OR json_model_2(val, NULL, NULL);
 END;

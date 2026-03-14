@@ -361,10 +361,6 @@ sub json_model_25($$$)
             $res = 0;
         }
     }
-    else
-    {
-        ;
-    }
     return $res || json_model_11($val, undef, undef) || json_model_23($val, undef, undef) || json_model_22($val, undef, undef) || json_model_19($val, undef, undef) || json_model_20($val, undef, undef) || json_model_21($val, undef, undef) || json_model_24($val, undef, undef) || json_model_28($val, undef, undef) || json_model_29($val, undef, undef) || json_model_30($val, undef, undef) || json_model_31($val, undef, undef) || json_model_32($val, undef, undef) || json_model_33($val, undef, undef) || json_model_34($val, undef, undef);
 }
 
@@ -4353,6 +4349,13 @@ sub check_model_free()
         %json_model_34_map = ();
         %check_model_map = ();
     }
+}
+
+sub check_model_mapper($)
+{
+    my ($name) = @_;
+    die "unexpected model name \"$name\"" unless exists $check_model_map{$name};
+    return $check_model_map{$name};
 }
 
 sub check_model($$$)
