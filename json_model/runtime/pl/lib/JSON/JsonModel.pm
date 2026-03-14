@@ -10,7 +10,7 @@ use warnings;
 
 # no Carp, this modules runs with automatically generated code, all issues are ours?
 
-our $VERSION = 1.999038;  # aka 2.0b38
+our $VERSION = 1.999042;  # aka 2.0b42
 
 eval "use re::engine::RE2";   # try to replace regex engine
 use List::Util qw( min );
@@ -413,59 +413,6 @@ sub jm_ends_with($$)
 # RUNNING AND BENCHMARKING
 #
 
-# see https://github.com/sourcemeta-research/jsonschema-benchmark
-sub jsonschema_benchmark($$$$)
-{
-    my ($checker, $jsons, $file, $time) = @_;
-    my $errors = 0;
-
-    $time = 1 unless defined $time and $time > 0;
-
-    # cold run, once, check results
-    my $cold_start = time;
-    for my $j (@$jsons) {
-        $errors++ unless &$checker($j, '', undef);
-    }
-    my $cold_stop = time;
-    my $cold_delay = $cold_stop - $cold_start;  # seconds
-
-    # warmup, at most 10 seconds
-    my $max = 1 + int(10.0 / $cold_delay);
-    my $n = min(1000, $max);
-
-    while ($n--)
-    {
-        for my $j (@$jsons) {
-            &$checker($j, '', undef);
-        }
-    }
-
-    # warm run
-    my ($sum, $sum2) = (0.0, 0.0);
-    $n = $time;
-    while ($n--)
-    {
-        my $start = time;
-        for my $j (@$jsons) {
-            &$checker($j, '', undef);
-        }
-        my $stop = time;
-        my $delay = 1_000_000 * ($stop - $start);  # µs
-        $sum += $delay;
-        $sum2 += $delay * $delay;
-    }
-    my $avg = $sum / $time;
-    my $stdev = sqrt($sum2 / $time - $avg * $avg);
-
-    # show rounded results
-    my $pass = @$jsons - $errors;
-    printf STDERR "$file pl validation: pass=$pass fail=$errors %.03f ± %.03f µs\n", $avg, $stdev;
-    my ($ns_cold, $ns_warm) = (int($cold_delay * 1E9 + 0.5), int($avg * 1E3 + 0.5));
-    print "$ns_cold,$ns_warm\n";
-
-    return $errors;
-}
-
 # minimal empty loop measure overhead
 sub jm_overhead_estimation($$)
 {
@@ -702,7 +649,7 @@ sub jm_main($$$)
     my $errors = 0;
 
     # options
-    my ($name, $test, $jsonl, $time, $report, $js_bench) = ("", 0, 0, 0, 0, 0);
+    my ($name, $test, $jsonl, $time, $report) = ("", 0, 0, 0, 0);
     my ($no_report);
     GetOptions(
         "version" => sub {
@@ -718,11 +665,9 @@ sub jm_main($$$)
         "test|t" => \$test,
         "time|T=i" => \$time,
         "jsonl|L" => \$jsonl,
-        "jsonschema-benchmark" => \$js_bench,
     );
 
     # option fix and warnings
-    $jsonl = 1 if $js_bench;  # jsb => jsonl
     warn "$0: option --report is not implemented yet\n" if $report;
 
     # empty loop measure overhead
@@ -769,16 +714,6 @@ sub jm_main($$$)
                 warn "$file: ERROR (JSON error: $message)\n";
             }
             $errors++;
-            next;
-        }
-
-        # jsonschema benchmark code
-        if ($js_bench)
-        {
-            # adjust list to match benchmarking function expectations
-            $json = [map { $$_[-1] } @$json] unless $jsonl;
-            # and run on list
-            $errors += jsonschema_benchmark($checker, $json, $file, $time);
             next;
         }
 
