@@ -165,11 +165,9 @@ public class Main
             new LongOpt("name", LongOpt.REQUIRED_ARGUMENT, null, 'n'),
             new LongOpt("time", LongOpt.REQUIRED_ARGUMENT, null, 'T'),
             new LongOpt("report", LongOpt.NO_ARGUMENT, null, 'r'),
-            new LongOpt("no-report", LongOpt.NO_ARGUMENT, null, 1003),
+            new LongOpt("no-report", LongOpt.NO_ARGUMENT, null, 1000),
             new LongOpt("test", LongOpt.NO_ARGUMENT, null, 't'),
             new LongOpt("jsonl", LongOpt.NO_ARGUMENT, null, 'L'),
-            // NOTE intentionaly undocumented
-            new LongOpt("jsonschema-benchmark", LongOpt.NO_ARGUMENT, null, 1002)
         });
 
         Map<String, String> env = System.getenv();
@@ -179,7 +177,6 @@ public class Main
         boolean
             list = false,
             report = false,
-            jsbench = false,
             test = false,
             jsonl = false;
 
@@ -229,12 +226,7 @@ public class Main
                 case 'L':
                     jsonl = true;
                     break;
-                case 1002:  // --jsonschema-benchmark
-                    jsbench = true;
-                    jsonl = true;
-                    if (time <= 0) time = 1;
-                    break;
-                case 1003:  // --no-report
+                case 1000:  // --no-report
                     report = false;
                     break;
                 case '?':
@@ -303,15 +295,11 @@ public class Main
                     values[i] = json.fromJSON(contents[i]);
 
                 // process
-                if (jsbench)
-                    errors += jsonschema_benchmark(values, checker, fname, time);
-                else {
-                    for (int i = 0; i < values.length; i++)
-                    {
-                        String display = fname + "[" + (i+1) + "]";
-                        if (process(values[i], display, "", checker, null, time, empty, report))
-                            errors += 1;
-                    }
+                for (int i = 0; i < values.length; i++)
+                {
+                    String display = fname + "[" + (i+1) + "]";
+                    if (process(values[i], display, "", checker, null, time, empty, report))
+                        errors += 1;
                 }
             }
             else
