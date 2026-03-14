@@ -2663,8 +2663,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   -- .'$TightSchema'.'|'.7
   RETURN res OR _jm_obj_7(val, NULL, NULL);

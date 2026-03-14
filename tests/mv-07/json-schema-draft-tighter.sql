@@ -2962,8 +2962,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   RETURN res OR json_model_9(val, NULL, NULL) OR json_model_21(val, NULL, NULL) OR json_model_20(val, NULL, NULL) OR json_model_17(val, NULL, NULL) OR json_model_18(val, NULL, NULL) OR json_model_19(val, NULL, NULL) OR json_model_22(val, NULL, NULL);
 END;

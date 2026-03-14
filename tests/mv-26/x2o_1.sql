@@ -157,8 +157,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   RETURN res OR json_model_4(val, NULL, NULL);
 END;

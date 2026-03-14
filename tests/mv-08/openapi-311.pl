@@ -4409,10 +4409,6 @@ sub json_model_40($$$)
             $res = 0;
         }
     }
-    else
-    {
-        ;
-    }
     # .'$SecurityScheme'.'|'.5
     # .'$SecurityScheme'.'|'.2
     return $res || _jm_obj_29($val, undef, undef) || _jm_obj_26($val, undef, undef);
@@ -5461,6 +5457,13 @@ sub check_model_free()
         %json_model_59_map = ();
         %check_model_map = ();
     }
+}
+
+sub check_model_mapper($)
+{
+    my ($name) = @_;
+    die "unexpected model name \"$name\"" unless exists $check_model_map{$name};
+    return $check_model_map{$name};
 }
 
 sub check_model($$$)

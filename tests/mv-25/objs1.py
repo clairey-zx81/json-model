@@ -75,8 +75,6 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             res = fun_0 != UNDEFINED and fun_0(val, None, None)
         else:
             res = False
-    else:
-        pass
     return res
 
 # check $objs0#table (.'$objs0#table')

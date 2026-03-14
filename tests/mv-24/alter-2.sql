@@ -206,8 +206,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   IF NOT res THEN
     res := iso_0;
@@ -219,8 +217,6 @@ BEGIN
       ELSE
         res := FALSE;
       END IF;
-    ELSE
-      NULL;
     END IF;
   END IF;
   RETURN res;

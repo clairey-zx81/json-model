@@ -2969,8 +2969,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   -- .'$openapi#SecurityScheme'.'|'.5
   -- .'$openapi#SecurityScheme'.'|'.2

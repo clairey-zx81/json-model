@@ -113,10 +113,6 @@ sub json_model_2($$$)
             $res = 0;
         }
     }
-    else
-    {
-        ;
-    }
     # .'$alternative'.'|'.2
     # .'$alternative'.'|'.3
     return $res || jm_is_integer($val) && $val >= 0 || jm_is_boolean($val);
@@ -165,6 +161,13 @@ sub check_model_free()
         %_jm_map_0 = ();
         %check_model_map = ();
     }
+}
+
+sub check_model_mapper($)
+{
+    my ($name) = @_;
+    die "unexpected model name \"$name\"" unless exists $check_model_map{$name};
+    return $check_model_map{$name};
 }
 
 sub check_model($$$)

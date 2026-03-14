@@ -191,10 +191,6 @@ sub json_model_4($$$)
             $res = 0;
         }
     }
-    else
-    {
-        ;
-    }
     if (! $res)
     {
         $res = $iso_0;
@@ -210,10 +206,6 @@ sub json_model_4($$$)
             {
                 $res = 0;
             }
-        }
-        else
-        {
-            ;
         }
     }
     return $res;
@@ -277,6 +269,13 @@ sub check_model_free()
         %_jm_map_1 = ();
         %check_model_map = ();
     }
+}
+
+sub check_model_mapper($)
+{
+    my ($name) = @_;
+    die "unexpected model name \"$name\"" unless exists $check_model_map{$name};
+    return $check_model_map{$name};
 }
 
 sub check_model($$$)

@@ -3292,10 +3292,6 @@ sub json_model_42($$$)
             $res = 0;
         }
     }
-    else
-    {
-        ;
-    }
     # .'$openapi#SecurityScheme'.'|'.5
     # .'$openapi#SecurityScheme'.'|'.2
     return $res || _jm_obj_26($val, undef, undef) || _jm_obj_23($val, undef, undef);
@@ -4337,6 +4333,13 @@ sub check_model_free()
         %_jm_cst_4 = ();
         %check_model_map = ();
     }
+}
+
+sub check_model_mapper($)
+{
+    my ($name) = @_;
+    die "unexpected model name \"$name\"" unless exists $check_model_map{$name};
+    return $check_model_map{$name};
 }
 
 sub check_model($$$)

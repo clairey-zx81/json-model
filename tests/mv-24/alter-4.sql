@@ -114,8 +114,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   -- .'$alternative'.'|'.2
   -- .'$alternative'.'|'.3

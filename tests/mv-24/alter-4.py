@@ -81,8 +81,6 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = fun_0 != UNDEFINED and fun_0(val, None, None)
         else:
             res = False
-    else:
-        pass
     # .'$alternative'.'|'.2
     # .'$alternative'.'|'.3
     return res or isinstance(val, int) and not isinstance(val, bool) and val >= 0 or isinstance(val, bool)
