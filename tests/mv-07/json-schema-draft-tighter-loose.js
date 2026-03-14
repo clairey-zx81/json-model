@@ -11,7 +11,7 @@ const JSON_MODEL_VERSION = "2";
 
 let _jm_map_0 = new Map()
 let _jm_cst_0 = new Set()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $tight (.'$tight')
 function json_model_3(val, path, rep)

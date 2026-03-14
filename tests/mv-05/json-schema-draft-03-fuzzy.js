@@ -11,7 +11,7 @@ const JSON_MODEL_VERSION = "2";
 
 var json_model_3_map = new Map()
 let _jm_cst_0 = new Set()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check json_model_3_map_$ref (.'$schema'.'$ref')
 function _jm_f_0(val, path, rep)

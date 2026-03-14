@@ -11,7 +11,7 @@ const JSON_MODEL_VERSION = "2";
 
 const _jm_re_0_re = new runtime.RX("^d[0-9]", "")
 const _jm_re_1_re = new runtime.RX("^d[a-z]", "")
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // object .'&'.2
 function _jm_obj_0(val, path, rep)

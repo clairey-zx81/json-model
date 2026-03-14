@@ -23,7 +23,7 @@ let _jm_cst_5 = new Set()
 let _jm_map_0 = new Map()
 let _jm_cst_6 = new Set()
 var json_model_59_map = new Map()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 

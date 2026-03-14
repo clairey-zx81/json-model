@@ -281,7 +281,8 @@ class JavaScript(Language):
     # Property Map
     #
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return [ f"var {name} = new Map()" ]
+        export = "export " if public else ""
+        return [ f"{export}var {name} = new Map()" ]
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [ f"{name}.set({self.esc(p)}, {f})" for p, f in pmap.items() ]

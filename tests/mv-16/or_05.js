@@ -12,7 +12,7 @@ const JSON_MODEL_VERSION = "2";
 const _jm_re_0_re = new runtime.RX("[A-Z]", "")
 const _jm_re_1_re = new runtime.RX("[a-z]", "")
 const _jm_re_2_re = new runtime.RX("[0-9]", "")
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 

@@ -9,7 +9,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $bla (.'$bla')
 function json_model_4(val, path, rep)

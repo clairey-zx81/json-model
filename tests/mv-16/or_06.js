@@ -10,7 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 const _jm_re_0_re = new runtime.RX("^[a-z]+$", "")
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 

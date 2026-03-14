@@ -10,7 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 const _jm_re_0_re = new runtime.RX("^[ab]$", "")
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $None (.'$None')
 function json_model_2(val, path, rep)

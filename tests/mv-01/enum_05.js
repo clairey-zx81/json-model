@@ -10,7 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 let _jm_cst_0 = new Set()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 
 // check $ (.)

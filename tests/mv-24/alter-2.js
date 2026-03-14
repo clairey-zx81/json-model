@@ -13,7 +13,7 @@ let _jm_cst_0 = new Set()
 let _jm_cst_1 = new Set()
 let _jm_map_0 = new Map()
 let _jm_map_1 = new Map()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $d (.'$d')
 function json_model_2(val, path, rep)

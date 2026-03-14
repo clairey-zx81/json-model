@@ -16,7 +16,7 @@ var _jm_obj_15_map = new Map()
 var _jm_obj_16_map = new Map()
 var _jm_obj_17_map = new Map()
 let _jm_map_0 = new Map()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $URI-REFERENCE (.'$URI-REFERENCE')
 function json_model_2(val, path, rep)

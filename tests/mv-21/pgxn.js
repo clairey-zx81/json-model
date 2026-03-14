@@ -18,7 +18,7 @@ const _jm_re_3_re = new runtime.RX("^(<=|<|>=|>|!=|==)$", "")
 const _jm_re_4_re = new runtime.RX("^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$", "")
 let _jm_cst_2 = new Set()
 let _jm_cst_3 = new Set()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 

@@ -17,7 +17,7 @@ let _jm_cst_4 = new Set()
 const _jm_re_0_re = new runtime.RX("^(Calvin|Susie)$", "")
 var _jm_obj_31_map = new Map()
 var _jm_obj_32_map = new Map()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $a (.'$a')
 function json_model_2(val, path, rep)

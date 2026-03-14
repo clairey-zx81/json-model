@@ -11,7 +11,7 @@ const JSON_MODEL_VERSION = "2";
 
 let _jm_cst_0 = new Set()
 var json_model_1_map = new Map()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 
 // check $allTypes (.'$allTypes')

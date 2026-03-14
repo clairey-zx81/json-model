@@ -10,7 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 var json_model_1_map = new Map()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check json_model_1_map_Calvin (.Calvin)
 function _jm_f_0(val, path, rep)

@@ -78,7 +78,7 @@ const _jm_re_1_re = new runtime.RX("^[a-z][a-z0-9_]+$", "")
 let _jm_map_0 = new Map()
 const _jm_re_2_re = new runtime.RX("^[a-z_]+\\.[a-z_]+$", "")
 let _jm_cst_64 = new Set()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 
 // check $AIXPlatformModel (.'$AIXPlatformModel')

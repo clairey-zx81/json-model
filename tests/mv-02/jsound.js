@@ -12,7 +12,7 @@ const JSON_MODEL_VERSION = "2";
 let _jm_map_0 = new Map()
 let _jm_cst_0 = new Set()
 let _jm_cst_1 = new Set()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // object .'$Schema'.metadata
 function _jm_obj_0(val, path, rep)

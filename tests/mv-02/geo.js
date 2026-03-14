@@ -11,7 +11,7 @@ const JSON_MODEL_VERSION = "2";
 
 let _jm_map_0 = new Map()
 let _jm_map_1 = new Map()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $position (.'$position')
 function json_model_2(val, path, rep)

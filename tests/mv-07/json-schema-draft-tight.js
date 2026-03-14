@@ -14,7 +14,7 @@ let _jm_cst_1 = new Set()
 var json_model_11_map = new Map()
 var json_model_12_map = new Map()
 let _jm_map_0 = new Map()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $const (.'$const')
 function json_model_2(val, path, rep)

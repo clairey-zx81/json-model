@@ -32,7 +32,7 @@ var _jm_obj_24_map = new Map()
 var _jm_obj_26_map = new Map()
 let _jm_cst_14 = new Set()
 let _jm_cst_15 = new Set()
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null

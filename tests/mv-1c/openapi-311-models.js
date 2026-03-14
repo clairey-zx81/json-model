@@ -29,7 +29,7 @@ const _jm_re_9_re = new runtime.RX("^\\..+$", "")
 let _jm_cst_4 = new Set()
 let _jm_cst_5 = new Set()
 const _jm_re_10_re = new runtime.RX("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$", "")
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 // check $openapi (.'$openapi')
 function json_model_3(val, path, rep)

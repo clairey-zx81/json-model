@@ -25,7 +25,7 @@ const _jm_re_8_re = new runtime.RX("^(=|!=)$", "")
 const _jm_re_9_re = new runtime.RX("^[?!]", "")
 const _jm_re_10_re = new runtime.RX("^([#|&^+/*@~=$%]|[<>!]=?)$", "")
 const _jm_re_11_re = new runtime.RX("^\\$.*$", "")
-var check_model_map = new Map()
+export var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
