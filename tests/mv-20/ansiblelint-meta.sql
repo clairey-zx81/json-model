@@ -5965,8 +5965,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   -- .'$GalaxyInfoModel'.'|'.2
   RETURN res OR _jm_obj_48(val, NULL, NULL);

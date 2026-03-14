@@ -154,8 +154,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   -- .'|'.2
   RETURN res OR _jm_obj_2(val, NULL, NULL);

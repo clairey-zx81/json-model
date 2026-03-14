@@ -154,8 +154,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   -- .'$alternative'.'|'.0
   RETURN res OR _jm_obj_0(val, NULL, NULL);

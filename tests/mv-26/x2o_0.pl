@@ -147,10 +147,6 @@ sub json_model_1($$$)
             $res = 0;
         }
     }
-    else
-    {
-        ;
-    }
     # .'|'.2
     return $res || _jm_obj_2($val, undef, undef);
 }
@@ -189,6 +185,13 @@ sub check_model_free()
         %_jm_map_0 = ();
         %check_model_map = ();
     }
+}
+
+sub check_model_mapper($)
+{
+    my ($name) = @_;
+    die "unexpected model name \"$name\"" unless exists $check_model_map{$name};
+    return $check_model_map{$name};
 }
 
 sub check_model($$$)

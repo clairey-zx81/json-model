@@ -88,8 +88,6 @@ BEGIN
     ELSE
       res := FALSE;
     END IF;
-  ELSE
-    NULL;
   END IF;
   RETURN res OR json_model_11(val, NULL, NULL) OR json_model_23(val, NULL, NULL) OR json_model_22(val, NULL, NULL) OR json_model_19(val, NULL, NULL) OR json_model_20(val, NULL, NULL) OR json_model_21(val, NULL, NULL) OR json_model_24(val, NULL, NULL) OR json_model_28(val, NULL, NULL) OR json_model_29(val, NULL, NULL) OR json_model_30(val, NULL, NULL) OR json_model_31(val, NULL, NULL) OR json_model_32(val, NULL, NULL) OR json_model_33(val, NULL, NULL) OR json_model_34(val, NULL, NULL);
 END;
