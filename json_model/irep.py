@@ -1035,8 +1035,15 @@ class IRep(Language):
     that artificially preserve the initial Block (list[str]) and Expr (str) typing.
     """
 
-    def __init__(self, lang: Language|None, *, debug: bool = False, if_optim: bool = True):
-        super().__init__("JSON", indent=",", debug=debug)
+    def __init__(
+                self, lang: Language|None, *,
+                debug: bool = False, if_optim: bool = True,
+                with_comment: bool = True, with_report: bool = True,
+            ):
+        super().__init__(
+            "JSON", indent=",",
+            debug=debug, with_comment=with_comment, with_report=with_report
+        )
         self._lang = lang or self
         self._if_optim = if_optim
         self._byte_order = lang._byte_order if lang else "le"
@@ -1057,7 +1064,7 @@ class IRep(Language):
 
     # generic code generation
     def lcom(self, text: str = "") -> Block:
-        return [ _j("co", text=text) ]
+        return [ _j("co", text=text) ] if self._with_comment else []
 
     def file_header(self, exe: bool = True) -> Block:
         return [ _j("fh", exe=exe, version=self.version()) ]
@@ -1224,10 +1231,10 @@ class IRep(Language):
         return _j("isr")
 
     def report(self, msg: str, path: Var) -> Block:
-        return [ _j("rep", msg=msg, path=_l(path)) ]
+        return [ _j("rep", msg=msg, path=_l(path)) ] if self._with_report else []
 
     def clean_report(self) -> Block:
-        return [ _j("cr") ]
+        return [ _j("cr") ] if self._with_report else []
 
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
         return _j("pvl", pvar=_l(pvar), pseg=pseg, is_prop=is_prop, is_var=is_var)

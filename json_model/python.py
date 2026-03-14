@@ -7,12 +7,16 @@ from .mtypes import Number, TestHint, Conditionals
 class Python(Language):
     """Python language Code Generator."""
 
-    def __init__(self, *, relib: str = "re2",
-                 debug: bool = False, with_report: bool = True, with_path: bool = True,
-                 with_predef: bool = True):
+    def __init__(
+                self, *, relib: str = "re2", debug: bool = False,
+                with_comment: bool = True, with_report: bool = True, with_path: bool = True,
+                with_predef: bool = True
+            ):
 
-        super().__init__("Python", relib=relib, debug=debug,
-                         with_report=with_report, with_path=with_path, with_predef=with_predef)
+        super().__init__(
+            "Python", relib=relib, debug=debug, with_comment=with_comment,
+            with_report=with_report, with_path=with_path, with_predef=with_predef
+        )
 
         assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
 

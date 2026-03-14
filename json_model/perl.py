@@ -8,13 +8,16 @@ from .mtypes import Number, Jsonable, TestHint, Conditionals
 class Perl(Language):
     """Perl language Code Generator."""
 
-    def __init__(self, *, relib: str = "re2", with_package: bool = False, with_predef: bool = True,
-                 debug: bool = False, with_report: bool = True, with_path: bool = True):
+    def __init__(
+                self, *, relib: str = "re2", debug: bool = False,
+                with_package: bool = False, with_predef: bool = True,
+                with_comment: bool = True, with_report: bool = True, with_path: bool = True
+            ):
 
         super().__init__(
             "Perl", debug=debug, relib=relib,
-            with_report=with_report, with_path=with_path, with_package=with_package,
-            with_predef=with_predef,
+            with_comment=with_comment, with_report=with_report, with_path=with_path,
+            with_package=with_package, with_predef=with_predef,
             not_op="!", and_op="&&", or_op="||", lcom="#",
             true="1", false="0", null="undef", check_t="", json_t="",
             path_t="", float_t="", str_t="", match_t="", eoi=";", set_caps=(str,)
