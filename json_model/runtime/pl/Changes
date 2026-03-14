@@ -8,3 +8,5 @@ Revision history for JSON::JsonModel
         Add jm_float_modulo
 2.0b38  2026-03-08
         Be resilient on missing RE2 module
+2.0b42  2026-03-14
+        Remove "JSON Schema Benchmark" stuff

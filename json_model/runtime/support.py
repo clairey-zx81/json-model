@@ -367,8 +367,6 @@ def main(jm_fun, jm_map, jmc_version):
     ap.add_argument("--time", "-T", type=int, default=1, help="report performance measures")
     ap.add_argument("--test", "-t", action="store_true", help="assume test vector JSON files")
     ap.add_argument("--jsonl", "-L", action="store_true", default=False, help="assume JSONL files")
-    ap.add_argument("--jsonschema-benchmark", action="store_true", default=False,
-                    help="specific JSON Schema Benchmark run")
     ap.add_argument("values", nargs="*", help="JSON files")
     args = ap.parse_args()
 
@@ -380,8 +378,6 @@ def main(jm_fun, jm_map, jmc_version):
     if args.version:
         print(f"Python from JSON Model compiler version {jmc_version}")
         sys.exit(0)
-    if args.jsonschema_benchmark:
-        args.jsonl = True
 
     # evaluate minimal average overhead
     v: float = args.time / 13.0 % 1.0
@@ -411,45 +407,6 @@ def main(jm_fun, jm_map, jmc_version):
                 with open(fn) as f:
                     value = json.load(f)
                 values = value if args.test else [ [ None, value ] ]
-
-            # benckmarking
-            if args.jsonschema_benchmark:
-
-                checker = jm_fun(args.name)
-
-                # cold run in µs
-                cold_start = time.clock_gettime(time.CLOCK_REALTIME)
-                for v in values:
-                    if not checker(v, None, None):
-                        errors += 1
-                cold_delay = 1_000_000.0 * (time.clock_gettime(time.CLOCK_REALTIME) - cold_start)
-
-                # warmup runs to trigger a potential JIT?
-                for _ in range(min(1000, 1 + int(10_000_000.0 / cold_delay))):
-                    for v in values:
-                        checker(v, None, None)
-
-                # warm run in µs
-                sum1, sum2 = 0.0, 0.0
-                for _ in range(args.time):
-                    start = time.clock_gettime(time.CLOCK_REALTIME)
-                    for j in values:
-                        checker(j, None, None)
-                    delay = 1_000_000.0 * (time.clock_gettime(time.CLOCK_REALTIME) - start)
-                    sum1 += delay
-                    sum2 += delay * delay
-
-                # result
-                avg = sum1 / args.time
-                stdev = math.sqrt( sum2 / args.time - avg * avg)
-                print(f"py validation: pass={len(values) - errors} fail={errors} "
-                      f"{avg:.03f} ± {stdev:.03f} µs", file=sys.stderr)
-
-                # cold-run-ns,warm-run-ns
-                print(f"{int(1000 * cold_delay)},{int(1000 * avg)}")
-                sys.exit(1 if errors else 0)
-
-            # else usual runs
 
             if args.jsonl:
                 values = [[None, j] for j in values]

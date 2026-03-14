@@ -61,50 +61,6 @@ function processing(source, value, checker, name, expected, report, times, overh
     return error
 }
 
-// for https://github.com/sourcemeta-research/jsonschema-benchmark
-function jsonschema_benchmark(values, checker, times)
-{
-    let errors = 0
-
-    // cold run
-    const cold_start = performance.now()
-    for (const v of values)
-        if (!checker(v, "", null))
-            errors++
-    const cold_delay = performance.now() - cold_start  // ms
-
-    // warm-up so as to trigger JIT
-    const WARMUP_MAX_TIME = 10.0  // seconds
-    const WARMUP_ITERATIONS = 1000  // unless too long
-    const max_iterations = Math.ceil(WARMUP_MAX_TIME * 1000.0 / cold_delay)
-    const warmup_iterations = Math.min(WARMUP_ITERATIONS, max_iterations)
-    // console.error(`warmup iterations: ${warmup_iterations}`)
-    for (let i = 0; i < warmup_iterations; i++)
-        for (const v of values)
-            checker(v, '', null)
-
-    // warm run
-    let sum1 = 0.0, sum2 = 0.0
-    for (let i = 0; i < times; i++)
-    {
-        const start = performance.now()
-        for (const v of values)
-            checker(v, "", null)
-        const delay = performance.now() - start  // ms
-        sum1 += delay
-        sum2 += delay * delay
-    }
-
-    // results
-    const avg = sum1 / times
-    const stdev = Math.sqrt(sum2 / times - avg * avg)
-    console.error(`js validation: pass=${values.length - errors} fail=${errors}`,
-                  `${(1000.0 * avg).toFixed(3)} ± ${(1000.0 * stdev).toFixed(3)} µs`)
-
-    console.log((1000000.0 * cold_delay).toFixed(0) + ',' + (1000000.0 * avg).toFixed(0))
-    process.exit(errors ? 1 : 0)
-}
-
 // evaluate measure overhead in µs
 function eval_empty(times, value)
 {
@@ -137,15 +93,11 @@ export default async function main(checker_init, checker, checker_free)
       'jsonl': { type: 'boolean', short: 'L' },
       're2': { type: 'boolean' },
       'regexp': { type: 'boolean' },
-      'jsonschema-benchmark': { type: 'boolean', short: 'B' },
     }
 
     const args = parseArgs({options, allowPositionals: true})
 
-    const benchmarking = args.values["jsonschema-benchmark"]
-    if (benchmarking)
-        args.values.jsonl = true
-    if (!benchmarking && args.values.jsonl)
+    if (args.values.jsonl)
         args.values.test = true
     if (args.values.no_report)
         args.values.report = false
@@ -188,9 +140,6 @@ export default async function main(checker_init, checker, checker_free)
                       : data.split("\n").slice(0, -1).map(s => JSON.parse(s))
                   : JSON.parse(data)
             )
-
-            if (benchmarking)
-                jsonschema_benchmark(value, checker, times)
 
             if (args.values.test) {
                 if (!Array.isArray(value)) {
