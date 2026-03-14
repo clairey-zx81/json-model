@@ -7,15 +7,34 @@ ifndef PYTHON
 PYTHON  = python
 endif
 
-venv:
+venv: venv/.init
+
+venv/.init:
 	$(PYTHON) -m venv venv
 	source venv/bin/activate
 	pip install -U pip
+	pip install -e .
+	touch $@
+
+venv/.dev: venv/.init
 	pip install -e .[dev]
+	touch $@
+
+venv/.dist: venv/.dev
+	pip install -e .[dist]
+	touch $@
 
 .PHONY: dev
-dev: venv
+dev: venv/.dev dev.js dev.java
+
+.PHONY: dev.js
+dev.js: node_modules
+
+node_modules:
 	npm install
+
+.PHONY: dev.java
+dev.java:
 	$(MAKE) -C json_model/runtime/java jar
 
 .PHONY: clean
@@ -112,7 +131,7 @@ publish.site: build.site
 	ssh $(SITE) chmod a+r $(SITEPATH)/* $(SITEPATH)/models/* $(SITEPATH)/benchmarks/*
 
 .PHONY: publish.py
-publish.py: dev
+publish.py: venv/.dist
 	source venv/bin/activate
 	python -m build
 	twine check dist/*
@@ -139,12 +158,12 @@ publish.perl:
 	# $(RM) $(RT.dir)/pl/Makefile.old
 
 .PHONY: publish.js
-publish.js:
+publish.js: dev.js
 	npm publish --dry-run $(RT.dir)/js
 	echo npm publish --access public --tag latest $(RT.dir)/js
 
 .PHONY: publish.java
-publish.java:
+publish.java: dev.java
 	$(MAKE) -C $(RT.dir)/java zip
 	# see https://central.sonatype.org/publish/requirements/
 	# upload zip on https://central.sonatype.com/publishing as org.json-model:json-model:VERSION
