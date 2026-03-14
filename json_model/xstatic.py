@@ -51,7 +51,7 @@ class CodeGenerator:
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
                  may_must_open_threshold: int = 5, must_only_threshold: int = 5,
                  sort_must: bool = True, sort_may: bool = True, partition_threshold: int = 0,
-                 or_must_prop: int = 0,
+                 or_must_prop: int = 0, comment: bool = True,
                  execute: bool = True, report: bool = True, path: bool = True,
                  package: str|None = None, debug: bool = False):
 
@@ -69,6 +69,7 @@ class CodeGenerator:
         self._map_share = map_share
         self._or_must_prop = or_must_prop
         self._report = report
+        self._comment = comment
         self._path = path
         self._package = package
         self._debug = debug
@@ -2068,6 +2069,7 @@ def xstatic_compile(
         execute: bool = True,
         debug: bool = False,
         report: bool = True,
+        comment: bool = True,
         short_version: bool = False,
         package: str|None = None,
         inline: bool = True,
@@ -2094,6 +2096,7 @@ def xstatic_compile(
     - strcmp_cset_partition_threshold: string set partitioning target chunk size,
       0 for no partitioning
     - report: whether to generate code to report rejection reasons.
+    - comment: whether to generate comments
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
     - package: namespace to use (Perl module, Pg schema name, Java package).
@@ -2180,12 +2183,14 @@ def xstatic_compile(
     # target language
     if lang == "py":
         from .python import Python
-        language = Python(debug=debug, with_report=report, with_path=report,
-                          with_predef=predef, relib=relib or "re2")
+        language = Python(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re2"
+        )
     elif lang == "c":
         from .clang import CLangJansson
         language = CLangJansson(
-            debug=debug, with_report=report, with_path=report,
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
             with_predef=predef, relib=relib or "re2",
             inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
             max_strcmp_cset=max_strcmp_cset,
@@ -2193,22 +2198,30 @@ def xstatic_compile(
         )
     elif lang == "js":
         from .javascript import JavaScript
-        language = JavaScript(debug=debug, with_report=report, with_path=report,
-                              with_predef=predef, relib=relib or "re")
+        language = JavaScript(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re"
+        )
     elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
-        language = PLpgSQL(debug=debug, with_report=report, with_path=report, with_predef=predef,
-                           relib=relib or "re", with_package=package is not None)
+        language = PLpgSQL(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re", with_package=package is not None
+        )
         package = package or "public"
     elif lang == "pl":
         from .perl import Perl
-        language = Perl(debug=debug, with_report=report, with_path=report, with_predef=predef,
-                        relib=relib or "re2", with_package=package is not None)
+        language = Perl(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re2", with_package=package is not None
+        )
         package = package or "Model"
     elif lang == "java":
         from .java import Java
-        language = Java(debug=debug, with_report=report, with_path=report, with_predef=predef,
-                        relib=relib or "re", with_package=package is not None)
+        language = Java(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re", with_package=package is not None
+        )
     elif lang == "json":
         language = None
     else:
@@ -2216,7 +2229,7 @@ def xstatic_compile(
 
     # intermediate representation if needed
     if ir_optimize or language is None:
-        target = IRep(debug=debug, lang=language)
+        target = IRep(debug=debug, lang=language, with_comment=comment, with_report=report)
         if language:
             language._short_version = short_version
             target.set_caps = language.set_caps
@@ -2234,9 +2247,8 @@ def xstatic_compile(
         may_must_open_threshold=may_must_open_threshold,
         must_only_threshold=must_only_threshold,
         partition_threshold=partition_threshold,
-        or_must_prop=or_must_prop,
-        sort_must=sort_must, sort_may=sort_may,
-        execute=execute, debug=debug, report=report, package=package
+        or_must_prop=or_must_prop, sort_must=sort_must, sort_may=sort_may,
+        execute=execute, debug=debug, report=report, package=package, comment=comment,
     )
 
     # generate IR or final code

@@ -321,6 +321,8 @@ def jmc_script():
     arg("--entry", "-e", help="name prefix of generated functions")
     arg("--regex-engine", "-re", default=None, choices=["re", "re2", "pcre2"],
         help="select regular expression engine (default depends on target language)")
+    arg("--comment", default=True, action="store_true", help="generate some comments")
+    arg("--no-comment", dest="comment", action="store_false", help="do not generate any comments")
     arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
@@ -708,7 +710,7 @@ def jmc_script():
             may_must_open_threshold=args.may_must_open_threshold,
             must_only_threshold=args.must_only_threshold,
             partition_threshold=args.partition_threshold,
-            or_must_prop=args.or_must_prop,
+            or_must_prop=args.or_must_prop, comment=args.comment,
             sort_must=args.sort_must, sort_may=args.sort_may,
             max_strcmp_cset=args.max_strcmp_cset,
         )
