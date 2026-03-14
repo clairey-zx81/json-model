@@ -1,3 +1,10 @@
+sub CHECK_FUNCTION_NAME_mapper($)
+{
+    my ($name) = @_;
+    die "unexpected model name \"$name\"" unless exists $CHECK_FUNCTION_NAME_map{$name};
+    return $CHECK_FUNCTION_NAME_map{$name};
+}
+
 sub CHECK_FUNCTION_NAME($$$)
 {
     my ($json, $name, $rep) = @_;

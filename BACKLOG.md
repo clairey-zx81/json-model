@@ -6,6 +6,7 @@
 - [x] command: show runtime directory with `--runtime`
 - [x] optim: better merge `&` list when possible, including regex prefix incompatibilities
 - [x] js-backend: export model map
+- [x] pl-backend: add and export `_mapper` function
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
