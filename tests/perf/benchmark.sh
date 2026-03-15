@@ -130,7 +130,7 @@ trap do_status SIGUSR1
 # SANITY COMMANDS END FILES
 #
 echo "# sanity check"
-for cmd in git $POD sqlite3 jq id basename grep sed wc /bin/bash /usr/bin/time ; do
+for cmd in git $POD sqlite3 jq id basename grep egrep sed wc gron /bin/bash /usr/bin/time ; do
   type $cmd || err 2 "command not found: $cmd"
 done
 
@@ -212,17 +212,20 @@ res-to-csv.sh tmp/[0-9]*/*.out > result.csv
 for dir in jsb/schemas/* ; do
   [ -d "$dir" ] || continue
   name=$(basename $dir)
+  # full schema locs
   ssize=$(jq < $dir/schema.json | wc -l)
+  # locs without documentation stuff, may be approximated
+  nsize=$(
+    gron $dir/schema.json |
+    egrep -v '(\$comment|description|title|default|deprecated|readOnly|writeOnly|examples) = ' |
+    wc -l
+  )
   msize=$(jq < tmp/0/${name}_model.json | wc -l)
   tests=$(wc -l < $dir/instances.jsonl)
-  echo "$name,$ssize,$msize,$tests"
+  echo "$name,$ssize,$nsize,$msize,$tests"
 
   # all cases stats
-  let n=0
-  while read value ; do
-    let n++
-    echo "$name,$n,${#value}"
-  done < $dir/instances.jsonl >> casevalues.csv
+  jsonl2csv.py $name $dir/instances.jsonl >> casevalues.csv
 done > cases.csv
 
 #

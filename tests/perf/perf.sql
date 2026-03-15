@@ -33,14 +33,16 @@ CREATE TABLE RawResult(
 CREATE TABLE Cases(
   name TEXT PRIMARY KEY,         -- test name
   ssize INT NOT NULL,            -- schema lines
-  msize INT NOT NULL,            -- model lines
+  nsize INT NOT NULL,            -- normalized schema lines (no doc)
+  msize INT NOT NULL,            -- model lines (may be a reference)
   tests INT NOT NULL             -- number of test values in test
 );
 
 CREATE TABLE CaseValues(
   name TEXT NOT NULL,            -- test name
-  line INT NOT NULL,             -- value line number
-  vsize INT NOT NULL,            -- value size in bytes
+  line INT NOT NULL,             -- value line number (from 1)
+  bsize INT NOT NULL,            -- value size in bytes
+  lsize INT NOT NULL,            -- value size in lines
   PRIMARY KEY (name, line)
 );
 
@@ -59,7 +61,7 @@ INSERT INTO Labels(tool, label) VALUES
   ('jmc-py', 'JMC Python')
 ;
 
--- load raw data
+-- load raw data from generated files
 .mode csv
 .import perf.csv RawRun
 .import compile.csv RawCompile
@@ -253,27 +255,32 @@ CREATE TABLE ShowCases AS WITH
       RANK() OVER (ORDER BY name) AS rnk,
       name,
       COUNT(*) AS nb,
-      MIN(vsize) AS minb,
-      FORMAT('%.0f', AVG(vsize)) AS avgb,
-      MAX(vsize) AS maxb
+      MIN(bsize) AS minb,
+      FORMAT('%.0f', AVG(bsize)) AS avgb,
+      MAX(bsize) AS maxb
     FROM CaseValues
     GROUP BY 2
     UNION
-    SELECT NULL, NULL, COUNT(*), MIN(vsize), FORMAT('%.0f', AVG(vsize)), MAX(vsize)
+    SELECT NULL, NULL, COUNT(*), MIN(bsize), FORMAT('%.0f', AVG(bsize)), MAX(bsize)
     FROM CaseValues
   ),
   CaseStats AS (
     SELECT
       name,
       ssize AS schema,
+      nsize AS normal,
       msize AS model
     FROM Cases
     UNION
-    SELECT NULL, FORMAT('%.0f', AVG(ssize)), FORMAT('%.0f', AVG(msize))
+    SELECT
+      NULL,
+      FORMAT('%.0f', AVG(ssize)),
+      FORMAT('%.0f', AVG(nsize)),
+      FORMAT('%.0f', AVG(msize))
     FROM Cases
   )
   SELECT
-    ci.rnk AS "#", cs.name, cs.schema, cs.model,
+    ci.rnk AS "#", cs.name, cs.schema, cs.normal, cs.model,
     ci.nb, ci.minb AS "min (b)", ci.avgb AS "avg (b)", ci.maxb AS "max (b)"
   FROM CaseInstances AS ci
   JOIN CaseStats AS cs ON (ci.name IS NULL AND cs.name IS NULL OR ci.name = cs.name)
@@ -301,7 +308,7 @@ CREATE TABLE ShowPerfPerCase AS
 -- relative execution time summary
 CREATE TABLE ShowPerfSummary AS WITH
   TotalCaseSize AS (
-    SELECT tool, SUM(vsize) AS tsize
+    SELECT tool, SUM(bsize) AS bsize, SUM(lsize) AS lsize
     FROM CaseValues
     JOIN CumulatedPerf USING (name)
     WHERE run != 0.0
@@ -313,7 +320,7 @@ CREATE TABLE ShowPerfSummary AS WITH
     GROUP BY 1
   ),
   SpeedPerTool AS (
-    SELECT tool, tsize / run AS speed
+    SELECT tool, bsize / run AS bspeed, lsize / run AS lspeed
     FROM TotalToolTime
     JOIN TotalCaseSize USING (tool)
   )
@@ -341,16 +348,26 @@ CREATE TABLE ShowPerfSummary AS WITH
   UNION
   SELECT
     3, 'speed B/µs',
-    FORMAT('%.0f', (SELECT speed FROM SpeedPerTool WHERE tool = 'blaze')),
-    FORMAT('%.0f', (SELECT speed FROM SpeedPerTool WHERE tool = 'jmc-c')),
-    FORMAT('%.0f', (SELECT speed FROM SpeedPerTool WHERE tool = 'jmc-js')),
-    FORMAT('%.0f', (SELECT speed FROM SpeedPerTool WHERE tool = 'jmc-java-gson')),
-    FORMAT('%.0f', (SELECT speed FROM SpeedPerTool WHERE tool = 'jmc-java-jackson')),
-    FORMAT('%.0f', (SELECT speed FROM SpeedPerTool WHERE tool = 'jmc-java-jsonp')),
-    FORMAT('%.0f', (SELECT speed FROM SpeedPerTool WHERE tool = 'jmc-py'))
+    FORMAT('%.0f', (SELECT bspeed FROM SpeedPerTool WHERE tool = 'blaze')),
+    FORMAT('%.0f', (SELECT bspeed FROM SpeedPerTool WHERE tool = 'jmc-c')),
+    FORMAT('%.0f', (SELECT bspeed FROM SpeedPerTool WHERE tool = 'jmc-js')),
+    FORMAT('%.0f', (SELECT bspeed FROM SpeedPerTool WHERE tool = 'jmc-java-gson')),
+    FORMAT('%.0f', (SELECT bspeed FROM SpeedPerTool WHERE tool = 'jmc-java-jackson')),
+    FORMAT('%.0f', (SELECT bspeed FROM SpeedPerTool WHERE tool = 'jmc-java-jsonp')),
+    FORMAT('%.0f', (SELECT bspeed FROM SpeedPerTool WHERE tool = 'jmc-py'))
   UNION
   SELECT
-    4, 'ratio max',
+    4, 'speed l/µs',
+    FORMAT('%.1f', (SELECT lspeed FROM SpeedPerTool WHERE tool = 'blaze')),
+    FORMAT('%.1f', (SELECT lspeed FROM SpeedPerTool WHERE tool = 'jmc-c')),
+    FORMAT('%.1f', (SELECT lspeed FROM SpeedPerTool WHERE tool = 'jmc-js')),
+    FORMAT('%.1f', (SELECT lspeed FROM SpeedPerTool WHERE tool = 'jmc-java-gson')),
+    FORMAT('%.1f', (SELECT lspeed FROM SpeedPerTool WHERE tool = 'jmc-java-jackson')),
+    FORMAT('%.1f', (SELECT lspeed FROM SpeedPerTool WHERE tool = 'jmc-java-jsonp')),
+    FORMAT('%.1f', (SELECT lspeed FROM SpeedPerTool WHERE tool = 'jmc-py'))
+  UNION
+  SELECT
+    5, 'ratio max',
     FORMAT('%.02f', MAX(blaze)),
     FORMAT('%.02f', MAX(c)),
     FORMAT('%.02f', MAX(js)),
@@ -361,7 +378,7 @@ CREATE TABLE ShowPerfSummary AS WITH
   FROM RelativeComparison
   UNION
   SELECT
-    5, 'ratio geo-avg',
+    6, 'ratio geo-avg',
     FORMAT('%.02f', EXP(AVG(LN(blaze)))),
     FORMAT('%.02f', EXP(AVG(LN(c)))),
     FORMAT('%.02f', EXP(AVG(LN(js)))),
@@ -372,7 +389,7 @@ CREATE TABLE ShowPerfSummary AS WITH
   FROM RelativeComparison
   UNION
   SELECT
-    6, 'ratio min',
+    7, 'ratio min',
     FORMAT('%.02f', MIN(blaze)),
     FORMAT('%.02f', MIN(c)),
     FORMAT('%.02f', MIN(js)),
