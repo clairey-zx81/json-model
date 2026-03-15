@@ -1025,6 +1025,31 @@ def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool
     return code
 
 
+def _t2s(tvar: type|None) -> str:
+    """Type to JSON type name conversion."""
+    if tvar is None or tvar is type(None):
+        return "null"
+    elif tvar is bool:
+        return "boolean"
+    elif tvar is int:
+        return "integer"
+    elif tvar is float:
+        return "number"
+    elif tvar is str:
+        return "string"
+    elif tvar is list:
+        return "array"
+    elif tvar is dict:
+        return "object"
+    elif tvar is Number:
+        return "Number"
+    elif tvar is Path:
+        return "Path"
+    elif tvar is Report:
+        return "Report"
+    raise Exception(f"unexpected type: {tvar}")
+
+
 class IRep(Language):
     """Generate JSON intermediate representation of backend code.
 
@@ -1048,7 +1073,7 @@ class IRep(Language):
         self._if_optim = if_optim
         self._byte_order = lang._byte_order if lang else "le"
 
-    # langage dependent stuff
+    # language dependent stuff is forwarded to the underlying language if any
     def assign_expr(self) -> bool:
         return self._lang.assign_expr() if self._lang != self else True
 
@@ -1082,7 +1107,7 @@ class IRep(Language):
         return _j("id", var=_l(var))
 
     def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
-        return _j("isa", var=_l(var), tval=tval if not tval else tval.__name__, loose=loose)
+        return _j("isa", var=_l(var), tval=_t2s(tval), loose=loose)
 
     def esc(self, s: str) -> StrExpr:
         return _j("esc", s=s)
@@ -1100,10 +1125,10 @@ class IRep(Language):
         return _j("pre", var=_l(var), name=name, path=_l(path), is_str=is_str)
 
     def value(self, var: Var, tvar: type) -> Expr:
-        return _j("val", var=_l(var), tvar=tvar.__name__)
+        return _j("val", var=_l(var), tvar=_t2s(tvar))
 
     def get_value(self, var: str, tvar: type) -> Expr:
-        return _j("gv", var=var, tvar=tvar.__name__)
+        return _j("gv", var=var, tvar=_t2s(tvar))
 
     def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         return _j("aiv", arr=_l(arr), idx=_l(idx))
@@ -1345,7 +1370,7 @@ class IRep(Language):
         return [ _j("rcm", name=name, mapping=_cmap2json(mapping)) ]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
-        return _j("gcm", name=name, tag=_l(tag), ttag=ttag.__name__)
+        return _j("gcm", name=name, tag=_l(tag), ttag=_t2s(ttag))
 
     def gen_init(self, init: Block) -> Block:
         return [ _j("gi", init=_u(init)) ]
@@ -1364,21 +1389,20 @@ class IRep(Language):
 #
 # target language reconstruction
 #
-def s2t(tname: str|None) -> type:
+def _s2t(tname: str|None) -> type:
     """String to type reconversion."""
     match tname:
-        case None: return None
-        case "null": return None
-        case "bool": return bool
-        case "int": return int
-        case "float": return float
+        case None|"null": return None
+        case "bool"|"boolean": return bool
+        case "int"|"integer": return int
+        case "float"|"number": return float
         case "Number": return Number
-        case "str": return str
-        case "list": return list
-        case "dict": return dict
+        case "str"|"string": return str
+        case "list"|"array": return list
+        case "dict"|"object": return dict
         case "Path": return Path
         case "Report": return Report
-        case _: raise Exception(f"unexpected type name: {tname}")
+    raise Exception(f"unexpected type name: {tname}")
 
 def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
     """Recursive IR evaluation for the target a language."""
@@ -1398,7 +1422,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "in": return gen.is_num(var=ev("var"))
             case "is": return gen.is_scalar(var=ev("var"))
             case "id": return gen.is_def(var=ev("var"))
-            case "isa": return gen.is_a(var=ev("var"), tval=s2t(jv["tval"]), loose=jv["loose"])
+            case "isa": return gen.is_a(var=ev("var"), tval=_s2t(jv["tval"]), loose=jv["loose"])
             case "esc": return gen.esc(s=jv["s"])
             case "jc": return gen.json_cst(j=jv["j"])
             case "cst": return gen.const(c=jv["c"])
@@ -1406,8 +1430,8 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "pre": return gen.predef(
                 var=ev("var"), name=jv["name"], path=ev("path"), is_str=jv["is_str"]
             )
-            case "val": return gen.value(var=ev("var"), tvar=s2t(jv["tvar"]))
-            case "gv": return gen.get_value(var=jv["var"], tvar=s2t(jv["tvar"]))
+            case "val": return gen.value(var=ev("var"), tvar=_s2t(jv["tvar"]))
+            case "gv": return gen.get_value(var=jv["var"], tvar=_s2t(jv["tvar"]))
             case "aiv": return gen.arr_item_val(arr=ev("arr"), idx=ev("idx"))
             case "opv": return gen.obj_prop_val(obj=ev("obj"), prop=jv["prop"], is_var=jv["is_var"])
             case "cpv": return gen.obj_has_prop_val(
@@ -1525,7 +1549,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "scm": return gen.sub_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
             case "icm": return gen.ini_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
             case "rcm": return gen.del_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
-            case "gcm": return gen.get_cmap(name=jv["name"], tag=ev("tag"), ttag=s2t(jv["ttag"]))
+            case "gcm": return gen.get_cmap(name=jv["name"], tag=ev("tag"), ttag=_s2t(jv["ttag"]))
             # final generation
             case "gi": return gen.gen_init(init=ev("init"))
             case "gf": return gen.gen_free(free=ev("free"))
