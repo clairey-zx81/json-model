@@ -1,14 +1,16 @@
--- show results as tables
+-- show results as markdown tables
 -- .width only works for "box" mode
 
 .print
 .print ## Tool Performance Summary
 .print
 .print For each tool: number of best performance, number of case failures (if any), overall
-.print validation speed in bytes per µs, maximum/geometrical average/minimum performance ratio.
+.print validation speed in bytes per µs and lines per µs,
+.print maximum/geometrical average/minimum performance ratio.
 .print
 .print <!-- LRRRRRRR -->
-.width 0 -5 -5 -5 -5 -5 -5 -5
+-- NOTE last column made larger to account for python slowness
+.width 0 -5 -5 -5 -5 -5 -5 -6
 SELECT summary, blaze, c, js, jv1, jv2, jv3, py
 FROM ShowPerfSummary ORDER BY ordre;
 
@@ -16,8 +18,9 @@ FROM ShowPerfSummary ORDER BY ordre;
 .print ## Tool Performance Per Case
 .print
 .print For each case: number and name, number of test cases, best cumulated median performance (µs),
-.print best tool, performance slowdown ratio for blaze and jmc variants (java 1 is gson, 2 is jackson,
-.print 3 is jsonp/johnzon), the lower the better, **1.00** is best, empty denotes a tool failure.
+.print best tool, performance slowdown ratio for blaze and jmc variants
+.print (java 1 is gson, 2 is jackson, 3 is jsonp/johnzon),
+.print the lower the better, **1.00** is best, empty denotes a tool failure.
 .print
 .print <!-- RLRRCRRRRRRR -->
 .width -2 16 -5 -7 17 -6 -6 -6 -6 -6 -6 -6
@@ -60,9 +63,10 @@ SELECT * FROM ShowCompileSummary ORDER BY 1;
 .print
 .print ## Cases Statistics
 .print
-.print For each case and a summary: the schema and model sizes (number of lines, model size 1
-.print denotes a reference to a predefined model), number/min/average/max size of test values.
+.print For each case and a summary: the full schema, normalized schema and model sizes
+.print (number of lines, model size 1 denotes a reference to a predefined model),
+.print number/min/average/max size of test values.
 .print
-.print <!-- RLRRRRRR -->
-.width -2, 0 -6, -6, -5 -8 -8 -8
+.print <!-- RLRRRRRRR -->
+.width -2, 0 -6, -6, -6, -5 -8 -8 -8
 SELECT * FROM ShowCases ORDER BY 1;

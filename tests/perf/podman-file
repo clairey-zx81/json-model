@@ -10,6 +10,7 @@
 #       zx80/jmc-bench:latest \
 #           -p 20 -l 10000 --env JMC_OPTS --jmc=latest --cap-py
 #
+# FIXME missing "gron" package under Fedora 43, although it was available before
 FROM quay.io/podman/stable
 LABEL description="JSON Model compiler benchmarking artifact (podman-in-podman)"
 RUN yum upgrade -y && \
