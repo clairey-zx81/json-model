@@ -11,12 +11,14 @@
 #           -p 20 -l 10000 --env JMC_OPTS --jmc=latest --cap-py
 #
 # FIXME missing "gron" package under Fedora 43, although it was available before
+# use a python gron replacement
 FROM quay.io/podman/stable
 LABEL description="JSON Model compiler benchmarking artifact (podman-in-podman)"
 RUN yum upgrade -y && \
-    yum install -y time hostname jq sqlite python3 && \
+    yum install -y time hostname jq sqlite python3 python3-pip && \
     yum autoremove && \
     yum clean all
+RUN pip install gron
 RUN mkdir /app /workspace && chmod a+rx /app /workspace
 COPY . /app
 RUN chmod a+r /app/* && chmod a+x /app/*.sh /app/*.py /app/jmc /app/js-cli
