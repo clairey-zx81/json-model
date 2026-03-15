@@ -6,6 +6,7 @@
 - [x] command: add `--no-comment` option not to generate comments in source code
 - [x] \*-backend: support for embedded nul characters in strings, when possible (not SQL nor C)
 - [x] ir: use json name instead of python type names
+- [x] perf: add speed in lines per µs which seems more significant
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
