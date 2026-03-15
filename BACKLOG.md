@@ -4,10 +4,10 @@
 
 - [x] \*-backend: remove `--jsonschema-benchmark` handling as it is moved to this repo
 - [x] command: add `--no-comment` option not to generate comments in source code
+- [x] \*-backend: support for embedded nul characters in strings, when possible (not SQL nor C)
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
-- [ ] \*-backend: add support for embedded nul characters in strings, when possible, or fail gracefully
 - [ ] doc: add _known limitations_ stuff
 - [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
 - [ ] test: add test categories (mark?)

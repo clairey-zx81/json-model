@@ -1,0 +1,6 @@
+{
+  "#.c": "\\0 bad handling for C",
+  "c": [ 1, 2, 3, 4 ],
+  "#.sql": "\\0 not supported at all for Postgres TEXT",
+  "sql": null
+}

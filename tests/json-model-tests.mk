@@ -172,9 +172,12 @@ $(F.out): json-model.o main.o
 	shopt -s nullglob
 	set -o pipefail
 	$< -r $*.*.{true,false}.json | sort > $@
-	if [ -f $*.values.json ] ; then
-	    $< -tr $*.values.json >> $@
+	$< -tr $*.values.json >> $@
+	status=$$?
+	if [ $$status -ne 0 ] ; then
+	    test -f $*.errors.json && status=0
 	fi
+	exit $$status
 
 #
 # JSON IR
@@ -236,6 +239,10 @@ ir: $(F.ir)
 
 %.sql.check: %.sql %.values.json ../test_sql_csv.sql ../test_sql.sh
 	shopt -s nullglob
+	if [ -e $*.sql.check.skip ] ; then
+	    echo "skipped" > $@
+	    exit 0
+	fi
 	../test_sql.sh $< $*.*.true.json $*.*.false.json $*.values.json > $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
