@@ -130,6 +130,9 @@ class Java(Language):
     def json_cst(self, j: Jsonable) -> JsonExpr:
         return f"json.safeJSON({self._json_str(j)})"
 
+    def esc(self, s: str) -> StrExpr:
+        return json.dumps(s)
+
     def const(self, c: Jsonable) -> Expr:
         if isinstance(c, (list, dict)):
             return self.json_cst(c)

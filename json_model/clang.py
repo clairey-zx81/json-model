@@ -5,7 +5,11 @@ from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr, NumE
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 from .utils import partition
 
-_ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
+_ESC_TABLE = {
+    '"': r'\"', "\\": "\\\\",
+    "\x00": "\\0",
+    "\n": "\\n", "\r": "\\r", "\f": "\\f",
+}
 
 #
 # Attempt at optimizing string equality tests with chuncked comparisons,
@@ -35,9 +39,11 @@ def _str_cmp_chunk(s: str, chunk: bytes, size: int,
         return f"{cmp_fun}_{size}({s}, {x})"
 
 def _str_cmp(
-        s: str, cst: str, little: bool = True, eq: bool = True, start: bool = False
-    ) -> BoolExpr:
+            s: str, cst: str,
+            little: bool = True, eq: bool = True, start: bool = False
+        ) -> BoolExpr:
     """Generate a fast byte string comparison for known constants."""
+    # FIXME fails on \u0000
     bcst = json.loads(cst).encode("UTF8")
     remain = len(bcst) + (0 if start else 1)  # add implicit null termination
     # filter out multiple array calls
@@ -184,6 +190,8 @@ class CLangJansson(Language):
     def const(self, c: Jsonable) -> Expr:
         if isinstance(c, (list, dict)):
             return self.json_cst(c)
+        elif isinstance(c, str):
+            return '"' + c.translate(self._json_esc_table) + '"'
         else:
             return super().const(c)
 
@@ -322,9 +330,11 @@ class CLangJansson(Language):
         assert op in ("=", "!=", "<", "<=", ">=", ">")
         if op == "=":
             if self._strcmp_opt and len(e2) >= 2 and e2[0] == '"' and e2[-1] == '"':
-                return _str_cmp(e1, e2, self._byte_order == "le", True)
-            else:
-                return f"strcmp({e1}, {e2}) == 0"
+                try:
+                    return _str_cmp(e1, e2, self._byte_order == "le", True)
+                except Exception:
+                    pass
+            return f"strcmp({e1}, {e2}) == 0"
         elif op == "!=":
             if self._strcmp_opt and len(e2) >= 2 and e2[0] == '"' and e2[-1] == '"':
                 return "(" + _str_cmp(e1, e2, self._byte_order == "le", False) + ")"
