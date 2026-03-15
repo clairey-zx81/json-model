@@ -8,6 +8,12 @@ import fileinput
 
 fmt: str|None = None
 
+ALIGN = {
+    "R": " ---: ",
+    "C": " :--: ",
+    "L": " :--- ",
+}
+
 for line in fileinput.input(encoding="utf-8"):
     if re.match(r"^<!-- [CLR]+ -->$", line):
         # intercept html comment table alignment hint
@@ -16,12 +22,7 @@ for line in fileinput.input(encoding="utf-8"):
         # ensure table alignment
         align = line.split(r"|")
         for i, f in enumerate(fmt):
-            if f == "R":  # right
-                align[i+1] = " ---: "
-            elif f == "C":  # center
-                align[i+1] = " :--: "
-            elif f == "L":  # left
-                align[i+1] = " :--- "
+            align[i+1] = ALIGN[f]
         print("|".join(align), end="")
     else:
         # reset current format on empty line
