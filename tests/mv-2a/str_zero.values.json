@@ -1,0 +1,20 @@
+[
+  [ true,  "hel\u0000lo" ],
+  [ false, "hel\u0000lo!" ],
+  [ false, "hel\u0000l" ],
+  [ false, "hel\u0000" ],
+  [ false, "hel" ],
+  [ false, "he" ],
+  [ false, "h" ],
+  [ false, "" ],
+  [ false, "world!" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

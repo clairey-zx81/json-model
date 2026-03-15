@@ -5,7 +5,7 @@ from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, E
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _DECL = "%PL_DECL% "
-_ESC_TABLE = { "'": "''" }
+_ESC_TABLE = { "'": "''", "\x00": "<NULL>" }
 
 class PLpgSQL(Language):
     """PL/pgSQL Code Generator."""
@@ -16,7 +16,7 @@ class PLpgSQL(Language):
                  with_package: bool = False, with_predef: bool = True,
                  relib: str = "re", int_t: str = "INT8"):
 
-        super().__init__(
+        super().__init__(  # type: ignore
             "PLpgSQL",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              with_package=with_package, with_predef=with_predef,
@@ -26,7 +26,8 @@ class PLpgSQL(Language):
              check_t="TEXT", json_t="JSONB",
              path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="TEXT[]",
              eoi=";", relib=relib, debug=debug,
-             set_caps=(type(None), bool, int, float, str))  # type: ignore
+             set_caps=(type(None), bool, int, float, str)
+        )
 
         assert relib in ("re"), f"regex engine {relib} is not supported, try: re"
 
