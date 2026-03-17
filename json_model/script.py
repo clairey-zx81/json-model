@@ -192,7 +192,8 @@ def create_model(murl: str, resolver: Resolver, *,
 DEFAULT_CC = "cc"
 DEFAULT_CFLAGS = (
     "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable "
-    "-Wno-unused-function -Wno-unused-but-set-variable -Wno-parentheses -Ofast"
+    "-Wno-unused-function -Wno-unused-but-set-variable -Wno-parentheses "
+    "-Ofast -mtune=native"
 )
 DEFAULT_LDFLAGS_PCRE2 = "-ljansson -lpcre2-8 -lm"
 # pkgconf --libs cre2
