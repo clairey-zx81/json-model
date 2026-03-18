@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "a": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "[aA]$"
+        },
+        {
+          "type": "string",
+          "pattern": "^[aA]"
+        }
+      ]
+    },
+    "b": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "[bB]$"
+        },
+        {
+          "type": "string",
+          "pattern": "^[bB]"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,12 @@
+{
+  "#": "and property inclusion",
+  "&": [
+    {
+      "/^foo/": "$ANY"
+    },
+    {
+      "": "$ANY",
+      "/^foo/": ""
+    }
+  ]
+}
