@@ -90,22 +90,17 @@ for dir ; do
   #  - `--no-strict`: just warn about some ill-defined schemas
   #  - `--fix`: fix common schema issues (missing types, misplaced keywords)
   #             improving both accuracy and performance
+  # JMC compiler forwarded options:
   #  - `--no-format`: do not check formats
-  jsu_opts="--quiet --id --no-strict --fix"
+  #  - `--no-reporting`: do not generate invalidation location reporting code
+  #  - `--loose`: assume loose integers (42.0 is an int) and floats (42 is a float)
+  jsu_opts="--quiet --id --no-strict --fix --no-reporting --loose"
 
   # JMC compiler options:
-  #  - `--loose`: assume loose integers (42.0 is an int) and floats (42 is a float)
-  #  - `--no-reporting`: do not generate invalidation location reporting code
-  jmc_c_opt="--loose --no-reporting"
+  jmc_c_opt=""
   jmc_x_opt=$jmc_c_opt
 
-  # regex is not compatible with re2
-  if [ $name = "ui5-manifest" ] ; then
-    jmc_c_opt+=" -re pcre2"
-    jmc_x_opt+=" -re re"
-  fi
-
-  # skip custom OpenAPI model as the schema does not check sub-schemas
+  # skip custom OpenAPI model as the schema does not check sub-schemas, for fairer comparison
   if [ $name = "openapi" ] ; then
     jsu_opts+=" --no-id"
   fi
