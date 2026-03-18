@@ -250,6 +250,10 @@ EXPECT: dict[str, int] = {
     # mv-2a
     "mv-2a:models": 7,
     "mv-2a:values": 145,
+    # mv-2b
+    "mv-2b:cmp-opts": {"report": False, "comment": False},
+    "mv-2b:models": 4,
+    "mv-2b:values": 61,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,
@@ -258,8 +262,8 @@ EXPECT: dict[str, int] = {
     "draft4:jsts": 160,
     "draft6:jsts": 232,
     "draft7:jsts": 257,
-    "draft2019-09:jsts": 368,
-    "draft2020-12:jsts": 379,
+    "draft2019-09:jsts": 369,
+    "draft2020-12:jsts": 380,
     "draft-next:jsts": 368,
 }
 
@@ -295,7 +299,7 @@ def has_exec(program: str) -> bool:
         "./mv-10", "./mv-11", "./mv-12", "./mv-13", "./mv-14", "./mv-15", "./mv-16", "./mv-17",
         "./mv-18", "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d", "./mv-1e", "./mv-1f",
         "./mv-20", "./mv-21", "./mv-22", "./mv-23", "./mv-24", "./mv-25", "./mv-26", "./mv-27",
-        "./mv-28", "./mv-29", "./mv-2a",
+        "./mv-28", "./mv-29", "./mv-2a", "./mv-2b",
     ]
 )
 def directory(request):

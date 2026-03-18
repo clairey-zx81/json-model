@@ -103,23 +103,25 @@ def and_not_simpler(jm: JsonModel) -> bool:
     log.debug(f"{jm._id}: ans {changes}")
     return changes > 0
 
-def _simple_open_object(model: ModelType, jm: JsonModel, path: ModelPath) -> list[str]|None:
-    """Detect simple may/must/regs open objects, return property names and regs."""
+def _simple_object(model: ModelType, jm: JsonModel, path: ModelPath, opened: bool) -> list[str]|None:
+    """Detect simple may/must/regs objects, return property names, regs and possibly wildcard."""
     if jm._isRef(model):
         model = jm.resolveRef(model, path)._model
-    if isinstance(model, dict):
+    if isinstance(model, dict) and len(set(model.keys()) & {"@", "+", "&", "|", "^"}) == 0:
         props, is_open = [], False
         for prop in model.keys():
             assert isinstance(prop, str)
-            if prop == "":
+            if prop in ("", "$STRING"):
                 is_open = model[""] == "$ANY"
                 # NOTE it could also be partially open…
-                if not is_open:
+                if opened and not is_open:
                     return None
+                if not opened:
+                    props.append("")
             elif prop in ("$", "%", "~") or prop[0] == "#":
                 pass
             elif prop[0] == "$":
-                # TODO follow definition!
+                # TODO follow definitions
                 return None
             elif prop[0] == "/":
                 props.append(prop)
@@ -133,7 +135,7 @@ def _simple_open_object(model: ModelType, jm: JsonModel, path: ModelPath) -> lis
                 if name in props:  # not safe?
                     return None
                 props.append(name)
-        return props if is_open else None
+        return props if not opened or opened and is_open else None
     else:
         return None
 
@@ -175,7 +177,10 @@ def _bad_regs(lobj: list[list[str]|None]) -> set[str]:
     return bad_regs
 
 def and_to_merge(jm: JsonModel) -> bool:
-    """Change and to less costly merge if possible."""
+    """Change and to less costly merge if possible.
+
+    NOTE this is restricted to open objects
+    """
 
     changes = 0
 
@@ -184,7 +189,7 @@ def and_to_merge(jm: JsonModel) -> bool:
         if isinstance(model, dict) and "&" in model:
             land = model["&"]
             assert isinstance(land, list)
-            lobj: list[list[str]|None] = list(map(lambda i: _simple_open_object(i, jm, path), land))
+            lobj: list[list[str]|None] = list(map(lambda i: _simple_object(i, jm, path, True), land))
             # subset of mergeables
             n_merges = sum(map(lambda i: 1 if i is not None else 0, lobj))
             if n_merges <= 1:
@@ -228,6 +233,80 @@ def and_to_merge(jm: JsonModel) -> bool:
 
     log.debug(f"{jm._id}: a2m {changes}")
     return changes > 0
+
+
+def and_inc(jm: JsonModel) -> bool:
+    """Remove objets on and with inclusions, in safe cases."""
+
+    # TODO normalize "!x" to "_x"?
+    # FIXME what is safe?
+    # ?x vs _x?? references?
+
+    changes = 0
+
+    def aiRwt(model: ModelType, path: ModelPath) -> ModelType:
+        nonlocal changes
+        if isinstance(model, dict) and "&" in model:
+            land = model["&"]
+            assert isinstance(land, list)
+            lobj: list[list[str]|None] = \
+                list(map(lambda m: _simple_object(m, jm, path, False), land))
+            considered: list[tuple[int, list[str]]] = [
+                (i, lp) for i, lp in enumerate(lobj) if lp is not None
+            ]
+            if len(considered) <= 1:
+                return model
+            delete = []
+            # TODO extend!
+            # for now special case: same props bar wildcard
+            for i1, lp1 in considered:
+                for i2, lp2 in considered:
+                    if i1 <= i2 or i2 in delete:
+                        continue
+                    if (set(lp1) - {""}) != (set(lp2) - {""}):
+                        continue
+                    # special case merge of 2 into 1
+                    log.warning(f"AI {land[i1]} & {land[i2]}")
+                    changes += 1
+                    delete.append(i2)
+                    # wildcard kept only if on both sides
+                    if "" in lp1 and "" not in lp2 or "" not in lp1 and "" in lp2:
+                        if "" in lp1:
+                            del land[i1][""]
+                            lp1.remove("")
+                    for p in lp1:
+                        # find the actual property names
+                        if p and p[0] == "_":
+                            pn = p[1:]
+                            for n in (pn, "!" + pn, "?" + pn, p):
+                                if n in land[i1]:
+                                    p1 = n
+                                    p1opt = n == ("?" + pn)
+                                if n in land[i2]:
+                                    p2 = n
+                                    p2opt = n == ("?" + pn)
+                            # possibly promote to mandatory
+                            p1n = ("?" + pn) if p1opt and p2opt else p
+                        else:  # regex or wildcard
+                            p1, p1n, p2 = p, p, p
+                        m1, m2 = land[i1][p1], land[i2][p2]
+                        if m1 == "$ANY":
+                            land[i1][p1n] = m2
+                        elif m2 == "$ANY":
+                            land[i1][p1n] = m1
+                        else:
+                            land[i1][p1n] = {"&": [m1, m2]}
+                        if p1n != p1:
+                            del land[i1][p1]
+            for i in reversed(sorted(delete)):
+                land.pop(i)
+        return model
+
+    jm._model = recModel(jm._model, builtFlt, aiRwt)
+
+    log.debug(f"{jm._id}: ai {changes}")
+    return changes > 0
+
 
 # FIXME this is the inverse of no2n in some cases…
 def xor_to_or(jm: JsonModel) -> bool:
@@ -876,6 +955,7 @@ def optimize(jm: JsonModel, *, debug: bool = False):
         changed |= flatten(jm)
         changed |= and_not_simpler(jm)
         changed |= and_to_merge(jm)
+        changed |= and_inc(jm)
         changed |= xor_to_or(jm)
         changed |= notor_to_not(jm)
 
