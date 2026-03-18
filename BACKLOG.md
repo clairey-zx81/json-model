@@ -9,6 +9,7 @@
 - [x] perf: add speed in lines per µs which seems more significant
 - [x] command: add `-mtune=native` to C compilation
 - [x] optim: simplify _&_ with same props and regs plus optional wildcards
+- [ ] optim: simplify _( i1 | i2 ) & (j1 | j2)_ when i1/i2 are subtypes of j1/j2
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
 - [ ] backend: implement new predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION (just with regex?)
