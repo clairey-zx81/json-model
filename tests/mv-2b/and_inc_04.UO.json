@@ -1,0 +1,20 @@
+[
+  {
+    "/^foo/": "",
+    "#": "JsonModel 1",
+    "$": {
+      "foo": {
+        "": "$ANY",
+        "/^foo/": "",
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./and_inc_04.model.json"
+    }
+  },
+  {
+    "": "$ANY",
+    "/^foo/": "",
+    "#": "JsonModel 2"
+  }
+]

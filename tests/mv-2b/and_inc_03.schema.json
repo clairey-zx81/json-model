@@ -5,11 +5,11 @@
       "allOf": [
         {
           "type": "string",
-          "pattern": "[aA]$"
+          "pattern": "^[aA]"
         },
         {
           "type": "string",
-          "pattern": "^[aA]"
+          "pattern": "[aA]$"
         }
       ]
     },
@@ -17,11 +17,11 @@
       "allOf": [
         {
           "type": "string",
-          "pattern": "[bB]$"
+          "pattern": "^[bB]"
         },
         {
           "type": "string",
-          "pattern": "^[bB]"
+          "pattern": "[bB]$"
         }
       ]
     }
