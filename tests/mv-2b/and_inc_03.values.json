@@ -1,0 +1,21 @@
+[
+  [ true,  {} ],
+  [ true,  {"a": "a"} ],
+  [ true,  {"a": "akA"} ],
+  [ true,  {"b": "b"} ],
+  [ true,  {"b": "Bkb"} ],
+  [ true,  {"a": "Aka", "b": "bkB"} ],
+  [ false, {"a": "kA"} ],
+  [ false, {"b": "bk"} ],
+  [ false, {"c": "c"} ],
+  [ false, {"a": "a", "b": "b", "c": "c"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]
