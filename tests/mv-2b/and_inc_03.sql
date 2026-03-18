@@ -1,35 +1,35 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- regex=^[aA] opts=n
-CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^[aA]', 'n');
-END;
-$$ LANGUAGE plpgsql;
-
 -- regex=[aA]$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '[aA]$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=^[bB] opts=n
-CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
+-- regex=^[aA] opts=n
+CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[bB]', 'n');
+  RETURN regexp_like(val, '^[aA]', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
 -- regex=[bB]$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_3(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '[bB]$', 'n');
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^[bB] opts=n
+CREATE OR REPLACE FUNCTION _jm_re_3(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^[bB]', 'n');
 END;
 $$ LANGUAGE plpgsql;
 

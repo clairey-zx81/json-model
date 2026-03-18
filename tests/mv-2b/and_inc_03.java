@@ -80,10 +80,10 @@ public class and_inc_03 extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_re_0_pat = Pattern.compile("^[aA]");
-            _jm_re_1_pat = Pattern.compile("[aA]$");
-            _jm_re_2_pat = Pattern.compile("^[bB]");
-            _jm_re_3_pat = Pattern.compile("[bB]$");
+            _jm_re_0_pat = Pattern.compile("[aA]$");
+            _jm_re_1_pat = Pattern.compile("^[aA]");
+            _jm_re_2_pat = Pattern.compile("[bB]$");
+            _jm_re_3_pat = Pattern.compile("^[bB]");
             and_inc_03_map_pmap = new HashMap<String, Checker>();
             and_inc_03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);

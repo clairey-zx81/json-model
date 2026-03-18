@@ -87,19 +87,19 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_re_0_re2 = cre2_new("^[aA]", strlen("^[aA]"), NULL);
+        _jm_re_0_re2 = cre2_new("[aA]$", strlen("[aA]$"), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
-        _jm_re_1_re2 = cre2_new("[aA]$", strlen("[aA]$"), NULL);
+        _jm_re_1_re2 = cre2_new("^[aA]", strlen("^[aA]"), NULL);
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        _jm_re_2_re2 = cre2_new("^[bB]", strlen("^[bB]"), NULL);
+        _jm_re_2_re2 = cre2_new("[bB]$", strlen("[bB]$"), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
-        _jm_re_3_re2 = cre2_new("[bB]$", strlen("[bB]$"), NULL);
+        _jm_re_3_re2 = cre2_new("^[bB]", strlen("^[bB]"), NULL);
         if (cre2_error_code(_jm_re_3_re2))
             return cre2_error_string(_jm_re_3_re2);
         _jm_re_3_nn = cre2_num_capturing_groups(_jm_re_3_re2) + 1;
