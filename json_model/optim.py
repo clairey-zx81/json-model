@@ -260,44 +260,54 @@ def and_inc(jm: JsonModel) -> bool:
             # TODO extend!
             # for now special case: same props bar wildcard
             for i1, lp1 in considered:
+                m1 = land[i1]
+                # skip reference on m1 side, because we do not want to change it
+                if isinstance(m1, str):
+                    continue
                 for i2, lp2 in considered:
-                    if i1 <= i2 or i2 in delete:
+                    if i1 == i2 or i1 in delete or i2 in delete:
                         continue
                     if (set(lp1) - {""}) != (set(lp2) - {""}):
                         continue
+                    m2 = land[i2]
+                    # accept m2 as a reference, which may be simply removed from the list on merge
+                    if isinstance(m2, str) and m2.startswith("$"):
+                        m2 = jm.resolveRef(m2, path + ["&", i2])._model
+                    assert isinstance(m2, dict)
                     # special case merge of 2 into 1
-                    log.warning(f"AI {land[i1]} & {land[i2]}")
+                    # log.warning(f"AI models {m1} & {m2}")
                     changes += 1
                     delete.append(i2)
                     # wildcard kept only if on both sides
                     if "" in lp1 and "" not in lp2 or "" not in lp1 and "" in lp2:
                         if "" in lp1:
-                            del land[i1][""]
+                            del m1[""]
                             lp1.remove("")
                     for p in lp1:
                         # find the actual property names
                         if p and p[0] == "_":
                             pn = p[1:]
                             for n in (pn, "!" + pn, "?" + pn, p):
-                                if n in land[i1]:
+                                if n in m1:
                                     p1 = n
                                     p1opt = n == ("?" + pn)
-                                if n in land[i2]:
+                                if n in m2:
                                     p2 = n
                                     p2opt = n == ("?" + pn)
                             # possibly promote to mandatory
                             p1n = ("?" + pn) if p1opt and p2opt else p
                         else:  # regex or wildcard
                             p1, p1n, p2 = p, p, p
-                        m1, m2 = land[i1][p1], land[i2][p2]
-                        if m1 == "$ANY":
-                            land[i1][p1n] = m2
-                        elif m2 == "$ANY":
-                            land[i1][p1n] = m1
+                        pm1, pm2 = m1[p1], m2[p2]
+                        # redundant with partial eval ?
+                        if pm1 == "$ANY":
+                            m1[p1n] = pm2
+                        elif pm2 == "$ANY":
+                            m1[p1n] = pm1
                         else:
-                            land[i1][p1n] = {"&": [m1, m2]}
+                            m1[p1n] = {"&": [pm1, pm2]}
                         if p1n != p1:
-                            del land[i1][p1]
+                            del m1[p1]
             for i in reversed(sorted(delete)):
                 land.pop(i)
         return model
@@ -553,13 +563,16 @@ def partial_eval(jm: JsonModel):
                     mdell(0.0, land)
 
                 # other optimizations
+                while "$ANY" in land:
+                    changes += 1
+                    land.remove("$ANY")
                 if len(land) == 0:
                     changes += 1
                     return "$ANY"
-                elif "$NONE" in land:
+                if "$NONE" in land:
                     changes += 1
                     return "$NONE"
-                elif len(lv := deduplicate(land)) != len(land):
+                if len(lv := deduplicate(land)) != len(land):
                     changes += 1
                     model["&"] = land = lv
                 if len(land) == 1:

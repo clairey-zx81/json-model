@@ -7,35 +7,35 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub json_model_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
 
-sub _jm_re_0($$$)
+sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /[aA]$/;
-    return $res;
-}
-
-sub _jm_re_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[aA]/;
-    return $res;
-}
-
-sub _jm_re_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /[bB]$/;
-    return $res;
-}
-
-sub _jm_re_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[bB]/;
-    return $res;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_starts_with($prop, 'foo'))
+        {
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            ;
+        }
+    }
+    return 1;
 }
 
 sub json_model_1($$$)
@@ -49,25 +49,18 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'a')
+        if (jm_starts_with($prop, 'foo'))
         {
-            $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef) && _jm_re_0($pval, undef, undef);
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
-            next;
         }
-        elsif ($prop eq 'b')
+        else
         {
-            $res = jm_is_string($pval) && _jm_re_3($pval, undef, undef) && _jm_re_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
+            return 0;
         }
-        return 0;
     }
     return 1;
 }
@@ -84,6 +77,7 @@ sub check_model_init()
         $initialized = 1;
         %check_model_map = (
             '' => \&json_model_1,
+            'foo' => \&json_model_2,
         );
     }
 }

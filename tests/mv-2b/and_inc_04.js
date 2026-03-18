@@ -5,19 +5,28 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-const _jm_re_0_re = new runtime.RX("[aA]$", "")
-const _jm_re_1_re = new runtime.RX("^[aA]", "")
-const _jm_re_2_re = new runtime.RX("[bB]$", "")
-const _jm_re_3_re = new runtime.RX("^[bB]", "")
 export var check_model_map = new Map()
 
-const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
-
-const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
-
-const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
-
-const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
+function json_model_2(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        if (prop.startsWith("foo"))
+        {
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
 function json_model_1(val, path, rep)
 {
@@ -28,25 +37,18 @@ function json_model_1(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "a")
+        if (prop.startsWith("foo"))
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, null, null) && _jm_re_0(pval, null, null);
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
                 return false;
             }
-            continue;
         }
-        else if (prop == "b")
+        else
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, null, null) && _jm_re_2(pval, null, null);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
+            return false;
         }
-        return false;
     }
     return true;
 }
@@ -62,6 +64,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         check_model_map.set("", json_model_1)
+        check_model_map.set("foo", json_model_2)
     }
 }
 
