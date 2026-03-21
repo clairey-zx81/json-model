@@ -29,6 +29,7 @@ cloc --md \
     json_model/language.py \
     json_model/model.py \
     json_model/mtypes.py \
+    json_model/submodel.py \
     json_model/objmerge.py \
     json_model/optim.py \
     json_model/recurse.py \

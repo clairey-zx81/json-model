@@ -1,0 +1,16 @@
+{
+  "&": [
+    {
+        "#": "an object with property a which stars with an a",
+        "a": "/^[aA]/"
+    },
+    {
+        "#": "an object with only string properties",
+        "": ""
+    },
+    {
+        "#": "an object",
+        "": "$ANY"
+    }
+  ]
+}
