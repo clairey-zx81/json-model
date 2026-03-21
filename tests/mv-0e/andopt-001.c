@@ -18,26 +18,10 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    bool res = true;
-    if (res)
+    bool res = json_is_integer(val) && json_integer_value(val) >= 0;
+    if (unlikely(! res))
     {
-        // .'&'.0
-        res = json_is_integer(val) && json_integer_value(val) >= 0;
-        if (likely(res))
-            // .'&'.1
-            res = true;
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'&'.0]", path);
-        }
-    }
-    if (likely(res))
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "not all model match [.'&']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.]", path);
     }
     return res;
 }

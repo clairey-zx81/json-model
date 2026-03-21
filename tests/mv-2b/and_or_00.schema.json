@@ -1,0 +1,12 @@
+{
+  "anyOf": [
+    {
+      "type": "integer",
+      "minimum": 1
+    },
+    {
+      "type": "string",
+      "pattern": "^[a-z]"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  "# 1 or /^[a-z]/",
+  [ true,  1 ],
+  [ true, "a" ],
+  [ true,  42 ],
+  [ true,  "abcd" ],
+  [ false, 0 ],
+  [ false, "Susie" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, {} ]
+]

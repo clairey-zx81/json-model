@@ -1,0 +1,18 @@
+[
+  [ true,  ["a", "z"] ],
+  [ true,  ["hello", "world"] ],
+  [ false, ["a", "Z"] ],
+  [ false, [1, "z"] ],
+  [ false, ["a", "b", "c"] ],
+  [ false, ["s"] ],
+  [ false, [] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "hello world!" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

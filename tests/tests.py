@@ -250,10 +250,11 @@ EXPECT: dict[str, int] = {
     # mv-2a
     "mv-2a:models": 7,
     "mv-2a:values": 145,
+    "mv-2a:errors.c": 4,
     # mv-2b
     "mv-2b:cmp-opts": {"report": False, "comment": False},
-    "mv-2b:models": 4,
-    "mv-2b:values": 61,
+    "mv-2b:models": 8,
+    "mv-2b:values": 108,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,
@@ -546,6 +547,17 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
 
         if vfile.exists():
 
+            ref_file = fname.replace(suffix, refsuff)
+            with open(ref_file) as r:
+                ref = r.read()
+
+            if ref.strip() == "SKIP":
+                # just count and proceed to the next
+                with open(vfile) as vf:
+                    values = json.load(vf)
+                nvalues += len(list(filter(lambda t: isinstance(t, list), values)))
+                continue
+
             with os.popen(f"{fexec} {opts} -t {vfile} | cut -d/ -f2-") as p:
                 result = p.read()
             out += result
@@ -557,10 +569,6 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                 else:
                     log.error(f"error in {directory}: {line}")
                     nerrors += 1
-
-            ref_file = fname.replace(suffix, refsuff)
-            with open(ref_file) as r:
-                ref = r.read()
 
             assert out == ref
 

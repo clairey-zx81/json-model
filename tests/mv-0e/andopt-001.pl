@@ -19,8 +19,6 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    # .'&'.0
-    # .'&'.1
     return jm_is_integer($val) && $val >= 0;
 }
 

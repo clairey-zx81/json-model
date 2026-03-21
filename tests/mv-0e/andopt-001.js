@@ -15,28 +15,10 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    let res = true;
-    if (res)
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
     {
-        // .'&'.0
-        res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-        if (res)
-        {
-            // .'&'.1
-            res = true;
-        }
-        else
-        {
-            rep !== null && rep.push(["not a 0 strict int [.'&'.0]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["not all model match [.'&']", path])
+        rep !== null && rep.push(["not a 0 strict int [.]", path])
     }
     return res;
 }
