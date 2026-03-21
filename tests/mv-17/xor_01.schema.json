@@ -27,7 +27,6 @@
       "additionalProperties": false
     },
     {
-      "description": "oops!",
       "type": "object",
       "properties": {
         "a": {

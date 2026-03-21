@@ -1,0 +1,12 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "ident": "/^[a-z]+$/",
+    "#": "Symbol 1",
+    "": "./and_arr_00"
+  },
+  "@": [
+    "$ident",
+    "$ident"
+  ]
+}

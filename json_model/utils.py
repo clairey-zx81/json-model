@@ -16,16 +16,29 @@ __version__ = pkg_version("json_model_compiler")
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
 
-MODEL_PREDEFS = {
-    "$ANY", "$NONE", "$NULL", "$BOOL", "$BOOLEAN",
-    "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
-    "$FLOAT", "$F32", "$F64", "$NUMBER",
+STR_MODEL_PREDEFS = {
     "$STRING", "$DATE", "$TIME", "$DATETIME",
     "$URL", "$REGEX", "$EXREG", "$UUID",
     "$URI", "$EMAIL", "$JSON",
     # TODO $URI-REF, $DOMAIN…
     "$IP4", "$IP6", "$DURATION", "$JSONPT", "$HOSTNAME",
 }
+
+BOOL_MODEL_PREDEFS = {
+    "$BOOL", "$BOOLEAN",
+}
+
+INT_MODEL_PREDEFS = {
+    "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
+}
+
+FLOAT_MODEL_PREDEFS = {
+    "$FLOAT", "$F32", "$F64", "$NUMBER",
+}
+
+MODEL_PREDEFS = {
+    "$ANY", "$NONE", "$NULL",
+} | INT_MODEL_PREDEFS | FLOAT_MODEL_PREDEFS | STR_MODEL_PREDEFS | BOOL_MODEL_PREDEFS
 
 ANY_STR_RE = r"(?s).*"
 WEAK_DATE_RE = r"\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])"
@@ -777,7 +790,7 @@ def is_obj_model(model: ModelType, keywords: set[str]) -> bool:
     return True
 
 def is_a_simple_object(model: ModelType) -> bool:
-    """Whether model is for an object."""
+    """Whether model is for a direct object."""
     if not isinstance(model, dict):
         return False
     for prop in model:
@@ -882,9 +895,12 @@ def same_types(lt: list[tuple[bool, type|None]]) -> bool:
             return False
     return True
 
+def is_null(m: ModelType) -> bool:
+    return m is None or isinstance(m, str) and m in ("=null", "$NULL")
+
 def is_base_model(m: ModelType) -> type|None:
     """Wheter m is a base model, that is a model for basic json types."""
-    if m is None:
+    if is_null(m):
         return type(None)
     elif isinstance(m, bool):
         return bool
@@ -900,8 +916,6 @@ def is_base_model(m: ModelType) -> type|None:
     elif isinstance(m, str):
         if m in ("", "$STRING"):
             return str
-        elif m == "$NULL":
-            return type(None)
         elif m in ("$BOOL", "$BOOLEAN"):
             return bool
         elif m in ("$INT", "$INTEGER"):

@@ -1,0 +1,7 @@
+{
+  "#": "sub-model optimization: first model is stricter than second which can be dropped",
+  "&": [
+    {"|": [1, "/^[a-z]/"]},
+    {"|": [-1, ""]}
+  ]
+}

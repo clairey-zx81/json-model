@@ -23,28 +23,10 @@ public class andopt_001 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        boolean res = true;
-        if (res)
+        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
+        if (! res)
         {
-            // .'&'.0
-            res = json.isInteger(val) && json.asLong(val) >= 0;
-            if (res)
-            {
-                // .'&'.1
-                res = true;
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("not a 0 strict int [.'&'.0]", path);
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("not all model match [.'&']", path);
+            if (rep != null) rep.addEntry("not a 0 strict int [.]", path);
         }
         return res;
     }

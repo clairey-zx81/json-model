@@ -1,11 +1,11 @@
 import typing
 
-# JSON types
+# JSON types for Python
 type Number = int|float
-type JsonScalar = None|bool|int|float|str
-type Jsonable = JsonScalar|list[Jsonable]|dict[str, Jsonable]
+type JsonScalar = None|bool|Number|str
 type JsonObject = dict[str, Jsonable]
 type JsonArray = list[Jsonable]
+type Jsonable = JsonScalar|JsonArray|JsonObject
 type JsonPath = list[int|str]
 
 type ValueType = Jsonable

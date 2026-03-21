@@ -1,9 +1,4 @@
 {
-  "allOf": [
-    {
-      "type": "integer",
-      "minimum": 0
-    },
-    true
-  ]
+  "type": "integer",
+  "minimum": 0
 }

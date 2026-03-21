@@ -7,6 +7,7 @@ from .utils import log, is_cst, _structurally_distinct_models, model_type, is_ba
 from .utils import constant_values, same_model, model_eq
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
+from .submodel import normalizeModel, is_submodel
 from .analyze import ultimate_type
 from .runtime import ConstSet
 
@@ -25,30 +26,11 @@ def mdell(model: ModelType, models: list[ModelType]) -> bool:
 
 def normalizeModels(models: list[ModelType]) -> int:
     """Replace model predefs in the list with their canonic form."""
-    IGNORE = object()
     changes = 0
 
     for idx, model in enumerate(models):
-        nmodel = IGNORE
-        if isinstance(model, str):
-            if model == "":
-                pass
-            elif model == "$STRING":
-                # NOTE could also absorb some regex, but masking issue
-                nmodel = ""
-            elif model in ("$INT", "$INTEGER", "$I32", "$I64"):
-                nmodel = -1
-            elif model in ("$U32", "$U64"):
-                nmodel = 0
-            elif model in ("$FLOAT", "$F32", "$F64"):
-                nmodel = -1.0
-            elif model in ("$BOOL", "$BOOLEAN"):
-                nmodel = True
-            elif model in ("$NULL", "=null"):
-                nmodel = None
-            elif model[0] not in "$/=_":  # string constants
-                nmodel = "_" + model
-        if nmodel != IGNORE:
+        nmodel = normalizeModel(model)
+        if nmodel != model:
             changes += 1
             models[idx] = nmodel  # type: ignore
 
@@ -561,6 +543,19 @@ def partial_eval(jm: JsonModel):
                     mdell(-1.0, land)
                 if minl(0.0, land) and minl(1.0, land):
                     mdell(0.0, land)
+
+                # subtype optimization XXX
+                deletes = []
+                for i, mi in enumerate(land):
+                    for j, mj in enumerate(land):
+                        if i == j or i in deletes or j in deletes:
+                            continue
+                        if is_submodel(jm, mi, mj):
+                            deletes.append(j)
+                if deletes:
+                    for d in reversed(sorted(deletes)):
+                        changes += 1
+                        land.pop(d)
 
                 # other optimizations
                 while "$ANY" in land:

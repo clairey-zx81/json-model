@@ -1,0 +1,7 @@
+[
+  [ true,  {"a": "Ah !"} ],
+  [ true,  {"a": "a value"} ],
+  [ false, {} ],
+  [ false, {"b": 42} ],
+  [ false, null ]
+]

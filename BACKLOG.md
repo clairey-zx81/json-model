@@ -9,7 +9,7 @@
 - [x] perf: add speed in lines per µs which seems more significant
 - [x] command: add `-mtune=native` to C compilation
 - [x] optim: simplify _&_ with same props and regs plus optional wildcards
-- [ ] optim: simplify _( i1 | i2 ) & (j1 | j2)_ when i1/i2 are subtypes of j1/j2
+- [x] optim: simplify _X & Y_ to _X_ when _X_ is a submodel of _Y_
 - [ ] static: recognize and generate better code for typed _not_
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
 - [ ] optim: recognize typed not: _"" ^ "xxx"_
