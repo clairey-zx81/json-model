@@ -161,8 +161,10 @@ def model_checker_from_json(
         **options,
     ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
-    jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver,
-                         loose_int=loose_int, loose_float=loose_float, extend=extend)
+    jm = model_from_json(
+        mjson, auto=auto, debug=debug, resolver=resolver,
+        loose_int=loose_int, loose_float=loose_float, extend=extend
+    )
     return model_checker(jm, debug=debug > 0, **options)
 
 
@@ -173,8 +175,10 @@ def model_checker_from_url(
         **options,
     ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
-    jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
-                        loose_int=loose_int, loose_float=loose_float, extend=extend)
+    jm = model_from_url(
+        murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
+        loose_int=loose_int, loose_float=loose_float, extend=extend
+    )
     return model_checker(jm, debug=debug > 0, **options)
 
 
@@ -184,9 +188,11 @@ def create_model(murl: str, resolver: Resolver, *,
                  loose_int: bool|None = None, loose_float: bool|None = None,
                  extend: bool = False) -> JsonModel:
     """JsonModel instanciation without preprocessing."""
-    return model_from_url(murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
-                          loose_int=loose_int, loose_float=loose_float,
-                          check=check, merge=merge, optimize=optimize, extend=extend)
+    return model_from_url(
+        murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
+        loose_int=loose_int, loose_float=loose_float,
+        check=check, merge=merge, optimize=optimize, extend=extend
+    )
 
 
 DEFAULT_CC = "cc"
