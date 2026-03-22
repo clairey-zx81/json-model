@@ -1,0 +1,19 @@
+email_address.values.json[0]: PASS
+email_address.values.json[1]: PASS
+email_address.values.json[2]: PASS
+email_address.values.json[3]: PASS
+email_address.values.json[4]: PASS
+email_address.values.json[5]: FAIL (.: invalid email )
+email_address.values.json[6]: FAIL (.: invalid email @)
+email_address.values.json[7]: FAIL (.: invalid email @foo)
+email_address.values.json[8]: FAIL (.: invalid email foo@)
+email_address.values.json[9]: FAIL (.: invalid email foo.blaAcomics.net)
+email_address.values.json[10]: FAIL (.: invalid email None)
+email_address.values.json[11]: FAIL (.: invalid email True)
+email_address.values.json[12]: FAIL (.: invalid email False)
+email_address.values.json[13]: FAIL (.: invalid email -42)
+email_address.values.json[14]: FAIL (.: invalid email 3.1415927)
+email_address.values.json[15]: FAIL (.: invalid email [])
+email_address.values.json[16]: FAIL (.: invalid email [1, 'expected'])
+email_address.values.json[17]: FAIL (.: invalid email {})
+email_address.values.json[18]: FAIL (.: invalid email {'un': 'expected'})

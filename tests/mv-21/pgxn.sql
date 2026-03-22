@@ -213,7 +213,7 @@ BEGIN
     ELSEIF prop = 'mailto' THEN
       -- handle may mailto property
       -- .'$Resources'.bugtracker.mailto
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_email(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_email(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -802,6 +802,14 @@ DECLARE
   map JSONB := JSONB '{"":"json_model_1","neStr":"json_model_2","neStrList":"json_model_3","License":"json_model_4","LicenseList":"json_model_5","Provide":"json_model_6","Status":"json_model_7","Resources":"json_model_8","SemVer":"json_model_9","Version":"json_model_10","Ops":"json_model_11","VersionRange":"json_model_12","Phase":"json_model_13","Relation":"json_model_14","Prereq":"json_model_15","Prereqs":"json_model_16"}';
 BEGIN
   RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$ opts=ni
+CREATE OR REPLACE FUNCTION jm_is_email(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^([-+!#$%&''`*/=?^{}|~_a-z0-9]+)(\.([-+!#$%&''`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 

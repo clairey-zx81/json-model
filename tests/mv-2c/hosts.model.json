@@ -1,0 +1,6 @@
+{
+  "#": "predefs about ip addresses and host names",
+  "?ipv4": "$IP4",
+  "?ipv6": "$IP6",
+  "?host": "$HOST"
+}

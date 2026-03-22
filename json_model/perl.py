@@ -4,6 +4,12 @@ from .language import Language, Block, Var, PropMap, ConstList
 from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr, NumExpr
 from .mtypes import Number, Jsonable, TestHint, Conditionals
 
+PERL_RUNTIME_PREDEFS: set[str] = {
+    "$URL", "$URI",
+    "$DATE", "$TIME", "$DATETIME",
+    "$REGEX", "$EXREG", "$JSON",
+    # backup regex: "$EMAIL", $UUID, "$HOST", "$IP4", "$IP6",
+}
 
 class Perl(Language):
     """Perl language Code Generator."""
@@ -20,7 +26,8 @@ class Perl(Language):
             with_package=with_package, with_predef=with_predef,
             not_op="!", and_op="&&", or_op="||", lcom="#",
             true="1", false="0", null="undef", check_t="", json_t="",
-            path_t="", float_t="", str_t="", match_t="", eoi=";", set_caps=(str,)
+            path_t="", float_t="", str_t="", match_t="", eoi=";", set_caps=(str,),
+            predefs=PERL_RUNTIME_PREDEFS
         )
 
         assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
@@ -123,10 +130,6 @@ class Perl(Language):
             return is_str_and + f"jm_is_valid_regex({var}, {self.path(path)}, {self.rep()})"
         elif name == "$EXREG":
             return is_str_and + f"jm_is_valid_exreg({var}, {self.path(path)}, {self.rep()})"
-        elif name == "$UUID":
-            return is_str_and + f"jm_is_valid_uuid({var}, {self.path(path)}, {self.rep()})"
-        elif name == "$EMAIL":
-            return is_str_and + f"jm_is_valid_email({var}, {self.path(path)}, {self.rep()})"
         elif name == "$JSON":
             return is_str_and + f"jm_is_valid_json({var}, {self.path(path)}, {self.rep()})"
         else:

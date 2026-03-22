@@ -172,7 +172,6 @@ def is_valid_date(value: Jsonable, path: Path, rep: Report = None) -> bool:
     _ = rep is None or rep.append((f"incompatible type {_tname(value)} for date", path))
     return False
 
-
 def is_valid_time(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
@@ -183,7 +182,6 @@ def is_valid_time(value: Jsonable, path: Path, rep: Report = None) -> bool:
             return False
     _ = rep is None or rep.append((f"incompatible type {_tname(value)} for time", path))
     return False
-
 
 def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
@@ -196,7 +194,6 @@ def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
     _ = rep is None or rep.append((f"incompatible type {_tname(value)} for datetime", path))
     return False
 
-
 def value_len(value: Jsonable, path: Path) -> None|bool|int|float:
     match value:
         case str()|list()|dict():
@@ -204,22 +201,6 @@ def value_len(value: Jsonable, path: Path) -> None|bool|int|float:
         case _:
             # FIXME should error out on None|bool?
             return value
-
-
-_UUID_RE = r"(?i)^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-_UUID_SEARCH = re.compile(_UUID_RE).search
-
-def is_valid_uuid(value: Jsonable, path: Path, rep: Report = None) -> bool:
-    if isinstance(value, str):
-        if _UUID_SEARCH(value) is not None:
-            return True
-        else:
-            _ = rep is None or rep.append((f"str not an uuid {value}", path))
-            return False
-    else:
-        _ = rep is None or rep.append((f"incompatible type {_tname(value)} for uuid", path))
-        return False
-
 
 def is_valid_url(value: Jsonable, path: Path, rep: Report = None) -> bool:
     # NOTE urllib.parse accepts any garbage…
@@ -230,13 +211,33 @@ def is_valid_url(value: Jsonable, path: Path, rep: Report = None) -> bool:
         _ = rep is None or rep.append((f"invalid url {value}", path))
     return valid
 
-
 def is_valid_email(value: Jsonable, path: Path, rep: Report = None) -> bool:
-    valid = isinstance(value, str) and validators.email(value) is True
+    valid = isinstance(value, str) and validators.email(value, simple_host=True) is True
     if not valid:
         _ = rep is None or rep.append((f"invalid email {value}", path))
     return valid
 
+def is_valid_ip4(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    valid = isinstance(value, str) and validators.ipv4(value, cidr=False) is True
+    if not valid:
+        _ = rep is None or rep.append((f"invalid ipv4 address {value}", path))
+    return valid
+
+def is_valid_ip6(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    valid = isinstance(value, str) and validators.ipv6(value, cidr=False) is True
+    if not valid:
+        _ = rep is None or rep.append((f"invalid ipv6 address {value}", path))
+    return valid
+
+# TODO separate hostname and idn-hostname?
+def is_valid_host(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    valid = isinstance(value, str) and validators.hostname(
+            value, skip_ipv4_addr=True, skip_ipv6_addr=True,  # ???
+            may_have_port=False, maybe_simple=True
+        ) is True
+    if not valid:
+        _ = rep is None or rep.append((f"invalid hostname {value}", path))
+    return valid
 
 def is_valid_json(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
@@ -248,7 +249,6 @@ def is_valid_json(value: Jsonable, path: Path, rep: Report = None) -> bool:
             return False
     _ = rep is None or rep.append((f"incompatible type for json: {_tname(value)}", path))
     return False
-
 
 # quite inefficient but safe
 def is_valid_regex(value: Jsonable, path: Path, rep: Report = None) -> bool:
@@ -263,7 +263,6 @@ def is_valid_regex(value: Jsonable, path: Path, rep: Report = None) -> bool:
     _ = rep is None or rep.append((f"incompatible type for regex: {_tname(value)}", path))
     return False
 
-
 # extension: accept inlined reference syntax ($FOO:...)
 def is_valid_exreg(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
@@ -277,7 +276,6 @@ def is_valid_exreg(value: Jsonable, path: Path, rep: Report = None) -> bool:
 
         value = re.sub(r"\(\$\w+", repl, value)
     return is_valid_regex(value, path, rep)
-
 
 def is_unique_array(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, list):
@@ -342,7 +340,9 @@ def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: Path, r
         rep.append((f"invalid {op} {cst} constraint", path))
     return cmp
 
-
+#
+# generated script entry point
+#
 def main(jm_fun, jm_map, jmc_version):
     """Possibly run as a script: $0 values..."""
 

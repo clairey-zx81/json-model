@@ -806,6 +806,16 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+/*
+bool
+jm_is_valid_host(const char *host, jm_path_t *path, jm_report_t *rep)
+{
+    if (!host)
+        return false;
+}
+*/
+
+// FIXME no .., more chars
 static INLINE bool is_email_char(int c)
 {
     return isalnum(c) || c == '_' || c == '.' || c == '-';

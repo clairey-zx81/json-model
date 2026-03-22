@@ -255,6 +255,11 @@ EXPECT: dict[str, int] = {
     "mv-2b:cmp-opts": {"report": False, "comment": False},
     "mv-2b:models": 8,
     "mv-2b:values": 108,
+    # mv-2c
+    "mv-2c:cmp-opts": {"report": False, "comment": False},
+    "mv-2c:models": 3,
+    "mv-2c:values": 64,
+    "mv-2c:verrors:schema": 5,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,
@@ -300,7 +305,7 @@ def has_exec(program: str) -> bool:
         "./mv-10", "./mv-11", "./mv-12", "./mv-13", "./mv-14", "./mv-15", "./mv-16", "./mv-17",
         "./mv-18", "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d", "./mv-1e", "./mv-1f",
         "./mv-20", "./mv-21", "./mv-22", "./mv-23", "./mv-24", "./mv-25", "./mv-26", "./mv-27",
-        "./mv-28", "./mv-29", "./mv-2a", "./mv-2b",
+        "./mv-28", "./mv-29", "./mv-2a", "./mv-2b", "./mv-2c",
     ]
 )
 def directory(request):
@@ -551,7 +556,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
             with open(ref_file) as r:
                 ref = r.read()
 
-            if ref.strip() == "SKIP":
+            if ref.strip() == "skipped":
                 # just count and proceed to the next
                 with open(vfile) as vf:
                     values = json.load(vf)
@@ -675,6 +680,7 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
             for index, tvect in enumerate(values):
                 if isinstance(tvect, str):
                     continue  # skip comments
+                assert isinstance(tvect, list)
                 ntests += 1
                 if checker is None:
                     nverrors += 1

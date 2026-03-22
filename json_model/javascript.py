@@ -5,6 +5,14 @@ from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
+JS_RUNTIME_PREDEFS: set[str] = {
+    "$URL", "$URI",
+    "$DATE", "$TIME", "$DATETIME",
+    "$REGEX", "$EXREG" "$JSON",
+    # regex: $EMAIL, "$UUID", "$HOST", "$IP4", "$IP6"
+}
+
+
 class JavaScript(Language):
     """JavaScript Code Generator."""
 
@@ -20,8 +28,9 @@ class JavaScript(Language):
              with_predef=with_predef, not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="null", relib=relib,
              check_t="object", json_t="object", int_t="Number", float_t="Number",
-             path_t="?", str_t="String", match_t="bool",
-             eoi=";", set_caps=(type(None), bool, int, float, str))  # type: ignore
+             path_t="?", str_t="String", match_t="bool", predefs=JS_RUNTIME_PREDEFS,
+             eoi=";", set_caps=(type(None), bool, int, float, str)
+        )  # type: ignore
 
         assert self._relib in ("re", "re2"), f"unsupported regex engine: {self._relib}"
 
@@ -118,9 +127,7 @@ class JavaScript(Language):
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
         val = var
-        if name == "$UUID":
-            return f"runtime.jm_is_valid_uuid({val})"
-        elif name == "$DATE":
+        if name == "$DATE":
             return f"runtime.jm_is_valid_date({val}, {self.path(path)}, {self.rep()})"
         elif name == "$TIME":
             return f"runtime.jm_is_valid_time({val}, {self.path(path)}, {self.rep()})"
@@ -132,8 +139,6 @@ class JavaScript(Language):
             return f"runtime.jm_is_valid_regex({val}, true)"
         elif name in ("$URL", "$URI"):
             return f"runtime.jm_is_valid_url({val})"
-        elif name == "$EMAIL":
-            return f"runtime.jm_is_valid_email({val})"
         elif name == "$JSON":
             return f"runtime.jm_is_valid_json({val})"
         else:

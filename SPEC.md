@@ -140,6 +140,9 @@ for all possible values for that type.
   - `"$JSON"`: a valid JSON value, eg _123_ or _{"Susie": "Derkins"}_.
   - `"$REGEX"`: a valid regular expression, eg _^[a-z]+$_.
   - `"$EXREG"`: an extended regular expression (**EXPERIMENTAL**).
+  - `"$HOST"`: a hostname, eg _json-model.org_
+  - `"$IP4"`: an ipv4 address, eg _127.0.0.1_
+  - `"$IP6"`: an ipv6, eg _0::0_
 
   Any other all-capital ASCII character and digit names must be rejected as they
   are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).

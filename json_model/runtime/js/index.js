@@ -79,13 +79,6 @@ export function jm_is_valid_datetime(datetime, path, rep)
     return okay
 }
 
-// return whether uuid is a valid uuid ($UUID)
-export function jm_is_valid_uuid(uuid, path, rep)
-{
-    return ((typeof uuid === 'string' || uuid instanceof String) && uuid.length === 36 &&
-            /^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$/.exec(uuid) !== null)
-}
-
 // return whether url is a valid url ($URL)
 export function jm_is_valid_url(url, path, rep)
 {
@@ -99,13 +92,6 @@ export function jm_is_valid_url(url, path, rep)
     catch (e) {
         return false
     }
-}
-
-// return whether email is a valid email address ($EMAIL)
-export function jm_is_valid_email(email, path, rep)
-{
-    return ((typeof email === 'string' || email instanceof String) &&
-            /^[_a-zA-Z0-9.]+@[_a-zA-Z0-9.]+$/.exec(email) !== null)
 }
 
 // return whether string is valid json ($JSON)

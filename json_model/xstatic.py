@@ -225,6 +225,7 @@ class CodeGenerator:
         """Generate a call to check for a $REF."""
         assert ref and ref[0] == "$"
         if ref in MODEL_PREDEFS:  # inline predefs
+            self._code.predef(ref)  # register has used
             return self._lang.predef(val, ref, vpath, is_raw)
         else:
             fun = self._getNameRef(jm, ref, [])

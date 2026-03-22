@@ -10,12 +10,13 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 export var check_model_map = new Map()
+const jm_is_email_re = new runtime.RX("^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", "i")
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = runtime.jm_is_valid_email(val);
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.]", path])
@@ -23,6 +24,8 @@ function json_model_1(val, path, rep)
     return res;
 }
 
+
+const jm_is_email = (s) => jm_is_email_re.exec(s) !== null
 
 var initialized = false
 

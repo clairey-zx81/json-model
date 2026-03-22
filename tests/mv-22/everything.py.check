@@ -13,7 +13,7 @@ everything.values.json[11]: FAIL (.predefs: invalid optional prop value [.]; .pr
 everything.values.json[12]: PASS
 everything.values.json[13]: FAIL (.predefs: invalid optional prop value [.]; .predefs.NONE: invalid optional prop value [.predefs]; .predefs.NONE: unexpected value for model "$NONE" [.predefs.NONE])
 everything.values.json[14]: PASS
-everything.values.json[15]: FAIL (.predefs: invalid optional prop value [.]; .predefs.UUID: invalid optional prop value [.predefs]; .predefs.UUID: unexpected value for model "$UUID" [.predefs.UUID]; .predefs.UUID: str not an uuid fbb4ac00-79b9-11f0-a820-e3d5c0ab8fcZ)
+everything.values.json[15]: FAIL (.predefs: invalid optional prop value [.]; .predefs.UUID: invalid optional prop value [.predefs]; .predefs.UUID: unexpected value for model "$UUID" [.predefs.UUID])
 everything.values.json[16]: PASS
 everything.values.json[17]: FAIL (.predefs: invalid optional prop value [.]; .predefs.URL: invalid optional prop value [.predefs]; .predefs.URL: unexpected value for model "$URL" [.predefs.URL]; .predefs.URL: invalid url not a url…)
 everything.values.json[18]: PASS
@@ -293,8 +293,8 @@ everything.values.json[291]: PASS
 everything.values.json[292]: PASS
 everything.values.json[293]: PASS
 everything.values.json[294]: PASS
-everything.values.json[295]: FAIL (.or: invalid optional prop value [.]; .or.o2: invalid optional prop value [.or.o2]; .or.o2: no model matched [.or.o2.'|']; .or.o2: unexpected element [.or.o2.'|'.3]; .or.o2: not an object [.or.o2.'|'.3]; .or.o2: not array or unexpected array [.or.o2.'|'.2]; .or.o2: unexpected value for model "$UUID" [.or.o2.'|'.1]; .or.o2: incompatible type NoneType for uuid; .or.o2: not a 0 strict int [.or.o2.'|'.0])
-everything.values.json[296]: FAIL (.or: invalid optional prop value [.]; .or.o2: invalid optional prop value [.or.o2]; .or.o2: no model matched [.or.o2.'|']; .or.o2: unexpected element [.or.o2.'|'.3]; .or.o2: not an object [.or.o2.'|'.3]; .or.o2: not array or unexpected array [.or.o2.'|'.2]; .or.o2: unexpected value for model "$UUID" [.or.o2.'|'.1]; .or.o2: incompatible type float for uuid; .or.o2: not a 0 strict int [.or.o2.'|'.0])
+everything.values.json[295]: FAIL (.or: invalid optional prop value [.]; .or.o2: invalid optional prop value [.or.o2]; .or.o2: no model matched [.or.o2.'|']; .or.o2: unexpected element [.or.o2.'|'.3]; .or.o2: not an object [.or.o2.'|'.3]; .or.o2: not array or unexpected array [.or.o2.'|'.2]; .or.o2: unexpected value for model "$UUID" [.or.o2.'|'.1]; .or.o2: not a 0 strict int [.or.o2.'|'.0])
+everything.values.json[296]: FAIL (.or: invalid optional prop value [.]; .or.o2: invalid optional prop value [.or.o2]; .or.o2: no model matched [.or.o2.'|']; .or.o2: unexpected element [.or.o2.'|'.3]; .or.o2: not an object [.or.o2.'|'.3]; .or.o2: not array or unexpected array [.or.o2.'|'.2]; .or.o2: unexpected value for model "$UUID" [.or.o2.'|'.1]; .or.o2: not a 0 strict int [.or.o2.'|'.0])
 everything.values.json[297]: PASS
 everything.values.json[298]: PASS
 everything.values.json[299]: PASS

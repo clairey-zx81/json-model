@@ -5,6 +5,14 @@ from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
+JAVA_RUNTIME_PREDEFS: set[str] = {
+    "$URL", "$URI",
+    "$DATE", "$TIME", "$DATETIME",
+    "$REGEX", "$EXREG" "$UUID", "$JSON",
+    # TODO "$HOST", "$IP4", "$IP6", "$EMAIL",
+}
+
+
 class Java(Language):
     """Generate JSON value checker in Java with GSON or Jackson.
     """
@@ -21,7 +29,7 @@ class Java(Language):
              not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="null", check_t="Checker", json_t="Object",
              path_t="Path", float_t="double", str_t="String", bool_t="boolean", int_t="long",
-             match_t="boolean", eoi=";", relib=relib, debug=debug,
+             match_t="boolean", eoi=";", relib=relib, debug=debug, predefs=JAVA_RUNTIME_PREDEFS,
              set_caps=(type(None), bool, int, float, str)
         )  # type: ignore
 
@@ -150,9 +158,7 @@ class Java(Language):
         if not is_str:
             isstr = self.is_a(var, str) + " && "  # type: ignore
             val = f"json.asString({var})"
-        if name == "$UUID":
-            return f"{isstr}rt.is_valid_uuid({val})"
-        elif name == "$DATE":
+        if name == "$DATE":
             return f"{isstr}rt.is_valid_date({val})"
         elif name == "$TIME":
             return f"{isstr}rt.is_valid_time({val})"
@@ -164,8 +170,6 @@ class Java(Language):
             return f"{isstr}rt.is_valid_exreg({val})"
         elif name in ("$URL", "$URI"):
             return f"{isstr}rt.is_valid_url({val})"
-        elif name == "$EMAIL":
-            return f"{isstr}rt.is_valid_email({val})"
         elif name == "$JSON":
             return f"{isstr}rt.is_valid_json({val})"
         else:

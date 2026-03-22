@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_uuid(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_uuid(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -20,6 +20,14 @@ DECLARE
   map JSONB := JSONB '{"":"json_model_1"}';
 BEGIN
   RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$ opts=ni
+CREATE OR REPLACE FUNCTION jm_is_uuid(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 

@@ -2031,7 +2031,7 @@ sub _jm_f_55($$$)
             # .or.o2.'|'.1
             # .or.o2.'|'.2
             # .or.o2.'|'.3
-            $res = jm_is_integer($pval) && $pval >= 0 || jm_is_string($pval) && jm_is_valid_uuid($pval, undef, undef) || jm_is_array($pval) || _jm_obj_20($pval, undef, undef);
+            $res = jm_is_integer($pval) && $pval >= 0 || jm_is_string($pval) && jm_is_uuid($pval, undef, undef) || jm_is_array($pval) || _jm_obj_20($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2088,7 +2088,7 @@ sub _jm_f_62($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.EMAIL
-    return jm_is_string($val) && jm_is_valid_email($val, undef, undef);
+    return jm_is_string($val) && jm_is_email($val, undef, undef);
 }
 
 # check _jm_f_56_map_EXREG (.predefs.EXREG)
@@ -2248,7 +2248,7 @@ sub _jm_f_82($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.UUID
-    return jm_is_string($val) && jm_is_valid_uuid($val, undef, undef);
+    return jm_is_string($val) && jm_is_uuid($val, undef, undef);
 }
 
 
@@ -2634,6 +2634,20 @@ sub json_model_1($$$)
     return 1;
 }
 
+
+sub jm_is_email($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^([-+!#\$%&'`*\/=?^{}|~_a-z0-9]+)(\.([-+!#\$%&'`*\/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$/i;
+    return $res;
+}
+
+sub jm_is_uuid($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
+    return $res;
+}
 
 # initialization of global variables
 

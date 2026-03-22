@@ -54,6 +54,9 @@ static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[16];
 const size_t check_model_map_size = 16;
+static cre2_regexp_t *jm_is_email_re2 = NULL;
+static int jm_is_email_nn = 0;
+static bool jm_is_email(const char *s, jm_path_t *path, jm_report_t *rep);
 
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
@@ -354,7 +357,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may mailto property
             // .'$Resources'.bugtracker.mailto
-            res = jm_is_valid_email(json_string_value(pval), (path ? &lpath_2 : NULL), rep);
+            res = json_is_string(pval) && jm_is_email(json_string_value(pval), (path ? &lpath_2 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EMAIL\" [.'$Resources'.bugtracker.mailto]", (path ? &lpath_2 : NULL));
@@ -1231,6 +1234,12 @@ jm_check_fun_t check_model_map(const char *pname)
     return jm_search_propmap(pname, check_model_map_tab, 16);
 }
 
+static bool jm_is_email(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_email_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
 static bool initialized = false;
 
 const char *check_model_init(void)
@@ -1276,6 +1285,10 @@ const char *check_model_init(void)
         check_model_map_tab[14] = (jm_propmap_t) { "Prereq", json_model_15 };
         check_model_map_tab[15] = (jm_propmap_t) { "Prereqs", json_model_16 };
         jm_sort_propmap(check_model_map_tab, 16);
+        jm_is_email_re2 = cre2_new("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", strlen("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$"), NULL);
+        if (cre2_error_code(jm_is_email_re2))
+            return cre2_error_string(jm_is_email_re2);
+        jm_is_email_nn = cre2_num_capturing_groups(jm_is_email_re2) + 1;
     }
     return NULL;
 }
@@ -1302,6 +1315,9 @@ void check_model_free(void)
         cre2_delete(_jm_re_4_re2);
         _jm_re_4_re2 = NULL;
         _jm_re_4_nn = 0;
+        cre2_delete(jm_is_email_re2);
+        jm_is_email_re2 = NULL;
+        jm_is_email_nn = 0;
     }
 }
 

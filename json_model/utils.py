@@ -17,11 +17,12 @@ log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
 
 STR_MODEL_PREDEFS = {
-    "$STRING", "$DATE", "$TIME", "$DATETIME",
+    "$STRING",
+    "$DATE", "$TIME", "$DATETIME",
     "$URL", "$REGEX", "$EXREG", "$UUID",
     "$URI", "$EMAIL", "$JSON",
     # TODO $URI-REF, $DOMAIN…
-    "$IP4", "$IP6", "$DURATION", "$JSONPT", "$HOSTNAME",
+    "$IP4", "$IP6", "$DURATION", "$JSONPT", "$HOST",
 }
 
 BOOL_MODEL_PREDEFS = {

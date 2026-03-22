@@ -18,12 +18,13 @@ public class pUUID extends ModelChecker
     static public final String VERSION = "2";
 
     public Map<String, Checker> pUUID_map_pmap;
+    public Pattern jm_is_uuid_pat = null;
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        boolean res = json.isString(val) && rt.is_valid_uuid(json.asString(val));
+        boolean res = json.isString(val) && jm_is_uuid(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$UUID\" [.]", path);
@@ -32,6 +33,11 @@ public class pUUID extends ModelChecker
     }
 
 
+    public boolean jm_is_uuid(String val, Path path, Report rep)
+    {
+        return jm_is_uuid_pat.matcher(val).find();
+    }
+
     public void init(JSON json)
     {
         if (!initialized)
@@ -39,6 +45,7 @@ public class pUUID extends ModelChecker
             try {
             pUUID_map_pmap = new HashMap<String, Checker>();
             pUUID_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            jm_is_uuid_pat = Pattern.compile("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$");
                 super.init(json);
             }
             catch (Exception e) {
@@ -53,6 +60,7 @@ public class pUUID extends ModelChecker
         {
             super.free();
             pUUID_map_pmap = null;
+            jm_is_uuid_pat = null;
         }
     }
 

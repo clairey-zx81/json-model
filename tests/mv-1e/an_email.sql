@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_email(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_email(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -20,6 +20,14 @@ DECLARE
   map JSONB := JSONB '{"":"json_model_1"}';
 BEGIN
   RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$ opts=ni
+CREATE OR REPLACE FUNCTION jm_is_email(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^([-+!#$%&''`*/=?^{}|~_a-z0-9]+)(\.([-+!#$%&''`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 

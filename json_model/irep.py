@@ -1572,6 +1572,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
 
 def evaluate(ir: Code, lang: Language) -> Code:
     code = Code(lang, ir._entry, ir._executable, ir._package)
+    code._predefs = ir._predefs
     code._defs = _eval(_u(ir._defs), lang)
     code._subs = _eval(_u(ir._subs), lang)
     code._inis = _eval(_u(ir._inis), lang)

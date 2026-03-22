@@ -18,12 +18,13 @@ public class an_email extends ModelChecker
     static public final String VERSION = "2";
 
     public Map<String, Checker> an_email_map_pmap;
+    public Pattern jm_is_email_pat = null;
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        boolean res = json.isString(val) && rt.is_valid_email(json.asString(val));
+        boolean res = json.isString(val) && jm_is_email(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$EMAIL\" [.]", path);
@@ -32,6 +33,11 @@ public class an_email extends ModelChecker
     }
 
 
+    public boolean jm_is_email(String val, Path path, Report rep)
+    {
+        return jm_is_email_pat.matcher(val).find();
+    }
+
     public void init(JSON json)
     {
         if (!initialized)
@@ -39,6 +45,7 @@ public class an_email extends ModelChecker
             try {
             an_email_map_pmap = new HashMap<String, Checker>();
             an_email_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            jm_is_email_pat = Pattern.compile("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$");
                 super.init(json);
             }
             catch (Exception e) {
@@ -53,6 +60,7 @@ public class an_email extends ModelChecker
         {
             super.free();
             an_email_map_pmap = null;
+            jm_is_email_pat = null;
         }
     }
 

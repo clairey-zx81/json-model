@@ -27,6 +27,8 @@ public class everything extends ModelChecker
     public Pattern _jm_re_0_pat = null;
     Map<String, Checker> json_model_1_map_pmap;
     public Map<String, Checker> everything_map_pmap;
+    public Pattern jm_is_email_pat = null;
+    public Pattern jm_is_uuid_pat = null;
 
     // check $a (.'$a')
     public boolean json_model_2(Object val, Path path, Report rep)
@@ -2756,7 +2758,7 @@ public class everything extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.or.o2.'|'.0]", (path != null ? lpath_16 : null));
                     // .or.o2.'|'.1
-                    res = json.isString(pval) && rt.is_valid_uuid(json.asString(pval));
+                    res = json.isString(pval) && jm_is_uuid(json.asString(pval), (path != null ? lpath_16 : null), rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected value for model \"$UUID\" [.or.o2.'|'.1]", (path != null ? lpath_16 : null));
@@ -2851,7 +2853,7 @@ public class everything extends ModelChecker
     public boolean _jm_f_42(Object val, Path path, Report rep)
     {
         // .predefs.EMAIL
-        boolean res = json.isString(val) && rt.is_valid_email(json.asString(val));
+        boolean res = json.isString(val) && jm_is_email(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", path);
@@ -3087,7 +3089,7 @@ public class everything extends ModelChecker
     public boolean _jm_f_62(Object val, Path path, Report rep)
     {
         // .predefs.UUID
-        boolean res = json.isString(val) && rt.is_valid_uuid(json.asString(val));
+        boolean res = json.isString(val) && jm_is_uuid(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$UUID\" [.predefs.UUID]", path);
@@ -3624,6 +3626,16 @@ public class everything extends ModelChecker
     }
 
 
+    public boolean jm_is_email(String val, Path path, Report rep)
+    {
+        return jm_is_email_pat.matcher(val).find();
+    }
+
+    public boolean jm_is_uuid(String val, Path path, Report rep)
+    {
+        return jm_is_uuid_pat.matcher(val).find();
+    }
+
     public void init(JSON json)
     {
         if (!initialized)
@@ -3724,6 +3736,8 @@ public class everything extends ModelChecker
             everything_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             everything_map_pmap.put("ab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             everything_map_pmap.put("cd", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            jm_is_email_pat = Pattern.compile("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$");
+            jm_is_uuid_pat = Pattern.compile("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$");
                 super.init(json);
             }
             catch (Exception e) {
@@ -3747,6 +3761,8 @@ public class everything extends ModelChecker
             _jm_re_0_pat = null;
             json_model_1_map_pmap = null;
             everything_map_pmap = null;
+            jm_is_email_pat = null;
+            jm_is_uuid_pat = null;
         }
     }
 

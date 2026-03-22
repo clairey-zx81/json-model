@@ -1,6 +1,7 @@
 import re
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals, Block
 from .mtypes import Var, JsonExpr, BoolExpr, IntExpr, NumExpr, StrExpr, PathExpr, Expr
+from .utils import BOOL_MODEL_PREDEFS, INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, STR_MODEL_PREDEFS
 from .utils import log, __version__, load_data_file
 
 # must or may property name -> corresponding check function
@@ -9,6 +10,54 @@ type ConstList = list[None|bool|int|float|str]
 type ConstMap = dict[JsonScalar, str]
 type RegMap = dict[str, str]
 
+# predefs for null, bool, int and number
+_TYPED_PREDEFS: set[str] = {"$NULL"} | BOOL_MODEL_PREDEFS | INT_MODEL_PREDEFS | FLOAT_MODEL_PREDEFS
+
+# regex helpers
+_DB = r"([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])"  # byte in decimal
+_HS = r"([a-z0-9][-a-z0-9]{0,62})"  # ascii host segment, eg localhost json-model org
+_HOST = f"{_HS}(\\.{_HS})*"
+# !#$%&'*+-/=?^_`{|}~
+_NS = r"([-+!#$%&'`*/=?^{}|~_a-z0-9]+)"  # ascii name segment, eg jean-baptiste_poquelin1622
+_NAME = f"{_NS}(\\.{_NS})*"  # email ascii name, eg jean-baptiste.poquelin
+# no commented (...) nor quoted "..." forms; .. is forbidden
+# max size of local part is 64 characters
+_EMAIL = f"{_NAME}@{_HOST}"  # full ascii email, eg jean-baptiste.poquelin@comedie-francaise.fr
+_DATE = "\\d{4}-(0?[1-9]|1[012])-([0-2]?\\d|3[01])"  # 2020-07-29
+# TODO add timezone, check leap second
+_TIME = "([01]\\d|2[0-3]):[0-5]\\d:([0-5]\\d|60)(\\.\\d{0,9})?"  # 12:34:56.123456
+_NUM = "[-+]?\\d+(\\.\\d*)?([Ee][-+]?\\d+)?"
+
+# RFC3339 durations (down to seconds)
+_DUR_s = "[0-9]+S"
+_DUR_m = f"[0-9]+M({_DUR_s})?"
+_DUR_h = f"[0-9]+H({_DUR_m})?"
+_DUR_TIME = f"T({_DUR_h}|{_DUR_m}|{_DUR_s})"
+_DUR_D = "[0-9]+D"
+_DUR_W = "[0-9]+W"
+_DUR_M = f"[0-9]+M({_DUR_D})?"
+_DUR_Y = f"[0-9]+Y({_DUR_M})?"
+_DUR_DATE = f"({_DUR_D}|{_DUR_M}|{_DUR_Y})({_DUR_TIME})?"
+_DURATION = f"P({_DUR_DATE}|{_DUR_TIME}|{_DUR_W})"
+
+# approximate backup regex for unimplemented predefs
+_PREDEF_RE: dict[str, tuple[str, str, str]] = {
+    "$IP4": ("jm_is_ip4", f"^({_DB}\\.){{3}}{_DB}$", ""),
+    "$IP6": ("jm_is_ip6", "^[a-f0-9:]+$", "i"),
+    "$HOST": ("jm_is_host", f"^{_HOST}$", "i"),
+    "$EMAIL": ("jm_is_email", f"^{_EMAIL}$", "i"),
+    "$DATE": ("jm_is_date", f"^{_DATE}$", ""),
+    "$TIME": ("jm_is_time", f"^{_TIME}$", ""),
+    "$DATETIME": ("jm_is_datetime", f"^{_DATE}T{_TIME}$", ""),
+    "$UUID": ("jm_is_uuid", "^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$", "i"),
+    "$JSON": (
+        "jm_is_json",
+        f"^\\s*(\\{{.*\\}}|\\[.*\\]|null|true|false|\".*\"|{_NUM})?\\s*$",
+        "s"
+    ),
+    "$DURATION": ("jm_is_duration", f"^{_DURATION}$", ""),
+    "$JSONPT": ("jm_is_jsonpt", "", ""),
+}
 
 class Language:
     """Dumb abstraction of an imperative language to manipulate JSON data.
@@ -27,7 +76,7 @@ class Language:
             ge: str = ">=", gt: str = ">", le: str = "<=", lt: str = "<",
             not_op: str = "not", and_op: str = "and", or_op: str = "or", mod_op: str = "%",
             eoi: str = "", isep: str = "\n", indent: str = "    ",
-            lcom: str = "#", relib: str = "re2",
+            lcom: str = "#", relib: str = "re2", predefs: set[str] = set(),
             true: str = "True", false: str = "False", null: str = "None",
             check_t: str = "CheckFun", json_t: str = "Jsonable", path_t: str = "Path",
             match_t: str|None = None, hash_t: str = "int",
@@ -94,6 +143,7 @@ class Language:
 
         self.set_caps = tuple(set_caps)      # constant types in a set
         self.reindent = False
+        self._predefs: set[str] = predefs    # implemented by language runtime
 
         # Hmmm…
         self._lang = self
@@ -169,12 +219,11 @@ class Language:
 
     def str_content_predef(self, name: str) -> bool:
         """Predef (probably costly) about string contents."""
-        return name in (
-            "$DATE", "$TIME", "$DATETIME",
-            "$URL", "$REGEX", "$EXREG", "$UUID", "$URI", "$EMAIL", "$JSON",
-            # to be implemented, possibly as regex
-            "$IP4", "$IP6", "$DURATION", "$HOSTNAME", "$JSONPT",
-        )
+        return name in STR_MODEL_PREDEFS
+
+    def has_predef(self, name: str) -> bool:
+        """Content predefs actually implemented by the runtime"""
+        return name in self._predefs
 
     #
     # predefs
@@ -185,12 +234,11 @@ class Language:
         """Compile a predef."""
         # shortcut if the variable value is known to be a string
         if is_str:
-            if name in { "$NULL", "$BOOL", "$BOOLEAN",
-                         "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
-                         "$FLOAT", "$F32", "$F64", "$NUMBER" }:
+            if name in _TYPED_PREDEFS:
                 name = "$NONE"
             elif name == "$STRING":
-                name = "$ANY"
+                name = "$ANY"  # no further checks
+            # else keep
         # else full type checks
         if name == "$ANY":
             return self.true()
@@ -213,7 +261,19 @@ class Language:
             return self.is_a(var, str) if not is_str else self.true()
         elif self.str_content_predef(name):
             if self._with_predef:
-                raise NotImplementedError(f"predef: {name}")
+                if name in _PREDEF_RE:
+                    fname, regex, _o = _PREDEF_RE[name]
+                    sval = var if is_str else self.value(var, str)
+                    lexpr = []
+                    if not is_str:
+                        lexpr.append(self.is_a(var, str))
+                    if regex:
+                        lexpr.append(self.str_check_call(fname, sval, path))
+                    if name == "$HOST":
+                        lexpr.append(self.num_cmp(self.str_len(sval), "<=", self.const(255)))
+                    return self.and_op(*lexpr)
+                else:
+                    raise NotImplementedError(f"predef: {name}")
             else:  # just check for string
                 return self.is_a(var, str) if not is_str else self.true()
         else:
@@ -358,14 +418,20 @@ class Language:
 
     def and_op(self, *exprs: BoolExpr) -> BoolExpr:
         """And logical operator."""
-        return f" {self._and} ".join(
-            self.paren(e) if self._or in e else e  # type: ignore
-                for e in exprs
-        )
+        if exprs:
+            return f" {self._and} ".join(
+                self.paren(e) if self._or in e else e  # type: ignore
+                    for e in exprs
+            )
+        else:
+            return self.true()
 
     def or_op(self, *exprs: BoolExpr) -> BoolExpr:
         """Or logical operator."""
-        return f" {self._or} ".join(exprs)  # type: ignore
+        if exprs:
+            return f" {self._or} ".join(exprs)  # type: ignore
+        else:
+            return self.false()
 
     def paren(self, e: Expr) -> Expr:
         """Parenthesize an expression."""
@@ -807,7 +873,8 @@ class Code:
         self._inis: Block = []         # initialization code
         self._dels: Block = []         # deallocation code
         self._subs: Block = []         # actual subroutines
-        self._shortcuts = {}            # function shortcuts
+        self._shortcuts = {}           # function shortcuts
+        self._predefs = set()          # used predefs
 
     #
     # add blocks
@@ -871,8 +938,21 @@ class Code:
         self.defs(self._lang.def_strfun(name))
         self.subs(self._lang.sub_strfun(name, body))
 
+    def predef(self, name: str):
+        """Register a predef as being used."""
+        self._predefs.add(name)
+
     def get_code(self):
         """Generate final code block."""
+
+        # generate needed helpers
+        for pn in sorted(self._predefs):
+            if not self._lang.has_predef(pn) and pn in _PREDEF_RE:
+                fun, reg, opt = _PREDEF_RE[pn]
+                if reg:
+                    self.regex(fun, reg, opt)
+
+        # generate code
         return self._lang.filter_code(
             self._lang.gen_full_code(
                 self._defs, self._inis, self._dels, self._subs,

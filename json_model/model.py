@@ -145,7 +145,7 @@ class JsonModel:
         "IP6": "",
         "DURATION": "",
         "JSONPT": "",
-        "HOSTNAME": "",
+        "HOST": "",
         # to be continued…
         # o = optional
         "oBOOL": {"|": [None, "$BOOL"]},

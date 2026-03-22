@@ -33,14 +33,12 @@ our @EXPORT = qw(
     jm_is_array
     jm_is_object
     jm_is_valid_url
-    jm_is_valid_email
     jm_is_valid_json
     jm_is_valid_date
     jm_is_valid_time
     jm_is_valid_datetime
     jm_is_valid_regex
     jm_is_valid_exreg
-    jm_is_valid_uuid
     jm_obj_size
     jm_any_len
     jm_is_unique_array
@@ -149,13 +147,6 @@ sub jm_is_valid_url($$$)
     return $u =~ m,^((https?|file)://.*|\./|\.\./).*$,;
 }
 
-# $EMAIL
-sub jm_is_valid_email($$$)
-{
-    my ($e) = @_;
-    return $e =~ /^[-a-z0-9_.]+\@[-a-z0-9_.]+$/i;
-}
-
 # $DATE
 my %MONTH_DAYS = (
     '01' => 31,
@@ -196,13 +187,6 @@ sub jm_is_valid_datetime($$$)
     my ($dt, $p, $r) = @_;
     my ($d, $t, @remainder) = split /[ T]/, $dt;
     return (jm_is_valid_date($d, $p, $r) && jm_is_valid_time($t, $p, $r) && ! @remainder);
-}
-
-# $UUID
-sub jm_is_valid_uuid($$$)
-{
-    my ($u) = @_;
-    return $u =~ /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
 }
 
 # $JSON
