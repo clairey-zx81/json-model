@@ -16,6 +16,7 @@ PREDEF_TYPES = {
     "$EXREG": "string",
     "$UUID": "string",
     "$JSON": "string",
+    "$JSONPT": "string",
     "$URL": "string",
     "$URI": "string",
     "$EMAIL": "string",
@@ -49,7 +50,7 @@ PREDEF_FORMATS = {
     "$IP4": "ipv4",
     "$IP6": "ipv6",
     "$HOST": "hostname",
-    # "$JSON": "?",
+    "$JSONPT": "json-pointer",
 }
 
 def unExreg(pat: str, opts: str) -> tuple[str, str]:
@@ -147,6 +148,9 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                 schema["type"] = PREDEF_TYPES[model]
                 if model in PREDEF_FORMATS:
                     schema["format"] = PREDEF_FORMATS[model]
+                elif model == "$JSON":  # $JSON;encoding
+                    schema["contentMediaType"] = "application/json"
+                # else: ignore
             elif model[0] == "$":
                 if model == "$#":
                     schema["$ref"] = "#"
