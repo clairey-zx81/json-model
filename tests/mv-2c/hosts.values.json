@@ -1,0 +1,20 @@
+[
+  [ true,  {} ],
+  [ true,  {"ipv4": "127.0.0.1"} ],
+  [ true,  {"ipv4": "8.8.8.8"} ],
+  [ false, {"ipv4": "localhost"} ],
+  [ false, {"ipv4": "1.2.3.256"} ],
+  [ false, {"ipv4": "not an ipv4"} ],
+  [ false, {"ipv4": null} ],
+  [ false, {"ipv4": 127.001} ],
+  [ true,  {"ipv6": "::1"} ],
+  [ false, {"ipv6": "0::z:1"} ],
+  [ false, {"ipv6": "localhost"} ],
+  [ false, {"ipv6": "not an ipv6"} ],
+  [ false, {"ipv6": null} ],
+  [ true,  {"host": "localhost"} ],
+  [ true,  {"host": "json-model.org"} ],
+  [ false, {"host": "toolooooooooooooooooooooooooooooooooooooooooooooooooooooooooopng.eu"} ],
+  [ true,  {"host": "nottoolooooooooooooooooooooooooooooooooooooooooooooooooooooopng.eu"} ],
+  [ false, {"host": null} ]
+]

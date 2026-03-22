@@ -3,6 +3,13 @@ from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, S
 from .mtypes import Number, TestHint, Conditionals
 # from .utils import log
 
+PYTHON_RUNTIME_PREDEFS: set[str] = {
+    "$URL", "$URI",
+    "$DATE", "$TIME", "$DATETIME",
+    "$REGEX", "$EXREG" "$JSON",
+    "$HOST", "$IP4", "$IP6", "$EMAIL",
+    # regex: $UUID
+}
 
 class Python(Language):
     """Python language Code Generator."""
@@ -15,7 +22,8 @@ class Python(Language):
 
         super().__init__(
             "Python", relib=relib, debug=debug, with_comment=with_comment,
-            with_report=with_report, with_path=with_path, with_predef=with_predef
+            with_report=with_report, with_path=with_path, with_predef=with_predef,
+            predefs=PYTHON_RUNTIME_PREDEFS
         )
 
         assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
@@ -64,10 +72,14 @@ class Python(Language):
             return f"is_valid_regex({var}, {path}, rep)"
         elif name == "$EXREG":
             return f"is_valid_exreg({var}, {path}, rep)"
-        elif name == "$UUID":
-            return f"is_valid_uuid({var}, {path}, rep)"
         elif name == "$EMAIL":
             return f"is_valid_email({var}, {path}, rep)"
+        elif name == "$HOST":
+            return f"is_valid_host({var}, {path}, rep)"
+        elif name == "$IP4":
+            return f"is_valid_ip4({var}, {path}, rep)"
+        elif name == "$IP6":
+            return f"is_valid_ip6({var}, {path}, rep)"
         elif name == "$JSON":
             return f"is_valid_json({var}, {path}, rep)"
         else:

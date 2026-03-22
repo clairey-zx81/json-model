@@ -7,6 +7,14 @@ from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 _DECL = "%PL_DECL% "
 _ESC_TABLE = { "'": "''", "\x00": "<NULL>" }
 
+PLPGSQL_RUNTIME_PREDEFS: set[str] = {
+    "$URL", "$URI",
+    "$DATE", "$TIME", "$DATETIME",
+    "$REGEX", "$EXREG" "$UUID", "$JSON",
+    # regex: "$EMAIL", "$HOST", "$IP4", "$IP6",
+}
+
+
 class PLpgSQL(Language):
     """PL/pgSQL Code Generator."""
 
@@ -25,7 +33,7 @@ class PLpgSQL(Language):
              true="TRUE", false="FALSE", null="NULL",
              check_t="TEXT", json_t="JSONB",
              path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="TEXT[]",
-             eoi=";", relib=relib, debug=debug,
+             eoi=";", relib=relib, debug=debug, predefs=PLPGSQL_RUNTIME_PREDEFS,
              set_caps=(type(None), bool, int, float, str)
         )
 
@@ -115,9 +123,7 @@ class PLpgSQL(Language):
             return self.const(True) if is_str else self.is_a(var, str)
         val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
         cktype = "" if is_str else (self.is_a(var, str) + " AND ")  # pyright: ignore
-        if name == "$UUID":
-            return cktype + f"jm_is_valid_uuid({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$DATE":
+        if name == "$DATE":
             return cktype + f"jm_is_valid_date({val}, {self.path(path)}, {self.rep()})"
         elif name == "$TIME":
             return cktype + f"jm_is_valid_time({val}, {self.path(path)}, {self.rep()})"
@@ -129,8 +135,6 @@ class PLpgSQL(Language):
             return cktype + f"jm_is_valid_extreg({val}, {self.path(path)}, {self.rep()})"
         elif name in ("$URL", "$URI"):
             return cktype + f"jm_is_valid_url({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$EMAIL":
-            return cktype + f"jm_is_valid_email({val}, {self.path(path)}, {self.rep()})"
         elif name == "$JSON":
             return cktype + f"jm_is_valid_json({val}, {self.path(path)}, {self.rep()})"
         else:

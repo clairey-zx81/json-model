@@ -1,0 +1,18 @@
+hosts.values.json[0]: PASS
+hosts.values.json[1]: PASS
+hosts.values.json[2]: PASS
+hosts.values.json[3]: FAIL (: invalid ipv4 address localhost)
+hosts.values.json[4]: FAIL (: invalid ipv4 address 1.2.3.256)
+hosts.values.json[5]: FAIL (: invalid ipv4 address not an ipv4)
+hosts.values.json[6]: FAIL (: invalid ipv4 address None)
+hosts.values.json[7]: FAIL (: invalid ipv4 address 127.001)
+hosts.values.json[8]: PASS
+hosts.values.json[9]: FAIL (: invalid ipv6 address 0::z:1)
+hosts.values.json[10]: FAIL (: invalid ipv6 address localhost)
+hosts.values.json[11]: FAIL (: invalid ipv6 address not an ipv6)
+hosts.values.json[12]: FAIL (: invalid ipv6 address None)
+hosts.values.json[13]: PASS
+hosts.values.json[14]: PASS
+hosts.values.json[15]: FAIL (: invalid hostname toolooooooooooooooooooooooooooooooooooooooooooooooooooooooooopng.eu)
+hosts.values.json[16]: PASS
+hosts.values.json[17]: FAIL (: invalid hostname None)

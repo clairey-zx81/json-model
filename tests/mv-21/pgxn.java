@@ -27,6 +27,7 @@ public class pgxn extends ModelChecker
     Set<Object> _jm_cst_2_set;
     Set<Object> _jm_cst_3_set;
     public Map<String, Checker> pgxn_map_pmap;
+    public Pattern jm_is_email_pat = null;
 
     public boolean _jm_re_0(String val, Path path, Report rep)
     {
@@ -290,7 +291,7 @@ public class pgxn extends ModelChecker
             {
                 // handle may mailto property
                 // .'$Resources'.bugtracker.mailto
-                res = json.isString(pval) && rt.is_valid_email(json.asString(pval));
+                res = json.isString(pval) && jm_is_email(json.asString(pval), (path != null ? lpath_2 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$EMAIL\" [.'$Resources'.bugtracker.mailto]", (path != null ? lpath_2 : null));
@@ -1145,6 +1146,11 @@ public class pgxn extends ModelChecker
     }
 
 
+    public boolean jm_is_email(String val, Path path, Report rep)
+    {
+        return jm_is_email_pat.matcher(val).find();
+    }
+
     public void init(JSON json)
     {
         if (!initialized)
@@ -1216,6 +1222,7 @@ public class pgxn extends ModelChecker
             pgxn_map_pmap.put("Relation", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
             pgxn_map_pmap.put("Prereq", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_15(o, p, r);} });
             pgxn_map_pmap.put("Prereqs", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
+            jm_is_email_pat = Pattern.compile("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$");
                 super.init(json);
             }
             catch (Exception e) {
@@ -1239,6 +1246,7 @@ public class pgxn extends ModelChecker
             _jm_cst_2_set = null;
             _jm_cst_3_set = null;
             pgxn_map_pmap = null;
+            jm_is_email_pat = null;
         }
     }
 

@@ -238,7 +238,7 @@ sub _jm_obj_0($$$)
         {
             # handle may mailto property
             # .'$Resources'.bugtracker.mailto
-            $res = jm_is_string($pval) && jm_is_valid_email($pval, undef, undef);
+            $res = jm_is_string($pval) && jm_is_email($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -876,6 +876,13 @@ sub json_model_1($$$)
     return $must_count == 7;
 }
 
+
+sub jm_is_email($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^([-+!#\$%&'`*\/=?^{}|~_a-z0-9]+)(\.([-+!#\$%&'`*\/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$/i;
+    return $res;
+}
 
 # initialization of global variables
 

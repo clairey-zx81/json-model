@@ -157,15 +157,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- $EMAIL
-CREATE OR REPLACE FUNCTION
-  jm_is_valid_email(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN val IS NOT NULL AND val ~ '^[_A-Za-z0-9_.]+@[_A-Za-z0-9_.]+$';
-END;
-$$ LANGUAGE plpgsql;
-
 --
 -- array uniqueness by sorting and adjacent item comparison
 --

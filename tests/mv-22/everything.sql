@@ -2001,7 +2001,7 @@ BEGIN
       -- .or.o2.'|'.1
       -- .or.o2.'|'.2
       -- .or.o2.'|'.3
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0 OR JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_uuid(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) OR JSONB_TYPEOF(pval) = 'array' OR _jm_obj_20(pval, NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0 OR JSONB_TYPEOF(pval) = 'string' AND jm_is_uuid(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) OR JSONB_TYPEOF(pval) = 'array' OR _jm_obj_20(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2063,7 +2063,7 @@ CREATE OR REPLACE FUNCTION _jm_f_62(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.EMAIL
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_email(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_email(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2243,7 +2243,7 @@ CREATE OR REPLACE FUNCTION _jm_f_82(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.UUID
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_uuid(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_uuid(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2609,6 +2609,22 @@ DECLARE
   map JSONB := JSONB '{"":"json_model_1","a":"json_model_2","b":"json_model_3","ab":"json_model_4","cd":"json_model_5"}';
 BEGIN
   RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$ opts=ni
+CREATE OR REPLACE FUNCTION jm_is_email(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^([-+!#$%&''`*/=?^{}|~_a-z0-9]+)(\.([-+!#$%&''`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$', 'ni');
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$ opts=ni
+CREATE OR REPLACE FUNCTION jm_is_uuid(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 

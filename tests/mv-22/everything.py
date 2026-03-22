@@ -30,6 +30,10 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 json_model_1_map: PropMap
 check_model_map: PropMap
+jm_is_json_reco: object
+jm_is_json: RegexFun
+jm_is_uuid_reco: object
+jm_is_uuid: RegexFun
 
 # check $a (.'$a')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -1850,7 +1854,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.or.o2.'|'.0]", lpath_16 if path is not None else None))
                 # .or.o2.'|'.1
-                res = is_valid_uuid(pval, lpath_16 if path is not None else None, rep)
+                res = isinstance(pval, str) and jm_is_uuid(pval, lpath_16 if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected value for model \"$UUID\" [.or.o2.'|'.1]", lpath_16 if path is not None else None))
                     # .or.o2.'|'.2
@@ -2070,7 +2074,7 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
 # check _jm_f_47_map_UUID (.predefs.UUID)
 def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.UUID
-    res: bool = is_valid_uuid(val, path, rep)
+    res: bool = isinstance(val, str) and jm_is_uuid(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected value for model \"$UUID\" [.predefs.UUID]", path))
     return res
@@ -2407,6 +2411,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 
+
+
 # initialization guard
 initialized: bool = False
 
@@ -2519,6 +2525,12 @@ def check_model_init():
             "ab": json_model_4,
             "cd": json_model_5,
         }
+        global jm_is_json_reco, jm_is_json
+        jm_is_json_reco = re.compile("(?s)^\\s*(\\{.*\\}|\\[.*\\]|null|true|false|\".*\"|[-+]?\\d+(\\.\\d*)?([Ee][-+]?\\d+)?)?\\s*$")
+        jm_is_json = lambda s, p, r: jm_is_json_reco.search(s) is not None
+        global jm_is_uuid_reco, jm_is_uuid
+        jm_is_uuid_reco = re.compile("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$")
+        jm_is_uuid = lambda s, p, r: jm_is_uuid_reco.search(s) is not None
 
 # differed module cleanup
 def check_model_free():
@@ -2528,6 +2540,12 @@ def check_model_free():
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = None
         _jm_re_0 = None
+        global jm_is_json_reco, jm_is_json
+        jm_is_json_reco = None
+        jm_is_json = None
+        global jm_is_uuid_reco, jm_is_uuid
+        jm_is_uuid_reco = None
+        jm_is_uuid = None
 
 if __name__ == "__main__":
     check_model_init()

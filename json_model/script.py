@@ -802,6 +802,8 @@ def jmc_script():
                 # process values
                 if args.test_vector or args.jsonl:
                     assert isinstance(value, list), "array test vector"
+                    if args.test_vector:
+                        value = list(filter(lambda v: not isinstance(v, str), value))
                     for idx, test in enumerate(value):
 
                         assert isinstance(test, list) and len(test) in (2, 3), "2 or 3 tuple test"

@@ -132,15 +132,6 @@ public class Runtime
         }
     }
 
-    /** Email helper */
-    static public final Pattern EMAIL = Pattern.compile("^[-.\\w]+@[-.\\w]+$");
-
-    /** Is it an email? */
-    public boolean is_valid_email(String s)
-    {
-        return EMAIL.matcher(s).find();
-    }
-
     /** It it JSON? */
     public boolean is_valid_json(String s)
     {
@@ -153,16 +144,6 @@ public class Runtime
         catch (Exception e) {
             return false;
         } 
-    }
-
-    /** UUID helper */
-    static public final Pattern UUID =
-        Pattern.compile("^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$");
-
-    /** Is it a UUID? */
-    public boolean is_valid_uuid(String s)
-    {
-        return UUID.matcher(s).find();
     }
 
     /** JSON thing total order */

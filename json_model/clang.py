@@ -11,6 +11,15 @@ _ESC_TABLE = {
     "\n": "\\n", "\r": "\\r", "\f": "\\f",
 }
 
+# must be consistent with "predef"
+CLANG_RUNTIME_PREDEFS: set[str] = {
+    "$URL", "$URI",
+    "$DATE", "$TIME", "$DATETIME",
+    "$REGEX", "$EXREG" "$UUID", "$JSON",
+    # TODO "$HOST", "$IP4", "$IP6",
+    # regex FIXME "$EMAIL",
+}
+
 #
 # Attempt at optimizing string equality tests with chuncked comparisons,
 # avoiding a function call and a loop. It is unclear whether it is a good idea.
@@ -95,7 +104,9 @@ class CLangJansson(Language):
              path_t="jm_path_t", float_t="double", str_t="const char *", hash_t="uint32_t",
              match_t="bool" if relib == "pcre2" else "int", with_hints=with_hints,
              eoi=";", relib=relib, debug=debug, with_predef=with_predef,
-             set_caps=(type(None), bool, int, float, str))  # type: ignore
+             predefs=CLANG_RUNTIME_PREDEFS,
+             set_caps=(type(None), bool, int, float, str)
+        )  # type: ignore
 
         assert byte_order in ("le", "be"), f"expecting little (le) or big (be) endian: {byte_order}"
         assert relib in ("pcre2", "re2"), f"regex engine {relib} is not supported, try: pcre2/re2"
@@ -218,8 +229,8 @@ class CLangJansson(Language):
             return f"jm_is_valid_regex({val}, true, {self.path(path)}, {self.rep()})"
         elif name in ("$URL", "$URI"):
             return f"jm_is_valid_url({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$EMAIL":
-            return f"jm_is_valid_email({val}, {self.path(path)}, {self.rep()})"
+        # elif name == "$EMAIL":
+        #     return f"jm_is_valid_email({val}, {self.path(path)}, {self.rep()})"
         elif name == "$JSON":
             return f"jm_is_valid_json({val}, {self.path(path)}, {self.rep()})"
         else:

@@ -19,9 +19,16 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_string($val) && jm_is_valid_uuid($val, undef, undef);
+    return jm_is_string($val) && jm_is_uuid($val, undef, undef);
 }
 
+
+sub jm_is_uuid($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
+    return $res;
+}
 
 # initialization of global variables
 

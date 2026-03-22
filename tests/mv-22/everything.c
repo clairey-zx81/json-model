@@ -62,6 +62,12 @@ static bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
+static cre2_regexp_t *jm_is_email_re2 = NULL;
+static int jm_is_email_nn = 0;
+static bool jm_is_email(const char *s, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *jm_is_uuid_re2 = NULL;
+static int jm_is_uuid_nn = 0;
+static bool jm_is_uuid(const char *s, jm_path_t *path, jm_report_t *rep);
 
 // check $a (.'$a')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -1216,7 +1222,7 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     // handle may EMAIL property
                     // .predefs.EMAIL
-                    res = jm_is_valid_email(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                    res = json_is_string(pval) && jm_is_email(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
@@ -4138,6 +4144,18 @@ jm_check_fun_t check_model_map(const char *pname)
     return jm_search_propmap(pname, check_model_map_tab, 5);
 }
 
+static bool jm_is_email(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_email_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+static bool jm_is_uuid(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_uuid_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
 static bool initialized = false;
 
 const char *check_model_init(void)
@@ -4175,6 +4193,14 @@ const char *check_model_init(void)
         check_model_map_tab[3] = (jm_propmap_t) { "ab", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "cd", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
+        jm_is_email_re2 = cre2_new("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", strlen("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$"), NULL);
+        if (cre2_error_code(jm_is_email_re2))
+            return cre2_error_string(jm_is_email_re2);
+        jm_is_email_nn = cre2_num_capturing_groups(jm_is_email_re2) + 1;
+        jm_is_uuid_re2 = cre2_new("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$", strlen("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$"), NULL);
+        if (cre2_error_code(jm_is_uuid_re2))
+            return cre2_error_string(jm_is_uuid_re2);
+        jm_is_uuid_nn = cre2_num_capturing_groups(jm_is_uuid_re2) + 1;
     }
     return NULL;
 }
@@ -4189,6 +4215,12 @@ void check_model_free(void)
         cre2_delete(_jm_re_0_re2);
         _jm_re_0_re2 = NULL;
         _jm_re_0_nn = 0;
+        cre2_delete(jm_is_email_re2);
+        jm_is_email_re2 = NULL;
+        jm_is_email_nn = 0;
+        cre2_delete(jm_is_uuid_re2);
+        jm_is_uuid_re2 = NULL;
+        jm_is_uuid_nn = 0;
     }
 }
 

@@ -19,6 +19,7 @@ const _jm_re_4_re = new runtime.RX("^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d
 let _jm_cst_2 = new Set()
 let _jm_cst_3 = new Set()
 export var check_model_map = new Map()
+const jm_is_email_re = new runtime.RX("^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", "i")
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
@@ -264,7 +265,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may mailto property
             // .'$Resources'.bugtracker.mailto
-            res = runtime.jm_is_valid_email(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_email(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.'$Resources'.bugtracker.mailto]", (path ? lpath_2 : null)])
@@ -1079,6 +1080,8 @@ function json_model_1(val, path, rep)
     return true;
 }
 
+
+const jm_is_email = (s) => jm_is_email_re.exec(s) !== null
 
 var initialized = false
 

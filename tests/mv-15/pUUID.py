@@ -22,14 +22,17 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 check_model_map: PropMap
+jm_is_uuid_reco: object
+jm_is_uuid: RegexFun
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
-    res: bool = is_valid_uuid(val, path, rep)
+    res: bool = isinstance(val, str) and jm_is_uuid(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected value for model \"$UUID\" [.]", path))
     return res
+
 
 
 # initialization guard
@@ -44,12 +47,18 @@ def check_model_init():
         check_model_map = {
             "": json_model_1,
         }
+        global jm_is_uuid_reco, jm_is_uuid
+        jm_is_uuid_reco = re.compile("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$")
+        jm_is_uuid = lambda s, p, r: jm_is_uuid_reco.search(s) is not None
 
 # differed module cleanup
 def check_model_free():
     global initialized
     if initialized:
         initialized = False
+        global jm_is_uuid_reco, jm_is_uuid
+        jm_is_uuid_reco = None
+        jm_is_uuid = None
 
 if __name__ == "__main__":
     check_model_init()

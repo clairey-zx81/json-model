@@ -10,12 +10,13 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 export var check_model_map = new Map()
+const jm_is_uuid_re = new runtime.RX("^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$", "i")
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = runtime.jm_is_valid_uuid(val);
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$UUID\" [.]", path])
@@ -23,6 +24,8 @@ function json_model_1(val, path, rep)
     return res;
 }
 
+
+const jm_is_uuid = (s) => jm_is_uuid_re.exec(s) !== null
 
 var initialized = false
 

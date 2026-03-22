@@ -18,6 +18,9 @@ const _jm_re_0_re = new runtime.RX("^(Calvin|Susie)$", "")
 var _jm_obj_31_map = new Map()
 var _jm_obj_32_map = new Map()
 export var check_model_map = new Map()
+const jm_is_email_re = new runtime.RX("^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", "i")
+const jm_is_json_re = new runtime.RX("^\\s*(\\{.*\\}|\\[.*\\]|null|true|false|\".*\"|[-+]?\\d+(\\.\\d*)?([Ee][-+]?\\d+)?)?\\s*$", "s")
+const jm_is_uuid_re = new runtime.RX("^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$", "i")
 
 // check $a (.'$a')
 function json_model_2(val, path, rep)
@@ -235,7 +238,7 @@ function _jm_obj_0(val, path, rep)
             {
                 rep !== null && rep.push(["not a 0 strict int [.or.o2.'|'.0]", (path ? lpath_1 : null)])
                 // .or.o2.'|'.1
-                res = runtime.jm_is_valid_uuid(pval);
+                res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_uuid(pval, (path ? lpath_1 : null), rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"$UUID\" [.or.o2.'|'.1]", (path ? lpath_1 : null)])
@@ -2587,7 +2590,7 @@ function _jm_f_4(val, path, rep)
 function _jm_f_5(val, path, rep)
 {
     // .predefs.EMAIL
-    let res = runtime.jm_is_valid_email(val);
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", path])
@@ -2823,7 +2826,7 @@ function _jm_f_24(val, path, rep)
 function _jm_f_25(val, path, rep)
 {
     // .predefs.UUID
-    let res = runtime.jm_is_valid_uuid(val);
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$UUID\" [.predefs.UUID]", path])
@@ -3720,6 +3723,12 @@ function json_model_1(val, path, rep)
     return true;
 }
 
+
+const jm_is_email = (s) => jm_is_email_re.exec(s) !== null
+
+const jm_is_json = (s) => jm_is_json_re.exec(s) !== null
+
+const jm_is_uuid = (s) => jm_is_uuid_re.exec(s) !== null
 
 var initialized = false
 

@@ -19,9 +19,16 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_string($val) && jm_is_valid_email($val, undef, undef);
+    return jm_is_string($val) && jm_is_email($val, undef, undef);
 }
 
+
+sub jm_is_email($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^([-+!#\$%&'`*\/=?^{}|~_a-z0-9]+)(\.([-+!#\$%&'`*\/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$/i;
+    return $res;
+}
 
 # initialization of global variables
 
