@@ -56,7 +56,7 @@ _PREDEF_RE: dict[str, tuple[str, str, str]] = {
         "s"
     ),
     "$DURATION": ("jm_is_duration", f"^{_DURATION}$", ""),
-    "$JSONPT": ("jm_is_jsonpt", "", ""),
+    "$JSONPT": ("jm_is_jsonpt", "^(/([^~]|~0|~1)*)*$", "s"),
 }
 
 class Language:

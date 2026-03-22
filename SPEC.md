@@ -143,6 +143,7 @@ for all possible values for that type.
   - `"$HOST"`: a hostname, eg _json-model.org_
   - `"$IP4"`: an ipv4 address, eg _127.0.0.1_
   - `"$IP6"`: an ipv6, eg _0::0_
+  - `"$JSONPT"`: an RFC6901 json pointer, eg _/http:~1~1json-model.org_
 
   Any other all-capital ASCII character and digit names must be rejected as they
   are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).

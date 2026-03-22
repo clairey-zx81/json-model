@@ -10,11 +10,10 @@
 - [x] command: add `-mtune=native` to C compilation
 - [x] optim: simplify _&_ with same props and regs plus optional wildcards
 - [x] optim: simplify _X & Y_ to _X_ when _X_ is a submodel of _Y_
-- [x] py-backend: add predefs IP4 IP6 HOSTNAME
-- [x] \*-backend: use a common predef for RFC3339 DURATION UUID EMAIL
+- [x] py-backend: add predefs IP4 IP6 HOST
+- [x] \*-backend: use a common predef for RFC3339 DURATION UUID EMAIL JSONPT
 - [x] \*-backend: add approximated backup regex for predefs when not implemented by runtime
 - [x] \*-backend: handle EMAIL predef as a common regex
-- [ ] backend: implement new predefs JSONPT
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
 - [ ] static: recognize and generate better code for typed _not_
 - [ ] optim: simplify _(x ^ M) & (x | T)_ where _M in T_
