@@ -40,6 +40,16 @@ _DUR_Y = f"[0-9]+Y({_DUR_M})?"
 _DUR_DATE = f"({_DUR_D}|{_DUR_M}|{_DUR_Y})({_DUR_TIME})?"
 _DURATION = f"P({_DUR_DATE}|{_DUR_TIME}|{_DUR_W})"
 
+# CSS colors: simple and short list (not the 150)
+_COLOR_HEXA = "#([0-9A-F]{6}|[0-9A-F]{3})"
+# 16 CSS1 names, aliases and specials
+_COLOR_NAMES = (
+    "(black|silver|white|maroon|red|purple|fuchsia|green|lime|olive"
+    "|yellow|navy|blue|teal|aqua|transparent|current[cC]olor|orange"
+    "|cyan|magenta|((dark|light)?(slate)?|dim)gr[ae]y|rebeccapurple)"
+)
+_COLOR = f"({_COLOR_HEXA}|{_COLOR_NAMES})"
+
 # approximate backup regex for unimplemented predefs
 _PREDEF_RE: dict[str, tuple[str, str, str]] = {
     "$IP4": ("jm_is_ip4", f"^({_DB}\\.){{3}}{_DB}$", ""),
@@ -57,6 +67,7 @@ _PREDEF_RE: dict[str, tuple[str, str, str]] = {
     ),
     "$DURATION": ("jm_is_duration", f"^{_DURATION}$", ""),
     "$JSONPT": ("jm_is_jsonpt", "^(/([^~]|~0|~1)*)*$", "s"),
+    "$__EXTENSION_COLOR": ("jm_is_color", f"^{_COLOR}$", ""),  # v3
 }
 
 class Language:

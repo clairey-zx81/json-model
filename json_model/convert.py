@@ -34,6 +34,7 @@ PREDEF_TYPES = {
     "$FLOAT": "number",
     "$F32": "number",
     "$F64": "number",
+    "$__EXTENSION_COLOR": "string",
 }
 
 PREDEF_FORMATS = {
@@ -51,6 +52,7 @@ PREDEF_FORMATS = {
     "$IP6": "ipv6",
     "$HOST": "hostname",
     "$JSONPT": "json-pointer",
+    "$__EXTENSION_COLOR": "color",
 }
 
 def unExreg(pat: str, opts: str) -> tuple[str, str]:

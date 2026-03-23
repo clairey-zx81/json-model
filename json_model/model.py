@@ -146,6 +146,7 @@ class JsonModel:
         "DURATION": "",
         "JSONPT": "",
         "HOST": "",
+        "__EXTENSION_COLOR": "",
         # to be continued…
         # o = optional
         "oBOOL": {"|": [None, "$BOOL"]},

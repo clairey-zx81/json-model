@@ -23,6 +23,7 @@ STR_MODEL_PREDEFS = {
     "$URI", "$EMAIL", "$JSON",
     # TODO $URI-REF, $DOMAIN…
     "$IP4", "$IP6", "$DURATION", "$JSONPT", "$HOST",
+    "$__EXTENSION_COLOR",
 }
 
 BOOL_MODEL_PREDEFS = {
@@ -51,6 +52,7 @@ JSKW_RE = r"^([#~$%@|&+^/*=]|[<>!]=?)$"
 URL_RE = r"((https?|file)://.*|\..*)"
 EMAIL_RE = r"[-_a-zA-Z0-9.]+@[-_a-zA-Z0-9.]+"
 
+# FIXME TODO merge 3 instances!
 # (approximate) regular expressions for some predefs
 PREDEF_RE = {
     "$STRING": ANY_STR_RE,

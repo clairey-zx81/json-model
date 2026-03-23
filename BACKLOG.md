@@ -13,6 +13,9 @@
 - [x] py-backend: add predefs IP4 IP6 HOST
 - [x] \*-backend: use a common predef for RFC3339 DURATION UUID EMAIL JSONPT
 - [x] \*-backend: add approximated backup regex for predefs when not implemented by runtime
+- [x] predefs: add `$__EXTENSION_COLOR`
+- [ ] predefs: refactor multiple instances
+- [ ] predefs: filter extensions with `--extend`
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
 - [ ] static: recognize and generate better code for typed _not_: _"" ^ "xxx"_
