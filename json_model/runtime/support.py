@@ -224,6 +224,7 @@ def is_valid_ip4(value: Jsonable, path: Path, rep: Report = None) -> bool:
     return valid
 
 def is_valid_ip6(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    # NOTE this validator accepts %eth1 suffix at the end
     valid = isinstance(value, str) and validators.ipv6(value, cidr=False) is True
     if not valid:
         _ = rep is None or rep.append((f"invalid ipv6 address {value}", path))
