@@ -27,6 +27,22 @@ _DATE = "\\d{4}-(0?[1-9]|1[012])-([0-2]?\\d|3[01])"  # 2020-07-29
 # TODO add timezone, check leap second
 _TIME = "([01]\\d|2[0-3]):[0-5]\\d:([0-5]\\d|60)(\\.\\d{0,9})?"  # 12:34:56.123456
 _NUM = "[-+]?\\d+(\\.\\d*)?([Ee][-+]?\\d+)?"
+# ipv6 non-empty segment
+_IP6S = "[0-9a-f]{1,4}"
+# NOTE no zone id
+_IP6 = (
+    r"("
+    f"({_IP6S}:){{7}}{_IP6S}|"               # _:_:_:_:_:_:_:_
+    f"({_IP6S}:){{1,7}}:|"                   # *::
+    f"({_IP6S}:){{1,6}}(:{_IP6S}){{1}}|"     # *::_
+    f"({_IP6S}:){{1,5}}(:{_IP6S}){{1,2}}|"   # *::_:_
+    f"({_IP6S}:){{1,4}}(:{_IP6S}){{1,3}}|"   # *::_:_:_
+    f"({_IP6S}:){{1,3}}(:{_IP6S}){{1,4}}|"   # *::_:_:_:_
+    f"({_IP6S}:){{1,2}}(:{_IP6S}){{1,5}}|"   # *::_:_:_:_:_
+    f"{_IP6S}:(:{_IP6S}){{1,6}}|"            # *::_:_:_:_:_:_
+    f":(:{_IP6S}){{1,7}}|"                   # ::*
+    r"::)"                                   # ::
+)
 
 # RFC3339 durations (down to seconds)
 _DUR_s = "[0-9]+S"
@@ -53,7 +69,7 @@ _COLOR = f"({_COLOR_HEXA}|{_COLOR_NAMES})"
 # approximate backup regex for unimplemented predefs
 _PREDEF_RE: dict[str, tuple[str, str, str]] = {
     "$IP4": ("jm_is_ip4", f"^({_DB}\\.){{3}}{_DB}$", ""),
-    "$IP6": ("jm_is_ip6", "^[a-f0-9:]+$", "i"),
+    "$IP6": ("jm_is_ip6", f"^{_IP6}$", "i"),
     "$HOST": ("jm_is_host", f"^{_HOST}$", "i"),
     "$EMAIL": ("jm_is_email", f"^{_EMAIL}$", "i"),
     "$DATE": ("jm_is_date", f"^{_DATE}$", ""),
