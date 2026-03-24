@@ -48,7 +48,7 @@ def check_model_init():
             "": json_model_1,
         }
         global jm_is_uuid_reco, jm_is_uuid
-        jm_is_uuid_reco = re.compile("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$")
+        jm_is_uuid_reco = re.compile("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$")
         jm_is_uuid = lambda s, p, r: jm_is_uuid_reco.search(s) is not None
 
 # differed module cleanup

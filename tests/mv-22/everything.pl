@@ -2645,7 +2645,7 @@ sub jm_is_email($$$)
 sub jm_is_uuid($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
+    my $res = $val =~ /^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$/i;
     return $res;
 }
 

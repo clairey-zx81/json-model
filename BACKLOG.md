@@ -14,7 +14,7 @@
 - [x] \*-backend: use a common predef for RFC3339 DURATION UUID EMAIL JSONPT
 - [x] \*-backend: add approximated backup regex for predefs when not implemented by runtime
 - [x] predefs: add `$__EXTENSION_COLOR`
-- [ ] predefs: refactor multiple instances
+- [x] predefs: refactor multiple instances in the sources into `predefs.py`
 - [ ] predefs: filter extensions with `--extend`
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`

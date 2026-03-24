@@ -50,7 +50,7 @@ const char *check_model_init(void)
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
-        jm_is_uuid_re2 = cre2_new("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$", strlen("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$"), NULL);
+        jm_is_uuid_re2 = cre2_new("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$", strlen("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$"), NULL);
         if (cre2_error_code(jm_is_uuid_re2))
             return cre2_error_string(jm_is_uuid_re2);
         jm_is_uuid_nn = cre2_num_capturing_groups(jm_is_uuid_re2) + 1;

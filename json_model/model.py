@@ -6,7 +6,8 @@ import json
 
 from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType
 from .mtypes import ModelError, Jsonable, JsonSchema, JsonObject
-from .utils import log, tname, PREDEF_RE, UUID_RE
+from .utils import log, tname
+from .predefs import PREDEF_RE, PREDEFS
 from .recurse import recModel, allFlt, noRwt, _recModel
 from .resolver import Resolver
 
@@ -110,56 +111,6 @@ class JsonModel:
     STR_SENTINELS = "/$_=."
     PROP_SENTINELS = "?!"
     SENTINELS = STR_SENTINELS + PROP_SENTINELS
-
-    PREDEFS: ModelDefs = {
-        # specials
-        "ANY": {"&": []},
-        "NONE": {"|": []},
-        # type inference
-        "NULL": None,
-        "BOOL": True,
-        "BOOLEAN": True,
-        "INT": -1,
-        "INTEGER": -1,
-        "I32": -1,  # min/max?
-        "I64": -1,  # min/max?
-        "U32": 0,  # max?
-        "U64": 0,  # max?
-        "FLOAT": -1.0,
-        "F32": -1.0,
-        "F64": -1.0,
-        "NUMBER": {"|": [-1, -1.0]},
-        "STRING": "",
-        "URL": r"/^\w+://.*$/",  # FIXME relative URL?
-        "DATE": r"/^\d\d\d\d-\d?\d-\d?\d$/",  # FIXME
-        "TIME": r"/^[T ]?\d\d:\d\d:\d\d(\.\d\d\d)?(Z|[-+]\d\d(:?\d\d)?$/",  # FIXME
-        "DATETIME": "",  # FIXME
-        "UUID": "/^" + UUID_RE + "$/",
-        "REGEX": "",  # FIXME
-        "EXREG": "",
-        "URI": r"^\w+:.*$/",  # TODO improve
-        "EMAIL": r"^(?i)[a-z0-9_.]+@[a-z0-9_.]+$",
-        "JSON": "",
-        # TODO
-        "IP4": "",
-        "IP6": "",
-        "DURATION": "",
-        "JSONPT": "",
-        "HOST": "",
-        "__EXTENSION_COLOR": "",
-        # to be continued…
-        # o = optional
-        "oBOOL": {"|": [None, "$BOOL"]},
-        "oINT": {"|": [None, "$INT"]},
-        "oFLOAT": {"|": [None, "$FLOAT"]},
-        "oNUMBER": {"|": [None, "$NUMBER"]},
-        "oSTRING": {"|": [None, "$STRING"]},
-        "oURL": {"|": [None, "$URL"]},
-        "oDATE": {"|": [None, "$DATE"]},
-        "oUUID": {"|": [None, "$UUID"]},
-        "oREGEX": {"|": [None, "$REGEX"]},
-        # to be continued…
-    }
 
     # OFFICIAL VERSION URLS
     VERSION_URLS = {
@@ -674,7 +625,7 @@ class JsonModel:
                                 if pattern == "":  # special case
                                     m = pattern
                                 else:
-                                    m = r"/" + pattern + r"/"
+                                    m = f"/{pattern}/"
                             else:
                                 log.warning(f"cannot replace {key} at {lpath}, rough approximation")
                                 # this may lead to an invalid schema
@@ -684,7 +635,8 @@ class JsonModel:
                     if m == "":
                         pass
                     elif m in PREDEF_RE:
-                        m = r"/^" + PREDEF_RE[m] + "$/"
+                        _, reg, opt = PREDEF_RE[m]
+                        m = f"/{reg}/{opt}"
                     elif m[0] == "_":
                         m = "!" + m[1:]
                     elif m[0] not in ("/", "$", "="):
@@ -739,7 +691,7 @@ class JsonModel:
     #
     # @staticmethod?
     def _isPredef(self, s: Jsonable) -> bool:
-        return isinstance(s, str) and s != "" and s[0] == "$" and s[1:] in JsonModel.PREDEFS
+        return isinstance(s, str) and s != "" and s[0] == "$" and s[1:] in PREDEFS
 
     # @staticmethod?
     def _isRef(self, model: Jsonable) -> bool:

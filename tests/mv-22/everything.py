@@ -2526,10 +2526,10 @@ def check_model_init():
             "cd": json_model_5,
         }
         global jm_is_json_reco, jm_is_json
-        jm_is_json_reco = re.compile("(?s)^\\s*(\\{.*\\}|\\[.*\\]|null|true|false|\".*\"|[-+]?\\d+(\\.\\d*)?([Ee][-+]?\\d+)?)?\\s*$")
+        jm_is_json_reco = re.compile("(?s)^('\\\\s*(\\\\{.*\\\\}|\\\\[.*\\\\]|null|true|false|\".*\"|[-+]?\\\\d+(\\\\.\\\\d*)?([Ee][-+]?\\\\d+)?)\\\\s*',)$")
         jm_is_json = lambda s, p, r: jm_is_json_reco.search(s) is not None
         global jm_is_uuid_reco, jm_is_uuid
-        jm_is_uuid_reco = re.compile("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$")
+        jm_is_uuid_reco = re.compile("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$")
         jm_is_uuid = lambda s, p, r: jm_is_uuid_reco.search(s) is not None
 
 # differed module cleanup

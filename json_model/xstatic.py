@@ -7,7 +7,8 @@ from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, S
 from .mtypes import Jsonable, Number, JsonScalar
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import is_a_simple_object, partition, is_base_model, resolve_model, model_type
-from .utils import log, tname, MODEL_PREDEFS
+from .utils import log, tname
+from .predefs import MODEL_PREDEFS
 from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse, distinct_prop_objects
 from .model import JsonModel

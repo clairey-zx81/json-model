@@ -16,57 +16,6 @@ __version__ = pkg_version("json_model_compiler")
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
 
-STR_MODEL_PREDEFS = {
-    "$STRING",
-    "$DATE", "$TIME", "$DATETIME",
-    "$URL", "$REGEX", "$EXREG", "$UUID",
-    "$URI", "$EMAIL", "$JSON",
-    # TODO $URI-REF, $DOMAIN…
-    "$IP4", "$IP6", "$DURATION", "$JSONPT", "$HOST",
-    "$__EXTENSION_COLOR",
-}
-
-BOOL_MODEL_PREDEFS = {
-    "$BOOL", "$BOOLEAN",
-}
-
-INT_MODEL_PREDEFS = {
-    "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
-}
-
-FLOAT_MODEL_PREDEFS = {
-    "$FLOAT", "$F32", "$F64", "$NUMBER",
-}
-
-MODEL_PREDEFS = {
-    "$ANY", "$NONE", "$NULL",
-} | INT_MODEL_PREDEFS | FLOAT_MODEL_PREDEFS | STR_MODEL_PREDEFS | BOOL_MODEL_PREDEFS
-
-ANY_STR_RE = r"(?s).*"
-WEAK_DATE_RE = r"\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])"
-WEAK_TIME_RE = r"([01]?[0-9]|2[0-4]):[0-5]?[0-9]:[0-5]?[0-9](\.\d+)?"
-TZ_RE = r"(Z|[-+]\d+)?"
-UUID_RE = r"(?i)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-CONST_RE = r"^=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$"
-JSKW_RE = r"^([#~$%@|&+^/*=]|[<>!]=?)$"
-URL_RE = r"((https?|file)://.*|\..*)"
-EMAIL_RE = r"[-_a-zA-Z0-9.]+@[-_a-zA-Z0-9.]+"
-
-# FIXME TODO merge 3 instances!
-# (approximate) regular expressions for some predefs
-PREDEF_RE = {
-    "$STRING": ANY_STR_RE,
-    "$DATE": WEAK_DATE_RE,
-    "$TIME": WEAK_TIME_RE,
-    "$DATETIME": WEAK_DATE_RE + "[ T]" + WEAK_TIME_RE + TZ_RE,
-    "$UUID": UUID_RE,
-    "$REGEX": ANY_STR_RE,
-    "$EXREG": ANY_STR_RE,
-    "$URL": URL_RE,
-    "$URI": URL_RE,
-    "$EMAIL": EMAIL_RE,
-}
-
 def tname(m) -> str:
     return type(m).__name__ if m is not None else "null"
 

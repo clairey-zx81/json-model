@@ -1,8 +1,9 @@
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
 from .mtypes import Jsonable, JsonObject, ValueType
 from .model import JsonModel
-from .utils import log, is_obj_model
-from . import utils 
+from .utils import log
+from . import utils
+from . import predefs
 
 def normalizeModel(model: ModelType) -> ModelType:
     """Use canonical forms in some cases to simplify comparisons."""
@@ -18,9 +19,9 @@ def normalizeModel(model: ModelType) -> ModelType:
             return -1
         elif model in ("$U32", "$U64"):
             return 0
-        elif model in utils.FLOAT_MODEL_PREDEFS:
+        elif model in predefs.FLOAT_MODEL_PREDEFS:
             return -1.0
-        elif model in utils.BOOL_MODEL_PREDEFS:
+        elif model in predefs.BOOL_MODEL_PREDEFS:
             return True
         elif model in ("$NULL", "=null"):
             return None
@@ -78,9 +79,9 @@ def is_submodel(jm: JsonModel, m1: ModelType, m2: ModelType) -> bool:
         return False
 
     # follow definitions
-    if isinstance(m1, str) and m1.startswith("$") and m1 not in utils.MODEL_PREDEFS:
+    if isinstance(m1, str) and m1.startswith("$") and m1 not in predefs.MODEL_PREDEFS:
         m1 = jm.resolveRef(m1, [])._model
-    if isinstance(m2, str) and m2.startswith("$") and m2 not in utils.MODEL_PREDEFS:
+    if isinstance(m2, str) and m2.startswith("$") and m2 not in predefs.MODEL_PREDEFS:
         m2 = jm.resolveRef(m2, [])._model
     # and normalize
     m1, m2 = normalizeModel(m1), normalizeModel(m2)
@@ -175,17 +176,17 @@ def is_submodel(jm: JsonModel, m1: ModelType, m2: ModelType) -> bool:
         # m2 is an object
         if m2 == {"": "$ANY"}:
             return typed1 and t1 is dict
-        if is_obj_model(m2, {"", "$", "%", "~"}):
+        if utils.is_obj_model(m2, {"", "$", "%", "~"}):
             if "" in m2:  # {"": something}
                 mv2 = m2[""]
                 if typed1 and t1 is dict:
                     return all(is_submodel(jm, mv, mv2) for p, mv in m1.items() if is_prop(p))
             else:  # empty object
-                return is_obj_model(m1, {"$", "%", "~"})
+                return utils.is_obj_model(m1, {"$", "%", "~"})
         # TODO improve
         return False
 
-    if isinstance(m2, str): 
+    if isinstance(m2, str):
         if m2 == "":
             return typed1 and t1 is str
         if m2[0] == "_":
@@ -214,5 +215,5 @@ def is_submodel(jm: JsonModel, m1: ModelType, m2: ModelType) -> bool:
         if const1 and const2:
             return v1 == v2
         return False
-            
+
     raise ModelError(f"unexpected model type: {utils.tname(m2)}")

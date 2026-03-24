@@ -45,7 +45,7 @@ public class pUUID extends ModelChecker
             try {
             pUUID_map_pmap = new HashMap<String, Checker>();
             pUUID_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            jm_is_uuid_pat = Pattern.compile("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$");
+            jm_is_uuid_pat = Pattern.compile("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$");
                 super.init(json);
             }
             catch (Exception e) {

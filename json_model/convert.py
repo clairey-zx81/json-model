@@ -1,56 +1,46 @@
 import re
 from .mtypes import ModelType, ModelPath, JsonSchema, Jsonable, Symbols, JsonModel
-from .utils import is_cst, cst, log, PREDEF_RE
+from .utils import is_cst, cst, log
+from .predefs import PREDEF_RE, PREDEFS
 
 #
 # MODEL TO SCHEMA CONVERSION
 #
 
-PREDEF_TYPES = {
-    "$STRING": "string",
-    "$DATE": "string",
-    "$TIME": "string",
-    "$DATETIME": "string",
-    "$DURATION": "string",
-    "$REGEX": "string",
-    "$EXREG": "string",
-    "$UUID": "string",
-    "$JSON": "string",
-    "$JSONPT": "string",
-    "$URL": "string",
-    "$URI": "string",
-    "$EMAIL": "string",
-    "$IP4": "string",
-    "$IP6": "string",
-    "$HOST": "string",
+PREDEF_TYPES: dict[str, str] = {
     "$NUMBER": "number",
-    "$BOOL": "boolean",
-    "$BOOLEAN": "boolean",
-    "$NULL": "null",
-    "$INTEGER": "integer",
-    "$INT": "integer",
-    "$I32": "integer",
-    "$I64": "integer",
-    "$FLOAT": "number",
-    "$F32": "number",
-    "$F64": "number",
-    "$__EXTENSION_COLOR": "string",
 }
+
+for name, model in PREDEFS.items():
+    if name[0] == "o":  # skip $oXXX
+        continue
+    pname = "$" + name
+    match model:
+        case None:
+            PREDEF_TYPES[pname] = "null"
+        case bool(_):
+            PREDEF_TYPES[pname] = "boolean"
+        case int(_):
+            PREDEF_TYPES[pname] = "integer"
+        case float(_):
+            PREDEF_TYPES[pname] = "number"
+        case str(_):
+            PREDEF_TYPES[pname] = "string"
 
 PREDEF_FORMATS = {
     "$DATE": "date",
     "$TIME": "time",
     "$DATETIME": "datetime",
     "$DURATION": "duration",
-    "$URL": "uri",
     "$REGEX": "regex",
     # not "$EXREG"?
     "$UUID": "uuid",
-    "$EMAIL": "email",
+    "$URL": "uri",
     "$URI": "uri",
     "$IP4": "ipv4",
     "$IP6": "ipv6",
     "$HOST": "hostname",
+    "$EMAIL": "email",
     "$JSONPT": "json-pointer",
     "$__EXTENSION_COLOR": "color",
 }
@@ -94,7 +84,7 @@ def propRefRegex(jm: JsonModel, model: ModelType, path: ModelPath) -> str|None:
                     return None
 
             if alt in PREDEF_RE:
-                alts.append(PREDEF_RE[alt])
+                alts.append(PREDEF_RE[alt][1])
                 continue
 
             # string constant and regex
