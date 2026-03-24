@@ -174,7 +174,7 @@
         "patternProperties": {
           "type": "object",
           "patternProperties": {
-            "^(?s).*$": {
+            "(?s)^.*$": {
               "$ref": "#/$defs/Schema"
             }
           },
@@ -215,7 +215,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -283,7 +283,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -397,7 +397,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -498,7 +498,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -574,7 +574,7 @@
         "patternProperties": {
           "type": "object",
           "patternProperties": {
-            "^(?s).*$": {
+            "(?s)^.*$": {
               "$ref": "#/$defs/Schema"
             }
           },
@@ -607,7 +607,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -684,7 +684,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -761,7 +761,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -832,7 +832,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -903,7 +903,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -974,7 +974,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -1045,7 +1045,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -1116,7 +1116,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -1187,7 +1187,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -1259,7 +1259,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },
@@ -1331,7 +1331,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^((https?|file)://.*|\\..*)$": {
+            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
               "type": "boolean"
             }
           },

@@ -3737,7 +3737,7 @@ public class everything extends ModelChecker
             everything_map_pmap.put("ab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             everything_map_pmap.put("cd", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             jm_is_email_pat = Pattern.compile("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$");
-            jm_is_uuid_pat = Pattern.compile("(?i)^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$");
+            jm_is_uuid_pat = Pattern.compile("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$");
                 super.init(json);
             }
             catch (Exception e) {

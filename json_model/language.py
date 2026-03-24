@@ -1,7 +1,8 @@
 import re
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals, Block
 from .mtypes import Var, JsonExpr, BoolExpr, IntExpr, NumExpr, StrExpr, PathExpr, Expr
-from .utils import BOOL_MODEL_PREDEFS, INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, STR_MODEL_PREDEFS
+from .predefs import BOOL_MODEL_PREDEFS, INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, STR_MODEL_PREDEFS
+from .predefs import PREDEF_RE
 from .utils import log, __version__, load_data_file
 
 # must or may property name -> corresponding check function
@@ -12,79 +13,6 @@ type RegMap = dict[str, str]
 
 # predefs for null, bool, int and number
 _TYPED_PREDEFS: set[str] = {"$NULL"} | BOOL_MODEL_PREDEFS | INT_MODEL_PREDEFS | FLOAT_MODEL_PREDEFS
-
-# regex helpers
-_DB = r"([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])"  # byte in decimal
-_HS = r"([a-z0-9][-a-z0-9]{0,62})"  # ascii host segment, eg localhost json-model org
-_HOST = f"{_HS}(\\.{_HS})*"
-# !#$%&'*+-/=?^_`{|}~
-_NS = r"([-+!#$%&'`*/=?^{}|~_a-z0-9]+)"  # ascii name segment, eg jean-baptiste_poquelin1622
-_NAME = f"{_NS}(\\.{_NS})*"  # email ascii name, eg jean-baptiste.poquelin
-# no commented (...) nor quoted "..." forms; .. is forbidden
-# max size of local part is 64 characters
-_EMAIL = f"{_NAME}@{_HOST}"  # full ascii email, eg jean-baptiste.poquelin@comedie-francaise.fr
-_DATE = "\\d{4}-(0?[1-9]|1[012])-([0-2]?\\d|3[01])"  # 2020-07-29
-# TODO add timezone, check leap second
-_TIME = "([01]\\d|2[0-3]):[0-5]\\d:([0-5]\\d|60)(\\.\\d{0,9})?"  # 12:34:56.123456
-_NUM = "[-+]?\\d+(\\.\\d*)?([Ee][-+]?\\d+)?"
-# ipv6 non-empty segment
-_IP6S = "[0-9a-f]{1,4}"
-# NOTE no zone id
-_IP6 = (
-    r"("
-    f"({_IP6S}:){{7}}{_IP6S}|"               # _:_:_:_:_:_:_:_
-    f"({_IP6S}:){{1,7}}:|"                   # *::
-    f"({_IP6S}:){{1,6}}(:{_IP6S}){{1}}|"     # *::_
-    f"({_IP6S}:){{1,5}}(:{_IP6S}){{1,2}}|"   # *::_:_
-    f"({_IP6S}:){{1,4}}(:{_IP6S}){{1,3}}|"   # *::_:_:_
-    f"({_IP6S}:){{1,3}}(:{_IP6S}){{1,4}}|"   # *::_:_:_:_
-    f"({_IP6S}:){{1,2}}(:{_IP6S}){{1,5}}|"   # *::_:_:_:_:_
-    f"{_IP6S}:(:{_IP6S}){{1,6}}|"            # *::_:_:_:_:_:_
-    f":(:{_IP6S}){{1,7}}|"                   # ::*
-    r"::)"                                   # ::
-)
-
-# RFC3339 durations (down to seconds)
-_DUR_s = "[0-9]+S"
-_DUR_m = f"[0-9]+M({_DUR_s})?"
-_DUR_h = f"[0-9]+H({_DUR_m})?"
-_DUR_TIME = f"T({_DUR_h}|{_DUR_m}|{_DUR_s})"
-_DUR_D = "[0-9]+D"
-_DUR_W = "[0-9]+W"
-_DUR_M = f"[0-9]+M({_DUR_D})?"
-_DUR_Y = f"[0-9]+Y({_DUR_M})?"
-_DUR_DATE = f"({_DUR_D}|{_DUR_M}|{_DUR_Y})({_DUR_TIME})?"
-_DURATION = f"P({_DUR_DATE}|{_DUR_TIME}|{_DUR_W})"
-
-# CSS colors: simple and short list (not the 150)
-_COLOR_HEXA = "#([0-9A-F]{6}|[0-9A-F]{3})"
-# 16 CSS1 names, aliases and specials
-_COLOR_NAMES = (
-    "(black|silver|white|maroon|red|purple|fuchsia|green|lime|olive"
-    "|yellow|navy|blue|teal|aqua|transparent|current[cC]olor|orange"
-    "|cyan|magenta|((dark|light)?(slate)?|dim)gr[ae]y|rebeccapurple)"
-)
-_COLOR = f"({_COLOR_HEXA}|{_COLOR_NAMES})"
-
-# approximate backup regex for unimplemented predefs
-_PREDEF_RE: dict[str, tuple[str, str, str]] = {
-    "$IP4": ("jm_is_ip4", f"^({_DB}\\.){{3}}{_DB}$", ""),
-    "$IP6": ("jm_is_ip6", f"^{_IP6}$", "i"),
-    "$HOST": ("jm_is_host", f"^{_HOST}$", "i"),
-    "$EMAIL": ("jm_is_email", f"^{_EMAIL}$", "i"),
-    "$DATE": ("jm_is_date", f"^{_DATE}$", ""),
-    "$TIME": ("jm_is_time", f"^{_TIME}$", ""),
-    "$DATETIME": ("jm_is_datetime", f"^{_DATE}T{_TIME}$", ""),
-    "$UUID": ("jm_is_uuid", "^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$", "i"),
-    "$JSON": (
-        "jm_is_json",
-        f"^\\s*(\\{{.*\\}}|\\[.*\\]|null|true|false|\".*\"|{_NUM})?\\s*$",
-        "s"
-    ),
-    "$DURATION": ("jm_is_duration", f"^{_DURATION}$", ""),
-    "$JSONPT": ("jm_is_jsonpt", "^(/([^~]|~0|~1)*)*$", "s"),
-    "$__EXTENSION_COLOR": ("jm_is_color", f"^{_COLOR}$", ""),  # v3
-}
 
 class Language:
     """Dumb abstraction of an imperative language to manipulate JSON data.
@@ -288,8 +216,8 @@ class Language:
             return self.is_a(var, str) if not is_str else self.true()
         elif self.str_content_predef(name):
             if self._with_predef:
-                if name in _PREDEF_RE:
-                    fname, regex, _o = _PREDEF_RE[name]
+                if name in PREDEF_RE:
+                    fname, regex, _o = PREDEF_RE[name]
                     sval = var if is_str else self.value(var, str)
                     lexpr = []
                     if not is_str:
@@ -974,8 +902,8 @@ class Code:
 
         # generate needed helpers
         for pn in sorted(self._predefs):
-            if not self._lang.has_predef(pn) and pn in _PREDEF_RE:
-                fun, reg, opt = _PREDEF_RE[pn]
+            if not self._lang.has_predef(pn) and pn in PREDEF_RE:
+                fun, reg, opt = PREDEF_RE[pn]
                 if reg:
                     self.regex(fun, reg, opt)
 

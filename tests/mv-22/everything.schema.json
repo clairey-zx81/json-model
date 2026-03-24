@@ -65,7 +65,8 @@
           "format": "time"
         },
         "JSON": {
-          "type": "string"
+          "type": "string",
+          "contentMediaType": "application/json"
         },
         "REGEX": {
           "type": "string",
@@ -112,10 +113,10 @@
           "type": "integer"
         },
         "U32": {
-          "$ref": "#/$defs/U32"
+          "type": "integer"
         },
         "U64": {
-          "$ref": "#/$defs/U64"
+          "type": "integer"
         },
         "FLOAT": {
           "type": "number"
@@ -209,10 +210,10 @@
           "type": "integer"
         },
         "i7": {
-          "$ref": "#/$defs/U32"
+          "type": "integer"
         },
         "i8": {
-          "$ref": "#/$defs/U64"
+          "type": "integer"
         },
         "i9": {
           "const": 42
@@ -439,7 +440,7 @@
         "o4": {
           "type": "object",
           "patternProperties": {
-            "^\\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\\d|3[01])$": {
+            "^\\d{4}-(0?[1-9]|1[012])-([0-2]?\\d|3[01])$": {
               "type": "string"
             }
           },

@@ -5,7 +5,8 @@ import functools
 import re
 
 from .mtypes import UnknownModel, ModelPath, ModelType, ModelFilter, ModelObject, ModelArray
-from .utils import log, CONST_RE, is_regex, is_a_simple_object
+from .utils import log, is_regex, is_a_simple_object
+from .predefs import CONST_RE
 from .recurse import recModel, allFlt, noRwt
 from .model import JsonModel
 from .runtime import ConstSet

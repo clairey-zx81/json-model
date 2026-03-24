@@ -2620,11 +2620,11 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$ opts=ni
+-- regex=^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$ opts=ni
 CREATE OR REPLACE FUNCTION jm_is_uuid(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$', 'ni');
+  RETURN regexp_like(val, '^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 
