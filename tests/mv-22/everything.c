@@ -62,9 +62,24 @@ static bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
+static cre2_regexp_t *jm_is_duration_re2 = NULL;
+static int jm_is_duration_nn = 0;
+static bool jm_is_duration(const char *s, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *jm_is_email_re2 = NULL;
 static int jm_is_email_nn = 0;
 static bool jm_is_email(const char *s, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *jm_is_host_re2 = NULL;
+static int jm_is_host_nn = 0;
+static bool jm_is_host(const char *s, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *jm_is_ip4_re2 = NULL;
+static int jm_is_ip4_nn = 0;
+static bool jm_is_ip4(const char *s, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *jm_is_ip6_re2 = NULL;
+static int jm_is_ip6_nn = 0;
+static bool jm_is_ip6(const char *s, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *jm_is_jsonpt_re2 = NULL;
+static int jm_is_jsonpt_nn = 0;
+static bool jm_is_jsonpt(const char *s, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *jm_is_uuid_re2 = NULL;
 static int jm_is_uuid_nn = 0;
 static bool jm_is_uuid(const char *s, jm_path_t *path, jm_report_t *rep);
@@ -981,9 +996,9 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_2 = *((uint32_t *) (prop));
-        if (hash_2 <= 0x45525845)
+        if (hash_2 <= 0x44495555)
         {
-            if (hash_2 <= 0x4c5255)
+            if (hash_2 <= 0x365049)
             {
                 if (jm_str_eq_4(prop, 0x00323346))
                 {
@@ -1037,6 +1052,32 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                     continue;
                 }
+                else if (jm_str_eq_4(prop, 0x00345049))
+                {
+                    // handle may IP4 property
+                    // .predefs.IP4
+                    res = json_is_string(pval) && jm_is_ip4(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$IP4\" [.predefs.IP4]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.IP4]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x00365049))
+                {
+                    // handle may IP6 property
+                    // .predefs.IP6
+                    res = json_is_string(pval) && jm_is_ip6(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$IP6\" [.predefs.IP6]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.IP6]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
                 else if (jm_str_eq_4(prop, 0x00323355))
                 {
                     // handle may U32 property
@@ -1059,6 +1100,29 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$U64\" [.predefs.U64]", (path ? &lpath_13 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.U64]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+            else
+            {
+                if (jm_str_eq_4(prop, 0x00594e41))
+                {
+                    // handle may ANY property
+                    // .predefs.ANY
+                    res = true;
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x00544e49))
+                {
+                    // handle may INT property
+                    // .predefs.INT
+                    res = json_is_integer(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$INT\" [.predefs.INT]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.INT]", (path ? &lpath_13 : NULL));
                         return false;
                     }
                     continue;
@@ -1089,25 +1153,73 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                     continue;
                 }
-            }
-            else
-            {
-                if (jm_str_eq_4(prop, 0x00594e41))
+                else if (jm_str_eq_5(prop, 0x0000000044495555LL))
                 {
-                    // handle may ANY property
-                    // .predefs.ANY
-                    res = true;
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00544e49))
-                {
-                    // handle may INT property
-                    // .predefs.INT
-                    res = json_is_integer(pval);
+                    // handle may UUID property
+                    // .predefs.UUID
+                    res = jm_is_valid_uuid(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$INT\" [.predefs.INT]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.INT]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$UUID\" [.predefs.UUID]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.UUID]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_6(prop, 0x00000054414f4c46LL))
+                {
+                    // handle may FLOAT property
+                    // .predefs.FLOAT
+                    res = json_is_real(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.FLOAT]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_7(prop, 0x00005245424d554eLL))
+                {
+                    // handle may NUMBER property
+                    // .predefs.NUMBER
+                    res = json_is_number(pval);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NUMBER]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_8(prop, 0x4e4f495441525544LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle may DURATION property
+                    // .predefs.DURATION
+                    res = json_is_string(pval) && jm_is_duration(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DURATION\" [.predefs.DURATION]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DURATION]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+            }
+        }
+        else
+        {
+            if (hash_2 <= 0x49414d45)
+            {
+                if (jm_str_eq_5(prop, 0x0000000045544144LL))
+                {
+                    // handle may DATE property
+                    // .predefs.DATE
+                    res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.predefs.DATE]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DATE]", (path ? &lpath_13 : NULL));
                         return false;
                     }
                     continue;
@@ -1134,15 +1246,15 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                     continue;
                 }
-                else if (jm_str_eq_5(prop, 0x0000000044495555LL))
+                else if (jm_str_eq_6(prop, 0x0000004c49414d45LL))
                 {
-                    // handle may UUID property
-                    // .predefs.UUID
-                    res = jm_is_valid_uuid(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                    // handle may EMAIL property
+                    // .predefs.EMAIL
+                    res = json_is_string(pval) && jm_is_email(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$UUID\" [.predefs.UUID]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.UUID]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
                         return false;
                     }
                     continue;
@@ -1160,19 +1272,6 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                     continue;
                 }
-                else if (jm_str_eq_6(prop, 0x00000054414f4c46LL))
-                {
-                    // handle may FLOAT property
-                    // .predefs.FLOAT
-                    res = json_is_real(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.FLOAT]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
-                }
                 else if (jm_str_eq_6(prop, 0x0000005845474552LL))
                 {
                     // handle may REGEX property
@@ -1182,51 +1281,6 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$REGEX\" [.predefs.REGEX]", (path ? &lpath_13 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.REGEX]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
-                }
-                else if (jm_str_eq_7(prop, 0x00005245424d554eLL))
-                {
-                    // handle may NUMBER property
-                    // .predefs.NUMBER
-                    res = json_is_number(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NUMBER]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
-                }
-            }
-        }
-        else
-        {
-            if (hash_2 <= 0x49414d45)
-            {
-                if (jm_str_eq_5(prop, 0x0000000045544144LL))
-                {
-                    // handle may DATE property
-                    // .predefs.DATE
-                    res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.predefs.DATE]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DATE]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
-                }
-                else if (jm_str_eq_6(prop, 0x0000004c49414d45LL))
-                {
-                    // handle may EMAIL property
-                    // .predefs.EMAIL
-                    res = json_is_string(pval) && jm_is_email(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
                         return false;
                     }
                     continue;
@@ -1273,6 +1327,19 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                     continue;
                 }
+                else if (jm_str_eq_5(prop, 0x0000000054534f48LL))
+                {
+                    // handle may HOST property
+                    // .predefs.HOST
+                    res = json_is_string(pval) && jm_is_host(json_string_value(pval), (path ? &lpath_13 : NULL), rep) && jm_str_len(json_string_value(pval)) <= 255;
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$HOST\" [.predefs.HOST]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.HOST]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
                 else if (jm_str_eq_5(prop, 0x000000004e4f534aLL))
                 {
                     // handle may JSON property
@@ -1295,6 +1362,19 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NULL\" [.predefs.NULL]", (path ? &lpath_13 : NULL));
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NULL]", (path ? &lpath_13 : NULL));
+                        return false;
+                    }
+                    continue;
+                }
+                else if (jm_str_eq_7(prop, 0x000054504e4f534aLL))
+                {
+                    // handle may JSONPT property
+                    // .predefs.JSONPT
+                    res = json_is_string(pval) && jm_is_jsonpt(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.JSONPT]", (path ? &lpath_13 : NULL));
                         return false;
                     }
                     continue;
@@ -4144,10 +4224,40 @@ jm_check_fun_t check_model_map(const char *pname)
     return jm_search_propmap(pname, check_model_map_tab, 5);
 }
 
+static bool jm_is_duration(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_duration_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
 static bool jm_is_email(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
     return cre2_match(jm_is_email_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+static bool jm_is_host(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_host_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+static bool jm_is_ip4(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_ip4_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+static bool jm_is_ip6(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_ip6_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+static bool jm_is_jsonpt(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(jm_is_jsonpt_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 static bool jm_is_uuid(const char *s, jm_path_t *path, jm_report_t *rep)
@@ -4193,10 +4303,30 @@ const char *check_model_init(void)
         check_model_map_tab[3] = (jm_propmap_t) { "ab", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "cd", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
+        jm_is_duration_re2 = cre2_new("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$", strlen("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$"), NULL);
+        if (cre2_error_code(jm_is_duration_re2))
+            return cre2_error_string(jm_is_duration_re2);
+        jm_is_duration_nn = cre2_num_capturing_groups(jm_is_duration_re2) + 1;
         jm_is_email_re2 = cre2_new("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", strlen("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$"), NULL);
         if (cre2_error_code(jm_is_email_re2))
             return cre2_error_string(jm_is_email_re2);
         jm_is_email_nn = cre2_num_capturing_groups(jm_is_email_re2) + 1;
+        jm_is_host_re2 = cre2_new("(?i)^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", strlen("(?i)^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$"), NULL);
+        if (cre2_error_code(jm_is_host_re2))
+            return cre2_error_string(jm_is_host_re2);
+        jm_is_host_nn = cre2_num_capturing_groups(jm_is_host_re2) + 1;
+        jm_is_ip4_re2 = cre2_new("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$", strlen("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$"), NULL);
+        if (cre2_error_code(jm_is_ip4_re2))
+            return cre2_error_string(jm_is_ip4_re2);
+        jm_is_ip4_nn = cre2_num_capturing_groups(jm_is_ip4_re2) + 1;
+        jm_is_ip6_re2 = cre2_new("(?i)^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$", strlen("(?i)^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$"), NULL);
+        if (cre2_error_code(jm_is_ip6_re2))
+            return cre2_error_string(jm_is_ip6_re2);
+        jm_is_ip6_nn = cre2_num_capturing_groups(jm_is_ip6_re2) + 1;
+        jm_is_jsonpt_re2 = cre2_new("(?s)^(/([^~]|~0|~1)*)*$", strlen("(?s)^(/([^~]|~0|~1)*)*$"), NULL);
+        if (cre2_error_code(jm_is_jsonpt_re2))
+            return cre2_error_string(jm_is_jsonpt_re2);
+        jm_is_jsonpt_nn = cre2_num_capturing_groups(jm_is_jsonpt_re2) + 1;
         jm_is_uuid_re2 = cre2_new("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$", strlen("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$"), NULL);
         if (cre2_error_code(jm_is_uuid_re2))
             return cre2_error_string(jm_is_uuid_re2);
@@ -4215,9 +4345,24 @@ void check_model_free(void)
         cre2_delete(_jm_re_0_re2);
         _jm_re_0_re2 = NULL;
         _jm_re_0_nn = 0;
+        cre2_delete(jm_is_duration_re2);
+        jm_is_duration_re2 = NULL;
+        jm_is_duration_nn = 0;
         cre2_delete(jm_is_email_re2);
         jm_is_email_re2 = NULL;
         jm_is_email_nn = 0;
+        cre2_delete(jm_is_host_re2);
+        jm_is_host_re2 = NULL;
+        jm_is_host_nn = 0;
+        cre2_delete(jm_is_ip4_re2);
+        jm_is_ip4_re2 = NULL;
+        jm_is_ip4_nn = 0;
+        cre2_delete(jm_is_ip6_re2);
+        jm_is_ip6_re2 = NULL;
+        jm_is_ip6_nn = 0;
+        cre2_delete(jm_is_jsonpt_re2);
+        jm_is_jsonpt_re2 = NULL;
+        jm_is_jsonpt_nn = 0;
         cre2_delete(jm_is_uuid_re2);
         jm_is_uuid_re2 = NULL;
         jm_is_uuid_nn = 0;

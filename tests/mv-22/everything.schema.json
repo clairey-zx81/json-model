@@ -64,9 +64,17 @@
           "type": "string",
           "format": "time"
         },
+        "DURATION": {
+          "type": "string",
+          "format": "duration"
+        },
         "JSON": {
           "type": "string",
           "contentMediaType": "application/json"
+        },
+        "JSONPT": {
+          "type": "string",
+          "format": "json-pointer"
         },
         "REGEX": {
           "type": "string",
@@ -86,6 +94,18 @@
         "URI": {
           "type": "string",
           "format": "uri"
+        },
+        "HOST": {
+          "type": "string",
+          "format": "hostname"
+        },
+        "IP4": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "IP6": {
+          "type": "string",
+          "format": "ipv6"
         },
         "EMAIL": {
           "type": "string",

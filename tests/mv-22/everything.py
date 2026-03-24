@@ -30,8 +30,12 @@ _jm_re_0_reco: object
 _jm_re_0: RegexFun
 json_model_1_map: PropMap
 check_model_map: PropMap
+jm_is_duration_reco: object
+jm_is_duration: RegexFun
 jm_is_json_reco: object
 jm_is_json: RegexFun
+jm_is_jsonpt_reco: object
+jm_is_jsonpt: RegexFun
 jm_is_uuid_reco: object
 jm_is_uuid: RegexFun
 
@@ -1913,8 +1917,16 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected value for model \"$DATETIME\" [.predefs.DATETIME]", path))
     return res
 
-# check _jm_f_47_map_EMAIL (.predefs.EMAIL)
+# check _jm_f_47_map_DURATION (.predefs.DURATION)
 def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .predefs.DURATION
+    res: bool = isinstance(val, str) and jm_is_duration(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected value for model \"$DURATION\" [.predefs.DURATION]", path))
+    return res
+
+# check _jm_f_47_map_EMAIL (.predefs.EMAIL)
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.EMAIL
     res: bool = is_valid_email(val, path, rep)
     if not res:
@@ -1922,7 +1934,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_EXREG (.predefs.EXREG)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.EXREG
     res: bool = is_valid_exreg(val, path, rep)
     if not res:
@@ -1930,7 +1942,7 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_F32 (.predefs.F32)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.F32
     res: bool = isinstance(val, float)
     if not res:
@@ -1938,7 +1950,7 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_F64 (.predefs.F64)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.F64
     res: bool = isinstance(val, float)
     if not res:
@@ -1946,15 +1958,23 @@ def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_FLOAT (.predefs.FLOAT)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.FLOAT
     res: bool = isinstance(val, float)
     if not res:
         rep is None or rep.append(("unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", path))
     return res
 
+# check _jm_f_47_map_HOST (.predefs.HOST)
+def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .predefs.HOST
+    res: bool = is_valid_host(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected value for model \"$HOST\" [.predefs.HOST]", path))
+    return res
+
 # check _jm_f_47_map_I32 (.predefs.I32)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.I32
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
@@ -1962,7 +1982,7 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_I64 (.predefs.I64)
-def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.I64
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
@@ -1970,7 +1990,7 @@ def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_INT (.predefs.INT)
-def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.INT
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
@@ -1978,29 +1998,53 @@ def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_INTEGER (.predefs.INTEGER)
-def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.INTEGER
     res: bool = isinstance(val, int) and not isinstance(val, bool)
     if not res:
         rep is None or rep.append(("unexpected value for model \"$INTEGER\" [.predefs.INTEGER]", path))
     return res
 
+# check _jm_f_47_map_IP4 (.predefs.IP4)
+def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .predefs.IP4
+    res: bool = is_valid_ip4(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected value for model \"$IP4\" [.predefs.IP4]", path))
+    return res
+
+# check _jm_f_47_map_IP6 (.predefs.IP6)
+def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .predefs.IP6
+    res: bool = is_valid_ip6(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected value for model \"$IP6\" [.predefs.IP6]", path))
+    return res
+
 # check _jm_f_47_map_JSON (.predefs.JSON)
-def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.JSON
     res: bool = is_valid_json(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected value for model \"$JSON\" [.predefs.JSON]", path))
     return res
 
+# check _jm_f_47_map_JSONPT (.predefs.JSONPT)
+def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .predefs.JSONPT
+    res: bool = isinstance(val, str) and jm_is_jsonpt(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", path))
+    return res
+
 # check _jm_f_47_map_NONE (.predefs.NONE)
-def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.NONE
     rep is None or rep.append(("unexpected value for model \"$NONE\" [.predefs.NONE]", path))
     return False
 
 # check _jm_f_47_map_NULL (.predefs.NULL)
-def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.NULL
     res: bool = val is None
     if not res:
@@ -2008,7 +2052,7 @@ def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_NUMBER (.predefs.NUMBER)
-def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.NUMBER
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -2016,7 +2060,7 @@ def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_REGEX (.predefs.REGEX)
-def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.REGEX
     res: bool = is_valid_regex(val, path, rep)
     if not res:
@@ -2024,7 +2068,7 @@ def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_STRING (.predefs.STRING)
-def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.STRING
     res: bool = isinstance(val, str)
     if not res:
@@ -2032,7 +2076,7 @@ def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_TIME (.predefs.TIME)
-def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.TIME
     res: bool = is_valid_time(val, path, rep)
     if not res:
@@ -2040,7 +2084,7 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_U32 (.predefs.U32)
-def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.U32
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
@@ -2048,7 +2092,7 @@ def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_U64 (.predefs.U64)
-def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.U64
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
@@ -2056,7 +2100,7 @@ def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_URI (.predefs.URI)
-def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.URI
     res: bool = is_valid_url(val, path, rep)
     if not res:
@@ -2064,7 +2108,7 @@ def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_URL (.predefs.URL)
-def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.URL
     res: bool = is_valid_url(val, path, rep)
     if not res:
@@ -2072,7 +2116,7 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_f_47_map_UUID (.predefs.UUID)
-def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
     # .predefs.UUID
     res: bool = isinstance(val, str) and jm_is_uuid(val, path, rep)
     if not res:
@@ -2091,7 +2135,7 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         lpath_17: Path = (path + [ prop ]) if path is not None else None
         if pfun := _jm_f_47_map.get(prop):
-            # handle 26 may props
+            # handle 31 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_17 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.predefs]", lpath_17 if path is not None else None))
                 return False
@@ -2102,7 +2146,7 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check json_model_1_map_string (.string)
-def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     # strings: inference, predef, constants, regex
     # .string
     if not isinstance(val, dict):
@@ -2162,7 +2206,7 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_tuple (.tuple)
-def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
     # tuple items have a type
     # .tuple
     if not isinstance(val, dict):
@@ -2290,7 +2334,7 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_1_map_xor (.xor)
-def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
     # hard alternative, only one must match
     # .xor
     if not isinstance(val, dict):
@@ -2413,6 +2457,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 
+
+
 # initialization guard
 initialized: bool = False
 
@@ -2474,27 +2520,32 @@ def check_model_init():
             "BOOLEAN": _jm_f_50,
             "DATE": _jm_f_51,
             "DATETIME": _jm_f_52,
-            "EMAIL": _jm_f_53,
-            "EXREG": _jm_f_54,
-            "F32": _jm_f_55,
-            "F64": _jm_f_56,
-            "FLOAT": _jm_f_57,
-            "I32": _jm_f_58,
-            "I64": _jm_f_59,
-            "INT": _jm_f_60,
-            "INTEGER": _jm_f_61,
-            "JSON": _jm_f_62,
-            "NONE": _jm_f_63,
-            "NULL": _jm_f_64,
-            "NUMBER": _jm_f_65,
-            "REGEX": _jm_f_66,
-            "STRING": _jm_f_67,
-            "TIME": _jm_f_68,
-            "U32": _jm_f_69,
-            "U64": _jm_f_70,
-            "URI": _jm_f_71,
-            "URL": _jm_f_72,
-            "UUID": _jm_f_73,
+            "DURATION": _jm_f_53,
+            "EMAIL": _jm_f_54,
+            "EXREG": _jm_f_55,
+            "F32": _jm_f_56,
+            "F64": _jm_f_57,
+            "FLOAT": _jm_f_58,
+            "HOST": _jm_f_59,
+            "I32": _jm_f_60,
+            "I64": _jm_f_61,
+            "INT": _jm_f_62,
+            "INTEGER": _jm_f_63,
+            "IP4": _jm_f_64,
+            "IP6": _jm_f_65,
+            "JSON": _jm_f_66,
+            "JSONPT": _jm_f_67,
+            "NONE": _jm_f_68,
+            "NULL": _jm_f_69,
+            "NUMBER": _jm_f_70,
+            "REGEX": _jm_f_71,
+            "STRING": _jm_f_72,
+            "TIME": _jm_f_73,
+            "U32": _jm_f_74,
+            "U64": _jm_f_75,
+            "URI": _jm_f_76,
+            "URL": _jm_f_77,
+            "UUID": _jm_f_78,
         }
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("^(Calvin|Susie)$")
@@ -2513,9 +2564,9 @@ def check_model_init():
             "object": _jm_f_45,
             "or": _jm_f_46,
             "predefs": _jm_f_47,
-            "string": _jm_f_74,
-            "tuple": _jm_f_75,
-            "xor": _jm_f_76,
+            "string": _jm_f_79,
+            "tuple": _jm_f_80,
+            "xor": _jm_f_81,
         }
         global check_model_map
         check_model_map = {
@@ -2525,9 +2576,15 @@ def check_model_init():
             "ab": json_model_4,
             "cd": json_model_5,
         }
+        global jm_is_duration_reco, jm_is_duration
+        jm_is_duration_reco = re.compile("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$")
+        jm_is_duration = lambda s, p, r: jm_is_duration_reco.search(s) is not None
         global jm_is_json_reco, jm_is_json
         jm_is_json_reco = re.compile("(?s)^('\\\\s*(\\\\{.*\\\\}|\\\\[.*\\\\]|null|true|false|\".*\"|[-+]?\\\\d+(\\\\.\\\\d*)?([Ee][-+]?\\\\d+)?)\\\\s*',)$")
         jm_is_json = lambda s, p, r: jm_is_json_reco.search(s) is not None
+        global jm_is_jsonpt_reco, jm_is_jsonpt
+        jm_is_jsonpt_reco = re.compile("(?s)^(/([^~]|~0|~1)*)*$")
+        jm_is_jsonpt = lambda s, p, r: jm_is_jsonpt_reco.search(s) is not None
         global jm_is_uuid_reco, jm_is_uuid
         jm_is_uuid_reco = re.compile("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$")
         jm_is_uuid = lambda s, p, r: jm_is_uuid_reco.search(s) is not None
@@ -2540,9 +2597,15 @@ def check_model_free():
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = None
         _jm_re_0 = None
+        global jm_is_duration_reco, jm_is_duration
+        jm_is_duration_reco = None
+        jm_is_duration = None
         global jm_is_json_reco, jm_is_json
         jm_is_json_reco = None
         jm_is_json = None
+        global jm_is_jsonpt_reco, jm_is_jsonpt
+        jm_is_jsonpt_reco = None
+        jm_is_jsonpt = None
         global jm_is_uuid_reco, jm_is_uuid
         jm_is_uuid_reco = None
         jm_is_uuid = None

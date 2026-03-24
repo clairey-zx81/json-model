@@ -27,7 +27,12 @@ public class everything extends ModelChecker
     public Pattern _jm_re_0_pat = null;
     Map<String, Checker> json_model_1_map_pmap;
     public Map<String, Checker> everything_map_pmap;
+    public Pattern jm_is_duration_pat = null;
     public Pattern jm_is_email_pat = null;
+    public Pattern jm_is_host_pat = null;
+    public Pattern jm_is_ip4_pat = null;
+    public Pattern jm_is_ip6_pat = null;
+    public Pattern jm_is_jsonpt_pat = null;
     public Pattern jm_is_uuid_pat = null;
 
     // check $a (.'$a')
@@ -2849,8 +2854,20 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // check _jm_f_36_map_EMAIL (.predefs.EMAIL)
+    // check _jm_f_36_map_DURATION (.predefs.DURATION)
     public boolean _jm_f_42(Object val, Path path, Report rep)
+    {
+        // .predefs.DURATION
+        boolean res = json.isString(val) && jm_is_duration(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"$DURATION\" [.predefs.DURATION]", path);
+        }
+        return res;
+    }
+
+    // check _jm_f_36_map_EMAIL (.predefs.EMAIL)
+    public boolean _jm_f_43(Object val, Path path, Report rep)
     {
         // .predefs.EMAIL
         boolean res = json.isString(val) && jm_is_email(json.asString(val), path, rep);
@@ -2862,7 +2879,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_EXREG (.predefs.EXREG)
-    public boolean _jm_f_43(Object val, Path path, Report rep)
+    public boolean _jm_f_44(Object val, Path path, Report rep)
     {
         // .predefs.EXREG
         boolean res = json.isString(val) && rt.is_valid_exreg(json.asString(val));
@@ -2874,7 +2891,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_F32 (.predefs.F32)
-    public boolean _jm_f_44(Object val, Path path, Report rep)
+    public boolean _jm_f_45(Object val, Path path, Report rep)
     {
         // .predefs.F32
         boolean res = json.isDouble(val);
@@ -2886,7 +2903,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_F64 (.predefs.F64)
-    public boolean _jm_f_45(Object val, Path path, Report rep)
+    public boolean _jm_f_46(Object val, Path path, Report rep)
     {
         // .predefs.F64
         boolean res = json.isDouble(val);
@@ -2898,7 +2915,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_FLOAT (.predefs.FLOAT)
-    public boolean _jm_f_46(Object val, Path path, Report rep)
+    public boolean _jm_f_47(Object val, Path path, Report rep)
     {
         // .predefs.FLOAT
         boolean res = json.isDouble(val);
@@ -2909,8 +2926,20 @@ public class everything extends ModelChecker
         return res;
     }
 
+    // check _jm_f_36_map_HOST (.predefs.HOST)
+    public boolean _jm_f_48(Object val, Path path, Report rep)
+    {
+        // .predefs.HOST
+        boolean res = json.isString(val) && jm_is_host(json.asString(val), path, rep) && json.asString(val).length() <= 255;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"$HOST\" [.predefs.HOST]", path);
+        }
+        return res;
+    }
+
     // check _jm_f_36_map_I32 (.predefs.I32)
-    public boolean _jm_f_47(Object val, Path path, Report rep)
+    public boolean _jm_f_49(Object val, Path path, Report rep)
     {
         // .predefs.I32
         boolean res = json.isInteger(val);
@@ -2922,7 +2951,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_I64 (.predefs.I64)
-    public boolean _jm_f_48(Object val, Path path, Report rep)
+    public boolean _jm_f_50(Object val, Path path, Report rep)
     {
         // .predefs.I64
         boolean res = json.isInteger(val);
@@ -2934,7 +2963,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_INT (.predefs.INT)
-    public boolean _jm_f_49(Object val, Path path, Report rep)
+    public boolean _jm_f_51(Object val, Path path, Report rep)
     {
         // .predefs.INT
         boolean res = json.isInteger(val);
@@ -2946,7 +2975,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_INTEGER (.predefs.INTEGER)
-    public boolean _jm_f_50(Object val, Path path, Report rep)
+    public boolean _jm_f_52(Object val, Path path, Report rep)
     {
         // .predefs.INTEGER
         boolean res = json.isInteger(val);
@@ -2957,8 +2986,32 @@ public class everything extends ModelChecker
         return res;
     }
 
+    // check _jm_f_36_map_IP4 (.predefs.IP4)
+    public boolean _jm_f_53(Object val, Path path, Report rep)
+    {
+        // .predefs.IP4
+        boolean res = json.isString(val) && jm_is_ip4(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"$IP4\" [.predefs.IP4]", path);
+        }
+        return res;
+    }
+
+    // check _jm_f_36_map_IP6 (.predefs.IP6)
+    public boolean _jm_f_54(Object val, Path path, Report rep)
+    {
+        // .predefs.IP6
+        boolean res = json.isString(val) && jm_is_ip6(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"$IP6\" [.predefs.IP6]", path);
+        }
+        return res;
+    }
+
     // check _jm_f_36_map_JSON (.predefs.JSON)
-    public boolean _jm_f_51(Object val, Path path, Report rep)
+    public boolean _jm_f_55(Object val, Path path, Report rep)
     {
         // .predefs.JSON
         boolean res = json.isString(val) && rt.is_valid_json(json.asString(val));
@@ -2969,8 +3022,20 @@ public class everything extends ModelChecker
         return res;
     }
 
+    // check _jm_f_36_map_JSONPT (.predefs.JSONPT)
+    public boolean _jm_f_56(Object val, Path path, Report rep)
+    {
+        // .predefs.JSONPT
+        boolean res = json.isString(val) && jm_is_jsonpt(json.asString(val), path, rep);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", path);
+        }
+        return res;
+    }
+
     // check _jm_f_36_map_NONE (.predefs.NONE)
-    public boolean _jm_f_52(Object val, Path path, Report rep)
+    public boolean _jm_f_57(Object val, Path path, Report rep)
     {
         // .predefs.NONE
         if (rep != null) rep.addEntry("unexpected value for model \"$NONE\" [.predefs.NONE]", path);
@@ -2978,7 +3043,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_NULL (.predefs.NULL)
-    public boolean _jm_f_53(Object val, Path path, Report rep)
+    public boolean _jm_f_58(Object val, Path path, Report rep)
     {
         // .predefs.NULL
         boolean res = json.isNull(val);
@@ -2990,7 +3055,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_NUMBER (.predefs.NUMBER)
-    public boolean _jm_f_54(Object val, Path path, Report rep)
+    public boolean _jm_f_59(Object val, Path path, Report rep)
     {
         // .predefs.NUMBER
         boolean res = json.isNumber(val);
@@ -3002,7 +3067,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_REGEX (.predefs.REGEX)
-    public boolean _jm_f_55(Object val, Path path, Report rep)
+    public boolean _jm_f_60(Object val, Path path, Report rep)
     {
         // .predefs.REGEX
         boolean res = json.isString(val) && rt.is_valid_regex(json.asString(val));
@@ -3014,7 +3079,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_STRING (.predefs.STRING)
-    public boolean _jm_f_56(Object val, Path path, Report rep)
+    public boolean _jm_f_61(Object val, Path path, Report rep)
     {
         // .predefs.STRING
         boolean res = json.isString(val);
@@ -3026,7 +3091,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_TIME (.predefs.TIME)
-    public boolean _jm_f_57(Object val, Path path, Report rep)
+    public boolean _jm_f_62(Object val, Path path, Report rep)
     {
         // .predefs.TIME
         boolean res = json.isString(val) && rt.is_valid_time(json.asString(val));
@@ -3038,7 +3103,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_U32 (.predefs.U32)
-    public boolean _jm_f_58(Object val, Path path, Report rep)
+    public boolean _jm_f_63(Object val, Path path, Report rep)
     {
         // .predefs.U32
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
@@ -3050,7 +3115,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_U64 (.predefs.U64)
-    public boolean _jm_f_59(Object val, Path path, Report rep)
+    public boolean _jm_f_64(Object val, Path path, Report rep)
     {
         // .predefs.U64
         boolean res = json.isInteger(val) && json.asLong(val) >= 0;
@@ -3062,7 +3127,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_URI (.predefs.URI)
-    public boolean _jm_f_60(Object val, Path path, Report rep)
+    public boolean _jm_f_65(Object val, Path path, Report rep)
     {
         // .predefs.URI
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
@@ -3074,7 +3139,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_URL (.predefs.URL)
-    public boolean _jm_f_61(Object val, Path path, Report rep)
+    public boolean _jm_f_66(Object val, Path path, Report rep)
     {
         // .predefs.URL
         boolean res = json.isString(val) && rt.is_valid_url(json.asString(val));
@@ -3086,7 +3151,7 @@ public class everything extends ModelChecker
     }
 
     // check _jm_f_36_map_UUID (.predefs.UUID)
-    public boolean _jm_f_62(Object val, Path path, Report rep)
+    public boolean _jm_f_67(Object val, Path path, Report rep)
     {
         // .predefs.UUID
         boolean res = json.isString(val) && jm_is_uuid(json.asString(val), path, rep);
@@ -3117,7 +3182,7 @@ public class everything extends ModelChecker
             Path lpath_17 = new Path(prop, path);
             if ((pfun = _jm_f_36_map_pmap.get(prop)) != null)
             {
-                // handle 26 may props
+                // handle 31 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_17 : null), rep)))
                 {
                     if (rep != null) rep.addEntry("invalid optional prop value [.predefs]", (path != null ? lpath_17 : null));
@@ -3137,7 +3202,7 @@ public class everything extends ModelChecker
     }
 
     // check json_model_1_map_string (.string)
-    public boolean _jm_f_63(Object val, Path path, Report rep)
+    public boolean _jm_f_68(Object val, Path path, Report rep)
     {
         // strings: inference, predef, constants, regex
         // .string
@@ -3226,7 +3291,7 @@ public class everything extends ModelChecker
     }
 
     // check json_model_1_map_tuple (.tuple)
-    public boolean _jm_f_64(Object val, Path path, Report rep)
+    public boolean _jm_f_69(Object val, Path path, Report rep)
     {
         // tuple items have a type
         // .tuple
@@ -3437,7 +3502,7 @@ public class everything extends ModelChecker
     }
 
     // check json_model_1_map_xor (.xor)
-    public boolean _jm_f_65(Object val, Path path, Report rep)
+    public boolean _jm_f_70(Object val, Path path, Report rep)
     {
         // hard alternative, only one must match
         // .xor
@@ -3626,9 +3691,34 @@ public class everything extends ModelChecker
     }
 
 
+    public boolean jm_is_duration(String val, Path path, Report rep)
+    {
+        return jm_is_duration_pat.matcher(val).find();
+    }
+
     public boolean jm_is_email(String val, Path path, Report rep)
     {
         return jm_is_email_pat.matcher(val).find();
+    }
+
+    public boolean jm_is_host(String val, Path path, Report rep)
+    {
+        return jm_is_host_pat.matcher(val).find();
+    }
+
+    public boolean jm_is_ip4(String val, Path path, Report rep)
+    {
+        return jm_is_ip4_pat.matcher(val).find();
+    }
+
+    public boolean jm_is_ip6(String val, Path path, Report rep)
+    {
+        return jm_is_ip6_pat.matcher(val).find();
+    }
+
+    public boolean jm_is_jsonpt(String val, Path path, Report rep)
+    {
+        return jm_is_jsonpt_pat.matcher(val).find();
     }
 
     public boolean jm_is_uuid(String val, Path path, Report rep)
@@ -3692,27 +3782,32 @@ public class everything extends ModelChecker
             _jm_f_36_map_pmap.put("BOOLEAN", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_39(o, p, r);} });
             _jm_f_36_map_pmap.put("DATE", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_40(o, p, r);} });
             _jm_f_36_map_pmap.put("DATETIME", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_41(o, p, r);} });
-            _jm_f_36_map_pmap.put("EMAIL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
-            _jm_f_36_map_pmap.put("EXREG", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
-            _jm_f_36_map_pmap.put("F32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
-            _jm_f_36_map_pmap.put("F64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
-            _jm_f_36_map_pmap.put("FLOAT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
-            _jm_f_36_map_pmap.put("I32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
-            _jm_f_36_map_pmap.put("I64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
-            _jm_f_36_map_pmap.put("INT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
-            _jm_f_36_map_pmap.put("INTEGER", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
-            _jm_f_36_map_pmap.put("JSON", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
-            _jm_f_36_map_pmap.put("NONE", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
-            _jm_f_36_map_pmap.put("NULL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
-            _jm_f_36_map_pmap.put("NUMBER", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
-            _jm_f_36_map_pmap.put("REGEX", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
-            _jm_f_36_map_pmap.put("STRING", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
-            _jm_f_36_map_pmap.put("TIME", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
-            _jm_f_36_map_pmap.put("U32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
-            _jm_f_36_map_pmap.put("U64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_59(o, p, r);} });
-            _jm_f_36_map_pmap.put("URI", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_60(o, p, r);} });
-            _jm_f_36_map_pmap.put("URL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_61(o, p, r);} });
-            _jm_f_36_map_pmap.put("UUID", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_62(o, p, r);} });
+            _jm_f_36_map_pmap.put("DURATION", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_42(o, p, r);} });
+            _jm_f_36_map_pmap.put("EMAIL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_43(o, p, r);} });
+            _jm_f_36_map_pmap.put("EXREG", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_44(o, p, r);} });
+            _jm_f_36_map_pmap.put("F32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_45(o, p, r);} });
+            _jm_f_36_map_pmap.put("F64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_46(o, p, r);} });
+            _jm_f_36_map_pmap.put("FLOAT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_47(o, p, r);} });
+            _jm_f_36_map_pmap.put("HOST", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_48(o, p, r);} });
+            _jm_f_36_map_pmap.put("I32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_49(o, p, r);} });
+            _jm_f_36_map_pmap.put("I64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
+            _jm_f_36_map_pmap.put("INT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
+            _jm_f_36_map_pmap.put("INTEGER", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            _jm_f_36_map_pmap.put("IP4", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
+            _jm_f_36_map_pmap.put("IP6", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
+            _jm_f_36_map_pmap.put("JSON", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_55(o, p, r);} });
+            _jm_f_36_map_pmap.put("JSONPT", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_56(o, p, r);} });
+            _jm_f_36_map_pmap.put("NONE", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_57(o, p, r);} });
+            _jm_f_36_map_pmap.put("NULL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_58(o, p, r);} });
+            _jm_f_36_map_pmap.put("NUMBER", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_59(o, p, r);} });
+            _jm_f_36_map_pmap.put("REGEX", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_60(o, p, r);} });
+            _jm_f_36_map_pmap.put("STRING", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_61(o, p, r);} });
+            _jm_f_36_map_pmap.put("TIME", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_62(o, p, r);} });
+            _jm_f_36_map_pmap.put("U32", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_63(o, p, r);} });
+            _jm_f_36_map_pmap.put("U64", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_64(o, p, r);} });
+            _jm_f_36_map_pmap.put("URI", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_65(o, p, r);} });
+            _jm_f_36_map_pmap.put("URL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_66(o, p, r);} });
+            _jm_f_36_map_pmap.put("UUID", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_67(o, p, r);} });
             _jm_re_0_pat = Pattern.compile("^(Calvin|Susie)$");
             json_model_1_map_pmap = new HashMap<String, Checker>();
             json_model_1_map_pmap.put("and", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
@@ -3727,16 +3822,21 @@ public class everything extends ModelChecker
             json_model_1_map_pmap.put("object", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_34(o, p, r);} });
             json_model_1_map_pmap.put("or", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_35(o, p, r);} });
             json_model_1_map_pmap.put("predefs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_36(o, p, r);} });
-            json_model_1_map_pmap.put("string", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_63(o, p, r);} });
-            json_model_1_map_pmap.put("tuple", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_64(o, p, r);} });
-            json_model_1_map_pmap.put("xor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_65(o, p, r);} });
+            json_model_1_map_pmap.put("string", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_68(o, p, r);} });
+            json_model_1_map_pmap.put("tuple", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_69(o, p, r);} });
+            json_model_1_map_pmap.put("xor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_70(o, p, r);} });
             everything_map_pmap = new HashMap<String, Checker>();
             everything_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             everything_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             everything_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             everything_map_pmap.put("ab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             everything_map_pmap.put("cd", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            jm_is_duration_pat = Pattern.compile("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$");
             jm_is_email_pat = Pattern.compile("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$");
+            jm_is_host_pat = Pattern.compile("(?i)^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$");
+            jm_is_ip4_pat = Pattern.compile("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$");
+            jm_is_ip6_pat = Pattern.compile("(?i)^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$");
+            jm_is_jsonpt_pat = Pattern.compile("(?s)^(/([^~]|~0|~1)*)*$");
             jm_is_uuid_pat = Pattern.compile("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$");
                 super.init(json);
             }
@@ -3761,7 +3861,12 @@ public class everything extends ModelChecker
             _jm_re_0_pat = null;
             json_model_1_map_pmap = null;
             everything_map_pmap = null;
+            jm_is_duration_pat = null;
             jm_is_email_pat = null;
+            jm_is_host_pat = null;
+            jm_is_ip4_pat = null;
+            jm_is_ip6_pat = null;
+            jm_is_jsonpt_pat = null;
             jm_is_uuid_pat = null;
         }
     }
