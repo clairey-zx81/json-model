@@ -205,7 +205,7 @@ EXPECT: dict[str, int] = {
     "mv-21:verrors:schema": 88,
     # mv-22
     "mv-22:models": 6,
-    "mv-22:values": 709,
+    "mv-22:values": 721,
     "mv-22:verrors:schema": 29,
     # mv-23
     "mv-23:models": 4,
