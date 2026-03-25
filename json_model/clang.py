@@ -16,6 +16,7 @@ CLANG_RUNTIME_PREDEFS: set[str] = {
     "$URL", "$URI",
     "$DATE", "$TIME", "$DATETIME",
     "$REGEX", "$EXREG" "$UUID", "$JSON",
+    "$ETH",
     # TODO "$HOST", "$IP4", "$IP6",
     # regex FIXME "$EMAIL",
 }
@@ -229,6 +230,8 @@ class CLangJansson(Language):
             return f"jm_is_valid_regex({val}, true, {self.path(path)}, {self.rep()})"
         elif name in ("$URL", "$URI"):
             return f"jm_is_valid_url({val}, {self.path(path)}, {self.rep()})"
+        elif name == "$ETH":
+            return f"jm_is_valid_eth({val}, {self.path(path)}, {self.rep()})"
         # elif name == "$EMAIL":
         #     return f"jm_is_valid_email({val}, {self.path(path)}, {self.rep()})"
         elif name == "$JSON":

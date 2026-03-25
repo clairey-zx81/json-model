@@ -3,6 +3,7 @@
     "?ipv4": "$IP4",
     "?ipv6": "$IP6",
     "?host": "$HOST",
+    "?eth": "$ETH",
     "#": "JsonModel 1"
   }
 ]

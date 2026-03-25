@@ -996,214 +996,226 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
         uint32_t hash_2 = *((uint32_t *) (prop));
-        if (hash_2 <= 0x44495555)
+        if (hash_2 <= 0x424d554e)
         {
             if (hash_2 <= 0x365049)
             {
-                if (jm_str_eq_4(prop, 0x00323346))
+                if (hash_2 <= 0x343646)
                 {
-                    // handle may F32 property
-                    // .predefs.F32
-                    res = json_is_real(pval);
-                    if (unlikely(! res))
+                    if (jm_str_eq_4(prop, 0x00323346))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$F32\" [.predefs.F32]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.F32]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may F32 property
+                        // .predefs.F32
+                        res = json_is_real(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$F32\" [.predefs.F32]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.F32]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
+                    else if (jm_str_eq_4(prop, 0x00343646))
+                    {
+                        // handle may F64 property
+                        // .predefs.F64
+                        res = json_is_real(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$F64\" [.predefs.F64]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.F64]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_4(prop, 0x00323349))
+                    {
+                        // handle may I32 property
+                        // .predefs.I32
+                        res = json_is_integer(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$I32\" [.predefs.I32]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.I32]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_4(prop, 0x00323355))
+                    {
+                        // handle may U32 property
+                        // .predefs.U32
+                        res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$U32\" [.predefs.U32]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.U32]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
                 }
-                else if (jm_str_eq_4(prop, 0x00343646))
+                else
                 {
-                    // handle may F64 property
-                    // .predefs.F64
-                    res = json_is_real(pval);
-                    if (unlikely(! res))
+                    if (jm_str_eq_4(prop, 0x00343649))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$F64\" [.predefs.F64]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.F64]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may I64 property
+                        // .predefs.I64
+                        res = json_is_integer(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$I64\" [.predefs.I64]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.I64]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00323349))
-                {
-                    // handle may I32 property
-                    // .predefs.I32
-                    res = json_is_integer(pval);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_4(prop, 0x00345049))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$I32\" [.predefs.I32]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.I32]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may IP4 property
+                        // .predefs.IP4
+                        res = json_is_string(pval) && jm_is_ip4(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$IP4\" [.predefs.IP4]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.IP4]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00343649))
-                {
-                    // handle may I64 property
-                    // .predefs.I64
-                    res = json_is_integer(pval);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_4(prop, 0x00365049))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$I64\" [.predefs.I64]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.I64]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may IP6 property
+                        // .predefs.IP6
+                        res = json_is_string(pval) && jm_is_ip6(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$IP6\" [.predefs.IP6]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.IP6]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00345049))
-                {
-                    // handle may IP4 property
-                    // .predefs.IP4
-                    res = json_is_string(pval) && jm_is_ip4(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_4(prop, 0x00343655))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$IP4\" [.predefs.IP4]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.IP4]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may U64 property
+                        // .predefs.U64
+                        res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$U64\" [.predefs.U64]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.U64]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00365049))
-                {
-                    // handle may IP6 property
-                    // .predefs.IP6
-                    res = json_is_string(pval) && jm_is_ip6(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$IP6\" [.predefs.IP6]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.IP6]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00323355))
-                {
-                    // handle may U32 property
-                    // .predefs.U32
-                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$U32\" [.predefs.U32]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.U32]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00343655))
-                {
-                    // handle may U64 property
-                    // .predefs.U64
-                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$U64\" [.predefs.U64]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.U64]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
                 }
             }
             else
             {
-                if (jm_str_eq_4(prop, 0x00594e41))
+                if (hash_2 <= 0x544e49)
                 {
-                    // handle may ANY property
-                    // .predefs.ANY
-                    res = true;
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00544e49))
-                {
-                    // handle may INT property
-                    // .predefs.INT
-                    res = json_is_integer(pval);
-                    if (unlikely(! res))
+                    if (jm_str_eq_4(prop, 0x00485445))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$INT\" [.predefs.INT]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.INT]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may ETH property
+                        // .predefs.ETH
+                        res = jm_is_valid_eth(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$ETH\" [.predefs.ETH]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.ETH]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00495255))
-                {
-                    // handle may URI property
-                    // .predefs.URI
-                    res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_4(prop, 0x00544e49))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$URI\" [.predefs.URI]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.URI]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may INT property
+                        // .predefs.INT
+                        res = json_is_integer(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$INT\" [.predefs.INT]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.INT]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x004c5255))
-                {
-                    // handle may URL property
-                    // .predefs.URL
-                    res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_4(prop, 0x00495255))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$URL\" [.predefs.URL]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.URL]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may URI property
+                        // .predefs.URI
+                        res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$URI\" [.predefs.URI]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.URI]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_5(prop, 0x0000000044495555LL))
-                {
-                    // handle may UUID property
-                    // .predefs.UUID
-                    res = jm_is_valid_uuid(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_4(prop, 0x004c5255))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$UUID\" [.predefs.UUID]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.UUID]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may URL property
+                        // .predefs.URL
+                        res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$URL\" [.predefs.URL]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.URL]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
                 }
-                else if (jm_str_eq_6(prop, 0x00000054414f4c46LL))
+                else
                 {
-                    // handle may FLOAT property
-                    // .predefs.FLOAT
-                    res = json_is_real(pval);
-                    if (unlikely(! res))
+                    if (jm_str_eq_4(prop, 0x00594e41))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.FLOAT]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may ANY property
+                        // .predefs.ANY
+                        res = true;
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_7(prop, 0x00005245424d554eLL))
-                {
-                    // handle may NUMBER property
-                    // .predefs.NUMBER
-                    res = json_is_number(pval);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_6(prop, 0x00000054414f4c46LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NUMBER]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may FLOAT property
+                        // .predefs.FLOAT
+                        res = json_is_real(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.FLOAT]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_8(prop, 0x4e4f495441525544LL) && jm_str_eq_0(prop + 8))
-                {
-                    // handle may DURATION property
-                    // .predefs.DURATION
-                    res = json_is_string(pval) && jm_is_duration(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_7(prop, 0x00005245424d554eLL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DURATION\" [.predefs.DURATION]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DURATION]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may NUMBER property
+                        // .predefs.NUMBER
+                        res = json_is_number(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NUMBER]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
+                    else if (jm_str_eq_8(prop, 0x4e4f495441525544LL) && jm_str_eq_0(prop + 8))
+                    {
+                        // handle may DURATION property
+                        // .predefs.DURATION
+                        res = json_is_string(pval) && jm_is_duration(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DURATION\" [.predefs.DURATION]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DURATION]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
                 }
             }
         }
@@ -1211,199 +1223,224 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             if (hash_2 <= 0x49414d45)
             {
-                if (jm_str_eq_5(prop, 0x0000000045544144LL))
+                if (hash_2 <= 0x45525845)
                 {
-                    // handle may DATE property
-                    // .predefs.DATE
-                    res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    if (jm_str_eq_5(prop, 0x00000000454e4f4eLL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.predefs.DATE]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DATE]", (path ? &lpath_13 : NULL));
+                        // handle may NONE property
+                        // .predefs.NONE
+                        res = false;
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NONE\" [.predefs.NONE]", (path ? &lpath_13 : NULL));
+                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NONE]", (path ? &lpath_13 : NULL));
                         return false;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_5(prop, 0x00000000454e4f4eLL))
-                {
-                    // handle may NONE property
-                    // .predefs.NONE
-                    res = false;
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NONE\" [.predefs.NONE]", (path ? &lpath_13 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NONE]", (path ? &lpath_13 : NULL));
-                    return false;
-                }
-                else if (jm_str_eq_5(prop, 0x00000000454d4954LL))
-                {
-                    // handle may TIME property
-                    // .predefs.TIME
-                    res = jm_is_valid_time(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_5(prop, 0x00000000454d4954LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$TIME\" [.predefs.TIME]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.TIME]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may TIME property
+                        // .predefs.TIME
+                        res = jm_is_valid_time(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$TIME\" [.predefs.TIME]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.TIME]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_6(prop, 0x0000004c49414d45LL))
-                {
-                    // handle may EMAIL property
-                    // .predefs.EMAIL
-                    res = json_is_string(pval) && jm_is_email(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_5(prop, 0x0000000044495555LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may UUID property
+                        // .predefs.UUID
+                        res = jm_is_valid_uuid(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$UUID\" [.predefs.UUID]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.UUID]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_6(prop, 0x0000004745525845LL))
-                {
-                    // handle may EXREG property
-                    // .predefs.EXREG
-                    res = jm_is_valid_regex(json_string_value(pval), true, (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_6(prop, 0x0000004745525845LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EXREG\" [.predefs.EXREG]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.EXREG]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may EXREG property
+                        // .predefs.EXREG
+                        res = jm_is_valid_regex(json_string_value(pval), true, (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EXREG\" [.predefs.EXREG]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.EXREG]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_6(prop, 0x0000005845474552LL))
-                {
-                    // handle may REGEX property
-                    // .predefs.REGEX
-                    res = jm_is_valid_regex(json_string_value(pval), false, (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_6(prop, 0x0000005845474552LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$REGEX\" [.predefs.REGEX]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.REGEX]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may REGEX property
+                        // .predefs.REGEX
+                        res = jm_is_valid_regex(json_string_value(pval), false, (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$REGEX\" [.predefs.REGEX]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.REGEX]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
                 }
-                else if (jm_str_eq_8(prop, 0x0052454745544e49LL))
+                else
                 {
-                    // handle may INTEGER property
-                    // .predefs.INTEGER
-                    res = json_is_integer(pval);
-                    if (unlikely(! res))
+                    if (jm_str_eq_5(prop, 0x0000000045544144LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$INTEGER\" [.predefs.INTEGER]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.INTEGER]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may DATE property
+                        // .predefs.DATE
+                        res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.predefs.DATE]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DATE]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_8(prop, 0x454d495445544144LL) && jm_str_eq_0(prop + 8))
-                {
-                    // handle may DATETIME property
-                    // .predefs.DATETIME
-                    res = jm_is_valid_datetime(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_6(prop, 0x0000004c49414d45LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATETIME\" [.predefs.DATETIME]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DATETIME]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may EMAIL property
+                        // .predefs.EMAIL
+                        res = json_is_string(pval) && jm_is_email(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.EMAIL]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
+                    else if (jm_str_eq_8(prop, 0x0052454745544e49LL))
+                    {
+                        // handle may INTEGER property
+                        // .predefs.INTEGER
+                        res = json_is_integer(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$INTEGER\" [.predefs.INTEGER]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.INTEGER]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x454d495445544144LL) && jm_str_eq_0(prop + 8))
+                    {
+                        // handle may DATETIME property
+                        // .predefs.DATETIME
+                        res = jm_is_valid_datetime(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATETIME\" [.predefs.DATETIME]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.DATETIME]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
                 }
             }
             else
             {
-                if (jm_str_eq_5(prop, 0x000000004c4f4f42LL))
+                if (hash_2 <= 0x4c4f4f42)
                 {
-                    // handle may BOOL property
-                    // .predefs.BOOL
-                    res = json_is_boolean(pval);
-                    if (unlikely(! res))
+                    if (jm_str_eq_5(prop, 0x000000004c4f4f42LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$BOOL\" [.predefs.BOOL]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.BOOL]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may BOOL property
+                        // .predefs.BOOL
+                        res = json_is_boolean(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$BOOL\" [.predefs.BOOL]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.BOOL]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
+                    else if (jm_str_eq_5(prop, 0x000000004c4c554eLL))
+                    {
+                        // handle may NULL property
+                        // .predefs.NULL
+                        res = json_is_null(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NULL\" [.predefs.NULL]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NULL]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_7(prop, 0x0000474e49525453LL))
+                    {
+                        // handle may STRING property
+                        // .predefs.STRING
+                        res = json_is_string(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$STRING\" [.predefs.STRING]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.STRING]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
+                    else if (jm_str_eq_8(prop, 0x004e41454c4f4f42LL))
+                    {
+                        // handle may BOOLEAN property
+                        // .predefs.BOOLEAN
+                        res = json_is_boolean(pval);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$BOOLEAN\" [.predefs.BOOLEAN]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.BOOLEAN]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
+                    }
                 }
-                else if (jm_str_eq_5(prop, 0x0000000054534f48LL))
+                else
                 {
-                    // handle may HOST property
-                    // .predefs.HOST
-                    res = json_is_string(pval) && jm_is_host(json_string_value(pval), (path ? &lpath_13 : NULL), rep) && jm_str_len(json_string_value(pval)) <= 255;
-                    if (unlikely(! res))
+                    if (jm_str_eq_5(prop, 0x0000000054534f48LL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$HOST\" [.predefs.HOST]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.HOST]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may HOST property
+                        // .predefs.HOST
+                        res = json_is_string(pval) && jm_is_host(json_string_value(pval), (path ? &lpath_13 : NULL), rep) && jm_str_len(json_string_value(pval)) <= 255;
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$HOST\" [.predefs.HOST]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.HOST]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_5(prop, 0x000000004e4f534aLL))
-                {
-                    // handle may JSON property
-                    // .predefs.JSON
-                    res = jm_is_valid_json(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_5(prop, 0x000000004e4f534aLL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$JSON\" [.predefs.JSON]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.JSON]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may JSON property
+                        // .predefs.JSON
+                        res = jm_is_valid_json(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$JSON\" [.predefs.JSON]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.JSON]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_5(prop, 0x000000004c4c554eLL))
-                {
-                    // handle may NULL property
-                    // .predefs.NULL
-                    res = json_is_null(pval);
-                    if (unlikely(! res))
+                    else if (jm_str_eq_7(prop, 0x000054504e4f534aLL))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NULL\" [.predefs.NULL]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.NULL]", (path ? &lpath_13 : NULL));
-                        return false;
+                        // handle may JSONPT property
+                        // .predefs.JSONPT
+                        res = json_is_string(pval) && jm_is_jsonpt(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
+                        if (unlikely(! res))
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", (path ? &lpath_13 : NULL));
+                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.JSONPT]", (path ? &lpath_13 : NULL));
+                            return false;
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                else if (jm_str_eq_7(prop, 0x000054504e4f534aLL))
-                {
-                    // handle may JSONPT property
-                    // .predefs.JSONPT
-                    res = json_is_string(pval) && jm_is_jsonpt(json_string_value(pval), (path ? &lpath_13 : NULL), rep);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.JSONPT]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
-                }
-                else if (jm_str_eq_7(prop, 0x0000474e49525453LL))
-                {
-                    // handle may STRING property
-                    // .predefs.STRING
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$STRING\" [.predefs.STRING]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.STRING]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
-                }
-                else if (jm_str_eq_8(prop, 0x004e41454c4f4f42LL))
-                {
-                    // handle may BOOLEAN property
-                    // .predefs.BOOLEAN
-                    res = json_is_boolean(pval);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$BOOLEAN\" [.predefs.BOOLEAN]", (path ? &lpath_13 : NULL));
-                        if (rep) jm_report_add_entry(rep, "invalid optional prop value [.predefs.BOOLEAN]", (path ? &lpath_13 : NULL));
-                        return false;
-                    }
-                    continue;
                 }
             }
         }

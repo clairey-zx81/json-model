@@ -1,6 +1,7 @@
 {
-  "#": "predefs about ip addresses and host names",
+  "#": "predefs about network-related predefs",
   "?ipv4": "$IP4",
   "?ipv6": "$IP6",
-  "?host": "$HOST"
+  "?host": "$HOST",
+  "?eth": "$ETH"
 }

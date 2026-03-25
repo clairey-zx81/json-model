@@ -1,5 +1,5 @@
 {
-  "description": "predefs about ip addresses and host names",
+  "description": "predefs about network-related predefs",
   "type": "object",
   "properties": {
     "ipv4": {
@@ -13,6 +13,9 @@
     "host": {
       "type": "string",
       "format": "hostname"
+    },
+    "eth": {
+      "type": "string"
     }
   },
   "additionalProperties": false

@@ -28,7 +28,14 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_5(prop, 0x0000000074736f68LL)))
+        if (unlikely(jm_str_eq_4(prop, 0x00687465)))
+        {
+            res = jm_is_valid_eth(json_string_value(pval), NULL, NULL);
+            if (unlikely(! res))
+                return false;
+            continue;
+        }
+        else if (unlikely(jm_str_eq_5(prop, 0x0000000074736f68LL)))
         {
             res = json_is_string(pval) && jm_is_host(json_string_value(pval), NULL, NULL) && jm_str_len(json_string_value(pval)) <= 255;
             if (unlikely(! res))

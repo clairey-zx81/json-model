@@ -128,11 +128,12 @@ sub _jm_f_84($$$);
 sub _jm_f_85($$$);
 sub _jm_f_86($$$);
 sub _jm_f_87($$$);
+sub _jm_f_88($$$);
 my %_jm_f_56_map;
 sub _jm_f_56($$$);
-sub _jm_f_88($$$);
 sub _jm_f_89($$$);
 sub _jm_f_90($$$);
+sub _jm_f_91($$$);
 my %json_model_1_map;
 sub json_model_1($$$);
 my %check_model_map;
@@ -2104,8 +2105,16 @@ sub _jm_f_63($$$)
     return jm_is_string($val) && jm_is_email($val, undef, undef);
 }
 
-# check _jm_f_56_map_EXREG (.predefs.EXREG)
+# check _jm_f_56_map_ETH (.predefs.ETH)
 sub _jm_f_64($$$)
+{
+    my ($val, $path, $rep) = @_;
+    # .predefs.ETH
+    return jm_is_string($val) && jm_is_eth($val, undef, undef);
+}
+
+# check _jm_f_56_map_EXREG (.predefs.EXREG)
+sub _jm_f_65($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.EXREG
@@ -2113,7 +2122,7 @@ sub _jm_f_64($$$)
 }
 
 # check _jm_f_56_map_F32 (.predefs.F32)
-sub _jm_f_65($$$)
+sub _jm_f_66($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.F32
@@ -2121,7 +2130,7 @@ sub _jm_f_65($$$)
 }
 
 # check _jm_f_56_map_F64 (.predefs.F64)
-sub _jm_f_66($$$)
+sub _jm_f_67($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.F64
@@ -2129,7 +2138,7 @@ sub _jm_f_66($$$)
 }
 
 # check _jm_f_56_map_FLOAT (.predefs.FLOAT)
-sub _jm_f_67($$$)
+sub _jm_f_68($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.FLOAT
@@ -2137,7 +2146,7 @@ sub _jm_f_67($$$)
 }
 
 # check _jm_f_56_map_HOST (.predefs.HOST)
-sub _jm_f_68($$$)
+sub _jm_f_69($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.HOST
@@ -2145,7 +2154,7 @@ sub _jm_f_68($$$)
 }
 
 # check _jm_f_56_map_I32 (.predefs.I32)
-sub _jm_f_69($$$)
+sub _jm_f_70($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.I32
@@ -2153,7 +2162,7 @@ sub _jm_f_69($$$)
 }
 
 # check _jm_f_56_map_I64 (.predefs.I64)
-sub _jm_f_70($$$)
+sub _jm_f_71($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.I64
@@ -2161,7 +2170,7 @@ sub _jm_f_70($$$)
 }
 
 # check _jm_f_56_map_INT (.predefs.INT)
-sub _jm_f_71($$$)
+sub _jm_f_72($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.INT
@@ -2169,7 +2178,7 @@ sub _jm_f_71($$$)
 }
 
 # check _jm_f_56_map_INTEGER (.predefs.INTEGER)
-sub _jm_f_72($$$)
+sub _jm_f_73($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.INTEGER
@@ -2177,7 +2186,7 @@ sub _jm_f_72($$$)
 }
 
 # check _jm_f_56_map_IP4 (.predefs.IP4)
-sub _jm_f_73($$$)
+sub _jm_f_74($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.IP4
@@ -2185,7 +2194,7 @@ sub _jm_f_73($$$)
 }
 
 # check _jm_f_56_map_IP6 (.predefs.IP6)
-sub _jm_f_74($$$)
+sub _jm_f_75($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.IP6
@@ -2193,7 +2202,7 @@ sub _jm_f_74($$$)
 }
 
 # check _jm_f_56_map_JSON (.predefs.JSON)
-sub _jm_f_75($$$)
+sub _jm_f_76($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.JSON
@@ -2201,7 +2210,7 @@ sub _jm_f_75($$$)
 }
 
 # check _jm_f_56_map_JSONPT (.predefs.JSONPT)
-sub _jm_f_76($$$)
+sub _jm_f_77($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.JSONPT
@@ -2209,7 +2218,7 @@ sub _jm_f_76($$$)
 }
 
 # check _jm_f_56_map_NONE (.predefs.NONE)
-sub _jm_f_77($$$)
+sub _jm_f_78($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.NONE
@@ -2217,7 +2226,7 @@ sub _jm_f_77($$$)
 }
 
 # check _jm_f_56_map_NULL (.predefs.NULL)
-sub _jm_f_78($$$)
+sub _jm_f_79($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.NULL
@@ -2225,7 +2234,7 @@ sub _jm_f_78($$$)
 }
 
 # check _jm_f_56_map_NUMBER (.predefs.NUMBER)
-sub _jm_f_79($$$)
+sub _jm_f_80($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.NUMBER
@@ -2233,7 +2242,7 @@ sub _jm_f_79($$$)
 }
 
 # check _jm_f_56_map_REGEX (.predefs.REGEX)
-sub _jm_f_80($$$)
+sub _jm_f_81($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.REGEX
@@ -2241,7 +2250,7 @@ sub _jm_f_80($$$)
 }
 
 # check _jm_f_56_map_STRING (.predefs.STRING)
-sub _jm_f_81($$$)
+sub _jm_f_82($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.STRING
@@ -2249,7 +2258,7 @@ sub _jm_f_81($$$)
 }
 
 # check _jm_f_56_map_TIME (.predefs.TIME)
-sub _jm_f_82($$$)
+sub _jm_f_83($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.TIME
@@ -2257,7 +2266,7 @@ sub _jm_f_82($$$)
 }
 
 # check _jm_f_56_map_U32 (.predefs.U32)
-sub _jm_f_83($$$)
+sub _jm_f_84($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.U32
@@ -2265,7 +2274,7 @@ sub _jm_f_83($$$)
 }
 
 # check _jm_f_56_map_U64 (.predefs.U64)
-sub _jm_f_84($$$)
+sub _jm_f_85($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.U64
@@ -2273,7 +2282,7 @@ sub _jm_f_84($$$)
 }
 
 # check _jm_f_56_map_URI (.predefs.URI)
-sub _jm_f_85($$$)
+sub _jm_f_86($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.URI
@@ -2281,7 +2290,7 @@ sub _jm_f_85($$$)
 }
 
 # check _jm_f_56_map_URL (.predefs.URL)
-sub _jm_f_86($$$)
+sub _jm_f_87($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.URL
@@ -2289,7 +2298,7 @@ sub _jm_f_86($$$)
 }
 
 # check _jm_f_56_map_UUID (.predefs.UUID)
-sub _jm_f_87($$$)
+sub _jm_f_88($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.UUID
@@ -2313,7 +2322,7 @@ sub _jm_f_56($$$)
     {
         if (($pfun = $_jm_f_56_map{$prop}))
         {
-            # handle 31 may props
+            # handle 32 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
             {
                 return 0;
@@ -2333,7 +2342,7 @@ sub _jm_re_0($$$)
 }
 
 # check json_model_1_map_string (.string)
-sub _jm_f_88($$$)
+sub _jm_f_89($$$)
 {
     my ($val, $path, $rep) = @_;
     # strings: inference, predef, constants, regex
@@ -2408,7 +2417,7 @@ sub _jm_f_88($$$)
 }
 
 # check json_model_1_map_tuple (.tuple)
-sub _jm_f_89($$$)
+sub _jm_f_90($$$)
 {
     my ($val, $path, $rep) = @_;
     # tuple items have a type
@@ -2553,7 +2562,7 @@ sub _jm_f_89($$$)
 }
 
 # check json_model_1_map_xor (.xor)
-sub _jm_f_90($$$)
+sub _jm_f_91($$$)
 {
     my ($val, $path, $rep) = @_;
     # hard alternative, only one must match
@@ -2694,6 +2703,13 @@ sub jm_is_email($$$)
     return $res;
 }
 
+sub jm_is_eth($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^([0-9a-f]{2}:){5}[0-9a-f]{2}$/i;
+    return $res;
+}
+
 sub jm_is_host($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -2805,30 +2821,31 @@ sub check_model_init()
             'DATETIME' => \&_jm_f_61,
             'DURATION' => \&_jm_f_62,
             'EMAIL' => \&_jm_f_63,
-            'EXREG' => \&_jm_f_64,
-            'F32' => \&_jm_f_65,
-            'F64' => \&_jm_f_66,
-            'FLOAT' => \&_jm_f_67,
-            'HOST' => \&_jm_f_68,
-            'I32' => \&_jm_f_69,
-            'I64' => \&_jm_f_70,
-            'INT' => \&_jm_f_71,
-            'INTEGER' => \&_jm_f_72,
-            'IP4' => \&_jm_f_73,
-            'IP6' => \&_jm_f_74,
-            'JSON' => \&_jm_f_75,
-            'JSONPT' => \&_jm_f_76,
-            'NONE' => \&_jm_f_77,
-            'NULL' => \&_jm_f_78,
-            'NUMBER' => \&_jm_f_79,
-            'REGEX' => \&_jm_f_80,
-            'STRING' => \&_jm_f_81,
-            'TIME' => \&_jm_f_82,
-            'U32' => \&_jm_f_83,
-            'U64' => \&_jm_f_84,
-            'URI' => \&_jm_f_85,
-            'URL' => \&_jm_f_86,
-            'UUID' => \&_jm_f_87,
+            'ETH' => \&_jm_f_64,
+            'EXREG' => \&_jm_f_65,
+            'F32' => \&_jm_f_66,
+            'F64' => \&_jm_f_67,
+            'FLOAT' => \&_jm_f_68,
+            'HOST' => \&_jm_f_69,
+            'I32' => \&_jm_f_70,
+            'I64' => \&_jm_f_71,
+            'INT' => \&_jm_f_72,
+            'INTEGER' => \&_jm_f_73,
+            'IP4' => \&_jm_f_74,
+            'IP6' => \&_jm_f_75,
+            'JSON' => \&_jm_f_76,
+            'JSONPT' => \&_jm_f_77,
+            'NONE' => \&_jm_f_78,
+            'NULL' => \&_jm_f_79,
+            'NUMBER' => \&_jm_f_80,
+            'REGEX' => \&_jm_f_81,
+            'STRING' => \&_jm_f_82,
+            'TIME' => \&_jm_f_83,
+            'U32' => \&_jm_f_84,
+            'U64' => \&_jm_f_85,
+            'URI' => \&_jm_f_86,
+            'URL' => \&_jm_f_87,
+            'UUID' => \&_jm_f_88,
         );
         %json_model_1_map = (
             'and' => \&_jm_f_0,
@@ -2843,9 +2860,9 @@ sub check_model_init()
             'object' => \&_jm_f_54,
             'or' => \&_jm_f_55,
             'predefs' => \&_jm_f_56,
-            'string' => \&_jm_f_88,
-            'tuple' => \&_jm_f_89,
-            'xor' => \&_jm_f_90,
+            'string' => \&_jm_f_89,
+            'tuple' => \&_jm_f_90,
+            'xor' => \&_jm_f_91,
         );
         %check_model_map = (
             '' => \&json_model_1,

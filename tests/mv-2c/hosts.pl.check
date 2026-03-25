@@ -21,3 +21,9 @@ hosts.values.json[19]: PASS
 hosts.values.json[20]: FAIL
 hosts.values.json[21]: PASS
 hosts.values.json[22]: FAIL
+hosts.values.json[23]: PASS
+hosts.values.json[24]: PASS
+hosts.values.json[25]: FAIL
+hosts.values.json[26]: FAIL
+hosts.values.json[27]: FAIL
+hosts.values.json[28]: FAIL

@@ -12,7 +12,13 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'host' THEN
+    IF prop = 'eth' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_eth(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'host' THEN
       res := JSONB_TYPEOF(pval) = 'string' AND jm_is_host(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) <= 255;
       IF NOT res THEN
         RETURN FALSE;
@@ -43,6 +49,14 @@ DECLARE
   map JSONB := JSONB '{"":"json_model_1"}';
 BEGIN
   RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^([0-9a-f]{2}:){5}[0-9a-f]{2}$ opts=ni
+CREATE OR REPLACE FUNCTION jm_is_eth(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^([0-9a-f]{2}:){5}[0-9a-f]{2}$', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 

@@ -15,6 +15,7 @@
 - [x] \*-backend: add approximated backup regex for predefs when not implemented by runtime
 - [x] predefs: add `$__EXTENSION_COLOR`
 - [x] predefs: refactor multiple instances in the sources into `predefs.py`
+- [x] predefs: add `$ETH` for ethernet (mac) addresses
 - [ ] predefs: filter extensions with `--extend`
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`

@@ -2076,8 +2076,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_f_56_map_EXREG (.predefs.EXREG)
+-- check _jm_f_56_map_ETH (.predefs.ETH)
 CREATE OR REPLACE FUNCTION _jm_f_64(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  -- .predefs.ETH
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_eth(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- check _jm_f_56_map_EXREG (.predefs.EXREG)
+CREATE OR REPLACE FUNCTION _jm_f_65(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.EXREG
@@ -2086,7 +2095,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_F32 (.predefs.F32)
-CREATE OR REPLACE FUNCTION _jm_f_65(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_66(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.F32
@@ -2095,7 +2104,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_F64 (.predefs.F64)
-CREATE OR REPLACE FUNCTION _jm_f_66(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_67(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.F64
@@ -2104,7 +2113,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_FLOAT (.predefs.FLOAT)
-CREATE OR REPLACE FUNCTION _jm_f_67(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_68(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.FLOAT
@@ -2113,7 +2122,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_HOST (.predefs.HOST)
-CREATE OR REPLACE FUNCTION _jm_f_68(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_69(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.HOST
@@ -2122,7 +2131,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_I32 (.predefs.I32)
-CREATE OR REPLACE FUNCTION _jm_f_69(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_70(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.I32
@@ -2131,7 +2140,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_I64 (.predefs.I64)
-CREATE OR REPLACE FUNCTION _jm_f_70(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_71(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.I64
@@ -2140,7 +2149,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_INT (.predefs.INT)
-CREATE OR REPLACE FUNCTION _jm_f_71(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_72(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.INT
@@ -2149,7 +2158,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_INTEGER (.predefs.INTEGER)
-CREATE OR REPLACE FUNCTION _jm_f_72(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_73(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.INTEGER
@@ -2158,7 +2167,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_IP4 (.predefs.IP4)
-CREATE OR REPLACE FUNCTION _jm_f_73(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_74(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.IP4
@@ -2167,7 +2176,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_IP6 (.predefs.IP6)
-CREATE OR REPLACE FUNCTION _jm_f_74(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_75(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.IP6
@@ -2176,7 +2185,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_JSON (.predefs.JSON)
-CREATE OR REPLACE FUNCTION _jm_f_75(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_76(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.JSON
@@ -2185,7 +2194,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_JSONPT (.predefs.JSONPT)
-CREATE OR REPLACE FUNCTION _jm_f_76(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_77(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.JSONPT
@@ -2194,7 +2203,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_NONE (.predefs.NONE)
-CREATE OR REPLACE FUNCTION _jm_f_77(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_78(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.NONE
@@ -2203,7 +2212,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_NULL (.predefs.NULL)
-CREATE OR REPLACE FUNCTION _jm_f_78(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_79(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.NULL
@@ -2212,7 +2221,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_NUMBER (.predefs.NUMBER)
-CREATE OR REPLACE FUNCTION _jm_f_79(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_80(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.NUMBER
@@ -2221,7 +2230,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_REGEX (.predefs.REGEX)
-CREATE OR REPLACE FUNCTION _jm_f_80(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_81(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.REGEX
@@ -2230,7 +2239,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_STRING (.predefs.STRING)
-CREATE OR REPLACE FUNCTION _jm_f_81(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_82(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.STRING
@@ -2239,7 +2248,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_TIME (.predefs.TIME)
-CREATE OR REPLACE FUNCTION _jm_f_82(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_83(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.TIME
@@ -2248,7 +2257,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_U32 (.predefs.U32)
-CREATE OR REPLACE FUNCTION _jm_f_83(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_84(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.U32
@@ -2257,7 +2266,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_U64 (.predefs.U64)
-CREATE OR REPLACE FUNCTION _jm_f_84(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_85(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.U64
@@ -2266,7 +2275,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_URI (.predefs.URI)
-CREATE OR REPLACE FUNCTION _jm_f_85(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_86(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.URI
@@ -2275,7 +2284,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_URL (.predefs.URL)
-CREATE OR REPLACE FUNCTION _jm_f_86(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_87(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.URL
@@ -2284,7 +2293,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check _jm_f_56_map_UUID (.predefs.UUID)
-CREATE OR REPLACE FUNCTION _jm_f_87(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_88(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .predefs.UUID
@@ -2295,7 +2304,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_f_56_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"ANY":"_jm_f_57","BOOL":"_jm_f_58","BOOLEAN":"_jm_f_59","DATE":"_jm_f_60","DATETIME":"_jm_f_61","DURATION":"_jm_f_62","EMAIL":"_jm_f_63","EXREG":"_jm_f_64","F32":"_jm_f_65","F64":"_jm_f_66","FLOAT":"_jm_f_67","HOST":"_jm_f_68","I32":"_jm_f_69","I64":"_jm_f_70","INT":"_jm_f_71","INTEGER":"_jm_f_72","IP4":"_jm_f_73","IP6":"_jm_f_74","JSON":"_jm_f_75","JSONPT":"_jm_f_76","NONE":"_jm_f_77","NULL":"_jm_f_78","NUMBER":"_jm_f_79","REGEX":"_jm_f_80","STRING":"_jm_f_81","TIME":"_jm_f_82","U32":"_jm_f_83","U64":"_jm_f_84","URI":"_jm_f_85","URL":"_jm_f_86","UUID":"_jm_f_87"}';
+  map JSONB := JSONB '{"ANY":"_jm_f_57","BOOL":"_jm_f_58","BOOLEAN":"_jm_f_59","DATE":"_jm_f_60","DATETIME":"_jm_f_61","DURATION":"_jm_f_62","EMAIL":"_jm_f_63","ETH":"_jm_f_64","EXREG":"_jm_f_65","F32":"_jm_f_66","F64":"_jm_f_67","FLOAT":"_jm_f_68","HOST":"_jm_f_69","I32":"_jm_f_70","I64":"_jm_f_71","INT":"_jm_f_72","INTEGER":"_jm_f_73","IP4":"_jm_f_74","IP6":"_jm_f_75","JSON":"_jm_f_76","JSONPT":"_jm_f_77","NONE":"_jm_f_78","NULL":"_jm_f_79","NUMBER":"_jm_f_80","REGEX":"_jm_f_81","STRING":"_jm_f_82","TIME":"_jm_f_83","U32":"_jm_f_84","U64":"_jm_f_85","URI":"_jm_f_86","URL":"_jm_f_87","UUID":"_jm_f_88"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -2316,7 +2325,7 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF _jm_f_56_map(prop) IS NOT NULL THEN
-      -- handle 31 may props
+      -- handle 32 may props
       pfun := _jm_f_56_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
@@ -2338,7 +2347,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check json_model_1_map_string (.string)
-CREATE OR REPLACE FUNCTION _jm_f_88(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_89(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2400,7 +2409,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_1_map_tuple (.tuple)
-CREATE OR REPLACE FUNCTION _jm_f_89(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_90(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2523,7 +2532,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_1_map_xor (.xor)
-CREATE OR REPLACE FUNCTION _jm_f_90(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_91(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2614,7 +2623,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_1_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"and":"_jm_f_0","array":"_jm_f_1","bool":"_jm_f_2","constraints":"_jm_f_3","enum":"_jm_f_29","float":"_jm_f_30","int":"_jm_f_40","merge":"_jm_f_52","null":"_jm_f_53","object":"_jm_f_54","or":"_jm_f_55","predefs":"_jm_f_56","string":"_jm_f_88","tuple":"_jm_f_89","xor":"_jm_f_90"}';
+  map JSONB := JSONB '{"and":"_jm_f_0","array":"_jm_f_1","bool":"_jm_f_2","constraints":"_jm_f_3","enum":"_jm_f_29","float":"_jm_f_30","int":"_jm_f_40","merge":"_jm_f_52","null":"_jm_f_53","object":"_jm_f_54","or":"_jm_f_55","predefs":"_jm_f_56","string":"_jm_f_89","tuple":"_jm_f_90","xor":"_jm_f_91"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -2670,6 +2679,14 @@ CREATE OR REPLACE FUNCTION jm_is_email(val TEXT, path TEXT[], rep jm_report_entr
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^([-+!#$%&''`*/=?^{}|~_a-z0-9]+)(\.([-+!#$%&''`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\.([a-z0-9][-a-z0-9]{0,62}))*$', 'ni');
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^([0-9a-f]{2}:){5}[0-9a-f]{2}$ opts=ni
+CREATE OR REPLACE FUNCTION jm_is_eth(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^([0-9a-f]{2}:){5}[0-9a-f]{2}$', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 

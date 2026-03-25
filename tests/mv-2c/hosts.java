@@ -14,6 +14,7 @@ public class hosts extends ModelChecker
     static public final String VERSION = "2";
 
     public Map<String, Checker> hosts_map_pmap;
+    public Pattern jm_is_eth_pat = null;
     public Pattern jm_is_host_pat = null;
     public Pattern jm_is_ip4_pat = null;
     public Pattern jm_is_ip6_pat = null;
@@ -30,7 +31,16 @@ public class hosts extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("host") == 0)
+            if (prop.compareTo("eth") == 0)
+            {
+                res = json.isString(pval) && jm_is_eth(json.asString(pval), null, null);
+                if (! res)
+                {
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("host") == 0)
             {
                 res = json.isString(pval) && jm_is_host(json.asString(pval), null, null) && json.asString(pval).length() <= 255;
                 if (! res)
@@ -63,6 +73,11 @@ public class hosts extends ModelChecker
     }
 
 
+    public boolean jm_is_eth(String val, Path path, Report rep)
+    {
+        return jm_is_eth_pat.matcher(val).find();
+    }
+
     public boolean jm_is_host(String val, Path path, Report rep)
     {
         return jm_is_host_pat.matcher(val).find();
@@ -85,6 +100,7 @@ public class hosts extends ModelChecker
             try {
             hosts_map_pmap = new HashMap<String, Checker>();
             hosts_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            jm_is_eth_pat = Pattern.compile("(?i)^([0-9a-f]{2}:){5}[0-9a-f]{2}$");
             jm_is_host_pat = Pattern.compile("(?i)^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$");
             jm_is_ip4_pat = Pattern.compile("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$");
             jm_is_ip6_pat = Pattern.compile("(?i)^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$");
@@ -102,6 +118,7 @@ public class hosts extends ModelChecker
         {
             super.free();
             hosts_map_pmap = null;
+            jm_is_eth_pat = null;
             jm_is_host_pat = null;
             jm_is_ip4_pat = null;
             jm_is_ip6_pat = null;
