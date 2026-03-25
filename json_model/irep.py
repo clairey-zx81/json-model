@@ -312,6 +312,7 @@ def invertBool(op: Jsonable) -> Jsonable:
     else:
         return {"o": "not", "e": op}
 
+# TODO extend to statements?
 def bvar_uses(op: Jsonable, var: str) -> int:
     """Count boolean variable occurrences in boolean expression."""
     if isinstance(op, str):
@@ -713,6 +714,30 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
             val = None
         else:
             val = None
+
+    # simplify "decl V = E; V' = f(V) where V appears once; no V uses" to "V' = f(E)"
+    val1: Jsonable|None = None
+    val2: Jsonable|None = None
+    for op in seq:
+        if _noOp(op, reporting):
+            pass
+        elif _isOp(op, "bv") and op["val"] is not None and op["declare"]:
+            val1 = op
+        elif val1 is not None and _isOp(op, "bv") and val2 is None:
+            uses = bvar_uses(op["val"], val1["var"])
+            if uses == 0:
+                pass
+            elif uses == 1:
+                val2 = op
+            else:
+                val1 = None
+        else:
+            # TODO improve, skip unrelated statements, check others?
+            val1 = None
+    if val1 is not None and val2 is not None:
+        val2["val"] = bvar_subs(val2["val"], val1["var"], val1["val"])
+        val1.clear()
+        val1.update({"o": "ign", "#": "IRO subs boolean var in next assignment"})
 
     # remove nopes (unless alone)
     rm, nco = [], 0

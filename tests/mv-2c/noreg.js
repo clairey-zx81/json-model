@@ -12,13 +12,7 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 function json_model_1(val, path, rep)
 {
-    let res = (typeof val === 'string' || val instanceof String);
-    if (res)
-    {
-        let is_0 = _jm_re_0(val, null, null);
-        res = ! is_0;
-    }
-    return res;
+    return ((typeof val === 'string' || val instanceof String)) && ! _jm_re_0(val, null, null);
 }
 
 
