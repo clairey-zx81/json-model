@@ -20,13 +20,7 @@ sub _jm_re_0($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = jm_is_string($val);
-    if ($res)
-    {
-        my $is_0 = _jm_re_0($val, undef, undef);
-        $res = ! $is_0;
-    }
-    return $res;
+    return jm_is_string($val) && ! _jm_re_0($val, undef, undef);
 }
 
 

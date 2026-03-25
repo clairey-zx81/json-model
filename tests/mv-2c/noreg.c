@@ -21,13 +21,7 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res = json_is_string(val);
-    if (res)
-    {
-        bool is_0 = _jm_re_0(json_string_value(val), NULL, NULL);
-        res = ! is_0;
-    }
-    return res;
+    return json_is_string(val) && ! _jm_re_0(json_string_value(val), NULL, NULL);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

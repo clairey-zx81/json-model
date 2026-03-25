@@ -23,13 +23,7 @@ public class noreg extends ModelChecker
 
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res = json.isString(val);
-        if (res)
-        {
-            boolean is_0 = _jm_re_0(json.asString(val), null, null);
-            res = ! is_0;
-        }
-        return res;
+        return json.isString(val) && ! _jm_re_0(json.asString(val), null, null);
     }
 
 

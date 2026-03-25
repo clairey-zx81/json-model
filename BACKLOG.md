@@ -17,7 +17,7 @@
 - [x] predefs: refactor multiple instances in the sources into `predefs.py`
 - [x] predefs: add `$ETH` for ethernet (mac) addresses
 - [x] static: recognize and generate better code for typed _not_: _"" ^ "xxx"_
-- [ ] ir: optimize forward substitution with `not` in `noreg`
+- [x] ir: add forward substitution between assignments when used once
 - [ ] predefs: filter extensions with `--extend`
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
