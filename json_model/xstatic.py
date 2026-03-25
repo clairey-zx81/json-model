@@ -1498,6 +1498,19 @@ class CodeGenerator:
                     self._compileModel(jm, m, mpath + [idx], is_m, val, vpath) +
                     gen.bool_var(res, gen.not_op(is_m))
                 )
+            elif len(models) == 2 and "" in models and (mtype := all_model_type(models, mpath)[1]) is str:
+                idx = 1 if models[0] == "" else 0
+                moth = models[idx]
+                is_str = gen.is_a(val, str)
+                is_m = self._lang.ident("is")
+                xcode += (
+                    gen.bool_var(res, is_str) +
+                    gen.if_stmt(res,
+                        gen.bool_var(is_m, declare=True) +
+                        self._compileModel(jm, moth, mpath + [idx], is_m, val, vpath, known={is_str}) +
+                        gen.bool_var(res, gen.not_op(is_m))
+                    )
+                )
             else:
                 # TODO collect which model matched for reporting?
                 count = self._lang.ident("xc")

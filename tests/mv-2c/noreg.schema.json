@@ -1,0 +1,12 @@
+{
+  "description": "not some regex",
+  "oneOf": [
+    {
+      "type": "string"
+    },
+    {
+      "type": "string",
+      "pattern": "^[0-9]"
+    }
+  ]
+}
