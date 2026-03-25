@@ -90,6 +90,7 @@ check:
 .PHONY: clean
 clean:
 	$(RM) *.o *.out *.mjs *.mpy *.class $(FD.java)
+	$(RM) -rf __pycache__
 
 .PHONY: sql clean.sql
 sql: $(F.sql) $(F.sqlc)
