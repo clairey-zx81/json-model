@@ -111,6 +111,9 @@
           "type": "string",
           "format": "email"
         },
+        "ETH": {
+          "type": "string"
+        },
         "NULL": {
           "type": "null"
         },

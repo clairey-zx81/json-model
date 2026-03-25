@@ -18,13 +18,20 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 check_model_map: PropMap
+jm_is_eth_reco: object
+jm_is_eth: RegexFun
 
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         return False
     res: bool
     for prop, pval in val.items():
-        if prop == "host":
+        if prop == "eth":
+            res = isinstance(pval, str) and jm_is_eth(pval, None, None)
+            if not res:
+                return False
+            continue
+        elif prop == "host":
             res = is_valid_host(pval, None, rep)
             if not res:
                 return False
@@ -43,6 +50,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 
+
 # initialization guard
 initialized: bool = False
 
@@ -55,12 +63,18 @@ def check_model_init():
         check_model_map = {
             "": json_model_1,
         }
+        global jm_is_eth_reco, jm_is_eth
+        jm_is_eth_reco = re.compile("(?i)^([0-9a-f]{2}:){5}[0-9a-f]{2}$")
+        jm_is_eth = lambda s, p, r: jm_is_eth_reco.search(s) is not None
 
 # differed module cleanup
 def check_model_free():
     global initialized
     if initialized:
         initialized = False
+        global jm_is_eth_reco, jm_is_eth
+        jm_is_eth_reco = None
+        jm_is_eth = None
 
 if __name__ == "__main__":
     check_model_init()

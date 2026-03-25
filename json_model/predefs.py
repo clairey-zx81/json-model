@@ -6,11 +6,10 @@ from .mtypes import ModelType
 
 STR_MODEL_PREDEFS = {
     "$STRING",
-    "$DATE", "$TIME", "$DATETIME",
-    "$URL", "$REGEX", "$EXREG", "$UUID",
-    "$URI", "$EMAIL", "$JSON",
-    # TODO $URI-REF, $DOMAIN…
-    "$IP4", "$IP6", "$DURATION", "$JSONPT", "$HOST",
+    "$DATE", "$TIME", "$DATETIME", "$DURATION",
+    "$REGEX", "$EXREG", "$UUID",
+    "$URL", "$URI", "$EMAIL", "$IP4", "$IP6", "$HOST", "$ETH",
+    "$JSON", "$JSONPT",
     "$__EXTENSION_COLOR",
 }
 
@@ -62,6 +61,8 @@ _IP6 = (
     f":(:{_IP6S}){{1,7}}|"                   # ::*
     r"::)"                                   # ::
 )
+# ethernet/mac address
+_ETH = "([0-9a-f]{2}:){5}[0-9a-f]{2}"  # i
 
 # FIXME TODO improve!
 _URL = r"((https?|file)://.*|\..*)"
@@ -118,6 +119,7 @@ PREDEF_RE: dict[str, tuple[str, str, str]] = {
     "$IP6": ("jm_is_ip6", f"^{_IP6}$", "i"),
     "$HOST": ("jm_is_host", f"^{_HOST}$", "i"),
     "$EMAIL": ("jm_is_email", f"^{_EMAIL}$", "i"),
+    "$ETH": ("jm_is_eth", f"^{_ETH}$", "i"),
     "$URL": ("jm_is_url", f"^{_URL}$", ""),
     "$URI": ("jm_is_uri", f"^{_URI}$", ""),
     "$DATE": ("jm_is_date", f"^{_DATE}$", ""),

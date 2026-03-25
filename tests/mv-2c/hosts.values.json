@@ -1,5 +1,6 @@
 [
   [ true,  {} ],
+  "# ipv4 values",
   [ true,  {"ipv4": "127.0.0.1"} ],
   [ true,  {"ipv4": "8.8.8.8"} ],
   [ false, {"ipv4": "localhost"} ],
@@ -7,6 +8,7 @@
   [ false, {"ipv4": "not an ipv4"} ],
   [ false, {"ipv4": null} ],
   [ false, {"ipv4": 127.001} ],
+  "# ipv6 values",
   [ true,  {"ipv6": "::1"} ],
   [ false, {"ipv6": "0::z:1"} ],
   [ true,  {"ipv6": "fe80::"} ],
@@ -17,9 +19,17 @@
   [ false, {"ipv6": "localhost"} ],
   [ false, {"ipv6": "not an ipv6"} ],
   [ false, {"ipv6": null} ],
+  "# hostnames",
   [ true,  {"host": "localhost"} ],
   [ true,  {"host": "json-model.org"} ],
   [ false, {"host": "toolooooooooooooooooooooooooooooooooooooooooooooooooooooooooopng.eu"} ],
   [ true,  {"host": "nottoolooooooooooooooooooooooooooooooooooooooooooooooooooooopng.eu"} ],
-  [ false, {"host": null} ]
+  [ false, {"host": null} ],
+  "# ethernet",
+  [ true,  {"eth": "00:00:00:00:00:00"} ],
+  [ true,  {"eth": "de:ad:be:ef:ba:be"} ],
+  [ false, {"eth": "00:00:00:00:00:0"} ],
+  [ false, {"eth": "00:00:00:00:00:000"} ],
+  [ false, {"eth": "01:23:45:67:89:ab:cd"} ],
+  [ false, null ]
 ]

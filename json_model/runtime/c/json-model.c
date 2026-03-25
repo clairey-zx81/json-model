@@ -598,23 +598,23 @@ jm_is_valid_datetime(const char *datetime, jm_path_t *path, jm_report_t *rep)
     return is_valid_time(datetime + 10, path, rep, true);
 }
 
+// hardcoded version for ASCII and UTF-8
 bool
 jm_is_valid_uuid(const char *uuid, jm_path_t *path, jm_report_t *rep)
 {
     if (!uuid)
         return false;
 
-    // hardcoded version for ASCII and UTF-8
     size_t i = 0;
 
-#define subsection(upto)                \
-    while (i < upto)                    \
-        if (!isxdigit(uuid[i++]))       \
+#define subsection(upto)                        \
+    while (i < upto)                            \
+        if (unlikely(!isxdigit(uuid[i++])))     \
             return false
 
-#define section(upto)                   \
-    subsection(upto);                   \
-    if (uuid[i++] != '-')               \
+#define section(upto)                           \
+    subsection(upto);                           \
+    if (unlikely(uuid[i++] != '-'))             \
         return false
 
     section(8);
@@ -625,6 +625,37 @@ jm_is_valid_uuid(const char *uuid, jm_path_t *path, jm_report_t *rep)
 
     return uuid[i] == '\0';
 }
+
+// hardcoded version for ASCII and UTF-8
+bool
+jm_is_valid_eth(const char *eth, jm_path_t *path, jm_report_t *rep)
+{
+    if (!eth)
+        return false;
+
+    size_t i = 0;
+
+#define hexhex()                                \
+    if (unlikely(!isxdigit(eth[i++])))          \
+        return false;                           \
+    if (unlikely(!isxdigit(eth[i++])))          \
+        return false
+
+#define hexhexcol()                             \
+    hexhex();                                   \
+    if (unlikely(eth[i++] != ':'))              \
+        return false
+
+    hexhexcol();
+    hexhexcol();
+    hexhexcol();
+    hexhexcol();
+    hexhexcol();
+    hexhex();
+
+    return eth[i] == '\0';
+}
+
 
 // check regex validity by attempting to compile it with PCRE2, probably not very efficient
 bool

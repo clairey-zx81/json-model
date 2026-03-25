@@ -34,6 +34,8 @@
   [ false, { "predefs":  { "IP6": "not an ip address…" } } ],
   [ true,  { "predefs":  { "EMAIL": "calvin@comics.net" } } ],
   [ false, { "predefs":  { "EMAIL": "what@@ever" } } ],
+  [ true,  { "predefs":  { "ETH": "DE:AD:BE:EF:ba:be" } } ],
+  [ false, { "predefs":  { "ETH": "not a mac address" } } ],
   [ true,  { "predefs":  { "NULL": null } } ],
   [ false, { "predefs":  { "NULL": "not null" } } ],
   [ true,  { "predefs":  { "BOOL": true } } ],

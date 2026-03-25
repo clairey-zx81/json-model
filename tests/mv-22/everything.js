@@ -20,6 +20,7 @@ var _jm_obj_32_map = new Map()
 export var check_model_map = new Map()
 const jm_is_duration_re = new runtime.RX("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$", "")
 const jm_is_email_re = new runtime.RX("^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", "i")
+const jm_is_eth_re = new runtime.RX("^([0-9a-f]{2}:){5}[0-9a-f]{2}$", "i")
 const jm_is_host_re = new runtime.RX("^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", "i")
 const jm_is_ip4_re = new runtime.RX("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$", "")
 const jm_is_ip6_re = new runtime.RX("^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$", "i")
@@ -2615,8 +2616,20 @@ function _jm_f_6(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_EXREG (.predefs.EXREG)
+// check _jm_obj_31_map_ETH (.predefs.ETH)
 function _jm_f_7(val, path, rep)
+{
+    // .predefs.ETH
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_eth(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$ETH\" [.predefs.ETH]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_31_map_EXREG (.predefs.EXREG)
+function _jm_f_8(val, path, rep)
 {
     // .predefs.EXREG
     let res = runtime.jm_is_valid_regex(val, true);
@@ -2628,7 +2641,7 @@ function _jm_f_7(val, path, rep)
 }
 
 // check _jm_obj_31_map_F32 (.predefs.F32)
-function _jm_f_8(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     // .predefs.F32
     let res = (typeof val === 'number' || val instanceof Number);
@@ -2640,7 +2653,7 @@ function _jm_f_8(val, path, rep)
 }
 
 // check _jm_obj_31_map_F64 (.predefs.F64)
-function _jm_f_9(val, path, rep)
+function _jm_f_10(val, path, rep)
 {
     // .predefs.F64
     let res = (typeof val === 'number' || val instanceof Number);
@@ -2652,7 +2665,7 @@ function _jm_f_9(val, path, rep)
 }
 
 // check _jm_obj_31_map_FLOAT (.predefs.FLOAT)
-function _jm_f_10(val, path, rep)
+function _jm_f_11(val, path, rep)
 {
     // .predefs.FLOAT
     let res = (typeof val === 'number' || val instanceof Number);
@@ -2664,7 +2677,7 @@ function _jm_f_10(val, path, rep)
 }
 
 // check _jm_obj_31_map_HOST (.predefs.HOST)
-function _jm_f_11(val, path, rep)
+function _jm_f_12(val, path, rep)
 {
     // .predefs.HOST
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_host(val, path, rep) && val.length <= 255;
@@ -2676,7 +2689,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check _jm_obj_31_map_I32 (.predefs.I32)
-function _jm_f_12(val, path, rep)
+function _jm_f_13(val, path, rep)
 {
     // .predefs.I32
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
@@ -2688,7 +2701,7 @@ function _jm_f_12(val, path, rep)
 }
 
 // check _jm_obj_31_map_I64 (.predefs.I64)
-function _jm_f_13(val, path, rep)
+function _jm_f_14(val, path, rep)
 {
     // .predefs.I64
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
@@ -2700,7 +2713,7 @@ function _jm_f_13(val, path, rep)
 }
 
 // check _jm_obj_31_map_INT (.predefs.INT)
-function _jm_f_14(val, path, rep)
+function _jm_f_15(val, path, rep)
 {
     // .predefs.INT
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
@@ -2712,7 +2725,7 @@ function _jm_f_14(val, path, rep)
 }
 
 // check _jm_obj_31_map_INTEGER (.predefs.INTEGER)
-function _jm_f_15(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     // .predefs.INTEGER
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
@@ -2724,7 +2737,7 @@ function _jm_f_15(val, path, rep)
 }
 
 // check _jm_obj_31_map_IP4 (.predefs.IP4)
-function _jm_f_16(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     // .predefs.IP4
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip4(val, path, rep);
@@ -2736,7 +2749,7 @@ function _jm_f_16(val, path, rep)
 }
 
 // check _jm_obj_31_map_IP6 (.predefs.IP6)
-function _jm_f_17(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     // .predefs.IP6
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip6(val, path, rep);
@@ -2748,7 +2761,7 @@ function _jm_f_17(val, path, rep)
 }
 
 // check _jm_obj_31_map_JSON (.predefs.JSON)
-function _jm_f_18(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     // .predefs.JSON
     let res = runtime.jm_is_valid_json(val);
@@ -2760,7 +2773,7 @@ function _jm_f_18(val, path, rep)
 }
 
 // check _jm_obj_31_map_JSONPT (.predefs.JSONPT)
-function _jm_f_19(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     // .predefs.JSONPT
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_jsonpt(val, path, rep);
@@ -2772,7 +2785,7 @@ function _jm_f_19(val, path, rep)
 }
 
 // check _jm_obj_31_map_NONE (.predefs.NONE)
-function _jm_f_20(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     // .predefs.NONE
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.predefs.NONE]", path])
@@ -2780,7 +2793,7 @@ function _jm_f_20(val, path, rep)
 }
 
 // check _jm_obj_31_map_NULL (.predefs.NULL)
-function _jm_f_21(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     // .predefs.NULL
     let res = val === null;
@@ -2792,7 +2805,7 @@ function _jm_f_21(val, path, rep)
 }
 
 // check _jm_obj_31_map_NUMBER (.predefs.NUMBER)
-function _jm_f_22(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     // .predefs.NUMBER
     let res = (typeof val === 'number' || val instanceof Number);
@@ -2804,7 +2817,7 @@ function _jm_f_22(val, path, rep)
 }
 
 // check _jm_obj_31_map_REGEX (.predefs.REGEX)
-function _jm_f_23(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     // .predefs.REGEX
     let res = runtime.jm_is_valid_regex(val, false);
@@ -2816,7 +2829,7 @@ function _jm_f_23(val, path, rep)
 }
 
 // check _jm_obj_31_map_STRING (.predefs.STRING)
-function _jm_f_24(val, path, rep)
+function _jm_f_25(val, path, rep)
 {
     // .predefs.STRING
     let res = (typeof val === 'string' || val instanceof String);
@@ -2828,7 +2841,7 @@ function _jm_f_24(val, path, rep)
 }
 
 // check _jm_obj_31_map_TIME (.predefs.TIME)
-function _jm_f_25(val, path, rep)
+function _jm_f_26(val, path, rep)
 {
     // .predefs.TIME
     let res = runtime.jm_is_valid_time(val, path, rep);
@@ -2840,7 +2853,7 @@ function _jm_f_25(val, path, rep)
 }
 
 // check _jm_obj_31_map_U32 (.predefs.U32)
-function _jm_f_26(val, path, rep)
+function _jm_f_27(val, path, rep)
 {
     // .predefs.U32
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
@@ -2852,7 +2865,7 @@ function _jm_f_26(val, path, rep)
 }
 
 // check _jm_obj_31_map_U64 (.predefs.U64)
-function _jm_f_27(val, path, rep)
+function _jm_f_28(val, path, rep)
 {
     // .predefs.U64
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
@@ -2864,7 +2877,7 @@ function _jm_f_27(val, path, rep)
 }
 
 // check _jm_obj_31_map_URI (.predefs.URI)
-function _jm_f_28(val, path, rep)
+function _jm_f_29(val, path, rep)
 {
     // .predefs.URI
     let res = runtime.jm_is_valid_url(val);
@@ -2876,7 +2889,7 @@ function _jm_f_28(val, path, rep)
 }
 
 // check _jm_obj_31_map_URL (.predefs.URL)
-function _jm_f_29(val, path, rep)
+function _jm_f_30(val, path, rep)
 {
     // .predefs.URL
     let res = runtime.jm_is_valid_url(val);
@@ -2888,7 +2901,7 @@ function _jm_f_29(val, path, rep)
 }
 
 // check _jm_obj_31_map_UUID (.predefs.UUID)
-function _jm_f_30(val, path, rep)
+function _jm_f_31(val, path, rep)
 {
     // .predefs.UUID
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep);
@@ -2914,7 +2927,7 @@ function _jm_obj_31(val, path, rep)
         let lpath_22 = path ? path.concat([prop]) : null;
         if ((pfun = _jm_obj_31_map.get(prop)))
         {
-            // handle 31 may props
+            // handle 32 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_22 : null), rep))
             {
                 rep !== null && rep.push(["invalid optional prop value [.predefs]", (path ? lpath_22 : null)])
@@ -2929,7 +2942,7 @@ function _jm_obj_31(val, path, rep)
 }
 
 // check _jm_obj_32_map_cia0 (.constraints.cia0)
-function _jm_f_31(val, path, rep)
+function _jm_f_32(val, path, rep)
 {
     // .constraints.cia0
     // .constraints.cia0.'@'
@@ -2966,7 +2979,7 @@ function _jm_f_31(val, path, rep)
 }
 
 // check _jm_obj_32_map_cia1 (.constraints.cia1)
-function _jm_f_32(val, path, rep)
+function _jm_f_33(val, path, rep)
 {
     // .constraints.cia1
     // .constraints.cia1.'@'
@@ -3003,7 +3016,7 @@ function _jm_f_32(val, path, rep)
 }
 
 // check _jm_obj_32_map_cia2 (.constraints.cia2)
-function _jm_f_33(val, path, rep)
+function _jm_f_34(val, path, rep)
 {
     // .constraints.cia2
     // .constraints.cia2.'@'
@@ -3040,7 +3053,7 @@ function _jm_f_33(val, path, rep)
 }
 
 // check _jm_obj_32_map_cii0 (.constraints.cii0)
-function _jm_f_34(val, path, rep)
+function _jm_f_35(val, path, rep)
 {
     // .constraints.cii0
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 10;
@@ -3052,7 +3065,7 @@ function _jm_f_34(val, path, rep)
 }
 
 // check _jm_obj_32_map_cii1 (.constraints.cii1)
-function _jm_f_35(val, path, rep)
+function _jm_f_36(val, path, rep)
 {
     // .constraints.cii1
     // .constraints.cii1.'@'
@@ -3074,7 +3087,7 @@ function _jm_f_35(val, path, rep)
 }
 
 // check _jm_obj_32_map_cii2 (.constraints.cii2)
-function _jm_f_36(val, path, rep)
+function _jm_f_37(val, path, rep)
 {
     // .constraints.cii2
     // .constraints.cii2.'@'
@@ -3096,7 +3109,7 @@ function _jm_f_36(val, path, rep)
 }
 
 // check _jm_obj_32_map_cin0 (.constraints.cin0)
-function _jm_f_37(val, path, rep)
+function _jm_f_38(val, path, rep)
 {
     // .constraints.cin0
     // .constraints.cin0.'@'
@@ -3118,7 +3131,7 @@ function _jm_f_37(val, path, rep)
 }
 
 // check _jm_obj_32_map_cin1 (.constraints.cin1)
-function _jm_f_38(val, path, rep)
+function _jm_f_39(val, path, rep)
 {
     // .constraints.cin1
     // .constraints.cin1.'@'
@@ -3140,7 +3153,7 @@ function _jm_f_38(val, path, rep)
 }
 
 // check _jm_obj_32_map_cin2 (.constraints.cin2)
-function _jm_f_39(val, path, rep)
+function _jm_f_40(val, path, rep)
 {
     // .constraints.cin2
     // .constraints.cin2.'@'
@@ -3174,7 +3187,7 @@ function _jm_obj_33(val, path, rep)
 }
 
 // check _jm_obj_32_map_cio0 (.constraints.cio0)
-function _jm_f_40(val, path, rep)
+function _jm_f_41(val, path, rep)
 {
     // .constraints.cio0
     // .constraints.cio0.'@'
@@ -3208,7 +3221,7 @@ function _jm_obj_34(val, path, rep)
 }
 
 // check _jm_obj_32_map_cio1 (.constraints.cio1)
-function _jm_f_41(val, path, rep)
+function _jm_f_42(val, path, rep)
 {
     // .constraints.cio1
     // .constraints.cio1.'@'
@@ -3242,7 +3255,7 @@ function _jm_obj_35(val, path, rep)
 }
 
 // check _jm_obj_32_map_cio2 (.constraints.cio2)
-function _jm_f_42(val, path, rep)
+function _jm_f_43(val, path, rep)
 {
     // .constraints.cio2
     // .constraints.cio2.'@'
@@ -3264,7 +3277,7 @@ function _jm_f_42(val, path, rep)
 }
 
 // check _jm_obj_32_map_cis0 (.constraints.cis0)
-function _jm_f_43(val, path, rep)
+function _jm_f_44(val, path, rep)
 {
     // .constraints.cis0
     // .constraints.cis0.'@'
@@ -3286,7 +3299,7 @@ function _jm_f_43(val, path, rep)
 }
 
 // check _jm_obj_32_map_cis1 (.constraints.cis1)
-function _jm_f_44(val, path, rep)
+function _jm_f_45(val, path, rep)
 {
     // .constraints.cis1
     // .constraints.cis1.'@'
@@ -3308,7 +3321,7 @@ function _jm_f_44(val, path, rep)
 }
 
 // check _jm_obj_32_map_cis2 (.constraints.cis2)
-function _jm_f_45(val, path, rep)
+function _jm_f_46(val, path, rep)
 {
     // .constraints.cis2
     // .constraints.cis2.'@'
@@ -3330,7 +3343,7 @@ function _jm_f_45(val, path, rep)
 }
 
 // check _jm_obj_32_map_cni0 (.constraints.cni0)
-function _jm_f_46(val, path, rep)
+function _jm_f_47(val, path, rep)
 {
     // .constraints.cni0
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
@@ -3342,7 +3355,7 @@ function _jm_f_46(val, path, rep)
 }
 
 // check _jm_obj_32_map_cni1 (.constraints.cni1)
-function _jm_f_47(val, path, rep)
+function _jm_f_48(val, path, rep)
 {
     // .constraints.cni1
     // .constraints.cni1.'@'
@@ -3365,7 +3378,7 @@ function _jm_f_47(val, path, rep)
 }
 
 // check _jm_obj_32_map_cni2 (.constraints.cni2)
-function _jm_f_48(val, path, rep)
+function _jm_f_49(val, path, rep)
 {
     // .constraints.cni2
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
@@ -3377,7 +3390,7 @@ function _jm_f_48(val, path, rep)
 }
 
 // check _jm_obj_32_map_cnn0 (.constraints.cnn0)
-function _jm_f_49(val, path, rep)
+function _jm_f_50(val, path, rep)
 {
     // .constraints.cnn0
     // .constraints.cnn0.'@'
@@ -3399,7 +3412,7 @@ function _jm_f_49(val, path, rep)
 }
 
 // check _jm_obj_32_map_cnn1 (.constraints.cnn1)
-function _jm_f_50(val, path, rep)
+function _jm_f_51(val, path, rep)
 {
     // .constraints.cnn1
     // .constraints.cnn1.'@'
@@ -3421,7 +3434,7 @@ function _jm_f_50(val, path, rep)
 }
 
 // check _jm_obj_32_map_cnn2 (.constraints.cnn2)
-function _jm_f_51(val, path, rep)
+function _jm_f_52(val, path, rep)
 {
     // .constraints.cnn2
     // .constraints.cnn2.'@'
@@ -3443,7 +3456,7 @@ function _jm_f_51(val, path, rep)
 }
 
 // check _jm_obj_32_map_css0 (.constraints.css0)
-function _jm_f_52(val, path, rep)
+function _jm_f_53(val, path, rep)
 {
     // .constraints.css0
     // .constraints.css0.'@'
@@ -3465,7 +3478,7 @@ function _jm_f_52(val, path, rep)
 }
 
 // check _jm_obj_32_map_css1 (.constraints.css1)
-function _jm_f_53(val, path, rep)
+function _jm_f_54(val, path, rep)
 {
     // .constraints.css1
     // .constraints.css1.'@'
@@ -3487,7 +3500,7 @@ function _jm_f_53(val, path, rep)
 }
 
 // check _jm_obj_32_map_css2 (.constraints.css2)
-function _jm_f_54(val, path, rep)
+function _jm_f_55(val, path, rep)
 {
     // .constraints.css2
     // .constraints.css2.'@'
@@ -3509,7 +3522,7 @@ function _jm_f_54(val, path, rep)
 }
 
 // check _jm_obj_32_map_cua0 (.constraints.cua0)
-function _jm_f_55(val, path, rep)
+function _jm_f_56(val, path, rep)
 {
     // .constraints.cua0
     // .constraints.cua0.'@'
@@ -3793,6 +3806,8 @@ const jm_is_duration = (s) => jm_is_duration_re.exec(s) !== null
 
 const jm_is_email = (s) => jm_is_email_re.exec(s) !== null
 
+const jm_is_eth = (s) => jm_is_eth_re.exec(s) !== null
+
 const jm_is_host = (s) => jm_is_host_re.exec(s) !== null
 
 const jm_is_ip4 = (s) => jm_is_ip4_re.exec(s) !== null
@@ -3835,55 +3850,56 @@ export function check_model_init()
         _jm_obj_31_map.set("DATETIME", _jm_f_4)
         _jm_obj_31_map.set("DURATION", _jm_f_5)
         _jm_obj_31_map.set("EMAIL", _jm_f_6)
-        _jm_obj_31_map.set("EXREG", _jm_f_7)
-        _jm_obj_31_map.set("F32", _jm_f_8)
-        _jm_obj_31_map.set("F64", _jm_f_9)
-        _jm_obj_31_map.set("FLOAT", _jm_f_10)
-        _jm_obj_31_map.set("HOST", _jm_f_11)
-        _jm_obj_31_map.set("I32", _jm_f_12)
-        _jm_obj_31_map.set("I64", _jm_f_13)
-        _jm_obj_31_map.set("INT", _jm_f_14)
-        _jm_obj_31_map.set("INTEGER", _jm_f_15)
-        _jm_obj_31_map.set("IP4", _jm_f_16)
-        _jm_obj_31_map.set("IP6", _jm_f_17)
-        _jm_obj_31_map.set("JSON", _jm_f_18)
-        _jm_obj_31_map.set("JSONPT", _jm_f_19)
-        _jm_obj_31_map.set("NONE", _jm_f_20)
-        _jm_obj_31_map.set("NULL", _jm_f_21)
-        _jm_obj_31_map.set("NUMBER", _jm_f_22)
-        _jm_obj_31_map.set("REGEX", _jm_f_23)
-        _jm_obj_31_map.set("STRING", _jm_f_24)
-        _jm_obj_31_map.set("TIME", _jm_f_25)
-        _jm_obj_31_map.set("U32", _jm_f_26)
-        _jm_obj_31_map.set("U64", _jm_f_27)
-        _jm_obj_31_map.set("URI", _jm_f_28)
-        _jm_obj_31_map.set("URL", _jm_f_29)
-        _jm_obj_31_map.set("UUID", _jm_f_30)
-        _jm_obj_32_map.set("cia0", _jm_f_31)
-        _jm_obj_32_map.set("cia1", _jm_f_32)
-        _jm_obj_32_map.set("cia2", _jm_f_33)
-        _jm_obj_32_map.set("cii0", _jm_f_34)
-        _jm_obj_32_map.set("cii1", _jm_f_35)
-        _jm_obj_32_map.set("cii2", _jm_f_36)
-        _jm_obj_32_map.set("cin0", _jm_f_37)
-        _jm_obj_32_map.set("cin1", _jm_f_38)
-        _jm_obj_32_map.set("cin2", _jm_f_39)
-        _jm_obj_32_map.set("cio0", _jm_f_40)
-        _jm_obj_32_map.set("cio1", _jm_f_41)
-        _jm_obj_32_map.set("cio2", _jm_f_42)
-        _jm_obj_32_map.set("cis0", _jm_f_43)
-        _jm_obj_32_map.set("cis1", _jm_f_44)
-        _jm_obj_32_map.set("cis2", _jm_f_45)
-        _jm_obj_32_map.set("cni0", _jm_f_46)
-        _jm_obj_32_map.set("cni1", _jm_f_47)
-        _jm_obj_32_map.set("cni2", _jm_f_48)
-        _jm_obj_32_map.set("cnn0", _jm_f_49)
-        _jm_obj_32_map.set("cnn1", _jm_f_50)
-        _jm_obj_32_map.set("cnn2", _jm_f_51)
-        _jm_obj_32_map.set("css0", _jm_f_52)
-        _jm_obj_32_map.set("css1", _jm_f_53)
-        _jm_obj_32_map.set("css2", _jm_f_54)
-        _jm_obj_32_map.set("cua0", _jm_f_55)
+        _jm_obj_31_map.set("ETH", _jm_f_7)
+        _jm_obj_31_map.set("EXREG", _jm_f_8)
+        _jm_obj_31_map.set("F32", _jm_f_9)
+        _jm_obj_31_map.set("F64", _jm_f_10)
+        _jm_obj_31_map.set("FLOAT", _jm_f_11)
+        _jm_obj_31_map.set("HOST", _jm_f_12)
+        _jm_obj_31_map.set("I32", _jm_f_13)
+        _jm_obj_31_map.set("I64", _jm_f_14)
+        _jm_obj_31_map.set("INT", _jm_f_15)
+        _jm_obj_31_map.set("INTEGER", _jm_f_16)
+        _jm_obj_31_map.set("IP4", _jm_f_17)
+        _jm_obj_31_map.set("IP6", _jm_f_18)
+        _jm_obj_31_map.set("JSON", _jm_f_19)
+        _jm_obj_31_map.set("JSONPT", _jm_f_20)
+        _jm_obj_31_map.set("NONE", _jm_f_21)
+        _jm_obj_31_map.set("NULL", _jm_f_22)
+        _jm_obj_31_map.set("NUMBER", _jm_f_23)
+        _jm_obj_31_map.set("REGEX", _jm_f_24)
+        _jm_obj_31_map.set("STRING", _jm_f_25)
+        _jm_obj_31_map.set("TIME", _jm_f_26)
+        _jm_obj_31_map.set("U32", _jm_f_27)
+        _jm_obj_31_map.set("U64", _jm_f_28)
+        _jm_obj_31_map.set("URI", _jm_f_29)
+        _jm_obj_31_map.set("URL", _jm_f_30)
+        _jm_obj_31_map.set("UUID", _jm_f_31)
+        _jm_obj_32_map.set("cia0", _jm_f_32)
+        _jm_obj_32_map.set("cia1", _jm_f_33)
+        _jm_obj_32_map.set("cia2", _jm_f_34)
+        _jm_obj_32_map.set("cii0", _jm_f_35)
+        _jm_obj_32_map.set("cii1", _jm_f_36)
+        _jm_obj_32_map.set("cii2", _jm_f_37)
+        _jm_obj_32_map.set("cin0", _jm_f_38)
+        _jm_obj_32_map.set("cin1", _jm_f_39)
+        _jm_obj_32_map.set("cin2", _jm_f_40)
+        _jm_obj_32_map.set("cio0", _jm_f_41)
+        _jm_obj_32_map.set("cio1", _jm_f_42)
+        _jm_obj_32_map.set("cio2", _jm_f_43)
+        _jm_obj_32_map.set("cis0", _jm_f_44)
+        _jm_obj_32_map.set("cis1", _jm_f_45)
+        _jm_obj_32_map.set("cis2", _jm_f_46)
+        _jm_obj_32_map.set("cni0", _jm_f_47)
+        _jm_obj_32_map.set("cni1", _jm_f_48)
+        _jm_obj_32_map.set("cni2", _jm_f_49)
+        _jm_obj_32_map.set("cnn0", _jm_f_50)
+        _jm_obj_32_map.set("cnn1", _jm_f_51)
+        _jm_obj_32_map.set("cnn2", _jm_f_52)
+        _jm_obj_32_map.set("css0", _jm_f_53)
+        _jm_obj_32_map.set("css1", _jm_f_54)
+        _jm_obj_32_map.set("css2", _jm_f_55)
+        _jm_obj_32_map.set("cua0", _jm_f_56)
         check_model_map.set("", json_model_1)
         check_model_map.set("a", json_model_2)
         check_model_map.set("b", json_model_3)

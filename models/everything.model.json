@@ -27,6 +27,7 @@
     "?IP4": "$IP4",
     "?IP6": "$IP6",
     "?EMAIL": "$EMAIL",
+    "?ETH": "$ETH",
     "#.basics": "json types",
     "?NULL": "$NULL",
     "?BOOL": "$BOOL",

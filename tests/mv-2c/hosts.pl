@@ -21,7 +21,16 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'host')
+        if ($prop eq 'eth')
+        {
+            $res = jm_is_string($pval) && jm_is_eth($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'host')
         {
             $res = jm_is_string($pval) && jm_is_host($pval, undef, undef) && length $pval <= 255;
             if (! $res)
@@ -53,6 +62,13 @@ sub json_model_1($$$)
     return 1;
 }
 
+
+sub jm_is_eth($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res = $val =~ /^([0-9a-f]{2}:){5}[0-9a-f]{2}$/i;
+    return $res;
+}
 
 sub jm_is_host($$$)
 {

@@ -17,6 +17,7 @@
       "?IP4": "$IP4",
       "?IP6": "$IP6",
       "?EMAIL": "$EMAIL",
+      "?ETH": "$ETH",
       "?NULL": "$NULL",
       "?BOOL": "$BOOL",
       "?BOOLEAN": "$BOOLEAN",
