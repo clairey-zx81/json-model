@@ -16,6 +16,7 @@
   [ true,  {"ipv6": "0:1::7"} ],
   [ true,  {"ipv6": "0:1:2:3:4:5:6:7"} ],
   [ false, {"ipv6": "0:1:2:3:4:5:6:7:0"} ],
+  [ false, {"ipv6": "::1%0"} ],
   [ false, {"ipv6": "localhost"} ],
   [ false, {"ipv6": "not an ipv6"} ],
   [ false, {"ipv6": null} ],

@@ -16,14 +16,15 @@ hosts.values.json[14]: FAIL ()
 hosts.values.json[15]: FAIL ()
 hosts.values.json[16]: FAIL ()
 hosts.values.json[17]: FAIL ()
-hosts.values.json[18]: PASS
+hosts.values.json[18]: FAIL ()
 hosts.values.json[19]: PASS
-hosts.values.json[20]: FAIL ()
-hosts.values.json[21]: PASS
-hosts.values.json[22]: FAIL ()
-hosts.values.json[23]: PASS
+hosts.values.json[20]: PASS
+hosts.values.json[21]: FAIL ()
+hosts.values.json[22]: PASS
+hosts.values.json[23]: FAIL ()
 hosts.values.json[24]: PASS
-hosts.values.json[25]: FAIL ()
+hosts.values.json[25]: PASS
 hosts.values.json[26]: FAIL ()
 hosts.values.json[27]: FAIL ()
 hosts.values.json[28]: FAIL ()
+hosts.values.json[29]: FAIL ()

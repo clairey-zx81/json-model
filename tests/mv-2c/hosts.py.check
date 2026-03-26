@@ -13,17 +13,18 @@ hosts.values.json[11]: PASS
 hosts.values.json[12]: PASS
 hosts.values.json[13]: PASS
 hosts.values.json[14]: FAIL (: invalid ipv6 address 0:1:2:3:4:5:6:7:0)
-hosts.values.json[15]: FAIL (: invalid ipv6 address localhost)
-hosts.values.json[16]: FAIL (: invalid ipv6 address not an ipv6)
-hosts.values.json[17]: FAIL (: invalid ipv6 address None)
-hosts.values.json[18]: PASS
+hosts.values.json[15]: FAIL (: invalid ipv6 address ::1%0)
+hosts.values.json[16]: FAIL (: invalid ipv6 address localhost)
+hosts.values.json[17]: FAIL (: invalid ipv6 address not an ipv6)
+hosts.values.json[18]: FAIL (: invalid ipv6 address None)
 hosts.values.json[19]: PASS
-hosts.values.json[20]: FAIL (: invalid hostname toolooooooooooooooooooooooooooooooooooooooooooooooooooooooooopng.eu)
-hosts.values.json[21]: PASS
-hosts.values.json[22]: FAIL (: invalid hostname None)
-hosts.values.json[23]: PASS
+hosts.values.json[20]: PASS
+hosts.values.json[21]: FAIL (: invalid hostname toolooooooooooooooooooooooooooooooooooooooooooooooooooooooooopng.eu)
+hosts.values.json[22]: PASS
+hosts.values.json[23]: FAIL (: invalid hostname None)
 hosts.values.json[24]: PASS
-hosts.values.json[25]: FAIL
+hosts.values.json[25]: PASS
 hosts.values.json[26]: FAIL
 hosts.values.json[27]: FAIL
 hosts.values.json[28]: FAIL
+hosts.values.json[29]: FAIL
