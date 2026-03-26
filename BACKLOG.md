@@ -18,6 +18,7 @@
 - [x] predefs: add `$ETH` for ethernet (mac) addresses
 - [x] static: recognize and generate better code for typed _not_: _"" ^ "xxx"_
 - [x] ir: add forward substitution between assignments when used once
+- [x] py-backend: filter out zone id suffix from ip6
 - [ ] predefs: filter extensions with `--extend`
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
