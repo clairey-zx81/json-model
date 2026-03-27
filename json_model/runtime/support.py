@@ -165,6 +165,7 @@ def is_valid_date(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.date.fromisoformat(value)
+            assert "W" not in value and "-" in value, "reject 8601"
             return True
         except Exception as e:
             _ = rep is None or rep.append((f"invalid date {value} ({e})", path))
@@ -186,6 +187,7 @@ def is_valid_time(value: Jsonable, path: Path, rep: Report = None) -> bool:
 def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
+            # FIXME Unlike the time module, the datetime module does not support leap seconds.
             datetime.datetime.fromisoformat(value)
             return True
         except Exception as e:
@@ -242,6 +244,12 @@ def is_valid_host(value: Jsonable, path: Path, rep: Report = None) -> bool:
         ) is True
     if not valid:
         _ = rep is None or rep.append((f"invalid hostname {value}", path))
+    return valid
+
+def is_valid_card(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    valid = isinstance(value, str) and validators.card_number(value) is True and len(value) == 16
+    if not valid:
+        _ = rep is None or rep.append((f"invalid card number {value}", path))
     return valid
 
 def is_valid_json(value: Jsonable, path: Path, rep: Report = None) -> bool:

@@ -19,6 +19,8 @@
 - [x] static: recognize and generate better code for typed _not_: _"" ^ "xxx"_
 - [x] ir: add forward substitution between assignments when used once
 - [x] py-backend: filter out zone id suffix from ip6
+- [x] predefs: add `$CARD` for 16 digits credit card numbers with Luhn's checksum
+- [ ] predefs: improve card implementation for java, js, perl and sql.
 - [ ] predefs: filter extensions with `--extend`
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`

@@ -143,7 +143,8 @@ for all possible values for that type.
   - `"$HOST"`: a hostname, eg _json-model.org_
   - `"$IP4"`: an ipv4 address, eg _127.0.0.1_
   - `"$IP6"`: an ipv6, eg _0::0_
-  - `"$ETH"`: a, ethernet (mac) address, eg _De:ad:Be:ef:01:23_
+  - `"$ETH"`: an ethernet (mac) address, eg _De:ad:Be:ef:01:23_
+  - `"$CARD"`: a credit card number with a Luhn checksum, eg _1234567890123452_
   - `"$JSONPT"`: an RFC6901 json pointer, eg _/http:~1~1json-model.org_
 
   Any other all-capital ASCII character and digit names must be rejected as they

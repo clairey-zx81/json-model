@@ -1,0 +1,64 @@
+luhn.values.json[0]: PASS
+luhn.values.json[1]: PASS
+luhn.values.json[2]: PASS
+luhn.values.json[3]: PASS
+luhn.values.json[4]: PASS
+luhn.values.json[5]: PASS
+luhn.values.json[6]: PASS
+luhn.values.json[7]: PASS
+luhn.values.json[8]: PASS
+luhn.values.json[9]: PASS
+luhn.values.json[10]: PASS
+luhn.values.json[11]: PASS
+luhn.values.json[12]: PASS
+luhn.values.json[13]: PASS
+luhn.values.json[14]: PASS
+luhn.values.json[15]: PASS
+luhn.values.json[16]: PASS
+luhn.values.json[17]: PASS
+luhn.values.json[18]: PASS
+luhn.values.json[19]: PASS
+luhn.values.json[20]: PASS
+luhn.values.json[21]: PASS
+luhn.values.json[22]: ERROR unexpected PASS
+luhn.values.json[23]: ERROR unexpected PASS
+luhn.values.json[24]: ERROR unexpected PASS
+luhn.values.json[25]: ERROR unexpected PASS
+luhn.values.json[26]: ERROR unexpected PASS
+luhn.values.json[27]: ERROR unexpected PASS
+luhn.values.json[28]: ERROR unexpected PASS
+luhn.values.json[29]: ERROR unexpected PASS
+luhn.values.json[30]: ERROR unexpected PASS
+luhn.values.json[31]: ERROR unexpected PASS
+luhn.values.json[32]: ERROR unexpected PASS
+luhn.values.json[33]: PASS
+luhn.values.json[34]: ERROR unexpected PASS
+luhn.values.json[35]: ERROR unexpected PASS
+luhn.values.json[36]: ERROR unexpected PASS
+luhn.values.json[37]: ERROR unexpected PASS
+luhn.values.json[38]: ERROR unexpected PASS
+luhn.values.json[39]: ERROR unexpected PASS
+luhn.values.json[40]: ERROR unexpected PASS
+luhn.values.json[41]: ERROR unexpected PASS
+luhn.values.json[42]: PASS
+luhn.values.json[43]: ERROR unexpected PASS
+luhn.values.json[44]: ERROR unexpected PASS
+luhn.values.json[45]: ERROR unexpected PASS
+luhn.values.json[46]: ERROR unexpected PASS
+luhn.values.json[47]: ERROR unexpected PASS
+luhn.values.json[48]: ERROR unexpected PASS
+luhn.values.json[49]: ERROR unexpected PASS
+luhn.values.json[50]: ERROR unexpected PASS
+luhn.values.json[51]: FAIL
+luhn.values.json[52]: FAIL
+luhn.values.json[53]: FAIL
+luhn.values.json[54]: FAIL
+luhn.values.json[55]: FAIL
+luhn.values.json[56]: FAIL
+luhn.values.json[57]: FAIL
+luhn.values.json[58]: FAIL
+luhn.values.json[59]: FAIL
+luhn.values.json[60]: FAIL
+luhn.values.json[61]: FAIL
+luhn.values.json[62]: FAIL
+luhn.values.json[63]: FAIL

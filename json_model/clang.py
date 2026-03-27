@@ -12,11 +12,18 @@ _ESC_TABLE = {
 }
 
 # must be consistent with "predef"
-CLANG_RUNTIME_PREDEFS: set[str] = {
-    "$URL", "$URI",
-    "$DATE", "$TIME", "$DATETIME",
-    "$REGEX", "$EXREG" "$UUID", "$JSON",
-    "$ETH",
+CLANG_RUNTIME_PREDEFS: dict[str, str] = {
+    "$URL": "jm_is_valid_url",
+    "$URI": "jm_is_valid_url",
+    "$DATE": "jm_is_valid_date",
+    "$TIME": "jm_is_valid_time",
+    "$DATETIME": "jm_is_valid_datetime",
+    "$REGEX": "jm_is_valid_regex",
+    "$EXREG": "jm_is_valid_regex",
+    "$UUID": "jm_is_valid_uuid",
+    "$JSON": "jm_is_valid_json",
+    "$ETH": "jm_is_valid_eth",
+    "$CARD": "jm_is_valid_card",
     # TODO "$HOST", "$IP4", "$IP6",
     # regex FIXME "$EMAIL",
 }
@@ -105,7 +112,7 @@ class CLangJansson(Language):
              path_t="jm_path_t", float_t="double", str_t="const char *", hash_t="uint32_t",
              match_t="bool" if relib == "pcre2" else "int", with_hints=with_hints,
              eoi=";", relib=relib, debug=debug, with_predef=with_predef,
-             predefs=CLANG_RUNTIME_PREDEFS,
+             predefs=set(CLANG_RUNTIME_PREDEFS),
              set_caps=(type(None), bool, int, float, str)
         )  # type: ignore
 
@@ -216,26 +223,12 @@ class CLangJansson(Language):
         # no content checks
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        if name == "$UUID":
-            return f"jm_is_valid_uuid({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$DATE":
-            return f"jm_is_valid_date({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$TIME":
-            return f"jm_is_valid_time({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$DATETIME":
-            return f"jm_is_valid_datetime({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$REGEX":
+        if name == "$REGEX":
             return f"jm_is_valid_regex({val}, false, {self.path(path)}, {self.rep()})"
         elif name == "$EXREG":
             return f"jm_is_valid_regex({val}, true, {self.path(path)}, {self.rep()})"
-        elif name in ("$URL", "$URI"):
-            return f"jm_is_valid_url({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$ETH":
-            return f"jm_is_valid_eth({val}, {self.path(path)}, {self.rep()})"
-        # elif name == "$EMAIL":
-        #     return f"jm_is_valid_email({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$JSON":
-            return f"jm_is_valid_json({val}, {self.path(path)}, {self.rep()})"
+        elif name in CLANG_RUNTIME_PREDEFS:
+            return f"{CLANG_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str)
 
