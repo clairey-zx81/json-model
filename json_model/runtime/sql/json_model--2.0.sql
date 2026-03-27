@@ -111,7 +111,7 @@ $$ LANGUAGE plpgsql;
 
 -- $EXTREG
 CREATE OR REPLACE FUNCTION
-  jm_is_valid_extreg(val TEXT, path TEXT[], rep jm_report_entry[])
+  jm_is_valid_exreg(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
   SELECT jm_is_valid_regex(val, path, rep);
 $$ LANGUAGE sql;

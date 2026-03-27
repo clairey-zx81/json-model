@@ -5,10 +5,16 @@ from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
-JAVA_RUNTIME_PREDEFS: set[str] = {
-    "$URL", "$URI",
-    "$DATE", "$TIME", "$DATETIME",
-    "$REGEX", "$EXREG" "$UUID", "$JSON",
+JAVA_RUNTIME_PREDEFS: dict[str, str] = {
+    "$URL": "is_valid_url",
+    "$URI": "is_valid_url",
+    "$DATE": "is_valid_date",
+    "$TIME": "is_valid_time",
+    "$DATETIME": "is_valid_datetime",
+    "$REGEX": "is_valid_regex",
+    "$EXREG": "is_valid_exreg",
+    "$UUID": "is_valid_uuid",
+    "$JSON": "is_valid_json",
     # TODO "$HOST", "$IP4", "$IP6", "$EMAIL",
 }
 
@@ -158,20 +164,8 @@ class Java(Language):
         if not is_str:
             isstr = self.is_a(var, str) + " && "  # type: ignore
             val = f"json.asString({var})"
-        if name == "$DATE":
-            return f"{isstr}rt.is_valid_date({val})"
-        elif name == "$TIME":
-            return f"{isstr}rt.is_valid_time({val})"
-        elif name == "$DATETIME":
-            return f"{isstr}rt.is_valid_datetime({val})"
-        elif name == "$REGEX":
-            return f"{isstr}rt.is_valid_regex({val})"
-        elif name == "$EXREG":
-            return f"{isstr}rt.is_valid_exreg({val})"
-        elif name in ("$URL", "$URI"):
-            return f"{isstr}rt.is_valid_url({val})"
-        elif name == "$JSON":
-            return f"{isstr}rt.is_valid_json({val})"
+        if name in JAVA_RUNTIME_PREDEFS:
+            return f"{isstr}rt.{JAVA_RUNTIME_PREDEFS[name]}({val})"
         else:
             return super().predef(var, name, path, is_str)
 
