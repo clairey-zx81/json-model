@@ -7,7 +7,8 @@ from .mtypes import ModelType
 STR_MODEL_PREDEFS = {
     "$STRING",
     "$DATE", "$TIME", "$DATETIME", "$DURATION",
-    "$REGEX", "$EXREG", "$UUID",
+    "$REGEX", "$EXREG",
+    "$UUID", "$CARD",
     "$URL", "$URI", "$EMAIL", "$IP4", "$IP6", "$HOST", "$ETH",
     "$JSON", "$JSONPT",
     "$__EXTENSION_COLOR",
@@ -95,6 +96,8 @@ _DURATION = f"P({_DUR_DATE}|{_DUR_TIME}|{_DUR_W})"
 #
 
 _UUID = r"[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}"  # i
+# unckeched LUHN algorithm
+_CARD = r"[0-9]{16}"
 
 _NUM = r"[-+]?\d+(\.\d*)?([Ee][-+]?\d+)?"
 _JSON = f"\\s*(\\{{.*\\}}|\\[.*\\]|null|true|false|\".*\"|{_NUM})\\s*",  # s
@@ -129,6 +132,7 @@ PREDEF_RE: dict[str, tuple[str, str, str]] = {
     "$UUID": ("jm_is_uuid", f"^{_UUID}$", "i"),
     "$JSON": ("jm_is_json", f"^{_JSON}$", "s"),
     "$JSONPT": ("jm_is_jsonpt", f"^{_JSONPT}$", "s"),
+    "$CARD": ("jm_is_card", f"^{_CARD}$", ""),
     "$REGEX": ("jm_is_regex", "^.*$", "s"),
     # some extensions for JSU backend
     "$__EXTENSION_COLOR": ("jm_is_color", f"^{_COLOR}$", ""),  # v3

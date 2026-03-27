@@ -1024,6 +1024,33 @@ jm_is_valid_json(const char *json, jm_path_t *path, jm_report_t *rep)
     return *s == '\0';
 }
 
+static bool
+check_luhn(const char *value, int length)
+{
+    const int odd = length & 1;
+    int sum = 0;
+    for (int i = 0; i < length - 1; i++)
+    {
+        const char c = value[i];
+        if (! isdigit(c))
+            return false;
+        if ((i & 1) ^ odd)
+            sum += (c - '0');
+        else {
+            const int v = 2 * (c - '0');
+            sum += v >= 10 ? v - 9 : v;
+        }
+    }
+    const int digit = 9 - ((sum + 9) % 10);
+    return value[length-1] == ('0' + digit) && value[length] == '\0';
+}
+
+bool
+jm_is_valid_card(const char *card, jm_path_t *path, jm_report_t *rep)
+{
+    return card ? check_luhn(card, 16) : false;
+}
+
 double
 jm_float_modulo(double d1, double d2)
 {

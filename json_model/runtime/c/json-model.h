@@ -171,6 +171,7 @@ extern bool (*jm_is_valid_regex)(const char *, bool, jm_path_t *, jm_report_t *)
 extern bool jm_is_valid_url(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_email(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_json(const char *, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_card(const char *, jm_path_t *, jm_report_t *);
 
 typedef enum {
     op_eq,

@@ -3,12 +3,21 @@ from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, S
 from .mtypes import Number, TestHint, Conditionals
 # from .utils import log
 
-PYTHON_RUNTIME_PREDEFS: set[str] = {
-    "$URL", "$URI",
-    "$DATE", "$TIME", "$DATETIME",
-    "$REGEX", "$EXREG" "$JSON",
-    "$HOST", "$IP4", "$IP6", "$EMAIL",
-    # regex: $UUID
+PYTHON_RUNTIME_PREDEFS: dict[str, str] = {
+    "$URL": "is_valid_url",
+    "$URI": "is_valid_url",
+    "$DATE": "is_valid_date",
+    "$TIME": "is_valid_time",
+    "$DATETIME": "is_valid_datetime",
+    "$REGEX": "is_valid_regex",
+    "$EXREG": "is_valid_exreg",
+    "$JSON": "is_valid_json",
+    "$HOST": "is_valid_host",
+    "$IP4": "is_valid_ip4",
+    "$IP6": "is_valid_ip6",
+    "$EMAIL": "is_valid_email",
+    "$CARD": "is_valid_card",
+    # regex fallback: $UUID
 }
 
 class Python(Language):
@@ -23,7 +32,7 @@ class Python(Language):
         super().__init__(
             "Python", relib=relib, debug=debug, with_comment=with_comment,
             with_report=with_report, with_path=with_path, with_predef=with_predef,
-            predefs=PYTHON_RUNTIME_PREDEFS
+            predefs=set(PYTHON_RUNTIME_PREDEFS)
         )
 
         assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
@@ -60,28 +69,8 @@ class Python(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        if name in ("$URL", "$URI"):  # approximate
-            return f"is_valid_url({var}, {path}, rep)"
-        elif name == "$DATE":
-            return f"is_valid_date({var}, {path}, rep)"
-        elif name == "$TIME":
-            return f"is_valid_time({var}, {path}, rep)"
-        elif name == "$DATETIME":
-            return f"is_valid_datetime({var}, {path}, rep)"
-        elif name == "$REGEX":
-            return f"is_valid_regex({var}, {path}, rep)"
-        elif name == "$EXREG":
-            return f"is_valid_exreg({var}, {path}, rep)"
-        elif name == "$EMAIL":
-            return f"is_valid_email({var}, {path}, rep)"
-        elif name == "$HOST":
-            return f"is_valid_host({var}, {path}, rep)"
-        elif name == "$IP4":
-            return f"is_valid_ip4({var}, {path}, rep)"
-        elif name == "$IP6":
-            return f"is_valid_ip6({var}, {path}, rep)"
-        elif name == "$JSON":
-            return f"is_valid_json({var}, {path}, rep)"
+        if name in PYTHON_RUNTIME_PREDEFS:
+            return f"{PYTHON_RUNTIME_PREDEFS[name]}({var}, {path}, rep)"
         else:
             return super().predef(var, name, path, is_str)
 

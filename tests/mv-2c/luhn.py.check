@@ -1,0 +1,64 @@
+luhn.values.json[0]: PASS
+luhn.values.json[1]: PASS
+luhn.values.json[2]: PASS
+luhn.values.json[3]: PASS
+luhn.values.json[4]: PASS
+luhn.values.json[5]: PASS
+luhn.values.json[6]: PASS
+luhn.values.json[7]: PASS
+luhn.values.json[8]: PASS
+luhn.values.json[9]: PASS
+luhn.values.json[10]: PASS
+luhn.values.json[11]: PASS
+luhn.values.json[12]: PASS
+luhn.values.json[13]: PASS
+luhn.values.json[14]: PASS
+luhn.values.json[15]: PASS
+luhn.values.json[16]: PASS
+luhn.values.json[17]: PASS
+luhn.values.json[18]: PASS
+luhn.values.json[19]: PASS
+luhn.values.json[20]: PASS
+luhn.values.json[21]: PASS
+luhn.values.json[22]: FAIL (.: invalid card number 0000000000000001)
+luhn.values.json[23]: FAIL (.: invalid card number 0000000000000002)
+luhn.values.json[24]: FAIL (.: invalid card number 0000000000000003)
+luhn.values.json[25]: FAIL (.: invalid card number 0000000000000004)
+luhn.values.json[26]: FAIL (.: invalid card number 0000000000000005)
+luhn.values.json[27]: FAIL (.: invalid card number 0000000000000006)
+luhn.values.json[28]: FAIL (.: invalid card number 0000000000000007)
+luhn.values.json[29]: FAIL (.: invalid card number 0000000000000008)
+luhn.values.json[30]: FAIL (.: invalid card number 0000000000000009)
+luhn.values.json[31]: FAIL (.: invalid card number 1234567890123450)
+luhn.values.json[32]: FAIL (.: invalid card number 1234567890123451)
+luhn.values.json[33]: PASS
+luhn.values.json[34]: FAIL (.: invalid card number 1234567890123453)
+luhn.values.json[35]: FAIL (.: invalid card number 1234567890123454)
+luhn.values.json[36]: FAIL (.: invalid card number 1234567890123455)
+luhn.values.json[37]: FAIL (.: invalid card number 1234567890123456)
+luhn.values.json[38]: FAIL (.: invalid card number 1234567890123457)
+luhn.values.json[39]: FAIL (.: invalid card number 1234567890123459)
+luhn.values.json[40]: FAIL (.: invalid card number 1234567890123459)
+luhn.values.json[41]: FAIL (.: invalid card number 2134567890123450)
+luhn.values.json[42]: PASS
+luhn.values.json[43]: FAIL (.: invalid card number 2134567890123452)
+luhn.values.json[44]: FAIL (.: invalid card number 2134567890123453)
+luhn.values.json[45]: FAIL (.: invalid card number 2134567890123454)
+luhn.values.json[46]: FAIL (.: invalid card number 2134567890123455)
+luhn.values.json[47]: FAIL (.: invalid card number 2134567890123456)
+luhn.values.json[48]: FAIL (.: invalid card number 2134567890123457)
+luhn.values.json[49]: FAIL (.: invalid card number 2134567890123458)
+luhn.values.json[50]: FAIL (.: invalid card number 2134567890123459)
+luhn.values.json[51]: FAIL (.: invalid card number 000000000000000)
+luhn.values.json[52]: FAIL (.: invalid card number 00000000000000000)
+luhn.values.json[53]: FAIL (.: invalid card number )
+luhn.values.json[54]: FAIL (.: invalid card number not a card number)
+luhn.values.json[55]: FAIL (.: invalid card number None)
+luhn.values.json[56]: FAIL (.: invalid card number True)
+luhn.values.json[57]: FAIL (.: invalid card number False)
+luhn.values.json[58]: FAIL (.: invalid card number 42)
+luhn.values.json[59]: FAIL (.: invalid card number -3.1415927)
+luhn.values.json[60]: FAIL (.: invalid card number [])
+luhn.values.json[61]: FAIL (.: invalid card number [1, 'expected'])
+luhn.values.json[62]: FAIL (.: invalid card number {})
+luhn.values.json[63]: FAIL (.: invalid card number {'un': 'expected'})

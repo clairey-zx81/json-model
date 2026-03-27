@@ -6,7 +6,7 @@ import re
 
 from .mtypes import UnknownModel, ModelPath, ModelType, ModelFilter, ModelObject, ModelArray
 from .utils import log, is_regex, is_a_simple_object
-from .predefs import CONST_RE
+from .predefs import CONST_RE, STR_MODEL_PREDEFS, BOOL_MODEL_PREDEFS, INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS
 from .recurse import recModel, allFlt, noRwt
 from .model import JsonModel
 from .runtime import ConstSet
@@ -198,17 +198,16 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
 _UTYPE = {
     "$ANY": None, "$NONE": None,
     "$NULL": type(None),
-    "$BOOL": bool, "$BOOLEAN": bool,
-    "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INT": int, "$INTEGER": int,
-    "$F32": float, "$F64": float, "$FLOAT": float, "$NUMBER": float,
-    "$STRING": str,
-    "$URL": str, "$URI": str, "$EMAIL": str,
-    "$REGEX": str, "$EXREG": str,
-    "$DATE": str, "$TIME": str, "$DATETIME": str,
-    "$UUID": str, "$JSON": str,
-    "$IP4": str, "$IP6": str, "$DURATION": str, "$JSONPT": str, "$HOST": str,
-    "$__EXTENSION_COLOR": str,
 }
+
+for predef in BOOL_MODEL_PREDEFS:
+    _UTYPE[predef] = bool
+for predef in INT_MODEL_PREDEFS:
+    _UTYPE[predef] = int
+for predef in FLOAT_MODEL_PREDEFS:
+    _UTYPE[predef] = float
+for predef in STR_MODEL_PREDEFS:
+    _UTYPE[predef] = str
 
 def _ultimate_type(jm: JsonModel, model: ModelType, names: set[str]) -> type|None:
     match model:
@@ -273,27 +272,14 @@ _UMODEL = {
     "$I32": -1, "$U32": 0, "$I64": -1, "$U64": 0, "$INTEGER": -1,
     "$F32": -1.0, "$F64": -1.0, "$NUMBER": -1.0,
     "$STRING": "",
-    # stop recursion on (some) predefs
     "$ANY": "$ANY",
     "$NONE": "$NONE",
-    "$URL": "$URL",
-    "$REGEX": "$REGEX",
-    "$EXREG": "$EXREG",
-    "$DATE": "$DATE",
-    "$TIME": "$TIME",
-    "$DATETIME": "$DATETIME",
-    "$UUID": "$UUID",
-    "$URI": "$URI",
-    "$EMAIL": "$EMAIL",
-    "$JSON": "$JSON",
-    "$IP4": "$IP4",
-    "$IP6": "$IP6",
-    "$DURATION": "$DURATION",
-    "$JSONPT": "$JSONPT",
-    "$HOST": "$HOST",
-    "$__EXTENSION_COLOR": "$__EXTENSION_COLOR",
-    # to be continued…
 }
+
+# str content predefs are their own standard model
+for predef in STR_MODEL_PREDEFS:
+    if predef not in _UMODEL:
+        _UMODEL[predef] = predef
 
 def ultimate_model(jm: JsonModel, model: ModelType, constrained=True, strict=False) -> ModelType:
     """Look for the real model, beyond references."""
