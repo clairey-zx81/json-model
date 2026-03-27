@@ -1,4 +1,5 @@
 // JSON Model Runtime
+import luhn from "luhn"
 
 // default regex engine, can be overriden
 export var RX = RegExp
@@ -106,6 +107,13 @@ export function jm_is_valid_json(val, path, rep)
     catch (e) {
         return false
     }
+}
+
+// credit card
+export function jm_is_valid_card(val, path, rep)
+{
+    // luhn packages rejects 0 explicitely for some reason
+    return (luhn.validate(val) || val === "0000000000000000") && val.length == 16
 }
 
 // work around js abysmal type (?) system

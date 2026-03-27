@@ -5,10 +5,16 @@ from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
-JS_RUNTIME_PREDEFS: set[str] = {
-    "$URL", "$URI",
-    "$DATE", "$TIME", "$DATETIME",
-    "$REGEX", "$EXREG" "$JSON",
+JS_RUNTIME_PREDEFS: dict[str, str] = {
+    "$URL": "jm_is_valid_url",
+    "$URI": "jm_is_valid_url",
+    "$DATE": "jm_is_valid_date",
+    "$TIME": "jm_is_valid_time",
+    "$DATETIME": "jm_is_valid_datetime",
+    "$REGEX": "jm_is_valid_regex",
+    "$EXREG": "jm_is_valid_regex",
+    "$JSON": "jm_is_valid_json",
+    "$CARD": "jm_is_valid_card",
     # regex: $EMAIL, "$UUID", "$HOST", "$IP4", "$IP6"
 }
 
@@ -28,7 +34,7 @@ class JavaScript(Language):
              with_predef=with_predef, not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="null", relib=relib,
              check_t="object", json_t="object", int_t="Number", float_t="Number",
-             path_t="?", str_t="String", match_t="bool", predefs=JS_RUNTIME_PREDEFS,
+             path_t="?", str_t="String", match_t="bool", predefs=set(JS_RUNTIME_PREDEFS),
              eoi=";", set_caps=(type(None), bool, int, float, str)
         )  # type: ignore
 
@@ -127,20 +133,12 @@ class JavaScript(Language):
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
         val = var
-        if name == "$DATE":
-            return f"runtime.jm_is_valid_date({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$TIME":
-            return f"runtime.jm_is_valid_time({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$DATETIME":
-            return f"runtime.jm_is_valid_datetime({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$REGEX":
+        if name == "$REGEX":
             return f"runtime.jm_is_valid_regex({val}, false)"
         elif name == "$EXREG":
             return f"runtime.jm_is_valid_regex({val}, true)"
-        elif name in ("$URL", "$URI"):
-            return f"runtime.jm_is_valid_url({val})"
-        elif name == "$JSON":
-            return f"runtime.jm_is_valid_json({val})"
+        elif name in JS_RUNTIME_PREDEFS:
+            return f"runtime.{JS_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str)
 
