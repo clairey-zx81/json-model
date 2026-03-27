@@ -7,10 +7,17 @@ from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 _DECL = "%PL_DECL% "
 _ESC_TABLE = { "'": "''", "\x00": "<NULL>" }
 
-PLPGSQL_RUNTIME_PREDEFS: set[str] = {
-    "$URL", "$URI",
-    "$DATE", "$TIME", "$DATETIME",
-    "$REGEX", "$EXREG" "$UUID", "$JSON",
+PLPGSQL_RUNTIME_PREDEFS: dict[str, str] = {
+    "$URL": "jm_is_valid_url",
+    "$URI": "jm_is_valid_url",
+    "$DATE": "jm_is_valid_date",
+    "$TIME": "jm_is_valid_time",
+    "$DATETIME": "jm_is_valid_datetime",
+    "$REGEX": "jm_is_valid_regex",
+    "$EXREG": "jm_is_valid_exreg",
+    "$UUID": "jm_is_valid_uuid",
+    "$JSON": "jm_is_valid_json",
+    # TODO "$CARD": "jm_is_valid_card",
     # regex: "$EMAIL", "$HOST", "$IP4", "$IP6",
 }
 
@@ -33,7 +40,7 @@ class PLpgSQL(Language):
              true="TRUE", false="FALSE", null="NULL",
              check_t="TEXT", json_t="JSONB",
              path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="TEXT[]",
-             eoi=";", relib=relib, debug=debug, predefs=PLPGSQL_RUNTIME_PREDEFS,
+             eoi=";", relib=relib, debug=debug, predefs=set(PLPGSQL_RUNTIME_PREDEFS),
              set_caps=(type(None), bool, int, float, str)
         )
 
@@ -123,20 +130,8 @@ class PLpgSQL(Language):
             return self.const(True) if is_str else self.is_a(var, str)
         val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
         cktype = "" if is_str else (self.is_a(var, str) + " AND ")  # pyright: ignore
-        if name == "$DATE":
-            return cktype + f"jm_is_valid_date({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$TIME":
-            return cktype + f"jm_is_valid_time({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$DATETIME":
-            return cktype + f"jm_is_valid_datetime({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$REGEX":
-            return cktype + f"jm_is_valid_regex({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$EXREG":
-            return cktype + f"jm_is_valid_extreg({val}, {self.path(path)}, {self.rep()})"
-        elif name in ("$URL", "$URI"):
-            return cktype + f"jm_is_valid_url({val}, {self.path(path)}, {self.rep()})"
-        elif name == "$JSON":
-            return cktype + f"jm_is_valid_json({val}, {self.path(path)}, {self.rep()})"
+        if name in PLPGSQL_RUNTIME_PREDEFS:
+            return cktype + f"{PLPGSQL_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str)
 
