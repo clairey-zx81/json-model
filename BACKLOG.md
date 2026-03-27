@@ -22,6 +22,7 @@
 - [x] predefs: add `$CARD` for 16 digits credit card numbers with Luhn's checksum
 - [x] predefs: add `$CARD` to js and perl runtime.
 - [x] predefs: filter predef extensions with `--extend`
+- [ ] static: if only one open prop, just look for it.
 - [ ] predefs: extension for _relative json pointer_, _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
 - [ ] predefs: improve card implementation for java and sql.
