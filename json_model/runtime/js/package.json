@@ -7,6 +7,9 @@
   "author": "Claire Yannou-Medrala and Fabien Coelho",
   "homepage": "https://github.com/clairey-zx81/json-model",
   "keywords": ["JSON", "JSON Model", "JSON Schema"],
+  "dependencies": {
+    "luhn": "^2.4.1"
+  },
   "engines": { "node": ">= 20.0.0" },
   "license": "CC0-1.0"
 }

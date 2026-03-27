@@ -6,15 +6,12 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 export var check_model_map = new Map()
-const jm_is_card_re = new runtime.RX("^[0-9]{16}$", "")
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && jm_is_card(val, null, null);
+    return runtime.jm_is_valid_card(val, null, null);
 }
 
-
-const jm_is_card = (s) => jm_is_card_re.exec(s) !== null
 
 var initialized = false
 
