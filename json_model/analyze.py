@@ -133,7 +133,9 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True, extend: bool =
                     except Exception:
                         is_valid = False
                 elif model[0] == "$":
-                    pass
+                    # reject predef extensions
+                    if not extend and model.startswith("$__EXTENSION_"):
+                        is_valid = False
                 else:  # TODO more checks
                     pass
             case list():
