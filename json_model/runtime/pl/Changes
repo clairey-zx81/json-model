@@ -5,9 +5,10 @@ Revision history for JSON::JsonModel
 2.0b4   2025-08-13
         Add $JSON predef.
 2.0b37  2026-02-26
-        Add jm_float_modulo
+        Add "jm_float_modulo".
 2.0b38  2026-03-08
-        Be resilient on missing RE2 module
+        Be resilient on missing RE2 module.
 2.0b42  2026-03-22
-        Remove "JSON Schema Benchmark" stuff
-        Remove "is_valid_email" and "is_valid_uuid"
+        Remove "JSON Schema Benchmark" stuff.
+        Remove "is_valid_email" and "is_valid_uuid".
+        Add "is_valid_card".

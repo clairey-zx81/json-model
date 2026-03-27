@@ -13,16 +13,9 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_string($val) && jm_is_card($val, undef, undef);
+    return jm_is_string($val) && jm_is_valid_card($val, undef, undef);
 }
 
-
-sub jm_is_card($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[0-9]{16}$/;
-    return $res;
-}
 
 # initialization of global variables
 

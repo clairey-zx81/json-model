@@ -18,6 +18,7 @@ use JSON::MaybeXS qw( decode_json from_json is_bool );
 use Getopt::Long qw(:config no_ignore_case);
 use Time::HiRes 'time';
 use Pod::Usage;
+use Algorithm::LUHN ();
 
 # automatic export
 use Exporter 'import';
@@ -37,6 +38,7 @@ our @EXPORT = qw(
     jm_is_valid_date
     jm_is_valid_time
     jm_is_valid_datetime
+    jm_is_valid_card
     jm_is_valid_regex
     jm_is_valid_exreg
     jm_obj_size
@@ -197,6 +199,13 @@ sub jm_is_valid_json($$$)
         from_json($j, { allow_nonref => 1 })
     };
     return $@ eq "";
+}
+
+# $CARD
+sub jm_is_valid_card($$$)
+{
+    my ($c) = @_;
+    return Algorithm::LUHN::is_valid($c) && length($c) == 16;
 }
 
 # $REGEX

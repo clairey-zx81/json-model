@@ -4,10 +4,16 @@ from .language import Language, Block, Var, PropMap, ConstList
 from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr, NumExpr
 from .mtypes import Number, Jsonable, TestHint, Conditionals
 
-PERL_RUNTIME_PREDEFS: set[str] = {
-    "$URL", "$URI",
-    "$DATE", "$TIME", "$DATETIME",
-    "$REGEX", "$EXREG", "$JSON",
+PERL_RUNTIME_PREDEFS: dict[str, str] = {
+    "$URL": "jm_is_valid_url",
+    "$URI": "jm_is_valid_url",
+    "$DATE": "jm_is_valid_date",
+    "$TIME": "jm_is_valid_time",
+    "$DATETIME": "jm_is_valid_datetime",
+    "$REGEX": "jm_is_valid_regex",
+    "$EXREG": "jm_is_valid_exreg",
+    "$JSON": "jm_is_valid_json",
+    "$CARD": "jm_is_valid_card",
     # backup regex: "$EMAIL", $UUID, "$HOST", "$IP4", "$IP6",
 }
 
@@ -27,7 +33,7 @@ class Perl(Language):
             not_op="!", and_op="&&", or_op="||", lcom="#",
             true="1", false="0", null="undef", check_t="", json_t="",
             path_t="", float_t="", str_t="", match_t="", eoi=";", set_caps=(str,),
-            predefs=PERL_RUNTIME_PREDEFS
+            predefs=set(PERL_RUNTIME_PREDEFS)
         )
 
         assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
@@ -118,20 +124,8 @@ class Perl(Language):
             return self.const(True) if is_str else self.is_a(var, str)
         is_str_and = self.is_a(var, str) + " && "  # type: ignore
         var, path = self._val(var), self._val(path)  # type: ignore
-        if name in ("$URL", "$URI"):  # approximate
-            return is_str_and + f"jm_is_valid_url({var}, {self.path(path)}, {self.rep()})"
-        elif name == "$DATE":
-            return is_str_and + f"jm_is_valid_date({var}, {self.path(path)}, {self.rep()})"
-        elif name == "$TIME":
-            return is_str_and + f"jm_is_valid_time({var}, {self.path(path)}, {self.rep()})"
-        elif name == "$DATETIME":
-            return is_str_and + f"jm_is_valid_datetime({var}, {self.path(path)}, {self.rep()})"
-        elif name == "$REGEX":
-            return is_str_and + f"jm_is_valid_regex({var}, {self.path(path)}, {self.rep()})"
-        elif name == "$EXREG":
-            return is_str_and + f"jm_is_valid_exreg({var}, {self.path(path)}, {self.rep()})"
-        elif name == "$JSON":
-            return is_str_and + f"jm_is_valid_json({var}, {self.path(path)}, {self.rep()})"
+        if name in PERL_RUNTIME_PREDEFS:
+            return is_str_and + f"{PERL_RUNTIME_PREDEFS[name]}({var}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str)
 
