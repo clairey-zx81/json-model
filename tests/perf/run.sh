@@ -20,7 +20,6 @@ export TMPDIR=.
 js_cli=js-cli
 jmc=jmc
 jsu_compile="$jmc exec jsu-compile"
-jsu_model="$jmc exec jsu-model"
 
 now=$(date +%Y%m%d%H%M%S.$$)
 
@@ -120,7 +119,7 @@ for dir ; do
     [ "$do_cmp" -a $trg = "blaze" ] && {
       echo "## $dir blaze compile"
       ctime "$name,blaze,$now," "$prefix" blaze \
-        $js_cli compile -m -f $dir/schema.json > ${prefix}_blaze.json
+        $js_cli compile -m -f $dir/schema.json > ${prefix}.blaze.json
       blaze_ko=$?
       echo "## blaze ko: $blaze_ko"
     }
@@ -129,7 +128,7 @@ for dir ; do
     [ "$do_cmp" -a "$trg" = "jsu" ] && {
       echo "## $dir jsu compile"
       ctime "$name,jsu-model,$now," "$prefix" jsu \
-        $jsu_model $jsu_opts $dir/schema.json > ${prefix}_model.json
+        $jsu_compile $jsu_opts -o ${prefix}.model.json $dir/schema.json
     }
 
     # schema to C and executable
@@ -137,15 +136,15 @@ for dir ; do
       echo "## $dir jmc-c compile"
       ctime "$name,jmc-c-src,$now," "$prefix" jmc-c \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_c_opt -o ${prefix}_model.c
+          -- $jmc_c_opt -o ${prefix}.c
       jmc_c_ko=$?
       ctime "$name,jmc-c-out,$now," "$prefix" jmc-c \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_c_opt -o ${prefix}_model.out
+          -- $jmc_c_opt -o ${prefix}.out
       jmc_out_ko=$?
       echo "## jmc out ko: $jmc_out_ko"
       # rename to avoid .out
-      mv ${prefix}_model.out ${prefix}_model.exe
+      mv ${prefix}.out ${prefix}.exe
     }
 
     # schema to JS
@@ -153,7 +152,7 @@ for dir ; do
       echo "## $dir jmc-js compile"
       ctime "$name,jmc-js,$now," "$prefix" jmc-js \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${prefix}_model.js
+          -- $jmc_x_opt -o ${prefix}.js
       jmc_js_ko=$?
     }
 
@@ -162,7 +161,7 @@ for dir ; do
       echo "## $dir jmc-py compile"
       ctime "$name,jmc-py,$now," "$prefix" jmc-py \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${prefix}_model.py
+          -- $jmc_x_opt -o ${prefix}.py
       jmc_py_ko=$?
     }
 
@@ -171,11 +170,11 @@ for dir ; do
       echo "## $dir jmc-java compile"
       ctime "$name,jmc-java-src,$now," "$prefix" jmc-java \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${sprefix}_model.java
+          -- $jmc_x_opt -o ${sprefix}.java
       jmc_java_ko=$?
       ctime "$name,jmc-java-class,$now," "$prefix" jmc-java \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${sprefix}_model.class
+          -- $jmc_x_opt -o ${sprefix}.class
       jmc_class_ko=$?
     }
 
@@ -184,7 +183,7 @@ for dir ; do
       echo "## $dir jmc-pl compile"
       ctime "$dir,jmc-pl,$now," "$prefix" jmc-pl \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${prefix}_model.pl
+          -- $jmc_x_opt -o ${prefix}.pl
       jmc_pl_ko=$?
     }
 
@@ -196,38 +195,38 @@ for dir ; do
     #
     [ "$trg" = "blaze" -a "$blaze_ko" -eq 0 ] && {
       echo "## $dir blaze run"
-      $js_cli validate -m ${prefix}_blaze.json -b -l $LOOP $dir/schema.json $dir/instances.jsonl \
+      $js_cli validate -m ${prefix}.blaze.json -b -l $LOOP $dir/schema.json $dir/instances.jsonl \
         > ${prefix}_blaze.out
     }
     [ "$trg" = "jmc-c" -a "$jmc_out_ko" -eq 0 ] && {
       echo "## $dir jmc-c run"
-      $jmc exec ${prefix}_model.exe -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.exe -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-c.out
     }
     [ "$trg" = "jmc-js" -a "$jmc_js_ko" -eq 0 ] && {
       echo "## $dir jmc-js run"
-      $jmc exec ${prefix}_model.js -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.js -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-js.out
     }
     [ "$trg" = "jmc-py" -a "$jmc_py_ko" -eq 0 ] && {
       echo "## $dir jmc-py run"
-      $jmc exec ${prefix}_model.py -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.py -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-py.out
     }
     [ "$trg" = "jmc-java" -a "$jmc_class_ko" -eq 0 ] && {
       # FIXME java .java to work around classpath subdir
       # maybe we could do better with some wrapper to fix CLASSPATH on the fly
       echo "## $dir jmc-java run"
-      $jmc exec java ${sprefix}_model.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec java ${sprefix}.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-java-gson.out
-      $jmc exec java ${sprefix}_model.java -j Jackson -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec java ${sprefix}.java -j Jackson -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-java-jackson.out
-      $jmc exec java ${sprefix}_model.java -j JSONP -T $LOOP --jsonl $dir/instances.jsonl \
+      $jmc exec java ${sprefix}.java -j JSONP -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-java-jsonp.out
     }
     [ "$trg" = "jmc-pl" -a "$jmc_pl_ko" -eq 0 ] && {
       echo "## $dir jmc-pl run"
-      $jmc exec ${prefix}_model.pl -T $(( $LOOP / 10 )) --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.pl -T $(( $LOOP / 10 )) --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-pl.out
     }
   done

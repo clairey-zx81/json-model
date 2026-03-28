@@ -220,7 +220,7 @@ for dir in jsb/schemas/* ; do
     egrep -v '(\$comment|description|title|default|deprecated|readOnly|writeOnly|examples) = ' |
     wc -l
   )
-  msize=$(jq < tmp/0/${name}_model.json | wc -l)
+  msize=$(jq < tmp/0/${name}.model.json | wc -l)
   tests=$(wc -l < $dir/instances.jsonl)
   echo "$name,$ssize,$nsize,$msize,$tests"
 
