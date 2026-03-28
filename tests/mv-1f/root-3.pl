@@ -73,14 +73,13 @@ sub json_model_12($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'id'})
     {
         return 0;
     }
     $pval = $$val{'id'};
     # .'$foo#root#root#Root'.id
-    $res = jm_is_integer($pval) && $pval == 1;
+    my $res = jm_is_integer($pval) && $pval == 1;
     if (! $res)
     {
         return 0;

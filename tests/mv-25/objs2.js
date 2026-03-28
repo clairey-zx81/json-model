@@ -25,14 +25,13 @@ function json_model_2(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("x"))
     {
         return false;
     }
     pval = val["x"];
     // .'$bla'.x
-    res = (typeof pval === 'number' || pval instanceof Number);
+    let res = (typeof pval === 'number' || pval instanceof Number);
     if (! res)
     {
         return false;

@@ -23,10 +23,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         return False
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         return False
     if not ((pval := val.get("c", UNDEFINED)) != UNDEFINED):
@@ -37,10 +36,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         return False
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         return False
     if not ((pval := val.get("b", UNDEFINED)) != UNDEFINED):

@@ -30,14 +30,13 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'ua'})
     {
         return 0;
     }
     $pval = $$val{'ua'};
     # .'$un'.ua
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;

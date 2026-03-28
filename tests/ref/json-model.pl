@@ -509,14 +509,13 @@ sub json_model_22($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'|'})
     {
         return 0;
     }
     $pval = $$val{'|'};
     # .'$Or'.'|'
-    $res = jm_is_array($pval);
+    my $res = jm_is_array($pval);
     if ($res)
     {
         for my $arr_1_idx (0 .. $#$pval)
@@ -548,14 +547,13 @@ sub json_model_23($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'&'})
     {
         return 0;
     }
     $pval = $$val{'&'};
     # .'$And'.'&'
-    $res = jm_is_array($pval);
+    my $res = jm_is_array($pval);
     if ($res)
     {
         for my $arr_2_idx (0 .. $#$pval)
@@ -587,14 +585,13 @@ sub json_model_24($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'^'})
     {
         return 0;
     }
     $pval = $$val{'^'};
     # .'$Xor'.'^'
-    $res = jm_is_array($pval);
+    my $res = jm_is_array($pval);
     if ($res)
     {
         for my $arr_3_idx (0 .. $#$pval)
@@ -626,14 +623,13 @@ sub json_model_25($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'+'})
     {
         return 0;
     }
     $pval = $$val{'+'};
     # .'$Add'.'+'
-    $res = jm_is_array($pval);
+    my $res = jm_is_array($pval);
     if ($res)
     {
         for my $arr_4_idx (0 .. $#$pval)

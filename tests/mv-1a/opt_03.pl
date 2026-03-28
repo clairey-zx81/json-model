@@ -29,14 +29,13 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;

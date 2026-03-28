@@ -14,7 +14,6 @@ export var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // (any xor m) is (not m)
     // .
     // not-case xor list
@@ -24,7 +23,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not a 0 strict int [.'^'.1]", path])
     }
-    res = ! is_0;
+    let res = ! is_0;
     if (res)
     {
         if (rep !== null) rep.length = 0

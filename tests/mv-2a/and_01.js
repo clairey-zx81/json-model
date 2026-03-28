@@ -56,7 +56,6 @@ function _jm_obj_1(val, path, rep)
     // value known to be an object
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("i"))
     {
         rep !== null && rep.push(["missing mandatory prop <i> [.'&'.0]", path])
@@ -65,7 +64,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["i"]) : null;
     pval = val["i"];
     // .'&'.0.i
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'&'.0.i]", (path ? lpath : null)])

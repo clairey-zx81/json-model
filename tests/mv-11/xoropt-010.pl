@@ -73,14 +73,13 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'b'})
     {
         return 0;
     }
     $pval = $$val{'b'};
     # .'|'.0.b
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;

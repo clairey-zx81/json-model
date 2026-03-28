@@ -239,8 +239,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must movie property
             must_count += 1;
             // .movie
-            bool iso_0 = json_is_object(pval);
-            res = iso_0;
+            res = json_is_object(pval);
             if (likely(res))
             {
                 if (likely(json_object_get(pval, "t") != NULL))

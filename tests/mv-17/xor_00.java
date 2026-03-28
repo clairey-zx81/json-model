@@ -26,10 +26,9 @@ public class xor_00 extends ModelChecker
         // equivalent to =0
         // .
         // remove duplicate xor list
-        boolean is_0;
         res = true;
         // .'^'.2
-        is_0 = json.isInteger(val) && json.asLong(val) >= 1;
+        boolean is_0 = json.isInteger(val) && json.asLong(val) >= 1;
         if (! is_0)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'^'.2]", path);

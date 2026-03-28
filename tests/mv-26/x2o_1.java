@@ -38,7 +38,6 @@ public class x2o_1 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$a']", path);
@@ -46,7 +45,7 @@ public class x2o_1 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$a'.t
-        res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"a\" [.'$a'.t]", (path != null ? lpath : null));
@@ -74,7 +73,6 @@ public class x2o_1 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$bc']", path);
@@ -82,7 +80,7 @@ public class x2o_1 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$bc'.t
-        res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
+        boolean res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.'$bc'.t.'|']", (path != null ? lpath : null));
@@ -109,7 +107,6 @@ public class x2o_1 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$Nabc']", path);
@@ -165,7 +162,7 @@ public class x2o_1 extends ModelChecker
                 if (rep != null) rep.addEntry("unexpected value for model \"_c\" [.'$Nabc'.t.'^'.3]", (path != null ? lpath : null));
             }
         }
-        res = xc_0 == 1;
+        boolean res = xc_0 == 1;
         if (res)
         {
             if (rep != null) rep.clearEntries();
@@ -183,11 +180,9 @@ public class x2o_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // xor-to-or with not constant exclusion behind references
         // .
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))

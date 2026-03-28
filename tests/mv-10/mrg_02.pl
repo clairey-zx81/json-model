@@ -40,14 +40,13 @@ sub json_model_5($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .'$r'.a
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    my $res = jm_is_string($pval) && $pval eq 'cst_01';
     if (! $res)
     {
         return 0;
@@ -98,14 +97,13 @@ sub json_model_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'e'})
     {
         return 0;
     }
     $pval = $$val{'e'};
     # .'$z'.e
-    $res = jm_is_string($pval) && $pval eq 'cst_02';
+    my $res = jm_is_string($pval) && $pval eq 'cst_02';
     if (! $res)
     {
         return 0;
@@ -134,14 +132,13 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .a
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    my $res = jm_is_string($pval) && $pval eq 'cst_01';
     if (! $res)
     {
         return 0;

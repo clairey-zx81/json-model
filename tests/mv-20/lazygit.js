@@ -244,7 +244,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("command"))
     {
         rep !== null && rep.push(["missing mandatory prop <command> [.'$Prompts'.'|'.0.suggestions.'|'.1]", path])
@@ -253,7 +252,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["command"]) : null;
     pval = val["command"];
     // .'$Prompts'.'|'.0.suggestions.'|'.1.command
-    res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Prompts'.'|'.0.suggestions.'|'.1.command]", (path ? lpath : null)])
@@ -280,7 +279,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("preset"))
     {
         rep !== null && rep.push(["missing mandatory prop <preset> [.'$Prompts'.'|'.0.suggestions.'|'.0]", path])
@@ -289,7 +287,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["preset"]) : null;
     pval = val["preset"];
     // .'$Prompts'.'|'.0.suggestions.'|'.0.preset
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval);
+    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Prompts'.'|'.0.suggestions.'|'.0.preset.'|']", (path ? lpath : null)])
@@ -623,7 +621,6 @@ function _jm_obj_4(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$Prompts'.'|'.2]", path])
@@ -632,7 +629,7 @@ function _jm_obj_4(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$Prompts'.'|'.2.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "menu";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "menu";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"menu\" [.'$Prompts'.'|'.2.type]", (path ? lpath : null)])
@@ -855,10 +852,8 @@ function _jm_obj_6(val, path, rep)
 // check $Prompts (.'$Prompts')
 function json_model_10(val, path, rep)
 {
-    let res;
     // .'$Prompts'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("type"))
@@ -1243,7 +1238,6 @@ function _jm_obj_14(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("pattern"))
     {
         rep !== null && rep.push(["missing mandatory prop <pattern> [.git.commitPrefixes.'/./']", path])
@@ -1252,7 +1246,7 @@ function _jm_obj_14(val, path, rep)
     lpath = path ? path.concat(["pattern"]) : null;
     pval = val["pattern"];
     // .git.commitPrefixes.'/./'.pattern
-    res = json_model_8(pval, (path ? lpath : null), rep);
+    let res = json_model_8(pval, (path ? lpath : null), rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$neString\" [.git.commitPrefixes.'/./'.pattern]", (path ? lpath : null)])

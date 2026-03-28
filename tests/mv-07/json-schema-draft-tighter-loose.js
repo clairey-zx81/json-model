@@ -48,7 +48,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("$schema"))
     {
         rep !== null && rep.push(["missing mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path])
@@ -57,7 +56,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["$schema"]) : null;
     pval = val["$schema"];
     // .'$tight#RootSchema'.'&'.0.'$schema'
-    res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$tight#RootSchema'.'&'.0.'$schema']", (path ? lpath : null)])
@@ -106,11 +105,9 @@ function json_model_27(val, path, rep)
 // check $tight#ObjectSchema (.'$tight#ObjectSchema')
 function json_model_25(val, path, rep)
 {
-    let res;
     // we could use ^ instead of | below
     // .'$tight#ObjectSchema'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("type"))

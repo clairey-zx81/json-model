@@ -34,14 +34,13 @@ sub json_model_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'stuff'})
     {
         return 0;
     }
     $pval = $$val{'stuff'};
     # .'$objs0'.stuff
-    $res = jm_is_array($pval);
+    my $res = jm_is_array($pval);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$pval)
@@ -88,10 +87,8 @@ sub json_model_1($$$)
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$objs0#furniture'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})
@@ -123,14 +120,13 @@ sub json_model_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$objs0#table'.t
-    $res = jm_is_string($pval) && $pval eq 'table';
+    my $res = jm_is_string($pval) && $pval eq 'table';
     if (! $res)
     {
         return 0;
@@ -159,14 +155,13 @@ sub json_model_5($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$objs0#chair'.t
-    $res = jm_is_string($pval) && $pval eq 'chair';
+    my $res = jm_is_string($pval) && $pval eq 'chair';
     if (! $res)
     {
         return 0;

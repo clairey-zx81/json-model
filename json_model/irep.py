@@ -312,19 +312,48 @@ def invertBool(op: Jsonable) -> Jsonable:
     else:
         return {"o": "not", "e": op}
 
-# TODO extend to statements?
 def bvar_uses(op: Jsonable, var: str) -> int:
-    """Count boolean variable occurrences in boolean expression."""
-    if isinstance(op, str):
+    """Count boolean variable occurrences in boolean expressions."""
+    if op is None:
+        return 0
+    elif isinstance(op, str):
         return 1 if op == var else 0
     elif isinstance(op, dict) and "o" in op:
         match op["o"]:
+            # simple boolean expressions
+            case "gv":
+                return 1 if op["var"] == var else 0
             case "|"|"&":
-                return sum(map(lambda e: bvar_is_used(e, var), op["exprs"]))
+                return bvar_uses(op["exprs"], var)
             case "not"|"()":
-                return bvar_is_used(op["e"], var)
+                return bvar_uses(op["e"], var)
+            # statements
+            case "bv":
+                return bvar_uses(op["val"], var)
+            case "ret":
+                return bvar_uses(op["res"], var)
+            case "if":
+                return (
+                    bvar_uses(op["cond"], var) +
+                    bvar_uses(op["true"], var) +
+                    bvar_uses(op["false"], var)
+                )
+            case "ifs":
+                return (
+                    sum(map(
+                        lambda x: bvar_uses(x[0], var) + bvar_uses(x[2], var),
+                        op["cond_true"]
+                    )) +
+                    bvar_uses(op["false"], var)
+                )
+            case "aL"|"oL"|"iL":
+                return bvar_uses(op["body"], var)
+            case "seq":
+                return bvar_uses(op["seq"], var)
             case _:  # is this safe?
                 return 0
+    elif isinstance(op, list):
+        return sum(map(lambda s: bvar_uses(s, var), op))
     else:  # safe, probably dead code
         return 0
 
@@ -338,6 +367,10 @@ def bvar_subs(op: Jsonable, var: str, val: Jsonable) -> Jsonable:
                 op["exprs"] = [ bvar_subs(e, var, val) for e in op["exprs"] ]
             case "not"|"()":
                 op["e"] = bvar_subs(op["e"], var, val)
+            case "gv":  # substitute an explicit reference (get value)
+                if op["var"] == var:
+                    op.clear()
+                    op.update(**val)
             case _:  # no propagation out of boolean expression
                 pass
     return op
@@ -718,7 +751,9 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
     # simplify "decl V = E; V' = f(V) where V appears once; no V uses" to "V' = f(E)"
     val1: Jsonable|None = None
     val2: Jsonable|None = None
+    i = 0
     for op in seq:
+        i += 1
         if _noOp(op, reporting):
             pass
         elif _isOp(op, "bv") and op["val"] is not None and op["declare"]:
@@ -731,13 +766,28 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 val2 = op
             else:
                 val1 = None
-        else:
-            # TODO improve, skip unrelated statements, check others?
+        elif val1 is not None and bvar_uses(op, val1["var"]) != 0:
             val1 = None
     if val1 is not None and val2 is not None:
         val2["val"] = bvar_subs(val2["val"], val1["var"], val1["val"])
         val1.clear()
         val1.update({"o": "ign", "#": "IRO subs boolean var in next assignment"})
+
+    # move declaration to first assignment decl V; ... ; V = V';
+    dec: Jsonable|None = None
+    for op in seq:
+        if _noOp(op, reporting):
+            pass
+        elif _isOp(op, "bv") and op["val"] is None and op["declare"]:
+            dec = op
+        elif dec is not None and _isOp(op, "bv") and op["var"] != dec["var"]:
+            pass
+        elif dec is not None and _isOp(op, "bv") and op["var"] == dec["var"]:
+            # move declaration
+            op["declare"] = True
+            dec.clear()
+            dec.update({"o": "ign", "#": "IRO move declaration to first assignment"})
+            dec = None
 
     # remove nopes (unless alone)
     rm, nco = [], 0

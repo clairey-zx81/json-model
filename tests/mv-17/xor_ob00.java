@@ -31,7 +31,6 @@ public class xor_ob00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "b")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.'$Aa'.'|'.1]", path);
@@ -39,7 +38,7 @@ public class xor_ob00 extends ModelChecker
         }
         lpath = new Path("b", path);
         // .'$Aa'.'|'.1.b
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Aa'.'|'.1.b]", (path != null ? lpath : null));
@@ -61,7 +60,6 @@ public class xor_ob00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'$Aa'.'|'.0]", path);
@@ -69,7 +67,7 @@ public class xor_ob00 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'$Aa'.'|'.0.a
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Aa'.'|'.0.a]", (path != null ? lpath : null));
@@ -139,7 +137,6 @@ public class xor_ob00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "d")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <d> [.'$Bb'.'|'.1]", path);
@@ -147,7 +144,7 @@ public class xor_ob00 extends ModelChecker
         }
         lpath = new Path("d", path);
         // .'$Bb'.'|'.1.d
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Bb'.'|'.1.d]", (path != null ? lpath : null));
@@ -169,7 +166,6 @@ public class xor_ob00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "c")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <c> [.'$Bb'.'|'.0]", path);
@@ -177,7 +173,7 @@ public class xor_ob00 extends ModelChecker
         }
         lpath = new Path("c", path);
         // .'$Bb'.'|'.0.c
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Bb'.'|'.0.c]", (path != null ? lpath : null));
@@ -247,7 +243,6 @@ public class xor_ob00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "b")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.'|'.3]", path);
@@ -255,7 +250,7 @@ public class xor_ob00 extends ModelChecker
         }
         lpath = new Path("b", path);
         // .'|'.3.b
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'|'.3.b]", (path != null ? lpath : null));
@@ -291,7 +286,6 @@ public class xor_ob00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "b")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.'|'.2]", path);
@@ -299,7 +293,7 @@ public class xor_ob00 extends ModelChecker
         }
         lpath = new Path("b", path);
         // .'|'.2.b
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'|'.2.b]", (path != null ? lpath : null));
@@ -335,7 +329,6 @@ public class xor_ob00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.1]", path);
@@ -343,7 +336,7 @@ public class xor_ob00 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'|'.1.a
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'|'.1.a]", (path != null ? lpath : null));
@@ -379,7 +372,6 @@ public class xor_ob00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0]", path);
@@ -387,7 +379,7 @@ public class xor_ob00 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'|'.0.a
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'|'.0.a]", (path != null ? lpath : null));

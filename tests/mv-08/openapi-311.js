@@ -5057,7 +5057,6 @@ function json_model_35(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-apikey']", path])
@@ -5066,7 +5065,7 @@ function json_model_35(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$SS-apikey'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "apiKey";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "apiKey";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_apiKey\" [.'$SS-apikey'.type]", (path ? lpath : null)])
@@ -5123,7 +5122,6 @@ function json_model_36(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-http']", path])
@@ -5132,7 +5130,7 @@ function json_model_36(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$SS-http'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "http";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_http\" [.'$SS-http'.type]", (path ? lpath : null)])
@@ -5253,7 +5251,6 @@ function json_model_38(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-oauth2']", path])
@@ -5262,7 +5259,7 @@ function json_model_38(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$SS-oauth2'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "oauth2";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "oauth2";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_oauth2\" [.'$SS-oauth2'.type]", (path ? lpath : null)])
@@ -5304,7 +5301,6 @@ function json_model_39(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$SS-oic']", path])
@@ -5313,7 +5309,7 @@ function json_model_39(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$SS-oic'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "openIdConnect";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "openIdConnect";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_openIdConnect\" [.'$SS-oic'.type]", (path ? lpath : null)])
@@ -5790,10 +5786,8 @@ function _jm_obj_42(val, path, rep)
 // check $SecurityScheme (.'$SecurityScheme')
 function json_model_40(val, path, rep)
 {
-    let res;
     // .'$SecurityScheme'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("type"))

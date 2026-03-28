@@ -32,13 +32,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'|'.2]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'|'.2.a
-    res = isinstance(pval, list)
+    res: bool = isinstance(pval, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(pval):
             arr_0_lpath: Path = ((lpath if path is not None else None) + [ arr_0_idx ]) if (lpath if path is not None else None) is not None else None
@@ -62,13 +61,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'|'.1]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'|'.1.a
-    res = isinstance(pval, str)
+    res: bool = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected value for model \"\" [.'|'.1.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.1]", lpath if path is not None else None))
@@ -84,13 +82,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'|'.0]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'|'.0.a
-    res = isinstance(pval, bool)
+    res: bool = isinstance(pval, bool)
     if not res:
         rep is None or rep.append(("not a bool [.'|'.0.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.0]", lpath if path is not None else None))

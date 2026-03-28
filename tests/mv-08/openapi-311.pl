@@ -3858,14 +3858,13 @@ sub json_model_35($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$SS-apikey'.type
-    $res = jm_is_string($pval) && $pval eq 'apiKey';
+    my $res = jm_is_string($pval) && $pval eq 'apiKey';
     if (! $res)
     {
         return 0;
@@ -3905,14 +3904,13 @@ sub json_model_36($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$SS-http'.type
-    $res = jm_is_string($pval) && $pval eq 'http';
+    my $res = jm_is_string($pval) && $pval eq 'http';
     if (! $res)
     {
         return 0;
@@ -4003,14 +4001,13 @@ sub json_model_38($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$SS-oauth2'.type
-    $res = jm_is_string($pval) && $pval eq 'oauth2';
+    my $res = jm_is_string($pval) && $pval eq 'oauth2';
     if (! $res)
     {
         return 0;
@@ -4039,14 +4036,13 @@ sub json_model_39($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$SS-oic'.type
-    $res = jm_is_string($pval) && $pval eq 'openIdConnect';
+    my $res = jm_is_string($pval) && $pval eq 'openIdConnect';
     if (! $res)
     {
         return 0;
@@ -4392,10 +4388,8 @@ sub _jm_obj_29($$$)
 sub json_model_40($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$SecurityScheme'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'type'})

@@ -28,7 +28,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.0]", path])
@@ -37,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.0.t
-    res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 3.1415927;
+    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 3.1415927;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=3.1415927\" [.'|'.0.t]", (path ? lpath : null)])
@@ -78,7 +77,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.1]", path])
@@ -87,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.1.t
-    res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 1.0;
+    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 1.0;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1.0\" [.'|'.1.t]", (path ? lpath : null)])
@@ -128,7 +126,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.2]", path])
@@ -137,7 +134,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.2.t
-    res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 0.5;
+    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 0.5;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0.5\" [.'|'.2.t]", (path ? lpath : null)])
@@ -166,11 +163,9 @@ function _jm_obj_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // disjunction on float
     // .
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("t"))

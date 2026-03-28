@@ -30,11 +30,10 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         return False
     # .a
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         return False
     if not ((pval := val.get("b", UNDEFINED)) != UNDEFINED):

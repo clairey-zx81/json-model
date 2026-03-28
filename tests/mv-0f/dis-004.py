@@ -32,13 +32,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("b", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <b> [.'$Aa'.'|'.1]", path))
         return False
     lpath = (path + [ "b" ]) if path is not None else None
     # .'$Aa'.'|'.1.b
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
     if not res:
         rep is None or rep.append(("not a 1 strict int [.'$Aa'.'|'.1.b]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <b> [.'$Aa'.'|'.1]", lpath if path is not None else None))
@@ -54,13 +53,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'$Aa'.'|'.0]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'$Aa'.'|'.0.a
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Aa'.'|'.0.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'$Aa'.'|'.0]", lpath if path is not None else None))
@@ -104,13 +102,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("c", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <c> [.'$Bb'.'|'.0]", path))
         return False
     lpath = (path + [ "c" ]) if path is not None else None
     # .'$Bb'.'|'.0.c
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$Bb'.'|'.0.c]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <c> [.'$Bb'.'|'.0]", lpath if path is not None else None))

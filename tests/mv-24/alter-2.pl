@@ -38,14 +38,13 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'u'})
     {
         return 0;
     }
     $pval = $$val{'u'};
     # .'$d'.u
-    $res = jm_is_string($pval) && $pval eq 'd';
+    my $res = jm_is_string($pval) && $pval eq 'd';
     if (! $res)
     {
         return 0;
@@ -75,14 +74,13 @@ sub json_model_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$efg'.t
-    $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    my $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
     if (! $res)
     {
         return 0;
@@ -110,14 +108,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$alternative'.'|'.0.t
-    $res = jm_is_string($pval) && $pval eq 'a';
+    my $res = jm_is_string($pval) && $pval eq 'a';
     if (! $res)
     {
         return 0;
@@ -146,14 +143,13 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'u'})
     {
         return 0;
     }
     $pval = $$val{'u'};
     # .'$alternative'.'|'.1.u
-    $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
+    my $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
     if (! $res)
     {
         return 0;
@@ -173,11 +169,10 @@ sub _jm_obj_1($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # expecting xor-to-or and tag detection
     # .'$alternative'
     my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = $iso_0;
     if ($res)
     {
         if (exists $$val{'t'})

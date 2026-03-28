@@ -45,7 +45,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # p1 optimized to | and root xor should rejects 'Bad'
     # .
     # generic xor list
@@ -62,7 +61,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         xc_0 += 1
     else:
         rep is None or rep.append(("unexpected value for model \"$p2\" [.'^'.1]", path))
-    res = xc_0 == 1
+    res: bool = xc_0 == 1
     if res:
         rep is None or rep.clear()
     else:

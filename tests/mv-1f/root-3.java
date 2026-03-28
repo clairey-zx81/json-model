@@ -60,7 +60,6 @@ public class root_3 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "rt")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <rt> [.'$foo#Foo']", path);
@@ -68,7 +67,7 @@ public class root_3 extends ModelChecker
         }
         lpath = new Path("rt", path);
         // .'$foo#Foo'.rt
-        res = json_model_12(pval, (path != null ? lpath : null), rep);
+        boolean res = json_model_12(pval, (path != null ? lpath : null), rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$root#Root\" [.'$foo#Foo'.rt]", (path != null ? lpath : null));
@@ -95,7 +94,6 @@ public class root_3 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "id")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <id> [.'$foo#root#root#Root']", path);
@@ -103,7 +101,7 @@ public class root_3 extends ModelChecker
         }
         lpath = new Path("id", path);
         // .'$foo#root#root#Root'.id
-        res = json.isInteger(pval) && json.asLong(pval) == 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) == 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'$foo#root#root#Root'.id]", (path != null ? lpath : null));

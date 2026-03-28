@@ -38,13 +38,12 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("hello", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <hello> [.]", path))
         return False
     lpath = (path + [ "hello" ]) if path is not None else None
     # .hello
-    res = isinstance(pval, str)
+    res: bool = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected value for model \"\" [.hello]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <hello> [.]", lpath if path is not None else None))

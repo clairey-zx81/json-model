@@ -27,7 +27,6 @@ function json_model_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'$oA']", path])
@@ -36,7 +35,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["v"]) : null;
     pval = val["v"];
     // .'$oA'.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oA'.v]", (path ? lpath : null)])
@@ -74,7 +73,6 @@ function json_model_3(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'$oB']", path])
@@ -83,7 +81,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["v"]) : null;
     pval = val["v"];
     // .'$oB'.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oB'.v]", (path ? lpath : null)])
@@ -112,10 +110,8 @@ function json_model_3(val, path, rep)
 // check $oC (.'$oC')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$oC'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("t"))
@@ -157,7 +153,6 @@ function json_model_5(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'$oL']", path])
@@ -166,7 +161,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["v"]) : null;
     pval = val["v"];
     // .'$oL'.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oL'.v]", (path ? lpath : null)])
@@ -204,7 +199,6 @@ function json_model_6(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'$oX']", path])
@@ -213,7 +207,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["v"]) : null;
     pval = val["v"];
     // .'$oX'.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oX'.v]", (path ? lpath : null)])
@@ -242,10 +236,8 @@ function json_model_6(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    let iso_1 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_1;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("t"))

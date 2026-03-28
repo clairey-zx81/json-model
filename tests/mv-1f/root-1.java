@@ -72,7 +72,6 @@ public class root_1 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "id")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <id> [.'$root#Root']", path);
@@ -80,7 +79,7 @@ public class root_1 extends ModelChecker
         }
         lpath = new Path("id", path);
         // .'$root#Root'.id
-        res = json.isInteger(pval) && json.asLong(pval) == 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) == 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'$root#Root'.id]", (path != null ? lpath : null));

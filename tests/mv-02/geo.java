@@ -824,7 +824,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$geometry'.'|'.0]", path);
@@ -832,7 +831,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$geometry'.'|'.0.type
-        res = json.isString(pval) && json.asString(pval).compareTo("Point") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("Point") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"Point\" [.'$geometry'.'|'.0.type]", (path != null ? lpath : null));
@@ -897,7 +896,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$geometry'.'|'.1]", path);
@@ -905,7 +903,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$geometry'.'|'.1.type
-        res = json.isString(pval) && json.asString(pval).compareTo("MultiPoint") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("MultiPoint") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"MultiPoint\" [.'$geometry'.'|'.1.type]", (path != null ? lpath : null));
@@ -988,7 +986,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$geometry'.'|'.2]", path);
@@ -996,7 +993,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$geometry'.'|'.2.type
-        res = json.isString(pval) && json.asString(pval).compareTo("LineString") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("LineString") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"LineString\" [.'$geometry'.'|'.2.type]", (path != null ? lpath : null));
@@ -1061,7 +1058,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$geometry'.'|'.3]", path);
@@ -1069,7 +1065,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$geometry'.'|'.3.type
-        res = json.isString(pval) && json.asString(pval).compareTo("MultiLineString") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("MultiLineString") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"MultiLineString\" [.'$geometry'.'|'.3.type]", (path != null ? lpath : null));
@@ -1152,7 +1148,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$geometry'.'|'.4]", path);
@@ -1160,7 +1155,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$geometry'.'|'.4.type
-        res = json.isString(pval) && json.asString(pval).compareTo("Polygon") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("Polygon") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"Polygon\" [.'$geometry'.'|'.4.type]", (path != null ? lpath : null));
@@ -1243,7 +1238,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$geometry'.'|'.5]", path);
@@ -1251,7 +1245,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$geometry'.'|'.5.type
-        res = json.isString(pval) && json.asString(pval).compareTo("MultiPolygon") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("MultiPolygon") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"MultiPolygon\" [.'$geometry'.'|'.5.type]", (path != null ? lpath : null));
@@ -1345,10 +1339,8 @@ public class geo extends ModelChecker
     // check $geometry (.'$geometry')
     public boolean json_model_11(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$geometry'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "type"))
@@ -1390,7 +1382,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$GeometryCollection']", path);
@@ -1398,7 +1389,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$GeometryCollection'.type
-        res = json.isString(pval) && json.asString(pval).compareTo("GeometryCollection") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("GeometryCollection") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"GeometryCollection\" [.'$GeometryCollection'.type]", (path != null ? lpath : null));
@@ -1494,7 +1485,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Feature']", path);
@@ -1502,7 +1492,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$Feature'.type
-        res = json.isString(pval) && json.asString(pval).compareTo("Feature") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("Feature") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"Feature\" [.'$Feature'.type]", (path != null ? lpath : null));
@@ -1645,7 +1635,6 @@ public class geo extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$FeatureCollection']", path);
@@ -1653,7 +1642,7 @@ public class geo extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$FeatureCollection'.type
-        res = json.isString(pval) && json.asString(pval).compareTo("FeatureCollection") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("FeatureCollection") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"FeatureCollection\" [.'$FeatureCollection'.type]", (path != null ? lpath : null));
@@ -1729,11 +1718,9 @@ public class geo extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // Geo JSON Model JSON_MODEL_LOOSE_FLOAT
         // .
-        boolean iso_1 = json.isObject(val);
-        res = iso_1;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "type"))

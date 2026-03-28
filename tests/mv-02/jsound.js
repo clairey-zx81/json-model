@@ -176,10 +176,8 @@ function json_model_2(val, path, rep)
 // check $Type (.'$Type')
 function json_model_3(val, path, rep)
 {
-    let res;
     // .'$Type'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("kind"))

@@ -296,11 +296,9 @@ static INLINE jm_check_fun_t _jm_map_0(json_t *val)
 // check $alternative (.'$alternative')
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // expecting xor-to-or and tag detection
     // .'$alternative'
-    bool iso_0 = json_is_object(val);
-    res = iso_0;
+    bool res = json_is_object(val);
     if (likely(res))
     {
         if (likely(json_object_get(val, "t") != NULL))

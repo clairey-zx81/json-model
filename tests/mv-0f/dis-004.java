@@ -31,7 +31,6 @@ public class dis_004 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "b")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <b> [.'$Aa'.'|'.1]", path);
@@ -39,7 +38,7 @@ public class dis_004 extends ModelChecker
         }
         lpath = new Path("b", path);
         // .'$Aa'.'|'.1.b
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$Aa'.'|'.1.b]", (path != null ? lpath : null));
@@ -61,7 +60,6 @@ public class dis_004 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'$Aa'.'|'.0]", path);
@@ -69,7 +67,7 @@ public class dis_004 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'$Aa'.'|'.0.a
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Aa'.'|'.0.a]", (path != null ? lpath : null));
@@ -143,7 +141,6 @@ public class dis_004 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "c")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <c> [.'$Bb'.'|'.0]", path);
@@ -151,7 +148,7 @@ public class dis_004 extends ModelChecker
         }
         lpath = new Path("c", path);
         // .'$Bb'.'|'.0.c
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Bb'.'|'.0.c]", (path != null ? lpath : null));

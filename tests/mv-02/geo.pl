@@ -597,14 +597,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$geometry'.'|'.0.type
-    $res = jm_is_string($pval) && $pval eq 'Point';
+    my $res = jm_is_string($pval) && $pval eq 'Point';
     if (! $res)
     {
         return 0;
@@ -656,14 +655,13 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$geometry'.'|'.1.type
-    $res = jm_is_string($pval) && $pval eq 'MultiPoint';
+    my $res = jm_is_string($pval) && $pval eq 'MultiPoint';
     if (! $res)
     {
         return 0;
@@ -728,14 +726,13 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$geometry'.'|'.2.type
-    $res = jm_is_string($pval) && $pval eq 'LineString';
+    my $res = jm_is_string($pval) && $pval eq 'LineString';
     if (! $res)
     {
         return 0;
@@ -787,14 +784,13 @@ sub _jm_obj_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$geometry'.'|'.3.type
-    $res = jm_is_string($pval) && $pval eq 'MultiLineString';
+    my $res = jm_is_string($pval) && $pval eq 'MultiLineString';
     if (! $res)
     {
         return 0;
@@ -859,14 +855,13 @@ sub _jm_obj_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$geometry'.'|'.4.type
-    $res = jm_is_string($pval) && $pval eq 'Polygon';
+    my $res = jm_is_string($pval) && $pval eq 'Polygon';
     if (! $res)
     {
         return 0;
@@ -931,14 +926,13 @@ sub _jm_obj_5($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$geometry'.'|'.5.type
-    $res = jm_is_string($pval) && $pval eq 'MultiPolygon';
+    my $res = jm_is_string($pval) && $pval eq 'MultiPolygon';
     if (! $res)
     {
         return 0;
@@ -1011,10 +1005,8 @@ sub _jm_obj_5($$$)
 sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$geometry'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'type'})
@@ -1042,14 +1034,13 @@ sub json_model_12($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$GeometryCollection'.type
-    $res = jm_is_string($pval) && $pval eq 'GeometryCollection';
+    my $res = jm_is_string($pval) && $pval eq 'GeometryCollection';
     if (! $res)
     {
         return 0;
@@ -1123,14 +1114,13 @@ sub json_model_13($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$Feature'.type
-    $res = jm_is_string($pval) && $pval eq 'Feature';
+    my $res = jm_is_string($pval) && $pval eq 'Feature';
     if (! $res)
     {
         return 0;
@@ -1211,14 +1201,13 @@ sub json_model_14($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$FeatureCollection'.type
-    $res = jm_is_string($pval) && $pval eq 'FeatureCollection';
+    my $res = jm_is_string($pval) && $pval eq 'FeatureCollection';
     if (! $res)
     {
         return 0;
@@ -1278,11 +1267,9 @@ sub json_model_14($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     # .
-    my $iso_1 = jm_is_object($val);
-    $res = $iso_1;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'type'})

@@ -21,10 +21,9 @@ sub json_model_1($$$)
     my $res;
     # .
     # remove duplicate xor list
-    my $is_0;
     $res = 1;
     # .'^'.1
-    $is_0 = jm_is_integer($val) && $val >= 0;
+    my $is_0 = jm_is_integer($val) && $val >= 0;
     $res = ! $is_0;
     if ($res)
     {

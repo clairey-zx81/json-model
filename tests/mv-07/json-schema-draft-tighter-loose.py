@@ -54,13 +54,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("$schema", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path))
         return False
     lpath = (path + [ "$schema" ]) if path is not None else None
     # .'$tight#RootSchema'.'&'.0.'$schema'
-    res = isinstance(pval, str)
+    res: bool = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected value for model \"\" [.'$tight#RootSchema'.'&'.0.'$schema']", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", lpath if path is not None else None))
@@ -91,11 +90,9 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $tight#ObjectSchema (.'$tight#ObjectSchema')
 def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # we could use ^ instead of | below
     # .'$tight#ObjectSchema'
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "type" in val:
             tag_0: Jsonable = val.get("type", UNDEFINED)

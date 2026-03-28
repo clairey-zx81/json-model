@@ -33,14 +33,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.0.t
-    $res = jm_is_integer($pval) && $pval == 0;
+    my $res = jm_is_integer($pval) && $pval == 0;
     if (! $res)
     {
         return 0;
@@ -68,7 +67,6 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
@@ -79,7 +77,7 @@ sub _jm_obj_1($$$)
     # .'|'.1.t.'|'.1
     # .'|'.1.t.'|'.2
     # .'|'.1.t.'|'.3
-    $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 2 || $pval == 4 || $pval == 6 || $pval == 8));
+    my $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 2 || $pval == 4 || $pval == 6 || $pval == 8));
     if (! $res)
     {
         return 0;
@@ -107,7 +105,6 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
@@ -119,7 +116,7 @@ sub _jm_obj_2($$$)
     # .'|'.2.t.'|'.2
     # .'|'.2.t.'|'.3
     # .'|'.2.t.'|'.4
-    $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 1 || $pval == 3 || $pval == 5 || $pval == 7 || $pval == 9));
+    my $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 1 || $pval == 3 || $pval == 5 || $pval == 7 || $pval == 9));
     if (! $res)
     {
         return 0;
@@ -147,14 +144,13 @@ sub _jm_obj_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.3.t
-    $res = jm_is_integer($pval) && $pval == 10;
+    my $res = jm_is_integer($pval) && $pval == 10;
     if (! $res)
     {
         return 0;
@@ -173,10 +169,8 @@ sub _jm_obj_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})

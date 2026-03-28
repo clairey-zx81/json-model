@@ -102,7 +102,6 @@ public class trafo_3 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "ua")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <ua> [.'$Dd#Uu#un']", path);
@@ -110,7 +109,7 @@ public class trafo_3 extends ModelChecker
         }
         lpath = new Path("ua", path);
         // .'$Dd#Uu#un'.ua
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$Dd#Uu#un'.ua]", (path != null ? lpath : null));

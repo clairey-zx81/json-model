@@ -56,13 +56,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'|'.4]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'|'.4.a
-    res = isinstance(pval, bool) and pval == False
+    res: bool = isinstance(pval, bool) and pval == False
     if not res:
         rep is None or rep.append(("unexpected value for model \"=false\" [.'|'.4.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.4]", lpath if path is not None else None))
@@ -78,13 +77,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'|'.3]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'|'.3.a
-    res = isinstance(pval, bool) and pval == True
+    res: bool = isinstance(pval, bool) and pval == True
     if not res:
         rep is None or rep.append(("unexpected value for model \"=true\" [.'|'.3.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.3]", lpath if path is not None else None))
@@ -100,13 +98,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'|'.2]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'|'.2.a
-    res = isinstance(pval, float) and pval == 1.0
+    res: bool = isinstance(pval, float) and pval == 1.0
     if not res:
         rep is None or rep.append(("unexpected value for model \"=1.0\" [.'|'.2.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.2]", lpath if path is not None else None))
@@ -122,13 +119,12 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'|'.1]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'|'.1.a
-    res = isinstance(pval, float) and pval == 10.0
+    res: bool = isinstance(pval, float) and pval == 10.0
     if not res:
         rep is None or rep.append(("unexpected value for model \"=10.0\" [.'|'.1.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.1]", lpath if path is not None else None))
@@ -144,13 +140,12 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'|'.0]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'|'.0.a
-    res = pval is None
+    res: bool = pval is None
     if not res:
         rep is None or rep.append(("unexpected value for model \"=null\" [.'|'.0.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'|'.0]", lpath if path is not None else None))

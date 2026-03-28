@@ -5707,11 +5707,9 @@ function json_model_23(val, path, rep)
 // check $ObjectSchema (.'$ObjectSchema')
 function json_model_24(val, path, rep)
 {
-    let res;
     // we could use ^ instead of | below
     // .'$ObjectSchema'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("type"))
@@ -5779,7 +5777,6 @@ function _jm_obj_41(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("$schema"))
     {
         rep !== null && rep.push(["missing mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path])
@@ -5788,7 +5785,7 @@ function _jm_obj_41(val, path, rep)
     lpath = path ? path.concat(["$schema"]) : null;
     pval = val["$schema"];
     // .'$RootSchema'.'&'.0.'$schema'
-    res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$RootSchema'.'&'.0.'$schema']", (path ? lpath : null)])

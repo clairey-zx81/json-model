@@ -84,14 +84,13 @@ sub json_model_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'li'})
     {
         return 0;
     }
     $pval = $$val{'li'};
     # .'$combined'.li
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;

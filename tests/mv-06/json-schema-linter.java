@@ -4074,11 +4074,9 @@ public class json_schema_linter extends ModelChecker
     // check $ObjectSchema (.'$ObjectSchema')
     public boolean json_model_23(Object val, Path path, Report rep)
     {
-        boolean res;
         // we could use ^ instead of | below
         // .'$ObjectSchema'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "type"))
@@ -4146,7 +4144,6 @@ public class json_schema_linter extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "$schema")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path);
@@ -4154,7 +4151,7 @@ public class json_schema_linter extends ModelChecker
         }
         lpath = new Path("$schema", path);
         // .'$RootSchema'.'&'.0.'$schema'
-        res = json.isString(pval);
+        boolean res = json.isString(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$RootSchema'.'&'.0.'$schema']", (path != null ? lpath : null));

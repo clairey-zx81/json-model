@@ -4681,11 +4681,9 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $GalaxyInfoModel (.'$GalaxyInfoModel')
 def json_model_54(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # hmmmm, property standalone should probably be required…
     # .'$GalaxyInfoModel'
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "standalone" in val:
             tag_0: Jsonable = val.get("standalone", UNDEFINED)
@@ -4873,13 +4871,12 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     # value known to be an object
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("name", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path))
         return False
     lpath = (path + [ "name" ]) if path is not None else None
     # .'$DependencyModel'.'&'.1.'|'.2.name
-    res = isinstance(pval, str)
+    res: bool = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.2.name]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", lpath if path is not None else None))
@@ -4892,13 +4889,12 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
     # value known to be an object
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("src", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path))
         return False
     lpath = (path + [ "src" ]) if path is not None else None
     # .'$DependencyModel'.'&'.1.'|'.1.src
-    res = isinstance(pval, str)
+    res: bool = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.1.src]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", lpath if path is not None else None))
@@ -4911,13 +4907,12 @@ def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
     # value known to be an object
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("role", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path))
         return False
     lpath = (path + [ "role" ]) if path is not None else None
     # .'$DependencyModel'.'&'.1.'|'.0.role
-    res = isinstance(pval, str)
+    res: bool = isinstance(pval, str)
     if not res:
         rep is None or rep.append(("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.0.role]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", lpath if path is not None else None))

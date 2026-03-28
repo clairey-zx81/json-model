@@ -597,7 +597,6 @@ function json_model_22(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("|"))
     {
         rep !== null && rep.push(["missing mandatory prop <|> [.'$Or']", path])
@@ -606,7 +605,7 @@ function json_model_22(val, path, rep)
     lpath = path ? path.concat(["|"]) : null;
     pval = val["|"];
     // .'$Or'.'|'
-    res = Array.isArray(pval);
+    let res = Array.isArray(pval);
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < pval.length; arr_1_idx++)
@@ -648,7 +647,6 @@ function json_model_23(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("&"))
     {
         rep !== null && rep.push(["missing mandatory prop <&> [.'$And']", path])
@@ -657,7 +655,7 @@ function json_model_23(val, path, rep)
     lpath = path ? path.concat(["&"]) : null;
     pval = val["&"];
     // .'$And'.'&'
-    res = Array.isArray(pval);
+    let res = Array.isArray(pval);
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
@@ -699,7 +697,6 @@ function json_model_24(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("^"))
     {
         rep !== null && rep.push(["missing mandatory prop <^> [.'$Xor']", path])
@@ -708,7 +705,7 @@ function json_model_24(val, path, rep)
     lpath = path ? path.concat(["^"]) : null;
     pval = val["^"];
     // .'$Xor'.'^'
-    res = Array.isArray(pval);
+    let res = Array.isArray(pval);
     if (res)
     {
         for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
@@ -750,7 +747,6 @@ function json_model_25(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("+"))
     {
         rep !== null && rep.push(["missing mandatory prop <+> [.'$Add']", path])
@@ -759,7 +755,7 @@ function json_model_25(val, path, rep)
     lpath = path ? path.concat(["+"]) : null;
     pval = val["+"];
     // .'$Add'.'+'
-    res = Array.isArray(pval);
+    let res = Array.isArray(pval);
     if (res)
     {
         for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)

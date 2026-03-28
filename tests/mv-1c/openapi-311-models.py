@@ -2869,10 +2869,8 @@ def _jm_obj_38(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $openapi#SecurityScheme (.'$openapi#SecurityScheme')
 def json_model_42(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$openapi#SecurityScheme'
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "type" in val:
             tag_0: Jsonable = val.get("type", UNDEFINED)

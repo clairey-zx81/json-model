@@ -36,7 +36,6 @@ public class dis_03 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "discriminator")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <discriminator> [.'|'.0]", path);
@@ -44,7 +43,7 @@ public class dis_03 extends ModelChecker
         }
         lpath = new Path("discriminator", path);
         // .'|'.0.discriminator
-        res = json.isBoolean(pval) && json.asBoolean(pval) == true;
+        boolean res = json.isBoolean(pval) && json.asBoolean(pval) == true;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=true\" [.'|'.0.discriminator]", (path != null ? lpath : null));
@@ -84,7 +83,6 @@ public class dis_03 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "discriminator")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <discriminator> [.'|'.1]", path);
@@ -92,7 +90,7 @@ public class dis_03 extends ModelChecker
         }
         lpath = new Path("discriminator", path);
         // .'|'.1.discriminator
-        res = json.isBoolean(pval) && json.asBoolean(pval) == false;
+        boolean res = json.isBoolean(pval) && json.asBoolean(pval) == false;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=false\" [.'|'.1.discriminator]", (path != null ? lpath : null));
@@ -120,11 +118,9 @@ public class dis_03 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // boolean tag
         // .
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "discriminator"))

@@ -30,14 +30,13 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'bibi'})
     {
         return 0;
     }
     $pval = $$val{'bibi'};
     # .'$bibi'.bibi
-    $res = jm_is_array($pval);
+    my $res = jm_is_array($pval);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$pval)

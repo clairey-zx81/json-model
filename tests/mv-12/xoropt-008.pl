@@ -28,14 +28,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .'|'.2.a
-    $res = jm_is_array($pval);
+    my $res = jm_is_array($pval);
     if ($res)
     {
         for my $arr_0_idx (0 .. $#$pval)

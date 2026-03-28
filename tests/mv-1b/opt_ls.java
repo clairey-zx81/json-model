@@ -37,7 +37,6 @@ public class opt_ls extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "i")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <i> [.]", path);
@@ -45,7 +44,7 @@ public class opt_ls extends ModelChecker
         }
         lpath = new Path("i", path);
         // .i
-        res = (json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))));
+        boolean res = (json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))));
         if (! res)
         {
             if (rep != null) rep.addEntry("not a -1 loose int [.i]", (path != null ? lpath : null));

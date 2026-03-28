@@ -22,11 +22,10 @@ public class varlen_0 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // .'@'
         Path lpath_0;
-        res = json.isArray(val);
+        boolean res = json.isArray(val);
         if (res)
         {
             long len_0 = json.arrayLength(val);

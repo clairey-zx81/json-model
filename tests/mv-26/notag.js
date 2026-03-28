@@ -23,7 +23,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.1]", path])
@@ -32,7 +31,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.1.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "A";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "A";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"A\" [.'|'.1.t]", (path ? lpath : null)])
@@ -69,7 +68,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.0]", path])
@@ -78,7 +76,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.0.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "A";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "A";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"A\" [.'|'.0.t]", (path ? lpath : null)])

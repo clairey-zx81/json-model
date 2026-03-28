@@ -35,13 +35,12 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("za", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <za> [.'$zero']", path))
         return False
     lpath = (path + [ "za" ]) if path is not None else None
     # .'$zero'.za
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$zero'.za]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <za> [.'$zero']", lpath if path is not None else None))

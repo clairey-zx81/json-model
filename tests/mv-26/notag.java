@@ -31,7 +31,6 @@ public class notag extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.1]", path);
@@ -39,7 +38,7 @@ public class notag extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.1.t
-        res = json.isString(pval) && json.asString(pval).compareTo("A") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("A") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"A\" [.'|'.1.t]", (path != null ? lpath : null));
@@ -75,7 +74,6 @@ public class notag extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.0]", path);
@@ -83,7 +81,7 @@ public class notag extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.0.t
-        res = json.isString(pval) && json.asString(pval).compareTo("A") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("A") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"A\" [.'|'.0.t]", (path != null ? lpath : null));

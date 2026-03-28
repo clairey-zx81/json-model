@@ -30,14 +30,13 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'title'})
     {
         return 0;
     }
     $pval = $$val{'title'};
     # .'$book'.title
-    $res = jm_is_string($pval);
+    my $res = jm_is_string($pval);
     if (! $res)
     {
         return 0;

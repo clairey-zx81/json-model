@@ -28,7 +28,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.movie.'|'.0]", path])
@@ -37,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .movie.'|'.0.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "fr";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "fr";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"fr\" [.movie.'|'.0.t]", (path ? lpath : null)])
@@ -78,7 +77,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.movie.'|'.1]", path])
@@ -87,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .movie.'|'.1.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "en";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "en";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"en\" [.movie.'|'.1.t]", (path ? lpath : null)])
@@ -128,7 +126,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.movie.'|'.2]", path])
@@ -137,7 +134,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .movie.'|'.2.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ru";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ru";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"ru\" [.movie.'|'.2.t]", (path ? lpath : null)])
@@ -181,7 +178,6 @@ function json_model_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("movie"))
     {
         rep !== null && rep.push(["missing mandatory prop <movie> [.]", path])
@@ -190,8 +186,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["movie"]) : null;
     pval = val["movie"];
     // .movie
-    let iso_0 = Object.prototype.toString.call(pval) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(pval) === '[object Object]';
     if (res)
     {
         if (pval.hasOwnProperty("t"))

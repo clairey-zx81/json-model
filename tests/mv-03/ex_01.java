@@ -60,7 +60,6 @@ public class ex_01 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.]", path);
@@ -68,7 +67,7 @@ public class ex_01 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .a
-        res = json.isString(pval) && json.asString(pval).compareTo("Susie") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("Susie") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_Susie\" [.a]", (path != null ? lpath : null));

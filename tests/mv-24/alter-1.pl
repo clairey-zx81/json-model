@@ -59,14 +59,13 @@ sub json_model_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$d'.t
-    $res = jm_is_string($pval) && $pval eq 'd';
+    my $res = jm_is_string($pval) && $pval eq 'd';
     if (! $res)
     {
         return 0;
@@ -96,14 +95,13 @@ sub json_model_5($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$ef'.t
-    $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
+    my $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
     if (! $res)
     {
         return 0;
@@ -131,14 +129,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$alternative'.'|'.0.t
-    $res = jm_is_string($pval) && $pval eq 'a';
+    my $res = jm_is_string($pval) && $pval eq 'a';
     if (! $res)
     {
         return 0;
@@ -167,14 +164,13 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$alternative'.'|'.1.t
-    $res = jm_is_string($pval) && exists $_jm_cst_2{$pval};
+    my $res = jm_is_string($pval) && exists $_jm_cst_2{$pval};
     if (! $res)
     {
         return 0;
@@ -202,14 +198,13 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$alternative'.'|'.2.t
-    $res = jm_is_string($pval) && $pval eq 'g';
+    my $res = jm_is_string($pval) && $pval eq 'g';
     if (! $res)
     {
         return 0;
@@ -237,14 +232,13 @@ sub _jm_obj_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$alternative'.'|'.3.t
-    $res = json_model_3($pval, undef, undef);
+    my $res = json_model_3($pval, undef, undef);
     if (! $res)
     {
         return 0;
@@ -263,11 +257,9 @@ sub _jm_obj_3($$$)
 sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # expecting xor-to-or and tag detection
     # .'$alternative'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})

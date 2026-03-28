@@ -31,14 +31,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.5.t
-    $res = jm_is_string($pval) && $pval eq 't';
+    my $res = jm_is_string($pval) && $pval eq 't';
     if (! $res)
     {
         return 0;
@@ -64,14 +63,13 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.4.t
-    $res = jm_is_string($pval) && $pval eq 's';
+    my $res = jm_is_string($pval) && $pval eq 's';
     if (! $res)
     {
         return 0;
@@ -96,14 +94,13 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.3.t
-    $res = jm_is_numeric($pval) && $pval == 0.0;
+    my $res = jm_is_numeric($pval) && $pval == 0.0;
     if (! $res)
     {
         return 0;
@@ -128,14 +125,13 @@ sub _jm_obj_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.2.t
-    $res = jm_is_integer($pval) && $pval == 0;
+    my $res = jm_is_integer($pval) && $pval == 0;
     if (! $res)
     {
         return 0;
@@ -160,14 +156,13 @@ sub _jm_obj_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.1.t
-    $res = jm_is_boolean($pval) && $pval == 1;
+    my $res = jm_is_boolean($pval) && $pval == 1;
     if (! $res)
     {
         return 0;
@@ -192,14 +187,13 @@ sub _jm_obj_5($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.0.t
-    $res = !defined($pval);
+    my $res = !defined($pval);
     if (! $res)
     {
         return 0;

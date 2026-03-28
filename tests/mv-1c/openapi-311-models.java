@@ -4587,10 +4587,8 @@ public class openapi_311_models extends ModelChecker
     // check $openapi#SecurityScheme (.'$openapi#SecurityScheme')
     public boolean json_model_42(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$openapi#SecurityScheme'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "type"))

@@ -35,13 +35,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("tag", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <tag> [.'|'.0]", path))
         return False
     lpath = (path + [ "tag" ]) if path is not None else None
     # .'|'.0.tag
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 18
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval == 18
     if not res:
         rep is None or rep.append(("unexpected value for model \"=18\" [.'|'.0.tag]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <tag> [.'|'.0]", lpath if path is not None else None))
@@ -69,13 +68,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("tag", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <tag> [.'|'.1]", path))
         return False
     lpath = (path + [ "tag" ]) if path is not None else None
     # .'|'.1.tag
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 42
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval == 42
     if not res:
         rep is None or rep.append(("unexpected value for model \"=42\" [.'|'.1.tag]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <tag> [.'|'.1]", lpath if path is not None else None))
@@ -103,13 +101,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("tag", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <tag> [.'|'.2]", path))
         return False
     lpath = (path + [ "tag" ]) if path is not None else None
     # .'|'.2.tag
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1024
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1024
     if not res:
         rep is None or rep.append(("unexpected value for model \"=1024\" [.'|'.2.tag]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <tag> [.'|'.2]", lpath if path is not None else None))
@@ -129,11 +126,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # disjunction on an integer
     # .
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "tag" in val:
             tag_0: Jsonable = val.get("tag", UNDEFINED)

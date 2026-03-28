@@ -2946,14 +2946,12 @@ CREATE OR REPLACE FUNCTION json_model_23(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  iso_0 bool;
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
   -- we could use ^ instead of | below
   -- .'$ObjectSchema'
-  iso_0 := JSONB_TYPEOF(val) = 'object';
-  res := iso_0;
+  res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     IF val ? 'type' THEN
       tag_0 := val -> 'type';

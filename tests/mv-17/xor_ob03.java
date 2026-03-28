@@ -36,7 +36,6 @@ public class xor_ob03 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.0]", path);
@@ -44,7 +43,7 @@ public class xor_ob03 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .movie.'|'.0.t
-        res = json.isString(pval) && json.asString(pval).compareTo("fr") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("fr") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"fr\" [.movie.'|'.0.t]", (path != null ? lpath : null));
@@ -84,7 +83,6 @@ public class xor_ob03 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.1]", path);
@@ -92,7 +90,7 @@ public class xor_ob03 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .movie.'|'.1.t
-        res = json.isString(pval) && json.asString(pval).compareTo("en") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("en") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"en\" [.movie.'|'.1.t]", (path != null ? lpath : null));
@@ -132,7 +130,6 @@ public class xor_ob03 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.movie.'|'.2]", path);
@@ -140,7 +137,7 @@ public class xor_ob03 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .movie.'|'.2.t
-        res = json.isString(pval) && json.asString(pval).compareTo("ru") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("ru") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"ru\" [.movie.'|'.2.t]", (path != null ? lpath : null));
@@ -183,7 +180,6 @@ public class xor_ob03 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "movie")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <movie> [.]", path);
@@ -191,8 +187,7 @@ public class xor_ob03 extends ModelChecker
         }
         lpath = new Path("movie", path);
         // .movie
-        boolean iso_0 = json.isObject(pval);
-        res = iso_0;
+        boolean res = json.isObject(pval);
         if (res)
         {
             if (json.objectHasProp(pval, "t"))

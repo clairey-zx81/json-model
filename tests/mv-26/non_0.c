@@ -17,7 +17,6 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
     // generic xor list
     int64_t xc_0 = 0;
@@ -48,7 +47,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (rep) jm_report_add_entry(rep, "unexpected value for model \"_world\" [.'^'.2]", path);
         }
     }
-    res = xc_0 == 1;
+    bool res = xc_0 == 1;
     if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);

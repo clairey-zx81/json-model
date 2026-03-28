@@ -21,10 +21,9 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // equivalent to =0
     // .
     // remove duplicate xor list
-    bool is_0;
     res = true;
     // .'^'.2
-    is_0 = json_is_integer(val) && json_integer_value(val) >= 1;
+    bool is_0 = json_is_integer(val) && json_integer_value(val) >= 1;
     if (unlikely(! is_0))
     {
         if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'^'.2]", path);

@@ -37,7 +37,6 @@ public class loose extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "li")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <li> [.]", path);
@@ -45,7 +44,7 @@ public class loose extends ModelChecker
         }
         lpath = new Path("li", path);
         // .li
-        res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asNumber(pval) >= 0;
+        boolean res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asNumber(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.li]", (path != null ? lpath : null));

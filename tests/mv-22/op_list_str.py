@@ -36,13 +36,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.'|'.0]", path))
         return False
     lpath = (path + [ "t" ]) if path is not None else None
     # .'|'.0.t
-    res = isinstance(pval, str) and pval == "a"
+    res: bool = isinstance(pval, str) and pval == "a"
     if not res:
         rep is None or rep.append(("unexpected value for model \"_a\" [.'|'.0.t]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.'|'.0]", lpath if path is not None else None))
@@ -71,13 +70,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.'|'.1]", path))
         return False
     lpath = (path + [ "t" ]) if path is not None else None
     # .'|'.1.t
-    res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
+    res: bool = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'|'.1.t.'|']", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.'|'.1]", lpath if path is not None else None))
@@ -97,10 +95,8 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "t" in val:
             tag_0: Jsonable = val.get("t", UNDEFINED)

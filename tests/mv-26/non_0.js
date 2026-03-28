@@ -14,7 +14,6 @@ export var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // generic xor list
     let xc_0 = 0;
@@ -51,7 +50,7 @@ function json_model_1(val, path, rep)
             rep !== null && rep.push(["unexpected value for model \"_world\" [.'^'.2]", path])
         }
     }
-    res = xc_0 == 1;
+    let res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0

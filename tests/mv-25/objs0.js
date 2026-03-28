@@ -26,14 +26,13 @@ function json_model_2(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         return false;
     }
     pval = val["t"];
     // .'$table'.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "table";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "table";
     if (! res)
     {
         return false;
@@ -61,14 +60,13 @@ function json_model_3(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         return false;
     }
     pval = val["t"];
     // .'$chair'.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "chair";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "chair";
     if (! res)
     {
         return false;
@@ -86,10 +84,8 @@ function json_model_3(val, path, rep)
 // check $furniture (.'$furniture')
 function json_model_4(val, path, rep)
 {
-    let res;
     // .'$furniture'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("t"))
@@ -120,14 +116,13 @@ function json_model_1(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("stuff"))
     {
         return false;
     }
     pval = val["stuff"];
     // .stuff
-    res = Array.isArray(pval);
+    let res = Array.isArray(pval);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)

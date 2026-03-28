@@ -137,7 +137,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // ^ cannot be |
     // .
     // generic xor list
@@ -158,7 +157,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (rep) jm_report_add_entry(rep, "unexpected element [.'^'.1]", path);
     }
-    res = xc_0 == 1;
+    bool res = xc_0 == 1;
     if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);

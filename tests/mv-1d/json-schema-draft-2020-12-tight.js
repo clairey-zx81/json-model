@@ -343,7 +343,6 @@ function json_model_5(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$Null']", path])
@@ -352,7 +351,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$Null'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "null";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "null";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_null\" [.'$Null'.type]", (path ? lpath : null)])
@@ -379,7 +378,6 @@ function json_model_6(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$Boolean']", path])
@@ -388,7 +386,7 @@ function json_model_6(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$Boolean'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "boolean";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "boolean";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_boolean\" [.'$Boolean'.type]", (path ? lpath : null)])
@@ -3835,10 +3833,8 @@ function _jm_obj_17(val, path, rep)
 // check $TightSchema (.'$TightSchema')
 function json_model_15(val, path, rep)
 {
-    let res;
     // .'$TightSchema'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("type"))

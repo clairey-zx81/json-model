@@ -36,7 +36,6 @@ public class typed_and_00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "bla")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <bla> [.'$foo']", path);
@@ -44,7 +43,7 @@ public class typed_and_00 extends ModelChecker
         }
         lpath = new Path("bla", path);
         // .'$foo'.bla
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$foo'.bla]", (path != null ? lpath : null));

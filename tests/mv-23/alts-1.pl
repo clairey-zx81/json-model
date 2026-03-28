@@ -34,14 +34,13 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'v'})
     {
         return 0;
     }
     $pval = $$val{'v'};
     # .'$oA'.v
-    $res = jm_is_integer($pval) && $pval >= 1;
+    my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
@@ -67,14 +66,13 @@ sub json_model_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'v'})
     {
         return 0;
     }
     $pval = $$val{'v'};
     # .'$oB'.v
-    $res = jm_is_integer($pval) && $pval >= 1;
+    my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
@@ -93,10 +91,8 @@ sub json_model_3($$$)
 sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$oC'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})
@@ -124,14 +120,13 @@ sub json_model_5($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'v'})
     {
         return 0;
     }
     $pval = $$val{'v'};
     # .'$oL'.v
-    $res = jm_is_integer($pval) && $pval >= 1;
+    my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
@@ -157,14 +152,13 @@ sub json_model_6($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'v'})
     {
         return 0;
     }
     $pval = $$val{'v'};
     # .'$oX'.v
-    $res = jm_is_integer($pval) && $pval >= 1;
+    my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
@@ -183,10 +177,8 @@ sub json_model_6($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    my $iso_1 = jm_is_object($val);
-    $res = $iso_1;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})
