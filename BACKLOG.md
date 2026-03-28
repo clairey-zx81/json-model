@@ -286,15 +286,15 @@
 - [ ] vb-backend: ?
 - [ ] julia-backend: ?
 - [ ] lua-backend: ?
-- [ ] c-backend: consider [json.h](https://github.com/sheredom/json.h)
-- [ ] c-backend: consider [yyjson](https://github.com/ibireme/yyjson)
-- [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
-- [ ] feature: add model predef for URI, URI-REF and the like
-- [ ] design: URI vs URL?
+- [ ] feat: add model predef for URI, URI-REF and the like
+- [ ] design: URI vs URL vs IRI?
 - [ ] design: documentation use case, with added _markdown description_
 - [ ] pr: validation must be optimized for the valid case, as it is the most likely.
 - [ ] case: use trafo in geo to have either 2 or 3 vectors, no mix.
-- [ ] clang: cJSON? json-c? other JSON library for C?
+- [ ] c-backend: consider [yyjson](https://github.com/ibireme/yyjson)
+- [ ] c-backend: consider [cJSON](https://github.com/davegamble/cjson) (linked lists? no ints?…)
+- [ ] c-backend: consider [json-c](https://github.com/json-c/json-c)
+- [ ] ~c-backend: consider [json.h](https://github.com/sheredom/json.h) (hmmm, linked lists)~
 
 ## Done
 
