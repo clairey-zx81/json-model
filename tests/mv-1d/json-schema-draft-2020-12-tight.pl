@@ -2717,9 +2717,9 @@ sub json_model_15($$$)
     my $res = jm_is_object($val);
     if ($res)
     {
-        if (exists $$val{'type'})
+        my $tag_0;
+        if (defined($tag_0 = $$val{'type'}))
         {
-            my $tag_0 = $$val{'type'};
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
         }

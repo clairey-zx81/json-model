@@ -4,7 +4,7 @@ opt_07.values.json[2]: PASS
 opt_07.values.json[3]: PASS
 opt_07.values.json[4]: PASS
 opt_07.values.json[5]: PASS
-opt_07.values.json[6]: FAIL (.: tag <d> value not found [.'|'])
+opt_07.values.json[6]: FAIL (.: tag prop <d> is missing [.'|'])
 opt_07.values.json[7]: FAIL (.: tag <d> value not found [.'|'])
 opt_07.values.json[8]: FAIL (.: tag <d> value not found [.'|'])
 opt_07.values.json[9]: FAIL (.: bad property count [.'|'.0])

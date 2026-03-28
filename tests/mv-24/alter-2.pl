@@ -175,9 +175,9 @@ sub json_model_4($$$)
     my $res = $iso_0;
     if ($res)
     {
-        if (exists $$val{'t'})
+        my $tag_0;
+        if (defined($tag_0 = $$val{'t'}))
         {
-            my $tag_0 = $$val{'t'};
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
         }
@@ -191,9 +191,9 @@ sub json_model_4($$$)
         $res = $iso_0;
         if ($res)
         {
-            if (exists $$val{'u'})
+            my $tag_1;
+            if (defined($tag_1 = $$val{'u'}))
             {
-                my $tag_1 = $$val{'u'};
                 my $fun_1 = $_jm_map_1{$tag_1};
                 $res = defined($fun_1) && &$fun_1($val, undef, undef);
             }

@@ -237,9 +237,9 @@ function json_model_1(val, path, rep)
     let res = Object.prototype.toString.call(pval) === '[object Object]';
     if (res)
     {
-        if (pval.hasOwnProperty("t"))
+        let tag_0;
+        if ((tag_0 = pval["t"]) != null)
         {
-            let tag_0 = pval["t"];
             let fun_0 = _jm_map_0.get(tag_0);
             if (fun_0 !== undefined)
             {

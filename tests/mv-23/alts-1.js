@@ -114,9 +114,9 @@ function json_model_4(val, path, rep)
     let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
-        if (val.hasOwnProperty("t"))
+        let tag_0;
+        if ((tag_0 = val["t"]) != null)
         {
-            let tag_0 = val["t"];
             let fun_0 = _jm_map_0.get(tag_0);
             if (fun_0 !== undefined)
             {
@@ -240,9 +240,9 @@ function json_model_1(val, path, rep)
     let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
-        if (val.hasOwnProperty("t"))
+        let tag_1;
+        if ((tag_1 = val["t"]) != null)
         {
-            let tag_1 = val["t"];
             let fun_1 = _jm_map_1.get(tag_1);
             if (fun_1 !== undefined)
             {

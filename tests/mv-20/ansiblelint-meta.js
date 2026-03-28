@@ -7199,9 +7199,9 @@ function json_model_54(val, path, rep)
     let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
-        if (val.hasOwnProperty("standalone"))
+        let tag_0;
+        if ((tag_0 = val["standalone"]) != null)
         {
-            let tag_0 = val["standalone"];
             let fun_0 = _jm_map_0.get(tag_0);
             if (fun_0 !== undefined)
             {

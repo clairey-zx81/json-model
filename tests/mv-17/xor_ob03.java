@@ -190,9 +190,9 @@ public class xor_ob03 extends ModelChecker
         boolean res = json.isObject(pval);
         if (res)
         {
-            if (json.objectHasProp(pval, "t"))
+            Object tag_0;
+            if ((tag_0 = json.objectValue(pval, "t")) != null)
             {
-                Object tag_0 = json.objectValue(pval, "t");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
                 {

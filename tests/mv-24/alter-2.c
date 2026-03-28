@@ -211,9 +211,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = iso_0;
     if (likely(res))
     {
-        if (likely(json_object_get(val, "t") != NULL))
+        json_t * tag_0;
+        if (likely((tag_0 = json_object_get(val, "t")) != NULL))
         {
-            json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             res = fun_0 != NULL && fun_0(val, NULL, NULL);
         }
@@ -225,9 +225,9 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = iso_0;
         if (likely(res))
         {
-            if (likely(json_object_get(val, "u") != NULL))
+            json_t * tag_1;
+            if (likely((tag_1 = json_object_get(val, "u")) != NULL))
             {
-                json_t * tag_1 = json_object_get(val, "u");
                 jm_check_fun_t fun_1 = _jm_map_1(tag_1);
                 res = fun_1 != NULL && fun_1(val, NULL, NULL);
             }

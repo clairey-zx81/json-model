@@ -513,25 +513,35 @@ class CodeGenerator:
             self._code.cmap(cmap, TAG_CHECKS)
 
             tag = gen.ident("tag")
-            itag = gen.json_var(tag, gen.obj_prop_val(val, tag_name, False), declare=True)
+            if gen.assign_expr():
+                dtag = gen.json_var(tag, None, declare=True)
+                itag = []
+                etag = gen.obj_has_prop_val(tag, val, tag_name, False)
+            else:
+                dtag = []
+                itag = gen.json_var(tag, gen.obj_prop_val(val, tag_name, False), declare=True)
+                etag = gen.has_prop(val, tag_name)
 
             fun = gen.ident("fun")
             ifun = gen.fun_var(fun, gen.get_cmap(cmap, tag, tag_type), True)
             icall = gen.bool_var(res, gen.check_call(fun, val, vpath, is_ptr=True))
-            tagt = gen.if_stmt(
-                gen.has_prop(val, tag_name),
-                itag +
-                ifun +
+            tagt = (
+                dtag +
                 gen.if_stmt(
-                    gen.is_def(fun),
-                    icall,
+                    etag,
+                    itag +
+                    ifun +
+                    gen.if_stmt(
+                        gen.is_def(fun),
+                        icall,
+                        gen.bool_var(res, gen.false()) +
+                            gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath),
+                        likely=True  # there is a tag
+                    ),
                     gen.bool_var(res, gen.false()) +
-                        gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath),
-                    likely=True  # there is a tag
-                ),
-                gen.bool_var(res, gen.false()) +
-                gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath),
-                likely=True  # the tag value is valid
+                    gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath),
+                    likely=True  # the tag value is valid
+                )
             )
 
             # reset res object test
