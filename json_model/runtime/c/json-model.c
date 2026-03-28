@@ -159,15 +159,17 @@ static int
 jm_json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
 #endif
 {
+    // shortcut: no sorting once a duplicate has been found
     if (*((bool *) duplicate))
         return 0;
+    // else do compare
     int cmp = jm_json_cmp(*v1, *v2);
     if (cmp == 0)
         *((bool *) duplicate) = true;
     return cmp;
 }
 
-// tell whether a JSON array holds distinct values.
+// tell whether a JSON array holds distinct values in n log n.
 bool
 jm_json_array_unique(const json_t *val)
 {
@@ -175,13 +177,12 @@ jm_json_array_unique(const json_t *val)
     // extract as an actual array for sorting
     size_t size = json_array_size(val);
     const json_t *array[size];
-    // borrow array items
+    // borrow array items into a copy for sorting
     for (size_t i = 0; i < size; i++)
         array[i] = json_array_get(val, i);
     // relying only on qsort works because in the end
     // all items have been compared to their neighbours
     bool duplicate = false;
-    // life is fun
     qsort_r(array, size, sizeof(json_t *), (jm_cmp_r_fun_t) jm_json_cmp_r, &duplicate);
     return !duplicate;
 }
