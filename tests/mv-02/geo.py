@@ -487,13 +487,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$geometry'.'|'.0]", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$geometry'.'|'.0.type
-    res = isinstance(pval, str) and pval == "Point"
+    res: bool = isinstance(pval, str) and pval == "Point"
     if not res:
         rep is None or rep.append(("unexpected value for model \"Point\" [.'$geometry'.'|'.0.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$geometry'.'|'.0]", lpath if path is not None else None))
@@ -534,13 +533,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$geometry'.'|'.1]", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$geometry'.'|'.1.type
-    res = isinstance(pval, str) and pval == "MultiPoint"
+    res: bool = isinstance(pval, str) and pval == "MultiPoint"
     if not res:
         rep is None or rep.append(("unexpected value for model \"MultiPoint\" [.'$geometry'.'|'.1.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$geometry'.'|'.1]", lpath if path is not None else None))
@@ -589,13 +587,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$geometry'.'|'.2]", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$geometry'.'|'.2.type
-    res = isinstance(pval, str) and pval == "LineString"
+    res: bool = isinstance(pval, str) and pval == "LineString"
     if not res:
         rep is None or rep.append(("unexpected value for model \"LineString\" [.'$geometry'.'|'.2.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$geometry'.'|'.2]", lpath if path is not None else None))
@@ -636,13 +633,12 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$geometry'.'|'.3]", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$geometry'.'|'.3.type
-    res = isinstance(pval, str) and pval == "MultiLineString"
+    res: bool = isinstance(pval, str) and pval == "MultiLineString"
     if not res:
         rep is None or rep.append(("unexpected value for model \"MultiLineString\" [.'$geometry'.'|'.3.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$geometry'.'|'.3]", lpath if path is not None else None))
@@ -691,13 +687,12 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$geometry'.'|'.4]", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$geometry'.'|'.4.type
-    res = isinstance(pval, str) and pval == "Polygon"
+    res: bool = isinstance(pval, str) and pval == "Polygon"
     if not res:
         rep is None or rep.append(("unexpected value for model \"Polygon\" [.'$geometry'.'|'.4.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$geometry'.'|'.4]", lpath if path is not None else None))
@@ -746,13 +741,12 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$geometry'.'|'.5]", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$geometry'.'|'.5.type
-    res = isinstance(pval, str) and pval == "MultiPolygon"
+    res: bool = isinstance(pval, str) and pval == "MultiPolygon"
     if not res:
         rep is None or rep.append(("unexpected value for model \"MultiPolygon\" [.'$geometry'.'|'.5.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$geometry'.'|'.5]", lpath if path is not None else None))
@@ -804,10 +798,8 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $geometry (.'$geometry')
 def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$geometry'
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "type" in val:
             tag_0: Jsonable = val.get("type", UNDEFINED)
@@ -833,13 +825,12 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$GeometryCollection']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$GeometryCollection'.type
-    res = isinstance(pval, str) and pval == "GeometryCollection"
+    res: bool = isinstance(pval, str) and pval == "GeometryCollection"
     if not res:
         rep is None or rep.append(("unexpected value for model \"GeometryCollection\" [.'$GeometryCollection'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$GeometryCollection']", lpath if path is not None else None))
@@ -897,13 +888,12 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Feature']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$Feature'.type
-    res = isinstance(pval, str) and pval == "Feature"
+    res: bool = isinstance(pval, str) and pval == "Feature"
     if not res:
         rep is None or rep.append(("unexpected value for model \"Feature\" [.'$Feature'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Feature']", lpath if path is not None else None))
@@ -994,13 +984,12 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$FeatureCollection']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$FeatureCollection'.type
-    res = isinstance(pval, str) and pval == "FeatureCollection"
+    res: bool = isinstance(pval, str) and pval == "FeatureCollection"
     if not res:
         rep is None or rep.append(("unexpected value for model \"FeatureCollection\" [.'$FeatureCollection'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$FeatureCollection']", lpath if path is not None else None))
@@ -1044,11 +1033,9 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     # .
-    iso_1: bool = isinstance(val, dict)
-    res = iso_1
+    res: bool = isinstance(val, dict)
     if res:
         if "type" in val:
             tag_1: Jsonable = val.get("type", UNDEFINED)

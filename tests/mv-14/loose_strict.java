@@ -37,7 +37,6 @@ public class loose_strict extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "li")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <li> [.'$loose']", path);
@@ -45,7 +44,7 @@ public class loose_strict extends ModelChecker
         }
         lpath = new Path("li", path);
         // .'$loose'.li
-        res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asNumber(pval) >= 0;
+        boolean res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asNumber(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$loose'.li]", (path != null ? lpath : null));
@@ -73,7 +72,6 @@ public class loose_strict extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "si")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <si> [.'$strict']", path);
@@ -81,7 +79,7 @@ public class loose_strict extends ModelChecker
         }
         lpath = new Path("si", path);
         // .'$strict'.si
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$strict'.si]", (path != null ? lpath : null));
@@ -108,7 +106,6 @@ public class loose_strict extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "li")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <li> [.'$combined']", path);
@@ -116,7 +113,7 @@ public class loose_strict extends ModelChecker
         }
         lpath = new Path("li", path);
         // .'$combined'.li
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'$combined'.li]", (path != null ? lpath : null));

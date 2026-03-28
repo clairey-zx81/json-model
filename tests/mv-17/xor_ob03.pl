@@ -32,14 +32,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .movie.'|'.0.t
-    $res = jm_is_string($pval) && $pval eq 'fr';
+    my $res = jm_is_string($pval) && $pval eq 'fr';
     if (! $res)
     {
         return 0;
@@ -67,14 +66,13 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .movie.'|'.1.t
-    $res = jm_is_string($pval) && $pval eq 'en';
+    my $res = jm_is_string($pval) && $pval eq 'en';
     if (! $res)
     {
         return 0;
@@ -102,14 +100,13 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .movie.'|'.2.t
-    $res = jm_is_string($pval) && $pval eq 'ru';
+    my $res = jm_is_string($pval) && $pval eq 'ru';
     if (! $res)
     {
         return 0;
@@ -140,15 +137,13 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'movie'})
     {
         return 0;
     }
     $pval = $$val{'movie'};
     # .movie
-    my $iso_0 = jm_is_object($pval);
-    $res = $iso_0;
+    my $res = jm_is_object($pval);
     if ($res)
     {
         if (exists $$pval{'t'})

@@ -53,14 +53,13 @@ function _jm_obj_2(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("p20"))
     {
         return false;
     }
     pval = val["p20"];
     // .mo2.p20
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         return false;

@@ -1,0 +1,188 @@
+#! /bin/env node
+// we may need require to load re2
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+import * as runtime from "json_model_runtime"
+const JSON_MODEL_VERSION = "2";
+
+let _jm_map_0 = new Map()
+export var check_model_map = new Map()
+
+function _jm_obj_0(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        return false;
+    }
+    if (Object.keys(val).length != 2)
+    {
+        return false;
+    }
+    let pval;
+    if (! val.hasOwnProperty("d"))
+    {
+        return false;
+    }
+    pval = val["d"];
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("a"))
+    {
+        return false;
+    }
+    pval = val["a"];
+    return (typeof pval === 'string' || pval instanceof String);
+}
+
+function _jm_obj_1(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        return false;
+    }
+    if (Object.keys(val).length != 2)
+    {
+        return false;
+    }
+    let pval;
+    if (! val.hasOwnProperty("d"))
+    {
+        return false;
+    }
+    pval = val["d"];
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("a"))
+    {
+        return false;
+    }
+    pval = val["a"];
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+}
+
+function _jm_obj_2(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        return false;
+    }
+    if (Object.keys(val).length != 2)
+    {
+        return false;
+    }
+    let pval;
+    if (! val.hasOwnProperty("d"))
+    {
+        return false;
+    }
+    pval = val["d"];
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2;
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("a"))
+    {
+        return false;
+    }
+    pval = val["a"];
+    return pval === null;
+}
+
+function _jm_obj_3(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        return false;
+    }
+    if (Object.keys(val).length != 2)
+    {
+        return false;
+    }
+    let pval;
+    if (! val.hasOwnProperty("d"))
+    {
+        return false;
+    }
+    pval = val["d"];
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 3;
+    if (! res)
+    {
+        return false;
+    }
+    if (! val.hasOwnProperty("a"))
+    {
+        return false;
+    }
+    pval = val["a"];
+    return (typeof pval === 'boolean' || pval instanceof Boolean);
+}
+
+
+function json_model_1(val, path, rep)
+{
+    let res = Object.prototype.toString.call(val) === '[object Object]';
+    if (res)
+    {
+        if (val.hasOwnProperty("d"))
+        {
+            let tag_0 = val["d"];
+            let fun_0 = _jm_map_0.get(tag_0);
+            res = fun_0 !== undefined && fun_0(val, null, null);
+        }
+        else
+        {
+            res = false;
+        }
+    }
+    return res;
+}
+
+
+var initialized = false
+
+// differed module initializations
+export function check_model_init()
+{
+    if (! initialized)
+    {
+        initialized = true;
+        runtime.jm_set_rx(RegExp)
+        _jm_map_0.set(0, _jm_obj_0)
+        _jm_map_0.set(1, _jm_obj_1)
+        _jm_map_0.set(2, _jm_obj_2)
+        _jm_map_0.set(3, _jm_obj_3)
+        check_model_map.set("", json_model_1)
+    }
+}
+
+// differed module cleanup
+export function check_model_free()
+{
+    if (initialized)
+    {
+        initialized = false;
+    }
+}
+
+export function check_model(val, name, rep)
+{
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
+    let path = rep !== null ? [] : null
+
+    return checker(val, path, rep)
+}
+
+// possibly run as main based on a guess
+import main from "json_model_runtime/main.js"
+
+if (import.meta.url.endsWith(process.argv[1]))
+    main(check_model_init, check_model, check_model_free)

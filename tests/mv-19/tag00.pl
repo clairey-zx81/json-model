@@ -32,14 +32,13 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$Aa'.t
-    $res = jm_is_integer($pval) && $pval == 1;
+    my $res = jm_is_integer($pval) && $pval == 1;
     if (! $res)
     {
         return 0;
@@ -68,14 +67,13 @@ sub json_model_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$Bb'.t
-    $res = jm_is_integer($pval) && $pval == 2;
+    my $res = jm_is_integer($pval) && $pval == 2;
     if (! $res)
     {
         return 0;
@@ -94,10 +92,8 @@ sub json_model_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})

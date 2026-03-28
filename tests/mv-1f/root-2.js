@@ -40,7 +40,6 @@ function json_model_3(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("rt"))
     {
         rep !== null && rep.push(["missing mandatory prop <rt> [.'$Foo']", path])
@@ -49,7 +48,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["rt"]) : null;
     pval = val["rt"];
     // .'$Foo'.rt
-    res = json_model_5(pval, (path ? lpath : null), rep);
+    let res = json_model_5(pval, (path ? lpath : null), rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$root#Root\" [.'$Foo'.rt]", (path ? lpath : null)])
@@ -88,7 +87,6 @@ function json_model_5(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("id"))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$root#Root']", path])
@@ -97,7 +95,7 @@ function json_model_5(val, path, rep)
     lpath = path ? path.concat(["id"]) : null;
     pval = val["id"];
     // .'$root#Root'.id
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0\" [.'$root#Root'.id]", (path ? lpath : null)])

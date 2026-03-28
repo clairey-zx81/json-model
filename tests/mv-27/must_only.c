@@ -49,11 +49,10 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     if (unlikely(json_object_size(val) != 2))
         return false;
     json_t * pval;
-    bool res;
     if (unlikely(! ((pval = json_object_get(val, "p20")) != NULL)))
         return false;
     // .mo2.p20
-    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+    bool res = json_is_integer(pval) && json_integer_value(pval) >= 0;
     if (unlikely(! res))
         return false;
     if (unlikely(! ((pval = json_object_get(val, "p21")) != NULL)))

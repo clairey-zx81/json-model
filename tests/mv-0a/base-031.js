@@ -28,7 +28,6 @@ function json_model_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("bibi"))
     {
         rep !== null && rep.push(["missing mandatory prop <bibi> [.'$bibi']", path])
@@ -37,7 +36,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["bibi"]) : null;
     pval = val["bibi"];
     // .'$bibi'.bibi
-    res = Array.isArray(pval);
+    let res = Array.isArray(pval);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)

@@ -160,10 +160,8 @@ static INLINE jm_check_fun_t _jm_map_0(json_t *val)
 // check $ab (.'$ab')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$ab'
-    bool iso_0 = json_is_object(val);
-    res = iso_0;
+    bool res = json_is_object(val);
     if (likely(res))
     {
         if (likely(json_object_get(val, "t") != NULL))
@@ -329,10 +327,8 @@ static INLINE jm_check_fun_t _jm_map_1(json_t *val)
 // check $cd (.'$cd')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .'$cd'
-    bool iso_1 = json_is_object(val);
-    res = iso_1;
+    bool res = json_is_object(val);
     if (likely(res))
     {
         if (likely(json_object_get(val, "t") != NULL))

@@ -187,8 +187,8 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   iso_0 bool;
+  res bool;
   tag_0 JSONB;
   fun_0 TEXT;
   tag_1 JSONB;

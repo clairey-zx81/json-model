@@ -32,14 +32,13 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'hello'})
     {
         return 0;
     }
     $pval = $$val{'hello'};
     # .hello
-    $res = jm_is_string($pval);
+    my $res = jm_is_string($pval);
     if (! $res)
     {
         return 0;

@@ -37,7 +37,6 @@ public class strict extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "si")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <si> [.]", path);
@@ -45,7 +44,7 @@ public class strict extends ModelChecker
         }
         lpath = new Path("si", path);
         // .si
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.si]", (path != null ? lpath : null));

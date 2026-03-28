@@ -37,7 +37,6 @@ public class mixed_xor2 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$cs'.'|'.0]", path);
@@ -45,7 +44,7 @@ public class mixed_xor2 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$cs'.'|'.0.t
-        res = json.isString(pval) && json.asString(pval).compareTo("c") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("c") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"c\" [.'$cs'.'|'.0.t]", (path != null ? lpath : null));
@@ -85,7 +84,6 @@ public class mixed_xor2 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$cs'.'|'.1]", path);
@@ -93,7 +91,7 @@ public class mixed_xor2 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$cs'.'|'.1.t
-        res = json.isString(pval) && json.asString(pval).compareTo("s") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("s") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"s\" [.'$cs'.'|'.1.t]", (path != null ? lpath : null));
@@ -121,10 +119,8 @@ public class mixed_xor2 extends ModelChecker
     // check $cs (.'$cs')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$cs'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))
@@ -170,7 +166,6 @@ public class mixed_xor2 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.0]", path);
@@ -178,7 +173,7 @@ public class mixed_xor2 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.0.t
-        res = json.isString(pval) && json.asString(pval).compareTo("m") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("m") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"m\" [.'|'.0.t]", (path != null ? lpath : null));
@@ -218,7 +213,6 @@ public class mixed_xor2 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.1]", path);
@@ -226,7 +220,7 @@ public class mixed_xor2 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.1.t
-        res = json.isString(pval) && json.asString(pval).compareTo("h") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("h") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"h\" [.'|'.1.t]", (path != null ? lpath : null));
@@ -254,10 +248,8 @@ public class mixed_xor2 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        boolean iso_1 = json.isObject(val);
-        res = iso_1;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))

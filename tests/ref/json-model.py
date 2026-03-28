@@ -453,13 +453,12 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("|", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <|> [.'$Or']", path))
         return False
     lpath = (path + [ "|" ]) if path is not None else None
     # .'$Or'.'|'
-    res = isinstance(pval, list)
+    res: bool = isinstance(pval, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(pval):
             arr_1_lpath: Path = ((lpath if path is not None else None) + [ arr_1_idx ]) if (lpath if path is not None else None) is not None else None
@@ -486,13 +485,12 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("&", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <&> [.'$And']", path))
         return False
     lpath = (path + [ "&" ]) if path is not None else None
     # .'$And'.'&'
-    res = isinstance(pval, list)
+    res: bool = isinstance(pval, list)
     if res:
         for arr_2_idx, arr_2_item in enumerate(pval):
             arr_2_lpath: Path = ((lpath if path is not None else None) + [ arr_2_idx ]) if (lpath if path is not None else None) is not None else None
@@ -519,13 +517,12 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("^", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <^> [.'$Xor']", path))
         return False
     lpath = (path + [ "^" ]) if path is not None else None
     # .'$Xor'.'^'
-    res = isinstance(pval, list)
+    res: bool = isinstance(pval, list)
     if res:
         for arr_3_idx, arr_3_item in enumerate(pval):
             arr_3_lpath: Path = ((lpath if path is not None else None) + [ arr_3_idx ]) if (lpath if path is not None else None) is not None else None
@@ -552,13 +549,12 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("+", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <+> [.'$Add']", path))
         return False
     lpath = (path + [ "+" ]) if path is not None else None
     # .'$Add'.'+'
-    res = isinstance(pval, list)
+    res: bool = isinstance(pval, list)
     if res:
         for arr_4_idx, arr_4_item in enumerate(pval):
             arr_4_lpath: Path = ((lpath if path is not None else None) + [ arr_4_idx ]) if (lpath if path is not None else None) is not None else None

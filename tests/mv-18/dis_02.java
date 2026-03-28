@@ -36,7 +36,6 @@ public class dis_02 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.0]", path);
@@ -44,7 +43,7 @@ public class dis_02 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.0.t
-        res = json.isDouble(pval) && json.asDouble(pval) == 3.1415927;
+        boolean res = json.isDouble(pval) && json.asDouble(pval) == 3.1415927;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=3.1415927\" [.'|'.0.t]", (path != null ? lpath : null));
@@ -84,7 +83,6 @@ public class dis_02 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.1]", path);
@@ -92,7 +90,7 @@ public class dis_02 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.1.t
-        res = json.isDouble(pval) && json.asDouble(pval) == 1.0;
+        boolean res = json.isDouble(pval) && json.asDouble(pval) == 1.0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=1.0\" [.'|'.1.t]", (path != null ? lpath : null));
@@ -132,7 +130,6 @@ public class dis_02 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.2]", path);
@@ -140,7 +137,7 @@ public class dis_02 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.2.t
-        res = json.isDouble(pval) && json.asDouble(pval) == 0.5;
+        boolean res = json.isDouble(pval) && json.asDouble(pval) == 0.5;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=0.5\" [.'|'.2.t]", (path != null ? lpath : null));
@@ -168,11 +165,9 @@ public class dis_02 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // disjunction on float
         // .
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))

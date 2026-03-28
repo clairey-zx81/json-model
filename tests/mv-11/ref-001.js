@@ -28,7 +28,6 @@ function json_model_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'$a']", path])
@@ -37,7 +36,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'$a'.a
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$a'.a]", (path ? lpath : null)])
@@ -79,7 +78,6 @@ function json_model_3(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'$b']", path])
@@ -88,7 +86,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'$b'.a
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$b'.a]", (path ? lpath : null)])

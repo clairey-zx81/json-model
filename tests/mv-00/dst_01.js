@@ -14,13 +14,12 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         return false;
     }
     pval = val["a"];
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         return false;
@@ -50,13 +49,12 @@ function _jm_obj_1(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         return false;
     }
     pval = val["a"];
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         return false;
@@ -86,13 +84,12 @@ function _jm_obj_2(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         return false;
     }
     pval = val["a"];
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         return false;
@@ -122,13 +119,12 @@ function _jm_obj_3(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         return false;
     }
     pval = val["a"];
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         return false;
@@ -158,13 +154,12 @@ function _jm_obj_4(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         return false;
     }
     pval = val["a"];
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         return false;
@@ -194,13 +189,12 @@ function _jm_obj_5(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         return false;
     }
     pval = val["a"];
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         return false;

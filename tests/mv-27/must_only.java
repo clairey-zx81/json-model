@@ -60,13 +60,12 @@ public class must_only extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "p20")) != null))
         {
             return false;
         }
         // .mo2.p20
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             return false;

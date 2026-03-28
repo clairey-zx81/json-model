@@ -36,13 +36,12 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("li", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <li> [.'$loose']", path))
         return False
     lpath = (path + [ "li" ]) if path is not None else None
     # .'$loose'.li
-    res = ((isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval))) and pval >= 0
+    res: bool = ((isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval))) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$loose'.li]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <li> [.'$loose']", lpath if path is not None else None))
@@ -62,13 +61,12 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("si", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <si> [.'$strict']", path))
         return False
     lpath = (path + [ "si" ]) if path is not None else None
     # .'$strict'.si
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$strict'.si]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <si> [.'$strict']", lpath if path is not None else None))
@@ -87,13 +85,12 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("li", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <li> [.'$combined']", path))
         return False
     lpath = (path + [ "li" ]) if path is not None else None
     # .'$combined'.li
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
     if not res:
         rep is None or rep.append(("not a 0 strict int [.'$combined'.li]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <li> [.'$combined']", lpath if path is not None else None))

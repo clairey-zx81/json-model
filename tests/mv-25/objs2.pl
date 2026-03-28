@@ -32,14 +32,13 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'x'})
     {
         return 0;
     }
     $pval = $$val{'x'};
     # .'$bla'.x
-    $res = jm_is_numeric($pval);
+    my $res = jm_is_numeric($pval);
     if (! $res)
     {
         return 0;

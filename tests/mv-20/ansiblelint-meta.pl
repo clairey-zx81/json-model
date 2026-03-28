@@ -5836,11 +5836,9 @@ sub _jm_obj_48($$$)
 sub json_model_54($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # hmmmm, property standalone should probably be required…
     # .'$GalaxyInfoModel'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'standalone'})

@@ -7194,11 +7194,9 @@ function _jm_obj_48(val, path, rep)
 // check $GalaxyInfoModel (.'$GalaxyInfoModel')
 function json_model_54(val, path, rep)
 {
-    let res;
     // hmmmm, property standalone should probably be required…
     // .'$GalaxyInfoModel'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("standalone"))
@@ -7501,7 +7499,6 @@ function _jm_obj_50(val, path, rep)
     // value known to be an object
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("name"))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path])
@@ -7510,7 +7507,7 @@ function _jm_obj_50(val, path, rep)
     lpath = path ? path.concat(["name"]) : null;
     pval = val["name"];
     // .'$DependencyModel'.'&'.1.'|'.2.name
-    res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.2.name]", (path ? lpath : null)])
@@ -7527,7 +7524,6 @@ function _jm_obj_51(val, path, rep)
     // value known to be an object
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("src"))
     {
         rep !== null && rep.push(["missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path])
@@ -7536,7 +7532,7 @@ function _jm_obj_51(val, path, rep)
     lpath = path ? path.concat(["src"]) : null;
     pval = val["src"];
     // .'$DependencyModel'.'&'.1.'|'.1.src
-    res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.1.src]", (path ? lpath : null)])
@@ -7553,7 +7549,6 @@ function _jm_obj_52(val, path, rep)
     // value known to be an object
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("role"))
     {
         rep !== null && rep.push(["missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path])
@@ -7562,7 +7557,7 @@ function _jm_obj_52(val, path, rep)
     lpath = path ? path.concat(["role"]) : null;
     pval = val["role"];
     // .'$DependencyModel'.'&'.1.'|'.0.role
-    res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.0.role]", (path ? lpath : null)])

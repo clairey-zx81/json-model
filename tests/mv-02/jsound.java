@@ -197,10 +197,8 @@ public class jsound extends ModelChecker
     // check $Type (.'$Type')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$Type'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "kind"))

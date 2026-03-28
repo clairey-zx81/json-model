@@ -254,13 +254,12 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Null']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$Null'.type
-    res = isinstance(pval, str) and pval == "null"
+    res: bool = isinstance(pval, str) and pval == "null"
     if not res:
         rep is None or rep.append(("unexpected value for model \"_null\" [.'$Null'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Null']", lpath if path is not None else None))
@@ -279,13 +278,12 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("type", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <type> [.'$Boolean']", path))
         return False
     lpath = (path + [ "type" ]) if path is not None else None
     # .'$Boolean'.type
-    res = isinstance(pval, str) and pval == "boolean"
+    res: bool = isinstance(pval, str) and pval == "boolean"
     if not res:
         rep is None or rep.append(("unexpected value for model \"_boolean\" [.'$Boolean'.type]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Boolean']", lpath if path is not None else None))
@@ -2452,10 +2450,8 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $TightSchema (.'$TightSchema')
 def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$TightSchema'
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "type" in val:
             tag_0: Jsonable = val.get("type", UNDEFINED)

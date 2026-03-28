@@ -169,14 +169,13 @@ sub json_model_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .'$ab'.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -205,14 +204,13 @@ sub json_model_5($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'c'})
     {
         return 0;
     }
     $pval = $$val{'c'};
     # .'$cd'.c
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1260,14 +1258,13 @@ sub _jm_obj_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .merge.m1.'|'.1.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1295,14 +1292,13 @@ sub _jm_obj_5($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .merge.m1.'|'.0.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1330,14 +1326,13 @@ sub _jm_obj_6($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .merge.m2.'|'.1.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1365,14 +1360,13 @@ sub _jm_obj_7($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .merge.m2.'|'.0.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1400,14 +1394,13 @@ sub _jm_obj_8($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'b'})
     {
         return 0;
     }
     $pval = $$val{'b'};
     # .merge.m3.'|'.3.b
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1435,14 +1428,13 @@ sub _jm_obj_9($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'b'})
     {
         return 0;
     }
     $pval = $$val{'b'};
     # .merge.m3.'|'.2.b
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1470,14 +1462,13 @@ sub _jm_obj_10($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .merge.m3.'|'.1.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1505,14 +1496,13 @@ sub _jm_obj_11($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .merge.m3.'|'.0.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1540,14 +1530,13 @@ sub _jm_obj_12($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .merge.m4.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -1734,14 +1723,13 @@ sub _jm_obj_14($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .object.o1.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -2646,8 +2634,7 @@ sub _jm_f_91($$$)
             # .xor.x3
             # not-case xor list
             # .xor.x3.'^'.1
-            my $is_0 = jm_is_integer($pval) && $pval >= 0;
-            $res = ! $is_0;
+            $res = ! (jm_is_integer($pval) && $pval >= 0);
             if (! $res)
             {
                 return 0;

@@ -27,14 +27,13 @@ function json_model_2(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         return false;
     }
     pval = val["t"];
     // .'$d'.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d";
     if (! res)
     {
         return false;
@@ -61,14 +60,13 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("u"))
     {
         return false;
     }
     pval = val["u"];
     // .'$alternative'.'|'.0.u
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
     if (! res)
     {
         return false;
@@ -96,14 +94,13 @@ function _jm_obj_1(val, path, rep)
         return false;
     }
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         return false;
     }
     pval = val["t"];
     // .'$alternative'.'|'.1.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
     if (! res)
     {
         return false;
@@ -121,11 +118,9 @@ function _jm_obj_1(val, path, rep)
 // check $alternative (.'$alternative')
 function json_model_3(val, path, rep)
 {
-    let res;
     // expecting xor-to-or and tag detection, but not for u
     // .'$alternative'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("t"))

@@ -28,7 +28,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'|'.0]", path])
@@ -37,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'|'.0.a
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 10;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 10;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=10\" [.'|'.0.a]", (path ? lpath : null)])
@@ -63,7 +62,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'|'.1]", path])
@@ -72,7 +70,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'|'.1.a
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'|'.1.a]", (path ? lpath : null)])
@@ -98,7 +96,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'|'.2]", path])
@@ -107,7 +104,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'|'.2.a
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0\" [.'|'.2.a]", (path ? lpath : null)])
@@ -121,11 +118,9 @@ function _jm_obj_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // ^ to | on constants
     // .
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("a"))

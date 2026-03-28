@@ -37,7 +37,6 @@ public class tag00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$Aa']", path);
@@ -45,7 +44,7 @@ public class tag00 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$Aa'.t
-        res = json.isInteger(pval) && json.asLong(pval) == 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) == 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'$Aa'.t]", (path != null ? lpath : null));
@@ -86,7 +85,6 @@ public class tag00 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$Bb']", path);
@@ -94,7 +92,7 @@ public class tag00 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$Bb'.t
-        res = json.isInteger(pval) && json.asLong(pval) == 2;
+        boolean res = json.isInteger(pval) && json.asLong(pval) == 2;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=2\" [.'$Bb'.t]", (path != null ? lpath : null));
@@ -122,10 +120,8 @@ public class tag00 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))

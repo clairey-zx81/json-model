@@ -23,7 +23,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'|'.2]", path])
@@ -32,7 +31,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'|'.2.a
-    res = Array.isArray(pval);
+    let res = Array.isArray(pval);
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
@@ -69,7 +68,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'|'.1]", path])
@@ -78,7 +76,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'|'.1.a
-    res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.a]", (path ? lpath : null)])
@@ -100,7 +98,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'|'.0]", path])
@@ -109,7 +106,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'|'.0.a
-    res = (typeof pval === 'boolean' || pval instanceof Boolean);
+    let res = (typeof pval === 'boolean' || pval instanceof Boolean);
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'|'.0.a]", (path ? lpath : null)])

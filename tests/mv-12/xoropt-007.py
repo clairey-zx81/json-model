@@ -99,7 +99,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # ^ cannot be |
     # .
     # generic xor list
@@ -116,7 +115,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         xc_0 += 1
     else:
         rep is None or rep.append(("unexpected element [.'^'.1]", path))
-    res = xc_0 == 1
+    res: bool = xc_0 == 1
     if res:
         rep is None or rep.clear()
     else:

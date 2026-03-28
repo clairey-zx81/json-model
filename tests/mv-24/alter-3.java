@@ -35,13 +35,12 @@ public class alter_3 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             return false;
         }
         // .'$d'.t
-        res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
         if (! res)
         {
             return false;
@@ -67,13 +66,12 @@ public class alter_3 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "u")) != null))
         {
             return false;
         }
         // .'$alternative'.'|'.0.u
-        res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
             return false;
@@ -100,13 +98,12 @@ public class alter_3 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             return false;
         }
         // .'$alternative'.'|'.1.t
-        res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
+        boolean res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
         if (! res)
         {
             return false;
@@ -123,11 +120,9 @@ public class alter_3 extends ModelChecker
     // check $alternative (.'$alternative')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // expecting xor-to-or and tag detection, but not for u
         // .'$alternative'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))

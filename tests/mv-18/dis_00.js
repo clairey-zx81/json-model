@@ -28,7 +28,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("tag"))
     {
         rep !== null && rep.push(["missing mandatory prop <tag> [.'|'.0]", path])
@@ -37,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["tag"]) : null;
     pval = val["tag"];
     // .'|'.0.tag
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"a\" [.'|'.0.tag]", (path ? lpath : null)])
@@ -78,7 +77,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("tag"))
     {
         rep !== null && rep.push(["missing mandatory prop <tag> [.'|'.1]", path])
@@ -87,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["tag"]) : null;
     pval = val["tag"];
     // .'|'.1.tag
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "b";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "b";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"b\" [.'|'.1.tag]", (path ? lpath : null)])
@@ -128,7 +126,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("tag"))
     {
         rep !== null && rep.push(["missing mandatory prop <tag> [.'|'.2]", path])
@@ -137,7 +134,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["tag"]) : null;
     pval = val["tag"];
     // .'|'.2.tag
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "c";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "c";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"c\" [.'|'.2.tag]", (path ? lpath : null)])
@@ -166,11 +163,9 @@ function _jm_obj_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // string discriminant
     // .
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("tag"))

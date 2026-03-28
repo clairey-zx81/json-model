@@ -37,13 +37,12 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.'$a']", path))
         return False
     lpath = (path + [ "t" ]) if path is not None else None
     # .'$a'.t
-    res = isinstance(pval, str) and pval == "a"
+    res: bool = isinstance(pval, str) and pval == "a"
     if not res:
         rep is None or rep.append(("unexpected value for model \"a\" [.'$a'.t]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.'$a']", lpath if path is not None else None))
@@ -63,13 +62,12 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.'$bc']", path))
         return False
     lpath = (path + [ "t" ]) if path is not None else None
     # .'$bc'.t
-    res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
+    res: bool = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$bc'.t.'|']", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <t> [.'$bc']", lpath if path is not None else None))
@@ -88,7 +86,6 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <t> [.'$Nabc']", path))
         return False
@@ -122,7 +119,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             xc_0 += 1
         else:
             rep is None or rep.append(("unexpected value for model \"_c\" [.'$Nabc'.t.'^'.3]", lpath if path is not None else None))
-    res = xc_0 == 1
+    res: bool = xc_0 == 1
     if res:
         rep is None or rep.clear()
     else:
@@ -134,11 +131,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # xor-to-or with not constant exclusion behind references
     # .
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "t" in val:
             tag_0: Jsonable = val.get("t", UNDEFINED)

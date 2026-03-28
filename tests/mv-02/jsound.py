@@ -132,10 +132,8 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Type (.'$Type')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$Type'
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "kind" in val:
             tag_0: Jsonable = val.get("kind", UNDEFINED)

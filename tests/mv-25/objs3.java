@@ -33,13 +33,12 @@ public class objs3 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "title")) != null))
         {
             return false;
         }
         // .'$book'.title
-        res = json.isString(pval);
+        boolean res = json.isString(pval);
         if (! res)
         {
             return false;

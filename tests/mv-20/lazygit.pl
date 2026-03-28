@@ -507,14 +507,13 @@ sub _jm_obj_4($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'type'})
     {
         return 0;
     }
     $pval = $$val{'type'};
     # .'$Prompts'.'|'.2.type
-    $res = jm_is_string($pval) && $pval eq 'menu';
+    my $res = jm_is_string($pval) && $pval eq 'menu';
     if (! $res)
     {
         return 0;
@@ -673,10 +672,8 @@ sub _jm_obj_6($$$)
 sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$Prompts'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'type'})
@@ -991,14 +988,13 @@ sub _jm_obj_9($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'pattern'})
     {
         return 0;
     }
     $pval = $$val{'pattern'};
     # .git.commitPrefixes.'/./'.pattern
-    $res = json_model_8($pval, undef, undef);
+    my $res = json_model_8($pval, undef, undef);
     if (! $res)
     {
         return 0;

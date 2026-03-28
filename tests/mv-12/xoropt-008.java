@@ -31,7 +31,6 @@ public class xoropt_008 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.2]", path);
@@ -39,7 +38,7 @@ public class xoropt_008 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'|'.2.a
-        res = json.isArray(pval);
+        boolean res = json.isArray(pval);
         if (res)
         {
             int arr_0_idx = -1;
@@ -79,7 +78,6 @@ public class xoropt_008 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.1]", path);
@@ -87,7 +85,7 @@ public class xoropt_008 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'|'.1.a
-        res = json.isString(pval);
+        boolean res = json.isString(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.1.a]", (path != null ? lpath : null));
@@ -109,7 +107,6 @@ public class xoropt_008 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0]", path);
@@ -117,7 +114,7 @@ public class xoropt_008 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'|'.0.a
-        res = json.isBoolean(pval);
+        boolean res = json.isBoolean(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("not a bool [.'|'.0.a]", (path != null ? lpath : null));

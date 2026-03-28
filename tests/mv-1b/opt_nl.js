@@ -29,7 +29,6 @@ function json_model_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("i"))
     {
         rep !== null && rep.push(["missing mandatory prop <i> [.]", path])
@@ -38,7 +37,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["i"]) : null;
     pval = val["i"];
     // .i
-    res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+    let res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
     if (! res)
     {
         rep !== null && rep.push(["not a -1 loose int [.i]", (path ? lpath : null)])

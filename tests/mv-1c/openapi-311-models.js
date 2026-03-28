@@ -4462,10 +4462,8 @@ function _jm_obj_39(val, path, rep)
 // check $openapi#SecurityScheme (.'$openapi#SecurityScheme')
 function json_model_42(val, path, rep)
 {
-    let res;
     // .'$openapi#SecurityScheme'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("type"))

@@ -59,7 +59,6 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "$schema")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <$schema> [.'$tight#RootSchema'.'&'.0]", path);
@@ -67,7 +66,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
         }
         lpath = new Path("$schema", path);
         // .'$tight#RootSchema'.'&'.0.'$schema'
-        res = json.isString(pval);
+        boolean res = json.isString(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$tight#RootSchema'.'&'.0.'$schema']", (path != null ? lpath : null));
@@ -116,11 +115,9 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     // check $tight#ObjectSchema (.'$tight#ObjectSchema')
     public boolean json_model_25(Object val, Path path, Report rep)
     {
-        boolean res;
         // we could use ^ instead of | below
         // .'$tight#ObjectSchema'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "type"))

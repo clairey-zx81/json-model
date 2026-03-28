@@ -34,13 +34,12 @@ public class objs0 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             return false;
         }
         // .'$table'.t
-        res = json.isString(pval) && json.asString(pval).compareTo("table") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("table") == 0;
         if (! res)
         {
             return false;
@@ -67,13 +66,12 @@ public class objs0 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             return false;
         }
         // .'$chair'.t
-        res = json.isString(pval) && json.asString(pval).compareTo("chair") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("chair") == 0;
         if (! res)
         {
             return false;
@@ -90,10 +88,8 @@ public class objs0 extends ModelChecker
     // check $furniture (.'$furniture')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$furniture'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))
@@ -124,13 +120,12 @@ public class objs0 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "stuff")) != null))
         {
             return false;
         }
         // .stuff
-        res = json.isArray(pval);
+        boolean res = json.isArray(pval);
         if (res)
         {
             int arr_0_idx = -1;

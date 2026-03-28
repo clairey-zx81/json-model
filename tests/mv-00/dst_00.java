@@ -22,12 +22,11 @@ public class dst_00 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             return false;
         }
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             return false;
@@ -46,12 +45,11 @@ public class dst_00 extends ModelChecker
             return false;
         }
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             return false;
         }
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             return false;

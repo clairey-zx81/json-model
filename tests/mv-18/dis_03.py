@@ -35,13 +35,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("discriminator", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <discriminator> [.'|'.0]", path))
         return False
     lpath = (path + [ "discriminator" ]) if path is not None else None
     # .'|'.0.discriminator
-    res = isinstance(pval, bool) and pval == True
+    res: bool = isinstance(pval, bool) and pval == True
     if not res:
         rep is None or rep.append(("unexpected value for model \"=true\" [.'|'.0.discriminator]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <discriminator> [.'|'.0]", lpath if path is not None else None))
@@ -69,13 +68,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("discriminator", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <discriminator> [.'|'.1]", path))
         return False
     lpath = (path + [ "discriminator" ]) if path is not None else None
     # .'|'.1.discriminator
-    res = isinstance(pval, bool) and pval == False
+    res: bool = isinstance(pval, bool) and pval == False
     if not res:
         rep is None or rep.append(("unexpected value for model \"=false\" [.'|'.1.discriminator]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <discriminator> [.'|'.1]", lpath if path is not None else None))
@@ -95,11 +93,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # boolean tag
     # .
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "discriminator" in val:
             tag_0: Jsonable = val.get("discriminator", UNDEFINED)

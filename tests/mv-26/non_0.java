@@ -22,7 +22,6 @@ public class non_0 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
         // generic xor list
         long xc_0 = 0;
@@ -59,7 +58,7 @@ public class non_0 extends ModelChecker
                 if (rep != null) rep.addEntry("unexpected value for model \"_world\" [.'^'.2]", path);
             }
         }
-        res = xc_0 == 1;
+        boolean res = xc_0 == 1;
         if (res)
         {
             if (rep != null) rep.clearEntries();

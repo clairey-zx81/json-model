@@ -126,13 +126,11 @@ CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  iso_0 bool;
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
   -- .'$Type'
-  iso_0 := JSONB_TYPEOF(val) = 'object';
-  res := iso_0;
+  res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     IF val ? 'kind' THEN
       tag_0 := val -> 'kind';

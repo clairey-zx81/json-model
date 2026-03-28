@@ -29,7 +29,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.0]", path])
@@ -38,7 +37,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.0.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"a\" [.'|'.0.t]", (path ? lpath : null)])
@@ -65,7 +64,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.1]", path])
@@ -74,7 +72,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.1.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|'.1.t.'|']", (path ? lpath : null)])
@@ -100,7 +98,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.2]", path])
@@ -157,7 +154,7 @@ function _jm_obj_2(val, path, rep)
             rep !== null && rep.push(["unexpected value for model \"_c\" [.'|'.2.t.'^'.3]", (path ? lpath : null)])
         }
     }
-    res = xc_0 == 1;
+    let res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0
@@ -175,11 +172,9 @@ function _jm_obj_2(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // xor-to-or with not constant exclusion
     // .
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("t"))

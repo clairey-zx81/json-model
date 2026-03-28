@@ -25,11 +25,10 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # .'@'
     lpath_0: Path
-    res = isinstance(val, list)
+    res: bool = isinstance(val, list)
     if res:
         len_0: int = len(val)
         if len_0 > 0:

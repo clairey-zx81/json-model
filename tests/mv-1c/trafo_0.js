@@ -28,7 +28,6 @@ function json_model_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("za"))
     {
         rep !== null && rep.push(["missing mandatory prop <za> [.'$zero']", path])
@@ -37,7 +36,7 @@ function json_model_2(val, path, rep)
     lpath = path ? path.concat(["za"]) : null;
     pval = val["za"];
     // .'$zero'.za
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$zero'.za]", (path ? lpath : null)])

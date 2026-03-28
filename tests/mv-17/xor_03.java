@@ -22,7 +22,6 @@ public class xor_03 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // (any xor m) is (not m)
         // .
         // not-case xor list
@@ -32,7 +31,7 @@ public class xor_03 extends ModelChecker
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'^'.1]", path);
         }
-        res = ! is_0;
+        boolean res = ! is_0;
         if (res)
         {
             if (rep != null) rep.clearEntries();

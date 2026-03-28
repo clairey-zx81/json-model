@@ -79,14 +79,13 @@ sub json_model_6($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'za'})
     {
         return 0;
     }
     $pval = $$val{'za'};
     # .'$Zz#zero'.za
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;

@@ -647,7 +647,6 @@ public class json_model extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "|")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <|> [.'$Or']", path);
@@ -655,7 +654,7 @@ public class json_model extends ModelChecker
         }
         lpath = new Path("|", path);
         // .'$Or'.'|'
-        res = json.isArray(pval);
+        boolean res = json.isArray(pval);
         if (res)
         {
             int arr_1_idx = -1;
@@ -700,7 +699,6 @@ public class json_model extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "&")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <&> [.'$And']", path);
@@ -708,7 +706,7 @@ public class json_model extends ModelChecker
         }
         lpath = new Path("&", path);
         // .'$And'.'&'
-        res = json.isArray(pval);
+        boolean res = json.isArray(pval);
         if (res)
         {
             int arr_2_idx = -1;
@@ -753,7 +751,6 @@ public class json_model extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "^")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <^> [.'$Xor']", path);
@@ -761,7 +758,7 @@ public class json_model extends ModelChecker
         }
         lpath = new Path("^", path);
         // .'$Xor'.'^'
-        res = json.isArray(pval);
+        boolean res = json.isArray(pval);
         if (res)
         {
             int arr_3_idx = -1;
@@ -806,7 +803,6 @@ public class json_model extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "+")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <+> [.'$Add']", path);
@@ -814,7 +810,7 @@ public class json_model extends ModelChecker
         }
         lpath = new Path("+", path);
         // .'$Add'.'+'
-        res = json.isArray(pval);
+        boolean res = json.isArray(pval);
         if (res)
         {
             int arr_4_idx = -1;

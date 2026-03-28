@@ -27,14 +27,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.1.t
-    $res = jm_is_string($pval) && $pval eq 'A';
+    my $res = jm_is_string($pval) && $pval eq 'A';
     if (! $res)
     {
         return 0;
@@ -59,14 +58,13 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.0.t
-    $res = jm_is_string($pval) && $pval eq 'A';
+    my $res = jm_is_string($pval) && $pval eq 'A';
     if (! $res)
     {
         return 0;

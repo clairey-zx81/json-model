@@ -51,13 +51,12 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("rt", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <rt> [.'$foo#Foo']", path))
         return False
     lpath = (path + [ "rt" ]) if path is not None else None
     # .'$foo#Foo'.rt
-    res = json_model_12(pval, lpath if path is not None else None, rep)
+    res: bool = json_model_12(pval, lpath if path is not None else None, rep)
     if not res:
         rep is None or rep.append(("unexpected value for model \"$root#Root\" [.'$foo#Foo'.rt]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <rt> [.'$foo#Foo']", lpath if path is not None else None))
@@ -76,13 +75,12 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("id", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <id> [.'$foo#root#root#Root']", path))
         return False
     lpath = (path + [ "id" ]) if path is not None else None
     # .'$foo#root#root#Root'.id
-    res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1
+    res: bool = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1
     if not res:
         rep is None or rep.append(("unexpected value for model \"=1\" [.'$foo#root#root#Root'.id]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", lpath if path is not None else None))

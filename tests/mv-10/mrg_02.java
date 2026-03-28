@@ -48,7 +48,6 @@ public class mrg_02 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'$r']", path);
@@ -56,7 +55,7 @@ public class mrg_02 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'$r'.a
-        res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.'$r'.a]", (path != null ? lpath : null));
@@ -125,7 +124,6 @@ public class mrg_02 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "e")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <e> [.'$z']", path);
@@ -133,7 +131,7 @@ public class mrg_02 extends ModelChecker
         }
         lpath = new Path("e", path);
         // .'$z'.e
-        res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("cst_02") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_cst_02\" [.'$z'.e]", (path != null ? lpath : null));
@@ -174,7 +172,6 @@ public class mrg_02 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.]", path);
@@ -182,7 +179,7 @@ public class mrg_02 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .a
-        res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("cst_01") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_cst_01\" [.a]", (path != null ? lpath : null));

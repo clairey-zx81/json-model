@@ -28,7 +28,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("discriminator"))
     {
         rep !== null && rep.push(["missing mandatory prop <discriminator> [.'|'.0]", path])
@@ -37,7 +36,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["discriminator"]) : null;
     pval = val["discriminator"];
     // .'|'.0.discriminator
-    res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
+    let res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=true\" [.'|'.0.discriminator]", (path ? lpath : null)])
@@ -78,7 +77,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("discriminator"))
     {
         rep !== null && rep.push(["missing mandatory prop <discriminator> [.'|'.1]", path])
@@ -87,7 +85,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["discriminator"]) : null;
     pval = val["discriminator"];
     // .'|'.1.discriminator
-    res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
+    let res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=false\" [.'|'.1.discriminator]", (path ? lpath : null)])
@@ -116,11 +114,9 @@ function _jm_obj_1(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // boolean tag
     // .
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("discriminator"))

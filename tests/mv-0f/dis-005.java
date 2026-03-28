@@ -31,7 +31,6 @@ public class dis_005 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.1]", path);
@@ -39,7 +38,7 @@ public class dis_005 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'|'.1.a
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'|'.1.a]", (path != null ? lpath : null));
@@ -61,7 +60,6 @@ public class dis_005 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0]", path);
@@ -69,7 +67,7 @@ public class dis_005 extends ModelChecker
         }
         lpath = new Path("a", path);
         // .'|'.0.a
-        res = json.isInteger(pval) && json.asLong(pval) >= 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 strict int [.'|'.0.a]", (path != null ? lpath : null));

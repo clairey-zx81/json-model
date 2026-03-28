@@ -31,7 +31,6 @@ public class muma_0 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "name")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.]", path);
@@ -39,7 +38,7 @@ public class muma_0 extends ModelChecker
         }
         lpath = new Path("name", path);
         // .name
-        res = json.isString(pval);
+        boolean res = json.isString(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.name]", (path != null ? lpath : null));

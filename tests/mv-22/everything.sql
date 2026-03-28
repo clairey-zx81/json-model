@@ -2542,7 +2542,6 @@ DECLARE
   xr_0 bool;
   xc_1 int;
   xr_1 bool;
-  is_0 bool;
 BEGIN
   -- hard alternative, only one must match
   -- .xor
@@ -2607,8 +2606,7 @@ BEGIN
       -- .xor.x3
       -- not-case xor list
       -- .xor.x3.'^'.1
-      is_0 := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-      res := NOT is_0;
+      res := NOT (JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

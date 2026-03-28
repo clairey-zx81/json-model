@@ -61,14 +61,13 @@ sub _jm_obj_1($$$)
     # check open must/may only props
     # value known to be an object
     my $pval;
-    my $res;
     if (! exists $$val{'i'})
     {
         return 0;
     }
     $pval = $$val{'i'};
     # .'&'.0.i
-    $res = jm_is_integer($pval) && $pval >= 1;
+    my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;

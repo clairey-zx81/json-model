@@ -43,13 +43,12 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.'$r']", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .'$r'.a
-    res = isinstance(pval, str) and pval == "cst_01"
+    res: bool = isinstance(pval, str) and pval == "cst_01"
     if not res:
         rep is None or rep.append(("unexpected value for model \"_cst_01\" [.'$r'.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.'$r']", lpath if path is not None else None))
@@ -98,13 +97,12 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("e", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <e> [.'$z']", path))
         return False
     lpath = (path + [ "e" ]) if path is not None else None
     # .'$z'.e
-    res = isinstance(pval, str) and pval == "cst_02"
+    res: bool = isinstance(pval, str) and pval == "cst_02"
     if not res:
         rep is None or rep.append(("unexpected value for model \"_cst_02\" [.'$z'.e]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <e> [.'$z']", lpath if path is not None else None))
@@ -133,13 +131,12 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("a", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <a> [.]", path))
         return False
     lpath = (path + [ "a" ]) if path is not None else None
     # .a
-    res = isinstance(pval, str) and pval == "cst_01"
+    res: bool = isinstance(pval, str) and pval == "cst_01"
     if not res:
         rep is None or rep.append(("unexpected value for model \"_cst_01\" [.a]", lpath if path is not None else None))
         rep is None or rep.append(("unexpected value for mandatory prop <a> [.]", lpath if path is not None else None))

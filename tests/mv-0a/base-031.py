@@ -35,13 +35,12 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     lpath: Path
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("bibi", UNDEFINED)) != UNDEFINED):
         rep is None or rep.append(("missing mandatory prop <bibi> [.'$bibi']", path))
         return False
     lpath = (path + [ "bibi" ]) if path is not None else None
     # .'$bibi'.bibi
-    res = isinstance(pval, list)
+    res: bool = isinstance(pval, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(pval):
             arr_0_lpath: Path = ((lpath if path is not None else None) + [ arr_0_idx ]) if (lpath if path is not None else None) is not None else None

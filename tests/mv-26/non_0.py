@@ -25,7 +25,6 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .
     # generic xor list
     xc_0: int = 0
@@ -48,7 +47,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             xc_0 += 1
         else:
             rep is None or rep.append(("unexpected value for model \"_world\" [.'^'.2]", path))
-    res = xc_0 == 1
+    res: bool = xc_0 == 1
     if res:
         rep is None or rep.clear()
     else:

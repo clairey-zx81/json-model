@@ -33,11 +33,10 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("stuff", UNDEFINED)) != UNDEFINED):
         return False
     # .'$objs0'.stuff
-    res = isinstance(pval, list)
+    res: bool = isinstance(pval, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(pval):
             # .'$objs0'.stuff.0
@@ -64,10 +63,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $objs0#furniture (.'$objs0#furniture')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     # .'$objs0#furniture'
-    iso_0: bool = isinstance(val, dict)
-    res = iso_0
+    res: bool = isinstance(val, dict)
     if res:
         if "t" in val:
             tag_0: Jsonable = val.get("t", UNDEFINED)
@@ -86,11 +83,10 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
     # .'$objs0#table'.t
-    res = isinstance(pval, str) and pval == "table"
+    res: bool = isinstance(pval, str) and pval == "table"
     if not res:
         return False
     if not ((pval := val.get("legs", UNDEFINED)) != UNDEFINED):
@@ -107,11 +103,10 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("t", UNDEFINED)) != UNDEFINED):
         return False
     # .'$objs0#chair'.t
-    res = isinstance(pval, str) and pval == "chair"
+    res: bool = isinstance(pval, str) and pval == "chair"
     if not res:
         return False
     if not ((pval := val.get("color", UNDEFINED)) != UNDEFINED):

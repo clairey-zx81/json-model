@@ -32,14 +32,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.0.t
-    $res = jm_is_numeric($pval) && $pval == 3.1415927;
+    my $res = jm_is_numeric($pval) && $pval == 3.1415927;
     if (! $res)
     {
         return 0;
@@ -67,14 +66,13 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.1.t
-    $res = jm_is_numeric($pval) && $pval == 1.0;
+    my $res = jm_is_numeric($pval) && $pval == 1.0;
     if (! $res)
     {
         return 0;
@@ -102,14 +100,13 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.2.t
-    $res = jm_is_numeric($pval) && $pval == 0.5;
+    my $res = jm_is_numeric($pval) && $pval == 0.5;
     if (! $res)
     {
         return 0;
@@ -128,11 +125,9 @@ sub _jm_obj_2($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # disjunction on float
     # .
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})

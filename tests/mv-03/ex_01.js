@@ -52,7 +52,6 @@ function json_model_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.]", path])
@@ -61,7 +60,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .a
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.a]", (path ? lpath : null)])

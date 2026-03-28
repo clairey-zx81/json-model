@@ -365,7 +365,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Null']", path);
@@ -373,7 +372,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$Null'.type
-        res = json.isString(pval) && json.asString(pval).compareTo("null") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("null") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_null\" [.'$Null'.type]", (path != null ? lpath : null));
@@ -400,7 +399,6 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "type")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <type> [.'$Boolean']", path);
@@ -408,7 +406,7 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         }
         lpath = new Path("type", path);
         // .'$Boolean'.type
-        res = json.isString(pval) && json.asString(pval).compareTo("boolean") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("boolean") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_boolean\" [.'$Boolean'.type]", (path != null ? lpath : null));
@@ -3805,10 +3803,8 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     // check $TightSchema (.'$TightSchema')
     public boolean json_model_15(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$TightSchema'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "type"))

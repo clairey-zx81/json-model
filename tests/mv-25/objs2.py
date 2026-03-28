@@ -32,11 +32,10 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("x", UNDEFINED)) != UNDEFINED):
         return False
     # .'$bla'.x
-    res = isinstance(pval, float)
+    res: bool = isinstance(pval, float)
     if not res:
         return False
     if not ((pval := val.get("y", UNDEFINED)) != UNDEFINED):

@@ -31,7 +31,6 @@ public class dis_04 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.5]", path);
@@ -39,7 +38,7 @@ public class dis_04 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.5.t
-        res = json.isString(pval) && json.asString(pval).compareTo("t") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("t") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"t\" [.'|'.5.t]", (path != null ? lpath : null));
@@ -76,7 +75,6 @@ public class dis_04 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.4]", path);
@@ -84,7 +82,7 @@ public class dis_04 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.4.t
-        res = json.isString(pval) && json.asString(pval).compareTo("s") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("s") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"s\" [.'|'.4.t]", (path != null ? lpath : null));
@@ -120,7 +118,6 @@ public class dis_04 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.3]", path);
@@ -128,7 +125,7 @@ public class dis_04 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.3.t
-        res = json.isDouble(pval) && json.asDouble(pval) == 0.0;
+        boolean res = json.isDouble(pval) && json.asDouble(pval) == 0.0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=0.0\" [.'|'.3.t]", (path != null ? lpath : null));
@@ -164,7 +161,6 @@ public class dis_04 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.2]", path);
@@ -172,7 +168,7 @@ public class dis_04 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.2.t
-        res = json.isInteger(pval) && json.asLong(pval) == 0;
+        boolean res = json.isInteger(pval) && json.asLong(pval) == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=0\" [.'|'.2.t]", (path != null ? lpath : null));
@@ -208,7 +204,6 @@ public class dis_04 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.1]", path);
@@ -216,7 +211,7 @@ public class dis_04 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.1.t
-        res = json.isBoolean(pval) && json.asBoolean(pval) == true;
+        boolean res = json.isBoolean(pval) && json.asBoolean(pval) == true;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=true\" [.'|'.1.t]", (path != null ? lpath : null));
@@ -252,7 +247,6 @@ public class dis_04 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'|'.0]", path);
@@ -260,7 +254,7 @@ public class dis_04 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'|'.0.t
-        res = json.isNull(pval);
+        boolean res = json.isNull(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=null\" [.'|'.0.t]", (path != null ? lpath : null));

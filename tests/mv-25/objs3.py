@@ -32,11 +32,10 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 2:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("title", UNDEFINED)) != UNDEFINED):
         return False
     # .'$book'.title
-    res = isinstance(pval, str)
+    res: bool = isinstance(pval, str)
     if not res:
         return False
     if not ((pval := val.get("author", UNDEFINED)) != UNDEFINED):

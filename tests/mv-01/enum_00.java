@@ -50,7 +50,6 @@ public class enum_00 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // p1 optimized to | and root xor should rejects 'Bad'
         // .
         // generic xor list
@@ -75,7 +74,7 @@ public class enum_00 extends ModelChecker
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$p2\" [.'^'.1]", path);
         }
-        res = xc_0 == 1;
+        boolean res = xc_0 == 1;
         if (res)
         {
             if (rep != null) rep.clearEntries();

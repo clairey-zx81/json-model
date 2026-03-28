@@ -119,7 +119,6 @@ function _jm_obj_1(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // NOT ^ to |
     // .
     // generic xor list
@@ -144,7 +143,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected element [.'^'.1]", path])
     }
-    res = xc_0 == 1;
+    let res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0

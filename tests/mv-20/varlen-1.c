@@ -17,11 +17,10 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // .
     // .'@'
     jm_path_t lpath_0;
-    res = json_is_array(val);
+    bool res = json_is_array(val);
     if (likely(res))
     {
         int64_t len_0 = json_array_size(val);

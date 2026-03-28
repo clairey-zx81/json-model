@@ -2957,11 +2957,9 @@ sub json_model_22($$$)
 sub json_model_23($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # we could use ^ instead of | below
     # .'$ObjectSchema'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'type'})

@@ -69,7 +69,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     // p1 optimized to | and root xor should rejects 'Bad'
     // .
     // generic xor list
@@ -90,7 +89,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$p2\" [.'^'.1]", path);
     }
-    res = xc_0 == 1;
+    bool res = xc_0 == 1;
     if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);

@@ -37,7 +37,6 @@ public class inline_or_rec_2 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$ab'.'|'.0]", path);
@@ -45,7 +44,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$ab'.'|'.0.t
-        res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"a\" [.'$ab'.'|'.0.t]", (path != null ? lpath : null));
@@ -85,7 +84,6 @@ public class inline_or_rec_2 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$ab'.'|'.1]", path);
@@ -93,7 +91,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$ab'.'|'.1.t
-        res = json.isString(pval) && json.asString(pval).compareTo("b") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("b") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"b\" [.'$ab'.'|'.1.t]", (path != null ? lpath : null));
@@ -121,10 +119,8 @@ public class inline_or_rec_2 extends ModelChecker
     // check $ab (.'$ab')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$ab'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))
@@ -170,7 +166,6 @@ public class inline_or_rec_2 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$cd'.'|'.0]", path);
@@ -178,7 +173,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$cd'.'|'.0.t
-        res = json.isString(pval) && json.asString(pval).compareTo("c") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("c") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"c\" [.'$cd'.'|'.0.t]", (path != null ? lpath : null));
@@ -218,7 +213,6 @@ public class inline_or_rec_2 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "t")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <t> [.'$cd'.'|'.1]", path);
@@ -226,7 +220,7 @@ public class inline_or_rec_2 extends ModelChecker
         }
         lpath = new Path("t", path);
         // .'$cd'.'|'.1.t
-        res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
+        boolean res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"d\" [.'$cd'.'|'.1.t]", (path != null ? lpath : null));
@@ -254,10 +248,8 @@ public class inline_or_rec_2 extends ModelChecker
     // check $cd (.'$cd')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$cd'
-        boolean iso_1 = json.isObject(val);
-        res = iso_1;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))

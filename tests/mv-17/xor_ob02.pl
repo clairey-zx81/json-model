@@ -194,14 +194,13 @@ sub _jm_obj_6($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'b'})
     {
         return 0;
     }
     $pval = $$val{'b'};
     # .'|'.3.b
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -226,14 +225,13 @@ sub _jm_obj_7($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .'|'.2.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -269,14 +267,13 @@ sub _jm_obj_8($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .'|'.1.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
@@ -301,14 +298,13 @@ sub _jm_obj_9($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'a'})
     {
         return 0;
     }
     $pval = $$val{'a'};
     # .'|'.0.a
-    $res = jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;

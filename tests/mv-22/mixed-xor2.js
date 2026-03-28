@@ -29,7 +29,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$cs'.'|'.0]", path])
@@ -38,7 +37,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'$cs'.'|'.0.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "c";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "c";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"c\" [.'$cs'.'|'.0.t]", (path ? lpath : null)])
@@ -79,7 +78,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$cs'.'|'.1]", path])
@@ -88,7 +86,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'$cs'.'|'.1.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "s";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "s";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"s\" [.'$cs'.'|'.1.t]", (path ? lpath : null)])
@@ -117,10 +115,8 @@ function _jm_obj_1(val, path, rep)
 // check $cs (.'$cs')
 function json_model_2(val, path, rep)
 {
-    let res;
     // .'$cs'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("t"))
@@ -166,7 +162,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.0]", path])
@@ -175,7 +170,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.0.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "m";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "m";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"m\" [.'|'.0.t]", (path ? lpath : null)])
@@ -216,7 +211,6 @@ function _jm_obj_3(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.1]", path])
@@ -225,7 +219,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["t"]) : null;
     pval = val["t"];
     // .'|'.1.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "h";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "h";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"h\" [.'|'.1.t]", (path ? lpath : null)])
@@ -254,10 +248,8 @@ function _jm_obj_3(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
-    let iso_1 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_1;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("t"))

@@ -2713,10 +2713,8 @@ sub _jm_obj_7($$$)
 sub json_model_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$TightSchema'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'type'})

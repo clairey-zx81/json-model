@@ -756,7 +756,6 @@ function _jm_obj_0(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$geometry'.'|'.0]", path])
@@ -765,7 +764,7 @@ function _jm_obj_0(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$geometry'.'|'.0.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Point";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Point";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"Point\" [.'$geometry'.'|'.0.type]", (path ? lpath : null)])
@@ -829,7 +828,6 @@ function _jm_obj_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$geometry'.'|'.1]", path])
@@ -838,7 +836,7 @@ function _jm_obj_1(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$geometry'.'|'.1.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPoint";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPoint";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"MultiPoint\" [.'$geometry'.'|'.1.type]", (path ? lpath : null)])
@@ -917,7 +915,6 @@ function _jm_obj_2(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$geometry'.'|'.2]", path])
@@ -926,7 +923,7 @@ function _jm_obj_2(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$geometry'.'|'.2.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "LineString";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "LineString";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"LineString\" [.'$geometry'.'|'.2.type]", (path ? lpath : null)])
@@ -990,7 +987,6 @@ function _jm_obj_3(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$geometry'.'|'.3]", path])
@@ -999,7 +995,7 @@ function _jm_obj_3(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$geometry'.'|'.3.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiLineString";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiLineString";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"MultiLineString\" [.'$geometry'.'|'.3.type]", (path ? lpath : null)])
@@ -1078,7 +1074,6 @@ function _jm_obj_4(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$geometry'.'|'.4]", path])
@@ -1087,7 +1082,7 @@ function _jm_obj_4(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$geometry'.'|'.4.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Polygon";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Polygon";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"Polygon\" [.'$geometry'.'|'.4.type]", (path ? lpath : null)])
@@ -1166,7 +1161,6 @@ function _jm_obj_5(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$geometry'.'|'.5]", path])
@@ -1175,7 +1169,7 @@ function _jm_obj_5(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$geometry'.'|'.5.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPolygon";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "MultiPolygon";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"MultiPolygon\" [.'$geometry'.'|'.5.type]", (path ? lpath : null)])
@@ -1262,10 +1256,8 @@ function _jm_obj_5(val, path, rep)
 // check $geometry (.'$geometry')
 function json_model_11(val, path, rep)
 {
-    let res;
     // .'$geometry'
-    let iso_0 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_0;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("type"))
@@ -1307,7 +1299,6 @@ function json_model_12(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$GeometryCollection']", path])
@@ -1316,7 +1307,7 @@ function json_model_12(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$GeometryCollection'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GeometryCollection";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "GeometryCollection";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"GeometryCollection\" [.'$GeometryCollection'.type]", (path ? lpath : null)])
@@ -1408,7 +1399,6 @@ function json_model_13(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$Feature']", path])
@@ -1417,7 +1407,7 @@ function json_model_13(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$Feature'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Feature";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Feature";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"Feature\" [.'$Feature'.type]", (path ? lpath : null)])
@@ -1561,7 +1551,6 @@ function json_model_14(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("type"))
     {
         rep !== null && rep.push(["missing mandatory prop <type> [.'$FeatureCollection']", path])
@@ -1570,7 +1559,7 @@ function json_model_14(val, path, rep)
     lpath = path ? path.concat(["type"]) : null;
     pval = val["type"];
     // .'$FeatureCollection'.type
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FeatureCollection";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "FeatureCollection";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"FeatureCollection\" [.'$FeatureCollection'.type]", (path ? lpath : null)])
@@ -1642,11 +1631,9 @@ function json_model_14(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     // .
-    let iso_1 = Object.prototype.toString.call(val) === '[object Object]';
-    res = iso_1;
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         if (val.hasOwnProperty("type"))

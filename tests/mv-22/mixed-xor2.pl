@@ -35,14 +35,13 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$cs'.'|'.0.t
-    $res = jm_is_string($pval) && $pval eq 'c';
+    my $res = jm_is_string($pval) && $pval eq 'c';
     if (! $res)
     {
         return 0;
@@ -70,14 +69,13 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'$cs'.'|'.1.t
-    $res = jm_is_string($pval) && $pval eq 's';
+    my $res = jm_is_string($pval) && $pval eq 's';
     if (! $res)
     {
         return 0;
@@ -96,10 +94,8 @@ sub _jm_obj_1($$$)
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .'$cs'
-    my $iso_0 = jm_is_object($val);
-    $res = $iso_0;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})
@@ -130,14 +126,13 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.0.t
-    $res = jm_is_string($pval) && $pval eq 'm';
+    my $res = jm_is_string($pval) && $pval eq 'm';
     if (! $res)
     {
         return 0;
@@ -165,14 +160,13 @@ sub _jm_obj_3($$$)
         return 0;
     }
     my $pval;
-    my $res;
     if (! exists $$val{'t'})
     {
         return 0;
     }
     $pval = $$val{'t'};
     # .'|'.1.t
-    $res = jm_is_string($pval) && $pval eq 'h';
+    my $res = jm_is_string($pval) && $pval eq 'h';
     if (! $res)
     {
         return 0;
@@ -191,10 +185,8 @@ sub _jm_obj_3($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
-    my $iso_1 = jm_is_object($val);
-    $res = $iso_1;
+    my $res = jm_is_object($val);
     if ($res)
     {
         if (exists $$val{'t'})

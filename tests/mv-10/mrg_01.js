@@ -40,7 +40,6 @@ function json_model_3(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'$x']", path])
@@ -49,7 +48,7 @@ function json_model_3(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .'$x'.a
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$x'.a]", (path ? lpath : null)])
@@ -91,7 +90,6 @@ function json_model_4(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("c"))
     {
         rep !== null && rep.push(["missing mandatory prop <c> [.'$y']", path])
@@ -100,7 +98,7 @@ function json_model_4(val, path, rep)
     lpath = path ? path.concat(["c"]) : null;
     pval = val["c"];
     // .'$y'.c
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$y'.c]", (path ? lpath : null)])
@@ -142,7 +140,6 @@ function json_model_1(val, path, rep)
     }
     let lpath;
     let pval;
-    let res;
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.]", path])
@@ -151,7 +148,7 @@ function json_model_1(val, path, rep)
     lpath = path ? path.concat(["a"]) : null;
     pval = val["a"];
     // .a
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.a]", (path ? lpath : null)])

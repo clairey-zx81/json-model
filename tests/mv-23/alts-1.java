@@ -35,7 +35,6 @@ public class alts_1 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "v")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <v> [.'$oA']", path);
@@ -43,7 +42,7 @@ public class alts_1 extends ModelChecker
         }
         lpath = new Path("v", path);
         // .'$oA'.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oA'.v]", (path != null ? lpath : null));
@@ -80,7 +79,6 @@ public class alts_1 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "v")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <v> [.'$oB']", path);
@@ -88,7 +86,7 @@ public class alts_1 extends ModelChecker
         }
         lpath = new Path("v", path);
         // .'$oB'.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oB'.v]", (path != null ? lpath : null));
@@ -116,10 +114,8 @@ public class alts_1 extends ModelChecker
     // check $oC (.'$oC')
     public boolean json_model_4(Object val, Path path, Report rep)
     {
-        boolean res;
         // .'$oC'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))
@@ -161,7 +157,6 @@ public class alts_1 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "v")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <v> [.'$oL']", path);
@@ -169,7 +164,7 @@ public class alts_1 extends ModelChecker
         }
         lpath = new Path("v", path);
         // .'$oL'.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oL'.v]", (path != null ? lpath : null));
@@ -206,7 +201,6 @@ public class alts_1 extends ModelChecker
         }
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "v")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <v> [.'$oX']", path);
@@ -214,7 +208,7 @@ public class alts_1 extends ModelChecker
         }
         lpath = new Path("v", path);
         // .'$oX'.v
-        res = json.isInteger(pval) && json.asLong(pval) >= 1;
+        boolean res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 1 strict int [.'$oX'.v]", (path != null ? lpath : null));
@@ -242,10 +236,8 @@ public class alts_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         // .
-        boolean iso_1 = json.isObject(val);
-        res = iso_1;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "t"))

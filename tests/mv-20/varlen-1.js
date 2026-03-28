@@ -14,11 +14,10 @@ export var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
     // .
     // .'@'
     let lpath_0;
-    res = Array.isArray(val);
+    let res = Array.isArray(val);
     if (res)
     {
         let len_0 = val.length;

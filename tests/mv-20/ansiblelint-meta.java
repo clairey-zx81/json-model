@@ -7545,11 +7545,9 @@ public class ansiblelint_meta extends ModelChecker
     // check $GalaxyInfoModel (.'$GalaxyInfoModel')
     public boolean json_model_54(Object val, Path path, Report rep)
     {
-        boolean res;
         // hmmmm, property standalone should probably be required…
         // .'$GalaxyInfoModel'
-        boolean iso_0 = json.isObject(val);
-        res = iso_0;
+        boolean res = json.isObject(val);
         if (res)
         {
             if (json.objectHasProp(val, "standalone"))
@@ -7869,7 +7867,6 @@ public class ansiblelint_meta extends ModelChecker
         // value known to be an object
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "name")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <name> [.'$DependencyModel'.'&'.1.'|'.2]", path);
@@ -7877,7 +7874,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         lpath = new Path("name", path);
         // .'$DependencyModel'.'&'.1.'|'.2.name
-        res = json.isString(pval);
+        boolean res = json.isString(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.2.name]", (path != null ? lpath : null));
@@ -7894,7 +7891,6 @@ public class ansiblelint_meta extends ModelChecker
         // value known to be an object
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "src")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <src> [.'$DependencyModel'.'&'.1.'|'.1]", path);
@@ -7902,7 +7898,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         lpath = new Path("src", path);
         // .'$DependencyModel'.'&'.1.'|'.1.src
-        res = json.isString(pval);
+        boolean res = json.isString(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.1.src]", (path != null ? lpath : null));
@@ -7919,7 +7915,6 @@ public class ansiblelint_meta extends ModelChecker
         // value known to be an object
         Path lpath;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "role")) != null))
         {
             if (rep != null) rep.addEntry("missing mandatory prop <role> [.'$DependencyModel'.'&'.1.'|'.0]", path);
@@ -7927,7 +7922,7 @@ public class ansiblelint_meta extends ModelChecker
         }
         lpath = new Path("role", path);
         // .'$DependencyModel'.'&'.1.'|'.0.role
-        res = json.isString(pval);
+        boolean res = json.isString(pval);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$DependencyModel'.'&'.1.'|'.0.role]", (path != null ? lpath : null));
