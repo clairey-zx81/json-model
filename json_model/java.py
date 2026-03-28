@@ -13,7 +13,7 @@ JAVA_RUNTIME_PREDEFS: dict[str, str] = {
     "$DATETIME": "is_valid_datetime",
     "$REGEX": "is_valid_regex",
     "$EXREG": "is_valid_exreg",
-    "$UUID": "is_valid_uuid",
+    # "$UUID": "is_valid_uuid",
     "$JSON": "is_valid_json",
     "$CARD": "is_valid_card",
     # TODO "$HOST", "$IP4", "$IP6", "$EMAIL",

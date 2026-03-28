@@ -44,7 +44,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may  property
             // .'$'.''
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$'.'']", (path ? lpath_1 : null)])

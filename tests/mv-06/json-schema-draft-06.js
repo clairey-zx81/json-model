@@ -143,7 +143,7 @@ function json_model_6(val, path, rep)
 function _jm_f_0(val, path, rep)
 {
     // .'$ObjectSchema'.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$ObjectSchema'.'$schema']", path])

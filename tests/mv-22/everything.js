@@ -24,7 +24,6 @@ const jm_is_eth_re = new runtime.RX("^([0-9a-f]{2}:){5}[0-9a-f]{2}$", "i")
 const jm_is_host_re = new runtime.RX("^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", "i")
 const jm_is_ip4_re = new runtime.RX("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$", "")
 const jm_is_ip6_re = new runtime.RX("^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$", "i")
-const jm_is_json_re = new runtime.RX("^('\\\\s*(\\\\{.*\\\\}|\\\\[.*\\\\]|null|true|false|\".*\"|[-+]?\\\\d+(\\\\.\\\\d*)?([Ee][-+]?\\\\d+)?)\\\\s*',)$", "s")
 const jm_is_jsonpt_re = new runtime.RX("^(/([^~]|~0|~1)*)*$", "s")
 const jm_is_uuid_re = new runtime.RX("^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$", "i")
 
@@ -2764,7 +2763,7 @@ function _jm_f_18(val, path, rep)
 function _jm_f_19(val, path, rep)
 {
     // .predefs.JSON
-    let res = runtime.jm_is_valid_json(val);
+    let res = runtime.jm_is_valid_json(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$JSON\" [.predefs.JSON]", path])
@@ -2880,7 +2879,7 @@ function _jm_f_28(val, path, rep)
 function _jm_f_29(val, path, rep)
 {
     // .predefs.URI
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.predefs.URI]", path])
@@ -2892,7 +2891,7 @@ function _jm_f_29(val, path, rep)
 function _jm_f_30(val, path, rep)
 {
     // .predefs.URL
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URL\" [.predefs.URL]", path])
@@ -3813,8 +3812,6 @@ const jm_is_host = (s) => jm_is_host_re.exec(s) !== null
 const jm_is_ip4 = (s) => jm_is_ip4_re.exec(s) !== null
 
 const jm_is_ip6 = (s) => jm_is_ip6_re.exec(s) !== null
-
-const jm_is_json = (s) => jm_is_json_re.exec(s) !== null
 
 const jm_is_jsonpt = (s) => jm_is_jsonpt_re.exec(s) !== null
 

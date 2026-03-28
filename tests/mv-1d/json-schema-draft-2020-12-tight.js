@@ -66,7 +66,7 @@ function _jm_obj_1(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_2 : null), rep))
         {
             // handle 1 key props
             // .'$core'.'$vocabulary'.'$URI'
@@ -155,7 +155,7 @@ function json_model_3(val, path, rep)
         {
             // handle may $schema property
             // .'$core'.'$schema'
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$core'.'$schema']", (path ? lpath_0 : null)])
@@ -1510,7 +1510,7 @@ function _jm_obj_8(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_16 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_16 : null), rep))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.0.'$vocabulary'.'$URI'
@@ -1626,7 +1626,7 @@ function _jm_obj_6(val, path, rep)
         {
             // handle may $schema property
             // .'$TightSchema'.'|'.0.'$schema'
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_14 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$TightSchema'.'|'.0.'$schema']", (path ? lpath_14 : null)])
@@ -1812,7 +1812,7 @@ function _jm_obj_11(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_19 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_19 : null), rep))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.1.'$vocabulary'.'$URI'
@@ -1928,7 +1928,7 @@ function _jm_obj_9(val, path, rep)
         {
             // handle may $schema property
             // .'$TightSchema'.'|'.1.'$schema'
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_17 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$TightSchema'.'|'.1.'$schema']", (path ? lpath_17 : null)])
@@ -2119,7 +2119,7 @@ function _jm_f_1(val, path, rep)
 function _jm_f_2(val, path, rep)
 {
     // .'$TightSchema'.'|'.2.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$TightSchema'.'|'.2.'$schema']", path])
@@ -2140,7 +2140,7 @@ function _jm_f_3(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_22 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_22 : null), rep))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.2.'$vocabulary'.'$URI'
@@ -2471,7 +2471,7 @@ function _jm_f_17(val, path, rep)
 function _jm_f_18(val, path, rep)
 {
     // .'$TightSchema'.'|'.3.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$TightSchema'.'|'.3.'$schema']", path])
@@ -2492,7 +2492,7 @@ function _jm_f_19(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_25 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_25 : null), rep))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.3.'$vocabulary'.'$URI'
@@ -2748,7 +2748,7 @@ function _jm_f_33(val, path, rep)
 function _jm_f_34(val, path, rep)
 {
     // .'$TightSchema'.'|'.4.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$TightSchema'.'|'.4.'$schema']", path])
@@ -2769,7 +2769,7 @@ function _jm_f_35(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_28 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_28 : null), rep))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
@@ -3037,7 +3037,7 @@ function _jm_f_50(val, path, rep)
 function _jm_f_51(val, path, rep)
 {
     // .'$TightSchema'.'|'.5.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$TightSchema'.'|'.5.'$schema']", path])
@@ -3058,7 +3058,7 @@ function _jm_f_52(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_31 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_31 : null), rep))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.5.'$vocabulary'.'$URI'
@@ -3314,7 +3314,7 @@ function _jm_f_66(val, path, rep)
 function _jm_f_67(val, path, rep)
 {
     // .'$TightSchema'.'|'.6.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$TightSchema'.'|'.6.'$schema']", path])
@@ -3335,7 +3335,7 @@ function _jm_f_68(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_34 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_34 : null), rep))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
@@ -3663,7 +3663,7 @@ function _jm_f_83(val, path, rep)
 function _jm_f_84(val, path, rep)
 {
     // .'$TightSchema'.'|'.7.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$TightSchema'.'|'.7.'$schema']", path])
@@ -3684,7 +3684,7 @@ function _jm_f_85(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_41 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_41 : null), rep))
         {
             // handle 1 key props
             // .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'

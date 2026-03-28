@@ -27,7 +27,7 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$Key'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Key']", path])
@@ -48,7 +48,7 @@ function json_model_4(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_0 : null), rep))
         {
             // handle 1 key props
             // .'$map'.'$URL'
@@ -78,7 +78,7 @@ function json_model_5(val, path, rep)
     {
         rep !== null && rep.push(["unexpected value for model \"$map\" [.'$Ex08'.'|'.0]", path])
         // .'$Ex08'.'|'.1
-        res = runtime.jm_is_valid_url(val);
+        res = runtime.jm_is_valid_url(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Ex08'.'|'.1]", path])

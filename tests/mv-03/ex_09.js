@@ -61,7 +61,7 @@ function json_model_4(val, path, rep)
             }
             continue;
         }
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_0 : null), rep))
         {
             // handle 1 key props
             // .'$Ex09'.'$URL'
@@ -115,7 +115,7 @@ function json_model_9(val, path, rep)
     {
         rep !== null && rep.push(["unexpected value for model \"$map\" [.'$ex08#Ex08'.'|'.0]", path])
         // .'$ex08#Ex08'.'|'.1
-        res = runtime.jm_is_valid_url(val);
+        res = runtime.jm_is_valid_url(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$ex08#Ex08'.'|'.1]", path])
@@ -151,7 +151,7 @@ function json_model_8(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_1 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_1 : null), rep))
         {
             // handle 1 key props
             // .'$ex08#map'.'$URL'

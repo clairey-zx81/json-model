@@ -234,7 +234,7 @@ function json_model_2(val, path, rep)
         {
             // handle may jsonSchemaDialect property
             // .'$OpenAPI'.jsonSchemaDialect
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$OpenAPI'.jsonSchemaDialect]", (path ? lpath_0 : null)])
@@ -427,7 +427,7 @@ function json_model_4(val, path, rep)
         {
             // handle may url property
             // .'$Contact'.url
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_3 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Contact'.url]", (path ? lpath_3 : null)])
@@ -493,7 +493,7 @@ function _jm_obj_1(val, path, rep)
             // handle must url property
             must_count += 1;
             // .'$License'.'|'.1.url
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_4 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$License'.'|'.1.url]", (path ? lpath_4 : null)])
@@ -691,7 +691,7 @@ function json_model_6(val, path, rep)
             // handle must url property
             must_count += 1;
             // .'$Server'.url
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_6 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Server'.url]", (path ? lpath_6 : null)])
@@ -1462,7 +1462,7 @@ function json_model_10(val, path, rep)
         {
             // handle may $ref property
             // .'$PathItem'.'$ref'
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$PathItem'.'$ref']", (path ? lpath_21 : null)])
@@ -1993,7 +1993,7 @@ function json_model_12(val, path, rep)
             // handle must url property
             must_count += 1;
             // .'$ExternalDocumentation'.url
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_24 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$ExternalDocumentation'.url]", (path ? lpath_24 : null)])
@@ -4445,7 +4445,7 @@ function _jm_f_3(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_59 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_59 : null), rep))
         {
             // handle 1 key props
             // .'$Schema'.'$vocabulary'.'$URI'
@@ -5328,7 +5328,7 @@ function json_model_39(val, path, rep)
     lpath = path ? path.concat(["openIdConnectUrl"]) : null;
     pval = val["openIdConnectUrl"];
     // .'$SS-oic'.openIdConnectUrl
-    res = runtime.jm_is_valid_url(pval);
+    res = runtime.jm_is_valid_url(pval, (path ? lpath : null), rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$SS-oic'.openIdConnectUrl]", (path ? lpath : null)])
@@ -5703,7 +5703,7 @@ function _jm_obj_41(val, path, rep)
             // handle must openIdConnectUrl property
             must_count += 1;
             // .'$SecurityScheme'.'|'.4.openIdConnectUrl
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_72 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path ? lpath_72 : null)])
@@ -5975,7 +5975,7 @@ function json_model_42(val, path, rep)
             // handle must tokenUrl property
             must_count += 1;
             // .'$OAuthFlow'.tokenUrl
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_75 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$OAuthFlow'.tokenUrl]", (path ? lpath_75 : null)])
@@ -5989,7 +5989,7 @@ function json_model_42(val, path, rep)
             // handle must authorizationUrl property
             must_count += 1;
             // .'$OAuthFlow'.authorizationUrl
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_75 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$OAuthFlow'.authorizationUrl]", (path ? lpath_75 : null)])
@@ -6002,7 +6002,7 @@ function json_model_42(val, path, rep)
         {
             // handle may refreshUrl property
             // .'$OAuthFlow'.refreshUrl
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_75 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$OAuthFlow'.refreshUrl]", (path ? lpath_75 : null)])
@@ -6361,7 +6361,7 @@ function _jm_f_32(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_81 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_81 : null), rep))
         {
             // handle 1 key props
             // .'$schema#ObjectSchema'.'$vocabulary'.'$URI'

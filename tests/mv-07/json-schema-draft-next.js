@@ -61,7 +61,7 @@ function _jm_obj_1(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_2 : null), rep))
         {
             // handle 1 key props
             // .'$core'.'$vocabulary'.'$URI'
@@ -150,7 +150,7 @@ function json_model_3(val, path, rep)
         {
             // handle may $schema property
             // .'$core'.'$schema'
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$core'.'$schema']", (path ? lpath_0 : null)])
@@ -1299,7 +1299,7 @@ function _jm_f_1(val, path, rep)
 function _jm_f_2(val, path, rep)
 {
     // .'$ObjectSchema'.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$ObjectSchema'.'$schema']", path])
@@ -1320,7 +1320,7 @@ function _jm_f_3(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_17 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_17 : null), rep))
         {
             // handle 1 key props
             // .'$ObjectSchema'.'$vocabulary'.'$URI'

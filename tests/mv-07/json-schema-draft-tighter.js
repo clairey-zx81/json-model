@@ -3735,7 +3735,7 @@ function json_model_22(val, path, rep)
             // handle must $ref property
             must_count += 1;
             // .'$Ref'.'$ref'
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_47 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Ref'.'$ref']", (path ? lpath_47 : null)])

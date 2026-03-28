@@ -136,7 +136,7 @@ EXPECT: dict[str, int] = {
     "mv-15:errors.js": 1,
     "mv-15:errors.sql": 1,
     "mv-15:errors.pl": 1,
-    "mv-15:verrors:schema": 9,
+    "mv-15:verrors:schema": 2,
     # chunk 16
     "mv-16:models": 11,
     "mv-16:values": 100,
@@ -206,7 +206,7 @@ EXPECT: dict[str, int] = {
     # mv-22
     "mv-22:models": 6,
     "mv-22:values": 723,
-    "mv-22:verrors:schema": 29,
+    "mv-22:verrors:schema": 27,
     # mv-23
     "mv-23:models": 4,
     "mv-23:values": 83,
@@ -259,7 +259,7 @@ EXPECT: dict[str, int] = {
     "mv-2c:cmp-opts": {"report": False, "comment": False},
     "mv-2c:models": 6,
     "mv-2c:values": 171,
-    "mv-2c:verrors:schema": 5,
+    "mv-2c:verrors:schema": 39,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,

@@ -119,7 +119,7 @@ function _jm_f_2(val, path, rep)
 function _jm_f_3(val, path, rep)
 {
     // .'$schema#ObjectSchema'.'$schema'
-    let res = runtime.jm_is_valid_url(val);
+    let res = runtime.jm_is_valid_url(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$schema#ObjectSchema'.'$schema']", path])
@@ -140,7 +140,7 @@ function _jm_f_4(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_2 : null), rep))
         {
             // handle 1 key props
             // .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
