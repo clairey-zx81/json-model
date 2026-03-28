@@ -286,6 +286,8 @@
 - [ ] vb-backend: ?
 - [ ] julia-backend: ?
 - [ ] lua-backend: ?
+- [ ] c-backend: consider [json.h](https://github.com/sheredom/json.h)
+- [ ] c-backend: consider [yyjson](https://github.com/ibireme/yyjson)
 - [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
 - [ ] feature: add model predef for URI, URI-REF and the like
 - [ ] design: URI vs URL?
