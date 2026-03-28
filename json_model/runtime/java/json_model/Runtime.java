@@ -153,8 +153,8 @@ public class Runtime
         if (upto <= 1)
             return false;
         int sum = 0;
-        boolean twice = true;
-        for (int i = upto-1; i >= 0; i--)
+        boolean twice = upto % 2 == 1;
+        for (int i = 0; i < upto; i++)
         {
             char c = s.charAt(i);
             if (c < '0' || '9' < c)
