@@ -137,6 +137,10 @@ def split_object(model: JsonObject, path: ModelPath) -> \
     # FIXME should it be lists to keep the initial order?
     must, may, refs, regs, others = {}, {}, {}, {}, {"": model[""]} if "" in model else {}
 
+    # simplify
+    if others == {"": "$NONE"}:
+        others = {}
+
     # put each property in the expected set
     for key, val in model.items():
 
