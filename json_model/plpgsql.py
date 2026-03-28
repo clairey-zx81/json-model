@@ -17,7 +17,7 @@ PLPGSQL_RUNTIME_PREDEFS: dict[str, str] = {
     "$EXREG": "jm_is_valid_exreg",
     "$UUID": "jm_is_valid_uuid",
     "$JSON": "jm_is_valid_json",
-    # TODO "$CARD": "jm_is_valid_card",
+    "$CARD": "jm_is_valid_card",
     # regex: "$EMAIL", "$HOST", "$IP4", "$IP6",
 }
 
