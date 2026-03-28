@@ -148,6 +148,49 @@ EXCEPTION
 END;
 $$ LANGUAGE plpgsql;
 
+-- $CARD
+CREATE OR REPLACE FUNCTION
+  jm_is_valid_luhn(val TEXT)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  upto INT;
+  lsum INT DEFAULT 0;
+  i INT;
+  twice BOOLEAN;
+  v INT;
+  digit INT;
+BEGIN
+  upto := LENGTH(val) - 1;
+  twice := upto % 2 = 1;
+  IF upto <= 0 THEN
+    RETURN FALSE;
+  END IF;
+  FOR i IN 1 .. upto LOOP
+    v := SUBSTR(val, i, 1)::INT;
+    IF twice THEN
+      lsum := lsum + CASE WHEN v >= 5 THEN 2 * v - 9 ELSE 2 * v END;
+    ELSE
+      lsum := lsum + v;
+    END IF;
+    twice := NOT twice;
+  END LOOP;
+  digit := 9 - ((lsum + 9) % 10);
+  RETURN digit = SUBSTR(val, LENGTH(val), 1)::INT;
+EXCEPTION
+  -- int conversion error
+  WHEN data_exception THEN
+    RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION
+  jm_is_valid_card(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN val IS NOT NULL AND jm_is_valid_luhn(val) AND LENGTH(val) = 16;
+END;
+$$ LANGUAGE plpgsql;
+
 -- $URL (loose)
 CREATE OR REPLACE FUNCTION
   jm_is_valid_url(val TEXT, path TEXT[], rep jm_report_entry[])

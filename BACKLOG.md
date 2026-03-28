@@ -20,12 +20,11 @@
 - [x] ir: add forward substitution between assignments when used once
 - [x] py-backend: filter out zone id suffix from ip6
 - [x] predefs: add `$CARD` for 16 digits credit card numbers with Luhn's checksum
-- [x] predefs: add `$CARD` to js, perl and java runtime.
+- [x] predefs: add `$CARD` to js, perl, java and sql runtime.
 - [x] predefs: filter predef extensions with `--extend`
 - [ ] static: if only one open prop, just look for it.
 - [ ] predefs: extension for _relative json pointer_, _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
-- [ ] predefs: improve card implementation for sql.
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
 - [ ] doc: add _known limitations_ stuff

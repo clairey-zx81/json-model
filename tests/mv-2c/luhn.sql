@@ -4,7 +4,7 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_card(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
+  RETURN JSONB_TYPEOF(val) = 'string' AND jm_is_valid_card(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -14,14 +14,6 @@ DECLARE
   map JSONB := JSONB '{"":"json_model_1"}';
 BEGIN
   RETURN map->>name;
-END;
-$$ LANGUAGE plpgsql;
-
--- regex=^[0-9]{16}$ opts=n
-CREATE OR REPLACE FUNCTION jm_is_card(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^[0-9]{16}$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
