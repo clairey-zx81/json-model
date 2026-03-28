@@ -14,18 +14,12 @@ public class luhn extends ModelChecker
     static public final String VERSION = "2";
 
     public Map<String, Checker> luhn_map_pmap;
-    public Pattern jm_is_card_pat = null;
 
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        return json.isString(val) && jm_is_card(json.asString(val), null, null);
+        return json.isString(val) && rt.is_valid_card(json.asString(val));
     }
 
-
-    public boolean jm_is_card(String val, Path path, Report rep)
-    {
-        return jm_is_card_pat.matcher(val).find();
-    }
 
     public void init(JSON json)
     {
@@ -34,7 +28,6 @@ public class luhn extends ModelChecker
             try {
             luhn_map_pmap = new HashMap<String, Checker>();
             luhn_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            jm_is_card_pat = Pattern.compile("^[0-9]{16}$");
                 super.init(json);
             }
             catch (Exception e) {
@@ -49,7 +42,6 @@ public class luhn extends ModelChecker
         {
             super.free();
             luhn_map_pmap = null;
-            jm_is_card_pat = null;
         }
     }
 
