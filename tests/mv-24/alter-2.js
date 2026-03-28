@@ -162,9 +162,9 @@ function json_model_4(val, path, rep)
     let res = iso_0;
     if (res)
     {
-        if (val.hasOwnProperty("t"))
+        let tag_0;
+        if ((tag_0 = val["t"]) != null)
         {
-            let tag_0 = val["t"];
             let fun_0 = _jm_map_0.get(tag_0);
             res = fun_0 !== undefined && fun_0(val, null, null);
         }
@@ -178,9 +178,9 @@ function json_model_4(val, path, rep)
         res = iso_0;
         if (res)
         {
-            if (val.hasOwnProperty("u"))
+            let tag_1;
+            if ((tag_1 = val["u"]) != null)
             {
-                let tag_1 = val["u"];
                 let fun_1 = _jm_map_1.get(tag_1);
                 res = fun_1 !== undefined && fun_1(val, null, null);
             }

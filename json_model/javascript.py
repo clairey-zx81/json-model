@@ -1,6 +1,6 @@
 import json
 from .language import Language, Block, Var, PropMap, ConstList
-from .language import JsonExpr, BoolExpr, IntExpr, PathExpr, Expr
+from .language import JsonExpr, BoolExpr, IntExpr, PathExpr, Expr, StrExpr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
@@ -121,6 +121,11 @@ class JavaScript(Language):
 
     def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> JsonExpr:
         return f"{obj}[{prop}]" if is_var else f"{obj}[{self.esc(prop)}]"  # type: ignore
+
+    def obj_has_prop_val(
+            self, dst: Var, obj: Var, prop: str|StrExpr, is_var: bool = False
+        ) -> BoolExpr:
+        return f"({dst} = {self.obj_prop_val(obj, prop, is_var)}) != null"
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"{obj}.hasOwnProperty({self.esc(prop)})"

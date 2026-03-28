@@ -4685,8 +4685,8 @@ def json_model_54(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$GalaxyInfoModel'
     res: bool = isinstance(val, dict)
     if res:
-        if "standalone" in val:
-            tag_0: Jsonable = val.get("standalone", UNDEFINED)
+        tag_0: Jsonable
+        if (tag_0 := val.get("standalone", UNDEFINED)) != UNDEFINED:
             fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
             if fun_0 != UNDEFINED:
                 res = fun_0(val, path, rep)

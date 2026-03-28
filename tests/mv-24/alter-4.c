@@ -115,9 +115,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_object(val);
     if (likely(res))
     {
-        if (likely(json_object_get(val, "t") != NULL))
+        json_t * tag_0;
+        if (likely((tag_0 = json_object_get(val, "t")) != NULL))
         {
-            json_t * tag_0 = json_object_get(val, "t");
             jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             res = fun_0 != NULL && fun_0(val, NULL, NULL);
         }

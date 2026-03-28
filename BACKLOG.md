@@ -24,7 +24,7 @@
 - [x] predefs: filter predef extensions with `--extend`
 - [x] ~static: if only one open prop, just look for it~ depends on language and costs
 - [x] ir: improve forward subs, move bool decl to first assignment in seq
-- [ ] static: use combined assignment and test if possible on discriminator extraction
+- [x] static: use combined assignment and test if possible on discriminator extraction
 - [ ] predefs: extension for _relative json pointer_, _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
 - [ ] predefs: improve `$URI` and `$URL`

@@ -162,9 +162,9 @@ public class alter_2 extends ModelChecker
         boolean res = iso_0;
         if (res)
         {
-            if (json.objectHasProp(val, "t"))
+            Object tag_0;
+            if ((tag_0 = json.objectValue(val, "t")) != null)
             {
-                Object tag_0 = json.objectValue(val, "t");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 res = fun_0 != null && fun_0.call(val, null, null);
             }
@@ -178,9 +178,9 @@ public class alter_2 extends ModelChecker
             res = iso_0;
             if (res)
             {
-                if (json.objectHasProp(val, "u"))
+                Object tag_1;
+                if ((tag_1 = json.objectValue(val, "u")) != null)
                 {
-                    Object tag_1 = json.objectValue(val, "u");
                     Checker fun_1 = _jm_map_1_cmap.get(tag_1);
                     res = fun_1 != null && fun_1.call(val, null, null);
                 }

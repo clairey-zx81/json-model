@@ -4079,9 +4079,9 @@ public class json_schema_linter extends ModelChecker
         boolean res = json.isObject(val);
         if (res)
         {
-            if (json.objectHasProp(val, "type"))
+            Object tag_0;
+            if ((tag_0 = json.objectValue(val, "type")) != null)
             {
-                Object tag_0 = json.objectValue(val, "type");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
                 {
