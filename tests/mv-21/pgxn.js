@@ -252,7 +252,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may web property
             // .'$Resources'.bugtracker.web
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Resources'.bugtracker.web]", (path ? lpath_2 : null)])
@@ -305,7 +305,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may url property
             // .'$Resources'.repository.url
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_3 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Resources'.repository.url]", (path ? lpath_3 : null)])
@@ -318,7 +318,7 @@ function _jm_obj_1(val, path, rep)
         {
             // handle may web property
             // .'$Resources'.repository.web
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_3 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Resources'.repository.web]", (path ? lpath_3 : null)])
@@ -364,7 +364,7 @@ function json_model_8(val, path, rep)
         {
             // handle may homepage property
             // .'$Resources'.homepage
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_1 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Resources'.homepage]", (path ? lpath_1 : null)])
@@ -634,7 +634,7 @@ function _jm_obj_3(val, path, rep)
         let lpath_8 = path ? path.concat([prop]) : null;
         // handle other props
         // .license.'|'.2.''
-        res = runtime.jm_is_valid_url(pval);
+        res = runtime.jm_is_valid_url(pval, (path ? lpath_8 : null), rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$URL\" [.license.'|'.2.'']", (path ? lpath_8 : null)])
@@ -699,7 +699,7 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may url property
             // .'meta-spec'.url
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_10 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'meta-spec'.url]", (path ? lpath_10 : null)])
@@ -930,7 +930,7 @@ function json_model_1(val, path, rep)
         {
             // handle may url property
             // .url
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_7 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.url]", (path ? lpath_7 : null)])

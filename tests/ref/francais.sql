@@ -241,7 +241,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   extract := match[1];
-  IF NOT jm_is_valid_extreg(extract, NULL, NULL) THEN
+  IF NOT jm_is_valid_exreg(extract, NULL, NULL) THEN
     RETURN FALSE;
   END IF;
   RETURN TRUE;

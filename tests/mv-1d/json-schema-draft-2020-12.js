@@ -61,7 +61,7 @@ function _jm_obj_1(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_2 : null), rep))
         {
             // handle 1 key props
             // .'$core'.'$vocabulary'.'$URI'
@@ -1259,7 +1259,7 @@ function _jm_f_3(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_15 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_15 : null), rep))
         {
             // handle 1 key props
             // .'$ObjectSchema'.'$vocabulary'.'$URI'

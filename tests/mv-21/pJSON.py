@@ -22,8 +22,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 check_model_map: PropMap
-jm_is_json_reco: object
-jm_is_json: RegexFun
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -32,7 +30,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("unexpected value for model \"$JSON\" [.]", path))
     return res
-
 
 
 # initialization guard
@@ -47,18 +44,12 @@ def check_model_init():
         check_model_map = {
             "": json_model_1,
         }
-        global jm_is_json_reco, jm_is_json
-        jm_is_json_reco = re.compile("(?s)^('\\\\s*(\\\\{.*\\\\}|\\\\[.*\\\\]|null|true|false|\".*\"|[-+]?\\\\d+(\\\\.\\\\d*)?([Ee][-+]?\\\\d+)?)\\\\s*',)$")
-        jm_is_json = lambda s, p, r: jm_is_json_reco.search(s) is not None
 
 # differed module cleanup
 def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global jm_is_json_reco, jm_is_json
-        jm_is_json_reco = None
-        jm_is_json = None
 
 if __name__ == "__main__":
     check_model_init()

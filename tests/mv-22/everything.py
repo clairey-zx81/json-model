@@ -34,8 +34,6 @@ jm_is_duration_reco: object
 jm_is_duration: RegexFun
 jm_is_eth_reco: object
 jm_is_eth: RegexFun
-jm_is_json_reco: object
-jm_is_json: RegexFun
 jm_is_jsonpt_reco: object
 jm_is_jsonpt: RegexFun
 jm_is_uuid_reco: object
@@ -2469,7 +2467,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 
-
 # initialization guard
 initialized: bool = False
 
@@ -2594,9 +2591,6 @@ def check_model_init():
         global jm_is_eth_reco, jm_is_eth
         jm_is_eth_reco = re.compile("(?i)^([0-9a-f]{2}:){5}[0-9a-f]{2}$")
         jm_is_eth = lambda s, p, r: jm_is_eth_reco.search(s) is not None
-        global jm_is_json_reco, jm_is_json
-        jm_is_json_reco = re.compile("(?s)^('\\\\s*(\\\\{.*\\\\}|\\\\[.*\\\\]|null|true|false|\".*\"|[-+]?\\\\d+(\\\\.\\\\d*)?([Ee][-+]?\\\\d+)?)\\\\s*',)$")
-        jm_is_json = lambda s, p, r: jm_is_json_reco.search(s) is not None
         global jm_is_jsonpt_reco, jm_is_jsonpt
         jm_is_jsonpt_reco = re.compile("(?s)^(/([^~]|~0|~1)*)*$")
         jm_is_jsonpt = lambda s, p, r: jm_is_jsonpt_reco.search(s) is not None
@@ -2618,9 +2612,6 @@ def check_model_free():
         global jm_is_eth_reco, jm_is_eth
         jm_is_eth_reco = None
         jm_is_eth = None
-        global jm_is_json_reco, jm_is_json
-        jm_is_json_reco = None
-        jm_is_json = None
         global jm_is_jsonpt_reco, jm_is_jsonpt
         jm_is_jsonpt_reco = None
         jm_is_jsonpt = None

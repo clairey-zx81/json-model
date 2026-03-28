@@ -10,13 +10,12 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 export var check_model_map = new Map()
-const jm_is_json_re = new runtime.RX("^('\\\\s*(\\\\{.*\\\\}|\\\\[.*\\\\]|null|true|false|\".*\"|[-+]?\\\\d+(\\\\.\\\\d*)?([Ee][-+]?\\\\d+)?)\\\\s*',)$", "s")
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = runtime.jm_is_valid_json(val);
+    let res = runtime.jm_is_valid_json(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$JSON\" [.]", path])
@@ -24,8 +23,6 @@ function json_model_1(val, path, rep)
     return res;
 }
 
-
-const jm_is_json = (s) => jm_is_json_re.exec(s) !== null
 
 var initialized = false
 

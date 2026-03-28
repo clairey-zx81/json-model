@@ -50,7 +50,7 @@ function json_model_3(val, path, rep)
             let arr_1_item = val[arr_1_idx]
             let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
             // .'$ls0'.0
-            res = runtime.jm_is_valid_url(arr_1_item);
+            res = runtime.jm_is_valid_url(arr_1_item, (path ? arr_1_lpath : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$ls0'.0]", (path ? arr_1_lpath : null)])

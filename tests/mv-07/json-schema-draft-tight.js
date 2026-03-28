@@ -654,7 +654,7 @@ function _jm_obj_3(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_8 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_8 : null), rep))
         {
             // handle 1 key props
             // .'$metas'.'$vocabulary'.'$URI'
@@ -957,7 +957,7 @@ function _jm_obj_6(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_12 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_12 : null), rep))
         {
             // handle 1 key props
             // .'$String'.'$vocabulary'.'$URI'
@@ -1398,7 +1398,7 @@ function _jm_f_6(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_16 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_16 : null), rep))
         {
             // handle 1 key props
             // .'$Array'.'$vocabulary'.'$URI'
@@ -1752,7 +1752,7 @@ function _jm_f_26(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_20 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_20 : null), rep))
         {
             // handle 1 key props
             // .'$Object'.'$vocabulary'.'$URI'
@@ -2090,7 +2090,7 @@ function _jm_obj_9(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_26 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_26 : null), rep))
         {
             // handle 1 key props
             // .'$Integer'.'$vocabulary'.'$URI'
@@ -2443,7 +2443,7 @@ function _jm_obj_12(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_30 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_30 : null), rep))
         {
             // handle 1 key props
             // .'$Number'.'$vocabulary'.'$URI'
@@ -2796,7 +2796,7 @@ function _jm_obj_15(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_34 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_34 : null), rep))
         {
             // handle 1 key props
             // .'$Bool'.'$vocabulary'.'$URI'
@@ -3123,7 +3123,7 @@ function _jm_obj_18(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_38 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_38 : null), rep))
         {
             // handle 1 key props
             // .'$Null'.'$vocabulary'.'$URI'
@@ -3450,7 +3450,7 @@ function _jm_obj_21(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_42 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_42 : null), rep))
         {
             // handle 1 key props
             // .'$AllOf'.'$vocabulary'.'$URI'
@@ -3777,7 +3777,7 @@ function _jm_obj_24(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_46 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_46 : null), rep))
         {
             // handle 1 key props
             // .'$AnyOf'.'$vocabulary'.'$URI'
@@ -4104,7 +4104,7 @@ function _jm_obj_27(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_50 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_50 : null), rep))
         {
             // handle 1 key props
             // .'$OneOf'.'$vocabulary'.'$URI'
@@ -4431,7 +4431,7 @@ function _jm_obj_30(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_54 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_54 : null), rep))
         {
             // handle 1 key props
             // .'$Enum'.'$vocabulary'.'$URI'
@@ -4758,7 +4758,7 @@ function _jm_obj_33(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_58 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_58 : null), rep))
         {
             // handle 1 key props
             // .'$Const'.'$vocabulary'.'$URI'
@@ -5085,7 +5085,7 @@ function _jm_obj_36(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_62 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_62 : null), rep))
         {
             // handle 1 key props
             // .'$Ref'.'$vocabulary'.'$URI'
@@ -5148,7 +5148,7 @@ function json_model_22(val, path, rep)
             // handle must $ref property
             must_count += 1;
             // .'$Ref'.'$ref'
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_60 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$Ref'.'$ref']", (path ? lpath_60 : null)])
@@ -5412,7 +5412,7 @@ function _jm_obj_39(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_66 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
+        if (runtime.jm_is_valid_url(prop, (path ? lpath_66 : null), rep))
         {
             // handle 1 key props
             // .'$DynRef'.'$vocabulary'.'$URI'
@@ -5475,7 +5475,7 @@ function json_model_23(val, path, rep)
             // handle must $dynamicRef property
             must_count += 1;
             // .'$DynRef'.'$dynamicRef'
-            res = runtime.jm_is_valid_url(pval);
+            res = runtime.jm_is_valid_url(pval, (path ? lpath_64 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$DynRef'.'$dynamicRef']", (path ? lpath_64 : null)])

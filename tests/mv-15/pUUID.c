@@ -13,9 +13,6 @@
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
-static cre2_regexp_t *jm_is_uuid_re2 = NULL;
-static int jm_is_uuid_nn = 0;
-static bool jm_is_uuid(const char *s, jm_path_t *path, jm_report_t *rep);
 
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -34,12 +31,6 @@ jm_check_fun_t check_model_map(const char *pname)
     return jm_search_propmap(pname, check_model_map_tab, 1);
 }
 
-static bool jm_is_uuid(const char *s, jm_path_t *path, jm_report_t *rep)
-{
-    size_t slen = strlen(s);
-    return cre2_match(jm_is_uuid_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
-}
-
 static bool initialized = false;
 
 const char *check_model_init(void)
@@ -50,10 +41,6 @@ const char *check_model_init(void)
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
-        jm_is_uuid_re2 = cre2_new("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$", strlen("(?i)^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$"), NULL);
-        if (cre2_error_code(jm_is_uuid_re2))
-            return cre2_error_string(jm_is_uuid_re2);
-        jm_is_uuid_nn = cre2_num_capturing_groups(jm_is_uuid_re2) + 1;
     }
     return NULL;
 }
@@ -61,14 +48,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-        cre2_delete(jm_is_uuid_re2);
-        jm_is_uuid_re2 = NULL;
-        jm_is_uuid_nn = 0;
-    }
 }
 
 /*
