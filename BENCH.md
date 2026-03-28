@@ -9,6 +9,7 @@ schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon)
 
 ## Recent Artifacts
 
+- [2026032801](benchmarks/2026032801.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.17.0, 11 runs, 1000 iterations.
 - [2026032700](benchmarks/2026032700.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.16.2, 11 runs, 1000 iterations.
 - [2026032500](benchmarks/2026032500.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.16.1, 11 runs, 1000 iterations.
 - [2026031900](benchmarks/2026031900.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.16.0, 11 runs, 1000 iterations.
@@ -18,16 +19,6 @@ schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon)
 - [2026030901](benchmarks/2026030901.md) clang, no predefs, jsu 0.9.1/jmc 2.0b38 vs sbc 14.14.2, 11 runs, 1000 iterations.
 - [2026030703](benchmarks/2026030703.md) clang, no predefs, jmc 2.0b37 vs sbc 14.14.2, 11 runs, 1000 iterations.
 - [2026030700](benchmarks/2026030700.md) clang, no predefs, jmc 2.0b37 vs sbc 14.13.4, 5 runs, 1000 iterations.
-- [2026022400](benchmarks/2026022400.md) clang, no predefs, jmc 2.0b36 vs sbc 14.13.4, 11 runs, 1000 iterations.
-- [2026022000](benchmarks/2026022000.md) clang, no predefs, jmc 2.0b36 vs sbc 14.13.3, 11 runs, 1000 iterations.
-- [2026021900](benchmarks/2026021900.md) clang, no predefs, jmc 2.0b36 vs sbc 14.13.1, 11 runs, 1000 iterations.
-- [2026021702](benchmarks/2026021702.md) clang, no predefs, jmc 2.0b36 vs sbc 14.13.0, 11 runs, 1000 iterations.
-- [2026021701](benchmarks/2026021701.md) clang, no predefs, jmc 2.0b36 vs sbc 14.12.0, 11 runs, 1000 iterations.
-- [2026021700](benchmarks/2026021700.md) clang, no predefs, jmc 2.0b36 vs sbc 14.11.0, 11 runs, 1000 iterations.
-- [2026021300](benchmarks/2026021300.md) clang, no predefs, jmc 2.0b36 vs sbc 14.10.0, 11 runs, 1000 iterations.
-- [2026021000](benchmarks/2026021000.md) clang, no predefs, jmc 2.0b36 vs sbc 14.7.2, 11 runs, 1000 iterations.
-- [2026020600](benchmarks/2026020600.md) clang, no predefs, jmc 2.0b36 vs sbc 14.7.1, 11 runs, 1000 iterations.
-- [2026020500](benchmarks/2026020500.md) clang, no predefs, jmc 2.0b36 vs sbc 14.6.1, 11 runs, 1000 iterations.
 
 ## Benchmarking Script
 
