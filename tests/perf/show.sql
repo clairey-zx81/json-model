@@ -64,8 +64,7 @@ SELECT * FROM ShowCompileSummary ORDER BY 1;
 .print ## Cases Statistics
 .print
 .print For each case and a summary: the full schema, normalized schema and model sizes
-.print (number of lines, model size 1 denotes a reference to a predefined model),
-.print number/min/average/max size of test values.
+.print (number of lines), number/min/average/max size of test values.
 .print
 .print <!-- RLRRRRRRR -->
 .width -2, 0 -6, -6, -6, -5 -8 -8 -8

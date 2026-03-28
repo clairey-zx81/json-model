@@ -249,7 +249,7 @@ function pod_id()
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
 
-For each test case, a radar of the relative speed performance of each tool,
+For each test case, a radar of the **relative speed** performance of each tool,
 the higher the better, **1.00** is best. Fully non working case(s) removed, if any.
 Cases are sorted per decreasing performance of the fastest tools.
 The radar is adjusted dynamically wrt the fastest _visible_ tool, click to select
