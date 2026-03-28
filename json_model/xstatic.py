@@ -723,7 +723,6 @@ class CodeGenerator:
 
         return code + gen.ret(gen.true())
 
-    # TODO known?
     # TODO fix vpath
     def _openMuMaObject(
                 self, jm: JsonModel, must: dict[str, ModelType], may: dict[str, ModelType],
@@ -2122,6 +2121,7 @@ def xstatic_compile(
     - max_strcmp_cset: max size for direct str constant set
     - byte_order: le, be or dpd
     """
+
     # set default threshold for must-only scheme
     MUST_ONLY_THRESHOLD: dict[str, int] = {
         "c": 0,        # never good enough vs unroll
@@ -2143,10 +2143,10 @@ def xstatic_compile(
         # TODO decision process should also involve may/must ratio or take into account
         # likelyhood of may props…
         # 256, 256, 256, 128 -> 16, 16, 16, 8 for now
-        "js": 16,     # no cutoff? better than unroll and map *if* significant may numbers
-        "py": 16,     # much better than unroll, slightly better than map
-        "pl": 16,     # idem py
-        "java": 8,   # better than map < 256
+        "js": 16,      # no cutoff? better than unroll and map *if* significant may numbers
+        "py": 16,      # much better than unroll, slightly better than map
+        "pl": 16,      # idem py
+        "java": 8,     # better than map < 256
         "sql": 0,      # FIXME not tested
         "plpgsql": 0,  # FIXME not tested
     }
