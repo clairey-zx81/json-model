@@ -146,6 +146,36 @@ public class Runtime
         } 
     }
 
+    /** Luhn's algorithm */
+    boolean is_valid_luhn(String s)
+    {
+        int upto = s.length() - 1;
+        if (upto <= 1)
+            return false;
+        int sum = 0;
+        boolean twice = true;
+        for (int i = upto-1; i >= 0; i--)
+        {
+            char c = s.charAt(i);
+            if (c < '0' || '9' < c)
+                return false;
+            int val = c - '0';
+            if (twice)
+                sum += (val >= 5) ? (2 * val - 9) : (2 * val);
+            else
+                sum += val;
+            twice = !twice;
+        }
+        int digit = 9 - ((sum + 9) % 10);
+        return ('0' + digit) == s.charAt(upto);
+    }
+
+    /** Is it a card? */
+    public boolean is_valid_card(String s)
+    {
+        return is_valid_luhn(s) && s.length() == 16;
+    }
+
     /** JSON thing total order */
     int jcmp(Object o1, Object o2)
     {
