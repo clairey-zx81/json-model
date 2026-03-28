@@ -32,8 +32,8 @@
 - [ ] doc: add _known limitations_ stuff
 - [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
 - [ ] test: add test categories (mark?)
-- [ ] doc: improve developer documentation
 - [ ] test: allow to skip some tests by category
+- [ ] doc: improve developer documentation
 - [ ] docker: enable user remap
 - [ ] export: java classes
 - [ ] export: go interfaces
