@@ -12,6 +12,7 @@ STR_MODEL_PREDEFS = {
     "$URL", "$URI", "$EMAIL", "$IP4", "$IP6", "$HOST", "$ETH",
     "$JSON", "$JSONPT",
     "$__EXTENSION_COLOR",
+    "$__EXTENSION_REL_JSONPT",
 }
 
 BOOL_MODEL_PREDEFS = {
@@ -102,6 +103,7 @@ _CARD = r"[0-9]{16}"
 _NUM = r"[-+]?\d+(\.\d*)?([Ee][-+]?\d+)?"
 _JSON = f"\\s*(\\{{.*\\}}|\\[.*\\]|null|true|false|\".*\"|{_NUM})\\s*",  # s
 _JSONPT = "(/([^~]|~0|~1)*)*"  # escapes: "~0" = "~" and "~1" = "/"
+_REL_JSONPT = f"([0-9]|[1-9][0-9]+)(([-+]([0-9]|[1-9][0-9]+))?{_JSONPT}|#)"
 
 # CSS colors: simple and short list (not the 150)
 _COLOR_HEXA = "#([0-9A-F]{6}|[0-9A-F]{3})"
@@ -136,6 +138,7 @@ PREDEF_RE: dict[str, tuple[str, str, str]] = {
     "$REGEX": ("jm_is_regex", "^.*$", "s"),
     # some extensions for JSU backend
     "$__EXTENSION_COLOR": ("jm_is_color", f"^{_COLOR}$", ""),  # v3
+    "$__EXTENSION_REL_JSONPT": ("jm_is_rel_jsonpt", f"^{_REL_JSONPT}$", "s"),
 }
 
 # some predefs models
