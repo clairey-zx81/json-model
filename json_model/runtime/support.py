@@ -241,8 +241,8 @@ def is_valid_ip6(value: Jsonable, path: Path, rep: Report = None) -> bool:
 def is_valid_host(value: Jsonable, path: Path, rep: Report = None) -> bool:
     valid = isinstance(value, str) and validators.hostname(
             value, skip_ipv4_addr=True, skip_ipv6_addr=True,  # ???
-            may_have_port=False, maybe_simple=True
-        ) is True
+            may_have_port=False, maybe_simple=True,
+        ) is True and len(value) <= 255
     if not valid:
         _ = rep is None or rep.append((f"invalid hostname {value}", path))
     return valid
