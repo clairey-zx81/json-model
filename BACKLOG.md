@@ -42,6 +42,7 @@
 - [ ] docker: enable user remap
 - [ ] export: java classes
 - [ ] export: go interfaces
+- [ ] export: ts interfaces
 - [ ] static: make regex groups non capturing when appropriate?
 - [ ] static: xor acceleration based on distinct mandatory props
 - [ ] static: merge partial mandatory prop discriminants
