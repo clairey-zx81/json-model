@@ -177,7 +177,7 @@ public class everything extends ModelChecker
             {
                 // handle may a0 property
                 // .and.a0
-                res = true;
+                res = json.isString(pval);
                 if (res)
                 {
                     // .and.a0.'&'.0
@@ -186,7 +186,7 @@ public class everything extends ModelChecker
                     {
                         // .and.a0.'&'.1
                         // "/^2020-/"
-                        res = json.isString(pval) && json.asString(pval).startsWith("2020-");
+                        res = json.asString(pval).startsWith("2020-");
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", (path != null ? lpath_1 : null));
@@ -2718,25 +2718,36 @@ public class everything extends ModelChecker
             {
                 // handle may o1 property
                 // .or.o1
-                // .or.o1.'|'.0
-                res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path != null ? lpath_16 : null));
-                    // .or.o1.'|'.1
-                    res = json.isString(pval) && rt.is_valid_time(json.asString(pval));
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path != null ? lpath_16 : null));
-                    }
-                }
+                res = json.isString(pval);
                 if (res)
                 {
-                    if (rep != null) rep.clearEntries();
+                    // .or.o1.'|'.0
+                    res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path != null ? lpath_16 : null));
+                        // .or.o1.'|'.1
+                        res = json.isString(pval) && rt.is_valid_time(json.asString(pval));
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path != null ? lpath_16 : null));
+                        }
+                    }
+                    if (res)
+                    {
+                        if (rep != null) rep.clearEntries();
+                    }
+                    else
+                    {
+                        if (rep != null) rep.addEntry("no model matched [.or.o1.'|']", (path != null ? lpath_16 : null));
+                    }
                 }
                 else
                 {
-                    if (rep != null) rep.addEntry("no model matched [.or.o1.'|']", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("unexpected type [.or.o1.'|']", (path != null ? lpath_16 : null));
+                }
+                if (! res)
+                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.or.o1]", (path != null ? lpath_16 : null));
                     return false;
                 }

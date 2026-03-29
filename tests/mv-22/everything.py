@@ -136,14 +136,14 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "a0":
             # handle may a0 property
             # .and.a0
-            res = True
+            res = isinstance(pval, str)
             if res:
                 # .and.a0.'&'.0
                 res = is_valid_date(pval, lpath_1 if path is not None else None, rep)
                 if res:
                     # .and.a0.'&'.1
                     # "/^2020-/"
-                    res = isinstance(pval, str) and pval.startswith("2020-")
+                    res = pval.startswith("2020-")
                     if not res:
                         rep is None or rep.append(("unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", lpath_1 if path is not None else None))
                 else:
@@ -1823,18 +1823,23 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "o1":
             # handle may o1 property
             # .or.o1
-            # .or.o1.'|'.0
-            res = is_valid_date(pval, lpath_16 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected value for model \"$DATE\" [.or.o1.'|'.0]", lpath_16 if path is not None else None))
-                # .or.o1.'|'.1
-                res = is_valid_time(pval, lpath_16 if path is not None else None, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected value for model \"$TIME\" [.or.o1.'|'.1]", lpath_16 if path is not None else None))
+            res = isinstance(pval, str)
             if res:
-                rep is None or rep.clear()
+                # .or.o1.'|'.0
+                res = is_valid_date(pval, lpath_16 if path is not None else None, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected value for model \"$DATE\" [.or.o1.'|'.0]", lpath_16 if path is not None else None))
+                    # .or.o1.'|'.1
+                    res = is_valid_time(pval, lpath_16 if path is not None else None, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected value for model \"$TIME\" [.or.o1.'|'.1]", lpath_16 if path is not None else None))
+                if res:
+                    rep is None or rep.clear()
+                else:
+                    rep is None or rep.append(("no model matched [.or.o1.'|']", lpath_16 if path is not None else None))
             else:
-                rep is None or rep.append(("no model matched [.or.o1.'|']", lpath_16 if path is not None else None))
+                rep is None or rep.append(("unexpected type [.or.o1.'|']", lpath_16 if path is not None else None))
+            if not res:
                 rep is None or rep.append(("invalid optional prop value [.or.o1]", lpath_16 if path is not None else None))
                 return False
             continue

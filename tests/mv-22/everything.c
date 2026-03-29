@@ -293,25 +293,36 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may o1 property
             // .or.o1
-            // .or.o1.'|'.0
-            res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_3 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path ? &lpath_3 : NULL));
-                // .or.o1.'|'.1
-                res = jm_is_valid_time(json_string_value(pval), (path ? &lpath_3 : NULL), rep);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path ? &lpath_3 : NULL));
-                }
-            }
+            res = json_is_string(pval);
             if (likely(res))
             {
-                if (rep) jm_report_free_entries(rep);
+                // .or.o1.'|'.0
+                res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_3 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path ? &lpath_3 : NULL));
+                    // .or.o1.'|'.1
+                    res = jm_is_valid_time(json_string_value(pval), (path ? &lpath_3 : NULL), rep);
+                    if (unlikely(! res))
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path ? &lpath_3 : NULL));
+                    }
+                }
+                if (likely(res))
+                {
+                    if (rep) jm_report_free_entries(rep);
+                }
+                else
+                {
+                    if (rep) jm_report_add_entry(rep, "no model matched [.or.o1.'|']", (path ? &lpath_3 : NULL));
+                }
             }
             else
             {
-                if (rep) jm_report_add_entry(rep, "no model matched [.or.o1.'|']", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected type [.or.o1.'|']", (path ? &lpath_3 : NULL));
+            }
+            if (unlikely(! res))
+            {
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.or.o1]", (path ? &lpath_3 : NULL));
                 return false;
             }
@@ -381,7 +392,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle may a0 property
             // .and.a0
-            res = true;
+            res = json_is_string(pval);
             if (res)
             {
                 // .and.a0.'&'.0
@@ -390,7 +401,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
                 {
                     // .and.a0.'&'.1
                     // "/^2020-/"
-                    res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x0000002d30323032LL);
+                    res = jm_str_eq_5(json_string_value(pval), 0x0000002d30323032LL);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", (path ? &lpath_4 : NULL));
