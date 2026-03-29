@@ -207,25 +207,36 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may o1 property
             // .or.o1
-            // .or.o1.'|'.0
-            res = runtime.jm_is_valid_date(pval, (path ? lpath_1 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path ? lpath_1 : null)])
-                // .or.o1.'|'.1
-                res = runtime.jm_is_valid_time(pval, (path ? lpath_1 : null), rep);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path ? lpath_1 : null)])
-                }
-            }
+            res = (typeof pval === 'string' || pval instanceof String);
             if (res)
             {
-                if (rep !== null) rep.length = 0
+                // .or.o1.'|'.0
+                res = runtime.jm_is_valid_date(pval, (path ? lpath_1 : null), rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path ? lpath_1 : null)])
+                    // .or.o1.'|'.1
+                    res = runtime.jm_is_valid_time(pval, (path ? lpath_1 : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path ? lpath_1 : null)])
+                    }
+                }
+                if (res)
+                {
+                    if (rep !== null) rep.length = 0
+                }
+                else
+                {
+                    rep !== null && rep.push(["no model matched [.or.o1.'|']", (path ? lpath_1 : null)])
+                }
             }
             else
             {
-                rep !== null && rep.push(["no model matched [.or.o1.'|']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected type [.or.o1.'|']", (path ? lpath_1 : null)])
+            }
+            if (! res)
+            {
                 rep !== null && rep.push(["invalid optional prop value [.or.o1]", (path ? lpath_1 : null)])
                 return false;
             }
@@ -293,7 +304,7 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may a0 property
             // .and.a0
-            res = true;
+            res = (typeof pval === 'string' || pval instanceof String);
             if (res)
             {
                 // .and.a0.'&'.0
@@ -302,7 +313,7 @@ function _jm_obj_2(val, path, rep)
                 {
                     // .and.a0.'&'.1
                     // "/^2020-/"
-                    res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("2020-");
+                    res = pval.startsWith("2020-");
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", (path ? lpath_2 : null)])

@@ -44,7 +44,7 @@ class Language:
 
         # parameter consistency
         if with_path and not with_report:
-            log.warning("path collection but no reporting, removing path")
+            log.info("path collection but no reporting, removing path")
             with_path = False
 
         # keep parameters

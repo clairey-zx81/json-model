@@ -245,7 +245,7 @@ sub _jm_f_0($$$)
             # .and.a0.'&'.0
             # .and.a0.'&'.1
             # "/^2020-/"
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef) && jm_is_string($pval) && jm_starts_with($pval, '2020-');
+            $res = jm_is_string($pval) && jm_is_string($pval) && jm_is_valid_date($pval, undef, undef) && jm_starts_with($pval, '2020-');
             if (! $res)
             {
                 return 0;
@@ -2010,7 +2010,7 @@ sub _jm_f_55($$$)
             # .or.o1
             # .or.o1.'|'.0
             # .or.o1.'|'.1
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef) || jm_is_string($pval) && jm_is_valid_time($pval, undef, undef);
+            $res = jm_is_string($pval) && (jm_is_string($pval) && jm_is_valid_date($pval, undef, undef) || jm_is_string($pval) && jm_is_valid_time($pval, undef, undef));
             if (! $res)
             {
                 return 0;

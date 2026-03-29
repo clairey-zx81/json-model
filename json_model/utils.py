@@ -9,6 +9,7 @@ from importlib.resources import files as data_files
 import logging
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
 from .mtypes import Jsonable, JsonObject, ValueType
+from .predefs import BOOL_MODEL_PREDEFS, INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, STR_MODEL_PREDEFS
 from .runtime import ConstSet
 
 __version__ = pkg_version("json_model_compiler")
@@ -290,14 +291,16 @@ def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, type|None]:
                 return True, str
             elif model[0] in ("_", "/"):
                 return True, str
-            elif model == "$BOOL":
+            elif model in BOOL_MODEL_PREDEFS:
                 return True, bool
-            elif model == "$NULL":
+            elif model in ("$NULL", "=null"):
                 return True, None
-            elif model in ("$INTEGER", "$I32", "$U32", "$I64", "$U64"):
+            elif model in INT_MODEL_PREDEFS:
                 return True, int
-            elif model in ("$FLOAT", "$F32", "$F64"):
+            elif model in FLOAT_MODEL_PREDEFS:
                 return True, float
+            elif model in STR_MODEL_PREDEFS:
+                return True, str
             elif model[0] == "$":
                 # how to access definitions?
                 return False, None
