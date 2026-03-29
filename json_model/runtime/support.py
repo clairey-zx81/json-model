@@ -166,7 +166,7 @@ def is_valid_date(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.date.fromisoformat(value)
-            assert "W" not in value and "-" in value, "reject 8601"
+            assert "W" not in value and "-" in value, "reject ISO8601"
             return True
         except Exception as e:
             _ = rep is None or rep.append((f"invalid date {value} ({e})", path))
@@ -177,8 +177,13 @@ def is_valid_date(value: Jsonable, path: Path, rep: Report = None) -> bool:
 def is_valid_time(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
-            datetime.time.fromisoformat(value)
-            return True
+            val = value.upper()
+            # switch to full datetime to benefit from leap second workarounds
+            res = is_valid_datetime("2000-12-31T" + val, None, None)
+            assert "," not in val, "reject ISO8601"
+            assert "Z" in val or "+" in val or "-" in val, "require timezone offset"
+            assert "Z" in val or val[-2] not in "6789", "timezone minutes in 00-59"
+            return res
         except Exception as e:
             _ = rep is None or rep.append((f"invalid time {value} ({e})", path))
             return False
@@ -188,9 +193,17 @@ def is_valid_time(value: Jsonable, path: Path, rep: Report = None) -> bool:
 def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
-            # FIXME Unlike the time module, the datetime module does not support leap seconds.
+            # NOTE Unlike the time module, the datetime module does not support leap seconds.
             # NOTE RFC3339 and ISO8601 do not agree on some details, eg t/z is allowed
-            datetime.datetime.fromisoformat(value.upper())
+            val = value.upper()
+            # leap second workaround
+            if leap := ":60" in val:
+                val = val.replace(":60", ":59")
+            dt = datetime.datetime.fromisoformat(val)
+            assert "Z" in val or val[-2] not in "6789", "timezone minutes in 00-59"
+            if leap:
+                udt = dt.astimezone(datetime.timezone.utc)
+                assert udt.hour == 23 and udt.minute == 59, "leap second at midnight"
             return True
         except Exception as e:
             _ = rep is None or rep.append((f"invalid datetime {value} ({e})", path))
