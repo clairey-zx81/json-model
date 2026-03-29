@@ -188,7 +188,8 @@ def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             # FIXME Unlike the time module, the datetime module does not support leap seconds.
-            datetime.datetime.fromisoformat(value)
+            # NOTE RFC3339 and ISO8601 do not agree on some details, eg t/z is allowed
+            datetime.datetime.fromisoformat(value.upper())
             return True
         except Exception as e:
             _ = rep is None or rep.append((f"invalid datetime {value} ({e})", path))

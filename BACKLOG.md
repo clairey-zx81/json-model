@@ -26,6 +26,7 @@
 - [x] ir: improve forward subs, move bool decl to first assignment in seq
 - [x] static: use combined assignment and test if possible on discriminator extraction
 - [x] static: fix any-by-one pattern on string predefs
+- [x] py-runtime: allow lowercase tz in datetime
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] static: avoid double type checks on or with predefs (java, sql, perl)
 - [ ] predefs: extension for _relative json pointer_, _uri reference_, _iri reference_, _uri template_
