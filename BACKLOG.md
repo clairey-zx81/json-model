@@ -109,6 +109,7 @@
 - [ ] c-backend: use vector instructions for larger strcmp?
 - [ ] export: sqlalchemy
 - [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
+- [ ] spec: be precise about predefs standard references, eg `$DATE` and co.
 
 ## Re Do
 
