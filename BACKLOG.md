@@ -107,6 +107,7 @@
 - [ ] perf: profile some cases
 - [ ] c-backend: use vector instructions for larger strcmp?
 - [ ] export: sqlalchemy
+- [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
 
 ## Re Do
 
