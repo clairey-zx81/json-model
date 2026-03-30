@@ -1,0 +1,12 @@
+{
+  "anyOf": [
+    {
+      "type": "string",
+      "format": "date"
+    },
+    {
+      "type": "string",
+      "format": "time"
+    }
+  ]
+}
