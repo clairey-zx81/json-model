@@ -122,7 +122,7 @@ class Perl(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        is_str_and = self.is_a(var, str) + " && "  # type: ignore
+        is_str_and = "" if is_str else (self.is_a(var, str) + " && ")  # type: ignore
         var, path = self._val(var), self._val(path)  # type: ignore
         if name in PERL_RUNTIME_PREDEFS:
             return is_str_and + f"{PERL_RUNTIME_PREDEFS[name]}({var}, {self.path(path)}, {self.rep()})"
