@@ -1,0 +1,19 @@
+[
+  "# date or time…",
+  [ true,  "2020-07-29" ],
+  [ true,  "0102-03-04" ],
+  [ true,  "09:10:20Z" ],
+  [ false, "2019-02-29" ],
+  [ false, "10:35:60Z" ],
+  [ false, "" ],
+  [ false, "not a date or time" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]
