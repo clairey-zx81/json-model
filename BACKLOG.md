@@ -29,6 +29,7 @@
 - [x] py-runtime: allow lowercase tz in datetime
 - [x] py-runtime: add workarounds for leap seconds and other intricacies
 - [x] predefs: add `$__EXTENSION_REL_JSONPT` as a regex
+- [ ] predefs: distinguish simple time and time with mandatory tz for jsu `time` format
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] static: avoid double type checks on or with predefs (java, sql, perl)
 - [ ] predefs: extension for _relative json pointer_, _uri reference_, _iri reference_, _uri template_
@@ -40,6 +41,8 @@
 - [ ] test: add test categories (mark?)
 - [ ] test: allow to skip some tests by category
 - [ ] doc: improve developer documentation
+- [ ] lang: restrict regex syntax to a smaller subset
+- [ ] predefs: add `$SIMPLE_REGEX` for regex syntax subset?
 - [ ] docker: enable user remap
 - [ ] export: java classes
 - [ ] export: go interfaces
