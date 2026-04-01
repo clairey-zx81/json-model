@@ -219,8 +219,8 @@ class CLangJansson(Language):
         return f"json_object_get({obj}, {self.esc(prop)}) != NULL"
 
     # FIXME path? reporting?
-    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
-        val = var if is_str else f"json_string_value({var})"
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
+        val = var if is_val else f"json_string_value({var})"
         # no content checks
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
@@ -231,7 +231,7 @@ class CLangJansson(Language):
         elif name in CLANG_RUNTIME_PREDEFS:
             return f"{CLANG_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
         else:
-            return super().predef(var, name, path, is_str)
+            return super().predef(var, name, path, is_str, is_val)
 
     def value(self, var: Var, tvar: type) -> Expr:
         """Known type value extraction."""

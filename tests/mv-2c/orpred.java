@@ -17,7 +17,7 @@ public class orpred extends ModelChecker
 
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        return json.isString(val) && (json.isString(val) && rt.is_valid_date(json.asString(val)) || json.isString(val) && rt.is_valid_time(json.asString(val)));
+        return json.isString(val) && (rt.is_valid_date(json.asString(val)) || rt.is_valid_time(json.asString(val)));
     }
 
 

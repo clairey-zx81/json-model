@@ -4,7 +4,7 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN JSONB_TYPEOF(val) = 'string' AND (JSONB_TYPEOF(val) = 'string' AND jm_is_valid_date(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL) OR JSONB_TYPEOF(val) = 'string' AND jm_is_valid_time(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL));
+  RETURN JSONB_TYPEOF(val) = 'string' AND (jm_is_valid_date(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL) OR jm_is_valid_time(JSON_VALUE(val, '$' RETURNING TEXT), NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 

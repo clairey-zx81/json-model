@@ -119,7 +119,7 @@ class Perl(Language):
         else:
             raise Exception(f"unexpected string comparison operator: {op}")
 
-    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
         var, path = self._val(var), self._val(path)  # type: ignore
@@ -127,7 +127,7 @@ class Perl(Language):
             expr = f"{PERL_RUNTIME_PREDEFS[name]}({var}, {self.path(path)}, {self.rep()})"
             return expr if is_str else self.and_op(self.is_a(var, str), expr)
         else:
-            return super().predef(var, name, path, is_str)
+            return super().predef(var, name, path, is_str, is_val)
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         path = self.path(self._val(path))

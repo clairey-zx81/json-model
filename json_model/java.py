@@ -158,17 +158,15 @@ class Java(Language):
         return f"json.objectHasProp({obj}, {self.esc(prop)})"
 
     # FIXME path? reporting?
-    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        isstr, val = "", var
-        if not is_str:
-            isstr = self.is_a(var, str) + " && "  # type: ignore
-            val = f"json.asString({var})"
         if name in JAVA_RUNTIME_PREDEFS:
-            return f"{isstr}rt.{JAVA_RUNTIME_PREDEFS[name]}({val})"
+            val = var if is_val else f"json.asString({var})"
+            expr = f"rt.{JAVA_RUNTIME_PREDEFS[name]}({val})"
+            return expr if is_str else self.and_op(self.is_a(var, str), expr)
         else:
-            return super().predef(var, name, path, is_str)
+            return super().predef(var, name, path, is_str, is_val)
 
     def value(self, var: Var, tvar: type) -> Expr:
         """Known type value extraction."""

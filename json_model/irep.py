@@ -805,6 +805,12 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
 
     return cum_read, cum_write, cum_value
 
+def _goIR(code: Jsonable, path: Path) -> bool:
+    return True
+
+def _goStructIR(code: Jsonable, path: Path) -> bool:
+    return isinstance(code, (dict, list))
+
 def _recIR(code: Jsonable, path: Path,
            flt: Callable[[Jsonable, Path], bool],
            rwt: Callable[[Jsonable, Path], Jsonable]) -> Jsonable:
@@ -850,17 +856,18 @@ def callShortcuts(code: Jsonable, shortcuts: dict[str, str]) -> int:
                 code["name"] = rep(code["name"])
         return code
 
-    recurseIR(code, lambda c, p: True, repRwt)
+    recurseIR(code, _goStructIR, repRwt)
 
     return changes
-
 
 SCALAR_TYPES = { "int", "float", "bool", "str" }
 
 def partialEval(code: Jsonable, reporting: bool) -> int:
+
     changes = 0
 
     def peRwt(code: Jsonable, _: Path) -> Jsonable:
+
         nonlocal changes
         if not reporting:
             if _isOp(code, "rep"):
@@ -875,6 +882,7 @@ def partialEval(code: Jsonable, reporting: bool) -> int:
                 code.clear()
                 code.update(o="ign")
                 changes += 1
+
         if _isOp(code, "&"):
             ands = code["exprs"]
             assert isinstance(ands, list)
@@ -890,6 +898,14 @@ def partialEval(code: Jsonable, reporting: bool) -> int:
                 ands[0]["#"] = "# IRO simplified scalar test"
                 ands.pop(0)
                 changes += 1
+
+            # NOTE nope…
+            # repeat &(X, ... X ...) -> & (X, ... T ...)
+            # for i, e in enumerate(ands):
+            #     for e2 in enumerate(ands[i+1:]):
+            #         log.warning(f"te {e} in {e2}")
+            #         replaceTrueExpression(e2, e)
+
             # NOTE too optimistic, see mv-01/enum_00
             # elif _isOp(ands[0], "is") and _isOp(ands[1], "incs"):
             #     # is_scalar(V) && in_cst(V, ...)
@@ -901,7 +917,7 @@ def partialEval(code: Jsonable, reporting: bool) -> int:
             #     changes += 1
         return code
 
-    recurseIR(code, lambda c, p: True, peRwt)
+    recurseIR(code, _goStructIR, peRwt)
 
     return changes
 
@@ -1029,7 +1045,7 @@ def elimDeadCode(code: Jsonable, reporting: bool) -> int:
                 return list(filter(lambda o: _isOps(o, {"co", "ret", "seq"}), code))
         return code
 
-    recurseIR(code, lambda _c, _p: True, edcRwt)
+    recurseIR(code, _goIR, edcRwt)
     return changes
 
 def elimUnreachableCode(code: Jsonable) -> int:
@@ -1059,7 +1075,7 @@ def elimUnreachableCode(code: Jsonable) -> int:
                     returned = True
         return code
 
-    recurseIR(code, lambda _c, _p: True, eucRwt)
+    recurseIR(code, _goStructIR, eucRwt)
     return changes
 
 def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool = True,
@@ -1196,8 +1212,8 @@ class IRep(Language):
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return _j("hp", obj=_l(obj), prop=prop)
 
-    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
-        return _j("pre", var=_l(var), name=name, path=_l(path), is_str=is_str)
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
+        return _j("pre", var=_l(var), name=name, path=_l(path), is_str=is_str, is_val=is_val)
 
     def value(self, var: Var, tvar: type) -> Expr:
         return _j("val", var=_l(var), tvar=_t2s(tvar))
@@ -1503,7 +1519,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "cst": return gen.const(c=jv["c"])
             case "hp": return gen.has_prop(obj=ev("obj"), prop=jv["prop"])
             case "pre": return gen.predef(
-                var=ev("var"), name=jv["name"], path=ev("path"), is_str=jv["is_str"]
+                var=ev("var"), name=jv["name"], path=ev("path"), is_str=jv["is_str"], is_val=jv["is_val"]
             )
             case "val": return gen.value(var=ev("var"), tvar=_s2t(jv["tvar"]))
             case "gv": return gen.get_value(var=jv["var"], tvar=_s2t(jv["tvar"]))

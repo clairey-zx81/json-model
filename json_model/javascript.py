@@ -134,7 +134,7 @@ class JavaScript(Language):
         return False
 
     # FIXME path? reporting?
-    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
         val = var
@@ -145,7 +145,7 @@ class JavaScript(Language):
         elif name in JS_RUNTIME_PREDEFS:
             return f"runtime.{JS_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
         else:
-            return super().predef(var, name, path, is_str)
+            return super().predef(var, name, path, is_str, is_val)
 
     #
     # inlined length computation

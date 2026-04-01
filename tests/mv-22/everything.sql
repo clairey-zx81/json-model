@@ -123,7 +123,7 @@ BEGIN
       -- .and.a0.'&'.0
       -- .and.a0.'&'.1
       -- "/^2020-/"
-      res := JSONB_TYPEOF(pval) = 'string' AND JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) AND STARTS_WITH(JSON_VALUE(pval, '$' RETURNING TEXT), '2020-');
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) AND STARTS_WITH(JSON_VALUE(pval, '$' RETURNING TEXT), '2020-');
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1989,7 +1989,7 @@ BEGIN
       -- .or.o1
       -- .or.o1.'|'.0
       -- .or.o1.'|'.1
-      res := JSONB_TYPEOF(pval) = 'string' AND (JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) OR JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_time(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL));
+      res := JSONB_TYPEOF(pval) = 'string' AND (jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL) OR jm_is_valid_time(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL));
       IF NOT res THEN
         RETURN FALSE;
       END IF;
