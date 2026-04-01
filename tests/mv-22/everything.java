@@ -181,7 +181,7 @@ public class everything extends ModelChecker
                 if (res)
                 {
                     // .and.a0.'&'.0
-                    res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
+                    res = rt.is_valid_date(json.asString(pval));
                     if (res)
                     {
                         // .and.a0.'&'.1
@@ -2722,12 +2722,12 @@ public class everything extends ModelChecker
                 if (res)
                 {
                     // .or.o1.'|'.0
-                    res = json.isString(pval) && rt.is_valid_date(json.asString(pval));
+                    res = rt.is_valid_date(json.asString(pval));
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path != null ? lpath_16 : null));
                         // .or.o1.'|'.1
-                        res = json.isString(pval) && rt.is_valid_time(json.asString(pval));
+                        res = rt.is_valid_time(json.asString(pval));
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path != null ? lpath_16 : null));

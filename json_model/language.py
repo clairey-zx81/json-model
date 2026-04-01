@@ -177,7 +177,7 @@ class Language:
         return name in STR_MODEL_PREDEFS
 
     def has_predef(self, name: str) -> bool:
-        """Content predefs actually implemented by the runtime"""
+        """Content predefs actually implemented by the runtime."""
         return name in self._predefs
 
     #
@@ -185,7 +185,7 @@ class Language:
     #
     # FIXME loose vs strict
     #
-    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         """Compile a predef."""
         # shortcut if the variable value is known to be a string
         if is_str:

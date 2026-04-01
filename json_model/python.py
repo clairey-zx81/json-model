@@ -67,13 +67,13 @@ class Python(Language):
             assert tval in (bool, str, list, dict)
             return f"isinstance({var}, {tval.__name__})"
 
-    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
         if name in PYTHON_RUNTIME_PREDEFS:
             return f"{PYTHON_RUNTIME_PREDEFS[name]}({var}, {path}, rep)"
         else:
-            return super().predef(var, name, path, is_str)
+            return super().predef(var, name, path, is_str, is_val)
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"is_unique_array({val}, {path}, rep)"

@@ -125,15 +125,16 @@ class PLpgSQL(Language):
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"{obj} ? {self.esc(prop)}"
 
-    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
+        # val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
+        val = var if is_val else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
         if name in PLPGSQL_RUNTIME_PREDEFS:
             expr = f"{PLPGSQL_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
             return expr if is_str else self.and_op(self.is_a(var, str), expr)
         else:
-            return super().predef(var, name, path, is_str)
+            return super().predef(var, name, path, is_str, is_val)
 
     def value(self, var: Var, tvar: type) -> Expr:
         """Known type value extraction."""

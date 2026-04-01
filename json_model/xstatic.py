@@ -8,7 +8,7 @@ from .mtypes import Jsonable, Number, JsonScalar
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import is_a_simple_object, partition, is_base_model, resolve_model, model_type
 from .utils import log, tname
-from .predefs import MODEL_PREDEFS
+from .predefs import MODEL_PREDEFS, STR_MODEL_PREDEFS
 from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse, distinct_prop_objects
 from .model import JsonModel
@@ -119,7 +119,7 @@ class CodeGenerator:
         for sname, ref in remap.items():
             checks += gen.match_val("match", rname, sname, "extract", declare=first)
             checks += gen.if_stmt(
-                gen.not_op(self._dollarExpr(jm, ref, "extract", path, is_raw=True)),
+                gen.not_op(self._dollarExpr(jm, ref, "extract", path, is_str=True, is_val=True)),
                 gen.ret(gen.false()))
             first = False
         checks += gen.ret(gen.true())
@@ -222,15 +222,20 @@ class CodeGenerator:
         """Escape value as necessary."""
         return json.dumps(val) if isinstance(val, str) else str(val)
 
-    def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str, *, is_raw: bool = False):
+    def _dollarExpr(
+                self, jm: JsonModel, ref: str, val: str, vpath: str, *,
+                is_str: bool = False, is_val: bool = False, known: set[str] = None,
+            ):
         """Generate a call to check for a $REF."""
         assert ref and ref[0] == "$"
         if ref in MODEL_PREDEFS:  # inline predefs
             self._code.predef(ref)  # register has used
-            return self._lang.predef(val, ref, vpath, is_raw)
+            if known and ref in STR_MODEL_PREDEFS and self._lang.is_a(val, str) in known:
+                is_str = True
+            return self._lang.predef(val, ref, vpath, is_str=is_str, is_val=is_val)
         else:
             fun = self._getNameRef(jm, ref, [])
-            return self._lang.check_call(fun, val, vpath, is_ptr=False, is_raw=is_raw)
+            return self._lang.check_call(fun, val, vpath, is_ptr=False, is_raw=is_str)
 
     def _compileConstraint(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                            res: Var, val: JsonExpr, vpath: PathExpr):
@@ -1155,7 +1160,7 @@ class CodeGenerator:
             expected_nprops -= DEF_E
 
             ref = "$" + d
-            dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, is_raw=True)  # FIXME lpath &lpath?
+            dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, is_str=True, is_val=True)  # FIXME lpath &lpath?
             dl_code = gen.lcom(f"handle {len(defs)} key props") + \
                 self._compileModel(jm, m, mpath + [ref], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
@@ -1468,7 +1473,7 @@ class CodeGenerator:
                 # generate flat if, no big deal?
                 for i, m in enumerate(dups):
                     idx = dups_i[i]
-                    icode = self._compileModel(jm, m, mpath + [idx], isin, val, vpath) + \
+                    icode = self._compileModel(jm, m, mpath + [idx], isin, val, vpath, known) + \
                         gen.bool_var(res, gen.not_op(isin))
                     if i == 0:
                         code += icode
@@ -1490,7 +1495,7 @@ class CodeGenerator:
         elif len(models) == 1:
             mod, idx = models[0], models_i[0]
             xcode += gen.lcom("singleton xor list") + \
-                self._compileModel(jm, mod, mpath + [idx], res, val, vpath)
+                self._compileModel(jm, mod, mpath + [idx], res, val, vpath, known)
         else:  # several models are inlined
             if len(models) == 2 and "$ANY" in models:
                 xcode += gen.lcom("not-case xor list")
@@ -1736,7 +1741,7 @@ class CodeGenerator:
                     else:
                         raise ModelError(f"unexpected constant type: {tname(value)}")
                 elif model[0] == "$":
-                    call = self._dollarExpr(jm, model, val, vpath)
+                    call = self._dollarExpr(jm, model, val, vpath, known=known)
                     code += gen.bool_var(res, call)
                 elif model[0] == "/":
                     code += gen.lcom(f"{self._esc(model)}")
