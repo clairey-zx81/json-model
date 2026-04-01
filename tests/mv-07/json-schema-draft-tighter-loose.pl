@@ -1017,7 +1017,7 @@ sub _jm_f_47($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
+        if (jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$tight#Object'.patternProperties.'$REGEX'

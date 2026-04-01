@@ -3367,7 +3367,7 @@ sub _jm_f_44($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Schema'.'$vocabulary'.'$URI'
@@ -3574,7 +3574,7 @@ sub _jm_f_63($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
+        if (jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Schema'.patternProperties.'$REGEX'
@@ -4820,7 +4820,7 @@ sub _jm_f_73($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
@@ -5019,7 +5019,7 @@ sub _jm_f_91($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
+        if (jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$schema#ObjectSchema'.patternProperties.'$REGEX'

@@ -146,6 +146,7 @@ for all possible values for that type.
   - `"$ETH"`: an ethernet (mac) address, eg _De:ad:Be:ef:01:23_
   - `"$CARD"`: a credit card number with a Luhn checksum, eg _1234567890123452_
   - `"$JSONPT"`: an RFC6901 json pointer, eg _/http:~1~1json-model.org_
+  - `"$TIMETZ"`: time with timezone
 
   Any other all-capital ASCII character and digit names must be rejected as they
   are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).

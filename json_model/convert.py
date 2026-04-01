@@ -30,6 +30,7 @@ for name, model in PREDEFS.items():
 PREDEF_FORMATS = {
     "$DATE": "date",
     "$TIME": "time",
+    "$TIMETZ": "time",
     "$DATETIME": "datetime",
     "$DURATION": "duration",
     "$REGEX": "regex",

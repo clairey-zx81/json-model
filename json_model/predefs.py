@@ -6,7 +6,7 @@ from .mtypes import ModelType
 
 STR_MODEL_PREDEFS = {
     "$STRING",
-    "$DATE", "$TIME", "$DATETIME", "$DURATION",
+    "$DATE", "$TIME", "$TIMETZ", "$DATETIME", "$DURATION",
     "$REGEX", "$EXREG",
     "$UUID", "$CARD",
     "$IP4", "$IP6", "$HOST", "$ETH",
@@ -78,9 +78,9 @@ _URI = f"({_URL}|urn:.*)"
 # RFC3339 (not RFC9557) ; ISO8601
 _DATE = r"\d{4}-(0?[1-9]|1[012])-([0-2]?\d|3[01])"  # 2020-07-29
 _TIME = r"([01]\d|2[0-3]):[0-5]\d:([0-5]\d|60)(\.\d{0,9})?"  # 12:34:56.123456
-# optional timezone with some leaway
-_optTZ = r"(Z|[-+]\d\d(:?\d\d)?)?"
-_DATETIME = f"{_DATE}T{_TIME}{_optTZ}"
+_TZ = r"(Z|[-+]\d\d(:?[0-5]\d)?)"  # +01:30
+_TIMETZ = f"{_TIME}{_TZ}"
+_DATETIME = f"{_DATE}T{_TIME}{_TZ}?"
 # RFC3339 durations (down to seconds)
 _DUR_s = "[0-9]+S"
 _DUR_m = f"[0-9]+M({_DUR_s})?"
@@ -129,7 +129,9 @@ PREDEF_RE: dict[str, tuple[str, str, str]] = {
     "$URL": ("jm_is_url", f"^{_URL}$", ""),
     "$URI": ("jm_is_uri", f"^{_URI}$", ""),
     "$DATE": ("jm_is_date", f"^{_DATE}$", ""),
-    "$TIME": ("jm_is_time", f"^{_TIME}$", ""),
+    # time with optional or mandatory timezone
+    "$TIME": ("jm_is_time", f"^{_TIME}{_TZ}?$", "i"),
+    "$TIMETZ": ("jm_is_timetz", f"^{_TIME}{_TZ}$", "i"),
     "$DATETIME": ("jm_is_datetime", f"^{_DATETIME}$", "i"),
     "$DURATION": ("jm_is_duration", f"^{_DURATION}$", ""),
     "$UUID": ("jm_is_uuid", f"^{_UUID}$", "i"),

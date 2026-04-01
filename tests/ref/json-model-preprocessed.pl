@@ -241,7 +241,7 @@ sub _jm_xre_0($$$)
         return 0;
     }
     $extract = $+{'s1'};
-    if (! (jm_is_string($extract) && jm_is_valid_regex($extract, undef, undef)))
+    if (! jm_is_valid_regex($extract, undef, undef))
     {
         return 0;
     }
@@ -265,7 +265,7 @@ sub _jm_xre_1($$$)
         return 0;
     }
     $extract = $+{'s1'};
-    if (! (jm_is_string($extract) && jm_is_valid_exreg($extract, undef, undef)))
+    if (! jm_is_valid_exreg($extract, undef, undef))
     {
         return 0;
     }

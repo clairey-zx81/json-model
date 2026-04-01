@@ -485,7 +485,7 @@ bool (*jm_is_valid_date)(const char *, jm_path_t *, jm_report_t *) = jm_is_valid
 
 // time parsing
 static INLINE bool
-is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
+is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep, bool withtz)
 {
     bool with_colon;
     int hour = 0, minute = 0, second = 0, idx = 0;
@@ -514,7 +514,7 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
     if (with_colon)
         idx++;
 
-    // 00..60 minute
+    // 00..59 minute
     if (unlikely(!isdigit(time[idx])))
         return false;
     minute = 10 * (time[idx++] - '0');
@@ -536,11 +536,11 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
     if (unlikely(!isdigit(time[idx])))
         return false;
     second += time[idx++] - '0';
-    if (unlikely(second >= 60)) {
-        // FIXME when to accept leap seconds?
+    if (unlikely(second > 60)) {
         if (rep) jm_report_add_entry(rep, "unexpected time second", path);
         return false;
     }
+    bool leap = second == 60;
 
     // optional millis (3, sometimes more, let us be nice)
     if (time[idx] == '.') {
@@ -551,33 +551,70 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
             idx++;
     }
 
-    // optional timezone
-    if (time[idx] == 'Z')
+    // timezone
+    int hshift = 0, mshift = 0;
+    bool neg = false;
+    if (time[idx] == 'Z' || time[idx] == 'z')
         idx++;
     else if (time[idx] == '+' || time[idx] == '-')
     {
+        neg = time[idx] == '-';
         idx++;
         // hours
+        hshift = time[idx] - '0';
         if (unlikely(!isdigit(time[idx++])))
             return false;
+        hshift = hshift * 10 + time[idx] - '0';
         if (unlikely(!isdigit(time[idx++])))
+            return false;
+        if (hshift >= 24)
             return false;
         // optional minutes
         if (time[idx] == ':')
         {
             idx++;
-            if (unlikely(time[idx] < '0' || time[idx] > '5'))
+            mshift = 10 * (time[idx] - '0');
+            if (unlikely(!isdigit(time[idx++])))
                 return false;
-            idx++;
+            mshift += time[idx] - '0';
             if (unlikely(!isdigit(time[idx++])))
                 return false;
         }
         else if (isdigit(time[idx]))
         {
+            mshift = 10 * (time[idx] - '0');
             idx++;
+            mshift += time[idx] - '0';
             if (unlikely(!isdigit(time[idx++])))
                 return false;
         }
+        if (mshift >= 60)
+            return false;
+    }
+    else if (withtz)
+        return false;
+
+    if (unlikely(leap))
+    {
+        // switch to utc
+        if (neg)
+            hour += hshift, minute += mshift;
+        else
+            hour -= hshift, minute -= mshift;
+
+        // normalize
+        if (minute < 0)
+            hour -= 1, minute += 60;
+        else if (minute >= 60)
+            hour += 1, minute -= 60;
+        if (hour < 0)
+            hour += 24;
+        else if (hour >= 24)
+            hour -= 24;
+
+        // leap seconds must be at midnight gmt
+        if (unlikely(hour != 23 || minute != 59))
+            return false;
     }
 
     return time[idx] == '\0';
@@ -588,15 +625,24 @@ jm_is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep)
 {
     if (time == NULL)
         return false;
-    return is_valid_time(time, path, rep, false);
+    return is_valid_time(time, path, rep, false, false);
 }
+
+bool
+jm_is_valid_timetz(const char *time, jm_path_t *path, jm_report_t *rep)
+{
+    if (time == NULL)
+        return false;
+    return is_valid_time(time, path, rep, false, true);
+}
+
 
 bool
 jm_is_valid_datetime(const char *datetime, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(!is_valid_date(datetime, path, rep, false)))
         return false;
-    return is_valid_time(datetime + 10, path, rep, true);
+    return is_valid_time(datetime + 10, path, rep, true, true);
 }
 
 // hardcoded version for ASCII and UTF-8
@@ -683,6 +729,7 @@ jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_r
 }
 
 // hardcoded regex parser for https://github.com/google/re2/wiki/syntax
+// TODO consider a subset simple regex syntax
 bool
 jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_report_t *rep)
 {

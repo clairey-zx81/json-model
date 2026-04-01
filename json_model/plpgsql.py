@@ -129,9 +129,9 @@ class PLpgSQL(Language):
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
         val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
-        cktype = "" if is_str else (self.is_a(var, str) + " AND ")  # pyright: ignore
         if name in PLPGSQL_RUNTIME_PREDEFS:
-            return cktype + f"{PLPGSQL_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
+            expr = f"{PLPGSQL_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
+            return expr if is_str else self.and_op(self.is_a(var, str), expr)
         else:
             return super().predef(var, name, path, is_str)
 

@@ -1824,7 +1824,7 @@ sub _jm_obj_17($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_date($prop, undef, undef))
+        if (jm_is_valid_date($prop, undef, undef))
         {
             # handle 1 key props
             # .object.o4.'$DATE'

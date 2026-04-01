@@ -29,8 +29,8 @@
 - [x] py-runtime: allow lowercase tz in datetime
 - [x] py-runtime: add workarounds for leap seconds and other intricacies
 - [x] predefs: add `$__EXTENSION_REL_JSONPT` as a regex
-- [ ] ir: remove simple redundant checks _(X && (X && Z) || (X && Y))_ is _X && (Z || Y)_
 - [ ] predefs: distinguish simple time and time with mandatory tz for jsu `time` format
+- [ ] ir: remove simple redundant checks _(X && (X && Z) || (X && Y))_ is _X && (Z || Y)_
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] static: avoid double type checks on or with predefs (java, sql, perl)
 - [ ] predefs: extension for _relative json pointer_, _uri reference_, _iri reference_, _uri template_

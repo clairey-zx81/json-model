@@ -17,6 +17,7 @@ CLANG_RUNTIME_PREDEFS: dict[str, str] = {
     "$URI": "jm_is_valid_url",
     "$DATE": "jm_is_valid_date",
     "$TIME": "jm_is_valid_time",
+    "$TIMETZ": "jm_is_valid_timetz",
     "$DATETIME": "jm_is_valid_datetime",
     "$REGEX": "jm_is_valid_regex",
     "$EXREG": "jm_is_valid_regex",
