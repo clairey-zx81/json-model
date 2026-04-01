@@ -60,7 +60,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Ex09'.'$URL'
@@ -118,7 +118,7 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$ex08#map'.'$URL'

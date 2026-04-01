@@ -47,7 +47,7 @@ sub json_model_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$map'.'$URL'

@@ -149,7 +149,7 @@ sub _jm_f_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$core'.'$vocabulary'.'$URI'
@@ -809,7 +809,7 @@ sub _jm_f_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$ObjectSchema'.'$vocabulary'.'$URI'

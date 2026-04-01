@@ -174,22 +174,6 @@ def is_valid_date(value: Jsonable, path: Path, rep: Report = None) -> bool:
     _ = rep is None or rep.append((f"incompatible type {_tname(value)} for date", path))
     return False
 
-def is_valid_time(value: Jsonable, path: Path, rep: Report = None) -> bool:
-    if isinstance(value, str):
-        try:
-            val = value.upper()
-            # switch to full datetime to benefit from leap second workarounds
-            res = is_valid_datetime("2000-12-31T" + val, None, None)
-            assert "," not in val, "reject ISO8601"
-            assert "Z" in val or "+" in val or "-" in val, "require timezone offset"
-            assert "Z" in val or val[-2] not in "6789", "timezone minutes in 00-59"
-            return res
-        except Exception as e:
-            _ = rep is None or rep.append((f"invalid time {value} ({e})", path))
-            return False
-    _ = rep is None or rep.append((f"incompatible type {_tname(value)} for time", path))
-    return False
-
 def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
@@ -197,10 +181,12 @@ def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
             # NOTE RFC3339 and ISO8601 do not agree on some details, eg t/z is allowed
             val = value.upper()
             # leap second workaround
-            if leap := ":60" in val:
+            if leap := ":60" in val and ":60:" not in val:
                 val = val.replace(":60", ":59")
             dt = datetime.datetime.fromisoformat(val)
-            assert "Z" in val or val[-2] not in "6789", "timezone minutes in 00-59"
+            # NOTE on hours without minutes, there should not be 60 hours…
+            assert "Z" in val or ("-" not in val and "+" not in val) or val[-2] not in "6789", \
+                "timezone minutes in 00-59"
             if leap:
                 udt = dt.astimezone(datetime.timezone.utc)
                 assert udt.hour == 23 and udt.minute == 59, "leap second at midnight"
@@ -209,6 +195,39 @@ def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
             _ = rep is None or rep.append((f"invalid datetime {value} ({e})", path))
             return False
     _ = rep is None or rep.append((f"incompatible type {_tname(value)} for datetime", path))
+    return False
+
+
+# optional tz
+def is_valid_time(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    if isinstance(value, str):
+        try:
+            val = value.upper()
+            if val.startswith("T"):
+                val = val[1:]
+            if "Z" not in value and "-" not in value and "+" not in value:
+                val += "Z"
+            # switch to full datetime to benefit from leap second workarounds
+            res = is_valid_datetime("2000-12-31T" + val, None, None)
+            assert "," not in val, "reject ISO8601"
+            return res
+        except Exception as e:
+            _ = rep is None or rep.append((f"invalid time {value} ({e})", path))
+            return False
+    _ = rep is None or rep.append((f"incompatible type {_tname(value)} for time", path))
+    return False
+
+def is_valid_timetz(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    if isinstance(value, str):
+        try:
+            val = value.upper()
+            res = is_valid_time(val, None, None)
+            assert "Z" in val or "+" in val or "-" in val, "require timezone offset"
+            return res
+        except Exception as e:
+            _ = rep is None or rep.append((f"invalid timerz {value} ({e})", path))
+            return False
+    _ = rep is None or rep.append((f"incompatible type {_tname(value)} for timetz", path))
     return False
 
 def value_len(value: Jsonable, path: Path) -> None|bool|int|float:

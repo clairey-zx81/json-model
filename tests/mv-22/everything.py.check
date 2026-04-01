@@ -3,7 +3,7 @@ everything.values.json[1]: FAIL (.predefs: invalid optional prop value [.]; .pre
 everything.values.json[2]: PASS
 everything.values.json[3]: FAIL (.predefs: invalid optional prop value [.]; .predefs.DATETIME: invalid optional prop value [.predefs]; .predefs.DATETIME: unexpected value for model "$DATETIME" [.predefs.DATETIME]; .predefs.DATETIME: invalid datetime 1970-03-20T25:22:33.543Z (hour must be in 0..23))
 everything.values.json[4]: PASS
-everything.values.json[5]: FAIL (.predefs: invalid optional prop value [.]; .predefs.TIME: invalid optional prop value [.predefs]; .predefs.TIME: unexpected value for model "$TIME" [.predefs.TIME]; .predefs.TIME: invalid time 12:35:65 (second must be in 0..59))
+everything.values.json[5]: FAIL (.predefs: invalid optional prop value [.]; .predefs.TIME: invalid optional prop value [.predefs]; .predefs.TIME: unexpected value for model "$TIME" [.predefs.TIME])
 everything.values.json[6]: PASS
 everything.values.json[7]: FAIL (.predefs: invalid optional prop value [.]; .predefs.DURATION: invalid optional prop value [.predefs]; .predefs.DURATION: unexpected value for model "$DURATION" [.predefs.DURATION])
 everything.values.json[8]: PASS
@@ -295,9 +295,9 @@ everything.values.json[293]: FAIL (.or: invalid optional prop value [.]; .or.o0:
 everything.values.json[294]: FAIL (.or: invalid optional prop value [.]; .or.o0: invalid optional prop value [.or.o0]; .or.o0: no model matched [.or.o0.'|']; .or.o0: not a -1 strict int [.or.o0.'|'.1]; .or.o0: not a bool [.or.o0.'|'.0])
 everything.values.json[295]: PASS
 everything.values.json[296]: PASS
-everything.values.json[297]: FAIL (.or: invalid optional prop value [.]; .or.o1: invalid optional prop value [.or.o1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: invalid time  (Invalid isoformat string: ''); .or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: invalid date  (Invalid isoformat string: ''))
-everything.values.json[298]: FAIL (.or: invalid optional prop value [.]; .or.o1: invalid optional prop value [.or.o1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: invalid time not a date or time (Invalid isoformat string: 'not a date or time'); .or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: invalid date not a date or time (Invalid isoformat string: 'not a date or time'))
-everything.values.json[299]: FAIL (.or: invalid optional prop value [.]; .or.o1: invalid optional prop value [.or.o1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: invalid time 2020-07-29 is a date... (Invalid isoformat string: '2020-07-29 is a date...'); .or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: invalid date 2020-07-29 is a date... (Invalid isoformat string: '2020-07-29 is a date...'))
+everything.values.json[297]: FAIL (.or: invalid optional prop value [.]; .or.o1: invalid optional prop value [.or.o1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: invalid date  (Invalid isoformat string: ''))
+everything.values.json[298]: FAIL (.or: invalid optional prop value [.]; .or.o1: invalid optional prop value [.or.o1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: invalid date not a date or time (Invalid isoformat string: 'not a date or time'))
+everything.values.json[299]: FAIL (.or: invalid optional prop value [.]; .or.o1: invalid optional prop value [.or.o1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: invalid date 2020-07-29 is a date... (Invalid isoformat string: '2020-07-29 is a date...'))
 everything.values.json[300]: FAIL (.or: invalid optional prop value [.]; .or.o1: invalid optional prop value [.or.o1]; .or.o1: unexpected type [.or.o1.'|'])
 everything.values.json[301]: FAIL (.or: invalid optional prop value [.]; .or.o1: invalid optional prop value [.or.o1]; .or.o1: unexpected type [.or.o1.'|'])
 everything.values.json[302]: PASS

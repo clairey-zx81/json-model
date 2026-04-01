@@ -160,6 +160,7 @@ extern bool jm_is_valid_date_slow(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_date_fast(const char *, jm_path_t *, jm_report_t *);
 extern bool (*jm_is_valid_date)(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_time(const char *, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_timetz(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_datetime(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_uuid(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_eth(const char *, jm_path_t *, jm_report_t *);

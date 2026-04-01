@@ -613,7 +613,7 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
+        if (jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$objectKeywords'.patternProperties.'$REGEX'
@@ -869,7 +869,7 @@ sub _jm_f_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$metas'.'$vocabulary'.'$URI'
@@ -1081,7 +1081,7 @@ sub _jm_f_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$String'.'$vocabulary'.'$URI'
@@ -1339,7 +1339,7 @@ sub _jm_f_42($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Array'.'$vocabulary'.'$URI'
@@ -1598,7 +1598,7 @@ sub _jm_f_62($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Object'.'$vocabulary'.'$URI'
@@ -1709,7 +1709,7 @@ sub _jm_f_71($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
+        if (jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Object'.patternProperties.'$REGEX'
@@ -1916,7 +1916,7 @@ sub _jm_f_83($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Integer'.'$vocabulary'.'$URI'
@@ -2157,7 +2157,7 @@ sub _jm_f_101($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Number'.'$vocabulary'.'$URI'
@@ -2398,7 +2398,7 @@ sub _jm_f_119($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Bool'.'$vocabulary'.'$URI'
@@ -2623,7 +2623,7 @@ sub _jm_f_135($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Null'.'$vocabulary'.'$URI'
@@ -2848,7 +2848,7 @@ sub _jm_f_151($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$AllOf'.'$vocabulary'.'$URI'
@@ -3073,7 +3073,7 @@ sub _jm_f_167($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$AnyOf'.'$vocabulary'.'$URI'
@@ -3298,7 +3298,7 @@ sub _jm_f_183($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$OneOf'.'$vocabulary'.'$URI'
@@ -3523,7 +3523,7 @@ sub _jm_f_199($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Enum'.'$vocabulary'.'$URI'
@@ -3748,7 +3748,7 @@ sub _jm_f_215($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Const'.'$vocabulary'.'$URI'
@@ -3973,7 +3973,7 @@ sub _jm_f_231($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Ref'.'$vocabulary'.'$URI'
@@ -4198,7 +4198,7 @@ sub _jm_f_247($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$DynRef'.'$vocabulary'.'$URI'

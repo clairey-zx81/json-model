@@ -70,7 +70,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        if (jm_is_string($prop) && jm_is_valid_date($prop, undef, undef))
+        if (jm_is_valid_date($prop, undef, undef))
         {
             # handle 1 key props
             # .'$DATE'

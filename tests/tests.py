@@ -257,9 +257,13 @@ EXPECT: dict[str, int] = {
     "mv-2b:values": 108,
     # mv-2c
     "mv-2c:cmp-opts": {"report": False, "comment": False},
-    "mv-2c:models": 8,
-    "mv-2c:values": 210,
-    "mv-2c:verrors:schema": 39,
+    "mv-2c:models": 9,
+    "mv-2c:values": 258,
+    "mv-2c:verrors:schema": 54,
+    "mv-2c:errors.java": 9,
+    "mv-2c:errors.sql": 10,
+    "mv-2c:errors.js": 9,
+    "mv-2c:errors.pl": 9,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,

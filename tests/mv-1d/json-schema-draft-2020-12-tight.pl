@@ -245,7 +245,7 @@ sub _jm_f_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$core'.'$vocabulary'.'$URI'
@@ -937,7 +937,7 @@ sub _jm_f_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
+        if (jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$Object'.patternProperties.'$REGEX'
@@ -1118,7 +1118,7 @@ sub _jm_f_20($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.0.'$vocabulary'.'$URI'
@@ -1286,7 +1286,7 @@ sub _jm_f_31($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.1.'$vocabulary'.'$URI'
@@ -1454,7 +1454,7 @@ sub _jm_f_42($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.2.'$vocabulary'.'$URI'
@@ -1672,7 +1672,7 @@ sub _jm_f_58($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.3.'$vocabulary'.'$URI'
@@ -1880,7 +1880,7 @@ sub _jm_f_74($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.4.'$vocabulary'.'$URI'
@@ -2096,7 +2096,7 @@ sub _jm_f_91($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.5.'$vocabulary'.'$URI'
@@ -2304,7 +2304,7 @@ sub _jm_f_107($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.6.'$vocabulary'.'$URI'
@@ -2431,7 +2431,7 @@ sub _jm_f_116($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, undef))
+        if (jm_is_valid_regex($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.6.patternProperties.'$REGEX'
@@ -2591,7 +2591,7 @@ sub _jm_f_124($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, undef, undef))
         {
             # handle 1 key props
             # .'$TightSchema'.'|'.7.'$vocabulary'.'$URI'

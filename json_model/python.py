@@ -8,6 +8,7 @@ PYTHON_RUNTIME_PREDEFS: dict[str, str] = {
     "$URI": "is_valid_url",
     "$DATE": "is_valid_date",
     "$TIME": "is_valid_time",
+    "$TIMETZ": "is_valid_timetz",
     "$DATETIME": "is_valid_datetime",
     "$REGEX": "is_valid_regex",
     "$EXREG": "is_valid_exreg",
