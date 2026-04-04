@@ -32,7 +32,9 @@
 - [x] predefs: distinguish simple time and time with mandatory tz for jsu `time` format
 - [x] static: avoid double type checks on or with predefs (java, sql, perl)
 - [x] ~ir: remove simple redundant checks _(X && (X && Z) || (X && Y))_ is _X && (Z || Y)_~ (see previous)
-- [ ] static/backend: consider a simple regex compiler? eg `^[a-z]{1,2}$`
+- [x] c-backend: simple regex compiler for special character classes and repeat
+- [ ] c-backend: add custom character classes based on benchmarks
+- [ ] c-backend: add simple regex compiler cache
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_

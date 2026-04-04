@@ -7,20 +7,22 @@
 #include <stddef.h>
 #include <cre2.h>
 
+#include <ctype.h>
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static cre2_regexp_t *_jm_re_0_re2 = NULL;
-static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    if (!islower(*s++))
+        return false;
+    while (islower(*s))
+        s++;
+    return *s == '\0';
 }
 
 // check $ (.)
@@ -72,10 +74,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_re_0_re2 = cre2_new("^[a-z]+$", strlen("^[a-z]+$"), NULL);
-        if (cre2_error_code(_jm_re_0_re2))
-            return cre2_error_string(_jm_re_0_re2);
-        _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
@@ -85,14 +83,9 @@ const char *check_model_init(void)
 void check_model_free(void)
 {
     if (initialized)
-    {
         initialized = false;
 
         // cleanup code
-        cre2_delete(_jm_re_0_re2);
-        _jm_re_0_re2 = NULL;
-        _jm_re_0_nn = 0;
-    }
 }
 
 /*

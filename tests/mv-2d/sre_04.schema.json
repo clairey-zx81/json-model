@@ -1,0 +1,4 @@
+{
+  "type": "string",
+  "pattern": "^[0-9a-zA-Z]{2,3}$"
+}

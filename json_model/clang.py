@@ -89,6 +89,106 @@ def _str_cmp(
         remain -= size
     return expr
 
+# TODO extend with a prefix and/or suffix?
+# TODO could be a prefix only?
+def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
+    """Return whether the regex is simple and directly compilable."""
+    if opts not in ("", "i"):
+        return None
+    ic = opts == "i"
+    if extract := re.search(r"\^(\[[^]]+\])(\{\d+(,\d*)?\}|[+*]|)\$", regex):
+        chars, repeat = extract.group(1, 2)
+        match chars:
+            case "[a-z]":
+                test = "isalpha" if ic else "islower"
+            case "[A-Z]":
+                test = "isalpha" if ic else "isupper"
+            case "[a-zA-Z]"|"[A-Za-z]":
+                test = "isalpha"
+            case "[0-9]"|r"\d":
+                test = "isdigit"
+            case "[0-9a-f]"|"[0-9A-F]":
+                test = "isxdigit" if ic else None
+            case "[0-9a-fA-F]"|"[0-9A-Fa-f]":
+                test = "isxdigit"
+            case "[0-9a-z]"|"[0-9A-Z]":
+                test = "isalnum" if ic else None
+            case "[0-9a-zA-Z]"|"[0-9A-Za-z]":
+                test = "isalnum"
+            case _:
+                test = None
+        if test is not None:
+            return test, repeat
+    return None
+
+def _compile_simple_re(name: str, test: str, repeat: str, inline: str = "") -> Block:
+    # TODO cache already generated code?
+    """Generate code for a simple regex."""
+    if repeat == "":
+        code = [
+            f"return {test}(*s++) && *s == '\\0';"
+        ]
+    elif repeat in "+*":
+        code = [
+            # at least one
+            f"if (!{test}(*s++))",
+            "    return false;",
+        ] if repeat == "+" else []
+        code += [
+            f"while ({test}(*s))",
+            r"    s++;",
+            r"return *s == '\0';",
+        ]
+    else:  # {N} {N,} {N,M}
+        assert repeat[0] == "{" and repeat[-1] == "}", f"expecting braces repeat: {repeat}"
+        if "," in repeat:
+            mini, maxi = repeat[1:-1].split(",")
+            mini, maxi = int(mini) if mini else 0, int(maxi) if maxi else None
+        else:
+            mini = int(repeat[1:-1])
+            maxi = mini
+        if isinstance(maxi, int) and mini > maxi:
+            code = [ "return false;" ]
+        # else mini <= maxi which may be None
+        elif isinstance(maxi, int) and maxi == 0:
+            code = [ r"return *s == '\0';" ]
+        else:
+            expr = ""
+            # unrolled prefix check…
+            if mini != 0:
+                for i in range(mini):
+                    if expr:
+                        expr += " && "
+                    expr += f"{test}(*s++)"
+            # handle suffix
+            if maxi is None:
+                code = [
+                    f"if (!({expr}))",
+                    r"    return false;",
+                    f"while ({test}(*s))",
+                    r"    s++;",
+                    r"return *s == '\0';"
+                ]
+            elif maxi == mini:
+                code = [ f"return {expr} && *s == '\\0';" ]
+            else:  # max > mini
+                iters = maxi - mini
+                code = [
+                    f"if (!({expr}))",
+                    r"    return false;",
+                    f"int n = {iters};",
+                    f"while (n && {test}(*s))",
+                    r"    s++, n--;",
+                    r"return n >= 0 && *s == '\0';"
+                ]
+    return [
+        f"static {inline}bool {name}(const char *s, jm_path_t *path, jm_report_t *rep)",
+        r"{",
+        *[ "    " + line for line in code ],
+        r"}",
+    ]
+
+
 class CLangJansson(Language):
     """Generate JSON value checker in C with Jansson and PCRE2.
 
@@ -100,8 +200,9 @@ class CLangJansson(Language):
             self, *,
             debug: bool = False,
             with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-            with_predef: bool = True, strcmp_opt: bool = True, byte_order: str = "le",
-            inline: bool = True, with_hints: bool = True, max_strcmp_cset: int = 64,
+            with_predef: bool = True, strcmp_opt: bool = True, regex_opt: bool = True,
+            inline: bool = True, with_hints: bool = True,
+            byte_order: str = "le", max_strcmp_cset: int = 64,
             partition_threshold: int = 32, relib: str = "pcre2", int_t: str = "int64_t"
         ):
 
@@ -125,6 +226,8 @@ class CLangJansson(Language):
         self._json_esc_table = str.maketrans(_ESC_TABLE)
         self._inline = "INLINE " if inline else ""
         self._strcmp_opt = strcmp_opt
+        self._regex_opt = regex_opt
+        self._need_ctype = False
         self._max_strcmp_cset = max_strcmp_cset
         # NOTE not necessary equal to the one in CodeGenerator
         self._partition_threshold = partition_threshold
@@ -146,8 +249,10 @@ class CLangJansson(Language):
                 "#include <stddef.h>",
                 "#include <cre2.h>",
             ]
+        code += [ "" ]
+        if self._need_ctype:
+            code += [ "#include <ctype.h>" ]
         code += [
-            "",
             r"#include <json-model.h>",
             f"#define JSON_MODEL_VERSION {self.esc(self.version())}"
         ]
@@ -474,7 +579,11 @@ class CLangJansson(Language):
         return f"(?P<{name}>{pattern})" if self._relib == "re2" else super().regroup(name, pattern)
 
     def def_re(self, name: str, regex: str, opts: str) -> Block:
-        if self._relib == "pcre2":
+        if self._regex_opt and _simple_re(regex, opts):
+            return [
+                f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);"
+            ]
+        elif self._relib == "pcre2":
             return [
                 f"static pcre2_code *{name}_code = NULL;",
                 f"static pcre2_match_data *{name}_data = NULL;",
@@ -488,10 +597,15 @@ class CLangJansson(Language):
             ]
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
+        if self._regex_opt and (simple := _simple_re(regex, opts)):
+            self._need_ctype = True
+            return _compile_simple_re(name, *simple, self._inline)
         code = self.file_load(f"clang_{self._relib}_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
     def ini_re(self, name: str, regex: str, opts: str) -> Block:
+        if self._regex_opt and _simple_re(regex, opts):
+            return []
         # declare once
         code = [] if self._re_used or self._relib != "pcre2" else [
             "int err_code;",
@@ -521,6 +635,8 @@ class CLangJansson(Language):
         return code
 
     def del_re(self, name: str, regex: str, opts: str) -> Block:
+        if self._regex_opt and _simple_re(regex, opts):
+            return []
         if self._relib == "pcre2":
             return [
                 f"pcre2_match_data_free({name}_data);",
