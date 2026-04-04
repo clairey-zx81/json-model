@@ -35,6 +35,7 @@
 - [x] c-backend: simple regex compiler for special character classes and repeat
 - [x] c-backend: simple regex compiler cache is okay with existing regex cache
 - [x] c-backend: add custom character classes based on benchmarks
+- [ ] optim: regex list of words to enum
 - [ ] c-backend: extend simple regex with constant prefix/suffix
 - [ ] c-backend: extend simple regex to sequences of chars/repeats
 - [ ] tests: fast mode which does not execute if source has not changed
