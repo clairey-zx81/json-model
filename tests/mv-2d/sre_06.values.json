@@ -1,0 +1,22 @@
+[
+  [ true,  {} ],
+  [ true,  {"a": "a"} ],
+  [ true,  {"a": "B"} ],
+  [ true,  {"b": "9"} ],
+  [ true,  {"b": "abcDEF012"} ],
+  [ true,  {"a": "Sus1e", "b": "Calv1n"} ],
+  [ false, {"b": ""} ],
+  [ false, {"b": "_"} ],
+  [ false, {"a": "abc_def"} ],
+  [ false, "" ],
+  [ false, "hello world" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {"un": "expected"} ],
+  [ false, {"a": "Calvin", "b": "Susie", "un": "expected"} ]
+]
