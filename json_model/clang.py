@@ -113,6 +113,10 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
                 test = "isalnum" if ic else None
             case "[0-9a-zA-Z]"|"[0-9A-Za-z]":
                 test = "isalnum"
+            case "[0-9a-z_]"|"[0-9A-Z_]"|"[a-z0-9_]"|"[A-Z0-9_]"|"[_0-9a-z]"|"[_0-9A-Z]"|"[_a-z0-9]"|"[_A-Z0-9]"|"[0-9_a-z]"|"[0-9_A-Z]"|"[a-z_0-9]"|"[A-Z_0-9]":
+                test = "jm_isident" if ic else None
+            case "[0-9a-zA-Z_]"|"[0-9A-Za-z_]"|"[_0-9a-zA-Z]"|"[_0-9A-Za-z]"|"[0-9_a-zA-Z]"|"[0-9_A-Za-z]"|"[0-9a-z_A-Z]"|"[0-9A-Z_a-z]":
+                test = "jm_isident"
             case _:
                 test = None
         if test is not None:
@@ -225,7 +229,6 @@ class CLangJansson(Language):
         self._inline = "INLINE " if inline else ""
         self._strcmp_opt = strcmp_opt
         self._regex_opt = regex_opt
-        self._need_ctype = False
         self._max_strcmp_cset = max_strcmp_cset
         # NOTE not necessary equal to the one in CodeGenerator
         self._partition_threshold = partition_threshold
@@ -247,10 +250,8 @@ class CLangJansson(Language):
                 "#include <stddef.h>",
                 "#include <cre2.h>",
             ]
-        code += [ "" ]
-        if self._need_ctype:
-            code += [ "#include <ctype.h>" ]
         code += [
+            r"",
             r"#include <json-model.h>",
             f"#define JSON_MODEL_VERSION {self.esc(self.version())}"
         ]
@@ -596,7 +597,6 @@ class CLangJansson(Language):
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
         if self._regex_opt and (simple := _simple_re(regex, opts)):
-            self._need_ctype = True
             return _compile_simple_re(name, *simple, self._inline)
         code = self.file_load(f"clang_{self._relib}_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]

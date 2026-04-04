@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <assert.h>
+#include <ctype.h>
 
 #include <jansson.h>
 
@@ -46,6 +47,9 @@
 #define CHECK_init newname(CHECK_FUNCTION_NAME, _init)
 #define CHECK CHECK_FUNCTION_NAME
 #define CHECK_free newname(CHECK_FUNCTION_NAME, _free)
+
+// custom char classes
+static INLINE bool jm_isident(const char c) { return isalnum(c) || (c == '_'); }
 
 // set on init
 extern char * jm_version_string;

@@ -1,0 +1,20 @@
+[
+  [ true,  "_" ],
+  [ true,  "a" ],
+  [ true,  "B" ],
+  [ true,  "7" ],
+  [ true,  "_abCD56" ],
+  [ false, "" ],
+  [ false, "hello world!" ],
+  [ false, "x-y" ],
+  [ false, "3.14" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

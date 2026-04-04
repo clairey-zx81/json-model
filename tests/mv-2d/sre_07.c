@@ -13,17 +13,16 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    if (!isalpha(*s++))
+    if (!jm_isident(*s++))
         return false;
-    while (isalpha(*s))
+    while (jm_isident(*s))
         s++;
     return *s == '\0';
 }
 
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
-    return ! (json_is_string(val) && _jm_re_0(json_string_value(val), NULL, NULL));
+    return json_is_string(val) && _jm_re_0(json_string_value(val), NULL, NULL);
 }
 
 jm_check_fun_t check_model_map(const char *pname)

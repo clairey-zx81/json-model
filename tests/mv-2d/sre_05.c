@@ -3,7 +3,6 @@
 #include <stddef.h>
 #include <cre2.h>
 
-#include <ctype.h>
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
