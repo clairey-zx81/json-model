@@ -93,9 +93,7 @@ def _str_cmp(
 # TODO could be a prefix only?
 def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
     """Return whether the regex is simple and directly compilable."""
-    if opts not in ("", "i"):
-        return None
-    ic = opts == "i"
+    ic = "i" in opts
     if extract := re.search(r"\^(\[[^]]+\])(\{\d+(,\d*)?\}|[+*]|)\$", regex):
         chars, repeat = extract.group(1, 2)
         match chars:
@@ -107,11 +105,11 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
                 test = "isalpha"
             case "[0-9]"|r"\d":
                 test = "isdigit"
-            case "[0-9a-f]"|"[0-9A-F]":
+            case "[0-9a-f]"|"[0-9A-F]"|"[a-f0-9]"|"[A-F0-9]":
                 test = "isxdigit" if ic else None
-            case "[0-9a-fA-F]"|"[0-9A-Fa-f]":
+            case "[0-9a-fA-F]"|"[0-9A-Fa-f]"|"[A-Fa-f0-9]"|"[a-fA-F0-9]":
                 test = "isxdigit"
-            case "[0-9a-z]"|"[0-9A-Z]":
+            case "[0-9a-z]"|"[0-9A-Z]"|"[a-z0-9]"|"[A-Z0-9]":
                 test = "isalnum" if ic else None
             case "[0-9a-zA-Z]"|"[0-9A-Za-z]":
                 test = "isalnum"
