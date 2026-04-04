@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "a": {
+      "type": "string",
+      "pattern": "(?i)^[0-9a-z]+$"
+    },
+    "b": {
+      "type": "string",
+      "pattern": "(?i)^[0-9a-z]+$"
+    }
+  },
+  "additionalProperties": false
+}
