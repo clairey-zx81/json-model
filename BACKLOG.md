@@ -35,6 +35,8 @@
 - [x] c-backend: simple regex compiler for special character classes and repeat
 - [x] c-backend: simple regex compiler cache is okay with existing regex cache
 - [ ] c-backend: add custom character classes based on benchmarks
+- [ ] c-backend: extend simple regex with constant prefix/suffix
+- [ ] c-backend: extend simple regex to sequences of chars/repeats
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
