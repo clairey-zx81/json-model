@@ -111,7 +111,7 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
                 test = "isxdigit"
             case "[0-9a-z]"|"[0-9A-Z]"|"[a-z0-9]"|"[A-Z0-9]":
                 test = "isalnum" if ic else None
-            case "[0-9a-zA-Z]"|"[0-9A-Za-z]":
+            case "[0-9a-zA-Z]"|"[0-9A-Za-z]"|"[a-zA-Z0-9]"|"A-Za-z0-9]":
                 test = "isalnum"
             case "[0-9a-z_]"|"[0-9A-Z_]"|"[a-z0-9_]"|"[A-Z0-9_]"|"[_0-9a-z]"|"[_0-9A-Z]"|"[_a-z0-9]"|"[_A-Z0-9]"|"[0-9_a-z]"|"[0-9_A-Z]"|"[a-z_0-9]"|"[A-Z_0-9]":
                 test = "jm_isident" if ic else None
