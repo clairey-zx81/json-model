@@ -48,8 +48,9 @@
 #define CHECK CHECK_FUNCTION_NAME
 #define CHECK_free newname(CHECK_FUNCTION_NAME, _free)
 
-// custom char classes
-static INLINE bool jm_isident(const char c) { return isalnum(c) || (c == '_'); }
+// custom character classes
+static INLINE bool jm_isident(const char c) { return isalnum(c) || c == '_'; }
+#define jm_isspace(c) ((c) == ' ')
 
 // set on init
 extern char * jm_version_string;

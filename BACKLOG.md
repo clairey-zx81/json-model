@@ -34,10 +34,19 @@
 - [x] ~ir: remove simple redundant checks _(X && (X && Z) || (X && Y))_ is _X && (Z || Y)_~ (see previous)
 - [x] c-backend: simple regex compiler for special character classes and repeat
 - [x] c-backend: simple regex compiler cache is okay with existing regex cache
-- [x] c-backend: add custom character classes based on benchmarks
-- [ ] optim: regex list of words to enum
+- [x] c-backend: add custom character classes based on benchmarks (ident, space)
+- [ ] c-backend: custom char classes: `[a-z_] [a-z0-9] [-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
+- [ ] c-backend: normalize before character class matching
+- [ ] optim or c-backend: regex list of words to enum?
+- [ ] static: improve startswith pattern recognition `/^xyz.*/`
+- [ ] static: improve endswith pattern recognition `/\\.js$/`
+- [ ] optim: remove unescaped `.*` at end of regex
+- [ ] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
+- [ ] c-backend: optimized strcmp for startswith
 - [ ] c-backend: extend simple regex with constant prefix/suffix
 - [ ] c-backend: extend simple regex to sequences of chars/repeats
+- [ ] c-backend: optimize `/./`? `/^.+$/`?
+- [ ] optimize: `/^.{1,256}$/`? only under `/s` though…
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
