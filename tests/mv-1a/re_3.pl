@@ -50,7 +50,6 @@ sub json_model_1($$$)
         {
             # handle may all property
             # .all
-            # "/.*/"
             $res = jm_is_string($pval);
             if (! $res)
             {

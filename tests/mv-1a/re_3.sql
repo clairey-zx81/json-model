@@ -38,7 +38,6 @@ BEGIN
     ELSEIF prop = 'all' THEN
       -- handle may all property
       -- .all
-      -- "/.*/"
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;

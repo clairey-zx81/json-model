@@ -2,8 +2,7 @@
   "type": "object",
   "properties": {
     "all": {
-      "type": "string",
-      "pattern": ".*"
+      "type": "string"
     },
     "nz": {
       "type": "string",

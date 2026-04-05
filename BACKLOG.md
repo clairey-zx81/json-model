@@ -35,13 +35,14 @@
 - [x] c-backend: simple regex compiler for special character classes and repeat
 - [x] c-backend: simple regex compiler cache is okay with existing regex cache
 - [x] c-backend: add custom character classes based on benchmarks (ident, space)
-- [ ] c-backend: custom char classes: `[a-z_] [a-z0-9] [-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
+- [x] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
+- [x] optim: remove unescaped `.*` at end of regex, also `.+/` is `./`
+- [ ] c-backend: custom char classes: `[a-z_] [a-z0-9] [-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
 - [ ] c-backend: normalize before character class matching
 - [ ] optim or c-backend: regex list of words to enum?
+- [ ] optim: apply simpler re to property names?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
 - [ ] static: improve endswith pattern recognition `/\\.js$/`
-- [ ] optim: remove unescaped `.*` at end of regex
-- [ ] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
 - [ ] c-backend: optimized strcmp for startswith
 - [ ] c-backend: extend simple regex with constant prefix/suffix
 - [ ] c-backend: extend simple regex to sequences of chars/repeats
