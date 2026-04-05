@@ -89,6 +89,114 @@ def _str_cmp(
         remain -= size
     return expr
 
+# FIXME move [:xxx:] to simpler_regex?
+def _norm_char_class(init: str) -> str:
+    """Best effort character class normalization to help pattern matching."""
+    cc = init
+    if cc == "":
+        return ""
+    elif cc == r"\w":
+        return r"[0-9A-Z_a-z]"
+    elif cc in (r"\d", r"[0123456789]"):
+        return r"[0-9]"
+    elif cc[0] != "[" or cc[-1] != "]":
+        return init
+    # parse character class contents
+    cc = cc[1:-1]
+    assert cc and cc[0] != "^"  # not a complement
+    ncc: set[str] = set()
+    while cc:
+        # NOTE character class escapes are flavor-dependent
+        # - PCRE: ^-]\
+        # - POSIX BRE/ERE: none (aka clever placement)
+        # - Python, RE2: \d and other escapes?
+        if cc.startswith("\\d"):
+            ncc.add("0-9")
+            cc = ncc[2:]
+        elif cc.startswith("\\w"):
+            ncc.update({"0-9", "a-z", "A-Z", "_"})
+            cc = ncc[2:]
+        elif cc.startswith(r"\\"):
+            ncc.add(r"\\")
+            cc = cc[2:]
+        elif cc.startswith("[:word:]"):
+            ncc.update({"0-9", "a-z", "A-Z", "_"})
+            cc = ncc[8:]
+        elif cc.startswith("\\s"):
+            ncc.update({" ", "\n", "\t", "\f", "\r"})
+            cc = ncc[2:]
+        elif cc.startswith("[:space:]"):
+            ncc.update({" ", "\n", "\t", "\f", "\r"})
+            cc = ncc[9:]
+        elif cc.startswith("[:alnum:]"):
+            ncc.update({"0-9", "a-z", "A-Z"})
+            cc = ncc[9:]
+        elif cc.startswith("[:alpha:]"):
+            ncc.update({"a-z", "A-Z"})
+            cc = ncc[9:]
+        elif cc.startswith("[:blank:]"):
+            ncc.update({" ", "\t"})
+            cc = ncc[9:]
+        elif cc.startswith("[:digit:]"):
+            ncc.add("0-9")
+            cc = ncc[9:]
+        elif cc.startswith("[:xdigit:]"):
+            ncc.update({"0-9", "A-F", "a-f"})
+            cc = ncc[10:]
+        elif cc.startswith("[:lower:]"):
+            ncc.add("a-z")
+            cc = ncc[9:]
+        elif cc.startswith("[:upper:]"):
+            ncc.add("A-Z")
+            cc = ncc[9:]
+        elif len(cc) >= 3 and cc[1] == "-":
+            ncc.add(cc[:3])
+            cc = cc[3:]
+        elif cc.startswith("0123456789"):
+            ncc.add("0-9")
+            cc = cc[10:]
+        elif cc.startswith("abcdefghijklmnopqrstuvwxyz"):
+            ncc.add("a-z")
+            cc = cc[26:]
+        elif cc.startswith("ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+            ncc.add("A-Z")
+            cc = cc[26:]
+        elif cc.startswith("abcdef"):
+            ncc.add("a-f")
+            cc = cc[6:]
+        elif cc.startswith("ABCDEF"):
+            ncc.add("A-F")
+            cc = cc[6:]
+        elif cc.startswith("[:") or cc == "\\":
+            log.warning(f"cannot normalize character class: {init}")
+            return init
+        elif cc.startswith("\\"):
+            # FIXME should we just skip it?
+            log.warning(f"unterminated character set: {init}")
+            return init
+        else:
+            ncc.add(cc[0])
+            cc = cc[1:]
+    # rebuild normalized character class with clever placement
+    if "^" in ncc and "-" in ncc:
+        ccend = "-^" if len(ncc) == 2 else "^-"
+        ncc.remove("^")
+        ncc.remove("-")
+    elif "-" in ncc:
+        ccend = "-"
+        ncc.remove("-")
+    elif "^" in ncc:  # NOTE cannot be alone? what if?
+        ccend = "^"
+        ncc.remove("^")
+    else:
+        ccend = ""
+    if "]" in ncc:
+        ccstart = "]"
+        ncc.remove("]")
+    else:
+        ccstart = ""
+    return "[" + ccstart + "".join(sorted(ncc)) + ccend + "]"
+
 # TODO extend with a prefix and/or suffix?
 # TODO could be a prefix only?
 def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
@@ -96,28 +204,29 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
     ic = "i" in opts
     if extract := re.search(r"\^(\[[^]]+\]| |\\[dw])(\{\d+(,\d*)?\}|[+*]|)\$", regex):
         chars, repeat = extract.group(1, 2)
+        chars = _norm_char_class(chars)
         match chars:
             case "[a-z]":
                 test = "isalpha" if ic else "islower"
             case "[A-Z]":
                 test = "isalpha" if ic else "isupper"
-            case "[a-zA-Z]"|"[A-Za-z]":
+            case "[A-Za-z]":
                 test = "isalpha"
-            case "[0-9]"|r"\d":
+            case "[0-9]":
                 test = "isdigit"
-            case "[0-9a-f]"|"[0-9A-F]"|"[a-f0-9]"|"[A-F0-9]":
+            case "[0-9a-f]"|"[0-9A-F]":
                 test = "isxdigit" if ic else None
-            case "[0-9a-fA-F]"|"[0-9A-Fa-f]"|"[A-Fa-f0-9]"|"[a-fA-F0-9]":
+            case "[0-9A-Fa-f]":
                 test = "isxdigit"
-            case "[0-9a-z]"|"[0-9A-Z]"|"[a-z0-9]"|"[A-Z0-9]":
+            case "[0-9a-z]"|"[0-9A-Z]":
                 test = "isalnum" if ic else None
-            case "[0-9a-zA-Z]"|"[0-9A-Za-z]"|"[a-zA-Z0-9]"|"A-Za-z0-9]":
+            case "[0-9A-Za-z]":
                 test = "isalnum"
-            case "[0-9a-z_]"|"[0-9A-Z_]"|"[a-z0-9_]"|"[A-Z0-9_]"|"[_0-9a-z]"|"[_0-9A-Z]"|"[_a-z0-9]"|"[_A-Z0-9]"|"[0-9_a-z]"|"[0-9_A-Z]"|"[a-z_0-9]"|"[A-Z_0-9]":
+            case "[0-9_a-z]"|"[0-9A-Z_]":
                 test = "jm_isident" if ic else None
-            case "[0-9a-zA-Z_]"|"[0-9A-Za-z_]"|"[_0-9a-zA-Z]"|"[_0-9A-Za-z]"|"[0-9_a-zA-Z]"|"[0-9_A-Za-z]"|"[0-9a-z_A-Z]"|"[0-9A-Z_a-z]"|r"\w":
+            case "[0-9A-Z_a-z]":
                 test = "jm_isident"
-            case " ":
+            case " "|"[ ]":
                 test = "jm_isspace"
             case _:
                 test = None

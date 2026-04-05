@@ -37,8 +37,8 @@
 - [x] c-backend: add custom character classes based on benchmarks (ident, space)
 - [x] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
 - [x] optim: remove unescaped `.*` at end of regex, also `.+/` is `./`
+- [x] c-backend: normalize before character class matching
 - [ ] c-backend: custom char classes: `[a-z_] [a-z0-9] [-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
-- [ ] c-backend: normalize before character class matching
 - [ ] optim or c-backend: regex list of words to enum?
 - [ ] optim: apply simpler re to property names?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
