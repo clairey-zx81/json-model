@@ -94,7 +94,7 @@ def _str_cmp(
 def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
     """Return whether the regex is simple and directly compilable."""
     ic = "i" in opts
-    if extract := re.search(r"\^(\[[^]]+\])(\{\d+(,\d*)?\}|[+*]|)\$", regex):
+    if extract := re.search(r"\^(\[[^]]+\]| |\\[dw])(\{\d+(,\d*)?\}|[+*]|)\$", regex):
         chars, repeat = extract.group(1, 2)
         match chars:
             case "[a-z]":
@@ -117,6 +117,8 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
                 test = "jm_isident" if ic else None
             case "[0-9a-zA-Z_]"|"[0-9A-Za-z_]"|"[_0-9a-zA-Z]"|"[_0-9A-Za-z]"|"[0-9_a-zA-Z]"|"[0-9_A-Za-z]"|"[0-9a-z_A-Z]"|"[0-9A-Z_a-z]"|r"\w":
                 test = "jm_isident"
+            case " ":
+                test = "jm_isspace"
             case _:
                 test = None
         if test is not None:
