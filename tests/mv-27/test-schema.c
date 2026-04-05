@@ -15,11 +15,7 @@ static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_1_re2 = NULL;
-static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_2_re2 = NULL;
-static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -97,16 +93,28 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return must_count == 3;
 }
 
-static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_1_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    if (unlikely(jm_str_ne_3(s, 0x00636672)))
+        return false;
+    s += 3;
+    if (unlikely(!isdigit(*s++)))
+        return false;
+    while (likely(isdigit(*s)))
+        s++;
+    return *s == '\0';
 }
 
-static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_2_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    if (unlikely(jm_str_ne_3(s, 0x006f7369)))
+        return false;
+    s += 3;
+    if (unlikely(!isdigit(*s++)))
+        return false;
+    while (likely(isdigit(*s)))
+        s++;
+    return *s == '\0';
 }
 
 // object .'$Specification'.'@'
@@ -343,14 +351,6 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
-        _jm_re_1_re2 = cre2_new("^rfc\\d+$", strlen("^rfc\\d+$"), NULL);
-        if (cre2_error_code(_jm_re_1_re2))
-            return cre2_error_string(_jm_re_1_re2);
-        _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        _jm_re_2_re2 = cre2_new("^iso\\d+$", strlen("^iso\\d+$"), NULL);
-        if (cre2_error_code(_jm_re_2_re2))
-            return cre2_error_string(_jm_re_2_re2);
-        _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "Version", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "Test", json_model_3 };
@@ -371,12 +371,6 @@ void check_model_free(void)
         cre2_delete(_jm_re_0_re2);
         _jm_re_0_re2 = NULL;
         _jm_re_0_nn = 0;
-        cre2_delete(_jm_re_1_re2);
-        _jm_re_1_re2 = NULL;
-        _jm_re_1_nn = 0;
-        cre2_delete(_jm_re_2_re2);
-        _jm_re_2_re2 = NULL;
-        _jm_re_2_nn = 0;
     }
 }
 

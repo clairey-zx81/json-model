@@ -13,9 +13,10 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(!isdigit(*s++)))
+    if (unlikely(jm_str_ne_2(s, 0x00002a5e)))
         return false;
-    while (likely(isdigit(*s)))
+    s += 2;
+    while (likely(islower(*s)))
         s++;
     return *s == '\0';
 }

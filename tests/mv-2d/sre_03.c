@@ -13,7 +13,9 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    return isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && *s == '\0';
+    if (unlikely(!(isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++))))
+        return false;
+    return *s == '\0';
 }
 
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)

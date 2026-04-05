@@ -38,14 +38,15 @@
 - [x] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
 - [x] optim: remove unescaped `.*` at end of regex, also `.+/` is `./`
 - [x] c-backend: normalize before character class matching
+- [x] c-backend: extend simple regex with constant prefix
+- [ ] c-backend: extend simple regex without end-of-text (`$`)
+- [ ] c-backend: extend simple regex to sequences of prefix/chars/repeats
 - [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
 - [ ] optim or c-backend: regex list of words to enum?
 - [ ] optim: apply simpler re to property names?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
 - [ ] static: improve endswith pattern recognition `/\\.js$/`
 - [ ] c-backend: optimized strcmp for startswith
-- [ ] c-backend: extend simple regex with constant prefix/suffix
-- [ ] c-backend: extend simple regex to sequences of chars/repeats
 - [ ] c-backend: optimize `/./`? `/^.+$/`?
 - [ ] optimize: `/^.{1,256}$/`? only under `/s` though…
 - [ ] tests: fast mode which does not execute if source has not changed

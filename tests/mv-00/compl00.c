@@ -13,9 +13,9 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    if (!isalpha(*s++))
+    if (unlikely(!isalpha(*s++)))
         return false;
-    while (isalpha(*s))
+    while (likely(isalpha(*s)))
         s++;
     return *s == '\0';
 }

@@ -41,9 +41,9 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    if (!isdigit(*s++))
+    if (unlikely(!isdigit(*s++)))
         return false;
-    while (isdigit(*s))
+    while (likely(isdigit(*s)))
         s++;
     return *s == '\0';
 }

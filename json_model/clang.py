@@ -3,7 +3,7 @@ import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr, NumExpr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
-from .utils import partition
+from .utils import partition, log
 
 _ESC_TABLE = {
     '"': r'\"', "\\": "\\\\",
@@ -199,11 +199,37 @@ def _norm_char_class(init: str) -> str:
 
 # TODO extend with a prefix and/or suffix?
 # TODO could be a prefix only?
-def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
+def _simple_re(regex: str, opts: str) -> tuple[str, str, str]|None:
     """Return whether the regex is simple and directly compilable."""
     ic = "i" in opts
-    if extract := re.search(r"\^(\[[^]]+\]| |\\[dw])(\{\d+(,\d*)?\}|[+*]|)\$", regex):
-        chars, repeat = extract.group(1, 2)
+    if regex == "" or regex[0] != "^":
+        return None
+    regex = regex[1:]
+    # escaped: .^$*+?()[{\|
+    # not escaped: []@-Z -#%-',/->_-z}~-]
+    # TODO improve readability
+    if extract := re.match(r"(([]@-Z -#%-',/->_-z}~-]|\\[.^$*+?()[{\|])*)(\[[^]]+\]| |\\[dw]|)(\{\d+(,\d*)?\}|[+*]|)\$", regex):
+        prefix, chars, repeat = extract.group(1, 3, 4)
+        if prefix and ic and re.search(r"[a-zA-Z]", prefix):
+            # cannot handle letters with simple equality under ignore case
+            return None
+        if prefix and "\\" in prefix:
+            # unescape prefix
+            i, delete = 0, []
+            while i < len(prefix):
+                if prefix[i] == "\\":
+                    delete.append(i)
+                    i += 2
+                else:
+                    i += 1
+            for i in reversed(delete):
+                prefix = prefix[:i] + prefix[i+1:]
+        if not chars and repeat:
+            # oops, repeat applies on last char of prefix
+            if not prefix:
+                return None
+            # FIXME escaping?
+            prefix, chars = prefix[:-1], prefix[-1]
         chars = _norm_char_class(chars)
         match chars:
             case "[a-z]":
@@ -241,26 +267,39 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
             case _:
                 test = None
         if test is not None:
-            return test, repeat
+            return prefix, test, repeat
     return None
 
-def _compile_simple_re(name: str, test: str, repeat: str, inline: str = "") -> Block:
-    # TODO cache already generated code?
-    """Generate code for a simple regex."""
-    if repeat == "":
+# FIXME le/be
+def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Block:
+    """Generate code for a simple regex segment on string s."""
+    # handle prefix with fast str comparison
+    if prefix:
+        expr = _str_cmp("s", json.dumps(prefix), little=little, eq=False, start=True)
         code = [
-            f"return {test}(*s++) && *s == '\\0';"
+            f"if (unlikely({expr}))",
+            r"    return false;",
+            f"s += {len(prefix)};",
+        ]
+    else:
+        code = []
+    if test == "":
+        assert repeat == "", "no test, no repeat"
+        pass
+    elif repeat == "":
+        code += [
+            f"if (unlikely(!{test}(*s++)))",
+            r"    return false;",
         ]
     elif repeat in "+*":
-        code = [
+        code += [
             # at least one
-            f"if (!{test}(*s++))",
+            f"if (unlikely(!{test}(*s++)))",
             "    return false;",
         ] if repeat == "+" else []
         code += [
-            f"while ({test}(*s))",
+            f"while (likely({test}(*s)))",
             r"    s++;",
-            r"return *s == '\0';",
         ]
     else:  # {N} {N,} {N,M}
         assert repeat[0] == "{" and repeat[-1] == "}", f"expecting braces repeat: {repeat}"
@@ -271,10 +310,10 @@ def _compile_simple_re(name: str, test: str, repeat: str, inline: str = "") -> B
             mini = int(repeat[1:-1])
             maxi = mini
         if isinstance(maxi, int) and mini > maxi:
-            code = [ "return false;" ]
+            code += [ "return false;" ]
         # else mini <= maxi which may be None
         elif isinstance(maxi, int) and maxi == 0:
-            code = [ r"return *s == '\0';" ]
+            pass
         else:
             expr = ""
             # unrolled prefix check…
@@ -285,29 +324,37 @@ def _compile_simple_re(name: str, test: str, repeat: str, inline: str = "") -> B
                     expr += f"{test}(*s++)"
             # handle suffix
             if maxi is None:
-                code = [
-                    f"if (!({expr}))",
+                code += [
+                    f"if (unlikely(!({expr})))",
                     r"    return false;",
-                    f"while ({test}(*s))",
+                    f"while (likely({test}(*s)))",
                     r"    s++;",
                     r"return *s == '\0';"
                 ]
             elif maxi == mini:
-                code = [ f"return {expr} && *s == '\\0';" ]
+                code += [
+                    f"if (unlikely(!({expr})))",
+                    r"    return false;",
+                ]
             else:  # max > mini
                 iters = maxi - mini
                 code = [
-                    f"if (!({expr}))",
+                    f"if (unlikely(!({expr})))",
                     r"    return false;",
                     f"int n = {iters};",
-                    f"while (n && {test}(*s))",
+                    f"while (likely(n && {test}(*s)))",
                     r"    s++, n--;",
-                    r"return n >= 0 && *s == '\0';"
                 ]
+    return code
+
+def _compile_simple_re(name: str, prefix: str, test: str, repeat: str, little: bool, inline: str = "") -> Block:
+    # TODO cache already generated code?
+    """Generate code for a simple regex."""
     return [
         f"static {inline}bool {name}(const char *s, jm_path_t *path, jm_report_t *rep)",
         r"{",
-        *[ "    " + line for line in code ],
+        *[ "    " + line for line in _compile_re_segment(prefix, test, repeat, little) ],
+        r"    return *s == '\0';",
         r"}",
     ]
 
@@ -718,7 +765,7 @@ class CLangJansson(Language):
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
         if self._regex_opt and (simple := _simple_re(regex, opts)):
-            return _compile_simple_re(name, *simple, self._inline)
+            return _compile_simple_re(name, *simple, self._byte_order == "le", self._inline)
         code = self.file_load(f"clang_{self._relib}_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
