@@ -13,9 +13,9 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    if (!jm_isident(*s++))
+    if (unlikely(!jm_isident(*s++)))
         return false;
-    while (jm_isident(*s))
+    while (likely(jm_isident(*s)))
         s++;
     return *s == '\0';
 }

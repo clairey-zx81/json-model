@@ -11,8 +11,6 @@
 #define JSON_MODEL_VERSION "2"
 
 static INLINE bool _jm_cst_0_str_test(const char *);
-static cre2_regexp_t *_jm_re_0_re2 = NULL;
-static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -104,10 +102,14 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
     ;
 }
 
-static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    if (unlikely(jm_str_ne_1(s, 0x23)))
+        return false;
+    s += 1;
+    if (unlikely(!(isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++) && isxdigit(*s++))))
+        return false;
+    return *s == '\0';
 }
 
 // check $color (.'$color')
@@ -5124,10 +5126,6 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_re_0_re2 = cre2_new("^#[0-9a-fA-F]{6}$", strlen("^#[0-9a-fA-F]{6}$"), NULL);
-        if (cre2_error_code(_jm_re_0_re2))
-            return cre2_error_string(_jm_re_0_re2);
-        _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { 6, { .s = "input" } }, _jm_obj_0 };
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { 8, { .s = "confirm" } }, _jm_obj_3 };
         _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { 5, { .s = "menu" } }, _jm_obj_4 };
@@ -5163,9 +5161,6 @@ void check_model_free(void)
         initialized = false;
 
         // cleanup code
-        cre2_delete(_jm_re_0_re2);
-        _jm_re_0_re2 = NULL;
-        _jm_re_0_nn = 0;
         cre2_delete(_jm_re_1_re2);
         _jm_re_1_re2 = NULL;
         _jm_re_1_nn = 0;

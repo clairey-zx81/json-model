@@ -13,12 +13,12 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    if (!(isalnum(*s++) && isalnum(*s++)))
+    if (unlikely(!(isalnum(*s++) && isalnum(*s++))))
         return false;
     int n = 1;
-    while (n && isalnum(*s))
+    while (likely(n && isalnum(*s)))
         s++, n--;
-    return n >= 0 && *s == '\0';
+    return *s == '\0';
 }
 
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
