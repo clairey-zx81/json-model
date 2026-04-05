@@ -84,4 +84,4 @@ pod.tag: .build
 .PHONY: pod.push
 pod.push: pod.tag
 	# if needed: docker login
-	$(POD) push -a $(ZX80)/jmc
+	$(POD) push -a $(ZX80)/jmc:$(BRANCH)
