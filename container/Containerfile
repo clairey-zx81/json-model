@@ -65,13 +65,16 @@ RUN npm install re2
 # direct install json-model and json-schema-utils from github
 # pip install json-model-compiler json-schema-utils
 # npm install json_model_runtime
-
+RUN curl -s "https://api.github.com/repos/clairey-zx81/json-model/commits/${JMC}" | \
+    jq -c "{jmc: .sha}" >> /app/commits.jsonl
 RUN git clone -b $JMC https://github.com/clairey-zx81/json-model.git
 RUN /app/venv/bin/pip install -e ./json-model
 RUN npm install file:./json-model/json_model/runtime/js
 # RUN ls -la node_modules
 # RUN rm -rf ./json-model  # no, editable
 
+RUN curl -s "https://api.github.com/repos/zx80/json-schema-utils/commits/${JSU}" | \
+    jq -c "{jsu: .sha}" >> /app/commits.jsonl
 RUN git clone -b $JSU https://github.com/zx80/json-schema-utils.git
 RUN /app/venv/bin/pip install -e ./json-schema-utils
 # RUN rm -rf ./json-schema-utils  # no, editable
