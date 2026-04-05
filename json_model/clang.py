@@ -214,20 +214,30 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str]|None:
                 test = "isalpha"
             case "[0-9]":
                 test = "isdigit"
-            case "[0-9a-f]"|"[0-9A-F]":
-                test = "isxdigit" if ic else None
+            case "[0-9a-f]":
+                test = "isxdigit" if ic else "jm_lowhexa"
+            case "[0-9A-F]":
+                test = "isxdigit" if ic else "jm_uphexa"
             case "[0-9A-Fa-f]":
                 test = "isxdigit"
-            case "[0-9a-z]"|"[0-9A-Z]":
-                test = "isalnum" if ic else None
+            case "[0-9a-z]":
+                test = "isalnum" if ic else "jm_lownum"
+            case "[0-9A-Z]":
+                test = "isalnum" if ic else "jm_upnum"
             case "[0-9A-Za-z]":
                 test = "isalnum"
-            case "[0-9_a-z]"|"[0-9A-Z_]":
-                test = "jm_isident" if ic else None
+            case "[0-9_a-z]":
+                test = "jm_isident" if ic else "jm_lowident"
+            case "[0-9A-Z_]":
+                test = "jm_isident" if ic else "jm_upident"
             case "[0-9A-Z_a-z]":
                 test = "jm_isident"
             case " "|"[ ]":
                 test = "jm_isspace"
+            case "[a-z_]":
+                test = "jm_lowlow"
+            case "[_A-Z]":
+                test = "jm_uplow"
             case _:
                 test = None
         if test is not None:

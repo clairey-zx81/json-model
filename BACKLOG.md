@@ -34,11 +34,11 @@
 - [x] ~ir: remove simple redundant checks _(X && (X && Z) || (X && Y))_ is _X && (Z || Y)_~ (see previous)
 - [x] c-backend: simple regex compiler for special character classes and repeat
 - [x] c-backend: simple regex compiler cache is okay with existing regex cache
-- [x] c-backend: add custom character classes based on benchmarks (ident, space)
+- [x] c-backend: add custom character classes based on benchmarks (ident, space, up/low/hexa/num/…)
 - [x] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
 - [x] optim: remove unescaped `.*` at end of regex, also `.+/` is `./`
 - [x] c-backend: normalize before character class matching
-- [ ] c-backend: custom char classes: `[a-z_] [a-z0-9] [-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
+- [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
 - [ ] optim or c-backend: regex list of words to enum?
 - [ ] optim: apply simpler re to property names?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`

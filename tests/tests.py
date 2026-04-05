@@ -270,8 +270,8 @@ EXPECT: dict[str, int] = {
     "mv-2d:values": 149,
     # mv-2e
     "mv-2e:cmp-opts": {"report": False, "comment": False},
-    "mv-2e:models": 1,
-    "mv-2e:values": 12,
+    "mv-2e:models": 2,
+    "mv-2e:values": 31,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 310,

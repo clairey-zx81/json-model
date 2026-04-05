@@ -48,8 +48,16 @@
 #define CHECK CHECK_FUNCTION_NAME
 #define CHECK_free newname(CHECK_FUNCTION_NAME, _free)
 
-// custom character classes
+// custom character classes for regex inlining
 static INLINE bool jm_isident(const char c) { return isalnum(c) || c == '_'; }
+static INLINE bool jm_lownum(const char c) { return islower(c) || isdigit(c); }
+static INLINE bool jm_upnum(const char c) { return isupper(c) || isdigit(c); }
+static INLINE bool jm_lowident(const char c) { return islower(c) || isdigit(c) || c == '_'; }
+static INLINE bool jm_upident(const char c) { return isupper(c) || isdigit(c) || c == '_'; }
+static INLINE bool jm_lowlow(const char c) { return islower(c) || c == '_'; }
+static INLINE bool jm_uplow(const char c) { return isupper(c) || c == '_'; }
+static INLINE bool jm_lowhexa(const char c) { return isdigit(c) || (c >= 'a' && c <= 'f'); }
+static INLINE bool jm_uphexa(const char c) { return isdigit(c) || (c >= 'A' && c <= 'F'); }
 #define jm_isspace(c) ((c) == ' ')
 
 // set on init
