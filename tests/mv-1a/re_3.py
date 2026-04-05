@@ -48,10 +48,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "all":
             # handle may all property
             # .all
-            # "/.*/"
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"/.*/\" [.all]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"\" [.all]", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.all]", lpath_0 if path is not None else None))
                 return False
             continue

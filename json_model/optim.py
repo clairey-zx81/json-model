@@ -948,12 +948,61 @@ def simplify(jm: JsonModel):
 
     return changes > 0
 
+_SIMPLER_RE: dict[str, str] = {
+    # non empty (\n?) strings
+    "/.+/": "/./",
+    "/..*/": "/./",
+    "/.+/s": "/./s",
+    "/(.+)/":  "/./",
+    "/(.+)/s":  "/./s",
+    # misc
+    "/ +/": "/ /",
+    # any string
+    "/.*/": "",
+    "/^.*/": "",
+    "/^.*$/s": "",
+    "/(.*)/": "",
+    "/^(.*)/": "",
+    "/^(.*)$/s": "",
+    "/ */": "",
+    "//": "",
+    "//s": "",
+    "//i": "",
+}
+
+def simpler_regex(jm: JsonModel) -> bool:
+
+    changes: int = 0
+
+    def reRwt(model: ModelType, path: ModelPath) -> ModelType:
+        # TODO prop names
+        nonlocal changes
+        if isinstance(model, str):
+            if model in _SIMPLER_RE:
+                changes += 1
+                return _SIMPLER_RE[model]
+            elif model.endswith(".*/") and not model.endswith("\\.*/"):
+                changes += 1
+                return model[:-3] + "/"
+            elif model.endswith(".+/"):
+                changes += 1
+                return model[:-2] + "/"
+            # TODO other simplifications?
+        return model
+
+    jm._model = recModel(jm._model, allFlt, reRwt)
+
+    return changes > 0
+
 def optimize(jm: JsonModel, *, debug: bool = False):
     """Optimize model, probably not very efficient."""
     loops = 100
     changed = True
 
+    # out of loop because once is enough
+    simpler_regex(jm)
 
+    # in loop because simplifications can trigger other simplifications
     while changed and loops > 0:
         loops -= 1
         changed = False

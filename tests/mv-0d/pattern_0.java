@@ -29,11 +29,11 @@ public class pattern_0 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
-        // "/^[A-Z].*/"
+        // "/^[A-Z]/"
         boolean res = json.isString(val) && _jm_re_0(json.asString(val), path, rep);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected value for model \"/^[A-Z].*/\" [.]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"/^[A-Z]/\" [.]", path);
         }
         return res;
     }
@@ -44,7 +44,7 @@ public class pattern_0 extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_re_0_pat = Pattern.compile("^[A-Z].*");
+            _jm_re_0_pat = Pattern.compile("^[A-Z]");
             pattern_0_map_pmap = new HashMap<String, Checker>();
             pattern_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);

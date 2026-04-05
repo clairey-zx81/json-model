@@ -45,11 +45,10 @@ function json_model_1(val, path, rep)
         {
             // handle may all property
             // .all
-            // "/.*/"
-            res = ((typeof pval === 'string' || pval instanceof String));
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"/.*/\" [.all]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected value for model \"\" [.all]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.all]", (path ? lpath_0 : null)])
                 return false;
             }
