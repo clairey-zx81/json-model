@@ -42,6 +42,7 @@
 - [ ] c-backend: extend simple regex without end-of-text (`$`)
 - [ ] c-backend: extend simple regex to sequences of prefix/chars/repeats
 - [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
+- [ ] c-backend: fast ic str comparison by switching to _lower char_ with a lookup?
 - [ ] optim or c-backend: regex list of words to enum?
 - [ ] optim: apply simpler re to property names?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
