@@ -33,8 +33,6 @@ static cre2_regexp_t *_jm_re_4_re2 = NULL;
 static int _jm_re_4_nn = 0;
 static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_5_re2 = NULL;
-static int _jm_re_5_nn = 0;
 static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_xre_0_re_re2 = NULL;
@@ -336,10 +334,11 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_5_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    if (unlikely(!jm_isident(*s++)))
+        return false;
+    return true;
 }
 
 // check $StrConst (.'$StrConst')
@@ -4261,10 +4260,6 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_4_re2))
             return cre2_error_string(_jm_re_4_re2);
         _jm_re_4_nn = cre2_num_capturing_groups(_jm_re_4_re2) + 1;
-        _jm_re_5_re2 = cre2_new("^[A-Za-z0-9_]", strlen("^[A-Za-z0-9_]"), NULL);
-        if (cre2_error_code(_jm_re_5_re2))
-            return cre2_error_string(_jm_re_5_re2);
-        _jm_re_5_nn = cre2_num_capturing_groups(_jm_re_5_re2) + 1;
         _jm_xre_0_re_re2 = cre2_new("^/(?P<s1>.*)/[a-z]*$", strlen("^/(?P<s1>.*)/[a-z]*$"), NULL);
         if (cre2_error_code(_jm_xre_0_re_re2))
             return cre2_error_string(_jm_xre_0_re_re2);
@@ -4374,9 +4369,6 @@ void check_model_free(void)
         cre2_delete(_jm_re_4_re2);
         _jm_re_4_re2 = NULL;
         _jm_re_4_nn = 0;
-        cre2_delete(_jm_re_5_re2);
-        _jm_re_5_re2 = NULL;
-        _jm_re_5_nn = 0;
         cre2_delete(_jm_xre_0_re_re2);
         _jm_xre_0_re_re2 = NULL;
         _jm_xre_0_re_nn = 0;

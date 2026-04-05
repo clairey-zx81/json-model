@@ -197,16 +197,19 @@ def _norm_char_class(init: str) -> str:
         ccstart = ""
     return "[" + ccstart + "".join(sorted(ncc)) + ccend + "]"
 
-def _simple_re(regex: str, opts: str) -> tuple[str, str, str]|None:
+def _simple_re(regex: str, opts: str) -> tuple[str, str, str, bool]|None:
     """Return whether the regex is simple and directly compilable."""
     ic = "i" in opts
     if regex == "" or regex[0] != "^":
         return None
     regex = regex[1:]
+    eot = regex[-1] == "$"
+    if eot:
+        regex = regex[:-1]
     # escaped: .^$*+?()[{\|
     # not escaped: []@-Z -#%-',/->_-z}~-]
     # TODO improve readability
-    if extract := re.match(r"(([]@-Z -#%-',/->_-z}~-]|\\[.^$*+?()[{\|])*)(\[[^]]+\]| |\\[dw]|)(\{\d+(,\d*)?\}|[+*]|)\$", regex):
+    if extract := re.match(r"(([]@-Z -#%-',/->_-z}~-]|\\[.^$*+?()[{\|])*)(\[[^]]+\]| |\\[dw]|)(\{\d+(,\d*)?\}|[+*]|)$", regex):
         prefix, chars, repeat = extract.group(1, 3, 4)
         if prefix and ic and re.search(r"[a-zA-Z]", prefix):
             # cannot handle letters with simple equality under ignore case
@@ -267,7 +270,7 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str, str]|None:
             case _:
                 test = None
         if test is not None:
-            return prefix, test, repeat
+            return prefix, test, repeat, eot
     return None
 
 # FIXME le/be
@@ -347,14 +350,16 @@ def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Bl
                 ]
     return code
 
-def _compile_simple_re(name: str, prefix: str, test: str, repeat: str, little: bool, inline: str = "") -> Block:
-    # TODO cache already generated code?
+def _compile_simple_re(
+            name: str, prefix: str, test: str, repeat: str,
+            eot: bool, little: bool, inline: str = ""
+        ) -> Block:
     """Generate code for a simple regex."""
     return [
         f"static {inline}bool {name}(const char *s, jm_path_t *path, jm_report_t *rep)",
         r"{",
         *[ "    " + line for line in _compile_re_segment(prefix, test, repeat, little) ],
-        r"    return *s == '\0';",
+        r"    return *s == '\0';" if eot else "    return true;",
         r"}",
     ]
 
