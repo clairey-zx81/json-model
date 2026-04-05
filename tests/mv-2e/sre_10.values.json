@@ -1,0 +1,21 @@
+[
+  [ true,  "0" ],
+  [ true,  "A" ],
+  [ true,  "DEADBEEF" ],
+  [ true,  "123DEF456ABC7890" ],
+  [ false, "" ],
+  [ false, "deadbeef" ],
+  [ false, "0xa" ],
+  [ false, "0XA" ],
+  [ false, "012.456" ],
+  [ false, "DEAD-BEEF" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]
