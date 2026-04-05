@@ -103,7 +103,7 @@ def _norm_char_class(init: str) -> str:
         return init
     # parse character class contents
     cc = cc[1:-1]
-    assert cc and cc[0] != "^"  # not a complement
+    assert cc and cc[0] != "^", f"not a complement: {init}"
     ncc: set[str] = set()
     while cc:
         # NOTE character class escapes are flavor-dependent
@@ -112,43 +112,43 @@ def _norm_char_class(init: str) -> str:
         # - Python, RE2: \d and other escapes?
         if cc.startswith("\\d"):
             ncc.add("0-9")
-            cc = ncc[2:]
+            cc = cc[2:]
         elif cc.startswith("\\w"):
             ncc.update({"0-9", "a-z", "A-Z", "_"})
-            cc = ncc[2:]
+            cc = cc[2:]
         elif cc.startswith(r"\\"):
             ncc.add(r"\\")
             cc = cc[2:]
         elif cc.startswith("[:word:]"):
             ncc.update({"0-9", "a-z", "A-Z", "_"})
-            cc = ncc[8:]
+            cc = cc[8:]
         elif cc.startswith("\\s"):
             ncc.update({" ", "\n", "\t", "\f", "\r"})
-            cc = ncc[2:]
+            cc = cc[2:]
         elif cc.startswith("[:space:]"):
             ncc.update({" ", "\n", "\t", "\f", "\r"})
-            cc = ncc[9:]
+            cc = cc[9:]
         elif cc.startswith("[:alnum:]"):
             ncc.update({"0-9", "a-z", "A-Z"})
-            cc = ncc[9:]
+            cc = cc[9:]
         elif cc.startswith("[:alpha:]"):
             ncc.update({"a-z", "A-Z"})
-            cc = ncc[9:]
+            cc = cc[9:]
         elif cc.startswith("[:blank:]"):
             ncc.update({" ", "\t"})
-            cc = ncc[9:]
+            cc = cc[9:]
         elif cc.startswith("[:digit:]"):
             ncc.add("0-9")
-            cc = ncc[9:]
+            cc = cc[9:]
         elif cc.startswith("[:xdigit:]"):
             ncc.update({"0-9", "A-F", "a-f"})
-            cc = ncc[10:]
+            cc = cc[10:]
         elif cc.startswith("[:lower:]"):
             ncc.add("a-z")
-            cc = ncc[9:]
+            cc = cc[9:]
         elif cc.startswith("[:upper:]"):
             ncc.add("A-Z")
-            cc = ncc[9:]
+            cc = cc[9:]
         elif len(cc) >= 3 and cc[1] == "-":
             ncc.add(cc[:3])
             cc = cc[3:]
@@ -171,9 +171,9 @@ def _norm_char_class(init: str) -> str:
             log.warning(f"cannot normalize character class: {init}")
             return init
         elif cc.startswith("\\"):
-            # FIXME should we just skip it?
-            log.warning(f"unterminated character set: {init}")
-            return init
+            # NOTE unterminated character set… we assume a useless escape
+            ncc.add(cc[1])
+            cc = cc[2:]
         else:
             ncc.add(cc[0])
             cc = cc[1:]
@@ -197,8 +197,6 @@ def _norm_char_class(init: str) -> str:
         ccstart = ""
     return "[" + ccstart + "".join(sorted(ncc)) + ccend + "]"
 
-# TODO extend with a prefix and/or suffix?
-# TODO could be a prefix only?
 def _simple_re(regex: str, opts: str) -> tuple[str, str, str]|None:
     """Return whether the regex is simple and directly compilable."""
     ic = "i" in opts
@@ -230,6 +228,8 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str, str]|None:
                 return None
             # FIXME escaping?
             prefix, chars = prefix[:-1], prefix[-1]
+        if chars.startswith("[^"):  # cannot handle complement (utf8)
+            return None
         chars = _norm_char_class(chars)
         match chars:
             case "[a-z]":
