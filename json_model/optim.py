@@ -983,8 +983,12 @@ def _simpler_regex(regex: str) -> str:
         return _SIMPLER_RE[regex]
     elif regex.endswith(".*/") and not regex.endswith("\\.*/"):
         return regex[:-3] + "/"
+    elif regex.endswith("(.*)/") and not regex.endswith("\\(.*)/"):
+        return regex[:-5] + "/"
     elif regex.endswith(".+/"):
         return regex[:-2] + "/"
+    elif regex.endswith("(.+)/"):
+        return regex[:-3] + ")/"
     else:
         return regex
 
