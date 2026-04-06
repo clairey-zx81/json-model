@@ -29,7 +29,7 @@
 - [utils](./utils.py)
   [analyze](./analyze.py)
   [mtypes](./mtypes.py)
-  [objmerge](./objmerge.py)
+  [objops](./objops.py)
   [optim](./optim.py)
   [recurse](./recurse.py)
   various utilities
