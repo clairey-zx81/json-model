@@ -100,10 +100,9 @@ def _simple_object(model: ModelType, jm: JsonModel, path: ModelPath, opened: boo
                     return None
                 if not opened:
                     props.append("")
-            elif prop in ("$", "%", "~") or prop[0] == "#":
+            elif prop in ("$", "%", "~") or prop[0] == "#":  # skip
                 pass
-            elif prop[0] == "$":
-                # TODO follow definitions
+            elif prop[0] == "$":  # TODO follow definitions
                 return None
             elif prop[0] == "/":
                 props.append(prop)
@@ -124,7 +123,7 @@ def _simple_object(model: ModelType, jm: JsonModel, path: ModelPath, opened: boo
 def _prefix_reg(reg: str) -> str|None:
     """Prefix of simple prefix regex."""
     # FIXME must handle ignore-case option
-    m = re.match(r"/\^([-_A-Za-z0-9]+)", reg)
+    m = re.match(r"/\^([-_A-Za-z0-9~#^$.*+&/?]+)", reg)
     return m.group(1) if m else None
 
 def _bad_regs(lobj: list[list[str]|None]) -> set[str]:

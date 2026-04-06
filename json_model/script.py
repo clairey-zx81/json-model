@@ -15,7 +15,7 @@ from .utils import log, tname, json_loads, load_data_file
 from .resolver import Resolver
 from .model import JsonModel
 from .xstatic import xstatic_compile
-from . import optim, analyze, objmerge
+from . import optim, analyze, objops
 from .runtime.types import EntryCheckFun, Report
 from .runtime.support import _path as json_path
 from .export import model2python
@@ -61,7 +61,7 @@ def process_model(model: JsonModel, *,
     # merge in reverse order to move alts up before inlining?!
     if merge:
         for m in reversed(all_models):
-            objmerge.merge(m)
+            objops.merge(m)
 
     # optimize again?
     if optimize:

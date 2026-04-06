@@ -1,5 +1,5 @@
 #
-# Merging
+# Merging (+ operator)
 #
 import copy
 
