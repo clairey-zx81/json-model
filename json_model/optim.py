@@ -454,7 +454,8 @@ def const_prop(jm: JsonModel):
 ANY_PROP = [
     "",
     "$STRING",
-    "/.*$/s", "/.*$/", "/.*/s", "/^.*/s", "/^.*/", "/^.*$/s", "/.*/", "//s", "//",
+    "/.*$/s", "/.*$/", "/.*/s", "/^.*/s", "/^.*/", "/^.*$/s", "/.*/",
+    "//s", "//", "/(.*)/",
 ]
 
 def partial_eval(jm: JsonModel):
@@ -951,6 +952,8 @@ def simplify(jm: JsonModel):
 _SIMPLER_RE: dict[str, str] = {
     # non empty (\n?) strings
     "/.+/": "/./",
+    "/^.+/": "/^./",
+    "/.+$/": "/.$/",
     "/..*/": "/./",
     "/.+/s": "/./s",
     "/(.+)/":  "/./",
@@ -960,8 +963,11 @@ _SIMPLER_RE: dict[str, str] = {
     # any string
     "/.*/": "",
     "/^.*/": "",
+    "/.*$/": "",
     "/^.*$/s": "",
     "/(.*)/": "",
+    "/(.*)/i": "",
+    "/(.*)/s": "",
     "/^(.*)/": "",
     "/^(.*)$/s": "",
     "/ */": "",
@@ -970,24 +976,37 @@ _SIMPLER_RE: dict[str, str] = {
     "//i": "",
 }
 
+def _simpler_regex(regex: str) -> str:
+    if regex == "" or regex[0] != "/":
+        return regex
+    elif regex in _SIMPLER_RE:
+        return _SIMPLER_RE[regex]
+    elif regex.endswith(".*/") and not regex.endswith("\\.*/"):
+        return regex[:-3] + "/"
+    elif regex.endswith(".+/"):
+        return regex[:-2] + "/"
+    else:
+        return regex
+
 def simpler_regex(jm: JsonModel) -> bool:
 
     changes: int = 0
 
     def reRwt(model: ModelType, path: ModelPath) -> ModelType:
-        # TODO prop names
         nonlocal changes
         if isinstance(model, str):
-            if model in _SIMPLER_RE:
+            m = _simpler_regex(model)
+            if m != model:
                 changes += 1
-                return _SIMPLER_RE[model]
-            elif model.endswith(".*/") and not model.endswith("\\.*/"):
-                changes += 1
-                return model[:-3] + "/"
-            elif model.endswith(".+/"):
-                changes += 1
-                return model[:-2] + "/"
-            # TODO other simplifications?
+                return m
+        elif isinstance(model, dict):
+            for p in list(model):
+                if p and p[0] == "/":
+                    pp = _simpler_regex(p)
+                    if pp != p and pp not in model:
+                        changes += 1
+                        model[pp] = model[p]
+                        del model[p]
         return model
 
     jm._model = recModel(jm._model, allFlt, reRwt)

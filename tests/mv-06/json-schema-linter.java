@@ -18,7 +18,6 @@ public class json_schema_linter extends ModelChecker
     static public final String VERSION = "2";
 
     Set<Object> _jm_cst_0_set;
-    public Pattern _jm_re_0_pat = null;
     Set<Object> _jm_cst_1_set;
     Map<String, Checker> json_model_10_map_pmap;
     Map<String, Checker> json_model_11_map_pmap;
@@ -653,11 +652,6 @@ public class json_schema_linter extends ModelChecker
         return true;
     }
 
-    public boolean _jm_re_0(String val, Path path, Report rep)
-    {
-        return _jm_re_0_pat.matcher(val).find();
-    }
-
     // check $metas (.'$metas')
     public boolean json_model_9(Object val, Path path, Report rep)
     {
@@ -799,10 +793,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$metas'.'/^x-.*/'
+                // .'$metas'.'/^x-/'
                 res = true;
             }
             else
@@ -1053,10 +1047,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$String'.'/^x-.*/'
+                // .'$String'.'/^x-/'
                 res = true;
             }
             else
@@ -1332,10 +1326,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Array'.'/^x-.*/'
+                // .'$Array'.'/^x-/'
                 res = true;
             }
             else
@@ -1642,10 +1636,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Object'.'/^x-.*/'
+                // .'$Object'.'/^x-/'
                 res = true;
             }
             else
@@ -1903,10 +1897,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Integer'.'/^x-.*/'
+                // .'$Integer'.'/^x-/'
                 res = true;
             }
             else
@@ -2164,10 +2158,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Number'.'/^x-.*/'
+                // .'$Number'.'/^x-/'
                 res = true;
             }
             else
@@ -2399,10 +2393,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Bool'.'/^x-.*/'
+                // .'$Bool'.'/^x-/'
                 res = true;
             }
             else
@@ -2634,10 +2628,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Null'.'/^x-.*/'
+                // .'$Null'.'/^x-/'
                 res = true;
             }
             else
@@ -2869,10 +2863,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$AllOf'.'/^x-.*/'
+                // .'$AllOf'.'/^x-/'
                 res = true;
             }
             else
@@ -3104,10 +3098,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$AnyOf'.'/^x-.*/'
+                // .'$AnyOf'.'/^x-/'
                 res = true;
             }
             else
@@ -3339,10 +3333,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$OneOf'.'/^x-.*/'
+                // .'$OneOf'.'/^x-/'
                 res = true;
             }
             else
@@ -3574,10 +3568,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Enum'.'/^x-.*/'
+                // .'$Enum'.'/^x-/'
                 res = true;
             }
             else
@@ -3809,10 +3803,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Const'.'/^x-.*/'
+                // .'$Const'.'/^x-/'
                 res = true;
             }
             else
@@ -4044,10 +4038,10 @@ public class json_schema_linter extends ModelChecker
                 }
                 continue;
             }
-            if (_jm_re_0(prop, path, rep))
+            if (prop.startsWith("x-"))
             {
                 // handle 1 re props
-                // .'$Ref'.'/^x-.*/'
+                // .'$Ref'.'/^x-/'
                 res = true;
             }
             else
@@ -4242,7 +4236,6 @@ public class json_schema_linter extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"double\""));
             _jm_cst_0_set.add(json.safeJSON("\"int\""));
             _jm_cst_0_set.add(json.safeJSON("\"mime-type\""));
-            _jm_re_0_pat = Pattern.compile("^x-.*");
             _jm_cst_1_set = new HashSet<Object>();
             _jm_cst_1_set.add(json.safeJSON("\"uri\""));
             _jm_cst_1_set.add(json.safeJSON("\"uri-reference\""));
@@ -4366,7 +4359,6 @@ public class json_schema_linter extends ModelChecker
         {
             super.free();
             _jm_cst_0_set = null;
-            _jm_re_0_pat = null;
             _jm_cst_1_set = null;
             json_model_10_map_pmap = null;
             json_model_11_map_pmap = null;
