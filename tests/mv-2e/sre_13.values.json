@@ -1,0 +1,21 @@
+[
+  [ true,  "abc" ],
+  [ true,  "abcdef" ],
+  [ true,  "abcD" ],
+  [ true,  "abc def" ],
+  [ false, "abC" ],
+  [ false, "" ],
+  [ false, "a" ],
+  [ false, "ab" ],
+  [ false, "Abc" ],
+  [ false, "Hello world!" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

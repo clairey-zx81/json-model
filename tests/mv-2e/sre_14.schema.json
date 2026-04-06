@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "patternProperties": {
+    "^a": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": {
+    "type": "integer",
+    "minimum": 1
+  }
+}

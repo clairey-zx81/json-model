@@ -10,7 +10,6 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 let _jm_cst_0 = new Set()
-const _jm_re_0_re = new runtime.RX("^x-.*", "")
 let _jm_cst_1 = new Set()
 let _jm_map_0 = new Map()
 export var check_model_map = new Map()
@@ -600,8 +599,6 @@ function _jm_obj_3(val, path, rep)
     return true;
 }
 
-const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
-
 // check $metas (.'$metas')
 function json_model_9(val, path, rep)
 {
@@ -740,10 +737,10 @@ function json_model_9(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$metas'.'/^x-.*/'
+            // .'$metas'.'/^x-/'
             res = true;
         }
         else
@@ -1008,10 +1005,10 @@ function json_model_10(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$String'.'/^x-.*/'
+            // .'$String'.'/^x-/'
             res = true;
         }
         else
@@ -1327,10 +1324,10 @@ function json_model_11(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Array'.'/^x-.*/'
+            // .'$Array'.'/^x-/'
             res = true;
         }
         else
@@ -1676,10 +1673,10 @@ function json_model_12(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Object'.'/^x-.*/'
+            // .'$Object'.'/^x-/'
             res = true;
         }
         else
@@ -1928,10 +1925,10 @@ function json_model_13(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Integer'.'/^x-.*/'
+            // .'$Integer'.'/^x-/'
             res = true;
         }
         else
@@ -2180,10 +2177,10 @@ function json_model_14(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Number'.'/^x-.*/'
+            // .'$Number'.'/^x-/'
             res = true;
         }
         else
@@ -2406,10 +2403,10 @@ function json_model_15(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Bool'.'/^x-.*/'
+            // .'$Bool'.'/^x-/'
             res = true;
         }
         else
@@ -2632,10 +2629,10 @@ function json_model_16(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Null'.'/^x-.*/'
+            // .'$Null'.'/^x-/'
             res = true;
         }
         else
@@ -2858,10 +2855,10 @@ function json_model_17(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$AllOf'.'/^x-.*/'
+            // .'$AllOf'.'/^x-/'
             res = true;
         }
         else
@@ -3084,10 +3081,10 @@ function json_model_18(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$AnyOf'.'/^x-.*/'
+            // .'$AnyOf'.'/^x-/'
             res = true;
         }
         else
@@ -3310,10 +3307,10 @@ function json_model_19(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$OneOf'.'/^x-.*/'
+            // .'$OneOf'.'/^x-/'
             res = true;
         }
         else
@@ -3536,10 +3533,10 @@ function json_model_20(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Enum'.'/^x-.*/'
+            // .'$Enum'.'/^x-/'
             res = true;
         }
         else
@@ -3762,10 +3759,10 @@ function json_model_21(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Const'.'/^x-.*/'
+            // .'$Const'.'/^x-/'
             res = true;
         }
         else
@@ -3988,10 +3985,10 @@ function json_model_22(val, path, rep)
             }
             continue;
         }
-        if (_jm_re_0(prop, path, rep))
+        if (prop.startsWith("x-"))
         {
             // handle 1 re props
-            // .'$Ref'.'/^x-.*/'
+            // .'$Ref'.'/^x-/'
             res = true;
         }
         else

@@ -22,8 +22,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_cst_0: set[str]
-_jm_re_0_reco: object
-_jm_re_0: RegexFun
 _jm_cst_1: set[str]
 json_model_10_map: PropMap
 json_model_11_map: PropMap
@@ -416,7 +414,6 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-
 # check $metas (.'$metas')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # there is a trick with $schema… in RootSchema below
@@ -513,9 +510,9 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$metas'.description]", lpath_6 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$metas'.'/^x-.*/'
+            # .'$metas'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$metas']", lpath_6 if path is not None else None))
@@ -678,9 +675,9 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$String']", lpath_9 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$String'.'/^x-.*/'
+            # .'$String'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$String']", lpath_9 if path is not None else None))
@@ -856,9 +853,9 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Array']", lpath_12 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Array'.'/^x-.*/'
+            # .'$Array'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Array']", lpath_12 if path is not None else None))
@@ -1047,9 +1044,9 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Object']", lpath_15 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Object'.'/^x-.*/'
+            # .'$Object'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Object']", lpath_15 if path is not None else None))
@@ -1200,9 +1197,9 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Integer']", lpath_20 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Integer'.'/^x-.*/'
+            # .'$Integer'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Integer']", lpath_20 if path is not None else None))
@@ -1353,9 +1350,9 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Number']", lpath_23 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Number'.'/^x-.*/'
+            # .'$Number'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Number']", lpath_23 if path is not None else None))
@@ -1505,9 +1502,9 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Bool'.description]", lpath_26 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Bool'.'/^x-.*/'
+            # .'$Bool'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Bool']", lpath_26 if path is not None else None))
@@ -1657,9 +1654,9 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Null'.description]", lpath_29 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Null'.'/^x-.*/'
+            # .'$Null'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Null']", lpath_29 if path is not None else None))
@@ -1809,9 +1806,9 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$AllOf'.description]", lpath_32 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$AllOf'.'/^x-.*/'
+            # .'$AllOf'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$AllOf']", lpath_32 if path is not None else None))
@@ -1961,9 +1958,9 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$AnyOf'.description]", lpath_35 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$AnyOf'.'/^x-.*/'
+            # .'$AnyOf'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$AnyOf']", lpath_35 if path is not None else None))
@@ -2113,9 +2110,9 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$OneOf'.description]", lpath_38 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$OneOf'.'/^x-.*/'
+            # .'$OneOf'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$OneOf']", lpath_38 if path is not None else None))
@@ -2265,9 +2262,9 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Enum'.description]", lpath_41 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Enum'.'/^x-.*/'
+            # .'$Enum'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Enum']", lpath_41 if path is not None else None))
@@ -2417,9 +2414,9 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Const'.description]", lpath_44 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Const'.'/^x-.*/'
+            # .'$Const'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Const']", lpath_44 if path is not None else None))
@@ -2569,9 +2566,9 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Ref'.description]", lpath_47 if path is not None else None))
                 return False
             continue
-        if _jm_re_0(prop, path, rep):
+        if prop.startswith("x-"):
             # handle 1 re props
-            # .'$Ref'.'/^x-.*/'
+            # .'$Ref'.'/^x-/'
             res = True
         else:
             rep is None or rep.append(("unexpected prop [.'$Ref']", lpath_47 if path is not None else None))
@@ -2682,9 +2679,6 @@ def check_model_init():
         initialized = True
         global _jm_cst_0
         _jm_cst_0 = {'byte', 'date', 'date-time', 'double', 'duration', 'email', 'hostname', 'idn-email', 'idn-hostname', 'int', 'int32', 'int64', 'ipv4', 'ipv6', 'iri', 'iri-reference', 'json-pointer', 'mime-type', 'regex', 'relative-json-pointer', 'time', 'uint', 'uint32', 'uint64', 'uri', 'uri-reference', 'uuid'}
-        global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = re.compile("^x-.*")
-        _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_cst_1
         _jm_cst_1 = {'byte', 'date', 'date-time', 'double', 'duration', 'email', 'hostname', 'idn-email', 'idn-hostname', 'int', 'int32', 'int64', 'ipv4', 'ipv6', 'iri', 'iri-reference', 'json-pointer', 'mime-type', 'regex', 'relative-json-pointer', 'time', 'uint', 'uint32', 'uint64', 'uri', 'uri-reference', 'uuid'}
         global json_model_10_map
@@ -2814,9 +2808,6 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = None
-        _jm_re_0 = None
 
 if __name__ == "__main__":
     check_model_init()

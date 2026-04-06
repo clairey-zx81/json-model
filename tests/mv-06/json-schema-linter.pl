@@ -746,13 +746,6 @@ sub _jm_f_9($$$)
 }
 
 
-sub _jm_re_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^x-.*/;
-    return $res;
-}
-
 # check $metas (.'$metas')
 sub json_model_9($$$)
 {
@@ -777,10 +770,10 @@ sub json_model_9($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$metas'.'/^x-.*/'
+            # .'$metas'.'/^x-/'
             $res = 1;
         }
         else
@@ -973,10 +966,10 @@ sub json_model_10($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$String'.'/^x-.*/'
+            # .'$String'.'/^x-/'
             $res = 1;
         }
         else
@@ -1170,10 +1163,10 @@ sub json_model_11($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Array'.'/^x-.*/'
+            # .'$Array'.'/^x-/'
             $res = 1;
         }
         else
@@ -1410,10 +1403,10 @@ sub json_model_12($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Object'.'/^x-.*/'
+            # .'$Object'.'/^x-/'
             $res = 1;
         }
         else
@@ -1589,10 +1582,10 @@ sub json_model_13($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Integer'.'/^x-.*/'
+            # .'$Integer'.'/^x-/'
             $res = 1;
         }
         else
@@ -1768,10 +1761,10 @@ sub json_model_14($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Number'.'/^x-.*/'
+            # .'$Number'.'/^x-/'
             $res = 1;
         }
         else
@@ -1931,10 +1924,10 @@ sub json_model_15($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Bool'.'/^x-.*/'
+            # .'$Bool'.'/^x-/'
             $res = 1;
         }
         else
@@ -2094,10 +2087,10 @@ sub json_model_16($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Null'.'/^x-.*/'
+            # .'$Null'.'/^x-/'
             $res = 1;
         }
         else
@@ -2257,10 +2250,10 @@ sub json_model_17($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$AllOf'.'/^x-.*/'
+            # .'$AllOf'.'/^x-/'
             $res = 1;
         }
         else
@@ -2420,10 +2413,10 @@ sub json_model_18($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$AnyOf'.'/^x-.*/'
+            # .'$AnyOf'.'/^x-/'
             $res = 1;
         }
         else
@@ -2583,10 +2576,10 @@ sub json_model_19($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$OneOf'.'/^x-.*/'
+            # .'$OneOf'.'/^x-/'
             $res = 1;
         }
         else
@@ -2746,10 +2739,10 @@ sub json_model_20($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Enum'.'/^x-.*/'
+            # .'$Enum'.'/^x-/'
             $res = 1;
         }
         else
@@ -2909,10 +2902,10 @@ sub json_model_21($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Const'.'/^x-.*/'
+            # .'$Const'.'/^x-/'
             $res = 1;
         }
         else
@@ -3072,10 +3065,10 @@ sub json_model_22($$$)
             }
             next;
         }
-        if (_jm_re_0($prop, undef, undef))
+        if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
-            # .'$Ref'.'/^x-.*/'
+            # .'$Ref'.'/^x-/'
             $res = 1;
         }
         else

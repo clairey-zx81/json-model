@@ -40,15 +40,16 @@
 - [x] c-backend: normalize before character class matching
 - [x] c-backend: extend simple regex with constant prefix
 - [x] c-backend: extend simple regex without end-of-text (`$`)
+- [x] optim: apply simpler re to property names
 - [ ] c-backend: extend simple regex to sequences of prefix/chars/repeats
 - [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
 - [ ] c-backend: fast ic str comparison by switching to _lower char_ with a lookup?
+- [ ] c-backend: optimize `/./`? `/^.+$/`?
+- [ ] optim: remove props which match the default, in some cases?
 - [ ] optim or c-backend: regex list of words to enum?
-- [ ] optim: apply simpler re to property names?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
 - [ ] static: improve endswith pattern recognition `/\\.js$/`
 - [ ] c-backend: optimized strcmp for startswith
-- [ ] c-backend: optimize `/./`? `/^.+$/`?
 - [ ] optimize: `/^.{1,256}$/`? only under `/s` though…
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_

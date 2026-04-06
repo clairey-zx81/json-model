@@ -520,14 +520,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=^x-.* opts=n
-CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^x-.*', 'n');
-END;
-$$ LANGUAGE plpgsql;
-
 -- check $metas (.'$metas')
 CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -551,9 +543,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$metas'.'/^x-.*/'
+      -- .'$metas'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -771,9 +763,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$String'.'/^x-.*/'
+      -- .'$String'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -984,9 +976,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Array'.'/^x-.*/'
+      -- .'$Array'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -1235,9 +1227,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Object'.'/^x-.*/'
+      -- .'$Object'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -1428,9 +1420,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Integer'.'/^x-.*/'
+      -- .'$Integer'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -1621,9 +1613,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Number'.'/^x-.*/'
+      -- .'$Number'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -1796,9 +1788,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Bool'.'/^x-.*/'
+      -- .'$Bool'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -1971,9 +1963,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Null'.'/^x-.*/'
+      -- .'$Null'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -2146,9 +2138,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$AllOf'.'/^x-.*/'
+      -- .'$AllOf'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -2321,9 +2313,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$AnyOf'.'/^x-.*/'
+      -- .'$AnyOf'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -2496,9 +2488,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$OneOf'.'/^x-.*/'
+      -- .'$OneOf'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -2671,9 +2663,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Enum'.'/^x-.*/'
+      -- .'$Enum'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -2846,9 +2838,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Const'.'/^x-.*/'
+      -- .'$Const'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;
@@ -3021,9 +3013,9 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF _jm_re_0(prop, NULL, NULL) THEN
+    IF STARTS_WITH(prop, 'x-') THEN
       -- handle 1 re props
-      -- .'$Ref'.'/^x-.*/'
+      -- .'$Ref'.'/^x-/'
       res := TRUE;
     ELSE
       RETURN FALSE;

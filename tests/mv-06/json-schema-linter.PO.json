@@ -117,7 +117,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 9"
     },
     "String": {
@@ -172,7 +172,7 @@
           "_mime-type"
         ]
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 10"
     },
     "Array": {
@@ -204,7 +204,7 @@
       "?minItems": 0,
       "?maxItems": 0,
       "?uniqueItems": true,
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 11"
     },
     "Object": {
@@ -235,7 +235,7 @@
       "?patternProperties": {
         "$REGEX": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 12"
     },
     "Integer": {
@@ -258,7 +258,7 @@
       },
       "?minimum": -1.0,
       "?maximum": -1.0,
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 13"
     },
     "Number": {
@@ -281,7 +281,7 @@
       },
       "?minimum": -1.0,
       "?maximum": -1.0,
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 14"
     },
     "Bool": {
@@ -302,7 +302,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 15"
     },
     "Null": {
@@ -323,7 +323,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 16"
     },
     "AllOf": {
@@ -344,7 +344,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 17"
     },
     "AnyOf": {
@@ -365,7 +365,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 18"
     },
     "OneOf": {
@@ -386,7 +386,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 19"
     },
     "Enum": {
@@ -407,7 +407,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 20"
     },
     "Const": {
@@ -428,7 +428,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 21"
     },
     "Ref": {
@@ -449,7 +449,7 @@
       "?definitions": {
         "": "$Schema"
       },
-      "/^x-.*/": "$ANY",
+      "/^x-/": "$ANY",
       "#": "JsonModel 22"
     },
     "ObjectSchema": {
