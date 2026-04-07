@@ -889,3 +889,40 @@ def is_base_model(m: ModelType) -> type|None:
             return None
     else:
         raise ModelError(f"unexpected model type: {tname(m)}")
+
+def simple_object(
+            model: ModelType, jm, path: ModelPath, opened: bool = False
+        ) -> list[str]|None:
+    """Detect simple may/must/regs objects, return property names, regs and possibly wildcard."""
+    if jm._isRef(model):
+        model = jm.resolveRef(model, path)._model
+    if isinstance(model, dict) and len(set(model.keys()) & {"@", "+", "&", "|", "^"}) == 0:
+        props, is_open = [], False
+        for prop in model.keys():
+            assert isinstance(prop, str)
+            if prop in ("", "$STRING"):
+                is_open = model[""] == "$ANY"
+                # NOTE it could also be partially open…
+                if opened and not is_open:
+                    return None
+                if not opened:
+                    props.append("")
+            elif prop in ("$", "%", "~") or prop[0] == "#":  # skip
+                pass
+            elif prop[0] == "$":  # TODO follow definitions
+                return None
+            elif prop[0] == "/":
+                props.append(prop)
+            elif prop[0] in ("?", "_", "!"):
+                name = "_" + prop[1:]
+                if name in props:  # not safe?
+                    return None
+                props.append(name)
+            else:
+                name = "_" + prop
+                if name in props:  # not safe?
+                    return None
+                props.append(name)
+        return props if not opened or opened and is_open else None
+    else:
+        return None

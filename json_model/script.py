@@ -650,7 +650,7 @@ def jmc_script():
                              loose_int=args.loose_int, loose_float=args.loose_float,
                              check=args.check, merge=args.op != "N",
                              optimize=args.optimize, extend=args.extend, follow=False)
-    except BaseException as e:
+    except Exception as e:
         log.error(e)
         if args.debug:
             raise
