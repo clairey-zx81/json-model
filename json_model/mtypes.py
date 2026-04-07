@@ -51,9 +51,8 @@ type Block = list[str]
 type Conditionals = list[tuple[BoolExpr, TestHint, Block]]
 # del JsonModel
 
-class ModelError(BaseException):
+class ModelError(Exception):
     pass
-
 
 # remove if not needed!
 class UnknownModel:

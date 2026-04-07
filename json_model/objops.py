@@ -3,7 +3,7 @@
 #
 import copy
 
-from .mtypes import ModelType, ModelPath
+from .mtypes import ModelType, ModelPath, ModelObject
 from .utils import log, tname, merge_objects
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
@@ -172,3 +172,41 @@ def merge(jm: JsonModel):
 
     if jm._debug:
         assert analyze.check(jm, lambda m, _: not isinstance(m, dict) or "+" not in m)
+
+def intersect(jm: JsonModel, m1: ModelType, m2: ModelType, path: ModelPath) -> ModelType:
+    """Create a model/object intersection, if possible: &(m1, m2).
+
+    Raise an exception if this cannot be done.
+
+    It could always return &(m1, m2), but that is not the point.
+    """
+    # resolve reference, which leads to inlining if the merging proceeds
+    if isinstance(m1, str) and m1 and m1[0] == "$":
+        m1 = jm.resolveRef(m1)
+    if isinstance(m2, str) and m2 and m2[0] == "$":
+        m2 = jm.resolveRef(m2)
+    if m1 == m2:
+        return m1
+    if m1 == "$ANY":
+        return m2
+    elif m1 == "$NONE":
+        return m1
+    if m2 == "$ANY":
+        return m1
+    elif m2 == "$NONE":
+        return m2
+    # TODO incompatible types should return $NONE?
+    # TODO model inclusions?
+    if type(m1) is not type(m2):
+        raise ModelError("cannot intersect models: distinct base types")
+    # simple types
+    if isinstance(m1, list) and len(m1) == len(m2):
+        return [ intersect(jm, m1[i], m2[i], path + [ i ]) for i in range(len(m1)) ]
+    if not isinstance(m1, dict):
+        raise ModelError("cannot intersect models: not an object")
+    o1, o2 = simple_object(m1, jm, path), simple_object(m2, jm, path)
+    if o1 is None or o2 is None:
+        raise ModelError("cannot intersect models: not simple objects")
+    # actual property merge
+    
+    return None

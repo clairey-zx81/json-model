@@ -4,7 +4,7 @@
 import re
 from .mtypes import ModelPath, ModelType
 from .utils import log, is_cst, _structurally_distinct_models, model_type, is_base_model
-from .utils import constant_values, same_model, model_eq
+from .utils import constant_values, same_model, model_eq, simple_object
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .submodel import normalizeModel, is_submodel
@@ -85,41 +85,6 @@ def and_not_simpler(jm: JsonModel) -> bool:
     log.debug(f"{jm._id}: ans {changes}")
     return changes > 0
 
-def _simple_object(model: ModelType, jm: JsonModel, path: ModelPath, opened: bool) -> list[str]|None:
-    """Detect simple may/must/regs objects, return property names, regs and possibly wildcard."""
-    if jm._isRef(model):
-        model = jm.resolveRef(model, path)._model
-    if isinstance(model, dict) and len(set(model.keys()) & {"@", "+", "&", "|", "^"}) == 0:
-        props, is_open = [], False
-        for prop in model.keys():
-            assert isinstance(prop, str)
-            if prop in ("", "$STRING"):
-                is_open = model[""] == "$ANY"
-                # NOTE it could also be partially open…
-                if opened and not is_open:
-                    return None
-                if not opened:
-                    props.append("")
-            elif prop in ("$", "%", "~") or prop[0] == "#":  # skip
-                pass
-            elif prop[0] == "$":  # TODO follow definitions
-                return None
-            elif prop[0] == "/":
-                props.append(prop)
-            elif prop[0] in ("?", "_", "!"):
-                name = "_" + prop[1:]
-                if name in props:  # not safe?
-                    return None
-                props.append(name)
-            else:
-                name = "_" + prop
-                if name in props:  # not safe?
-                    return None
-                props.append(name)
-        return props if not opened or opened and is_open else None
-    else:
-        return None
-
 def _prefix_reg(reg: str) -> str|None:
     """Prefix of simple prefix regex."""
     # FIXME must handle ignore-case option
@@ -170,7 +135,7 @@ def and_to_merge(jm: JsonModel) -> bool:
         if isinstance(model, dict) and "&" in model:
             land = model["&"]
             assert isinstance(land, list)
-            lobj: list[list[str]|None] = list(map(lambda i: _simple_object(i, jm, path, True), land))
+            lobj: list[list[str]|None] = list(map(lambda i: simple_object(i, jm, path, True), land))
             # subset of mergeables
             n_merges = sum(map(lambda i: 1 if i is not None else 0, lobj))
             if n_merges <= 1:
@@ -231,7 +196,7 @@ def and_inc(jm: JsonModel) -> bool:
             land = model["&"]
             assert isinstance(land, list)
             lobj: list[list[str]|None] = \
-                list(map(lambda m: _simple_object(m, jm, path, False), land))
+                list(map(lambda m: simple_object(m, jm, path, False), land))
             considered: list[tuple[int, list[str]]] = [
                 (i, lp) for i, lp in enumerate(lobj) if lp is not None
             ]
