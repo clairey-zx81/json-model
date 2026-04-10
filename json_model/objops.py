@@ -275,7 +275,7 @@ def _is_prop(p: str) -> bool:
 # NOTE this is partially redundant with other operators
 def intersect(
             jm: JsonModel,
-            m1: ModelType, m2: ModelType,
+            in1: ModelType, in2: ModelType,
             path1: ModelPath, path2: ModelPath,
             strict: bool = True,
         ) -> ModelType:
@@ -285,19 +285,23 @@ def intersect(
 
     It could always return &(m1, m2), but that is not the point.
     """
-    log.debug(f"AC in: m1={m1} m2={m2}")
+    log.debug(f"AC in: in1={in1} in2={in2}")
     # resolve reference, which leads to inlining if property merging proceeds
-    if isinstance(m1, str) and m1 and m1[0] == "$" and m1 not in MODEL_PREDEFS:
-        m1 = jm.resolveRef(m1, path1)._model
-    if isinstance(m2, str) and m2 and m2[0] == "$" and m2 not in MODEL_PREDEFS:
-        m2 = jm.resolveRef(m2, path2)._model
-    # various shortcuts
+    if isinstance(in1, str) and in1 and in1[0] == "$" and in1 not in MODEL_PREDEFS:
+        m1 = jm.resolveRef(in1, path1)._model
+    else:
+        m1 = in1
+    if isinstance(in2, str) and in2 and in2[0] == "$" and in2 not in MODEL_PREDEFS:
+        m2 = jm.resolveRef(in2, path2)._model
+    else:
+        m2 = in2
+    # various shortcuts, without ref expansion
     if m1 == m2:
-        return m1
+        return in1
     if m1 in ("$NONE", "$ANY"):
-        return m2 if m1 == "$ANY" else m1
+        return in2 if m1 == "$ANY" else in1
     if m2 in ("$NONE", "$ANY"):
-        return m1 if m2 == "$ANY" else m2
+        return in1 if m2 == "$ANY" else in2
     # final type compatibility
     t1, t1t = model_type(m1, path1)
     t2, t2t = model_type(m2, path2)
@@ -309,12 +313,12 @@ def intersect(
         raise OperatorError("cannot intersect models: unknown final type")
     else:
         # FIXME extracts side stuff
-        return _and(m1, m2)
+        return _and(in1, in2)
     # same type, simplify on base models
     if is_base_model(m1):
-        return m2
+        return in2
     elif is_base_model(m2):
-        return m1
+        return in1
     # type strict inclusions
     # TODO loose ints/floats?
     if t1t is int:
@@ -337,9 +341,9 @@ def intersect(
         if c1 and c2:
             return m1 if c1v == c2v else "$NONE"
         elif c1 and is_base_model(m2):
-            return m1
+            return in1
         elif c2 and is_base_model(m1):
-            return m2
+            return in2
         # else cannot conclude simply on constants
         # TODO $NONE for &("=-42", 0)
         # TODO investigate further, eg constant is compatible or not with constraints…
@@ -355,7 +359,7 @@ def intersect(
     if not isinstance(m1, dict):
         if strict:
             raise OperatorError("cannot intersect models: not an object")
-        return _and(m1, m2)
+        return _and(in1, in2)
     # probably useless explicit close cleanup
     if m1.get("", "") == "$NONE":
         del m1[""]
