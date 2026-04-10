@@ -1,0 +1,34 @@
+{
+  "description": "faster regex",
+  "type": "object",
+  "properties": {
+    "dot": {
+      "type": "string",
+      "pattern": "."
+    },
+    "doti": {
+      "type": "string",
+      "pattern": "."
+    },
+    "dots": {
+      "type": "string",
+      "pattern": "(?s)."
+    },
+    "dot+": {
+      "type": "string",
+      "pattern": "^.+$"
+    },
+    "dot*": {
+      "type": "string",
+      "pattern": "^.*$"
+    },
+    "dot+s": {
+      "type": "string",
+      "pattern": "(?s)."
+    },
+    "dot*s": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
