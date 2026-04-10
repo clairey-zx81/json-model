@@ -14,7 +14,6 @@ use constant JMC_VERSION => '2';
 sub json_model_2($$$);
 sub json_model_3($$$);
 sub json_model_4($$$);
-sub _jm_obj_0($$$);
 sub json_model_5($$$);
 sub json_model_1($$$);
 my %check_model_map;
@@ -104,10 +103,11 @@ sub json_model_4($$$)
     return 1;
 }
 
-# object .'$nomerge'.'&'.1
-sub _jm_obj_0($$$)
+# check $nomerge (.'$nomerge')
+sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
+    # .'$nomerge'
     # check close must only props
     if (! jm_is_object($val))
     {
@@ -124,18 +124,8 @@ sub _jm_obj_0($$$)
         return 0;
     }
     $pval = $$val{'c'};
-    # .'$nomerge'.'&'.1.c
+    # .'$nomerge'.c
     return jm_is_integer($pval) && $pval >= 1;
-}
-
-# check $nomerge (.'$nomerge')
-sub json_model_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$nomerge'
-    # .'$nomerge'.'&'.0
-    # .'$nomerge'.'&'.1
-    return json_model_2($val, undef, undef) && _jm_obj_0($val, undef, undef);
 }
 
 # check $ (.)

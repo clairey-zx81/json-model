@@ -1,0 +1,9 @@
+{
+  "#": "and-combine open objects with mixed props and target models",
+  "&": [
+    { "a": "", "": "$ANY" },
+    { "?a": "$ANY", "": "$ANY" },
+    { "?b": "", "": "$ANY" },
+    { "b": "$ANY", "": "$ANY" }
+  ]
+}

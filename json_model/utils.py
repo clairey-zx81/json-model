@@ -302,7 +302,7 @@ def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, type|None]:
             elif model in STR_MODEL_PREDEFS:
                 return True, str
             elif model[0] == "$":
-                # how to access definitions?
+                # how to access definitions? recursion?? infinite recursion???
                 return False, None
             elif model[0] == "=":
                 # handle constants

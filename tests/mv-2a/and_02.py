@@ -27,83 +27,19 @@ _jm_re_1_reco: object
 _jm_re_1: RegexFun
 check_model_map: PropMap
 
-# object .'&'.2
+
+# object .'&'.1
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # value known to be an object
     res: bool
-    must_count: int = 0
     for prop, pval in val.items():
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop == "b":
-            # handle must b property
-            must_count += 1
-            # .'&'.2.b
-            res = isinstance(pval, bool)
-            if not res:
-                rep is None or rep.append(("not a bool [.'&'.2.b]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'&'.2.b]", lpath_0 if path is not None else None))
-                return False
-            continue
-        elif prop == "f":
-            # handle must f property
-            must_count += 1
-            # .'&'.2.f
-            res = isinstance(pval, float) and pval > 0.0
-            if not res:
-                rep is None or rep.append(("not a 1.0 strict float [.'&'.2.f]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'&'.2.f]", lpath_0 if path is not None else None))
-                return False
-            continue
-        elif prop == "s":
-            # handle must s property
-            must_count += 1
-            # .'&'.2.s
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected value for model \"\" [.'&'.2.s]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'&'.2.s]", lpath_0 if path is not None else None))
-                return False
-            continue
-        if prop == "u":
-            # handle may u property
-            # .'&'.2.u
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-            if not res:
-                rep is None or rep.append(("not a 1 strict int [.'&'.2.u]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.'&'.2.u]", lpath_0 if path is not None else None))
-                return False
-            continue
-        if prop.startswith("z"):
-            # handle 1 re props
-            # .'&'.2.'/^z/'
-            res = True
-        else:
-            # accept any other props
-            pass
-    if must_count != 3:
-        if rep is not None:
-            if not "b" in val:
-                rep is None or rep.append(("missing mandatory prop <b> [.'&'.2.'']", path))
-            if not "f" in val:
-                rep is None or rep.append(("missing mandatory prop <f> [.'&'.2.'']", path))
-            if not "s" in val:
-                rep is None or rep.append(("missing mandatory prop <s> [.'&'.2.'']", path))
-        return False
-    return True
-
-
-# object .'&'.1
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # value known to be an object
-    res: bool
-    for prop, pval in val.items():
-        lpath_1: Path = (path + [ prop ]) if path is not None else None
         if _jm_re_0(prop, path, rep):
             # handle 1 re props
             # .'&'.1.'/^d[0-9]/'
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
             if not res:
-                rep is None or rep.append(("not a 1 strict int [.'&'.1.'/^d[0-9]/']", lpath_1 if path is not None else None))
+                rep is None or rep.append(("not a 1 strict int [.'&'.1.'/^d[0-9]/']", lpath_0 if path is not None else None))
                 return False
         else:
             # accept any other props
@@ -112,21 +48,74 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'&'.0
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # value known to be an object
     res: bool
+    must_count: int = 0
     for prop, pval in val.items():
-        lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if _jm_re_1(prop, path, rep):
-            # handle 1 re props
+        lpath_1: Path = (path + [ prop ]) if path is not None else None
+        if prop == "b":
+            # handle must b property
+            must_count += 1
+            # .'&'.0.b
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [.'&'.0.b]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'&'.0.b]", lpath_1 if path is not None else None))
+                return False
+            continue
+        elif prop == "f":
+            # handle must f property
+            must_count += 1
+            # .'&'.0.f
+            res = isinstance(pval, float) and pval > 0.0
+            if not res:
+                rep is None or rep.append(("not a 1.0 strict float [.'&'.0.f]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'&'.0.f]", lpath_1 if path is not None else None))
+                return False
+            continue
+        elif prop == "s":
+            # handle must s property
+            must_count += 1
+            # .'&'.0.s
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"\" [.'&'.0.s]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'&'.0.s]", lpath_1 if path is not None else None))
+                return False
+            continue
+        if prop == "u":
+            # handle may u property
+            # .'&'.0.u
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+            if not res:
+                rep is None or rep.append(("not a 1 strict int [.'&'.0.u]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'&'.0.u]", lpath_1 if path is not None else None))
+                return False
+            continue
+        if prop.startswith("z"):
+            # handle 2 re props
+            # .'&'.0.'/^z/'
+            res = True
+        elif _jm_re_1(prop, path, rep):
+            # handle 2 re props
             # .'&'.0.'/^d[a-z]/'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", lpath_2 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", lpath_1 if path is not None else None))
                 return False
         else:
             # accept any other props
             pass
+    if must_count != 3:
+        if rep is not None:
+            if not "b" in val:
+                rep is None or rep.append(("missing mandatory prop <b> [.'&'.0.'']", path))
+            if not "f" in val:
+                rep is None or rep.append(("missing mandatory prop <f> [.'&'.0.'']", path))
+            if not "s" in val:
+                rep is None or rep.append(("missing mandatory prop <s> [.'&'.0.'']", path))
+        return False
     return True
 
 # check $ (.)
@@ -136,16 +125,11 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, dict)
     if res:
         # .'&'.0
-        res = _jm_obj_2(val, path, rep)
+        res = _jm_obj_1(val, path, rep)
         if res:
             # .'&'.1
-            res = _jm_obj_1(val, path, rep)
-            if res:
-                # .'&'.2
-                res = _jm_obj_0(val, path, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected element [.'&'.2]", path))
-            else:
+            res = _jm_obj_0(val, path, rep)
+            if not res:
                 rep is None or rep.append(("unexpected element [.'&'.1]", path))
         else:
             rep is None or rep.append(("unexpected element [.'&'.0]", path))

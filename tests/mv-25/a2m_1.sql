@@ -92,8 +92,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$nomerge'.'&'.1
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $nomerge (.'$nomerge')
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -101,6 +101,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- .'$nomerge'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
@@ -109,7 +110,7 @@ BEGIN
     IF prop = 'c' THEN
       -- handle must c property
       must_count := must_count + 1;
-      -- .'$nomerge'.'&'.1.c
+      -- .'$nomerge'.c
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
       IF NOT res THEN
         RETURN FALSE;
@@ -119,17 +120,6 @@ BEGIN
     RETURN FALSE;
   END LOOP;
   RETURN must_count = 1;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- check $nomerge (.'$nomerge')
-CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .'$nomerge'
-  -- .'$nomerge'.'&'.0
-  -- .'$nomerge'.'&'.1
-  RETURN json_model_2(val, NULL, NULL) AND _jm_obj_0(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 

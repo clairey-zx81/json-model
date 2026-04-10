@@ -13,81 +13,8 @@ use constant JMC_VERSION => '2';
 
 sub _jm_obj_0($$$);
 sub _jm_obj_1($$$);
-sub _jm_obj_2($$$);
 sub json_model_1($$$);
 my %check_model_map;
-
-# object .'&'.2
-sub _jm_obj_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # value known to be an object
-    my $res;
-    my $must_count = 0;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        if ($prop eq 'b')
-        {
-            # handle must b property
-            $must_count++;
-            # .'&'.2.b
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'f')
-        {
-            # handle must f property
-            $must_count++;
-            # .'&'.2.f
-            $res = jm_is_numeric($pval) && $pval > 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 's')
-        {
-            # handle must s property
-            $must_count++;
-            # .'&'.2.s
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        if ($prop eq 'u')
-        {
-            # handle may u property
-            # .'&'.2.u
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        if (jm_starts_with($prop, 'z'))
-        {
-            # handle 1 re props
-            # .'&'.2.'/^z/'
-            $res = 1;
-        }
-        else
-        {
-            # accept any other props
-            ;
-        }
-    }
-    return $must_count == 3;
-}
 
 sub _jm_re_0($$$)
 {
@@ -97,7 +24,7 @@ sub _jm_re_0($$$)
 }
 
 # object .'&'.1
-sub _jm_obj_1($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -132,17 +59,71 @@ sub _jm_re_1($$$)
 }
 
 # object .'&'.0
-sub _jm_obj_2($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
     my $res;
+    my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_1($prop, undef, undef))
+        if ($prop eq 'b')
         {
-            # handle 1 re props
+            # handle must b property
+            $must_count++;
+            # .'&'.0.b
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'f')
+        {
+            # handle must f property
+            $must_count++;
+            # .'&'.0.f
+            $res = jm_is_numeric($pval) && $pval > 0.0;
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 's')
+        {
+            # handle must s property
+            $must_count++;
+            # .'&'.0.s
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        if ($prop eq 'u')
+        {
+            # handle may u property
+            # .'&'.0.u
+            $res = jm_is_integer($pval) && $pval >= 1;
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        if (jm_starts_with($prop, 'z'))
+        {
+            # handle 2 re props
+            # .'&'.0.'/^z/'
+            $res = 1;
+        }
+        elsif (_jm_re_1($prop, undef, undef))
+        {
+            # handle 2 re props
             # .'&'.0.'/^d[a-z]/'
             $res = jm_is_string($pval);
             if (! $res)
@@ -156,7 +137,7 @@ sub _jm_obj_2($$$)
             ;
         }
     }
-    return 1;
+    return $must_count == 3;
 }
 
 # check $ (.)
@@ -167,8 +148,7 @@ sub json_model_1($$$)
     # .
     # .'&'.0
     # .'&'.1
-    # .'&'.2
-    return jm_is_object($val) && _jm_obj_2($val, undef, undef) && _jm_obj_1($val, undef, undef) && _jm_obj_0($val, undef, undef);
+    return jm_is_object($val) && _jm_obj_1($val, undef, undef) && _jm_obj_0($val, undef, undef);
 }
 
 

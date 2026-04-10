@@ -93,9 +93,10 @@ function json_model_4(val, path, rep)
     return true;
 }
 
-// object .'$nomerge'.'&'.1
-function _jm_obj_0(val, path, rep)
+// check $nomerge (.'$nomerge')
+function json_model_5(val, path, rep)
 {
+    // .'$nomerge'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -112,17 +113,8 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     pval = val["c"];
-    // .'$nomerge'.'&'.1.c
+    // .'$nomerge'.c
     return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-}
-
-// check $nomerge (.'$nomerge')
-function json_model_5(val, path, rep)
-{
-    // .'$nomerge'
-    // .'$nomerge'.'&'.0
-    // .'$nomerge'.'&'.1
-    return json_model_2(val, null, null) && _jm_obj_0(val, null, null);
 }
 
 // check $ (.)

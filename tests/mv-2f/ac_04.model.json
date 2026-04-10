@@ -1,0 +1,7 @@
+{
+  "#": "and-combine basic type",
+  "&": [
+    "=42",
+    -1
+  ]
+}

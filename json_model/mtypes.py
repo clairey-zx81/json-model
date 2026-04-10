@@ -54,6 +54,10 @@ type Conditionals = list[tuple[BoolExpr, TestHint, Block]]
 class ModelError(Exception):
     pass
 
+
+class OperatorError(Exception):
+    pass
+
 # remove if not needed!
 class UnknownModel:
     pass

@@ -1,0 +1,16 @@
+[
+  [ true,  [] ],
+  [ true,  [ "x and y" ] ],
+  [ true,  [ "xy", "yx" ] ],
+  [ true,  [ "extremity", "sexy", "axis story" ] ],
+  [ false, [ "x", "y", "not x and y together" ] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

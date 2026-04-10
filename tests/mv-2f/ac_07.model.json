@@ -1,0 +1,4 @@
+{
+  "#": "and-combine compatible close objects",
+  "&": [ {"a": 1, "?b": 1}, {"?a": 1, "?b": 0, "?c": 1} ]
+}

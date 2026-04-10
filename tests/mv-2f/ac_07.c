@@ -1,0 +1,90 @@
+
+// regular expression engine
+#include <stddef.h>
+#include <cre2.h>
+
+#include <json-model.h>
+#define JSON_MODEL_VERSION "2"
+
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[1];
+const size_t check_model_map_size = 1;
+
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    if (unlikely(! json_is_object(val)))
+        return false;
+    bool res;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        if (likely(jm_str_eq_2(prop, 0x00000061)))
+        {
+            must_count += 1;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            if (unlikely(! res))
+                return false;
+            continue;
+        }
+        if (likely(jm_str_eq_2(prop, 0x00000062)))
+        {
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            if (unlikely(! res))
+                return false;
+            continue;
+        }
+        return false;
+    }
+    return must_count == 1;
+}
+
+jm_check_fun_t check_model_map(const char *pname)
+{
+    return jm_search_propmap(pname, check_model_map_tab, 1);
+}
+
+static bool initialized = false;
+
+const char *check_model_init(void)
+{
+    if (!initialized)
+    {
+        initialized = true;
+        jm_version_string = JSON_MODEL_VERSION;
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        jm_sort_propmap(check_model_map_tab, 1);
+    }
+    return NULL;
+}
+
+void check_model_free(void)
+{
+    if (initialized)
+        initialized = false;
+
+        // cleanup code
+}
+
+/*
+ * # API
+ *
+ * ```c
+ * bool error;
+ * char *message;
+ *
+ * bool valid = check(json_value, "model-name", &error, &message);
+ *
+ * if (message)
+ *    free(message), message = NULL;
+ * ```
+ *
+ * - `error` is set of there was an error during initialization or if the model does not exists.
+ * - `message` is provided if a non NULL pointer is passed, and must be freed by the caller.
+ */
+bool
+check_model(const json_t *val, const char *name, bool *error, char **reasons)
+{
+    return jm_generic_entry(check_model_init, check_model_map, val, name, error, reasons);
+}
