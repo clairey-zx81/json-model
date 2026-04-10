@@ -269,7 +269,8 @@ def _and(m1: ModelType, m2: ModelType) -> ModelType:
 
 def _is_prop(p: str) -> bool:
     """Whether p is about properties, not a special key."""
-    return p == "" or p[0] in "?_!/" or p not in ("#", "$", "~", "@", "%") and p[0] not in "!<>="
+    return (p == "" or p[0] in "?_!/" or
+            p not in ("#", "$", "~", "@", "%", "&", "|", "+", "^") and p[0] not in "!<>=")
 
 # NOTE this is partially redundant with other operators
 def intersect(
