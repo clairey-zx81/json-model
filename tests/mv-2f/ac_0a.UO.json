@@ -1,0 +1,18 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "map": {
+        "/^[a-zA-Z]+$/": "$map",
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./ac_0a.model.json"
+    },
+    "@": "$map"
+  },
+  {
+    "/^[a-zA-Z]+$/": "$map",
+    "#": "JsonModel 2"
+  }
+]
