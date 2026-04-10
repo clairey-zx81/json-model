@@ -267,6 +267,10 @@ def _and(m1: ModelType, m2: ModelType) -> ModelType:
         land.append(m2)
     return { "&": land }
 
+def _is_prop(p: str) -> bool:
+    """Whether p is about properties, not a special key."""
+    return p == "" or p[0] in "?_!/" or p not in ("#", "$", "~", "@", "%") and p[0] not in "!<>="
+
 # NOTE this is partially redundant with other operators
 def intersect(
             jm: JsonModel,
@@ -356,9 +360,27 @@ def intersect(
         del m1[""]
     if m2.get("", "") == "$NONE":
         del m2[""]
+    m1_open, m2_open = "" in m1, "" in m2
     # for now, we can only handle open or close objects
-    if "" in m1 and m1[""] != "$ANY" or "" in m2 and m2[""] != "$ANY":
-        # TODO improve in some cases?
+    if m1_open and m1[""] != "$ANY" or m2_open and m2[""] != "$ANY":
+        # special case if no other props
+        m1_props, m2_props = list(filter(_is_prop, m1)), list(filter(_is_prop, m2))
+        if m1_open and m1[""] != "$ANY" and len(m1_props) == 1:
+            target, is_m1 = m1[""], True
+        elif m2_open and m2[""] != "$ANY" and len(m2_props) == 1:
+            target, is_m1 = m2[""], False
+        else:
+            target, is_m1 = None, None
+        if target is not None:
+            # apply restriction to all models
+            m = copy.deepcopy(m2 if is_m1 else m1)
+            props = m2_props if is_m1 else m1_props
+            path, path0 = path2 if is_m1 else path1, path1 if is_m1 else path2
+            for p in props:
+                m[p] = intersect(jm, target, m[p], path0 + [""], path + [p], False)
+            return m
+        # else we give up
+        # TODO handle more cases
         if strict:
             raise OperatorError("cannot intersect models: constrained default prop")
         return _and(m1, m2)
@@ -378,7 +400,6 @@ def intersect(
     # actual property merge
     inter = {}
     # open/close object?
-    m1_open, m2_open = "" in m1, "" in m2
     both_closed = not m1_open and not m2_open
     # {"a": 1, "?b": 1, "": "$ANY"} & {"?a": "$ANY", "c": 1, "?d": 1}
     # actual property combinations, that we know are **distinguishable**

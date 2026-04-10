@@ -1,0 +1,7 @@
+{
+  "#": "and-combine mixed open/regex",
+  "&": [
+    { "": ""},
+    { "/^.+$/": "$ANY" }
+  ]
+}
