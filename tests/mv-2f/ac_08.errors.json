@@ -1,0 +1,5 @@
+{
+  "#": "fun fact: . in regex covers \\r for js/java but not for pl/c/py/sql",
+  "js": [ 3 ],
+  "java": [ 3 ]
+}
