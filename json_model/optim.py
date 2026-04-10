@@ -2,7 +2,7 @@
 # Model Optimizations
 #
 import re
-from .mtypes import ModelPath, ModelType
+from .mtypes import ModelPath, ModelType, OperatorError
 from .utils import log, is_cst, _structurally_distinct_models, model_type, is_base_model
 from .utils import constant_values, same_model, model_eq, simple_object
 from .recurse import recModel, allFlt, builtFlt, noRwt
@@ -10,6 +10,7 @@ from .model import JsonModel
 from .submodel import normalizeModel, is_submodel
 from .analyze import ultimate_type
 from .runtime import ConstSet
+from .objops import intersect
 
 def minl(model: ModelType, models: list[ModelType]) -> bool:
     return any(map(lambda m: model_eq(m, model), models))
@@ -85,182 +86,44 @@ def and_not_simpler(jm: JsonModel) -> bool:
     log.debug(f"{jm._id}: ans {changes}")
     return changes > 0
 
-def _prefix_reg(reg: str) -> str|None:
-    """Prefix of simple prefix regex."""
-    # FIXME must handle ignore-case option
-    m = re.match(r"/\^([-_A-Za-z0-9~#^$.*+&/?]+)", reg)
-    return m.group(1) if m else None
 
-def _bad_regs(lobj: list[list[str]|None]) -> set[str]:
-    """Identify regs which cannot be merged, based on prefix compatibilities."""
-    # NOTE we could check only with regs with props from **other** objects
-    all_props, all_regs, bad_regs = set(), set(), set()
-    for lp in lobj:
-        if lp is not None:
-            assert isinstance(lp, list)
-            all_props.update(filter(lambda s: s[0] == "_", lp))
-            all_regs.update(filter(lambda s: s[0] == "/", lp))
-    # drop leading "_"
-    all_props = { s[1:] for s in all_props }
-    prefixes = {}
-    for r in all_regs:
-        # regex incompatibilities between themselves
-        prefix = _prefix_reg(r)
-        if prefix is None:
-            bad_regs.add(r)
-            continue
-        # check for prefix inclusions, including ==
-        for p, pr in prefixes.items():
-            if prefix.startswith(p) or p.startswith(prefix):
-                bad_regs.add(r)
-                bad_regs.add(pr)
-        prefixes[prefix] = r
-        # rough regex incompatibilities with properties
-        for p in all_props:
-            if p.startswith(prefix):
-                bad_regs.add(r)
-    # log.debug(f"bad_regs={bad_regs}")
-    return bad_regs
-
-def and_to_merge(jm: JsonModel) -> bool:
-    """Change and to less costly merge if possible.
-
-    NOTE this is restricted to open objects
-    """
+def and_combine(jm: JsonModel) -> bool:
+    """remove &() items by intersecting models directly, if possible."""
 
     changes = 0
 
-    def a2mRwt(model: ModelType, path: ModelPath) -> ModelType:
+    def acRwt(model: ModelType, path: ModelPath) -> ModelType:
         nonlocal changes
         if isinstance(model, dict) and "&" in model:
             land = model["&"]
             assert isinstance(land, list)
-            lobj: list[list[str]|None] = list(map(lambda i: simple_object(i, jm, path, True), land))
-            # subset of mergeables
-            n_merges = sum(map(lambda i: 1 if i is not None else 0, lobj))
-            if n_merges <= 1:
-                return  model
-            # else something to try
-            # FIXME for now partial merges may fail
-            sprops, nprops, sregs, nregs, move = set(), 0, set(), 0, []
-            # regular expressions to skip
-            bad_regs = _bad_regs(lobj)
-            for i, lp in enumerate(lobj):
-                if lp is not None:
-                    props = list(filter(lambda s: s[0] == "_", lp))
-                    regs = list(filter(lambda s: s[0] == "/", lp))
-                    # skip objects with a bad regular expression for merging
-                    if any(filter(lambda r: r in bad_regs, regs)):
-                        # skip object
-                        continue
-                    # else let us accumulate
-                    nprops += len(props)
-                    sprops.update(props)
-                    nregs += len(regs)
-                    sregs.update(regs)
-                    move.append(i)
-            # log.debug(f"move={move} sprops={sprops} sregs={sregs}")
-            # no property intersection, change is safe
-            if len(move) > 1 and nprops == len(sprops) and nregs == len(sregs):
-                # FIXME the generated merge may fail, which may denote an unfeasible model?
-                changes += 1
-                merge = [ land[i] for i in move ]
-                for i in reversed(move):
-                    land.pop(i)
-                if len(land) == 0:
-                    del model["&"]
-                    model["+"] = merge
-                else:
-                    land.append({"+": merge})
-            # else property collision, probably not safe
-        return model
-
-    jm._model = recModel(jm._model, builtFlt, a2mRwt)
-
-    log.debug(f"{jm._id}: a2m {changes}")
-    return changes > 0
-
-
-def and_inc(jm: JsonModel) -> bool:
-    """Remove objets on and with inclusions, in safe cases."""
-
-    # TODO normalize "!x" to "_x"?
-    # FIXME what is safe?
-    # ?x vs _x?? references?
-
-    changes = 0
-
-    def aiRwt(model: ModelType, path: ModelPath) -> ModelType:
-        nonlocal changes
-        if isinstance(model, dict) and "&" in model:
-            land = model["&"]
-            assert isinstance(land, list)
-            lobj: list[list[str]|None] = \
-                list(map(lambda m: simple_object(m, jm, path, False), land))
-            considered: list[tuple[int, list[str]]] = [
-                (i, lp) for i, lp in enumerate(lobj) if lp is not None
-            ]
-            if len(considered) <= 1:
+            if len(land) <= 1:
                 return model
-            delete = []
-            # TODO extend!
-            # for now special case: same props bar wildcard
-            for i1, lp1 in considered:
-                m1 = land[i1]
-                # skip reference on m1 side, because we do not want to change it
-                if isinstance(m1, str):
-                    continue
-                for i2, lp2 in considered:
-                    if i1 == i2 or i1 in delete or i2 in delete:
-                        continue
-                    if (set(lp1) - {""}) != (set(lp2) - {""}):
-                        continue
-                    m2 = land[i2]
-                    # accept m2 as a reference, which may be simply removed from the list on merge
-                    if isinstance(m2, str) and m2.startswith("$"):
-                        m2 = jm.resolveRef(m2, path + ["&", i2])._model
-                    assert isinstance(m2, dict)
-                    # special case merge of 2 into 1
-                    # log.warning(f"AI models {m1} & {m2}")
-                    changes += 1
-                    delete.append(i2)
-                    # wildcard kept only if on both sides
-                    if "" in lp1 and "" not in lp2 or "" not in lp1 and "" in lp2:
-                        if "" in lp1:
-                            del m1[""]
-                            lp1.remove("")
-                    for p in lp1:
-                        # find the actual property names
-                        if p and p[0] == "_":
-                            pn = p[1:]
-                            for n in (pn, "!" + pn, "?" + pn, p):
-                                if n in m1:
-                                    p1 = n
-                                    p1opt = n == ("?" + pn)
-                                if n in m2:
-                                    p2 = n
-                                    p2opt = n == ("?" + pn)
-                            # possibly promote to mandatory
-                            p1n = ("?" + pn) if p1opt and p2opt else p
-                        else:  # regex or wildcard
-                            p1, p1n, p2 = p, p, p
-                        pm1, pm2 = m1[p1], m2[p2]
-                        # redundant with partial eval ?
-                        if pm1 == "$ANY":
-                            m1[p1n] = pm2
-                        elif pm2 == "$ANY":
-                            m1[p1n] = pm1
-                        else:
-                            m1[p1n] = {"&": [pm1, pm2]}
-                        if p1n != p1:
-                            del m1[p1]
+            delete = set()
+            i = 0
+            while i < len(land) - 1:
+                j = i + 1
+                while j < len(land):
+                    if i not in delete and j not in delete:
+                        try:
+                            land[i] = intersect(jm, land[i], land[j], path + [i], path + [j])
+                            delete.add(j)
+                        except OperatorError as e:
+                            log.debug(f"intersect error: {e}")
+                            pass
+                    j += 1
+                i += 1
+            changes += len(delete)
+            log.debug(f"AC deleting: {delete}")
             for i in reversed(sorted(delete)):
                 land.pop(i)
+            if len(land) == 1:
+                return land[0]
         return model
 
-    jm._model = recModel(jm._model, builtFlt, aiRwt)
+    jm._model = recModel(jm._model, builtFlt, acRwt)
 
-    log.debug(f"{jm._id}: ai {changes}")
+    log.debug(f"{jm._id}: ac {changes}")
     return changes > 0
 
 
@@ -914,6 +777,10 @@ def simplify(jm: JsonModel):
     return changes > 0
 
 _SIMPLER_RE: dict[str, str] = {
+    # empty string
+    "/^$/": "_",
+    "/^$/i": "_",
+    "/^$/s": "_",
     # non empty (\n?) strings
     "/.+/": "/./",
     "/^.+/": "/^./",
@@ -998,8 +865,9 @@ def optimize(jm: JsonModel, *, debug: bool = False):
         changed |= partial_eval(jm)
         changed |= flatten(jm)
         changed |= and_not_simpler(jm)
-        changed |= and_to_merge(jm)
-        changed |= and_inc(jm)
+        # changed |= and_to_merge(jm)
+        # changed |= and_inc(jm)
+        changed |= and_combine(jm)
         changed |= xor_to_or(jm)
         changed |= notor_to_not(jm)
 

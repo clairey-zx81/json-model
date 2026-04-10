@@ -37,24 +37,17 @@
       "additionalProperties": true
     },
     "nomerge": {
-      "allOf": [
-        {
-          "$ref": "#/$defs/Oa"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "c": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "c"
-          ],
-          "additionalProperties": false
+      "type": "object",
+      "properties": {
+        "c": {
+          "type": "integer",
+          "minimum": 1
         }
-      ]
+      },
+      "required": [
+        "c"
+      ],
+      "additionalProperties": false
     }
   },
   "anyOf": [

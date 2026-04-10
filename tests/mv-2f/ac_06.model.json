@@ -1,0 +1,4 @@
+{
+  "#": "and-combine impossible combination",
+  "&": [ {"a": 1}, {"?b": 1} ]
+}

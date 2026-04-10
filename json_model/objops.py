@@ -3,8 +3,9 @@
 #
 import copy
 
-from .mtypes import ModelType, ModelPath, ModelObject
-from .utils import log, tname, merge_objects
+from .mtypes import ModelType, ModelPath, ModelObject, OperatorError
+from .predefs import MODEL_PREDEFS
+from .utils import log, tname, merge_objects, model_type, constant_value, simple_object, is_base_model
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from . import analyze
@@ -173,40 +174,268 @@ def merge(jm: JsonModel):
     if jm._debug:
         assert analyze.check(jm, lambda m, _: not isinstance(m, dict) or "+" not in m)
 
-def intersect(jm: JsonModel, m1: ModelType, m2: ModelType, path: ModelPath) -> ModelType:
+def _get_prop_spec(prop: str, model: ModelObject) -> str|None:
+    """Return actual property specification in object model."""
+    assert not prop or prop[0] == "_", f"property name: {prop}"
+    name = prop[1:]
+    for p in (prop, "?" + name, "!" + name, name):
+        if p in model:
+            return p
+    raise OperatorError(f"cannot find property {prop}")
+
+def _regex_prefix(regex: str) -> str:
+    """Extract a regular expression string prefix from regex.
+
+    This objective is to be able to prove that regex match distinct strings.
+    """
+    assert regex and regex[0] == "/", f"is a regex: {regex}"
+    prefix, regex = "", regex.rsplit("/", 1)[0]
+    if regex.startswith("/^"):
+        i = 2
+        while i < len(regex):
+            if regex[i] == "\\":
+                i += 1
+                prefix += regex[i]
+            elif regex[i] not in "^$([*+?.{":
+                prefix += regex[i]
+            else:
+                break
+            i += 1
+    return prefix
+
+def _prefixes_and_strings(props: list[str]) -> tuple[list[str], list[str], list[str]]:
+    """Separate regex prefixes and property names for further comparisons."""
+    prefixes, regexes, names = [], [], []
+    for prop in props:
+        if prop == "":
+            pass
+        elif prop[0] == "_":
+            names.append(prop[1:])
+        elif prop[0] == "/":
+            prefixes.append(_regex_prefix(prop))
+            regexes.append(prop)
+        else:
+            raise ModelError(f"unexpected property name: {prop}")
+    return prefixes, regexes, names
+
+def _prefix_of(p: str, ls: list[str]) -> bool:
+    """Whether prefix p appears in ls."""
+    return any(s.startswith(p) for s in ls)
+
+def _prefix_in(lp: list[str]) -> bool:
+    """Whether prefixes overlap."""
+    # log.debug(f"_prefix_in: {lp}")
+    for i, p in enumerate(lp):
+        for j, q in enumerate(lp):
+            if i != j:
+                if p.startswith(q) or q.startswith(p):
+                    return True
+    return False
+
+def _intersectable(lp1: list[str], lp2: list[str]) -> bool:
+    """Whether properties can be intersected, i.e. no cross interactions."""
+    p1, r1, n1 = _prefixes_and_strings(lp1)
+    p2, r2, n2 = _prefixes_and_strings(lp2)
+    if not p1 and not p2:
+        return True
+    log.debug(f"intersectable: p1={p1} n1={n1}")
+    log.debug(f"intersectable: p2={p2} n2={n2}")
+    # interactions with names
+    # TODO use the regex instead of the prefix?
+    if any(_prefix_of(p, n2) for p in p1) or any(_prefix_of(p, n1) for p in p2):
+        return False
+    # interactions between prefixes for distinct regex
+    # TODO regex normalization?
+    if (any(r1[i] not in r2 and _prefix_of(p, p2) for i, p in enumerate(p1)) or
+        any(r2[i] not in r1 and _prefix_of(p, p1) for i, p in enumerate(p2))):
+        return False
+    # interactions within prefixes
+    if _prefix_in(p1) or _prefix_in(p2):
+        return False
+    # no interaction found!
+    return True
+
+def _and(m1: ModelType, m2: ModelType) -> ModelType:
+    land = []
+    if isinstance(m1, dict) and "&" in m1:
+        land += m1["@"]
+    else:
+        land.append(m1)
+    if isinstance(m2, dict) and "&" in m2:
+        land += m2["@"]
+    else:
+        land.append(m2)
+    return { "&": land }
+
+# NOTE this is partially redundant with other operators
+def intersect(
+            jm: JsonModel,
+            m1: ModelType, m2: ModelType,
+            path1: ModelPath, path2: ModelPath,
+            strict: bool = True,
+        ) -> ModelType:
     """Create a model/object intersection, if possible: &(m1, m2).
 
     Raise an exception if this cannot be done.
 
     It could always return &(m1, m2), but that is not the point.
     """
-    # resolve reference, which leads to inlining if the merging proceeds
-    if isinstance(m1, str) and m1 and m1[0] == "$":
-        m1 = jm.resolveRef(m1)
-    if isinstance(m2, str) and m2 and m2[0] == "$":
-        m2 = jm.resolveRef(m2)
+    log.debug(f"AC in: m1={m1} m2={m2}")
+    # resolve reference, which leads to inlining if property merging proceeds
+    if isinstance(m1, str) and m1 and m1[0] == "$" and m1 not in MODEL_PREDEFS:
+        m1 = jm.resolveRef(m1, path1)._model
+    if isinstance(m2, str) and m2 and m2[0] == "$" and m2 not in MODEL_PREDEFS:
+        m2 = jm.resolveRef(m2, path2)._model
+    # various shortcuts
     if m1 == m2:
         return m1
-    if m1 == "$ANY":
+    if m1 in ("$NONE", "$ANY"):
+        return m2 if m1 == "$ANY" else m1
+    if m2 in ("$NONE", "$ANY"):
+        return m1 if m2 == "$ANY" else m2
+    # final type compatibility
+    t1, t1t = model_type(m1, path1)
+    t2, t2t = model_type(m2, path2)
+    if t1 and t2:
+        if t1t is not t2t:
+            return "$NONE"
+        # else same final type
+    elif strict:
+        raise OperatorError("cannot intersect models: unknown final type")
+    else:
+        # FIXME extracts side stuff
+        return _and(m1, m2)
+    # same type, simplify on base models
+    if is_base_model(m1):
         return m2
-    elif m1 == "$NONE":
+    elif is_base_model(m2):
         return m1
-    if m2 == "$ANY":
-        return m1
-    elif m2 == "$NONE":
-        return m2
-    # TODO incompatible types should return $NONE?
-    # TODO model inclusions?
+    # type strict inclusions
+    # TODO loose ints/floats?
+    if t1t is int:
+        mm, mM = min(m1, m2), max(m1, m2)
+        if mm == -1 and mM in (0, 1):
+            return mM
+        elif mm == 0 and mM == 1:
+            return 1
+    if t1t is float:
+        mm, mM = min(m1, m2), max(m1, m2)
+        if mm == -1.0 and mM in (0.0, 1.0):
+            return mM
+        elif mm == 0.0 and mM == 1.0:
+            return 1.0
+    # TODO str? others?
+    # constants compatibility
+    if t1t in (None, int, bool, float, str):
+        c1, c1v = constant_value(m1, path1)
+        c2, c2v = constant_value(m2, path2)
+        if c1 and c2:
+            return m1 if c1v == c2v else "$NONE"
+        elif c1 and is_base_model(m2):
+            return m1
+        elif c2 and is_base_model(m1):
+            return m2
+        # else cannot conclude simply on constants
+        # TODO $NONE for &("=-42", 0)
+        # TODO investigate further, eg constant is compatible or not with constraints…
     if type(m1) is not type(m2):
-        raise ModelError("cannot intersect models: distinct base types")
-    # simple types
+        raise OperatorError("cannot intersect models: distinct base types")
+    # recurse on list or tuple
     if isinstance(m1, list) and len(m1) == len(m2):
-        return [ intersect(jm, m1[i], m2[i], path + [ i ]) for i in range(len(m1)) ]
+        return [
+            intersect(jm, m1[i], m2[i], path1 + [ i ], path2 + [i], strict)
+                for i in range(len(m1))
+        ]
+    # object
     if not isinstance(m1, dict):
-        raise ModelError("cannot intersect models: not an object")
-    o1, o2 = simple_object(m1, jm, path), simple_object(m2, jm, path)
+        if strict:
+            raise OperatorError("cannot intersect models: not an object")
+        return _and(m1, m2)
+    # probably useless explicit close cleanup
+    if m1.get("", "") == "$NONE":
+        del m1[""]
+    if m2.get("", "") == "$NONE":
+        del m2[""]
+    # for now, we can only handle open or close objects
+    if "" in m1 and m1[""] != "$ANY" or "" in m2 and m2[""] != "$ANY":
+        # TODO improve in some cases?
+        if strict:
+            raise OperatorError("cannot intersect models: constrained default prop")
+        return _and(m1, m2)
+    # get properties
+    o1, o2 = simple_object(m1, jm, path1), simple_object(m2, jm, path2)
     if o1 is None or o2 is None:
-        raise ModelError("cannot intersect models: not simple objects")
+        if strict:
+            raise OperatorError("cannot intersect models: not simple objects")
+        return _and(m1, m2)
+    if not _intersectable(o1, o2):
+        if strict:
+            raise OperatorError("cannot intersect models: regex props")
+        return _and(m1, m2)
+    # has regex prop
+    r1 = any(s.startswith("/") for s in o1)
+    r2 = any(s.startswith("/") for s in o2)
     # actual property merge
-    
-    return None
+    inter = {}
+    # open/close object?
+    m1_open, m2_open = "" in m1, "" in m2
+    both_closed = not m1_open and not m2_open
+    # {"a": 1, "?b": 1, "": "$ANY"} & {"?a": "$ANY", "c": 1, "?d": 1}
+    # actual property combinations, that we know are **distinguishable**
+    for p1 in o1:
+        if p1 == "":
+            continue
+        if p1[0] == "/":
+            if p1 in m2:  # same regex on both sides
+                inter[p1] = intersect(jm, m1[p1], m2[p1], path1 + [p1], path2 + [p1], False)
+            elif both_closed or m1_open and not m2_open:
+                pass
+            else:  # both open
+                inter[p1] = m1[p1]
+            continue
+        # else process a name
+        rp1 = _get_prop_spec(p1, m1)
+        if p1 in o2:
+            # name appears on both side
+            rp2 = _get_prop_spec(p1, m2)
+            if rp1[0] == "?" and rp2[0] == "?":  # keep optional
+                inter[rp1] = intersect(jm, m1[rp1], m2[rp2], path1 + [rp1], path2 + [rp2], False)
+            else:  # all mandatory
+                inter[p1] = intersect(jm, m1[rp1], m2[rp2], path1 + [rp1], path2 + [rp2], False)
+        else:
+            if rp1[0] == "?":  # optional
+                if m2_open:
+                    inter[rp1] = m1[rp1]
+                # else drop
+            else:  # mandatory
+                if m2_open:
+                    inter[rp1] = m1[rp1]
+                else:  # mandatory prop cannot fit in m2
+                    return "$NONE"
+    for p2 in o2:
+        if p2 == "":
+            continue
+        if p2[0] == "/":
+            if both_closed or m2_open and not m1_open:
+                pass
+            else:  # m1 is open
+                inter[p2] = m2[p2]
+            continue
+        rp2 = _get_prop_spec(p2, m2)
+        if p2 in o1:
+            # already processed in previous book
+            pass
+        else:
+            if rp2[0] == "?":  # optional
+                if m1_open:
+                    inter[rp2] = m2[rp2]
+                # else drop
+            else:  # mandatory
+                if m1_open:
+                    inter[rp2] = m2[rp2]
+                else:  # mandatory prop cannot fit in m1
+                    return "$NONE"
+    # add default in the end
+    if m1_open and m2_open:
+        inter[""] = "$ANY"
+    return inter

@@ -73,8 +73,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# object .'$nomerge'.'&'.1
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+# check $nomerge (.'$nomerge')
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+    # .'$nomerge'
     # check close must only props
     if not isinstance(val, dict):
         return False
@@ -84,15 +85,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     if not ((pval := val.get("c", UNDEFINED)) != UNDEFINED):
         return False
-    # .'$nomerge'.'&'.1.c
+    # .'$nomerge'.c
     return isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-
-# check $nomerge (.'$nomerge')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$nomerge'
-    # .'$nomerge'.'&'.0
-    # .'$nomerge'.'&'.1
-    return json_model_2(val, None, None) and _jm_obj_0(val, None, None)
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:

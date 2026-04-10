@@ -97,9 +97,10 @@ public class a2m_1 extends ModelChecker
         return true;
     }
 
-    // object .'$nomerge'.'&'.1
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
+    // check $nomerge (.'$nomerge')
+    public boolean json_model_5(Object val, Path path, Report rep)
     {
+        // .'$nomerge'
         // check close must only props
         if (! json.isObject(val))
         {
@@ -115,17 +116,8 @@ public class a2m_1 extends ModelChecker
         {
             return false;
         }
-        // .'$nomerge'.'&'.1.c
+        // .'$nomerge'.c
         return json.isInteger(pval) && json.asLong(pval) >= 1;
-    }
-
-    // check $nomerge (.'$nomerge')
-    public boolean json_model_5(Object val, Path path, Report rep)
-    {
-        // .'$nomerge'
-        // .'$nomerge'.'&'.0
-        // .'$nomerge'.'&'.1
-        return json_model_2(val, null, null) && _jm_obj_0(val, null, null);
     }
 
     // check $ (.)

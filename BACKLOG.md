@@ -41,8 +41,7 @@
 - [x] c-backend: extend simple regex with constant prefix
 - [x] c-backend: extend simple regex without end-of-text (`$`)
 - [x] optim: apply simpler re to property names
-- [ ] optim: _&( [ open X ], [ open Y ] )_ where _X_ and _Y_ with distinct props constrained
-- [ ] optim: _&( [ open X ], [ close Y ] )_ where _X_ and _Y_ more or less mergeable, refs or not
+- [x] optim: improve model intersection to simplify `&` in more cases
 - [ ] c-backend: extend simple regex to sequences of prefix/chars/repeats
 - [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
 - [ ] c-backend: fast ic str comparison by switching to _lower char_ with a lookup?

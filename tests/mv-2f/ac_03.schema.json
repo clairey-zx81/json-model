@@ -1,0 +1,19 @@
+{
+  "description": "and-combine on array of strings",
+  "allOf": [
+    {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "x"
+      }
+    },
+    {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "y"
+      }
+    }
+  ]
+}

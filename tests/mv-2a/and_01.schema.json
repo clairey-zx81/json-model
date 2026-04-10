@@ -4,15 +4,15 @@
     {
       "type": "object",
       "properties": {
+        "ss": {
+          "type": "string"
+        },
         "i": {
           "type": "integer",
           "minimum": 1
         },
         "b": {
           "type": "boolean"
-        },
-        "ss": {
-          "type": "string"
         }
       },
       "required": [

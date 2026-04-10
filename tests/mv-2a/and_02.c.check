@@ -4,14 +4,14 @@ and_02.values.json[2]: PASS
 and_02.values.json[3]: PASS
 and_02.values.json[4]: PASS
 and_02.values.json[5]: PASS
-and_02.values.json[6]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.2]; .: missing mandatory prop <b> [.'&'.2.''])
-and_02.values.json[7]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.2]; .: missing mandatory prop <f> [.'&'.2.''])
-and_02.values.json[8]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.2]; .: missing mandatory prop <s> [.'&'.2.''])
-and_02.values.json[9]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.2]; .: missing mandatory prop <s> [.'&'.2.'']; .: missing mandatory prop <f> [.'&'.2.'']; .: missing mandatory prop <b> [.'&'.2.''])
-and_02.values.json[10]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.2]; .u: invalid optional prop value [.'&'.2.u]; .u: not a 1 strict int [.'&'.2.u])
-and_02.values.json[11]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.2]; .b: invalid mandatory prop value [.'&'.2.b]; .b: not a bool [.'&'.2.b])
-and_02.values.json[12]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.2]; .f: invalid mandatory prop value [.'&'.2.f]; .f: not a 1.0 strict float [.'&'.2.f])
-and_02.values.json[13]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.2]; .s: invalid mandatory prop value [.'&'.2.s]; .s: unexpected value for model "" [.'&'.2.s])
+and_02.values.json[6]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .: missing mandatory prop <b> [.'&'.0.''])
+and_02.values.json[7]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .: missing mandatory prop <f> [.'&'.0.''])
+and_02.values.json[8]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .: missing mandatory prop <s> [.'&'.0.''])
+and_02.values.json[9]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .: missing mandatory prop <s> [.'&'.0.'']; .: missing mandatory prop <f> [.'&'.0.'']; .: missing mandatory prop <b> [.'&'.0.''])
+and_02.values.json[10]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .u: invalid optional prop value [.'&'.0.u]; .u: not a 1 strict int [.'&'.0.u])
+and_02.values.json[11]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .b: invalid mandatory prop value [.'&'.0.b]; .b: not a bool [.'&'.0.b])
+and_02.values.json[12]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .f: invalid mandatory prop value [.'&'.0.f]; .f: not a 1.0 strict float [.'&'.0.f])
+and_02.values.json[13]: FAIL (.: not all model match [.'&']; .: unexpected element [.'&'.0]; .s: invalid mandatory prop value [.'&'.0.s]; .s: unexpected value for model "" [.'&'.0.s])
 and_02.values.json[14]: FAIL (.: not all model match [.'&'])
 and_02.values.json[15]: FAIL (.: not all model match [.'&'])
 and_02.values.json[16]: FAIL (.: not all model match [.'&'])

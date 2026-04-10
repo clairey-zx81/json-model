@@ -1,0 +1,13 @@
+{
+  "#": "and-combine with mixed open/close objects",
+  "&": [
+    "# this closes the object",
+    {"?a": "$ANY", "?b": "$ANY"},
+    "# separate property specs",
+    {"a": "", "": "$ANY"},
+    {"?b": "", "": "$ANY"},
+    "# useless open objects",
+    {"": "$ANY"},
+    {"$STRING": "$ANY"}
+  ]
+}

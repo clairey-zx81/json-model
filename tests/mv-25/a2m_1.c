@@ -13,7 +13,6 @@
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
@@ -93,9 +92,10 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$nomerge'.'&'.1
-static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $nomerge (.'$nomerge')
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // .'$nomerge'
     if (unlikely(! json_is_object(val)))
         return false;
     bool res;
@@ -108,7 +108,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         {
             // handle must c property
             must_count += 1;
-            // .'$nomerge'.'&'.1.c
+            // .'$nomerge'.c
             res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
@@ -117,15 +117,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
         return false;
     }
     return must_count == 1;
-}
-
-// check $nomerge (.'$nomerge')
-static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    // .'$nomerge'
-    // .'$nomerge'.'&'.0
-    // .'$nomerge'.'&'.1
-    return json_model_2(val, NULL, NULL) && _jm_obj_0(val, NULL, NULL);
 }
 
 // check $ (.)

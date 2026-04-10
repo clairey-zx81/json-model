@@ -1,0 +1,10 @@
+{
+  "#": "and-combine on array of strings",
+  "&": [
+    [ "" ],
+    [ "$ANY" ],
+    [ "/x/" ],
+    [ "$STRING" ],
+    [ "/y/" ]
+  ]
+}

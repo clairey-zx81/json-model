@@ -1,0 +1,8 @@
+{
+  "#": "and-combine open objects with mandatory props",
+  "&": [
+    { "a": "", "": "$ANY" },
+    { "b": "", "": "$ANY" },
+    { "c": "", "": "$ANY" }
+  ]
+}
