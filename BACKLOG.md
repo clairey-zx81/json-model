@@ -44,10 +44,10 @@
 - [x] optim: improve model intersection to simplify `&` in more cases
 - [x] optim: improve intersect on single open constraint object case
 - [x] optim: avoid reference expansion in and combine optimization
+- [x] c-backend: optimize special regex `/./` `/./s` `/^.*$/` `/^.+$/`
 - [ ] c-backend: extend simple regex to sequences of prefix/chars/repeats
 - [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
 - [ ] c-backend: fast ic str comparison by switching to _lower char_ with a lookup?
-- [ ] c-backend: optimize `/./`? `/^.+$/` `/^[A-Za-z][A-Za-z0-9_\\-:]*$/` `/default|^[0-9]+/`?
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim or c-backend: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`

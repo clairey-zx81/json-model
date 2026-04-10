@@ -60,6 +60,13 @@ static INLINE bool jm_lowhexa(const char c) { return isdigit(c) || (c >= 'a' && 
 static INLINE bool jm_uphexa(const char c) { return isdigit(c) || (c >= 'A' && c <= 'F'); }
 #define jm_isspace(c) ((c) == ' ')
 
+// common regex accelerations
+extern bool jm_re_dot(const char *);
+#define jm_re_dots(s) (*(s) != '\0')
+extern bool jm_re_anchored_dotplus(const char *);
+extern bool jm_re_anchored_dotstar(const char *);
+// /^.*$/s == any string
+
 // set on init
 extern char * jm_version_string;
 

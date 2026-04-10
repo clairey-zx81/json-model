@@ -363,6 +363,14 @@ def _compile_simple_re(
         r"}",
     ]
 
+# precompiled simple regex
+_COMPILED_RE: dict[tuple[str, str], str] = {
+    (".", ""): "jm_re_dot",
+    (".", "s"): "jm_re_dots",
+    ("^.+$", ""): "jm_re_anchored_dotplus",
+    ("^.*$", ""): "jm_re_anchored_dotstar",
+}
+
 
 class CLangJansson(Language):
     """Generate JSON value checker in C with Jansson and PCRE2.
@@ -388,7 +396,7 @@ class CLangJansson(Language):
              true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
              path_t="jm_path_t", float_t="double", str_t="const char *", hash_t="uint32_t",
              match_t="bool" if relib == "pcre2" else "int", with_hints=with_hints,
-             eoi=";", relib=relib, debug=debug, with_predef=with_predef,
+             eoi=";", relib=relib, debug=debug, with_predef=with_predef, fast_strlen=False,
              predefs=set(CLANG_RUNTIME_PREDEFS),
              set_caps=(type(None), bool, int, float, str)
         )  # type: ignore
@@ -751,7 +759,11 @@ class CLangJansson(Language):
         return f"(?P<{name}>{pattern})" if self._relib == "re2" else super().regroup(name, pattern)
 
     def def_re(self, name: str, regex: str, opts: str) -> Block:
-        if self._regex_opt and _simple_re(regex, opts):
+        if self._regex_opt and (regex, opts) in _COMPILED_RE:
+            return [
+                f"#define {name}(s, p, r) {_COMPILED_RE[(regex, opts)]}(s)"
+            ]
+        elif self._regex_opt and _simple_re(regex, opts):
             return [
                 f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);"
             ]
@@ -769,12 +781,17 @@ class CLangJansson(Language):
             ]
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
+        if self._regex_opt and (regex, opts) in _COMPILED_RE:
+            return []
         if self._regex_opt and (simple := _simple_re(regex, opts)):
             return _compile_simple_re(name, *simple, self._byte_order == "le", self._inline)
+        # else use actual regex engine
         code = self.file_load(f"clang_{self._relib}_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
     def ini_re(self, name: str, regex: str, opts: str) -> Block:
+        if self._regex_opt and (regex, opts) in _COMPILED_RE:
+            return []
         if self._regex_opt and _simple_re(regex, opts):
             return []
         # declare once
@@ -806,6 +823,8 @@ class CLangJansson(Language):
         return code
 
     def del_re(self, name: str, regex: str, opts: str) -> Block:
+        if self._regex_opt and (regex, opts) in _COMPILED_RE:
+            return []
         if self._regex_opt and _simple_re(regex, opts):
             return []
         if self._relib == "pcre2":

@@ -1165,6 +1165,9 @@ class IRep(Language):
         self._byte_order = lang._byte_order if lang else "le"
 
     # language dependent stuff is forwarded to the underlying language if any
+    def fast_strlen(self) -> bool:
+        return self._lang._fast_strlen
+
     def assign_expr(self) -> bool:
         return self._lang.assign_expr() if self._lang != self else True
 

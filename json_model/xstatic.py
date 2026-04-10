@@ -203,10 +203,13 @@ class CodeGenerator:
         gen = self._lang
         sval: StrExpr = val if is_str else gen.value(val, str)  # type: ignore
 
-        # optimized versions
-        if re.match(r"^/\^?\.\*\$?/[mis]?$", regex):
+        # optimized versions in some cases
+        if re.match(r"^/\.\*\$?/[mis]?$", regex):
             return gen.true()
-        elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
+        elif re.match(r"^/\^?\.\*/[mis]?$", regex):
+            return gen.true()
+        elif (gen.fast_strlen() and
+                (re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex))):
             return gen.num_cmp(gen.str_len(sval), ">", gen.const(0), is_int=True)
         elif re.match(r"^/\^[^[({|.+*?\\^$]+/$", regex):  # starts with
             return gen.str_start(sval, regex[2:-1])
@@ -214,6 +217,7 @@ class CodeGenerator:
             return gen.str_end(sval, regex[1:-2])
         elif re.match(r"^/\^[^[({|.+*?\\^$]+\$/$", regex):  # streq
             return gen.str_cmp(sval, "=", gen.esc(regex[2:-2]))
+        # TODO streq ic?
         else:
             fun = self._regex(jm, regex, path)
             return gen.str_check_call(fun, sval, path)

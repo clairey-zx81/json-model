@@ -783,12 +783,17 @@ _SIMPLER_RE: dict[str, str] = {
     "/^$/s": "_",
     # non empty (\n?) strings
     "/.+/": "/./",
+    "/./i": "/./",
+    "/.+/i": "/./",
+    "/..*/": "/./",
+    "/..*/i": "/./",
     "/^.+/": "/^./",
     "/.+$/": "/.$/",
-    "/..*/": "/./",
     "/.+/s": "/./s",
     "/(.+)/":  "/./",
     "/(.+)/s":  "/./s",
+    "/^.+$/s": "/./s",
+    "/^(.+)$/s": "/./s",
     # misc
     "/ +/": "/ /",
     # any string
@@ -820,6 +825,8 @@ def _simpler_regex(regex: str) -> str:
         return regex[:-2] + "/"
     elif regex.endswith("(.+)/"):
         return regex[:-3] + ")/"
+    elif re.match(r"^/\[[^\]]*]\*/$", regex):  # unanchored whatever chars repeated from zero
+        return ""
     else:
         return regex
 

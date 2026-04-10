@@ -39,7 +39,7 @@ class Language:
             # options
             with_path: bool = True, with_report: bool = True, with_package: bool = False,
             with_predef: bool = True, with_comment: bool = True, with_hints: bool = True,
-            set_caps: tuple[type] = (str,),
+            fast_strlen: bool = True, set_caps: tuple[type] = (str,),
         ):
 
         # parameter consistency
@@ -57,6 +57,7 @@ class Language:
         self._with_package = with_package
         self._with_predef = with_predef
         self._with_hints = with_hints
+        self._fast_strlen = fast_strlen
 
         # comparison operators
         self._eq = eq
@@ -119,6 +120,9 @@ class Language:
         """Return whether expression is just a variable name."""
         return (expr != self._null and isinstance(expr, str) and
                 re.search(r"^[_a-zA-Z]\w+$", expr) is not None)  # type: ignore
+
+    def fast_strlen(self) -> bool:
+        return self._fast_strlen
 
     #
     # SOURCE FILE MANAGEMENT

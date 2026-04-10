@@ -1072,6 +1072,32 @@ jm_is_valid_json(const char *json, jm_path_t *path, jm_report_t *rep)
     return *s == '\0';
 }
 
+// /./ match first non newline char
+bool jm_re_dot(const char *s)
+{
+    while (*s == '\n')
+        s++;
+    return *s != '\0';
+}
+
+// check /^.+$/
+bool jm_re_anchored_dotplus(const char *s)
+{
+    if (*s == '\0' || *s == '\n')
+        return false;
+    s++;
+    while (*s && *s != '\n')
+        s++;
+    return *s == '\0';
+}
+
+bool jm_re_anchored_dotstar(const char *s)
+{
+    while (*s && *s != '\n')
+        s++;
+    return *s == '\0';
+}
+
 static bool
 check_luhn(const char *value, int length)
 {
