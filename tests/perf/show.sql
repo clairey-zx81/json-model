@@ -35,7 +35,11 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 .width -2 16 -5 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowBadResults ORDER BY 1;
 .print
+-- ansible-meta[105]: ".depedencies" unexpected prop (fixed misplaced additionalProperties)
+-- ansible-meta[201,312]: ".argument_spec" unexpected prop (idem)
 -- cspell[75]: ".languageSettings[2].languageId[0]" is "yaml.ansible": unexpected . in fixed regex
+-- cypress[8]: ".reporter" stricter check, file should end with ".js"; .baseUrl is not a URL;
+-- yamllint[40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969]: raw strings
 .print As of April 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
 .print are not 100.0% because validation checks are stricter and some
 .print [malformed values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
