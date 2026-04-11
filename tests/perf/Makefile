@@ -40,9 +40,13 @@ push: docker.push
 .PHONY: docker.push
 docker.push: docker.build
 	$(MAKE) POD=docker VARIANT=docker tag
-	docker push -a $(ZX80)/jmc-bench-docker
+	# docker push -a $(ZX80)/jmc-bench-docker
+	docker push $(ZX80)/jmc-bench-docker:$(BRANCH)
+	docker push $(ZX80)/jmc-bench-docker:$(TAG)
 	$(MAKE) POD=docker VARIANT=podman tag
-	docker push -a $(ZX80)/jmc-bench-podman
+	# docker push -a $(ZX80)/jmc-bench-podman
+	docker push $(ZX80)/jmc-bench-podman:$(BRANCH)
+	docker push $(ZX80)/jmc-bench-podman:$(TAG)
 
 # .PHONY: podman.push
 # podman.push:
