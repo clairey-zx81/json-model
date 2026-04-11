@@ -54,15 +54,14 @@
 - [ ] static: improve endswith pattern recognition `/\\.js$/`
 - [ ] c-backend: optimized strcmp for startswith
 - [ ] optimize: `/^.{1,256}$/`? only under `/s` though…
-- [ ] tests: fast mode which does not execute if source has not changed
+- [ ] test: fast mode which does not execute if source has not changed
+- [ ] test: add test categories (mark?)
+- [ ] test: allow to skip some tests by category
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
 - [ ] doc: add _known limitations_ stuff
-- [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
-- [ ] test: add test categories (mark?)
-- [ ] test: allow to skip some tests by category
 - [ ] doc: improve developer documentation
 - [ ] lang: restrict regex syntax to a smaller subset
 - [ ] predefs: add `$SIMPLE_REGEX` for regex syntax subset?
@@ -86,11 +85,13 @@
 - [ ] backend: remove useless `ELSE NULL` see `mv-02/geo.sql`
 - [ ] command: export before/after model optimization
 - [ ] perf: experiment object matching with various mandatory/optional properties
+- [ ] backend: optimize pattern `if (res) { res = True; if (res) ... }`
 - [ ] backend: optimize pattern "res = E1; return res || E2;" (only one use)
 - [ ] backend: optimize pattern "res = E; if (! res) ret F; res not used before set;"
 - [ ] backend: optimize pattern "{ decl X = ... ; res = f(X (once) ) }"
 - [ ] backend: simplify assignment patterns with ternary operator when available?
 - [ ] backend: consider applying language-specific formatting tools? `clang-format`, `black`…
+- [ ] backend: actually remove ignore code and sequences
 - [ ] c-backend: get pval string into a variable for strcmp unrolling and inlining
 - [ ] c-backend: add number of chunks limit to strcmp optimization
 - [ ] c-backend: strcmp to const inlining and unrolling for all instances
