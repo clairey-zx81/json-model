@@ -46,6 +46,9 @@
 - [x] optim: avoid reference expansion in and combine optimization
 - [x] c-backend: optimize special regex `/./` `/./s` `/^.*$/` `/^.+$/`
 - [ ] optim: detect or of any-but-one type to generate a not instead, beware of looseness
+- [ ] static: could sorted property name comparison be used for some scans??
+- [ ] c-backend: fast str comparison could take advantage of known strlen??
+- [ ] c-backend: use knowledge of Jansson hash to improve property lookup??
 - [ ] c-backend: fast ic str comparison by switching to _lower char_ with a lookup?
 - [ ] c-backend: generate custom character class ascii tables?
 - [ ] c-backend: extend simple regex to sequences of prefix/chars/repeats
