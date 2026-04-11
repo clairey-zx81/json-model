@@ -46,11 +46,12 @@
 - [x] optim: avoid reference expansion in and combine optimization
 - [x] c-backend: optimize special regex `/./` `/./s` `/^.*$/` `/^.+$/`
 - [ ] optim: detect or of any-but-one type to generate a not instead, beware of looseness
+- [ ] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
+- [ ] c-runtime: use own hash instead of qsort/bsearch stuff?
 - [ ] static: could sorted property name comparison be used for some scans??
 - [ ] c-backend: fast str comparison could take advantage of known strlen??
 - [ ] c-backend: property name length for jansson is stored at `(str_ptr - sizeof(size_t))`
 - [ ] c-backend: use knowledge of Jansson hash to improve property lookup??
-- [ ] c-backend: fast ic str comparison by switching to _lower char_ with a lookup?
 - [ ] c-backend: generate custom character class ascii tables?
 - [ ] c-backend: extend simple regex to sequences of prefix/chars/repeats
 - [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
