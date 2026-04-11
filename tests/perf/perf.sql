@@ -69,15 +69,30 @@ INSERT INTO Labels(tool, label) VALUES
 .import cases.csv Cases
 .import casevalues.csv CaseValues
 
--- shorten some names to improve display
-UPDATE RawRun SET name = 'gitpod' WHERE name = 'gitpod-configuration';
-UPDATE RawRun SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
-UPDATE RawCompile SET name = 'gitpod' WHERE name = 'gitpod-configuration';
-UPDATE RawCompile SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
-UPDATE RawResult SET name = 'gitpod' WHERE name = 'gitpod-configuration';
-UPDATE RawResult SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
-UPDATE Cases SET name = 'gitpod' WHERE name = 'gitpod-configuration';
-UPDATE Cases SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
+-- shorten long names to improve display
+CREATE TABLE Renames(
+  oldname TEXT PRIMARY KEY,
+  newname TEXT UNIQUE NOT NULL
+);
+
+INSERT INTO Renames(oldname, newname) VALUES
+  ('unreal-engine-uproject', 'unreal-ng'),
+  ('gitpod-configuration', 'gitpod-cnf'),
+  ('pre-commit-hooks', 'pre-ci'),
+  ('semantic-release', 'sem-rel'),
+  ('helm-chart-lock', 'helm-chart'),
+  ('cmake-presets', 'cmake'),
+  ('code-climate', 'code-clim'),
+  ('ansible-meta', 'ansible'),
+  ('clang-format', 'clang-fmt'),
+  ('ui5-manifest', 'ui5-mfest')
+;
+
+UPDATE RawRun SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
+UPDATE RawCompile SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
+UPDATE RawResult SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
+UPDATE Cases SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
+UPDATE CaseValues SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
 
 -- keep MEDIAN values for each case (line)
 CREATE TABLE Run AS

@@ -23,7 +23,7 @@ FROM ShowPerfSummary ORDER BY ordre;
 .print the lower the better, **1.00** is best, empty denotes a tool failure.
 .print
 .print <!-- RLRRCRRRRRRR -->
-.width -2 16 -5 -7 17 -6 -6 -6 -6 -6 -6 -6
+.width -2 0 -5 -7 17 -6 -6 -6 -6 -6 -6 -6
 SELECT * FROM ShowPerfPerCase ORDER BY 1;
 
 .print
@@ -32,7 +32,7 @@ SELECT * FROM ShowPerfPerCase ORDER BY 1;
 .print For each tool and cases with a partial success rate, percent of test cases validated.
 .print
 .print <!-- RLRRRRRRR -->
-.width -2 16 -5 -5 -5 -5 -5 -5 -5
+.width -2 0 -5 -5 -5 -5 -5 -5 -5
 SELECT * FROM ShowBadResults ORDER BY 1;
 .print
 -- ansible-meta[105]: ".depedencies" unexpected prop (fixed misplaced additionalProperties)
@@ -42,7 +42,7 @@ SELECT * FROM ShowBadResults ORDER BY 1;
 -- yamllint[40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969]: raw strings
 .print As of April 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
 .print are not 100.0% because validation checks are stricter and some
-.print [malformed values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
+.print [values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
 .print are rightfully rejected.
 .print The `geoson` failure for Java/GSON is related to a corner case issue with GSON.
 
@@ -53,7 +53,7 @@ SELECT * FROM ShowBadResults ORDER BY 1;
 .print conversion and model compilation) in second.
 .print
 .print <!-- RLRRRRR -->
-.width -2 16 -5 -5 -5 -5 -5
+.width -2 0 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompilePerCase ORDER BY 1;
 
 .print
