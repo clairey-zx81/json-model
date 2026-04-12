@@ -1321,6 +1321,7 @@ class CodeGenerator:
                 need_if = True
 
         # all types but one
+        # TODO reporting
         all_but_one = self._checkAllButOne(jm, models, mpath)
         if all_but_one:
             # res = type(val) is mtype
@@ -1354,6 +1355,7 @@ class CodeGenerator:
                 return code + tcode
 
         # small subset of basics are negated
+        # TODO reporting
         missing_basics = self._allBasicsButSome(jm, models, mpath)
         if missing_basics is not None and len(missing_basics) <= 2:
             code += gen.bool_var(res,
