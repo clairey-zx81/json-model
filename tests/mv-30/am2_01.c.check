@@ -5,7 +5,7 @@ am2_01.values.json[3]: PASS
 am2_01.values.json[4]: PASS
 am2_01.values.json[5]: PASS
 am2_01.values.json[6]: PASS
-am2_01.values.json[7]: FAIL
-am2_01.values.json[8]: FAIL
-am2_01.values.json[9]: FAIL
-am2_01.values.json[10]: FAIL
+am2_01.values.json[7]: FAIL (.: unexpected base type [.'|'])
+am2_01.values.json[8]: FAIL (.: unexpected base type [.'|'])
+am2_01.values.json[9]: FAIL (.: unexpected base type [.'|'])
+am2_01.values.json[10]: FAIL (.: unexpected base type [.'|'])

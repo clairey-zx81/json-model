@@ -16,7 +16,12 @@ function json_model_1(val, path, rep)
 {
     // JSON_MODEL_LOOSE_FLOAT: any but number or bool
     // .
-    return (! ((typeof val === 'number' || val instanceof Number))) && (! ((typeof val === 'boolean' || val instanceof Boolean)));
+    let res = (! ((typeof val === 'number' || val instanceof Number))) && (! ((typeof val === 'boolean' || val instanceof Boolean)));
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected base type [.'|']", path])
+    }
+    return res;
 }
 
 

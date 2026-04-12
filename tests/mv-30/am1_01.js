@@ -16,7 +16,12 @@ function json_model_1(val, path, rep)
 {
     // all basics but one
     // .
-    return ! (Object.prototype.toString.call(val) === '[object Object]');
+    let res = ! (Object.prototype.toString.call(val) === '[object Object]');
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected base type [.'|']", path])
+    }
+    return res;
 }
 
 

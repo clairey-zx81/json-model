@@ -16,7 +16,12 @@ function json_model_1(val, path, rep)
 {
     // all basics but one
     // .
-    return ! Array.isArray(val);
+    let res = ! Array.isArray(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected base type [.'|']", path])
+    }
+    return res;
 }
 
 

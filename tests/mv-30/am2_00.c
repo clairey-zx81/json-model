@@ -19,7 +19,12 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // JSON_MODEL_LOOSE_FLOAT: any but number or bool
     // .
-    return ! json_is_number(val) && ! json_is_boolean(val);
+    bool res = ! json_is_number(val) && ! json_is_boolean(val);
+    if (unlikely(! res))
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected base type [.'|']", path);
+    }
+    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

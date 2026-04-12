@@ -24,7 +24,12 @@ public class am2_00 extends ModelChecker
     {
         // JSON_MODEL_LOOSE_FLOAT: any but number or bool
         // .
-        return ! json.isNumber(val) && ! json.isBoolean(val);
+        boolean res = ! json.isNumber(val) && ! json.isBoolean(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected base type [.'|']", path);
+        }
+        return res;
     }
 
 

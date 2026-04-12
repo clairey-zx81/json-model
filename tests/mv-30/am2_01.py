@@ -27,7 +27,10 @@ check_model_map: PropMap
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # a scalar
     # .
-    return not isinstance(val, list) and not isinstance(val, dict)
+    res: bool = not isinstance(val, list) and not isinstance(val, dict)
+    if not res:
+        rep is None or rep.append(("unexpected base type [.'|']", path))
+    return res
 
 
 # initialization guard
