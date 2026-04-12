@@ -1,0 +1,13 @@
+{
+  "|": [
+    null,
+    [
+      "$ANY"
+    ],
+    "",
+    {
+      "": "$ANY"
+    }
+  ],
+  "#": "JsonModel 1 (JSON_MODEL_LOOSE_FLOAT)"
+}

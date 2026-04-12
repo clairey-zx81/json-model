@@ -1,0 +1,19 @@
+{
+  "description": "JSON_MODEL_LOOSE_FLOAT: any but number or bool",
+  "anyOf": [
+    {
+      "type": "null"
+    },
+    {
+      "type": "array",
+      "items": true
+    },
+    {
+      "type": "string"
+    },
+    {
+      "type": "object",
+      "additionalProperties": true
+    }
+  ]
+}

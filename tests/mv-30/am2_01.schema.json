@@ -1,0 +1,20 @@
+{
+  "description": "a scalar",
+  "anyOf": [
+    {
+      "type": "null"
+    },
+    {
+      "type": "boolean"
+    },
+    {
+      "type": "integer"
+    },
+    {
+      "type": "number"
+    },
+    {
+      "type": "string"
+    }
+  ]
+}

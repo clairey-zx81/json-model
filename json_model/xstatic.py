@@ -48,13 +48,15 @@ class CodeGenerator:
     - debug: verbose debug mode.
     """
 
-    def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
-                 prefix: str = "", map_threshold: int = 3, map_share: bool = False,
-                 may_must_open_threshold: int = 5, must_only_threshold: int = 5,
-                 sort_must: bool = True, sort_may: bool = True, partition_threshold: int = 0,
-                 or_must_prop: int = 0, comment: bool = True,
-                 execute: bool = True, report: bool = True, path: bool = True,
-                 package: str|None = None, debug: bool = False):
+    def __init__(
+                self, globs: Symbols, language: Language, fname: str = "check_model", *,
+                prefix: str = "", map_threshold: int = 3, map_share: bool = False,
+                may_must_open_threshold: int = 5, must_only_threshold: int = 5,
+                sort_must: bool = True, sort_may: bool = True, partition_threshold: int = 0,
+                or_must_prop: int = 0, comment: bool = True,
+                execute: bool = True, report: bool = True, path: bool = True,
+                package: str|None = None, debug: bool = False,
+            ):
 
         super().__init__()
 
@@ -1232,6 +1234,7 @@ class CodeGenerator:
     def _checkAllButOne(self, jm: JsonModel, models: ModelArray, mpath: ModelPath) -> \
             tuple[ModelType, type, int] | None:
         """List of all basic types but one with something else."""
+        # FIXME handle looseness?
         if len(models) != 7:
             return None
         bmodels = list(map(is_base_model, models))
@@ -1249,6 +1252,16 @@ class CodeGenerator:
             return None
         # ok!
         return model, mtype, im
+
+    def _allBasicsButSome(self, jm: JsonModel, models: ModelArray, mpath: ModelPath) -> set[type]|None:
+        """List of all basic json types but one."""
+        bmodels: set[type|None] = set(map(is_base_model, models))
+        if None in bmodels:
+            return None
+        missing = {type(None), int, float, bool, str, list, dict} - bmodels
+        if jm._loose_float and int in missing:  # an int is a float under loose float
+            missing.remove(int)
+        return missing if len(missing) > 0 else None
 
     def _compileOr(
                 self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
@@ -1339,6 +1352,19 @@ class CodeGenerator:
                 return code + gen.if_stmt(gen.not_op(res), tcode)
             else:
                 return code + tcode
+
+        # small subset of basics are negated
+        missing_basics = self._allBasicsButSome(jm, models, mpath)
+        if missing_basics is not None and len(missing_basics) <= 2:
+            code += gen.bool_var(res,
+                gen.and_op(
+                    *[
+                        gen.not_op(gen.is_a(val, t, jm._loose_float if t is float else None))
+                            for t in missing_basics
+                    ]
+                )
+            )
+            return code
 
         # discriminant optimization for list of objects, None if fails
         tmp: ModelType = {"|": models}

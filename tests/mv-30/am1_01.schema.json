@@ -1,0 +1,24 @@
+{
+  "description": "all basics but one",
+  "anyOf": [
+    {
+      "type": "null"
+    },
+    {
+      "type": "boolean"
+    },
+    {
+      "type": "integer"
+    },
+    {
+      "type": "number"
+    },
+    {
+      "type": "string"
+    },
+    {
+      "type": "array",
+      "items": true
+    }
+  ]
+}
