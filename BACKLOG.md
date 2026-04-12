@@ -46,7 +46,8 @@
 - [x] optim: avoid reference expansion in and combine optimization
 - [x] c-backend: optimize special regex `/./` `/./s` `/^.*$/` `/^.+$/`
 - [x] static: detect or of any-but-some type to generate a not instead, beware of looseness
-- [ ] static: do not create a separate function for an basic object check
+- [x] static: do not create a separate function for an basic object check
+- [ ] static: generate messages in newly added shortcuts
 - [ ] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
 - [ ] c-runtime: use own hash instead of qsort/bsearch stuff?
 - [ ] static: could sorted property name comparison be used for some scans??

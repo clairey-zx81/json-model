@@ -189,11 +189,10 @@ static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static INLINE bool _jm_cst_64_str_test(const char *);
-static bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_58(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -8979,18 +8978,6 @@ static INLINE bool _jm_cst_64_str_test(const char *s)
     ;
 }
 
-// object .'$DependencyModelLoose'.vars
-static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$DependencyModelLoose'.vars]", path);
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // check $DependencyModelLoose (.'$DependencyModelLoose')
 static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -9115,10 +9102,9 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may vars property
                 // .'$DependencyModelLoose'.vars
-                res = _jm_obj_49(pval, (path ? &lpath_99 : NULL), rep);
+                res = json_is_object(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$DependencyModelLoose'.vars]", (path ? &lpath_99 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$DependencyModelLoose'.vars]", (path ? &lpath_99 : NULL));
                     return false;
                 }
@@ -9170,7 +9156,7 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$DependencyModel'.'&'.1.'|'.2
-static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // value known to be an object
     bool res;
@@ -9211,7 +9197,7 @@ static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$DependencyModel'.'&'.1.'|'.1
-static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // value known to be an object
     bool res;
@@ -9252,7 +9238,7 @@ static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .'$DependencyModel'.'&'.1.'|'.0
-static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // value known to be an object
     bool res;
@@ -9309,17 +9295,17 @@ static bool json_model_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (likely(res))
             {
                 // .'$DependencyModel'.'&'.1.'|'.0
-                res = _jm_obj_52(val, path, rep);
+                res = _jm_obj_51(val, path, rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path);
                     // .'$DependencyModel'.'&'.1.'|'.1
-                    res = _jm_obj_51(val, path, rep);
+                    res = _jm_obj_50(val, path, rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path);
                         // .'$DependencyModel'.'&'.1.'|'.2
-                        res = _jm_obj_50(val, path, rep);
+                        res = _jm_obj_49(val, path, rep);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path);

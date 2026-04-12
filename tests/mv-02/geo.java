@@ -1461,18 +1461,6 @@ public class geo extends ModelChecker
         return true;
     }
 
-    // object .'$Feature'.properties.'|'.1
-    public boolean _jm_obj_6(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Feature'.properties.'|'.1]", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // check $Feature (.'$Feature')
     public boolean json_model_13(Object val, Path path, Report rep)
     {
@@ -1547,11 +1535,7 @@ public class geo extends ModelChecker
         {
             if (rep != null) rep.addEntry("not null [.'$Feature'.properties.'|'.0]", (path != null ? lpath : null));
             // .'$Feature'.properties.'|'.1
-            res = _jm_obj_6(pval, (path != null ? lpath : null), rep);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("unexpected element [.'$Feature'.properties.'|'.1]", (path != null ? lpath : null));
-            }
+            res = json.isObject(pval);
         }
         if (res)
         {

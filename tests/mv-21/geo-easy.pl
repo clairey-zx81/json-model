@@ -23,7 +23,6 @@ sub json_model_10($$$);
 my %_jm_map_0;
 sub json_model_11($$$);
 sub json_model_12($$$);
-sub _jm_obj_0($$$);
 sub json_model_13($$$);
 sub json_model_14($$$);
 my %_jm_map_1;
@@ -628,14 +627,6 @@ sub json_model_12($$$)
     return 1;
 }
 
-# object .'$Feature'.properties.'|'.1
-sub _jm_obj_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # check $Feature (.'$Feature')
 sub json_model_13($$$)
 {
@@ -680,7 +671,7 @@ sub json_model_13($$$)
     # .'$Feature'.properties
     # .'$Feature'.properties.'|'.0
     # .'$Feature'.properties.'|'.1
-    $res = !defined($pval) || _jm_obj_0($pval, undef, undef);
+    $res = !defined($pval) || jm_is_object($pval);
     if (! $res)
     {
         return 0;

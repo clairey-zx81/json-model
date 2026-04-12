@@ -14,51 +14,46 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_0[2];
-static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_1[2];
 static jm_constant_t _jm_cst_2[3];
 static INLINE bool _jm_cst_3_str_test(const char *);
 static bool _jm_cst_4_test(const json_t *);
 static jm_constant_t _jm_cst_4[4];
+static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
@@ -235,18 +230,6 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .or.o2.'|'.3
-static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.or.o2.'|'.3]", path);
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .or
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -348,11 +331,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                     {
                         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.or.o2.'|'.2]", (path ? &lpath_3 : NULL));
                         // .or.o2.'|'.3
-                        res = _jm_obj_1(pval, (path ? &lpath_3 : NULL), rep);
-                        if (unlikely(! res))
-                        {
-                            if (rep) jm_report_add_entry(rep, "unexpected element [.or.o2.'|'.3]", (path ? &lpath_3 : NULL));
-                        }
+                        res = json_is_object(pval);
                     }
                 }
             }
@@ -375,7 +354,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .and
-static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -431,7 +410,7 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .null
-static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -490,7 +469,7 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .float
-static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -634,7 +613,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .object.o0
-static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -651,7 +630,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .object.o1
-static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -733,7 +712,7 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .object.o2
-static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -766,7 +745,7 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .object.o3
-static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -800,7 +779,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .object.o4
-static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -834,7 +813,7 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .object.o5
-static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -859,20 +838,8 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .object.o6
-static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.object.o6]", path);
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .object
-static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -892,7 +859,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // handle may o0 property
                 // .object.o0
-                res = _jm_obj_6(pval, (path ? &lpath_7 : NULL), rep);
+                res = _jm_obj_5(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.object.o0]", (path ? &lpath_7 : NULL));
@@ -905,7 +872,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // handle may o1 property
                 // .object.o1
-                res = _jm_obj_7(pval, (path ? &lpath_7 : NULL), rep);
+                res = _jm_obj_6(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.object.o1]", (path ? &lpath_7 : NULL));
@@ -918,7 +885,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // handle may o2 property
                 // .object.o2
-                res = _jm_obj_8(pval, (path ? &lpath_7 : NULL), rep);
+                res = _jm_obj_7(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.object.o2]", (path ? &lpath_7 : NULL));
@@ -934,7 +901,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // handle may o3 property
                 // .object.o3
-                res = _jm_obj_9(pval, (path ? &lpath_7 : NULL), rep);
+                res = _jm_obj_8(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.object.o3]", (path ? &lpath_7 : NULL));
@@ -947,7 +914,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // handle may o4 property
                 // .object.o4
-                res = _jm_obj_10(pval, (path ? &lpath_7 : NULL), rep);
+                res = _jm_obj_9(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.object.o4]", (path ? &lpath_7 : NULL));
@@ -960,7 +927,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // handle may o5 property
                 // .object.o5
-                res = _jm_obj_11(pval, (path ? &lpath_7 : NULL), rep);
+                res = _jm_obj_10(pval, (path ? &lpath_7 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.object.o5]", (path ? &lpath_7 : NULL));
@@ -973,10 +940,9 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 // handle may o6 property
                 // .object.o6
-                res = _jm_obj_12(pval, (path ? &lpath_7 : NULL), rep);
+                res = json_is_object(pval);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected element [.object.o6]", (path ? &lpath_7 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.object.o6]", (path ? &lpath_7 : NULL));
                     return false;
                 }
@@ -990,7 +956,7 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
 }
 
 // object .predefs
-static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1458,44 +1424,8 @@ static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-// object .constraints.cio2.'@'
-static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.constraints.cio2.'@']", path);
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
-// object .constraints.cio0.'@'
-static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.constraints.cio0.'@']", path);
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
-// object .constraints.cio1.'@'
-static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.constraints.cio1.'@']", path);
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .constraints
-static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -1735,7 +1665,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // handle may cio0 property
                     // .constraints.cio0
                     // .constraints.cio0.'@'
-                    res = _jm_obj_16(pval, (path ? &lpath_14 : NULL), rep);
+                    res = json_is_object(pval);
                     if (likely(res))
                     {
                         int64_t ival_5 = json_object_size(pval);
@@ -1744,10 +1674,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cio0]", (path ? &lpath_14 : NULL));
                         }
-                    }
-                    else
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio0.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1940,7 +1866,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // handle may cio1 property
                     // .constraints.cio1
                     // .constraints.cio1.'@'
-                    res = _jm_obj_17(pval, (path ? &lpath_14 : NULL), rep);
+                    res = json_is_object(pval);
                     if (likely(res))
                     {
                         int64_t ival_10 = json_object_size(pval);
@@ -1949,10 +1875,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cio1]", (path ? &lpath_14 : NULL));
                         }
-                    }
-                    else
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -2073,7 +1995,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                     // handle may cio2 property
                     // .constraints.cio2
                     // .constraints.cio2.'@'
-                    res = _jm_obj_15(pval, (path ? &lpath_14 : NULL), rep);
+                    res = json_is_object(pval);
                     if (likely(res))
                     {
                         int64_t ival_1 = json_object_size(pval);
@@ -2082,10 +2004,6 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cio2]", (path ? &lpath_14 : NULL));
                         }
-                    }
-                    else
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected element [.constraints.cio2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -2194,7 +2112,7 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .int
-static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2364,7 +2282,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .xor
-static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2509,7 +2427,7 @@ static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *r
 
 
 // object .bool
-static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2633,7 +2551,7 @@ static INLINE bool _jm_cst_4_test(const json_t *val)
 }
 
 // object .enum
-static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2705,7 +2623,7 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .array
-static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2854,7 +2772,7 @@ static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m0
-static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2913,7 +2831,7 @@ static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m1.'|'.1
-static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -2977,7 +2895,7 @@ static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m1.'|'.0
-static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3041,7 +2959,7 @@ static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m2.'|'.1
-static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3105,7 +3023,7 @@ static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m2.'|'.0
-static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3169,7 +3087,7 @@ static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m3.'|'.3
-static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3233,7 +3151,7 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m3.'|'.2
-static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3297,7 +3215,7 @@ static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m3.'|'.1
-static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3361,7 +3279,7 @@ static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m3.'|'.0
-static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3425,7 +3343,7 @@ static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge.m4
-static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3525,7 +3443,7 @@ static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .merge
-static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3542,7 +3460,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may m0 property
             // .merge.m0
-            res = _jm_obj_24(pval, (path ? &lpath_20 : NULL), rep);
+            res = _jm_obj_19(pval, (path ? &lpath_20 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m0]", (path ? &lpath_20 : NULL));
@@ -3559,12 +3477,12 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             if (likely(res))
             {
                 // .merge.m1.'|'.0
-                res = _jm_obj_26(pval, (path ? &lpath_20 : NULL), rep);
+                res = _jm_obj_21(pval, (path ? &lpath_20 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m1.'|'.0]", (path ? &lpath_20 : NULL));
                     // .merge.m1.'|'.1
-                    res = _jm_obj_25(pval, (path ? &lpath_20 : NULL), rep);
+                    res = _jm_obj_20(pval, (path ? &lpath_20 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m1.'|'.1]", (path ? &lpath_20 : NULL));
@@ -3598,12 +3516,12 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
             if (likely(res))
             {
                 // .merge.m2.'|'.0
-                res = _jm_obj_28(pval, (path ? &lpath_20 : NULL), rep);
+                res = _jm_obj_23(pval, (path ? &lpath_20 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m2.'|'.0]", (path ? &lpath_20 : NULL));
                     // .merge.m2.'|'.1
-                    res = _jm_obj_27(pval, (path ? &lpath_20 : NULL), rep);
+                    res = _jm_obj_22(pval, (path ? &lpath_20 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m2.'|'.1]", (path ? &lpath_20 : NULL));
@@ -3639,7 +3557,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (json_object_get(pval, "a") != NULL)
                 {
                     // .merge.m3.'|'.0
-                    res = _jm_obj_32(pval, (path ? &lpath_20 : NULL), rep);
+                    res = _jm_obj_27(pval, (path ? &lpath_20 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.0]", (path ? &lpath_20 : NULL));
@@ -3652,7 +3570,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                     if (json_object_get(pval, "a") != NULL)
                     {
                         // .merge.m3.'|'.1
-                        res = _jm_obj_31(pval, (path ? &lpath_20 : NULL), rep);
+                        res = _jm_obj_26(pval, (path ? &lpath_20 : NULL), rep);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.1]", (path ? &lpath_20 : NULL));
@@ -3665,7 +3583,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                         if (json_object_get(pval, "b") != NULL)
                         {
                             // .merge.m3.'|'.2
-                            res = _jm_obj_30(pval, (path ? &lpath_20 : NULL), rep);
+                            res = _jm_obj_25(pval, (path ? &lpath_20 : NULL), rep);
                             if (unlikely(! res))
                             {
                                 if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.2]", (path ? &lpath_20 : NULL));
@@ -3678,7 +3596,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
                             if (json_object_get(pval, "b") != NULL)
                             {
                                 // .merge.m3.'|'.3
-                                res = _jm_obj_29(pval, (path ? &lpath_20 : NULL), rep);
+                                res = _jm_obj_24(pval, (path ? &lpath_20 : NULL), rep);
                                 if (unlikely(! res))
                                 {
                                     if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m3.'|'.3]", (path ? &lpath_20 : NULL));
@@ -3713,7 +3631,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may m4 property
             // .merge.m4
-            res = _jm_obj_33(pval, (path ? &lpath_20 : NULL), rep);
+            res = _jm_obj_28(pval, (path ? &lpath_20 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected element [.merge.m4]", (path ? &lpath_20 : NULL));
@@ -3729,7 +3647,7 @@ static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *r
 }
 
 // object .tuple
-static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -3941,7 +3859,7 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .string
-static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(! json_is_object(val)))
     {
@@ -4064,7 +3982,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may and property
                 // conjunction, all must match
                 // .and
-                res = _jm_obj_2(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_1(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.and]", (path ? &lpath_2 : NULL));
@@ -4078,7 +3996,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may null property
                 // null: inference, predefs, constants
                 // .null
-                res = _jm_obj_3(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_2(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.null]", (path ? &lpath_2 : NULL));
@@ -4092,7 +4010,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may float property
                 // floats: inference, predefs, constants
                 // .float
-                res = _jm_obj_4(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_3(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.float]", (path ? &lpath_2 : NULL));
@@ -4106,7 +4024,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may object property
                 // object map property names to values
                 // .object
-                res = _jm_obj_5(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_4(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.object]", (path ? &lpath_2 : NULL));
@@ -4120,7 +4038,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may predefs property
                 // predefined models
                 // .predefs
-                res = _jm_obj_13(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_11(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.predefs]", (path ? &lpath_2 : NULL));
@@ -4133,7 +4051,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may constraints property
                 // .constraints
-                res = _jm_obj_14(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_12(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.constraints]", (path ? &lpath_2 : NULL));
@@ -4150,7 +4068,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may int property
                 // integers: inference, predefs, constants
                 // .int
-                res = _jm_obj_18(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_13(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.int]", (path ? &lpath_2 : NULL));
@@ -4164,7 +4082,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may xor property
                 // hard alternative, only one must match
                 // .xor
-                res = _jm_obj_19(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_14(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.xor]", (path ? &lpath_2 : NULL));
@@ -4178,7 +4096,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may bool property
                 // booleans: inference, predefs, constants, enum
                 // .bool
-                res = _jm_obj_20(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_15(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.bool]", (path ? &lpath_2 : NULL));
@@ -4192,7 +4110,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may enum property
                 // an enumeration only contains constants
                 // .enum
-                res = _jm_obj_21(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_16(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.enum]", (path ? &lpath_2 : NULL));
@@ -4206,7 +4124,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may array property
                 // example arrays
                 // .array
-                res = _jm_obj_22(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_17(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.array]", (path ? &lpath_2 : NULL));
@@ -4220,7 +4138,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may merge property
                 // merge object properties
                 // .merge
-                res = _jm_obj_23(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_18(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.merge]", (path ? &lpath_2 : NULL));
@@ -4234,7 +4152,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may tuple property
                 // tuple items have a type
                 // .tuple
-                res = _jm_obj_34(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_29(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.tuple]", (path ? &lpath_2 : NULL));
@@ -4248,7 +4166,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 // handle may string property
                 // strings: inference, predef, constants, regex
                 // .string
-                res = _jm_obj_35(pval, (path ? &lpath_2 : NULL), rep);
+                res = _jm_obj_30(pval, (path ? &lpath_2 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected element [.string]", (path ? &lpath_2 : NULL));

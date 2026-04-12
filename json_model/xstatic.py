@@ -1913,6 +1913,11 @@ class CodeGenerator:
                     if name:
                         objid = name
                         code += self._compileObject(jm, model, mpath, name, res, val, vpath, known)
+                    elif is_base_model(model) is dict:
+                        # FIXME we may not generate a function? we may need it in some cases?
+                        objid = None
+                        test = gen.is_a(val, dict)
+                        code += gen.bool_var(res, gen.true() if test in known else test)
                     else:
                         # new function to check the object
                         objid = gen.ident(self._prefix + "obj")
@@ -1928,7 +1933,8 @@ class CodeGenerator:
                         code += self._gen_report(res, f"unexpected element [{smpath}]", vpath)
 
                     # record object function for path
-                    self._paths[tuple(mpath)] = objid
+                    if objid:
+                        self._paths[tuple(mpath)] = objid
 
                 if "#" in model:
                     code = gen.lcom(model["#"]) + code  # type: ignore

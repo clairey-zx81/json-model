@@ -625,15 +625,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Feature'.properties.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- accept any object
-  RETURN JSONB_TYPEOF(val) = 'object';
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $Feature (.'$Feature')
 CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -678,7 +669,7 @@ BEGIN
       -- .'$Feature'.properties
       -- .'$Feature'.properties.'|'.0
       -- .'$Feature'.properties.'|'.1
-      res := JSONB_TYPEOF(pval) = 'null' OR _jm_obj_0(pval, NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'null' OR JSONB_TYPEOF(pval) = 'object';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

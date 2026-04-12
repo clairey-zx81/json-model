@@ -476,70 +476,40 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a 0.0 strict float [.constraints.cin2.'@']", path))
     return res
 
-# object .constraints.cio0.'@'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.constraints.cio0.'@']", path))
-        return False
-    # accept any object
-    return True
-
 # check _jm_f_3_map_cio0 (.constraints.cio0)
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio0
     # .constraints.cio0.'@'
-    res: bool = _jm_obj_0(val, path, rep)
+    res: bool = isinstance(val, dict)
     if res:
         ival_5: int = len(val)
         res = ival_5 == 2
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cio0]", path))
-    else:
-        rep is None or rep.append(("unexpected element [.constraints.cio0.'@']", path))
     return res
-
-# object .constraints.cio1.'@'
-def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.constraints.cio1.'@']", path))
-        return False
-    # accept any object
-    return True
 
 # check _jm_f_3_map_cio1 (.constraints.cio1)
 def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio1
     # .constraints.cio1.'@'
-    res: bool = _jm_obj_1(val, path, rep)
+    res: bool = isinstance(val, dict)
     if res:
         ival_6: int = len(val)
         res = ival_6 != 2 and ival_6 <= 3 and ival_6 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cio1]", path))
-    else:
-        rep is None or rep.append(("unexpected element [.constraints.cio1.'@']", path))
     return res
-
-# object .constraints.cio2.'@'
-def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.constraints.cio2.'@']", path))
-        return False
-    # accept any object
-    return True
 
 # check _jm_f_3_map_cio2 (.constraints.cio2)
 def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cio2
     # .constraints.cio2.'@'
-    res: bool = _jm_obj_2(val, path, rep)
+    res: bool = isinstance(val, dict)
     if res:
         ival_7: int = len(val)
         res = ival_7 <= 4 and ival_7 >= 3
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cio2]", path))
-    else:
-        rep is None or rep.append(("unexpected element [.constraints.cio2.'@']", path))
     return res
 
 # check _jm_f_3_map_cis0 (.constraints.cis0)
@@ -1040,7 +1010,7 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m0
-def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m0]", path))
         return False
@@ -1077,7 +1047,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m1.'|'.1
-def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m1.'|'.1]", path))
@@ -1110,7 +1080,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m1.'|'.0
-def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m1.'|'.0]", path))
@@ -1143,7 +1113,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m2.'|'.1
-def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m2.'|'.1]", path))
@@ -1176,7 +1146,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m2.'|'.0
-def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m2.'|'.0]", path))
@@ -1209,7 +1179,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m3.'|'.3
-def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m3.'|'.3]", path))
@@ -1242,7 +1212,7 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m3.'|'.2
-def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m3.'|'.2]", path))
@@ -1275,7 +1245,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m3.'|'.1
-def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m3.'|'.1]", path))
@@ -1308,7 +1278,7 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m3.'|'.0
-def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m3.'|'.0]", path))
@@ -1341,7 +1311,7 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .merge.m4
-def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.merge.m4]", path))
@@ -1406,7 +1376,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "m0":
             # handle may m0 property
             # .merge.m0
-            res = _jm_obj_3(pval, lpath_8 if path is not None else None, rep)
+            res = _jm_obj_0(pval, lpath_8 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.merge.m0]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.merge.m0]", lpath_8 if path is not None else None))
@@ -1419,13 +1389,13 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if res:
                 if "b" in pval:
                     # .merge.m1.'|'.0
-                    res = _jm_obj_5(pval, lpath_8 if path is not None else None, rep)
+                    res = _jm_obj_2(pval, lpath_8 if path is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected element [.merge.m1.'|'.0]", lpath_8 if path is not None else None))
                 else:
                     if "c" in pval:
                         # .merge.m1.'|'.1
-                        res = _jm_obj_4(pval, lpath_8 if path is not None else None, rep)
+                        res = _jm_obj_1(pval, lpath_8 if path is not None else None, rep)
                         if not res:
                             rep is None or rep.append(("unexpected element [.merge.m1.'|'.1]", lpath_8 if path is not None else None))
                     else:
@@ -1447,13 +1417,13 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if res:
                 if "b" in pval:
                     # .merge.m2.'|'.0
-                    res = _jm_obj_7(pval, lpath_8 if path is not None else None, rep)
+                    res = _jm_obj_4(pval, lpath_8 if path is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected element [.merge.m2.'|'.0]", lpath_8 if path is not None else None))
                 else:
                     if "c" in pval:
                         # .merge.m2.'|'.1
-                        res = _jm_obj_6(pval, lpath_8 if path is not None else None, rep)
+                        res = _jm_obj_3(pval, lpath_8 if path is not None else None, rep)
                         if not res:
                             rep is None or rep.append(("unexpected element [.merge.m2.'|'.1]", lpath_8 if path is not None else None))
                     else:
@@ -1475,7 +1445,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if res:
                 if "a" in pval:
                     # .merge.m3.'|'.0
-                    res = _jm_obj_11(pval, lpath_8 if path is not None else None, rep)
+                    res = _jm_obj_8(pval, lpath_8 if path is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected element [.merge.m3.'|'.0]", lpath_8 if path is not None else None))
                 else:
@@ -1483,7 +1453,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
                 if not res:
                     if "a" in pval:
                         # .merge.m3.'|'.1
-                        res = _jm_obj_10(pval, lpath_8 if path is not None else None, rep)
+                        res = _jm_obj_7(pval, lpath_8 if path is not None else None, rep)
                         if not res:
                             rep is None or rep.append(("unexpected element [.merge.m3.'|'.1]", lpath_8 if path is not None else None))
                     else:
@@ -1491,7 +1461,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
                     if not res:
                         if "b" in pval:
                             # .merge.m3.'|'.2
-                            res = _jm_obj_9(pval, lpath_8 if path is not None else None, rep)
+                            res = _jm_obj_6(pval, lpath_8 if path is not None else None, rep)
                             if not res:
                                 rep is None or rep.append(("unexpected element [.merge.m3.'|'.2]", lpath_8 if path is not None else None))
                         else:
@@ -1499,7 +1469,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
                         if not res:
                             if "b" in pval:
                                 # .merge.m3.'|'.3
-                                res = _jm_obj_8(pval, lpath_8 if path is not None else None, rep)
+                                res = _jm_obj_5(pval, lpath_8 if path is not None else None, rep)
                                 if not res:
                                     rep is None or rep.append(("unexpected element [.merge.m3.'|'.3]", lpath_8 if path is not None else None))
                             else:
@@ -1517,7 +1487,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "m4":
             # handle may m4 property
             # .merge.m4
-            res = _jm_obj_12(pval, lpath_8 if path is not None else None, rep)
+            res = _jm_obj_9(pval, lpath_8 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.merge.m4]", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.merge.m4]", lpath_8 if path is not None else None))
@@ -1569,7 +1539,7 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .object.o0
-def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o0]", path))
         return False
@@ -1580,7 +1550,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
 
 # object .object.o1
-def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # check close must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o1]", path))
@@ -1623,7 +1593,7 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .object.o2
-def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o2]", path))
         return False
@@ -1644,7 +1614,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .object.o3
-def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o3]", path))
         return False
@@ -1664,7 +1634,7 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .object.o4
-def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o4]", path))
         return False
@@ -1684,7 +1654,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .object.o5
-def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.object.o5]", path))
         return False
@@ -1697,14 +1667,6 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
         if not res:
             rep is None or rep.append(("not a 0 strict int [.object.o5.'']", lpath_15 if path is not None else None))
             return False
-    return True
-
-# object .object.o6
-def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.object.o6]", path))
-        return False
-    # accept any object
     return True
 
 # check json_model_1_map_object (.object)
@@ -1720,7 +1682,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "o0":
             # handle may o0 property
             # .object.o0
-            res = _jm_obj_13(pval, lpath_11 if path is not None else None, rep)
+            res = _jm_obj_10(pval, lpath_11 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.object.o0]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o0]", lpath_11 if path is not None else None))
@@ -1729,7 +1691,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "o1":
             # handle may o1 property
             # .object.o1
-            res = _jm_obj_14(pval, lpath_11 if path is not None else None, rep)
+            res = _jm_obj_11(pval, lpath_11 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.object.o1]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o1]", lpath_11 if path is not None else None))
@@ -1738,7 +1700,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "o2":
             # handle may o2 property
             # .object.o2
-            res = _jm_obj_15(pval, lpath_11 if path is not None else None, rep)
+            res = _jm_obj_12(pval, lpath_11 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.object.o2]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o2]", lpath_11 if path is not None else None))
@@ -1747,7 +1709,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "o3":
             # handle may o3 property
             # .object.o3
-            res = _jm_obj_16(pval, lpath_11 if path is not None else None, rep)
+            res = _jm_obj_13(pval, lpath_11 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.object.o3]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o3]", lpath_11 if path is not None else None))
@@ -1756,7 +1718,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "o4":
             # handle may o4 property
             # .object.o4
-            res = _jm_obj_17(pval, lpath_11 if path is not None else None, rep)
+            res = _jm_obj_14(pval, lpath_11 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.object.o4]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o4]", lpath_11 if path is not None else None))
@@ -1765,7 +1727,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "o5":
             # handle may o5 property
             # .object.o5
-            res = _jm_obj_18(pval, lpath_11 if path is not None else None, rep)
+            res = _jm_obj_15(pval, lpath_11 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected element [.object.o5]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o5]", lpath_11 if path is not None else None))
@@ -1774,22 +1736,13 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "o6":
             # handle may o6 property
             # .object.o6
-            res = _jm_obj_19(pval, lpath_11 if path is not None else None, rep)
+            res = isinstance(pval, dict)
             if not res:
-                rep is None or rep.append(("unexpected element [.object.o6]", lpath_11 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.object.o6]", lpath_11 if path is not None else None))
                 return False
             continue
         rep is None or rep.append(("unexpected prop [.object]", lpath_11 if path is not None else None))
         return False
-    return True
-
-# object .or.o2.'|'.3
-def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.or.o2.'|'.3]", path))
-        return False
-    # accept any object
     return True
 
 # check json_model_1_map_or (.or)
@@ -1859,9 +1812,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
                     if not res:
                         rep is None or rep.append(("not array or unexpected array [.or.o2.'|'.2]", lpath_16 if path is not None else None))
                         # .or.o2.'|'.3
-                        res = _jm_obj_20(pval, lpath_16 if path is not None else None, rep)
-                        if not res:
-                            rep is None or rep.append(("unexpected element [.or.o2.'|'.3]", lpath_16 if path is not None else None))
+                        res = isinstance(pval, dict)
             if res:
                 rep is None or rep.clear()
             else:

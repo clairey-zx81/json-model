@@ -268,45 +268,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$atomic'
-    // .'$atomic'.'|'.0
-    bool res = json_is_null(val);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not null [.'$atomic'.'|'.0]", path);
-        // .'$atomic'.'|'.1
-        res = json_is_boolean(val);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "not a bool [.'$atomic'.'|'.1]", path);
-            // .'$atomic'.'|'.2
-            res = json_is_integer(val);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$atomic'.'|'.2]", path);
-                // .'$atomic'.'|'.3
-                res = json_is_real(val);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$atomic'.'|'.3]", path);
-                    // .'$atomic'.'|'.4
-                    res = json_is_string(val);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$atomic'.'|'.4]", path);
-                    }
-                }
-            }
-        }
-    }
-    if (likely(res))
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$atomic'.'|']", path);
-    }
-    return res;
+    return ! json_is_array(val) && ! json_is_object(val);
 }
 
 static INLINE bool _jm_cst_1_str_test(const char *s)

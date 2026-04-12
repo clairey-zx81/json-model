@@ -10,12 +10,7 @@ CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$const'
-  -- .'$const'.'|'.0
-  -- .'$const'.'|'.1
-  -- .'$const'.'|'.2
-  -- .'$const'.'|'.3
-  -- .'$const'.'|'.4
-  RETURN JSONB_TYPEOF(val) = 'null' OR JSONB_TYPEOF(val) = 'boolean' OR JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 OR JSONB_TYPEOF(val) = 'number' OR JSONB_TYPEOF(val) = 'string';
+  RETURN NOT (JSONB_TYPEOF(val) = 'array') AND NOT (JSONB_TYPEOF(val) = 'object');
 END;
 $$ LANGUAGE PLpgSQL;
 

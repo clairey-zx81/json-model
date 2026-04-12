@@ -2423,15 +2423,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Link'.'|'.1.parameters
-CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- accept any object
-  RETURN JSONB_TYPEOF(val) = 'object';
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$Link'.'|'.1
 CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -2465,7 +2456,7 @@ BEGIN
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$Link'.'|'.1.parameters
-      res := _jm_obj_17(pval, NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'object';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2496,17 +2487,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Link'.'|'.0.parameters
-CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- accept any object
-  RETURN JSONB_TYPEOF(val) = 'object';
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$Link'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2538,7 +2520,7 @@ BEGIN
     ELSEIF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$Link'.'|'.0.parameters
-      res := _jm_obj_19(pval, NULL, NULL);
+      res := JSONB_TYPEOF(pval) = 'object';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2576,12 +2558,12 @@ BEGIN
   -- .'$Link'
   -- .'$Link'.'|'.0
   -- .'$Link'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_18(val, NULL, NULL) OR _jm_obj_16(val, NULL, NULL));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_17(val, NULL, NULL) OR _jm_obj_16(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$Header'.'|'.1.content
-CREATE OR REPLACE FUNCTION _jm_obj_21(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2604,7 +2586,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$Header'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2616,7 +2598,7 @@ BEGIN
     IF prop = 'content' THEN
       -- handle may content property
       -- .'$Header'.'|'.1.content
-      res := _jm_obj_21(pval, NULL, NULL);
+      res := _jm_obj_19(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2666,7 +2648,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_allowEmptyValue (.'$Header'.'|'.0.allowEmptyValue)
+-- check _jm_obj_20_map_allowEmptyValue (.'$Header'.'|'.0.allowEmptyValue)
 CREATE OR REPLACE FUNCTION _jm_f_33(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -2675,7 +2657,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_allowReserved (.'$Header'.'|'.0.allowReserved)
+-- check _jm_obj_20_map_allowReserved (.'$Header'.'|'.0.allowReserved)
 CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -2684,7 +2666,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_deprecated (.'$Header'.'|'.0.deprecated)
+-- check _jm_obj_20_map_deprecated (.'$Header'.'|'.0.deprecated)
 CREATE OR REPLACE FUNCTION _jm_f_35(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -2693,7 +2675,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_description (.'$Header'.'|'.0.description)
+-- check _jm_obj_20_map_description (.'$Header'.'|'.0.description)
 CREATE OR REPLACE FUNCTION _jm_f_36(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -2702,7 +2684,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_example (.'$Header'.'|'.0.example)
+-- check _jm_obj_20_map_example (.'$Header'.'|'.0.example)
 CREATE OR REPLACE FUNCTION _jm_f_37(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -2711,7 +2693,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_examples (.'$Header'.'|'.0.examples)
+-- check _jm_obj_20_map_examples (.'$Header'.'|'.0.examples)
 CREATE OR REPLACE FUNCTION _jm_f_38(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2737,7 +2719,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_explode (.'$Header'.'|'.0.explode)
+-- check _jm_obj_20_map_explode (.'$Header'.'|'.0.explode)
 CREATE OR REPLACE FUNCTION _jm_f_39(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -2746,7 +2728,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check _jm_obj_22_map_required (.'$Header'.'|'.0.required)
+-- check _jm_obj_20_map_required (.'$Header'.'|'.0.required)
 CREATE OR REPLACE FUNCTION _jm_f_40(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -2755,7 +2737,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
-CREATE OR REPLACE FUNCTION _jm_obj_22_map(name TEXT)
+CREATE OR REPLACE FUNCTION _jm_obj_20_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   map JSONB := JSONB '{"allowEmptyValue":"_jm_f_33","allowReserved":"_jm_f_34","deprecated":"_jm_f_35","description":"_jm_f_36","example":"_jm_f_37","examples":"_jm_f_38","explode":"_jm_f_39","required":"_jm_f_40","schema":"json_model_32","style":"json_model_15"}';
@@ -2765,7 +2747,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$Header'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_22(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2775,9 +2757,9 @@ DECLARE
 BEGIN
   -- value known to be an object
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_obj_22_map(prop) IS NOT NULL THEN
+    IF _jm_obj_20_map(prop) IS NOT NULL THEN
       -- handle 10 may props
-      pfun := _jm_obj_22_map(prop);
+      pfun := _jm_obj_20_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;
       END IF;
@@ -2803,7 +2785,7 @@ BEGIN
   -- .'$Header'
   -- .'$Header'.'|'.0
   -- .'$Header'.'|'.1
-  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_22(val, NULL, NULL) OR _jm_obj_20(val, NULL, NULL));
+  RETURN JSONB_TYPEOF(val) = 'object' AND (_jm_obj_20(val, NULL, NULL) OR _jm_obj_18(val, NULL, NULL));
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -3318,7 +3300,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$Discriminator'.mapping
-CREATE OR REPLACE FUNCTION _jm_obj_23(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3368,7 +3350,7 @@ BEGIN
     IF prop = 'mapping' THEN
       -- handle may mapping property
       -- .'$Discriminator'.mapping
-      res := _jm_obj_23(pval, NULL, NULL);
+      res := _jm_obj_21(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3698,7 +3680,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- object .'$SecurityScheme'.'|'.0
-CREATE OR REPLACE FUNCTION _jm_obj_24(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3755,7 +3737,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$SecurityScheme'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_25(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3812,7 +3794,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$SecurityScheme'.'|'.2
-CREATE OR REPLACE FUNCTION _jm_obj_26(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3860,7 +3842,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$SecurityScheme'.'|'.3
-CREATE OR REPLACE FUNCTION _jm_obj_27(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3908,7 +3890,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$SecurityScheme'.'|'.4
-CREATE OR REPLACE FUNCTION _jm_obj_28(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -3956,7 +3938,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$SecurityScheme'.'|'.5
-CREATE OR REPLACE FUNCTION _jm_obj_29(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4010,7 +3992,7 @@ BEGIN
   END IF;
   -- .'$SecurityScheme'.'|'.5
   -- .'$SecurityScheme'.'|'.2
-  RETURN res OR _jm_obj_29(val, NULL, NULL) OR _jm_obj_26(val, NULL, NULL);
+  RETURN res OR _jm_obj_27(val, NULL, NULL) OR _jm_obj_24(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -4073,7 +4055,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$OAuthFlow'.scopes
-CREATE OR REPLACE FUNCTION _jm_obj_30(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -4114,7 +4096,7 @@ BEGIN
       -- handle must scopes property
       must_count := must_count + 1;
       -- .'$OAuthFlow'.scopes
-      res := _jm_obj_30(pval, NULL, NULL);
+      res := _jm_obj_28(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -4766,10 +4748,10 @@ $$ LANGUAGE plpgsql;
 --
 TRUNCATE jm_constant_maps;
 INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
-  ('_jm_map_0', JSONB '"apiKey"', '_jm_obj_24'),
-  ('_jm_map_0', JSONB '"http"', '_jm_obj_25'),
-  ('_jm_map_0', JSONB '"oauth2"', '_jm_obj_27'),
-  ('_jm_map_0', JSONB '"openIdConnect"', '_jm_obj_28')
+  ('_jm_map_0', JSONB '"apiKey"', '_jm_obj_22'),
+  ('_jm_map_0', JSONB '"http"', '_jm_obj_23'),
+  ('_jm_map_0', JSONB '"oauth2"', '_jm_obj_25'),
+  ('_jm_map_0', JSONB '"openIdConnect"', '_jm_obj_26')
 ;
 
 --

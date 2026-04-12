@@ -11,24 +11,12 @@ const JSON_MODEL_VERSION = "2";
 
 export var check_model_map = new Map()
 
-// object .'@'
-function _jm_obj_0(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'@']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
     // .'@'
-    let res = _jm_obj_0(val, path, rep);
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         let ival_0 = Object.keys(val).length;
@@ -37,10 +25,6 @@ function json_model_1(val, path, rep)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
         }
-    }
-    else
-    {
-        rep !== null && rep.push(["unexpected element [.'@']", path])
     }
     return res;
 }

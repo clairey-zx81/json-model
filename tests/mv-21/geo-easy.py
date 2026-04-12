@@ -489,14 +489,6 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# object .'$Feature'.properties.'|'.1
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$Feature'.properties.'|'.1]", path))
-        return False
-    # accept any object
-    return True
-
 # check $Feature (.'$Feature')
 def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Feature'
@@ -549,9 +541,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("not null [.'$Feature'.properties.'|'.0]", lpath if path is not None else None))
         # .'$Feature'.properties.'|'.1
-        res = _jm_obj_0(pval, lpath if path is not None else None, rep)
-        if not res:
-            rep is None or rep.append(("unexpected element [.'$Feature'.properties.'|'.1]", lpath if path is not None else None))
+        res = isinstance(pval, dict)
     if res:
         rep is None or rep.clear()
     else:

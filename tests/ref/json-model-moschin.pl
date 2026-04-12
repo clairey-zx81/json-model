@@ -29,65 +29,40 @@ sub _jm_xre_0($$$);
 sub _jm_xre_1($$$);
 sub json_model_12($$$);
 sub json_model_35($$$);
-sub _jm_obj_1($$$);
 sub _jm_obj_0($$$);
-sub _jm_obj_3($$$);
+sub _jm_obj_1($$$);
 sub _jm_obj_2($$$);
-sub _jm_obj_5($$$);
+sub _jm_obj_3($$$);
 sub _jm_obj_4($$$);
-sub _jm_obj_7($$$);
-sub _jm_obj_6($$$);
-sub _jm_obj_9($$$);
-sub _jm_obj_8($$$);
-sub _jm_obj_11($$$);
-sub _jm_obj_10($$$);
+sub _jm_obj_5($$$);
 sub json_model_31($$$);
 sub json_model_14($$$);
 sub json_model_15($$$);
 sub json_model_28($$$);
 sub json_model_13($$$);
-sub _jm_obj_14($$$);
+sub _jm_obj_7($$$);
+sub _jm_obj_8($$$);
+sub _jm_obj_6($$$);
+sub _jm_obj_10($$$);
+sub _jm_obj_11($$$);
+sub _jm_obj_9($$$);
 sub _jm_obj_13($$$);
-sub _jm_obj_16($$$);
-sub _jm_obj_15($$$);
-sub _jm_obj_17($$$);
+sub _jm_obj_14($$$);
 sub _jm_obj_12($$$);
-sub _jm_obj_20($$$);
+sub _jm_obj_16($$$);
+sub _jm_obj_17($$$);
+sub _jm_obj_15($$$);
 sub _jm_obj_19($$$);
-sub _jm_obj_22($$$);
-sub _jm_obj_21($$$);
-sub _jm_obj_23($$$);
+sub _jm_obj_20($$$);
 sub _jm_obj_18($$$);
-sub _jm_obj_26($$$);
-sub _jm_obj_25($$$);
-sub _jm_obj_28($$$);
-sub _jm_obj_27($$$);
-sub _jm_obj_29($$$);
-sub _jm_obj_24($$$);
-sub _jm_obj_32($$$);
-sub _jm_obj_31($$$);
-sub _jm_obj_34($$$);
-sub _jm_obj_33($$$);
-sub _jm_obj_35($$$);
-sub _jm_obj_30($$$);
-sub _jm_obj_38($$$);
-sub _jm_obj_37($$$);
-sub _jm_obj_40($$$);
-sub _jm_obj_39($$$);
-sub _jm_obj_41($$$);
-sub _jm_obj_36($$$);
-sub _jm_obj_44($$$);
-sub _jm_obj_43($$$);
-sub _jm_obj_46($$$);
-sub _jm_obj_45($$$);
-sub _jm_obj_47($$$);
-sub _jm_obj_42($$$);
+sub _jm_obj_22($$$);
+sub _jm_obj_23($$$);
+sub _jm_obj_21($$$);
 sub json_model_41($$$);
 sub json_model_4($$$);
 sub json_model_6($$$);
-sub _jm_obj_49($$$);
-sub _jm_obj_50($$$);
-sub _jm_obj_48($$$);
+sub _jm_obj_25($$$);
+sub _jm_obj_24($$$);
 sub json_model_33($$$);
 my %check_model_map;
 
@@ -327,14 +302,6 @@ sub json_model_35($$$)
     return json_model_34($val, undef, undef) || json_model_21($val, undef, undef) || json_model_31($val, undef, undef);
 }
 
-# object .'$Model#Element'.'|'.5.'.schema'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Element'.'|'.5
 sub _jm_obj_0($$$)
 {
@@ -359,7 +326,7 @@ sub _jm_obj_0($$$)
         {
             # handle may .schema property
             # .'$Model#Element'.'|'.5.'.schema'
-            $res = _jm_obj_1($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -390,16 +357,8 @@ sub _jm_obj_0($$$)
     return 1;
 }
 
-# object .'$Model#Element'.'|'.4.'.schema'
-sub _jm_obj_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Element'.'|'.4
-sub _jm_obj_2($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -448,7 +407,7 @@ sub _jm_obj_2($$$)
         {
             # handle may .schema property
             # .'$Model#Element'.'|'.4.'.schema'
-            $res = _jm_obj_3($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -469,16 +428,8 @@ sub _jm_obj_2($$$)
     return $must_count == 1;
 }
 
-# object .'$Model#Element'.'|'.3.'.schema'
-sub _jm_obj_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Element'.'|'.3
-sub _jm_obj_4($$$)
+sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -527,7 +478,7 @@ sub _jm_obj_4($$$)
         {
             # handle may .schema property
             # .'$Model#Element'.'|'.3.'.schema'
-            $res = _jm_obj_5($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -548,16 +499,8 @@ sub _jm_obj_4($$$)
     return $must_count == 1;
 }
 
-# object .'$Model#Element'.'|'.2.'.schema'
-sub _jm_obj_7($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Element'.'|'.2
-sub _jm_obj_6($$$)
+sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -606,7 +549,7 @@ sub _jm_obj_6($$$)
         {
             # handle may .schema property
             # .'$Model#Element'.'|'.2.'.schema'
-            $res = _jm_obj_7($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -627,16 +570,8 @@ sub _jm_obj_6($$$)
     return $must_count == 1;
 }
 
-# object .'$Model#Element'.'|'.1.'.schema'
-sub _jm_obj_9($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Element'.'|'.1
-sub _jm_obj_8($$$)
+sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -685,7 +620,7 @@ sub _jm_obj_8($$$)
         {
             # handle may .schema property
             # .'$Model#Element'.'|'.1.'.schema'
-            $res = _jm_obj_9($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -706,14 +641,6 @@ sub _jm_obj_8($$$)
     return $must_count == 1;
 }
 
-# object .'$Model#Element'.'|'.0.'.schema'
-sub _jm_obj_11($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 sub _jm_re_3($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -729,7 +656,7 @@ sub _jm_re_4($$$)
 }
 
 # object .'$Model#Element'.'|'.0
-sub _jm_obj_10($$$)
+sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -798,7 +725,7 @@ sub _jm_obj_10($$$)
         {
             # handle may .schema property
             # .'$Model#Element'.'|'.0.'.schema'
-            $res = _jm_obj_11($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -850,7 +777,7 @@ sub json_model_31($$$)
     # .'$Model#Element'.'|'.3
     # .'$Model#Element'.'|'.4
     # .'$Model#Element'.'|'.5
-    return jm_is_object($val) && (_jm_obj_10($val, undef, undef) || _jm_obj_8($val, undef, undef) || _jm_obj_6($val, undef, undef) || _jm_obj_4($val, undef, undef) || _jm_obj_2($val, undef, undef) || _jm_obj_0($val, undef, undef));
+    return jm_is_object($val) && (_jm_obj_5($val, undef, undef) || _jm_obj_4($val, undef, undef) || _jm_obj_3($val, undef, undef) || _jm_obj_2($val, undef, undef) || _jm_obj_1($val, undef, undef) || _jm_obj_0($val, undef, undef));
 }
 
 # check $Model#CmpValue (.'$Model#CmpValue')
@@ -913,16 +840,8 @@ sub json_model_13($$$)
     return jm_is_string($val) && _jm_re_6($val, undef, undef);
 }
 
-# object .'$Model#Root'.'|'.5.'$'.'.schema'
-sub _jm_obj_14($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.5.'$'
-sub _jm_obj_13($$$)
+sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -959,7 +878,7 @@ sub _jm_obj_13($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.5.'$'.'.schema'
-            $res = _jm_obj_14($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -990,14 +909,6 @@ sub _jm_obj_13($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.5.'%'.'.schema'
-sub _jm_obj_16($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 sub _jm_re_7($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -1013,7 +924,7 @@ sub _jm_re_8($$$)
 }
 
 # object .'$Model#Root'.'|'.5.'%'
-sub _jm_obj_15($$$)
+sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1069,7 +980,7 @@ sub _jm_obj_15($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.5.'%'.'.schema'
-            $res = _jm_obj_16($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1111,16 +1022,8 @@ sub _jm_obj_15($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.5.'.schema'
-sub _jm_obj_17($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.5
-sub _jm_obj_12($$$)
+sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -1143,7 +1046,7 @@ sub _jm_obj_12($$$)
         {
             # handle may $ property
             # .'$Model#Root'.'|'.5.'$'
-            $res = _jm_obj_13($pval, undef, undef);
+            $res = _jm_obj_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1154,7 +1057,7 @@ sub _jm_obj_12($$$)
         {
             # handle may % property
             # .'$Model#Root'.'|'.5.'%'
-            $res = _jm_obj_15($pval, undef, undef);
+            $res = _jm_obj_8($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1176,7 +1079,7 @@ sub _jm_obj_12($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.5.'.schema'
-            $res = _jm_obj_17($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1207,16 +1110,8 @@ sub _jm_obj_12($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.4.'$'.'.schema'
-sub _jm_obj_20($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.4.'$'
-sub _jm_obj_19($$$)
+sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1253,7 +1148,7 @@ sub _jm_obj_19($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.4.'$'.'.schema'
-            $res = _jm_obj_20($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1284,16 +1179,8 @@ sub _jm_obj_19($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.4.'%'.'.schema'
-sub _jm_obj_22($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.4.'%'
-sub _jm_obj_21($$$)
+sub _jm_obj_11($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1349,7 +1236,7 @@ sub _jm_obj_21($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.4.'%'.'.schema'
-            $res = _jm_obj_22($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1391,16 +1278,8 @@ sub _jm_obj_21($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.4.'.schema'
-sub _jm_obj_23($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.4
-sub _jm_obj_18($$$)
+sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -1449,7 +1328,7 @@ sub _jm_obj_18($$$)
         {
             # handle may $ property
             # .'$Model#Root'.'|'.4.'$'
-            $res = _jm_obj_19($pval, undef, undef);
+            $res = _jm_obj_10($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1460,7 +1339,7 @@ sub _jm_obj_18($$$)
         {
             # handle may % property
             # .'$Model#Root'.'|'.4.'%'
-            $res = _jm_obj_21($pval, undef, undef);
+            $res = _jm_obj_11($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1482,7 +1361,7 @@ sub _jm_obj_18($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.4.'.schema'
-            $res = _jm_obj_23($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1503,16 +1382,8 @@ sub _jm_obj_18($$$)
     return $must_count == 1;
 }
 
-# object .'$Model#Root'.'|'.3.'$'.'.schema'
-sub _jm_obj_26($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.3.'$'
-sub _jm_obj_25($$$)
+sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1549,7 +1420,7 @@ sub _jm_obj_25($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.3.'$'.'.schema'
-            $res = _jm_obj_26($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1580,16 +1451,8 @@ sub _jm_obj_25($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.3.'%'.'.schema'
-sub _jm_obj_28($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.3.'%'
-sub _jm_obj_27($$$)
+sub _jm_obj_14($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1645,7 +1508,7 @@ sub _jm_obj_27($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.3.'%'.'.schema'
-            $res = _jm_obj_28($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1687,16 +1550,8 @@ sub _jm_obj_27($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.3.'.schema'
-sub _jm_obj_29($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.3
-sub _jm_obj_24($$$)
+sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -1745,7 +1600,7 @@ sub _jm_obj_24($$$)
         {
             # handle may $ property
             # .'$Model#Root'.'|'.3.'$'
-            $res = _jm_obj_25($pval, undef, undef);
+            $res = _jm_obj_13($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1756,7 +1611,7 @@ sub _jm_obj_24($$$)
         {
             # handle may % property
             # .'$Model#Root'.'|'.3.'%'
-            $res = _jm_obj_27($pval, undef, undef);
+            $res = _jm_obj_14($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1778,7 +1633,7 @@ sub _jm_obj_24($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.3.'.schema'
-            $res = _jm_obj_29($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1799,16 +1654,8 @@ sub _jm_obj_24($$$)
     return $must_count == 1;
 }
 
-# object .'$Model#Root'.'|'.2.'$'.'.schema'
-sub _jm_obj_32($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.2.'$'
-sub _jm_obj_31($$$)
+sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1845,7 +1692,7 @@ sub _jm_obj_31($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.2.'$'.'.schema'
-            $res = _jm_obj_32($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1876,16 +1723,8 @@ sub _jm_obj_31($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.2.'%'.'.schema'
-sub _jm_obj_34($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.2.'%'
-sub _jm_obj_33($$$)
+sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1941,7 +1780,7 @@ sub _jm_obj_33($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.2.'%'.'.schema'
-            $res = _jm_obj_34($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1983,16 +1822,8 @@ sub _jm_obj_33($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.2.'.schema'
-sub _jm_obj_35($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.2
-sub _jm_obj_30($$$)
+sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -2041,7 +1872,7 @@ sub _jm_obj_30($$$)
         {
             # handle may $ property
             # .'$Model#Root'.'|'.2.'$'
-            $res = _jm_obj_31($pval, undef, undef);
+            $res = _jm_obj_16($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2052,7 +1883,7 @@ sub _jm_obj_30($$$)
         {
             # handle may % property
             # .'$Model#Root'.'|'.2.'%'
-            $res = _jm_obj_33($pval, undef, undef);
+            $res = _jm_obj_17($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2074,7 +1905,7 @@ sub _jm_obj_30($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.2.'.schema'
-            $res = _jm_obj_35($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2095,16 +1926,8 @@ sub _jm_obj_30($$$)
     return $must_count == 1;
 }
 
-# object .'$Model#Root'.'|'.1.'$'.'.schema'
-sub _jm_obj_38($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.1.'$'
-sub _jm_obj_37($$$)
+sub _jm_obj_19($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2141,7 +1964,7 @@ sub _jm_obj_37($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.1.'$'.'.schema'
-            $res = _jm_obj_38($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2172,16 +1995,8 @@ sub _jm_obj_37($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.1.'%'.'.schema'
-sub _jm_obj_40($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.1.'%'
-sub _jm_obj_39($$$)
+sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2237,7 +2052,7 @@ sub _jm_obj_39($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.1.'%'.'.schema'
-            $res = _jm_obj_40($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2279,16 +2094,8 @@ sub _jm_obj_39($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.1.'.schema'
-sub _jm_obj_41($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.1
-sub _jm_obj_36($$$)
+sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -2337,7 +2144,7 @@ sub _jm_obj_36($$$)
         {
             # handle may $ property
             # .'$Model#Root'.'|'.1.'$'
-            $res = _jm_obj_37($pval, undef, undef);
+            $res = _jm_obj_19($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2348,7 +2155,7 @@ sub _jm_obj_36($$$)
         {
             # handle may % property
             # .'$Model#Root'.'|'.1.'%'
-            $res = _jm_obj_39($pval, undef, undef);
+            $res = _jm_obj_20($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2370,7 +2177,7 @@ sub _jm_obj_36($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.1.'.schema'
-            $res = _jm_obj_41($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2391,16 +2198,8 @@ sub _jm_obj_36($$$)
     return $must_count == 1;
 }
 
-# object .'$Model#Root'.'|'.0.'$'.'.schema'
-sub _jm_obj_44($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.0.'$'
-sub _jm_obj_43($$$)
+sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2437,7 +2236,7 @@ sub _jm_obj_43($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.0.'$'.'.schema'
-            $res = _jm_obj_44($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2468,16 +2267,8 @@ sub _jm_obj_43($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.0.'%'.'.schema'
-sub _jm_obj_46($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.0.'%'
-sub _jm_obj_45($$$)
+sub _jm_obj_23($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2533,7 +2324,7 @@ sub _jm_obj_45($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.0.'%'.'.schema'
-            $res = _jm_obj_46($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2575,16 +2366,8 @@ sub _jm_obj_45($$$)
     return 1;
 }
 
-# object .'$Model#Root'.'|'.0.'.schema'
-sub _jm_obj_47($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Root'.'|'.0
-sub _jm_obj_42($$$)
+sub _jm_obj_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -2631,7 +2414,7 @@ sub _jm_obj_42($$$)
         {
             # handle may $ property
             # .'$Model#Root'.'|'.0.'$'
-            $res = _jm_obj_43($pval, undef, undef);
+            $res = _jm_obj_22($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2642,7 +2425,7 @@ sub _jm_obj_42($$$)
         {
             # handle may % property
             # .'$Model#Root'.'|'.0.'%'
-            $res = _jm_obj_45($pval, undef, undef);
+            $res = _jm_obj_23($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2686,7 +2469,7 @@ sub _jm_obj_42($$$)
         {
             # handle may .schema property
             # .'$Model#Root'.'|'.0.'.schema'
-            $res = _jm_obj_47($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2738,7 +2521,7 @@ sub json_model_41($$$)
     # .'$Model#Root'.'|'.3
     # .'$Model#Root'.'|'.4
     # .'$Model#Root'.'|'.5
-    return jm_is_object($val) && (_jm_obj_42($val, undef, undef) || _jm_obj_36($val, undef, undef) || _jm_obj_30($val, undef, undef) || _jm_obj_24($val, undef, undef) || _jm_obj_18($val, undef, undef) || _jm_obj_12($val, undef, undef));
+    return jm_is_object($val) && (_jm_obj_21($val, undef, undef) || _jm_obj_18($val, undef, undef) || _jm_obj_15($val, undef, undef) || _jm_obj_12($val, undef, undef) || _jm_obj_9($val, undef, undef) || _jm_obj_6($val, undef, undef));
 }
 
 sub _jm_re_9($$$)
@@ -2784,7 +2567,7 @@ sub json_model_6($$$)
 }
 
 # object .'$Model#Transformation'.'|'.1.'~'
-sub _jm_obj_49($$$)
+sub _jm_obj_25($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2806,16 +2589,8 @@ sub _jm_obj_49($$$)
     return 1;
 }
 
-# object .'$Model#Transformation'.'|'.1.'.schema'
-sub _jm_obj_50($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Model#Transformation'.'|'.1
-sub _jm_obj_48($$$)
+sub _jm_obj_24($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2861,7 +2636,7 @@ sub _jm_obj_48($$$)
         {
             # handle may ~ property
             # .'$Model#Transformation'.'|'.1.'~'
-            $res = _jm_obj_49($pval, undef, undef);
+            $res = _jm_obj_25($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2872,7 +2647,7 @@ sub _jm_obj_48($$$)
         {
             # handle may .schema property
             # .'$Model#Transformation'.'|'.1.'.schema'
-            $res = _jm_obj_50($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2900,7 +2675,7 @@ sub json_model_33($$$)
     # .'$Model#Transformation'
     # .'$Model#Transformation'.'|'.0
     # .'$Model#Transformation'.'|'.1
-    return json_model_35($val, undef, undef) || _jm_obj_48($val, undef, undef);
+    return json_model_35($val, undef, undef) || _jm_obj_24($val, undef, undef);
 }
 
 

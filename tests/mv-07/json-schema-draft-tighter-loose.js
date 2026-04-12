@@ -3376,45 +3376,7 @@ function json_model_23(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$tight#const'
-    // .'$tight#const'.'|'.0
-    let res = val === null;
-    if (! res)
-    {
-        rep !== null && rep.push(["not null [.'$tight#const'.'|'.0]", path])
-        // .'$tight#const'.'|'.1
-        res = (typeof val === 'boolean' || val instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.'$tight#const'.'|'.1]", path])
-            // .'$tight#const'.'|'.2
-            res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a -1 strict int [.'$tight#const'.'|'.2]", path])
-                // .'$tight#const'.'|'.3
-                res = (typeof val === 'number' || val instanceof Number);
-                if (! res)
-                {
-                    rep !== null && rep.push(["not a -1.0 strict float [.'$tight#const'.'|'.3]", path])
-                    // .'$tight#const'.'|'.4
-                    res = (typeof val === 'string' || val instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected value for model \"\" [.'$tight#const'.'|'.4]", path])
-                    }
-                }
-            }
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$tight#const'.'|']", path])
-    }
-    return res;
+    return ! Array.isArray(val) && ! (Object.prototype.toString.call(val) === '[object Object]');
 }
 
 // object .'$tight#Ref'.'$defs'

@@ -1,0 +1,13 @@
+{
+  "description": "any constructed stuff",
+  "anyOf": [
+    {
+      "type": "object",
+      "additionalProperties": true
+    },
+    {
+      "type": "array",
+      "items": true
+    }
+  ]
+}

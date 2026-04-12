@@ -7314,18 +7314,6 @@ function json_model_56(val, path, rep)
 }
 
 
-// object .'$DependencyModelLoose'.vars
-function _jm_obj_49(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$DependencyModelLoose'.vars]", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // check $DependencyModelLoose (.'$DependencyModelLoose')
 function json_model_57(val, path, rep)
 {
@@ -7455,10 +7443,9 @@ function json_model_57(val, path, rep)
         lpath = path ? path.concat(["vars"]) : null;
         pval = val["vars"];
         // .'$DependencyModelLoose'.vars
-        res = _jm_obj_49(pval, (path ? lpath : null), rep);
+        res = Object.prototype.toString.call(pval) === '[object Object]';
         if (! res)
         {
-            rep !== null && rep.push(["unexpected element [.'$DependencyModelLoose'.vars]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <vars> [.'$DependencyModelLoose']", (path ? lpath : null)])
             return false;
         }
@@ -7493,7 +7480,7 @@ function json_model_57(val, path, rep)
 }
 
 // object .'$DependencyModel'.'&'.1.'|'.2
-function _jm_obj_50(val, path, rep)
+function _jm_obj_49(val, path, rep)
 {
     // check open must/may only props
     // value known to be an object
@@ -7518,7 +7505,7 @@ function _jm_obj_50(val, path, rep)
 }
 
 // object .'$DependencyModel'.'&'.1.'|'.1
-function _jm_obj_51(val, path, rep)
+function _jm_obj_50(val, path, rep)
 {
     // check open must/may only props
     // value known to be an object
@@ -7543,7 +7530,7 @@ function _jm_obj_51(val, path, rep)
 }
 
 // object .'$DependencyModel'.'&'.1.'|'.0
-function _jm_obj_52(val, path, rep)
+function _jm_obj_51(val, path, rep)
 {
     // check open must/may only props
     // value known to be an object
@@ -7584,17 +7571,17 @@ function json_model_58(val, path, rep)
             if (res)
             {
                 // .'$DependencyModel'.'&'.1.'|'.0
-                res = _jm_obj_52(val, path, rep);
+                res = _jm_obj_51(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path])
                     // .'$DependencyModel'.'&'.1.'|'.1
-                    res = _jm_obj_51(val, path, rep);
+                    res = _jm_obj_50(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path])
                         // .'$DependencyModel'.'&'.1.'|'.2
-                        res = _jm_obj_50(val, path, rep);
+                        res = _jm_obj_49(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path])

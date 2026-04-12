@@ -2619,12 +2619,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$tight#const'
-    # .'$tight#const'.'|'.0
-    # .'$tight#const'.'|'.1
-    # .'$tight#const'.'|'.2
-    # .'$tight#const'.'|'.3
-    # .'$tight#const'.'|'.4
-    return !defined($val) || jm_is_boolean($val) || jm_is_integer($val) || jm_is_numeric($val) || jm_is_string($val);
+    return ! jm_is_array($val) && ! jm_is_object($val);
 }
 
 # check json_model_24_map_$comment (.'$tight#Ref'.'$comment')

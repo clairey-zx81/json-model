@@ -1,0 +1,11 @@
+obj_00.values.json[0]: FAIL (: not an object [.])
+obj_00.values.json[1]: FAIL (: not an object [.])
+obj_00.values.json[2]: FAIL (: not an object [.])
+obj_00.values.json[3]: FAIL (: not an object [.])
+obj_00.values.json[4]: FAIL (: not an object [.])
+obj_00.values.json[5]: FAIL (: not an object [.])
+obj_00.values.json[6]: FAIL (: not an object [.])
+obj_00.values.json[7]: PASS
+obj_00.values.json[8]: PASS
+obj_00.values.json[9]: FAIL (: not an object [.])
+obj_00.values.json[10]: FAIL (: not an object [.])

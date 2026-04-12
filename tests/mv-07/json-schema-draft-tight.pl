@@ -322,12 +322,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$const'
-    # .'$const'.'|'.0
-    # .'$const'.'|'.1
-    # .'$const'.'|'.2
-    # .'$const'.'|'.3
-    # .'$const'.'|'.4
-    return !defined($val) || jm_is_boolean($val) || jm_is_integer($val) || jm_is_numeric($val) || jm_is_string($val);
+    return ! jm_is_array($val) && ! jm_is_object($val);
 }
 
 # check $enum (.'$enum')

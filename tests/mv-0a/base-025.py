@@ -23,26 +23,16 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object .'@'
-def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'@']", path))
-        return False
-    # accept any object
-    return True
-
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     # .'@'
-    res: bool = _jm_obj_0(val, path, rep)
+    res: bool = isinstance(val, dict)
     if res:
         ival_0: int = len(val)
         res = ival_0 <= 3 and ival_0 >= 2
         if not res:
             rep is None or rep.append(("constraints failed [.]", path))
-    else:
-        rep is None or rep.append(("unexpected element [.'@']", path))
     return res
 
 

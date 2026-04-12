@@ -93,13 +93,11 @@ sub json_model_23($$$);
 sub json_model_24($$$);
 sub json_model_25($$$);
 sub json_model_26($$$);
-sub _jm_obj_17($$$);
 sub _jm_obj_16($$$);
+sub _jm_obj_17($$$);
+sub json_model_27($$$);
 sub _jm_obj_19($$$);
 sub _jm_obj_18($$$);
-sub json_model_27($$$);
-sub _jm_obj_21($$$);
-sub _jm_obj_20($$$);
 sub _jm_f_33($$$);
 sub _jm_f_34($$$);
 sub _jm_f_35($$$);
@@ -108,8 +106,8 @@ sub _jm_f_37($$$);
 sub _jm_f_38($$$);
 sub _jm_f_39($$$);
 sub _jm_f_40($$$);
-my %_jm_obj_22_map;
-sub _jm_obj_22($$$);
+my %_jm_obj_20_map;
+sub _jm_obj_20($$$);
 sub json_model_28($$$);
 sub json_model_29($$$);
 sub json_model_30($$$);
@@ -145,7 +143,7 @@ sub _jm_f_68($$$);
 sub _jm_f_69($$$);
 my %json_model_32_map;
 sub json_model_32($$$);
-sub _jm_obj_23($$$);
+sub _jm_obj_21($$$);
 sub json_model_33($$$);
 sub json_model_34($$$);
 my %_jm_cst_4;
@@ -155,16 +153,16 @@ sub json_model_37($$$);
 sub json_model_38($$$);
 sub json_model_39($$$);
 my %_jm_cst_5;
+sub _jm_obj_22($$$);
+sub _jm_obj_23($$$);
 sub _jm_obj_24($$$);
 sub _jm_obj_25($$$);
 sub _jm_obj_26($$$);
 sub _jm_obj_27($$$);
-sub _jm_obj_28($$$);
-sub _jm_obj_29($$$);
 my %_jm_map_0;
 sub json_model_40($$$);
 sub json_model_41($$$);
-sub _jm_obj_30($$$);
+sub _jm_obj_28($$$);
 sub json_model_42($$$);
 sub json_model_43($$$);
 sub json_model_44($$$);
@@ -2783,14 +2781,6 @@ sub json_model_26($$$)
     return jm_is_string($val);
 }
 
-# object .'$Link'.'|'.1.parameters
-sub _jm_obj_17($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Link'.'|'.1
 sub _jm_obj_16($$$)
 {
@@ -2828,7 +2818,7 @@ sub _jm_obj_16($$$)
         {
             # handle may parameters property
             # .'$Link'.'|'.1.parameters
-            $res = _jm_obj_17($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2867,16 +2857,8 @@ sub _jm_obj_16($$$)
     return $must_count == 1;
 }
 
-# object .'$Link'.'|'.0.parameters
-sub _jm_obj_19($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # object .'$Link'.'|'.0
-sub _jm_obj_18($$$)
+sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -2912,7 +2894,7 @@ sub _jm_obj_18($$$)
         {
             # handle may parameters property
             # .'$Link'.'|'.0.parameters
-            $res = _jm_obj_19($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -2958,11 +2940,11 @@ sub json_model_27($$$)
     # .'$Link'
     # .'$Link'.'|'.0
     # .'$Link'.'|'.1
-    return jm_is_object($val) && (_jm_obj_18($val, undef, undef) || _jm_obj_16($val, undef, undef));
+    return jm_is_object($val) && (_jm_obj_17($val, undef, undef) || _jm_obj_16($val, undef, undef));
 }
 
 # object .'$Header'.'|'.1.content
-sub _jm_obj_21($$$)
+sub _jm_obj_19($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2985,7 +2967,7 @@ sub _jm_obj_21($$$)
 }
 
 # object .'$Header'.'|'.1
-sub _jm_obj_20($$$)
+sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -2997,7 +2979,7 @@ sub _jm_obj_20($$$)
         {
             # handle may content property
             # .'$Header'.'|'.1.content
-            $res = _jm_obj_21($pval, undef, undef);
+            $res = _jm_obj_19($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -3062,7 +3044,7 @@ sub _jm_obj_20($$$)
     return 1;
 }
 
-# check _jm_obj_22_map_allowEmptyValue (.'$Header'.'|'.0.allowEmptyValue)
+# check _jm_obj_20_map_allowEmptyValue (.'$Header'.'|'.0.allowEmptyValue)
 sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3070,7 +3052,7 @@ sub _jm_f_33($$$)
     return jm_is_boolean($val);
 }
 
-# check _jm_obj_22_map_allowReserved (.'$Header'.'|'.0.allowReserved)
+# check _jm_obj_20_map_allowReserved (.'$Header'.'|'.0.allowReserved)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3078,7 +3060,7 @@ sub _jm_f_34($$$)
     return jm_is_boolean($val);
 }
 
-# check _jm_obj_22_map_deprecated (.'$Header'.'|'.0.deprecated)
+# check _jm_obj_20_map_deprecated (.'$Header'.'|'.0.deprecated)
 sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3086,7 +3068,7 @@ sub _jm_f_35($$$)
     return jm_is_boolean($val);
 }
 
-# check _jm_obj_22_map_description (.'$Header'.'|'.0.description)
+# check _jm_obj_20_map_description (.'$Header'.'|'.0.description)
 sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3094,7 +3076,7 @@ sub _jm_f_36($$$)
     return jm_is_string($val);
 }
 
-# check _jm_obj_22_map_example (.'$Header'.'|'.0.example)
+# check _jm_obj_20_map_example (.'$Header'.'|'.0.example)
 sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3102,7 +3084,7 @@ sub _jm_f_37($$$)
     return 1;
 }
 
-# check _jm_obj_22_map_examples (.'$Header'.'|'.0.examples)
+# check _jm_obj_20_map_examples (.'$Header'.'|'.0.examples)
 sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3128,7 +3110,7 @@ sub _jm_f_38($$$)
     return 1;
 }
 
-# check _jm_obj_22_map_explode (.'$Header'.'|'.0.explode)
+# check _jm_obj_20_map_explode (.'$Header'.'|'.0.explode)
 sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3136,7 +3118,7 @@ sub _jm_f_39($$$)
     return jm_is_boolean($val);
 }
 
-# check _jm_obj_22_map_required (.'$Header'.'|'.0.required)
+# check _jm_obj_20_map_required (.'$Header'.'|'.0.required)
 sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -3146,7 +3128,7 @@ sub _jm_f_40($$$)
 
 
 # object .'$Header'.'|'.0
-sub _jm_obj_22($$$)
+sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
@@ -3155,7 +3137,7 @@ sub _jm_obj_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (($pfun = $_jm_obj_22_map{$prop}))
+        if (($pfun = $_jm_obj_20_map{$prop}))
         {
             # handle 10 may props
             if (defined($pfun) && ! &$pfun($pval, undef, undef))
@@ -3186,7 +3168,7 @@ sub json_model_28($$$)
     # .'$Header'
     # .'$Header'.'|'.0
     # .'$Header'.'|'.1
-    return jm_is_object($val) && (_jm_obj_22($val, undef, undef) || _jm_obj_20($val, undef, undef));
+    return jm_is_object($val) && (_jm_obj_20($val, undef, undef) || _jm_obj_18($val, undef, undef));
 }
 
 # check $Tag (.'$Tag')
@@ -3687,7 +3669,7 @@ sub json_model_32($$$)
 }
 
 # object .'$Discriminator'.mapping
-sub _jm_obj_23($$$)
+sub _jm_obj_21($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -3739,7 +3721,7 @@ sub json_model_33($$$)
         {
             # handle may mapping property
             # .'$Discriminator'.mapping
-            $res = _jm_obj_23($pval, undef, undef);
+            $res = _jm_obj_21($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -4058,7 +4040,7 @@ sub json_model_39($$$)
 
 
 # object .'$SecurityScheme'.'|'.0
-sub _jm_obj_24($$$)
+sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4123,7 +4105,7 @@ sub _jm_obj_24($$$)
 }
 
 # object .'$SecurityScheme'.'|'.1
-sub _jm_obj_25($$$)
+sub _jm_obj_23($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4188,7 +4170,7 @@ sub _jm_obj_25($$$)
 }
 
 # object .'$SecurityScheme'.'|'.2
-sub _jm_obj_26($$$)
+sub _jm_obj_24($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4241,7 +4223,7 @@ sub _jm_obj_26($$$)
 }
 
 # object .'$SecurityScheme'.'|'.3
-sub _jm_obj_27($$$)
+sub _jm_obj_25($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4294,7 +4276,7 @@ sub _jm_obj_27($$$)
 }
 
 # object .'$SecurityScheme'.'|'.4
-sub _jm_obj_28($$$)
+sub _jm_obj_26($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4347,7 +4329,7 @@ sub _jm_obj_28($$$)
 }
 
 # object .'$SecurityScheme'.'|'.5
-sub _jm_obj_29($$$)
+sub _jm_obj_27($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4405,7 +4387,7 @@ sub json_model_40($$$)
     }
     # .'$SecurityScheme'.'|'.5
     # .'$SecurityScheme'.'|'.2
-    return $res || _jm_obj_29($val, undef, undef) || _jm_obj_26($val, undef, undef);
+    return $res || _jm_obj_27($val, undef, undef) || _jm_obj_24($val, undef, undef);
 }
 
 # check $OAuthFlows (.'$OAuthFlows')
@@ -4480,7 +4462,7 @@ sub json_model_41($$$)
 }
 
 # object .'$OAuthFlow'.scopes
-sub _jm_obj_30($$$)
+sub _jm_obj_28($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -4521,7 +4503,7 @@ sub json_model_42($$$)
             # handle must scopes property
             $must_count++;
             # .'$OAuthFlow'.scopes
-            $res = _jm_obj_30($pval, undef, undef);
+            $res = _jm_obj_28($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -5221,7 +5203,7 @@ sub check_model_init()
             'schema' => \&json_model_32,
             'style' => \&json_model_15,
         );
-        %_jm_obj_22_map = (
+        %_jm_obj_20_map = (
             'allowEmptyValue' => \&_jm_f_33,
             'allowReserved' => \&_jm_f_34,
             'deprecated' => \&_jm_f_35,
@@ -5307,10 +5289,10 @@ sub check_model_init()
             'cookie' => 1,
         );
         %_jm_map_0 = (
-            'apiKey' => \&_jm_obj_24,
-            'http' => \&_jm_obj_25,
-            'oauth2' => \&_jm_obj_27,
-            'openIdConnect' => \&_jm_obj_28,
+            'apiKey' => \&_jm_obj_22,
+            'http' => \&_jm_obj_23,
+            'oauth2' => \&_jm_obj_25,
+            'openIdConnect' => \&_jm_obj_26,
         );
         %_jm_cst_6 = (
             'array' => 1,
@@ -5442,7 +5424,7 @@ sub check_model_free()
         %_jm_cst_2 = ();
         %_jm_cst_3 = ();
         %_jm_obj_8_map = ();
-        %_jm_obj_22_map = ();
+        %_jm_obj_20_map = ();
         %json_model_32_map = ();
         %_jm_cst_4 = ();
         %_jm_cst_5 = ();

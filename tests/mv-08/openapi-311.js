@@ -3635,18 +3635,6 @@ function json_model_26(val, path, rep)
     return res;
 }
 
-// object .'$Link'.'|'.1.parameters
-function _jm_obj_29(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Link'.'|'.1.parameters]", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Link'.'|'.1
 function _jm_obj_28(val, path, rep)
 {
@@ -3687,10 +3675,9 @@ function _jm_obj_28(val, path, rep)
         {
             // handle may parameters property
             // .'$Link'.'|'.1.parameters
-            res = _jm_obj_29(pval, (path ? lpath_49 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Link'.'|'.1.parameters]", (path ? lpath_49 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.1.parameters]", (path ? lpath_49 : null)])
                 return false;
             }
@@ -3742,20 +3729,8 @@ function _jm_obj_28(val, path, rep)
     return true;
 }
 
-// object .'$Link'.'|'.0.parameters
-function _jm_obj_31(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Link'.'|'.0.parameters]", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Link'.'|'.0
-function _jm_obj_30(val, path, rep)
+function _jm_obj_29(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -3794,10 +3769,9 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may parameters property
             // .'$Link'.'|'.0.parameters
-            res = _jm_obj_31(pval, (path ? lpath_50 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Link'.'|'.0.parameters]", (path ? lpath_50 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Link'.'|'.0.parameters]", (path ? lpath_50 : null)])
                 return false;
             }
@@ -3857,7 +3831,7 @@ function json_model_27(val, path, rep)
     if (res)
     {
         // .'$Link'.'|'.0
-        res = _jm_obj_30(val, path, rep);
+        res = _jm_obj_29(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Link'.'|'.0]", path])
@@ -3885,7 +3859,7 @@ function json_model_27(val, path, rep)
 }
 
 // object .'$Header'.'|'.1.content
-function _jm_obj_33(val, path, rep)
+function _jm_obj_31(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3909,7 +3883,7 @@ function _jm_obj_33(val, path, rep)
 }
 
 // object .'$Header'.'|'.1
-function _jm_obj_32(val, path, rep)
+function _jm_obj_30(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -3920,7 +3894,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may content property
             // .'$Header'.'|'.1.content
-            res = _jm_obj_33(pval, (path ? lpath_51 : null), rep);
+            res = _jm_obj_31(pval, (path ? lpath_51 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Header'.'|'.1.content]", (path ? lpath_51 : null)])
@@ -3997,7 +3971,7 @@ function _jm_obj_32(val, path, rep)
 }
 
 // object .'$Header'.'|'.0.examples
-function _jm_obj_35(val, path, rep)
+function _jm_obj_33(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4036,7 +4010,7 @@ function _jm_obj_35(val, path, rep)
 }
 
 // object .'$Header'.'|'.0
-function _jm_obj_34(val, path, rep)
+function _jm_obj_32(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -4093,7 +4067,7 @@ function _jm_obj_34(val, path, rep)
         {
             // handle may examples property
             // .'$Header'.'|'.0.examples
-            res = _jm_obj_35(pval, (path ? lpath_53 : null), rep);
+            res = _jm_obj_33(pval, (path ? lpath_53 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Header'.'|'.0.examples]", (path ? lpath_53 : null)])
@@ -4191,12 +4165,12 @@ function json_model_28(val, path, rep)
     if (res)
     {
         // .'$Header'.'|'.0
-        res = _jm_obj_34(val, path, rep);
+        res = _jm_obj_32(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Header'.'|'.0]", path])
             // .'$Header'.'|'.1
-            res = _jm_obj_32(val, path, rep);
+            res = _jm_obj_30(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Header'.'|'.1]", path])
@@ -4856,7 +4830,7 @@ function json_model_32(val, path, rep)
 }
 
 // object .'$Discriminator'.mapping
-function _jm_obj_36(val, path, rep)
+function _jm_obj_34(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4911,7 +4885,7 @@ function json_model_33(val, path, rep)
         {
             // handle may mapping property
             // .'$Discriminator'.mapping
-            res = _jm_obj_36(pval, (path ? lpath_64 : null), rep);
+            res = _jm_obj_34(pval, (path ? lpath_64 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Discriminator'.mapping]", (path ? lpath_64 : null)])
@@ -5336,7 +5310,7 @@ function json_model_39(val, path, rep)
 
 
 // object .'$SecurityScheme'.'|'.0
-function _jm_obj_37(val, path, rep)
+function _jm_obj_35(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -5429,7 +5403,7 @@ function _jm_obj_37(val, path, rep)
 }
 
 // object .'$SecurityScheme'.'|'.1
-function _jm_obj_38(val, path, rep)
+function _jm_obj_36(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -5518,7 +5492,7 @@ function _jm_obj_38(val, path, rep)
 }
 
 // object .'$SecurityScheme'.'|'.2
-function _jm_obj_39(val, path, rep)
+function _jm_obj_37(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -5593,7 +5567,7 @@ function _jm_obj_39(val, path, rep)
 }
 
 // object .'$SecurityScheme'.'|'.3
-function _jm_obj_40(val, path, rep)
+function _jm_obj_38(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -5668,7 +5642,7 @@ function _jm_obj_40(val, path, rep)
 }
 
 // object .'$SecurityScheme'.'|'.4
-function _jm_obj_41(val, path, rep)
+function _jm_obj_39(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -5743,7 +5717,7 @@ function _jm_obj_41(val, path, rep)
 }
 
 // object .'$SecurityScheme'.'|'.5
-function _jm_obj_42(val, path, rep)
+function _jm_obj_40(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -5817,12 +5791,12 @@ function json_model_40(val, path, rep)
     if (! res)
     {
         // .'$SecurityScheme'.'|'.5
-        res = _jm_obj_42(val, path, rep);
+        res = _jm_obj_40(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$SecurityScheme'.'|'.5]", path])
             // .'$SecurityScheme'.'|'.2
-            res = _jm_obj_39(val, path, rep);
+            res = _jm_obj_37(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$SecurityScheme'.'|'.2]", path])
@@ -5913,7 +5887,7 @@ function json_model_41(val, path, rep)
 }
 
 // object .'$OAuthFlow'.scopes
-function _jm_obj_43(val, path, rep)
+function _jm_obj_41(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -5955,7 +5929,7 @@ function json_model_42(val, path, rep)
             // handle must scopes property
             must_count += 1;
             // .'$OAuthFlow'.scopes
-            res = _jm_obj_43(pval, (path ? lpath_75 : null), rep);
+            res = _jm_obj_41(pval, (path ? lpath_75 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$OAuthFlow'.scopes]", (path ? lpath_75 : null)])
@@ -6854,10 +6828,10 @@ export function check_model_init()
         _jm_cst_5.add("query")
         _jm_cst_5.add("header")
         _jm_cst_5.add("cookie")
-        _jm_map_0.set("apiKey", _jm_obj_37)
-        _jm_map_0.set("http", _jm_obj_38)
-        _jm_map_0.set("oauth2", _jm_obj_40)
-        _jm_map_0.set("openIdConnect", _jm_obj_41)
+        _jm_map_0.set("apiKey", _jm_obj_35)
+        _jm_map_0.set("http", _jm_obj_36)
+        _jm_map_0.set("oauth2", _jm_obj_38)
+        _jm_map_0.set("openIdConnect", _jm_obj_39)
         _jm_cst_6.add("array")
         _jm_cst_6.add("boolean")
         _jm_cst_6.add("integer")

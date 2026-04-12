@@ -406,18 +406,6 @@ function json_model_35(val, path, rep)
     return res;
 }
 
-// object .'$Model#Element'.'|'.5.'.schema'
-function _jm_obj_1(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Element'.'|'.5.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Element'.'|'.5
 function _jm_obj_0(val, path, rep)
 {
@@ -443,10 +431,9 @@ function _jm_obj_0(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.5.'.schema'
-            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.5.'.schema']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.5.'.schema']", (path ? lpath_0 : null)])
                 return false;
             }
@@ -478,20 +465,8 @@ function _jm_obj_0(val, path, rep)
     return true;
 }
 
-// object .'$Model#Element'.'|'.4.'.schema'
-function _jm_obj_3(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Element'.'|'.4.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Element'.'|'.4
-function _jm_obj_2(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -545,10 +520,9 @@ function _jm_obj_2(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.4.'.schema'
-            res = _jm_obj_3(pval, (path ? lpath_1 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.4.'.schema']", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.4.'.schema']", (path ? lpath_1 : null)])
                 return false;
             }
@@ -580,20 +554,8 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// object .'$Model#Element'.'|'.3.'.schema'
-function _jm_obj_5(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Element'.'|'.3.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Element'.'|'.3
-function _jm_obj_4(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -647,10 +609,9 @@ function _jm_obj_4(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.3.'.schema'
-            res = _jm_obj_5(pval, (path ? lpath_2 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.3.'.schema']", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.3.'.schema']", (path ? lpath_2 : null)])
                 return false;
             }
@@ -682,20 +643,8 @@ function _jm_obj_4(val, path, rep)
     return true;
 }
 
-// object .'$Model#Element'.'|'.2.'.schema'
-function _jm_obj_7(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Element'.'|'.2.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Element'.'|'.2
-function _jm_obj_6(val, path, rep)
+function _jm_obj_3(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -749,10 +698,9 @@ function _jm_obj_6(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.2.'.schema'
-            res = _jm_obj_7(pval, (path ? lpath_3 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.2.'.schema']", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.2.'.schema']", (path ? lpath_3 : null)])
                 return false;
             }
@@ -784,20 +732,8 @@ function _jm_obj_6(val, path, rep)
     return true;
 }
 
-// object .'$Model#Element'.'|'.1.'.schema'
-function _jm_obj_9(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Element'.'|'.1.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Element'.'|'.1
-function _jm_obj_8(val, path, rep)
+function _jm_obj_4(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -851,10 +787,9 @@ function _jm_obj_8(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.1.'.schema'
-            res = _jm_obj_9(pval, (path ? lpath_4 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.1.'.schema']", (path ? lpath_4 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.1.'.schema']", (path ? lpath_4 : null)])
                 return false;
             }
@@ -886,24 +821,12 @@ function _jm_obj_8(val, path, rep)
     return true;
 }
 
-// object .'$Model#Element'.'|'.0.'.schema'
-function _jm_obj_11(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Element'.'|'.0.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 
 const _jm_re_4 = (s) => _jm_re_4_re.exec(s) !== null
 
 // object .'$Model#Element'.'|'.0
-function _jm_obj_10(val, path, rep)
+function _jm_obj_5(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -981,10 +904,9 @@ function _jm_obj_10(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Element'.'|'.0.'.schema'
-            res = _jm_obj_11(pval, (path ? lpath_5 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.0.'.schema']", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.0.'.schema']", (path ? lpath_5 : null)])
                 return false;
             }
@@ -1046,27 +968,27 @@ function json_model_31(val, path, rep)
     if (res)
     {
         // .'$Model#Element'.'|'.0
-        res = _jm_obj_10(val, path, rep);
+        res = _jm_obj_5(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.0]", path])
             // .'$Model#Element'.'|'.1
-            res = _jm_obj_8(val, path, rep);
+            res = _jm_obj_4(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.1]", path])
                 // .'$Model#Element'.'|'.2
-                res = _jm_obj_6(val, path, rep);
+                res = _jm_obj_3(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.2]", path])
                     // .'$Model#Element'.'|'.3
-                    res = _jm_obj_4(val, path, rep);
+                    res = _jm_obj_2(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.3]", path])
                         // .'$Model#Element'.'|'.4
-                        res = _jm_obj_2(val, path, rep);
+                        res = _jm_obj_1(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$Model#Element'.'|'.4]", path])
@@ -1232,20 +1154,8 @@ function json_model_13(val, path, rep)
     return res;
 }
 
-// object .'$Model#Root'.'|'.5.'$'.'.schema'
-function _jm_obj_14(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.5.'$'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.5.'$'
-function _jm_obj_13(val, path, rep)
+function _jm_obj_7(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1286,10 +1196,9 @@ function _jm_obj_13(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.5.'$'.'.schema'
-            res = _jm_obj_14(pval, (path ? lpath_7 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.5.'$'.'.schema']", (path ? lpath_7 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.5.'$'.'.schema']", (path ? lpath_7 : null)])
                 return false;
             }
@@ -1321,24 +1230,12 @@ function _jm_obj_13(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.5.'%'.'.schema'
-function _jm_obj_16(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.5.'%'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 const _jm_re_7 = (s) => _jm_re_7_re.exec(s) !== null
 
 const _jm_re_8 = (s) => _jm_re_8_re.exec(s) !== null
 
 // object .'$Model#Root'.'|'.5.'%'
-function _jm_obj_15(val, path, rep)
+function _jm_obj_8(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1409,10 +1306,9 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.5.'%'.'.schema'
-            res = _jm_obj_16(pval, (path ? lpath_8 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.5.'%'.'.schema']", (path ? lpath_8 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.5.'%'.'.schema']", (path ? lpath_8 : null)])
                 return false;
             }
@@ -1456,20 +1352,8 @@ function _jm_obj_15(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.5.'.schema'
-function _jm_obj_17(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.5.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.5
-function _jm_obj_12(val, path, rep)
+function _jm_obj_6(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -1493,7 +1377,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle may $ property
             // .'$Model#Root'.'|'.5.'$'
-            res = _jm_obj_13(pval, (path ? lpath_6 : null), rep);
+            res = _jm_obj_7(pval, (path ? lpath_6 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.5.'$']", (path ? lpath_6 : null)])
@@ -1506,7 +1390,7 @@ function _jm_obj_12(val, path, rep)
         {
             // handle may % property
             // .'$Model#Root'.'|'.5.'%'
-            res = _jm_obj_15(pval, (path ? lpath_6 : null), rep);
+            res = _jm_obj_8(pval, (path ? lpath_6 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.5.'%']", (path ? lpath_6 : null)])
@@ -1532,10 +1416,9 @@ function _jm_obj_12(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.5.'.schema'
-            res = _jm_obj_17(pval, (path ? lpath_6 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.5.'.schema']", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.5.'.schema']", (path ? lpath_6 : null)])
                 return false;
             }
@@ -1567,20 +1450,8 @@ function _jm_obj_12(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.4.'$'.'.schema'
-function _jm_obj_20(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.4.'$'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.4.'$'
-function _jm_obj_19(val, path, rep)
+function _jm_obj_10(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1621,10 +1492,9 @@ function _jm_obj_19(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.4.'$'.'.schema'
-            res = _jm_obj_20(pval, (path ? lpath_10 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.4.'$'.'.schema']", (path ? lpath_10 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'.schema']", (path ? lpath_10 : null)])
                 return false;
             }
@@ -1656,20 +1526,8 @@ function _jm_obj_19(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.4.'%'.'.schema'
-function _jm_obj_22(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.4.'%'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.4.'%'
-function _jm_obj_21(val, path, rep)
+function _jm_obj_11(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1740,10 +1598,9 @@ function _jm_obj_21(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.4.'%'.'.schema'
-            res = _jm_obj_22(pval, (path ? lpath_11 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.4.'%'.'.schema']", (path ? lpath_11 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.4.'%'.'.schema']", (path ? lpath_11 : null)])
                 return false;
             }
@@ -1787,20 +1644,8 @@ function _jm_obj_21(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.4.'.schema'
-function _jm_obj_23(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.4.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.4
-function _jm_obj_18(val, path, rep)
+function _jm_obj_9(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -1854,7 +1699,7 @@ function _jm_obj_18(val, path, rep)
         {
             // handle may $ property
             // .'$Model#Root'.'|'.4.'$'
-            res = _jm_obj_19(pval, (path ? lpath_9 : null), rep);
+            res = _jm_obj_10(pval, (path ? lpath_9 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.4.'$']", (path ? lpath_9 : null)])
@@ -1867,7 +1712,7 @@ function _jm_obj_18(val, path, rep)
         {
             // handle may % property
             // .'$Model#Root'.'|'.4.'%'
-            res = _jm_obj_21(pval, (path ? lpath_9 : null), rep);
+            res = _jm_obj_11(pval, (path ? lpath_9 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.4.'%']", (path ? lpath_9 : null)])
@@ -1893,10 +1738,9 @@ function _jm_obj_18(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.4.'.schema'
-            res = _jm_obj_23(pval, (path ? lpath_9 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.4.'.schema']", (path ? lpath_9 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.4.'.schema']", (path ? lpath_9 : null)])
                 return false;
             }
@@ -1928,20 +1772,8 @@ function _jm_obj_18(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.3.'$'.'.schema'
-function _jm_obj_26(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.3.'$'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.3.'$'
-function _jm_obj_25(val, path, rep)
+function _jm_obj_13(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1982,10 +1814,9 @@ function _jm_obj_25(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.3.'$'.'.schema'
-            res = _jm_obj_26(pval, (path ? lpath_13 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.3.'$'.'.schema']", (path ? lpath_13 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'.schema']", (path ? lpath_13 : null)])
                 return false;
             }
@@ -2017,20 +1848,8 @@ function _jm_obj_25(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.3.'%'.'.schema'
-function _jm_obj_28(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.3.'%'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.3.'%'
-function _jm_obj_27(val, path, rep)
+function _jm_obj_14(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2101,10 +1920,9 @@ function _jm_obj_27(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.3.'%'.'.schema'
-            res = _jm_obj_28(pval, (path ? lpath_14 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.3.'%'.'.schema']", (path ? lpath_14 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.3.'%'.'.schema']", (path ? lpath_14 : null)])
                 return false;
             }
@@ -2148,20 +1966,8 @@ function _jm_obj_27(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.3.'.schema'
-function _jm_obj_29(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.3.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.3
-function _jm_obj_24(val, path, rep)
+function _jm_obj_12(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -2215,7 +2021,7 @@ function _jm_obj_24(val, path, rep)
         {
             // handle may $ property
             // .'$Model#Root'.'|'.3.'$'
-            res = _jm_obj_25(pval, (path ? lpath_12 : null), rep);
+            res = _jm_obj_13(pval, (path ? lpath_12 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.3.'$']", (path ? lpath_12 : null)])
@@ -2228,7 +2034,7 @@ function _jm_obj_24(val, path, rep)
         {
             // handle may % property
             // .'$Model#Root'.'|'.3.'%'
-            res = _jm_obj_27(pval, (path ? lpath_12 : null), rep);
+            res = _jm_obj_14(pval, (path ? lpath_12 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.3.'%']", (path ? lpath_12 : null)])
@@ -2254,10 +2060,9 @@ function _jm_obj_24(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.3.'.schema'
-            res = _jm_obj_29(pval, (path ? lpath_12 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.3.'.schema']", (path ? lpath_12 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.3.'.schema']", (path ? lpath_12 : null)])
                 return false;
             }
@@ -2289,20 +2094,8 @@ function _jm_obj_24(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.2.'$'.'.schema'
-function _jm_obj_32(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.2.'$'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.2.'$'
-function _jm_obj_31(val, path, rep)
+function _jm_obj_16(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2343,10 +2136,9 @@ function _jm_obj_31(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.2.'$'.'.schema'
-            res = _jm_obj_32(pval, (path ? lpath_16 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.2.'$'.'.schema']", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'.schema']", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2378,20 +2170,8 @@ function _jm_obj_31(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.2.'%'.'.schema'
-function _jm_obj_34(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.2.'%'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.2.'%'
-function _jm_obj_33(val, path, rep)
+function _jm_obj_17(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2462,10 +2242,9 @@ function _jm_obj_33(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.2.'%'.'.schema'
-            res = _jm_obj_34(pval, (path ? lpath_17 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.2.'%'.'.schema']", (path ? lpath_17 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.2.'%'.'.schema']", (path ? lpath_17 : null)])
                 return false;
             }
@@ -2509,20 +2288,8 @@ function _jm_obj_33(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.2.'.schema'
-function _jm_obj_35(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.2.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.2
-function _jm_obj_30(val, path, rep)
+function _jm_obj_15(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -2576,7 +2343,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may $ property
             // .'$Model#Root'.'|'.2.'$'
-            res = _jm_obj_31(pval, (path ? lpath_15 : null), rep);
+            res = _jm_obj_16(pval, (path ? lpath_15 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.2.'$']", (path ? lpath_15 : null)])
@@ -2589,7 +2356,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may % property
             // .'$Model#Root'.'|'.2.'%'
-            res = _jm_obj_33(pval, (path ? lpath_15 : null), rep);
+            res = _jm_obj_17(pval, (path ? lpath_15 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.2.'%']", (path ? lpath_15 : null)])
@@ -2615,10 +2382,9 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.2.'.schema'
-            res = _jm_obj_35(pval, (path ? lpath_15 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.2.'.schema']", (path ? lpath_15 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.2.'.schema']", (path ? lpath_15 : null)])
                 return false;
             }
@@ -2650,20 +2416,8 @@ function _jm_obj_30(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.1.'$'.'.schema'
-function _jm_obj_38(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.1.'$'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.1.'$'
-function _jm_obj_37(val, path, rep)
+function _jm_obj_19(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2704,10 +2458,9 @@ function _jm_obj_37(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.1.'$'.'.schema'
-            res = _jm_obj_38(pval, (path ? lpath_19 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.1.'$'.'.schema']", (path ? lpath_19 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'.schema']", (path ? lpath_19 : null)])
                 return false;
             }
@@ -2739,20 +2492,8 @@ function _jm_obj_37(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.1.'%'.'.schema'
-function _jm_obj_40(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.1.'%'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.1.'%'
-function _jm_obj_39(val, path, rep)
+function _jm_obj_20(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2823,10 +2564,9 @@ function _jm_obj_39(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.1.'%'.'.schema'
-            res = _jm_obj_40(pval, (path ? lpath_20 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.1.'%'.'.schema']", (path ? lpath_20 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.1.'%'.'.schema']", (path ? lpath_20 : null)])
                 return false;
             }
@@ -2870,20 +2610,8 @@ function _jm_obj_39(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.1.'.schema'
-function _jm_obj_41(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.1.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.1
-function _jm_obj_36(val, path, rep)
+function _jm_obj_18(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -2937,7 +2665,7 @@ function _jm_obj_36(val, path, rep)
         {
             // handle may $ property
             // .'$Model#Root'.'|'.1.'$'
-            res = _jm_obj_37(pval, (path ? lpath_18 : null), rep);
+            res = _jm_obj_19(pval, (path ? lpath_18 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.1.'$']", (path ? lpath_18 : null)])
@@ -2950,7 +2678,7 @@ function _jm_obj_36(val, path, rep)
         {
             // handle may % property
             // .'$Model#Root'.'|'.1.'%'
-            res = _jm_obj_39(pval, (path ? lpath_18 : null), rep);
+            res = _jm_obj_20(pval, (path ? lpath_18 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.1.'%']", (path ? lpath_18 : null)])
@@ -2976,10 +2704,9 @@ function _jm_obj_36(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.1.'.schema'
-            res = _jm_obj_41(pval, (path ? lpath_18 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.1.'.schema']", (path ? lpath_18 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.1.'.schema']", (path ? lpath_18 : null)])
                 return false;
             }
@@ -3011,20 +2738,8 @@ function _jm_obj_36(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.0.'$'.'.schema'
-function _jm_obj_44(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.0.'$'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.0.'$'
-function _jm_obj_43(val, path, rep)
+function _jm_obj_22(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3065,10 +2780,9 @@ function _jm_obj_43(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.0.'$'.'.schema'
-            res = _jm_obj_44(pval, (path ? lpath_22 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'$'.'.schema']", (path ? lpath_22 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'.schema']", (path ? lpath_22 : null)])
                 return false;
             }
@@ -3100,20 +2814,8 @@ function _jm_obj_43(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.0.'%'.'.schema'
-function _jm_obj_46(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.0.'%'.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.0.'%'
-function _jm_obj_45(val, path, rep)
+function _jm_obj_23(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3184,10 +2886,9 @@ function _jm_obj_45(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.0.'%'.'.schema'
-            res = _jm_obj_46(pval, (path ? lpath_23 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'%'.'.schema']", (path ? lpath_23 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'%'.'.schema']", (path ? lpath_23 : null)])
                 return false;
             }
@@ -3231,20 +2932,8 @@ function _jm_obj_45(val, path, rep)
     return true;
 }
 
-// object .'$Model#Root'.'|'.0.'.schema'
-function _jm_obj_47(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Root'.'|'.0.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Root'.'|'.0
-function _jm_obj_42(val, path, rep)
+function _jm_obj_21(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -3296,7 +2985,7 @@ function _jm_obj_42(val, path, rep)
         {
             // handle may $ property
             // .'$Model#Root'.'|'.0.'$'
-            res = _jm_obj_43(pval, (path ? lpath_21 : null), rep);
+            res = _jm_obj_22(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'$']", (path ? lpath_21 : null)])
@@ -3309,7 +2998,7 @@ function _jm_obj_42(val, path, rep)
         {
             // handle may % property
             // .'$Model#Root'.'|'.0.'%'
-            res = _jm_obj_45(pval, (path ? lpath_21 : null), rep);
+            res = _jm_obj_23(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'%']", (path ? lpath_21 : null)])
@@ -3361,10 +3050,9 @@ function _jm_obj_42(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Root'.'|'.0.'.schema'
-            res = _jm_obj_47(pval, (path ? lpath_21 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0.'.schema']", (path ? lpath_21 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'.schema']", (path ? lpath_21 : null)])
                 return false;
             }
@@ -3426,32 +3114,32 @@ function json_model_41(val, path, rep)
     if (res)
     {
         // .'$Model#Root'.'|'.0
-        res = _jm_obj_42(val, path, rep);
+        res = _jm_obj_21(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.0]", path])
             // .'$Model#Root'.'|'.1
-            res = _jm_obj_36(val, path, rep);
+            res = _jm_obj_18(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.1]", path])
                 // .'$Model#Root'.'|'.2
-                res = _jm_obj_30(val, path, rep);
+                res = _jm_obj_15(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.2]", path])
                     // .'$Model#Root'.'|'.3
-                    res = _jm_obj_24(val, path, rep);
+                    res = _jm_obj_12(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.3]", path])
                         // .'$Model#Root'.'|'.4
-                        res = _jm_obj_18(val, path, rep);
+                        res = _jm_obj_9(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.4]", path])
                             // .'$Model#Root'.'|'.5
-                            res = _jm_obj_12(val, path, rep);
+                            res = _jm_obj_6(val, path, rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected element [.'$Model#Root'.'|'.5]", path])
@@ -3533,7 +3221,7 @@ function json_model_6(val, path, rep)
 }
 
 // object .'$Model#Transformation'.'|'.1.'~'
-function _jm_obj_49(val, path, rep)
+function _jm_obj_25(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3556,20 +3244,8 @@ function _jm_obj_49(val, path, rep)
     return true;
 }
 
-// object .'$Model#Transformation'.'|'.1.'.schema'
-function _jm_obj_50(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Model#Transformation'.'|'.1.'.schema']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$Model#Transformation'.'|'.1
-function _jm_obj_48(val, path, rep)
+function _jm_obj_24(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3632,7 +3308,7 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may ~ property
             // .'$Model#Transformation'.'|'.1.'~'
-            res = _jm_obj_49(pval, (path ? lpath_24 : null), rep);
+            res = _jm_obj_25(pval, (path ? lpath_24 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Model#Transformation'.'|'.1.'~']", (path ? lpath_24 : null)])
@@ -3645,10 +3321,9 @@ function _jm_obj_48(val, path, rep)
         {
             // handle may .schema property
             // .'$Model#Transformation'.'|'.1.'.schema'
-            res = _jm_obj_50(pval, (path ? lpath_24 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$Model#Transformation'.'|'.1.'.schema']", (path ? lpath_24 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Transformation'.'|'.1.'.schema']", (path ? lpath_24 : null)])
                 return false;
             }
@@ -3679,7 +3354,7 @@ function json_model_33(val, path, rep)
     {
         rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$Model#Transformation'.'|'.0]", path])
         // .'$Model#Transformation'.'|'.1
-        res = _jm_obj_48(val, path, rep);
+        res = _jm_obj_24(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$Model#Transformation'.'|'.1]", path])

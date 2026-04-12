@@ -4753,14 +4753,6 @@ def json_model_56(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# object .'$DependencyModelLoose'.vars
-def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$DependencyModelLoose'.vars]", path))
-        return False
-    # accept any object
-    return True
-
 # check $DependencyModelLoose (.'$DependencyModelLoose')
 def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
     # See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79
@@ -4842,9 +4834,8 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
     if (pval := val.get("vars", UNDEFINED)) != UNDEFINED:
         lpath = (path + [ "vars" ]) if path is not None else None
         # .'$DependencyModelLoose'.vars
-        res = _jm_obj_49(pval, lpath if path is not None else None, rep)
+        res = isinstance(pval, dict)
         if not res:
-            rep is None or rep.append(("unexpected element [.'$DependencyModelLoose'.vars]", lpath if path is not None else None))
             rep is None or rep.append(("unexpected value for optional prop <vars> [.'$DependencyModelLoose']", lpath if path is not None else None))
             return False
     if (pval := val.get("version", UNDEFINED)) != UNDEFINED:
@@ -4866,7 +4857,7 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$DependencyModel'.'&'.1.'|'.2
-def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
     # check open must/may only props
     # value known to be an object
     lpath: Path
@@ -4884,7 +4875,7 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$DependencyModel'.'&'.1.'|'.1
-def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     # check open must/may only props
     # value known to be an object
     lpath: Path
@@ -4902,7 +4893,7 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # object .'$DependencyModel'.'&'.1.'|'.0
-def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
     # check open must/may only props
     # value known to be an object
     lpath: Path
@@ -4932,15 +4923,15 @@ def json_model_58(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(val, dict)
             if res:
                 # .'$DependencyModel'.'&'.1.'|'.0
-                res = _jm_obj_52(val, path, rep)
+                res = _jm_obj_51(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path))
                     # .'$DependencyModel'.'&'.1.'|'.1
-                    res = _jm_obj_51(val, path, rep)
+                    res = _jm_obj_50(val, path, rep)
                     if not res:
                         rep is None or rep.append(("unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path))
                         # .'$DependencyModel'.'&'.1.'|'.2
-                        res = _jm_obj_50(val, path, rep)
+                        res = _jm_obj_49(val, path, rep)
                         if not res:
                             rep is None or rep.append(("unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path))
                 if res:

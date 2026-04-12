@@ -18,45 +18,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$const'
-    // .'$const'.'|'.0
-    let res = val === null;
-    if (! res)
-    {
-        rep !== null && rep.push(["not null [.'$const'.'|'.0]", path])
-        // .'$const'.'|'.1
-        res = (typeof val === 'boolean' || val instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.'$const'.'|'.1]", path])
-            // .'$const'.'|'.2
-            res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a -1 strict int [.'$const'.'|'.2]", path])
-                // .'$const'.'|'.3
-                res = (typeof val === 'number' || val instanceof Number);
-                if (! res)
-                {
-                    rep !== null && rep.push(["not a -1.0 strict float [.'$const'.'|'.3]", path])
-                    // .'$const'.'|'.4
-                    res = (typeof val === 'string' || val instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected value for model \"\" [.'$const'.'|'.4]", path])
-                    }
-                }
-            }
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$const'.'|']", path])
-    }
-    return res;
+    return ! Array.isArray(val) && ! (Object.prototype.toString.call(val) === '[object Object]');
 }
 
 // check $enum (.'$enum')

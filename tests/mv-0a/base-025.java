@@ -19,24 +19,12 @@ public class base_025 extends ModelChecker
 
     public Map<String, Checker> base_025_map_pmap;
 
-    // object .'@'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'@']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         // .
         // .'@'
-        boolean res = _jm_obj_0(val, path, rep);
+        boolean res = json.isObject(val);
         if (res)
         {
             long ival_0 = json.objectSize(val);
@@ -45,10 +33,6 @@ public class base_025 extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.]", path);
             }
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("unexpected element [.'@']", path);
         }
         return res;
     }

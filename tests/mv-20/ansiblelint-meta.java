@@ -7674,18 +7674,6 @@ public class ansiblelint_meta extends ModelChecker
     }
 
 
-    // object .'$DependencyModelLoose'.vars
-    public boolean _jm_obj_49(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$DependencyModelLoose'.vars]", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // check $DependencyModelLoose (.'$DependencyModelLoose')
     public boolean json_model_57(Object val, Path path, Report rep)
     {
@@ -7807,10 +7795,9 @@ public class ansiblelint_meta extends ModelChecker
             {
                 // handle may vars property
                 // .'$DependencyModelLoose'.vars
-                res = _jm_obj_49(pval, (path != null ? lpath_52 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$DependencyModelLoose'.vars]", (path != null ? lpath_52 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$DependencyModelLoose'.vars]", (path != null ? lpath_52 : null));
                     return false;
                 }
@@ -7861,7 +7848,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$DependencyModel'.'&'.1.'|'.2
-    public boolean _jm_obj_50(Object val, Path path, Report rep)
+    public boolean _jm_obj_49(Object val, Path path, Report rep)
     {
         // check open must/may only props
         // value known to be an object
@@ -7885,7 +7872,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$DependencyModel'.'&'.1.'|'.1
-    public boolean _jm_obj_51(Object val, Path path, Report rep)
+    public boolean _jm_obj_50(Object val, Path path, Report rep)
     {
         // check open must/may only props
         // value known to be an object
@@ -7909,7 +7896,7 @@ public class ansiblelint_meta extends ModelChecker
     }
 
     // object .'$DependencyModel'.'&'.1.'|'.0
-    public boolean _jm_obj_52(Object val, Path path, Report rep)
+    public boolean _jm_obj_51(Object val, Path path, Report rep)
     {
         // check open must/may only props
         // value known to be an object
@@ -7949,17 +7936,17 @@ public class ansiblelint_meta extends ModelChecker
                 if (res)
                 {
                     // .'$DependencyModel'.'&'.1.'|'.0
-                    res = _jm_obj_52(val, path, rep);
+                    res = _jm_obj_51(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.0]", path);
                         // .'$DependencyModel'.'&'.1.'|'.1
-                        res = _jm_obj_51(val, path, rep);
+                        res = _jm_obj_50(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.1]", path);
                             // .'$DependencyModel'.'&'.1.'|'.2
-                            res = _jm_obj_50(val, path, rep);
+                            res = _jm_obj_49(val, path, rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path);

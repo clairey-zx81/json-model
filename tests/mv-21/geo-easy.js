@@ -760,18 +760,6 @@ function json_model_12(val, path, rep)
     return true;
 }
 
-// object .'$Feature'.properties.'|'.1
-function _jm_obj_0(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$Feature'.properties.'|'.1]", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // check $Feature (.'$Feature')
 function json_model_13(val, path, rep)
 {
@@ -849,11 +837,7 @@ function json_model_13(val, path, rep)
     {
         rep !== null && rep.push(["not null [.'$Feature'.properties.'|'.0]", (path ? lpath : null)])
         // .'$Feature'.properties.'|'.1
-        res = _jm_obj_0(pval, (path ? lpath : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$Feature'.properties.'|'.1]", (path ? lpath : null)])
-        }
+        res = Object.prototype.toString.call(pval) === '[object Object]';
     }
     if (res)
     {

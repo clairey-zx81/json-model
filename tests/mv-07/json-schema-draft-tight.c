@@ -96,45 +96,7 @@ const size_t check_model_map_size = 26;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$const'
-    // .'$const'.'|'.0
-    bool res = json_is_null(val);
-    if (unlikely(! res))
-    {
-        if (rep) jm_report_add_entry(rep, "not null [.'$const'.'|'.0]", path);
-        // .'$const'.'|'.1
-        res = json_is_boolean(val);
-        if (unlikely(! res))
-        {
-            if (rep) jm_report_add_entry(rep, "not a bool [.'$const'.'|'.1]", path);
-            // .'$const'.'|'.2
-            res = json_is_integer(val);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$const'.'|'.2]", path);
-                // .'$const'.'|'.3
-                res = json_is_real(val);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$const'.'|'.3]", path);
-                    // .'$const'.'|'.4
-                    res = json_is_string(val);
-                    if (unlikely(! res))
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$const'.'|'.4]", path);
-                    }
-                }
-            }
-        }
-    }
-    if (likely(res))
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$const'.'|']", path);
-    }
-    return res;
+    return ! json_is_array(val) && ! json_is_object(val);
 }
 
 // check $enum (.'$enum')

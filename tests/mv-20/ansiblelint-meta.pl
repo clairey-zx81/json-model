@@ -217,11 +217,10 @@ sub json_model_54($$$);
 sub json_model_55($$$);
 sub json_model_56($$$);
 my %_jm_cst_64;
-sub _jm_obj_49($$$);
 sub json_model_57($$$);
+sub _jm_obj_49($$$);
 sub _jm_obj_50($$$);
 sub _jm_obj_51($$$);
-sub _jm_obj_52($$$);
 sub json_model_58($$$);
 sub json_model_59($$$);
 sub json_model_60($$$);
@@ -5920,14 +5919,6 @@ sub json_model_56($$$)
 }
 
 
-# object .'$DependencyModelLoose'.vars
-sub _jm_obj_49($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # check $DependencyModelLoose (.'$DependencyModelLoose')
 sub json_model_57($$$)
 {
@@ -6026,7 +6017,7 @@ sub json_model_57($$$)
     {
         $pval = $$val{'vars'};
         # .'$DependencyModelLoose'.vars
-        $res = _jm_obj_49($pval, undef, undef);
+        $res = jm_is_object($pval);
         if (! $res)
         {
             return 0;
@@ -6056,7 +6047,7 @@ sub json_model_57($$$)
 }
 
 # object .'$DependencyModel'.'&'.1.'|'.2
-sub _jm_obj_50($$$)
+sub _jm_obj_49($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
@@ -6073,7 +6064,7 @@ sub _jm_obj_50($$$)
 }
 
 # object .'$DependencyModel'.'&'.1.'|'.1
-sub _jm_obj_51($$$)
+sub _jm_obj_50($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
@@ -6090,7 +6081,7 @@ sub _jm_obj_51($$$)
 }
 
 # object .'$DependencyModel'.'&'.1.'|'.0
-sub _jm_obj_52($$$)
+sub _jm_obj_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
@@ -6117,7 +6108,7 @@ sub json_model_58($$$)
     # .'$DependencyModel'.'&'.1.'|'.0
     # .'$DependencyModel'.'&'.1.'|'.1
     # .'$DependencyModel'.'&'.1.'|'.2
-    return json_model_57($val, undef, undef) && jm_is_object($val) && (_jm_obj_52($val, undef, undef) || _jm_obj_51($val, undef, undef) || _jm_obj_50($val, undef, undef));
+    return json_model_57($val, undef, undef) && jm_is_object($val) && (_jm_obj_51($val, undef, undef) || _jm_obj_50($val, undef, undef) || _jm_obj_49($val, undef, undef));
 }
 
 # check $AnsibleMetaObj (.'$AnsibleMetaObj')

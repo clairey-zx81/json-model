@@ -3398,45 +3398,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     public boolean json_model_4(Object val, Path path, Report rep)
     {
         // .'$tight#const'
-        // .'$tight#const'.'|'.0
-        boolean res = json.isNull(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not null [.'$tight#const'.'|'.0]", path);
-            // .'$tight#const'.'|'.1
-            res = json.isBoolean(val);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("not a bool [.'$tight#const'.'|'.1]", path);
-                // .'$tight#const'.'|'.2
-                res = json.isInteger(val);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a -1 strict int [.'$tight#const'.'|'.2]", path);
-                    // .'$tight#const'.'|'.3
-                    res = json.isDouble(val);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a -1.0 strict float [.'$tight#const'.'|'.3]", path);
-                        // .'$tight#const'.'|'.4
-                        res = json.isString(val);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$tight#const'.'|'.4]", path);
-                        }
-                    }
-                }
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'$tight#const'.'|']", path);
-        }
-        return res;
+        return ! json.isArray(val) && ! json.isObject(val);
     }
 
     // object .'$tight#Ref'.'$defs'

@@ -432,18 +432,6 @@ public class json_model_moschin extends ModelChecker
         return res;
     }
 
-    // object .'$Model#Element'.'|'.5.'.schema'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.5.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Element'.'|'.5
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -472,10 +460,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Element'.'|'.5.'.schema'
-                res = _jm_obj_1(pval, (path != null ? lpath_0 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.5.'.schema']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.5.'.schema']", (path != null ? lpath_0 : null));
                     return false;
                 }
@@ -507,20 +494,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Element'.'|'.4.'.schema'
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.4.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Element'.'|'.4
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -580,10 +555,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Element'.'|'.4.'.schema'
-                res = _jm_obj_3(pval, (path != null ? lpath_1 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.4.'.schema']", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.4.'.schema']", (path != null ? lpath_1 : null));
                     return false;
                 }
@@ -615,20 +589,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Element'.'|'.3.'.schema'
-    public boolean _jm_obj_5(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.3.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Element'.'|'.3
-    public boolean _jm_obj_4(Object val, Path path, Report rep)
+    public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -688,10 +650,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Element'.'|'.3.'.schema'
-                res = _jm_obj_5(pval, (path != null ? lpath_2 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.3.'.schema']", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.3.'.schema']", (path != null ? lpath_2 : null));
                     return false;
                 }
@@ -723,20 +684,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Element'.'|'.2.'.schema'
-    public boolean _jm_obj_7(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.2.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Element'.'|'.2
-    public boolean _jm_obj_6(Object val, Path path, Report rep)
+    public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -796,10 +745,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Element'.'|'.2.'.schema'
-                res = _jm_obj_7(pval, (path != null ? lpath_3 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.2.'.schema']", (path != null ? lpath_3 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.2.'.schema']", (path != null ? lpath_3 : null));
                     return false;
                 }
@@ -831,20 +779,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Element'.'|'.1.'.schema'
-    public boolean _jm_obj_9(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.1.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Element'.'|'.1
-    public boolean _jm_obj_8(Object val, Path path, Report rep)
+    public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -904,10 +840,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Element'.'|'.1.'.schema'
-                res = _jm_obj_9(pval, (path != null ? lpath_4 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.1.'.schema']", (path != null ? lpath_4 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.1.'.schema']", (path != null ? lpath_4 : null));
                     return false;
                 }
@@ -939,18 +874,6 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Element'.'|'.0.'.schema'
-    public boolean _jm_obj_11(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Element'.'|'.0.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     public boolean _jm_re_3(String val, Path path, Report rep)
     {
         return _jm_re_3_pat.matcher(val).find();
@@ -962,7 +885,7 @@ public class json_model_moschin extends ModelChecker
     }
 
     // object .'$Model#Element'.'|'.0
-    public boolean _jm_obj_10(Object val, Path path, Report rep)
+    public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -1043,10 +966,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Element'.'|'.0.'.schema'
-                res = _jm_obj_11(pval, (path != null ? lpath_5 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.0.'.schema']", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'.schema']", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -1108,27 +1030,27 @@ public class json_model_moschin extends ModelChecker
         if (res)
         {
             // .'$Model#Element'.'|'.0
-            res = _jm_obj_10(val, path, rep);
+            res = _jm_obj_5(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.0]", path);
                 // .'$Model#Element'.'|'.1
-                res = _jm_obj_8(val, path, rep);
+                res = _jm_obj_4(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.1]", path);
                     // .'$Model#Element'.'|'.2
-                    res = _jm_obj_6(val, path, rep);
+                    res = _jm_obj_3(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.2]", path);
                         // .'$Model#Element'.'|'.3
-                        res = _jm_obj_4(val, path, rep);
+                        res = _jm_obj_2(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.3]", path);
                             // .'$Model#Element'.'|'.4
-                            res = _jm_obj_2(val, path, rep);
+                            res = _jm_obj_1(val, path, rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.'$Model#Element'.'|'.4]", path);
@@ -1300,20 +1222,8 @@ public class json_model_moschin extends ModelChecker
         return res;
     }
 
-    // object .'$Model#Root'.'|'.5.'$'.'.schema'
-    public boolean _jm_obj_14(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.5.'$'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.5.'$'
-    public boolean _jm_obj_13(Object val, Path path, Report rep)
+    public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -1357,10 +1267,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.5.'$'.'.schema'
-                res = _jm_obj_14(pval, (path != null ? lpath_7 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.5.'$'.'.schema']", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'$'.'.schema']", (path != null ? lpath_7 : null));
                     return false;
                 }
@@ -1392,18 +1301,6 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.5.'%'.'.schema'
-    public boolean _jm_obj_16(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.5.'%'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     public boolean _jm_re_7(String val, Path path, Report rep)
     {
         return _jm_re_7_pat.matcher(val).find();
@@ -1415,7 +1312,7 @@ public class json_model_moschin extends ModelChecker
     }
 
     // object .'$Model#Root'.'|'.5.'%'
-    public boolean _jm_obj_15(Object val, Path path, Report rep)
+    public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -1492,10 +1389,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.5.'%'.'.schema'
-                res = _jm_obj_16(pval, (path != null ? lpath_8 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.5.'%'.'.schema']", (path != null ? lpath_8 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'%'.'.schema']", (path != null ? lpath_8 : null));
                     return false;
                 }
@@ -1539,20 +1435,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.5.'.schema'
-    public boolean _jm_obj_17(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.5.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.5
-    public boolean _jm_obj_12(Object val, Path path, Report rep)
+    public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -1579,7 +1463,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may $ property
                 // .'$Model#Root'.'|'.5.'$'
-                res = _jm_obj_13(pval, (path != null ? lpath_6 : null), rep);
+                res = _jm_obj_7(pval, (path != null ? lpath_6 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.5.'$']", (path != null ? lpath_6 : null));
@@ -1592,7 +1476,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may % property
                 // .'$Model#Root'.'|'.5.'%'
-                res = _jm_obj_15(pval, (path != null ? lpath_6 : null), rep);
+                res = _jm_obj_8(pval, (path != null ? lpath_6 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.5.'%']", (path != null ? lpath_6 : null));
@@ -1618,10 +1502,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.5.'.schema'
-                res = _jm_obj_17(pval, (path != null ? lpath_6 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.5.'.schema']", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.5.'.schema']", (path != null ? lpath_6 : null));
                     return false;
                 }
@@ -1653,20 +1536,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.4.'$'.'.schema'
-    public boolean _jm_obj_20(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.4.'$'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.4.'$'
-    public boolean _jm_obj_19(Object val, Path path, Report rep)
+    public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -1710,10 +1581,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.4.'$'.'.schema'
-                res = _jm_obj_20(pval, (path != null ? lpath_10 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.4.'$'.'.schema']", (path != null ? lpath_10 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'.schema']", (path != null ? lpath_10 : null));
                     return false;
                 }
@@ -1745,20 +1615,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.4.'%'.'.schema'
-    public boolean _jm_obj_22(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.4.'%'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.4.'%'
-    public boolean _jm_obj_21(Object val, Path path, Report rep)
+    public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -1835,10 +1693,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.4.'%'.'.schema'
-                res = _jm_obj_22(pval, (path != null ? lpath_11 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.4.'%'.'.schema']", (path != null ? lpath_11 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'%'.'.schema']", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -1882,20 +1739,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.4.'.schema'
-    public boolean _jm_obj_23(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.4.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.4
-    public boolean _jm_obj_18(Object val, Path path, Report rep)
+    public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -1955,7 +1800,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may $ property
                 // .'$Model#Root'.'|'.4.'$'
-                res = _jm_obj_19(pval, (path != null ? lpath_9 : null), rep);
+                res = _jm_obj_10(pval, (path != null ? lpath_9 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.4.'$']", (path != null ? lpath_9 : null));
@@ -1968,7 +1813,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may % property
                 // .'$Model#Root'.'|'.4.'%'
-                res = _jm_obj_21(pval, (path != null ? lpath_9 : null), rep);
+                res = _jm_obj_11(pval, (path != null ? lpath_9 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.4.'%']", (path != null ? lpath_9 : null));
@@ -1994,10 +1839,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.4.'.schema'
-                res = _jm_obj_23(pval, (path != null ? lpath_9 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.4.'.schema']", (path != null ? lpath_9 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.4.'.schema']", (path != null ? lpath_9 : null));
                     return false;
                 }
@@ -2029,20 +1873,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.3.'$'.'.schema'
-    public boolean _jm_obj_26(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.3.'$'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.3.'$'
-    public boolean _jm_obj_25(Object val, Path path, Report rep)
+    public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2086,10 +1918,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.3.'$'.'.schema'
-                res = _jm_obj_26(pval, (path != null ? lpath_13 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.3.'$'.'.schema']", (path != null ? lpath_13 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'.schema']", (path != null ? lpath_13 : null));
                     return false;
                 }
@@ -2121,20 +1952,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.3.'%'.'.schema'
-    public boolean _jm_obj_28(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.3.'%'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.3.'%'
-    public boolean _jm_obj_27(Object val, Path path, Report rep)
+    public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2211,10 +2030,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.3.'%'.'.schema'
-                res = _jm_obj_28(pval, (path != null ? lpath_14 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.3.'%'.'.schema']", (path != null ? lpath_14 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'%'.'.schema']", (path != null ? lpath_14 : null));
                     return false;
                 }
@@ -2258,20 +2076,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.3.'.schema'
-    public boolean _jm_obj_29(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.3.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.3
-    public boolean _jm_obj_24(Object val, Path path, Report rep)
+    public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -2331,7 +2137,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may $ property
                 // .'$Model#Root'.'|'.3.'$'
-                res = _jm_obj_25(pval, (path != null ? lpath_12 : null), rep);
+                res = _jm_obj_13(pval, (path != null ? lpath_12 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.3.'$']", (path != null ? lpath_12 : null));
@@ -2344,7 +2150,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may % property
                 // .'$Model#Root'.'|'.3.'%'
-                res = _jm_obj_27(pval, (path != null ? lpath_12 : null), rep);
+                res = _jm_obj_14(pval, (path != null ? lpath_12 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.3.'%']", (path != null ? lpath_12 : null));
@@ -2370,10 +2176,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.3.'.schema'
-                res = _jm_obj_29(pval, (path != null ? lpath_12 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.3.'.schema']", (path != null ? lpath_12 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.3.'.schema']", (path != null ? lpath_12 : null));
                     return false;
                 }
@@ -2405,20 +2210,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.2.'$'.'.schema'
-    public boolean _jm_obj_32(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.2.'$'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.2.'$'
-    public boolean _jm_obj_31(Object val, Path path, Report rep)
+    public boolean _jm_obj_16(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2462,10 +2255,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.2.'$'.'.schema'
-                res = _jm_obj_32(pval, (path != null ? lpath_16 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.2.'$'.'.schema']", (path != null ? lpath_16 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'.schema']", (path != null ? lpath_16 : null));
                     return false;
                 }
@@ -2497,20 +2289,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.2.'%'.'.schema'
-    public boolean _jm_obj_34(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.2.'%'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.2.'%'
-    public boolean _jm_obj_33(Object val, Path path, Report rep)
+    public boolean _jm_obj_17(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2587,10 +2367,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.2.'%'.'.schema'
-                res = _jm_obj_34(pval, (path != null ? lpath_17 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.2.'%'.'.schema']", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'%'.'.schema']", (path != null ? lpath_17 : null));
                     return false;
                 }
@@ -2634,20 +2413,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.2.'.schema'
-    public boolean _jm_obj_35(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.2.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.2
-    public boolean _jm_obj_30(Object val, Path path, Report rep)
+    public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -2707,7 +2474,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may $ property
                 // .'$Model#Root'.'|'.2.'$'
-                res = _jm_obj_31(pval, (path != null ? lpath_15 : null), rep);
+                res = _jm_obj_16(pval, (path != null ? lpath_15 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.2.'$']", (path != null ? lpath_15 : null));
@@ -2720,7 +2487,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may % property
                 // .'$Model#Root'.'|'.2.'%'
-                res = _jm_obj_33(pval, (path != null ? lpath_15 : null), rep);
+                res = _jm_obj_17(pval, (path != null ? lpath_15 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.2.'%']", (path != null ? lpath_15 : null));
@@ -2746,10 +2513,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.2.'.schema'
-                res = _jm_obj_35(pval, (path != null ? lpath_15 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.2.'.schema']", (path != null ? lpath_15 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.2.'.schema']", (path != null ? lpath_15 : null));
                     return false;
                 }
@@ -2781,20 +2547,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.1.'$'.'.schema'
-    public boolean _jm_obj_38(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.1.'$'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.1.'$'
-    public boolean _jm_obj_37(Object val, Path path, Report rep)
+    public boolean _jm_obj_19(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2838,10 +2592,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.1.'$'.'.schema'
-                res = _jm_obj_38(pval, (path != null ? lpath_19 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.1.'$'.'.schema']", (path != null ? lpath_19 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'.schema']", (path != null ? lpath_19 : null));
                     return false;
                 }
@@ -2873,20 +2626,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.1.'%'.'.schema'
-    public boolean _jm_obj_40(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.1.'%'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.1.'%'
-    public boolean _jm_obj_39(Object val, Path path, Report rep)
+    public boolean _jm_obj_20(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2963,10 +2704,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.1.'%'.'.schema'
-                res = _jm_obj_40(pval, (path != null ? lpath_20 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.1.'%'.'.schema']", (path != null ? lpath_20 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'%'.'.schema']", (path != null ? lpath_20 : null));
                     return false;
                 }
@@ -3010,20 +2750,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.1.'.schema'
-    public boolean _jm_obj_41(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.1.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.1
-    public boolean _jm_obj_36(Object val, Path path, Report rep)
+    public boolean _jm_obj_18(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -3083,7 +2811,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may $ property
                 // .'$Model#Root'.'|'.1.'$'
-                res = _jm_obj_37(pval, (path != null ? lpath_18 : null), rep);
+                res = _jm_obj_19(pval, (path != null ? lpath_18 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.1.'$']", (path != null ? lpath_18 : null));
@@ -3096,7 +2824,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may % property
                 // .'$Model#Root'.'|'.1.'%'
-                res = _jm_obj_39(pval, (path != null ? lpath_18 : null), rep);
+                res = _jm_obj_20(pval, (path != null ? lpath_18 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.1.'%']", (path != null ? lpath_18 : null));
@@ -3122,10 +2850,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.1.'.schema'
-                res = _jm_obj_41(pval, (path != null ? lpath_18 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.1.'.schema']", (path != null ? lpath_18 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.1.'.schema']", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -3157,20 +2884,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.0.'$'.'.schema'
-    public boolean _jm_obj_44(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.0.'$'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.0.'$'
-    public boolean _jm_obj_43(Object val, Path path, Report rep)
+    public boolean _jm_obj_22(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3214,10 +2929,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.0.'$'.'.schema'
-                res = _jm_obj_44(pval, (path != null ? lpath_22 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'$'.'.schema']", (path != null ? lpath_22 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'.schema']", (path != null ? lpath_22 : null));
                     return false;
                 }
@@ -3249,20 +2963,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.0.'%'.'.schema'
-    public boolean _jm_obj_46(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.0.'%'.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.0.'%'
-    public boolean _jm_obj_45(Object val, Path path, Report rep)
+    public boolean _jm_obj_23(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3339,10 +3041,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.0.'%'.'.schema'
-                res = _jm_obj_46(pval, (path != null ? lpath_23 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'%'.'.schema']", (path != null ? lpath_23 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'%'.'.schema']", (path != null ? lpath_23 : null));
                     return false;
                 }
@@ -3386,20 +3087,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Root'.'|'.0.'.schema'
-    public boolean _jm_obj_47(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Root'.'|'.0.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Root'.'|'.0
-    public boolean _jm_obj_42(Object val, Path path, Report rep)
+    public boolean _jm_obj_21(Object val, Path path, Report rep)
     {
         // value known to be an object
         boolean res;
@@ -3454,7 +3143,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may $ property
                 // .'$Model#Root'.'|'.0.'$'
-                res = _jm_obj_43(pval, (path != null ? lpath_21 : null), rep);
+                res = _jm_obj_22(pval, (path != null ? lpath_21 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'$']", (path != null ? lpath_21 : null));
@@ -3467,7 +3156,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may % property
                 // .'$Model#Root'.'|'.0.'%'
-                res = _jm_obj_45(pval, (path != null ? lpath_21 : null), rep);
+                res = _jm_obj_23(pval, (path != null ? lpath_21 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'%']", (path != null ? lpath_21 : null));
@@ -3519,10 +3208,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Root'.'|'.0.'.schema'
-                res = _jm_obj_47(pval, (path != null ? lpath_21 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0.'.schema']", (path != null ? lpath_21 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.schema']", (path != null ? lpath_21 : null));
                     return false;
                 }
@@ -3584,32 +3272,32 @@ public class json_model_moschin extends ModelChecker
         if (res)
         {
             // .'$Model#Root'.'|'.0
-            res = _jm_obj_42(val, path, rep);
+            res = _jm_obj_21(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.0]", path);
                 // .'$Model#Root'.'|'.1
-                res = _jm_obj_36(val, path, rep);
+                res = _jm_obj_18(val, path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.1]", path);
                     // .'$Model#Root'.'|'.2
-                    res = _jm_obj_30(val, path, rep);
+                    res = _jm_obj_15(val, path, rep);
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.2]", path);
                         // .'$Model#Root'.'|'.3
-                        res = _jm_obj_24(val, path, rep);
+                        res = _jm_obj_12(val, path, rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.3]", path);
                             // .'$Model#Root'.'|'.4
-                            res = _jm_obj_18(val, path, rep);
+                            res = _jm_obj_9(val, path, rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.4]", path);
                                 // .'$Model#Root'.'|'.5
-                                res = _jm_obj_12(val, path, rep);
+                                res = _jm_obj_6(val, path, rep);
                                 if (! res)
                                 {
                                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Root'.'|'.5]", path);
@@ -3700,7 +3388,7 @@ public class json_model_moschin extends ModelChecker
     }
 
     // object .'$Model#Transformation'.'|'.1.'~'
-    public boolean _jm_obj_49(Object val, Path path, Report rep)
+    public boolean _jm_obj_25(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3726,20 +3414,8 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
 
-    // object .'$Model#Transformation'.'|'.1.'.schema'
-    public boolean _jm_obj_50(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.'$Model#Transformation'.'|'.1.'.schema']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // object .'$Model#Transformation'.'|'.1
-    public boolean _jm_obj_48(Object val, Path path, Report rep)
+    public boolean _jm_obj_24(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -3805,7 +3481,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may ~ property
                 // .'$Model#Transformation'.'|'.1.'~'
-                res = _jm_obj_49(pval, (path != null ? lpath_24 : null), rep);
+                res = _jm_obj_25(pval, (path != null ? lpath_24 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1.'~']", (path != null ? lpath_24 : null));
@@ -3818,10 +3494,9 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .schema property
                 // .'$Model#Transformation'.'|'.1.'.schema'
-                res = _jm_obj_50(pval, (path != null ? lpath_24 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1.'.schema']", (path != null ? lpath_24 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Transformation'.'|'.1.'.schema']", (path != null ? lpath_24 : null));
                     return false;
                 }
@@ -3852,7 +3527,7 @@ public class json_model_moschin extends ModelChecker
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Transformation'.'|'.0]", path);
             // .'$Model#Transformation'.'|'.1
-            res = _jm_obj_48(val, path, rep);
+            res = _jm_obj_24(val, path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected element [.'$Model#Transformation'.'|'.1]", path);

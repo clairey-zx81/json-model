@@ -162,31 +162,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $atomic (.'$atomic')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$atomic'
-    # .'$atomic'.'|'.0
-    res: bool = val is None
-    if not res:
-        rep is None or rep.append(("not null [.'$atomic'.'|'.0]", path))
-        # .'$atomic'.'|'.1
-        res = isinstance(val, bool)
-        if not res:
-            rep is None or rep.append(("not a bool [.'$atomic'.'|'.1]", path))
-            # .'$atomic'.'|'.2
-            res = isinstance(val, int) and not isinstance(val, bool)
-            if not res:
-                rep is None or rep.append(("not a -1 strict int [.'$atomic'.'|'.2]", path))
-                # .'$atomic'.'|'.3
-                res = isinstance(val, float)
-                if not res:
-                    rep is None or rep.append(("not a -1.0 strict float [.'$atomic'.'|'.3]", path))
-                    # .'$atomic'.'|'.4
-                    res = isinstance(val, str)
-                    if not res:
-                        rep is None or rep.append(("unexpected value for model \"\" [.'$atomic'.'|'.4]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.'$atomic'.'|']", path))
-    return res
+    return not isinstance(val, list) and not isinstance(val, dict)
 
 # check json_model_6_map_enumeration (.'$Atomic'.enumeration)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:

@@ -3274,18 +3274,6 @@ function json_model_28(val, path, rep)
     return res;
 }
 
-// object .'$openapi#Link'.'|'.1.parameters
-function _jm_obj_27(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#Link'.'|'.1.parameters]", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$openapi#Link'.'|'.1
 function _jm_obj_26(val, path, rep)
 {
@@ -3326,10 +3314,9 @@ function _jm_obj_26(val, path, rep)
         {
             // handle may parameters property
             // .'$openapi#Link'.'|'.1.parameters
-            res = _jm_obj_27(pval, (path ? lpath_43 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$openapi#Link'.'|'.1.parameters]", (path ? lpath_43 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.1.parameters]", (path ? lpath_43 : null)])
                 return false;
             }
@@ -3381,20 +3368,8 @@ function _jm_obj_26(val, path, rep)
     return true;
 }
 
-// object .'$openapi#Link'.'|'.0.parameters
-function _jm_obj_29(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$openapi#Link'.'|'.0.parameters]", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .'$openapi#Link'.'|'.0
-function _jm_obj_28(val, path, rep)
+function _jm_obj_27(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -3433,10 +3408,9 @@ function _jm_obj_28(val, path, rep)
         {
             // handle may parameters property
             // .'$openapi#Link'.'|'.0.parameters
-            res = _jm_obj_29(pval, (path ? lpath_44 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.'$openapi#Link'.'|'.0.parameters]", (path ? lpath_44 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$openapi#Link'.'|'.0.parameters]", (path ? lpath_44 : null)])
                 return false;
             }
@@ -3496,7 +3470,7 @@ function json_model_29(val, path, rep)
     if (res)
     {
         // .'$openapi#Link'.'|'.0
-        res = _jm_obj_28(val, path, rep);
+        res = _jm_obj_27(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$openapi#Link'.'|'.0]", path])
@@ -3524,7 +3498,7 @@ function json_model_29(val, path, rep)
 }
 
 // object .'$openapi#Header'.'|'.1.content
-function _jm_obj_31(val, path, rep)
+function _jm_obj_29(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3548,7 +3522,7 @@ function _jm_obj_31(val, path, rep)
 }
 
 // object .'$openapi#Header'.'|'.1
-function _jm_obj_30(val, path, rep)
+function _jm_obj_28(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -3559,7 +3533,7 @@ function _jm_obj_30(val, path, rep)
         {
             // handle may content property
             // .'$openapi#Header'.'|'.1.content
-            res = _jm_obj_31(pval, (path ? lpath_45 : null), rep);
+            res = _jm_obj_29(pval, (path ? lpath_45 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$openapi#Header'.'|'.1.content]", (path ? lpath_45 : null)])
@@ -3636,7 +3610,7 @@ function _jm_obj_30(val, path, rep)
 }
 
 // object .'$openapi#Header'.'|'.0.examples
-function _jm_obj_33(val, path, rep)
+function _jm_obj_31(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3675,7 +3649,7 @@ function _jm_obj_33(val, path, rep)
 }
 
 // object .'$openapi#Header'.'|'.0
-function _jm_obj_32(val, path, rep)
+function _jm_obj_30(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -3732,7 +3706,7 @@ function _jm_obj_32(val, path, rep)
         {
             // handle may examples property
             // .'$openapi#Header'.'|'.0.examples
-            res = _jm_obj_33(pval, (path ? lpath_47 : null), rep);
+            res = _jm_obj_31(pval, (path ? lpath_47 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$openapi#Header'.'|'.0.examples]", (path ? lpath_47 : null)])
@@ -3830,12 +3804,12 @@ function json_model_30(val, path, rep)
     if (res)
     {
         // .'$openapi#Header'.'|'.0
-        res = _jm_obj_32(val, path, rep);
+        res = _jm_obj_30(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$openapi#Header'.'|'.0]", path])
             // .'$openapi#Header'.'|'.1
-            res = _jm_obj_30(val, path, rep);
+            res = _jm_obj_28(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$openapi#Header'.'|'.1]", path])
@@ -4010,7 +3984,7 @@ function json_model_32(val, path, rep)
 
 
 // object .'$openapi#SecurityScheme'.'|'.0
-function _jm_obj_34(val, path, rep)
+function _jm_obj_32(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4105,7 +4079,7 @@ function _jm_obj_34(val, path, rep)
 const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 
 // object .'$openapi#SecurityScheme'.'|'.1
-function _jm_obj_35(val, path, rep)
+function _jm_obj_33(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4194,7 +4168,7 @@ function _jm_obj_35(val, path, rep)
 }
 
 // object .'$openapi#SecurityScheme'.'|'.2
-function _jm_obj_36(val, path, rep)
+function _jm_obj_34(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4269,7 +4243,7 @@ function _jm_obj_36(val, path, rep)
 }
 
 // object .'$openapi#SecurityScheme'.'|'.3
-function _jm_obj_37(val, path, rep)
+function _jm_obj_35(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4344,7 +4318,7 @@ function _jm_obj_37(val, path, rep)
 }
 
 // object .'$openapi#SecurityScheme'.'|'.4
-function _jm_obj_38(val, path, rep)
+function _jm_obj_36(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4419,7 +4393,7 @@ function _jm_obj_38(val, path, rep)
 }
 
 // object .'$openapi#SecurityScheme'.'|'.5
-function _jm_obj_39(val, path, rep)
+function _jm_obj_37(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4493,12 +4467,12 @@ function json_model_42(val, path, rep)
     if (! res)
     {
         // .'$openapi#SecurityScheme'.'|'.5
-        res = _jm_obj_39(val, path, rep);
+        res = _jm_obj_37(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$openapi#SecurityScheme'.'|'.5]", path])
             // .'$openapi#SecurityScheme'.'|'.2
-            res = _jm_obj_36(val, path, rep);
+            res = _jm_obj_34(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$openapi#SecurityScheme'.'|'.2]", path])
@@ -4589,7 +4563,7 @@ function json_model_43(val, path, rep)
 }
 
 // object .'$openapi#OAuthFlow'.scopes
-function _jm_obj_40(val, path, rep)
+function _jm_obj_38(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -4631,7 +4605,7 @@ function json_model_44(val, path, rep)
             // handle must scopes property
             must_count += 1;
             // .'$openapi#OAuthFlow'.scopes
-            res = _jm_obj_40(pval, (path ? lpath_58 : null), rep);
+            res = _jm_obj_38(pval, (path ? lpath_58 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$openapi#OAuthFlow'.scopes]", (path ? lpath_58 : null)])
@@ -4868,7 +4842,7 @@ function json_model_69(val, path, rep)
 }
 
 // object .'$openapi#model#Element'.'|'.5
-function _jm_obj_41(val, path, rep)
+function _jm_obj_39(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -4915,7 +4889,7 @@ function _jm_obj_41(val, path, rep)
 }
 
 // object .'$openapi#model#Element'.'|'.4
-function _jm_obj_42(val, path, rep)
+function _jm_obj_40(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -4992,7 +4966,7 @@ function _jm_obj_42(val, path, rep)
 }
 
 // object .'$openapi#model#Element'.'|'.3
-function _jm_obj_43(val, path, rep)
+function _jm_obj_41(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -5069,7 +5043,7 @@ function _jm_obj_43(val, path, rep)
 }
 
 // object .'$openapi#model#Element'.'|'.2
-function _jm_obj_44(val, path, rep)
+function _jm_obj_42(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -5146,7 +5120,7 @@ function _jm_obj_44(val, path, rep)
 }
 
 // object .'$openapi#model#Element'.'|'.1
-function _jm_obj_45(val, path, rep)
+function _jm_obj_43(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -5227,7 +5201,7 @@ const _jm_re_4 = (s) => _jm_re_4_re.exec(s) !== null
 const _jm_re_5 = (s) => _jm_re_5_re.exec(s) !== null
 
 // object .'$openapi#model#Element'.'|'.0
-function _jm_obj_46(val, path, rep)
+function _jm_obj_44(val, path, rep)
 {
     // value known to be an object
     let res;
@@ -5331,32 +5305,32 @@ function json_model_93(val, path, rep)
     if (res)
     {
         // .'$openapi#model#Element'.'|'.0
-        res = _jm_obj_46(val, path, rep);
+        res = _jm_obj_44(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'$openapi#model#Element'.'|'.0]", path])
             // .'$openapi#model#Element'.'|'.1
-            res = _jm_obj_45(val, path, rep);
+            res = _jm_obj_43(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$openapi#model#Element'.'|'.1]", path])
                 // .'$openapi#model#Element'.'|'.2
-                res = _jm_obj_44(val, path, rep);
+                res = _jm_obj_42(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$openapi#model#Element'.'|'.2]", path])
                     // .'$openapi#model#Element'.'|'.3
-                    res = _jm_obj_43(val, path, rep);
+                    res = _jm_obj_41(val, path, rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'$openapi#model#Element'.'|'.3]", path])
                         // .'$openapi#model#Element'.'|'.4
-                        res = _jm_obj_42(val, path, rep);
+                        res = _jm_obj_40(val, path, rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'$openapi#model#Element'.'|'.4]", path])
                             // .'$openapi#model#Element'.'|'.5
-                            res = _jm_obj_41(val, path, rep);
+                            res = _jm_obj_39(val, path, rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected element [.'$openapi#model#Element'.'|'.5]", path])
@@ -5767,10 +5741,10 @@ export function check_model_init()
         _jm_cst_3.add("query")
         _jm_cst_3.add("header")
         _jm_cst_3.add("cookie")
-        _jm_map_0.set("apiKey", _jm_obj_34)
-        _jm_map_0.set("http", _jm_obj_35)
-        _jm_map_0.set("oauth2", _jm_obj_37)
-        _jm_map_0.set("openIdConnect", _jm_obj_38)
+        _jm_map_0.set("apiKey", _jm_obj_32)
+        _jm_map_0.set("http", _jm_obj_33)
+        _jm_map_0.set("oauth2", _jm_obj_35)
+        _jm_map_0.set("openIdConnect", _jm_obj_36)
         _jm_cst_4.add(null)
         _jm_cst_4.add(true)
         _jm_cst_4.add(0)

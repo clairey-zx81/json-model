@@ -34,31 +34,7 @@ check_model_map: PropMap
 # check $const (.'$const')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$const'
-    # .'$const'.'|'.0
-    res: bool = val is None
-    if not res:
-        rep is None or rep.append(("not null [.'$const'.'|'.0]", path))
-        # .'$const'.'|'.1
-        res = isinstance(val, bool)
-        if not res:
-            rep is None or rep.append(("not a bool [.'$const'.'|'.1]", path))
-            # .'$const'.'|'.2
-            res = isinstance(val, int) and not isinstance(val, bool)
-            if not res:
-                rep is None or rep.append(("not a -1 strict int [.'$const'.'|'.2]", path))
-                # .'$const'.'|'.3
-                res = isinstance(val, float)
-                if not res:
-                    rep is None or rep.append(("not a -1.0 strict float [.'$const'.'|'.3]", path))
-                    # .'$const'.'|'.4
-                    res = isinstance(val, str)
-                    if not res:
-                        rep is None or rep.append(("unexpected value for model \"\" [.'$const'.'|'.4]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.'$const'.'|']", path))
-    return res
+    return not isinstance(val, list) and not isinstance(val, dict)
 
 # check $enum (.'$enum')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:

@@ -10,10 +10,12 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-#define _jm_re_0(s, p, r) jm_re_dot(s)
+#define _jm_re_0(s, p, r) jm_re_dots(s)
+#define _jm_re_1(s, p, r) jm_re_dot(s)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
+
 
 
 // check $ (.)
@@ -36,7 +38,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may nz property
             // .nz
             // "/./s"
-            res = json_is_string(pval) && jm_str_len(json_string_value(pval)) > 0;
+            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"/./s\" [.nz]", (path ? &lpath_0 : NULL));
@@ -63,7 +65,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle may some property
             // .some
             // "/./"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
+            res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"/./\" [.some]", (path ? &lpath_0 : NULL));

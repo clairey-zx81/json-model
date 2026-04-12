@@ -719,24 +719,12 @@ public class everything extends ModelChecker
         return res;
     }
 
-    // object .constraints.cio0.'@'
-    public boolean _jm_obj_0(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.constraints.cio0.'@']", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // check _jm_f_3_map_cio0 (.constraints.cio0)
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         // .constraints.cio0
         // .constraints.cio0.'@'
-        boolean res = _jm_obj_0(val, path, rep);
+        boolean res = json.isObject(val);
         if (res)
         {
             long ival_5 = json.objectSize(val);
@@ -746,23 +734,7 @@ public class everything extends ModelChecker
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cio0]", path);
             }
         }
-        else
-        {
-            if (rep != null) rep.addEntry("unexpected element [.constraints.cio0.'@']", path);
-        }
         return res;
-    }
-
-    // object .constraints.cio1.'@'
-    public boolean _jm_obj_1(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.constraints.cio1.'@']", path);
-            return false;
-        }
-        // accept any object
-        return true;
     }
 
     // check _jm_f_3_map_cio1 (.constraints.cio1)
@@ -770,7 +742,7 @@ public class everything extends ModelChecker
     {
         // .constraints.cio1
         // .constraints.cio1.'@'
-        boolean res = _jm_obj_1(val, path, rep);
+        boolean res = json.isObject(val);
         if (res)
         {
             long ival_6 = json.objectSize(val);
@@ -780,23 +752,7 @@ public class everything extends ModelChecker
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cio1]", path);
             }
         }
-        else
-        {
-            if (rep != null) rep.addEntry("unexpected element [.constraints.cio1.'@']", path);
-        }
         return res;
-    }
-
-    // object .constraints.cio2.'@'
-    public boolean _jm_obj_2(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.constraints.cio2.'@']", path);
-            return false;
-        }
-        // accept any object
-        return true;
     }
 
     // check _jm_f_3_map_cio2 (.constraints.cio2)
@@ -804,7 +760,7 @@ public class everything extends ModelChecker
     {
         // .constraints.cio2
         // .constraints.cio2.'@'
-        boolean res = _jm_obj_2(val, path, rep);
+        boolean res = json.isObject(val);
         if (res)
         {
             long ival_7 = json.objectSize(val);
@@ -813,10 +769,6 @@ public class everything extends ModelChecker
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cio2]", path);
             }
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("unexpected element [.constraints.cio2.'@']", path);
         }
         return res;
     }
@@ -1507,7 +1459,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m0
-    public boolean _jm_obj_3(Object val, Path path, Report rep)
+    public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -1567,7 +1519,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m1.'|'.1
-    public boolean _jm_obj_4(Object val, Path path, Report rep)
+    public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1614,7 +1566,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m1.'|'.0
-    public boolean _jm_obj_5(Object val, Path path, Report rep)
+    public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1661,7 +1613,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m2.'|'.1
-    public boolean _jm_obj_6(Object val, Path path, Report rep)
+    public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1708,7 +1660,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m2.'|'.0
-    public boolean _jm_obj_7(Object val, Path path, Report rep)
+    public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1755,7 +1707,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m3.'|'.3
-    public boolean _jm_obj_8(Object val, Path path, Report rep)
+    public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1802,7 +1754,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m3.'|'.2
-    public boolean _jm_obj_9(Object val, Path path, Report rep)
+    public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1849,7 +1801,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m3.'|'.1
-    public boolean _jm_obj_10(Object val, Path path, Report rep)
+    public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1896,7 +1848,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m3.'|'.0
-    public boolean _jm_obj_11(Object val, Path path, Report rep)
+    public boolean _jm_obj_8(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -1943,7 +1895,7 @@ public class everything extends ModelChecker
     }
 
     // object .merge.m4
-    public boolean _jm_obj_12(Object val, Path path, Report rep)
+    public boolean _jm_obj_9(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -2038,7 +1990,7 @@ public class everything extends ModelChecker
             {
                 // handle may m0 property
                 // .merge.m0
-                res = _jm_obj_3(pval, (path != null ? lpath_8 : null), rep);
+                res = _jm_obj_0(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.merge.m0]", (path != null ? lpath_8 : null));
@@ -2057,7 +2009,7 @@ public class everything extends ModelChecker
                     if (json.objectHasProp(pval, "b"))
                     {
                         // .merge.m1.'|'.0
-                        res = _jm_obj_5(pval, (path != null ? lpath_8 : null), rep);
+                        res = _jm_obj_2(pval, (path != null ? lpath_8 : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.merge.m1.'|'.0]", (path != null ? lpath_8 : null));
@@ -2068,7 +2020,7 @@ public class everything extends ModelChecker
                         if (json.objectHasProp(pval, "c"))
                         {
                             // .merge.m1.'|'.1
-                            res = _jm_obj_4(pval, (path != null ? lpath_8 : null), rep);
+                            res = _jm_obj_1(pval, (path != null ? lpath_8 : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.merge.m1.'|'.1]", (path != null ? lpath_8 : null));
@@ -2109,7 +2061,7 @@ public class everything extends ModelChecker
                     if (json.objectHasProp(pval, "b"))
                     {
                         // .merge.m2.'|'.0
-                        res = _jm_obj_7(pval, (path != null ? lpath_8 : null), rep);
+                        res = _jm_obj_4(pval, (path != null ? lpath_8 : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.merge.m2.'|'.0]", (path != null ? lpath_8 : null));
@@ -2120,7 +2072,7 @@ public class everything extends ModelChecker
                         if (json.objectHasProp(pval, "c"))
                         {
                             // .merge.m2.'|'.1
-                            res = _jm_obj_6(pval, (path != null ? lpath_8 : null), rep);
+                            res = _jm_obj_3(pval, (path != null ? lpath_8 : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.merge.m2.'|'.1]", (path != null ? lpath_8 : null));
@@ -2161,7 +2113,7 @@ public class everything extends ModelChecker
                     if (json.objectHasProp(pval, "a"))
                     {
                         // .merge.m3.'|'.0
-                        res = _jm_obj_11(pval, (path != null ? lpath_8 : null), rep);
+                        res = _jm_obj_8(pval, (path != null ? lpath_8 : null), rep);
                         if (! res)
                         {
                             if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.0]", (path != null ? lpath_8 : null));
@@ -2176,7 +2128,7 @@ public class everything extends ModelChecker
                         if (json.objectHasProp(pval, "a"))
                         {
                             // .merge.m3.'|'.1
-                            res = _jm_obj_10(pval, (path != null ? lpath_8 : null), rep);
+                            res = _jm_obj_7(pval, (path != null ? lpath_8 : null), rep);
                             if (! res)
                             {
                                 if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.1]", (path != null ? lpath_8 : null));
@@ -2191,7 +2143,7 @@ public class everything extends ModelChecker
                             if (json.objectHasProp(pval, "b"))
                             {
                                 // .merge.m3.'|'.2
-                                res = _jm_obj_9(pval, (path != null ? lpath_8 : null), rep);
+                                res = _jm_obj_6(pval, (path != null ? lpath_8 : null), rep);
                                 if (! res)
                                 {
                                     if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.2]", (path != null ? lpath_8 : null));
@@ -2206,7 +2158,7 @@ public class everything extends ModelChecker
                                 if (json.objectHasProp(pval, "b"))
                                 {
                                     // .merge.m3.'|'.3
-                                    res = _jm_obj_8(pval, (path != null ? lpath_8 : null), rep);
+                                    res = _jm_obj_5(pval, (path != null ? lpath_8 : null), rep);
                                     if (! res)
                                     {
                                         if (rep != null) rep.addEntry("unexpected element [.merge.m3.'|'.3]", (path != null ? lpath_8 : null));
@@ -2243,7 +2195,7 @@ public class everything extends ModelChecker
             {
                 // handle may m4 property
                 // .merge.m4
-                res = _jm_obj_12(pval, (path != null ? lpath_8 : null), rep);
+                res = _jm_obj_9(pval, (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.merge.m4]", (path != null ? lpath_8 : null));
@@ -2321,7 +2273,7 @@ public class everything extends ModelChecker
     }
 
     // object .object.o0
-    public boolean _jm_obj_13(Object val, Path path, Report rep)
+    public boolean _jm_obj_10(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2340,7 +2292,7 @@ public class everything extends ModelChecker
     }
 
     // object .object.o1
-    public boolean _jm_obj_14(Object val, Path path, Report rep)
+    public boolean _jm_obj_11(Object val, Path path, Report rep)
     {
         // check close must only props
         if (! json.isObject(val))
@@ -2401,7 +2353,7 @@ public class everything extends ModelChecker
     }
 
     // object .object.o2
-    public boolean _jm_obj_15(Object val, Path path, Report rep)
+    public boolean _jm_obj_12(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2435,7 +2387,7 @@ public class everything extends ModelChecker
     }
 
     // object .object.o3
-    public boolean _jm_obj_16(Object val, Path path, Report rep)
+    public boolean _jm_obj_13(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2470,7 +2422,7 @@ public class everything extends ModelChecker
     }
 
     // object .object.o4
-    public boolean _jm_obj_17(Object val, Path path, Report rep)
+    public boolean _jm_obj_14(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2505,7 +2457,7 @@ public class everything extends ModelChecker
     }
 
     // object .object.o5
-    public boolean _jm_obj_18(Object val, Path path, Report rep)
+    public boolean _jm_obj_15(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
         {
@@ -2531,18 +2483,6 @@ public class everything extends ModelChecker
         return true;
     }
 
-    // object .object.o6
-    public boolean _jm_obj_19(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.object.o6]", path);
-            return false;
-        }
-        // accept any object
-        return true;
-    }
-
     // check json_model_1_map_object (.object)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
@@ -2564,7 +2504,7 @@ public class everything extends ModelChecker
             {
                 // handle may o0 property
                 // .object.o0
-                res = _jm_obj_13(pval, (path != null ? lpath_11 : null), rep);
+                res = _jm_obj_10(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.object.o0]", (path != null ? lpath_11 : null));
@@ -2577,7 +2517,7 @@ public class everything extends ModelChecker
             {
                 // handle may o1 property
                 // .object.o1
-                res = _jm_obj_14(pval, (path != null ? lpath_11 : null), rep);
+                res = _jm_obj_11(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.object.o1]", (path != null ? lpath_11 : null));
@@ -2590,7 +2530,7 @@ public class everything extends ModelChecker
             {
                 // handle may o2 property
                 // .object.o2
-                res = _jm_obj_15(pval, (path != null ? lpath_11 : null), rep);
+                res = _jm_obj_12(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.object.o2]", (path != null ? lpath_11 : null));
@@ -2603,7 +2543,7 @@ public class everything extends ModelChecker
             {
                 // handle may o3 property
                 // .object.o3
-                res = _jm_obj_16(pval, (path != null ? lpath_11 : null), rep);
+                res = _jm_obj_13(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.object.o3]", (path != null ? lpath_11 : null));
@@ -2616,7 +2556,7 @@ public class everything extends ModelChecker
             {
                 // handle may o4 property
                 // .object.o4
-                res = _jm_obj_17(pval, (path != null ? lpath_11 : null), rep);
+                res = _jm_obj_14(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.object.o4]", (path != null ? lpath_11 : null));
@@ -2629,7 +2569,7 @@ public class everything extends ModelChecker
             {
                 // handle may o5 property
                 // .object.o5
-                res = _jm_obj_18(pval, (path != null ? lpath_11 : null), rep);
+                res = _jm_obj_15(pval, (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected element [.object.o5]", (path != null ? lpath_11 : null));
@@ -2642,10 +2582,9 @@ public class everything extends ModelChecker
             {
                 // handle may o6 property
                 // .object.o6
-                res = _jm_obj_19(pval, (path != null ? lpath_11 : null), rep);
+                res = json.isObject(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected element [.object.o6]", (path != null ? lpath_11 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.object.o6]", (path != null ? lpath_11 : null));
                     return false;
                 }
@@ -2654,18 +2593,6 @@ public class everything extends ModelChecker
             if (rep != null) rep.addEntry("unexpected prop [.object]", (path != null ? lpath_11 : null));
             return false;
         }
-        return true;
-    }
-
-    // object .or.o2.'|'.3
-    public boolean _jm_obj_20(Object val, Path path, Report rep)
-    {
-        if (! json.isObject(val))
-        {
-            if (rep != null) rep.addEntry("not an object [.or.o2.'|'.3]", path);
-            return false;
-        }
-        // accept any object
         return true;
     }
 
@@ -2773,11 +2700,7 @@ public class everything extends ModelChecker
                         {
                             if (rep != null) rep.addEntry("not array or unexpected array [.or.o2.'|'.2]", (path != null ? lpath_16 : null));
                             // .or.o2.'|'.3
-                            res = _jm_obj_20(pval, (path != null ? lpath_16 : null), rep);
-                            if (! res)
-                            {
-                                if (rep != null) rep.addEntry("unexpected element [.or.o2.'|'.3]", (path != null ? lpath_16 : null));
-                            }
+                            res = json.isObject(pval);
                         }
                     }
                 }

@@ -224,45 +224,7 @@ function json_model_4(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$atomic'
-    // .'$atomic'.'|'.0
-    let res = val === null;
-    if (! res)
-    {
-        rep !== null && rep.push(["not null [.'$atomic'.'|'.0]", path])
-        // .'$atomic'.'|'.1
-        res = (typeof val === 'boolean' || val instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.'$atomic'.'|'.1]", path])
-            // .'$atomic'.'|'.2
-            res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a -1 strict int [.'$atomic'.'|'.2]", path])
-                // .'$atomic'.'|'.3
-                res = (typeof val === 'number' || val instanceof Number);
-                if (! res)
-                {
-                    rep !== null && rep.push(["not a -1.0 strict float [.'$atomic'.'|'.3]", path])
-                    // .'$atomic'.'|'.4
-                    res = (typeof val === 'string' || val instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected value for model \"\" [.'$atomic'.'|'.4]", path])
-                    }
-                }
-            }
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$atomic'.'|']", path])
-    }
-    return res;
+    return ! Array.isArray(val) && ! (Object.prototype.toString.call(val) === '[object Object]');
 }
 
 

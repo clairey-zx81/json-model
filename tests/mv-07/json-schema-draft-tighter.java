@@ -29,45 +29,7 @@ public class json_schema_draft_tighter extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .'$const'
-        // .'$const'.'|'.0
-        boolean res = json.isNull(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not null [.'$const'.'|'.0]", path);
-            // .'$const'.'|'.1
-            res = json.isBoolean(val);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("not a bool [.'$const'.'|'.1]", path);
-                // .'$const'.'|'.2
-                res = json.isInteger(val);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a -1 strict int [.'$const'.'|'.2]", path);
-                    // .'$const'.'|'.3
-                    res = json.isDouble(val);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a -1.0 strict float [.'$const'.'|'.3]", path);
-                        // .'$const'.'|'.4
-                        res = json.isString(val);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$const'.'|'.4]", path);
-                        }
-                    }
-                }
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'$const'.'|']", path);
-        }
-        return res;
+        return ! json.isArray(val) && ! json.isObject(val);
     }
 
     // check $enum (.'$enum')

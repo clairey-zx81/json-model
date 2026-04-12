@@ -10,6 +10,7 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
+#define _jm_re_0(s, p, r) jm_re_dots(s)
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -19,6 +20,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
+
 
 // object .'|'.5
 static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -51,7 +53,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
             must_count += 1;
             // .'|'.5.v
             // "/./s"
-            res = json_is_string(pval) && jm_str_len(json_string_value(pval)) > 0;
+            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"/./s\" [.'|'.5.v]", (path ? &lpath_0 : NULL));

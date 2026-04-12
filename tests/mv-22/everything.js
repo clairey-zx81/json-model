@@ -15,8 +15,8 @@ let _jm_cst_2 = new Set()
 let _jm_cst_3 = new Set()
 let _jm_cst_4 = new Set()
 const _jm_re_0_re = new runtime.RX("^(Calvin|Susie)$", "")
-var _jm_obj_31_map = new Map()
-var _jm_obj_32_map = new Map()
+var _jm_obj_29_map = new Map()
+var _jm_obj_30_map = new Map()
 export var check_model_map = new Map()
 const jm_is_duration_re = new runtime.RX("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$", "")
 const jm_is_email_re = new runtime.RX("^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", "i")
@@ -151,18 +151,6 @@ function json_model_5(val, path, rep)
     return true;
 }
 
-// object .or.o2.'|'.3
-function _jm_obj_1(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.or.o2.'|'.3]", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .or
 function _jm_obj_0(val, path, rep)
 {
@@ -262,11 +250,7 @@ function _jm_obj_0(val, path, rep)
                     {
                         rep !== null && rep.push(["not array or unexpected array [.or.o2.'|'.2]", (path ? lpath_1 : null)])
                         // .or.o2.'|'.3
-                        res = _jm_obj_1(pval, (path ? lpath_1 : null), rep);
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["unexpected element [.or.o2.'|'.3]", (path ? lpath_1 : null)])
-                        }
+                        res = Object.prototype.toString.call(pval) === '[object Object]';
                     }
                 }
             }
@@ -289,7 +273,7 @@ function _jm_obj_0(val, path, rep)
 }
 
 // object .and
-function _jm_obj_2(val, path, rep)
+function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -343,7 +327,7 @@ function _jm_obj_2(val, path, rep)
 }
 
 // object .int
-function _jm_obj_3(val, path, rep)
+function _jm_obj_2(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -504,7 +488,7 @@ function _jm_obj_3(val, path, rep)
 }
 
 // object .xor
-function _jm_obj_4(val, path, rep)
+function _jm_obj_3(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -655,7 +639,7 @@ function _jm_obj_4(val, path, rep)
 
 
 // object .bool
-function _jm_obj_5(val, path, rep)
+function _jm_obj_4(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -755,7 +739,7 @@ function _jm_obj_5(val, path, rep)
 
 
 // object .enum
-function _jm_obj_6(val, path, rep)
+function _jm_obj_5(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -825,7 +809,7 @@ function _jm_obj_6(val, path, rep)
 }
 
 // object .null
-function _jm_obj_7(val, path, rep)
+function _jm_obj_6(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -882,7 +866,7 @@ function _jm_obj_7(val, path, rep)
 }
 
 // object .array
-function _jm_obj_8(val, path, rep)
+function _jm_obj_7(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1025,7 +1009,7 @@ function _jm_obj_8(val, path, rep)
 }
 
 // object .float
-function _jm_obj_9(val, path, rep)
+function _jm_obj_8(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1160,7 +1144,7 @@ function _jm_obj_9(val, path, rep)
 }
 
 // object .merge.m0
-function _jm_obj_11(val, path, rep)
+function _jm_obj_10(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1217,7 +1201,7 @@ function _jm_obj_11(val, path, rep)
 }
 
 // object .merge.m1.'|'.1
-function _jm_obj_12(val, path, rep)
+function _jm_obj_11(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1266,7 +1250,7 @@ function _jm_obj_12(val, path, rep)
 }
 
 // object .merge.m1.'|'.0
-function _jm_obj_13(val, path, rep)
+function _jm_obj_12(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1315,7 +1299,7 @@ function _jm_obj_13(val, path, rep)
 }
 
 // object .merge.m2.'|'.1
-function _jm_obj_14(val, path, rep)
+function _jm_obj_13(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1364,7 +1348,7 @@ function _jm_obj_14(val, path, rep)
 }
 
 // object .merge.m2.'|'.0
-function _jm_obj_15(val, path, rep)
+function _jm_obj_14(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1413,7 +1397,7 @@ function _jm_obj_15(val, path, rep)
 }
 
 // object .merge.m3.'|'.3
-function _jm_obj_16(val, path, rep)
+function _jm_obj_15(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1462,7 +1446,7 @@ function _jm_obj_16(val, path, rep)
 }
 
 // object .merge.m3.'|'.2
-function _jm_obj_17(val, path, rep)
+function _jm_obj_16(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1511,7 +1495,7 @@ function _jm_obj_17(val, path, rep)
 }
 
 // object .merge.m3.'|'.1
-function _jm_obj_18(val, path, rep)
+function _jm_obj_17(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1560,7 +1544,7 @@ function _jm_obj_18(val, path, rep)
 }
 
 // object .merge.m3.'|'.0
-function _jm_obj_19(val, path, rep)
+function _jm_obj_18(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1609,7 +1593,7 @@ function _jm_obj_19(val, path, rep)
 }
 
 // object .merge.m4
-function _jm_obj_20(val, path, rep)
+function _jm_obj_19(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1688,7 +1672,7 @@ function _jm_obj_20(val, path, rep)
 }
 
 // object .merge
-function _jm_obj_10(val, path, rep)
+function _jm_obj_9(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1703,7 +1687,7 @@ function _jm_obj_10(val, path, rep)
         {
             // handle may m0 property
             // .merge.m0
-            res = _jm_obj_11(pval, (path ? lpath_10 : null), rep);
+            res = _jm_obj_10(pval, (path ? lpath_10 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.merge.m0]", (path ? lpath_10 : null)])
@@ -1722,7 +1706,7 @@ function _jm_obj_10(val, path, rep)
                 if (pval.hasOwnProperty("b"))
                 {
                     // .merge.m1.'|'.0
-                    res = _jm_obj_13(pval, (path ? lpath_10 : null), rep);
+                    res = _jm_obj_12(pval, (path ? lpath_10 : null), rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.merge.m1.'|'.0]", (path ? lpath_10 : null)])
@@ -1733,7 +1717,7 @@ function _jm_obj_10(val, path, rep)
                     if (pval.hasOwnProperty("c"))
                     {
                         // .merge.m1.'|'.1
-                        res = _jm_obj_12(pval, (path ? lpath_10 : null), rep);
+                        res = _jm_obj_11(pval, (path ? lpath_10 : null), rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.merge.m1.'|'.1]", (path ? lpath_10 : null)])
@@ -1774,7 +1758,7 @@ function _jm_obj_10(val, path, rep)
                 if (pval.hasOwnProperty("b"))
                 {
                     // .merge.m2.'|'.0
-                    res = _jm_obj_15(pval, (path ? lpath_10 : null), rep);
+                    res = _jm_obj_14(pval, (path ? lpath_10 : null), rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.merge.m2.'|'.0]", (path ? lpath_10 : null)])
@@ -1785,7 +1769,7 @@ function _jm_obj_10(val, path, rep)
                     if (pval.hasOwnProperty("c"))
                     {
                         // .merge.m2.'|'.1
-                        res = _jm_obj_14(pval, (path ? lpath_10 : null), rep);
+                        res = _jm_obj_13(pval, (path ? lpath_10 : null), rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.merge.m2.'|'.1]", (path ? lpath_10 : null)])
@@ -1826,7 +1810,7 @@ function _jm_obj_10(val, path, rep)
                 if (pval.hasOwnProperty("a"))
                 {
                     // .merge.m3.'|'.0
-                    res = _jm_obj_19(pval, (path ? lpath_10 : null), rep);
+                    res = _jm_obj_18(pval, (path ? lpath_10 : null), rep);
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.merge.m3.'|'.0]", (path ? lpath_10 : null)])
@@ -1841,7 +1825,7 @@ function _jm_obj_10(val, path, rep)
                     if (pval.hasOwnProperty("a"))
                     {
                         // .merge.m3.'|'.1
-                        res = _jm_obj_18(pval, (path ? lpath_10 : null), rep);
+                        res = _jm_obj_17(pval, (path ? lpath_10 : null), rep);
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.merge.m3.'|'.1]", (path ? lpath_10 : null)])
@@ -1856,7 +1840,7 @@ function _jm_obj_10(val, path, rep)
                         if (pval.hasOwnProperty("b"))
                         {
                             // .merge.m3.'|'.2
-                            res = _jm_obj_17(pval, (path ? lpath_10 : null), rep);
+                            res = _jm_obj_16(pval, (path ? lpath_10 : null), rep);
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected element [.merge.m3.'|'.2]", (path ? lpath_10 : null)])
@@ -1871,7 +1855,7 @@ function _jm_obj_10(val, path, rep)
                             if (pval.hasOwnProperty("b"))
                             {
                                 // .merge.m3.'|'.3
-                                res = _jm_obj_16(pval, (path ? lpath_10 : null), rep);
+                                res = _jm_obj_15(pval, (path ? lpath_10 : null), rep);
                                 if (! res)
                                 {
                                     rep !== null && rep.push(["unexpected element [.merge.m3.'|'.3]", (path ? lpath_10 : null)])
@@ -1908,7 +1892,7 @@ function _jm_obj_10(val, path, rep)
         {
             // handle may m4 property
             // .merge.m4
-            res = _jm_obj_20(pval, (path ? lpath_10 : null), rep);
+            res = _jm_obj_19(pval, (path ? lpath_10 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.merge.m4]", (path ? lpath_10 : null)])
@@ -1924,7 +1908,7 @@ function _jm_obj_10(val, path, rep)
 }
 
 // object .tuple
-function _jm_obj_21(val, path, rep)
+function _jm_obj_20(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2127,7 +2111,7 @@ function _jm_obj_21(val, path, rep)
 }
 
 // object .object.o0
-function _jm_obj_23(val, path, rep)
+function _jm_obj_22(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2146,7 +2130,7 @@ function _jm_obj_23(val, path, rep)
 }
 
 // object .object.o1
-function _jm_obj_24(val, path, rep)
+function _jm_obj_23(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -2210,7 +2194,7 @@ function _jm_obj_24(val, path, rep)
 }
 
 // object .object.o2
-function _jm_obj_25(val, path, rep)
+function _jm_obj_24(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2241,7 +2225,7 @@ function _jm_obj_25(val, path, rep)
 }
 
 // object .object.o3
-function _jm_obj_26(val, path, rep)
+function _jm_obj_25(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2273,7 +2257,7 @@ function _jm_obj_26(val, path, rep)
 }
 
 // object .object.o4
-function _jm_obj_27(val, path, rep)
+function _jm_obj_26(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2305,7 +2289,7 @@ function _jm_obj_27(val, path, rep)
 }
 
 // object .object.o5
-function _jm_obj_28(val, path, rep)
+function _jm_obj_27(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2328,20 +2312,8 @@ function _jm_obj_28(val, path, rep)
     return true;
 }
 
-// object .object.o6
-function _jm_obj_29(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.object.o6]", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // object .object
-function _jm_obj_22(val, path, rep)
+function _jm_obj_21(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2356,7 +2328,7 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may o0 property
             // .object.o0
-            res = _jm_obj_23(pval, (path ? lpath_16 : null), rep);
+            res = _jm_obj_22(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.object.o0]", (path ? lpath_16 : null)])
@@ -2369,7 +2341,7 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may o1 property
             // .object.o1
-            res = _jm_obj_24(pval, (path ? lpath_16 : null), rep);
+            res = _jm_obj_23(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.object.o1]", (path ? lpath_16 : null)])
@@ -2382,7 +2354,7 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may o2 property
             // .object.o2
-            res = _jm_obj_25(pval, (path ? lpath_16 : null), rep);
+            res = _jm_obj_24(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.object.o2]", (path ? lpath_16 : null)])
@@ -2395,7 +2367,7 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may o3 property
             // .object.o3
-            res = _jm_obj_26(pval, (path ? lpath_16 : null), rep);
+            res = _jm_obj_25(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.object.o3]", (path ? lpath_16 : null)])
@@ -2408,7 +2380,7 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may o4 property
             // .object.o4
-            res = _jm_obj_27(pval, (path ? lpath_16 : null), rep);
+            res = _jm_obj_26(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.object.o4]", (path ? lpath_16 : null)])
@@ -2421,7 +2393,7 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may o5 property
             // .object.o5
-            res = _jm_obj_28(pval, (path ? lpath_16 : null), rep);
+            res = _jm_obj_27(pval, (path ? lpath_16 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.object.o5]", (path ? lpath_16 : null)])
@@ -2434,10 +2406,9 @@ function _jm_obj_22(val, path, rep)
         {
             // handle may o6 property
             // .object.o6
-            res = _jm_obj_29(pval, (path ? lpath_16 : null), rep);
+            res = Object.prototype.toString.call(pval) === '[object Object]';
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.object.o6]", (path ? lpath_16 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.object.o6]", (path ? lpath_16 : null)])
                 return false;
             }
@@ -2452,7 +2423,7 @@ function _jm_obj_22(val, path, rep)
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 // object .string
-function _jm_obj_30(val, path, rep)
+function _jm_obj_28(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2535,14 +2506,14 @@ function _jm_obj_30(val, path, rep)
     return true;
 }
 
-// check _jm_obj_31_map_ANY (.predefs.ANY)
+// check _jm_obj_29_map_ANY (.predefs.ANY)
 function _jm_f_0(val, path, rep)
 {
     // .predefs.ANY
     return true;
 }
 
-// check _jm_obj_31_map_BOOL (.predefs.BOOL)
+// check _jm_obj_29_map_BOOL (.predefs.BOOL)
 function _jm_f_1(val, path, rep)
 {
     // .predefs.BOOL
@@ -2554,7 +2525,7 @@ function _jm_f_1(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_BOOLEAN (.predefs.BOOLEAN)
+// check _jm_obj_29_map_BOOLEAN (.predefs.BOOLEAN)
 function _jm_f_2(val, path, rep)
 {
     // .predefs.BOOLEAN
@@ -2566,7 +2537,7 @@ function _jm_f_2(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_DATE (.predefs.DATE)
+// check _jm_obj_29_map_DATE (.predefs.DATE)
 function _jm_f_3(val, path, rep)
 {
     // .predefs.DATE
@@ -2578,7 +2549,7 @@ function _jm_f_3(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_DATETIME (.predefs.DATETIME)
+// check _jm_obj_29_map_DATETIME (.predefs.DATETIME)
 function _jm_f_4(val, path, rep)
 {
     // .predefs.DATETIME
@@ -2590,7 +2561,7 @@ function _jm_f_4(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_DURATION (.predefs.DURATION)
+// check _jm_obj_29_map_DURATION (.predefs.DURATION)
 function _jm_f_5(val, path, rep)
 {
     // .predefs.DURATION
@@ -2602,7 +2573,7 @@ function _jm_f_5(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_EMAIL (.predefs.EMAIL)
+// check _jm_obj_29_map_EMAIL (.predefs.EMAIL)
 function _jm_f_6(val, path, rep)
 {
     // .predefs.EMAIL
@@ -2614,7 +2585,7 @@ function _jm_f_6(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_ETH (.predefs.ETH)
+// check _jm_obj_29_map_ETH (.predefs.ETH)
 function _jm_f_7(val, path, rep)
 {
     // .predefs.ETH
@@ -2626,7 +2597,7 @@ function _jm_f_7(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_EXREG (.predefs.EXREG)
+// check _jm_obj_29_map_EXREG (.predefs.EXREG)
 function _jm_f_8(val, path, rep)
 {
     // .predefs.EXREG
@@ -2638,7 +2609,7 @@ function _jm_f_8(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_F32 (.predefs.F32)
+// check _jm_obj_29_map_F32 (.predefs.F32)
 function _jm_f_9(val, path, rep)
 {
     // .predefs.F32
@@ -2650,7 +2621,7 @@ function _jm_f_9(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_F64 (.predefs.F64)
+// check _jm_obj_29_map_F64 (.predefs.F64)
 function _jm_f_10(val, path, rep)
 {
     // .predefs.F64
@@ -2662,7 +2633,7 @@ function _jm_f_10(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_FLOAT (.predefs.FLOAT)
+// check _jm_obj_29_map_FLOAT (.predefs.FLOAT)
 function _jm_f_11(val, path, rep)
 {
     // .predefs.FLOAT
@@ -2674,7 +2645,7 @@ function _jm_f_11(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_HOST (.predefs.HOST)
+// check _jm_obj_29_map_HOST (.predefs.HOST)
 function _jm_f_12(val, path, rep)
 {
     // .predefs.HOST
@@ -2686,7 +2657,7 @@ function _jm_f_12(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_I32 (.predefs.I32)
+// check _jm_obj_29_map_I32 (.predefs.I32)
 function _jm_f_13(val, path, rep)
 {
     // .predefs.I32
@@ -2698,7 +2669,7 @@ function _jm_f_13(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_I64 (.predefs.I64)
+// check _jm_obj_29_map_I64 (.predefs.I64)
 function _jm_f_14(val, path, rep)
 {
     // .predefs.I64
@@ -2710,7 +2681,7 @@ function _jm_f_14(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_INT (.predefs.INT)
+// check _jm_obj_29_map_INT (.predefs.INT)
 function _jm_f_15(val, path, rep)
 {
     // .predefs.INT
@@ -2722,7 +2693,7 @@ function _jm_f_15(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_INTEGER (.predefs.INTEGER)
+// check _jm_obj_29_map_INTEGER (.predefs.INTEGER)
 function _jm_f_16(val, path, rep)
 {
     // .predefs.INTEGER
@@ -2734,7 +2705,7 @@ function _jm_f_16(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_IP4 (.predefs.IP4)
+// check _jm_obj_29_map_IP4 (.predefs.IP4)
 function _jm_f_17(val, path, rep)
 {
     // .predefs.IP4
@@ -2746,7 +2717,7 @@ function _jm_f_17(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_IP6 (.predefs.IP6)
+// check _jm_obj_29_map_IP6 (.predefs.IP6)
 function _jm_f_18(val, path, rep)
 {
     // .predefs.IP6
@@ -2758,7 +2729,7 @@ function _jm_f_18(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_JSON (.predefs.JSON)
+// check _jm_obj_29_map_JSON (.predefs.JSON)
 function _jm_f_19(val, path, rep)
 {
     // .predefs.JSON
@@ -2770,7 +2741,7 @@ function _jm_f_19(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_JSONPT (.predefs.JSONPT)
+// check _jm_obj_29_map_JSONPT (.predefs.JSONPT)
 function _jm_f_20(val, path, rep)
 {
     // .predefs.JSONPT
@@ -2782,7 +2753,7 @@ function _jm_f_20(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_NONE (.predefs.NONE)
+// check _jm_obj_29_map_NONE (.predefs.NONE)
 function _jm_f_21(val, path, rep)
 {
     // .predefs.NONE
@@ -2790,7 +2761,7 @@ function _jm_f_21(val, path, rep)
     return false;
 }
 
-// check _jm_obj_31_map_NULL (.predefs.NULL)
+// check _jm_obj_29_map_NULL (.predefs.NULL)
 function _jm_f_22(val, path, rep)
 {
     // .predefs.NULL
@@ -2802,7 +2773,7 @@ function _jm_f_22(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_NUMBER (.predefs.NUMBER)
+// check _jm_obj_29_map_NUMBER (.predefs.NUMBER)
 function _jm_f_23(val, path, rep)
 {
     // .predefs.NUMBER
@@ -2814,7 +2785,7 @@ function _jm_f_23(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_REGEX (.predefs.REGEX)
+// check _jm_obj_29_map_REGEX (.predefs.REGEX)
 function _jm_f_24(val, path, rep)
 {
     // .predefs.REGEX
@@ -2826,7 +2797,7 @@ function _jm_f_24(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_STRING (.predefs.STRING)
+// check _jm_obj_29_map_STRING (.predefs.STRING)
 function _jm_f_25(val, path, rep)
 {
     // .predefs.STRING
@@ -2838,7 +2809,7 @@ function _jm_f_25(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_TIME (.predefs.TIME)
+// check _jm_obj_29_map_TIME (.predefs.TIME)
 function _jm_f_26(val, path, rep)
 {
     // .predefs.TIME
@@ -2850,7 +2821,7 @@ function _jm_f_26(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_U32 (.predefs.U32)
+// check _jm_obj_29_map_U32 (.predefs.U32)
 function _jm_f_27(val, path, rep)
 {
     // .predefs.U32
@@ -2862,7 +2833,7 @@ function _jm_f_27(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_U64 (.predefs.U64)
+// check _jm_obj_29_map_U64 (.predefs.U64)
 function _jm_f_28(val, path, rep)
 {
     // .predefs.U64
@@ -2874,7 +2845,7 @@ function _jm_f_28(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_URI (.predefs.URI)
+// check _jm_obj_29_map_URI (.predefs.URI)
 function _jm_f_29(val, path, rep)
 {
     // .predefs.URI
@@ -2886,7 +2857,7 @@ function _jm_f_29(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_URL (.predefs.URL)
+// check _jm_obj_29_map_URL (.predefs.URL)
 function _jm_f_30(val, path, rep)
 {
     // .predefs.URL
@@ -2898,7 +2869,7 @@ function _jm_f_30(val, path, rep)
     return res;
 }
 
-// check _jm_obj_31_map_UUID (.predefs.UUID)
+// check _jm_obj_29_map_UUID (.predefs.UUID)
 function _jm_f_31(val, path, rep)
 {
     // .predefs.UUID
@@ -2912,7 +2883,7 @@ function _jm_f_31(val, path, rep)
 
 
 // object .predefs
-function _jm_obj_31(val, path, rep)
+function _jm_obj_29(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -2923,7 +2894,7 @@ function _jm_obj_31(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_22 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_31_map.get(prop)))
+        if ((pfun = _jm_obj_29_map.get(prop)))
         {
             // handle 32 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_22 : null), rep))
@@ -2939,7 +2910,7 @@ function _jm_obj_31(val, path, rep)
     return true;
 }
 
-// check _jm_obj_32_map_cia0 (.constraints.cia0)
+// check _jm_obj_30_map_cia0 (.constraints.cia0)
 function _jm_f_32(val, path, rep)
 {
     // .constraints.cia0
@@ -2976,7 +2947,7 @@ function _jm_f_32(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cia1 (.constraints.cia1)
+// check _jm_obj_30_map_cia1 (.constraints.cia1)
 function _jm_f_33(val, path, rep)
 {
     // .constraints.cia1
@@ -3013,7 +2984,7 @@ function _jm_f_33(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cia2 (.constraints.cia2)
+// check _jm_obj_30_map_cia2 (.constraints.cia2)
 function _jm_f_34(val, path, rep)
 {
     // .constraints.cia2
@@ -3050,7 +3021,7 @@ function _jm_f_34(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cii0 (.constraints.cii0)
+// check _jm_obj_30_map_cii0 (.constraints.cii0)
 function _jm_f_35(val, path, rep)
 {
     // .constraints.cii0
@@ -3062,7 +3033,7 @@ function _jm_f_35(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cii1 (.constraints.cii1)
+// check _jm_obj_30_map_cii1 (.constraints.cii1)
 function _jm_f_36(val, path, rep)
 {
     // .constraints.cii1
@@ -3084,7 +3055,7 @@ function _jm_f_36(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cii2 (.constraints.cii2)
+// check _jm_obj_30_map_cii2 (.constraints.cii2)
 function _jm_f_37(val, path, rep)
 {
     // .constraints.cii2
@@ -3106,7 +3077,7 @@ function _jm_f_37(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cin0 (.constraints.cin0)
+// check _jm_obj_30_map_cin0 (.constraints.cin0)
 function _jm_f_38(val, path, rep)
 {
     // .constraints.cin0
@@ -3128,7 +3099,7 @@ function _jm_f_38(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cin1 (.constraints.cin1)
+// check _jm_obj_30_map_cin1 (.constraints.cin1)
 function _jm_f_39(val, path, rep)
 {
     // .constraints.cin1
@@ -3150,7 +3121,7 @@ function _jm_f_39(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cin2 (.constraints.cin2)
+// check _jm_obj_30_map_cin2 (.constraints.cin2)
 function _jm_f_40(val, path, rep)
 {
     // .constraints.cin2
@@ -3172,24 +3143,12 @@ function _jm_f_40(val, path, rep)
     return res;
 }
 
-// object .constraints.cio0.'@'
-function _jm_obj_33(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.constraints.cio0.'@']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
-// check _jm_obj_32_map_cio0 (.constraints.cio0)
+// check _jm_obj_30_map_cio0 (.constraints.cio0)
 function _jm_f_41(val, path, rep)
 {
     // .constraints.cio0
     // .constraints.cio0.'@'
-    let res = _jm_obj_33(val, path, rep);
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         let ival_7 = Object.keys(val).length;
@@ -3199,31 +3158,15 @@ function _jm_f_41(val, path, rep)
             rep !== null && rep.push(["constraints failed [.constraints.cio0]", path])
         }
     }
-    else
-    {
-        rep !== null && rep.push(["unexpected element [.constraints.cio0.'@']", path])
-    }
     return res;
 }
 
-// object .constraints.cio1.'@'
-function _jm_obj_34(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.constraints.cio1.'@']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
-// check _jm_obj_32_map_cio1 (.constraints.cio1)
+// check _jm_obj_30_map_cio1 (.constraints.cio1)
 function _jm_f_42(val, path, rep)
 {
     // .constraints.cio1
     // .constraints.cio1.'@'
-    let res = _jm_obj_34(val, path, rep);
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         let ival_8 = Object.keys(val).length;
@@ -3233,31 +3176,15 @@ function _jm_f_42(val, path, rep)
             rep !== null && rep.push(["constraints failed [.constraints.cio1]", path])
         }
     }
-    else
-    {
-        rep !== null && rep.push(["unexpected element [.constraints.cio1.'@']", path])
-    }
     return res;
 }
 
-// object .constraints.cio2.'@'
-function _jm_obj_35(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.constraints.cio2.'@']", path])
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
-// check _jm_obj_32_map_cio2 (.constraints.cio2)
+// check _jm_obj_30_map_cio2 (.constraints.cio2)
 function _jm_f_43(val, path, rep)
 {
     // .constraints.cio2
     // .constraints.cio2.'@'
-    let res = _jm_obj_35(val, path, rep);
+    let res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
         let ival_9 = Object.keys(val).length;
@@ -3267,14 +3194,10 @@ function _jm_f_43(val, path, rep)
             rep !== null && rep.push(["constraints failed [.constraints.cio2]", path])
         }
     }
-    else
-    {
-        rep !== null && rep.push(["unexpected element [.constraints.cio2.'@']", path])
-    }
     return res;
 }
 
-// check _jm_obj_32_map_cis0 (.constraints.cis0)
+// check _jm_obj_30_map_cis0 (.constraints.cis0)
 function _jm_f_44(val, path, rep)
 {
     // .constraints.cis0
@@ -3296,7 +3219,7 @@ function _jm_f_44(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cis1 (.constraints.cis1)
+// check _jm_obj_30_map_cis1 (.constraints.cis1)
 function _jm_f_45(val, path, rep)
 {
     // .constraints.cis1
@@ -3318,7 +3241,7 @@ function _jm_f_45(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cis2 (.constraints.cis2)
+// check _jm_obj_30_map_cis2 (.constraints.cis2)
 function _jm_f_46(val, path, rep)
 {
     // .constraints.cis2
@@ -3340,7 +3263,7 @@ function _jm_f_46(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cni0 (.constraints.cni0)
+// check _jm_obj_30_map_cni0 (.constraints.cni0)
 function _jm_f_47(val, path, rep)
 {
     // .constraints.cni0
@@ -3352,7 +3275,7 @@ function _jm_f_47(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cni1 (.constraints.cni1)
+// check _jm_obj_30_map_cni1 (.constraints.cni1)
 function _jm_f_48(val, path, rep)
 {
     // .constraints.cni1
@@ -3375,7 +3298,7 @@ function _jm_f_48(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cni2 (.constraints.cni2)
+// check _jm_obj_30_map_cni2 (.constraints.cni2)
 function _jm_f_49(val, path, rep)
 {
     // .constraints.cni2
@@ -3387,7 +3310,7 @@ function _jm_f_49(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cnn0 (.constraints.cnn0)
+// check _jm_obj_30_map_cnn0 (.constraints.cnn0)
 function _jm_f_50(val, path, rep)
 {
     // .constraints.cnn0
@@ -3409,7 +3332,7 @@ function _jm_f_50(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cnn1 (.constraints.cnn1)
+// check _jm_obj_30_map_cnn1 (.constraints.cnn1)
 function _jm_f_51(val, path, rep)
 {
     // .constraints.cnn1
@@ -3431,7 +3354,7 @@ function _jm_f_51(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cnn2 (.constraints.cnn2)
+// check _jm_obj_30_map_cnn2 (.constraints.cnn2)
 function _jm_f_52(val, path, rep)
 {
     // .constraints.cnn2
@@ -3453,7 +3376,7 @@ function _jm_f_52(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_css0 (.constraints.css0)
+// check _jm_obj_30_map_css0 (.constraints.css0)
 function _jm_f_53(val, path, rep)
 {
     // .constraints.css0
@@ -3475,7 +3398,7 @@ function _jm_f_53(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_css1 (.constraints.css1)
+// check _jm_obj_30_map_css1 (.constraints.css1)
 function _jm_f_54(val, path, rep)
 {
     // .constraints.css1
@@ -3497,7 +3420,7 @@ function _jm_f_54(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_css2 (.constraints.css2)
+// check _jm_obj_30_map_css2 (.constraints.css2)
 function _jm_f_55(val, path, rep)
 {
     // .constraints.css2
@@ -3519,7 +3442,7 @@ function _jm_f_55(val, path, rep)
     return res;
 }
 
-// check _jm_obj_32_map_cua0 (.constraints.cua0)
+// check _jm_obj_30_map_cua0 (.constraints.cua0)
 function _jm_f_56(val, path, rep)
 {
     // .constraints.cua0
@@ -3543,7 +3466,7 @@ function _jm_f_56(val, path, rep)
 
 
 // object .constraints
-function _jm_obj_32(val, path, rep)
+function _jm_obj_30(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -3554,7 +3477,7 @@ function _jm_obj_32(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_23 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_32_map.get(prop)))
+        if ((pfun = _jm_obj_30_map.get(prop)))
         {
             // handle 25 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_23 : null), rep))
@@ -3603,7 +3526,7 @@ function json_model_1(val, path, rep)
             // handle may and property
             // conjunction, all must match
             // .and
-            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.and]", (path ? lpath_0 : null)])
@@ -3617,7 +3540,7 @@ function json_model_1(val, path, rep)
             // handle may int property
             // integers: inference, predefs, constants
             // .int
-            res = _jm_obj_3(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.int]", (path ? lpath_0 : null)])
@@ -3631,7 +3554,7 @@ function json_model_1(val, path, rep)
             // handle may xor property
             // hard alternative, only one must match
             // .xor
-            res = _jm_obj_4(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_3(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.xor]", (path ? lpath_0 : null)])
@@ -3645,7 +3568,7 @@ function json_model_1(val, path, rep)
             // handle may bool property
             // booleans: inference, predefs, constants, enum
             // .bool
-            res = _jm_obj_5(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_4(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.bool]", (path ? lpath_0 : null)])
@@ -3659,7 +3582,7 @@ function json_model_1(val, path, rep)
             // handle may enum property
             // an enumeration only contains constants
             // .enum
-            res = _jm_obj_6(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_5(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.enum]", (path ? lpath_0 : null)])
@@ -3673,7 +3596,7 @@ function json_model_1(val, path, rep)
             // handle may null property
             // null: inference, predefs, constants
             // .null
-            res = _jm_obj_7(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_6(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.null]", (path ? lpath_0 : null)])
@@ -3687,7 +3610,7 @@ function json_model_1(val, path, rep)
             // handle may array property
             // example arrays
             // .array
-            res = _jm_obj_8(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_7(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.array]", (path ? lpath_0 : null)])
@@ -3701,7 +3624,7 @@ function json_model_1(val, path, rep)
             // handle may float property
             // floats: inference, predefs, constants
             // .float
-            res = _jm_obj_9(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_8(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.float]", (path ? lpath_0 : null)])
@@ -3715,7 +3638,7 @@ function json_model_1(val, path, rep)
             // handle may merge property
             // merge object properties
             // .merge
-            res = _jm_obj_10(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_9(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.merge]", (path ? lpath_0 : null)])
@@ -3729,7 +3652,7 @@ function json_model_1(val, path, rep)
             // handle may tuple property
             // tuple items have a type
             // .tuple
-            res = _jm_obj_21(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_20(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.tuple]", (path ? lpath_0 : null)])
@@ -3743,7 +3666,7 @@ function json_model_1(val, path, rep)
             // handle may object property
             // object map property names to values
             // .object
-            res = _jm_obj_22(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_21(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.object]", (path ? lpath_0 : null)])
@@ -3757,7 +3680,7 @@ function json_model_1(val, path, rep)
             // handle may string property
             // strings: inference, predef, constants, regex
             // .string
-            res = _jm_obj_30(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_28(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.string]", (path ? lpath_0 : null)])
@@ -3771,7 +3694,7 @@ function json_model_1(val, path, rep)
             // handle may predefs property
             // predefined models
             // .predefs
-            res = _jm_obj_31(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_29(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.predefs]", (path ? lpath_0 : null)])
@@ -3784,7 +3707,7 @@ function json_model_1(val, path, rep)
         {
             // handle may constraints property
             // .constraints
-            res = _jm_obj_32(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_30(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.constraints]", (path ? lpath_0 : null)])
@@ -3839,63 +3762,63 @@ export function check_model_init()
         _jm_cst_4.add(42)
         _jm_cst_4.add(true)
         _jm_cst_4.add(null)
-        _jm_obj_31_map.set("ANY", _jm_f_0)
-        _jm_obj_31_map.set("BOOL", _jm_f_1)
-        _jm_obj_31_map.set("BOOLEAN", _jm_f_2)
-        _jm_obj_31_map.set("DATE", _jm_f_3)
-        _jm_obj_31_map.set("DATETIME", _jm_f_4)
-        _jm_obj_31_map.set("DURATION", _jm_f_5)
-        _jm_obj_31_map.set("EMAIL", _jm_f_6)
-        _jm_obj_31_map.set("ETH", _jm_f_7)
-        _jm_obj_31_map.set("EXREG", _jm_f_8)
-        _jm_obj_31_map.set("F32", _jm_f_9)
-        _jm_obj_31_map.set("F64", _jm_f_10)
-        _jm_obj_31_map.set("FLOAT", _jm_f_11)
-        _jm_obj_31_map.set("HOST", _jm_f_12)
-        _jm_obj_31_map.set("I32", _jm_f_13)
-        _jm_obj_31_map.set("I64", _jm_f_14)
-        _jm_obj_31_map.set("INT", _jm_f_15)
-        _jm_obj_31_map.set("INTEGER", _jm_f_16)
-        _jm_obj_31_map.set("IP4", _jm_f_17)
-        _jm_obj_31_map.set("IP6", _jm_f_18)
-        _jm_obj_31_map.set("JSON", _jm_f_19)
-        _jm_obj_31_map.set("JSONPT", _jm_f_20)
-        _jm_obj_31_map.set("NONE", _jm_f_21)
-        _jm_obj_31_map.set("NULL", _jm_f_22)
-        _jm_obj_31_map.set("NUMBER", _jm_f_23)
-        _jm_obj_31_map.set("REGEX", _jm_f_24)
-        _jm_obj_31_map.set("STRING", _jm_f_25)
-        _jm_obj_31_map.set("TIME", _jm_f_26)
-        _jm_obj_31_map.set("U32", _jm_f_27)
-        _jm_obj_31_map.set("U64", _jm_f_28)
-        _jm_obj_31_map.set("URI", _jm_f_29)
-        _jm_obj_31_map.set("URL", _jm_f_30)
-        _jm_obj_31_map.set("UUID", _jm_f_31)
-        _jm_obj_32_map.set("cia0", _jm_f_32)
-        _jm_obj_32_map.set("cia1", _jm_f_33)
-        _jm_obj_32_map.set("cia2", _jm_f_34)
-        _jm_obj_32_map.set("cii0", _jm_f_35)
-        _jm_obj_32_map.set("cii1", _jm_f_36)
-        _jm_obj_32_map.set("cii2", _jm_f_37)
-        _jm_obj_32_map.set("cin0", _jm_f_38)
-        _jm_obj_32_map.set("cin1", _jm_f_39)
-        _jm_obj_32_map.set("cin2", _jm_f_40)
-        _jm_obj_32_map.set("cio0", _jm_f_41)
-        _jm_obj_32_map.set("cio1", _jm_f_42)
-        _jm_obj_32_map.set("cio2", _jm_f_43)
-        _jm_obj_32_map.set("cis0", _jm_f_44)
-        _jm_obj_32_map.set("cis1", _jm_f_45)
-        _jm_obj_32_map.set("cis2", _jm_f_46)
-        _jm_obj_32_map.set("cni0", _jm_f_47)
-        _jm_obj_32_map.set("cni1", _jm_f_48)
-        _jm_obj_32_map.set("cni2", _jm_f_49)
-        _jm_obj_32_map.set("cnn0", _jm_f_50)
-        _jm_obj_32_map.set("cnn1", _jm_f_51)
-        _jm_obj_32_map.set("cnn2", _jm_f_52)
-        _jm_obj_32_map.set("css0", _jm_f_53)
-        _jm_obj_32_map.set("css1", _jm_f_54)
-        _jm_obj_32_map.set("css2", _jm_f_55)
-        _jm_obj_32_map.set("cua0", _jm_f_56)
+        _jm_obj_29_map.set("ANY", _jm_f_0)
+        _jm_obj_29_map.set("BOOL", _jm_f_1)
+        _jm_obj_29_map.set("BOOLEAN", _jm_f_2)
+        _jm_obj_29_map.set("DATE", _jm_f_3)
+        _jm_obj_29_map.set("DATETIME", _jm_f_4)
+        _jm_obj_29_map.set("DURATION", _jm_f_5)
+        _jm_obj_29_map.set("EMAIL", _jm_f_6)
+        _jm_obj_29_map.set("ETH", _jm_f_7)
+        _jm_obj_29_map.set("EXREG", _jm_f_8)
+        _jm_obj_29_map.set("F32", _jm_f_9)
+        _jm_obj_29_map.set("F64", _jm_f_10)
+        _jm_obj_29_map.set("FLOAT", _jm_f_11)
+        _jm_obj_29_map.set("HOST", _jm_f_12)
+        _jm_obj_29_map.set("I32", _jm_f_13)
+        _jm_obj_29_map.set("I64", _jm_f_14)
+        _jm_obj_29_map.set("INT", _jm_f_15)
+        _jm_obj_29_map.set("INTEGER", _jm_f_16)
+        _jm_obj_29_map.set("IP4", _jm_f_17)
+        _jm_obj_29_map.set("IP6", _jm_f_18)
+        _jm_obj_29_map.set("JSON", _jm_f_19)
+        _jm_obj_29_map.set("JSONPT", _jm_f_20)
+        _jm_obj_29_map.set("NONE", _jm_f_21)
+        _jm_obj_29_map.set("NULL", _jm_f_22)
+        _jm_obj_29_map.set("NUMBER", _jm_f_23)
+        _jm_obj_29_map.set("REGEX", _jm_f_24)
+        _jm_obj_29_map.set("STRING", _jm_f_25)
+        _jm_obj_29_map.set("TIME", _jm_f_26)
+        _jm_obj_29_map.set("U32", _jm_f_27)
+        _jm_obj_29_map.set("U64", _jm_f_28)
+        _jm_obj_29_map.set("URI", _jm_f_29)
+        _jm_obj_29_map.set("URL", _jm_f_30)
+        _jm_obj_29_map.set("UUID", _jm_f_31)
+        _jm_obj_30_map.set("cia0", _jm_f_32)
+        _jm_obj_30_map.set("cia1", _jm_f_33)
+        _jm_obj_30_map.set("cia2", _jm_f_34)
+        _jm_obj_30_map.set("cii0", _jm_f_35)
+        _jm_obj_30_map.set("cii1", _jm_f_36)
+        _jm_obj_30_map.set("cii2", _jm_f_37)
+        _jm_obj_30_map.set("cin0", _jm_f_38)
+        _jm_obj_30_map.set("cin1", _jm_f_39)
+        _jm_obj_30_map.set("cin2", _jm_f_40)
+        _jm_obj_30_map.set("cio0", _jm_f_41)
+        _jm_obj_30_map.set("cio1", _jm_f_42)
+        _jm_obj_30_map.set("cio2", _jm_f_43)
+        _jm_obj_30_map.set("cis0", _jm_f_44)
+        _jm_obj_30_map.set("cis1", _jm_f_45)
+        _jm_obj_30_map.set("cis2", _jm_f_46)
+        _jm_obj_30_map.set("cni0", _jm_f_47)
+        _jm_obj_30_map.set("cni1", _jm_f_48)
+        _jm_obj_30_map.set("cni2", _jm_f_49)
+        _jm_obj_30_map.set("cnn0", _jm_f_50)
+        _jm_obj_30_map.set("cnn1", _jm_f_51)
+        _jm_obj_30_map.set("cnn2", _jm_f_52)
+        _jm_obj_30_map.set("css0", _jm_f_53)
+        _jm_obj_30_map.set("css1", _jm_f_54)
+        _jm_obj_30_map.set("css2", _jm_f_55)
+        _jm_obj_30_map.set("cua0", _jm_f_56)
         check_model_map.set("", json_model_1)
         check_model_map.set("a", json_model_2)
         check_model_map.set("b", json_model_3)

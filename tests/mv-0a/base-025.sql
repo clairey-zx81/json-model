@@ -5,15 +5,6 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- object .'@'
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- accept any object
-  RETURN JSONB_TYPEOF(val) = 'object';
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -23,7 +14,7 @@ DECLARE
 BEGIN
   -- .
   -- .'@'
-  res := _jm_obj_0(val, NULL, NULL);
+  res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
     ival_0 := jm_object_size(val);
     res := ival_0 <= 3 AND ival_0 >= 2;

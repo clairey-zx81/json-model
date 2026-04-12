@@ -28,7 +28,6 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[6];
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_1_tab[3];
@@ -1574,18 +1573,6 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// object .'$Feature'.properties.'|'.1
-static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    if (unlikely(! json_is_object(val)))
-    {
-        if (rep) jm_report_add_entry(rep, "not an object [.'$Feature'.properties.'|'.1]", path);
-        return false;
-    }
-    // accept any object
-    return true;
-}
-
 // check $Feature (.'$Feature')
 static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -1662,11 +1649,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "not null [.'$Feature'.properties.'|'.0]", (path ? &lpath_13 : NULL));
                 // .'$Feature'.properties.'|'.1
-                res = _jm_obj_6(pval, (path ? &lpath_13 : NULL), rep);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected element [.'$Feature'.properties.'|'.1]", (path ? &lpath_13 : NULL));
-                }
+                res = json_is_object(pval);
             }
             if (likely(res))
             {

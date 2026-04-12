@@ -209,6 +209,7 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str, str, bool]|None:
     # escaped: .^$*+?()[{\|
     # not escaped: []@-Z -#%-',/->_-z}~-]
     # TODO improve readability
+    # TODO replace with a regex parser…
     if extract := re.match(r"(([]@-Z -#%-',/->_-z}~-]|\\[.^$*+?()[{\|])*)(\[[^]]+\]| |\\[dw]|)(\{\d+(,\d*)?\}|[+*]|)$", regex):
         prefix, chars, repeat = extract.group(1, 3, 4)
         if prefix and ic and re.search(r"[a-zA-Z]", prefix):
@@ -234,6 +235,7 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str, str, bool]|None:
         if chars.startswith("[^"):  # cannot handle complement (utf8)
             return None
         chars = _norm_char_class(chars)
+        # log.warning(f"chars = {chars}")
         match chars:
             case "[a-z]":
                 test = "isalpha" if ic else "islower"
@@ -267,6 +269,8 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str, str, bool]|None:
                 test = "jm_lowlow"
             case "[_A-Z]":
                 test = "jm_uplow"
+            # case "[0-9:A-Z_a-z-]":
+            #     test = "jm_ident_dc"
             case _:
                 test = None
         if test is not None:

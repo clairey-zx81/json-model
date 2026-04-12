@@ -204,12 +204,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$atomic'
-    # .'$atomic'.'|'.0
-    # .'$atomic'.'|'.1
-    # .'$atomic'.'|'.2
-    # .'$atomic'.'|'.3
-    # .'$atomic'.'|'.4
-    return !defined($val) || jm_is_boolean($val) || jm_is_integer($val) || jm_is_numeric($val) || jm_is_string($val);
+    return ! jm_is_array($val) && ! jm_is_object($val);
 }
 
 # check json_model_6_map_enumeration (.'$Atomic'.enumeration)

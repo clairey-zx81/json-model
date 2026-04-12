@@ -2162,31 +2162,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $tight#const (.'$tight#const')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$tight#const'
-    # .'$tight#const'.'|'.0
-    res: bool = val is None
-    if not res:
-        rep is None or rep.append(("not null [.'$tight#const'.'|'.0]", path))
-        # .'$tight#const'.'|'.1
-        res = isinstance(val, bool)
-        if not res:
-            rep is None or rep.append(("not a bool [.'$tight#const'.'|'.1]", path))
-            # .'$tight#const'.'|'.2
-            res = isinstance(val, int) and not isinstance(val, bool)
-            if not res:
-                rep is None or rep.append(("not a -1 strict int [.'$tight#const'.'|'.2]", path))
-                # .'$tight#const'.'|'.3
-                res = isinstance(val, float)
-                if not res:
-                    rep is None or rep.append(("not a -1.0 strict float [.'$tight#const'.'|'.3]", path))
-                    # .'$tight#const'.'|'.4
-                    res = isinstance(val, str)
-                    if not res:
-                        rep is None or rep.append(("unexpected value for model \"\" [.'$tight#const'.'|'.4]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.'$tight#const'.'|']", path))
-    return res
+    return not isinstance(val, list) and not isinstance(val, dict)
 
 # object .'$tight#Ref'.'$defs'
 def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:

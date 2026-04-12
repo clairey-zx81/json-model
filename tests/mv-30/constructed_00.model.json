@@ -1,0 +1,4 @@
+{
+  "#": "any constructed stuff",
+  "|": [ {"": "$ANY"}, ["$ANY"] ]
+}

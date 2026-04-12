@@ -27,11 +27,8 @@ sub _jm_f_9($$$);
 sub _jm_f_10($$$);
 sub _jm_f_11($$$);
 sub _jm_f_12($$$);
-sub _jm_obj_0($$$);
 sub _jm_f_13($$$);
-sub _jm_obj_1($$$);
 sub _jm_f_14($$$);
-sub _jm_obj_2($$$);
 sub _jm_f_15($$$);
 sub _jm_f_16($$$);
 sub _jm_f_17($$$);
@@ -75,6 +72,9 @@ sub _jm_f_50($$$);
 sub _jm_f_51($$$);
 my %_jm_f_40_map;
 sub _jm_f_40($$$);
+sub _jm_obj_0($$$);
+sub _jm_obj_1($$$);
+sub _jm_obj_2($$$);
 sub _jm_obj_3($$$);
 sub _jm_obj_4($$$);
 sub _jm_obj_5($$$);
@@ -82,20 +82,15 @@ sub _jm_obj_6($$$);
 sub _jm_obj_7($$$);
 sub _jm_obj_8($$$);
 sub _jm_obj_9($$$);
+sub _jm_f_52($$$);
+sub _jm_f_53($$$);
 sub _jm_obj_10($$$);
 sub _jm_obj_11($$$);
 sub _jm_obj_12($$$);
-sub _jm_f_52($$$);
-sub _jm_f_53($$$);
 sub _jm_obj_13($$$);
 sub _jm_obj_14($$$);
 sub _jm_obj_15($$$);
-sub _jm_obj_16($$$);
-sub _jm_obj_17($$$);
-sub _jm_obj_18($$$);
-sub _jm_obj_19($$$);
 sub _jm_f_54($$$);
-sub _jm_obj_20($$$);
 sub _jm_f_55($$$);
 sub _jm_f_57($$$);
 sub _jm_f_58($$$);
@@ -637,21 +632,13 @@ sub _jm_f_12($$$)
     return $res;
 }
 
-# object .constraints.cio0.'@'
-sub _jm_obj_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # check _jm_f_3_map_cio0 (.constraints.cio0)
 sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .constraints.cio0
     # .constraints.cio0.'@'
-    my $res = _jm_obj_0($val, undef, undef);
+    my $res = jm_is_object($val);
     if ($res)
     {
         my $ival_5 = jm_obj_size($val);
@@ -660,21 +647,13 @@ sub _jm_f_13($$$)
     return $res;
 }
 
-# object .constraints.cio1.'@'
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # check _jm_f_3_map_cio1 (.constraints.cio1)
 sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .constraints.cio1
     # .constraints.cio1.'@'
-    my $res = _jm_obj_1($val, undef, undef);
+    my $res = jm_is_object($val);
     if ($res)
     {
         my $ival_6 = jm_obj_size($val);
@@ -683,21 +662,13 @@ sub _jm_f_14($$$)
     return $res;
 }
 
-# object .constraints.cio2.'@'
-sub _jm_obj_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # check _jm_f_3_map_cio2 (.constraints.cio2)
 sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # .constraints.cio2
     # .constraints.cio2.'@'
-    my $res = _jm_obj_2($val, undef, undef);
+    my $res = jm_is_object($val);
     if ($res)
     {
         my $ival_7 = jm_obj_size($val);
@@ -1204,7 +1175,7 @@ sub _jm_f_40($$$)
 }
 
 # object .merge.m0
-sub _jm_obj_3($$$)
+sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1245,7 +1216,7 @@ sub _jm_obj_3($$$)
 }
 
 # object .merge.m1.'|'.1
-sub _jm_obj_4($$$)
+sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1279,7 +1250,7 @@ sub _jm_obj_4($$$)
 }
 
 # object .merge.m1.'|'.0
-sub _jm_obj_5($$$)
+sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1313,7 +1284,7 @@ sub _jm_obj_5($$$)
 }
 
 # object .merge.m2.'|'.1
-sub _jm_obj_6($$$)
+sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1347,7 +1318,7 @@ sub _jm_obj_6($$$)
 }
 
 # object .merge.m2.'|'.0
-sub _jm_obj_7($$$)
+sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1381,7 +1352,7 @@ sub _jm_obj_7($$$)
 }
 
 # object .merge.m3.'|'.3
-sub _jm_obj_8($$$)
+sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1415,7 +1386,7 @@ sub _jm_obj_8($$$)
 }
 
 # object .merge.m3.'|'.2
-sub _jm_obj_9($$$)
+sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1449,7 +1420,7 @@ sub _jm_obj_9($$$)
 }
 
 # object .merge.m3.'|'.1
-sub _jm_obj_10($$$)
+sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1483,7 +1454,7 @@ sub _jm_obj_10($$$)
 }
 
 # object .merge.m3.'|'.0
-sub _jm_obj_11($$$)
+sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1517,7 +1488,7 @@ sub _jm_obj_11($$$)
 }
 
 # object .merge.m4
-sub _jm_obj_12($$$)
+sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1590,7 +1561,7 @@ sub _jm_f_52($$$)
         {
             # handle may m0 property
             # .merge.m0
-            $res = _jm_obj_3($pval, undef, undef);
+            $res = _jm_obj_0($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1603,7 +1574,7 @@ sub _jm_f_52($$$)
             # .merge.m1
             # .merge.m1.'|'.0
             # .merge.m1.'|'.1
-            $res = jm_is_object($pval) && (_jm_obj_5($pval, undef, undef) || _jm_obj_4($pval, undef, undef));
+            $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, undef) || _jm_obj_1($pval, undef, undef));
             if (! $res)
             {
                 return 0;
@@ -1616,7 +1587,7 @@ sub _jm_f_52($$$)
             # .merge.m2
             # .merge.m2.'|'.0
             # .merge.m2.'|'.1
-            $res = jm_is_object($pval) && (_jm_obj_7($pval, undef, undef) || _jm_obj_6($pval, undef, undef));
+            $res = jm_is_object($pval) && (_jm_obj_4($pval, undef, undef) || _jm_obj_3($pval, undef, undef));
             if (! $res)
             {
                 return 0;
@@ -1627,7 +1598,7 @@ sub _jm_f_52($$$)
         {
             # handle may m3 property
             # .merge.m3
-            $res = jm_is_object($pval) && (exists $$pval{'a'} && (_jm_obj_11($pval, undef, undef) || _jm_obj_10($pval, undef, undef)) || exists $$pval{'b'} && _jm_obj_9($pval, undef, undef) || exists $$pval{'b'} && _jm_obj_8($pval, undef, undef));
+            $res = jm_is_object($pval) && (exists $$pval{'a'} && (_jm_obj_8($pval, undef, undef) || _jm_obj_7($pval, undef, undef)) || exists $$pval{'b'} && _jm_obj_6($pval, undef, undef) || exists $$pval{'b'} && _jm_obj_5($pval, undef, undef));
             if (! $res)
             {
                 return 0;
@@ -1638,7 +1609,7 @@ sub _jm_f_52($$$)
         {
             # handle may m4 property
             # .merge.m4
-            $res = _jm_obj_12($pval, undef, undef);
+            $res = _jm_obj_9($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1703,14 +1674,14 @@ sub _jm_f_53($$$)
 }
 
 # object .object.o0
-sub _jm_obj_13($$$)
+sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
     return jm_is_object($val) && jm_obj_size($val) == 0;
 }
 
 # object .object.o1
-sub _jm_obj_14($$$)
+sub _jm_obj_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
@@ -1755,7 +1726,7 @@ sub _jm_obj_14($$$)
 }
 
 # object .object.o2
-sub _jm_obj_15($$$)
+sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1783,7 +1754,7 @@ sub _jm_obj_15($$$)
 }
 
 # object .object.o3
-sub _jm_obj_16($$$)
+sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1813,7 +1784,7 @@ sub _jm_obj_16($$$)
 }
 
 # object .object.o4
-sub _jm_obj_17($$$)
+sub _jm_obj_14($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1843,7 +1814,7 @@ sub _jm_obj_17($$$)
 }
 
 # object .object.o5
-sub _jm_obj_18($$$)
+sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -1865,14 +1836,6 @@ sub _jm_obj_18($$$)
     return 1;
 }
 
-# object .object.o6
-sub _jm_obj_19($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
-}
-
 # check json_model_1_map_object (.object)
 sub _jm_f_54($$$)
 {
@@ -1891,7 +1854,7 @@ sub _jm_f_54($$$)
         {
             # handle may o0 property
             # .object.o0
-            $res = _jm_obj_13($pval, undef, undef);
+            $res = _jm_obj_10($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1902,7 +1865,7 @@ sub _jm_f_54($$$)
         {
             # handle may o1 property
             # .object.o1
-            $res = _jm_obj_14($pval, undef, undef);
+            $res = _jm_obj_11($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1913,7 +1876,7 @@ sub _jm_f_54($$$)
         {
             # handle may o2 property
             # .object.o2
-            $res = _jm_obj_15($pval, undef, undef);
+            $res = _jm_obj_12($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1924,7 +1887,7 @@ sub _jm_f_54($$$)
         {
             # handle may o3 property
             # .object.o3
-            $res = _jm_obj_16($pval, undef, undef);
+            $res = _jm_obj_13($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1935,7 +1898,7 @@ sub _jm_f_54($$$)
         {
             # handle may o4 property
             # .object.o4
-            $res = _jm_obj_17($pval, undef, undef);
+            $res = _jm_obj_14($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1946,7 +1909,7 @@ sub _jm_f_54($$$)
         {
             # handle may o5 property
             # .object.o5
-            $res = _jm_obj_18($pval, undef, undef);
+            $res = _jm_obj_15($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1957,7 +1920,7 @@ sub _jm_f_54($$$)
         {
             # handle may o6 property
             # .object.o6
-            $res = _jm_obj_19($pval, undef, undef);
+            $res = jm_is_object($pval);
             if (! $res)
             {
                 return 0;
@@ -1967,14 +1930,6 @@ sub _jm_f_54($$$)
         return 0;
     }
     return 1;
-}
-
-# object .or.o2.'|'.3
-sub _jm_obj_20($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # accept any object
-    return jm_is_object($val);
 }
 
 # check json_model_1_map_or (.or)
@@ -2025,7 +1980,7 @@ sub _jm_f_55($$$)
             # .or.o2.'|'.1
             # .or.o2.'|'.2
             # .or.o2.'|'.3
-            $res = jm_is_integer($pval) && $pval >= 0 || jm_is_string($pval) && jm_is_uuid($pval, undef, undef) || jm_is_array($pval) || _jm_obj_20($pval, undef, undef);
+            $res = jm_is_integer($pval) && $pval >= 0 || jm_is_string($pval) && jm_is_uuid($pval, undef, undef) || jm_is_array($pval) || jm_is_object($pval);
             if (! $res)
             {
                 return 0;

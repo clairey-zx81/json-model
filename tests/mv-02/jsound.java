@@ -245,45 +245,7 @@ public class jsound extends ModelChecker
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         // .'$atomic'
-        // .'$atomic'.'|'.0
-        boolean res = json.isNull(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("not null [.'$atomic'.'|'.0]", path);
-            // .'$atomic'.'|'.1
-            res = json.isBoolean(val);
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("not a bool [.'$atomic'.'|'.1]", path);
-                // .'$atomic'.'|'.2
-                res = json.isInteger(val);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a -1 strict int [.'$atomic'.'|'.2]", path);
-                    // .'$atomic'.'|'.3
-                    res = json.isDouble(val);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a -1.0 strict float [.'$atomic'.'|'.3]", path);
-                        // .'$atomic'.'|'.4
-                        res = json.isString(val);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$atomic'.'|'.4]", path);
-                        }
-                    }
-                }
-            }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'$atomic'.'|']", path);
-        }
-        return res;
+        return ! json.isArray(val) && ! json.isObject(val);
     }
 
     // check json_model_6_map_enumeration (.'$Atomic'.enumeration)
