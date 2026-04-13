@@ -44,6 +44,7 @@ SELECT * FROM ShowBadResults ORDER BY 1;
 .print are not 100.0% because validation checks are stricter and some
 .print [values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
 .print are rightfully rejected.
+.print More values are rejected if formats are also checked.
 .print The `geoson` failure for Java/GSON is related to a corner case issue with GSON.
 
 .print
