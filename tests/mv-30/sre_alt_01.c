@@ -21,11 +21,10 @@ static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
     char ls[slen + 1], *p = ls;
     while (*s) *p++ = tolower(*s++);
     *p = '\0';
-    return
-        jm_str_eq_7(ls, 0x00006e69766c6163LL) ||
-        jm_str_eq_6(ls, 0x0000006f6c6c6568LL) ||
-        jm_str_eq_6(ls, 0x0000006569737573LL) ||
-        jm_str_eq_6(ls, 0x000000646c726f77LL)
+    return jm_str_eq_7(ls, 0x00006e69766c6163LL)  // "calvin"
+        || jm_str_eq_6(ls, 0x0000006f6c6c6568LL)  // "hello"
+        || jm_str_eq_6(ls, 0x0000006569737573LL)  // "susie"
+        || jm_str_eq_6(ls, 0x000000646c726f77LL)  // "world"
     ;
 }
 

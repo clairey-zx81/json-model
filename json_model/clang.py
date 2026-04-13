@@ -415,13 +415,16 @@ def _compile_ic_str_cmp(
             r"    while (*s) *p++ = tolower(*s++);",
             r"    *p = '\0';",
         ]
-    code += ["    return"]
-    exprs = [_str_cmp(var, json.dumps(cst), little, True, False) for cst in alts]
-    for i, cmp in enumerate(exprs):
-        last = i == len(exprs) - 1
-        code += [ "        " + cmp + ("" if last else " ||") ]
-    code += [ "    ;", "}" ]
-    return code
+    for i, cst in enumerate(alts):
+        code += [
+            ("        || " if i > 0 else "    return ") +
+            _str_cmp(var, json.dumps(cst), little, True, False) +
+            f"  // {json.dumps(cst)}"
+        ]
+    return code + [
+        "    ;",
+        "}"
+    ]
 
 def _call_ic_str_cmp(name: str, var: str, ic: bool, path: str) -> BoolExpr:
     slen = f", strlen({var})" if ic else ""

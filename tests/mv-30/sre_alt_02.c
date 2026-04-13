@@ -21,60 +21,59 @@ static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
     char ls[slen + 1], *p = ls;
     while (*s) *p++ = tolower(*s++);
     *p = '\0';
-    return
-        jm_str_eq_2(ls, 0x00000061) ||
-        jm_str_eq_7(ls, 0x0000736572627261LL) ||
-        jm_str_eq_8(ls, 0x746961746e616863LL) && jm_str_eq_0(ls + 8) ||
-        jm_str_eq_8(ls, 0x00656e696c6c6f63LL) ||
-        jm_str_eq_6(ls, 0x000000656d6d6f63LL) ||
-        jm_str_eq_6(ls, 0x0000007370726f63LL) ||
-        jm_str_eq_8(ls, 0x00696c6c69657563LL) ||
-        jm_str_eq_7(ls, 0x00007265736e6164LL) ||
-        jm_str_eq_3(ls, 0x00006564) ||
-        jm_str_eq_4(ls, 0x00736564) ||
-        jm_str_eq_5(ls, 0x0000000078756564LL) ||
-        jm_str_eq_7(ls, 0x0000656c61766564LL) ||
-        jm_str_eq_6(ls, 0x0000006572746e65LL) ||
-        jm_str_eq_3(ls, 0x00007465) ||
-        jm_str_eq_8(ls, 0x6e65696173696166LL) && jm_str_eq_2(ls + 8, 0x00000074) ||
-        jm_str_eq_8(ls, 0x0074696173696166LL) ||
-        jm_str_eq_8(ls, 0x73656c6c69756566LL) && jm_str_eq_0(ls + 8) ||
-        jm_str_eq_6(ls, 0x0000006567726f66LL) ||
-        jm_str_eq_8(ls, 0x0073656567726f67LL) ||
-        jm_str_eq_7(ls, 0x0000736562726568LL) ||
-        jm_str_eq_3(ls, 0x00006c69) ||
-        jm_str_eq_7(ls, 0x000073656e75616aLL) ||
-        jm_str_eq_5(ls, 0x0000000065696f6aLL) ||
-        jm_str_eq_8(ls, 0x706d6f6363615f6cLL) && jm_str_eq_7(ls + 8, 0x00007469616e6761LL) ||
-        jm_str_eq_8(ls, 0x00727565646f5f6cLL) ||
-        jm_str_eq_3(ls, 0x0000616c) ||
-        jm_str_eq_8(ls, 0x00747561685f616cLL) ||
-        jm_str_eq_8(ls, 0x746e65737369616cLL) && jm_str_eq_0(ls + 8) ||
-        jm_str_eq_3(ls, 0x0000656c) ||
-        jm_str_eq_4(ls, 0x0073656c) ||
-        jm_str_eq_4(ls, 0x0069756c) ||
-        jm_str_eq_8(ls, 0x00657265696d756cLL) ||
-        jm_str_eq_3(ls, 0x0000656d) ||
-        jm_str_eq_5(ls, 0x000000007372756dLL) ||
-        jm_str_eq_6(ls, 0x0000006572626d6fLL) ||
-        jm_str_eq_6(ls, 0x0000007364656970LL) ||
-        jm_str_eq_8(ls, 0x0073657272656970LL) ||
-        jm_str_eq_7(ls, 0x0000757672756f70LL) ||
-        jm_str_eq_7(ls, 0x0000736c695f7571LL) ||
-        jm_str_eq_7(ls, 0x0000657274617571LL) ||
-        jm_str_eq_8(ls, 0x6961726970736572LL) && jm_str_eq_2(ls + 8, 0x00000074) ||
-        jm_str_eq_7(ls, 0x000072656c756f72LL) ||
-        jm_str_eq_5(ls, 0x00000000736e6173LL) ||
-        jm_str_eq_8(ls, 0x0074696174756173LL) ||
-        jm_str_eq_4(ls, 0x00736573) ||
-        jm_str_eq_5(ls, 0x0000000065766573LL) ||
-        jm_str_eq_7(ls, 0x0000656e65726973LL) ||
-        jm_str_eq_7(ls, 0x00006c69656c6f73LL) ||
-        jm_str_eq_4(ls, 0x006e6f73) ||
-        jm_str_eq_6(ls, 0x00000073706d6574LL) ||
-        jm_str_eq_5(ls, 0x0000000074756f74LL) ||
-        jm_str_eq_8(ls, 0x0073726576617274LL) ||
-        jm_str_eq_4(ls, 0x00656e75)
+    return jm_str_eq_2(ls, 0x00000061)  // "a"
+        || jm_str_eq_7(ls, 0x0000736572627261LL)  // "arbres"
+        || jm_str_eq_8(ls, 0x746961746e616863LL) && jm_str_eq_0(ls + 8)  // "chantait"
+        || jm_str_eq_8(ls, 0x00656e696c6c6f63LL)  // "colline"
+        || jm_str_eq_6(ls, 0x000000656d6d6f63LL)  // "comme"
+        || jm_str_eq_6(ls, 0x0000007370726f63LL)  // "corps"
+        || jm_str_eq_8(ls, 0x00696c6c69657563LL)  // "cueilli"
+        || jm_str_eq_7(ls, 0x00007265736e6164LL)  // "danser"
+        || jm_str_eq_3(ls, 0x00006564)  // "de"
+        || jm_str_eq_4(ls, 0x00736564)  // "des"
+        || jm_str_eq_5(ls, 0x0000000078756564LL)  // "deux"
+        || jm_str_eq_7(ls, 0x0000656c61766564LL)  // "devale"
+        || jm_str_eq_6(ls, 0x0000006572746e65LL)  // "entre"
+        || jm_str_eq_3(ls, 0x00007465)  // "et"
+        || jm_str_eq_8(ls, 0x6e65696173696166LL) && jm_str_eq_2(ls + 8, 0x00000074)  // "faisaient"
+        || jm_str_eq_8(ls, 0x0074696173696166LL)  // "faisait"
+        || jm_str_eq_8(ls, 0x73656c6c69756566LL) && jm_str_eq_0(ls + 8)  // "feuilles"
+        || jm_str_eq_6(ls, 0x0000006567726f66LL)  // "forge"
+        || jm_str_eq_8(ls, 0x0073656567726f67LL)  // "gorgees"
+        || jm_str_eq_7(ls, 0x0000736562726568LL)  // "herbes"
+        || jm_str_eq_3(ls, 0x00006c69)  // "il"
+        || jm_str_eq_7(ls, 0x000073656e75616aLL)  // "jaunes"
+        || jm_str_eq_5(ls, 0x0000000065696f6aLL)  // "joie"
+        || jm_str_eq_8(ls, 0x706d6f6363615f6cLL) && jm_str_eq_7(ls + 8, 0x00007469616e6761LL)  // "l_accompagnait"
+        || jm_str_eq_8(ls, 0x00727565646f5f6cLL)  // "l_odeur"
+        || jm_str_eq_3(ls, 0x0000616c)  // "la"
+        || jm_str_eq_8(ls, 0x00747561685f616cLL)  // "la_haut"
+        || jm_str_eq_8(ls, 0x746e65737369616cLL) && jm_str_eq_0(ls + 8)  // "laissent"
+        || jm_str_eq_3(ls, 0x0000656c)  // "le"
+        || jm_str_eq_4(ls, 0x0073656c)  // "les"
+        || jm_str_eq_4(ls, 0x0069756c)  // "lui"
+        || jm_str_eq_8(ls, 0x00657265696d756cLL)  // "lumiere"
+        || jm_str_eq_3(ls, 0x0000656d)  // "me"
+        || jm_str_eq_5(ls, 0x000000007372756dLL)  // "murs"
+        || jm_str_eq_6(ls, 0x0000006572626d6fLL)  // "ombre"
+        || jm_str_eq_6(ls, 0x0000007364656970LL)  // "pieds"
+        || jm_str_eq_8(ls, 0x0073657272656970LL)  // "pierres"
+        || jm_str_eq_7(ls, 0x0000757672756f70LL)  // "pourvu"
+        || jm_str_eq_7(ls, 0x0000736c695f7571LL)  // "qu_ils"
+        || jm_str_eq_7(ls, 0x0000657274617571LL)  // "quatre"
+        || jm_str_eq_8(ls, 0x6961726970736572LL) && jm_str_eq_2(ls + 8, 0x00000074)  // "respirait"
+        || jm_str_eq_7(ls, 0x000072656c756f72LL)  // "rouler"
+        || jm_str_eq_5(ls, 0x00000000736e6173LL)  // "sans"
+        || jm_str_eq_8(ls, 0x0074696174756173LL)  // "sautait"
+        || jm_str_eq_4(ls, 0x00736573)  // "ses"
+        || jm_str_eq_5(ls, 0x0000000065766573LL)  // "seve"
+        || jm_str_eq_7(ls, 0x0000656e65726973LL)  // "sirene"
+        || jm_str_eq_7(ls, 0x00006c69656c6f73LL)  // "soleil"
+        || jm_str_eq_4(ls, 0x006e6f73)  // "son"
+        || jm_str_eq_6(ls, 0x00000073706d6574LL)  // "temps"
+        || jm_str_eq_5(ls, 0x0000000074756f74LL)  // "tout"
+        || jm_str_eq_8(ls, 0x0073726576617274LL)  // "travers"
+        || jm_str_eq_4(ls, 0x00656e75)  // "une"
     ;
 }
 

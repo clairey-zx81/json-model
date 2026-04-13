@@ -17,9 +17,8 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    return
-        jm_str_eq_4(s, 0x00616c62) ||
-        jm_str_eq_4(s, 0x006f6f66)
+    return jm_str_eq_4(s, 0x00616c62)  // "bla"
+        || jm_str_eq_4(s, 0x006f6f66)  // "foo"
     ;
 }
 

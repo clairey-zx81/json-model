@@ -50,6 +50,8 @@
 - [x] static: generate messages in newly added shortcuts
 - [x] c-backend: regex list of words to enum?
 - [x] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
+- [x] c-backend: improve regex opt cset prettyprinting
+- [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
 - [ ] c-backend: simplify parameters for accelerated functions
 - [ ] c-runtime: use own hash instead of qsort/bsearch stuff?

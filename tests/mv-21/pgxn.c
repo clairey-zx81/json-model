@@ -538,13 +538,12 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static INLINE bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    return
-        jm_str_eq_3(s, 0x00003d21) ||
-        jm_str_eq_2(s, 0x0000003c) ||
-        jm_str_eq_3(s, 0x00003d3c) ||
-        jm_str_eq_3(s, 0x00003d3d) ||
-        jm_str_eq_2(s, 0x0000003e) ||
-        jm_str_eq_3(s, 0x00003d3e)
+    return jm_str_eq_3(s, 0x00003d21)  // "!="
+        || jm_str_eq_2(s, 0x0000003c)  // "<"
+        || jm_str_eq_3(s, 0x00003d3c)  // "<="
+        || jm_str_eq_3(s, 0x00003d3d)  // "=="
+        || jm_str_eq_2(s, 0x0000003e)  // ">"
+        || jm_str_eq_3(s, 0x00003d3e)  // ">="
     ;
 }
 

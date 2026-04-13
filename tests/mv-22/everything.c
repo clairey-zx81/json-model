@@ -3852,9 +3852,8 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    return
-        jm_str_eq_7(s, 0x00006e69766c6143LL) ||
-        jm_str_eq_6(s, 0x0000006569737553LL)
+    return jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
+        || jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
     ;
 }
 
