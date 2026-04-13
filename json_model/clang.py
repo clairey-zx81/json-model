@@ -390,12 +390,13 @@ def _ic_str_cmp_re(regex: str, opts: str, limit: int = 64) -> tuple[list[str], b
     if regex.startswith("^(") and regex.endswith(")$"):
         # TODO improve with escape management
         alts = regex[2:-2].split("|")
-        if all(_is_plain_str(s) for s in alts) and len(alts) >= 1 and len(alts) <= limit:
+        if all(_is_plain_str(s) for s in alts) and len(alts) >= 1:
             if ic:
                 alts = [s.lower() for s in alts]
             # remove duplicates
             alts = sorted(set(alts))
-            return alts, ic
+            if len(alts) <= limit:
+                return alts, ic
     return None
 
 def _compile_ic_str_cmp(
