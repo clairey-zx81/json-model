@@ -162,7 +162,10 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $atomic (.'$atomic')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$atomic'
-    return not isinstance(val, list) and not isinstance(val, dict)
+    res: bool = not isinstance(val, list) and not isinstance(val, dict)
+    if not res:
+        rep is None or rep.append(("unexpected type [.'$atomic'.'|']", path))
+    return res
 
 # check json_model_6_map_enumeration (.'$Atomic'.enumeration)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:

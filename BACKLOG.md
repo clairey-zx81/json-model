@@ -48,7 +48,9 @@
 - [x] static: detect or of any-but-some type to generate a not instead, beware of looseness
 - [x] static: do not create a separate function for an basic object check
 - [x] static: generate messages in newly added shortcuts
-- [ ] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
+- [x] c-backend: regex list of words to enum?
+- [x] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
+- [ ] c-backend: simplify parameters for accelerated functions
 - [ ] c-runtime: use own hash instead of qsort/bsearch stuff?
 - [ ] static: could sorted property name comparison be used for some scans??
 - [ ] c-backend: fast str comparison could take advantage of known strlen??
@@ -58,7 +60,7 @@
 - [ ] c-backend: extend simple regex to sequences of prefix/chars/repeats
 - [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
 - [ ] optim: remove props which match the default, in some cases?
-- [ ] optim or c-backend: regex list of words to enum?
+- [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
 - [ ] static: improve endswith pattern recognition `/\\.js$/`
 - [ ] c-backend: optimized strcmp for startswith

@@ -3398,7 +3398,12 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     public boolean json_model_4(Object val, Path path, Report rep)
     {
         // .'$tight#const'
-        return ! json.isArray(val) && ! json.isObject(val);
+        boolean res = ! json.isArray(val) && ! json.isObject(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$tight#const'.'|']", path);
+        }
+        return res;
     }
 
     // object .'$tight#Ref'.'$defs'

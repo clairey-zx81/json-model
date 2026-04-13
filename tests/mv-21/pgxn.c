@@ -30,8 +30,6 @@ static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_3_re2 = NULL;
-static int _jm_re_3_nn = 0;
 static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_4_re2 = NULL;
@@ -538,10 +536,16 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_3_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    return
+        jm_str_eq_3(s, 0x00003d21) ||
+        jm_str_eq_2(s, 0x0000003c) ||
+        jm_str_eq_3(s, 0x00003d3c) ||
+        jm_str_eq_3(s, 0x00003d3d) ||
+        jm_str_eq_2(s, 0x0000003e) ||
+        jm_str_eq_3(s, 0x00003d3e)
+    ;
 }
 
 // check $Ops (.'$Ops')
@@ -1249,10 +1253,6 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
-        _jm_re_3_re2 = cre2_new("^(<=|<|>=|>|!=|==)$", strlen("^(<=|<|>=|>|!=|==)$"), NULL);
-        if (cre2_error_code(_jm_re_3_re2))
-            return cre2_error_string(_jm_re_3_re2);
-        _jm_re_3_nn = cre2_num_capturing_groups(_jm_re_3_re2) + 1;
         _jm_re_4_re2 = cre2_new("^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$", strlen("^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$"), NULL);
         if (cre2_error_code(_jm_re_4_re2))
             return cre2_error_string(_jm_re_4_re2);
@@ -1295,9 +1295,6 @@ void check_model_free(void)
         cre2_delete(_jm_re_2_re2);
         _jm_re_2_re2 = NULL;
         _jm_re_2_nn = 0;
-        cre2_delete(_jm_re_3_re2);
-        _jm_re_3_re2 = NULL;
-        _jm_re_3_nn = 0;
         cre2_delete(_jm_re_4_re2);
         _jm_re_4_re2 = NULL;
         _jm_re_4_nn = 0;

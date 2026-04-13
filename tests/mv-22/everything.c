@@ -50,8 +50,6 @@ static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_0_re2 = NULL;
-static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -3852,10 +3850,12 @@ static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    return
+        jm_str_eq_7(s, 0x00006e69766c6143LL) ||
+        jm_str_eq_6(s, 0x0000006569737553LL)
+    ;
 }
 
 // object .string
@@ -4250,10 +4250,6 @@ const char *check_model_init(void)
         _jm_cst_4[2] = (jm_constant_t) { cst_is_bool, { .b = true } };
         _jm_cst_4[3] = (jm_constant_t) { cst_is_null, { .s = NULL } };
         jm_sort_cst(_jm_cst_4, 4);
-        _jm_re_0_re2 = cre2_new("^(Calvin|Susie)$", strlen("^(Calvin|Susie)$"), NULL);
-        if (cre2_error_code(_jm_re_0_re2))
-            return cre2_error_string(_jm_re_0_re2);
-        _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "a", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "b", json_model_3 };
@@ -4295,9 +4291,6 @@ void check_model_free(void)
         initialized = false;
 
         // cleanup code
-        cre2_delete(_jm_re_0_re2);
-        _jm_re_0_re2 = NULL;
-        _jm_re_0_nn = 0;
         cre2_delete(jm_is_duration_re2);
         jm_is_duration_re2 = NULL;
         jm_is_duration_nn = 0;

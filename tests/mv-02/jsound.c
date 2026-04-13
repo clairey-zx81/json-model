@@ -268,7 +268,12 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$atomic'
-    return ! json_is_array(val) && ! json_is_object(val);
+    bool res = ! json_is_array(val) && ! json_is_object(val);
+    if (unlikely(! res))
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'$atomic'.'|']", path);
+    }
+    return res;
 }
 
 static INLINE bool _jm_cst_1_str_test(const char *s)

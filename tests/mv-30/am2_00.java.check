@@ -1,8 +1,8 @@
 am2_00.values.json[0]: PASS
-am2_00.values.json[1]: FAIL (: unexpected base type [.'|'])
-am2_00.values.json[2]: FAIL (: unexpected base type [.'|'])
-am2_00.values.json[3]: FAIL (: unexpected base type [.'|'])
-am2_00.values.json[4]: FAIL (: unexpected base type [.'|'])
+am2_00.values.json[1]: FAIL (: unexpected type [.'|'])
+am2_00.values.json[2]: FAIL (: unexpected type [.'|'])
+am2_00.values.json[3]: FAIL (: unexpected type [.'|'])
+am2_00.values.json[4]: FAIL (: unexpected type [.'|'])
 am2_00.values.json[5]: PASS
 am2_00.values.json[6]: PASS
 am2_00.values.json[7]: PASS

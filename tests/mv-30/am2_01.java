@@ -27,7 +27,7 @@ public class am2_01 extends ModelChecker
         boolean res = ! json.isArray(val) && ! json.isObject(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected base type [.'|']", path);
+            if (rep != null) rep.addEntry("unexpected type [.'|']", path);
         }
         return res;
     }

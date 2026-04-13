@@ -29,7 +29,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res: bool = not isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected base type [.'|']", path))
+        rep is None or rep.append(("unexpected type [.'|']", path))
     return res
 
 

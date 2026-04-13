@@ -2141,6 +2141,7 @@ def xstatic_compile(
         predef: bool = True,
         ir_optimize: bool = True,
         strcmp: bool = True,
+        regex_opt: bool = True,
         max_strcmp_cset: int = 64,
         byte_order: str = "le",
     ) -> Code:
@@ -2169,6 +2170,7 @@ def xstatic_compile(
     - predef: enable string content predef checks.
     - ir_optimize: enable IR optimizations.
     - strcmp: whether to optimize some string comparisons
+    - regex_opt: whether to optimize some regular expressions
     - max_strcmp_cset: max size for direct str constant set
     - byte_order: le, be or dpd
     """
@@ -2259,7 +2261,7 @@ def xstatic_compile(
             debug=debug, with_report=report, with_path=report, with_comment=comment,
             with_predef=predef, relib=relib or "re2",
             inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
-            max_strcmp_cset=max_strcmp_cset,
+            max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt,
             partition_threshold=strcmp_cset_partition_threshold
         )
     elif lang == "js":

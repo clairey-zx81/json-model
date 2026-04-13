@@ -245,7 +245,12 @@ public class jsound extends ModelChecker
     public boolean json_model_5(Object val, Path path, Report rep)
     {
         // .'$atomic'
-        return ! json.isArray(val) && ! json.isObject(val);
+        boolean res = ! json.isArray(val) && ! json.isObject(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected type [.'$atomic'.'|']", path);
+        }
+        return res;
     }
 
     // check json_model_6_map_enumeration (.'$Atomic'.enumeration)

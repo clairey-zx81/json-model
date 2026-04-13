@@ -3696,7 +3696,12 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$tight#const'
-    return ! json_is_array(val) && ! json_is_object(val);
+    bool res = ! json_is_array(val) && ! json_is_object(val);
+    if (unlikely(! res))
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'$tight#const'.'|']", path);
+    }
+    return res;
 }
 
 // object .'$tight#Ref'.definitions

@@ -19,7 +19,7 @@ function json_model_1(val, path, rep)
     let res = (! ((typeof val === 'number' || val instanceof Number))) && (! ((typeof val === 'boolean' || val instanceof Boolean)));
     if (! res)
     {
-        rep !== null && rep.push(["unexpected base type [.'|']", path])
+        rep !== null && rep.push(["unexpected type [.'|']", path])
     }
     return res;
 }

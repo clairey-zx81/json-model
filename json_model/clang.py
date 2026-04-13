@@ -89,6 +89,10 @@ def _str_cmp(
         remain -= size
     return expr
 
+#
+# regex: /^prefix[class]repetition$/
+#
+
 # FIXME move [:xxx:] to simpler_regex?
 def _norm_char_class(init: str) -> str:
     """Best effort character class normalization to help pattern matching."""
@@ -277,7 +281,6 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str, str, bool]|None:
             return prefix, test, repeat, eot
     return None
 
-# FIXME le/be
 def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Block:
     """Generate code for a simple regex segment on string s."""
     # handle prefix with fast str comparison
@@ -367,7 +370,65 @@ def _compile_simple_re(
         r"}",
     ]
 
+#
+# /^(foo|bla|...)$/i
+#
+def _is_plain_str(s: str) -> bool:
+    # already split on |, not need to check
+    return ("(" not in s and "[" not in s and "\\" not in s and "." not in s and
+            "*" not in s and "+" not in s and "?" not in s and "{" not in s)
+
+def _ic_str_cmp_re(regex: str, opts: str, limit: int = 64) -> tuple[list[str], bool]|None:
+    """Whether regex is a list of alternate strings."""
+    ic = "i" in opts
+    if ic:
+        # we do not manage lowercasing any unicode string
+        try:
+            regex.encode("ascii")
+        except UnicodeEncodeError:
+            return None
+    if regex.startswith("^(") and regex.endswith(")$"):
+        # TODO improve with escape management
+        alts = regex[2:-2].split("|")
+        if all(_is_plain_str(s) for s in alts) and len(alts) >= 1 and len(alts) <= limit:
+            if ic:
+                alts = [s.lower() for s in alts]
+            # remove duplicates
+            alts = sorted(set(alts))
+            return alts, ic
+    return None
+
+def _compile_ic_str_cmp(
+            name: str, alts: list[str], ic: bool, little: bool, inline: str = ""
+        ) -> Block:
+    """Generate code to compare to a set of strings."""
+    var = "ls" if ic else "s"
+    code = [
+        f"static {inline}bool {name}(const char *s, jm_path_t *path, jm_report_t *rep)",
+        r"{",
+    ]
+    if ic:
+        code += [
+            r"    int slen = strlen(s);",
+            r"    char ls[slen + 1], *p = ls;",
+            r"    while (*s) *p++ = tolower(*s++);",
+            r"    *p = '\0';",
+        ]
+    code += ["    return"]
+    exprs = [_str_cmp(var, json.dumps(cst), little, True, False) for cst in alts]
+    for i, cmp in enumerate(exprs):
+        last = i == len(exprs) - 1
+        code += [ "        " + cmp + ("" if last else " ||") ]
+    code += [ "    ;", "}" ]
+    return code
+
+def _call_ic_str_cmp(name: str, var: str, ic: bool, path: str) -> BoolExpr:
+    slen = f", strlen({var})" if ic else ""
+    return f"{name}({var}, {slen})"
+
+#
 # precompiled simple regex
+#
 _COMPILED_RE: dict[tuple[str, str], str] = {
     (".", ""): "jm_re_dot",
     (".", "s"): "jm_re_dots",
@@ -771,6 +832,10 @@ class CLangJansson(Language):
             return [
                 f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);"
             ]
+        elif self._regex_opt and _ic_str_cmp_re(regex, opts, self._max_strcmp_cset):
+            return [
+                f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);"
+            ]
         elif self._relib == "pcre2":
             return [
                 f"static pcre2_code *{name}_code = NULL;",
@@ -778,6 +843,7 @@ class CLangJansson(Language):
                 f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);",
             ]
         else:
+            assert self._relib == "re2"
             return [
                 f"static cre2_regexp_t *{name}_re2 = NULL;",
                 f"static int {name}_nn = 0;",
@@ -787,8 +853,10 @@ class CLangJansson(Language):
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
         if self._regex_opt and (regex, opts) in _COMPILED_RE:
             return []
-        if self._regex_opt and (simple := _simple_re(regex, opts)):
+        elif self._regex_opt and (simple := _simple_re(regex, opts)):
             return _compile_simple_re(name, *simple, self._byte_order == "le", self._inline)
+        elif self._regex_opt and (ls_ic := _ic_str_cmp_re(regex, opts, self._max_strcmp_cset)):
+            return _compile_ic_str_cmp(name, *ls_ic, self._byte_order == "le", self._inline)
         # else use actual regex engine
         code = self.file_load(f"clang_{self._relib}_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
@@ -796,7 +864,9 @@ class CLangJansson(Language):
     def ini_re(self, name: str, regex: str, opts: str) -> Block:
         if self._regex_opt and (regex, opts) in _COMPILED_RE:
             return []
-        if self._regex_opt and _simple_re(regex, opts):
+        elif self._regex_opt and _simple_re(regex, opts):
+            return []
+        elif self._regex_opt and _ic_str_cmp_re(regex, opts, self._max_strcmp_cset):
             return []
         # declare once
         code = [] if self._re_used or self._relib != "pcre2" else [
@@ -829,9 +899,11 @@ class CLangJansson(Language):
     def del_re(self, name: str, regex: str, opts: str) -> Block:
         if self._regex_opt and (regex, opts) in _COMPILED_RE:
             return []
-        if self._regex_opt and _simple_re(regex, opts):
+        elif self._regex_opt and _simple_re(regex, opts):
             return []
-        if self._relib == "pcre2":
+        elif self._regex_opt and _ic_str_cmp_re(regex, opts, self._max_strcmp_cset):
+            return []
+        elif self._relib == "pcre2":
             return [
                 f"pcre2_match_data_free({name}_data);",
                 f"pcre2_code_free({name}_code);",

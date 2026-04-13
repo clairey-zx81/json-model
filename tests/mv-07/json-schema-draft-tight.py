@@ -44,7 +44,10 @@ check_model_map: PropMap
 # check $const (.'$const')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$const'
-    return not isinstance(val, list) and not isinstance(val, dict)
+    res: bool = not isinstance(val, list) and not isinstance(val, dict)
+    if not res:
+        rep is None or rep.append(("unexpected type [.'$const'.'|']", path))
+    return res
 
 # check $enum (.'$enum')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:

@@ -59,11 +59,7 @@ static bool json_model_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_7_re2 = NULL;
-static int _jm_re_7_nn = 0;
 static bool _jm_re_7(const char *s, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_8_re2 = NULL;
-static int _jm_re_8_nn = 0;
 static bool _jm_re_8(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -674,16 +670,22 @@ static bool json_model_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_7(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_7(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_7_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    return
+        jm_str_eq_2(s, 0x0000003c) ||
+        jm_str_eq_3(s, 0x00003d3c) ||
+        jm_str_eq_2(s, 0x0000003e) ||
+        jm_str_eq_3(s, 0x00003d3e)
+    ;
 }
 
-static bool _jm_re_8(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_8(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_8_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    return
+        jm_str_eq_3(s, 0x00003d21) ||
+        jm_str_eq_2(s, 0x0000003d)
+    ;
 }
 
 // check $Constraint (.'$Constraint')
@@ -4282,14 +4284,6 @@ const char *check_model_init(void)
         _jm_cst_1[6] = (jm_constant_t) { cst_is_float, { .f = 1.0 } };
         _jm_cst_1[7] = (jm_constant_t) { cst_is_float, { .f = -1.0 } };
         jm_sort_cst(_jm_cst_1, 8);
-        _jm_re_7_re2 = cre2_new("^(<=|>=|<|>)$", strlen("^(<=|>=|<|>)$"), NULL);
-        if (cre2_error_code(_jm_re_7_re2))
-            return cre2_error_string(_jm_re_7_re2);
-        _jm_re_7_nn = cre2_num_capturing_groups(_jm_re_7_re2) + 1;
-        _jm_re_8_re2 = cre2_new("^(=|!=)$", strlen("^(=|!=)$"), NULL);
-        if (cre2_error_code(_jm_re_8_re2))
-            return cre2_error_string(_jm_re_8_re2);
-        _jm_re_8_nn = cre2_num_capturing_groups(_jm_re_8_re2) + 1;
         _jm_re_9_re2 = cre2_new("^[?!]", strlen("^[?!]"), NULL);
         if (cre2_error_code(_jm_re_9_re2))
             return cre2_error_string(_jm_re_9_re2);
@@ -4378,12 +4372,6 @@ void check_model_free(void)
         cre2_delete(_jm_re_6_re2);
         _jm_re_6_re2 = NULL;
         _jm_re_6_nn = 0;
-        cre2_delete(_jm_re_7_re2);
-        _jm_re_7_re2 = NULL;
-        _jm_re_7_nn = 0;
-        cre2_delete(_jm_re_8_re2);
-        _jm_re_8_re2 = NULL;
-        _jm_re_8_nn = 0;
         cre2_delete(_jm_re_9_re2);
         _jm_re_9_re2 = NULL;
         _jm_re_9_nn = 0;

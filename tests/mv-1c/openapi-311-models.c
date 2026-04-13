@@ -107,11 +107,7 @@ static bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_4_re2 = NULL;
-static int _jm_re_4_nn = 0;
 static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_5_re2 = NULL;
-static int _jm_re_5_nn = 0;
 static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_93(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -5503,16 +5499,22 @@ static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_4_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    return
+        jm_str_eq_2(s, 0x0000003c) ||
+        jm_str_eq_3(s, 0x00003d3c) ||
+        jm_str_eq_2(s, 0x0000003e) ||
+        jm_str_eq_3(s, 0x00003d3e)
+    ;
 }
 
-static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_5_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    return
+        jm_str_eq_3(s, 0x00003d21) ||
+        jm_str_eq_2(s, 0x0000003d)
+    ;
 }
 
 // object .'$openapi#model#Element'.'|'.0
@@ -6134,14 +6136,6 @@ const char *check_model_init(void)
         _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { 7, { .s = "oauth2" } }, _jm_obj_35 };
         _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { 14, { .s = "openIdConnect" } }, _jm_obj_36 };
         jm_sort_constmap(_jm_map_0_tab, 4);
-        _jm_re_4_re2 = cre2_new("^(<=|>=|<|>)$", strlen("^(<=|>=|<|>)$"), NULL);
-        if (cre2_error_code(_jm_re_4_re2))
-            return cre2_error_string(_jm_re_4_re2);
-        _jm_re_4_nn = cre2_num_capturing_groups(_jm_re_4_re2) + 1;
-        _jm_re_5_re2 = cre2_new("^(=|!=)$", strlen("^(=|!=)$"), NULL);
-        if (cre2_error_code(_jm_re_5_re2))
-            return cre2_error_string(_jm_re_5_re2);
-        _jm_re_5_nn = cre2_num_capturing_groups(_jm_re_5_re2) + 1;
         _jm_re_6_re2 = cre2_new("^[?!]", strlen("^[?!]"), NULL);
         if (cre2_error_code(_jm_re_6_re2))
             return cre2_error_string(_jm_re_6_re2);
@@ -6202,12 +6196,6 @@ void check_model_free(void)
         cre2_delete(_jm_re_3_re2);
         _jm_re_3_re2 = NULL;
         _jm_re_3_nn = 0;
-        cre2_delete(_jm_re_4_re2);
-        _jm_re_4_re2 = NULL;
-        _jm_re_4_nn = 0;
-        cre2_delete(_jm_re_5_re2);
-        _jm_re_5_re2 = NULL;
-        _jm_re_5_nn = 0;
         cre2_delete(_jm_re_6_re2);
         _jm_re_6_re2 = NULL;
         _jm_re_6_nn = 0;
