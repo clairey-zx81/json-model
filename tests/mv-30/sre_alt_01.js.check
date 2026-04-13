@@ -1,0 +1,20 @@
+sre_alt_01.values.json[0]: PASS
+sre_alt_01.values.json[1]: PASS
+sre_alt_01.values.json[2]: PASS
+sre_alt_01.values.json[3]: PASS
+sre_alt_01.values.json[4]: PASS
+sre_alt_01.values.json[5]: PASS
+sre_alt_01.values.json[6]: PASS
+sre_alt_01.values.json[7]: PASS
+sre_alt_01.values.json[8]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[9]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[10]: PASS
+sre_alt_01.values.json[11]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[12]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[13]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[14]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[15]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[16]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[17]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[18]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])
+sre_alt_01.values.json[19]: FAIL (.: unexpected value for model "/^(Hello|World|Susie|Calvin)$/i" [.])

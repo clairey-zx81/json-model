@@ -1,0 +1,22 @@
+[
+  [ true,  "Hello" ],
+  [ true,  "World" ],
+  [ true,  "Susie" ],
+  [ true,  "Calvin" ],
+  [ true,  "HELLO" ],
+  [ true,  "world" ],
+  [ true,  "SuSie" ],
+  [ true,  "CalVin" ],
+  [ false, "" ],
+  [ false, "Hobbes" ],
+  [ true,  "susie" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]
