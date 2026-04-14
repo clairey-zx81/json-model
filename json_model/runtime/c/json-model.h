@@ -48,8 +48,10 @@
 #define CHECK CHECK_FUNCTION_NAME
 #define CHECK_free newname(CHECK_FUNCTION_NAME, _free)
 
+// TODO use custom lookup tables
 // custom character classes for regex inlining
 static INLINE bool jm_isident(const char c) { return isalnum(c) || c == '_'; }
+static INLINE bool jm_ident_dc(const char c) { return isalnum(c) || c == '_' || c == '-' || c == ':'; }
 static INLINE bool jm_lownum(const char c) { return islower(c) || isdigit(c); }
 static INLINE bool jm_upnum(const char c) { return isupper(c) || isdigit(c); }
 static INLINE bool jm_lowident(const char c) { return islower(c) || isdigit(c) || c == '_'; }

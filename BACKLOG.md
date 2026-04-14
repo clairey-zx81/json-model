@@ -52,6 +52,7 @@
 - [x] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
 - [x] c-backend: improve regex opt cset prettyprinting
 - [x] c-backend: extend simple regex to sequences of prefix/chars/repeats
+- [x] c-backend: add custom char class `[A-Za-z0-9_\\-:]`
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
 - [ ] c-backend: simplify parameters for accelerated functions
@@ -61,7 +62,7 @@
 - [ ] c-backend: property name length for jansson is stored at `(str_ptr - sizeof(size_t))`
 - [ ] c-backend: use knowledge of Jansson hash to improve property lookup??
 - [ ] c-backend: generate custom character class ascii tables?
-- [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-] [A-Za-z0-9_\\-:]`
+- [ ] c-backend: custom char classes: `[-a-z0-9_] [:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`

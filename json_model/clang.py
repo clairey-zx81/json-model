@@ -122,6 +122,7 @@ def _norm_char_class(init: str) -> str:
             ncc.update({"0-9", "a-z", "A-Z", "_"})
             cc = cc[2:]
         elif cc.startswith(r"\\"):
+            # FIXME expected escapes? should it normalize to clever placement?
             ncc.add(r"\\")
             cc = cc[2:]
         elif cc.startswith("[:word:]"):
@@ -317,8 +318,8 @@ def _char_class_name(chars: str, ic: bool) -> str|None:
             test = "jm_lowlow"
         case "[_A-Z]":
             test = "jm_uplow"
-        # case "[0-9:A-Z_a-z-]":
-        #     test = "jm_ident_dc"
+        case "[0-9A-Z\\-:_a-z]":
+            test = "jm_ident_dc"
         case _:
             test = None
     return test
