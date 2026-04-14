@@ -1,5 +1,6 @@
 import re
 import json
+from functools import reduce
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr, NumExpr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
@@ -201,7 +202,128 @@ def _norm_char_class(init: str) -> str:
         ccstart = ""
     return "[" + ccstart + "".join(sorted(ncc)) + ccend + "]"
 
-def _simple_re(regex: str, opts: str) -> tuple[str, str, str, bool]|None:
+def _get_re_segment(regex: str) -> tuple[str, str, str, str]|None:
+    """Extract a simple compilable segment from regex."""
+    prefix, chars, repeat = "", "", ""
+    i = 0
+    # extract prefix
+    while i < len(regex):
+        c = regex[i]
+        if c in "(|?*+[.^${":
+            break
+        elif c == "\\":  # unescape
+            i += 1
+            cn = regex[i]
+            if cn in "dw":  # special case
+                chars = "[0-9]" if cn == "d" else "[0-9a-zA-Z_]"
+                i += 1
+                break
+            elif cn in "DW":
+                return None
+            # NOTE only a subset of chars can really be escaped
+            prefix += cn
+        else:
+            prefix += c
+        i += 1
+    # extract chars, unless done in the previous loop
+    if chars == "" and i < len(regex) and regex[i] == "[":
+        chars = "["
+        i += 1
+        if regex[i] == "]":
+            chars += "]"
+            i += 1
+        while i < len(regex):
+            c = regex[i]
+            if c == "\\":
+                # escape inside brackets?
+                # whether they are really needed depend on the flavor, eg none for POSIX…
+                # we just accept \] here?
+                if regex[i+1] == "]":
+                    chars += "\\]"
+                    i += 1
+                else:  # just add a "\" as-is
+                    chars += c
+            elif c == "]":
+                chars += c
+                i += 1
+                break
+            else:
+                chars += c
+            i += 1
+    elif chars == "" and i < len(regex) and regex[i] == ".":
+        chars = "."
+        i += 1
+    # TODO else accept "."?
+    # extract repeat
+    if i < len(regex) and regex[i] in "?+*{":
+        repeat = regex[i]
+        if repeat == "{":
+            i += 1
+            while i < len(regex):
+                c = regex[i]
+                repeat += c
+                i += 1
+                if c == "}":
+                    break
+        else:
+            i += 1
+    # adjust empty chars to last prefix char on repeat
+    if repeat and chars == "":
+        assert prefix, "no repeat on an empty char"
+        prefix, chars = prefix[:-1], prefix[-1]
+    # return if something was extracted
+    if prefix or chars:
+        assert i > 0
+        return prefix, chars, repeat, regex[i:]
+    else:
+        return None
+
+def _char_class_name(chars: str, ic: bool) -> str|None:
+    """Return the name of the macro or function to check for a char in this class."""
+    chars = _norm_char_class(chars)
+    # log.warning(f"chars = {chars}")
+    match chars:
+        # standard classes
+        case "[a-z]":
+            test = "isalpha" if ic else "islower"
+        case "[A-Z]":
+            test = "isalpha" if ic else "isupper"
+        case "[A-Za-z]":
+            test = "isalpha"
+        case "[0-9]":
+            test = "isdigit"
+        case "[0-9a-f]":
+            test = "isxdigit" if ic else "jm_lowhexa"
+        case "[0-9A-F]":
+            test = "isxdigit" if ic else "jm_uphexa"
+        case "[0-9A-Fa-f]":
+            test = "isxdigit"
+        case "[0-9a-z]":
+            test = "isalnum" if ic else "jm_lownum"
+        case "[0-9A-Z]":
+            test = "isalnum" if ic else "jm_upnum"
+        case "[0-9A-Za-z]":
+            test = "isalnum"
+        # extensions
+        case "[0-9_a-z]":
+            test = "jm_isident" if ic else "jm_lowident"
+        case "[0-9A-Z_]":
+            test = "jm_isident" if ic else "jm_upident"
+        case "[0-9A-Z_a-z]":
+            test = "jm_isident"
+        case " "|"[ ]":
+            test = "jm_isspace"
+        case "[a-z_]":
+            test = "jm_lowlow"
+        case "[_A-Z]":
+            test = "jm_uplow"
+        # case "[0-9:A-Z_a-z-]":
+        #     test = "jm_ident_dc"
+        case _:
+            test = None
+    return test
+
+def _simple_re(regex: str, opts: str) -> tuple[list[str, str, str], bool]|None:
     """Return whether the regex is simple and directly compilable."""
     ic = "i" in opts
     if regex == "" or regex[0] != "^":
@@ -210,75 +332,30 @@ def _simple_re(regex: str, opts: str) -> tuple[str, str, str, bool]|None:
     eot = regex[-1] == "$"
     if eot:
         regex = regex[:-1]
-    # escaped: .^$*+?()[{\|
-    # not escaped: []@-Z -#%-',/->_-z}~-]
-    # TODO improve readability
-    # TODO replace with a regex parser…
-    if extract := re.match(r"(([]@-Z -#%-',/->_-z}~-]|\\[.^$*+?()[{\|])*)(\[[^]]+\]| |\\[dw]|)(\{\d+(,\d*)?\}|[+*]|)$", regex):
-        prefix, chars, repeat = extract.group(1, 3, 4)
+    segments = []
+    while extract := _get_re_segment(regex):
+        prefix, chars, repeat, regex = extract
+        if chars.startswith("[^"):  # cannot handle complement (utf8)
+            return None
         if prefix and ic and re.search(r"[a-zA-Z]", prefix):
             # cannot handle letters with simple equality under ignore case
             return None
-        if prefix and "\\" in prefix:
-            # unescape prefix
-            i, delete = 0, []
-            while i < len(prefix):
-                if prefix[i] == "\\":
-                    delete.append(i)
-                    i += 2
-                else:
-                    i += 1
-            for i in reversed(delete):
-                prefix = prefix[:i] + prefix[i+1:]
-        if not chars and repeat:
-            # oops, repeat applies on last char of prefix
-            if not prefix:
+        if segments:
+            prevchars, prevrepeat = segments[-1][1], segments[-1][2]
+            # check that this is a clearcut from previous segment
+            if prefix and prevchars and re.search(f"^{prevchars}$", prefix[0]):
                 return None
-            # FIXME escaping?
-            prefix, chars = prefix[:-1], prefix[-1]
-        if chars.startswith("[^"):  # cannot handle complement (utf8)
-            return None
-        chars = _norm_char_class(chars)
-        # log.warning(f"chars = {chars}")
-        match chars:
-            case "[a-z]":
-                test = "isalpha" if ic else "islower"
-            case "[A-Z]":
-                test = "isalpha" if ic else "isupper"
-            case "[A-Za-z]":
-                test = "isalpha"
-            case "[0-9]":
-                test = "isdigit"
-            case "[0-9a-f]":
-                test = "isxdigit" if ic else "jm_lowhexa"
-            case "[0-9A-F]":
-                test = "isxdigit" if ic else "jm_uphexa"
-            case "[0-9A-Fa-f]":
-                test = "isxdigit"
-            case "[0-9a-z]":
-                test = "isalnum" if ic else "jm_lownum"
-            case "[0-9A-Z]":
-                test = "isalnum" if ic else "jm_upnum"
-            case "[0-9A-Za-z]":
-                test = "isalnum"
-            case "[0-9_a-z]":
-                test = "jm_isident" if ic else "jm_lowident"
-            case "[0-9A-Z_]":
-                test = "jm_isident" if ic else "jm_upident"
-            case "[0-9A-Z_a-z]":
-                test = "jm_isident"
-            case " "|"[ ]":
-                test = "jm_isspace"
-            case "[a-z_]":
-                test = "jm_lowlow"
-            case "[_A-Z]":
-                test = "jm_uplow"
-            # case "[0-9:A-Z_a-z-]":
-            #     test = "jm_ident_dc"
-            case _:
-                test = None
-        if test is not None:
-            return prefix, test, repeat, eot
+            if prefix == "" and prevrepeat != "":
+                # TODO improve chars chars interaction
+                return None
+        # we do not know yet whether chars are okay
+        segments.append((prefix, chars, repeat))
+        if regex == "":
+            # translate chars to their class names
+            segments = [ (p, _char_class_name(c, ic), r) for p, c, r in segments ]
+            if any(seg[1] is None for seg in segments):
+                return None
+            return segments, eot
     return None
 
 def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Block:
@@ -358,20 +435,26 @@ def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Bl
     return code
 
 def _compile_simple_re(
-            name: str, prefix: str, test: str, repeat: str,
-            eot: bool, little: bool, inline: str = ""
+            name: str,
+            segments: list[tuple[str, str, str]], eot: bool,
+            little: bool, inline: str = ""
         ) -> Block:
-    """Generate code for a simple regex."""
+    """Generate direct code for a simple regex."""
+    body = reduce(
+        lambda a, b: a + b,
+        (_compile_re_segment(p, t, r, little) for p, t, r in segments),
+        []
+    )
     return [
         f"static {inline}bool {name}(const char *s, jm_path_t *path, jm_report_t *rep)",
         r"{",
-        *[ "    " + line for line in _compile_re_segment(prefix, test, repeat, little) ],
+        *[ "    " + line for line in body ],
         r"    return *s == '\0';" if eot else "    return true;",
         r"}",
     ]
 
 #
-# /^(foo|bla|...)$/i
+# compile /^(foo|bla|...)$/i
 #
 def _is_plain_str(s: str) -> bool:
     # already split on |, not need to check
