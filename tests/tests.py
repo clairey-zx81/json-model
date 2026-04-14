@@ -266,8 +266,8 @@ EXPECT: dict[str, int] = {
     "mv-2c:errors.pl": 9,
     # mv-2d
     "mv-2d:cmp-opts": {"report": False, "comment": False},
-    "mv-2d:models": 9,
-    "mv-2d:values": 149,
+    "mv-2d:models": 10,
+    "mv-2d:values": 164,
     # mv-2e
     "mv-2e:cmp-opts": {"report": False, "comment": False, "max_strcmp_cset": 64},
     "mv-2e:errors.sql": 2,

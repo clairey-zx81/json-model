@@ -423,7 +423,7 @@ def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Bl
                 pass
             else:  # maxi > mini
                 iters = maxi - mini
-                code = [
+                code += [
                     f"int n = {iters};",
                     f"while (likely(n && {test}(*s)))",
                     r"    s++, n--;",
