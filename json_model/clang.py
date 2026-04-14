@@ -399,36 +399,31 @@ def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Bl
             maxi = mini
         if isinstance(maxi, int) and mini > maxi:
             code += [ "return false;" ]
-        # else mini <= maxi which may be None
+        # else mini <= maxi, or maxi is None
         elif isinstance(maxi, int) and maxi == 0:
             pass
         else:
-            expr = ""
             # unrolled prefix check…
             if mini != 0:
+                expr = ""
                 for i in range(mini):
-                    if expr:
-                        expr += " && "
-                    expr += f"{test}(*s++)"
-            # handle suffix
-            if maxi is None:
+                    expr += (" && " if expr else "") + f"{test}(*s++)"
                 code += [
                     f"if (unlikely(!({expr})))",
                     r"    return false;",
+                ]
+            # handle suffix
+            if maxi is None:
+                code += [
                     f"while (likely({test}(*s)))",
                     r"    s++;",
                     r"return *s == '\0';"
                 ]
             elif maxi == mini:
-                code += [
-                    f"if (unlikely(!({expr})))",
-                    r"    return false;",
-                ]
-            else:  # max > mini
+                pass
+            else:  # maxi > mini
                 iters = maxi - mini
                 code = [
-                    f"if (unlikely(!({expr})))",
-                    r"    return false;",
                     f"int n = {iters};",
                     f"while (likely(n && {test}(*s)))",
                     r"    s++, n--;",

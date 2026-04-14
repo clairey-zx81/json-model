@@ -1,0 +1,19 @@
+[
+  "# /^[a-z][a-z0-9]{0,29}$/",
+  [ true,  "c" ],
+  [ true,  "susie1970" ],
+  [ true,  "abcdefghijklmnopqrstuvwxyz1234" ],
+  [ false, "" ],
+  [ false, "0abc" ],
+  [ false, "Susie" ],
+  [ false, "abcdefghijklmnopqrstuvwxyz12345" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415926 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]
