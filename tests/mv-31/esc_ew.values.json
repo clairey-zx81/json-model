@@ -1,0 +1,16 @@
+[
+  [ true,  "hello.world?" ],
+  [ false, "hello.world?-whatever" ],
+  [ true,  "whatever-hello.world?" ],
+  [ false, "" ],
+  [ false, "Susie, Calvin and Hobbes" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

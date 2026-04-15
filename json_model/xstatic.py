@@ -205,6 +205,15 @@ class CodeGenerator:
         gen = self._lang
         sval: StrExpr = val if is_str else gen.value(val, str)  # type: ignore
 
+        def unescape_re(s: str) -> str:
+            i, n = 0, ""
+            while i < len(s):
+                if s[i] == "\\":
+                    i += 1
+                n += s[i] if i < len(s) else ""
+                i += 1
+            return n
+
         # optimized versions in some cases
         if re.match(r"^/\.\*\$?/[mis]?$", regex):
             return gen.true()
@@ -213,12 +222,12 @@ class CodeGenerator:
         elif (gen.fast_strlen() and
                 (re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex))):
             return gen.num_cmp(gen.str_len(sval), ">", gen.const(0), is_int=True)
-        elif re.match(r"^/\^[^[({|.+*?\\^$]+/$", regex):  # starts with
-            return gen.str_start(sval, regex[2:-1])
-        elif re.match(r"^/[^[({|.+*?\\^$]+\$/$", regex):  # ends with
-            return gen.str_end(sval, regex[1:-2])
-        elif re.match(r"^/\^[^[({|.+*?\\^$]+\$/$", regex):  # streq
-            return gen.str_cmp(sval, "=", gen.esc(regex[2:-2]))
+        elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[[({|.+*?^$])+/$", regex):  # starts with
+            return gen.str_start(sval, unescape_re(regex[2:-1]))
+        elif re.match(r"^/([^[({|.+*?\\^$]|\\[[({|.+*?^$])+\$/$", regex):  # ends with
+            return gen.str_end(sval, unescape_re(regex[1:-2]))
+        elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[[({|.+*?^$])+\$/$", regex):  # streq
+            return gen.str_cmp(sval, "=", gen.esc(unescape_re(regex[2:-2])))
         # TODO streq ic?
         else:
             fun = self._regex(jm, regex, path)

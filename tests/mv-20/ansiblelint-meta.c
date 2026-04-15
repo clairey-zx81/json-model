@@ -181,8 +181,6 @@ static bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constmap_t _jm_map_0_tab[2];
 static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_2_re2 = NULL;
-static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_55(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_56(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -8888,10 +8886,20 @@ static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_2_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    if (unlikely(!jm_lowlow(*s++)))
+        return false;
+    while (likely(jm_lowlow(*s)))
+        s++;
+    if (unlikely(jm_str_ne_1(s, 0x2e)))
+        return false;
+    s += 1;
+    if (unlikely(!jm_lowlow(*s++)))
+        return false;
+    while (likely(jm_lowlow(*s)))
+        s++;
+    return *s == '\0';
 }
 
 // check $collections (.'$collections')
@@ -9509,10 +9517,6 @@ const char *check_model_init(void)
         _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = true } }, json_model_53 };
         _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_bool, { .b = false } }, _jm_obj_47 };
         jm_sort_constmap(_jm_map_0_tab, 2);
-        _jm_re_2_re2 = cre2_new("^[a-z_]+\\.[a-z_]+$", strlen("^[a-z_]+\\.[a-z_]+$"), NULL);
-        if (cre2_error_code(_jm_re_2_re2))
-            return cre2_error_string(_jm_re_2_re2);
-        _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_60 };
         check_model_map_tab[1] = (jm_propmap_t) { "AIXPlatformModel", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "AlpinePlatformModel", json_model_3 };
@@ -9588,9 +9592,6 @@ void check_model_free(void)
         cre2_delete(_jm_re_0_re2);
         _jm_re_0_re2 = NULL;
         _jm_re_0_nn = 0;
-        cre2_delete(_jm_re_2_re2);
-        _jm_re_2_re2 = NULL;
-        _jm_re_2_nn = 0;
     }
 }
 
