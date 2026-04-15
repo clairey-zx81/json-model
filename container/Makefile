@@ -28,10 +28,11 @@ export JMC = $(BRANCH)
 #
 .PHONY: clean
 clean:
-	$(RM) .build
+	$(RM) .build.base .build.jmc
 
 .PHONY: pod.clean
 pod.clean: clean
+	$(POD) system prune -f
 	$(POD) image prune -f
 	$(POD) container prune -f
 	$(POD) image rm -f $$($(POD) image ls | grep '^<none>' | tr -s " " " " | cut -d' ' -f 3) jmc
@@ -44,19 +45,24 @@ pod.cleaner:
 #
 # POD (docker ou podman)
 #
-POD.opts = --no-cache
+BASE.cache  =
+JMC.cache   = --no-cache
 JMC     = $(BRANCH)
 JSU     = main
 
 .PHONY: pod.build
-pod.build: .build
+pod.build: .build.base .build.jmc
 
-.build: Containerfile jmc
-	$(POD) build $(POD.opts) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
-	    -t jmc -f Containerfile . && date -Iseconds > $@
+.build.base: base.container
+	$(POD) build $(BASE.cache) -t jmc-base -f base.container . && date -Iseconds > $@
+	$(POD) tag jmc-base $(ZX80)/jmc-base:latest
+
+.build.jmc: jmc.container jmc .build.base
+	$(POD) build $(JMC.cache) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
+	    -t jmc -f jmc.container . && date -Iseconds > $@
 
 .PHONY: pod.run
-pod.run: .build
+pod.run: pod.build
 	@echo $(POD) run --user $$UID:$$GID -v .:/workspace -it --rm --entrypoint /bin/bash jmc
 
 .PHONY: pod.status
@@ -75,7 +81,7 @@ versions:
 	echo " - version: $(VERSION)"
 
 .PHONY: pod.tag
-pod.tag: .build
+pod.tag: .build.base .build.jmc
 	export POD=$(POD)
 	$(POD) tag jmc $(ZX80)/jmc:$(TAG)
 	$(POD) tag jmc $(ZX80)/jmc:$(BRANCH)
@@ -84,10 +90,10 @@ pod.tag: .build
 .PHONY: pod.push
 pod.push: pod.tag
 	# if needed: docker login
+	$(POD) push $(ZX80)/jmc-base:latest
 	$(POD) push -a $(ZX80)/jmc
 
 .PHONY: quick-pod.push
-quick-pod.push: POD.opts=
 quick-pod.push: pod.tag
 	$(POD) push $(ZX80)/jmc:$(BRANCH)
 	$(POD) push $(ZX80)/jmc:$(TAG)

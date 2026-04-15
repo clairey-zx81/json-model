@@ -1,0 +1,45 @@
+#
+# JMC
+#
+FROM docker.io/zx80/jmc-base
+LABEL description="JSON Model Compiler"
+
+# installation options
+ARG JMC=main
+ARG JSU=main
+
+# actual application stuff
+# direct install json-model and json-schema-utils from github
+# pip install json-model-compiler json-schema-utils
+# npm install json_model_runtime
+RUN curl -s "https://api.github.com/repos/clairey-zx81/json-model/commits/${JMC}" | \
+    jq -c "{jmc: .sha}" >> /app/commits.jsonl
+RUN git clone -b $JMC https://github.com/clairey-zx81/json-model.git
+RUN /app/venv/bin/pip install -e ./json-model
+RUN npm install file:./json-model/json_model/runtime/js
+# RUN ls -la node_modules
+# RUN rm -rf ./json-model  # no, editable
+
+RUN curl -s "https://api.github.com/repos/zx80/json-schema-utils/commits/${JSU}" | \
+    jq -c "{jsu: .sha}" >> /app/commits.jsonl
+RUN git clone -b $JSU https://github.com/zx80/json-schema-utils.git
+RUN /app/venv/bin/pip install -e ./json-schema-utils
+
+# compile java runtime
+ENV jmc_rt=/app/json-model/json_model/runtime
+RUN make -C $jmc_rt/java jar
+ENV CLASSPATH=$CLASSPATH:$jmc_rt/java/json-model.jar
+
+# fix perms to allow any uid to read/write
+RUN find /app -type d -print | xargs chmod a+rwx
+RUN find /app -type f -print | xargs chmod a+rw
+
+RUN mkdir /app/workspace
+WORKDIR /app/workspace
+
+# setup docker entry point and utils
+ENV TMPDIR=/tmp
+ENV JSON_MODEL_CACHEDIR=/tmp
+ENV PERLLIB=$jmc_rt/pl/lib
+ENV PATH=$PATH:.
+ENTRYPOINT ["/app/venv/bin/jmc"]

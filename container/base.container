@@ -1,10 +1,8 @@
 #
-# JSON Model Compiler Multi-Language Environment
+# Ubuntu-Based Multi-Language Environment
 #
 FROM ubuntu:24.04
-LABEL description="JSON Model Compiler"
-ARG JMC=main
-ARG JSU=main
+LABEL description="Ubuntu C Java JS Perl Python"
 
 # system update, installs, cleanup
 RUN apt update ; \
@@ -41,7 +39,8 @@ ENV LD_LIBRARY_PATH=/usr/local/lib
 # setup python environment, native pip complains about direct installations otherwise
 RUN python -m venv venv ; \
     venv/bin/pip install -U pip ; \
-    venv/bin/pip install pytest pytest-xdist[psutils] filelock
+    venv/bin/pip install pytest pytest-xdist[psutils] filelock \
+		requests jschon jsonschema[format] pyyaml validators fqdn google-re2
 ENV PATH=/app/venv/bin:$PATH
 
 # nodejs >= 20.0.0
@@ -61,26 +60,14 @@ ENV PATH=$NVM_DIR/versions/node/stable/bin:$PATH
 RUN echo '{"name":"zx80-jmc","type":"module"}' | jq > package.json
 RUN npm install re2
 
-# actual application stuff
-# direct install json-model and json-schema-utils from github
-# pip install json-model-compiler json-schema-utils
-# npm install json_model_runtime
-RUN curl -s "https://api.github.com/repos/clairey-zx81/json-model/commits/${JMC}" | \
-    jq -c "{jmc: .sha}" >> /app/commits.jsonl
-RUN git clone -b $JMC https://github.com/clairey-zx81/json-model.git
-RUN /app/venv/bin/pip install -e ./json-model
-RUN npm install file:./json-model/json_model/runtime/js
-# RUN ls -la node_modules
-# RUN rm -rf ./json-model  # no, editable
-
-RUN curl -s "https://api.github.com/repos/zx80/json-schema-utils/commits/${JSU}" | \
-    jq -c "{jsu: .sha}" >> /app/commits.jsonl
-RUN git clone -b $JSU https://github.com/zx80/json-schema-utils.git
-RUN /app/venv/bin/pip install -e ./json-schema-utils
-# RUN rm -rf ./json-schema-utils  # no, editable
+# convenient shell and vi environment
+RUN echo "# reset default prompt\nexport PS1='zx80/jmc> '" >> /etc/bash.bashrc
+RUN echo "syntax on\nset expandtab\nset tabstop=4\nset shiftwidth=4\nset ruler" >> /etc/vim/vimrc.local
 
 # java runtime, direct download with hardcoded version
-ENV java=/app/json-model/json_model/runtime/java
+RUN mkdir /app/java
+ENV java=/app/java
+
 ENV gson=2.13.2
 ENV jackson=2.21.1
 ENV jackson_ann=2.21
@@ -97,27 +84,9 @@ RUN for artifact in \
     do \
         mvn dependency:copy -Dartifact=$artifact -DoutputDirectory=$java ; \
     done
+
 ENV CLASSPATH=.:/app/workspace:/app/workspace/java:/app/workspace/tmp
-ENV CLASSPATH=$CLASSPATH:$java/json-model.jar
 ENV CLASSPATH=$CLASSPATH:/usr/share/java/gnu-getopt.jar
 ENV CLASSPATH=$CLASSPATH:$java/gson-$gson.jar
 ENV CLASSPATH=$CLASSPATH:$java/jackson-core-$jackson.jar:$java/jackson-databind-$jackson.jar:$java/jackson-annotations-$jackson_ann.jar
 ENV CLASSPATH=$CLASSPATH:$java/jakarta.json-api-$jakarta.jar:$java/johnzon-core-$johnzon.jar
-RUN make -C $java jar
-
-# convenient shell and vi environment
-RUN echo "# reset default prompt\nexport PS1='zx80/jmc> '" >> /etc/bash.bashrc
-RUN echo "syntax on\nset expandtab\nset tabstop=4\nset shiftwidth=4\nset ruler" >> /etc/vim/vimrc.local
-
-# fix perms to allow any uid to read/write
-RUN find /app -type d -print | xargs chmod a+rwx
-RUN find /app -type f -print | xargs chmod a+rw
-
-# setup docker entry point and utils
-RUN mkdir /app/workspace
-WORKDIR /app/workspace
-ENV TMPDIR=/tmp
-ENV JSON_MODEL_CACHEDIR=/tmp
-ENV PERLLIB=/app/json-model/json_model/runtime/pl/lib
-ENV PATH=$PATH:.
-ENTRYPOINT ["/app/venv/bin/jmc"]
