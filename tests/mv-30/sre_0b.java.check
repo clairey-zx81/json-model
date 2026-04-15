@@ -1,0 +1,16 @@
+sre_0b.values.json[0]: PASS
+sre_0b.values.json[1]: PASS
+sre_0b.values.json[2]: PASS
+sre_0b.values.json[3]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[4]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[5]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[6]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[7]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[8]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[9]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[10]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[11]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[12]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[13]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[14]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])
+sre_0b.values.json[15]: FAIL (: unexpected value for model "/^[a-z_][_A-Z]+$/" [.])

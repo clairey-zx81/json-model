@@ -314,12 +314,17 @@ def _char_class_name(chars: str, ic: bool) -> str|None:
             test = "jm_isident"
         case " "|"[ ]":
             test = "jm_isspace"
-        case "[a-z_]":
+        case "[_a-z]":
             test = "jm_lowlow"
-        case "[_A-Z]":
+        case "[A-Z_]":
             test = "jm_uplow"
         case "[0-9A-Z\\-:_a-z]":
             test = "jm_ident_dc"
+        case "[1-9]":
+            test = "jm_nzdigit"
+        # how to process utf8?
+        # case ".":
+        #     test = "jm_dots" if sl else "jm_dot"
         case _:
             test = None
     return test

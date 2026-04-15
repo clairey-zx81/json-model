@@ -60,6 +60,7 @@ static INLINE bool jm_lowlow(const char c) { return islower(c) || c == '_'; }
 static INLINE bool jm_uplow(const char c) { return isupper(c) || c == '_'; }
 static INLINE bool jm_lowhexa(const char c) { return isdigit(c) || (c >= 'a' && c <= 'f'); }
 static INLINE bool jm_uphexa(const char c) { return isdigit(c) || (c >= 'A' && c <= 'F'); }
+static INLINE bool jm_nzdigit(const char c) { return isdigit(c) && c != '0'; }
 #define jm_isspace(c) ((c) == ' ')
 
 // common regex accelerations

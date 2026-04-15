@@ -52,7 +52,7 @@
 - [x] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
 - [x] c-backend: improve regex opt cset prettyprinting
 - [x] c-backend: extend simple regex to sequences of prefix/chars/repeats
-- [x] c-backend: add custom char class `[A-Za-z0-9_\\-:]`
+- [x] c-backend: add custom char class `[A-Za-z0-9_\\-:]` `[1-9]`
 - [x] container: separate base from specific installs to improve cache/no-cache build
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
