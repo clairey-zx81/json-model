@@ -1,0 +1,37 @@
+{
+  "description": "char vs byte length",
+  "type": "object",
+  "properties": {
+    "0": {
+      "const": ""
+    },
+    "1": {
+      "const": "\u00c0"
+    },
+    "2": {
+      "const": "\u00c0\u00df"
+    },
+    "3": {
+      "const": "\u00c0\u00df\u00e7"
+    },
+    "4": {
+      "const": "\u00c0\u00df\u00e7\u0394"
+    },
+    "5": {
+      "const": "\u00c0\u00df\u00e7\u0394\u20ac"
+    },
+    "6": {
+      "const": "\u00c0\u00df\u00e7\u0394\u20ac\u1d73"
+    },
+    "7": {
+      "const": "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7"
+    },
+    "8": {
+      "const": "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7\u210f"
+    },
+    "9": {
+      "const": "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7\u210f\u0131"
+    }
+  },
+  "additionalProperties": false
+}

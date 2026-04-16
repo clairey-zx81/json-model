@@ -58,7 +58,7 @@
 - [x] static: improve endswith pattern recognition with escapes, eg `/\\.js$/`
 - [x] c-backend: improve startwith code with fast str eq when string is a function call
 - [x] c-backend: improve `str_cmp` with fast str eq when string is a function call
-- [ ] c-backend: check str cmp optims with utf8 strings
+- [x] c-backend: check str cmp optims with utf8 strings
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
