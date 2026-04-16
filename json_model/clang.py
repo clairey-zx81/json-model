@@ -1276,13 +1276,13 @@ class CLangJansson(Language):
         return self.file_subs("clang_free.c", free)
 
     def filter_code(self, code: Block) -> Block:
+        # first pass to extract preparatory code embedded in expressions
         i = 0
         while i < len(code):
             line, inserts = code[i], []
             if line is None:  # skip
                 i += 1
                 continue
-            # extract preparatory code embedded in expressions
             if EMBED_CODE in line:
                 indentation = re.search(r"^ *", line).group(0)
                 chunks, line = line.split(EMBED_CODE), ""
@@ -1293,6 +1293,15 @@ class CLangJansson(Language):
                     else:
                         inserts.append(indentation + chunk)
                 code[i] = line
+            for inline in inserts:
+                code.insert(i, inline)
+                i += 1
+            i += 1
+        # second pass for other cleanups
+        for i in range(len(code)):
+            line = code[i]
+            if line is None:  # skip
+                continue
             # remove redundant checks generated in some cases
             if "jm_json_is_scalar" in line:
                 line = re.sub(r" jm_json_is_scalar\((\w+)\) && json_is_string\(\1\)",
@@ -1326,9 +1335,5 @@ class CLangJansson(Language):
                 if ninst == 1:
                     # log.warning(code[i:i+n+1])
                     code[i], code[i+n] = None, None
-            for inline in inserts:
-                code.insert(i, inline)
-                i += 1
-            i += 1
 
         return list(filter(lambda s: s is not None, code))
