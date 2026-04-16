@@ -59,7 +59,8 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may foo property
             // .'$over#Foo'.foo
-            res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "rewritten foo");
+            const char *sval_0;
+            res = json_is_string(pval) && ((sval_0 = json_string_value(pval)), jm_str_eq_8(sval_0, 0x6574746972776572LL) && jm_str_eq_6(sval_0 + 8, 0x0000006f6f66206eLL));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"_rewritten foo\" [.'$over#Foo'.foo]", (path ? &lpath_0 : NULL));

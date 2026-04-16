@@ -4624,7 +4624,8 @@ static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must type property
             must_count += 1;
             // .'$openapi#SecurityScheme'.'|'.4.type
-            res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "openIdConnect");
+            const char *sval_0;
+            res = json_is_string(pval) && ((sval_0 = json_string_value(pval)), jm_str_eq_8(sval_0, 0x6f4364496e65706fLL) && jm_str_eq_6(sval_0 + 8, 0x0000007463656e6eLL));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"_openIdConnect\" [.'$openapi#SecurityScheme'.'|'.4.type]", (path ? &lpath_55 : NULL));

@@ -1,0 +1,22 @@
+re_prop_00.values.json[0]: PASS
+re_prop_00.values.json[1]: PASS
+re_prop_00.values.json[2]: PASS
+re_prop_00.values.json[3]: PASS
+re_prop_00.values.json[4]: PASS
+re_prop_00.values.json[5]: PASS
+re_prop_00.values.json[6]: PASS
+re_prop_00.values.json[7]: PASS
+re_prop_00.values.json[8]: PASS
+re_prop_00.values.json[9]: FAIL (.str: unexpected value for model "" [.'/^s/'])
+re_prop_00.values.json[10]: FAIL (.boolean: not a bool [.'/^b/'])
+re_prop_00.values.json[11]: FAIL (.int: not a -1 strict int [.'/^i/'])
+re_prop_00.values.json[12]: FAIL (.un: unexpected prop [.])
+re_prop_00.values.json[13]: FAIL (.: not an object [.])
+re_prop_00.values.json[14]: FAIL (.: not an object [.])
+re_prop_00.values.json[15]: FAIL (.: not an object [.])
+re_prop_00.values.json[16]: FAIL (.: not an object [.])
+re_prop_00.values.json[17]: FAIL (.: not an object [.])
+re_prop_00.values.json[18]: FAIL (.: not an object [.])
+re_prop_00.values.json[19]: FAIL (.: not an object [.])
+re_prop_00.values.json[20]: FAIL (.: not an object [.])
+re_prop_00.values.json[21]: FAIL (.: not an object [.])

@@ -55,6 +55,11 @@
 - [x] c-backend: add custom char class `[A-Za-z0-9_\\-:]` `[1-9]`
 - [x] container: separate base from specific installs to improve cache/no-cache build
 - [x] static: improve pattern matching for starts with/ends with/eq regex optim
+- [x] static: improve endswith pattern recognition with escapes, eg `/\\.js$/`
+- [x] c-backend: improve startwith code with fast str eq when string is a function call
+- [x] c-backend: improve `str_cmp` with fast str eq when string is a function call
+- [ ] c-backend: check str cmp optims with utf8 strings
+- [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
 - [ ] c-backend: simplify parameters for accelerated functions
@@ -68,8 +73,6 @@
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
-- [ ] c-backend: improve startwith code with fast str eq in some cases
-- [ ] static: improve endswith pattern recognition `/\\.js$/`
 - [ ] optimize: `/^.{1,256}$/`? only under `/s` though…
 - [ ] test: fast mode which does not execute if source has not changed
 - [ ] test: add test categories (mark?)

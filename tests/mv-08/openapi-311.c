@@ -4906,7 +4906,8 @@ static bool json_model_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may $schema property
                         // .'$Schema'.'$schema'
-                        res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "https://json-schema.org/draft/2020-12/schema");
+                        const char *sval_0;
+                        res = json_is_string(pval) && ((sval_0 = json_string_value(pval)), jm_str_eq_8(sval_0, 0x2f2f3a7370747468LL) && jm_str_eq_8(sval_0 + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(sval_0 + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(sval_0 + 24, 0x30322f7466617264LL) && jm_str_eq_8(sval_0 + 32, 0x63732f32312d3032LL) && jm_str_eq_5(sval_0 + 40, 0x00000000616d6568LL));
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected value for model \"_https://json-schema.org/draft/2020-12/schema\" [.'$Schema'.'$schema']", (path ? &lpath_57 : NULL));
@@ -6184,7 +6185,8 @@ static bool json_model_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must type property
             must_count += 1;
             // .'$SS-oic'.type
-            res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "openIdConnect");
+            const char *sval_1;
+            res = json_is_string(pval) && ((sval_1 = json_string_value(pval)), jm_str_eq_8(sval_1, 0x6f4364496e65706fLL) && jm_str_eq_6(sval_1 + 8, 0x0000007463656e6eLL));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"_openIdConnect\" [.'$SS-oic'.type]", (path ? &lpath_71 : NULL));
@@ -6598,7 +6600,8 @@ static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle must type property
             must_count += 1;
             // .'$SecurityScheme'.'|'.4.type
-            res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "openIdConnect");
+            const char *sval_2;
+            res = json_is_string(pval) && ((sval_2 = json_string_value(pval)), jm_str_eq_8(sval_2, 0x6f4364496e65706fLL) && jm_str_eq_6(sval_2 + 8, 0x0000007463656e6eLL));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"_openIdConnect\" [.'$SecurityScheme'.'|'.4.type]", (path ? &lpath_76 : NULL));
@@ -7494,7 +7497,8 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may $schema property
                         // .'$schema#ObjectSchema'.'$schema'
-                        res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "https://json-schema.org/draft/2020-12/schema");
+                        const char *sval_3;
+                        res = json_is_string(pval) && ((sval_3 = json_string_value(pval)), jm_str_eq_8(sval_3, 0x2f2f3a7370747468LL) && jm_str_eq_8(sval_3 + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(sval_3 + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(sval_3 + 24, 0x30322f7466617264LL) && jm_str_eq_8(sval_3 + 32, 0x63732f32312d3032LL) && jm_str_eq_5(sval_3 + 40, 0x00000000616d6568LL));
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected value for model \"_https://json-schema.org/draft/2020-12/schema\" [.'$schema#ObjectSchema'.'$schema']", (path ? &lpath_83 : NULL));

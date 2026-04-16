@@ -1,0 +1,4 @@
+{
+  "#": "mixed sw eq le optimization with longer strings",
+  "|": [ "/^abcdefghij/", "/^klmnopqrst$/", "/qrstuvwxyz$/" ]
+}

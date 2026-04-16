@@ -1,0 +1,17 @@
+{
+  "description": "mixed sw eq le optimization with longer strings",
+  "anyOf": [
+    {
+      "type": "string",
+      "pattern": "^abcdefghij"
+    },
+    {
+      "type": "string",
+      "pattern": "^klmnopqrst$"
+    },
+    {
+      "type": "string",
+      "pattern": "qrstuvwxyz$"
+    }
+  ]
+}

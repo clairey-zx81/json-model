@@ -27,7 +27,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // .0
             // "/^hello world!/"
-            res = json_is_string(arr_0_item) && strncmp(json_string_value(arr_0_item), "hello world!", strlen("hello world!")) == 0;
+            const char *sval_0;
+            res = json_is_string(arr_0_item) && ((sval_0 = json_string_value(arr_0_item)), jm_str_eq_8(sval_0, 0x6f77206f6c6c6568LL) && jm_str_eq_4(sval_0 + 8, 0x21646c72));
             if (unlikely(! res))
                 break;
         }

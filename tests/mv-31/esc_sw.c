@@ -19,7 +19,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
     // "/^hello\\.world\\?/"
-    bool res = json_is_string(val) && strncmp(json_string_value(val), "hello.world?", strlen("hello.world?")) == 0;
+    const char *sval_0;
+    bool res = json_is_string(val) && ((sval_0 = json_string_value(val)), jm_str_eq_8(sval_0, 0x6f772e6f6c6c6568LL) && jm_str_eq_4(sval_0 + 8, 0x3f646c72));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^hello\\\\.world\\\\?/\" [.]", path);

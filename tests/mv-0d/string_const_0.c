@@ -18,7 +18,8 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    bool res = json_is_string(val) && jm_str_eq(json_string_value(val), "Susie and Calvin");
+    const char *sval_0;
+    bool res = json_is_string(val) && ((sval_0 = json_string_value(val)), jm_str_eq_8(sval_0, 0x6e61206569737553LL) && jm_str_eq_8(sval_0 + 8, 0x6e69766c61432064LL) && jm_str_eq_0(sval_0 + 16));
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected value for model \"Susie and Calvin\" [.]", path);

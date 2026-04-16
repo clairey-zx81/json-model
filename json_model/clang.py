@@ -57,9 +57,14 @@ def _str_cmp_chunk(s: str, chunk: bytes, size: int,
         x = "0x" + ((zeros + x) if little else (x + zeros)) + ("LL" if size > 4 else "")
         return f"{cmp_fun}_{size}({s}, {x})"
 
+# marker to embed code declation into instructions
+EMBED_CODE = "$code$"
+EMBED_COUNT = 0
+
 def _str_cmp(
             s: str, cst: str,
-            little: bool = True, eq: bool = True, start: bool = False
+            little: bool = True, eq: bool = True, start: bool = False,
+            count: int = 0
         ) -> BoolExpr:
     """Generate a fast byte string comparison for known constants."""
     # FIXME fails on \u0000
@@ -67,9 +72,13 @@ def _str_cmp(
     remain = len(bcst) + (0 if start else 1)  # add implicit null termination
     # filter out multiple array calls
     if remain > 8 and ("json_array_get(" in s or "json_string_value(" in s):
-        assert not start
-        cmp_fun = "jm_str_eq" if eq else "jm_str_ne"
-        return f"{cmp_fun}({s}, {cst})"
+        global EMBED_COUNT
+        svar = f"sval_{EMBED_COUNT}"
+        EMBED_COUNT += 1
+        return (
+            f"{EMBED_CODE}const char *{svar};{EMBED_CODE}"
+            f"(({svar} = {s}), {_str_cmp(svar, cst, little, eq, start)})"
+        )
     # generate chuncked comparison expression
     index = 0
     expr = ""
@@ -1267,11 +1276,23 @@ class CLangJansson(Language):
         return self.file_subs("clang_free.c", free)
 
     def filter_code(self, code: Block) -> Block:
-
-        for i in range(len(code)):
-            line = code[i]
-            if line is None:
+        i = 0
+        while i < len(code):
+            line, inserts = code[i], []
+            if line is None:  # skip
+                i += 1
                 continue
+            # extract preparatory code embedded in expressions
+            if EMBED_CODE in line:
+                indentation = re.search(r"^ *", line).group(0)
+                chunks, line = line.split(EMBED_CODE), ""
+                assert len(chunks) % 2 == 1, "expect odd number of chunks"
+                for j, chunk in enumerate(chunks):
+                    if j % 2 == 0:
+                        line += chunk
+                    else:
+                        inserts.append(indentation + chunk)
+                code[i] = line
             # remove redundant checks generated in some cases
             if "jm_json_is_scalar" in line:
                 line = re.sub(r" jm_json_is_scalar\((\w+)\) && json_is_string\(\1\)",
@@ -1305,5 +1326,9 @@ class CLangJansson(Language):
                 if ninst == 1:
                     # log.warning(code[i:i+n+1])
                     code[i], code[i+n] = None, None
+            for inline in inserts:
+                code.insert(i, inline)
+                i += 1
+            i += 1
 
         return list(filter(lambda s: s is not None, code))

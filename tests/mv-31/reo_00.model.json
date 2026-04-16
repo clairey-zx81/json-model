@@ -1,0 +1,4 @@
+{
+  "#": "mixed sw eq ew regex optim",
+  "|": ["/^hello/", "/^world$/", "/!$/"]
+}

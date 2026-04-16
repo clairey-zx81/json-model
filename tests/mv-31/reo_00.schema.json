@@ -1,0 +1,17 @@
+{
+  "description": "mixed sw eq ew regex optim",
+  "anyOf": [
+    {
+      "type": "string",
+      "pattern": "^hello"
+    },
+    {
+      "type": "string",
+      "pattern": "^world$"
+    },
+    {
+      "type": "string",
+      "pattern": "!$"
+    }
+  ]
+}

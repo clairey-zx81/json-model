@@ -1,0 +1,18 @@
+reo_01.values.json[0]: PASS
+reo_01.values.json[1]: PASS
+reo_01.values.json[2]: PASS
+reo_01.values.json[3]: FAIL (: unexpected value for model "/^abcdefghij/" [.'|'.0]; : unexpected value for model "/^klmnopqrst$/" [.'|'.1]; : unexpected value for model "/qrstuvwxyz$/" [.'|'.2]; : no model matched [.'|'])
+reo_01.values.json[4]: FAIL (: unexpected value for model "/^abcdefghij/" [.'|'.0]; : unexpected value for model "/^klmnopqrst$/" [.'|'.1]; : unexpected value for model "/qrstuvwxyz$/" [.'|'.2]; : no model matched [.'|'])
+reo_01.values.json[5]: PASS
+reo_01.values.json[6]: PASS
+reo_01.values.json[7]: FAIL (: unexpected value for model "/^abcdefghij/" [.'|'.0]; : unexpected value for model "/^klmnopqrst$/" [.'|'.1]; : unexpected value for model "/qrstuvwxyz$/" [.'|'.2]; : no model matched [.'|'])
+reo_01.values.json[8]: FAIL (: unexpected value for model "/^abcdefghij/" [.'|'.0]; : unexpected value for model "/^klmnopqrst$/" [.'|'.1]; : unexpected value for model "/qrstuvwxyz$/" [.'|'.2]; : no model matched [.'|'])
+reo_01.values.json[9]: FAIL (: unexpected type [.'|'])
+reo_01.values.json[10]: FAIL (: unexpected type [.'|'])
+reo_01.values.json[11]: FAIL (: unexpected type [.'|'])
+reo_01.values.json[12]: FAIL (: unexpected type [.'|'])
+reo_01.values.json[13]: FAIL (: unexpected type [.'|'])
+reo_01.values.json[14]: FAIL (: unexpected type [.'|'])
+reo_01.values.json[15]: FAIL (: unexpected type [.'|'])
+reo_01.values.json[16]: FAIL (: unexpected type [.'|'])
+reo_01.values.json[17]: FAIL (: unexpected type [.'|'])

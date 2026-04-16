@@ -204,7 +204,8 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 // handle may $schema property
                 // .'$core'.'$schema'
-                res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "https://json-schema.org/draft/2020-12/schema");
+                const char *sval_0;
+                res = json_is_string(pval) && ((sval_0 = json_string_value(pval)), jm_str_eq_8(sval_0, 0x2f2f3a7370747468LL) && jm_str_eq_8(sval_0 + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(sval_0 + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(sval_0 + 24, 0x30322f7466617264LL) && jm_str_eq_8(sval_0 + 32, 0x63732f32312d3032LL) && jm_str_eq_5(sval_0 + 40, 0x00000000616d6568LL));
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected value for model \"_https://json-schema.org/draft/2020-12/schema\" [.'$core'.'$schema']", (path ? &lpath_0 : NULL));
@@ -1571,7 +1572,8 @@ static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may $schema property
                         // .'$ObjectSchema'.'$schema'
-                        res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "https://json-schema.org/draft/2020-12/schema");
+                        const char *sval_1;
+                        res = json_is_string(pval) && ((sval_1 = json_string_value(pval)), jm_str_eq_8(sval_1, 0x2f2f3a7370747468LL) && jm_str_eq_8(sval_1 + 8, 0x6863732d6e6f736aLL) && jm_str_eq_8(sval_1 + 16, 0x2f67726f2e616d65LL) && jm_str_eq_8(sval_1 + 24, 0x30322f7466617264LL) && jm_str_eq_8(sval_1 + 32, 0x63732f32312d3032LL) && jm_str_eq_5(sval_1 + 40, 0x00000000616d6568LL));
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected value for model \"_https://json-schema.org/draft/2020-12/schema\" [.'$ObjectSchema'.'$schema']", (path ? &lpath_13 : NULL));

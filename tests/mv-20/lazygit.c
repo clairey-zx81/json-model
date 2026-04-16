@@ -882,7 +882,8 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             // handle must type property
             must_count += 1;
             // .'$Prompts'.'|'.3.type
-            res = json_is_string(pval) && jm_str_eq(json_string_value(pval), "menuFromCommand");
+            const char *sval_0;
+            res = json_is_string(pval) && ((sval_0 = json_string_value(pval)), jm_str_eq_8(sval_0, 0x6d6f7246756e656dLL) && jm_str_eq_8(sval_0 + 8, 0x00646e616d6d6f43LL));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"menuFromCommand\" [.'$Prompts'.'|'.3.type]", (path ? &lpath_6 : NULL));

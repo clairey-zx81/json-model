@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "patternProperties": {
+    "^s": {
+      "type": "string"
+    },
+    "^i": {
+      "type": "integer"
+    },
+    "^b": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

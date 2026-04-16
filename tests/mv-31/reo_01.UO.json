@@ -1,0 +1,10 @@
+[
+  {
+    "|": [
+      "/^abcdefghij/",
+      "/^klmnopqrst$/",
+      "/qrstuvwxyz$/"
+    ],
+    "#": "JsonModel 1"
+  }
+]
