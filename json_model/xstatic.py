@@ -222,11 +222,11 @@ class CodeGenerator:
         elif (gen.fast_strlen() and
                 (re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex))):
             return gen.num_cmp(gen.str_len(sval), ">", gen.const(0), is_int=True)
-        elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[[({|.+*?^$])+/$", regex):  # starts with
+        elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[([{|.+*?^$])+/$", regex):  # starts with
             return gen.str_start(sval, unescape_re(regex[2:-1]))
-        elif re.match(r"^/([^[({|.+*?\\^$]|\\[[({|.+*?^$])+\$/$", regex):  # ends with
+        elif re.match(r"^/([^[({|.+*?\\^$]|\\[([{|.+*?^$])+\$/$", regex):  # ends with
             return gen.str_end(sval, unescape_re(regex[1:-2]))
-        elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[[({|.+*?^$])+\$/$", regex):  # streq
+        elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[([{|.+*?^$])+\$/$", regex):  # streq
             return gen.str_cmp(sval, "=", gen.esc(unescape_re(regex[2:-2])))
         # TODO streq ic?
         else:
