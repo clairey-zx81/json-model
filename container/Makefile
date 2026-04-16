@@ -57,7 +57,7 @@ pod.build: .build.base .build.jmc
 	$(POD) build $(BASE.cache) -t jmc-base -f base.container . && date -Iseconds > $@
 	$(POD) tag jmc-base $(ZX80)/jmc-base:latest
 
-.build.jmc: jmc.container jmc .build.base
+.build.jmc: jmc.container
 	$(POD) build $(JMC.cache) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
 	    -t jmc -f jmc.container . && date -Iseconds > $@
 
@@ -81,7 +81,7 @@ versions:
 	echo " - version: $(VERSION)"
 
 .PHONY: pod.tag
-pod.tag: .build.base .build.jmc
+pod.tag: .build.jmc
 	export POD=$(POD)
 	$(POD) tag jmc $(ZX80)/jmc:$(TAG)
 	$(POD) tag jmc $(ZX80)/jmc:$(BRANCH)
