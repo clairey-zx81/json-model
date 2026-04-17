@@ -1,0 +1,93 @@
+-- JSON_MODEL_VERSION is 2
+CREATE EXTENSION IF NOT EXISTS json_model;
+
+-- regex=^[a-z][0-9a-z_-]+$ opts=n
+CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^[a-z][0-9a-z_-]+$', 'n');
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^[A-Z][-0-9A-Z_]*$ opts=n
+CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^[A-Z][-0-9A-Z_]*$', 'n');
+END;
+$$ LANGUAGE plpgsql;
+
+-- regex=^[a-zA-Z][-_0-9a-z]{1,8}$ opts=ni
+CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^[a-zA-Z][-_0-9a-z]{1,8}$', 'ni');
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  prop TEXT;
+  pval JSONB;
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'l' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'u' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_1(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'i' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_2(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    END IF;
+    RETURN FALSE;
+  END LOOP;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
+RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  map JSONB := JSONB '{"":"json_model_1"}';
+BEGIN
+  RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+--
+-- constant maps initialization
+--
+TRUNCATE jm_constant_maps;
+
+--
+-- JSON Model checking entry point
+--
+-- TODO INOUT rep?
+CREATE OR REPLACE FUNCTION check_model(val JSONB, name TEXT, rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  fun TEXT;
+BEGIN
+  fun := check_model_map(name);
+  IF fun IS NULL THEN
+    RAISE EXCEPTION 'model for % not found', name;
+  END IF;
+  RETURN jm_call(fun, val, NULL, rep);
+END;
+$$ LANGUAGE plpgsql;

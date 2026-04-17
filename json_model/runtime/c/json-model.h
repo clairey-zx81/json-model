@@ -62,6 +62,9 @@ static INLINE bool jm_lowhexa(const char c) { return isdigit(c) || (c >= 'a' && 
 static INLINE bool jm_uphexa(const char c) { return isdigit(c) || (c >= 'A' && c <= 'F'); }
 static INLINE bool jm_nzdigit(const char c) { return isdigit(c) && c != '0'; }
 #define jm_isspace(c) ((c) == ' ')
+static INLINE bool jm_ident_dash(const char c) { return isalnum(c) || c == '_' || c == '-'; }
+static INLINE bool jm_lowident_dash(const char c) { return islower(c) || isdigit(c) || c == '_' || c == '-'; }
+static INLINE bool jm_upident_dash(const char c) { return isupper(c) || isdigit(c) || c == '_' || c == '-'; }
 
 // common regex accelerations
 extern bool jm_re_dot(const char *);
