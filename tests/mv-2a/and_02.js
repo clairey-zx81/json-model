@@ -53,7 +53,21 @@ function _jm_obj_1(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_1 = path ? path.concat([prop]) : null;
-        if (prop == "b")
+        if (prop == "s")
+        {
+            // handle must s property
+            must_count += 1;
+            // .'&'.0.s
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.s]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'&'.0.s]", (path ? lpath_1 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "b")
         {
             // handle must b property
             must_count += 1;
@@ -77,20 +91,6 @@ function _jm_obj_1(val, path, rep)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.'&'.0.f]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'&'.0.f]", (path ? lpath_1 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "s")
-        {
-            // handle must s property
-            must_count += 1;
-            // .'&'.0.s
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.s]", (path ? lpath_1 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'&'.0.s]", (path ? lpath_1 : null)])
                 return false;
             }
             continue;

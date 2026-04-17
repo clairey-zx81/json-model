@@ -31,21 +31,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_str_eq_2(prop, 0x00000066))
-        {
-            // handle must f property
-            must_count += 1;
-            // .f
-            res = json_is_number(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.f]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.f]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (likely(jm_str_eq_2(prop, 0x00000069)))
+        if (jm_str_eq_2(prop, 0x00000069))
         {
             // handle must i property
             must_count += 1;
@@ -55,6 +41,20 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "not a -1 strict int [.i]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.i]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (likely(jm_str_eq_2(prop, 0x00000066)))
+        {
+            // handle must f property
+            must_count += 1;
+            // .f
+            res = json_is_number(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.f]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.f]", (path ? &lpath_0 : NULL));
                 return false;
             }
             continue;

@@ -63,19 +63,6 @@ public class and_03 extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("f") == 0)
-            {
-                // handle may f property
-                // .f
-                res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 1.0 strict float [.f]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.f]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-                continue;
-            }
             else if (prop.compareTo("i") == 0)
             {
                 // handle may i property
@@ -85,6 +72,19 @@ public class and_03 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a 1 strict int [.i]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.i]", (path != null ? lpath_0 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("f") == 0)
+            {
+                // handle may f property
+                // .f
+                res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 1.0 strict float [.f]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.f]", (path != null ? lpath_0 : null));
                     return false;
                 }
                 continue;

@@ -190,20 +190,7 @@ public class pgxn extends ModelChecker
                 }
                 continue;
             }
-            if (prop.compareTo("docfile") == 0)
-            {
-                // handle may docfile property
-                // .'$Provide'.docfile
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("abstract") == 0)
+            if (prop.compareTo("abstract") == 0)
             {
                 // handle may abstract property
                 // .'$Provide'.abstract
@@ -212,6 +199,19 @@ public class pgxn extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Provide'.abstract]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.abstract]", (path != null ? lpath_0 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("docfile") == 0)
+            {
+                // handle may docfile property
+                // .'$Provide'.docfile
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Provide'.docfile]", (path != null ? lpath_0 : null));
                     return false;
                 }
                 continue;
@@ -871,6 +871,63 @@ public class pgxn extends ModelChecker
                 }
                 continue;
             }
+            else if (prop.compareTo("version") == 0)
+            {
+                // handle must version property
+                must_count += 1;
+                // .version
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.version]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.version]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("abstract") == 0)
+            {
+                // handle must abstract property
+                must_count += 1;
+                // .abstract
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.abstract]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.abstract]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("maintainer") == 0)
+            {
+                // handle must maintainer property
+                must_count += 1;
+                // .maintainer
+                // .maintainer.'|'.0
+                res = json_model_2(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neStr\" [.maintainer.'|'.0]", (path != null ? lpath_7 : null));
+                    // .maintainer.'|'.1
+                    res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected value for model \"$neStrList\" [.maintainer.'|'.1]", (path != null ? lpath_7 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.maintainer.'|']", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.maintainer]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+                continue;
+            }
             else if (prop.compareTo("license") == 0)
             {
                 // handle must license property
@@ -906,34 +963,6 @@ public class pgxn extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("version") == 0)
-            {
-                // handle must version property
-                must_count += 1;
-                // .version
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.version]", (path != null ? lpath_7 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.version]", (path != null ? lpath_7 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("abstract") == 0)
-            {
-                // handle must abstract property
-                must_count += 1;
-                // .abstract
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.abstract]", (path != null ? lpath_7 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.abstract]", (path != null ? lpath_7 : null));
-                    return false;
-                }
-                continue;
-            }
             else if (prop.compareTo("provides") == 0)
             {
                 // handle must provides property
@@ -962,35 +991,6 @@ public class pgxn extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("maintainer") == 0)
-            {
-                // handle must maintainer property
-                must_count += 1;
-                // .maintainer
-                // .maintainer.'|'.0
-                res = json_model_2(pval, (path != null ? lpath_7 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$neStr\" [.maintainer.'|'.0]", (path != null ? lpath_7 : null));
-                    // .maintainer.'|'.1
-                    res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("unexpected value for model \"$neStrList\" [.maintainer.'|'.1]", (path != null ? lpath_7 : null));
-                    }
-                }
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.maintainer.'|']", (path != null ? lpath_7 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.maintainer]", (path != null ? lpath_7 : null));
-                    return false;
-                }
-                continue;
-            }
             if (prop.compareTo("url") == 0)
             {
                 // handle may url property
@@ -1000,58 +1000,6 @@ public class pgxn extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$URL\" [.url]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.url]", (path != null ? lpath_7 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("tags") == 0)
-            {
-                // handle may tags property
-                // .tags
-                res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$neStrList\" [.tags]", (path != null ? lpath_7 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.tags]", (path != null ? lpath_7 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("prereqs") == 0)
-            {
-                // handle may prereqs property
-                // .prereqs
-                res = json_model_16(pval, (path != null ? lpath_7 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Prereqs\" [.prereqs]", (path != null ? lpath_7 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.prereqs]", (path != null ? lpath_7 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("no_index") == 0)
-            {
-                // handle may no_index property
-                // .no_index
-                res = _jm_obj_6(pval, (path != null ? lpath_7 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.no_index]", (path != null ? lpath_7 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.no_index]", (path != null ? lpath_7 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("resources") == 0)
-            {
-                // handle may resources property
-                // .resources
-                res = json_model_8(pval, (path != null ? lpath_7 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Resources\" [.resources]", (path != null ? lpath_7 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.resources]", (path != null ? lpath_7 : null));
                     return false;
                 }
                 continue;
@@ -1082,6 +1030,32 @@ public class pgxn extends ModelChecker
                 }
                 continue;
             }
+            else if (prop.compareTo("tags") == 0)
+            {
+                // handle may tags property
+                // .tags
+                res = json_model_3(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$neStrList\" [.tags]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.tags]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("no_index") == 0)
+            {
+                // handle may no_index property
+                // .no_index
+                res = _jm_obj_6(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.no_index]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.no_index]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+                continue;
+            }
             else if (prop.compareTo("release_status") == 0)
             {
                 // handle may release_status property
@@ -1091,6 +1065,32 @@ public class pgxn extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Status\" [.release_status]", (path != null ? lpath_7 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.release_status]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("resources") == 0)
+            {
+                // handle may resources property
+                // .resources
+                res = json_model_8(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Resources\" [.resources]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.resources]", (path != null ? lpath_7 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("prereqs") == 0)
+            {
+                // handle may prereqs property
+                // .prereqs
+                res = json_model_16(pval, (path != null ? lpath_7 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Prereqs\" [.prereqs]", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.prereqs]", (path != null ? lpath_7 : null));
                     return false;
                 }
                 continue;

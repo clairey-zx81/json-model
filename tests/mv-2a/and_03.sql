@@ -38,18 +38,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'f' THEN
-      -- handle may f property
-      -- .f
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = 'i' THEN
       -- handle may i property
       -- .i
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'f' THEN
+      -- handle may f property
+      -- .f
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

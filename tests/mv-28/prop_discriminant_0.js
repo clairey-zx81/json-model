@@ -161,10 +161,10 @@ function _jm_obj_2(val, path, rep)
             }
             continue;
         }
-        if (prop == "w")
+        if (prop == "z")
         {
-            // handle may w property
-            // .'|'.0.w
+            // handle may z property
+            // .'|'.0.z
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
@@ -172,10 +172,10 @@ function _jm_obj_2(val, path, rep)
             }
             continue;
         }
-        else if (prop == "z")
+        else if (prop == "w")
         {
-            // handle may z property
-            // .'|'.0.z
+            // handle may w property
+            // .'|'.0.w
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {

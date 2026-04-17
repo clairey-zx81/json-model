@@ -145,24 +145,6 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'c' THEN
-      -- handle must c property
-      must_count := must_count + 1;
-      -- .c
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'd' THEN
-      -- handle must d property
-      must_count := must_count + 1;
-      -- .d
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = 'e' THEN
       -- handle must e property
       must_count := must_count + 1;
@@ -177,6 +159,24 @@ BEGIN
       must_count := must_count + 1;
       -- .f
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_02';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'c' THEN
+      -- handle must c property
+      must_count := must_count + 1;
+      -- .c
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'd' THEN
+      -- handle must d property
+      must_count := must_count + 1;
+      -- .d
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'cst_01';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

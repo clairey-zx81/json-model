@@ -9,13 +9,13 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
+var _jm_obj_0_map = new Map()
 let _jm_cst_0 = new Set()
+const _jm_re_0_re = new runtime.RX("^(Calvin|Susie)$", "")
 let _jm_cst_1 = new Set()
 let _jm_cst_2 = new Set()
 let _jm_cst_3 = new Set()
 let _jm_cst_4 = new Set()
-const _jm_re_0_re = new runtime.RX("^(Calvin|Susie)$", "")
-var _jm_obj_29_map = new Map()
 var _jm_obj_30_map = new Map()
 export var check_model_map = new Map()
 const jm_is_duration_re = new runtime.RX("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$", "")
@@ -151,8 +151,1678 @@ function json_model_5(val, path, rep)
     return true;
 }
 
-// object .or
+// check _jm_obj_0_map_ANY (.predefs.ANY)
+function _jm_f_0(val, path, rep)
+{
+    // .predefs.ANY
+    return true;
+}
+
+// check _jm_obj_0_map_BOOL (.predefs.BOOL)
+function _jm_f_1(val, path, rep)
+{
+    // .predefs.BOOL
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.predefs.BOOL]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_BOOLEAN (.predefs.BOOLEAN)
+function _jm_f_2(val, path, rep)
+{
+    // .predefs.BOOLEAN
+    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.predefs.BOOLEAN]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_DATE (.predefs.DATE)
+function _jm_f_3(val, path, rep)
+{
+    // .predefs.DATE
+    let res = runtime.jm_is_valid_date(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$DATE\" [.predefs.DATE]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_DATETIME (.predefs.DATETIME)
+function _jm_f_4(val, path, rep)
+{
+    // .predefs.DATETIME
+    let res = runtime.jm_is_valid_datetime(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$DATETIME\" [.predefs.DATETIME]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_DURATION (.predefs.DURATION)
+function _jm_f_5(val, path, rep)
+{
+    // .predefs.DURATION
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_duration(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$DURATION\" [.predefs.DURATION]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_EMAIL (.predefs.EMAIL)
+function _jm_f_6(val, path, rep)
+{
+    // .predefs.EMAIL
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_ETH (.predefs.ETH)
+function _jm_f_7(val, path, rep)
+{
+    // .predefs.ETH
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_eth(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$ETH\" [.predefs.ETH]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_EXREG (.predefs.EXREG)
+function _jm_f_8(val, path, rep)
+{
+    // .predefs.EXREG
+    let res = runtime.jm_is_valid_regex(val, true);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$EXREG\" [.predefs.EXREG]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_F32 (.predefs.F32)
+function _jm_f_9(val, path, rep)
+{
+    // .predefs.F32
+    let res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$F32\" [.predefs.F32]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_F64 (.predefs.F64)
+function _jm_f_10(val, path, rep)
+{
+    // .predefs.F64
+    let res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$F64\" [.predefs.F64]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_FLOAT (.predefs.FLOAT)
+function _jm_f_11(val, path, rep)
+{
+    // .predefs.FLOAT
+    let res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_HOST (.predefs.HOST)
+function _jm_f_12(val, path, rep)
+{
+    // .predefs.HOST
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_host(val, path, rep) && val.length <= 255;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$HOST\" [.predefs.HOST]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_I32 (.predefs.I32)
+function _jm_f_13(val, path, rep)
+{
+    // .predefs.I32
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$I32\" [.predefs.I32]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_I64 (.predefs.I64)
+function _jm_f_14(val, path, rep)
+{
+    // .predefs.I64
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$I64\" [.predefs.I64]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_INT (.predefs.INT)
+function _jm_f_15(val, path, rep)
+{
+    // .predefs.INT
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$INT\" [.predefs.INT]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_INTEGER (.predefs.INTEGER)
+function _jm_f_16(val, path, rep)
+{
+    // .predefs.INTEGER
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$INTEGER\" [.predefs.INTEGER]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_IP4 (.predefs.IP4)
+function _jm_f_17(val, path, rep)
+{
+    // .predefs.IP4
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip4(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$IP4\" [.predefs.IP4]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_IP6 (.predefs.IP6)
+function _jm_f_18(val, path, rep)
+{
+    // .predefs.IP6
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip6(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$IP6\" [.predefs.IP6]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_JSON (.predefs.JSON)
+function _jm_f_19(val, path, rep)
+{
+    // .predefs.JSON
+    let res = runtime.jm_is_valid_json(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$JSON\" [.predefs.JSON]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_JSONPT (.predefs.JSONPT)
+function _jm_f_20(val, path, rep)
+{
+    // .predefs.JSONPT
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_jsonpt(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_NONE (.predefs.NONE)
+function _jm_f_21(val, path, rep)
+{
+    // .predefs.NONE
+    rep !== null && rep.push(["unexpected value for model \"$NONE\" [.predefs.NONE]", path])
+    return false;
+}
+
+// check _jm_obj_0_map_NULL (.predefs.NULL)
+function _jm_f_22(val, path, rep)
+{
+    // .predefs.NULL
+    let res = val === null;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$NULL\" [.predefs.NULL]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_NUMBER (.predefs.NUMBER)
+function _jm_f_23(val, path, rep)
+{
+    // .predefs.NUMBER
+    let res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_REGEX (.predefs.REGEX)
+function _jm_f_24(val, path, rep)
+{
+    // .predefs.REGEX
+    let res = runtime.jm_is_valid_regex(val, false);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$REGEX\" [.predefs.REGEX]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_STRING (.predefs.STRING)
+function _jm_f_25(val, path, rep)
+{
+    // .predefs.STRING
+    let res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$STRING\" [.predefs.STRING]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_TIME (.predefs.TIME)
+function _jm_f_26(val, path, rep)
+{
+    // .predefs.TIME
+    let res = runtime.jm_is_valid_time(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$TIME\" [.predefs.TIME]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_U32 (.predefs.U32)
+function _jm_f_27(val, path, rep)
+{
+    // .predefs.U32
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$U32\" [.predefs.U32]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_U64 (.predefs.U64)
+function _jm_f_28(val, path, rep)
+{
+    // .predefs.U64
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$U64\" [.predefs.U64]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_URI (.predefs.URI)
+function _jm_f_29(val, path, rep)
+{
+    // .predefs.URI
+    let res = runtime.jm_is_valid_url(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$URI\" [.predefs.URI]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_URL (.predefs.URL)
+function _jm_f_30(val, path, rep)
+{
+    // .predefs.URL
+    let res = runtime.jm_is_valid_url(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$URL\" [.predefs.URL]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_UUID (.predefs.UUID)
+function _jm_f_31(val, path, rep)
+{
+    // .predefs.UUID
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for model \"$UUID\" [.predefs.UUID]", path])
+    }
+    return res;
+}
+
+
+// object .predefs
 function _jm_obj_0(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.predefs]", path])
+        return false;
+    }
+    let pfun;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_1 = path ? path.concat([prop]) : null;
+        if ((pfun = _jm_obj_0_map.get(prop)))
+        {
+            // handle 32 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_1 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.predefs]", (path ? lpath_1 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.predefs]", (path ? lpath_1 : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .null
+function _jm_obj_1(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.null]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_2 = path ? path.concat([prop]) : null;
+        if (prop == "n0")
+        {
+            // handle may n0 property
+            // .null.n0
+            res = pval === null;
+            if (! res)
+            {
+                rep !== null && rep.push(["not null [.null.n0]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.null.n0]", (path ? lpath_2 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "n1")
+        {
+            // handle may n1 property
+            // .null.n1
+            res = pval === null;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$NULL\" [.null.n1]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.null.n1]", (path ? lpath_2 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "n2")
+        {
+            // handle may n2 property
+            // .null.n2
+            res = pval === null;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=null\" [.null.n2]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.null.n2]", (path ? lpath_2 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.null]", (path ? lpath_2 : null)])
+        return false;
+    }
+    return true;
+}
+
+
+// object .bool
+function _jm_obj_2(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.bool]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_3 = path ? path.concat([prop]) : null;
+        if (prop == "b0")
+        {
+            // handle may b0 property
+            // .bool.b0
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.bool.b0]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.bool.b0]", (path ? lpath_3 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "b1")
+        {
+            // handle may b1 property
+            // .bool.b1
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.bool.b1]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.bool.b1]", (path ? lpath_3 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "b2")
+        {
+            // handle may b2 property
+            // .bool.b2
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.bool.b2]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.bool.b2]", (path ? lpath_3 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "b3")
+        {
+            // handle may b3 property
+            // .bool.b3
+            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=true\" [.bool.b3]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.bool.b3]", (path ? lpath_3 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "b4")
+        {
+            // handle may b4 property
+            // .bool.b4
+            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=false\" [.bool.b4]", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.bool.b4]", (path ? lpath_3 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "b5")
+        {
+            // handle may b5 property
+            // .bool.b5
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.bool.b5.'|']", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.bool.b5]", (path ? lpath_3 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.bool]", (path ? lpath_3 : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .int
+function _jm_obj_3(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.int]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_4 = path ? path.concat([prop]) : null;
+        if (prop == "i0")
+        {
+            // handle may i0 property
+            // .int.i0
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.int.i0]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i0]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i1")
+        {
+            // handle may i1 property
+            // .int.i1
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1 strict int [.int.i1]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i1]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i2")
+        {
+            // handle may i2 property
+            // .int.i2
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.int.i2]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i2]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i3")
+        {
+            // handle may i3 property
+            // .int.i3
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$INT\" [.int.i3]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i3]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i4")
+        {
+            // handle may i4 property
+            // .int.i4
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$INTEGER\" [.int.i4]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i4]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i5")
+        {
+            // handle may i5 property
+            // .int.i5
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$I32\" [.int.i5]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i5]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i6")
+        {
+            // handle may i6 property
+            // .int.i6
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$I64\" [.int.i6]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i6]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i7")
+        {
+            // handle may i7 property
+            // .int.i7
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$U32\" [.int.i7]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i7]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i8")
+        {
+            // handle may i8 property
+            // .int.i8
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$U64\" [.int.i8]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i8]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "i9")
+        {
+            // handle may i9 property
+            // .int.i9
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 42;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=42\" [.int.i9]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.i9]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "ia")
+        {
+            // handle may ia property
+            // .int.ia
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == -42;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=-42\" [.int.ia]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int.ia]", (path ? lpath_4 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.int]", (path ? lpath_4 : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .float
+function _jm_obj_4(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.float]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_5 = path ? path.concat([prop]) : null;
+        if (prop == "f0")
+        {
+            // handle may f0 property
+            // .float.f0
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0.0 strict float [.float.f0]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f0]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f1")
+        {
+            // handle may f1 property
+            // .float.f1
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1.0 strict float [.float.f1]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f1]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f2")
+        {
+            // handle may f2 property
+            // .float.f2
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1.0 strict float [.float.f2]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f2]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f3")
+        {
+            // handle may f3 property
+            // .float.f3
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$FLOAT\" [.float.f3]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f3]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f4")
+        {
+            // handle may f4 property
+            // .float.f4
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$F32\" [.float.f4]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f4]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f5")
+        {
+            // handle may f5 property
+            // .float.f5
+            res = (typeof pval === 'number' || pval instanceof Number);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$F64\" [.float.f5]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f5]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f6")
+        {
+            // handle may f6 property
+            // .float.f6
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 3.1415927;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=3.1415927\" [.float.f6]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f6]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f7")
+        {
+            // handle may f7 property
+            // .float.f7
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 1e+100;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=1.0E100\" [.float.f7]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f7]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f8")
+        {
+            // handle may f8 property
+            // .float.f8
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == -42.1;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=-42.1\" [.float.f8]", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.float.f8]", (path ? lpath_5 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.float]", (path ? lpath_5 : null)])
+        return false;
+    }
+    return true;
+}
+
+const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
+
+// object .string
+function _jm_obj_5(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.string]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_6 = path ? path.concat([prop]) : null;
+        if (prop == "s0")
+        {
+            // handle may s0 property
+            // .string.s0
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"\" [.string.s0]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.string.s0]", (path ? lpath_6 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "s1")
+        {
+            // handle may s1 property
+            // .string.s1
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$STRING\" [.string.s1]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.string.s1]", (path ? lpath_6 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "s2")
+        {
+            // handle may s2 property
+            // .string.s2
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"Susie\" [.string.s2]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.string.s2]", (path ? lpath_6 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "s3")
+        {
+            // handle may s3 property
+            // .string.s3
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Calvin";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"_Calvin\" [.string.s3]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.string.s3]", (path ? lpath_6 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "s4")
+        {
+            // handle may s4 property
+            // .string.s4
+            // "/^(Calvin|Susie)$/"
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"/^(Calvin|Susie)$/\" [.string.s4]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.string.s4]", (path ? lpath_6 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.string]", (path ? lpath_6 : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .array
+function _jm_obj_6(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.array]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_7 = path ? path.concat([prop]) : null;
+        if (prop == "a0")
+        {
+            // handle may a0 property
+            // .array.a0
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
+                {
+                    let arr_0_item = pval[arr_0_idx]
+                    let arr_0_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_0_idx]) : null;
+                    // .array.a0.0
+                    res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0;
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["not a 0 strict int [.array.a0.0]", ((path ? lpath_7 : null) ? arr_0_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.array.a0]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.array.a0]", (path ? lpath_7 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "a1")
+        {
+            // handle may a1 property
+            // .array.a1
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_1_idx = 0; arr_1_idx < pval.length; arr_1_idx++)
+                {
+                    let arr_1_item = pval[arr_1_idx]
+                    let arr_1_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_1_idx]) : null;
+                    // .array.a1.0
+                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected value for model \"\" [.array.a1.0]", ((path ? lpath_7 : null) ? arr_1_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.array.a1]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.array.a1]", (path ? lpath_7 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "a2")
+        {
+            // handle may a2 property
+            // .array.a2
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
+                {
+                    let arr_2_item = pval[arr_2_idx]
+                    let arr_2_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_2_idx]) : null;
+                    // .array.a2.0
+                    res = runtime.jm_is_valid_date(arr_2_item, ((path ? lpath_7 : null) ? arr_2_lpath : null), rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected value for model \"$DATE\" [.array.a2.0]", ((path ? lpath_7 : null) ? arr_2_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.array.a2]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.array.a2]", (path ? lpath_7 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "a3")
+        {
+            // handle may a3 property
+            // .array.a3
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
+                {
+                    let arr_3_item = pval[arr_3_idx]
+                    let arr_3_lpath = (path ? lpath_7 : null) ? (path ? lpath_7 : null).concat([arr_3_idx]) : null;
+                    // .array.a3.0
+                    res = (typeof arr_3_item === 'boolean' || arr_3_item instanceof Boolean);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["not a bool [.array.a3.0]", ((path ? lpath_7 : null) ? arr_3_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.array.a3]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.array.a3]", (path ? lpath_7 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "a4")
+        {
+            // handle may a4 property
+            // .array.a4
+            res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.array.a4]", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.array.a4]", (path ? lpath_7 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.array]", (path ? lpath_7 : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .tuple
+function _jm_obj_7(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.tuple]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_8 = path ? path.concat([prop]) : null;
+        if (prop == "t0")
+        {
+            // handle may t0 property
+            // .tuple.t0
+            res = Array.isArray(pval) && pval.length == 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.tuple.t0]", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.tuple.t0]", (path ? lpath_8 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "t1")
+        {
+            // handle may t1 property
+            // .tuple.t1
+            // .tuple.t1.'@'
+            res = Array.isArray(pval);
+            if (res)
+            {
+                for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)
+                {
+                    let arr_4_item = pval[arr_4_idx]
+                    let arr_4_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_4_idx]) : null;
+                    // .tuple.t1.'@'.0
+                    res = ((typeof arr_4_item === 'number' || arr_4_item instanceof Number) && Number.isInteger(arr_4_item)) && arr_4_item >= 0;
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["not a 0 strict int [.tuple.t1.'@'.0]", ((path ? lpath_8 : null) ? arr_4_lpath : null)])
+                        break;
+                    }
+                }
+            }
+            if (res)
+            {
+                let ival_0 = pval.length;
+                res = ival_0 == 1;
+                if (! res)
+                {
+                    rep !== null && rep.push(["constraints failed [.tuple.t1]", (path ? lpath_8 : null)])
+                }
+            }
+            else
+            {
+                rep !== null && rep.push(["not array or unexpected array [.tuple.t1.'@']", (path ? lpath_8 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.tuple.t1]", (path ? lpath_8 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "t2")
+        {
+            // handle may t2 property
+            // .tuple.t2
+            res = Array.isArray(pval) && pval.length == 2;
+            if (res)
+            {
+                let lpath_9 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([0]) : null;
+                // .tuple.t2.0
+                res = ((typeof pval[0] === 'number' || pval[0] instanceof Number) && Number.isInteger(pval[0])) && pval[0] >= 0;
+                if (res)
+                {
+                    lpath_9 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([1]) : null;
+                    // .tuple.t2.1
+                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0;
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["not a 0 strict int [.tuple.t2.1]", ((path ? lpath_8 : null) ? lpath_9 : null)])
+                    }
+                }
+                else
+                {
+                    rep !== null && rep.push(["not a 0 strict int [.tuple.t2.0]", ((path ? lpath_8 : null) ? lpath_9 : null)])
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.tuple.t2]", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.tuple.t2]", (path ? lpath_8 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "t3")
+        {
+            // handle may t3 property
+            // .tuple.t3
+            res = Array.isArray(pval) && pval.length == 3;
+            if (res)
+            {
+                let lpath_10 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([0]) : null;
+                // .tuple.t3.0
+                res = (typeof pval[0] === 'boolean' || pval[0] instanceof Boolean);
+                if (res)
+                {
+                    lpath_10 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([1]) : null;
+                    // .tuple.t3.1
+                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0;
+                    if (res)
+                    {
+                        lpath_10 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([2]) : null;
+                        // .tuple.t3.2
+                        res = (typeof pval[2] === 'string' || pval[2] instanceof String);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected value for model \"\" [.tuple.t3.2]", ((path ? lpath_8 : null) ? lpath_10 : null)])
+                        }
+                    }
+                    else
+                    {
+                        rep !== null && rep.push(["not a 0 strict int [.tuple.t3.1]", ((path ? lpath_8 : null) ? lpath_10 : null)])
+                    }
+                }
+                else
+                {
+                    rep !== null && rep.push(["not a bool [.tuple.t3.0]", ((path ? lpath_8 : null) ? lpath_10 : null)])
+                }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.tuple.t3]", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.tuple.t3]", (path ? lpath_8 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "t4")
+        {
+            // handle may t4 property
+            // .tuple.t4
+            // .tuple.t4.'@'
+            let lpath_11;
+            res = Array.isArray(pval);
+            if (res)
+            {
+                let len_0 = pval.length;
+                if (len_0 > 0)
+                {
+                    lpath_11 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([0]) : null;
+                    // .tuple.t4.'@'.0
+                    res = (typeof pval[0] === 'string' || pval[0] instanceof String);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected value for model \"\" [.tuple.t4.'@'.0]", ((path ? lpath_8 : null) ? lpath_11 : null)])
+                    }
+                }
+                if (res)
+                {
+                    for (let idx_0 = 1; idx_0 < len_0; idx_0++)
+                    {
+                        lpath_11 = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([idx_0]) : null;
+                        // .tuple.t4.'@'.1
+                        res = ((typeof pval[idx_0] === 'number' || pval[idx_0] instanceof Number) && Number.isInteger(pval[idx_0])) && pval[idx_0] >= 0;
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["not a 0 strict int [.tuple.t4.'@'.1]", ((path ? lpath_8 : null) ? lpath_11 : null)])
+                            break;
+                        }
+                    }
+                }
+            }
+            if (res)
+            {
+                let ival_1 = pval.length;
+                res = ival_1 >= 2;
+                if (! res)
+                {
+                    rep !== null && rep.push(["constraints failed [.tuple.t4]", (path ? lpath_8 : null)])
+                }
+            }
+            else
+            {
+                rep !== null && rep.push(["not array or unexpected array [.tuple.t4.'@']", (path ? lpath_8 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.tuple.t4]", (path ? lpath_8 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.tuple]", (path ? lpath_8 : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .object.o0
+function _jm_obj_9(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.object.o0]", path])
+        return false;
+    }
+    if (Object.keys(val).length == 0)
+    {
+        return true;
+    }
+    else
+    {
+        rep !== null && rep.push(["expecting empty object [.object.o0]", path])
+        return false;
+    }
+}
+
+// object .object.o1
+function _jm_obj_10(val, path, rep)
+{
+    // check close must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.object.o1]", path])
+        return false;
+    }
+    if (Object.keys(val).length != 3)
+    {
+        rep !== null && rep.push(["bad property count [.object.o1]", path])
+        return false;
+    }
+    let lpath;
+    let pval;
+    if (! val.hasOwnProperty("a"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <a> [.object.o1]", path])
+        return false;
+    }
+    lpath = path ? path.concat(["a"]) : null;
+    pval = val["a"];
+    // .object.o1.a
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.object.o1.a]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.object.o1]", (path ? lpath : null)])
+        return false;
+    }
+    if (! val.hasOwnProperty("b"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <b> [.object.o1]", path])
+        return false;
+    }
+    lpath = path ? path.concat(["b"]) : null;
+    pval = val["b"];
+    // .object.o1.b
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.object.o1.b]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.object.o1]", (path ? lpath : null)])
+        return false;
+    }
+    if (! val.hasOwnProperty("c"))
+    {
+        rep !== null && rep.push(["missing mandatory prop <c> [.object.o1]", path])
+        return false;
+    }
+    lpath = path ? path.concat(["c"]) : null;
+    pval = val["c"];
+    // .object.o1.c
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 strict int [.object.o1.c]", (path ? lpath : null)])
+        rep !== null && rep.push(["unexpected value for mandatory prop <c> [.object.o1]", (path ? lpath : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .object.o2
+function _jm_obj_11(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.object.o2]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_13 = path ? path.concat([prop]) : null;
+        if (prop == "a")
+        {
+            // handle may a property
+            // .object.o2.a
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.object.o2.a]", (path ? lpath_13 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.object.o2.a]", (path ? lpath_13 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.object.o2]", (path ? lpath_13 : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .object.o3
+function _jm_obj_12(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.object.o3]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_14 = path ? path.concat([prop]) : null;
+        if (prop.startsWith("a"))
+        {
+            // handle 1 re props
+            // .object.o3.'/^a/'
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.object.o3.'/^a/']", (path ? lpath_14 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.object.o3]", (path ? lpath_14 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .object.o4
+function _jm_obj_13(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.object.o4]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_15 = path ? path.concat([prop]) : null;
+        if (runtime.jm_is_valid_date(prop, (path ? lpath_15 : null), rep))
+        {
+            // handle 1 key props
+            // .object.o4.'$DATE'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"\" [.object.o4.'$DATE']", (path ? lpath_15 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.object.o4]", (path ? lpath_15 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .object.o5
+function _jm_obj_14(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.object.o5]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_16 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .object.o5.''
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        if (! res)
+        {
+            rep !== null && rep.push(["not a 0 strict int [.object.o5.'']", (path ? lpath_16 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .object
+function _jm_obj_8(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.object]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_12 = path ? path.concat([prop]) : null;
+        if (prop == "o0")
+        {
+            // handle may o0 property
+            // .object.o0
+            res = _jm_obj_9(pval, (path ? lpath_12 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.object.o0]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.object.o0]", (path ? lpath_12 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "o1")
+        {
+            // handle may o1 property
+            // .object.o1
+            res = _jm_obj_10(pval, (path ? lpath_12 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.object.o1]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.object.o1]", (path ? lpath_12 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "o2")
+        {
+            // handle may o2 property
+            // .object.o2
+            res = _jm_obj_11(pval, (path ? lpath_12 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.object.o2]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.object.o2]", (path ? lpath_12 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "o3")
+        {
+            // handle may o3 property
+            // .object.o3
+            res = _jm_obj_12(pval, (path ? lpath_12 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.object.o3]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.object.o3]", (path ? lpath_12 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "o4")
+        {
+            // handle may o4 property
+            // .object.o4
+            res = _jm_obj_13(pval, (path ? lpath_12 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.object.o4]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.object.o4]", (path ? lpath_12 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "o5")
+        {
+            // handle may o5 property
+            // .object.o5
+            res = _jm_obj_14(pval, (path ? lpath_12 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.object.o5]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.object.o5]", (path ? lpath_12 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "o6")
+        {
+            // handle may o6 property
+            // .object.o6
+            res = Object.prototype.toString.call(pval) === '[object Object]';
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.object.o6]", (path ? lpath_12 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.object]", (path ? lpath_12 : null)])
+        return false;
+    }
+    return true;
+}
+
+
+
+
+
+// object .enum
+function _jm_obj_15(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.enum]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_17 = path ? path.concat([prop]) : null;
+        if (prop == "e0")
+        {
+            // handle may e0 property
+            // .enum.e0
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.enum.e0.'|']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.enum.e0]", (path ? lpath_17 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "e1")
+        {
+            // handle may e1 property
+            // .enum.e1
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.enum.e1.'|']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.enum.e1]", (path ? lpath_17 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "e2")
+        {
+            // handle may e2 property
+            // .enum.e2
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_3.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.enum.e2.'|']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.enum.e2]", (path ? lpath_17 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "e3")
+        {
+            // handle may e3 property
+            // .enum.e3
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.enum.e3.'|']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.enum.e3]", (path ? lpath_17 : null)])
+                return false;
+            }
+            continue;
+        }
+        rep !== null && rep.push(["unexpected prop [.enum]", (path ? lpath_17 : null)])
+        return false;
+    }
+    return true;
+}
+
+// object .or
+function _jm_obj_16(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -162,7 +1832,7 @@ function _jm_obj_0(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_18 = path ? path.concat([prop]) : null;
         if (prop == "o0")
         {
             // handle may o0 property
@@ -171,12 +1841,12 @@ function _jm_obj_0(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.or.o0.'|'.0]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not a bool [.or.o0.'|'.0]", (path ? lpath_18 : null)])
                 // .or.o0.'|'.1
                 res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1 strict int [.or.o0.'|'.1]", (path ? lpath_1 : null)])
+                    rep !== null && rep.push(["not a -1 strict int [.or.o0.'|'.1]", (path ? lpath_18 : null)])
                 }
             }
             if (res)
@@ -185,8 +1855,8 @@ function _jm_obj_0(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["no model matched [.or.o0.'|']", (path ? lpath_1 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.or.o0]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["no model matched [.or.o0.'|']", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.or.o0]", (path ? lpath_18 : null)])
                 return false;
             }
             continue;
@@ -199,15 +1869,15 @@ function _jm_obj_0(val, path, rep)
             if (res)
             {
                 // .or.o1.'|'.0
-                res = runtime.jm_is_valid_date(pval, (path ? lpath_1 : null), rep);
+                res = runtime.jm_is_valid_date(pval, (path ? lpath_18 : null), rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path ? lpath_1 : null)])
+                    rep !== null && rep.push(["unexpected value for model \"$DATE\" [.or.o1.'|'.0]", (path ? lpath_18 : null)])
                     // .or.o1.'|'.1
-                    res = runtime.jm_is_valid_time(pval, (path ? lpath_1 : null), rep);
+                    res = runtime.jm_is_valid_time(pval, (path ? lpath_18 : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path ? lpath_1 : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path ? lpath_18 : null)])
                     }
                 }
                 if (res)
@@ -216,16 +1886,16 @@ function _jm_obj_0(val, path, rep)
                 }
                 else
                 {
-                    rep !== null && rep.push(["no model matched [.or.o1.'|']", (path ? lpath_1 : null)])
+                    rep !== null && rep.push(["no model matched [.or.o1.'|']", (path ? lpath_18 : null)])
                 }
             }
             else
             {
-                rep !== null && rep.push(["unexpected type [.or.o1.'|']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected type [.or.o1.'|']", (path ? lpath_18 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.or.o1]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.or.o1]", (path ? lpath_18 : null)])
                 return false;
             }
             continue;
@@ -238,17 +1908,17 @@ function _jm_obj_0(val, path, rep)
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.or.o2.'|'.0]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.or.o2.'|'.0]", (path ? lpath_18 : null)])
                 // .or.o2.'|'.1
-                res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_uuid(pval, (path ? lpath_1 : null), rep);
+                res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_uuid(pval, (path ? lpath_18 : null), rep);
                 if (! res)
                 {
-                    rep !== null && rep.push(["unexpected value for model \"$UUID\" [.or.o2.'|'.1]", (path ? lpath_1 : null)])
+                    rep !== null && rep.push(["unexpected value for model \"$UUID\" [.or.o2.'|'.1]", (path ? lpath_18 : null)])
                     // .or.o2.'|'.2
                     res = Array.isArray(pval);
                     if (! res)
                     {
-                        rep !== null && rep.push(["not array or unexpected array [.or.o2.'|'.2]", (path ? lpath_1 : null)])
+                        rep !== null && rep.push(["not array or unexpected array [.or.o2.'|'.2]", (path ? lpath_18 : null)])
                         // .or.o2.'|'.3
                         res = Object.prototype.toString.call(pval) === '[object Object]';
                     }
@@ -260,235 +1930,20 @@ function _jm_obj_0(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["no model matched [.or.o2.'|']", (path ? lpath_1 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.or.o2]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["no model matched [.or.o2.'|']", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.or.o2]", (path ? lpath_18 : null)])
                 return false;
             }
             continue;
         }
-        rep !== null && rep.push(["unexpected prop [.or]", (path ? lpath_1 : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .and
-function _jm_obj_1(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.and]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_2 = path ? path.concat([prop]) : null;
-        if (prop == "a0")
-        {
-            // handle may a0 property
-            // .and.a0
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (res)
-            {
-                // .and.a0.'&'.0
-                res = runtime.jm_is_valid_date(pval, (path ? lpath_2 : null), rep);
-                if (res)
-                {
-                    // .and.a0.'&'.1
-                    // "/^2020-/"
-                    res = pval.startsWith("2020-");
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", (path ? lpath_2 : null)])
-                    }
-                }
-                else
-                {
-                    rep !== null && rep.push(["unexpected value for model \"$DATE\" [.and.a0.'&'.0]", (path ? lpath_2 : null)])
-                }
-            }
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["not all model match [.and.a0.'&']", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.and.a0]", (path ? lpath_2 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.and]", (path ? lpath_2 : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .int
-function _jm_obj_2(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.int]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_3 = path ? path.concat([prop]) : null;
-        if (prop == "i0")
-        {
-            // handle may i0 property
-            // .int.i0
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.int.i0]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i0]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i1")
-        {
-            // handle may i1 property
-            // .int.i1
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1 strict int [.int.i1]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i1]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i2")
-        {
-            // handle may i2 property
-            // .int.i2
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a -1 strict int [.int.i2]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i2]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i3")
-        {
-            // handle may i3 property
-            // .int.i3
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$INT\" [.int.i3]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i3]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i4")
-        {
-            // handle may i4 property
-            // .int.i4
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$INTEGER\" [.int.i4]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i4]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i5")
-        {
-            // handle may i5 property
-            // .int.i5
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$I32\" [.int.i5]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i5]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i6")
-        {
-            // handle may i6 property
-            // .int.i6
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$I64\" [.int.i6]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i6]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i7")
-        {
-            // handle may i7 property
-            // .int.i7
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$U32\" [.int.i7]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i7]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i8")
-        {
-            // handle may i8 property
-            // .int.i8
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$U64\" [.int.i8]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i8]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "i9")
-        {
-            // handle may i9 property
-            // .int.i9
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 42;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=42\" [.int.i9]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.i9]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "ia")
-        {
-            // handle may ia property
-            // .int.ia
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == -42;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=-42\" [.int.ia]", (path ? lpath_3 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int.ia]", (path ? lpath_3 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.int]", (path ? lpath_3 : null)])
+        rep !== null && rep.push(["unexpected prop [.or]", (path ? lpath_18 : null)])
         return false;
     }
     return true;
 }
 
 // object .xor
-function _jm_obj_3(val, path, rep)
+function _jm_obj_17(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -498,7 +1953,7 @@ function _jm_obj_3(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_4 = path ? path.concat([prop]) : null;
+        let lpath_19 = path ? path.concat([prop]) : null;
         if (prop == "x0")
         {
             // handle may x0 property
@@ -507,12 +1962,12 @@ function _jm_obj_3(val, path, rep)
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
             if (! res)
             {
-                rep !== null && rep.push(["not a bool [.xor.x0.'|'.0]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not a bool [.xor.x0.'|'.0]", (path ? lpath_19 : null)])
                 // .xor.x0.'|'.1
                 res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1 strict int [.xor.x0.'|'.1]", (path ? lpath_4 : null)])
+                    rep !== null && rep.push(["not a -1 strict int [.xor.x0.'|'.1]", (path ? lpath_19 : null)])
                 }
             }
             if (res)
@@ -521,8 +1976,8 @@ function _jm_obj_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["no model matched [.xor.x0.'|']", (path ? lpath_4 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.xor.x0]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["no model matched [.xor.x0.'|']", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.xor.x0]", (path ? lpath_19 : null)])
                 return false;
             }
             continue;
@@ -542,7 +1997,7 @@ function _jm_obj_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["unexpected value for model \"/^a/\" [.xor.x1.'^'.0]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/^a/\" [.xor.x1.'^'.0]", (path ? lpath_19 : null)])
             }
             // .xor.x1.'^'.1
             // "/z$/"
@@ -553,7 +2008,7 @@ function _jm_obj_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["unexpected value for model \"/z$/\" [.xor.x1.'^'.1]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected value for model \"/z$/\" [.xor.x1.'^'.1]", (path ? lpath_19 : null)])
             }
             res = xc_0 == 1;
             if (res)
@@ -562,8 +2017,8 @@ function _jm_obj_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["not one model match [.xor.x1.'^']", (path ? lpath_4 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.xor.x1]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not one model match [.xor.x1.'^']", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.xor.x1]", (path ? lpath_19 : null)])
                 return false;
             }
             continue;
@@ -582,7 +2037,7 @@ function _jm_obj_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["not a -1 strict int [.xor.x2.'^'.0]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not a -1 strict int [.xor.x2.'^'.0]", (path ? lpath_19 : null)])
             }
             // .xor.x2.'^'.1
             xr_1 = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
@@ -592,7 +2047,7 @@ function _jm_obj_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["not a 0 strict int [.xor.x2.'^'.1]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.xor.x2.'^'.1]", (path ? lpath_19 : null)])
             }
             res = xc_1 == 1;
             if (res)
@@ -601,8 +2056,8 @@ function _jm_obj_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["not one model match [.xor.x2.'^']", (path ? lpath_4 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.xor.x2]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not one model match [.xor.x2.'^']", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.xor.x2]", (path ? lpath_19 : null)])
                 return false;
             }
             continue;
@@ -616,7 +2071,7 @@ function _jm_obj_3(val, path, rep)
             let is_0 = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! is_0)
             {
-                rep !== null && rep.push(["not a 0 strict int [.xor.x3.'^'.1]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.xor.x3.'^'.1]", (path ? lpath_19 : null)])
             }
             res = ! is_0;
             if (res)
@@ -625,526 +2080,74 @@ function _jm_obj_3(val, path, rep)
             }
             else
             {
-                rep !== null && rep.push(["not one model match [.xor.x3.'^']", (path ? lpath_4 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.xor.x3]", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["not one model match [.xor.x3.'^']", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.xor.x3]", (path ? lpath_19 : null)])
                 return false;
             }
             continue;
         }
-        rep !== null && rep.push(["unexpected prop [.xor]", (path ? lpath_4 : null)])
+        rep !== null && rep.push(["unexpected prop [.xor]", (path ? lpath_19 : null)])
         return false;
     }
     return true;
 }
 
-
-// object .bool
-function _jm_obj_4(val, path, rep)
+// object .and
+function _jm_obj_18(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        rep !== null && rep.push(["not an object [.bool]", path])
+        rep !== null && rep.push(["not an object [.and]", path])
         return false;
     }
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_5 = path ? path.concat([prop]) : null;
-        if (prop == "b0")
-        {
-            // handle may b0 property
-            // .bool.b0
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.bool.b0]", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.bool.b0]", (path ? lpath_5 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "b1")
-        {
-            // handle may b1 property
-            // .bool.b1
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.bool.b1]", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.bool.b1]", (path ? lpath_5 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "b2")
-        {
-            // handle may b2 property
-            // .bool.b2
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.bool.b2]", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.bool.b2]", (path ? lpath_5 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "b3")
-        {
-            // handle may b3 property
-            // .bool.b3
-            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=true\" [.bool.b3]", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.bool.b3]", (path ? lpath_5 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "b4")
-        {
-            // handle may b4 property
-            // .bool.b4
-            res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=false\" [.bool.b4]", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.bool.b4]", (path ? lpath_5 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "b5")
-        {
-            // handle may b5 property
-            // .bool.b5
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.bool.b5.'|']", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.bool.b5]", (path ? lpath_5 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.bool]", (path ? lpath_5 : null)])
-        return false;
-    }
-    return true;
-}
-
-
-
-
-
-// object .enum
-function _jm_obj_5(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.enum]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_6 = path ? path.concat([prop]) : null;
-        if (prop == "e0")
-        {
-            // handle may e0 property
-            // .enum.e0
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.enum.e0.'|']", (path ? lpath_6 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.enum.e0]", (path ? lpath_6 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "e1")
-        {
-            // handle may e1 property
-            // .enum.e1
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.enum.e1.'|']", (path ? lpath_6 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.enum.e1]", (path ? lpath_6 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "e2")
-        {
-            // handle may e2 property
-            // .enum.e2
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_3.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.enum.e2.'|']", (path ? lpath_6 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.enum.e2]", (path ? lpath_6 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "e3")
-        {
-            // handle may e3 property
-            // .enum.e3
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["value not in enum [.enum.e3.'|']", (path ? lpath_6 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.enum.e3]", (path ? lpath_6 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.enum]", (path ? lpath_6 : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .null
-function _jm_obj_6(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.null]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_7 = path ? path.concat([prop]) : null;
-        if (prop == "n0")
-        {
-            // handle may n0 property
-            // .null.n0
-            res = pval === null;
-            if (! res)
-            {
-                rep !== null && rep.push(["not null [.null.n0]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.null.n0]", (path ? lpath_7 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "n1")
-        {
-            // handle may n1 property
-            // .null.n1
-            res = pval === null;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$NULL\" [.null.n1]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.null.n1]", (path ? lpath_7 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "n2")
-        {
-            // handle may n2 property
-            // .null.n2
-            res = pval === null;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=null\" [.null.n2]", (path ? lpath_7 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.null.n2]", (path ? lpath_7 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.null]", (path ? lpath_7 : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .array
-function _jm_obj_7(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.array]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_8 = path ? path.concat([prop]) : null;
+        let lpath_20 = path ? path.concat([prop]) : null;
         if (prop == "a0")
         {
             // handle may a0 property
-            // .array.a0
-            res = Array.isArray(pval);
+            // .and.a0
+            res = (typeof pval === 'string' || pval instanceof String);
             if (res)
             {
-                for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
+                // .and.a0.'&'.0
+                res = runtime.jm_is_valid_date(pval, (path ? lpath_20 : null), rep);
+                if (res)
                 {
-                    let arr_0_item = pval[arr_0_idx]
-                    let arr_0_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_0_idx]) : null;
-                    // .array.a0.0
-                    res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0;
+                    // .and.a0.'&'.1
+                    // "/^2020-/"
+                    res = pval.startsWith("2020-");
                     if (! res)
                     {
-                        rep !== null && rep.push(["not a 0 strict int [.array.a0.0]", ((path ? lpath_8 : null) ? arr_0_lpath : null)])
-                        break;
+                        rep !== null && rep.push(["unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", (path ? lpath_20 : null)])
                     }
                 }
+                else
+                {
+                    rep !== null && rep.push(["unexpected value for model \"$DATE\" [.and.a0.'&'.0]", (path ? lpath_20 : null)])
+                }
             }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.array.a0]", (path ? lpath_8 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.array.a0]", (path ? lpath_8 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "a1")
-        {
-            // handle may a1 property
-            // .array.a1
-            res = Array.isArray(pval);
             if (res)
             {
-                for (let arr_1_idx = 0; arr_1_idx < pval.length; arr_1_idx++)
-                {
-                    let arr_1_item = pval[arr_1_idx]
-                    let arr_1_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_1_idx]) : null;
-                    // .array.a1.0
-                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected value for model \"\" [.array.a1.0]", ((path ? lpath_8 : null) ? arr_1_lpath : null)])
-                        break;
-                    }
-                }
+                if (rep !== null) rep.length = 0
             }
-            if (! res)
+            else
             {
-                rep !== null && rep.push(["not array or unexpected array [.array.a1]", (path ? lpath_8 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.array.a1]", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["not all model match [.and.a0.'&']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.and.a0]", (path ? lpath_20 : null)])
                 return false;
             }
             continue;
         }
-        else if (prop == "a2")
-        {
-            // handle may a2 property
-            // .array.a2
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
-                {
-                    let arr_2_item = pval[arr_2_idx]
-                    let arr_2_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_2_idx]) : null;
-                    // .array.a2.0
-                    res = runtime.jm_is_valid_date(arr_2_item, ((path ? lpath_8 : null) ? arr_2_lpath : null), rep);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected value for model \"$DATE\" [.array.a2.0]", ((path ? lpath_8 : null) ? arr_2_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.array.a2]", (path ? lpath_8 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.array.a2]", (path ? lpath_8 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "a3")
-        {
-            // handle may a3 property
-            // .array.a3
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
-                {
-                    let arr_3_item = pval[arr_3_idx]
-                    let arr_3_lpath = (path ? lpath_8 : null) ? (path ? lpath_8 : null).concat([arr_3_idx]) : null;
-                    // .array.a3.0
-                    res = (typeof arr_3_item === 'boolean' || arr_3_item instanceof Boolean);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a bool [.array.a3.0]", ((path ? lpath_8 : null) ? arr_3_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.array.a3]", (path ? lpath_8 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.array.a3]", (path ? lpath_8 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "a4")
-        {
-            // handle may a4 property
-            // .array.a4
-            res = Array.isArray(pval);
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.array.a4]", (path ? lpath_8 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.array.a4]", (path ? lpath_8 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.array]", (path ? lpath_8 : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .float
-function _jm_obj_8(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.float]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_9 = path ? path.concat([prop]) : null;
-        if (prop == "f0")
-        {
-            // handle may f0 property
-            // .float.f0
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0.0 strict float [.float.f0]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f0]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "f1")
-        {
-            // handle may f1 property
-            // .float.f1
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1.0 strict float [.float.f1]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f1]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "f2")
-        {
-            // handle may f2 property
-            // .float.f2
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a -1.0 strict float [.float.f2]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f2]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "f3")
-        {
-            // handle may f3 property
-            // .float.f3
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$FLOAT\" [.float.f3]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f3]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "f4")
-        {
-            // handle may f4 property
-            // .float.f4
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$F32\" [.float.f4]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f4]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "f5")
-        {
-            // handle may f5 property
-            // .float.f5
-            res = (typeof pval === 'number' || pval instanceof Number);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$F64\" [.float.f5]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f5]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "f6")
-        {
-            // handle may f6 property
-            // .float.f6
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 3.1415927;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=3.1415927\" [.float.f6]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f6]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "f7")
-        {
-            // handle may f7 property
-            // .float.f7
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 1e+100;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=1.0E100\" [.float.f7]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f7]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "f8")
-        {
-            // handle may f8 property
-            // .float.f8
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval == -42.1;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=-42.1\" [.float.f8]", (path ? lpath_9 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.float.f8]", (path ? lpath_9 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.float]", (path ? lpath_9 : null)])
+        rep !== null && rep.push(["unexpected prop [.and]", (path ? lpath_20 : null)])
         return false;
     }
     return true;
 }
 
 // object .merge.m0
-function _jm_obj_10(val, path, rep)
+function _jm_obj_20(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1155,7 +2158,7 @@ function _jm_obj_10(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_11 = path ? path.concat([prop]) : null;
+        let lpath_22 = path ? path.concat([prop]) : null;
         if (prop == "a")
         {
             // handle must a property
@@ -1164,8 +2167,8 @@ function _jm_obj_10(val, path, rep)
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.merge.m0.a]", (path ? lpath_11 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.merge.m0.a]", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.merge.m0.a]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.merge.m0.a]", (path ? lpath_22 : null)])
                 return false;
             }
             continue;
@@ -1177,13 +2180,13 @@ function _jm_obj_10(val, path, rep)
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
             if (! res)
             {
-                rep !== null && rep.push(["not a 0 strict int [.merge.m0.b]", (path ? lpath_11 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.merge.m0.b]", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["not a 0 strict int [.merge.m0.b]", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.merge.m0.b]", (path ? lpath_22 : null)])
                 return false;
             }
             continue;
         }
-        rep !== null && rep.push(["unexpected prop [.merge.m0]", (path ? lpath_11 : null)])
+        rep !== null && rep.push(["unexpected prop [.merge.m0]", (path ? lpath_22 : null)])
         return false;
     }
     if (must_count != 1)
@@ -1201,7 +2204,7 @@ function _jm_obj_10(val, path, rep)
 }
 
 // object .merge.m1.'|'.1
-function _jm_obj_11(val, path, rep)
+function _jm_obj_21(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1250,7 +2253,7 @@ function _jm_obj_11(val, path, rep)
 }
 
 // object .merge.m1.'|'.0
-function _jm_obj_12(val, path, rep)
+function _jm_obj_22(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1299,7 +2302,7 @@ function _jm_obj_12(val, path, rep)
 }
 
 // object .merge.m2.'|'.1
-function _jm_obj_13(val, path, rep)
+function _jm_obj_23(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1348,7 +2351,7 @@ function _jm_obj_13(val, path, rep)
 }
 
 // object .merge.m2.'|'.0
-function _jm_obj_14(val, path, rep)
+function _jm_obj_24(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1397,7 +2400,7 @@ function _jm_obj_14(val, path, rep)
 }
 
 // object .merge.m3.'|'.3
-function _jm_obj_15(val, path, rep)
+function _jm_obj_25(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1446,7 +2449,7 @@ function _jm_obj_15(val, path, rep)
 }
 
 // object .merge.m3.'|'.2
-function _jm_obj_16(val, path, rep)
+function _jm_obj_26(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1495,7 +2498,7 @@ function _jm_obj_16(val, path, rep)
 }
 
 // object .merge.m3.'|'.1
-function _jm_obj_17(val, path, rep)
+function _jm_obj_27(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1544,7 +2547,7 @@ function _jm_obj_17(val, path, rep)
 }
 
 // object .merge.m3.'|'.0
-function _jm_obj_18(val, path, rep)
+function _jm_obj_28(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1593,7 +2596,7 @@ function _jm_obj_18(val, path, rep)
 }
 
 // object .merge.m4
-function _jm_obj_19(val, path, rep)
+function _jm_obj_29(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1672,7 +2675,7 @@ function _jm_obj_19(val, path, rep)
 }
 
 // object .merge
-function _jm_obj_9(val, path, rep)
+function _jm_obj_19(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -1682,16 +2685,16 @@ function _jm_obj_9(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_10 = path ? path.concat([prop]) : null;
+        let lpath_21 = path ? path.concat([prop]) : null;
         if (prop == "m0")
         {
             // handle may m0 property
             // .merge.m0
-            res = _jm_obj_10(pval, (path ? lpath_10 : null), rep);
+            res = _jm_obj_20(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.merge.m0]", (path ? lpath_10 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.merge.m0]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["unexpected element [.merge.m0]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.merge.m0]", (path ? lpath_21 : null)])
                 return false;
             }
             continue;
@@ -1706,10 +2709,10 @@ function _jm_obj_9(val, path, rep)
                 if (pval.hasOwnProperty("b"))
                 {
                     // .merge.m1.'|'.0
-                    res = _jm_obj_12(pval, (path ? lpath_10 : null), rep);
+                    res = _jm_obj_22(pval, (path ? lpath_21 : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected element [.merge.m1.'|'.0]", (path ? lpath_10 : null)])
+                        rep !== null && rep.push(["unexpected element [.merge.m1.'|'.0]", (path ? lpath_21 : null)])
                     }
                 }
                 else
@@ -1717,10 +2720,10 @@ function _jm_obj_9(val, path, rep)
                     if (pval.hasOwnProperty("c"))
                     {
                         // .merge.m1.'|'.1
-                        res = _jm_obj_11(pval, (path ? lpath_10 : null), rep);
+                        res = _jm_obj_21(pval, (path ? lpath_21 : null), rep);
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected element [.merge.m1.'|'.1]", (path ? lpath_10 : null)])
+                            rep !== null && rep.push(["unexpected element [.merge.m1.'|'.1]", (path ? lpath_21 : null)])
                         }
                     }
                     else
@@ -1734,16 +2737,16 @@ function _jm_obj_9(val, path, rep)
                 }
                 else
                 {
-                    rep !== null && rep.push(["no model matched [.merge.m1.'|']", (path ? lpath_10 : null)])
+                    rep !== null && rep.push(["no model matched [.merge.m1.'|']", (path ? lpath_21 : null)])
                 }
             }
             else
             {
-                rep !== null && rep.push(["unexpected type [.merge.m1.'|']", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["unexpected type [.merge.m1.'|']", (path ? lpath_21 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.merge.m1]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.merge.m1]", (path ? lpath_21 : null)])
                 return false;
             }
             continue;
@@ -1758,10 +2761,10 @@ function _jm_obj_9(val, path, rep)
                 if (pval.hasOwnProperty("b"))
                 {
                     // .merge.m2.'|'.0
-                    res = _jm_obj_14(pval, (path ? lpath_10 : null), rep);
+                    res = _jm_obj_24(pval, (path ? lpath_21 : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected element [.merge.m2.'|'.0]", (path ? lpath_10 : null)])
+                        rep !== null && rep.push(["unexpected element [.merge.m2.'|'.0]", (path ? lpath_21 : null)])
                     }
                 }
                 else
@@ -1769,10 +2772,10 @@ function _jm_obj_9(val, path, rep)
                     if (pval.hasOwnProperty("c"))
                     {
                         // .merge.m2.'|'.1
-                        res = _jm_obj_13(pval, (path ? lpath_10 : null), rep);
+                        res = _jm_obj_23(pval, (path ? lpath_21 : null), rep);
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected element [.merge.m2.'|'.1]", (path ? lpath_10 : null)])
+                            rep !== null && rep.push(["unexpected element [.merge.m2.'|'.1]", (path ? lpath_21 : null)])
                         }
                     }
                     else
@@ -1786,16 +2789,16 @@ function _jm_obj_9(val, path, rep)
                 }
                 else
                 {
-                    rep !== null && rep.push(["no model matched [.merge.m2.'|']", (path ? lpath_10 : null)])
+                    rep !== null && rep.push(["no model matched [.merge.m2.'|']", (path ? lpath_21 : null)])
                 }
             }
             else
             {
-                rep !== null && rep.push(["unexpected type [.merge.m2.'|']", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["unexpected type [.merge.m2.'|']", (path ? lpath_21 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.merge.m2]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.merge.m2]", (path ? lpath_21 : null)])
                 return false;
             }
             continue;
@@ -1810,10 +2813,10 @@ function _jm_obj_9(val, path, rep)
                 if (pval.hasOwnProperty("a"))
                 {
                     // .merge.m3.'|'.0
-                    res = _jm_obj_18(pval, (path ? lpath_10 : null), rep);
+                    res = _jm_obj_28(pval, (path ? lpath_21 : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected element [.merge.m3.'|'.0]", (path ? lpath_10 : null)])
+                        rep !== null && rep.push(["unexpected element [.merge.m3.'|'.0]", (path ? lpath_21 : null)])
                     }
                 }
                 else
@@ -1825,10 +2828,10 @@ function _jm_obj_9(val, path, rep)
                     if (pval.hasOwnProperty("a"))
                     {
                         // .merge.m3.'|'.1
-                        res = _jm_obj_17(pval, (path ? lpath_10 : null), rep);
+                        res = _jm_obj_27(pval, (path ? lpath_21 : null), rep);
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected element [.merge.m3.'|'.1]", (path ? lpath_10 : null)])
+                            rep !== null && rep.push(["unexpected element [.merge.m3.'|'.1]", (path ? lpath_21 : null)])
                         }
                     }
                     else
@@ -1840,10 +2843,10 @@ function _jm_obj_9(val, path, rep)
                         if (pval.hasOwnProperty("b"))
                         {
                             // .merge.m3.'|'.2
-                            res = _jm_obj_16(pval, (path ? lpath_10 : null), rep);
+                            res = _jm_obj_26(pval, (path ? lpath_21 : null), rep);
                             if (! res)
                             {
-                                rep !== null && rep.push(["unexpected element [.merge.m3.'|'.2]", (path ? lpath_10 : null)])
+                                rep !== null && rep.push(["unexpected element [.merge.m3.'|'.2]", (path ? lpath_21 : null)])
                             }
                         }
                         else
@@ -1855,10 +2858,10 @@ function _jm_obj_9(val, path, rep)
                             if (pval.hasOwnProperty("b"))
                             {
                                 // .merge.m3.'|'.3
-                                res = _jm_obj_15(pval, (path ? lpath_10 : null), rep);
+                                res = _jm_obj_25(pval, (path ? lpath_21 : null), rep);
                                 if (! res)
                                 {
-                                    rep !== null && rep.push(["unexpected element [.merge.m3.'|'.3]", (path ? lpath_10 : null)])
+                                    rep !== null && rep.push(["unexpected element [.merge.m3.'|'.3]", (path ? lpath_21 : null)])
                                 }
                             }
                             else
@@ -1874,16 +2877,16 @@ function _jm_obj_9(val, path, rep)
                 }
                 else
                 {
-                    rep !== null && rep.push(["no model matched [.merge.m3.'|']", (path ? lpath_10 : null)])
+                    rep !== null && rep.push(["no model matched [.merge.m3.'|']", (path ? lpath_21 : null)])
                 }
             }
             else
             {
-                rep !== null && rep.push(["unexpected type [.merge.m3.'|']", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["unexpected type [.merge.m3.'|']", (path ? lpath_21 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.merge.m3]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.merge.m3]", (path ? lpath_21 : null)])
                 return false;
             }
             continue;
@@ -1892,1019 +2895,16 @@ function _jm_obj_9(val, path, rep)
         {
             // handle may m4 property
             // .merge.m4
-            res = _jm_obj_19(pval, (path ? lpath_10 : null), rep);
+            res = _jm_obj_29(pval, (path ? lpath_21 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.merge.m4]", (path ? lpath_10 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.merge.m4]", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["unexpected element [.merge.m4]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.merge.m4]", (path ? lpath_21 : null)])
                 return false;
             }
             continue;
         }
-        rep !== null && rep.push(["unexpected prop [.merge]", (path ? lpath_10 : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .tuple
-function _jm_obj_20(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.tuple]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_12 = path ? path.concat([prop]) : null;
-        if (prop == "t0")
-        {
-            // handle may t0 property
-            // .tuple.t0
-            res = Array.isArray(pval) && pval.length == 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.tuple.t0]", (path ? lpath_12 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.tuple.t0]", (path ? lpath_12 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "t1")
-        {
-            // handle may t1 property
-            // .tuple.t1
-            // .tuple.t1.'@'
-            res = Array.isArray(pval);
-            if (res)
-            {
-                for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)
-                {
-                    let arr_4_item = pval[arr_4_idx]
-                    let arr_4_lpath = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([arr_4_idx]) : null;
-                    // .tuple.t1.'@'.0
-                    res = ((typeof arr_4_item === 'number' || arr_4_item instanceof Number) && Number.isInteger(arr_4_item)) && arr_4_item >= 0;
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a 0 strict int [.tuple.t1.'@'.0]", ((path ? lpath_12 : null) ? arr_4_lpath : null)])
-                        break;
-                    }
-                }
-            }
-            if (res)
-            {
-                let ival_0 = pval.length;
-                res = ival_0 == 1;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.tuple.t1]", (path ? lpath_12 : null)])
-                }
-            }
-            else
-            {
-                rep !== null && rep.push(["not array or unexpected array [.tuple.t1.'@']", (path ? lpath_12 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.tuple.t1]", (path ? lpath_12 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "t2")
-        {
-            // handle may t2 property
-            // .tuple.t2
-            res = Array.isArray(pval) && pval.length == 2;
-            if (res)
-            {
-                let lpath_13 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([0]) : null;
-                // .tuple.t2.0
-                res = ((typeof pval[0] === 'number' || pval[0] instanceof Number) && Number.isInteger(pval[0])) && pval[0] >= 0;
-                if (res)
-                {
-                    lpath_13 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([1]) : null;
-                    // .tuple.t2.1
-                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0;
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a 0 strict int [.tuple.t2.1]", ((path ? lpath_12 : null) ? lpath_13 : null)])
-                    }
-                }
-                else
-                {
-                    rep !== null && rep.push(["not a 0 strict int [.tuple.t2.0]", ((path ? lpath_12 : null) ? lpath_13 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.tuple.t2]", (path ? lpath_12 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.tuple.t2]", (path ? lpath_12 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "t3")
-        {
-            // handle may t3 property
-            // .tuple.t3
-            res = Array.isArray(pval) && pval.length == 3;
-            if (res)
-            {
-                let lpath_14 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([0]) : null;
-                // .tuple.t3.0
-                res = (typeof pval[0] === 'boolean' || pval[0] instanceof Boolean);
-                if (res)
-                {
-                    lpath_14 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([1]) : null;
-                    // .tuple.t3.1
-                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0;
-                    if (res)
-                    {
-                        lpath_14 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([2]) : null;
-                        // .tuple.t3.2
-                        res = (typeof pval[2] === 'string' || pval[2] instanceof String);
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["unexpected value for model \"\" [.tuple.t3.2]", ((path ? lpath_12 : null) ? lpath_14 : null)])
-                        }
-                    }
-                    else
-                    {
-                        rep !== null && rep.push(["not a 0 strict int [.tuple.t3.1]", ((path ? lpath_12 : null) ? lpath_14 : null)])
-                    }
-                }
-                else
-                {
-                    rep !== null && rep.push(["not a bool [.tuple.t3.0]", ((path ? lpath_12 : null) ? lpath_14 : null)])
-                }
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.tuple.t3]", (path ? lpath_12 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.tuple.t3]", (path ? lpath_12 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "t4")
-        {
-            // handle may t4 property
-            // .tuple.t4
-            // .tuple.t4.'@'
-            let lpath_15;
-            res = Array.isArray(pval);
-            if (res)
-            {
-                let len_0 = pval.length;
-                if (len_0 > 0)
-                {
-                    lpath_15 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([0]) : null;
-                    // .tuple.t4.'@'.0
-                    res = (typeof pval[0] === 'string' || pval[0] instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected value for model \"\" [.tuple.t4.'@'.0]", ((path ? lpath_12 : null) ? lpath_15 : null)])
-                    }
-                }
-                if (res)
-                {
-                    for (let idx_0 = 1; idx_0 < len_0; idx_0++)
-                    {
-                        lpath_15 = (path ? lpath_12 : null) ? (path ? lpath_12 : null).concat([idx_0]) : null;
-                        // .tuple.t4.'@'.1
-                        res = ((typeof pval[idx_0] === 'number' || pval[idx_0] instanceof Number) && Number.isInteger(pval[idx_0])) && pval[idx_0] >= 0;
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["not a 0 strict int [.tuple.t4.'@'.1]", ((path ? lpath_12 : null) ? lpath_15 : null)])
-                            break;
-                        }
-                    }
-                }
-            }
-            if (res)
-            {
-                let ival_1 = pval.length;
-                res = ival_1 >= 2;
-                if (! res)
-                {
-                    rep !== null && rep.push(["constraints failed [.tuple.t4]", (path ? lpath_12 : null)])
-                }
-            }
-            else
-            {
-                rep !== null && rep.push(["not array or unexpected array [.tuple.t4.'@']", (path ? lpath_12 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.tuple.t4]", (path ? lpath_12 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.tuple]", (path ? lpath_12 : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .object.o0
-function _jm_obj_22(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.object.o0]", path])
-        return false;
-    }
-    if (Object.keys(val).length == 0)
-    {
-        return true;
-    }
-    else
-    {
-        rep !== null && rep.push(["expecting empty object [.object.o0]", path])
-        return false;
-    }
-}
-
-// object .object.o1
-function _jm_obj_23(val, path, rep)
-{
-    // check close must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.object.o1]", path])
-        return false;
-    }
-    if (Object.keys(val).length != 3)
-    {
-        rep !== null && rep.push(["bad property count [.object.o1]", path])
-        return false;
-    }
-    let lpath;
-    let pval;
-    if (! val.hasOwnProperty("a"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <a> [.object.o1]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["a"]) : null;
-    pval = val["a"];
-    // .object.o1.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.object.o1.a]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <a> [.object.o1]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("b"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <b> [.object.o1]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["b"]) : null;
-    pval = val["b"];
-    // .object.o1.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.object.o1.b]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <b> [.object.o1]", (path ? lpath : null)])
-        return false;
-    }
-    if (! val.hasOwnProperty("c"))
-    {
-        rep !== null && rep.push(["missing mandatory prop <c> [.object.o1]", path])
-        return false;
-    }
-    lpath = path ? path.concat(["c"]) : null;
-    pval = val["c"];
-    // .object.o1.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.object.o1.c]", (path ? lpath : null)])
-        rep !== null && rep.push(["unexpected value for mandatory prop <c> [.object.o1]", (path ? lpath : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .object.o2
-function _jm_obj_24(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.object.o2]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_17 = path ? path.concat([prop]) : null;
-        if (prop == "a")
-        {
-            // handle may a property
-            // .object.o2.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.object.o2.a]", (path ? lpath_17 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.object.o2.a]", (path ? lpath_17 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.object.o2]", (path ? lpath_17 : null)])
-        return false;
-    }
-    return true;
-}
-
-// object .object.o3
-function _jm_obj_25(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.object.o3]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_18 = path ? path.concat([prop]) : null;
-        if (prop.startsWith("a"))
-        {
-            // handle 1 re props
-            // .object.o3.'/^a/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0 strict int [.object.o3.'/^a/']", (path ? lpath_18 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.object.o3]", (path ? lpath_18 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .object.o4
-function _jm_obj_26(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.object.o4]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_19 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_date(prop, (path ? lpath_19 : null), rep))
-        {
-            // handle 1 key props
-            // .object.o4.'$DATE'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"\" [.object.o4.'$DATE']", (path ? lpath_19 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.object.o4]", (path ? lpath_19 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .object.o5
-function _jm_obj_27(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.object.o5]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_20 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .object.o5.''
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
-        if (! res)
-        {
-            rep !== null && rep.push(["not a 0 strict int [.object.o5.'']", (path ? lpath_20 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .object
-function _jm_obj_21(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.object]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_16 = path ? path.concat([prop]) : null;
-        if (prop == "o0")
-        {
-            // handle may o0 property
-            // .object.o0
-            res = _jm_obj_22(pval, (path ? lpath_16 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.object.o0]", (path ? lpath_16 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.object.o0]", (path ? lpath_16 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "o1")
-        {
-            // handle may o1 property
-            // .object.o1
-            res = _jm_obj_23(pval, (path ? lpath_16 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.object.o1]", (path ? lpath_16 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.object.o1]", (path ? lpath_16 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "o2")
-        {
-            // handle may o2 property
-            // .object.o2
-            res = _jm_obj_24(pval, (path ? lpath_16 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.object.o2]", (path ? lpath_16 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.object.o2]", (path ? lpath_16 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "o3")
-        {
-            // handle may o3 property
-            // .object.o3
-            res = _jm_obj_25(pval, (path ? lpath_16 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.object.o3]", (path ? lpath_16 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.object.o3]", (path ? lpath_16 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "o4")
-        {
-            // handle may o4 property
-            // .object.o4
-            res = _jm_obj_26(pval, (path ? lpath_16 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.object.o4]", (path ? lpath_16 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.object.o4]", (path ? lpath_16 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "o5")
-        {
-            // handle may o5 property
-            // .object.o5
-            res = _jm_obj_27(pval, (path ? lpath_16 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.object.o5]", (path ? lpath_16 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.object.o5]", (path ? lpath_16 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "o6")
-        {
-            // handle may o6 property
-            // .object.o6
-            res = Object.prototype.toString.call(pval) === '[object Object]';
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid optional prop value [.object.o6]", (path ? lpath_16 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.object]", (path ? lpath_16 : null)])
-        return false;
-    }
-    return true;
-}
-
-const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
-
-// object .string
-function _jm_obj_28(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.string]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_21 = path ? path.concat([prop]) : null;
-        if (prop == "s0")
-        {
-            // handle may s0 property
-            // .string.s0
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"\" [.string.s0]", (path ? lpath_21 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.string.s0]", (path ? lpath_21 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "s1")
-        {
-            // handle may s1 property
-            // .string.s1
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$STRING\" [.string.s1]", (path ? lpath_21 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.string.s1]", (path ? lpath_21 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "s2")
-        {
-            // handle may s2 property
-            // .string.s2
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Susie";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"Susie\" [.string.s2]", (path ? lpath_21 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.string.s2]", (path ? lpath_21 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "s3")
-        {
-            // handle may s3 property
-            // .string.s3
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Calvin";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"_Calvin\" [.string.s3]", (path ? lpath_21 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.string.s3]", (path ? lpath_21 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "s4")
-        {
-            // handle may s4 property
-            // .string.s4
-            // "/^(Calvin|Susie)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_21 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"/^(Calvin|Susie)$/\" [.string.s4]", (path ? lpath_21 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.string.s4]", (path ? lpath_21 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.string]", (path ? lpath_21 : null)])
-        return false;
-    }
-    return true;
-}
-
-// check _jm_obj_29_map_ANY (.predefs.ANY)
-function _jm_f_0(val, path, rep)
-{
-    // .predefs.ANY
-    return true;
-}
-
-// check _jm_obj_29_map_BOOL (.predefs.BOOL)
-function _jm_f_1(val, path, rep)
-{
-    // .predefs.BOOL
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.predefs.BOOL]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_BOOLEAN (.predefs.BOOLEAN)
-function _jm_f_2(val, path, rep)
-{
-    // .predefs.BOOLEAN
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.predefs.BOOLEAN]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_DATE (.predefs.DATE)
-function _jm_f_3(val, path, rep)
-{
-    // .predefs.DATE
-    let res = runtime.jm_is_valid_date(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$DATE\" [.predefs.DATE]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_DATETIME (.predefs.DATETIME)
-function _jm_f_4(val, path, rep)
-{
-    // .predefs.DATETIME
-    let res = runtime.jm_is_valid_datetime(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$DATETIME\" [.predefs.DATETIME]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_DURATION (.predefs.DURATION)
-function _jm_f_5(val, path, rep)
-{
-    // .predefs.DURATION
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_duration(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$DURATION\" [.predefs.DURATION]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_EMAIL (.predefs.EMAIL)
-function _jm_f_6(val, path, rep)
-{
-    // .predefs.EMAIL
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_ETH (.predefs.ETH)
-function _jm_f_7(val, path, rep)
-{
-    // .predefs.ETH
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_eth(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$ETH\" [.predefs.ETH]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_EXREG (.predefs.EXREG)
-function _jm_f_8(val, path, rep)
-{
-    // .predefs.EXREG
-    let res = runtime.jm_is_valid_regex(val, true);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$EXREG\" [.predefs.EXREG]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_F32 (.predefs.F32)
-function _jm_f_9(val, path, rep)
-{
-    // .predefs.F32
-    let res = (typeof val === 'number' || val instanceof Number);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$F32\" [.predefs.F32]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_F64 (.predefs.F64)
-function _jm_f_10(val, path, rep)
-{
-    // .predefs.F64
-    let res = (typeof val === 'number' || val instanceof Number);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$F64\" [.predefs.F64]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_FLOAT (.predefs.FLOAT)
-function _jm_f_11(val, path, rep)
-{
-    // .predefs.FLOAT
-    let res = (typeof val === 'number' || val instanceof Number);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_HOST (.predefs.HOST)
-function _jm_f_12(val, path, rep)
-{
-    // .predefs.HOST
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_host(val, path, rep) && val.length <= 255;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$HOST\" [.predefs.HOST]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_I32 (.predefs.I32)
-function _jm_f_13(val, path, rep)
-{
-    // .predefs.I32
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$I32\" [.predefs.I32]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_I64 (.predefs.I64)
-function _jm_f_14(val, path, rep)
-{
-    // .predefs.I64
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$I64\" [.predefs.I64]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_INT (.predefs.INT)
-function _jm_f_15(val, path, rep)
-{
-    // .predefs.INT
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$INT\" [.predefs.INT]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_INTEGER (.predefs.INTEGER)
-function _jm_f_16(val, path, rep)
-{
-    // .predefs.INTEGER
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$INTEGER\" [.predefs.INTEGER]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_IP4 (.predefs.IP4)
-function _jm_f_17(val, path, rep)
-{
-    // .predefs.IP4
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$IP4\" [.predefs.IP4]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_IP6 (.predefs.IP6)
-function _jm_f_18(val, path, rep)
-{
-    // .predefs.IP6
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip6(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$IP6\" [.predefs.IP6]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_JSON (.predefs.JSON)
-function _jm_f_19(val, path, rep)
-{
-    // .predefs.JSON
-    let res = runtime.jm_is_valid_json(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$JSON\" [.predefs.JSON]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_JSONPT (.predefs.JSONPT)
-function _jm_f_20(val, path, rep)
-{
-    // .predefs.JSONPT
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_jsonpt(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_NONE (.predefs.NONE)
-function _jm_f_21(val, path, rep)
-{
-    // .predefs.NONE
-    rep !== null && rep.push(["unexpected value for model \"$NONE\" [.predefs.NONE]", path])
-    return false;
-}
-
-// check _jm_obj_29_map_NULL (.predefs.NULL)
-function _jm_f_22(val, path, rep)
-{
-    // .predefs.NULL
-    let res = val === null;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$NULL\" [.predefs.NULL]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_NUMBER (.predefs.NUMBER)
-function _jm_f_23(val, path, rep)
-{
-    // .predefs.NUMBER
-    let res = (typeof val === 'number' || val instanceof Number);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_REGEX (.predefs.REGEX)
-function _jm_f_24(val, path, rep)
-{
-    // .predefs.REGEX
-    let res = runtime.jm_is_valid_regex(val, false);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$REGEX\" [.predefs.REGEX]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_STRING (.predefs.STRING)
-function _jm_f_25(val, path, rep)
-{
-    // .predefs.STRING
-    let res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$STRING\" [.predefs.STRING]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_TIME (.predefs.TIME)
-function _jm_f_26(val, path, rep)
-{
-    // .predefs.TIME
-    let res = runtime.jm_is_valid_time(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$TIME\" [.predefs.TIME]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_U32 (.predefs.U32)
-function _jm_f_27(val, path, rep)
-{
-    // .predefs.U32
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$U32\" [.predefs.U32]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_U64 (.predefs.U64)
-function _jm_f_28(val, path, rep)
-{
-    // .predefs.U64
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$U64\" [.predefs.U64]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_URI (.predefs.URI)
-function _jm_f_29(val, path, rep)
-{
-    // .predefs.URI
-    let res = runtime.jm_is_valid_url(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$URI\" [.predefs.URI]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_URL (.predefs.URL)
-function _jm_f_30(val, path, rep)
-{
-    // .predefs.URL
-    let res = runtime.jm_is_valid_url(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$URL\" [.predefs.URL]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_29_map_UUID (.predefs.UUID)
-function _jm_f_31(val, path, rep)
-{
-    // .predefs.UUID
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$UUID\" [.predefs.UUID]", path])
-    }
-    return res;
-}
-
-
-// object .predefs
-function _jm_obj_29(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.predefs]", path])
-        return false;
-    }
-    let pfun;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_22 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_29_map.get(prop)))
-        {
-            // handle 32 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_22 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.predefs]", (path ? lpath_22 : null)])
-                return false;
-            }
-            continue;
-        }
-        rep !== null && rep.push(["unexpected prop [.predefs]", (path ? lpath_22 : null)])
+        rep !== null && rep.push(["unexpected prop [.merge]", (path ? lpath_21 : null)])
         return false;
     }
     return true;
@@ -3507,86 +3507,16 @@ function json_model_1(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if (prop == "or")
+        if (prop == "predefs")
         {
-            // handle may or property
-            // soft alternative, first match
-            // .or
+            // handle may predefs property
+            // predefined models
+            // .predefs
             res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.or]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.or]", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "and")
-        {
-            // handle may and property
-            // conjunction, all must match
-            // .and
-            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.and]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.and]", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "int")
-        {
-            // handle may int property
-            // integers: inference, predefs, constants
-            // .int
-            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.int]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.int]", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "xor")
-        {
-            // handle may xor property
-            // hard alternative, only one must match
-            // .xor
-            res = _jm_obj_3(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.xor]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.xor]", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "bool")
-        {
-            // handle may bool property
-            // booleans: inference, predefs, constants, enum
-            // .bool
-            res = _jm_obj_4(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.bool]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.bool]", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "enum")
-        {
-            // handle may enum property
-            // an enumeration only contains constants
-            // .enum
-            res = _jm_obj_5(pval, (path ? lpath_0 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.enum]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.enum]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected element [.predefs]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.predefs]", (path ? lpath_0 : null)])
                 return false;
             }
             continue;
@@ -3596,7 +3526,7 @@ function json_model_1(val, path, rep)
             // handle may null property
             // null: inference, predefs, constants
             // .null
-            res = _jm_obj_6(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.null]", (path ? lpath_0 : null)])
@@ -3605,16 +3535,30 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        else if (prop == "array")
+        else if (prop == "bool")
         {
-            // handle may array property
-            // example arrays
-            // .array
-            res = _jm_obj_7(pval, (path ? lpath_0 : null), rep);
+            // handle may bool property
+            // booleans: inference, predefs, constants, enum
+            // .bool
+            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.array]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.array]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected element [.bool]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.bool]", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "int")
+        {
+            // handle may int property
+            // integers: inference, predefs, constants
+            // .int
+            res = _jm_obj_3(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.int]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.int]", (path ? lpath_0 : null)])
                 return false;
             }
             continue;
@@ -3624,7 +3568,7 @@ function json_model_1(val, path, rep)
             // handle may float property
             // floats: inference, predefs, constants
             // .float
-            res = _jm_obj_8(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_4(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.float]", (path ? lpath_0 : null)])
@@ -3633,16 +3577,30 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        else if (prop == "merge")
+        else if (prop == "string")
         {
-            // handle may merge property
-            // merge object properties
-            // .merge
-            res = _jm_obj_9(pval, (path ? lpath_0 : null), rep);
+            // handle may string property
+            // strings: inference, predef, constants, regex
+            // .string
+            res = _jm_obj_5(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.merge]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.merge]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected element [.string]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.string]", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "array")
+        {
+            // handle may array property
+            // example arrays
+            // .array
+            res = _jm_obj_6(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.array]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.array]", (path ? lpath_0 : null)])
                 return false;
             }
             continue;
@@ -3652,7 +3610,7 @@ function json_model_1(val, path, rep)
             // handle may tuple property
             // tuple items have a type
             // .tuple
-            res = _jm_obj_20(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_7(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.tuple]", (path ? lpath_0 : null)])
@@ -3666,7 +3624,7 @@ function json_model_1(val, path, rep)
             // handle may object property
             // object map property names to values
             // .object
-            res = _jm_obj_21(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_8(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.object]", (path ? lpath_0 : null)])
@@ -3675,30 +3633,72 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        else if (prop == "string")
+        else if (prop == "enum")
         {
-            // handle may string property
-            // strings: inference, predef, constants, regex
-            // .string
-            res = _jm_obj_28(pval, (path ? lpath_0 : null), rep);
+            // handle may enum property
+            // an enumeration only contains constants
+            // .enum
+            res = _jm_obj_15(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.string]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.string]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected element [.enum]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.enum]", (path ? lpath_0 : null)])
                 return false;
             }
             continue;
         }
-        else if (prop == "predefs")
+        else if (prop == "or")
         {
-            // handle may predefs property
-            // predefined models
-            // .predefs
-            res = _jm_obj_29(pval, (path ? lpath_0 : null), rep);
+            // handle may or property
+            // soft alternative, first match
+            // .or
+            res = _jm_obj_16(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected element [.predefs]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.predefs]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected element [.or]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.or]", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "xor")
+        {
+            // handle may xor property
+            // hard alternative, only one must match
+            // .xor
+            res = _jm_obj_17(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.xor]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.xor]", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "and")
+        {
+            // handle may and property
+            // conjunction, all must match
+            // .and
+            res = _jm_obj_18(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.and]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.and]", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "merge")
+        {
+            // handle may merge property
+            // merge object properties
+            // .merge
+            res = _jm_obj_19(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.merge]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.merge]", (path ? lpath_0 : null)])
                 return false;
             }
             continue;
@@ -3748,6 +3748,38 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        _jm_obj_0_map.set("ANY", _jm_f_0)
+        _jm_obj_0_map.set("BOOL", _jm_f_1)
+        _jm_obj_0_map.set("BOOLEAN", _jm_f_2)
+        _jm_obj_0_map.set("DATE", _jm_f_3)
+        _jm_obj_0_map.set("DATETIME", _jm_f_4)
+        _jm_obj_0_map.set("DURATION", _jm_f_5)
+        _jm_obj_0_map.set("EMAIL", _jm_f_6)
+        _jm_obj_0_map.set("ETH", _jm_f_7)
+        _jm_obj_0_map.set("EXREG", _jm_f_8)
+        _jm_obj_0_map.set("F32", _jm_f_9)
+        _jm_obj_0_map.set("F64", _jm_f_10)
+        _jm_obj_0_map.set("FLOAT", _jm_f_11)
+        _jm_obj_0_map.set("HOST", _jm_f_12)
+        _jm_obj_0_map.set("I32", _jm_f_13)
+        _jm_obj_0_map.set("I64", _jm_f_14)
+        _jm_obj_0_map.set("INT", _jm_f_15)
+        _jm_obj_0_map.set("INTEGER", _jm_f_16)
+        _jm_obj_0_map.set("IP4", _jm_f_17)
+        _jm_obj_0_map.set("IP6", _jm_f_18)
+        _jm_obj_0_map.set("JSON", _jm_f_19)
+        _jm_obj_0_map.set("JSONPT", _jm_f_20)
+        _jm_obj_0_map.set("NONE", _jm_f_21)
+        _jm_obj_0_map.set("NULL", _jm_f_22)
+        _jm_obj_0_map.set("NUMBER", _jm_f_23)
+        _jm_obj_0_map.set("REGEX", _jm_f_24)
+        _jm_obj_0_map.set("STRING", _jm_f_25)
+        _jm_obj_0_map.set("TIME", _jm_f_26)
+        _jm_obj_0_map.set("U32", _jm_f_27)
+        _jm_obj_0_map.set("U64", _jm_f_28)
+        _jm_obj_0_map.set("URI", _jm_f_29)
+        _jm_obj_0_map.set("URL", _jm_f_30)
+        _jm_obj_0_map.set("UUID", _jm_f_31)
         _jm_cst_0.add(false)
         _jm_cst_0.add(true)
         _jm_cst_1.add(true)
@@ -3762,38 +3794,6 @@ export function check_model_init()
         _jm_cst_4.add(42)
         _jm_cst_4.add(true)
         _jm_cst_4.add(null)
-        _jm_obj_29_map.set("ANY", _jm_f_0)
-        _jm_obj_29_map.set("BOOL", _jm_f_1)
-        _jm_obj_29_map.set("BOOLEAN", _jm_f_2)
-        _jm_obj_29_map.set("DATE", _jm_f_3)
-        _jm_obj_29_map.set("DATETIME", _jm_f_4)
-        _jm_obj_29_map.set("DURATION", _jm_f_5)
-        _jm_obj_29_map.set("EMAIL", _jm_f_6)
-        _jm_obj_29_map.set("ETH", _jm_f_7)
-        _jm_obj_29_map.set("EXREG", _jm_f_8)
-        _jm_obj_29_map.set("F32", _jm_f_9)
-        _jm_obj_29_map.set("F64", _jm_f_10)
-        _jm_obj_29_map.set("FLOAT", _jm_f_11)
-        _jm_obj_29_map.set("HOST", _jm_f_12)
-        _jm_obj_29_map.set("I32", _jm_f_13)
-        _jm_obj_29_map.set("I64", _jm_f_14)
-        _jm_obj_29_map.set("INT", _jm_f_15)
-        _jm_obj_29_map.set("INTEGER", _jm_f_16)
-        _jm_obj_29_map.set("IP4", _jm_f_17)
-        _jm_obj_29_map.set("IP6", _jm_f_18)
-        _jm_obj_29_map.set("JSON", _jm_f_19)
-        _jm_obj_29_map.set("JSONPT", _jm_f_20)
-        _jm_obj_29_map.set("NONE", _jm_f_21)
-        _jm_obj_29_map.set("NULL", _jm_f_22)
-        _jm_obj_29_map.set("NUMBER", _jm_f_23)
-        _jm_obj_29_map.set("REGEX", _jm_f_24)
-        _jm_obj_29_map.set("STRING", _jm_f_25)
-        _jm_obj_29_map.set("TIME", _jm_f_26)
-        _jm_obj_29_map.set("U32", _jm_f_27)
-        _jm_obj_29_map.set("U64", _jm_f_28)
-        _jm_obj_29_map.set("URI", _jm_f_29)
-        _jm_obj_29_map.set("URL", _jm_f_30)
-        _jm_obj_29_map.set("UUID", _jm_f_31)
         _jm_obj_30_map.set("cia0", _jm_f_32)
         _jm_obj_30_map.set("cia1", _jm_f_33)
         _jm_obj_30_map.set("cia2", _jm_f_34)

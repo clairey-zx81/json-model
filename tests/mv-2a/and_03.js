@@ -52,19 +52,6 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        else if (prop == "f")
-        {
-            // handle may f property
-            // .f
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1.0 strict float [.f]", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.f]", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
         else if (prop == "i")
         {
             // handle may i property
@@ -74,6 +61,19 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["not a 1 strict int [.i]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.i]", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "f")
+        {
+            // handle may f property
+            // .f
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1.0 strict float [.f]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.f]", (path ? lpath_0 : null)])
                 return false;
             }
             continue;

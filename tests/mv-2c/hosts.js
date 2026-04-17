@@ -20,9 +20,18 @@ function json_model_1(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "eth")
+        if (prop == "ipv4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_eth(pval, null, null);
+            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_ip4(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "ipv6")
+        {
+            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_ip6(pval, null, null);
             if (! res)
             {
                 return false;
@@ -38,18 +47,9 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        else if (prop == "ipv4")
+        else if (prop == "eth")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_ip4(pval, null, null);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "ipv6")
-        {
-            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_ip6(pval, null, null);
+            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_eth(pval, null, null);
             if (! res)
             {
                 return false;

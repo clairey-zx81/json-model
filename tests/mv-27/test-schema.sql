@@ -39,7 +39,16 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'data' THEN
+    IF prop = 'description' THEN
+      -- handle must description property
+      must_count := must_count + 1;
+      -- .'$Test'.description
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'data' THEN
       -- handle must data property
       must_count := must_count + 1;
       -- .'$Test'.data
@@ -50,15 +59,6 @@ BEGIN
       must_count := must_count + 1;
       -- .'$Test'.valid
       res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle must description property
-      must_count := must_count + 1;
-      -- .'$Test'.description
-      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -115,18 +115,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'perl5' THEN
-      -- handle may perl5 property
-      -- .'$Specification'.'@'.perl5
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'quote' THEN
-      -- handle may quote property
-      -- .'$Specification'.'@'.quote
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'validation' THEN
+      -- handle may validation property
+      -- .'$Specification'.'@'.validation
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -139,10 +131,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'validation' THEN
-      -- handle may validation property
-      -- .'$Specification'.'@'.validation
-      res := json_model_2(pval, NULL, NULL);
+    ELSEIF prop = 'perl5' THEN
+      -- handle may perl5 property
+      -- .'$Specification'.'@'.perl5
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'quote' THEN
+      -- handle may quote property
+      -- .'$Specification'.'@'.quote
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -209,7 +209,22 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'tests' THEN
+    IF prop = 'description' THEN
+      -- handle must description property
+      must_count := must_count + 1;
+      -- .'$TestCase'.description
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'schema' THEN
+      -- handle must schema property
+      must_count := must_count + 1;
+      -- .'$TestCase'.schema
+      res := TRUE;
+      CONTINUE;
+    ELSEIF prop = 'tests' THEN
       -- handle must tests property
       must_count := must_count + 1;
       -- .'$TestCase'.tests
@@ -229,21 +244,6 @@ BEGIN
         ival_1 := JSONB_ARRAY_LENGTH(pval);
         res := ival_1 >= 1;
       END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'schema' THEN
-      -- handle must schema property
-      must_count := must_count + 1;
-      -- .'$TestCase'.schema
-      res := TRUE;
-      CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle must description property
-      must_count := must_count + 1;
-      -- .'$TestCase'.description
-      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

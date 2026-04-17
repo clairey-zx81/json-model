@@ -3451,24 +3451,24 @@ sub json_model_31($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq 'const')
         {
-            # handle must type property
+            # handle must const property
             $must_count++;
-            # .'$tight#ConstString'.type
-            $res = jm_is_string($pval) && $pval eq 'string';
+            # .'$tight#ConstString'.const
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'const')
+        elsif ($prop eq 'type')
         {
-            # handle must const property
+            # handle must type property
             $must_count++;
-            # .'$tight#ConstString'.const
-            $res = jm_is_string($pval);
+            # .'$tight#ConstString'.type
+            $res = jm_is_string($pval) && $pval eq 'string';
             if (! $res)
             {
                 return 0;
@@ -3617,24 +3617,24 @@ sub json_model_32($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq 'const')
         {
-            # handle must type property
+            # handle must const property
             $must_count++;
-            # .'$tight#ConstNum'.type
-            $res = jm_is_string($pval) && $pval eq 'number';
+            # .'$tight#ConstNum'.const
+            $res = jm_is_numeric($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'const')
+        elsif ($prop eq 'type')
         {
-            # handle must const property
+            # handle must type property
             $must_count++;
-            # .'$tight#ConstNum'.const
-            $res = jm_is_numeric($pval);
+            # .'$tight#ConstNum'.type
+            $res = jm_is_string($pval) && $pval eq 'number';
             if (! $res)
             {
                 return 0;
@@ -3783,24 +3783,24 @@ sub json_model_33($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq 'const')
         {
-            # handle must type property
+            # handle must const property
             $must_count++;
-            # .'$tight#ConstInt'.type
-            $res = jm_is_string($pval) && $pval eq 'integer';
+            # .'$tight#ConstInt'.const
+            $res = jm_is_integer($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'const')
+        elsif ($prop eq 'type')
         {
-            # handle must const property
+            # handle must type property
             $must_count++;
-            # .'$tight#ConstInt'.const
-            $res = jm_is_integer($pval);
+            # .'$tight#ConstInt'.type
+            $res = jm_is_string($pval) && $pval eq 'integer';
             if (! $res)
             {
                 return 0;
@@ -3949,24 +3949,24 @@ sub json_model_34($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq 'const')
         {
-            # handle must type property
+            # handle must const property
             $must_count++;
-            # .'$tight#ConstBool'.type
-            $res = jm_is_string($pval) && $pval eq 'boolean';
+            # .'$tight#ConstBool'.const
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'const')
+        elsif ($prop eq 'type')
         {
-            # handle must const property
+            # handle must type property
             $must_count++;
-            # .'$tight#ConstBool'.const
-            $res = jm_is_boolean($pval);
+            # .'$tight#ConstBool'.type
+            $res = jm_is_string($pval) && $pval eq 'boolean';
             if (! $res)
             {
                 return 0;

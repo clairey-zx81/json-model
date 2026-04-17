@@ -860,20 +860,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             }
             continue;
         }
-        if (unlikely(jm_str_eq_2(prop, 0x00000021)))
-        {
-            // handle may ! property
-            // .'$Model#Element'.'|'.0.'!'
-            res = json_is_boolean(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Model#Element'.'|'.0.'!']", (path ? &lpath_4 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Element'.'|'.0.'!']", (path ? &lpath_4 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
             // handle may # property
             // .'$Model#Element'.'|'.0.'#'
@@ -882,6 +869,19 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Element'.'|'.0.'#']", (path ? &lpath_4 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Element'.'|'.0.'#']", (path ? &lpath_4 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_2(prop, 0x00000021)))
+        {
+            // handle may ! property
+            // .'$Model#Element'.'|'.0.'!'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Model#Element'.'|'.0.'!']", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Element'.'|'.0.'!']", (path ? &lpath_4 : NULL));
                 return false;
             }
             continue;
@@ -1142,20 +1142,7 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_0(prop)))
-        {
-            // handle may  property
-            // .'$Model#Root'.'|'.4.'$'.''
-            res = json_model_4(pval, (path ? &lpath_6 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.4.'$'.'']", (path ? &lpath_6 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'']", (path ? &lpath_6 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
             // handle may # property
             // .'$Model#Root'.'|'.4.'$'.'#'
@@ -1164,6 +1151,19 @@ static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.4.'$'.'#']", (path ? &lpath_6 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'#']", (path ? &lpath_6 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_0(prop)))
+        {
+            // handle may  property
+            // .'$Model#Root'.'|'.4.'$'.''
+            res = json_model_4(pval, (path ? &lpath_6 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.4.'$'.'']", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'']", (path ? &lpath_6 : NULL));
                 return false;
             }
             continue;
@@ -1304,15 +1304,15 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
         {
-            // handle may # property
-            // .'$Model#Root'.'|'.4.'#'
-            res = json_is_string(pval);
+            // handle may ~ property
+            // .'$Model#Root'.'|'.4.'~'
+            res = json_model_4(pval, (path ? &lpath_5 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.4.'#']", (path ? &lpath_5 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'#']", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.4.'~']", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'~']", (path ? &lpath_5 : NULL));
                 return false;
             }
             continue;
@@ -1343,15 +1343,15 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
+        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
-            // handle may ~ property
-            // .'$Model#Root'.'|'.4.'~'
-            res = json_model_4(pval, (path ? &lpath_5 : NULL), rep);
+            // handle may # property
+            // .'$Model#Root'.'|'.4.'#'
+            res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.4.'~']", (path ? &lpath_5 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'~']", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.4.'#']", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'#']", (path ? &lpath_5 : NULL));
                 return false;
             }
             continue;
@@ -1394,20 +1394,7 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_9 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_0(prop)))
-        {
-            // handle may  property
-            // .'$Model#Root'.'|'.3.'$'.''
-            res = json_model_4(pval, (path ? &lpath_9 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.3.'$'.'']", (path ? &lpath_9 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'']", (path ? &lpath_9 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
             // handle may # property
             // .'$Model#Root'.'|'.3.'$'.'#'
@@ -1416,6 +1403,19 @@ static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.3.'$'.'#']", (path ? &lpath_9 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'#']", (path ? &lpath_9 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_0(prop)))
+        {
+            // handle may  property
+            // .'$Model#Root'.'|'.3.'$'.''
+            res = json_model_4(pval, (path ? &lpath_9 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.3.'$'.'']", (path ? &lpath_9 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'']", (path ? &lpath_9 : NULL));
                 return false;
             }
             continue;
@@ -1581,15 +1581,15 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             }
             continue;
         }
-        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
         {
-            // handle may # property
-            // .'$Model#Root'.'|'.3.'#'
-            res = json_is_string(pval);
+            // handle may ~ property
+            // .'$Model#Root'.'|'.3.'~'
+            res = json_model_4(pval, (path ? &lpath_8 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.3.'#']", (path ? &lpath_8 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'#']", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.3.'~']", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'~']", (path ? &lpath_8 : NULL));
                 return false;
             }
             continue;
@@ -1620,15 +1620,15 @@ static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *re
             }
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x0000007e))
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
-            // handle may ~ property
-            // .'$Model#Root'.'|'.3.'~'
-            res = json_model_4(pval, (path ? &lpath_8 : NULL), rep);
+            // handle may # property
+            // .'$Model#Root'.'|'.3.'#'
+            res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.3.'~']", (path ? &lpath_8 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'~']", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.3.'#']", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'#']", (path ? &lpath_8 : NULL));
                 return false;
             }
             continue;
@@ -1671,20 +1671,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_0(prop)))
-        {
-            // handle may  property
-            // .'$Model#Root'.'|'.2.'$'.''
-            res = json_model_4(pval, (path ? &lpath_12 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.2.'$'.'']", (path ? &lpath_12 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'']", (path ? &lpath_12 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
             // handle may # property
             // .'$Model#Root'.'|'.2.'$'.'#'
@@ -1693,6 +1680,19 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.2.'$'.'#']", (path ? &lpath_12 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'#']", (path ? &lpath_12 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_0(prop)))
+        {
+            // handle may  property
+            // .'$Model#Root'.'|'.2.'$'.''
+            res = json_model_4(pval, (path ? &lpath_12 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.2.'$'.'']", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'']", (path ? &lpath_12 : NULL));
                 return false;
             }
             continue;
@@ -1858,15 +1858,15 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
         {
-            // handle may # property
-            // .'$Model#Root'.'|'.2.'#'
-            res = json_is_string(pval);
+            // handle may ~ property
+            // .'$Model#Root'.'|'.2.'~'
+            res = json_model_4(pval, (path ? &lpath_11 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.2.'#']", (path ? &lpath_11 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'#']", (path ? &lpath_11 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.2.'~']", (path ? &lpath_11 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'~']", (path ? &lpath_11 : NULL));
                 return false;
             }
             continue;
@@ -1897,15 +1897,15 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x0000007e))
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
-            // handle may ~ property
-            // .'$Model#Root'.'|'.2.'~'
-            res = json_model_4(pval, (path ? &lpath_11 : NULL), rep);
+            // handle may # property
+            // .'$Model#Root'.'|'.2.'#'
+            res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.2.'~']", (path ? &lpath_11 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'~']", (path ? &lpath_11 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.2.'#']", (path ? &lpath_11 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'#']", (path ? &lpath_11 : NULL));
                 return false;
             }
             continue;
@@ -1948,20 +1948,7 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_15 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_0(prop)))
-        {
-            // handle may  property
-            // .'$Model#Root'.'|'.1.'$'.''
-            res = json_model_4(pval, (path ? &lpath_15 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.1.'$'.'']", (path ? &lpath_15 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'']", (path ? &lpath_15 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
             // handle may # property
             // .'$Model#Root'.'|'.1.'$'.'#'
@@ -1970,6 +1957,19 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.1.'$'.'#']", (path ? &lpath_15 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'#']", (path ? &lpath_15 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_0(prop)))
+        {
+            // handle may  property
+            // .'$Model#Root'.'|'.1.'$'.''
+            res = json_model_4(pval, (path ? &lpath_15 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.1.'$'.'']", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'']", (path ? &lpath_15 : NULL));
                 return false;
             }
             continue;
@@ -2135,15 +2135,15 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
         {
-            // handle may # property
-            // .'$Model#Root'.'|'.1.'#'
-            res = json_is_string(pval);
+            // handle may ~ property
+            // .'$Model#Root'.'|'.1.'~'
+            res = json_model_4(pval, (path ? &lpath_14 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.1.'#']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'#']", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.1.'~']", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'~']", (path ? &lpath_14 : NULL));
                 return false;
             }
             continue;
@@ -2174,15 +2174,15 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x0000007e))
+        else if (jm_str_eq_2(prop, 0x00000023))
         {
-            // handle may ~ property
-            // .'$Model#Root'.'|'.1.'~'
-            res = json_model_4(pval, (path ? &lpath_14 : NULL), rep);
+            // handle may # property
+            // .'$Model#Root'.'|'.1.'#'
+            res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.1.'~']", (path ? &lpath_14 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'~']", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.1.'#']", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'#']", (path ? &lpath_14 : NULL));
                 return false;
             }
             continue;
@@ -2225,20 +2225,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_18 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_0(prop)))
-        {
-            // handle may  property
-            // .'$Model#Root'.'|'.0.'$'.''
-            res = json_model_4(pval, (path ? &lpath_18 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.0.'$'.'']", (path ? &lpath_18 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'']", (path ? &lpath_18 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
             // handle may # property
             // .'$Model#Root'.'|'.0.'$'.'#'
@@ -2247,6 +2234,19 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.0.'$'.'#']", (path ? &lpath_18 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'#']", (path ? &lpath_18 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_0(prop)))
+        {
+            // handle may  property
+            // .'$Model#Root'.'|'.0.'$'.''
+            res = json_model_4(pval, (path ? &lpath_18 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.0.'$'.'']", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'']", (path ? &lpath_18 : NULL));
                 return false;
             }
             continue;
@@ -2396,28 +2396,15 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        if (unlikely(jm_str_eq_2(prop, 0x00000021)))
+        if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
         {
-            // handle may ! property
-            // .'$Model#Root'.'|'.0.'!'
-            res = json_is_boolean(pval);
+            // handle may ~ property
+            // .'$Model#Root'.'|'.0.'~'
+            res = json_model_4(pval, (path ? &lpath_17 : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.'$Model#Root'.'|'.0.'!']", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'!']", (path ? &lpath_17 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
-        {
-            // handle may # property
-            // .'$Model#Root'.'|'.0.'#'
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.0.'#']", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'#']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.0.'~']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'~']", (path ? &lpath_17 : NULL));
                 return false;
             }
             continue;
@@ -2448,15 +2435,28 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
+        else if (unlikely(jm_str_eq_2(prop, 0x00000023)))
         {
-            // handle may ~ property
-            // .'$Model#Root'.'|'.0.'~'
-            res = json_model_4(pval, (path ? &lpath_17 : NULL), rep);
+            // handle may # property
+            // .'$Model#Root'.'|'.0.'#'
+            res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Url\" [.'$Model#Root'.'|'.0.'~']", (path ? &lpath_17 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'~']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Model#Root'.'|'.0.'#']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'#']", (path ? &lpath_17 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_2(prop, 0x00000021)))
+        {
+            // handle may ! property
+            // .'$Model#Root'.'|'.0.'!'
+            res = json_is_boolean(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [.'$Model#Root'.'|'.0.'!']", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'!']", (path ? &lpath_17 : NULL));
                 return false;
             }
             continue;

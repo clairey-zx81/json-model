@@ -95,20 +95,7 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        if (prop == "a")
-        {
-            // handle may a property
-            // .a
-            res = json_model_7(pval, (path ? lpath_1 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"$Rr#Aa\" [.a]", (path ? lpath_1 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_1 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "b")
+        if (prop == "b")
         {
             // handle may b property
             // .b
@@ -117,6 +104,19 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Bb\" [.b]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.b]", (path ? lpath_1 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "a")
+        {
+            // handle may a property
+            // .a
+            res = json_model_7(pval, (path ? lpath_1 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$Rr#Aa\" [.a]", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_1 : null)])
                 return false;
             }
             continue;

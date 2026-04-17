@@ -113,19 +113,19 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             continue;
         }
-        if (jm_str_eq_2(prop, 0x00000071))
+        if (jm_str_eq_2(prop, 0x00000073))
         {
-            // handle may q property
-            // .'|'.3.q
+            // handle may s property
+            // .'|'.3.s
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
             continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x00000073)))
+        else if (likely(jm_str_eq_2(prop, 0x00000071)))
         {
-            // handle may s property
-            // .'|'.3.s
+            // handle may q property
+            // .'|'.3.q
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
@@ -272,19 +272,19 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             continue;
         }
-        if (jm_str_eq_2(prop, 0x00000077))
+        if (jm_str_eq_2(prop, 0x0000007a))
         {
-            // handle may w property
-            // .'|'.0.w
+            // handle may z property
+            // .'|'.0.z
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
             continue;
         }
-        else if (likely(jm_str_eq_2(prop, 0x0000007a)))
+        else if (likely(jm_str_eq_2(prop, 0x00000077)))
         {
-            // handle may z property
-            // .'|'.0.z
+            // handle may w property
+            // .'|'.0.w
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;

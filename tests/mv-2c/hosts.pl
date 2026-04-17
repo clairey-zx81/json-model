@@ -21,9 +21,18 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'eth')
+        if ($prop eq 'ipv4')
         {
-            $res = jm_is_string($pval) && jm_is_eth($pval, undef, undef);
+            $res = jm_is_string($pval) && jm_is_ip4($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'ipv6')
+        {
+            $res = jm_is_string($pval) && jm_is_ip6($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -39,18 +48,9 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'ipv4')
+        elsif ($prop eq 'eth')
         {
-            $res = jm_is_string($pval) && jm_is_ip4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'ipv6')
-        {
-            $res = jm_is_string($pval) && jm_is_ip6($pval, undef, undef);
+            $res = jm_is_string($pval) && jm_is_eth($pval, undef, undef);
             if (! $res)
             {
                 return 0;

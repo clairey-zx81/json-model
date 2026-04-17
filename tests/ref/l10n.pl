@@ -139,6 +139,18 @@ sub json_model_1($$$)
             }
             next;
         }
+        elsif ($prop eq '~')
+        {
+            # handle must ~ property
+            $must_count++;
+            # .'~'
+            $res = jm_is_string($pval) && $pval eq 'https://json-model.org/models/l10n';
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
         elsif ($prop eq '%')
         {
             # handle must % property
@@ -158,18 +170,6 @@ sub json_model_1($$$)
             $must_count++;
             # .'@'
             $res = jm_is_string($pval) && $pval eq '$Model';
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq '~')
-        {
-            # handle must ~ property
-            $must_count++;
-            # .'~'
-            $res = jm_is_string($pval) && $pval eq 'https://json-model.org/models/l10n';
             if (! $res)
             {
                 return 0;

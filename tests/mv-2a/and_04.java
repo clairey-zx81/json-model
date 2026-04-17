@@ -131,7 +131,33 @@ public class and_04 extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_2 = new Path(prop, path);
-            if (prop.compareTo("a") == 0)
+            if (prop.compareTo("u") == 0)
+            {
+                // handle may u property
+                // .u
+                res = json.isInteger(pval) && json.asLong(pval) >= 1;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 1 strict int [.u]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.u]", (path != null ? lpath_2 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("s") == 0)
+            {
+                // handle may s property
+                // .s
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.s]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.s]", (path != null ? lpath_2 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("a") == 0)
             {
                 // handle may a property
                 // .a
@@ -153,32 +179,6 @@ public class and_04 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a bool [.b]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("s") == 0)
-            {
-                // handle may s property
-                // .s
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.s]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.s]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("u") == 0)
-            {
-                // handle may u property
-                // .u
-                res = json.isInteger(pval) && json.asLong(pval) >= 1;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.u]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.u]", (path != null ? lpath_2 : null));
                     return false;
                 }
                 continue;

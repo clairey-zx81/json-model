@@ -199,20 +199,7 @@ public class json_schema_draft_tight extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("format") == 0)
-            {
-                // handle may format property
-                // .'$stringKeywords'.format
-                res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("value not in enum [.'$stringKeywords'.format.'|']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.format]", (path != null ? lpath_0 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("pattern") == 0)
+            if (prop.compareTo("pattern") == 0)
             {
                 // handle may pattern property
                 // .'$stringKeywords'.pattern
@@ -221,6 +208,19 @@ public class json_schema_draft_tight extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$REGEX\" [.'$stringKeywords'.pattern]", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.pattern]", (path != null ? lpath_0 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("minLength") == 0)
+            {
+                // handle may minLength property
+                // .'$stringKeywords'.minLength
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$stringKeywords'.minLength]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.minLength]", (path != null ? lpath_0 : null));
                     return false;
                 }
                 continue;
@@ -238,15 +238,15 @@ public class json_schema_draft_tight extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("minLength") == 0)
+            else if (prop.compareTo("format") == 0)
             {
-                // handle may minLength property
-                // .'$stringKeywords'.minLength
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                // handle may format property
+                // .'$stringKeywords'.format
+                res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'$stringKeywords'.minLength]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.minLength]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("value not in enum [.'$stringKeywords'.format.'|']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$stringKeywords'.format]", (path != null ? lpath_0 : null));
                     return false;
                 }
                 continue;
@@ -274,7 +274,20 @@ public class json_schema_draft_tight extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_1 = new Path(prop, path);
-            if (prop.compareTo("items") == 0)
+            if (prop.compareTo("prefixItems") == 0)
+            {
+                // handle may prefixItems property
+                // .'$arrayKeywords'.prefixItems
+                res = json_model_4(pval, (path != null ? lpath_1 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("items") == 0)
             {
                 // handle may items property
                 // .'$arrayKeywords'.items
@@ -302,58 +315,6 @@ public class json_schema_draft_tight extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("maxItems") == 0)
-            {
-                // handle may maxItems property
-                // .'$arrayKeywords'.maxItems
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'$arrayKeywords'.maxItems]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.maxItems]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("minItems") == 0)
-            {
-                // handle may minItems property
-                // .'$arrayKeywords'.minItems
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'$arrayKeywords'.minItems]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.minItems]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("prefixItems") == 0)
-            {
-                // handle may prefixItems property
-                // .'$arrayKeywords'.prefixItems
-                res = json_model_4(pval, (path != null ? lpath_1 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$schemaArray\" [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.prefixItems]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("uniqueItems") == 0)
-            {
-                // handle may uniqueItems property
-                // .'$arrayKeywords'.uniqueItems
-                res = json.isBoolean(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a bool [.'$arrayKeywords'.uniqueItems]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.uniqueItems]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
             else if (prop.compareTo("additionalItems") == 0)
             {
                 // handle may additionalItems property
@@ -376,6 +337,45 @@ public class json_schema_draft_tight extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$arrayKeywords'.unevaluatedItems]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.unevaluatedItems]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("minItems") == 0)
+            {
+                // handle may minItems property
+                // .'$arrayKeywords'.minItems
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$arrayKeywords'.minItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.minItems]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("maxItems") == 0)
+            {
+                // handle may maxItems property
+                // .'$arrayKeywords'.maxItems
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$arrayKeywords'.maxItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.maxItems]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("uniqueItems") == 0)
+            {
+                // handle may uniqueItems property
+                // .'$arrayKeywords'.uniqueItems
+                res = json.isBoolean(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a bool [.'$arrayKeywords'.uniqueItems]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$arrayKeywords'.uniqueItems]", (path != null ? lpath_1 : null));
                     return false;
                 }
                 continue;
@@ -465,7 +465,20 @@ public class json_schema_draft_tight extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_2 = new Path(prop, path);
-            if (prop.compareTo("required") == 0)
+            if (prop.compareTo("properties") == 0)
+            {
+                // handle may properties property
+                // .'$objectKeywords'.properties
+                res = _jm_obj_0(pval, (path != null ? lpath_2 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$objectKeywords'.properties]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.properties]", (path != null ? lpath_2 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("required") == 0)
             {
                 // handle may required property
                 // .'$objectKeywords'.required
@@ -496,71 +509,6 @@ public class json_schema_draft_tight extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("properties") == 0)
-            {
-                // handle may properties property
-                // .'$objectKeywords'.properties
-                res = _jm_obj_0(pval, (path != null ? lpath_2 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$objectKeywords'.properties]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.properties]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("maxProperties") == 0)
-            {
-                // handle may maxProperties property
-                // .'$objectKeywords'.maxProperties
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'$objectKeywords'.maxProperties]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.maxProperties]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("minProperties") == 0)
-            {
-                // handle may minProperties property
-                // .'$objectKeywords'.minProperties
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'$objectKeywords'.minProperties]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.minProperties]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("propertyNames") == 0)
-            {
-                // handle may propertyNames property
-                // .'$objectKeywords'.propertyNames
-                res = json_model_24(pval, (path != null ? lpath_2 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$ObjectSchema\" [.'$objectKeywords'.propertyNames]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.propertyNames]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("patternProperties") == 0)
-            {
-                // handle may patternProperties property
-                // .'$objectKeywords'.patternProperties
-                res = _jm_obj_1(pval, (path != null ? lpath_2 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected element [.'$objectKeywords'.patternProperties]", (path != null ? lpath_2 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.patternProperties]", (path != null ? lpath_2 : null));
-                    return false;
-                }
-                continue;
-            }
             else if (prop.compareTo("additionalProperties") == 0)
             {
                 // handle may additionalProperties property
@@ -583,6 +531,58 @@ public class json_schema_draft_tight extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$objectKeywords'.unevaluatedProperties]", (path != null ? lpath_2 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.unevaluatedProperties]", (path != null ? lpath_2 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("minProperties") == 0)
+            {
+                // handle may minProperties property
+                // .'$objectKeywords'.minProperties
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$objectKeywords'.minProperties]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.minProperties]", (path != null ? lpath_2 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("maxProperties") == 0)
+            {
+                // handle may maxProperties property
+                // .'$objectKeywords'.maxProperties
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$objectKeywords'.maxProperties]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.maxProperties]", (path != null ? lpath_2 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("patternProperties") == 0)
+            {
+                // handle may patternProperties property
+                // .'$objectKeywords'.patternProperties
+                res = _jm_obj_1(pval, (path != null ? lpath_2 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected element [.'$objectKeywords'.patternProperties]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.patternProperties]", (path != null ? lpath_2 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("propertyNames") == 0)
+            {
+                // handle may propertyNames property
+                // .'$objectKeywords'.propertyNames
+                res = json_model_24(pval, (path != null ? lpath_2 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$ObjectSchema\" [.'$objectKeywords'.propertyNames]", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$objectKeywords'.propertyNames]", (path != null ? lpath_2 : null));
                     return false;
                 }
                 continue;
@@ -610,20 +610,7 @@ public class json_schema_draft_tight extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_5 = new Path(prop, path);
-            if (prop.compareTo("maximum") == 0)
-            {
-                // handle may maximum property
-                // .'$numberKeywords'.maximum
-                res = json.isDouble(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$numberKeywords'.maximum]", (path != null ? lpath_5 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$numberKeywords'.maximum]", (path != null ? lpath_5 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("minimum") == 0)
+            if (prop.compareTo("minimum") == 0)
             {
                 // handle may minimum property
                 // .'$numberKeywords'.minimum
@@ -632,6 +619,19 @@ public class json_schema_draft_tight extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a -1.0 strict float [.'$numberKeywords'.minimum]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$numberKeywords'.minimum]", (path != null ? lpath_5 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("maximum") == 0)
+            {
+                // handle may maximum property
+                // .'$numberKeywords'.maximum
+                res = json.isDouble(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a -1.0 strict float [.'$numberKeywords'.maximum]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$numberKeywords'.maximum]", (path != null ? lpath_5 : null));
                     return false;
                 }
                 continue;

@@ -414,14 +414,14 @@ def jmc_script():
     arg("--or-must-prop", "-omp", default=None, type=int,
         help="or length threshold for mandatory property discrimination,"
              " target-dependent default, 0 to disable")
-    arg("--sort-must", "-smu", default=True, action="store_true",
-        help="sort must props (default)")
+    arg("--sort-must", "-smu", default=False, action="store_true",
+        help="sort must props")
     arg("--no-sort-must", "-nsmu", action="store_false",
-        help="do not sort must props")
-    arg("--sort-may", "-sma", default=True, action="store_true",
-        help="sort may props (default)")
+        help="do not sort must props (default)")
+    arg("--sort-may", "-sma", default=False, action="store_true",
+        help="sort may props")
     arg("--no-sort-may", "-nsma", action="store_false",
-        help="do not sort may props")
+        help="do not sort may props (default)")
     arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
         help="optimize some string comparisons")
     arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",

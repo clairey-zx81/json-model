@@ -38,20 +38,7 @@ public class jsound extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_1 = new Path(prop, path);
-            if (prop.compareTo("date") == 0)
-            {
-                // handle may date property
-                // .'$Schema'.metadata.date
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Schema'.metadata.date]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.date]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("name") == 0)
+            if (prop.compareTo("name") == 0)
             {
                 // handle may name property
                 // .'$Schema'.metadata.name
@@ -60,6 +47,32 @@ public class jsound extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Schema'.metadata.name]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.name]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("previous") == 0)
+            {
+                // handle may previous property
+                // .'$Schema'.metadata.previous
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Schema'.metadata.previous]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.previous]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("date") == 0)
+            {
+                // handle may date property
+                // .'$Schema'.metadata.date
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Schema'.metadata.date]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.date]", (path != null ? lpath_1 : null));
                     return false;
                 }
                 continue;
@@ -91,19 +104,6 @@ public class jsound extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not array or unexpected array [.'$Schema'.metadata.authors]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.authors]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("previous") == 0)
-            {
-                // handle may previous property
-                // .'$Schema'.metadata.previous
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Schema'.metadata.previous]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Schema'.metadata.previous]", (path != null ? lpath_1 : null));
                     return false;
                 }
                 continue;
@@ -503,15 +503,15 @@ public class jsound extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("closed") == 0)
+            else if (prop.compareTo("baseType") == 0)
             {
-                // handle may closed property
-                // .'$Object'.closed
-                res = json.isBoolean(pval);
+                // handle may baseType property
+                // .'$Object'.baseType
+                res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$Object'.closed]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.closed]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.baseType]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.baseType]", (path != null ? lpath_3 : null));
                     return false;
                 }
                 continue;
@@ -547,15 +547,15 @@ public class jsound extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("baseType") == 0)
+            else if (prop.compareTo("closed") == 0)
             {
-                // handle may baseType property
-                // .'$Object'.baseType
-                res = json.isString(pval);
+                // handle may closed property
+                // .'$Object'.closed
+                res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Object'.baseType]", (path != null ? lpath_3 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.baseType]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$Object'.closed]", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Object'.closed]", (path != null ? lpath_3 : null));
                     return false;
                 }
                 continue;
@@ -622,15 +622,15 @@ public class jsound extends ModelChecker
                 }
                 continue;
             }
-            if (prop.compareTo("unique") == 0)
+            if (prop.compareTo("required") == 0)
             {
-                // handle may unique property
-                // .'$Fields'.unique
+                // handle may required property
+                // .'$Fields'.required
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$Fields'.unique]", (path != null ? lpath_4 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.unique]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$Fields'.required]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.required]", (path != null ? lpath_4 : null));
                     return false;
                 }
                 continue;
@@ -642,15 +642,15 @@ public class jsound extends ModelChecker
                 res = true;
                 continue;
             }
-            else if (prop.compareTo("required") == 0)
+            else if (prop.compareTo("unique") == 0)
             {
-                // handle may required property
-                // .'$Fields'.required
+                // handle may unique property
+                // .'$Fields'.unique
                 res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.'$Fields'.required]", (path != null ? lpath_4 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.required]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("not a bool [.'$Fields'.unique]", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Fields'.unique]", (path != null ? lpath_4 : null));
                     return false;
                 }
                 continue;
@@ -721,19 +721,6 @@ public class jsound extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("content") == 0)
-            {
-                // handle may content property
-                // .'$Array'.content
-                res = json_model_11(pval, (path != null ? lpath_5 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$type-or-ref\" [.'$Array'.content]", (path != null ? lpath_5 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.content]", (path != null ? lpath_5 : null));
-                    return false;
-                }
-                continue;
-            }
             else if (prop.compareTo("baseType") == 0)
             {
                 // handle may baseType property
@@ -747,15 +734,15 @@ public class jsound extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("maxLength") == 0)
+            else if (prop.compareTo("content") == 0)
             {
-                // handle may maxLength property
-                // .'$Array'.maxLength
-                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                // handle may content property
+                // .'$Array'.content
+                res = json_model_11(pval, (path != null ? lpath_5 : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.maxLength]", (path != null ? lpath_5 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.maxLength]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$type-or-ref\" [.'$Array'.content]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.content]", (path != null ? lpath_5 : null));
                     return false;
                 }
                 continue;
@@ -769,6 +756,19 @@ public class jsound extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.minLength]", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.minLength]", (path != null ? lpath_5 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("maxLength") == 0)
+            {
+                // handle may maxLength property
+                // .'$Array'.maxLength
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'$Array'.maxLength]", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Array'.maxLength]", (path != null ? lpath_5 : null));
                     return false;
                 }
                 continue;
@@ -808,21 +808,7 @@ public class jsound extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_6 = new Path(prop, path);
-            if (prop.compareTo("kind") == 0)
-            {
-                // handle must kind property
-                must_count += 1;
-                // .'$Union'.kind
-                res = json.isString(pval) && json.asString(pval).compareTo("union") == 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"union\" [.'$Union'.kind]", (path != null ? lpath_6 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.kind]", (path != null ? lpath_6 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("name") == 0)
+            if (prop.compareTo("name") == 0)
             {
                 // handle must name property
                 must_count += 1;
@@ -832,6 +818,20 @@ public class jsound extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$Union'.name]", (path != null ? lpath_6 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.name]", (path != null ? lpath_6 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("kind") == 0)
+            {
+                // handle must kind property
+                must_count += 1;
+                // .'$Union'.kind
+                res = json.isString(pval) && json.asString(pval).compareTo("union") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"union\" [.'$Union'.kind]", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'$Union'.kind]", (path != null ? lpath_6 : null));
                     return false;
                 }
                 continue;

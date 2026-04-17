@@ -124,18 +124,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'format' THEN
-      -- handle may format property
-      -- .'$stringKeywords'.format
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
+    IF prop = 'pattern' THEN
+      -- handle may pattern property
+      -- .'$stringKeywords'.pattern
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'pattern' THEN
-      -- handle may pattern property
-      -- .'$stringKeywords'.pattern
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    ELSEIF prop = 'minLength' THEN
+      -- handle may minLength property
+      -- .'$stringKeywords'.minLength
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -148,10 +148,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'minLength' THEN
-      -- handle may minLength property
-      -- .'$stringKeywords'.minLength
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+    ELSEIF prop = 'format' THEN
+      -- handle may format property
+      -- .'$stringKeywords'.format
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -177,7 +177,15 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'items' THEN
+    IF prop = 'prefixItems' THEN
+      -- handle may prefixItems property
+      -- .'$arrayKeywords'.prefixItems
+      res := json_model_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'items' THEN
       -- handle may items property
       -- .'$arrayKeywords'.items
       -- .'$arrayKeywords'.items.'|'.0
@@ -187,10 +195,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'maxItems' THEN
-      -- handle may maxItems property
-      -- .'$arrayKeywords'.maxItems
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+    ELSEIF prop = 'additionalItems' THEN
+      -- handle may additionalItems property
+      -- .'$arrayKeywords'.additionalItems
+      res := json_model_24(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -203,10 +211,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'prefixItems' THEN
-      -- handle may prefixItems property
-      -- .'$arrayKeywords'.prefixItems
-      res := json_model_4(pval, NULL, NULL);
+    ELSEIF prop = 'maxItems' THEN
+      -- handle may maxItems property
+      -- .'$arrayKeywords'.maxItems
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -215,14 +223,6 @@ BEGIN
       -- handle may uniqueItems property
       -- .'$arrayKeywords'.uniqueItems
       res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'additionalItems' THEN
-      -- handle may additionalItems property
-      -- .'$arrayKeywords'.additionalItems
-      res := json_model_24(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -300,7 +300,15 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'required' THEN
+    IF prop = 'properties' THEN
+      -- handle may properties property
+      -- .'$objectKeywords'.properties
+      res := _jm_obj_0(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$objectKeywords'.required
       res := JSONB_TYPEOF(pval) = 'array';
@@ -318,10 +326,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'properties' THEN
-      -- handle may properties property
-      -- .'$objectKeywords'.properties
-      res := _jm_obj_0(pval, NULL, NULL);
+    ELSEIF prop = 'additionalProperties' THEN
+      -- handle may additionalProperties property
+      -- .'$objectKeywords'.additionalProperties
+      res := json_model_24(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -330,14 +338,6 @@ BEGIN
       -- handle may patternProperties property
       -- .'$objectKeywords'.patternProperties
       res := _jm_obj_1(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'additionalProperties' THEN
-      -- handle may additionalProperties property
-      -- .'$objectKeywords'.additionalProperties
-      res := json_model_24(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -363,17 +363,17 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'maximum' THEN
-      -- handle may maximum property
-      -- .'$numberKeywords'.maximum
+    IF prop = 'minimum' THEN
+      -- handle may minimum property
+      -- .'$numberKeywords'.minimum
       res := JSONB_TYPEOF(pval) = 'number';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'minimum' THEN
-      -- handle may minimum property
-      -- .'$numberKeywords'.minimum
+    ELSEIF prop = 'maximum' THEN
+      -- handle may maximum property
+      -- .'$numberKeywords'.maximum
       res := JSONB_TYPEOF(pval) = 'number';
       IF NOT res THEN
         RETURN FALSE;

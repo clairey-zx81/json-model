@@ -81,22 +81,22 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid mandatory prop value [.RA]", lpath_1 if path is not None else None))
                 return False
             continue
-        if prop == "a":
-            # handle may a property
-            # .a
-            res = json_model_7(pval, lpath_1 if path is not None else None, rep)
-            if not res:
-                rep is None or rep.append(("unexpected value for model \"$Rr#Aa\" [.a]", lpath_1 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.a]", lpath_1 if path is not None else None))
-                return False
-            continue
-        elif prop == "b":
+        if prop == "b":
             # handle may b property
             # .b
             res = json_model_3(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected value for model \"$Bb\" [.b]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.b]", lpath_1 if path is not None else None))
+                return False
+            continue
+        elif prop == "a":
+            # handle may a property
+            # .a
+            res = json_model_7(pval, lpath_1 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"$Rr#Aa\" [.a]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.a]", lpath_1 if path is not None else None))
                 return False
             continue
         rep is None or rep.append(("unexpected prop [.]", lpath_1 if path is not None else None))

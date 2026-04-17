@@ -6,9 +6,9 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-#define _jm_re_0(s, p, r) jm_re_anchored_dotplus(s)
-#define _jm_re_1(s, p, r) jm_re_dot(s)
-#define _jm_re_2(s, p, r) jm_re_dots(s)
+#define _jm_re_0(s, p, r) jm_re_dot(s)
+#define _jm_re_1(s, p, r) jm_re_dots(s)
+#define _jm_re_2(s, p, r) jm_re_anchored_dotplus(s)
 #define _jm_re_3(s, p, r) jm_re_anchored_dotstar(s)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
@@ -32,7 +32,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (jm_str_eq_4(prop, 0x00746f64))
             {
-                res = json_is_string(pval) && _jm_re_1(json_string_value(pval), NULL, NULL);
+                res = json_is_string(pval) && _jm_re_0(json_string_value(pval), NULL, NULL);
                 if (unlikely(! res))
                     return false;
                 continue;
@@ -54,21 +54,21 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (jm_str_eq_5(prop, 0x000000002b746f64LL))
+            if (jm_str_eq_5(prop, 0x0000000069746f64LL))
             {
                 res = json_is_string(pval) && _jm_re_0(json_string_value(pval), NULL, NULL);
                 if (unlikely(! res))
                     return false;
                 continue;
             }
-            else if (jm_str_eq_5(prop, 0x0000000069746f64LL))
+            else if (jm_str_eq_5(prop, 0x0000000073746f64LL))
             {
                 res = json_is_string(pval) && _jm_re_1(json_string_value(pval), NULL, NULL);
                 if (unlikely(! res))
                     return false;
                 continue;
             }
-            else if (jm_str_eq_5(prop, 0x0000000073746f64LL))
+            else if (jm_str_eq_5(prop, 0x000000002b746f64LL))
             {
                 res = json_is_string(pval) && _jm_re_2(json_string_value(pval), NULL, NULL);
                 if (unlikely(! res))
@@ -77,7 +77,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             else if (jm_str_eq_6(prop, 0x000000732b746f64LL))
             {
-                res = json_is_string(pval) && _jm_re_2(json_string_value(pval), NULL, NULL);
+                res = json_is_string(pval) && _jm_re_1(json_string_value(pval), NULL, NULL);
                 if (unlikely(! res))
                     return false;
                 continue;

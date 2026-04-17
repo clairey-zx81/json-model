@@ -259,21 +259,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (jm_str_eq_2(prop, 0x00000064))
-            {
-                // handle must d property
-                must_count += 1;
-                // .d
-                res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_cst_01\" [.d]", (path ? &lpath_2 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.d]", (path ? &lpath_2 : NULL));
-                    return false;
-                }
-                continue;
-            }
-            else if (jm_str_eq_2(prop, 0x00000065))
+            if (jm_str_eq_2(prop, 0x00000065))
             {
                 // handle must e property
                 must_count += 1;
@@ -297,6 +283,20 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected value for model \"_cst_02\" [.f]", (path ? &lpath_2 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.f]", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_2(prop, 0x00000064))
+            {
+                // handle must d property
+                must_count += 1;
+                // .d
+                res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x000031305f747363LL);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_cst_01\" [.d]", (path ? &lpath_2 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.d]", (path ? &lpath_2 : NULL));
                     return false;
                 }
                 continue;

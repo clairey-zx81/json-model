@@ -241,20 +241,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             continue;
         }
-        if (unlikely(jm_str_eq_8(prop, 0x00656c6966636f64LL)))
-        {
-            // handle may docfile property
-            // .'$Provide'.docfile
-            res = json_is_string(pval);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Provide'.docfile]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Provide'.docfile]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (jm_str_eq_8(prop, 0x7463617274736261LL) && jm_str_eq_0(prop + 8))
+        if (unlikely(jm_str_eq_8(prop, 0x7463617274736261LL) && jm_str_eq_0(prop + 8)))
         {
             // handle may abstract property
             // .'$Provide'.abstract
@@ -263,6 +250,19 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Provide'.abstract]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Provide'.abstract]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (jm_str_eq_8(prop, 0x00656c6966636f64LL))
+        {
+            // handle may docfile property
+            // .'$Provide'.docfile
+            res = json_is_string(pval);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Provide'.docfile]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Provide'.docfile]", (path ? &lpath_0 : NULL));
                 return false;
             }
             continue;
@@ -1022,20 +1022,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 continue;
             }
-            else if (jm_str_eq_8(prop, 0x73656469766f7270LL) && jm_str_eq_0(prop + 8))
-            {
-                // handle must provides property
-                must_count += 1;
-                // .provides
-                res = _jm_obj_5(pval, (path ? &lpath_7 : NULL), rep);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected element [.provides]", (path ? &lpath_7 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.provides]", (path ? &lpath_7 : NULL));
-                    return false;
-                }
-                continue;
-            }
             else if (jm_str_eq_8(prop, 0x6e6961746e69616dLL) && jm_str_eq_3(prop + 8, 0x00007265))
             {
                 // handle must maintainer property
@@ -1061,6 +1047,20 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     if (rep) jm_report_add_entry(rep, "no model matched [.maintainer.'|']", (path ? &lpath_7 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.maintainer]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x73656469766f7270LL) && jm_str_eq_0(prop + 8))
+            {
+                // handle must provides property
+                must_count += 1;
+                // .provides
+                res = _jm_obj_5(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.provides]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.provides]", (path ? &lpath_7 : NULL));
                     return false;
                 }
                 continue;
@@ -1137,19 +1137,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 continue;
             }
-            else if (jm_str_eq_8(prop, 0x0073716572657270LL))
-            {
-                // handle may prereqs property
-                // .prereqs
-                res = json_model_16(pval, (path ? &lpath_7 : NULL), rep);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Prereqs\" [.prereqs]", (path ? &lpath_7 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.prereqs]", (path ? &lpath_7 : NULL));
-                    return false;
-                }
-                continue;
-            }
             else if (jm_str_eq_8(prop, 0x7865646e695f6f6eLL) && jm_str_eq_0(prop + 8))
             {
                 // handle may no_index property
@@ -1172,6 +1159,19 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Resources\" [.resources]", (path ? &lpath_7 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.resources]", (path ? &lpath_7 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x0073716572657270LL))
+            {
+                // handle may prereqs property
+                // .prereqs
+                res = json_model_16(pval, (path ? &lpath_7 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Prereqs\" [.prereqs]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.prereqs]", (path ? &lpath_7 : NULL));
                     return false;
                 }
                 continue;

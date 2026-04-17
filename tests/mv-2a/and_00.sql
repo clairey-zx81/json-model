@@ -18,10 +18,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'b' THEN
-      -- handle may b property
-      -- .b
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    IF prop = 's' THEN
+      -- handle may s property
+      -- .s
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -34,10 +34,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 's' THEN
-      -- handle may s property
-      -- .s
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'b' THEN
+      -- handle may b property
+      -- .b
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

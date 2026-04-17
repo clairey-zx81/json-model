@@ -24,18 +24,18 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000063)))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000063))
+        else if (jm_str_eq_2(prop, 0x00000061))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
             continue;
@@ -61,18 +61,18 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000063)))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000063))
+        else if (jm_str_eq_2(prop, 0x00000061))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
             continue;
@@ -98,18 +98,18 @@ static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000063)))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000063))
+        else if (jm_str_eq_2(prop, 0x00000061))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
             continue;
@@ -135,18 +135,18 @@ static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000062)))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000062))
+        else if (jm_str_eq_2(prop, 0x00000061))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
             continue;
@@ -172,18 +172,18 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000062)))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000062))
+        else if (jm_str_eq_2(prop, 0x00000061))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
             continue;
@@ -209,18 +209,18 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        if (unlikely(jm_str_eq_2(prop, 0x00000061)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000062)))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (unlikely(! res))
                 return false;
             continue;
         }
-        else if (jm_str_eq_2(prop, 0x00000062))
+        else if (jm_str_eq_2(prop, 0x00000061))
         {
             must_count += 1;
-            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
             if (unlikely(! res))
                 return false;
             continue;

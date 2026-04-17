@@ -9,19 +9,19 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=^.*$ opts=n
+-- regex=^.+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^.*$', 'n');
+  RETURN regexp_like(val, '^.+$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=^.+$ opts=n
+-- regex=^.*$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^.+$', 'n');
+  RETURN regexp_like(val, '^.*$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -42,18 +42,6 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'dot*' THEN
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_1(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'dot+' THEN
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_2(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = 'doti' THEN
       res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
@@ -66,14 +54,26 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'dot*s' THEN
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'dot+' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_1(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'dot*' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_2(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
     ELSEIF prop = 'dot+s' THEN
       res := JSONB_TYPEOF(pval) = 'string' AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) > 0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'dot*s' THEN
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

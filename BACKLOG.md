@@ -59,7 +59,7 @@
 - [x] c-backend: improve startwith code with fast str eq when string is a function call
 - [x] c-backend: improve `str_cmp` with fast str eq when string is a function call
 - [x] c-backend: check str cmp optims with utf8 strings
-- [ ] static: better preserve prop order as much as possible (eg `importmap`)
+- [x] static: preserve prop order by default
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning

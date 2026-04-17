@@ -29,15 +29,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_2(prop, 0x00000062)))
+        if (unlikely(jm_str_eq_2(prop, 0x00000073)))
         {
-            // handle may b property
-            // .b
-            res = json_is_boolean(pval);
+            // handle may s property
+            // .s
+            res = json_is_string(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a bool [.b]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.b]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.s]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.s]", (path ? &lpath_0 : NULL));
                 return false;
             }
             continue;
@@ -55,15 +55,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000073)))
+        else if (unlikely(jm_str_eq_2(prop, 0x00000062)))
         {
-            // handle may s property
-            // .s
-            res = json_is_string(pval);
+            // handle may b property
+            // .b
+            res = json_is_boolean(pval);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.s]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.s]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [.b]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.b]", (path ? &lpath_0 : NULL));
                 return false;
             }
             continue;

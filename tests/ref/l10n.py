@@ -115,6 +115,16 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid mandatory prop value [.'$']", lpath_0 if path is not None else None))
                 return False
             continue
+        elif prop == "~":
+            # handle must ~ property
+            must_count += 1
+            # .'~'
+            res = isinstance(pval, str) and (pval == "https://json-model.org/models/l10n")
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'~']", lpath_0 if path is not None else None))
+                return False
+            continue
         elif prop == "%":
             # handle must % property
             must_count += 1
@@ -134,16 +144,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected value for model \"_$Model\" [.'@']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'@']", lpath_0 if path is not None else None))
-                return False
-            continue
-        elif prop == "~":
-            # handle must ~ property
-            must_count += 1
-            # .'~'
-            res = isinstance(pval, str) and (pval == "https://json-model.org/models/l10n")
-            if not res:
-                rep is None or rep.append(("unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'~']", lpath_0 if path is not None else None))
                 return False
             continue
         if prop.startswith("#"):

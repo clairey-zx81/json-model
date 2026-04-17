@@ -173,10 +173,10 @@ sub _jm_obj_2($$$)
             }
             next;
         }
-        if ($prop eq 'w')
+        if ($prop eq 'z')
         {
-            # handle may w property
-            # .'|'.0.w
+            # handle may z property
+            # .'|'.0.z
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -184,10 +184,10 @@ sub _jm_obj_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'z')
+        elsif ($prop eq 'w')
         {
-            # handle may z property
-            # .'|'.0.z
+            # handle may w property
+            # .'|'.0.w
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {

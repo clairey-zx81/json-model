@@ -27,11 +27,11 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'b')
+        if ($prop eq 's')
         {
-            # handle may b property
-            # .b
-            $res = jm_is_boolean($pval);
+            # handle may s property
+            # .s
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -49,11 +49,11 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 's')
+        elsif ($prop eq 'b')
         {
-            # handle may s property
-            # .s
-            $res = jm_is_string($pval);
+            # handle may b property
+            # .b
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;

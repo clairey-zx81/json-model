@@ -38,16 +38,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
             continue
-        elif prop == "dot*":
-            res = isinstance(pval, str) and _jm_re_1(pval, None, None)
-            if not res:
-                return False
-            continue
-        elif prop == "dot+":
-            res = isinstance(pval, str) and _jm_re_2(pval, None, None)
-            if not res:
-                return False
-            continue
         elif prop == "doti":
             res = isinstance(pval, str) and _jm_re_0(pval, None, None)
             if not res:
@@ -58,13 +48,23 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
             continue
-        elif prop == "dot*s":
-            res = isinstance(pval, str)
+        elif prop == "dot+":
+            res = isinstance(pval, str) and _jm_re_1(pval, None, None)
+            if not res:
+                return False
+            continue
+        elif prop == "dot*":
+            res = isinstance(pval, str) and _jm_re_2(pval, None, None)
             if not res:
                 return False
             continue
         elif prop == "dot+s":
             res = isinstance(pval, str) and len(pval) > 0
+            if not res:
+                return False
+            continue
+        elif prop == "dot*s":
+            res = isinstance(pval, str)
             if not res:
                 return False
             continue
@@ -84,10 +84,10 @@ def check_model_init():
         _jm_re_0_reco = re.compile(".")
         _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_re_1_reco, _jm_re_1
-        _jm_re_1_reco = re.compile("^.*$")
+        _jm_re_1_reco = re.compile("^.+$")
         _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
         global _jm_re_2_reco, _jm_re_2
-        _jm_re_2_reco = re.compile("^.+$")
+        _jm_re_2_reco = re.compile("^.*$")
         _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global check_model_map
         check_model_map = {

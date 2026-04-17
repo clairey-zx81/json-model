@@ -315,6 +315,17 @@ sub json_model_4($$$)
             }
             next;
         }
+        elsif ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$meta'.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
         elsif ($prop eq 'default')
         {
             # handle may default property
@@ -322,11 +333,11 @@ sub json_model_4($$$)
             $res = 1;
             next;
         }
-        elsif ($prop eq 'examples')
+        elsif ($prop eq 'deprecated')
         {
-            # handle may examples property
-            # .'$meta'.examples
-            $res = jm_is_array($pval);
+            # handle may deprecated property
+            # .'$meta'.deprecated
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
@@ -355,22 +366,11 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'deprecated')
+        elsif ($prop eq 'examples')
         {
-            # handle may deprecated property
-            # .'$meta'.deprecated
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$meta'.description
-            $res = jm_is_string($pval);
+            # handle may examples property
+            # .'$meta'.examples
+            $res = jm_is_array($pval);
             if (! $res)
             {
                 return 0;
@@ -458,12 +458,38 @@ sub json_model_7($$$)
             }
             next;
         }
-        if ($prop eq 'maximum')
+        if ($prop eq 'multipleOf')
+        {
+            # handle may multipleOf property
+            # .'$Number'.multipleOf
+            # .'$Number'.multipleOf.'|'.0
+            # .'$Number'.multipleOf.'|'.1
+            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'maximum')
         {
             # handle may maximum property
             # .'$Number'.maximum
             # .'$Number'.maximum.'|'.0
             # .'$Number'.maximum.'|'.1
+            $res = jm_is_integer($pval) || jm_is_numeric($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'exclusiveMaximum')
+        {
+            # handle may exclusiveMaximum property
+            # .'$Number'.exclusiveMaximum
+            # .'$Number'.exclusiveMaximum.'|'.0
+            # .'$Number'.exclusiveMaximum.'|'.1
             $res = jm_is_integer($pval) || jm_is_numeric($pval);
             if (! $res)
             {
@@ -477,32 +503,6 @@ sub json_model_7($$$)
             # .'$Number'.minimum
             # .'$Number'.minimum.'|'.0
             # .'$Number'.minimum.'|'.1
-            $res = jm_is_integer($pval) || jm_is_numeric($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'multipleOf')
-        {
-            # handle may multipleOf property
-            # .'$Number'.multipleOf
-            # .'$Number'.multipleOf.'|'.0
-            # .'$Number'.multipleOf.'|'.1
-            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'exclusiveMaximum')
-        {
-            # handle may exclusiveMaximum property
-            # .'$Number'.exclusiveMaximum
-            # .'$Number'.exclusiveMaximum.'|'.0
-            # .'$Number'.exclusiveMaximum.'|'.1
             $res = jm_is_integer($pval) || jm_is_numeric($pval);
             if (! $res)
             {
@@ -554,10 +554,32 @@ sub json_model_8($$$)
             }
             next;
         }
-        if ($prop eq 'maximum')
+        if ($prop eq 'multipleOf')
+        {
+            # handle may multipleOf property
+            # .'$Integer'.multipleOf
+            $res = jm_is_integer($pval) && $pval >= 1;
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'maximum')
         {
             # handle may maximum property
             # .'$Integer'.maximum
+            $res = jm_is_integer($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'exclusiveMaximum')
+        {
+            # handle may exclusiveMaximum property
+            # .'$Integer'.exclusiveMaximum
             $res = jm_is_integer($pval);
             if (! $res)
             {
@@ -569,28 +591,6 @@ sub json_model_8($$$)
         {
             # handle may minimum property
             # .'$Integer'.minimum
-            $res = jm_is_integer($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'multipleOf')
-        {
-            # handle may multipleOf property
-            # .'$Integer'.multipleOf
-            $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'exclusiveMaximum')
-        {
-            # handle may exclusiveMaximum property
-            # .'$Integer'.exclusiveMaximum
             $res = jm_is_integer($pval);
             if (! $res)
             {
@@ -640,10 +640,10 @@ sub json_model_9($$$)
             }
             next;
         }
-        if ($prop eq 'format')
+        if ($prop eq 'contentEncoding')
         {
-            # handle may format property
-            # .'$String'.format
+            # handle may contentEncoding property
+            # .'$String'.contentEncoding
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -651,11 +651,33 @@ sub json_model_9($$$)
             }
             next;
         }
-        elsif ($prop eq 'pattern')
+        elsif ($prop eq 'contentMediaType')
         {
-            # handle may pattern property
-            # .'$String'.pattern
-            $res = jm_is_string($pval) && jm_is_valid_regex($pval, undef, undef);
+            # handle may contentMediaType property
+            # .'$String'.contentMediaType
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'contentSchema')
+        {
+            # handle may contentSchema property
+            # .'$String'.contentSchema
+            $res = json_model_16($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'format')
+        {
+            # handle may format property
+            # .'$String'.format
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -684,33 +706,11 @@ sub json_model_9($$$)
             }
             next;
         }
-        elsif ($prop eq 'contentSchema')
+        elsif ($prop eq 'pattern')
         {
-            # handle may contentSchema property
-            # .'$String'.contentSchema
-            $res = json_model_16($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'contentEncoding')
-        {
-            # handle may contentEncoding property
-            # .'$String'.contentEncoding
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'contentMediaType')
-        {
-            # handle may contentMediaType property
-            # .'$String'.contentMediaType
-            $res = jm_is_string($pval);
+            # handle may pattern property
+            # .'$String'.pattern
+            $res = jm_is_string($pval) && jm_is_valid_regex($pval, undef, undef);
             if (! $res)
             {
                 return 0;

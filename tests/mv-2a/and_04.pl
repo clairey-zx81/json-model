@@ -115,22 +115,11 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'a')
+        if ($prop eq 'u')
         {
-            # handle may a property
-            # .a
-            $res = jm_is_array($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'b')
-        {
-            # handle may b property
-            # .b
-            $res = jm_is_boolean($pval);
+            # handle may u property
+            # .u
+            $res = jm_is_integer($pval) && $pval >= 1;
             if (! $res)
             {
                 return 0;
@@ -148,11 +137,22 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'u')
+        elsif ($prop eq 'a')
         {
-            # handle may u property
-            # .u
-            $res = jm_is_integer($pval) && $pval >= 1;
+            # handle may a property
+            # .a
+            $res = jm_is_array($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'b')
+        {
+            # handle may b property
+            # .b
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;

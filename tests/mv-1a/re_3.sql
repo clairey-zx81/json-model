@@ -26,19 +26,19 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'nz' THEN
-      -- handle may nz property
-      -- .nz
-      -- "/./s"
-      res := JSONB_TYPEOF(pval) = 'string' AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) > 0;
+    IF prop = 'all' THEN
+      -- handle may all property
+      -- .all
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'all' THEN
-      -- handle may all property
-      -- .all
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'nz' THEN
+      -- handle may nz property
+      -- .nz
+      -- "/./s"
+      res := JSONB_TYPEOF(pval) = 'string' AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) > 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

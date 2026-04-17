@@ -89,22 +89,22 @@ sub json_model_1($$$)
             }
             next;
         }
-        if ($prop eq 'a')
+        if ($prop eq 'b')
         {
-            # handle may a property
-            # .a
-            $res = json_model_7($pval, undef, undef);
+            # handle may b property
+            # .b
+            $res = json_model_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'b')
+        elsif ($prop eq 'a')
         {
-            # handle may b property
-            # .b
-            $res = json_model_3($pval, undef, undef);
+            # handle may a property
+            # .a
+            $res = json_model_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;

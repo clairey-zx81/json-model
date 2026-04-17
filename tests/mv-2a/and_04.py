@@ -92,7 +92,25 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if prop == "a":
+        if prop == "u":
+            # handle may u property
+            # .u
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+            if not res:
+                rep is None or rep.append(("not a 1 strict int [.u]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.u]", lpath_2 if path is not None else None))
+                return False
+            continue
+        elif prop == "s":
+            # handle may s property
+            # .s
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"\" [.s]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.s]", lpath_2 if path is not None else None))
+                return False
+            continue
+        elif prop == "a":
             # handle may a property
             # .a
             res = isinstance(pval, list)
@@ -108,24 +126,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.b]", lpath_2 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.b]", lpath_2 if path is not None else None))
-                return False
-            continue
-        elif prop == "s":
-            # handle may s property
-            # .s
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected value for model \"\" [.s]", lpath_2 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.s]", lpath_2 if path is not None else None))
-                return False
-            continue
-        elif prop == "u":
-            # handle may u property
-            # .u
-            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
-            if not res:
-                rep is None or rep.append(("not a 1 strict int [.u]", lpath_2 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.u]", lpath_2 if path is not None else None))
                 return False
             continue
         if prop.startswith("xu"):

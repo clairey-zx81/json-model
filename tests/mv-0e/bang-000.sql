@@ -29,24 +29,6 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '/' THEN
-      -- handle must / property
-      must_count := must_count + 1;
-      -- .'/'
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 = 17;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = '?' THEN
-      -- handle must ? property
-      must_count := must_count + 1;
-      -- .'?'
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 >= 0.0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = '_' THEN
       -- handle must _ property
       must_count := must_count + 1;
@@ -61,6 +43,24 @@ BEGIN
       must_count := must_count + 1;
       -- .a
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '?' THEN
+      -- handle must ? property
+      must_count := must_count + 1;
+      -- .'?'
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 >= 0.0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '/' THEN
+      -- handle must / property
+      must_count := must_count + 1;
+      -- .'/'
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 = 17;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

@@ -120,6 +120,15 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
+    ELSEIF prop = '~' THEN
+      -- handle must ~ property
+      must_count := must_count + 1;
+      -- .'~'
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'https://json-model.org/models/l10n';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
     ELSEIF prop = '%' THEN
       -- handle must % property
       must_count := must_count + 1;
@@ -135,15 +144,6 @@ BEGIN
       must_count := must_count + 1;
       -- .'@'
       res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = '$Model';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle must ~ property
-      must_count := must_count + 1;
-      -- .'~'
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'https://json-model.org/models/l10n';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

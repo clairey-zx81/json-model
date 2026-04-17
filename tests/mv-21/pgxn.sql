@@ -143,17 +143,17 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = 'docfile' THEN
-      -- handle may docfile property
-      -- .'$Provide'.docfile
+    IF prop = 'abstract' THEN
+      -- handle may abstract property
+      -- .'$Provide'.abstract
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'abstract' THEN
-      -- handle may abstract property
-      -- .'$Provide'.abstract
+    ELSEIF prop = 'docfile' THEN
+      -- handle may docfile property
+      -- .'$Provide'.docfile
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -659,18 +659,6 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'license' THEN
-      -- handle must license property
-      must_count := must_count + 1;
-      -- .license
-      -- .license.'|'.0
-      -- .license.'|'.1
-      -- .license.'|'.2
-      res := json_model_4(pval, NULL, NULL) OR json_model_5(pval, NULL, NULL) OR _jm_obj_3(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = 'version' THEN
       -- handle must version property
       must_count := must_count + 1;
@@ -685,6 +673,29 @@ BEGIN
       must_count := must_count + 1;
       -- .abstract
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'maintainer' THEN
+      -- handle must maintainer property
+      must_count := must_count + 1;
+      -- .maintainer
+      -- .maintainer.'|'.0
+      -- .maintainer.'|'.1
+      res := json_model_2(pval, NULL, NULL) OR json_model_3(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'license' THEN
+      -- handle must license property
+      must_count := must_count + 1;
+      -- .license
+      -- .license.'|'.0
+      -- .license.'|'.1
+      -- .license.'|'.2
+      res := json_model_4(pval, NULL, NULL) OR json_model_5(pval, NULL, NULL) OR _jm_obj_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -707,54 +718,11 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'maintainer' THEN
-      -- handle must maintainer property
-      must_count := must_count + 1;
-      -- .maintainer
-      -- .maintainer.'|'.0
-      -- .maintainer.'|'.1
-      res := json_model_2(pval, NULL, NULL) OR json_model_3(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     END IF;
     IF prop = 'url' THEN
       -- handle may url property
       -- .url
       res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'tags' THEN
-      -- handle may tags property
-      -- .tags
-      res := json_model_3(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'prereqs' THEN
-      -- handle may prereqs property
-      -- .prereqs
-      res := json_model_16(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'no_index' THEN
-      -- handle may no_index property
-      -- .no_index
-      res := _jm_obj_6(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'resources' THEN
-      -- handle may resources property
-      -- .resources
-      res := json_model_8(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -775,10 +743,42 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
+    ELSEIF prop = 'tags' THEN
+      -- handle may tags property
+      -- .tags
+      res := json_model_3(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'no_index' THEN
+      -- handle may no_index property
+      -- .no_index
+      res := _jm_obj_6(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
     ELSEIF prop = 'release_status' THEN
       -- handle may release_status property
       -- .release_status
       res := json_model_7(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'resources' THEN
+      -- handle may resources property
+      -- .resources
+      res := json_model_8(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'prereqs' THEN
+      -- handle may prereqs property
+      -- .prereqs
+      res := json_model_16(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

@@ -94,18 +94,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'a' THEN
-      -- handle may a property
-      -- .a
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'b' THEN
-      -- handle may b property
-      -- .b
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    IF prop = 'u' THEN
+      -- handle may u property
+      -- .u
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -118,10 +110,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'u' THEN
-      -- handle may u property
-      -- .u
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
+    ELSEIF prop = 'a' THEN
+      -- handle may a property
+      -- .a
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'b' THEN
+      -- handle may b property
+      -- .b
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

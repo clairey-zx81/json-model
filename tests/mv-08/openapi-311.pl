@@ -251,19 +251,7 @@ sub json_model_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'info')
-        {
-            # handle must info property
-            $must_count++;
-            # .'$OpenAPI'.info
-            $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'openapi')
+        if ($prop eq 'openapi')
         {
             # handle must openapi property
             $must_count++;
@@ -276,18 +264,41 @@ sub json_model_2($$$)
             }
             next;
         }
-        if ($prop eq 'tags')
+        elsif ($prop eq 'info')
         {
-            # handle may tags property
-            # .'$OpenAPI'.tags
+            # handle must info property
+            $must_count++;
+            # .'$OpenAPI'.info
+            $res = json_model_3($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        if ($prop eq 'jsonSchemaDialect')
+        {
+            # handle may jsonSchemaDialect property
+            # .'$OpenAPI'.jsonSchemaDialect
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'servers')
+        {
+            # handle may servers property
+            # .'$OpenAPI'.servers
             $res = jm_is_array($pval);
             if ($res)
             {
                 for my $arr_0_idx (0 .. $#$pval)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
-                    # .'$OpenAPI'.tags.0
-                    $res = json_model_29($arr_0_item, undef, undef);
+                    # .'$OpenAPI'.servers.0
+                    $res = json_model_6($arr_0_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -305,54 +316,6 @@ sub json_model_2($$$)
             # handle may paths property
             # .'$OpenAPI'.paths
             $res = json_model_9($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'servers')
-        {
-            # handle may servers property
-            # .'$OpenAPI'.servers
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_1_idx (0 .. $#$pval)
-                {
-                    my $arr_1_item = $$pval[$arr_1_idx];
-                    # .'$OpenAPI'.servers.0
-                    $res = json_model_6($arr_1_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'security')
-        {
-            # handle may security property
-            # .'$OpenAPI'.security
-            $res = jm_is_array($pval);
-            if ($res)
-            {
-                for my $arr_2_idx (0 .. $#$pval)
-                {
-                    my $arr_2_item = $$pval[$arr_2_idx];
-                    # .'$OpenAPI'.security.0
-                    $res = json_model_43($arr_2_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
-            }
             if (! $res)
             {
                 return 0;
@@ -381,22 +344,59 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'externalDocs')
+        elsif ($prop eq 'security')
         {
-            # handle may externalDocs property
-            # .'$OpenAPI'.externalDocs
-            $res = json_model_12($pval, undef, undef);
+            # handle may security property
+            # .'$OpenAPI'.security
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_1_idx (0 .. $#$pval)
+                {
+                    my $arr_1_item = $$pval[$arr_1_idx];
+                    # .'$OpenAPI'.security.0
+                    $res = json_model_43($arr_1_item, undef, undef);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'jsonSchemaDialect')
+        elsif ($prop eq 'tags')
         {
-            # handle may jsonSchemaDialect property
-            # .'$OpenAPI'.jsonSchemaDialect
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
+            # handle may tags property
+            # .'$OpenAPI'.tags
+            $res = jm_is_array($pval);
+            if ($res)
+            {
+                for my $arr_2_idx (0 .. $#$pval)
+                {
+                    my $arr_2_item = $$pval[$arr_2_idx];
+                    # .'$OpenAPI'.tags.0
+                    $res = json_model_29($arr_2_item, undef, undef);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
+            }
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'externalDocs')
+        {
+            # handle may externalDocs property
+            # .'$OpenAPI'.externalDocs
+            $res = json_model_12($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -455,29 +455,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        if ($prop eq 'contact')
-        {
-            # handle may contact property
-            # .'$Info'.contact
-            $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'license')
-        {
-            # handle may license property
-            # .'$Info'.license
-            $res = json_model_5($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'summary')
+        if ($prop eq 'summary')
         {
             # handle may summary property
             # .'$Info'.summary
@@ -504,6 +482,28 @@ sub json_model_3($$$)
             # handle may termsOfService property
             # .'$Info'.termsOfService
             $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'contact')
+        {
+            # handle may contact property
+            # .'$Info'.contact
+            $res = json_model_4($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'license')
+        {
+            # handle may license property
+            # .'$Info'.license
+            $res = json_model_5($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -537,22 +537,22 @@ sub json_model_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'url')
+        if ($prop eq 'name')
         {
-            # handle may url property
-            # .'$Contact'.url
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
+            # handle may name property
+            # .'$Contact'.name
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'name')
+        elsif ($prop eq 'url')
         {
-            # handle may name property
-            # .'$Contact'.name
-            $res = jm_is_string($pval);
+            # handle may url property
+            # .'$Contact'.url
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -601,24 +601,24 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'url')
+        if ($prop eq 'name')
         {
-            # handle must url property
+            # handle must name property
             $must_count++;
-            # .'$License'.'|'.1.url
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
+            # .'$License'.'|'.1.name
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'name')
+        elsif ($prop eq 'url')
         {
-            # handle must name property
+            # handle must url property
             $must_count++;
-            # .'$License'.'|'.1.name
-            $res = jm_is_string($pval);
+            # .'$License'.'|'.1.url
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -746,22 +746,22 @@ sub json_model_6($$$)
             }
             next;
         }
-        if ($prop eq 'variables')
+        if ($prop eq 'description')
         {
-            # handle may variables property
-            # .'$Server'.variables
-            $res = _jm_obj_3($pval, undef, undef);
+            # handle may description property
+            # .'$Server'.description
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq 'variables')
         {
-            # handle may description property
-            # .'$Server'.description
-            $res = jm_is_string($pval);
+            # handle may variables property
+            # .'$Server'.variables
+            $res = _jm_obj_3($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -1558,7 +1558,18 @@ sub json_model_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'required')
+        if ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$parameterShare'.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'required')
         {
             # handle may required property
             # .'$parameterShare'.required
@@ -1574,17 +1585,6 @@ sub json_model_13($$$)
             # handle may deprecated property
             # .'$parameterShare'.deprecated
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$parameterShare'.description
-            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1631,19 +1631,7 @@ sub json_model_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'in')
-        {
-            # handle must in property
-            $must_count++;
-            # .'$commonParameter'.in
-            $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'name')
+        if ($prop eq 'name')
         {
             # handle must name property
             $must_count++;
@@ -1655,7 +1643,30 @@ sub json_model_14($$$)
             }
             next;
         }
-        if ($prop eq 'required')
+        elsif ($prop eq 'in')
+        {
+            # handle must in property
+            $must_count++;
+            # .'$commonParameter'.in
+            $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        if ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$commonParameter'.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'required')
         {
             # handle may required property
             # .'$commonParameter'.required
@@ -1671,17 +1682,6 @@ sub json_model_14($$$)
             # handle may deprecated property
             # .'$commonParameter'.deprecated
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$commonParameter'.description
-            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1772,6 +1772,28 @@ sub json_model_16($$$)
             }
             next;
         }
+        elsif ($prop eq 'explode')
+        {
+            # handle may explode property
+            # .'$parameterSchemaOnly'.explode
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'allowReserved')
+        {
+            # handle may allowReserved property
+            # .'$parameterSchemaOnly'.allowReserved
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
         elsif ($prop eq 'schema')
         {
             # handle may schema property
@@ -1790,33 +1812,11 @@ sub json_model_16($$$)
             $res = 1;
             next;
         }
-        elsif ($prop eq 'explode')
-        {
-            # handle may explode property
-            # .'$parameterSchemaOnly'.explode
-            $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
         elsif ($prop eq 'examples')
         {
             # handle may examples property
             # .'$parameterSchemaOnly'.examples
             $res = _jm_obj_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'allowReserved')
-        {
-            # handle may allowReserved property
-            # .'$parameterSchemaOnly'.allowReserved
-            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
@@ -1914,19 +1914,7 @@ sub _jm_obj_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'in')
-        {
-            # handle must in property
-            $must_count++;
-            # .'$Parameter'.'|'.1.in
-            $res = jm_is_string($pval) && exists $_jm_cst_2{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'name')
+        if ($prop eq 'name')
         {
             # handle must name property
             $must_count++;
@@ -1938,11 +1926,23 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        if ($prop eq 'content')
+        elsif ($prop eq 'in')
         {
-            # handle may content property
-            # .'$Parameter'.'|'.1.content
-            $res = _jm_obj_7($pval, undef, undef);
+            # handle must in property
+            $must_count++;
+            # .'$Parameter'.'|'.1.in
+            $res = jm_is_string($pval) && exists $_jm_cst_2{$pval};
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        if ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$Parameter'.'|'.1.description
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -1971,22 +1971,22 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq 'allowEmptyValue')
         {
-            # handle may description property
-            # .'$Parameter'.'|'.1.description
-            $res = jm_is_string($pval);
+            # handle may allowEmptyValue property
+            # .'$Parameter'.'|'.1.allowEmptyValue
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'allowEmptyValue')
+        elsif ($prop eq 'content')
         {
-            # handle may allowEmptyValue property
-            # .'$Parameter'.'|'.1.allowEmptyValue
-            $res = jm_is_boolean($pval);
+            # handle may content property
+            # .'$Parameter'.'|'.1.content
+            $res = _jm_obj_7($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -2102,24 +2102,24 @@ sub _jm_obj_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'in')
+        if ($prop eq 'name')
         {
-            # handle must in property
+            # handle must name property
             $must_count++;
-            # .'$Parameter'.'|'.0.in
-            $res = jm_is_string($pval) && exists $_jm_cst_3{$pval};
+            # .'$Parameter'.'|'.0.name
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'name')
+        elsif ($prop eq 'in')
         {
-            # handle must name property
+            # handle must in property
             $must_count++;
-            # .'$Parameter'.'|'.0.name
-            $res = jm_is_string($pval);
+            # .'$Parameter'.'|'.0.in
+            $res = jm_is_string($pval) && exists $_jm_cst_3{$pval};
             if (! $res)
             {
                 return 0;
@@ -2195,7 +2195,18 @@ sub json_model_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'content')
+        if ($prop eq 'description')
+        {
+            # handle may description property
+            # .'$RequestBody'.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'content')
         {
             # handle may content property
             # .'$RequestBody'.content
@@ -2217,17 +2228,6 @@ sub json_model_19($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$RequestBody'.description
-            $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
         if (jm_starts_with($prop, 'x-'))
         {
             # handle 1 re props
@@ -2242,31 +2242,8 @@ sub json_model_19($$$)
     return 1;
 }
 
-# object .'$MediaType'.encoding
-sub _jm_obj_10($$$)
-{
-    my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .'$MediaType'.encoding.''
-        $res = json_model_21($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
 # object .'$MediaType'.examples
-sub _jm_obj_11($$$)
+sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
     if (! jm_is_object($val))
@@ -2282,6 +2259,29 @@ sub _jm_obj_11($$$)
         # .'$MediaType'.examples.''.'|'.0
         # .'$MediaType'.examples.''.'|'.1
         $res = json_model_25($pval, undef, undef) || json_model_30($pval, undef, undef);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# object .'$MediaType'.encoding
+sub _jm_obj_11($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$MediaType'.encoding.''
+        $res = json_model_21($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2321,10 +2321,10 @@ sub json_model_20($$$)
             $res = 1;
             next;
         }
-        elsif ($prop eq 'encoding')
+        elsif ($prop eq 'examples')
         {
-            # handle may encoding property
-            # .'$MediaType'.encoding
+            # handle may examples property
+            # .'$MediaType'.examples
             $res = _jm_obj_10($pval, undef, undef);
             if (! $res)
             {
@@ -2332,10 +2332,10 @@ sub json_model_20($$$)
             }
             next;
         }
-        elsif ($prop eq 'examples')
+        elsif ($prop eq 'encoding')
         {
-            # handle may examples property
-            # .'$MediaType'.examples
+            # handle may encoding property
+            # .'$MediaType'.encoding
             $res = _jm_obj_11($pval, undef, undef);
             if (! $res)
             {
@@ -2395,22 +2395,11 @@ sub json_model_21($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'style')
+        if ($prop eq 'contentType')
         {
-            # handle may style property
-            # .'$Encoding'.style
-            $res = json_model_15($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'explode')
-        {
-            # handle may explode property
-            # .'$Encoding'.explode
-            $res = jm_is_boolean($pval);
+            # handle may contentType property
+            # .'$Encoding'.contentType
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -2428,11 +2417,22 @@ sub json_model_21($$$)
             }
             next;
         }
-        elsif ($prop eq 'contentType')
+        elsif ($prop eq 'style')
         {
-            # handle may contentType property
-            # .'$Encoding'.contentType
-            $res = jm_is_string($pval);
+            # handle may style property
+            # .'$Encoding'.style
+            $res = json_model_15($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'explode')
+        {
+            # handle may explode property
+            # .'$Encoding'.explode
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
@@ -2523,7 +2523,7 @@ sub json_model_22($$$)
     return 1;
 }
 
-# object .'$Response'.links
+# object .'$Response'.headers
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -2536,10 +2536,10 @@ sub _jm_obj_13($$$)
     while (my ($prop, $pval) = each %$val)
     {
         # handle other props
-        # .'$Response'.links.''
-        # .'$Response'.links.''.'|'.0
-        # .'$Response'.links.''.'|'.1
-        $res = json_model_27($pval, undef, undef) || json_model_30($pval, undef, undef);
+        # .'$Response'.headers.''
+        # .'$Response'.headers.''.'|'.0
+        # .'$Response'.headers.''.'|'.1
+        $res = json_model_28($pval, undef, undef) || json_model_30($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2571,7 +2571,7 @@ sub _jm_obj_14($$$)
     return 1;
 }
 
-# object .'$Response'.headers
+# object .'$Response'.links
 sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -2584,10 +2584,10 @@ sub _jm_obj_15($$$)
     while (my ($prop, $pval) = each %$val)
     {
         # handle other props
-        # .'$Response'.headers.''
-        # .'$Response'.headers.''.'|'.0
-        # .'$Response'.headers.''.'|'.1
-        $res = json_model_28($pval, undef, undef) || json_model_30($pval, undef, undef);
+        # .'$Response'.links.''
+        # .'$Response'.links.''.'|'.0
+        # .'$Response'.links.''.'|'.1
+        $res = json_model_27($pval, undef, undef) || json_model_30($pval, undef, undef);
         if (! $res)
         {
             return 0;
@@ -2609,10 +2609,21 @@ sub json_model_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'links')
+        if ($prop eq 'description')
         {
-            # handle may links property
-            # .'$Response'.links
+            # handle may description property
+            # .'$Response'.description
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'headers')
+        {
+            # handle may headers property
+            # .'$Response'.headers
             $res = _jm_obj_13($pval, undef, undef);
             if (! $res)
             {
@@ -2631,22 +2642,11 @@ sub json_model_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'headers')
+        elsif ($prop eq 'links')
         {
-            # handle may headers property
-            # .'$Response'.headers
+            # handle may links property
+            # .'$Response'.links
             $res = _jm_obj_15($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'description')
-        {
-            # handle may description property
-            # .'$Response'.description
-            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -2719,14 +2719,7 @@ sub json_model_25($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'value')
-        {
-            # handle may value property
-            # .'$Example'.value
-            $res = 1;
-            next;
-        }
-        elsif ($prop eq 'summary')
+        if ($prop eq 'summary')
         {
             # handle may summary property
             # .'$Example'.summary
@@ -2746,6 +2739,13 @@ sub json_model_25($$$)
             {
                 return 0;
             }
+            next;
+        }
+        elsif ($prop eq 'value')
+        {
+            # handle may value property
+            # .'$Example'.value
+            $res = 1;
             next;
         }
         elsif ($prop eq 'externalValue')
@@ -2803,18 +2803,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        if ($prop eq 'server')
-        {
-            # handle may server property
-            # .'$Link'.'|'.1.server
-            $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'parameters')
+        if ($prop eq 'parameters')
         {
             # handle may parameters property
             # .'$Link'.'|'.1.parameters
@@ -2823,6 +2812,13 @@ sub _jm_obj_16($$$)
             {
                 return 0;
             }
+            next;
+        }
+        elsif ($prop eq 'requestBody')
+        {
+            # handle may requestBody property
+            # .'$Link'.'|'.1.requestBody
+            $res = 1;
             next;
         }
         elsif ($prop eq 'description')
@@ -2836,11 +2832,15 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'requestBody')
+        elsif ($prop eq 'server')
         {
-            # handle may requestBody property
-            # .'$Link'.'|'.1.requestBody
-            $res = 1;
+            # handle may server property
+            # .'$Link'.'|'.1.server
+            $res = json_model_6($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, 'x-'))
@@ -2879,18 +2879,7 @@ sub _jm_obj_17($$$)
             }
             next;
         }
-        if ($prop eq 'server')
-        {
-            # handle may server property
-            # .'$Link'.'|'.0.server
-            $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'parameters')
+        if ($prop eq 'parameters')
         {
             # handle may parameters property
             # .'$Link'.'|'.0.parameters
@@ -2899,6 +2888,13 @@ sub _jm_obj_17($$$)
             {
                 return 0;
             }
+            next;
+        }
+        elsif ($prop eq 'requestBody')
+        {
+            # handle may requestBody property
+            # .'$Link'.'|'.0.requestBody
+            $res = 1;
             next;
         }
         elsif ($prop eq 'description')
@@ -2912,11 +2908,15 @@ sub _jm_obj_17($$$)
             }
             next;
         }
-        elsif ($prop eq 'requestBody')
+        elsif ($prop eq 'server')
         {
-            # handle may requestBody property
-            # .'$Link'.'|'.0.requestBody
-            $res = 1;
+            # handle may server property
+            # .'$Link'.'|'.0.server
+            $res = json_model_6($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, 'x-'))
@@ -2975,11 +2975,11 @@ sub _jm_obj_18($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'content')
+        if ($prop eq 'description')
         {
-            # handle may content property
-            # .'$Header'.'|'.1.content
-            $res = _jm_obj_19($pval, undef, undef);
+            # handle may description property
+            # .'$Header'.'|'.1.description
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -3008,22 +3008,22 @@ sub _jm_obj_18($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq 'allowEmptyValue')
         {
-            # handle may description property
-            # .'$Header'.'|'.1.description
-            $res = jm_is_string($pval);
+            # handle may allowEmptyValue property
+            # .'$Header'.'|'.1.allowEmptyValue
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'allowEmptyValue')
+        elsif ($prop eq 'content')
         {
-            # handle may allowEmptyValue property
-            # .'$Header'.'|'.1.allowEmptyValue
-            $res = jm_is_boolean($pval);
+            # handle may content property
+            # .'$Header'.'|'.1.content
+            $res = _jm_obj_19($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -3766,10 +3766,10 @@ sub json_model_34($$$)
             }
             next;
         }
-        elsif ($prop eq 'prefix')
+        elsif ($prop eq 'namespace')
         {
-            # handle may prefix property
-            # .'$xml'.prefix
+            # handle may namespace property
+            # .'$xml'.namespace
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -3777,11 +3777,11 @@ sub json_model_34($$$)
             }
             next;
         }
-        elsif ($prop eq 'wrapped')
+        elsif ($prop eq 'prefix')
         {
-            # handle may wrapped property
-            # .'$xml'.wrapped
-            $res = jm_is_boolean($pval);
+            # handle may prefix property
+            # .'$xml'.prefix
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -3799,11 +3799,11 @@ sub json_model_34($$$)
             }
             next;
         }
-        elsif ($prop eq 'namespace')
+        elsif ($prop eq 'wrapped')
         {
-            # handle may namespace property
-            # .'$xml'.namespace
-            $res = jm_is_string($pval);
+            # handle may wrapped property
+            # .'$xml'.wrapped
+            $res = jm_is_boolean($pval);
             if (! $res)
             {
                 return 0;
@@ -4052,12 +4052,12 @@ sub _jm_obj_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'in')
+        if ($prop eq 'type')
         {
-            # handle must in property
+            # handle must type property
             $must_count++;
-            # .'$SecurityScheme'.'|'.0.in
-            $res = jm_is_string($pval) && exists $_jm_cst_5{$pval};
+            # .'$SecurityScheme'.'|'.0.type
+            $res = jm_is_string($pval) && $pval eq 'apiKey';
             if (! $res)
             {
                 return 0;
@@ -4076,12 +4076,12 @@ sub _jm_obj_22($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq 'in')
         {
-            # handle must type property
+            # handle must in property
             $must_count++;
-            # .'$SecurityScheme'.'|'.0.type
-            $res = jm_is_string($pval) && $pval eq 'apiKey';
+            # .'$SecurityScheme'.'|'.0.in
+            $res = jm_is_string($pval) && exists $_jm_cst_5{$pval};
             if (! $res)
             {
                 return 0;
@@ -4142,10 +4142,10 @@ sub _jm_obj_23($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq 'bearerFormat')
         {
-            # handle may description property
-            # .'$SecurityScheme'.'|'.1.description
+            # handle may bearerFormat property
+            # .'$SecurityScheme'.'|'.1.bearerFormat
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -4153,10 +4153,10 @@ sub _jm_obj_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'bearerFormat')
+        elsif ($prop eq 'description')
         {
-            # handle may bearerFormat property
-            # .'$SecurityScheme'.'|'.1.bearerFormat
+            # handle may description property
+            # .'$SecurityScheme'.'|'.1.description
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -4425,10 +4425,10 @@ sub json_model_41($$$)
             }
             next;
         }
-        elsif ($prop eq 'authorizationCode')
+        elsif ($prop eq 'clientCredentials')
         {
-            # handle may authorizationCode property
-            # .'$OAuthFlows'.authorizationCode
+            # handle may clientCredentials property
+            # .'$OAuthFlows'.clientCredentials
             $res = json_model_42($pval, undef, undef);
             if (! $res)
             {
@@ -4436,10 +4436,10 @@ sub json_model_41($$$)
             }
             next;
         }
-        elsif ($prop eq 'clientCredentials')
+        elsif ($prop eq 'authorizationCode')
         {
-            # handle may clientCredentials property
-            # .'$OAuthFlows'.clientCredentials
+            # handle may authorizationCode property
+            # .'$OAuthFlows'.authorizationCode
             $res = json_model_42($pval, undef, undef);
             if (! $res)
             {
@@ -4498,12 +4498,12 @@ sub json_model_42($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'scopes')
+        if ($prop eq 'authorizationUrl')
         {
-            # handle must scopes property
+            # handle must authorizationUrl property
             $must_count++;
-            # .'$OAuthFlow'.scopes
-            $res = _jm_obj_28($pval, undef, undef);
+            # .'$OAuthFlow'.authorizationUrl
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -4522,12 +4522,12 @@ sub json_model_42($$$)
             }
             next;
         }
-        elsif ($prop eq 'authorizationUrl')
+        elsif ($prop eq 'scopes')
         {
-            # handle must authorizationUrl property
+            # handle must scopes property
             $must_count++;
-            # .'$OAuthFlow'.authorizationUrl
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
+            # .'$OAuthFlow'.scopes
+            $res = _jm_obj_28($pval, undef, undef);
             if (! $res)
             {
                 return 0;

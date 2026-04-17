@@ -48,6 +48,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         return false;
                     continue;
                 }
+                else if (jm_str_eq_7(prop, 0x00006e69766c6163LL))
+                {
+                    // handle may calvin property
+                    // .calvin
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
                 else if (jm_str_eq_5(prop, 0x000000006f786173LL))
                 {
                     // handle may saxo property
@@ -61,15 +70,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may Calvin property
                     // .Calvin
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_7(prop, 0x00006e69766c6163LL))
-                {
-                    // handle may calvin property
-                    // .calvin
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;
@@ -96,6 +96,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         return false;
                     continue;
                 }
+                else if (jm_str_eq_5(prop, 0x0000000066656463LL))
+                {
+                    // handle may cdef property
+                    // .cdef
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
                 else if (jm_str_eq_4(prop, 0x00666564))
                 {
                     // handle may def property
@@ -109,15 +118,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may zee property
                     // .zee
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_5(prop, 0x0000000066656463LL))
-                {
-                    // handle may cdef property
-                    // .cdef
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;
@@ -138,19 +138,19 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (hash_0 <= 0x6f7a)
             {
-                if (jm_str_eq_4(prop, 0x00656f4d))
+                if (jm_str_eq_4(prop, 0x006f6f66))
                 {
-                    // handle may Moe property
-                    // .Moe
+                    // handle may foo property
+                    // .foo
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;
                     continue;
                 }
-                else if (jm_str_eq_4(prop, 0x006f6f66))
+                else if (jm_str_eq_7(prop, 0x0000736562626f68LL))
                 {
-                    // handle may foo property
-                    // .foo
+                    // handle may hobbes property
+                    // .hobbes
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;
@@ -174,10 +174,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         return false;
                     continue;
                 }
-                else if (jm_str_eq_7(prop, 0x0000736562626f68LL))
+                else if (jm_str_eq_4(prop, 0x00656f4d))
                 {
-                    // handle may hobbes property
-                    // .hobbes
+                    // handle may Moe property
+                    // .Moe
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;
@@ -195,10 +195,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             else
             {
-                if (jm_str_eq_4(prop, 0x00667477))
+                if (jm_str_eq_6(prop, 0x0000006666757473LL))
                 {
-                    // handle may wtf property
-                    // .wtf
+                    // handle may stuff property
+                    // .stuff
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;
@@ -213,28 +213,28 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         return false;
                     continue;
                 }
-                else if (jm_str_eq_6(prop, 0x0000006569737553LL))
-                {
-                    // handle may Susie property
-                    // .Susie
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_6(prop, 0x0000006666757473LL))
-                {
-                    // handle may stuff property
-                    // .stuff
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
                 else if (jm_str_eq_6(prop, 0x0000006569737573LL))
                 {
                     // handle may susie property
                     // .susie
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x00667477))
+                {
+                    // handle may wtf property
+                    // .wtf
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
+                else if (jm_str_eq_6(prop, 0x0000006569737553LL))
+                {
+                    // handle may Susie property
+                    // .Susie
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;

@@ -54,7 +54,17 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     must_count: int = 0
     for prop, pval in val.items():
         lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if prop == "b":
+        if prop == "s":
+            # handle must s property
+            must_count += 1
+            # .'&'.0.s
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"\" [.'&'.0.s]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'&'.0.s]", lpath_1 if path is not None else None))
+                return False
+            continue
+        elif prop == "b":
             # handle must b property
             must_count += 1
             # .'&'.0.b
@@ -72,16 +82,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 1.0 strict float [.'&'.0.f]", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid mandatory prop value [.'&'.0.f]", lpath_1 if path is not None else None))
-                return False
-            continue
-        elif prop == "s":
-            # handle must s property
-            must_count += 1
-            # .'&'.0.s
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected value for model \"\" [.'&'.0.s]", lpath_1 if path is not None else None))
-                rep is None or rep.append(("invalid mandatory prop value [.'&'.0.s]", lpath_1 if path is not None else None))
                 return False
             continue
         if prop == "u":

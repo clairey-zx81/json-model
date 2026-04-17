@@ -37,7 +37,19 @@ function json_model_3(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "data")
+        if (prop == "description")
+        {
+            // handle must description property
+            must_count += 1;
+            // .'$Test'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "data")
         {
             // handle must data property
             must_count += 1;
@@ -51,18 +63,6 @@ function json_model_3(val, path, rep)
             must_count += 1;
             // .'$Test'.valid
             res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "description")
-        {
-            // handle must description property
-            must_count += 1;
-            // .'$Test'.description
-            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
                 return false;
@@ -110,22 +110,11 @@ function _jm_obj_0(val, path, rep)
             }
             continue;
         }
-        else if (prop == "perl5")
+        else if (prop == "validation")
         {
-            // handle may perl5 property
-            // .'$Specification'.'@'.perl5
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "quote")
-        {
-            // handle may quote property
-            // .'$Specification'.'@'.quote
-            res = (typeof pval === 'string' || pval instanceof String);
+            // handle may validation property
+            // .'$Specification'.'@'.validation
+            res = json_model_2(pval, null, null);
             if (! res)
             {
                 return false;
@@ -143,11 +132,22 @@ function _jm_obj_0(val, path, rep)
             }
             continue;
         }
-        else if (prop == "validation")
+        else if (prop == "perl5")
         {
-            // handle may validation property
-            // .'$Specification'.'@'.validation
-            res = json_model_2(pval, null, null);
+            // handle may perl5 property
+            // .'$Specification'.'@'.perl5
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "quote")
+        {
+            // handle may quote property
+            // .'$Specification'.'@'.quote
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
                 return false;
@@ -208,7 +208,27 @@ function json_model_5(val, path, rep)
     let must_count = 0;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "tests")
+        if (prop == "description")
+        {
+            // handle must description property
+            must_count += 1;
+            // .'$TestCase'.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "schema")
+        {
+            // handle must schema property
+            must_count += 1;
+            // .'$TestCase'.schema
+            res = true;
+            continue;
+        }
+        else if (prop == "tests")
         {
             // handle must tests property
             must_count += 1;
@@ -233,26 +253,6 @@ function json_model_5(val, path, rep)
                 let ival_1 = pval.length;
                 res = ival_1 >= 1;
             }
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "schema")
-        {
-            // handle must schema property
-            must_count += 1;
-            // .'$TestCase'.schema
-            res = true;
-            continue;
-        }
-        else if (prop == "description")
-        {
-            // handle must description property
-            must_count += 1;
-            // .'$TestCase'.description
-            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
                 return false;

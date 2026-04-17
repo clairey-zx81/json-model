@@ -41,16 +41,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         return false;
                     continue;
                 }
-                else if (jm_str_eq_4(prop, 0x00656f4d))
-                {
-                    // handle must Moe property
-                    must_count += 1;
-                    // .Moe
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
                 else if (jm_str_eq_7(prop, 0x00006e69766c6143LL))
                 {
                     // handle must Calvin property
@@ -66,6 +56,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     // handle must Hobbes property
                     must_count += 1;
                     // .Hobbes
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x00656f4d))
+                {
+                    // handle must Moe property
+                    must_count += 1;
+                    // .Moe
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;
@@ -130,37 +130,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             if (hash_0 <= 0x6d)
             {
-                if (jm_str_eq_4(prop, 0x00666564))
-                {
-                    // handle must def property
-                    must_count += 1;
-                    // .def
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x006f6f66))
-                {
-                    // handle must foo property
-                    must_count += 1;
-                    // .foo
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00656f6d))
-                {
-                    // handle must moe property
-                    must_count += 1;
-                    // .moe
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_5(prop, 0x0000000066656463LL))
+                if (jm_str_eq_5(prop, 0x0000000066656463LL))
                 {
                     // handle must cdef property
                     must_count += 1;
@@ -180,6 +150,26 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         return false;
                     continue;
                 }
+                else if (jm_str_eq_4(prop, 0x00666564))
+                {
+                    // handle must def property
+                    must_count += 1;
+                    // .def
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x006f6f66))
+                {
+                    // handle must foo property
+                    must_count += 1;
+                    // .foo
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
                 else if (jm_str_eq_7(prop, 0x0000736562626f68LL))
                 {
                     // handle must hobbes property
@@ -190,44 +180,34 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         return false;
                     continue;
                 }
+                else if (jm_str_eq_4(prop, 0x00656f6d))
+                {
+                    // handle must moe property
+                    must_count += 1;
+                    // .moe
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
             }
             else
             {
-                if (jm_str_eq_4(prop, 0x00757473))
+                if (jm_str_eq_8(prop, 0x6573697270727573LL) && jm_str_eq_0(prop + 8))
+                {
+                    // handle must surprise property
+                    must_count += 1;
+                    // .surprise
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x00757473))
                 {
                     // handle must stu property
                     must_count += 1;
                     // .stu
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x00667477))
-                {
-                    // handle must wtf property
-                    must_count += 1;
-                    // .wtf
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x0065657a))
-                {
-                    // handle must zee property
-                    must_count += 1;
-                    // .zee
-                    res = json_is_string(pval);
-                    if (unlikely(! res))
-                        return false;
-                    continue;
-                }
-                else if (jm_str_eq_4(prop, 0x006f6f7a))
-                {
-                    // handle must zoo property
-                    must_count += 1;
-                    // .zoo
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;
@@ -253,11 +233,31 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         return false;
                     continue;
                 }
-                else if (jm_str_eq_8(prop, 0x6573697270727573LL) && jm_str_eq_0(prop + 8))
+                else if (jm_str_eq_4(prop, 0x00667477))
                 {
-                    // handle must surprise property
+                    // handle must wtf property
                     must_count += 1;
-                    // .surprise
+                    // .wtf
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x006f6f7a))
+                {
+                    // handle must zoo property
+                    must_count += 1;
+                    // .zoo
+                    res = json_is_string(pval);
+                    if (unlikely(! res))
+                        return false;
+                    continue;
+                }
+                else if (jm_str_eq_4(prop, 0x0065657a))
+                {
+                    // handle must zee property
+                    must_count += 1;
+                    // .zee
                     res = json_is_string(pval);
                     if (unlikely(! res))
                         return false;

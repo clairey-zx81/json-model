@@ -322,22 +322,22 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'format')
+        if ($prop eq 'pattern')
         {
-            # handle may format property
-            # .'$stringKeywords'.format
-            $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
+            # handle may pattern property
+            # .'$stringKeywords'.pattern
+            $res = jm_is_string($pval) && jm_is_valid_regex($pval, undef, undef);
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'pattern')
+        elsif ($prop eq 'minLength')
         {
-            # handle may pattern property
-            # .'$stringKeywords'.pattern
-            $res = jm_is_string($pval) && jm_is_valid_regex($pval, undef, undef);
+            # handle may minLength property
+            # .'$stringKeywords'.minLength
+            $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
                 return 0;
@@ -355,11 +355,11 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'minLength')
+        elsif ($prop eq 'format')
         {
-            # handle may minLength property
-            # .'$stringKeywords'.minLength
-            $res = jm_is_integer($pval) && $pval >= 0;
+            # handle may format property
+            # .'$stringKeywords'.format
+            $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
             if (! $res)
             {
                 return 0;
@@ -385,7 +385,18 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'items')
+        if ($prop eq 'prefixItems')
+        {
+            # handle may prefixItems property
+            # .'$arrayKeywords'.prefixItems
+            $res = json_model_4($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'items')
         {
             # handle may items property
             # .'$arrayKeywords'.items
@@ -398,11 +409,11 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'maxItems')
+        elsif ($prop eq 'additionalItems')
         {
-            # handle may maxItems property
-            # .'$arrayKeywords'.maxItems
-            $res = jm_is_integer($pval) && $pval >= 0;
+            # handle may additionalItems property
+            # .'$arrayKeywords'.additionalItems
+            $res = json_model_24($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -420,11 +431,11 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'prefixItems')
+        elsif ($prop eq 'maxItems')
         {
-            # handle may prefixItems property
-            # .'$arrayKeywords'.prefixItems
-            $res = json_model_4($pval, undef, undef);
+            # handle may maxItems property
+            # .'$arrayKeywords'.maxItems
+            $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
                 return 0;
@@ -436,17 +447,6 @@ sub json_model_6($$$)
             # handle may uniqueItems property
             # .'$arrayKeywords'.uniqueItems
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'additionalItems')
-        {
-            # handle may additionalItems property
-            # .'$arrayKeywords'.additionalItems
-            $res = json_model_24($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -525,7 +525,18 @@ sub json_model_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'required')
+        if ($prop eq 'properties')
+        {
+            # handle may properties property
+            # .'$objectKeywords'.properties
+            $res = _jm_obj_0($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'required')
         {
             # handle may required property
             # .'$objectKeywords'.required
@@ -549,11 +560,11 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'properties')
+        elsif ($prop eq 'additionalProperties')
         {
-            # handle may properties property
-            # .'$objectKeywords'.properties
-            $res = _jm_obj_0($pval, undef, undef);
+            # handle may additionalProperties property
+            # .'$objectKeywords'.additionalProperties
+            $res = json_model_24($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -565,17 +576,6 @@ sub json_model_7($$$)
             # handle may patternProperties property
             # .'$objectKeywords'.patternProperties
             $res = _jm_obj_1($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'additionalProperties')
-        {
-            # handle may additionalProperties property
-            # .'$objectKeywords'.additionalProperties
-            $res = json_model_24($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -601,10 +601,10 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'maximum')
+        if ($prop eq 'minimum')
         {
-            # handle may maximum property
-            # .'$numberKeywords'.maximum
+            # handle may minimum property
+            # .'$numberKeywords'.minimum
             $res = jm_is_numeric($pval);
             if (! $res)
             {
@@ -612,10 +612,10 @@ sub json_model_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'minimum')
+        elsif ($prop eq 'maximum')
         {
-            # handle may minimum property
-            # .'$numberKeywords'.minimum
+            # handle may maximum property
+            # .'$numberKeywords'.maximum
             $res = jm_is_numeric($pval);
             if (! $res)
             {

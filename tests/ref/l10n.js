@@ -147,6 +147,20 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
+        else if (prop == "~")
+        {
+            // handle must ~ property
+            must_count += 1;
+            // .'~'
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "https://json-model.org/models/l10n";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'~']", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
         else if (prop == "%")
         {
             // handle must % property
@@ -172,20 +186,6 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected value for model \"_$Model\" [.'@']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'@']", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "~")
-        {
-            // handle must ~ property
-            must_count += 1;
-            // .'~'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "https://json-model.org/models/l10n";
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'~']", (path ? lpath_0 : null)])
                 return false;
             }
             continue;

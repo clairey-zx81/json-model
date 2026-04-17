@@ -31,9 +31,18 @@ public class hosts extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("eth") == 0)
+            if (prop.compareTo("ipv4") == 0)
             {
-                res = json.isString(pval) && jm_is_eth(json.asString(pval), null, null);
+                res = json.isString(pval) && jm_is_ip4(json.asString(pval), null, null);
+                if (! res)
+                {
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("ipv6") == 0)
+            {
+                res = json.isString(pval) && jm_is_ip6(json.asString(pval), null, null);
                 if (! res)
                 {
                     return false;
@@ -49,18 +58,9 @@ public class hosts extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("ipv4") == 0)
+            else if (prop.compareTo("eth") == 0)
             {
-                res = json.isString(pval) && jm_is_ip4(json.asString(pval), null, null);
-                if (! res)
-                {
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("ipv6") == 0)
-            {
-                res = json.isString(pval) && jm_is_ip6(json.asString(pval), null, null);
+                res = json.isString(pval) && jm_is_eth(json.asString(pval), null, null);
                 if (! res)
                 {
                     return false;

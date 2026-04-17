@@ -171,6 +171,21 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             continue;
         }
+        else if (unlikely(jm_str_eq_2(prop, 0x0000007e)))
+        {
+            // handle must ~ property
+            must_count += 1;
+            // .'~'
+            const char *sval_1;
+            res = json_is_string(pval) && ((sval_1 = json_string_value(pval)), jm_str_eq_8(sval_1, 0x2f2f3a7370747468LL) && jm_str_eq_8(sval_1 + 8, 0x646f6d2d6e6f736aLL) && jm_str_eq_8(sval_1 + 16, 0x6d2f67726f2e6c65LL) && jm_str_eq_8(sval_1 + 24, 0x316c2f736c65646fLL) && jm_str_eq_3(sval_1 + 32, 0x00006e30));
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'~']", (path ? &lpath_0 : NULL));
+                return false;
+            }
+            continue;
+        }
         else if (unlikely(jm_str_eq_2(prop, 0x00000025)))
         {
             // handle must % property
@@ -186,7 +201,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000040)))
+        else if (likely(jm_str_eq_2(prop, 0x00000040)))
         {
             // handle must @ property
             must_count += 1;
@@ -196,21 +211,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"_$Model\" [.'@']", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'@']", (path ? &lpath_0 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (likely(jm_str_eq_2(prop, 0x0000007e)))
-        {
-            // handle must ~ property
-            must_count += 1;
-            // .'~'
-            const char *sval_1;
-            res = json_is_string(pval) && ((sval_1 = json_string_value(pval)), jm_str_eq_8(sval_1, 0x2f2f3a7370747468LL) && jm_str_eq_8(sval_1 + 8, 0x646f6d2d6e6f736aLL) && jm_str_eq_8(sval_1 + 16, 0x6d2f67726f2e6c65LL) && jm_str_eq_8(sval_1 + 24, 0x316c2f736c65646fLL) && jm_str_eq_3(sval_1 + 32, 0x00006e30));
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'~']", (path ? &lpath_0 : NULL));
                 return false;
             }
             continue;

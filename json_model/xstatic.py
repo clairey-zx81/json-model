@@ -41,8 +41,8 @@ class CodeGenerator:
     - must_only_threshold: max number of mandatory props for must-only scheme, default 5
     - partition_threshold: max number of strings without search partitioning, 0 for no partitioning
     - or_must_prop: threshold to try or-list shortcut based on mandatory properties
-    - sort_must: whether to sort must properties, default True
-    - sort_may: whether to sort may properties, default True
+    - sort_must: whether to sort must properties, default False
+    - sort_may: whether to sort may properties, default False
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
@@ -52,7 +52,7 @@ class CodeGenerator:
                 self, globs: Symbols, language: Language, fname: str = "check_model", *,
                 prefix: str = "", map_threshold: int = 3, map_share: bool = False,
                 may_must_open_threshold: int = 5, must_only_threshold: int = 5,
-                sort_must: bool = True, sort_may: bool = True, partition_threshold: int = 0,
+                sort_must: bool = False, sort_may: bool = False, partition_threshold: int = 0,
                 or_must_prop: int = 0, comment: bool = True,
                 execute: bool = True, report: bool = True, path: bool = True,
                 package: str|None = None, debug: bool = False,
@@ -2135,8 +2135,8 @@ def xstatic_compile(
         map_share: bool = False,
         may_must_open_threshold: int|None = None,
         must_only_threshold: int|None = None,
-        sort_must: bool = True,
-        sort_may: bool = True,
+        sort_must: bool = False,
+        sort_may: bool = False,
         partition_threshold: int|None = None,
         or_must_prop: int|None = None,
         strcmp_cset_partition_threshold: int = 32,  # or 64

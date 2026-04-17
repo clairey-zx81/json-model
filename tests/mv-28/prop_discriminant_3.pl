@@ -115,10 +115,10 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        if ($prop eq 'q')
+        if ($prop eq 's')
         {
-            # handle may q property
-            # .'|'.3.q
+            # handle may s property
+            # .'|'.3.s
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -126,10 +126,10 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        elsif ($prop eq 's')
+        elsif ($prop eq 'q')
         {
-            # handle may s property
-            # .'|'.3.s
+            # handle may q property
+            # .'|'.3.q
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -298,10 +298,10 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        if ($prop eq 'w')
+        if ($prop eq 'z')
         {
-            # handle may w property
-            # .'|'.0.w
+            # handle may z property
+            # .'|'.0.z
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {
@@ -309,10 +309,10 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'z')
+        elsif ($prop eq 'w')
         {
-            # handle may z property
-            # .'|'.0.z
+            # handle may w property
+            # .'|'.0.w
             $res = jm_is_integer($pval) && $pval >= 0;
             if (! $res)
             {

@@ -57,19 +57,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_2(prop, 0x00000066)))
-        {
-            // handle may f property
-            // .f
-            res = json_is_real(pval) && json_real_value(pval) > 0.0;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 1.0 strict float [.f]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.f]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-            continue;
-        }
         else if (unlikely(jm_str_eq_2(prop, 0x00000069)))
         {
             // handle may i property
@@ -79,6 +66,19 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.i]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.i]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_2(prop, 0x00000066)))
+        {
+            // handle may f property
+            // .f
+            res = json_is_real(pval) && json_real_value(pval) > 0.0;
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "not a 1.0 strict float [.f]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.f]", (path ? &lpath_0 : NULL));
                 return false;
             }
             continue;

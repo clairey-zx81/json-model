@@ -73,7 +73,21 @@ public class and_02 extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_1 = new Path(prop, path);
-            if (prop.compareTo("b") == 0)
+            if (prop.compareTo("s") == 0)
+            {
+                // handle must s property
+                must_count += 1;
+                // .'&'.0.s
+                res = json.isString(pval);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'&'.0.s]", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'&'.0.s]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("b") == 0)
             {
                 // handle must b property
                 must_count += 1;
@@ -97,20 +111,6 @@ public class and_02 extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a 1.0 strict float [.'&'.0.f]", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'&'.0.f]", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("s") == 0)
-            {
-                // handle must s property
-                must_count += 1;
-                // .'&'.0.s
-                res = json.isString(pval);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'&'.0.s]", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'&'.0.s]", (path != null ? lpath_1 : null));
                     return false;
                 }
                 continue;

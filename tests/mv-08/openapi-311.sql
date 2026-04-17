@@ -57,16 +57,7 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'info' THEN
-      -- handle must info property
-      must_count := must_count + 1;
-      -- .'$OpenAPI'.info
-      res := json_model_3(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'openapi' THEN
+    IF prop = 'openapi' THEN
       -- handle must openapi property
       must_count := must_count + 1;
       -- .'$OpenAPI'.openapi
@@ -76,16 +67,33 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
+    ELSEIF prop = 'info' THEN
+      -- handle must info property
+      must_count := must_count + 1;
+      -- .'$OpenAPI'.info
+      res := json_model_3(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
     END IF;
-    IF prop = 'tags' THEN
-      -- handle may tags property
-      -- .'$OpenAPI'.tags
+    IF prop = 'jsonSchemaDialect' THEN
+      -- handle may jsonSchemaDialect property
+      -- .'$OpenAPI'.jsonSchemaDialect
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'servers' THEN
+      -- handle may servers property
+      -- .'$OpenAPI'.servers
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
         FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_0_item := pval -> arr_0_idx;
-          -- .'$OpenAPI'.tags.0
-          res := json_model_29(arr_0_item, NULL, NULL);
+          -- .'$OpenAPI'.servers.0
+          res := json_model_6(arr_0_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -99,42 +107,6 @@ BEGIN
       -- handle may paths property
       -- .'$OpenAPI'.paths
       res := json_model_9(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'servers' THEN
-      -- handle may servers property
-      -- .'$OpenAPI'.servers
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_1_item := pval -> arr_1_idx;
-          -- .'$OpenAPI'.servers.0
-          res := json_model_6(arr_1_item, NULL, NULL);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'security' THEN
-      -- handle may security property
-      -- .'$OpenAPI'.security
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_2_item := pval -> arr_2_idx;
-          -- .'$OpenAPI'.security.0
-          res := json_model_43(arr_2_item, NULL, NULL);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
-      END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -155,18 +127,46 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'externalDocs' THEN
-      -- handle may externalDocs property
-      -- .'$OpenAPI'.externalDocs
-      res := json_model_12(pval, NULL, NULL);
+    ELSEIF prop = 'security' THEN
+      -- handle may security property
+      -- .'$OpenAPI'.security
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_1_item := pval -> arr_1_idx;
+          -- .'$OpenAPI'.security.0
+          res := json_model_43(arr_1_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'jsonSchemaDialect' THEN
-      -- handle may jsonSchemaDialect property
-      -- .'$OpenAPI'.jsonSchemaDialect
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    ELSEIF prop = 'tags' THEN
+      -- handle may tags property
+      -- .'$OpenAPI'.tags
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_2_item := pval -> arr_2_idx;
+          -- .'$OpenAPI'.tags.0
+          res := json_model_29(arr_2_item, NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'externalDocs' THEN
+      -- handle may externalDocs property
+      -- .'$OpenAPI'.externalDocs
+      res := json_model_12(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -218,23 +218,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = 'contact' THEN
-      -- handle may contact property
-      -- .'$Info'.contact
-      res := json_model_4(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'license' THEN
-      -- handle may license property
-      -- .'$Info'.license
-      res := json_model_5(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'summary' THEN
+    IF prop = 'summary' THEN
       -- handle may summary property
       -- .'$Info'.summary
       res := JSONB_TYPEOF(pval) = 'string';
@@ -254,6 +238,22 @@ BEGIN
       -- handle may termsOfService property
       -- .'$Info'.termsOfService
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'contact' THEN
+      -- handle may contact property
+      -- .'$Info'.contact
+      res := json_model_4(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'license' THEN
+      -- handle may license property
+      -- .'$Info'.license
+      res := json_model_5(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -284,18 +284,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'url' THEN
-      -- handle may url property
-      -- .'$Contact'.url
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    IF prop = 'name' THEN
+      -- handle may name property
+      -- .'$Contact'.name
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'name' THEN
-      -- handle may name property
-      -- .'$Contact'.name
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'url' THEN
+      -- handle may url property
+      -- .'$Contact'.url
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -341,20 +341,20 @@ BEGIN
   -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'url' THEN
-      -- handle must url property
-      must_count := must_count + 1;
-      -- .'$License'.'|'.1.url
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'name' THEN
+    IF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
       -- .'$License'.'|'.1.name
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'url' THEN
+      -- handle must url property
+      must_count := must_count + 1;
+      -- .'$License'.'|'.1.url
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -474,18 +474,18 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = 'variables' THEN
-      -- handle may variables property
-      -- .'$Server'.variables
-      res := _jm_obj_3(pval, NULL, NULL);
+    IF prop = 'description' THEN
+      -- handle may description property
+      -- .'$Server'.description
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$Server'.description
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'variables' THEN
+      -- handle may variables property
+      -- .'$Server'.variables
+      res := _jm_obj_3(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1295,7 +1295,15 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'required' THEN
+    IF prop = 'description' THEN
+      -- handle may description property
+      -- .'$parameterShare'.description
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$parameterShare'.required
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1307,14 +1315,6 @@ BEGIN
       -- handle may deprecated property
       -- .'$parameterShare'.deprecated
       res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$parameterShare'.description
-      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1364,16 +1364,7 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'in' THEN
-      -- handle must in property
-      must_count := must_count + 1;
-      -- .'$commonParameter'.in
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'name' THEN
+    IF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
       -- .'$commonParameter'.name
@@ -1382,8 +1373,25 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
+    ELSEIF prop = 'in' THEN
+      -- handle must in property
+      must_count := must_count + 1;
+      -- .'$commonParameter'.in
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
     END IF;
-    IF prop = 'required' THEN
+    IF prop = 'description' THEN
+      -- handle may description property
+      -- .'$commonParameter'.description
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'required' THEN
       -- handle may required property
       -- .'$commonParameter'.required
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1395,14 +1403,6 @@ BEGIN
       -- handle may deprecated property
       -- .'$commonParameter'.deprecated
       res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$commonParameter'.description
-      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1493,6 +1493,22 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
+    ELSEIF prop = 'explode' THEN
+      -- handle may explode property
+      -- .'$parameterSchemaOnly'.explode
+      res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'allowReserved' THEN
+      -- handle may allowReserved property
+      -- .'$parameterSchemaOnly'.allowReserved
+      res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
     ELSEIF prop = 'schema' THEN
       -- handle may schema property
       -- .'$parameterSchemaOnly'.schema
@@ -1506,26 +1522,10 @@ BEGIN
       -- .'$parameterSchemaOnly'.example
       res := TRUE;
       CONTINUE;
-    ELSEIF prop = 'explode' THEN
-      -- handle may explode property
-      -- .'$parameterSchemaOnly'.explode
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = 'examples' THEN
       -- handle may examples property
       -- .'$parameterSchemaOnly'.examples
       res := _jm_obj_4(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'allowReserved' THEN
-      -- handle may allowReserved property
-      -- .'$parameterSchemaOnly'.allowReserved
-      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1632,16 +1632,7 @@ BEGIN
   -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'in' THEN
-      -- handle must in property
-      must_count := must_count + 1;
-      -- .'$Parameter'.'|'.1.in
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_2(pval);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'name' THEN
+    IF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
       -- .'$Parameter'.'|'.1.name
@@ -1650,11 +1641,20 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
+    ELSEIF prop = 'in' THEN
+      -- handle must in property
+      must_count := must_count + 1;
+      -- .'$Parameter'.'|'.1.in
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_2(pval);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
     END IF;
-    IF prop = 'content' THEN
-      -- handle may content property
-      -- .'$Parameter'.'|'.1.content
-      res := _jm_obj_7(pval, NULL, NULL);
+    IF prop = 'description' THEN
+      -- handle may description property
+      -- .'$Parameter'.'|'.1.description
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1675,18 +1675,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$Parameter'.'|'.1.description
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = 'allowEmptyValue' THEN
       -- handle may allowEmptyValue property
       -- .'$Parameter'.'|'.1.allowEmptyValue
       res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'content' THEN
+      -- handle may content property
+      -- .'$Parameter'.'|'.1.content
+      res := _jm_obj_7(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1824,20 +1824,20 @@ BEGIN
   -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'in' THEN
-      -- handle must in property
-      must_count := must_count + 1;
-      -- .'$Parameter'.'|'.0.in
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_3(pval);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'name' THEN
+    IF prop = 'name' THEN
       -- handle must name property
       must_count := must_count + 1;
       -- .'$Parameter'.'|'.0.name
       res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'in' THEN
+      -- handle must in property
+      must_count := must_count + 1;
+      -- .'$Parameter'.'|'.0.in
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_3(pval);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1910,7 +1910,15 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'content' THEN
+    IF prop = 'description' THEN
+      -- handle may description property
+      -- .'$RequestBody'.description
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'content' THEN
       -- handle may content property
       -- .'$RequestBody'.content
       res := _jm_obj_9(pval, NULL, NULL);
@@ -1922,14 +1930,6 @@ BEGIN
       -- handle may required property
       -- .'$RequestBody'.required
       res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$RequestBody'.description
-      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1947,31 +1947,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$MediaType'.encoding
-CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    -- handle other props
-    -- .'$MediaType'.encoding.''
-    res := json_model_21(pval, NULL, NULL);
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- object .'$MediaType'.examples
-CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -1987,6 +1964,29 @@ BEGIN
     -- .'$MediaType'.examples.''.'|'.0
     -- .'$MediaType'.examples.''.'|'.1
     res := json_model_25(pval, NULL, NULL) OR json_model_30(pval, NULL, NULL);
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$MediaType'.encoding
+CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  prop TEXT;
+  pval JSONB;
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    -- handle other props
+    -- .'$MediaType'.encoding.''
+    res := json_model_21(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2021,17 +2021,17 @@ BEGIN
       -- .'$MediaType'.example
       res := TRUE;
       CONTINUE;
-    ELSEIF prop = 'encoding' THEN
-      -- handle may encoding property
-      -- .'$MediaType'.encoding
+    ELSEIF prop = 'examples' THEN
+      -- handle may examples property
+      -- .'$MediaType'.examples
       res := _jm_obj_10(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'examples' THEN
-      -- handle may examples property
-      -- .'$MediaType'.examples
+    ELSEIF prop = 'encoding' THEN
+      -- handle may encoding property
+      -- .'$MediaType'.encoding
       res := _jm_obj_11(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
@@ -2088,18 +2088,10 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'style' THEN
-      -- handle may style property
-      -- .'$Encoding'.style
-      res := json_model_15(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'explode' THEN
-      -- handle may explode property
-      -- .'$Encoding'.explode
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    IF prop = 'contentType' THEN
+      -- handle may contentType property
+      -- .'$Encoding'.contentType
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2112,10 +2104,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'contentType' THEN
-      -- handle may contentType property
-      -- .'$Encoding'.contentType
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'style' THEN
+      -- handle may style property
+      -- .'$Encoding'.style
+      res := json_model_15(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'explode' THEN
+      -- handle may explode property
+      -- .'$Encoding'.explode
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2194,7 +2194,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Response'.links
+-- object .'$Response'.headers
 CREATE OR REPLACE FUNCTION _jm_obj_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2207,10 +2207,10 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .'$Response'.links.''
-    -- .'$Response'.links.''.'|'.0
-    -- .'$Response'.links.''.'|'.1
-    res := json_model_27(pval, NULL, NULL) OR json_model_30(pval, NULL, NULL);
+    -- .'$Response'.headers.''
+    -- .'$Response'.headers.''.'|'.0
+    -- .'$Response'.headers.''.'|'.1
+    res := json_model_28(pval, NULL, NULL) OR json_model_30(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2242,7 +2242,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Response'.headers
+-- object .'$Response'.links
 CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -2255,10 +2255,10 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .'$Response'.headers.''
-    -- .'$Response'.headers.''.'|'.0
-    -- .'$Response'.headers.''.'|'.1
-    res := json_model_28(pval, NULL, NULL) OR json_model_30(pval, NULL, NULL);
+    -- .'$Response'.links.''
+    -- .'$Response'.links.''.'|'.0
+    -- .'$Response'.links.''.'|'.1
+    res := json_model_27(pval, NULL, NULL) OR json_model_30(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2280,9 +2280,17 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'links' THEN
-      -- handle may links property
-      -- .'$Response'.links
+    IF prop = 'description' THEN
+      -- handle may description property
+      -- .'$Response'.description
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'headers' THEN
+      -- handle may headers property
+      -- .'$Response'.headers
       res := _jm_obj_13(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
@@ -2296,18 +2304,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'headers' THEN
-      -- handle may headers property
-      -- .'$Response'.headers
+    ELSEIF prop = 'links' THEN
+      -- handle may links property
+      -- .'$Response'.links
       res := _jm_obj_15(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$Response'.description
-      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2372,12 +2372,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'value' THEN
-      -- handle may value property
-      -- .'$Example'.value
-      res := TRUE;
-      CONTINUE;
-    ELSEIF prop = 'summary' THEN
+    IF prop = 'summary' THEN
       -- handle may summary property
       -- .'$Example'.summary
       res := JSONB_TYPEOF(pval) = 'string';
@@ -2392,6 +2387,11 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
+    ELSEIF prop = 'value' THEN
+      -- handle may value property
+      -- .'$Example'.value
+      res := TRUE;
       CONTINUE;
     ELSEIF prop = 'externalValue' THEN
       -- handle may externalValue property
@@ -2445,21 +2445,18 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = 'server' THEN
-      -- handle may server property
-      -- .'$Link'.'|'.1.server
-      res := json_model_6(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'parameters' THEN
+    IF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$Link'.'|'.1.parameters
       res := JSONB_TYPEOF(pval) = 'object';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
+    ELSEIF prop = 'requestBody' THEN
+      -- handle may requestBody property
+      -- .'$Link'.'|'.1.requestBody
+      res := TRUE;
       CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
@@ -2469,10 +2466,13 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'requestBody' THEN
-      -- handle may requestBody property
-      -- .'$Link'.'|'.1.requestBody
-      res := TRUE;
+    ELSEIF prop = 'server' THEN
+      -- handle may server property
+      -- .'$Link'.'|'.1.server
+      res := json_model_6(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
       CONTINUE;
     END IF;
     IF STARTS_WITH(prop, 'x-') THEN
@@ -2509,21 +2509,18 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = 'server' THEN
-      -- handle may server property
-      -- .'$Link'.'|'.0.server
-      res := json_model_6(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'parameters' THEN
+    IF prop = 'parameters' THEN
       -- handle may parameters property
       -- .'$Link'.'|'.0.parameters
       res := JSONB_TYPEOF(pval) = 'object';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
+    ELSEIF prop = 'requestBody' THEN
+      -- handle may requestBody property
+      -- .'$Link'.'|'.0.requestBody
+      res := TRUE;
       CONTINUE;
     ELSEIF prop = 'description' THEN
       -- handle may description property
@@ -2533,10 +2530,13 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'requestBody' THEN
-      -- handle may requestBody property
-      -- .'$Link'.'|'.0.requestBody
-      res := TRUE;
+    ELSEIF prop = 'server' THEN
+      -- handle may server property
+      -- .'$Link'.'|'.0.server
+      res := json_model_6(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
       CONTINUE;
     END IF;
     IF STARTS_WITH(prop, 'x-') THEN
@@ -2595,10 +2595,10 @@ DECLARE
 BEGIN
   -- value known to be an object
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'content' THEN
-      -- handle may content property
-      -- .'$Header'.'|'.1.content
-      res := _jm_obj_19(pval, NULL, NULL);
+    IF prop = 'description' THEN
+      -- handle may description property
+      -- .'$Header'.'|'.1.description
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2619,18 +2619,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'description' THEN
-      -- handle may description property
-      -- .'$Header'.'|'.1.description
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = 'allowEmptyValue' THEN
       -- handle may allowEmptyValue property
       -- .'$Header'.'|'.1.allowEmptyValue
       res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'content' THEN
+      -- handle may content property
+      -- .'$Header'.'|'.1.content
+      res := _jm_obj_19(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3389,18 +3389,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'prefix' THEN
-      -- handle may prefix property
-      -- .'$xml'.prefix
+    ELSEIF prop = 'namespace' THEN
+      -- handle may namespace property
+      -- .'$xml'.namespace
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'wrapped' THEN
-      -- handle may wrapped property
-      -- .'$xml'.wrapped
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    ELSEIF prop = 'prefix' THEN
+      -- handle may prefix property
+      -- .'$xml'.prefix
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3413,10 +3413,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'namespace' THEN
-      -- handle may namespace property
-      -- .'$xml'.namespace
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = 'wrapped' THEN
+      -- handle may wrapped property
+      -- .'$xml'.wrapped
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3458,11 +3458,11 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'in' THEN
-      -- handle must in property
+    IF prop = 'type' THEN
+      -- handle must type property
       must_count := must_count + 1;
-      -- .'$SS-apikey'.in
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_4(pval);
+      -- .'$SS-apikey'.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'apiKey';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3476,11 +3476,11 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'type' THEN
-      -- handle must type property
+    ELSEIF prop = 'in' THEN
+      -- handle must in property
       must_count := must_count + 1;
-      -- .'$SS-apikey'.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'apiKey';
+      -- .'$SS-apikey'.in
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_4(pval);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3693,11 +3693,11 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'in' THEN
-      -- handle must in property
+    IF prop = 'type' THEN
+      -- handle must type property
       must_count := must_count + 1;
-      -- .'$SecurityScheme'.'|'.0.in
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_5(pval);
+      -- .'$SecurityScheme'.'|'.0.type
+      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'apiKey';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3711,11 +3711,11 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'type' THEN
-      -- handle must type property
+    ELSEIF prop = 'in' THEN
+      -- handle must in property
       must_count := must_count + 1;
-      -- .'$SecurityScheme'.'|'.0.type
-      res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'apiKey';
+      -- .'$SecurityScheme'.'|'.0.in
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_5(pval);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3770,17 +3770,17 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = 'description' THEN
-      -- handle may description property
-      -- .'$SecurityScheme'.'|'.1.description
+    IF prop = 'bearerFormat' THEN
+      -- handle may bearerFormat property
+      -- .'$SecurityScheme'.'|'.1.bearerFormat
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'bearerFormat' THEN
-      -- handle may bearerFormat property
-      -- .'$SecurityScheme'.'|'.1.bearerFormat
+    ELSEIF prop = 'description' THEN
+      -- handle may description property
+      -- .'$SecurityScheme'.'|'.1.description
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
@@ -4025,17 +4025,17 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'authorizationCode' THEN
-      -- handle may authorizationCode property
-      -- .'$OAuthFlows'.authorizationCode
+    ELSEIF prop = 'clientCredentials' THEN
+      -- handle may clientCredentials property
+      -- .'$OAuthFlows'.clientCredentials
       res := json_model_42(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'clientCredentials' THEN
-      -- handle may clientCredentials property
-      -- .'$OAuthFlows'.clientCredentials
+    ELSEIF prop = 'authorizationCode' THEN
+      -- handle may authorizationCode property
+      -- .'$OAuthFlows'.authorizationCode
       res := json_model_42(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
@@ -4092,11 +4092,11 @@ BEGIN
   END IF;
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'scopes' THEN
-      -- handle must scopes property
+    IF prop = 'authorizationUrl' THEN
+      -- handle must authorizationUrl property
       must_count := must_count + 1;
-      -- .'$OAuthFlow'.scopes
-      res := _jm_obj_28(pval, NULL, NULL);
+      -- .'$OAuthFlow'.authorizationUrl
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -4110,11 +4110,11 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'authorizationUrl' THEN
-      -- handle must authorizationUrl property
+    ELSEIF prop = 'scopes' THEN
+      -- handle must scopes property
       must_count := must_count + 1;
-      -- .'$OAuthFlow'.authorizationUrl
-      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      -- .'$OAuthFlow'.scopes
+      res := _jm_obj_28(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

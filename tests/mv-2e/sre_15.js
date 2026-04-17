@@ -6,8 +6,8 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 const _jm_re_0_re = new runtime.RX(".", "")
-const _jm_re_1_re = new runtime.RX("^.*$", "")
-const _jm_re_2_re = new runtime.RX("^.+$", "")
+const _jm_re_1_re = new runtime.RX("^.+$", "")
+const _jm_re_2_re = new runtime.RX("^.*$", "")
 export var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
@@ -34,24 +34,6 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        else if (prop == "dot*")
-        {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, null, null);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "dot+")
-        {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_2(pval, null, null);
-            if (! res)
-            {
-                return false;
-            }
-            continue;
-        }
         else if (prop == "doti")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null);
@@ -70,9 +52,18 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        else if (prop == "dot*s")
+        else if (prop == "dot+")
         {
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, null, null);
+            if (! res)
+            {
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "dot*")
+        {
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_2(pval, null, null);
             if (! res)
             {
                 return false;
@@ -82,6 +73,15 @@ function json_model_1(val, path, rep)
         else if (prop == "dot+s")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && pval.length > 0;
+            if (! res)
+            {
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "dot*s")
+        {
+            res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
                 return false;

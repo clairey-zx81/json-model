@@ -68,7 +68,19 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'b')
+        if ($prop eq 's')
+        {
+            # handle must s property
+            $must_count++;
+            # .'&'.0.s
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'b')
         {
             # handle must b property
             $must_count++;
@@ -86,18 +98,6 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'&'.0.f
             $res = jm_is_numeric($pval) && $pval > 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 's')
-        {
-            # handle must s property
-            $must_count++;
-            # .'&'.0.s
-            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;

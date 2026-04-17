@@ -170,6 +170,20 @@ public class l10n extends ModelChecker
                 }
                 continue;
             }
+            else if (prop.compareTo("~") == 0)
+            {
+                // handle must ~ property
+                must_count += 1;
+                // .'~'
+                res = json.isString(pval) && json.asString(pval).compareTo("https://json-model.org/models/l10n") == 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'~']", (path != null ? lpath_0 : null));
+                    return false;
+                }
+                continue;
+            }
             else if (prop.compareTo("%") == 0)
             {
                 // handle must % property
@@ -195,20 +209,6 @@ public class l10n extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"_$Model\" [.'@']", (path != null ? lpath_0 : null));
                     if (rep != null) rep.addEntry("invalid mandatory prop value [.'@']", (path != null ? lpath_0 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("~") == 0)
-            {
-                // handle must ~ property
-                must_count += 1;
-                // .'~'
-                res = json.isString(pval) && json.asString(pval).compareTo("https://json-model.org/models/l10n") == 0;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'~']", (path != null ? lpath_0 : null));
                     return false;
                 }
                 continue;

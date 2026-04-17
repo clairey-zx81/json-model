@@ -961,18 +961,18 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = '!' THEN
-      -- handle may ! property
-      -- .'$Element'.'|'.0.'!'
-      res := JSONB_TYPEOF(pval) = 'boolean';
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Element'.'|'.0.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Element'.'|'.0.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '!' THEN
+      -- handle may ! property
+      -- .'$Element'.'|'.0.'!'
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1056,12 +1056,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '*' THEN
-      -- handle may * property
-      -- .'$Trafo'.'*'
-      res := TRUE;
-      CONTINUE;
-    ELSEIF prop = '/' THEN
+    IF prop = '/' THEN
       -- handle may / property
       -- .'$Trafo'.'/'
       -- .'$Trafo'.'/'.'|'.0
@@ -1078,6 +1073,11 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
+    ELSEIF prop = '*' THEN
+      -- handle may * property
+      -- .'$Trafo'.'*'
+      res := TRUE;
       CONTINUE;
     END IF;
     RETURN FALSE;
@@ -1129,11 +1129,6 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '*' THEN
-      -- handle may * property
-      -- .'$Transformation'.'|'.1.'*'
-      res := TRUE;
-      CONTINUE;
     ELSEIF prop = '/' THEN
       -- handle may / property
       -- .'$Transformation'.'|'.1.'/'
@@ -1151,6 +1146,11 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
+      CONTINUE;
+    ELSEIF prop = '*' THEN
+      -- handle may * property
+      -- .'$Transformation'.'|'.1.'*'
+      res := TRUE;
       CONTINUE;
     END IF;
     IF STARTS_WITH(prop, '#') THEN
@@ -1366,18 +1366,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '' THEN
-      -- handle may  property
-      -- .'$RootOnly'.'$'.''
-      res := json_model_2(pval, NULL, NULL);
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$RootOnly'.'$'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$RootOnly'.'$'.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '' THEN
+      -- handle may  property
+      -- .'$RootOnly'.'$'.''
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1489,7 +1489,15 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '$' THEN
+    IF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$RootOnly'.'~'
+      res := json_model_2(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '$' THEN
       -- handle may $ property
       -- .'$RootOnly'.'$'
       res := _jm_obj_9(pval, NULL, NULL);
@@ -1501,14 +1509,6 @@ BEGIN
       -- handle may % property
       -- .'$RootOnly'.'%'
       res := _jm_obj_10(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$RootOnly'.'~'
-      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1532,18 +1532,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '' THEN
-      -- handle may  property
-      -- .'$Root'.'|'.5.'$'.''
-      res := json_model_2(pval, NULL, NULL);
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.5.'$'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.5.'$'.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '' THEN
+      -- handle may  property
+      -- .'$Root'.'|'.5.'$'.''
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1651,10 +1651,10 @@ DECLARE
 BEGIN
   -- value known to be an object
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.5.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    IF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Root'.'|'.5.'~'
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1675,10 +1675,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Root'.'|'.5.'~'
-      res := json_model_2(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.5.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1715,18 +1715,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '' THEN
-      -- handle may  property
-      -- .'$Root'.'|'.4.'$'.''
-      res := json_model_2(pval, NULL, NULL);
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.4.'$'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.4.'$'.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '' THEN
+      -- handle may  property
+      -- .'$Root'.'|'.4.'$'.''
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1858,10 +1858,10 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.4.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    IF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Root'.'|'.4.'~'
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1882,10 +1882,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Root'.'|'.4.'~'
-      res := json_model_2(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.4.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1915,18 +1915,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '' THEN
-      -- handle may  property
-      -- .'$Root'.'|'.3.'$'.''
-      res := json_model_2(pval, NULL, NULL);
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.3.'$'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.3.'$'.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '' THEN
+      -- handle may  property
+      -- .'$Root'.'|'.3.'$'.''
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2058,10 +2058,10 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.3.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    IF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Root'.'|'.3.'~'
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2082,10 +2082,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Root'.'|'.3.'~'
-      res := json_model_2(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.3.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2115,18 +2115,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '' THEN
-      -- handle may  property
-      -- .'$Root'.'|'.2.'$'.''
-      res := json_model_2(pval, NULL, NULL);
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.2.'$'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.2.'$'.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '' THEN
+      -- handle may  property
+      -- .'$Root'.'|'.2.'$'.''
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2258,10 +2258,10 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.2.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    IF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Root'.'|'.2.'~'
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2282,10 +2282,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Root'.'|'.2.'~'
-      res := json_model_2(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.2.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2315,18 +2315,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '' THEN
-      -- handle may  property
-      -- .'$Root'.'|'.1.'$'.''
-      res := json_model_2(pval, NULL, NULL);
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.1.'$'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.1.'$'.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '' THEN
+      -- handle may  property
+      -- .'$Root'.'|'.1.'$'.''
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2458,10 +2458,10 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.1.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    IF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Root'.'|'.1.'~'
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2482,10 +2482,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Root'.'|'.1.'~'
-      res := json_model_2(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.1.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2515,18 +2515,18 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '' THEN
-      -- handle may  property
-      -- .'$Root'.'|'.0.'$'.''
-      res := json_model_2(pval, NULL, NULL);
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.0.'$'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.0.'$'.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    ELSEIF prop = '' THEN
+      -- handle may  property
+      -- .'$Root'.'|'.0.'$'.''
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2646,18 +2646,10 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF prop = '!' THEN
-      -- handle may ! property
-      -- .'$Root'.'|'.0.'!'
-      res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Root'.'|'.0.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
+    IF prop = '~' THEN
+      -- handle may ~ property
+      -- .'$Root'.'|'.0.'~'
+      res := json_model_2(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2678,10 +2670,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '~' THEN
-      -- handle may ~ property
-      -- .'$Root'.'|'.0.'~'
-      res := json_model_2(pval, NULL, NULL);
+    ELSEIF prop = '#' THEN
+      -- handle may # property
+      -- .'$Root'.'|'.0.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '!' THEN
+      -- handle may ! property
+      -- .'$Root'.'|'.0.'!'
+      res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

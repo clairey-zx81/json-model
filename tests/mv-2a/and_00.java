@@ -35,15 +35,15 @@ public class and_00 extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("b") == 0)
+            if (prop.compareTo("s") == 0)
             {
-                // handle may b property
-                // .b
-                res = json.isBoolean(pval);
+                // handle may s property
+                // .s
+                res = json.isString(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a bool [.b]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.s]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.s]", (path != null ? lpath_0 : null));
                     return false;
                 }
                 continue;
@@ -61,15 +61,15 @@ public class and_00 extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("s") == 0)
+            else if (prop.compareTo("b") == 0)
             {
-                // handle may s property
-                // .s
-                res = json.isString(pval);
+                // handle may b property
+                // .b
+                res = json.isBoolean(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.s]", (path != null ? lpath_0 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.s]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("not a bool [.b]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
                 continue;

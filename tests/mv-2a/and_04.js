@@ -114,7 +114,33 @@ function json_model_1(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if (prop == "a")
+        if (prop == "u")
+        {
+            // handle may u property
+            // .u
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1 strict int [.u]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.u]", (path ? lpath_2 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "s")
+        {
+            // handle may s property
+            // .s
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"\" [.s]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.s]", (path ? lpath_2 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "a")
         {
             // handle may a property
             // .a
@@ -136,32 +162,6 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["not a bool [.b]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.b]", (path ? lpath_2 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "s")
-        {
-            // handle may s property
-            // .s
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"\" [.s]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.s]", (path ? lpath_2 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "u")
-        {
-            // handle may u property
-            // .u
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1 strict int [.u]", (path ? lpath_2 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.u]", (path ? lpath_2 : null)])
                 return false;
             }
             continue;

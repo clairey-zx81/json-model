@@ -32,13 +32,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     for prop, pval in val.items():
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if prop == "b":
-            # handle may b property
-            # .b
-            res = isinstance(pval, bool)
+        if prop == "s":
+            # handle may s property
+            # .s
+            res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("not a bool [.b]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.b]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"\" [.s]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.s]", lpath_0 if path is not None else None))
                 return False
             continue
         elif prop == "i":
@@ -50,13 +50,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.i]", lpath_0 if path is not None else None))
                 return False
             continue
-        elif prop == "s":
-            # handle may s property
-            # .s
-            res = isinstance(pval, str)
+        elif prop == "b":
+            # handle may b property
+            # .b
+            res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"\" [.s]", lpath_0 if path is not None else None))
-                rep is None or rep.append(("invalid optional prop value [.s]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a bool [.b]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.b]", lpath_0 if path is not None else None))
                 return False
             continue
         if prop.startswith("d"):

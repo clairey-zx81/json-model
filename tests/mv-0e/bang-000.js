@@ -39,34 +39,6 @@ function json_model_1(val, path, rep)
             }
             continue;
         }
-        else if (prop == "/")
-        {
-            // handle must / property
-            must_count += 1;
-            // .'/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 17;
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected value for model \"=17\" [.'/']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'/']", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
-        else if (prop == "?")
-        {
-            // handle must ? property
-            must_count += 1;
-            // .'?'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 0.0 strict float [.'?']", (path ? lpath_0 : null)])
-                rep !== null && rep.push(["invalid mandatory prop value [.'?']", (path ? lpath_0 : null)])
-                return false;
-            }
-            continue;
-        }
         else if (prop == "_")
         {
             // handle must _ property
@@ -91,6 +63,34 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["not a 0 strict int [.a]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.a]", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "?")
+        {
+            // handle must ? property
+            must_count += 1;
+            // .'?'
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0.0 strict float [.'?']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'?']", (path ? lpath_0 : null)])
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "/")
+        {
+            // handle must / property
+            must_count += 1;
+            // .'/'
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 17;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"=17\" [.'/']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'/']", (path ? lpath_0 : null)])
                 return false;
             }
             continue;

@@ -59,7 +59,16 @@ BEGIN
   -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'b' THEN
+    IF prop = 's' THEN
+      -- handle must s property
+      must_count := must_count + 1;
+      -- .'&'.0.s
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'b' THEN
       -- handle must b property
       must_count := must_count + 1;
       -- .'&'.0.b
@@ -73,15 +82,6 @@ BEGIN
       must_count := must_count + 1;
       -- .'&'.0.f
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 's' THEN
-      -- handle must s property
-      must_count := must_count + 1;
-      -- .'&'.0.s
-      res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;

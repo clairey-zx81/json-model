@@ -51,22 +51,22 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'f')
+        elsif ($prop eq 'i')
         {
-            # handle may f property
-            # .f
-            $res = jm_is_numeric($pval) && $pval > 0.0;
+            # handle may i property
+            # .i
+            $res = jm_is_integer($pval) && $pval >= 1;
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'i')
+        elsif ($prop eq 'f')
         {
-            # handle may i property
-            # .i
-            $res = jm_is_integer($pval) && $pval >= 1;
+            # handle may f property
+            # .f
+            $res = jm_is_numeric($pval) && $pval > 0.0;
             if (! $res)
             {
                 return 0;

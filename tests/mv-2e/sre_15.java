@@ -54,24 +54,6 @@ public class sre_15 extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("dot*") == 0)
-            {
-                res = json.isString(pval) && _jm_re_1(json.asString(pval), null, null);
-                if (! res)
-                {
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo("dot+") == 0)
-            {
-                res = json.isString(pval) && _jm_re_2(json.asString(pval), null, null);
-                if (! res)
-                {
-                    return false;
-                }
-                continue;
-            }
             else if (prop.compareTo("doti") == 0)
             {
                 res = json.isString(pval) && _jm_re_0(json.asString(pval), null, null);
@@ -90,9 +72,18 @@ public class sre_15 extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo("dot*s") == 0)
+            else if (prop.compareTo("dot+") == 0)
             {
-                res = json.isString(pval);
+                res = json.isString(pval) && _jm_re_1(json.asString(pval), null, null);
+                if (! res)
+                {
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("dot*") == 0)
+            {
+                res = json.isString(pval) && _jm_re_2(json.asString(pval), null, null);
                 if (! res)
                 {
                     return false;
@@ -102,6 +93,15 @@ public class sre_15 extends ModelChecker
             else if (prop.compareTo("dot+s") == 0)
             {
                 res = json.isString(pval) && json.asString(pval).length() > 0;
+                if (! res)
+                {
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("dot*s") == 0)
+            {
+                res = json.isString(pval);
                 if (! res)
                 {
                     return false;
@@ -120,8 +120,8 @@ public class sre_15 extends ModelChecker
         {
             try {
             _jm_re_0_pat = Pattern.compile(".");
-            _jm_re_1_pat = Pattern.compile("^.*$");
-            _jm_re_2_pat = Pattern.compile("^.+$");
+            _jm_re_1_pat = Pattern.compile("^.+$");
+            _jm_re_2_pat = Pattern.compile("^.*$");
             sre_15_map_pmap = new HashMap<String, Checker>();
             sre_15_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);

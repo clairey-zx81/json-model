@@ -26,8 +26,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     res: bool
     for prop, pval in val.items():
-        if prop == "eth":
-            res = isinstance(pval, str) and jm_is_eth(pval, None, None)
+        if prop == "ipv4":
+            res = is_valid_ip4(pval, None, rep)
+            if not res:
+                return False
+            continue
+        elif prop == "ipv6":
+            res = is_valid_ip6(pval, None, rep)
             if not res:
                 return False
             continue
@@ -36,13 +41,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
             continue
-        elif prop == "ipv4":
-            res = is_valid_ip4(pval, None, rep)
-            if not res:
-                return False
-            continue
-        elif prop == "ipv6":
-            res = is_valid_ip6(pval, None, rep)
+        elif prop == "eth":
+            res = isinstance(pval, str) and jm_is_eth(pval, None, None)
             if not res:
                 return False
             continue

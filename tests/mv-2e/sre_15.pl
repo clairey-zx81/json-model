@@ -20,14 +20,14 @@ sub _jm_re_0($$$)
 sub _jm_re_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^.*$/;
+    my $res = $val =~ /^.+$/;
     return $res;
 }
 
 sub _jm_re_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^.+$/;
+    my $res = $val =~ /^.*$/;
     return $res;
 }
 
@@ -45,24 +45,6 @@ sub json_model_1($$$)
         if ($prop eq 'dot')
         {
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'dot*')
-        {
-            $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq 'dot+')
-        {
-            $res = jm_is_string($pval) && _jm_re_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -87,9 +69,18 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'dot*s')
+        elsif ($prop eq 'dot+')
         {
-            $res = jm_is_string($pval);
+            $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'dot*')
+        {
+            $res = jm_is_string($pval) && _jm_re_2($pval, undef, undef);
             if (! $res)
             {
                 return 0;
@@ -99,6 +90,15 @@ sub json_model_1($$$)
         elsif ($prop eq 'dot+s')
         {
             $res = jm_is_string($pval) && length $pval > 0;
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 'dot*s')
+        {
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;

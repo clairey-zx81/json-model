@@ -31,21 +31,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (unlikely(jm_str_eq_5(prop, 0x000000006e726f62LL)))
-        {
-            // handle must born property
-            must_count += 1;
-            // .born
-            res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.born]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.born]", (path ? &lpath_0 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (jm_str_eq_5(prop, 0x00000000656d616eLL))
+        if (unlikely(jm_str_eq_5(prop, 0x00000000656d616eLL)))
         {
             // handle must name property
             must_count += 1;
@@ -55,6 +41,20 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.name]", (path ? &lpath_0 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.name]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (jm_str_eq_5(prop, 0x000000006e726f62LL))
+        {
+            // handle must born property
+            must_count += 1;
+            // .born
+            res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$DATE\" [.born]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.born]", (path ? &lpath_0 : NULL));
                 return false;
             }
             continue;

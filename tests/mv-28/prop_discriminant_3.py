@@ -85,16 +85,16 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
             continue
-        if prop == "q":
-            # handle may q property
-            # .'|'.3.q
+        if prop == "s":
+            # handle may s property
+            # .'|'.3.s
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 return False
             continue
-        elif prop == "s":
-            # handle may s property
-            # .'|'.3.s
+        elif prop == "q":
+            # handle may q property
+            # .'|'.3.q
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 return False
@@ -202,16 +202,16 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
             continue
-        if prop == "w":
-            # handle may w property
-            # .'|'.0.w
+        if prop == "z":
+            # handle may z property
+            # .'|'.0.z
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 return False
             continue
-        elif prop == "z":
-            # handle may z property
-            # .'|'.0.z
+        elif prop == "w":
+            # handle may w property
+            # .'|'.0.w
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
                 return False
