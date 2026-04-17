@@ -13,11 +13,11 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 @SuppressWarnings("unchecked")
-public class reprop_00 extends ModelChecker
+public class ma_prop_00 extends ModelChecker
 {
     static public final String VERSION = "2";
 
-    public Map<String, Checker> reprop_00_map_pmap;
+    public Map<String, Checker> ma_prop_00_map_pmap;
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
@@ -113,8 +113,8 @@ public class reprop_00 extends ModelChecker
         if (!initialized)
         {
             try {
-            reprop_00_map_pmap = new HashMap<String, Checker>();
-            reprop_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            ma_prop_00_map_pmap = new HashMap<String, Checker>();
+            ma_prop_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -128,23 +128,23 @@ public class reprop_00 extends ModelChecker
         if (initialized)
         {
             super.free();
-            reprop_00_map_pmap = null;
+            ma_prop_00_map_pmap = null;
         }
     }
 
     public Checker get(String name)
     {
-        return reprop_00_map_pmap.get(name);
+        return ma_prop_00_map_pmap.get(name);
     }
 
     public Set<String> models()
     {
-        return reprop_00_map_pmap.keySet();
+        return ma_prop_00_map_pmap.keySet();
     }
 
     static public void main(String[] args) throws Exception
     {
-        ModelChecker checker = new reprop_00();
-        Main.main("reprop_00", checker, VERSION, args);
+        ModelChecker checker = new ma_prop_00();
+        Main.main("ma_prop_00", checker, VERSION, args);
     }
 }
