@@ -15,9 +15,9 @@ static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     if (unlikely(!islower(*s++)))
         return false;
-    int n = 29;
-    while (likely(n && jm_lownum(*s)))
-        s++, n--;
+    int n_0 = 29;
+    while (likely(n_0 && jm_lownum(*s)))
+        s++, n_0--;
     return *s == '\0';
 }
 

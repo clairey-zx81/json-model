@@ -61,7 +61,8 @@
 - [x] c-backend: check str cmp optims with utf8 strings
 - [x] static: preserve prop order by default
 - [x] c-backend: add custom character classes `[-a-z0-9_]` variants
-- [ ] c-backend: fix multiple brace repeats in simple regex optimization
+- [x] c-backend: use counter for multithreaded tests
+- [x] c-backend: fix multiple brace repeats in simple regex optimization
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning

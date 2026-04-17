@@ -59,12 +59,17 @@ def _str_cmp_chunk(s: str, chunk: bytes, size: int,
 
 # marker to embed code declation into instructions
 EMBED_CODE = "$code$"
-EMBED_COUNT = 0
+
+class Counter():
+    def __init__(self):
+        self._value: int = -1
+    def __call__(self) -> int:
+        self._value += 1
+        return self._value
 
 def _str_cmp(
-            s: str, cst: str,
+            s: str, cst: str, count: Counter,
             little: bool = True, eq: bool = True, start: bool = False,
-            count: int = 0
         ) -> BoolExpr:
     """Generate a fast byte string comparison for known constants."""
     # FIXME fails on \u0000
@@ -72,12 +77,10 @@ def _str_cmp(
     remain = len(bcst) + (0 if start else 1)  # add implicit null termination
     # filter out multiple array calls
     if remain > 8 and ("json_array_get(" in s or "json_string_value(" in s):
-        global EMBED_COUNT
-        svar = f"sval_{EMBED_COUNT}"
-        EMBED_COUNT += 1
+        svar = f"sval_{count()}"
         return (
             f"{EMBED_CODE}const char *{svar};{EMBED_CODE}"
-            f"(({svar} = {s}), {_str_cmp(svar, cst, little, eq, start)})"
+            f"(({svar} = {s}), {_str_cmp(svar, cst, count, little, eq, start)})"
         )
     # generate chuncked comparison expression
     index = 0
@@ -379,11 +382,11 @@ def _simple_re(regex: str, opts: str) -> tuple[list[str, str, str], bool]|None:
             return segments, eot
     return None
 
-def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Block:
+def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool, count: Counter) -> Block:
     """Generate code for a simple regex segment on string s."""
     # handle prefix with fast str comparison
     if prefix:
-        expr = _str_cmp("s", json.dumps(prefix), little=little, eq=False, start=True)
+        expr = _str_cmp("s", json.dumps(prefix), count, little=little, eq=False, start=True)
         code = [
             f"if (unlikely({expr}))",
             r"    return false;",
@@ -442,23 +445,24 @@ def _compile_re_segment(prefix: str, test: str, repeat: str, little: bool) -> Bl
             elif maxi == mini:
                 pass
             else:  # maxi > mini
+                var = f"n_{count()}"
                 iters = maxi - mini
                 code += [
-                    f"int n = {iters};",
-                    f"while (likely(n && {test}(*s)))",
-                    r"    s++, n--;",
+                    f"int {var} = {iters};",
+                    f"while (likely({var} && {test}(*s)))",
+                    f"    s++, {var}--;",
                 ]
     return code
 
 def _compile_simple_re(
             name: str,
             segments: list[tuple[str, str, str]], eot: bool,
-            little: bool, inline: str = ""
+            little: bool, inline: str, count: Counter,
         ) -> Block:
     """Generate direct code for a simple regex."""
     body = reduce(
         lambda a, b: a + b,
-        (_compile_re_segment(p, t, r, little) for p, t, r in segments),
+        (_compile_re_segment(p, t, r, little, count) for p, t, r in segments),
         []
     )
     return [
@@ -499,7 +503,7 @@ def _ic_str_cmp_re(regex: str, opts: str, limit: int = 64) -> tuple[list[str], b
     return None
 
 def _compile_ic_str_cmp(
-            name: str, alts: list[str], ic: bool, little: bool, inline: str = ""
+            name: str, alts: list[str], ic: bool, little: bool, inline: str, count: Counter,
         ) -> Block:
     """Generate code to compare to a set of strings."""
     var = "ls" if ic else "s"
@@ -517,7 +521,7 @@ def _compile_ic_str_cmp(
     for i, cst in enumerate(alts):
         code += [
             ("        || " if i > 0 else "    return ") +
-            _str_cmp(var, json.dumps(cst), little, True, False) +
+            _str_cmp(var, json.dumps(cst), count, little, True, False) +
             f"  // {json.dumps(cst)}"
         ]
     return code + [
@@ -582,6 +586,9 @@ class CLangJansson(Language):
         # NOTE not necessary equal to the one in CodeGenerator
         self._partition_threshold = partition_threshold
         self._byte_order = byte_order
+
+        # instance counter
+        self._count = Counter()
 
     #
     # file
@@ -751,7 +758,7 @@ class CLangJansson(Language):
     def str_start(self, val: str, start: str) -> BoolExpr:
         if self._strcmp_opt:
             try:
-                return _str_cmp(val, json.dumps(start), self._byte_order == "le", True, True)
+                return _str_cmp(val, json.dumps(start), self._count, self._byte_order == "le", True, True)
             except Exception:  # if rejected, proceed with generic solution
                 pass
         return f"strncmp({val}, {self.esc(start)}, strlen({self.esc(start)})) == 0"
@@ -792,13 +799,13 @@ class CLangJansson(Language):
         if op == "=":
             if self._strcmp_opt and len(e2) >= 2 and e2[0] == '"' and e2[-1] == '"':
                 try:
-                    return _str_cmp(e1, e2, self._byte_order == "le", True)
+                    return _str_cmp(e1, e2, self._count, self._byte_order == "le", True)
                 except Exception:
                     pass
             return f"strcmp({e1}, {e2}) == 0"
         elif op == "!=":
             if self._strcmp_opt and len(e2) >= 2 and e2[0] == '"' and e2[-1] == '"':
-                return "(" + _str_cmp(e1, e2, self._byte_order == "le", False) + ")"
+                return "(" + _str_cmp(e1, e2, self._count, self._byte_order == "le", False) + ")"
             else:
                 return f"strcmp({e1}, {e2}) != 0"
             return f"strcmp({e1}, {e2}) != 0"
@@ -957,9 +964,9 @@ class CLangJansson(Language):
         if self._regex_opt and (regex, opts) in _COMPILED_RE:
             return []
         elif self._regex_opt and (simple := _simple_re(regex, opts)):
-            return _compile_simple_re(name, *simple, self._byte_order == "le", self._inline)
+            return _compile_simple_re(name, *simple, self._byte_order == "le", self._inline, self._count)
         elif self._regex_opt and (ls_ic := _ic_str_cmp_re(regex, opts, self._max_strcmp_cset)):
-            return _compile_ic_str_cmp(name, *ls_ic, self._byte_order == "le", self._inline)
+            return _compile_ic_str_cmp(name, *ls_ic, self._byte_order == "le", self._inline, self._count)
         # else use actual regex engine
         code = self.file_load(f"clang_{self._relib}_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]

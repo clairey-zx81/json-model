@@ -13,11 +13,27 @@ const size_t check_model_map_size = 1;
 
 static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    if (unlikely(!(isalnum(*s++) && isalnum(*s++))))
+    if (unlikely(!(islower(*s++))))
         return false;
     int n_0 = 1;
-    while (likely(n_0 && isalnum(*s)))
+    while (likely(n_0 && islower(*s)))
         s++, n_0--;
+    if (unlikely(jm_str_ne_1(s, 0x2e)))
+        return false;
+    s += 1;
+    if (unlikely(!(isdigit(*s++))))
+        return false;
+    int n_1 = 1;
+    while (likely(n_1 && isdigit(*s)))
+        s++, n_1--;
+    if (unlikely(jm_str_ne_1(s, 0x2e)))
+        return false;
+    s += 1;
+    if (unlikely(!(isupper(*s++) && isupper(*s++))))
+        return false;
+    int n_2 = 2;
+    while (likely(n_2 && isupper(*s)))
+        s++, n_2--;
     return *s == '\0';
 }
 

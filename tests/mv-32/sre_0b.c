@@ -39,9 +39,9 @@ static INLINE bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
         return false;
     if (unlikely(!(jm_ident_dash(*s++))))
         return false;
-    int n = 7;
-    while (likely(n && jm_ident_dash(*s)))
-        s++, n--;
+    int n_0 = 7;
+    while (likely(n_0 && jm_ident_dash(*s)))
+        s++, n_0--;
     return *s == '\0';
 }
 
