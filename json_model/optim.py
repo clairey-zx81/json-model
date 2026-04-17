@@ -810,6 +810,7 @@ _SIMPLER_RE: dict[str, str] = {
     "//": "",
     "//s": "",
     "//i": "",
+    "/[\\s\\S]*/": "",  # stupid case not caught by regex below
 }
 
 def _simpler_regex(regex: str) -> str:
@@ -826,6 +827,7 @@ def _simpler_regex(regex: str) -> str:
     elif regex.endswith("(.+)/"):
         return regex[:-3] + ")/"
     elif re.match(r"^/\[[^\]]*]\*/$", regex):  # unanchored whatever chars repeated from zero
+        # FIXME improve regex?
         return ""
     else:
         return regex
