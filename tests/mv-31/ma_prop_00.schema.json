@@ -1,0 +1,27 @@
+{
+  "description": "prop order check is preserved",
+  "type": "object",
+  "properties": {
+    "pretty_long_property_name": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "zulu": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "XXX": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "Susie": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "last": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}
