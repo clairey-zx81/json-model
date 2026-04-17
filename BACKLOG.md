@@ -77,7 +77,8 @@
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
-- [ ] optimize: `/^.{1,256}$/`? only under `/s` though…
+- [ ] optim: `/^.{1,256}$/`? only under `/s` though…
+- [ ] optim: add option to blanckly assume `s` on regex? otherwise `.` is any but `\n` and sometimes `\r`.
 - [ ] test: fast mode which does not execute if source has not changed
 - [ ] test: add test categories (mark?)
 - [ ] test: allow to skip some tests by category
