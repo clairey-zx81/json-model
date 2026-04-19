@@ -1,0 +1,4 @@
+{
+  "#": "regex filtering on a property name",
+  "/^.{2,4}$/": 0
+}

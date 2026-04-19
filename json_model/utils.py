@@ -173,12 +173,7 @@ def split_object(model: JsonObject, path: ModelPath) -> \
         elif c == "$":
             refs[name] = val
         elif c == "/":
-            if key.endswith("/"):
-                regex = name[:-1]
-            else:
-                regex, options = name.rsplit("/", 1)
-                regex = f"(?{options}){regex}"
-            regs[regex] = val
+            regs[key] = val
         else:
             if key in must or key in may:
                 raise ModelError(f"multiply defined property: {name} {path + [key]}")
@@ -196,8 +191,7 @@ def unsplit_object(must: JsonObject, may: JsonObject, refs: JsonObject,
         **{_bang(k): v for k, v in must.items()},
         **{f"?{k}": v for k, v in may.items()},
         **{f"${k}": v for k, v in refs.items()},
-        # FIXME /i support?
-        **{f"/{k}/": v for k, v in regs.items()},
+        **{k: v for k, v in regs.items()},
         **others
     }
 
@@ -434,7 +428,12 @@ class _Object:
         self._must = must
         self._may = may
         self._defs = defs
-        self._regs = regs
+        self._init_regs = regs  # raw split
+        self._regs = {}  # re-compatible regex, possibly with options
+        for r, m in regs.items():
+            assert r.startswith("/")
+            regex, opts = r.rsplit("/", 1)
+            self._regs[f"(?{opts}){regex[1:]}" if opts else regex[1:]] = m
         self._oth = oth
         self._jm = jm
         self._mpath = mpath

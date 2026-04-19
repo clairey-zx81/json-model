@@ -375,6 +375,13 @@ class JsonModel:
                     opts = m.rsplit("/", 1)[1]
                     if "s" not in opts and "m" not in opts:
                         m += "s"
+                if isinstance(m, dict):
+                    for p in list(m.keys()):
+                        if p.startswith("/"):
+                            pn = rwtRegex(p, _p)
+                            if pn != p and pn not in m:
+                                m[pn] = m[p]
+                                del m[p]
                 return m
 
             self._model = recModel(self._model, allFlt, rwtRegex, keys=True)

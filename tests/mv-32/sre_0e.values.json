@@ -1,0 +1,22 @@
+[
+  "# property names between 2 and 4 chars",
+  [ true,  {} ],
+  [ false, {"a": 1} ],
+  [ true,  {"ab": 2} ],
+  [ true,  {"abc": 3} ],
+  [ true,  {"abcd": 4} ],
+  [ false, {"abcde": 5} ],
+  [ false, {"abcdef": 6} ],
+  [ true,  {"AB": 2, "CDE": 3, "FGHI": 4} ],
+  [ true,  {"A\n": 2, "C\nE": 3, "\rG\nI": 4} ],
+  [ true,  {"€€": 2, "€€€": 3, "€€€€": 4} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

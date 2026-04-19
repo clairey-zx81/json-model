@@ -65,6 +65,7 @@
 - [x] c-backend: fix multiple brace repeats in simple regex optimization
 - [x] model: add option to `s` on regex? else `.` is any but `\n` and sometimes `\r`
 - [x] optim: `/^.{1,256}$/`? only under `/s` though…
+- [ ] js-backend: remove useless braces
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning

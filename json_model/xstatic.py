@@ -1199,11 +1199,9 @@ class CodeGenerator:
             likely = is_likely(REG_E, 0.5 * expected_nprops)
             expected_nprops -= REG_E
 
-            # FIXME options?!
-            regex = f"/{r}/"
-            rg_expr = self._regExpr(jm, regex, prop, vpath, True)  # FIXME lpath &lpath?
+            rg_expr = self._regExpr(jm, r, prop, vpath, True)  # FIXME lpath &lpath?
             rg_code = gen.lcom(f"handle {len(regs)} re props") + \
-                self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
+                self._compileModel(jm, v, mpath + [r], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
             multi_if += [(rg_expr, likely, rg_code)]
 
