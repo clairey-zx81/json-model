@@ -76,6 +76,7 @@
 - [ ] c-backend: use knowledge of Jansson hash to improve property lookup??
 - [ ] c-backend: generate custom character class ascii tables?
 - [ ] c-backend: custom char classes: `[:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
+- [ ] docker: use ubuntu 26.04  base
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
