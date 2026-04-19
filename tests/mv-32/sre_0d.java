@@ -9,29 +9,11 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 @SuppressWarnings("unchecked")
-public class sre_0b extends ModelChecker
+public class sre_0d extends ModelChecker
 {
     static public final String VERSION = "2";
 
-    public Pattern _jm_re_0_pat = null;
-    public Pattern _jm_re_1_pat = null;
-    public Pattern _jm_re_2_pat = null;
-    public Map<String, Checker> sre_0b_map_pmap;
-
-    public boolean _jm_re_0(String val, Path path, Report rep)
-    {
-        return _jm_re_0_pat.matcher(val).find();
-    }
-
-    public boolean _jm_re_1(String val, Path path, Report rep)
-    {
-        return _jm_re_1_pat.matcher(val).find();
-    }
-
-    public boolean _jm_re_2(String val, Path path, Report rep)
-    {
-        return _jm_re_2_pat.matcher(val).find();
-    }
+    public Map<String, Checker> sre_0d_map_pmap;
 
     public boolean json_model_1(Object val, Path path, Report rep)
     {
@@ -45,27 +27,36 @@ public class sre_0b extends ModelChecker
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
-            if (prop.compareTo("l") == 0)
+            if (prop.compareTo("eq4") == 0)
             {
-                res = json.isString(pval) && _jm_re_0(json.asString(pval), null, null);
+                res = json.isString(pval) && json.asString(pval).length() == 4;
                 if (! res)
                 {
                     return false;
                 }
                 continue;
             }
-            else if (prop.compareTo("u") == 0)
+            else if (prop.compareTo("le4") == 0)
             {
-                res = json.isString(pval) && _jm_re_1(json.asString(pval), null, null);
+                res = json.isString(pval) && json.asString(pval).length() <= 4;
                 if (! res)
                 {
                     return false;
                 }
                 continue;
             }
-            else if (prop.compareTo("i") == 0)
+            else if (prop.compareTo("ge4") == 0)
             {
-                res = json.isString(pval) && _jm_re_2(json.asString(pval), null, null);
+                res = json.isString(pval) && json.asString(pval).length() >= 4;
+                if (! res)
+                {
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo("s35") == 0)
+            {
+                res = json.isString(pval) && json.asString(pval).length() >= 3 && json.asString(pval).length() <= 5;
                 if (! res)
                 {
                     return false;
@@ -83,11 +74,8 @@ public class sre_0b extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_re_0_pat = Pattern.compile("(?s)^[a-z][0-9a-z_-]+$");
-            _jm_re_1_pat = Pattern.compile("(?s)^[A-Z][-0-9A-Z_]*$");
-            _jm_re_2_pat = Pattern.compile("(?is)^[a-zA-Z][-_0-9a-z]{1,8}$");
-            sre_0b_map_pmap = new HashMap<String, Checker>();
-            sre_0b_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            sre_0d_map_pmap = new HashMap<String, Checker>();
+            sre_0d_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -101,26 +89,23 @@ public class sre_0b extends ModelChecker
         if (initialized)
         {
             super.free();
-            _jm_re_0_pat = null;
-            _jm_re_1_pat = null;
-            _jm_re_2_pat = null;
-            sre_0b_map_pmap = null;
+            sre_0d_map_pmap = null;
         }
     }
 
     public Checker get(String name)
     {
-        return sre_0b_map_pmap.get(name);
+        return sre_0d_map_pmap.get(name);
     }
 
     public Set<String> models()
     {
-        return sre_0b_map_pmap.keySet();
+        return sre_0d_map_pmap.keySet();
     }
 
     static public void main(String[] args) throws Exception
     {
-        ModelChecker checker = new sre_0b();
-        Main.main("sre_0b", checker, VERSION, args);
+        ModelChecker checker = new sre_0d();
+        Main.main("sre_0d", checker, VERSION, args);
     }
 }

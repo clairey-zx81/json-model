@@ -76,11 +76,12 @@ def process_model(model: JsonModel, *,
 
 
 def model_from_json(
-        mjson: Jsonable, *, auto: bool = False,
-        debug: int = 0, murl: str = "",
-        check: bool = True, merge: bool = True, optimize: bool = True,
-        loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
-        resolver: Resolver|None = None) -> JsonModel:
+            mjson: Jsonable, *, auto: bool = False,
+            debug: int = 0, murl: str = "",
+            check: bool = True, merge: bool = True, optimize: bool = True,
+            loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
+            single_line: bool = False, resolver: Resolver|None = None
+        ) -> JsonModel:
     """JsonModel instanciation from JSON data."""
 
     if resolver is None:
@@ -103,7 +104,7 @@ def model_from_json(
                 resolver._maps[upref] = fpref
 
     jm = JsonModel(mjson, resolver, url=murl, debug=debug,
-                   loose_int=loose_int, loose_float=loose_float)
+                   loose_int=loose_int, loose_float=loose_float, single_line=single_line)
 
     if check or merge or optimize:
         process_model(jm, check=check, merge=merge, optimize=optimize, debug=debug, extend=extend)
@@ -111,10 +112,12 @@ def model_from_json(
     return jm
 
 
-def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
-                   check: bool = True, merge: bool = True, optimize: bool = True,
-                   loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
-                   resolver: Resolver|None = None, follow: bool = True) -> JsonModel:
+def model_from_url(
+            murl: str, *, auto: bool = False, debug: int = 0,
+            check: bool = True, merge: bool = True, optimize: bool = True,
+            loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
+            resolver: Resolver|None = None, follow: bool = True, single_line: bool = False
+        ) -> JsonModel:
     """JsonModel instanciation from a URL."""
 
     if resolver is None:
@@ -123,19 +126,22 @@ def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
     mjson = resolver(murl, follow=follow)
 
     return model_from_json(mjson, murl=murl, auto=auto, debug=debug, resolver=resolver,
-                           loose_int=loose_int, loose_float=loose_float,
+                           loose_int=loose_int, loose_float=loose_float, single_line=single_line,
                            check=check, merge=merge, optimize=optimize, extend=extend)
 
 
-def model_from_str(mstring: str, *, auto: bool = False,
-                   check: bool = True, merge: bool = True, optimize: bool = True,
-                   loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
-                   debug: int = 0, murl: str = "", allow_duplicates: bool = False) -> JsonModel:
+def model_from_str(
+            mstring: str, *, auto: bool = False,
+            check: bool = True, merge: bool = True, optimize: bool = True,
+            loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
+            debug: int = 0, murl: str = "", allow_duplicates: bool = False,
+            single_line: bool = False,
+        ) -> JsonModel:
     """JsonModel instanciation from a string."""
 
     return model_from_json(json_loads(mstring, allow_duplicates=allow_duplicates),
                            auto=auto, debug=debug, murl=murl,
-                           loose_int=loose_int, loose_float=loose_float,
+                           loose_int=loose_int, loose_float=loose_float, single_line=single_line,
                            check=check, merge=merge, optimize=optimize, extend=extend)
 
 
@@ -182,15 +188,17 @@ def model_checker_from_url(
     return model_checker(jm, debug=debug > 0, **options)
 
 
-def create_model(murl: str, resolver: Resolver, *,
-                 auto: bool = False, follow: bool = True, debug: int = 0,
-                 check: bool = True, merge: bool = True, optimize: bool = True,
-                 loose_int: bool|None = None, loose_float: bool|None = None,
-                 extend: bool = False) -> JsonModel:
+def create_model(
+            murl: str, resolver: Resolver, *,
+            auto: bool = False, follow: bool = True, debug: int = 0,
+            check: bool = True, merge: bool = True, optimize: bool = True,
+            loose_int: bool|None = None, loose_float: bool|None = None,
+            extend: bool = False, single_line: bool = False
+        ) -> JsonModel:
     """JsonModel instanciation without preprocessing."""
     return model_from_url(
         murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
-        loose_int=loose_int, loose_float=loose_float,
+        loose_int=loose_int, loose_float=loose_float, single_line=single_line,
         check=check, merge=merge, optimize=optimize, extend=extend
     )
 
@@ -433,6 +441,10 @@ def jmc_script():
         help="optimize some regular expressions")
     arg("--no-regex-optimize", "-nrxO", dest="regex_opt", action="store_false",
         help="optimize some regular expressions")
+    arg("--single-line-regex", "-slrx", action="store_true", default=False,
+        help="assume single line regex")
+    arg("--no-single-line-regex", "-nslrx", dest="single_line_regex", action="store_false",
+        help="do not assume single line regex")
 
     # IR optimizations (if simplification, call skipping?)
     arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=True,
@@ -653,6 +665,7 @@ def jmc_script():
         model = create_model(args.model, resolver, auto=args.auto, debug=args.debug,
                              loose_int=args.loose_int, loose_float=args.loose_float,
                              check=args.check, merge=args.op != "N",
+                             single_line=args.single_line_regex,
                              optimize=args.optimize, extend=args.extend, follow=False)
     except Exception as e:
         log.error(e)

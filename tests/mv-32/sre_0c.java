@@ -32,7 +32,7 @@ public class sre_0c extends ModelChecker
         if (!initialized)
         {
             try {
-            _jm_re_0_pat = Pattern.compile("^[a-z]{1,2}\\.[0-9]{1,2}\\.[A-Z]{2,4}$");
+            _jm_re_0_pat = Pattern.compile("(?s)^[a-z]{1,2}\\.[0-9]{1,2}\\.[A-Z]{2,4}$");
             sre_0c_map_pmap = new HashMap<String, Checker>();
             sre_0c_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);

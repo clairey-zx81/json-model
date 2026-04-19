@@ -66,6 +66,8 @@ class Counter():
     def __call__(self) -> int:
         self._value += 1
         return self._value
+    def reset(self):
+        self._value = -1
 
 def _str_cmp(
             s: str, cst: str, count: Counter,
@@ -101,6 +103,24 @@ def _str_cmp(
         index += size
         remain -= size
     return expr
+
+#
+# regex /^.{n,m}$/s
+#
+def _str_len_bounds(regex: str, opts: str) -> tuple[int, int]|None:
+    if "s" in opts and (repeat := re.match(r"^\^\.\{(\d+),(\d+)}\$$", regex)):
+        return int(repeat.group(1)), int(repeat.group(2))
+    return None
+
+def _compile_str_len_bounds(name: str, mini: int, maxi: int, inline: str, count: Counter) -> Block:
+    """Generate a length comparison."""
+    return [
+        f"static {inline}bool {name}(const char *s, jm_path_t *path, jm_report_t *rep)",
+        r"{",
+        r"    const size_t slen = jm_str_len(s);",
+        f"    return {mini} <= slen && slen <= {maxi};",
+        r"}",
+    ]
 
 #
 # regex: /^prefix[class]repetition$/
@@ -938,11 +958,11 @@ class CLangJansson(Language):
             return [
                 f"#define {name}(s, p, r) {_COMPILED_RE[(regex, opts)]}(s)"
             ]
-        elif self._regex_opt and _simple_re(regex, opts):
-            return [
-                f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);"
-            ]
-        elif self._regex_opt and _ic_str_cmp_re(regex, opts, self._max_strcmp_cset):
+        elif self._regex_opt and (
+                    _simple_re(regex, opts) or
+                    _ic_str_cmp_re(regex, opts, self._max_strcmp_cset) or
+                    _str_len_bounds(regex, opts)
+                ):
             return [
                 f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);"
             ]
@@ -963,6 +983,8 @@ class CLangJansson(Language):
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
         if self._regex_opt and (regex, opts) in _COMPILED_RE:
             return []
+        elif self._regex_opt and (bounds := _str_len_bounds(regex, opts)):
+            return _compile_str_len_bounds(name, *bounds, self._inline, self._count)
         elif self._regex_opt and (simple := _simple_re(regex, opts)):
             return _compile_simple_re(name, *simple, self._byte_order == "le", self._inline, self._count)
         elif self._regex_opt and (ls_ic := _ic_str_cmp_re(regex, opts, self._max_strcmp_cset)):
@@ -972,11 +994,12 @@ class CLangJansson(Language):
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
     def ini_re(self, name: str, regex: str, opts: str) -> Block:
-        if self._regex_opt and (regex, opts) in _COMPILED_RE:
-            return []
-        elif self._regex_opt and _simple_re(regex, opts):
-            return []
-        elif self._regex_opt and _ic_str_cmp_re(regex, opts, self._max_strcmp_cset):
+        if self._regex_opt and (
+                    (regex, opts) in _COMPILED_RE or
+                    _simple_re(regex, opts) or
+                    _ic_str_cmp_re(regex, opts, self._max_strcmp_cset) or
+                    _str_len_bounds(regex, opts)
+                ):
             return []
         # declare once
         code = [] if self._re_used or self._relib != "pcre2" else [
@@ -1007,11 +1030,12 @@ class CLangJansson(Language):
         return code
 
     def del_re(self, name: str, regex: str, opts: str) -> Block:
-        if self._regex_opt and (regex, opts) in _COMPILED_RE:
-            return []
-        elif self._regex_opt and _simple_re(regex, opts):
-            return []
-        elif self._regex_opt and _ic_str_cmp_re(regex, opts, self._max_strcmp_cset):
+        if self._regex_opt and (
+                    (regex, opts) in _COMPILED_RE or
+                    _simple_re(regex, opts) or
+                    _ic_str_cmp_re(regex, opts, self._max_strcmp_cset) or
+                    _str_len_bounds(regex, opts)
+                ):
             return []
         elif self._relib == "pcre2":
             return [

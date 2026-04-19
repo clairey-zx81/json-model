@@ -13,7 +13,7 @@ my %check_model_map;
 sub _jm_re_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[a-z]{1,2}\.[0-9]{1,2}\.[A-Z]{2,4}$/;
+    my $res = $val =~ /^[a-z]{1,2}\.[0-9]{1,2}\.[A-Z]{2,4}$/s;
     return $res;
 }
 

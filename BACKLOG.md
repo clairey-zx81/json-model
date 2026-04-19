@@ -63,6 +63,8 @@
 - [x] c-backend: add custom character classes `[-a-z0-9_]` variants
 - [x] c-backend: use counter for multithreaded tests
 - [x] c-backend: fix multiple brace repeats in simple regex optimization
+- [x] model: add option to `s` on regex? else `.` is any but `\n` and sometimes `\r`
+- [x] optim: `/^.{1,256}$/`? only under `/s` though…
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
@@ -77,8 +79,6 @@
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
-- [ ] optim: `/^.{1,256}$/`? only under `/s` though…
-- [ ] optim: add option to blanckly assume `s` on regex? otherwise `.` is any but `\n` and sometimes `\r`.
 - [ ] test: fast mode which does not execute if source has not changed
 - [ ] test: add test categories (mark?)
 - [ ] test: allow to skip some tests by category

@@ -5,7 +5,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-const _jm_re_0_re = new runtime.RX("^[a-z]{1,2}\\.[0-9]{1,2}\\.[A-Z]{2,4}$", "")
+const _jm_re_0_re = new runtime.RX("^[a-z]{1,2}\\.[0-9]{1,2}\\.[A-Z]{2,4}$", "s")
 export var check_model_map = new Map()
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null

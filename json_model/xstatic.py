@@ -222,6 +222,18 @@ class CodeGenerator:
         elif (gen.fast_strlen() and
                 (re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex))):
             return gen.num_cmp(gen.str_len(sval), ">", gen.const(0), is_int=True)
+        elif repeat := re.match(r"^/\^\.\{(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
+            return gen.num_cmp(gen.str_len(sval), "=", gen.const(int(repeat.group(1))), is_int=True)
+        elif repeat := re.match(r"^/\^\.\{(\d+),}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
+            return gen.num_cmp(gen.str_len(sval), ">=", gen.const(int(repeat.group(1))), is_int=True)
+        elif repeat := re.match(r"^/\^\.\{0,(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
+            return gen.num_cmp(gen.str_len(sval), "<=", gen.const(int(repeat.group(1))), is_int=True)
+        elif (gen.fast_strlen() and
+                (repeat := re.match(r"^/\^\.\{(\d+),(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex))):
+            return gen.and_op(
+                gen.num_cmp(gen.str_len(sval), ">=", gen.const(int(repeat.group(1))), is_int=True),
+                gen.num_cmp(gen.str_len(sval), "<=", gen.const(int(repeat.group(2))), is_int=True)
+            )
         elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[([{|.+*?^$])+/$", regex):  # starts with
             return gen.str_start(sval, unescape_re(regex[2:-1]))
         elif re.match(r"^/([^[({|.+*?\\^$]|\\[([{|.+*?^$])+\$/$", regex):  # ends with

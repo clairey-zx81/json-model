@@ -1,30 +1,6 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- regex=^[a-z][0-9a-z_-]+$ opts=s
-CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^[a-z][0-9a-z_-]+$', 's');
-END;
-$$ LANGUAGE plpgsql;
-
--- regex=^[A-Z][-0-9A-Z_]*$ opts=s
-CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^[A-Z][-0-9A-Z_]*$', 's');
-END;
-$$ LANGUAGE plpgsql;
-
--- regex=^[a-zA-Z][-_0-9a-z]{1,8}$ opts=is
-CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^[a-zA-Z][-_0-9a-z]{1,8}$', 'is');
-END;
-$$ LANGUAGE plpgsql;
-
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -36,20 +12,26 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'l' THEN
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    IF prop = 'eq4' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) = 4;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'u' THEN
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_1(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    ELSEIF prop = 'le4' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) <= 4;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'i' THEN
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_2(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+    ELSEIF prop = 'ge4' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) >= 4;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 's35' THEN
+      res := JSONB_TYPEOF(pval) = 'string' AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) >= 3 AND LENGTH(JSON_VALUE(pval, '$' RETURNING TEXT)) <= 5;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

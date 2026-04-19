@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "eq4": {
+      "type": "string",
+      "pattern": "(?s)^.{4}$"
+    },
+    "le4": {
+      "type": "string",
+      "pattern": "(?s)^.{0,4}$"
+    },
+    "ge4": {
+      "type": "string",
+      "pattern": "(?s)^.{4,}$"
+    },
+    "s35": {
+      "type": "string",
+      "pattern": "(?s)^.{3,5}$"
+    }
+  },
+  "additionalProperties": false
+}

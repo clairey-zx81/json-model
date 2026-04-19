@@ -35,7 +35,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = re.compile("^[a-z]{1,2}\\.[0-9]{1,2}\\.[A-Z]{2,4}$")
+        _jm_re_0_reco = re.compile("(?s)^[a-z]{1,2}\\.[0-9]{1,2}\\.[A-Z]{2,4}$")
         _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {

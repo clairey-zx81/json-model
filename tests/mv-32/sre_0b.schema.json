@@ -3,15 +3,15 @@
   "properties": {
     "l": {
       "type": "string",
-      "pattern": "^[a-z][0-9a-z_-]+$"
+      "pattern": "(?s)^[a-z][0-9a-z_-]+$"
     },
     "u": {
       "type": "string",
-      "pattern": "^[A-Z][-0-9A-Z_]*$"
+      "pattern": "(?s)^[A-Z][-0-9A-Z_]*$"
     },
     "i": {
       "type": "string",
-      "pattern": "(?i)^[a-zA-Z][-_0-9a-z]{1,8}$"
+      "pattern": "(?is)^[a-zA-Z][-_0-9a-z]{1,8}$"
     }
   },
   "additionalProperties": false

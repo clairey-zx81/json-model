@@ -5,16 +5,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-const _jm_re_0_re = new runtime.RX("^[a-z][0-9a-z_-]+$", "s")
-const _jm_re_1_re = new runtime.RX("^[A-Z][-0-9A-Z_]*$", "s")
-const _jm_re_2_re = new runtime.RX("^[a-zA-Z][-_0-9a-z]{1,8}$", "is")
 export var check_model_map = new Map()
-
-const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
-
-const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
-
-const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 
 function json_model_1(val, path, rep)
 {
@@ -25,27 +16,36 @@ function json_model_1(val, path, rep)
     let res;
     for (const [prop, pval] of Object.entries(val))
     {
-        if (prop == "l")
+        if (prop == "eq4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null);
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length == 4;
             if (! res)
             {
                 return false;
             }
             continue;
         }
-        else if (prop == "u")
+        else if (prop == "le4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, null, null);
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length <= 4;
             if (! res)
             {
                 return false;
             }
             continue;
         }
-        else if (prop == "i")
+        else if (prop == "ge4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_2(pval, null, null);
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length >= 4;
+            if (! res)
+            {
+                return false;
+            }
+            continue;
+        }
+        else if (prop == "s35")
+        {
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length >= 3 && pval.length <= 5;
             if (! res)
             {
                 return false;

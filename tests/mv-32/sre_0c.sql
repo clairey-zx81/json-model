@@ -1,11 +1,11 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- regex=^[a-z]{1,2}\.[0-9]{1,2}\.[A-Z]{2,4}$ opts=n
+-- regex=^[a-z]{1,2}\.[0-9]{1,2}\.[A-Z]{2,4}$ opts=s
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[a-z]{1,2}\.[0-9]{1,2}\.[A-Z]{2,4}$', 'n');
+  RETURN regexp_like(val, '^[a-z]{1,2}\.[0-9]{1,2}\.[A-Z]{2,4}$', 's');
 END;
 $$ LANGUAGE plpgsql;
 

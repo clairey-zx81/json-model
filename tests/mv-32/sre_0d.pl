@@ -10,27 +10,6 @@ use constant JMC_VERSION => '2';
 sub json_model_1($$$);
 my %check_model_map;
 
-sub _jm_re_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[a-z][0-9a-z_-]+$/s;
-    return $res;
-}
-
-sub _jm_re_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[A-Z][-0-9A-Z_]*$/s;
-    return $res;
-}
-
-sub _jm_re_2($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[a-zA-Z][-_0-9a-z]{1,8}$/is;
-    return $res;
-}
-
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -42,27 +21,36 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'l')
+        if ($prop eq 'eq4')
         {
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
+            $res = jm_is_string($pval) && length $pval == 4;
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'u')
+        elsif ($prop eq 'le4')
         {
-            $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef);
+            $res = jm_is_string($pval) && length $pval <= 4;
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'i')
+        elsif ($prop eq 'ge4')
         {
-            $res = jm_is_string($pval) && _jm_re_2($pval, undef, undef);
+            $res = jm_is_string($pval) && length $pval >= 4;
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        elsif ($prop eq 's35')
+        {
+            $res = jm_is_string($pval) && length $pval >= 3 && length $pval <= 5;
             if (! $res)
             {
                 return 0;

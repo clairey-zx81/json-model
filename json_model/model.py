@@ -130,6 +130,7 @@ class JsonModel:
             loose_int: bool|None = None,
             loose_float: bool|None = None,
             dname: str|None = None,
+            single_line: bool = False,
         ):
 
         # the root model cannot share a scope
@@ -173,6 +174,7 @@ class JsonModel:
         self._url = url
         self._dname = dname
         self._debug = debug
+        self._single_line = single_line
 
         # copy parameter which may be modified
         model = self.noComment(copy.deepcopy(model))
@@ -292,7 +294,8 @@ class JsonModel:
             self._defs.update({
                 n: JsonModel(m, resolver, url=self._url + "#" + n,
                              head=self._head, scope=self._defs, debug=self._debug,
-                             loose_int=self._loose_int, loose_float=self._loose_float, dname=n)
+                             loose_int=self._loose_int, loose_float=self._loose_float,
+                             dname=n, single_line=self._single_line)
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })
@@ -364,6 +367,18 @@ class JsonModel:
             # _ = self._debug and log.debug(f"globs = {self._globs}")
             self.unload()
 
+        # single line regex
+        if self._single_line:
+
+            def rwtRegex(m: ModelType, _p: ModelPath) -> ModelType:
+                if isinstance(m, str) and m.startswith("/"):
+                    opts = m.rsplit("/", 1)[1]
+                    if "s" not in opts and "m" not in opts:
+                        m += "s"
+                return m
+
+            self._model = recModel(self._model, allFlt, rwtRegex, keys=True)
+
     def load(self, url: str, path: ModelPath, is_head: bool = False) -> JsonModel:
         """Retrieve external JSON Model for a URL."""
         log.debug(f"{self._id}: getting {url} at {path}")
@@ -374,7 +389,8 @@ class JsonModel:
         # If you want to share, add an explicit definition to a url and use it afterwards.
         return JsonModel(j, self._resolver, url=url, head=None if is_head else self._head,
                          scope=None, debug=self._debug,
-                         loose_int=self._loose_int, loose_float=self._loose_float)
+                         loose_int=self._loose_int, loose_float=self._loose_float,
+                         single_line=self._single_line)
 
     def allLoads(self):
         """Load externals, switch un-named externals to local definitions."""
@@ -754,9 +770,11 @@ class JsonModel:
                 raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
             # creation only allowed while rewriting, as new defs may be added _after_ a reference
             log.info(f"{self._id}: creating empty definition \"{name}\"")
-            self._defs[name] = JsonModel(None, self._resolver, url=self._url + "#" + name,
-                                         head=self._head, scope=self._defs, debug=self._debug,
-                                         loose_int=self._loose_int, loose_float=self._loose_float)
+            self._defs[name] = \
+                JsonModel(None, self._resolver, url=self._url + "#" + name,
+                          head=self._head, scope=self._defs, debug=self._debug,
+                          loose_int=self._loose_int, loose_float=self._loose_float,
+                          single_line=self._single_line)
             return self._defs[name]
 
     def resolveRef(self, model: Jsonable, path: ModelPath, create: bool = False) -> JsonModel:
