@@ -436,6 +436,7 @@ CREATE TABLE ShowCompilePerCase AS
 -- compile time summary for all cases
 CREATE TABLE ShowCompileSummary AS
   SELECT
+    3 AS ordre,
     'min compile time (s)' AS data,
     ROUND(MIN(blaze), 1) AS blaze,
     ROUND(MIN(c),     1) AS c,
@@ -445,6 +446,7 @@ CREATE TABLE ShowCompileSummary AS
   FROM CompilePerfCompare
   UNION
   SELECT
+    2,
     'avg compile time (s)',
     ROUND(AVG(blaze), 1),
     ROUND(AVG(c),     1),
@@ -454,6 +456,7 @@ CREATE TABLE ShowCompileSummary AS
   FROM CompilePerfCompare
   UNION
   SELECT
+    1,
     'max compile time (s)',
     ROUND(MAX(blaze), 1),
     ROUND(MAX(c),     1),

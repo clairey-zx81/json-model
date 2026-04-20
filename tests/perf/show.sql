@@ -64,7 +64,7 @@ SELECT * FROM ShowCompilePerCase ORDER BY 1;
 .print
 .print <!-- LRRRRR -->
 .width 0 -5 -5 -5 -5 -5
-SELECT * FROM ShowCompileSummary ORDER BY 1;
+SELECT data, blaze, c, js, jv, py FROM ShowCompileSummary ORDER BY ordre;
 
 .print
 .print ## Cases Statistics
