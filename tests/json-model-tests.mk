@@ -126,6 +126,9 @@ schema: $(F.EO)
 %.schema.json: %.model.json
 	$(JMC.cmd) -EO -ns ./$< > $@
 
+%.schema.check: %.schema.json
+	jsu-check -e jsonschema -t ./$< ./$*.values.json > $@
+
 #
 # C Backend
 #
