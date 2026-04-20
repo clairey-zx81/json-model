@@ -234,12 +234,12 @@ class CodeGenerator:
                 gen.num_cmp(gen.str_len(sval), ">=", gen.const(int(repeat.group(1))), is_int=True),
                 gen.num_cmp(gen.str_len(sval), "<=", gen.const(int(repeat.group(2))), is_int=True)
             )
-        elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[([{|.+*?^$])+/$", regex):  # starts with
-            return gen.str_start(sval, unescape_re(regex[2:-1]))
-        elif re.match(r"^/([^[({|.+*?\\^$]|\\[([{|.+*?^$])+\$/$", regex):  # ends with
-            return gen.str_end(sval, unescape_re(regex[1:-2]))
-        elif re.match(r"^/\^([^[({|.+*?\\^$]|\\[([{|.+*?^$])+\$/$", regex):  # streq
-            return gen.str_cmp(sval, "=", gen.esc(unescape_re(regex[2:-2])))
+        elif begin := re.match(r"^/\^(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)/s?$", regex):  # starts with
+            return gen.str_start(sval, gen.const(unescape_re(begin.group(1))))
+        elif end := re.match(r"^/(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)\$/s?$", regex):  # ends with
+            return gen.str_end(sval, gen.const(unescape_re(end.group(1))))
+        elif seq := re.match(r"^/\^(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)\$/$", regex):  # streq
+            return gen.str_cmp(sval, "=", gen.const(unescape_re(seq.group(1))))
         # TODO streq ic?
         else:
             fun = self._regex(jm, regex, path)

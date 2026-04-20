@@ -192,11 +192,11 @@ class Perl(Language):
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"exists $${obj}{{{self.esc(prop)}}}"
 
-    def str_start(self, val: str, start: str) -> BoolExpr:
-        return f"jm_starts_with({self._val(val)}, {self.esc(start)})"
+    def str_start(self, val: str, start: StrExpr) -> BoolExpr:
+        return f"jm_starts_with({self._val(val)}, {start})"
 
-    def str_end(self, val: str, end: str) -> BoolExpr:
-        return f"jm_ends_with({self._val(val)}, {self.esc(end)})"
+    def str_end(self, val: str, end: StrExpr) -> BoolExpr:
+        return f"jm_ends_with({self._val(val)}, {end})"
 
     def any_len(self, var: Var) -> IntExpr:
         return f"jm_any_len({self._val(var)})"

@@ -313,10 +313,10 @@ class Language:
         """Get length of a string."""
         return self.any_len(var)
 
-    def str_start(self, val: Var, start: str) -> BoolExpr:
+    def str_start(self, val: Var, start: StrExpr) -> BoolExpr:
         raise NotImplementedError("str_start")
 
-    def str_end(self, val: Var, end: str) -> BoolExpr:
+    def str_end(self, val: Var, end: StrExpr) -> BoolExpr:
         raise NotImplementedError("str_end")
 
     def str_hash(self, val: Var, size: int = 1) -> IntExpr:

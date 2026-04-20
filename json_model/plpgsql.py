@@ -110,6 +110,19 @@ class PLpgSQL(Language):
     def esc(self, s: str) -> StrExpr:
         return "'" + s.translate(self._json_esc_table) + "'"
 
+    def _unesc(self, s: StrExpr) -> str:
+        assert s[0] == "'" and s[-1] == "'", "quoted SQL string"
+        ns, esc = "", False
+        for c in s[1:-1]:
+            if esc:
+                assert c == "'"
+                esc = False
+            elif c == "'":
+                esc = True
+                continue
+            ns += c
+        return ns
+
     def _json_str(self, j) -> str:
         return self.esc(json.dumps(j))
 
@@ -196,11 +209,11 @@ class PLpgSQL(Language):
     def get_prop_fun(self, prop: str, mapname: str) -> Expr:
         return f"{mapname}({prop})"
 
-    def str_start(self, val: str, start: str) -> BoolExpr:
-        return f"STARTS_WITH({val}, {self.esc(start)})"
+    def str_start(self, val: str, start: StrExpr) -> BoolExpr:
+        return f"STARTS_WITH({val}, {start})"
 
-    def str_end(self, val: str, end: str) -> BoolExpr:
-        return f"RIGHT({val}, {len(end)}) = {self.esc(end)}"
+    def str_end(self, val: str, end: StrExpr) -> BoolExpr:
+        return f"RIGHT({val}, {len(self._unesc(end))}) = {end}"
 
     def check_call(self, name: str, val: Expr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:

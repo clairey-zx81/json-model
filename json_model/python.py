@@ -125,11 +125,11 @@ class Python(Language):
         ) -> BoolExpr:
         return f"({dst} := {self.obj_prop_val(obj, prop, is_var)}) != UNDEFINED"
 
-    def str_start(self, val: str, start: str) -> BoolExpr:
-        return f"{val}.startswith({self.esc(start)})"
+    def str_start(self, val: str, start: StrExpr) -> BoolExpr:
+        return f"{val}.startswith({start})"
 
-    def str_end(self, val: str, end: str) -> BoolExpr:
-        return f"{val}.endswith({self.esc(end)})"
+    def str_end(self, val: str, end: StrExpr) -> BoolExpr:
+        return f"{val}.endswith({end})"
 
     def num_cmp(
             self, e1: NumExpr, op: str, e2: NumExpr, hexa: bool = False, is_int: bool = False

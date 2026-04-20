@@ -169,10 +169,10 @@ class JavaScript(Language):
         return f"({fun} = {mapname}.get({prop}))"
 
     def str_start(self, val: str, start: str) -> BoolExpr:
-        return f"{val}.startsWith({self.esc(start)})"
+        return f"{val}.startsWith({start})"
 
     def str_end(self, val: str, end: str) -> BoolExpr:
-        return f"{val}.endsWith({self.esc(end)})"
+        return f"{val}.endsWith({end})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"runtime.jm_array_is_unique({val}, {self.path(path)}, {self.rep()})"

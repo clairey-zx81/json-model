@@ -221,11 +221,11 @@ class Java(Language):
     def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return f"({fun} = {mapname}_pmap.get({prop})) != null"
 
-    def str_start(self, val: str, start: str) -> BoolExpr:
-        return f"{val}.startsWith({self.esc(start)})"
+    def str_start(self, val: str, start: StrExpr) -> BoolExpr:
+        return f"{val}.startsWith({start})"
 
-    def str_end(self, val: str, end: str) -> BoolExpr:
-        return f"{val}.endsWith({self.esc(end)})"
+    def str_end(self, val: str, end: StrExpr) -> BoolExpr:
+        return f"{val}.endsWith({end})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"rt.array_is_unique({val}, {self.path(path)}, {self.rep()})"

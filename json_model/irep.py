@@ -1259,11 +1259,11 @@ class IRep(Language):
     def get_prop_fun(self, prop: str, mapname: str) -> BoolExpr:
         return _j("gpf", prop=prop, mapname=mapname)
 
-    def str_start(self, val: Var, start: str) -> BoolExpr:
-        return _j("ss", val=_l(val), start=start)
+    def str_start(self, val: Var, start: StrExpr) -> BoolExpr:
+        return _j("ss", val=_l(val), start=_l(start))
 
-    def str_end(self, val: Var, end: str) -> BoolExpr:
-        return _j("se", val=_l(val), end=end)
+    def str_end(self, val: Var, end: StrExpr) -> BoolExpr:
+        return _j("se", val=_l(val), end=_l(end))
 
     def str_check_call(self, name: str, val: StrExpr, path: Var) -> BoolExpr:
         return _j("scc", name=name, val=_l(val), path=_l(path))
@@ -1541,8 +1541,8 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             )
             case "hpf": return gen.has_prop_fun(prop=jv["prop"], mapname=jv["mapname"])
             case "gpf": return gen.get_prop_fun(prop=jv["prop"], mapname=jv["mapname"])
-            case "ss": return gen.str_start(val=ev("val"), start=jv["start"])
-            case "se": return gen.str_end(val=ev("val"), end=jv["end"])
+            case "ss": return gen.str_start(val=ev("val"), start=ev("start"))
+            case "se": return gen.str_end(val=ev("val"), end=ev("end"))
             case "scc": return gen.str_check_call(name=jv["name"], val=ev("val"), path=ev("path"))
             case "cc": return gen.check_call(
                 name=jv["name"], val=ev("val"), path=ev("path"),

@@ -775,18 +775,17 @@ class CLangJansson(Language):
     def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return f"({fun} = {mapname}({prop}))"
 
-    def str_start(self, val: str, start: str) -> BoolExpr:
+    def str_start(self, val: str, start: StrExpr) -> BoolExpr:
         if self._strcmp_opt:
             try:
-                return _str_cmp(val, json.dumps(start), self._count, self._byte_order == "le", True, True)
+                return _str_cmp(val, start, self._count, self._byte_order == "le", True, True)
             except Exception:  # if rejected, proceed with generic solution
                 pass
-        return f"strncmp({val}, {self.esc(start)}, strlen({self.esc(start)})) == 0"
+        return f"strncmp({val}, {start}, strlen({start})) == 0"
 
-    def str_end(self, val: str, end: str) -> BoolExpr:
-        sstr = self.esc(end)
-        return f"strlen({val}) >= strlen({sstr}) && " \
-               f"strcmp({val} + strlen({val}) - strlen({sstr}), {sstr}) == 0"
+    def str_end(self, val: str, end: StrExpr) -> BoolExpr:
+        return f"strlen({val}) >= strlen({end}) && " \
+               f"strcmp({val} + strlen({val}) - strlen({end}), {end}) == 0"
 
     def check_call(self, name: str, val: Expr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:

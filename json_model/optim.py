@@ -781,31 +781,49 @@ _SIMPLER_RE: dict[str, str] = {
     "/^$/": "_",
     "/^$/i": "_",
     "/^$/s": "_",
+    "/^$/is": "_",
     # non empty (\n?) strings
     "/.+/": "/./",
-    "/./i": "/./",
     "/.+/i": "/./",
+    "/.+/s": "/./s",
+    "/.+/is": "/./s",
+    "/./i": "/./",
+    "/./is": "/./s",
     "/..*/": "/./",
     "/..*/i": "/./",
+    "/..*/s": "/./s",
+    "/..*/is": "/./s",
     "/^.+/": "/^./",
+    "/^.+/i": "/^./",
+    "/^.+/s": "/^./s",
+    "/^.+/is": "/^./s",
     "/.+$/": "/.$/",
     "/.+/s": "/./s",
     "/(.+)/":  "/./",
+    "/(.+)/i":  "/./",
     "/(.+)/s":  "/./s",
+    "/(.+)/is":  "/./s",
     "/^.+$/s": "/./s",
+    "/^.+$/is": "/./s",
     "/^(.+)$/s": "/./s",
+    "/^(.+)$/is": "/./s",
     # misc
     "/ +/": "/ /",
     # any string
     "/.*/": "",
     "/^.*/": "",
     "/.*$/": "",
+    "/^.*$/i": "",
     "/^.*$/s": "",
+    "/^.*$/is": "",
     "/(.*)/": "",
     "/(.*)/i": "",
     "/(.*)/s": "",
+    "/(.*)/is": "",
     "/^(.*)/": "",
+    "/^(.*)$/i": "",
     "/^(.*)$/s": "",
+    "/^(.*)$/is": "",
     "/ */": "",
     "//": "",
     "//s": "",
@@ -820,12 +838,20 @@ def _simpler_regex(regex: str) -> str:
         return _SIMPLER_RE[regex]
     elif regex.endswith(".*/") and not regex.endswith("\\.*/"):
         return regex[:-3] + "/"
+    elif regex.endswith(".*/s") and not regex.endswith("\\.*/s"):
+        return regex[:-4] + "/s"
     elif regex.endswith("(.*)/") and not regex.endswith("\\(.*)/"):
         return regex[:-5] + "/"
+    elif regex.endswith("(.*)/s") and not regex.endswith("\\(.*)/s"):
+        return regex[:-6] + "/s"
     elif regex.endswith(".+/"):
         return regex[:-2] + "/"
+    elif regex.endswith(".+/s"):
+        return regex[:-3] + "/s"
     elif regex.endswith("(.+)/"):
         return regex[:-3] + ")/"
+    elif regex.endswith("(.+)/s"):
+        return regex[:-4] + ")/s"
     elif re.match(r"^/\[[^\]]*]\*/$", regex):  # unanchored whatever chars repeated from zero
         # FIXME improve regex?
         return ""
