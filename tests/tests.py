@@ -285,7 +285,9 @@ EXPECT: dict[str, int] = {
     # mv-31
     "mv-31:models": 8,
     "mv-31:values": 237,
+    "mv-31:errors.pl": 10,
     # mv-32
+    "mv-32:verrors:schema": 1,  # sre_0d.values [16]
     "mv-32:cmp-opts": {"report": False, "comment": False},
     "mv-32:mod-opts": {"single_line": True},
     "mv-32:models": 5,

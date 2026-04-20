@@ -162,13 +162,13 @@ def model_checker(jm: JsonModel, *, debug: bool = False, **options) -> EntryChec
 
 def model_checker_from_json(
         mjson: Jsonable, *, auto: bool = False, debug: int = 0,
-        resolver: Resolver|None = None,
+        resolver: Resolver|None = None, single_line: bool = False,
         loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
         **options,
     ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_json(
-        mjson, auto=auto, debug=debug, resolver=resolver,
+        mjson, auto=auto, debug=debug, resolver=resolver, single_line=single_line,
         loose_int=loose_int, loose_float=loose_float, extend=extend
     )
     return model_checker(jm, debug=debug > 0, **options)
@@ -176,14 +176,14 @@ def model_checker_from_json(
 
 def model_checker_from_url(
         murl: str, *, auto: bool = False, debug: int = 0,
-        resolver: Resolver|None = None, follow: bool = True,
+        resolver: Resolver|None = None, follow: bool = True, single_line: bool = False,
         loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
         **options,
     ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_url(
         murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
-        loose_int=loose_int, loose_float=loose_float, extend=extend
+        loose_int=loose_int, loose_float=loose_float, extend=extend, single_line=single_line,
     )
     return model_checker(jm, debug=debug > 0, **options)
 
