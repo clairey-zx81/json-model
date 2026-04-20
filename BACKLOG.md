@@ -2,69 +2,6 @@
 
 ## Current Tasks
 
-- [x] \*-backend: remove `--jsonschema-benchmark` handling as it is moved to this repo
-- [x] command: add `--no-comment` option not to generate comments in source code
-- [x] \*-backend: support for embedded nul characters in strings, when possible (not SQL nor C)
-- [x] ir: use json name instead of python type names
-- [x] perf: add speed in lines per µs which seems more significant
-- [x] command: add `-mtune=native` to C compilation
-- [x] optim: simplify _&_ with same props and regs plus optional wildcards
-- [x] optim: simplify _X & Y_ to _X_ when _X_ is a submodel of _Y_
-- [x] py-backend: add predefs IP4 IP6 HOST
-- [x] \*-backend: use a common predef for RFC3339 DURATION UUID EMAIL JSONPT
-- [x] \*-backend: add approximated backup regex for predefs when not implemented by runtime
-- [x] predefs: add `$__EXTENSION_COLOR`
-- [x] predefs: refactor multiple instances in the sources into `predefs.py`
-- [x] predefs: add `$ETH` for ethernet (mac) addresses
-- [x] static: recognize and generate better code for typed _not_: _"" ^ "xxx"_
-- [x] ir: add forward substitution between assignments when used once
-- [x] py-backend: filter out zone id suffix from ip6
-- [x] predefs: add `$CARD` for 16 digits credit card numbers with Luhn's checksum
-- [x] predefs: add `$CARD` to js, perl, java and sql runtime.
-- [x] predefs: filter predef extensions with `--extend`
-- [x] ~static: if only one open prop, just look for it~ depends on language and costs
-- [x] ir: improve forward subs, move bool decl to first assignment in seq
-- [x] static: use combined assignment and test if possible on discriminator extraction
-- [x] static: fix any-by-one pattern on string predefs
-- [x] py-runtime: allow lowercase tz in datetime
-- [x] py-runtime: add workarounds for leap seconds and other intricacies
-- [x] predefs: add `$__EXTENSION_REL_JSONPT` as a regex
-- [x] predefs: distinguish simple time and time with mandatory tz for jsu `time` format
-- [x] static: avoid double type checks on or with predefs (java, sql, perl)
-- [x] ~ir: remove simple redundant checks _(X && (X && Z) || (X && Y))_ is _X && (Z || Y)_~ (see previous)
-- [x] c-backend: simple regex compiler for special character classes and repeat
-- [x] c-backend: simple regex compiler cache is okay with existing regex cache
-- [x] c-backend: add custom character classes based on benchmarks (ident, space, up/low/hexa/num/…)
-- [x] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
-- [x] optim: remove unescaped `.*` at end of regex, also `.+/` is `./`
-- [x] c-backend: normalize before character class matching
-- [x] c-backend: extend simple regex with constant prefix
-- [x] c-backend: extend simple regex without end-of-text (`$`)
-- [x] optim: apply simpler re to property names
-- [x] optim: improve model intersection to simplify `&` in more cases
-- [x] optim: improve intersect on single open constraint object case
-- [x] optim: avoid reference expansion in and combine optimization
-- [x] c-backend: optimize special regex `/./` `/./s` `/^.*$/` `/^.+$/`
-- [x] static: detect or of any-but-some type to generate a not instead, beware of looseness
-- [x] static: do not create a separate function for an basic object check
-- [x] static: generate messages in newly added shortcuts
-- [x] c-backend: regex list of words to enum?
-- [x] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
-- [x] c-backend: improve regex opt cset prettyprinting
-- [x] c-backend: extend simple regex to sequences of prefix/chars/repeats
-- [x] c-backend: add custom char class `[A-Za-z0-9_\\-:]` `[1-9]`
-- [x] container: separate base from specific installs to improve cache/no-cache build
-- [x] static: improve pattern matching for starts with/ends with/eq regex optim
-- [x] static: improve endswith pattern recognition with escapes, eg `/\\.js$/`
-- [x] c-backend: improve startwith code with fast str eq when string is a function call
-- [x] c-backend: improve `str_cmp` with fast str eq when string is a function call
-- [x] c-backend: check str cmp optims with utf8 strings
-- [x] static: preserve prop order by default
-- [x] c-backend: add custom character classes `[-a-z0-9_]` variants
-- [x] c-backend: use counter for multithreaded tests
-- [x] c-backend: fix multiple brace repeats in simple regex optimization
-- [x] model: add option to `s` on regex? else `.` is any but `\n` and sometimes `\r`
-- [x] optim: `/^.{1,256}$/`? only under `/s` though…
 - [ ] perf: show schema to model conversion times
 - [ ] js-backend: remove useless braces
 - [ ] c-backend: use str cmp for ends with optimization as well
@@ -884,4 +821,67 @@
 - [x] command: show runtime directory with `--runtime`
 - [x] optim: better merge `&` list when possible, including regex prefix incompatibilities
 - [x] js-backend: export model map
-- [x] pl-backend: add and export `_mapper` function
+- [x] pl-backend: add and export `mapper` function
+- [x] \*-backend: remove `--jsonschema-benchmark` handling as it is moved to this repo
+- [x] command: add `--no-comment` option not to generate comments in source code
+- [x] \*-backend: support for embedded nul characters in strings, when possible (not SQL nor C)
+- [x] ir: use json name instead of python type names
+- [x] perf: add speed in lines per µs which seems more significant
+- [x] command: add `-mtune=native` to C compilation
+- [x] optim: simplify _&_ with same props and regs plus optional wildcards
+- [x] optim: simplify _X & Y_ to _X_ when _X_ is a submodel of _Y_
+- [x] py-backend: add predefs IP4 IP6 HOST
+- [x] \*-backend: use a common predef for RFC3339 DURATION UUID EMAIL JSONPT
+- [x] \*-backend: add approximated backup regex for predefs when not implemented by runtime
+- [x] predefs: add `$__EXTENSION_COLOR`
+- [x] predefs: refactor multiple instances in the sources into `predefs.py`
+- [x] predefs: add `$ETH` for ethernet (mac) addresses
+- [x] static: recognize and generate better code for typed _not_: _"" ^ "xxx"_
+- [x] ir: add forward substitution between assignments when used once
+- [x] py-backend: filter out zone id suffix from ip6
+- [x] predefs: add `$CARD` for 16 digits credit card numbers with Luhn's checksum
+- [x] predefs: add `$CARD` to js, perl, java and sql runtime.
+- [x] predefs: filter predef extensions with `--extend`
+- [x] ~static: if only one open prop, just look for it~ depends on language and costs
+- [x] ir: improve forward subs, move bool decl to first assignment in seq
+- [x] static: use combined assignment and test if possible on discriminator extraction
+- [x] static: fix any-by-one pattern on string predefs
+- [x] py-runtime: allow lowercase tz in datetime
+- [x] py-runtime: add workarounds for leap seconds and other intricacies
+- [x] predefs: add predef `EXTENSION_REL_JSONPT` as a regex
+- [x] predefs: distinguish simple time and time with mandatory tz for jsu `time` format
+- [x] static: avoid double type checks on or with predefs (java, sql, perl)
+- [x] ~ir: remove simple redundant checks _(X && (X && Z) || (X && Y))_ is _X && (Z || Y)_~ (see previous)
+- [x] c-backend: simple regex compiler for special character classes and repeat
+- [x] c-backend: simple regex compiler cache is okay with existing regex cache
+- [x] c-backend: add custom character classes based on benchmarks (ident, space, up/low/hexa/num/…)
+- [x] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
+- [x] optim: remove unescaped `.*` at end of regex, also `.+/` is `./`
+- [x] c-backend: normalize before character class matching
+- [x] c-backend: extend simple regex with constant prefix
+- [x] c-backend: extend simple regex without end-of-text (`$`)
+- [x] optim: apply simpler re to property names
+- [x] optim: improve model intersection to simplify `&` in more cases
+- [x] optim: improve intersect on single open constraint object case
+- [x] optim: avoid reference expansion in and combine optimization
+- [x] c-backend: optimize special regex `/./` `/./s` `/^.*$/` `/^.+$/`
+- [x] static: detect or of any-but-some type to generate a not instead, beware of looseness
+- [x] static: do not create a separate function for an basic object check
+- [x] static: generate messages in newly added shortcuts
+- [x] c-backend: regex list of words to enum?
+- [x] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
+- [x] c-backend: improve regex opt cset prettyprinting
+- [x] c-backend: extend simple regex to sequences of prefix/chars/repeats
+- [x] c-backend: add custom char class `[A-Za-z0-9_\\-:]` `[1-9]`
+- [x] container: separate base from specific installs to improve cache/no-cache build
+- [x] static: improve pattern matching for starts with/ends with/eq regex optim
+- [x] static: improve endswith pattern recognition with escapes, eg `/\\.js$/`
+- [x] c-backend: improve startwith code with fast str eq when string is a function call
+- [x] c-backend: improve `str_cmp` with fast str eq when string is a function call
+- [x] c-backend: check str cmp optims with utf8 strings
+- [x] static: preserve prop order by default
+- [x] c-backend: add custom character classes `[-a-z0-9_]` variants
+- [x] c-backend: use counter for multithreaded tests
+- [x] c-backend: fix multiple brace repeats in simple regex optimization
+- [x] model: add option to `s` on regex? else `.` is any but `\n` and sometimes `\r`
+- [x] optim: `/^.{1,256}$/`? only under `/s` though…
