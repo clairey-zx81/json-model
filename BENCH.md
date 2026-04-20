@@ -52,8 +52,8 @@ The main script options are:
 
 ## Benchmarking Conditions
 
-JSON schemas for the benchmark are translated to models based on
-[JSON Schema Utils](https://github.com/zx80/json-schema-utils).
+JSON schemas for the benchmark are translated to models based on `jsu-compile`
+from [JSON Schema Utils](https://github.com/zx80/json-schema-utils).
 This is mostly an automatic conversion of the test schema to a model, but
 for a few cases which have a _native_ model which is used instead.
 
@@ -65,7 +65,6 @@ the run stops as soon as possible.
 - Compilation times are the _minimum_ encountered over the runs.
   whereas performance times are the _median_ over the runs.
 - The C backend also includes the _runtime_ compilation from sources.
-- JSON Schema to JSON Model conversion times are also recorded separately for information.
 
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
@@ -75,13 +74,14 @@ the following caveats, and others:
   benchmark actually measure raw latency.
 - test cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
-- the overall load on the host can impact measures.
+- the overall load on the test host can impact measures.
 - compilers, libraries and other design and updates can have dramatic effects:
   for faster parsing, a library may use linked-list for properties, which means
   that retrieving a given property value will cost more than a library which uses
   a hash table which is more costly to build.
 - blaze does _not_ implement checking string values (eg dates, url…),
-  so these checks may be disactivated (see `JMC_OPTS`) for fairness.
+  so these checks may be disactivated (see `JMC_OPTS`) for fairness,
+  but reducing the results significance.
 - blaze uses its own special-purpose JSON representation: if interfaced from another
   ecosystem, the cost of translating the JSON representation should be taken into account;
   jmc uses native JSON representations and generate validation code around it.
@@ -103,14 +103,6 @@ also provides
 [benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
 which includes 15 JSON Schema validation tools including our JSON Model Compiler with
 C, JS and Python backends.
-Overall, JMC comes ahead of Blaze C++ on about 2/3 of the test cases (as of 2026-01-22).
-
-On Feb 5, 2026 the JMC-based implementations on this benchmark have been
-[removed](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/67dc4dfc7ad2d4a8e92a920b71fb813d8f3fb6a4)
-without prior notice nor discussion.
-The maintainer wants to focus on comparisons with JSON Schema direct implementations only
-and thus avoid some confusion.
-As a side effect, their Blaze C++ tool took back the performance leadership.
 
 It should be noted that benchmarking conditions are quite different:
 
@@ -122,5 +114,5 @@ It should be noted that benchmarking conditions are quite different:
    values, even if these values would be rejected by the target application.
 
 This latest point explains the under 100% validation results displayed JMC for
-_ansible-meta_, _cypress_ and _yamllint_ tests: the model translation or native models
+_ansible-meta_, _cspell_, _cypress_ and _yamllint_ tests: the model translation or native models
 are more accurate than the original schemas due to bug fixes or more rigorous descriptions.
