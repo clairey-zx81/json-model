@@ -24,6 +24,7 @@ for line in fileinput.input(encoding="utf-8"):
         assert len(align) > len(fmt)
         for i, f in enumerate(fmt):
             align[i+1] = ALIGN[f]
+        print("|".join(align), end="")
     else:
         # reset current format on empty line
         if line == "":
