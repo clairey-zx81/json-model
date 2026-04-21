@@ -1,0 +1,7 @@
+{
+  "description": "overwrite any on regex simplification",
+  "type": "object",
+  "additionalProperties": {
+    "type": "string"
+  }
+}

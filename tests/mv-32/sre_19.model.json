@@ -1,0 +1,5 @@
+{
+  "#": "overwrite any on regex simplification",
+  "/.*/": "",
+  "": "$ANY"
+}

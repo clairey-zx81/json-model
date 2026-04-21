@@ -873,7 +873,7 @@ def simpler_regex(jm: JsonModel) -> bool:
             for p in list(model):
                 if p and p[0] == "/":
                     pp = _simpler_regex(p)
-                    if pp != p and pp not in model:
+                    if pp != p and (pp not in model or pp in model and model[pp] == "$ANY"):
                         changes += 1
                         model[pp] = model[p]
                         del model[p]

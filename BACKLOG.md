@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] optim: override simpler regex props if stricter
 - [ ] perf: show schema to model conversion times
 - [ ] js-backend: remove useless braces
 - [ ] c-backend: use str cmp for ends with optimization as well
