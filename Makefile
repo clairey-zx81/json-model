@@ -1,6 +1,10 @@
 SHELL   = /bin/bash
 .ONESHELL:
 
+#
+# SETUP DEV ENVIRONMENT
+#
+
 MODULE  = json_model
 
 ifndef PYTHON
@@ -33,26 +37,41 @@ dev.js: node_modules
 node_modules:
 	npm install
 
+# FIXME get jar dependencies? rely on mvn?
 .PHONY: dev.java
 dev.java:
 	$(MAKE) -C json_model/runtime/java jar
 
+#
+# CLEANUP
+#
+
 .PHONY: clean
 clean: clean.site
-	$(RM) $~ jmc.1
-	$(RM) -r .pytest_cache/ .ruff_cache/ dist/
-	find . -type d -name __pycache__ | xargs $(RM) -r
+	$(RM) *~ jmc.1
 	$(MAKE) -C tests clean
 	$(MAKE) -C json_model/runtime clean
+
+.PHONY: clean.js
+clean.js:
+	$(RM) package-lock.json
+	$(RM) -r node_modules
 
 .PHONY: clean.site
 clean.site:
 	$(RM) site/MODELS.md site/JMC.md site/ABOUT.md
 
+.PHONY: clean.py
+clean.py:
+	$(RM) -r .pytest_cache .ruff_cache dist venv $(MODULE).egg-info build
+	find . -type d -name __pycache__ | xargs $(RM) -r
+
 .PHONY: clean.dev
-clean.dev: clean
-	$(RM) -r venv $(MODULE).egg-info build dist node_modules
-	$(RM) package-lock.json
+clean.dev: clean clean.js clean.site clean.py
+
+#
+# CHECK
+#
 
 .PHONY: check.src
 check.src: check.ruff check.pyright
