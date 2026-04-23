@@ -23,6 +23,7 @@ my %WriteMakefileArgs = (
         'Time::HiRes' => '0',
         'Pod::Usage' => '0',
         'List::Util' => '0',
+        'Algorithm::LUHN' => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'JSON-JsonModel-*' },

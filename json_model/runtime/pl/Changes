@@ -12,3 +12,5 @@ Revision history for JSON::JsonModel
         Remove "JSON Schema Benchmark" stuff.
         Remove "is_valid_email" and "is_valid_uuid".
         Add "is_valid_card".
+2.0b43  2026-04-23
+        Add missing new dependency declaration.
