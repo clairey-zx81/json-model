@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] optim: override simpler regex props if stricter
+- [x] front: allow to call script as a function
 - [ ] perl-backend: do not import RE2 unless required in generated script
 - [ ] perl-backend: improve resilience to missing dependencies, eg `Algorithm::LUHN`.
 - [ ] perf: show schema to model conversion times

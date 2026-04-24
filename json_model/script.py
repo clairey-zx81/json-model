@@ -277,7 +277,7 @@ def java_compile(java_code: str, args):
     java_file.unlink()
     assert status == 0, f"Java compilation succeeded: {command}"
 
-def jmc_script():
+def jmc_script(xargs: list[str]|None = None) -> int:
 
     import argparse
 
@@ -484,15 +484,15 @@ def jmc_script():
     arg("--model", dest="model_option", type=str, help="JSON model as an option")
     arg("model", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
-    args = ap.parse_args()
+    args = ap.parse_args(xargs)
 
     if args.version:
         print(pkg_version("json_model_compiler"))
-        sys.exit(0)
+        return 0
 
     if args.runtime:
         print(files("json_model.runtime"))
-        sys.exit(0)
+        return 0
 
     # POD - Plain Old Documentation
     if args.doc:
@@ -504,7 +504,7 @@ def jmc_script():
             v = "2" if args.doc == "man" else "1" if args.doc == "help" else "0"
             f = "Pod::Text::Termcap" if args.doc == "man" else "Pod::Text"
             subprocess.run(["pod2usage", "-v", v, "-formatter", f], input=pod.encode("utf8"))
-        sys.exit(0)
+        return 0
 
     # manage model option vs model parameter
     if args.model_option is None:
@@ -570,7 +570,7 @@ def jmc_script():
             stem = Path(args.output).stem
             if "-" in stem:
                 log.error(f"java class files cannot contain '-': {args.output}")
-                sys.exit(1)
+                return 1
             args.entry = args.entry or Path(args.output).stem.replace("-", "_")
         elif args.output.endswith(".schema.json"):
             args.format = args.format or "json"
@@ -607,28 +607,28 @@ def jmc_script():
         args.format = args.format or "json"
         if args.format not in ("json", "yaml"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
-            sys.exit(1)
+            return 1
     elif args.op == "E":
         args.format = args.format or "json"
         if args.format not in ("json", "yaml", "py"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
-            sys.exit(1)
+            return 1
     elif args.op == "C":
         args.format = args.format or "py"
         if args.format not in LANG:
             log.error(f"unexpected format {args.format} for operation {args.op}")
-            sys.exit(1)
+            return 1
     else:  # pragma: no cover
         log.error(f"unexpected operation {args.op}")
-        sys.exit(1)
+        return 1
 
     if args.values and (args.op != "C" or args.format != "py"):
         log.error(f"Testing JSON values requires -C for Python: {args.op} {args.format}")
-        sys.exit(1)
+        return 1
     if args.gen == "source" and (args.op != "C" or args.format not in LANG):
         log.error("Showing code requires -C for C, Java, JavaScript, Perl, Python and PL/pgSQL: "
                   f"{args.op} {args.format}")
-        sys.exit(1)
+        return 1
 
     # strict/loose numbers
     if args.loose_number is not None:
@@ -656,7 +656,7 @@ def jmc_script():
                         cache_ignore=args.cache_ignore)
     if args.cache_clear:
         resolver.clear()
-        sys.exit(0)
+        return 0
 
     log.info(f"processing {args.model}")
 
@@ -673,7 +673,7 @@ def jmc_script():
             raise
         else:
             log.error(f"invalid model {args.model}")
-            sys.exit(2)
+            return 2
 
     # NOTE preprocessing already done in create_model
     # TODO check why iterating changes things (eg ref to predefs substitions)
@@ -847,4 +847,4 @@ def jmc_script():
                 log.debug(e, exc_info=args.verbose)
                 print(f"{fn}: ERROR")
 
-    sys.exit(4 if nerrors > 0 else 0)
+    return 4 if nerrors > 0 else 0
