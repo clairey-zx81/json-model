@@ -116,6 +116,7 @@ site/MODELS.md: Makefile models/
 	  done
 	} > $@
 
+# pod2markdown: libpod-markdown-perl
 site/JMC.md: json_model/data/jmc.pod
 	pod2markdown $< > $@
 
