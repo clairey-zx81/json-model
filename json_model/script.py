@@ -4,6 +4,7 @@ import re
 import json
 import yaml
 import logging
+import argparse
 from pathlib import Path
 from importlib.metadata import version as pkg_version
 from importlib.resources import files
@@ -279,9 +280,9 @@ def java_compile(java_code: str, args):
 
 def jmc_script(xargs: list[str]|None = None) -> int:
 
-    import argparse
-
-    logging.basicConfig()
+    if not xargs:
+        logging.basicConfig()
+    # log.warning(f"xargs={xargs}")
 
     if "JMC_OPTS" in os.environ:
         # FIXME spaces/quotes are not managed correctly
