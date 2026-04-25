@@ -6,6 +6,7 @@
 - [x] front: allow to call script as a function
 - [x] ~perl-backend: improve resilience to missing dependencies, eg `Algorithm::LUHN`~
 - [x] c-backend: allow to reuse pre-compiled runtime
+- [x] static: root out non deterministic code generation
 - [ ] perl-backend: do not import RE2 unless required in generated script
 - [ ] perf: show schema to model conversion times
 - [ ] js-backend: remove useless braces

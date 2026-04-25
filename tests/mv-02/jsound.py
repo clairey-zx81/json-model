@@ -162,7 +162,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $atomic (.'$atomic')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$atomic'
-    res: bool = not isinstance(val, list) and not isinstance(val, dict)
+    res: bool = not isinstance(val, dict) and not isinstance(val, list)
     if not res:
         rep is None or rep.append(("unexpected type [.'$atomic'.'|']", path))
     return res
