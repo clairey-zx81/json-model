@@ -241,7 +241,7 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
 #  error FIXME unhandled byte order
 #endif
 
-// known size (number of null-terminated bytes) string comparisons
+// known size (number bytes, possibly including null-termination) string comparisons
 #define jm_str_eq_0(s) ((*(s)) == '\0')
 #define jm_str_eq_1(s, c) ((*(s)) == ((uint8_t) (c)))
 #define jm_str_eq_2(s, c) ((jm_i4(s) & jm_B2) == (c))
@@ -261,6 +261,7 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
 #define jm_str_ne_6(s, c) ((jm_i8(s) & jm_B6) != (c))
 #define jm_str_ne_7(s, c) ((jm_i8(s) & jm_B7) != (c))
 #define jm_str_ne_8(s, c) (jm_i8(s) != (c))
+
 /*
  * Shared high-level entry point
  */
