@@ -19,7 +19,8 @@ Environment:
 Example usage:
 
 ```bash
-JMC=dev JMC_OPTS=--no-predef \
+JMC=dev \
+JMC_OPTS="--single-line-regex --no-predef --cc=clang-20 --precompiled" \
   nohup \
     ./start_bench.sh dev -p 20 -l 1000 -r 5 --cap-py &
 ```
