@@ -24,11 +24,14 @@ RUN curl -s "https://api.github.com/repos/zx80/json-schema-utils/commits/${JSU}"
     jq -c "{jsu: .sha}" >> /app/commits.jsonl
 RUN git clone -b $JSU https://github.com/zx80/json-schema-utils.git
 RUN /app/venv/bin/pip install -e ./json-schema-utils
+ENV jmc_rt=/app/json-model/json_model/runtime
 
 # compile java runtime
-ENV jmc_rt=/app/json-model/json_model/runtime
 RUN make -C $jmc_rt/java jar
 ENV CLASSPATH=$CLASSPATH:$jmc_rt/java/json-model.jar
+
+# compile C runtime, with re2 by default
+RUN make -C $jmc_rt/c compile
 
 # fix perms to allow any uid to read/write
 RUN find /app -type d -print | xargs chmod a+rwx
