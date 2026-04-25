@@ -5,8 +5,8 @@
 - [x] optim: override simpler regex props if stricter
 - [x] front: allow to call script as a function
 - [x] ~perl-backend: improve resilience to missing dependencies, eg `Algorithm::LUHN`~
+- [x] c-backend: allow to reuse pre-compiled runtime
 - [ ] perl-backend: do not import RE2 unless required in generated script
-- [ ] c-backend: allow to reuse pre-compiled runtime
 - [ ] perf: show schema to model conversion times
 - [ ] js-backend: remove useless braces
 - [ ] c-backend: use str cmp for ends with optimization as well

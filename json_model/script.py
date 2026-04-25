@@ -203,6 +203,9 @@ def create_model(
         check=check, merge=merge, optimize=optimize, extend=extend
     )
 
+#
+# C runtime
+#
 
 DEFAULT_CC = "cc"
 DEFAULT_CFLAGS = (
@@ -221,8 +224,8 @@ def clang_compile(c_code: str, args):
 
     # source files
     rt_dir = files("json_model.runtime")
-    lib = rt_dir.joinpath("c/json-model.c")
-    main = rt_dir.joinpath("c/main.c")
+    lib = rt_dir.joinpath("c/json-model.o" if args.precompiled else "c/json-model.c")
+    main = rt_dir.joinpath("c/main.o" if args.precompiled else "c/main.c")
 
     # compiler setings
     env = os.environ.get
@@ -256,6 +259,10 @@ def clang_compile(c_code: str, args):
         status = os.system(command)
         assert status == 0, f"C compilation succeeded: {command}"
 
+#
+# Java runtime
+#
+
 def java_compile(java_code: str, args):
     """Compile java source."""
     tmp_dir = os.environ.get("TMPDIR", "/dev/shm")
@@ -277,6 +284,10 @@ def java_compile(java_code: str, args):
     # cleanup and check
     java_file.unlink()
     assert status == 0, f"Java compilation succeeded: {command}"
+
+#
+# Compiler entry point
+#
 
 def jmc_script(xargs: list[str]|None = None) -> int:
 
@@ -379,6 +390,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--define", "-D", nargs="*", default=[], help="add cpp definitions")
     arg("--inline", default=True, action="store_true", help="enable function inlining")
     arg("--no-inline", dest="inline", action="store_false", help="disable function inlining")
+    arg("--precompiled", action="store_true", default=False, help="use precompiled C runtime")
 
     # TODO java-specific options
     arg("--javac", type=str, help="override default Java language compiler")
