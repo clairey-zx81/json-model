@@ -646,7 +646,7 @@ class CLangJansson(Language):
         return p if self._with_path else "NULL"
 
     def is_num(self, var: Var) -> BoolExpr:
-        return f"json_is_number({var})"
+        return f"jm_json_is_number({var})"
 
     def is_scalar(self, var: Var) -> BoolExpr:
         return f"jm_json_is_scalar({var})"

@@ -48,6 +48,8 @@
 #define CHECK CHECK_FUNCTION_NAME
 #define CHECK_free newname(CHECK_FUNCTION_NAME, _free)
 
+#define jm_json_is_number(v) (json_is_real(v) || json_is_integer(v))
+
 // TODO use custom lookup tables
 // custom character classes for regex inlining
 static INLINE bool jm_isident(const char c) { return isalnum(c) || c == '_'; }
