@@ -12,7 +12,7 @@ compile: $(F.o)
 REGEX       = RE2
 CC.inc      = -I/usr/local/include -I.
 
-CFLAGS      = -Wall -Ofast -mtune=native
+CFLAGS      = -Wall -Ofast -mtune=native -Wunused-function
 CPPFLAGS    = -DREGEX_ENGINE_$(REGEX) -DCHECK_FUNCTION_NAME=check_model $(CC.inc)
 
 %.o: %.c
