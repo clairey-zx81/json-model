@@ -50,9 +50,16 @@ while [[ "$1" == -* ]] ; do
       exit 0
       ;;
     -v|--version)
-      # NOTE depends on docker.io/zx80/jmc container image
+      # NOTE expects "jmc" wrapper, depends on docker.io/zx80/jmc container image
       jmc --version
-      jmc exec jsu-model --version
+      jmc exec jsu-compile --version
+      jmc exec cc --version | head -1
+      jmc exec clang --version | head -1
+      jmc exec python --version | head -1
+      jmc exec node --version | head -1
+      jmc exec javac --version | head -1
+      jmc exec perl -e 'print "Perl $^V"' | head -1
+      echo
       exit 0
       ;;
     --id=*) ID=${opt#*=} ;;
@@ -270,9 +277,15 @@ or deselect tools for easier comparisons.
 - **cpu model:** $cpu_model
 - **cpu cores:** $cpu_count
 - **jmc version:** $(jmc --version)
-- **jsu version:** $(jmc exec jsu-model --version)
+- **jsu version:** $(jmc exec jsu-compile --version)
 - **jsonschema-cli version:** $(js-cli --version)
 - **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD), $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) unique tests
+- **cc version:** $(jmc exec cc --version|head -1)
+- **clang version:** $(jmc exec clang --version|head -1)
+- **python version:** $(jmc exec python --version|head -1)
+- **node version:** $(jmc exec node --version|head -1)
+- **javac version:** $(jmc exec javac --version|head -1)
+- **perl version:** $(jmc exec perl -e 'print "$^V\n"'|head -1)
 - **duration:** $SECONDS seconds
 
 ## Parameters
