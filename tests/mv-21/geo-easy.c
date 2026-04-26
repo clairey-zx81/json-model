@@ -43,7 +43,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
             // .'$position'.'@'.0
-            res = json_is_number(arr_0_item);
+            res = jm_json_is_number(arr_0_item);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$position'.'@'.0]", (path ? &arr_0_lpath : NULL));
@@ -200,7 +200,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_0 : NULL), NULL };
                     // .'$Point'.bbox.0
-                    res = json_is_number(arr_3_item);
+                    res = jm_json_is_number(arr_3_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Point'.bbox.0]", ((path ? &lpath_0 : NULL) ? &arr_3_lpath : NULL));
@@ -310,7 +310,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_1 : NULL), NULL };
                     // .'$MultiPoint'.bbox.0
-                    res = json_is_number(arr_5_item);
+                    res = jm_json_is_number(arr_5_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path ? &lpath_1 : NULL) ? &arr_5_lpath : NULL));
@@ -404,7 +404,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_6_lpath = (jm_path_t) { NULL, arr_6_idx, (path ? &lpath_2 : NULL), NULL };
                     // .'$LineString'.bbox.0
-                    res = json_is_number(arr_6_item);
+                    res = jm_json_is_number(arr_6_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$LineString'.bbox.0]", ((path ? &lpath_2 : NULL) ? &arr_6_lpath : NULL));
@@ -514,7 +514,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_8_lpath = (jm_path_t) { NULL, arr_8_idx, (path ? &lpath_3 : NULL), NULL };
                     // .'$MultiLineString'.bbox.0
-                    res = json_is_number(arr_8_item);
+                    res = jm_json_is_number(arr_8_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path ? &lpath_3 : NULL) ? &arr_8_lpath : NULL));
@@ -623,7 +623,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_10_lpath = (jm_path_t) { NULL, arr_10_idx, (path ? &lpath_4 : NULL), NULL };
                     // .'$Polygon'.bbox.0
-                    res = json_is_number(arr_10_item);
+                    res = jm_json_is_number(arr_10_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path ? &lpath_4 : NULL) ? &arr_10_lpath : NULL));
@@ -749,7 +749,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_13_lpath = (jm_path_t) { NULL, arr_13_idx, (path ? &lpath_5 : NULL), NULL };
                     // .'$MultiPolygon'.bbox.0
-                    res = json_is_number(arr_13_item);
+                    res = jm_json_is_number(arr_13_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path ? &lpath_5 : NULL) ? &arr_13_lpath : NULL));
@@ -898,7 +898,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, (path ? &lpath_6 : NULL), NULL };
                     // .'$GeometryCollection'.bbox.0
-                    res = json_is_number(arr_15_item);
+                    res = jm_json_is_number(arr_15_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path ? &lpath_6 : NULL) ? &arr_15_lpath : NULL));
@@ -1034,7 +1034,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$Feature'.id.'|'.0]", (path ? &lpath_7 : NULL));
                 // .'$Feature'.id.'|'.1
-                res = json_is_number(pval);
+                res = jm_json_is_number(pval);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Feature'.id.'|'.1]", (path ? &lpath_7 : NULL));
@@ -1065,7 +1065,7 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_16_lpath = (jm_path_t) { NULL, arr_16_idx, (path ? &lpath_7 : NULL), NULL };
                     // .'$Feature'.bbox.0
-                    res = json_is_number(arr_16_item);
+                    res = jm_json_is_number(arr_16_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Feature'.bbox.0]", ((path ? &lpath_7 : NULL) ? &arr_16_lpath : NULL));
@@ -1179,7 +1179,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_18_lpath = (jm_path_t) { NULL, arr_18_idx, (path ? &lpath_8 : NULL), NULL };
                     // .'$FeatureCollection'.bbox.0
-                    res = json_is_number(arr_18_item);
+                    res = jm_json_is_number(arr_18_item);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path ? &lpath_8 : NULL) ? &arr_18_lpath : NULL));

@@ -447,7 +447,7 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                     {
                         // handle may NUMBER property
                         // .predefs.NUMBER
-                        res = json_is_number(pval);
+                        res = jm_json_is_number(pval);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", (path ? &lpath_3 : NULL));

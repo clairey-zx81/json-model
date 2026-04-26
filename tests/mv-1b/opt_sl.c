@@ -50,7 +50,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must f property
             must_count += 1;
             // .f
-            res = json_is_number(pval);
+            res = jm_json_is_number(pval);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.f]", (path ? &lpath_0 : NULL));

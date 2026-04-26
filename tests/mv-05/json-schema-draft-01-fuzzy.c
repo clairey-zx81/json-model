@@ -277,7 +277,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may minimum property
                     // .'$schema'.minimum
-                    res = json_is_number(pval);
+                    res = jm_json_is_number(pval);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$schema'.minimum]", (path ? &lpath_0 : NULL));
@@ -531,7 +531,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     // handle may maximum property
                     // .'$schema'.maximum
-                    res = json_is_number(pval);
+                    res = jm_json_is_number(pval);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$schema'.maximum]", (path ? &lpath_0 : NULL));

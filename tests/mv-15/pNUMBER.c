@@ -18,7 +18,7 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .
-    bool res = json_is_number(val);
+    bool res = jm_json_is_number(val);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "unexpected value for model \"$NUMBER\" [.]", path);

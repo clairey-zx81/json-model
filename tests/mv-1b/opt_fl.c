@@ -20,7 +20,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // JSON_MODEL_LOOSE_FLOAT
     // .
     // .'@'
-    bool res = json_is_number(val);
+    bool res = jm_json_is_number(val);
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'@']", path);

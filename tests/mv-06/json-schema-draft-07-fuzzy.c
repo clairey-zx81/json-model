@@ -279,7 +279,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may exclusiveMaximum property
                         // .'$schema#ObjectSchema'.exclusiveMaximum
-                        res = json_is_number(pval);
+                        res = jm_json_is_number(pval);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$schema#ObjectSchema'.exclusiveMaximum]", (path ? &lpath_0 : NULL));
@@ -292,7 +292,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may exclusiveMinimum property
                         // .'$schema#ObjectSchema'.exclusiveMinimum
-                        res = json_is_number(pval);
+                        res = jm_json_is_number(pval);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$schema#ObjectSchema'.exclusiveMinimum]", (path ? &lpath_0 : NULL));
@@ -453,7 +453,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may multipleOf property
                         // .'$schema#ObjectSchema'.multipleOf
-                        res = json_is_number(pval) && json_number_value(pval) > 0.0;
+                        res = jm_json_is_number(pval) && json_number_value(pval) > 0.0;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a 1.0 loose float [.'$schema#ObjectSchema'.multipleOf]", (path ? &lpath_0 : NULL));
@@ -508,7 +508,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may minimum property
                         // .'$schema#ObjectSchema'.minimum
-                        res = json_is_number(pval);
+                        res = jm_json_is_number(pval);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$schema#ObjectSchema'.minimum]", (path ? &lpath_0 : NULL));
@@ -854,7 +854,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may maximum property
                         // .'$schema#ObjectSchema'.maximum
-                        res = json_is_number(pval);
+                        res = jm_json_is_number(pval);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$schema#ObjectSchema'.maximum]", (path ? &lpath_0 : NULL));

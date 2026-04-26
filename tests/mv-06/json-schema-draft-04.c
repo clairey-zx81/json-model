@@ -487,7 +487,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may multipleOf property
                         // .multipleOf
-                        res = json_is_number(pval) && json_number_value(pval) > 0.0;
+                        res = jm_json_is_number(pval) && json_number_value(pval) > 0.0;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a 1.0 loose float [.multipleOf]", (path ? &lpath_0 : NULL));
@@ -542,7 +542,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may minimum property
                         // .minimum
-                        res = json_is_number(pval);
+                        res = jm_json_is_number(pval);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.minimum]", (path ? &lpath_0 : NULL));
@@ -787,7 +787,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may maximum property
                         // .maximum
-                        res = json_is_number(pval);
+                        res = jm_json_is_number(pval);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.maximum]", (path ? &lpath_0 : NULL));
