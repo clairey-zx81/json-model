@@ -31,7 +31,7 @@ RUN make -C $jmc_rt/java jar
 ENV CLASSPATH=$CLASSPATH:$jmc_rt/java/json-model.jar
 
 # compile C runtime, with re2 by default
-RUN make CC=clang-20 -C $jmc_rt/c compile
+RUN make CC=clang -C $jmc_rt/c compile
 
 # fix perms to allow any uid to read/write
 RUN find /app -type d -print | xargs chmod a+rwx
