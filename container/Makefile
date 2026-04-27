@@ -56,6 +56,7 @@ pod.build: .build.base .build.jmc
 .build.base: base.container
 	$(POD) build $(BASE.cache) -t jmc-base -f base.container . && date -Iseconds > $@
 	$(POD) tag jmc-base $(ZX80)/jmc-base:latest
+	$(POD) tag jmc-base $(ZX80)/jmc-base:26.04
 
 .build.jmc: jmc.container
 	$(POD) build $(JMC.cache) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
@@ -91,6 +92,7 @@ pod.tag: .build.jmc
 pod.push: pod.tag
 	# if needed: docker login
 	$(POD) push $(ZX80)/jmc-base:latest
+	$(POD) push $(ZX80)/jmc-base:26.04
 	$(POD) push -a $(ZX80)/jmc
 
 .PHONY: quick-pod.push
