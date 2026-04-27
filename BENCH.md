@@ -31,8 +31,9 @@ schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon)
 ## Benchmarking Script
 
 The [benchmarking script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/benchmark.sh)
-is provided as docker image [docker.io/zx80/jmc-bench](https://hub.docker.com/repository/docker/zx80/jmc-bench).
-It downloads the benchmark schemas and test values, and runs through docker-in-docker
+is provided as docker [docker.io/zx80/jmc-bench-docker](https://hub.docker.com/repository/docker/zx80/jmc-bench-docker)
+or podman [docker.io/zx80/jmc-bench-podman](https://hub.docker.com/repository/docker/zx80/jmc-bench-podman) image.
+It downloads the benchmark schemas and test values, and runs through docker-in-docker or podman-in-podman
 [docker.io/zx80/jmc](https://hub.docker.com/repository/docker/zx80/jmc) for JMC runs and
 [ghcr.io/sourcemeta/jsonschema](https://github.com/sourcemeta/jsonschema/pkgs/container/jsonschema)
 for comparison using the Blaze CLI.
@@ -42,7 +43,7 @@ It is typically started on a large host with the
 which will spawn the necessary containers:
 
 ```sh
-JMC=latest JMC_OPTS="--no-predef --cc=clang-20" \
+JMC=latest JMC_OPTS="--no-predef --cc=clang" \
   nohup ./start_bench.sh latest -p 16 -l 1000 -r 5 &
 # in the generated directory, look for the summary markdown and radar json files.
 ```
@@ -52,14 +53,13 @@ The main script options are:
 - `-p PARA` parallelism (a little less that the number of available cores, default is _8_)
 - `-l LOOP` loop iterations for performance average (at least _1000_, the default)
 - `-r RUNS` number of runs (odd number, default is _3_)
-- `--no-cap-py` do _not_ reduce python iterations by a factor of 10 (default is to reduce)
 
 ## Benchmarking Conditions
 
 JSON schemas for the benchmark are translated to models based on `jsu-compile`
 from [JSON Schema Utils](https://github.com/zx80/json-schema-utils).
 This is mostly an automatic conversion of the test schema to a model, but
-for a few cases which have a _native_ model which is used instead.
+for a few cases have a _native_ model which is used instead.
 
 Runs are performed in _fast_ mode: the rejection reasons are not collected, and
 the run stops as soon as possible.
@@ -79,6 +79,8 @@ the following caveats, and others:
 - test cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
 - the overall load on the test host can impact measures.
+- the measure overhead is estimated and deduced from the performance figures,
+  which leads to potentially fuzzy results on very small data and schemas.
 - compilers, libraries and other design and updates can have dramatic effects:
   for faster parsing, a library may use linked-list for properties, which means
   that retrieving a given property value will cost more than a library which uses
@@ -105,10 +107,10 @@ the following caveats, and others:
 [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark)
 also provides
 [benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
-which includes 15 JSON Schema validation tools including our JSON Model Compiler with
-C, JS and Python backends.
+which includes 16 JSON Schema validation tools including our compiler with
+C, JS and Python backends, using the `jsu-compile` command.
 
-It should be noted that benchmarking conditions are quite different:
+It should be noted that benchmarking conditions are quite different compared to our own:
 
 1. There is no loop to compute an average performance, but an initial _cold_ one-shot measure,
    a warming phase loop and a _hot_ one-shot measure: This may tend to mask effects from
@@ -116,7 +118,7 @@ It should be noted that benchmarking conditions are quite different:
 2. The benchmark focuses on schema conformance, including (buggy) schemas which
    are mostly dead code: It rejects tools which do not validate all strictly conformant
    values, even if these values would be rejected by the target application.
+3. The model used are strictly converted from schemas, native models are not used
+   even if available and schemas are not fixed for typical errors (eg misplaced keywords).
 
-This latest point explains the under 100% validation results displayed JMC for
-_ansible-meta_, _cspell_, _cypress_ and _yamllint_ tests: the model translation or native models
-are more accurate than the original schemas due to bug fixes or more rigorous descriptions.
+As of April 2026, the JSU C implementation is faster than Blaze on about 2/3 of benchmark cases.
