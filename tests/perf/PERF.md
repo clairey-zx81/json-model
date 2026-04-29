@@ -37,3 +37,25 @@ if res:
 ```
 
 This seems to reduce the execution time by up to 15%.
+
+## Helm
+
+Very small schema/model with 2 must-only 3-properties objects checked for strings.
+
+Maybe 5% improvement by removing breaks and using `res &= …`.
+
+## Importmap
+
+Very small schema/model with objects with optional properties, mostly string checks.
+
+## Krakend
+
+Large schema/model. Maybe get a few % by optimizing regex `^[xyzw]` (4 chars).
+
+## Unreal
+
+Medium schema/modal. Most of the time for checking item unicity in a string array.
+
+## Yamllint
+
+Very small schema/model.
