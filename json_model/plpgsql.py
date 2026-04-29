@@ -222,7 +222,7 @@ class PLpgSQL(Language):
         return f"jm_call({name}, {val}, {self.path(path)}, {self.rep()})" if is_ptr else \
                f"{name}({val}, {self.path(path)}, {self.rep()})"
 
-    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+    def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
         return f"jm_array_is_unique({val}, {self.path(path)}, {self.rep()})"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:

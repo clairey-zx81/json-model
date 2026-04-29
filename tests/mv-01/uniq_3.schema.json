@@ -1,0 +1,8 @@
+{
+  "description": "unique string array",
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "uniqueItems": true
+}

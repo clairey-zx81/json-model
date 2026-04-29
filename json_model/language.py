@@ -359,8 +359,8 @@ class Language:
         """
         return f"{name}({val}, {self.path(path)}, {self.rep()})"
 
-    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
-        """Check uniqueness."""
+    def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
+        """Check uniqueness of array items."""
         raise NotImplementedError("check_unique")
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:

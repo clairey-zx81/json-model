@@ -98,6 +98,7 @@ extern int jm_json_cmp(const json_t *, const json_t *);
 extern int jm_json_array_cmp(const json_t *, const json_t *);
 extern int jm_json_object_cmp(const json_t *, const json_t *);
 extern bool jm_json_array_unique(const json_t *);
+extern bool jm_str_array_unique(const json_t *);
 extern double jm_float_modulo(double d1, double d2);
 
 /*
@@ -128,7 +129,8 @@ extern void jm_report_free_entries(jm_report_t *rep);
 typedef bool (*jm_check_fun_t)(const json_t *, jm_path_t *, jm_report_t *);
 
 extern bool jm_check_fun_string(jm_check_fun_t, const char *, jm_path_t *, jm_report_t *);
-extern bool jm_array_is_unique(const json_t *, jm_path_t *, jm_report_t *);
+extern bool jm_json_array_is_unique(const json_t *, jm_path_t *, jm_report_t *);
+extern bool jm_str_array_is_unique(const json_t *, jm_path_t *, jm_report_t *);
 
 /*
  * property mapping management

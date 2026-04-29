@@ -530,7 +530,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (likely(res))
     {
         int64_t ival_0 = json_array_size(val);
-        res = jm_array_is_unique(val, path, rep) && ival_0 >= 1;
+        res = jm_str_array_is_unique(val, path, rep) && ival_0 >= 1;
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$simpleTypesArray']", path);
@@ -567,7 +567,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (likely(res))
     {
-        res = jm_array_is_unique(val, path, rep);
+        res = jm_str_array_is_unique(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$stringArray']", path);

@@ -54,7 +54,9 @@ Large schema/model. Maybe get a few % by optimizing regex `^[xyzw]` (4 chars).
 
 ## Unreal
 
-Medium schema/modal. Most of the time for checking item unicity in a string array.
+Medium schema/modal. Most of the time for checking item unicity in a object arrays.
+
+This may be accelerated significantly if the JSON structure stores a hash for the object value?
 
 ## Yamllint
 

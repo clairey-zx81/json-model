@@ -173,8 +173,8 @@ jm_json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
 bool
 jm_json_array_unique(const json_t *val)
 {
-    assert(json_is_array(val));
     // extract as an actual array for sorting
+    // NOTE safe: if not an array, the size is 0
     size_t size = json_array_size(val);
     const json_t *array[size];
     // borrow array items into a copy for sorting
@@ -189,11 +189,52 @@ jm_json_array_unique(const json_t *val)
 
 // idem with reporting
 bool
-jm_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
+jm_json_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool unique = jm_json_array_unique(val);
     if (unlikely(!unique && rep))
         jm_report_add_entry(rep, "non unique array", path);
+    return unique;
+}
+
+#if defined(_WIN64) || defined(__APPLE__)
+static int
+jm_str_cmp_r(void *duplicate, const char **v1, const char **v2)
+#else
+static int
+jm_str_cmp_r(const char **v1, const char **v2, void *duplicate)
+#endif
+{
+    // shortcut: no sorting once a duplicate has been found
+    if (*((bool *) duplicate))
+        return 0;
+    // else do compare
+    int cmp = strcmp(*v1, *v2);
+    if (cmp == 0)
+        *((bool *) duplicate) = true;
+    return cmp;
+}
+
+// we assume that the array type is already checked
+bool
+jm_str_array_unique(const json_t *val)
+{
+    size_t size = json_array_size(val);
+    const char *array[size];
+    for (size_t i = 0; i < size; i++)
+        array[i] = json_string_value(json_array_get(val, i));
+    bool duplicate = false;
+    qsort_r(array, size, sizeof(char *), (jm_cmp_r_fun_t) jm_str_cmp_r, &duplicate);
+    return !duplicate;
+}
+
+// idem with reporting
+bool
+jm_str_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool unique = jm_str_array_unique(val);
+    if (unlikely(!unique && rep))
+        jm_report_add_entry(rep, "non unique string array", path);
     return unique;
 }
 

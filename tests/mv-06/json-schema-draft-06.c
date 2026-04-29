@@ -726,7 +726,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         {
                             // accept any array
                             int64_t ival_2 = json_array_size(pval);
-                            res = jm_array_is_unique(pval, (path ? &lpath_0 : NULL), rep) && ival_2 >= 1;
+                            res = jm_json_array_is_unique(pval, (path ? &lpath_0 : NULL), rep) && ival_2 >= 1;
                             if (unlikely(! res))
                             {
                                 if (rep) jm_report_add_entry(rep, "constraints failed [.'$ObjectSchema'.enum]", (path ? &lpath_0 : NULL));

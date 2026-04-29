@@ -167,7 +167,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (likely(res))
     {
         int64_t ival_0 = json_array_size(val);
-        res = jm_array_is_unique(val, path, rep) && ival_0 >= 1;
+        res = jm_str_array_is_unique(val, path, rep) && ival_0 >= 1;
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$colorArray']", path);
@@ -300,7 +300,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (likely(res))
     {
-        res = jm_array_is_unique(val, path, rep);
+        res = jm_str_array_is_unique(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$stringArray']", path);
@@ -802,7 +802,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             }
             if (likely(res))
             {
-                res = jm_array_is_unique(pval, (path ? &lpath_4 : NULL), rep);
+                res = jm_json_array_is_unique(pval, (path ? &lpath_4 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "constraints failed [.'$Prompts'.'|'.2.options]", (path ? &lpath_4 : NULL));
@@ -5083,7 +5083,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 if (likely(res))
                 {
-                    res = jm_array_is_unique(pval, (path ? &lpath_7 : NULL), rep);
+                    res = jm_json_array_is_unique(pval, (path ? &lpath_7 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "constraints failed [.customCommands]", (path ? &lpath_7 : NULL));

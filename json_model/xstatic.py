@@ -10,7 +10,7 @@ from .utils import is_a_simple_object, partition, is_base_model, resolve_model, 
 from .utils import log, tname
 from .predefs import MODEL_PREDEFS, STR_MODEL_PREDEFS
 from .runtime.support import _path as json_path
-from .analyze import ultimate_type, disjunct_analyse, distinct_prop_objects
+from .analyze import ultimate_type, disjunct_analyse, distinct_prop_objects, ultimate_model
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr, PathExpr, PropMap, JsonExpr, StrExpr, Var
 from .irep import IRep, optimizeIR, evaluate
@@ -407,7 +407,7 @@ class CodeGenerator:
             # generic implementations if several model types, using runtime functions
             if has_unique:
                 checks.append(gen.is_a(val, list))
-                checks.append(gen.check_unique(val, vpath))
+                checks.append(gen.check_unique(val, None, vpath))
             for op in sorted(cmp_props):
                 checks.append(gen.check_constraint(op, model[op], val, vpath))  # type: ignore
         else:
@@ -417,8 +417,10 @@ class CodeGenerator:
 
             if has_unique:
                 assert tmodel is list
+                # TODO recover model?
                 # TODO add const-based versions if more is known?
-                checks.append(gen.check_unique(val, vpath))
+                is_string = ultimate_type(jm, ultimate_model(jm, model)[0]) is str
+                checks.append(gen.check_unique(val, str if is_string else None, vpath))
             if has_int:
                 if has_in and tmodel is list:
                     # use computed length

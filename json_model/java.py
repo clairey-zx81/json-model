@@ -227,7 +227,7 @@ class Java(Language):
     def str_end(self, val: str, end: StrExpr) -> BoolExpr:
         return f"{val}.endsWith({end})"
 
-    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+    def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
         return f"rt.array_is_unique({val}, {self.path(path)}, {self.rep()})"
 
     CMP_OPS = {

@@ -129,7 +129,7 @@ class Perl(Language):
         else:
             return super().predef(var, name, path, is_str, is_val)
 
-    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+    def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
         path = self.path(self._val(path))
         return f"jm_is_unique_array(${val}, {path}, {self.rep()})"
 

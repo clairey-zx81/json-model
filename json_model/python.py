@@ -75,7 +75,7 @@ class Python(Language):
         else:
             return super().predef(var, name, path, is_str, is_val)
 
-    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+    def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
         return f"is_unique_array({val}, {path}, rep)"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:

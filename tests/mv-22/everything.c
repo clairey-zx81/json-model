@@ -1570,7 +1570,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                     if (likely(res))
                     {
                         // accept any array
-                        res = jm_array_is_unique(pval, (path ? &lpath_14 : NULL), rep);
+                        res = jm_json_array_is_unique(pval, (path ? &lpath_14 : NULL), rep);
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cua0]", (path ? &lpath_14 : NULL));

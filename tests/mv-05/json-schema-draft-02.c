@@ -69,7 +69,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (likely(res))
     {
-        res = jm_array_is_unique(val, path, rep);
+        res = jm_str_array_is_unique(val, path, rep);
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$distinctStringArray']", path);
@@ -457,7 +457,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // accept any array
                         int64_t ival_0 = json_array_size(pval);
-                        res = jm_array_is_unique(pval, (path ? &lpath_0 : NULL), rep) && ival_0 >= 1;
+                        res = jm_json_array_is_unique(pval, (path ? &lpath_0 : NULL), rep) && ival_0 >= 1;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "constraints failed [.enum]", (path ? &lpath_0 : NULL));

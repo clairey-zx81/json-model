@@ -1138,6 +1138,7 @@ def _t2s(tvar: type|None) -> str:
         return "Path"
     elif tvar is Report:
         return "Report"
+    # any?
     raise Exception(f"unexpected type: {tvar}")
 
 
@@ -1272,8 +1273,8 @@ class IRep(Language):
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
         return _j("cc", name=name, val=_l(val), path=_l(path), is_ptr=is_ptr, is_raw=is_raw)
 
-    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
-        return _j("cu", val=_l(val), path=_l(path))
+    def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
+        return _j("cu", val=_l(val), titem=_t2s(titem), path=_l(path))
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         return _j("ct", op=op, vop=vop, val=_l(val), path=_l(path))
@@ -1548,7 +1549,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
                 name=jv["name"], val=ev("val"), path=ev("path"),
                 is_ptr=jv["is_ptr"], is_raw=jv["is_raw"]
             )
-            case "cu": return gen.check_unique(val=ev("val"), path=ev("path"))
+            case "cu": return gen.check_unique(val=ev("val"), titem=_s2t(jv["titem"]), path=ev("path"))
             case "ct": return gen.check_constraint(
                 op=jv["op"], vop=jv["vop"], val=ev("val"), path=ev("path")
             )
