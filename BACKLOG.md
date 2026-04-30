@@ -11,6 +11,7 @@
 - [x] c-backend: string unique implementation
 - [ ] perl-backend: do not import RE2 unless required in generated script
 - [ ] perf: show schema to model conversion times
+- [ ] optim: remove min props covered by mandatory props
 - [ ] front: show git hash on `--version`?
 - [ ] js-backend: remove useless braces
 - [ ] c-backend: use str cmp for ends with optimization as well
