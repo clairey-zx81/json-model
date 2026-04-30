@@ -143,10 +143,11 @@ RELIB    = re2
 
 RT.c    = ../../json_model/runtime/c
 
+CDEBUG    =
 CC        = gcc
 CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I$(RT.c)
 CFLAGS    = -Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function \
-            -Wno-parentheses -Ofast
+            -Wno-parentheses -Ofast $(CDEBUG)
 
 ifeq ($(RELIB), pcre2)
 CPPFLAGS  += -DREGEX_ENGINE_PCRE2
