@@ -61,6 +61,13 @@ Medium schema/modal. Most of the time for checking item unicity in **object** ar
 - [ ] if object properties are stored in a reliable order, the sorting step could be skipped
   before merging?
 - [ ] may be accelerated significantly if the JSON structure stores a hash for the object value?
+- [ ] add a hash discriminator?
+- [ ] add a non-sorting n² implementation for small arrays?
+
+Note about blaze unique implementation:
+
+- it computes a type and slightly value dependent `fast_hash` (`uint64_t`) on each item
+- then proceeds to do n² comparisons (`==`), first on the hash, then on the item if necessary
 
 ## Yamllint
 

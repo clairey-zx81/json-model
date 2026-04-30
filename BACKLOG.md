@@ -10,6 +10,7 @@
 - [x] static: provide type of array elements for unique
 - [x] c-backend: string unique implementation
 - [x] c-backend: object unique implementation avoids repeated prop extractions
+- [ ] c-backend: unique with hash? faster non sorting algorithm for small array size?
 - [ ] perl-backend: do not import RE2 unless required in generated script
 - [ ] perf: show schema to model conversion times
 - [ ] optim: remove min props covered by mandatory props
