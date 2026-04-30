@@ -1,0 +1,17 @@
+uniq_obj.values.json[0]: PASS
+uniq_obj.values.json[1]: PASS
+uniq_obj.values.json[2]: PASS
+uniq_obj.values.json[3]: PASS
+uniq_obj.values.json[4]: FAIL (.: non unique array)
+uniq_obj.values.json[5]: FAIL (.: non unique array)
+uniq_obj.values.json[6]: FAIL
+uniq_obj.values.json[7]: FAIL
+uniq_obj.values.json[8]: FAIL
+uniq_obj.values.json[9]: FAIL
+uniq_obj.values.json[10]: FAIL
+uniq_obj.values.json[11]: FAIL
+uniq_obj.values.json[12]: FAIL
+uniq_obj.values.json[13]: FAIL
+uniq_obj.values.json[14]: FAIL
+uniq_obj.values.json[15]: FAIL
+uniq_obj.values.json[16]: FAIL

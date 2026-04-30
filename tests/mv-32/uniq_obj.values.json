@@ -1,0 +1,19 @@
+[
+  [ true,  [] ],
+  [ true,  [{"x": "", "y": ""}] ],
+  [ true,  [{"x": "1", "y": ""}, {"x": "2", "y": ""}] ],
+  [ true,  [{"x": "1", "y": ""}, {"x": "2", "y": ""}, {"x": "", "y": ""}] ],
+  [ false, [{"x": "", "y": ""}, {"x": "", "y": ""}] ],
+  [ false, [{"x": "", "y": ""}, {"x": "2", "y": ""}, {"x": "", "y": ""}] ],
+  [ false, [{}] ],
+  [ false, [{"x": "", "y": ""}, {}] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

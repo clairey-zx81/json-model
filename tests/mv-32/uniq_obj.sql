@@ -1,0 +1,91 @@
+-- JSON_MODEL_VERSION is 2
+CREATE EXTENSION IF NOT EXISTS json_model;
+
+CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'x' THEN
+      must_count := must_count + 1;
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'y' THEN
+      must_count := must_count + 1;
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    END IF;
+    RETURN FALSE;
+  END LOOP;
+  RETURN must_count = 2;
+END;
+$$ LANGUAGE PLpgSQL;
+
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  arr_0_idx INT8;
+  arr_0_item JSONB;
+BEGIN
+  res := JSONB_TYPEOF(val) = 'array';
+  IF res THEN
+    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_0_item := val -> arr_0_idx;
+      res := json_model_2(arr_0_item, NULL, NULL);
+      IF NOT res THEN
+        EXIT;
+      END IF;
+    END LOOP;
+  END IF;
+  IF res THEN
+    res := jm_array_is_unique(val, NULL, NULL);
+  END IF;
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
+RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  map JSONB := JSONB '{"":"json_model_1","XY":"json_model_2"}';
+BEGIN
+  RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+--
+-- constant maps initialization
+--
+TRUNCATE jm_constant_maps;
+
+--
+-- JSON Model checking entry point
+--
+-- TODO INOUT rep?
+CREATE OR REPLACE FUNCTION check_model(val JSONB, name TEXT, rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  fun TEXT;
+BEGIN
+  fun := check_model_map(name);
+  IF fun IS NULL THEN
+    RAISE EXCEPTION 'model for % not found', name;
+  END IF;
+  RETURN jm_call(fun, val, NULL, rep);
+END;
+$$ LANGUAGE plpgsql;

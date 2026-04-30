@@ -59,6 +59,27 @@ jm_propval_cmp(const jm_propval_t *pv1, const jm_propval_t *pv2)
     return strcmp(pv1->prop, pv2->prop);
 }
 
+static INLINE int
+jm_json_object_pv_cmp(const jm_propval_t *pv1, const jm_propval_t *pv2, size_t size)
+{
+    // try lexicographic order of keys
+    for (size_t i = 0; i < size; i++)
+    {
+        int cmp = strcmp(pv1[i].prop, pv2[i].prop);
+        if (cmp != 0)
+            return cmp;
+    }
+    // same keys, try lexicographic order of values
+    for (size_t i = 0; i < size; i++)
+    {
+        int cmp = jm_json_cmp(pv1[i].val, pv2[i].val);
+        if (cmp != 0)
+            return cmp;
+    }
+    // same keys and values
+    return 0;
+}
+
 // fast JSON object comparison for a total order
 int
 jm_json_object_cmp(const json_t *v1, const json_t *v2)
@@ -69,7 +90,7 @@ jm_json_object_cmp(const json_t *v1, const json_t *v2)
         return s2 - s1;
 
     // else same size, extract property/value pairs
-    jm_propval_t pv1[s1], pv2[s2];
+    jm_propval_t pv1[s1], pv2[s1];
     const char *key;
     json_t *value;
 
@@ -84,22 +105,7 @@ jm_json_object_cmp(const json_t *v1, const json_t *v2)
         pv2[index++] = (jm_propval_t) { key, value };
     qsort(pv2, s2, sizeof(jm_propval_t), (jm_cmp_fun_t) jm_propval_cmp);
 
-    // second, try lexicographic order of keys
-    for (size_t i = 0; i < s1; i++)
-    {
-        int cmp = strcmp(pv1[i].prop, pv2[i].prop);
-        if (cmp != 0)
-            return cmp;
-    }
-    // same keys, third, try lexicographic order of values
-    for (size_t i = 0; i < s1; i++)
-    {
-        int cmp = jm_json_cmp(pv1[i].val, pv2[i].val);
-        if (cmp != 0)
-            return cmp;
-    }
-    // same values
-    return 0;
+    return jm_json_object_pv_cmp(pv1, pv2, s1);
 }
 
 int
@@ -147,14 +153,15 @@ typedef int(*jm_cmp_r_fun_t)(void *, const void *, const void *);
 typedef int(*jm_cmp_r_fun_t)(const void *, const void *, void *);
 #endif
 
-// FIXME this assumes ISO, and won't work on MacOS/BSD nor Windows
-// which have their own view of qsort_r, including different names and/or argument orders.
+/*
+ * UNIQUE ANY JSON ARRAY
+ */
 // NOTE fast version which stops comparing once a duplicate has been seen:
 // hopefully an optimized qsort implementation can use this to return early.
 #if defined(_WIN64) || defined(__APPLE__)
 static int
 jm_json_cmp_r(void *duplicate, const json_t **v1, const json_t **v2)
-#else
+#else  // ISO
 static int
 jm_json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
 #endif
@@ -176,6 +183,8 @@ jm_json_array_unique(const json_t *val)
     // extract as an actual array for sorting
     // NOTE safe: if not an array, the size is 0
     size_t size = json_array_size(val);
+    if (size <= 1)
+        return true;
     const json_t *array[size];
     // borrow array items into a copy for sorting
     for (size_t i = 0; i < size; i++)
@@ -193,10 +202,13 @@ jm_json_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool unique = jm_json_array_unique(val);
     if (unlikely(!unique && rep))
-        jm_report_add_entry(rep, "non unique array", path);
+        jm_report_add_entry(rep, "non unique json array", path);
     return unique;
 }
 
+/*
+ * UNIQUE STRING ARRAY
+ */
 #if defined(_WIN64) || defined(__APPLE__)
 static int
 jm_str_cmp_r(void *duplicate, const char **v1, const char **v2)
@@ -220,6 +232,8 @@ bool
 jm_str_array_unique(const json_t *val)
 {
     size_t size = json_array_size(val);
+    if (size <= 1)
+        return true;
     const char *array[size];
     for (size_t i = 0; i < size; i++)
         array[i] = json_string_value(json_array_get(val, i));
@@ -239,8 +253,104 @@ jm_str_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 /*
- * reporting
+ * UNIQUE OBJECT ARRAY
  */
+typedef struct {
+    json_t *object;
+    jm_propval_t *propvals;
+} jm_object_propval_t;
+
+static int
+jm_object_propval_prop_cmp(const jm_object_propval_t *op1, const jm_object_propval_t *op2)
+{
+    return jm_propval_cmp(op1->propvals, op2->propvals);
+}
+
+static int
+jm_object_propval_obj_cmp(const jm_object_propval_t *op1, const jm_object_propval_t *op2)
+{
+    const json_t *o1 = op1->object, *o2 = op2->object;
+
+    // first on size
+    const size_t os1 = json_object_size(o1), os2 = json_object_size(o2);
+    if (os1 != os2)
+        return os2 - os1;
+
+    // then on property names and then on values
+    return jm_json_object_pv_cmp(op1->propvals, op2->propvals, os1);
+}
+
+#if defined(_WIN64) || defined(__APPLE__)
+static int
+jm_obj_cmp_r(void *duplicate, const jm_object_proval_t **v1, const jm_object_propval_t **v2)
+#else
+static int
+jm_obj_cmp_r(const jm_object_propval_t *v1, const jm_object_propval_t *v2, void *duplicate)
+#endif
+{
+    // shortcut: no sorting once a duplicate has been found
+    if (*((bool *) duplicate))
+        return 0;
+    // else do compare
+    int cmp = jm_object_propval_obj_cmp(v1, v2);
+    if (cmp == 0)
+        *((bool *) duplicate) = true;
+    return cmp;
+}
+
+// we assume that the array type is already checked
+bool
+jm_obj_array_unique(const json_t *val)
+{
+    size_t size = json_array_size(val);
+    if (size <= 1)
+        return true;
+    size_t nprops = 0;
+
+    // array of objects
+    jm_object_propval_t array[size];
+    for (size_t i = 0; i < size; i++)
+    {
+        const json_t *object = json_array_get(val, i);
+        array[i].object = (json_t *) object;
+        nprops += json_object_size(object);
+    }
+
+    // shared array of properties and values
+    jm_propval_t propval_array[nprops];
+    size_t index = 0;
+    for (size_t o = 0; o < size; o++)
+    {
+        const char *key;
+        json_t *value;
+        array[o].propvals = propval_array + index;
+        json_object_foreach((json_t *)  array[o].object, key, value)
+            propval_array[index++] = (jm_propval_t) { key, value };
+        // NOTE we could skip this if the order is deterministic
+        qsort(array[o].propvals, json_object_size(array[o].object), sizeof(jm_propval_t), (jm_cmp_fun_t) jm_propval_cmp);
+    }
+    assert(index == nprops);
+
+    // unique!
+    bool duplicate = false;
+    qsort_r(array, size, sizeof(jm_object_propval_t), (jm_cmp_r_fun_t) jm_obj_cmp_r, &duplicate);
+    return !duplicate;
+}
+
+// idem with reporting
+bool
+jm_obj_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool unique = jm_obj_array_unique(val);
+    if (unlikely(!unique && rep))
+        jm_report_add_entry(rep, "non unique object array", path);
+    return unique;
+}
+
+/*
+ * REPORTING
+ */
+
 void
 jm_report_add_entry(jm_report_t* rep, const char *msg, jm_path_t *path)
 {

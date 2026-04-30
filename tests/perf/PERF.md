@@ -54,13 +54,13 @@ Large schema/model. Maybe get a few % by optimizing regex `^[xyzw]` (4 chars).
 
 ## Unreal
 
-Medium schema/modal. Most of the time for checking item unicity in a object arrays.
+Medium schema/modal. Most of the time for checking item unicity in **object** arrays.
 
-This may be accelerated significantly if the JSON structure stores a hash for the object value?
-If object properties are stored in a reliable order, the sorting step could be skipped
-before merging?
-The object array (`propval`) representation is built on each comparison, it could/should
-be kept for the duration of the unique check.
+- [x] object array (`propval`) representation is built on each comparison,
+  it could/should be kept for the duration of the unique check.
+- [ ] if object properties are stored in a reliable order, the sorting step could be skipped
+  before merging?
+- [ ] may be accelerated significantly if the JSON structure stores a hash for the object value?
 
 ## Yamllint
 

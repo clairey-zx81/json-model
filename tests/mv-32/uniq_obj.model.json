@@ -1,0 +1,8 @@
+{
+  "#": "unique optimization on an array of objects",
+  "$": {
+    "XY": {"x": "", "y": ""}
+  },
+  "@": [ "$XY" ],
+  "!": true
+}

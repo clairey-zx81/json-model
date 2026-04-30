@@ -802,7 +802,7 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
             }
             if (likely(res))
             {
-                res = jm_json_array_is_unique(pval, (path ? &lpath_4 : NULL), rep);
+                res = jm_obj_array_is_unique(pval, (path ? &lpath_4 : NULL), rep);
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "constraints failed [.'$Prompts'.'|'.2.options]", (path ? &lpath_4 : NULL));
@@ -5083,7 +5083,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 if (likely(res))
                 {
-                    res = jm_json_array_is_unique(pval, (path ? &lpath_7 : NULL), rep);
+                    res = jm_obj_array_is_unique(pval, (path ? &lpath_7 : NULL), rep);
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "constraints failed [.customCommands]", (path ? &lpath_7 : NULL));

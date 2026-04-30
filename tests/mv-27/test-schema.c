@@ -296,7 +296,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (likely(res))
             {
                 int64_t ival_2 = json_array_size(pval);
-                res = jm_json_array_is_unique(pval, NULL, NULL) && ival_2 >= 1;
+                res = jm_obj_array_is_unique(pval, NULL, NULL) && ival_2 >= 1;
             }
             if (unlikely(! res))
                 return false;

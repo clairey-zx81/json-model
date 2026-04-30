@@ -417,10 +417,11 @@ class CodeGenerator:
 
             if has_unique:
                 assert tmodel is list
-                # TODO recover model?
-                # TODO add const-based versions if more is known?
-                is_string = ultimate_type(jm, ultimate_model(jm, model)[0]) is str
-                checks.append(gen.check_unique(val, str if is_string else None, vpath))
+                try:
+                    itype = ultimate_type(jm, ultimate_model(jm, model)[0])
+                except Exception:  # fallback
+                    itype = None
+                checks.append(gen.check_unique(val, itype, vpath))
             if has_int:
                 if has_in and tmodel is list:
                     # use computed length
