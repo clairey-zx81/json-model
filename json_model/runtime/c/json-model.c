@@ -28,6 +28,59 @@ jm_json_is_scalar(const json_t *val)
             tval == JSON_TRUE || tval == JSON_FALSE || tval == JSON_NULL);
 }
 
+/*
+ * HASH
+ */
+// left rotation
+static INLINE uint64_t lrot(const uint64_t v, int n)
+{
+    n &= 0x3f; // % 64
+    return (v >> n) | (v << (64-n));
+}
+
+static INLINE uint64_t lrot1(uint64_t v) { return (v >> 1) | (v << 63); }
+
+static uint64_t
+jm_fast_hash(const json_t *v)
+{
+    const json_type t = json_typeof(v);
+    uint64_t hash = ((uint64_t) t) << 48;
+    switch (t)
+    {
+        // NULL, TRUE, FALSE: okay
+        case JSON_INTEGER:
+            hash += json_integer_value(v);
+            break;
+        case JSON_REAL:
+            hash += (int) (1024.0 * json_real_value(v));
+            break;
+        case JSON_STRING:  // consider first byte
+            // TODO use more bytes from the string value?
+            // NOTE use memory layout to get the string byte length (not including final 0)
+            const size_t length = *(((size_t*) (v + 1)) + 1);
+            hash += (uint8_t) *json_string_value(v) + (length << 14);
+            break;
+        case JSON_ARRAY:
+            size_t n = json_array_size(v);
+            while (n--)
+                hash = lrot1(hash) + jm_fast_hash(json_array_get(v, n));
+            break;
+        case JSON_OBJECT:
+            const char *key;
+            json_t *value;
+            // TODO use more bytes from the key?
+            json_object_foreach((json_t *) v, key, value)
+                hash += ((uint8_t) *key) + lrot(jm_fast_hash(value), 17);
+            break;
+        default:
+            break;
+    }
+    return hash;
+}
+
+/*
+ * JSON ORDERING
+ */
 // fast JSON array comparison for a total order
 int
 jm_json_array_cmp(const json_t *v1, const json_t *v2)
@@ -143,6 +196,42 @@ jm_json_cmp(const json_t *v1, const json_t *v2)
     return 0;
 }
 
+/*
+ * QUADRATIC UNIQUE ARRAY WITH HASH
+ *
+ * This is based on blaze core "unique()" implementation which fares quite better
+ * for small arrays.
+ *
+ * TODO extensive tests to choose a better limit
+ * NOTE the limit may not be the same for various types!
+ */
+#ifndef UNIQUE_ARRAY_HASH_LIMIT
+#define UNIQUE_ARRAY_HASH_LIMIT 64
+#endif // UNIQUE_ARRAY_HASH_LIMIT
+
+typedef struct {
+    json_t *json;
+    uint64_t hash;
+} jm_json_hash_t;
+
+static bool
+json_array_unique_hash(const json_t *val, size_t size)
+{
+    jm_json_hash_t array[size];
+
+    for (size_t i = 0; i < size; i++)
+    {
+        const json_t *json = json_array_get(val, i);
+        array[i] = (jm_json_hash_t) { (json_t *) json, jm_fast_hash(json) };
+    }
+
+    for (size_t i = 0; i < size; i++)
+        for (size_t j = i + 1; j < size; j++)
+            if (array[i].hash == array[j].hash && json_equal(array[i].json, array[j].json))
+                return false;
+    return true;
+}
+
 #if defined(_WIN64)
 #  define qsort_r qsort_s
 #endif
@@ -185,6 +274,9 @@ jm_json_array_unique(const json_t *val)
     size_t size = json_array_size(val);
     if (size <= 1)
         return true;
+    if (size < UNIQUE_ARRAY_HASH_LIMIT)
+        return json_array_unique_hash(val, size);
+
     const json_t *array[size];
     // borrow array items into a copy for sorting
     for (size_t i = 0; i < size; i++)
@@ -234,6 +326,10 @@ jm_str_array_unique(const json_t *val)
     size_t size = json_array_size(val);
     if (size <= 1)
         return true;
+    // NO!
+    // if (size < UNIQUE_ARRAY_HASH_LIMIT)
+    //     return json_array_unique_hash(val, size);
+
     const char *array[size];
     for (size_t i = 0; i < size; i++)
         array[i] = json_string_value(json_array_get(val, i));
@@ -255,6 +351,7 @@ jm_str_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
 /*
  * UNIQUE OBJECT ARRAY
  */
+
 typedef struct {
     json_t *object;
     jm_propval_t *propvals;
@@ -305,6 +402,9 @@ jm_obj_array_unique(const json_t *val)
     size_t size = json_array_size(val);
     if (size <= 1)
         return true;
+    if (size < UNIQUE_ARRAY_HASH_LIMIT)
+        return json_array_unique_hash(val, size);
+
     size_t nprops = 0;
 
     // array of objects
