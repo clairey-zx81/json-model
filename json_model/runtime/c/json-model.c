@@ -40,6 +40,14 @@ static INLINE uint64_t lrot(const uint64_t v, int n)
 
 static INLINE uint64_t lrot1(uint64_t v) { return (v >> 1) | (v << 63); }
 
+// extract string length based on json_t layout
+#define jansson_string_length(v) (*(((size_t *) (v + 1)) + 1))
+
+#define extract_string_value(str, len) \
+    (unlikely(len < 3) ?  ((uint8_t) *(str)) : (*(uint32_t *) (str)))
+
+// TODO improve string hashing?
+
 static uint64_t
 jm_fast_hash(const json_t *v)
 {
@@ -47,7 +55,6 @@ jm_fast_hash(const json_t *v)
     uint64_t hash = ((uint64_t) t) << 48;
     switch (t)
     {
-        // NULL, TRUE, FALSE: okay
         case JSON_INTEGER:
             hash += json_integer_value(v);
             break;
@@ -55,10 +62,8 @@ jm_fast_hash(const json_t *v)
             hash += (int) (1024.0 * json_real_value(v));
             break;
         case JSON_STRING:  // consider first byte
-            // TODO use more bytes from the string value?
-            // NOTE use memory layout to get the string byte length (not including final 0)
-            const size_t length = *(((size_t*) (v + 1)) + 1);
-            hash += (uint8_t) *json_string_value(v) + (length << 14);
+            const size_t length = jansson_string_length(v);
+            hash += extract_string_value(json_string_value(v), length) + (length << 16);
             break;
         case JSON_ARRAY:
             size_t n = json_array_size(v);
@@ -68,11 +73,11 @@ jm_fast_hash(const json_t *v)
         case JSON_OBJECT:
             const char *key;
             json_t *value;
-            // TODO use more bytes from the key?
             json_object_foreach((json_t *) v, key, value)
-                hash += ((uint8_t) *key) + lrot(jm_fast_hash(value), 17);
+                hash += extract_string_value(key, strlen(key)) + lrot(jm_fast_hash(value), 32);
             break;
         default:
+            // NULL, TRUE, FALSE: okay through type
             break;
     }
     return hash;
@@ -201,13 +206,19 @@ jm_json_cmp(const json_t *v1, const json_t *v2)
  *
  * This is based on blaze core "unique()" implementation which fares quite better
  * for small arrays.
- *
- * TODO extensive tests to choose a better limit
- * NOTE the limit may not be the same for various types!
  */
-#ifndef UNIQUE_ARRAY_HASH_LIMIT
-#define UNIQUE_ARRAY_HASH_LIMIT 64
-#endif // UNIQUE_ARRAY_HASH_LIMIT
+#ifndef UNIQUE_STRING_ARRAY_HASH_LIMIT
+#define UNIQUE_STRING_ARRAY_HASH_LIMIT 64
+#endif // UNIQUE_STRING_ARRAY_HASH_LIMIT
+
+// tested on integers
+#ifndef UNIQUE_JSON_ARRAY_HASH_LIMIT
+#define UNIQUE_JSON_ARRAY_HASH_LIMIT 200
+#endif // UNIQUE_JSON_ARRAY_HASH_LIMIT
+
+#ifndef UNIQUE_OBJECT_ARRAY_HASH_LIMIT
+#define UNIQUE_OBJECT_ARRAY_HASH_LIMIT 512
+#endif // UNIQUE_OBJECT_ARRAY_HASH_LIMIT
 
 typedef struct {
     json_t *json;
@@ -274,7 +285,7 @@ jm_json_array_unique(const json_t *val)
     size_t size = json_array_size(val);
     if (size <= 1)
         return true;
-    if (size < UNIQUE_ARRAY_HASH_LIMIT)
+    if (size <= UNIQUE_JSON_ARRAY_HASH_LIMIT)
         return json_array_unique_hash(val, size);
 
     const json_t *array[size];
@@ -326,9 +337,8 @@ jm_str_array_unique(const json_t *val)
     size_t size = json_array_size(val);
     if (size <= 1)
         return true;
-    // NO!
-    // if (size < UNIQUE_ARRAY_HASH_LIMIT)
-    //     return json_array_unique_hash(val, size);
+    if (size <= UNIQUE_STRING_ARRAY_HASH_LIMIT)
+        return json_array_unique_hash(val, size);
 
     const char *array[size];
     for (size_t i = 0; i < size; i++)
@@ -402,7 +412,7 @@ jm_obj_array_unique(const json_t *val)
     size_t size = json_array_size(val);
     if (size <= 1)
         return true;
-    if (size < UNIQUE_ARRAY_HASH_LIMIT)
+    if (size <= UNIQUE_OBJECT_ARRAY_HASH_LIMIT)
         return json_array_unique_hash(val, size);
 
     size_t nprops = 0;
