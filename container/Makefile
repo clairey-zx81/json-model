@@ -48,7 +48,7 @@ pod.cleaner:
 BASE.cache  =
 JMC.cache   = --no-cache
 JMC     = $(BRANCH)
-JSU     = main
+JSU     = $(BRANCH)  # for consistency use same branch as JMC
 
 .PHONY: pod.build
 pod.build: .build.base .build.jmc
