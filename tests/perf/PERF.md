@@ -11,6 +11,26 @@ gprof schema.out > gprof.txt
 gprof -l schema.out > gprof-l.txt
 ``` 
 
+## Features
+
+### Unique
+
+Type of unique found in benchmark: 9/37 (24%)
+
+- cspell: 2 string
+- deno: 4 string
+- draft04: 3 string, any ("enum", most often strings?) ; "type" is always short
+- jsconfig: 13 string, 1 object (open, one optional "path" prop)
+- krakend: 9 string, 4 integer
+- lazygit: 11 string, 2 object (with 1/3 mandatory props)
+- stylecop: 4 string (2 misplaced)
+- ui5-mft: 1 object, 1 any, 2 string
+- unreal: 15 string, 2 object
+
+TODO typical length of values found in benchmark?
+TODO missing unique? wrt number of arrays?
+TODO check enum item types?
+
 ## Cspell
 
 Most of the time is spent checking that the `.words` array only contains strings.
@@ -58,11 +78,11 @@ Medium schema/modal. Most of the time for checking item unicity in **object** ar
 
 - [x] object array (`propval`) representation is built on each comparison,
   it could/should be kept for the duration of the unique check.
+- [x] add a hash discriminator?
+- [x] add a non-sorting n² implementation for small arrays?
 - [ ] if object properties are stored in a reliable order, the sorting step could be skipped
   before merging?
 - [ ] may be accelerated significantly if the JSON structure stores a hash for the object value?
-- [ ] add a hash discriminator?
-- [ ] add a non-sorting n² implementation for small arrays?
 
 Note about blaze unique implementation:
 
