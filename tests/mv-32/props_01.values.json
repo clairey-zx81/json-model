@@ -1,0 +1,15 @@
+[
+  [ true,  {"x": 42, "y": 18} ],
+  [ false, {} ],
+  [ false, {"x": 18, "y": "unexpected"} ],
+  [ false, {"x": 18, "y": 42, "z": "Hobbes"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

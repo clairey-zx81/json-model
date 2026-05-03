@@ -16,10 +16,12 @@
 - [x] c-backend: specialized unique int array implementation
 - [x] c-backend: ~try memcmp instead of strcmp where appropriate~ not interesting…
 - [x] perl-backend: do not import RE2 unless required in generated script, ok test added
+- [x] optim: remove min props covered by mandatory props
+- [x] optim: check max props wrt mandatory props
+- [ ] optim: collect and display stats about what what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
 - [ ] perf: show schema to model conversion times
-- [ ] optim: remove min props covered by mandatory props
 - [ ] front: show git hash on `--version`?
 - [ ] js-backend: remove useless braces and semi-colons
 - [ ] c-backend: use str cmp for ends with optimization as well

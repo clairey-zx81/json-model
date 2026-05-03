@@ -8,7 +8,7 @@ from .utils import constant_values, same_model, model_eq, simple_object
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .submodel import normalizeModel, is_submodel
-from .analyze import ultimate_type
+from .analyze import ultimate_type, ultimate_model
 from .runtime import ConstSet
 from .objops import intersect
 
@@ -490,6 +490,7 @@ def partial_eval(jm: JsonModel):
                             return model
                     changes += 1
                     return model["@"]
+
                 # some non-feasable numerical cases
                 lev, gev = None, None
                 # add type information
@@ -759,6 +760,36 @@ def simplify(jm: JsonModel):
                             ge = None
                     if le is not None:
                         if target >= 0 and target > le:
+                            changes += 1
+                            return "$NONE"
+                # property consistency
+                if ultimate is dict and (le is not None or ge is not None):
+                    amod = ultimate_model(jm, model["@"])
+                    nmandatory = len(list(filter(lambda p: p.startswith("!") or p.startswith("_") or (p != "" and p[0] not in"?/$#@%~$"), amod)))
+                    # log.warning(f"model={model} nmandatory={nmandatory} ge={ge} le={le}")
+                    if ge is not None and nmandatory >= ge:
+                        ge = None  # redundant
+                        if ">=" in model:
+                            del model[">="]
+                        if ">" in model:
+                            del model[">"]
+                    if le is not None:
+                        if nmandatory == le:
+                            # remove optional props only if direct…
+                            if isinstance(model["@"], dict) and "@" not in model["@"]:
+                                for p in list(model["@"].keys()):
+                                    if p == "" or p[0] in "?$/":
+                                        changes += 1
+                                        del model["@"][p]
+                            # cleanup useless constraint
+                            if ">=" in model:
+                                changes += 1
+                                del model[">="]
+                            if ">" in model:
+                                changes += 1
+                                del model[">"]
+                            le = None
+                        elif nmandatory > le:  # unfeasible
                             changes += 1
                             return "$NONE"
                 # update possibly changed values

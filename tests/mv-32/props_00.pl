@@ -1,0 +1,94 @@
+#! /usr/bin/perl
+use strict;
+use warnings;
+no warnings "uninitialized";
+use re::engine::RE2;
+use JSON::JsonModel;
+use constant JMC_VERSION => '2';
+
+
+sub json_model_1($$$);
+my %check_model_map;
+
+sub json_model_1($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'x')
+        {
+            $must_count++;
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        if ($prop eq 'y')
+        {
+            $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+            next;
+        }
+        return 0;
+    }
+    return $must_count == 1;
+}
+
+
+# initialization of global variables
+
+our $initialized = 0;
+
+sub check_model_init()
+{
+    if (!$initialized)
+    {
+        $initialized = 1;
+        %check_model_map = (
+            '' => \&json_model_1,
+        );
+    }
+}
+
+sub check_model_free()
+{
+    if ($initialized)
+    {
+        $initialized = 0;
+        %check_model_map = ();
+    }
+}
+
+sub check_model_mapper($)
+{
+    my ($name) = @_;
+    die "unexpected model name \"$name\"" unless exists $check_model_map{$name};
+    return $check_model_map{$name};
+}
+
+sub check_model($$$)
+{
+    my ($json, $name, $rep) = @_;
+    die "unexpected model name \"$name\"" unless exists $check_model_map{$name};
+    my $path = defined $rep ? [] : undef;
+    return $check_model_map{$name}($json, $path, $rep);
+}
+
+#
+# SCRIPT EXECUTION
+#
+check_model_init();
+jm_main(\&check_model, \%check_model_map, JMC_VERSION);
+check_model_free();

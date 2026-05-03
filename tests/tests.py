@@ -292,14 +292,14 @@ EXPECT: dict[str, int] = {
     "mv-32:verrors:schema": 1,  # sre_0d.values [16]
     "mv-32:cmp-opts": {"report": False, "comment": False},
     "mv-32:mod-opts": {"single_line": True},
-    "mv-32:models": 7,
+    "mv-32:models": 10,
     "mv-32:models:errors": 1,
     "mv-32:models:errors-c": 1,
     "mv-32:models:errors-py": 1,
     "mv-32:models:errors-js": 1,
     "mv-32:models:errors-pl": 1,
     "mv-32:models:errors-java": 1,
-    "mv-32:values": 156,
+    "mv-32:values": 194,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 309,
