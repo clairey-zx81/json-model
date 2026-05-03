@@ -1,0 +1,690 @@
+# JSON Model Compiler Versions
+
+## 2.0b46
+
+- [x] c-backend: test real then int when checking for a number
+- [x] static: provide type of array elements for unique
+- [x] c-backend: string unique implementation
+- [x] c-backend: object unique implementation avoids repeated prop extractions
+- [x] c-backend: unique with hash, aka faster non sorting algorithm for small array size
+- [x] c-backend: set unique with hash limits based on tests
+- [x] c-backend: check for other useful types for unique with hash - most str, some int/obj
+- [x] c-backend: specialized unique int array implementation
+- [x] c-backend: ~try memcmp instead of strcmp where appropriate~ not interesting…
+- [x] perl-backend: do not import RE2 unless required in generated script, ok test added
+- [x] optim: remove min props covered by mandatory props
+- [x] optim: check max props wrt mandatory props
+- [x] pr: cleanup backlog and create version markdown
+
+## 2.0b45 2026-04-25
+
+- [x] ~perl-backend: improve resilience to missing dependencies, eg `Algorithm::LUHN`~
+- [x] c-backend: allow to reuse pre-compiled runtime
+
+## 2.0b44 2026-04-24
+
+- [x] front: allow to call script as a function
+
+## 2.0b43 2026-04-23
+
+- [x] optim: override simpler regex props if stricter
+
+## 2.0b42 2026-04-20
+
+- [x] \*-backend: remove `--jsonschema-benchmark` handling as it is moved to this repo
+- [x] command: add `--no-comment` option not to generate comments in source code
+- [x] \*-backend: support for embedded nul characters in strings, when possible (not SQL nor C)
+- [x] ir: use json name instead of python type names
+- [x] perf: add speed in lines per µs which seems more significant
+- [x] command: add `-mtune=native` to C compilation
+- [x] optim: simplify _&_ with same props and regs plus optional wildcards
+- [x] optim: simplify _X & Y_ to _X_ when _X_ is a submodel of _Y_
+- [x] py-backend: add predefs IP4 IP6 HOST
+- [x] \*-backend: use a common predef for RFC3339 DURATION UUID EMAIL JSONPT
+- [x] \*-backend: add approximated backup regex for predefs when not implemented by runtime
+- [x] predefs: add `$__EXTENSION_COLOR`
+- [x] predefs: refactor multiple instances in the sources into `predefs.py`
+- [x] predefs: add `$ETH` for ethernet (mac) addresses
+- [x] static: recognize and generate better code for typed _not_: _"" ^ "xxx"_
+- [x] ir: add forward substitution between assignments when used once
+- [x] py-backend: filter out zone id suffix from ip6
+- [x] predefs: add `$CARD` for 16 digits credit card numbers with Luhn's checksum
+- [x] predefs: add `$CARD` to js, perl, java and sql runtime.
+- [x] predefs: filter predef extensions with `--extend`
+- [x] ~static: if only one open prop, just look for it~ depends on language and costs
+- [x] ir: improve forward subs, move bool decl to first assignment in seq
+- [x] static: use combined assignment and test if possible on discriminator extraction
+- [x] static: fix any-by-one pattern on string predefs
+- [x] py-runtime: allow lowercase tz in datetime
+- [x] py-runtime: add workarounds for leap seconds and other intricacies
+- [x] predefs: add predef `EXTENSION_REL_JSONPT` as a regex
+- [x] predefs: distinguish simple time and time with mandatory tz for jsu `time` format
+- [x] static: avoid double type checks on or with predefs (java, sql, perl)
+- [x] ~ir: remove simple redundant checks _(X && (X && Z) || (X && Y))_ is _X && (Z || Y)_~ (see previous)
+- [x] c-backend: simple regex compiler for special character classes and repeat
+- [x] c-backend: simple regex compiler cache is okay with existing regex cache
+- [x] c-backend: add custom character classes based on benchmarks (ident, space, up/low/hexa/num/…)
+- [x] optim: `/.+/` is `/./`, `/(.+)/`, `/(.*)/`
+- [x] optim: remove unescaped `.*` at end of regex, also `.+/` is `./`
+- [x] c-backend: normalize before character class matching
+- [x] c-backend: extend simple regex with constant prefix
+- [x] c-backend: extend simple regex without end-of-text (`$`)
+- [x] optim: apply simpler re to property names
+- [x] optim: improve model intersection to simplify `&` in more cases
+- [x] optim: improve intersect on single open constraint object case
+- [x] optim: avoid reference expansion in and combine optimization
+- [x] c-backend: optimize special regex `/./` `/./s` `/^.*$/` `/^.+$/`
+- [x] static: detect or of any-but-some type to generate a not instead, beware of looseness
+- [x] static: do not create a separate function for an basic object check
+- [x] static: generate messages in newly added shortcuts
+- [x] c-backend: regex list of words to enum?
+- [x] c-backend: fast ic str comparison by switching to _lower char_ with a set test?
+- [x] c-backend: improve regex opt cset prettyprinting
+- [x] c-backend: extend simple regex to sequences of prefix/chars/repeats
+- [x] c-backend: add custom char class `[A-Za-z0-9_\\-:]` `[1-9]`
+- [x] container: separate base from specific installs to improve cache/no-cache build
+- [x] static: improve pattern matching for starts with/ends with/eq regex optim
+- [x] static: improve endswith pattern recognition with escapes, eg `/\\.js$/`
+- [x] c-backend: improve startwith code with fast str eq when string is a function call
+- [x] c-backend: improve `str_cmp` with fast str eq when string is a function call
+- [x] c-backend: check str cmp optims with utf8 strings
+- [x] static: preserve prop order by default
+- [x] c-backend: add custom character classes `[-a-z0-9_]` variants
+- [x] c-backend: use counter for multithreaded tests
+- [x] c-backend: fix multiple brace repeats in simple regex optimization
+- [x] model: add option to `s` on regex? else `.` is any but `\n` and sometimes `\r`
+- [x] optim: `/^.{1,256}$/`? only under `/s` though…
+
+## 2.0b41 2026-03-14
+
+- [x] optim: do not recheck object if not necessary
+- [x] command: show runtime directory with `--runtime`
+- [x] optim: better merge `&` list when possible, including regex prefix incompatibilities
+- [x] js-backend: export model map
+- [x] pl-backend: add and export `mapper` function
+
+## 2.0b40 2026-03-12
+
+- [x] c-backend: use monotonic instead of realtime clock which has a better precision
+- [x] java-backend: fix previously untested `--jsonschema-benchmark` implementation
+
+## 2.0b39 2026-03-10
+
+- [x] optim: implement any type but one constrained optimization (jsu)
+- [x] ir: fix bad elimination when bool var was used
+- [x] ir: add bool var assign elimination on return with only one use
+- [x] c-backend: fix long option parsing
+
+## 2.0b38 2026-03-08
+
+- [x] pr: publish python jmc package
+- [x] static: add support for `.in` with constraints
+- [x] optim: fix constraint simplification mixup
+- [x] tests: add _stats_ target
+- [x] perf: add missing warmup to C runtime for jsonschema benchmark
+- [x] perl-backend: be resilient on missing RE2 module
+
+## 2.0b37 2026-02-27
+
+- [x] test: improve output determinism
+- [x] container: allow to use `podman` instead of `docker`
+- [x] perf: estimate measure overhead over 100 iterations
+- [x] perf: share overhead estimation between tests
+- [x] perf: try to prevent performance loops from being optimized out with some computation
+- [x] container: add podman-in-podman or docker-in-docker
+- [x] python-backend: add support for embedded nul characters in strings
+- [x] optim: fix inappriopriate model deduplication in or-lists
+- [x] dynamic: allow arbitrary options to dynamic interfaces
+- [x] lang: extend list of predefs with IP4, IP6, HOSTNAME, JSONPT, DURATION
+- [x] bug: fix unwise regex optimization
+- [x] python-backend: add support for `.mo`
+- [x] optim: remove bad transform _A & (T ^ B)) != A ^ B_
+- [x] python-backend: escape more strange characters in string constants
+- [x] perf: do not report broken count if nothing is broken
+- [x] python-backend: numerical workarounds for .mo extension implementation
+- [x] backend: add support for `.in` extension without other constraints
+- [x] tests: minimal tests for `.mo` and `.in`
+- [x] \*-backend:: add support for `.mo` and `.in` extensions
+- [x] optim: optimize typed and _"" & "xxx"_ involving references
+- [x] optim: arbitrary guard against infinite loops
+- [x] ir: fix stupid bug in ir opts
+- [x] tests: rerun with updated JSTS before release
+
+## 2.0b36 2025-11-12
+
+- [x] tests: check how clang compares to gcc (maybe a few pc better)
+- [x] static: partition long lists of properties based on first bytes
+- [x] static: use more bytes for str hashing depending on min len
+- [x] static: generate hexa constants for partition limits tests
+- [x] static: use `continue` instead of long multi-if statements
+- [x] c-backend: partition inlined str cset
+- [x] static: or acceleration based on full or partial distinct mandatory props
+- [x] static: set default C partition threshold to _6_
+- [x] c-backend: replace `strcmp` with `memcmp` in runtime
+- [x] backend: improve if patterns in some cases
+- [x] pr: add explicit winner column to per case perf
+- [x] model: simplify `{"": "$NONE"}`
+- [x] ~model: avoid dead code in `mv-0f/dedup-002`~ (simple pair ok, multiple seldom useful)
+
+## 2.0b35 2025-10-30
+
+- [x] static: order must/may props by increasing size
+- [x] command: fix bad mmo threshold initializations
+- [x] static: shorten return on open one may no must/regs/defs
+- [x] backend: optimize pattern "if (!? V) V = cst;"
+- [x] backend: optimize pattern "V = C; if (!? V) ..."
+- [x] backend: optimize pattern "V = E1; V = E2;"
+- [x] c-backend: generate direct code for search constant on small str sets
+- [x] static: add likely hints on array checks
+- [x] perf: test max strcmp cset to set default default
+- [x] pr: move out schema-to-model conversion
+- [x] pr: adjust radar display to visible datasets
+
+## 2.0b34 2025-10-27
+
+- [x] static: improve likely hints depending on expectations
+- [x] backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql` (late)
+- [x] backend: useless computations in `mv-17/xor_01.pl`
+- [x] static: for must-only scheme controlled by option
+- [x] static: further improve likely hints
+- [x] command: rename `--unroll-may-…` options for `--may-must-open-threshold`
+- [x] command: set optimization parameters depending on target language
+
+## 2.0b33 2025-10-24
+
+- [x] c-backend: try with `clang` instead of `gcc`
+
+## 2.0b32 2025-10-22
+
+- [x] backend: optimize length-based non-empty string check
+- [x] backend: remove reporting expressions under no reporting
+- [x] backend: nullify reporting parameters under no reporting
+- [x] command: silent more cc warnings
+
+## 2.0b31 2025-10-22
+
+- [x] pr: improve radar chart responsiveness and sorting
+- [x] backend: remove intermediate variable on return
+- [x] backend: remove unused boolean variable declaration on simple direct return
+- [x] ~backend: remove redundant scalar test in some cases~
+- [x] backend: remove reporting instructions under no reporting
+- [x] backend: add late code filtering to catch some backend-specific stuff
+- [x] c-backend: remove redundant scalar test in some cases (with late filtering)
+- [x] c-backend: remove some useless braces around one instruction (with late filtering)
+- [x] backend: simplify conditional assignment patterns with one boolean constant
+- [x] backend: merge boolean declaration and first assignment if possible
+- [x] backend: optimize pattern "if (! res) res = E; ret res;"
+- [x] backend: refactoring, cleanup and generalization
+- [x] static: add likely/unlikely hints to clang
+- [x] c-backend: optimize startwith implementation
+- [x] backend: optimize pattern "res = E1; if (! res) res = E2;"
+- [x] backend: optimize full pattern "(E && ...) || (E && ...)"
+- [x] backend: or/and flattening
+- [x] backend: optimize partial pattern "... || (E && ...) || (E && ...) || ...;"
+- [x] backend: optimize pattern "V = E1; if (V) V = E2;"
+- [x] perf: add launcher script
+- [x] c-backend: cleanup duplicated `json_is_boolean` calls
+- [x] c-backend: fix bad constant string expression syntax
+
+## 2.0b30 2025-10-18
+
+- [x] pr: improve bench page
+- [x] command: set default to compile on `-F language` instead of model preprocessing
+- [x] c-backend: add _optimized_ str comparison code for eq and ne, enabled by default
+- [x] c-backend: consider big endian for strcmp runtime and code generation
+- [x] perf: allow running over a subset of tools only
+- [x] static: remove unexpected `$ANY` messages (irep dead code elimination)
+- [x] pr: add new artifact (2025101808)
+
+## 2.0b29 2025-10-17
+
+- [x] pr: add a benchmarking performance artifact page
+- [x] backend: shamefully ignore bad json due to strange prop names
+- [x] static: fix disjunct analysis issue
+- [x] optim: fix infinite loop between xor-to-or and partial eval
+
+## 2.0b28 2025-10-11
+
+- [x] static: skip map target functions for objects
+- [x] static: skip map target functions for references
+- [x] optim: add more if simplifications in IR
+- [x] optim: improve xor-to-or over references and sub-ors
+- [x] python: remove useless (debugging) assertion in generated code
+- [x] perf: also show docker id of tested image
+- [x] optim: more xor/not/or simplifications
+- [x] optim: xor-to-or model difference based on not exclusion, possibly behind refs
+
+## 2.0b27 2025-10-07
+
+- [x] perf: ensure properly aligned data in box report
+- [x] perf: allow to collect data over several runs
+- [x] optim: and-to-merge optimization for open object models
+- [x] perf: allow to collect user time instead of elapsed time
+- [x] backend: improve and extend IR optimizations (wip)
+- [x] tests: perl _uninitialized value `$tag_0` in hash element at `./mv-18/dis_01.pl:171`._
+- [x] ~tests: fix sql test errors from `Makefile`~
+- [x] ~pr: submit jsonschema-benchmark PL/pgSQL PR~
+- [x] optim: get rid of double object with C, Python and Java
+- [x] backend: ~do not generate intermediate empty functions for direct objects? (skip)~
+
+## 2.0b26 2025-10-04
+
+- [x] perf: add jsb version to final summary
+- [x] command: add `--no-predef` option for testing
+- [x] command: remove inline-or option and implementation
+- [x] command: allow to pass options with environment variable `JMC_OPTS`
+- [x] docker: environment control for perf tests
+- [x] command: `jmc -C -o foo.json` generates python instead of json
+
+## 2.0b25 2025-10-02
+
+- [x] models: write model for json IR
+- [x] static: fix value path in some object variants
+- [x] static: add a max threshold/ratio for may property unrolling
+
+## 2.0b24 2025-09-27
+
+- [x] backend: intermediate represention json code generation
+- [x] backend: optimize some output patterns on IR
+- [x] backend: generate output source code from symbolic json code
+- [x] xstatic: skip IR if not needed
+- [x] command: add `--ir-optimize` option
+- [x] command: activate ir optimization by default
+- [x] backend: IR handling of ConstMap
+- [x] static: skip model function to call obj function directly on references
+- [x] backend: apply skip functions also for all pmap/cmap/cc through IR
+- [x] optim: direct mandatory-only attributes objects with expected count checked ahead
+
+## 2.0b23 2025-09-21
+
+- [x] artifact: add test case stats
+- [x] static: detect discriminators from references
+- [x] static: detect partial discriminators
+- [x] static: detect partial discriminators with other stuff
+- [x] docker: generate image for current branch
+- [x] artifact: improve docker image tagging
+
+## 2.0b22 2025-09-19
+
+- [x] static: detect discriminator on object part of or/xor
+- [x] static: accept discriminator with a list of constants
+- [x] optim: fix infinite recursion in `inline_or`
+- [x] optim: improve xor-to-or to handle more cases
+- [x] optim: add `-[-no]-inline-or` option
+- [x] artifact: fix selection of docker image between `benchmark.sh` and `run.sh`
+- [x] optim: turn off `--inline-or` by default, which can impact compile perf too much
+- [x] tests: allow options for specific tests from pytest
+- [x] tests: cleanup current status, back to 100\%
+- [x] pr: update tuto scripts to match current status
+
+## 2.0b20 2025-09-14
+
+- [x] artifact: reduce task granularity
+- [x] artifact: add bench docker image base on docker-cli
+- [x] java-backend: update dependency versions
+
+## 2.0b19 2025-09-13
+
+- [x] docker: add subdirs to java classpath
+
+## 2.0b18 2025-09-11
+
+- [x] model: filter out all comments from transformations
+- [x] c-backend: improve overhead estimation accuracy
+- [x] static: optimize function mapping by skipping intermediate functions if possible
+
+## Previous
+
+- [x] refactor: move schema to model conversion to json-schema-utils.
+- [x] design: change `%` to `$` and remove `$` intra-model naming shortcut.
+- [x] design: name space decision, there is only one name space per file. trafo path are exceptions?
+- [x] design: ~readability and style: `:verbose` version of single char keywords!? (see extensions)~
+- [x] design: clarify stuff inside the root `#`? or use `%` for specific purpose?
+- [x] design: extension for preprocessed (merged and trafo).
+- [x] dynamic: python compiler
+- [x] static: python compiler
+- [x] design: variants, i.e. form in progress vs final form with more constraints?
+- [x] design: extensions could allow synonyms enabling JSON Model l10n?
+- [x] tests: declaration of the meta model?
+- [x] feature: accept js suffix as input, possibly removing comments.
+- [x] feature: add `--auto` option to automatically extract url mappings
+- [x] static: generate separate `check_model` root function and simplify code.
+- [x] tests: recheck existing tests in rwt
+- [x] static: deterministic set output
+- [x] dynamic: fix output instability
+- [x] python: pyright
+- [x] python: ruff
+- [x] python: flake8
+- [x] refactor: move basic script pre processing as functions
+- [x] tests: test schemas and values with jsu
+- [x] extend: `.schema` extension to add JSON Schema specific stuff, and `.mo` and `.in`
+- [x] tests: rename without explicit `-v2`
+- [x] python: remove global list in Symbols
+- [x] tests: move bads up
+- [x] tests: move bads data to bads directory
+- [x] feature: use `-` for standard input and output
+- [x] feature: yaml file input
+- [x] tests: working `make check`
+- [x] tests: make check for bads
+- [x] tests: add malformed bad models
+- [x] tests: with an actual url! (hello2)
+- [x] python: rename `types.py` which is a pain
+- [x] feature: yaml url input
+- [x] tests: True/False -> PASS/FAIL
+- [x] feature: ~how to remove a definition? nope, must be nullified (eg `$NONE`) because refs~
+- [x] tests: upgrade all models in `models/` and check them as well
+- [x] tests: add expected "$schema" value to schema models
+- [x] static: do not inline unused support function (`is_valid_*` and possibly others)
+- [x] schema: control keyword sorting to put type-related stuff on top (-ns)
+- [x] static: use mandatory keyword parameters where appropriate
+- [x] feature: clarify and implement options management `JSON_MODEL_…`
+- [x] feature: allow scalar value for `/`
+- [x] schema: test output json schema (strict) conformity
+- [x] jmc: use exclusive options where appropriate
+- [x] tests: check all models wrt to the meta model, once
+- [x] static: remove pyright asserts from generated code
+- [x] schema: warn when generating schema with strict options
+- [x] pr: submit with _JSU_ as JSON Schema tool (export feature) (_PR 1636_)
+- [x] static: add option to report where it fails (aka reasons)
+- [x] static: fast vs slow with path and reasons (if rep is _None_)
+- [x] static: update path
+- [x] feature: --format yaml to show yaml instead of json
+- [x] design: official (meta) model url: ~`https://models.json-model.org/...`~ vs `https://json-model.org/models/...`
+- [x] static: optimize simple regex cases (from Blaze paper)
+- [x] python: remove global list in JsonModel
+- [x] python: remove all globals in Symbols and JsonModel
+- [x] static: generate executable script with minimal main
+- [x] jmc: add option `-J` to show json IR, set default to `-P` (preprocessed)
+- [x] jmc: change default to `-ns` (unsorted json properties)
+- [x] jmc: also use prettyprint options for yaml generation
+- [x] static: add a `_` to the default prefix to separate exports
+- [x] static: rename all internal stuff with a `_` prefix
+- [x] python: refactor in optim analyze merge…
+- [x] feature: warn when mixing loose/strict int/float
+- [x] feature: implement `$UUID` predef
+- [x] backend: remove `decl_` variants
+- [x] feature: make static compiled exported defs accessible…
+- [x] frontend: select named model with `--name name`
+- [x] frontend: use `--list` to show available models
+- [x] jmc: add option `--name` to control name of generated function
+- [x] frontend: add `--version` or `-v` to show jmc version
+- [x] backend: add free
+- [x] backend: no path option generation in `Language`
+- [x] c-backend: path previous and next, and back and forth scan
+- [x] c-backend: add report collection with path
+- [x] frontend: add option `-r` to collect report.
+- [x] input: accept raw js, not just json with comments
+- [x] c-backend: main API does not need to know about internal structs.
+- [x] frontend: report init errors.
+- [x] py-backend: fix nested if in inlined code generation.
+- [x] c-backend: unique shortcut while sorting
+- [x] c-backend: json anything comparison for sorting and searching
+- [x] static: constant string and int enum
+- [x] c-backend: unique for any
+- [x] static: or implementation
+- [x] static: object disjunction on str
+- [x] static: support or constants, aka enum.
+- [x] static: object disjunction on int, bool, float, null
+- [x] jmc: allow value checking under `-X -F py`
+- [x] api: load model from file, load model from string…
+- [x] py-frontend: handle test vector files
+- [x] c-frontend: handle test vector files
+- [x] c-backend: separate headers and functions to allow compiling a support library.
+- [x] backend: move runtime in a runtime directory.
+- [x] backend: working c and py "$REGEX".
+- [x] tests: check test vector files
+- [x] py-backend: import runtime.
+- [x] static: generate separate lib
+- [x] backend: clarify runtime vs data.
+- [x] c-backend: fix `-l` implementation.
+- [x] all: remove dynamic compiler code, tests and doc.
+- [x] tests: values with name field
+- [x] static: xor code generation
+- [x] c-backend: issue with "$xxx" properties, `char*` is not `json_t*` (`ex_08 ex_09`)
+- [x] py-backend: improve url validation
+- [x] frontent: add `-T 1000` to trigger measuring performance.
+- [x] static: unique constraint
+- [x] static: cmp constraint implementation
+- [x] python: use local loose settings if appropriate (but not with inlining!)
+- [x] tests: remove SO stuff
+- [x] python: remove `static.py`
+- [x] jmc: remove `-S`
+- [x] doc: remove about S
+- [x] optim: predef normalization and or/and included type cleanups
+- [x] tests: parallelism with `pytest-xdist`
+- [x] c-backend: heterogeneous enum (`enum_05`)
+- [x] py-backend: unique for any
+- [x] backend: fix `untype00` issue (c, py)
+- [x] c-backend: simplify entry by moving parts to `json-model.c`
+- [x] tests: remove `.x.`
+- [x] tests: add `tmp_dir` fixture.
+- [x] tests: improve compilation locking for parallel pytest.
+- [x] tests: split modval directory for better parallelization (wip)
+- [x] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
+- [x] project: switch version to beta.
+- [x] tests: drop `fuzzy` name, re-test for stricter versions
+- [x] tests: chunk tests in smaller directories to please xdist
+- [x] jmc: add test vector mode with `--test-vector`
+- [x] tests: fix `wip/obj_04` (double processing from `jmc` yielded to more substitions)
+- [x] tests: fix `wip/openapi-310-models`
+- [x] tests: optimized openapi-310-models should have fully removed schema stuff
+- [x] static: optimize 1 must or may property case with a direct comparison
+- [x] static: choose threshold for switching between few/may must/may props
+- [x] static: reuse already generated may/must maps when possible (under `--map-share`)
+- [x] static: ~use common must/may map with must/may boolean? maybe not?~
+- [x] c-backend: fast `$REGEX` implementation based on re2 syntax
+- [x] c-frontend: allow to switch between the C slow and fast `$REGEX` implementations
+- [x] c-frontend: use `getopt_long` instead of `getopt`
+- [x] static: reporting clean slate on or when one is found!
+- [x] static: add option to skip reporting generation `--no-report`
+- [x] frontend: improve performance measures with stdev and removing overheads
+- [x] jmc: allow direct compilation with cc-like options?
+- [x] static: report missing must props
+- [x] jmc: rethink option usage for compilation
+- [x] jmc: allow to pass actual compiler options?
+- [x] static: disjunct could share identical may/must tabs between objects (optional)
+- [x] c-backend: also prefix type name and extensions with `jm_`
+- [x] static: use `[.]` for root in error messages
+- [x] static: simplify unexpected prop message
+- [x] jmc: generate executable python script
+- [x] jmc: make `-O` the default, add `-nO` to disable.
+- [x] frontend: align python and C pass/fail outputs
+- [x] static: fix `untyped...` with `value_len` when type is unknown
+- [x] static: fast mode, check that it returns as early as possible (or, xor, and, obj, arr)
+- [x] backend: move python-specifics from `language.py` to `python.py`
+- [x] backend: ~report which several xor succeeded? no, implicit with rejects~
+- [x] tests: run with dynamic python
+- [x] tests: run generated schema (partial)
+- [x] schema: ~nearly always add explicit `"$schema"` property, nope, fixed in tests?~
+- [x] schema: fix `untype00` schema
+- [x] optim: detect non feasible constraints wrt values
+- [x] optim: remove unfeasible `!=`
+- [x] python: refactoring, drop `Validator` class
+- [x] python: refactoring, remove `defines.py` and `validator.py`
+- [x] design: regex recursion extension `"/^/($REGEX)/\$/X"`
+- [x] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
+- [x] c-backend: get rid of `mktime` for fast date validation
+- [x] design: add `$EXREG' for JSON Model extended regex
+- [x] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
+- [x] c-backend: predefs for $DATE, $URL, $REGEX
+- [x] backend: report errors
+- [x] python: cleanup ultimate model reliance on local defs
+- [x] backend: switch all `Inst` functions to `Block` to simplify code concatenation
+- [x] static: prioritize c for speed, js for usability
+- [x] js-backend: fix unique for non scalars (still 0 === 0.0)
+- [x] tests: move `FOO-check.out` to `FOO.check`
+- [x] js-backend: allow to generate a module only, with `mjs`
+- [x] py-backend: allow to generate a simple module only, with `mpy`
+- [x] c-backend: allow to generate a simple object file only
+- [x] command: rethink code/executable/module generation options
+- [x] js-backend: add javascript backend and runtime and working tests
+- [x] c-backend: add `qsort_r` code for Windows and MacOS (blind)
+- [x] backend: add `path` and `rep` to str functions
+- [x] tests: fix strange issue with `make check` in `mv-03`
+- [x] docs: add a tutorial tour
+- [x] js-backend: add official [npm module](https://www.npmjs.com/package/json_model_runtime) on `npmjs`.
+- [x] design: add `"$DATETIME"` and `"$TIME"`
+- [x] command: regex engine selection
+- [x] c-backend: add `re2` support
+- [x] c-backend: default to `re2`
+- [x] js-backend: add `re2` (backend, node only) support
+- [x] command: allow `-I` and `-L` for C compilation
+- [x] static: re optimize `^...` using starts with when possible (idea from blaze paper)
+- [x] static: re optimize `...$` and `^...$`
+- [x] pr: collect cloc about compiler (parts) and runtimes
+- [x] design: allow merge to handle `$ANY` values on one side
+- [x] design: import definitions with `<` in `%`
+- [x] command: check loose option propagation
+- [x] c-frontend: add support for `jsonl`
+- [x] static: optimize open must/may prop checks by dropping loop
+- [x] static: implement varlen
+- [x] py-frontend: add support for `jsonl`
+- [x] js-frontend: add support for `jsonl`
+- [x] py-frontend: add specific `--jsonschema-benchmark` option
+- [x] js-frontend: add specific `--jsonschema-benchmark` option
+- [x] design: add more predefs such as `OBJECT` or `ANYOBJECT`, `ARRAY` or `ANYARRAY`? NO.
+- [x] sql-backend: generate PL/pgSQL functions to validate JSONB data
+- [x] sql-backend: add generic entry function
+- [x] sql-backend: add testing capability
+- [x] sql-backend: add necessary support function (nearly)
+- [x] sql-backend: implement basic regex
+- [x] tests: add sql to pytest
+- [x] tests: parallelize sql checks in makefile
+- [x] sql-backend: implement extended regex
+- [x] tests: add sql.check to pytest
+- [x] tests: parallelize sql checks in pytest
+- [x] tuto: add PL/pgSQL entry
+- [x] python: rerun type check (some ignore added, but a few fixes as well)
+- [x] python: rerun style check (ruff, drop microsoft uncooperative flake8)
+- [x] design: add import `<` with scalar
+- [x] js: ~allow to run with nvm stable?~ nope, nvm is a shell function, must use path
+- [x] sql-backend: reduce extension loading verbosity
+- [x] model: warn on url-looking definitions
+- [x] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
+- [x] tests: fix test vector numbering to count actual tests, not items
+- [x] schema: improve generation with some constraints
+- [x] tests: fix `mv-0a/base-021.model.json` issue with C json-model
+- [x] tuto: add further reading pointers in the conclusion
+- [x] static: keep some model comments in generated code
+- [x] schema: generate valid schema from JSON Model meta-model
+- [x] python: fix internal checker on test cases
+- [x] js-backend: warn about strict/loose
+- [x] sql-backend: warn about strict/loose
+- [x] sql-backend: package support as an extension
+- [x] pr: register `json-model.org` domain
+- [x] doc: bootstrap jmc manpage with pandoc
+- [x] pr: setup official http/https web page
+- [x] pr: improve official web page with docsify
+- [x] optim: simplify int constraints
+- [x] optim: simplify some property regex
+- [x] model: add `pgxn` model
+- [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
+- [x] doc: complete jmc manpage
+- [x] pr: publish as a [python package](https://pypi.org/project/json-model-compiler/)
+- [x] pr: howto entry about installation
+- [x] pr: bootstrap spec
+- [x] pr: bootstrap doc
+- [x] pr: bootstrap api
+- [x] pr: add cover page
+- [x] pr: add front page to `models`
+- [x] pr: fix http requests without `.model.json` suffix (cri conf)
+- [x] pr: provide a non-root docker
+- [x] command: add --static compilation option to avoid dependencies?
+- [x] pr: publish the docker image `zx80/jmc:2.0b1`
+- [x] pr: use docker for tuto
+- [x] docker: allow to execute stuff inside the docker
+- [x] pl-backend: add a Perl backend
+- [x] tests: add pl tests
+- [x] backends: generate a short version string for internal tests
+- [x] tests: fix `test_models_pl`
+- [x] command: reject models and values with duplicated props by default
+- [x] pr: add pl to docker
+- [x] pr: add pl to tuto
+- [x] pr: add pl to readme
+- [x] pl-backend: fix `--jsonl` loading and improve jsonschema-benchmark output
+- [x] pr: add jmc-pl to jsonschema-benchmark
+- [x] docker: add `help` and `run` to docker wrapper
+- [x] pr: review readme for docker
+- [x] python: refactor preproc vs compile vs codegen…
+- [x] command: write a man-page or similar?
+- [x] pl-frontend: expand `--help`
+- [x] pr: add pl to howto
+- [x] pl-backend: check perl module package generation.
+- [x] design: object comments starting with `#`, not just `#`
+- [x] design: array comments `# …` to be ignored
+- [x] frontends: add `--no-report`
+- [x] pr: howto entry about python code
+- [x] pr: update `models/...` to take advantage of multi-comments
+- [x] pr: ask for pause account
+- [x] pr: ship man page with `--doc` option
+- [x] pl-backend: move to subdir + jsb PR update
+- [x] export: simple stuff to python pydantic
+- [x] pr: tuto pydantic export example
+- [x] export: use pydantic predefs and the class syntax
+- [x] pr: readme pydantic export example
+- [x] export: possible generate the root model
+- [x] java-backend: jackson gson ~jsonp moshi~
+  see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
+- [x] java-backend: add code generator and runtime, with abstracted json representation
+- [x] java-backend: pass validation tests with jackson
+- [x] java-backend: pass validation tests with gson
+- [x] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
+- [x] test: enable java tests with pytest
+- [x] command: allow direct java compilation
+- [x] pr: update tuto with some Java
+- [x] command: fix handling of stdin for a model
+- [x] pr: publish pl runtime on cpan
+- [x] java-backend: env `JSON_MODEL_JAVA_JSON_LIB` can control JSON lib selection
+- [x] java-fe: add help stuff
+- [x] java-backend: use package if set
+- [x] sql-backend: handle package as schema name if set
+- [x] java-fe: implement list option
+- [x] pr: add java to docker
+- [x] \*-backend: add `$JSON` predef for all
+- [x] pr: add java to tuto
+- [x] pr: fix java utf8 with docker
+- [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
+- [x] pr: docker tuto script fix pull
+- [x] command: add `--jsonl` support
+- [x] pr: java-backend maven packaging and publication
+- [x] pr: update example re in tuto
+- [x] dev: complete publish task in root makefile
+- [x] pr: review readme, what is the introductory story?
+- [x] java-backend: fix `mv-0a/base-18` unique
+- [x] qa: rerun all pytest checks
+- [x] qa: rerun all source checks
+- [x] qa: ensure that full validation runs in docker zx80/jmc
+- [x] src: restructure runtime per language
+- [x] pr: write `everything.model.json` for illustration and test
+- [x] command: add cache management options, eg cleaning, ignore…
+- [x] java-backend: jsonp tested with joy
+- [x] java-backend: jsonp with johnzon, same issues compared to joy…
+- [x] design: check `$BOOL` vs `$BOOLEAN` support
+- [x] pr: complete spec
+- [x] design: force static information on `@` constraints for optimizations
+- [x] pr: howto entry about python dyn code
+- [x] pr: add about project page which include some stats
+- [x] pr: howto entry about python projects
+- [x] pr: restructure web site, avoid some duplication
+- [x] pr: python static api
+- [x] pr: python dynamic api
+- [x] pr: js api
+- [x] pr: c api
+- [x] tests: fix generated json model schema test by switching to jschon
+- [x] pr: plpgsql api
+- [x] pr: perl api
+- [x] pr: java api
+- [x] pr: js howto
+- [x] c-backend: add inlining and branch hints
+- [x] c-frontend: fix --version display
+- [x] py-frontend: fix line display for jsonl and test vectors
+- [x] java-frontend: improve check interface and calls
+- [x] js-frontend: fix line numbering for jsonl
+- [x] py-frontend: fix line numbering for jsonl
+- [x] js-frontend: do several iterations to measure the loop overhead
+- [x] python: fix venv installation issue with `pl/JSON` directory
+- [x] pr: improve tuto docker launch
+- [x] pl-backend: add function declarations, needed for some recursions
+- [x] pl-backend: work around reference issues
+- [x] command: add `--schema-version` to force schema version output
+- [x] pr: remove _wip_ cover page from web site
