@@ -216,9 +216,14 @@ jm_json_cmp(const json_t *v1, const json_t *v2)
 #define UNIQUE_JSON_ARRAY_HASH_LIMIT 200
 #endif // UNIQUE_JSON_ARRAY_HASH_LIMIT
 
+// even higher seems ok, up to 1024
 #ifndef UNIQUE_OBJECT_ARRAY_HASH_LIMIT
 #define UNIQUE_OBJECT_ARRAY_HASH_LIMIT 512
 #endif // UNIQUE_OBJECT_ARRAY_HASH_LIMIT
+
+#ifndef UNIQUE_INTEGER_ARRAY_HASH_LIMIT
+#define UNIQUE_INTEGER_ARRAY_HASH_LIMIT 54
+#endif // UNIQUE_INTEGER_ARRAY_HASH_LIMIT
 
 typedef struct {
     json_t *json;
@@ -226,7 +231,7 @@ typedef struct {
 } jm_json_hash_t;
 
 static bool
-json_array_unique_hash(const json_t *val, size_t size)
+jm_json_array_unique_hash(const json_t *val, size_t size)
 {
     jm_json_hash_t array[size];
 
@@ -243,14 +248,19 @@ json_array_unique_hash(const json_t *val, size_t size)
     return true;
 }
 
+// re-entrant quick sort helpers
 #if defined(_WIN64)
 #  define qsort_r qsort_s
 #endif
 
 #if defined(_WIN64) || defined(__APPLE__)
 typedef int(*jm_cmp_r_fun_t)(void *, const void *, const void *);
-#else  // Linux, Unix, whatever
+#  define CMP_R(name, vtype) \
+     name(void *duplicate, const vtype *v1, const vtype *v2)
+#else  // ISO - Linux, Unix, whatever
 typedef int(*jm_cmp_r_fun_t)(const void *, const void *, void *);
+#  define CMP_R(name, vtype) \
+     name(const vtype *v1, const vtype *v2, void *duplicate)
 #endif
 
 /*
@@ -258,13 +268,7 @@ typedef int(*jm_cmp_r_fun_t)(const void *, const void *, void *);
  */
 // NOTE fast version which stops comparing once a duplicate has been seen:
 // hopefully an optimized qsort implementation can use this to return early.
-#if defined(_WIN64) || defined(__APPLE__)
-static int
-jm_json_cmp_r(void *duplicate, const json_t **v1, const json_t **v2)
-#else  // ISO
-static int
-jm_json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
-#endif
+static int CMP_R(jm_json_cmp_r, json_t *)
 {
     // shortcut: no sorting once a duplicate has been found
     if (*((bool *) duplicate))
@@ -286,7 +290,7 @@ jm_json_array_unique(const json_t *val)
     if (size <= 1)
         return true;
     if (size <= UNIQUE_JSON_ARRAY_HASH_LIMIT)
-        return json_array_unique_hash(val, size);
+        return jm_json_array_unique_hash(val, size);
 
     const json_t *array[size];
     // borrow array items into a copy for sorting
@@ -312,13 +316,7 @@ jm_json_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
 /*
  * UNIQUE STRING ARRAY
  */
-#if defined(_WIN64) || defined(__APPLE__)
-static int
-jm_str_cmp_r(void *duplicate, const char **v1, const char **v2)
-#else
-static int
-jm_str_cmp_r(const char **v1, const char **v2, void *duplicate)
-#endif
+static int CMP_R(jm_str_cmp_r, char *)
 {
     // shortcut: no sorting once a duplicate has been found
     if (*((bool *) duplicate))
@@ -338,7 +336,7 @@ jm_str_array_unique(const json_t *val)
     if (size <= 1)
         return true;
     if (size <= UNIQUE_STRING_ARRAY_HASH_LIMIT)
-        return json_array_unique_hash(val, size);
+        return jm_json_array_unique_hash(val, size);
 
     const char *array[size];
     for (size_t i = 0; i < size; i++)
@@ -387,13 +385,7 @@ jm_object_propval_obj_cmp(const jm_object_propval_t *op1, const jm_object_propva
     return jm_json_object_pv_cmp(op1->propvals, op2->propvals, os1);
 }
 
-#if defined(_WIN64) || defined(__APPLE__)
-static int
-jm_obj_cmp_r(void *duplicate, const jm_object_proval_t **v1, const jm_object_propval_t **v2)
-#else
-static int
-jm_obj_cmp_r(const jm_object_propval_t *v1, const jm_object_propval_t *v2, void *duplicate)
-#endif
+static int CMP_R(jm_obj_cmp_r, jm_object_propval_t)
 {
     // shortcut: no sorting once a duplicate has been found
     if (*((bool *) duplicate))
@@ -413,7 +405,7 @@ jm_obj_array_unique(const json_t *val)
     if (size <= 1)
         return true;
     if (size <= UNIQUE_OBJECT_ARRAY_HASH_LIMIT)
-        return json_array_unique_hash(val, size);
+        return jm_json_array_unique_hash(val, size);
 
     size_t nprops = 0;
 
@@ -454,6 +446,62 @@ jm_obj_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool unique = jm_obj_array_unique(val);
     if (unlikely(!unique && rep))
         jm_report_add_entry(rep, "non unique object array", path);
+    return unique;
+}
+
+/* UNIQUE INT ARRAY
+ */
+static int CMP_R(jm_int_cmp_r, int64_t)
+{
+    // shortcut: no sorting once a duplicate has been found
+    if (*((bool *) duplicate))
+        return 0;
+    // else do compare
+    int cmp = v2 < v1 ? -1 : v2 > v1 ? 1 : 0;
+    if (cmp == 0)
+        *((bool *) duplicate) = true;
+    return cmp;
+}
+
+// we assume that the array type is already checked
+bool
+jm_int_array_unique(const json_t *val)
+{
+    size_t size = json_array_size(val);
+    if (size <= 1)
+        return true;
+
+    int64_t array[size];
+
+    // value based
+    if (size <= UNIQUE_INTEGER_ARRAY_HASH_LIMIT)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            int64_t ival = json_integer_value(json_array_get(val, i));
+            for (int j = 0; j < i; j++)
+                if (ival == array[j])
+                    return false;
+            array[i] = ival;
+        }
+        return true;
+    }
+
+    // else sort based
+    for (int i = 0; i < size; i++)
+        array[i] = json_integer_value(json_array_get(val, i));
+
+    bool duplicate = false;
+    qsort_r(array, size, sizeof(int64_t), (jm_cmp_r_fun_t) jm_int_cmp_r, &duplicate);
+    return !duplicate;
+}
+
+bool
+jm_int_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool unique = jm_int_array_unique(val);
+    if (unlikely(!unique && rep))
+        jm_report_add_entry(rep, "non unique integer array", path);
     return unique;
 }
 

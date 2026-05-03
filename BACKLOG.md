@@ -12,8 +12,10 @@
 - [x] c-backend: object unique implementation avoids repeated prop extractions
 - [x] c-backend: unique with hash, aka faster non sorting algorithm for small array size
 - [x] c-backend: set unique with hash limits based on tests
-- [ ] c-backend: check for other useful types for unique with hash
+- [x] c-backend: check for other useful types for unique with hash - most str, some int/obj
+- [x] c-backend: specialized unique int array implementation
 - [ ] c-backend: improve unique with hash using int set?
+- [ ] c-backend: improve str hash?
 - [ ] perl-backend: do not import RE2 unless required in generated script
 - [ ] perf: show schema to model conversion times
 - [ ] optim: remove min props covered by mandatory props

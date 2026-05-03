@@ -795,8 +795,10 @@ class CLangJansson(Language):
             return super().check_call(name, val, path, is_ptr=is_ptr, is_raw=is_raw)  # type: ignore
 
     def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
+        # checking uniqueness is expensive, use specialized versions to help performance
         fun = (
             "jm_str_array_is_unique" if titem is str else
+            "jm_int_array_is_unique" if titem is int else
             "jm_obj_array_is_unique" if titem is dict else
             "jm_json_array_is_unique"
         )

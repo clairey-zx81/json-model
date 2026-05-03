@@ -100,6 +100,9 @@ extern int jm_json_object_cmp(const json_t *, const json_t *);
 extern bool jm_json_array_unique(const json_t *);
 extern bool jm_obj_array_unique(const json_t *);
 extern bool jm_str_array_unique(const json_t *);
+extern bool jm_int_array_unique(const json_t *);
+
+// multiple-of feature is a numerical pain
 extern double jm_float_modulo(double d1, double d2);
 
 /*
@@ -133,6 +136,7 @@ extern bool jm_check_fun_string(jm_check_fun_t, const char *, jm_path_t *, jm_re
 extern bool jm_json_array_is_unique(const json_t *, jm_path_t *, jm_report_t *);
 extern bool jm_obj_array_is_unique(const json_t *, jm_path_t *, jm_report_t *);
 extern bool jm_str_array_is_unique(const json_t *, jm_path_t *, jm_report_t *);
+extern bool jm_int_array_is_unique(const json_t *, jm_path_t *, jm_report_t *);
 
 /*
  * property mapping management

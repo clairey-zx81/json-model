@@ -15,21 +15,24 @@ gprof -l schema.out > gprof-l.txt
 
 ### Unique
 
-Type of unique found in benchmark: 9/37 (24%)
+Unique found in benchmark: 9/37 (24%)
+
+Type of unique found: str 85%, obj 8%, int 7%.
 
 - cspell: 2 string
 - deno: 4 string
-- draft04: 3 string, any ("enum", most often strings?) ; "type" is always short
+- draft04: 3 string, any (`enum`, most often strings?) ; `type` is always short
 - jsconfig: 13 string, 1 object (open, one optional "path" prop)
 - krakend: 9 string, 4 integer
-- lazygit: 11 string, 2 object (with 1/3 mandatory props)
-- stylecop: 4 string (2 misplaced)
-- ui5-mft: 1 object, 1 any, 2 string
+- lazygit: 11 string, 2 object (with 1-3 mandatory props)
+- stylecop: 4 string (in passing: 2 misplaced)
+- ui5-mft: 1 object, 1 any (`enum`), 2 string
 - unreal: 15 string, 2 object
 
-TODO typical length of values found in benchmark?
-TODO missing unique? wrt number of arrays?
-TODO check enum item types?
+TODO typical length of values found in benchmarks?
+TODO missing unique? wrt number of arrays? (if the array represents a set, items should be unique)
+TODO check enum item types in bench?
+TODO check quality of schemas
 
 ## Cspell
 

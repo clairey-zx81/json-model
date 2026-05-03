@@ -11,6 +11,11 @@ err()
     exit $status
 }
 
+[ $# -lt 2 -o $# -gt 3 ] && err 0 "usage: $0 type limit [base]"
+
+
+mtype=$1 limit=$2 base=${3:-4242}
+
 gen_model()
 {
     local mtype=$1
@@ -20,7 +25,9 @@ gen_model()
             echo -n '""' ;;
         OBJECT)
             echo -n '{"": ""}' ;;
-        JSON|INTEGER)
+        JSON)
+            echo -n '{"": "$ANY"}' ;;
+        INTEGER)
             echo -n '0' ;;
         *)
             err 1 "unexpected model type: $mtype" ;;
@@ -36,7 +43,9 @@ gen_one_val()
             echo -n "\"$(($n + $base))\"" ;;
         OBJECT)
             echo -n "{\"foo\": \"$0x$(($n + $base))\", \"bla\": \"$((3 * $n + $base))\" }" ;;
-        JSON|INTEGER)
+        JSON)
+            echo -n "{\"foo\": $(( $n % 3 )), \"bla\": \"Susie$(( 17 * $n % 123 ))\", \"diff\": [0, 42, $n]}" ;;
+        INTEGER)
             echo -n "$((7 * $n + $base))" ;;
         *)
             err 1 "unexpected model type: $mtype" ;;
@@ -55,13 +64,11 @@ gen_val()
     echo "]"
 }
 
-mtype=$1 limit=$2 base=${3:-4242}
-
 gen_model $mtype > uh.model.json
 gen_val $mtype $limit > uh.val.json
-jmc -o uh.c uh.model.json
-jmc -o uh-hash.out -DUNIQUE_${mtype}_ARRAY_HASH_LIMIT=$limit uh.model.json
-jmc -o uh-sort.out -DUNIQUE_${mtype}_ARRAY_HASH_LIMIT=0 uh.model.json
+jmc -o uh.c uh.model.json || err 1 "compilation to C failed"
+jmc -o uh-hash.out -DUNIQUE_${mtype}_ARRAY_HASH_LIMIT=$limit uh.model.json || err 1 "compilation failed"
+jmc -o uh-sort.out -DUNIQUE_${mtype}_ARRAY_HASH_LIMIT=0 uh.model.json || err 1 "compilation failed"
 echo -n "hash: "
 ./uh-hash.out -T 1000 uh.val.json
 echo -n "sort: "
