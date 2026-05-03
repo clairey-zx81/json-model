@@ -9,7 +9,7 @@ cc -I$JMC_RUNTIME/c -I/usr/local/linclude -DCHECK_FUNCTION_NAME=check_model -DRE
 schema.out --jsonl -T 10000
 gprof schema.out > gprof.txt
 gprof -l schema.out > gprof-l.txt
-``` 
+```
 
 ## Features
 
