@@ -1,1 +1,1 @@
-JMC.opts    +=  --no-reporting --no-comment
+JMC.opts    +=  --no-reporting --no-comment --regex-engine=re

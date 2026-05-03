@@ -1,7 +1,7 @@
 #! /bin/env python
 import math
 from typing import Callable
-import re2 as re
+import re as re
 from json_model.runtime import *
 __version__ = "2"
 

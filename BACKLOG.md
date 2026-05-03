@@ -15,9 +15,9 @@
 - [x] c-backend: check for other useful types for unique with hash - most str, some int/obj
 - [x] c-backend: specialized unique int array implementation
 - [x] c-backend: ~try memcmp instead of strcmp where appropriate~ not interesting…
+- [x] perl-backend: do not import RE2 unless required in generated script, ok test added
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
-- [ ] perl-backend: do not import RE2 unless required in generated script
 - [ ] perf: show schema to model conversion times
 - [ ] optim: remove min props covered by mandatory props
 - [ ] front: show git hash on `--version`?

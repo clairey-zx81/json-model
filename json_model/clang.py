@@ -593,6 +593,10 @@ class CLangJansson(Language):
              set_caps=(type(None), bool, int, float, str)
         )  # type: ignore
 
+        # re means default
+        if relib == "re":
+            relib = "pcre2"
+
         assert byte_order in ("le", "be"), f"expecting little (le) or big (be) endian: {byte_order}"
         assert relib in ("pcre2", "re2"), f"regex engine {relib} is not supported, try: pcre2/re2"
 
