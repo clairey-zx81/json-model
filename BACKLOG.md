@@ -14,6 +14,7 @@
 - [x] c-backend: set unique with hash limits based on tests
 - [x] c-backend: check for other useful types for unique with hash - most str, some int/obj
 - [x] c-backend: specialized unique int array implementation
+- [x] c-backend: ~try memcmp instead of strcmp where appropriate~ not interesting…
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
 - [ ] perl-backend: do not import RE2 unless required in generated script
