@@ -12,10 +12,10 @@ B<jmc> - JSON Model Compiler
      [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
      [--allow-duplicates] [-[-no]-extend] [--loose-int] [--strict-int] [--loose-float]
      [--strict-float] [--loose-number] [--strict-number] [--loose] [--check]
-     [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
+     [-[-no]-single-line-regex] [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
      [--format {json,yaml,py,c,js,plpgsql,pl,java}] [-[-no]-sort] [--indent INDENT]
      [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
-     [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS]
+     [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS] [--precompiled]
      [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
      [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version] [--short-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
@@ -25,6 +25,8 @@ B<jmc> - JSON Model Compiler
      [--max-strcmp-cset SIZE] [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] (--model MODEL | MODEL) [VALUES ...]
+
+                        assume single line regex
 
 =head1 DESCRIPTION
 
@@ -208,6 +210,10 @@ default is to preserve the initial order within each category.
 
 whether to check value contents wrt predef declarations.
 
+=item B<--single-line-regex> vs B<--no-single-line-regex>
+
+whether to assume that regex are implicitely single line (C<s> option).
+
 =back
 
 =head2 C Compilation
@@ -249,6 +255,10 @@ maximum size for string constant set expansion.
 =item B<--byte-order ORDER>
 
 set byte order for string comparison, either C<le> (little endian) or C<be> (big endian).
+
+=item B<--precompiled>
+
+use precompiled runtime.
 
 =back
 
