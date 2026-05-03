@@ -21,7 +21,7 @@
 - [ ] perf: show schema to model conversion times
 - [ ] optim: remove min props covered by mandatory props
 - [ ] front: show git hash on `--version`?
-- [ ] js-backend: remove useless braces
+- [ ] js-backend: remove useless braces and semi-colons
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
