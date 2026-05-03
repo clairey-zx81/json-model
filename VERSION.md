@@ -1,6 +1,8 @@
 # JSON Model Compiler Versions
 
-## 2.0b46
+## 2.0b47
+
+## 2.0b46 2026-05-03
 
 - [x] c-backend: test real then int when checking for a number
 - [x] static: provide type of array elements for unique
