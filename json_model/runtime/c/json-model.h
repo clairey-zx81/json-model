@@ -229,8 +229,11 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
 #define jm_str_eq(s1, s2) (strcmp(s1, s2) == 0)
 #define jm_str_ne(s1, s2) (strcmp(s1, s2) != 0)
 
-#define jm_i4(s) (*(uint32_t *)(s))
-#define jm_i8(s) (*(uint64_t *)(s))
+#define jm_i4(s) (*(int32_t *)(s))
+#define jm_i8(s) (*(int64_t *)(s))
+
+#define jm_u4(s) (*(uint32_t *)(s))
+#define jm_u8(s) (*(uint64_t *)(s))
 
 // byte masks
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
@@ -254,23 +257,23 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
 // known size (number bytes, possibly including null-termination) string comparisons
 #define jm_str_eq_0(s) ((*(s)) == '\0')
 #define jm_str_eq_1(s, c) ((*(s)) == ((uint8_t) (c)))
-#define jm_str_eq_2(s, c) ((jm_i4(s) & jm_B2) == (c))
-#define jm_str_eq_3(s, c) ((jm_i4(s) & jm_B3) == (c))
-#define jm_str_eq_4(s, c) (jm_i4(s) == (c))
-#define jm_str_eq_5(s, c) ((jm_i8(s) & jm_B5) == (c))
-#define jm_str_eq_6(s, c) ((jm_i8(s) & jm_B6) == (c))
-#define jm_str_eq_7(s, c) ((jm_i8(s) & jm_B7) == (c))
-#define jm_str_eq_8(s, c) (jm_i8(s) == (c))
+#define jm_str_eq_2(s, c) ((jm_u4(s) & jm_B2) == (c))
+#define jm_str_eq_3(s, c) ((jm_u4(s) & jm_B3) == (c))
+#define jm_str_eq_4(s, c) (jm_u4(s) == (c))
+#define jm_str_eq_5(s, c) ((jm_u8(s) & jm_B5) == (c))
+#define jm_str_eq_6(s, c) ((jm_u8(s) & jm_B6) == (c))
+#define jm_str_eq_7(s, c) ((jm_u8(s) & jm_B7) == (c))
+#define jm_str_eq_8(s, c) (jm_u8(s) == (c))
 
 #define jm_str_ne_0(s) ((*(s)) != '\0')
 #define jm_str_ne_1(s, c) ((*(s)) != ((uint8_t) (c)))
-#define jm_str_ne_2(s, c) ((jm_i4(s) & jm_B2) != (c))
-#define jm_str_ne_3(s, c) ((jm_i4(s) & jm_B3) != (c))
-#define jm_str_ne_4(s, c) (jm_i4(s) != (c))
-#define jm_str_ne_5(s, c) ((jm_i8(s) & jm_B5) != (c))
-#define jm_str_ne_6(s, c) ((jm_i8(s) & jm_B6) != (c))
-#define jm_str_ne_7(s, c) ((jm_i8(s) & jm_B7) != (c))
-#define jm_str_ne_8(s, c) (jm_i8(s) != (c))
+#define jm_str_ne_2(s, c) ((jm_u4(s) & jm_B2) != (c))
+#define jm_str_ne_3(s, c) ((jm_u4(s) & jm_B3) != (c))
+#define jm_str_ne_4(s, c) (jm_u4(s) != (c))
+#define jm_str_ne_5(s, c) ((jm_u8(s) & jm_B5) != (c))
+#define jm_str_ne_6(s, c) ((jm_u8(s) & jm_B6) != (c))
+#define jm_str_ne_7(s, c) ((jm_u8(s) & jm_B7) != (c))
+#define jm_str_ne_8(s, c) (jm_u8(s) != (c))
 
 /*
  * Shared high-level entry point
