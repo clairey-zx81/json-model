@@ -369,8 +369,27 @@
 - [x] c-frontend: fix --version display
 - [x] py-frontend: fix line display for jsonl and test vectors
 
-## 2.0b8 2025-08-29
+## 2.0b7 2025-08-28
 
+- [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
+- [x] pr: docker tuto script fix pull
+- [x] command: add `--jsonl` support
+- [x] pr: java-backend maven packaging and publication
+- [x] pr: update example re in tuto
+- [x] dev: complete publish task in root makefile
+- [x] pr: review readme, what is the introductory story?
+- [x] java-backend: fix `mv-0a/base-18` unique
+- [x] qa: rerun all pytest checks
+- [x] qa: rerun all source checks
+- [x] qa: ensure that full validation runs in docker zx80/jmc
+- [x] src: restructure runtime per language
+- [x] pr: write `everything.model.json` for illustration and test
+- [x] command: add cache management options, eg cleaning, ignore…
+- [x] java-backend: jsonp tested with joy
+- [x] java-backend: jsonp with johnzon, same issues compared to joy…
+- [x] design: check `$BOOL` vs `$BOOLEAN` support
+- [x] pr: complete spec
+- [x] design: force static information on `@` constraints for optimizations
 - [x] pr: howto entry about python dyn code
 - [x] pr: add about project page which include some stats
 - [x] pr: howto entry about python projects
@@ -385,7 +404,87 @@
 - [x] pr: java api
 - [x] pr: js howto
 
-## 2.0b7 2025-08-28
+## 2.0b4 2025-08-12
+
+- [x] command: fix handling of stdin for a model
+- [x] pr: publish pl runtime on cpan
+- [x] java-backend: env `JSON_MODEL_JAVA_JSON_LIB` can control JSON lib selection
+- [x] java-fe: add help stuff
+- [x] java-backend: use package if set
+- [x] sql-backend: handle package as schema name if set
+- [x] java-fe: implement list option
+- [x] pr: add java to docker
+- [x] \*-backend: add `$JSON` predef for all
+- [x] pr: add java to tuto
+- [x] pr: fix java utf8 with docker
+
+## 2.0b3 2025-08-09
+
+- [x] pr: howto entry about installation
+- [x] pr: bootstrap spec
+- [x] pr: bootstrap doc
+- [x] pr: bootstrap api
+- [x] pr: add cover page
+- [x] pr: add front page to `models`
+- [x] pr: fix http requests without `.model.json` suffix (cri conf)
+- [x] pr: provide a non-root docker
+- [x] command: add --static compilation option to avoid dependencies?
+- [x] pr: publish the docker image `zx80/jmc:2.0b1`
+- [x] pr: use docker for tuto
+- [x] docker: allow to execute stuff inside the docker
+- [x] pl-backend: add a Perl backend
+- [x] tests: add pl tests
+- [x] backends: generate a short version string for internal tests
+- [x] tests: fix `test_models_pl`
+- [x] command: reject models and values with duplicated props by default
+- [x] pr: add pl to docker
+- [x] pr: add pl to tuto
+- [x] pr: add pl to readme
+- [x] pl-backend: fix `--jsonl` loading and improve jsonschema-benchmark output
+- [x] pr: add jmc-pl to jsonschema-benchmark
+- [x] docker: add `help` and `run` to docker wrapper
+- [x] pr: review readme for docker
+- [x] python: refactor preproc vs compile vs codegen…
+- [x] command: write a man-page or similar?
+- [x] pl-frontend: expand `--help`
+- [x] pr: add pl to howto
+- [x] pl-backend: check perl module package generation.
+- [x] design: object comments starting with `#`, not just `#`
+- [x] design: array comments `# …` to be ignored
+- [x] frontends: add `--no-report`
+- [x] pr: howto entry about python code
+- [x] pr: update `models/...` to take advantage of multi-comments
+- [x] pr: ask for pause account
+- [x] pr: ship man page with `--doc` option
+- [x] pl-backend: move to subdir + jsb PR update
+- [x] export: simple stuff to python pydantic
+- [x] pr: tuto pydantic export example
+- [x] export: use pydantic predefs and the class syntax
+- [x] pr: readme pydantic export example
+- [x] export: possible generate the root model
+- [x] java-backend: jackson gson ~jsonp moshi~
+  see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
+- [x] java-backend: add code generator and runtime, with abstracted json representation
+- [x] java-backend: pass validation tests with jackson
+- [x] java-backend: pass validation tests with gson
+- [x] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
+- [x] test: enable java tests with pytest
+- [x] command: allow direct java compilation
+- [x] pr: update tuto with some Java
+
+## 2.0b1 2025-07-20
+
+- [x] sql-backend: package support as an extension
+- [x] pr: register `json-model.org` domain
+- [x] doc: bootstrap jmc manpage with pandoc
+- [x] pr: setup official http/https web page
+- [x] pr: improve official web page with docsify
+- [x] optim: simplify int constraints
+- [x] optim: simplify some property regex
+- [x] model: add `pgxn` model
+- [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
+- [x] doc: complete jmc manpage
+- [x] pr: publish as a [python package](https://pypi.org/project/json-model-compiler/)
 
 ## Previous
 
@@ -624,95 +723,3 @@
 - [x] python: fix internal checker on test cases
 - [x] js-backend: warn about strict/loose
 - [x] sql-backend: warn about strict/loose
-- [x] sql-backend: package support as an extension
-- [x] pr: register `json-model.org` domain
-- [x] doc: bootstrap jmc manpage with pandoc
-- [x] pr: setup official http/https web page
-- [x] pr: improve official web page with docsify
-- [x] optim: simplify int constraints
-- [x] optim: simplify some property regex
-- [x] model: add `pgxn` model
-- [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
-- [x] doc: complete jmc manpage
-- [x] pr: publish as a [python package](https://pypi.org/project/json-model-compiler/)
-- [x] pr: howto entry about installation
-- [x] pr: bootstrap spec
-- [x] pr: bootstrap doc
-- [x] pr: bootstrap api
-- [x] pr: add cover page
-- [x] pr: add front page to `models`
-- [x] pr: fix http requests without `.model.json` suffix (cri conf)
-- [x] pr: provide a non-root docker
-- [x] command: add --static compilation option to avoid dependencies?
-- [x] pr: publish the docker image `zx80/jmc:2.0b1`
-- [x] pr: use docker for tuto
-- [x] docker: allow to execute stuff inside the docker
-- [x] pl-backend: add a Perl backend
-- [x] tests: add pl tests
-- [x] backends: generate a short version string for internal tests
-- [x] tests: fix `test_models_pl`
-- [x] command: reject models and values with duplicated props by default
-- [x] pr: add pl to docker
-- [x] pr: add pl to tuto
-- [x] pr: add pl to readme
-- [x] pl-backend: fix `--jsonl` loading and improve jsonschema-benchmark output
-- [x] pr: add jmc-pl to jsonschema-benchmark
-- [x] docker: add `help` and `run` to docker wrapper
-- [x] pr: review readme for docker
-- [x] python: refactor preproc vs compile vs codegen…
-- [x] command: write a man-page or similar?
-- [x] pl-frontend: expand `--help`
-- [x] pr: add pl to howto
-- [x] pl-backend: check perl module package generation.
-- [x] design: object comments starting with `#`, not just `#`
-- [x] design: array comments `# …` to be ignored
-- [x] frontends: add `--no-report`
-- [x] pr: howto entry about python code
-- [x] pr: update `models/...` to take advantage of multi-comments
-- [x] pr: ask for pause account
-- [x] pr: ship man page with `--doc` option
-- [x] pl-backend: move to subdir + jsb PR update
-- [x] export: simple stuff to python pydantic
-- [x] pr: tuto pydantic export example
-- [x] export: use pydantic predefs and the class syntax
-- [x] pr: readme pydantic export example
-- [x] export: possible generate the root model
-- [x] java-backend: jackson gson ~jsonp moshi~
-  see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
-- [x] java-backend: add code generator and runtime, with abstracted json representation
-- [x] java-backend: pass validation tests with jackson
-- [x] java-backend: pass validation tests with gson
-- [x] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
-- [x] test: enable java tests with pytest
-- [x] command: allow direct java compilation
-- [x] pr: update tuto with some Java
-- [x] command: fix handling of stdin for a model
-- [x] pr: publish pl runtime on cpan
-- [x] java-backend: env `JSON_MODEL_JAVA_JSON_LIB` can control JSON lib selection
-- [x] java-fe: add help stuff
-- [x] java-backend: use package if set
-- [x] sql-backend: handle package as schema name if set
-- [x] java-fe: implement list option
-- [x] pr: add java to docker
-- [x] \*-backend: add `$JSON` predef for all
-- [x] pr: add java to tuto
-- [x] pr: fix java utf8 with docker
-- [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
-- [x] pr: docker tuto script fix pull
-- [x] command: add `--jsonl` support
-- [x] pr: java-backend maven packaging and publication
-- [x] pr: update example re in tuto
-- [x] dev: complete publish task in root makefile
-- [x] pr: review readme, what is the introductory story?
-- [x] java-backend: fix `mv-0a/base-18` unique
-- [x] qa: rerun all pytest checks
-- [x] qa: rerun all source checks
-- [x] qa: ensure that full validation runs in docker zx80/jmc
-- [x] src: restructure runtime per language
-- [x] pr: write `everything.model.json` for illustration and test
-- [x] command: add cache management options, eg cleaning, ignore…
-- [x] java-backend: jsonp tested with joy
-- [x] java-backend: jsonp with johnzon, same issues compared to joy…
-- [x] design: check `$BOOL` vs `$BOOLEAN` support
-- [x] pr: complete spec
-- [x] design: force static information on `@` constraints for optimizations
