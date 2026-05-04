@@ -331,9 +331,61 @@
 
 ## 2.0b18 2025-09-11
 
+- [x] static: optimize function mapping by skipping intermediate functions if possible
+
+## 2.0b16 2025-09-09
+
 - [x] model: filter out all comments from transformations
 - [x] c-backend: improve overhead estimation accuracy
-- [x] static: optimize function mapping by skipping intermediate functions if possible
+
+## 2.0b15 2025-09-08
+
+- [x] pl-backend: work around reference issues
+- [x] command: add `--schema-version` to force schema version output
+- [x] pr: remove _wip_ cover page from web site
+
+## 2.0b13 2025-09-06
+
+- [x] pr: improve tuto docker launch
+- [x] pl-backend: add function declarations, needed for some recursions
+
+## 2.0b12 2025-09-02
+
+- [x] js-frontend: do several iterations to measure the loop overhead
+- [x] python: fix venv installation issue with `pl/JSON` directory
+
+## 2.0b11 2025-08-30
+
+- [x] py-frontend: fix line numbering for jsonl
+
+## 2.0b10 2025-08-30
+
+- [x] java-frontend: improve check interface and calls
+- [x] js-frontend: fix line numbering for jsonl
+
+## 2.0b9 2025-08-29
+
+- [x] c-backend: add inlining and branch hints
+- [x] c-frontend: fix --version display
+- [x] py-frontend: fix line display for jsonl and test vectors
+
+## 2.0b8 2025-08-29
+
+- [x] pr: howto entry about python dyn code
+- [x] pr: add about project page which include some stats
+- [x] pr: howto entry about python projects
+- [x] pr: restructure web site, avoid some duplication
+- [x] pr: python static api
+- [x] pr: python dynamic api
+- [x] pr: js api
+- [x] pr: c api
+- [x] tests: fix generated json model schema test by switching to jschon
+- [x] pr: plpgsql api
+- [x] pr: perl api
+- [x] pr: java api
+- [x] pr: js howto
+
+## 2.0b7 2025-08-28
 
 ## Previous
 
@@ -664,29 +716,3 @@
 - [x] design: check `$BOOL` vs `$BOOLEAN` support
 - [x] pr: complete spec
 - [x] design: force static information on `@` constraints for optimizations
-- [x] pr: howto entry about python dyn code
-- [x] pr: add about project page which include some stats
-- [x] pr: howto entry about python projects
-- [x] pr: restructure web site, avoid some duplication
-- [x] pr: python static api
-- [x] pr: python dynamic api
-- [x] pr: js api
-- [x] pr: c api
-- [x] tests: fix generated json model schema test by switching to jschon
-- [x] pr: plpgsql api
-- [x] pr: perl api
-- [x] pr: java api
-- [x] pr: js howto
-- [x] c-backend: add inlining and branch hints
-- [x] c-frontend: fix --version display
-- [x] py-frontend: fix line display for jsonl and test vectors
-- [x] java-frontend: improve check interface and calls
-- [x] js-frontend: fix line numbering for jsonl
-- [x] py-frontend: fix line numbering for jsonl
-- [x] js-frontend: do several iterations to measure the loop overhead
-- [x] python: fix venv installation issue with `pl/JSON` directory
-- [x] pr: improve tuto docker launch
-- [x] pl-backend: add function declarations, needed for some recursions
-- [x] pl-backend: work around reference issues
-- [x] command: add `--schema-version` to force schema version output
-- [x] pr: remove _wip_ cover page from web site
