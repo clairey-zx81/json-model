@@ -61,6 +61,31 @@ if res:
 
 This seems to reduce the execution time by up to 15%.
 
+## GeoJSON
+
+Time spent scanning arrays for numbers on a size 2-3 array.
+
+A few test cases have actual ints.
+Two test cases have 3 coordinates (142, 247).
+
+20% performance improvement by unrolling the array loop based
+on the sizes, pseudo code:
+
+```python
+size = array_size(val)
+if size >= minsize:
+    val0 = val[0]
+    val1 = val[1]
+    res = check_type(val0) and check_type(val1)
+    if res:
+        for i in range(minsize, size):
+            res = check_type(val[i])
+            if not res:
+                break
+else:
+    res = False
+```
+
 ## Helm
 
 Very small schema/model with 2 must-only 3-properties objects checked for strings.
