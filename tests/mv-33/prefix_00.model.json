@@ -1,0 +1,8 @@
+{
+  "#": "list type check unrolled prefix",
+  "@": [ "" ],
+  ">=": 2,
+  "!": true,
+  "!=": 3,
+  "<=": 4
+}

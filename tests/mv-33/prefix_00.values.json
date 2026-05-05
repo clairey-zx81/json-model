@@ -1,0 +1,22 @@
+[
+  "# size 2 or 4 array containing distinct strings",
+  [ true,  ["Susie", "Calvin"] ],
+  [ true,  ["X", "Y", "Z", "W"] ],
+  [ false, ["Hobbes", "Hobbes"] ],
+  [ false, [] ],
+  [ false, ["Hobbes"] ],
+  [ false, ["Susie", "Calvin", "Hobbes"] ],
+  [ false, ["X", "Y", "Z", "X"] ],
+  [ false, ["A", "B", "C", "D", "E"] ],
+  [ false, ["X", false] ],
+  [ false, ["X", "Y", "Z", null] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

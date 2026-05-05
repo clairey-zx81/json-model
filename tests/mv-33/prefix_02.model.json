@@ -1,0 +1,5 @@
+{
+  "#": "unbounded string array",
+  "@": [ "" ],
+  ">=": 2
+}

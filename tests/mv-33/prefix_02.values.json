@@ -1,0 +1,19 @@
+[
+  "# array containing 2 or more strings",
+  [ true,  ["Susie", "Calvin"] ],
+  [ true,  ["Susie", "Calvin", "Hobbes"] ],
+  [ true,  ["a", "b", "c", "d", "e", "f", "g", "h"] ],
+  [ false, ["Moe"] ],
+  [ false, [] ],
+  [ false, [1, 2] ],
+  [ false, ["Rosalyn", 2] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

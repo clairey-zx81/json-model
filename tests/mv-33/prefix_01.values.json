@@ -1,0 +1,19 @@
+[
+  "# 3 integers",
+  [ true, [1, 2, 3] ],
+  [ true, [0, 0, 0] ],
+  [ false, [] ],
+  [ false, [42] ],
+  [ false, [42, 2] ],
+  [ false, [1, 2, 3, 4] ],
+  [ false, [1, "deux", 3] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

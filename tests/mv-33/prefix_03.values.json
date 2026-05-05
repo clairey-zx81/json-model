@@ -1,0 +1,17 @@
+[
+  "# one or 2 strings",
+  [ true,  ["Susie"] ],
+  [ true,  ["Calvin", "Hobbes"] ],
+  [ false, [] ],
+  [ false, ["Susie", "Calvin", "Hobbes"] ],
+  [ false, [ 42 ] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

@@ -2,7 +2,11 @@
 
 ## Current Tasks
 
-- [ ] static: unroll (very) small array scans for simple type checks
+- [x] static: unroll small array scans for simple type checks
+- [x] test: cover more array unrolling cases
+- [ ] perf: check for unroll minsize parameter depending on language
+- [ ] static: improve reporting for unrolled array simple type check
+- [ ] front: add option to control array type check unrolling
 - [ ] optim: collect and display stats about what what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?

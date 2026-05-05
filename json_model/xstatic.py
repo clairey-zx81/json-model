@@ -2,6 +2,7 @@
 
 import re
 import json
+from functools import reduce
 
 from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
 from .mtypes import Jsonable, Number, JsonScalar
@@ -63,6 +64,13 @@ class CodeGenerator:
         self._globs = globs
         self._lang = language
         self._prefix = prefix
+        self._report = report
+        self._comment = comment
+        self._path = path
+        self._package = package
+        self._debug = debug
+
+        # optimizations
         self._map_threshold = map_threshold
         self._may_must_open_threshold = may_must_open_threshold
         self._must_only_threshold = must_only_threshold
@@ -71,11 +79,7 @@ class CodeGenerator:
         self._partition_threshold = partition_threshold
         self._map_share = map_share
         self._or_must_prop = or_must_prop
-        self._report = report
-        self._comment = comment
-        self._path = path
-        self._package = package
-        self._debug = debug
+        self._unroll_max_array_minsize = 4
 
         self._code = Code(language, fname, executable=execute, package=package)
 
@@ -264,8 +268,158 @@ class CodeGenerator:
             fun = self._getNameRef(jm, ref, [])
             return self._lang.check_call(fun, val, vpath, is_ptr=False, is_raw=is_str)
 
-    def _compileConstraint(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
-                           res: Var, val: JsonExpr, vpath: PathExpr):
+    def _minSize(self, model: ModelType) -> int:
+        # NOTE these are expected to be exclusive
+        if ">" in model:
+            assert isinstance(model[">"], int)
+            return model[">"] + 1
+        elif ">=" in model:
+            assert isinstance(model[">="], int)
+            return model[">="]
+        elif "=" in model:
+            assert isinstance(model["="], int)
+            return model["="]
+        else:
+           return 0
+
+    def _maxSize(self, model: ModelType) -> int|None:
+        # NOTE these are expected to be exclusive
+        if "<" in model:
+            assert isinstance(model["<"], int)
+            return model["<"] - 1
+        elif "<=" in model:
+            assert isinstance(model["<="], int)
+            return model["<="]
+        elif "=" in model:
+            assert isinstance(model["="], int)
+            return model["="]
+        else:
+           return None
+
+    def _isArrayPrefixOptim(self, jm: JsonModel, model: ModelType) -> bool:
+        """Whether to generate an array prefix optimization."""
+        if not isinstance(model, dict) or "@" not in model:
+            return False
+        tmodel = ultimate_model(jm, model["@"])
+        if not isinstance(tmodel, list) or len(tmodel) != 1:
+            return False
+        minsize = self._minSize(model)
+        if minsize == 0 or minsize > self._unroll_max_array_minsize:
+            return False
+        return is_base_model(tmodel[0]) is not None
+
+    def _arrayPrefixOptim(
+                self, jm: JsonModel, model: ModelType, mpath: ModelPath,
+                res: Var, val: JsonExpr, vpath: PathExpr,
+            ) -> Block:
+        """Unrolled array simple type check."""
+        # NOTE must be consistent with check from previous method
+        assert isinstance(model, dict) and "@" in model
+        tmodel = ultimate_model(jm, model["@"])
+        assert isinstance(tmodel, list) and len(tmodel) == 1
+        itype = is_base_model(tmodel[0])
+        minsize, maxsize = self._minSize(model), self._maxSize(model)
+        assert minsize <= self._unroll_max_array_minsize and minsize > 0
+
+        loose = jm._loose_float if itype is float else None
+
+        smpath = json_path(mpath)
+        gen = self._lang
+
+        ivars = [ gen.ident("item") for i in range(minsize) ]
+        icode = (
+            gen.lcom("unrolled prefix type check") +
+            reduce(
+                lambda l1, l2: l1 + l2,
+                [ gen.json_var(v, gen.arr_item_val(val, i), declare=True)
+                    for i, v in enumerate(ivars) ],
+                []
+            ) +
+            gen.bool_var(res, gen.and_op(*[gen.is_a(v, itype, loose=loose) for v in ivars]))
+        )
+
+        size = gen.ident("size")
+        if maxsize is None or maxsize > minsize:
+            # post prefix check
+            item = gen.ident("item")
+            if maxsize == minsize + 1:
+                icode += (
+                    gen.lcom("optional remaining item") +
+                    gen.if_stmt(
+                        gen.and_op(res, gen.num_cmp(size, "=", maxsize)),
+                        gen.json_var(item, gen.arr_item_val(val, minsize), declare=True) +
+                        gen.bool_var(res, gen.is_a(item, itype, loose=loose))
+                    )
+                )
+            else:
+                index = gen.ident("index")
+                icode += (
+                    gen.lcom("optional remaining items") +
+                    gen.if_stmt(
+                        res,
+                        gen.int_loop(index, minsize, size,
+                            # &= ?
+                            gen.json_var(item, gen.arr_item_val(val, index), declare=True) +
+                            gen.bool_var(res, gen.is_a(item, itype, loose=loose)) +
+                            gen.if_stmt(gen.not_op(res), gen.brk(), likely=False)
+                        ),
+                        likely=True
+                    )
+                )
+
+        # other constraints
+        if "!" in model and model["!"]:
+            icode += (
+                gen.lcom("other constraints") +
+                gen.if_stmt(
+                    res,
+                    gen.bool_var(res, gen.check_unique(val, itype, vpath)),
+                    likely=True
+                )
+            )
+        if "!=" in model:
+            nval = model["!="]
+            assert isinstance(nval, int)
+            icode += (
+                gen.if_stmt(
+                    res,
+                    gen.bool_var(res, gen.num_cmp(size, "!=", nval)) +
+                    self._gen_report(res, f"unexpected array size [{smpath}]", vpath),
+                    likely=True
+                )
+            )
+
+        # check size
+        cond = gen.num_cmp(size, "=" if minsize == maxsize else ">=", minsize)
+        if maxsize is not None and maxsize > minsize:
+            cond = gen.and_op(cond, gen.num_cmp(size, "<=", maxsize))
+
+        code = (
+            gen.int_var(size, gen.arr_len(val), declare=True) +
+            gen.if_stmt(
+                cond,
+                icode,
+                gen.report(f"unexpected array size [{smpath}]", vpath) +
+                gen.bool_var(res, gen.const(False)),
+                likely=True
+            )
+        )
+
+        return (
+            gen.bool_var(res, gen.is_a(val, list)) +
+            gen.if_stmt(res,
+                code,
+                gen.report(f"expecting an array [{smpath}]", vpath) +
+                gen.bool_var(res, gen.const(False)),
+                likely=True
+            )
+        )
+        
+
+    def _compileConstraint(
+                self, jm: JsonModel, model: ModelType, mpath: ModelPath,
+                res: Var, val: JsonExpr, vpath: PathExpr
+            ) -> Block:
         """Build constraint checking.
 
         This is kind of a pain because operators X overloading X types,
@@ -274,6 +428,9 @@ class CodeGenerator:
         Comparison values may build a non satisfiable constraint, eg v >= 3 and v < 1.
         Type incompatibilities may also lead to rejections.
         """
+
+        if self._isArrayPrefixOptim(jm, model):
+            return self._arrayPrefixOptim(jm, model, mpath, res, val, vpath)
 
         # TODO make it a function?
         assert isinstance(model, dict) and "@" in model
