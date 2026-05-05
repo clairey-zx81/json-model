@@ -176,8 +176,8 @@ $(F.out): json-model.o main.o
 %.c.check: %.out %.values.json
 	shopt -s nullglob
 	set -o pipefail
-	$< -r $*.*.{true,false}.json | sort > $@
-	$< -tr $*.values.json >> $@
+	./$< -r $*.*.{true,false}.json | sort > $@
+	./$< -tr $*.values.json >> $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0
