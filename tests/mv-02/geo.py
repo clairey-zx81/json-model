@@ -28,23 +28,24 @@ check_model_map: PropMap
 # check $position (.'$position')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$position'
-    # .'$position'.'@'
     res: bool = isinstance(val, list)
     if res:
-        for arr_0_idx, arr_0_item in enumerate(val):
-            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-            # .'$position'.'@'.0
-            res = isinstance(arr_0_item, (int, float)) and not isinstance(arr_0_item, bool)
-            if not res:
-                rep is None or rep.append(("not a -1.0 loose float [.'$position'.'@'.0]", arr_0_lpath if path is not None else None))
-                break
-    if res:
-        ival_0: int = len(val)
-        res = ival_0 <= 3 and ival_0 >= 2
-        if not res:
-            rep is None or rep.append(("constraints failed [.'$position']", path))
+        size_0: int = len(val)
+        if size_0 >= 2 and size_0 <= 3:
+            # unrolled prefix type check
+            item_0: Jsonable = val[0]
+            item_1: Jsonable = val[1]
+            res = isinstance(item_0, (int, float)) and not isinstance(item_0, bool) and isinstance(item_1, (int, float)) and not isinstance(item_1, bool)
+            # optional remaining item
+            if res and size_0 == 3:
+                item_2: Jsonable = val[2]
+                res = isinstance(item_2, (int, float)) and not isinstance(item_2, bool)
+        else:
+            rep is None or rep.append(("unexpected array size [.'$position']", path))
+            res = False
     else:
-        rep is None or rep.append(("not array or unexpected array [.'$position'.'@']", path))
+        rep is None or rep.append(("expecting an array [.'$position']", path))
+        res = False
     return res
 
 # check $coord_array (.'$coord_array')
@@ -53,16 +54,16 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$coord_array'.'@'
     res: bool = isinstance(val, list)
     if res:
-        for arr_1_idx, arr_1_item in enumerate(val):
-            arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
+        for arr_0_idx, arr_0_item in enumerate(val):
+            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # .'$coord_array'.'@'.0
-            res = json_model_2(arr_1_item, arr_1_lpath if path is not None else None, rep)
+            res = json_model_2(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", arr_1_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", arr_0_lpath if path is not None else None))
                 break
     if res:
-        ival_1: int = len(val)
-        res = ival_1 >= 2
+        ival_0: int = len(val)
+        res = ival_0 >= 2
         if not res:
             rep is None or rep.append(("constraints failed [.'$coord_array']", path))
     else:
@@ -75,16 +76,16 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$linear_ring'.'@'
     res: bool = isinstance(val, list)
     if res:
-        for arr_2_idx, arr_2_item in enumerate(val):
-            arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
+        for arr_1_idx, arr_1_item in enumerate(val):
+            arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # .'$linear_ring'.'@'.0
-            res = json_model_2(arr_2_item, arr_2_lpath if path is not None else None, rep)
+            res = json_model_2(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", arr_2_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", arr_1_lpath if path is not None else None))
                 break
     if res:
-        ival_2: int = len(val)
-        res = ival_2 >= 4
+        ival_1: int = len(val)
+        res = ival_1 >= 4
         if not res:
             rep is None or rep.append(("constraints failed [.'$linear_ring']", path))
     else:
@@ -126,12 +127,12 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Point'.bbox
             res = isinstance(pval, list)
             if res:
-                for arr_3_idx, arr_3_item in enumerate(pval):
-                    arr_3_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_3_idx ]) if (lpath_0 if path is not None else None) is not None else None
+                for arr_2_idx, arr_2_item in enumerate(pval):
+                    arr_2_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_2_idx ]) if (lpath_0 if path is not None else None) is not None else None
                     # .'$Point'.bbox.0
-                    res = isinstance(arr_3_item, (int, float)) and not isinstance(arr_3_item, bool)
+                    res = isinstance(arr_2_item, (int, float)) and not isinstance(arr_2_item, bool)
                     if not res:
-                        rep is None or rep.append(("not a -1.0 loose float [.'$Point'.bbox.0]", arr_3_lpath if (lpath_0 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("not a -1.0 loose float [.'$Point'.bbox.0]", arr_2_lpath if (lpath_0 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Point'.bbox]", lpath_0 if path is not None else None))
@@ -175,12 +176,12 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$MultiPoint'.coordinates
             res = isinstance(pval, list)
             if res:
-                for arr_4_idx, arr_4_item in enumerate(pval):
-                    arr_4_lpath: Path = ((lpath_1 if path is not None else None) + [ arr_4_idx ]) if (lpath_1 if path is not None else None) is not None else None
+                for arr_3_idx, arr_3_item in enumerate(pval):
+                    arr_3_lpath: Path = ((lpath_1 if path is not None else None) + [ arr_3_idx ]) if (lpath_1 if path is not None else None) is not None else None
                     # .'$MultiPoint'.coordinates.0
-                    res = json_model_2(arr_4_item, arr_4_lpath if (lpath_1 if path is not None else None) is not None else None, rep)
+                    res = json_model_2(arr_3_item, arr_3_lpath if (lpath_1 if path is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", arr_4_lpath if (lpath_1 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", arr_3_lpath if (lpath_1 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPoint'.coordinates]", lpath_1 if path is not None else None))
@@ -192,12 +193,12 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$MultiPoint'.bbox
             res = isinstance(pval, list)
             if res:
-                for arr_5_idx, arr_5_item in enumerate(pval):
-                    arr_5_lpath: Path = ((lpath_1 if path is not None else None) + [ arr_5_idx ]) if (lpath_1 if path is not None else None) is not None else None
+                for arr_4_idx, arr_4_item in enumerate(pval):
+                    arr_4_lpath: Path = ((lpath_1 if path is not None else None) + [ arr_4_idx ]) if (lpath_1 if path is not None else None) is not None else None
                     # .'$MultiPoint'.bbox.0
-                    res = isinstance(arr_5_item, (int, float)) and not isinstance(arr_5_item, bool)
+                    res = isinstance(arr_4_item, (int, float)) and not isinstance(arr_4_item, bool)
                     if not res:
-                        rep is None or rep.append(("not a -1.0 loose float [.'$MultiPoint'.bbox.0]", arr_5_lpath if (lpath_1 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("not a -1.0 loose float [.'$MultiPoint'.bbox.0]", arr_4_lpath if (lpath_1 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPoint'.bbox]", lpath_1 if path is not None else None))
@@ -250,12 +251,12 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$LineString'.bbox
             res = isinstance(pval, list)
             if res:
-                for arr_6_idx, arr_6_item in enumerate(pval):
-                    arr_6_lpath: Path = ((lpath_2 if path is not None else None) + [ arr_6_idx ]) if (lpath_2 if path is not None else None) is not None else None
+                for arr_5_idx, arr_5_item in enumerate(pval):
+                    arr_5_lpath: Path = ((lpath_2 if path is not None else None) + [ arr_5_idx ]) if (lpath_2 if path is not None else None) is not None else None
                     # .'$LineString'.bbox.0
-                    res = isinstance(arr_6_item, (int, float)) and not isinstance(arr_6_item, bool)
+                    res = isinstance(arr_5_item, (int, float)) and not isinstance(arr_5_item, bool)
                     if not res:
-                        rep is None or rep.append(("not a -1.0 loose float [.'$LineString'.bbox.0]", arr_6_lpath if (lpath_2 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("not a -1.0 loose float [.'$LineString'.bbox.0]", arr_5_lpath if (lpath_2 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$LineString'.bbox]", lpath_2 if path is not None else None))
@@ -299,12 +300,12 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$MultiLineString'.coordinates
             res = isinstance(pval, list)
             if res:
-                for arr_7_idx, arr_7_item in enumerate(pval):
-                    arr_7_lpath: Path = ((lpath_3 if path is not None else None) + [ arr_7_idx ]) if (lpath_3 if path is not None else None) is not None else None
+                for arr_6_idx, arr_6_item in enumerate(pval):
+                    arr_6_lpath: Path = ((lpath_3 if path is not None else None) + [ arr_6_idx ]) if (lpath_3 if path is not None else None) is not None else None
                     # .'$MultiLineString'.coordinates.0
-                    res = json_model_3(arr_7_item, arr_7_lpath if (lpath_3 if path is not None else None) is not None else None, rep)
+                    res = json_model_3(arr_6_item, arr_6_lpath if (lpath_3 if path is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", arr_7_lpath if (lpath_3 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", arr_6_lpath if (lpath_3 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiLineString'.coordinates]", lpath_3 if path is not None else None))
@@ -316,12 +317,12 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$MultiLineString'.bbox
             res = isinstance(pval, list)
             if res:
-                for arr_8_idx, arr_8_item in enumerate(pval):
-                    arr_8_lpath: Path = ((lpath_3 if path is not None else None) + [ arr_8_idx ]) if (lpath_3 if path is not None else None) is not None else None
+                for arr_7_idx, arr_7_item in enumerate(pval):
+                    arr_7_lpath: Path = ((lpath_3 if path is not None else None) + [ arr_7_idx ]) if (lpath_3 if path is not None else None) is not None else None
                     # .'$MultiLineString'.bbox.0
-                    res = isinstance(arr_8_item, (int, float)) and not isinstance(arr_8_item, bool)
+                    res = isinstance(arr_7_item, (int, float)) and not isinstance(arr_7_item, bool)
                     if not res:
-                        rep is None or rep.append(("not a -1.0 loose float [.'$MultiLineString'.bbox.0]", arr_8_lpath if (lpath_3 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("not a -1.0 loose float [.'$MultiLineString'.bbox.0]", arr_7_lpath if (lpath_3 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiLineString'.bbox]", lpath_3 if path is not None else None))
@@ -365,12 +366,12 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Polygon'.coordinates
             res = isinstance(pval, list)
             if res:
-                for arr_9_idx, arr_9_item in enumerate(pval):
-                    arr_9_lpath: Path = ((lpath_4 if path is not None else None) + [ arr_9_idx ]) if (lpath_4 if path is not None else None) is not None else None
+                for arr_8_idx, arr_8_item in enumerate(pval):
+                    arr_8_lpath: Path = ((lpath_4 if path is not None else None) + [ arr_8_idx ]) if (lpath_4 if path is not None else None) is not None else None
                     # .'$Polygon'.coordinates.0
-                    res = json_model_4(arr_9_item, arr_9_lpath if (lpath_4 if path is not None else None) is not None else None, rep)
+                    res = json_model_4(arr_8_item, arr_8_lpath if (lpath_4 if path is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", arr_9_lpath if (lpath_4 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", arr_8_lpath if (lpath_4 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Polygon'.coordinates]", lpath_4 if path is not None else None))
@@ -382,12 +383,12 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Polygon'.bbox
             res = isinstance(pval, list)
             if res:
-                for arr_10_idx, arr_10_item in enumerate(pval):
-                    arr_10_lpath: Path = ((lpath_4 if path is not None else None) + [ arr_10_idx ]) if (lpath_4 if path is not None else None) is not None else None
+                for arr_9_idx, arr_9_item in enumerate(pval):
+                    arr_9_lpath: Path = ((lpath_4 if path is not None else None) + [ arr_9_idx ]) if (lpath_4 if path is not None else None) is not None else None
                     # .'$Polygon'.bbox.0
-                    res = isinstance(arr_10_item, (int, float)) and not isinstance(arr_10_item, bool)
+                    res = isinstance(arr_9_item, (int, float)) and not isinstance(arr_9_item, bool)
                     if not res:
-                        rep is None or rep.append(("not a -1.0 loose float [.'$Polygon'.bbox.0]", arr_10_lpath if (lpath_4 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("not a -1.0 loose float [.'$Polygon'.bbox.0]", arr_9_lpath if (lpath_4 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Polygon'.bbox]", lpath_4 if path is not None else None))
@@ -431,20 +432,20 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$MultiPolygon'.coordinates
             res = isinstance(pval, list)
             if res:
-                for arr_11_idx, arr_11_item in enumerate(pval):
-                    arr_11_lpath: Path = ((lpath_5 if path is not None else None) + [ arr_11_idx ]) if (lpath_5 if path is not None else None) is not None else None
+                for arr_10_idx, arr_10_item in enumerate(pval):
+                    arr_10_lpath: Path = ((lpath_5 if path is not None else None) + [ arr_10_idx ]) if (lpath_5 if path is not None else None) is not None else None
                     # .'$MultiPolygon'.coordinates.0
-                    res = isinstance(arr_11_item, list)
+                    res = isinstance(arr_10_item, list)
                     if res:
-                        for arr_12_idx, arr_12_item in enumerate(arr_11_item):
-                            arr_12_lpath: Path = ((arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) + [ arr_12_idx ]) if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None
+                        for arr_11_idx, arr_11_item in enumerate(arr_10_item):
+                            arr_11_lpath: Path = ((arr_10_lpath if (lpath_5 if path is not None else None) is not None else None) + [ arr_11_idx ]) if (arr_10_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None
                             # .'$MultiPolygon'.coordinates.0.0
-                            res = json_model_4(arr_12_item, arr_12_lpath if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None, rep)
+                            res = json_model_4(arr_11_item, arr_11_lpath if (arr_10_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None, rep)
                             if not res:
-                                rep is None or rep.append(("unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", arr_12_lpath if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None))
+                                rep is None or rep.append(("unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", arr_11_lpath if (arr_10_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None))
                                 break
                     if not res:
-                        rep is None or rep.append(("not array or unexpected array [.'$MultiPolygon'.coordinates.0]", arr_11_lpath if (lpath_5 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("not array or unexpected array [.'$MultiPolygon'.coordinates.0]", arr_10_lpath if (lpath_5 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPolygon'.coordinates]", lpath_5 if path is not None else None))
@@ -456,12 +457,12 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$MultiPolygon'.bbox
             res = isinstance(pval, list)
             if res:
-                for arr_13_idx, arr_13_item in enumerate(pval):
-                    arr_13_lpath: Path = ((lpath_5 if path is not None else None) + [ arr_13_idx ]) if (lpath_5 if path is not None else None) is not None else None
+                for arr_12_idx, arr_12_item in enumerate(pval):
+                    arr_12_lpath: Path = ((lpath_5 if path is not None else None) + [ arr_12_idx ]) if (lpath_5 if path is not None else None) is not None else None
                     # .'$MultiPolygon'.bbox.0
-                    res = isinstance(arr_13_item, (int, float)) and not isinstance(arr_13_item, bool)
+                    res = isinstance(arr_12_item, (int, float)) and not isinstance(arr_12_item, bool)
                     if not res:
-                        rep is None or rep.append(("not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", arr_13_lpath if (lpath_5 if path is not None else None) is not None else None))
+                        rep is None or rep.append(("not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", arr_12_lpath if (lpath_5 if path is not None else None) is not None else None))
                         break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPolygon'.bbox]", lpath_5 if path is not None else None))
@@ -512,12 +513,12 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$geometry'.'|'.0.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_14_idx, arr_14_item in enumerate(pval):
-                arr_14_lpath: Path = ((lpath if path is not None else None) + [ arr_14_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_13_idx, arr_13_item in enumerate(pval):
+                arr_13_lpath: Path = ((lpath if path is not None else None) + [ arr_13_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$geometry'.'|'.0.bbox.0
-                res = isinstance(arr_14_item, (int, float)) and not isinstance(arr_14_item, bool)
+                res = isinstance(arr_13_item, (int, float)) and not isinstance(arr_13_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.0.bbox.0]", arr_14_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.0.bbox.0]", arr_13_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.0.bbox]", lpath if path is not None else None))
@@ -550,12 +551,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$geometry'.'|'.1.coordinates
     res = isinstance(pval, list)
     if res:
-        for arr_15_idx, arr_15_item in enumerate(pval):
-            arr_15_lpath: Path = ((lpath if path is not None else None) + [ arr_15_idx ]) if (lpath if path is not None else None) is not None else None
+        for arr_14_idx, arr_14_item in enumerate(pval):
+            arr_14_lpath: Path = ((lpath if path is not None else None) + [ arr_14_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$geometry'.'|'.1.coordinates.0
-            res = json_model_2(arr_15_item, arr_15_lpath if (lpath if path is not None else None) is not None else None, rep)
+            res = json_model_2(arr_14_item, arr_14_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$position\" [.'$geometry'.'|'.1.coordinates.0]", arr_15_lpath if (lpath if path is not None else None) is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$position\" [.'$geometry'.'|'.1.coordinates.0]", arr_14_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.1.coordinates]", lpath if path is not None else None))
@@ -566,12 +567,12 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$geometry'.'|'.1.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_16_idx, arr_16_item in enumerate(pval):
-                arr_16_lpath: Path = ((lpath if path is not None else None) + [ arr_16_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_15_idx, arr_15_item in enumerate(pval):
+                arr_15_lpath: Path = ((lpath if path is not None else None) + [ arr_15_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$geometry'.'|'.1.bbox.0
-                res = isinstance(arr_16_item, (int, float)) and not isinstance(arr_16_item, bool)
+                res = isinstance(arr_15_item, (int, float)) and not isinstance(arr_15_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.1.bbox.0]", arr_16_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.1.bbox.0]", arr_15_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.1.bbox]", lpath if path is not None else None))
@@ -612,12 +613,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$geometry'.'|'.2.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_17_idx, arr_17_item in enumerate(pval):
-                arr_17_lpath: Path = ((lpath if path is not None else None) + [ arr_17_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_16_idx, arr_16_item in enumerate(pval):
+                arr_16_lpath: Path = ((lpath if path is not None else None) + [ arr_16_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$geometry'.'|'.2.bbox.0
-                res = isinstance(arr_17_item, (int, float)) and not isinstance(arr_17_item, bool)
+                res = isinstance(arr_16_item, (int, float)) and not isinstance(arr_16_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.2.bbox.0]", arr_17_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.2.bbox.0]", arr_16_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.2.bbox]", lpath if path is not None else None))
@@ -650,12 +651,12 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$geometry'.'|'.3.coordinates
     res = isinstance(pval, list)
     if res:
-        for arr_18_idx, arr_18_item in enumerate(pval):
-            arr_18_lpath: Path = ((lpath if path is not None else None) + [ arr_18_idx ]) if (lpath if path is not None else None) is not None else None
+        for arr_17_idx, arr_17_item in enumerate(pval):
+            arr_17_lpath: Path = ((lpath if path is not None else None) + [ arr_17_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$geometry'.'|'.3.coordinates.0
-            res = json_model_3(arr_18_item, arr_18_lpath if (lpath if path is not None else None) is not None else None, rep)
+            res = json_model_3(arr_17_item, arr_17_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$coord_array\" [.'$geometry'.'|'.3.coordinates.0]", arr_18_lpath if (lpath if path is not None else None) is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$coord_array\" [.'$geometry'.'|'.3.coordinates.0]", arr_17_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.3.coordinates]", lpath if path is not None else None))
@@ -666,12 +667,12 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$geometry'.'|'.3.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_19_idx, arr_19_item in enumerate(pval):
-                arr_19_lpath: Path = ((lpath if path is not None else None) + [ arr_19_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_18_idx, arr_18_item in enumerate(pval):
+                arr_18_lpath: Path = ((lpath if path is not None else None) + [ arr_18_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$geometry'.'|'.3.bbox.0
-                res = isinstance(arr_19_item, (int, float)) and not isinstance(arr_19_item, bool)
+                res = isinstance(arr_18_item, (int, float)) and not isinstance(arr_18_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.3.bbox.0]", arr_19_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.3.bbox.0]", arr_18_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.3.bbox]", lpath if path is not None else None))
@@ -704,12 +705,12 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$geometry'.'|'.4.coordinates
     res = isinstance(pval, list)
     if res:
-        for arr_20_idx, arr_20_item in enumerate(pval):
-            arr_20_lpath: Path = ((lpath if path is not None else None) + [ arr_20_idx ]) if (lpath if path is not None else None) is not None else None
+        for arr_19_idx, arr_19_item in enumerate(pval):
+            arr_19_lpath: Path = ((lpath if path is not None else None) + [ arr_19_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$geometry'.'|'.4.coordinates.0
-            res = json_model_4(arr_20_item, arr_20_lpath if (lpath if path is not None else None) is not None else None, rep)
+            res = json_model_4(arr_19_item, arr_19_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.4.coordinates.0]", arr_20_lpath if (lpath if path is not None else None) is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.4.coordinates.0]", arr_19_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.4.coordinates]", lpath if path is not None else None))
@@ -720,12 +721,12 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$geometry'.'|'.4.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_21_idx, arr_21_item in enumerate(pval):
-                arr_21_lpath: Path = ((lpath if path is not None else None) + [ arr_21_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_20_idx, arr_20_item in enumerate(pval):
+                arr_20_lpath: Path = ((lpath if path is not None else None) + [ arr_20_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$geometry'.'|'.4.bbox.0
-                res = isinstance(arr_21_item, (int, float)) and not isinstance(arr_21_item, bool)
+                res = isinstance(arr_20_item, (int, float)) and not isinstance(arr_20_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.4.bbox.0]", arr_21_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.4.bbox.0]", arr_20_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.4.bbox]", lpath if path is not None else None))
@@ -758,20 +759,20 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$geometry'.'|'.5.coordinates
     res = isinstance(pval, list)
     if res:
-        for arr_22_idx, arr_22_item in enumerate(pval):
-            arr_22_lpath: Path = ((lpath if path is not None else None) + [ arr_22_idx ]) if (lpath if path is not None else None) is not None else None
+        for arr_21_idx, arr_21_item in enumerate(pval):
+            arr_21_lpath: Path = ((lpath if path is not None else None) + [ arr_21_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$geometry'.'|'.5.coordinates.0
-            res = isinstance(arr_22_item, list)
+            res = isinstance(arr_21_item, list)
             if res:
-                for arr_23_idx, arr_23_item in enumerate(arr_22_item):
-                    arr_23_lpath: Path = ((arr_22_lpath if (lpath if path is not None else None) is not None else None) + [ arr_23_idx ]) if (arr_22_lpath if (lpath if path is not None else None) is not None else None) is not None else None
+                for arr_22_idx, arr_22_item in enumerate(arr_21_item):
+                    arr_22_lpath: Path = ((arr_21_lpath if (lpath if path is not None else None) is not None else None) + [ arr_22_idx ]) if (arr_21_lpath if (lpath if path is not None else None) is not None else None) is not None else None
                     # .'$geometry'.'|'.5.coordinates.0.0
-                    res = json_model_4(arr_23_item, arr_23_lpath if (arr_22_lpath if (lpath if path is not None else None) is not None else None) is not None else None, rep)
+                    res = json_model_4(arr_22_item, arr_22_lpath if (arr_21_lpath if (lpath if path is not None else None) is not None else None) is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.5.coordinates.0.0]", arr_23_lpath if (arr_22_lpath if (lpath if path is not None else None) is not None else None) is not None else None))
+                        rep is None or rep.append(("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.5.coordinates.0.0]", arr_22_lpath if (arr_21_lpath if (lpath if path is not None else None) is not None else None) is not None else None))
                         break
             if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.5.coordinates.0]", arr_22_lpath if (lpath if path is not None else None) is not None else None))
+                rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.5.coordinates.0]", arr_21_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.5.coordinates]", lpath if path is not None else None))
@@ -782,12 +783,12 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$geometry'.'|'.5.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_24_idx, arr_24_item in enumerate(pval):
-                arr_24_lpath: Path = ((lpath if path is not None else None) + [ arr_24_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_23_idx, arr_23_item in enumerate(pval):
+                arr_23_lpath: Path = ((lpath if path is not None else None) + [ arr_23_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$geometry'.'|'.5.bbox.0
-                res = isinstance(arr_24_item, (int, float)) and not isinstance(arr_24_item, bool)
+                res = isinstance(arr_23_item, (int, float)) and not isinstance(arr_23_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.5.bbox.0]", arr_24_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$geometry'.'|'.5.bbox.0]", arr_23_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$geometry'.'|'.5.bbox]", lpath if path is not None else None))
@@ -842,12 +843,12 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$GeometryCollection'.geometries
     res = isinstance(pval, list)
     if res:
-        for arr_25_idx, arr_25_item in enumerate(pval):
-            arr_25_lpath: Path = ((lpath if path is not None else None) + [ arr_25_idx ]) if (lpath if path is not None else None) is not None else None
+        for arr_24_idx, arr_24_item in enumerate(pval):
+            arr_24_lpath: Path = ((lpath if path is not None else None) + [ arr_24_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$GeometryCollection'.geometries.0
-            res = json_model_11(arr_25_item, arr_25_lpath if (lpath if path is not None else None) is not None else None, rep)
+            res = json_model_11(arr_24_item, arr_24_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", arr_25_lpath if (lpath if path is not None else None) is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", arr_24_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$GeometryCollection'.geometries]", lpath if path is not None else None))
@@ -858,12 +859,12 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$GeometryCollection'.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_26_idx, arr_26_item in enumerate(pval):
-                arr_26_lpath: Path = ((lpath if path is not None else None) + [ arr_26_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_25_idx, arr_25_item in enumerate(pval):
+                arr_25_lpath: Path = ((lpath if path is not None else None) + [ arr_25_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$GeometryCollection'.bbox.0
-                res = isinstance(arr_26_item, (int, float)) and not isinstance(arr_26_item, bool)
+                res = isinstance(arr_25_item, (int, float)) and not isinstance(arr_25_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", arr_26_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", arr_25_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$GeometryCollection'.bbox]", lpath if path is not None else None))
@@ -952,12 +953,12 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$Feature'.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_27_idx, arr_27_item in enumerate(pval):
-                arr_27_lpath: Path = ((lpath if path is not None else None) + [ arr_27_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_26_idx, arr_26_item in enumerate(pval):
+                arr_26_lpath: Path = ((lpath if path is not None else None) + [ arr_26_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$Feature'.bbox.0
-                res = isinstance(arr_27_item, (int, float)) and not isinstance(arr_27_item, bool)
+                res = isinstance(arr_26_item, (int, float)) and not isinstance(arr_26_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.bbox.0]", arr_27_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.bbox.0]", arr_26_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$Feature'.bbox]", lpath if path is not None else None))
@@ -991,12 +992,12 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$FeatureCollection'.features
     res = isinstance(pval, list)
     if res:
-        for arr_28_idx, arr_28_item in enumerate(pval):
-            arr_28_lpath: Path = ((lpath if path is not None else None) + [ arr_28_idx ]) if (lpath if path is not None else None) is not None else None
+        for arr_27_idx, arr_27_item in enumerate(pval):
+            arr_27_lpath: Path = ((lpath if path is not None else None) + [ arr_27_idx ]) if (lpath if path is not None else None) is not None else None
             # .'$FeatureCollection'.features.0
-            res = json_model_13(arr_28_item, arr_28_lpath if (lpath if path is not None else None) is not None else None, rep)
+            res = json_model_13(arr_27_item, arr_27_lpath if (lpath if path is not None else None) is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", arr_28_lpath if (lpath if path is not None else None) is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", arr_27_lpath if (lpath if path is not None else None) is not None else None))
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$FeatureCollection'.features]", lpath if path is not None else None))
@@ -1007,12 +1008,12 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$FeatureCollection'.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_29_idx, arr_29_item in enumerate(pval):
-                arr_29_lpath: Path = ((lpath if path is not None else None) + [ arr_29_idx ]) if (lpath if path is not None else None) is not None else None
+            for arr_28_idx, arr_28_item in enumerate(pval):
+                arr_28_lpath: Path = ((lpath if path is not None else None) + [ arr_28_idx ]) if (lpath if path is not None else None) is not None else None
                 # .'$FeatureCollection'.bbox.0
-                res = isinstance(arr_29_item, (int, float)) and not isinstance(arr_29_item, bool)
+                res = isinstance(arr_28_item, (int, float)) and not isinstance(arr_28_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", arr_29_lpath if (lpath if path is not None else None) is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", arr_28_lpath if (lpath if path is not None else None) is not None else None))
                     break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$FeatureCollection'.bbox]", lpath if path is not None else None))

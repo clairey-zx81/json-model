@@ -860,38 +860,39 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
     public boolean json_model_10(Object val, Path path, Report rep)
     {
         // .'$stringArray'
-        // .'$stringArray'.'@'
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_0_idx = -1;
-            Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
-            while (arr_0_item_loop.hasNext())
+            long size_0 = json.arrayLength(val);
+            if (size_0 >= 1)
             {
-                arr_0_idx++;
-                Object arr_0_item = arr_0_item_loop.next();
-                Path arr_0_lpath = new Path(arr_0_idx, path);
-                // .'$stringArray'.'@'.0
-                res = json.isString(arr_0_item);
-                if (! res)
+                // unrolled prefix type check
+                Object item_0 = json.arrayItem(val, 0);
+                res = json.isString(item_0);
+                // optional remaining items
+                if (res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$stringArray'.'@'.0]", (path != null ? arr_0_lpath : null));
-                    break;
+                    for (int index_0 = 1; index_0 < size_0; index_0++)
+                    {
+                        Object item_1 = json.arrayItem(val, index_0);
+                        res = json.isString(item_1);
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
                 }
             }
-        }
-        if (res)
-        {
-            long ival_0 = json.arrayLength(val);
-            res = ival_0 >= 1;
-            if (! res)
+            else
             {
-                if (rep != null) rep.addEntry("constraints failed [.'$stringArray']", path);
+                if (rep != null) rep.addEntry("unexpected array size [.'$stringArray']", path);
+                res = false;
             }
         }
         else
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$stringArray'.'@']", path);
+            if (rep != null) rep.addEntry("expecting an array [.'$stringArray']", path);
+            res = false;
         }
         return res;
     }
@@ -904,26 +905,26 @@ public class json_schema_draft_2020_12_tight extends ModelChecker
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_1_idx = -1;
-            Iterator<Object> arr_1_item_loop = json.arrayIterator(val);
-            while (arr_1_item_loop.hasNext())
+            int arr_0_idx = -1;
+            Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
+            while (arr_0_item_loop.hasNext())
             {
-                arr_1_idx++;
-                Object arr_1_item = arr_1_item_loop.next();
-                Path arr_1_lpath = new Path(arr_1_idx, path);
+                arr_0_idx++;
+                Object arr_0_item = arr_0_item_loop.next();
+                Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .'$schemaArray'.'@'.0
-                res = json_model_16(arr_1_item, (path != null ? arr_1_lpath : null), rep);
+                res = json_model_16(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
         }
         if (res)
         {
-            long ival_1 = json.arrayLength(val);
-            res = ival_1 >= 1;
+            long ival_0 = json.arrayLength(val);
+            res = ival_0 >= 1;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$schemaArray']", path);

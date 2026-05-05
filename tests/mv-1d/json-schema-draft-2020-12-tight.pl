@@ -727,25 +727,37 @@ sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$stringArray'
-    # .'$stringArray'.'@'
     my $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_0_idx (0 .. $#$val)
+        my $size_0 = scalar @$val;
+        if ($size_0 >= 1)
         {
-            my $arr_0_item = $$val[$arr_0_idx];
-            # .'$stringArray'.'@'.0
-            $res = jm_is_string($arr_0_item);
-            if (! $res)
+            # unrolled prefix type check
+            my $item_0 = $$val[0];
+            $res = jm_is_string($item_0);
+            # optional remaining items
+            if ($res)
             {
-                last;
+                for my $index_0 (1 .. $size_0 - 1)
+                {
+                    my $item_1 = $$val[$index_0];
+                    $res = jm_is_string($item_1);
+                    if (! $res)
+                    {
+                        last;
+                    }
+                }
             }
         }
+        else
+        {
+            $res = 0;
+        }
     }
-    if ($res)
+    else
     {
-        my $ival_0 = scalar @$val;
-        $res = $ival_0 >= 1;
+        $res = 0;
     }
     return $res;
 }
@@ -759,11 +771,11 @@ sub json_model_11($$$)
     my $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_1_idx (0 .. $#$val)
+        for my $arr_0_idx (0 .. $#$val)
         {
-            my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_0_item = $$val[$arr_0_idx];
             # .'$schemaArray'.'@'.0
-            $res = json_model_16($arr_1_item, undef, undef);
+            $res = json_model_16($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -772,8 +784,8 @@ sub json_model_11($$$)
     }
     if ($res)
     {
-        my $ival_1 = scalar @$val;
-        $res = $ival_1 >= 1;
+        my $ival_0 = scalar @$val;
+        $res = $ival_0 >= 1;
     }
     return $res;
 }

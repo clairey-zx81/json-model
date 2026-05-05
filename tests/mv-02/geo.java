@@ -25,38 +25,33 @@ public class geo extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .'$position'
-        // .'$position'.'@'
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_0_idx = -1;
-            Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
-            while (arr_0_item_loop.hasNext())
+            long size_0 = json.arrayLength(val);
+            if (size_0 >= 2 && size_0 <= 3)
             {
-                arr_0_idx++;
-                Object arr_0_item = arr_0_item_loop.next();
-                Path arr_0_lpath = new Path(arr_0_idx, path);
-                // .'$position'.'@'.0
-                res = json.isNumber(arr_0_item);
-                if (! res)
+                // unrolled prefix type check
+                Object item_0 = json.arrayItem(val, 0);
+                Object item_1 = json.arrayItem(val, 1);
+                res = json.isNumber(item_0) && json.isNumber(item_1);
+                // optional remaining item
+                if (res && size_0 == 3)
                 {
-                    if (rep != null) rep.addEntry("not a -1.0 loose float [.'$position'.'@'.0]", (path != null ? arr_0_lpath : null));
-                    break;
+                    Object item_2 = json.arrayItem(val, 2);
+                    res = json.isNumber(item_2);
                 }
             }
-        }
-        if (res)
-        {
-            long ival_0 = json.arrayLength(val);
-            res = ival_0 <= 3 && ival_0 >= 2;
-            if (! res)
+            else
             {
-                if (rep != null) rep.addEntry("constraints failed [.'$position']", path);
+                if (rep != null) rep.addEntry("unexpected array size [.'$position']", path);
+                res = false;
             }
         }
         else
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$position'.'@']", path);
+            if (rep != null) rep.addEntry("expecting an array [.'$position']", path);
+            res = false;
         }
         return res;
     }
@@ -69,26 +64,26 @@ public class geo extends ModelChecker
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_1_idx = -1;
-            Iterator<Object> arr_1_item_loop = json.arrayIterator(val);
-            while (arr_1_item_loop.hasNext())
+            int arr_0_idx = -1;
+            Iterator<Object> arr_0_item_loop = json.arrayIterator(val);
+            while (arr_0_item_loop.hasNext())
             {
-                arr_1_idx++;
-                Object arr_1_item = arr_1_item_loop.next();
-                Path arr_1_lpath = new Path(arr_1_idx, path);
+                arr_0_idx++;
+                Object arr_0_item = arr_0_item_loop.next();
+                Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .'$coord_array'.'@'.0
-                res = json_model_2(arr_1_item, (path != null ? arr_1_lpath : null), rep);
+                res = json_model_2(arr_0_item, (path != null ? arr_0_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", (path != null ? arr_1_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", (path != null ? arr_0_lpath : null));
                     break;
                 }
             }
         }
         if (res)
         {
-            long ival_1 = json.arrayLength(val);
-            res = ival_1 >= 2;
+            long ival_0 = json.arrayLength(val);
+            res = ival_0 >= 2;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$coord_array']", path);
@@ -109,26 +104,26 @@ public class geo extends ModelChecker
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_2_idx = -1;
-            Iterator<Object> arr_2_item_loop = json.arrayIterator(val);
-            while (arr_2_item_loop.hasNext())
+            int arr_1_idx = -1;
+            Iterator<Object> arr_1_item_loop = json.arrayIterator(val);
+            while (arr_1_item_loop.hasNext())
             {
-                arr_2_idx++;
-                Object arr_2_item = arr_2_item_loop.next();
-                Path arr_2_lpath = new Path(arr_2_idx, path);
+                arr_1_idx++;
+                Object arr_1_item = arr_1_item_loop.next();
+                Path arr_1_lpath = new Path(arr_1_idx, path);
                 // .'$linear_ring'.'@'.0
-                res = json_model_2(arr_2_item, (path != null ? arr_2_lpath : null), rep);
+                res = json_model_2(arr_1_item, (path != null ? arr_1_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", (path != null ? arr_2_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", (path != null ? arr_1_lpath : null));
                     break;
                 }
             }
         }
         if (res)
         {
-            long ival_2 = json.arrayLength(val);
-            res = ival_2 >= 4;
+            long ival_1 = json.arrayLength(val);
+            res = ival_1 >= 4;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$linear_ring']", path);
@@ -193,18 +188,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_3_idx = -1;
-                    Iterator<Object> arr_3_item_loop = json.arrayIterator(pval);
-                    while (arr_3_item_loop.hasNext())
+                    int arr_2_idx = -1;
+                    Iterator<Object> arr_2_item_loop = json.arrayIterator(pval);
+                    while (arr_2_item_loop.hasNext())
                     {
-                        arr_3_idx++;
-                        Object arr_3_item = arr_3_item_loop.next();
-                        Path arr_3_lpath = new Path(arr_3_idx, (path != null ? lpath_0 : null));
+                        arr_2_idx++;
+                        Object arr_2_item = arr_2_item_loop.next();
+                        Path arr_2_lpath = new Path(arr_2_idx, (path != null ? lpath_0 : null));
                         // .'$Point'.bbox.0
-                        res = json.isNumber(arr_3_item);
+                        res = json.isNumber(arr_2_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Point'.bbox.0]", ((path != null ? lpath_0 : null) != null ? arr_3_lpath : null));
+                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Point'.bbox.0]", ((path != null ? lpath_0 : null) != null ? arr_2_lpath : null));
                             break;
                         }
                     }
@@ -277,18 +272,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_4_idx = -1;
-                    Iterator<Object> arr_4_item_loop = json.arrayIterator(pval);
-                    while (arr_4_item_loop.hasNext())
+                    int arr_3_idx = -1;
+                    Iterator<Object> arr_3_item_loop = json.arrayIterator(pval);
+                    while (arr_3_item_loop.hasNext())
                     {
-                        arr_4_idx++;
-                        Object arr_4_item = arr_4_item_loop.next();
-                        Path arr_4_lpath = new Path(arr_4_idx, (path != null ? lpath_1 : null));
+                        arr_3_idx++;
+                        Object arr_3_item = arr_3_item_loop.next();
+                        Path arr_3_lpath = new Path(arr_3_idx, (path != null ? lpath_1 : null));
                         // .'$MultiPoint'.coordinates.0
-                        res = json_model_2(arr_4_item, ((path != null ? lpath_1 : null) != null ? arr_4_lpath : null), rep);
+                        res = json_model_2(arr_3_item, ((path != null ? lpath_1 : null) != null ? arr_3_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", ((path != null ? lpath_1 : null) != null ? arr_4_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", ((path != null ? lpath_1 : null) != null ? arr_3_lpath : null));
                             break;
                         }
                     }
@@ -308,18 +303,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_5_idx = -1;
-                    Iterator<Object> arr_5_item_loop = json.arrayIterator(pval);
-                    while (arr_5_item_loop.hasNext())
+                    int arr_4_idx = -1;
+                    Iterator<Object> arr_4_item_loop = json.arrayIterator(pval);
+                    while (arr_4_item_loop.hasNext())
                     {
-                        arr_5_idx++;
-                        Object arr_5_item = arr_5_item_loop.next();
-                        Path arr_5_lpath = new Path(arr_5_idx, (path != null ? lpath_1 : null));
+                        arr_4_idx++;
+                        Object arr_4_item = arr_4_item_loop.next();
+                        Path arr_4_lpath = new Path(arr_4_idx, (path != null ? lpath_1 : null));
                         // .'$MultiPoint'.bbox.0
-                        res = json.isNumber(arr_5_item);
+                        res = json.isNumber(arr_4_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path != null ? lpath_1 : null) != null ? arr_5_lpath : null));
+                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path != null ? lpath_1 : null) != null ? arr_4_lpath : null));
                             break;
                         }
                     }
@@ -405,18 +400,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_6_idx = -1;
-                    Iterator<Object> arr_6_item_loop = json.arrayIterator(pval);
-                    while (arr_6_item_loop.hasNext())
+                    int arr_5_idx = -1;
+                    Iterator<Object> arr_5_item_loop = json.arrayIterator(pval);
+                    while (arr_5_item_loop.hasNext())
                     {
-                        arr_6_idx++;
-                        Object arr_6_item = arr_6_item_loop.next();
-                        Path arr_6_lpath = new Path(arr_6_idx, (path != null ? lpath_2 : null));
+                        arr_5_idx++;
+                        Object arr_5_item = arr_5_item_loop.next();
+                        Path arr_5_lpath = new Path(arr_5_idx, (path != null ? lpath_2 : null));
                         // .'$LineString'.bbox.0
-                        res = json.isNumber(arr_6_item);
+                        res = json.isNumber(arr_5_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$LineString'.bbox.0]", ((path != null ? lpath_2 : null) != null ? arr_6_lpath : null));
+                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$LineString'.bbox.0]", ((path != null ? lpath_2 : null) != null ? arr_5_lpath : null));
                             break;
                         }
                     }
@@ -489,18 +484,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_7_idx = -1;
-                    Iterator<Object> arr_7_item_loop = json.arrayIterator(pval);
-                    while (arr_7_item_loop.hasNext())
+                    int arr_6_idx = -1;
+                    Iterator<Object> arr_6_item_loop = json.arrayIterator(pval);
+                    while (arr_6_item_loop.hasNext())
                     {
-                        arr_7_idx++;
-                        Object arr_7_item = arr_7_item_loop.next();
-                        Path arr_7_lpath = new Path(arr_7_idx, (path != null ? lpath_3 : null));
+                        arr_6_idx++;
+                        Object arr_6_item = arr_6_item_loop.next();
+                        Path arr_6_lpath = new Path(arr_6_idx, (path != null ? lpath_3 : null));
                         // .'$MultiLineString'.coordinates.0
-                        res = json_model_3(arr_7_item, ((path != null ? lpath_3 : null) != null ? arr_7_lpath : null), rep);
+                        res = json_model_3(arr_6_item, ((path != null ? lpath_3 : null) != null ? arr_6_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", ((path != null ? lpath_3 : null) != null ? arr_7_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", ((path != null ? lpath_3 : null) != null ? arr_6_lpath : null));
                             break;
                         }
                     }
@@ -520,18 +515,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_8_idx = -1;
-                    Iterator<Object> arr_8_item_loop = json.arrayIterator(pval);
-                    while (arr_8_item_loop.hasNext())
+                    int arr_7_idx = -1;
+                    Iterator<Object> arr_7_item_loop = json.arrayIterator(pval);
+                    while (arr_7_item_loop.hasNext())
                     {
-                        arr_8_idx++;
-                        Object arr_8_item = arr_8_item_loop.next();
-                        Path arr_8_lpath = new Path(arr_8_idx, (path != null ? lpath_3 : null));
+                        arr_7_idx++;
+                        Object arr_7_item = arr_7_item_loop.next();
+                        Path arr_7_lpath = new Path(arr_7_idx, (path != null ? lpath_3 : null));
                         // .'$MultiLineString'.bbox.0
-                        res = json.isNumber(arr_8_item);
+                        res = json.isNumber(arr_7_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path != null ? lpath_3 : null) != null ? arr_8_lpath : null));
+                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path != null ? lpath_3 : null) != null ? arr_7_lpath : null));
                             break;
                         }
                     }
@@ -604,18 +599,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_9_idx = -1;
-                    Iterator<Object> arr_9_item_loop = json.arrayIterator(pval);
-                    while (arr_9_item_loop.hasNext())
+                    int arr_8_idx = -1;
+                    Iterator<Object> arr_8_item_loop = json.arrayIterator(pval);
+                    while (arr_8_item_loop.hasNext())
                     {
-                        arr_9_idx++;
-                        Object arr_9_item = arr_9_item_loop.next();
-                        Path arr_9_lpath = new Path(arr_9_idx, (path != null ? lpath_4 : null));
+                        arr_8_idx++;
+                        Object arr_8_item = arr_8_item_loop.next();
+                        Path arr_8_lpath = new Path(arr_8_idx, (path != null ? lpath_4 : null));
                         // .'$Polygon'.coordinates.0
-                        res = json_model_4(arr_9_item, ((path != null ? lpath_4 : null) != null ? arr_9_lpath : null), rep);
+                        res = json_model_4(arr_8_item, ((path != null ? lpath_4 : null) != null ? arr_8_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", ((path != null ? lpath_4 : null) != null ? arr_9_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", ((path != null ? lpath_4 : null) != null ? arr_8_lpath : null));
                             break;
                         }
                     }
@@ -635,18 +630,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_10_idx = -1;
-                    Iterator<Object> arr_10_item_loop = json.arrayIterator(pval);
-                    while (arr_10_item_loop.hasNext())
+                    int arr_9_idx = -1;
+                    Iterator<Object> arr_9_item_loop = json.arrayIterator(pval);
+                    while (arr_9_item_loop.hasNext())
                     {
-                        arr_10_idx++;
-                        Object arr_10_item = arr_10_item_loop.next();
-                        Path arr_10_lpath = new Path(arr_10_idx, (path != null ? lpath_4 : null));
+                        arr_9_idx++;
+                        Object arr_9_item = arr_9_item_loop.next();
+                        Path arr_9_lpath = new Path(arr_9_idx, (path != null ? lpath_4 : null));
                         // .'$Polygon'.bbox.0
-                        res = json.isNumber(arr_10_item);
+                        res = json.isNumber(arr_9_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path != null ? lpath_4 : null) != null ? arr_10_lpath : null));
+                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path != null ? lpath_4 : null) != null ? arr_9_lpath : null));
                             break;
                         }
                     }
@@ -719,36 +714,36 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_11_idx = -1;
-                    Iterator<Object> arr_11_item_loop = json.arrayIterator(pval);
-                    while (arr_11_item_loop.hasNext())
+                    int arr_10_idx = -1;
+                    Iterator<Object> arr_10_item_loop = json.arrayIterator(pval);
+                    while (arr_10_item_loop.hasNext())
                     {
-                        arr_11_idx++;
-                        Object arr_11_item = arr_11_item_loop.next();
-                        Path arr_11_lpath = new Path(arr_11_idx, (path != null ? lpath_5 : null));
+                        arr_10_idx++;
+                        Object arr_10_item = arr_10_item_loop.next();
+                        Path arr_10_lpath = new Path(arr_10_idx, (path != null ? lpath_5 : null));
                         // .'$MultiPolygon'.coordinates.0
-                        res = json.isArray(arr_11_item);
+                        res = json.isArray(arr_10_item);
                         if (res)
                         {
-                            int arr_12_idx = -1;
-                            Iterator<Object> arr_12_item_loop = json.arrayIterator(arr_11_item);
-                            while (arr_12_item_loop.hasNext())
+                            int arr_11_idx = -1;
+                            Iterator<Object> arr_11_item_loop = json.arrayIterator(arr_10_item);
+                            while (arr_11_item_loop.hasNext())
                             {
-                                arr_12_idx++;
-                                Object arr_12_item = arr_12_item_loop.next();
-                                Path arr_12_lpath = new Path(arr_12_idx, ((path != null ? lpath_5 : null) != null ? arr_11_lpath : null));
+                                arr_11_idx++;
+                                Object arr_11_item = arr_11_item_loop.next();
+                                Path arr_11_lpath = new Path(arr_11_idx, ((path != null ? lpath_5 : null) != null ? arr_10_lpath : null));
                                 // .'$MultiPolygon'.coordinates.0.0
-                                res = json_model_4(arr_12_item, (((path != null ? lpath_5 : null) != null ? arr_11_lpath : null) != null ? arr_12_lpath : null), rep);
+                                res = json_model_4(arr_11_item, (((path != null ? lpath_5 : null) != null ? arr_10_lpath : null) != null ? arr_11_lpath : null), rep);
                                 if (! res)
                                 {
-                                    if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", (((path != null ? lpath_5 : null) != null ? arr_11_lpath : null) != null ? arr_12_lpath : null));
+                                    if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", (((path != null ? lpath_5 : null) != null ? arr_10_lpath : null) != null ? arr_11_lpath : null));
                                     break;
                                 }
                             }
                         }
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiPolygon'.coordinates.0]", ((path != null ? lpath_5 : null) != null ? arr_11_lpath : null));
+                            if (rep != null) rep.addEntry("not array or unexpected array [.'$MultiPolygon'.coordinates.0]", ((path != null ? lpath_5 : null) != null ? arr_10_lpath : null));
                             break;
                         }
                     }
@@ -768,18 +763,18 @@ public class geo extends ModelChecker
                 res = json.isArray(pval);
                 if (res)
                 {
-                    int arr_13_idx = -1;
-                    Iterator<Object> arr_13_item_loop = json.arrayIterator(pval);
-                    while (arr_13_item_loop.hasNext())
+                    int arr_12_idx = -1;
+                    Iterator<Object> arr_12_item_loop = json.arrayIterator(pval);
+                    while (arr_12_item_loop.hasNext())
                     {
-                        arr_13_idx++;
-                        Object arr_13_item = arr_13_item_loop.next();
-                        Path arr_13_lpath = new Path(arr_13_idx, (path != null ? lpath_5 : null));
+                        arr_12_idx++;
+                        Object arr_12_item = arr_12_item_loop.next();
+                        Path arr_12_lpath = new Path(arr_12_idx, (path != null ? lpath_5 : null));
                         // .'$MultiPolygon'.bbox.0
-                        res = json.isNumber(arr_13_item);
+                        res = json.isNumber(arr_12_item);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path != null ? lpath_5 : null) != null ? arr_13_lpath : null));
+                            if (rep != null) rep.addEntry("not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path != null ? lpath_5 : null) != null ? arr_12_lpath : null));
                             break;
                         }
                     }
@@ -859,18 +854,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_14_idx = -1;
-                Iterator<Object> arr_14_item_loop = json.arrayIterator(pval);
-                while (arr_14_item_loop.hasNext())
+                int arr_13_idx = -1;
+                Iterator<Object> arr_13_item_loop = json.arrayIterator(pval);
+                while (arr_13_item_loop.hasNext())
                 {
-                    arr_14_idx++;
-                    Object arr_14_item = arr_14_item_loop.next();
-                    Path arr_14_lpath = new Path(arr_14_idx, (path != null ? lpath : null));
+                    arr_13_idx++;
+                    Object arr_13_item = arr_13_item_loop.next();
+                    Path arr_13_lpath = new Path(arr_13_idx, (path != null ? lpath : null));
                     // .'$geometry'.'|'.0.bbox.0
-                    res = json.isNumber(arr_14_item);
+                    res = json.isNumber(arr_13_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.0.bbox.0]", ((path != null ? lpath : null) != null ? arr_14_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.0.bbox.0]", ((path != null ? lpath : null) != null ? arr_13_lpath : null));
                         break;
                     }
                 }
@@ -920,18 +915,18 @@ public class geo extends ModelChecker
         res = json.isArray(pval);
         if (res)
         {
-            int arr_15_idx = -1;
-            Iterator<Object> arr_15_item_loop = json.arrayIterator(pval);
-            while (arr_15_item_loop.hasNext())
+            int arr_14_idx = -1;
+            Iterator<Object> arr_14_item_loop = json.arrayIterator(pval);
+            while (arr_14_item_loop.hasNext())
             {
-                arr_15_idx++;
-                Object arr_15_item = arr_15_item_loop.next();
-                Path arr_15_lpath = new Path(arr_15_idx, (path != null ? lpath : null));
+                arr_14_idx++;
+                Object arr_14_item = arr_14_item_loop.next();
+                Path arr_14_lpath = new Path(arr_14_idx, (path != null ? lpath : null));
                 // .'$geometry'.'|'.1.coordinates.0
-                res = json_model_2(arr_15_item, ((path != null ? lpath : null) != null ? arr_15_lpath : null), rep);
+                res = json_model_2(arr_14_item, ((path != null ? lpath : null) != null ? arr_14_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$geometry'.'|'.1.coordinates.0]", ((path != null ? lpath : null) != null ? arr_15_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$position\" [.'$geometry'.'|'.1.coordinates.0]", ((path != null ? lpath : null) != null ? arr_14_lpath : null));
                     break;
                 }
             }
@@ -949,18 +944,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_16_idx = -1;
-                Iterator<Object> arr_16_item_loop = json.arrayIterator(pval);
-                while (arr_16_item_loop.hasNext())
+                int arr_15_idx = -1;
+                Iterator<Object> arr_15_item_loop = json.arrayIterator(pval);
+                while (arr_15_item_loop.hasNext())
                 {
-                    arr_16_idx++;
-                    Object arr_16_item = arr_16_item_loop.next();
-                    Path arr_16_lpath = new Path(arr_16_idx, (path != null ? lpath : null));
+                    arr_15_idx++;
+                    Object arr_15_item = arr_15_item_loop.next();
+                    Path arr_15_lpath = new Path(arr_15_idx, (path != null ? lpath : null));
                     // .'$geometry'.'|'.1.bbox.0
-                    res = json.isNumber(arr_16_item);
+                    res = json.isNumber(arr_15_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.1.bbox.0]", ((path != null ? lpath : null) != null ? arr_16_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.1.bbox.0]", ((path != null ? lpath : null) != null ? arr_15_lpath : null));
                         break;
                     }
                 }
@@ -1021,18 +1016,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_17_idx = -1;
-                Iterator<Object> arr_17_item_loop = json.arrayIterator(pval);
-                while (arr_17_item_loop.hasNext())
+                int arr_16_idx = -1;
+                Iterator<Object> arr_16_item_loop = json.arrayIterator(pval);
+                while (arr_16_item_loop.hasNext())
                 {
-                    arr_17_idx++;
-                    Object arr_17_item = arr_17_item_loop.next();
-                    Path arr_17_lpath = new Path(arr_17_idx, (path != null ? lpath : null));
+                    arr_16_idx++;
+                    Object arr_16_item = arr_16_item_loop.next();
+                    Path arr_16_lpath = new Path(arr_16_idx, (path != null ? lpath : null));
                     // .'$geometry'.'|'.2.bbox.0
-                    res = json.isNumber(arr_17_item);
+                    res = json.isNumber(arr_16_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.2.bbox.0]", ((path != null ? lpath : null) != null ? arr_17_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.2.bbox.0]", ((path != null ? lpath : null) != null ? arr_16_lpath : null));
                         break;
                     }
                 }
@@ -1082,18 +1077,18 @@ public class geo extends ModelChecker
         res = json.isArray(pval);
         if (res)
         {
-            int arr_18_idx = -1;
-            Iterator<Object> arr_18_item_loop = json.arrayIterator(pval);
-            while (arr_18_item_loop.hasNext())
+            int arr_17_idx = -1;
+            Iterator<Object> arr_17_item_loop = json.arrayIterator(pval);
+            while (arr_17_item_loop.hasNext())
             {
-                arr_18_idx++;
-                Object arr_18_item = arr_18_item_loop.next();
-                Path arr_18_lpath = new Path(arr_18_idx, (path != null ? lpath : null));
+                arr_17_idx++;
+                Object arr_17_item = arr_17_item_loop.next();
+                Path arr_17_lpath = new Path(arr_17_idx, (path != null ? lpath : null));
                 // .'$geometry'.'|'.3.coordinates.0
-                res = json_model_3(arr_18_item, ((path != null ? lpath : null) != null ? arr_18_lpath : null), rep);
+                res = json_model_3(arr_17_item, ((path != null ? lpath : null) != null ? arr_17_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$coord_array\" [.'$geometry'.'|'.3.coordinates.0]", ((path != null ? lpath : null) != null ? arr_18_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$coord_array\" [.'$geometry'.'|'.3.coordinates.0]", ((path != null ? lpath : null) != null ? arr_17_lpath : null));
                     break;
                 }
             }
@@ -1111,18 +1106,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_19_idx = -1;
-                Iterator<Object> arr_19_item_loop = json.arrayIterator(pval);
-                while (arr_19_item_loop.hasNext())
+                int arr_18_idx = -1;
+                Iterator<Object> arr_18_item_loop = json.arrayIterator(pval);
+                while (arr_18_item_loop.hasNext())
                 {
-                    arr_19_idx++;
-                    Object arr_19_item = arr_19_item_loop.next();
-                    Path arr_19_lpath = new Path(arr_19_idx, (path != null ? lpath : null));
+                    arr_18_idx++;
+                    Object arr_18_item = arr_18_item_loop.next();
+                    Path arr_18_lpath = new Path(arr_18_idx, (path != null ? lpath : null));
                     // .'$geometry'.'|'.3.bbox.0
-                    res = json.isNumber(arr_19_item);
+                    res = json.isNumber(arr_18_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.3.bbox.0]", ((path != null ? lpath : null) != null ? arr_19_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.3.bbox.0]", ((path != null ? lpath : null) != null ? arr_18_lpath : null));
                         break;
                     }
                 }
@@ -1172,18 +1167,18 @@ public class geo extends ModelChecker
         res = json.isArray(pval);
         if (res)
         {
-            int arr_20_idx = -1;
-            Iterator<Object> arr_20_item_loop = json.arrayIterator(pval);
-            while (arr_20_item_loop.hasNext())
+            int arr_19_idx = -1;
+            Iterator<Object> arr_19_item_loop = json.arrayIterator(pval);
+            while (arr_19_item_loop.hasNext())
             {
-                arr_20_idx++;
-                Object arr_20_item = arr_20_item_loop.next();
-                Path arr_20_lpath = new Path(arr_20_idx, (path != null ? lpath : null));
+                arr_19_idx++;
+                Object arr_19_item = arr_19_item_loop.next();
+                Path arr_19_lpath = new Path(arr_19_idx, (path != null ? lpath : null));
                 // .'$geometry'.'|'.4.coordinates.0
-                res = json_model_4(arr_20_item, ((path != null ? lpath : null) != null ? arr_20_lpath : null), rep);
+                res = json_model_4(arr_19_item, ((path != null ? lpath : null) != null ? arr_19_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.4.coordinates.0]", ((path != null ? lpath : null) != null ? arr_20_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.4.coordinates.0]", ((path != null ? lpath : null) != null ? arr_19_lpath : null));
                     break;
                 }
             }
@@ -1201,18 +1196,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_21_idx = -1;
-                Iterator<Object> arr_21_item_loop = json.arrayIterator(pval);
-                while (arr_21_item_loop.hasNext())
+                int arr_20_idx = -1;
+                Iterator<Object> arr_20_item_loop = json.arrayIterator(pval);
+                while (arr_20_item_loop.hasNext())
                 {
-                    arr_21_idx++;
-                    Object arr_21_item = arr_21_item_loop.next();
-                    Path arr_21_lpath = new Path(arr_21_idx, (path != null ? lpath : null));
+                    arr_20_idx++;
+                    Object arr_20_item = arr_20_item_loop.next();
+                    Path arr_20_lpath = new Path(arr_20_idx, (path != null ? lpath : null));
                     // .'$geometry'.'|'.4.bbox.0
-                    res = json.isNumber(arr_21_item);
+                    res = json.isNumber(arr_20_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.4.bbox.0]", ((path != null ? lpath : null) != null ? arr_21_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.4.bbox.0]", ((path != null ? lpath : null) != null ? arr_20_lpath : null));
                         break;
                     }
                 }
@@ -1262,36 +1257,36 @@ public class geo extends ModelChecker
         res = json.isArray(pval);
         if (res)
         {
-            int arr_22_idx = -1;
-            Iterator<Object> arr_22_item_loop = json.arrayIterator(pval);
-            while (arr_22_item_loop.hasNext())
+            int arr_21_idx = -1;
+            Iterator<Object> arr_21_item_loop = json.arrayIterator(pval);
+            while (arr_21_item_loop.hasNext())
             {
-                arr_22_idx++;
-                Object arr_22_item = arr_22_item_loop.next();
-                Path arr_22_lpath = new Path(arr_22_idx, (path != null ? lpath : null));
+                arr_21_idx++;
+                Object arr_21_item = arr_21_item_loop.next();
+                Path arr_21_lpath = new Path(arr_21_idx, (path != null ? lpath : null));
                 // .'$geometry'.'|'.5.coordinates.0
-                res = json.isArray(arr_22_item);
+                res = json.isArray(arr_21_item);
                 if (res)
                 {
-                    int arr_23_idx = -1;
-                    Iterator<Object> arr_23_item_loop = json.arrayIterator(arr_22_item);
-                    while (arr_23_item_loop.hasNext())
+                    int arr_22_idx = -1;
+                    Iterator<Object> arr_22_item_loop = json.arrayIterator(arr_21_item);
+                    while (arr_22_item_loop.hasNext())
                     {
-                        arr_23_idx++;
-                        Object arr_23_item = arr_23_item_loop.next();
-                        Path arr_23_lpath = new Path(arr_23_idx, ((path != null ? lpath : null) != null ? arr_22_lpath : null));
+                        arr_22_idx++;
+                        Object arr_22_item = arr_22_item_loop.next();
+                        Path arr_22_lpath = new Path(arr_22_idx, ((path != null ? lpath : null) != null ? arr_21_lpath : null));
                         // .'$geometry'.'|'.5.coordinates.0.0
-                        res = json_model_4(arr_23_item, (((path != null ? lpath : null) != null ? arr_22_lpath : null) != null ? arr_23_lpath : null), rep);
+                        res = json_model_4(arr_22_item, (((path != null ? lpath : null) != null ? arr_21_lpath : null) != null ? arr_22_lpath : null), rep);
                         if (! res)
                         {
-                            if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.5.coordinates.0.0]", (((path != null ? lpath : null) != null ? arr_22_lpath : null) != null ? arr_23_lpath : null));
+                            if (rep != null) rep.addEntry("unexpected value for model \"$linear_ring\" [.'$geometry'.'|'.5.coordinates.0.0]", (((path != null ? lpath : null) != null ? arr_21_lpath : null) != null ? arr_22_lpath : null));
                             break;
                         }
                     }
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.5.coordinates.0]", ((path != null ? lpath : null) != null ? arr_22_lpath : null));
+                    if (rep != null) rep.addEntry("not array or unexpected array [.'$geometry'.'|'.5.coordinates.0]", ((path != null ? lpath : null) != null ? arr_21_lpath : null));
                     break;
                 }
             }
@@ -1309,18 +1304,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_24_idx = -1;
-                Iterator<Object> arr_24_item_loop = json.arrayIterator(pval);
-                while (arr_24_item_loop.hasNext())
+                int arr_23_idx = -1;
+                Iterator<Object> arr_23_item_loop = json.arrayIterator(pval);
+                while (arr_23_item_loop.hasNext())
                 {
-                    arr_24_idx++;
-                    Object arr_24_item = arr_24_item_loop.next();
-                    Path arr_24_lpath = new Path(arr_24_idx, (path != null ? lpath : null));
+                    arr_23_idx++;
+                    Object arr_23_item = arr_23_item_loop.next();
+                    Path arr_23_lpath = new Path(arr_23_idx, (path != null ? lpath : null));
                     // .'$geometry'.'|'.5.bbox.0
-                    res = json.isNumber(arr_24_item);
+                    res = json.isNumber(arr_23_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.5.bbox.0]", ((path != null ? lpath : null) != null ? arr_24_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$geometry'.'|'.5.bbox.0]", ((path != null ? lpath : null) != null ? arr_23_lpath : null));
                         break;
                     }
                 }
@@ -1406,18 +1401,18 @@ public class geo extends ModelChecker
         res = json.isArray(pval);
         if (res)
         {
-            int arr_25_idx = -1;
-            Iterator<Object> arr_25_item_loop = json.arrayIterator(pval);
-            while (arr_25_item_loop.hasNext())
+            int arr_24_idx = -1;
+            Iterator<Object> arr_24_item_loop = json.arrayIterator(pval);
+            while (arr_24_item_loop.hasNext())
             {
-                arr_25_idx++;
-                Object arr_25_item = arr_25_item_loop.next();
-                Path arr_25_lpath = new Path(arr_25_idx, (path != null ? lpath : null));
+                arr_24_idx++;
+                Object arr_24_item = arr_24_item_loop.next();
+                Path arr_24_lpath = new Path(arr_24_idx, (path != null ? lpath : null));
                 // .'$GeometryCollection'.geometries.0
-                res = json_model_11(arr_25_item, ((path != null ? lpath : null) != null ? arr_25_lpath : null), rep);
+                res = json_model_11(arr_24_item, ((path != null ? lpath : null) != null ? arr_24_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", ((path != null ? lpath : null) != null ? arr_25_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", ((path != null ? lpath : null) != null ? arr_24_lpath : null));
                     break;
                 }
             }
@@ -1435,18 +1430,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_26_idx = -1;
-                Iterator<Object> arr_26_item_loop = json.arrayIterator(pval);
-                while (arr_26_item_loop.hasNext())
+                int arr_25_idx = -1;
+                Iterator<Object> arr_25_item_loop = json.arrayIterator(pval);
+                while (arr_25_item_loop.hasNext())
                 {
-                    arr_26_idx++;
-                    Object arr_26_item = arr_26_item_loop.next();
-                    Path arr_26_lpath = new Path(arr_26_idx, (path != null ? lpath : null));
+                    arr_25_idx++;
+                    Object arr_25_item = arr_25_item_loop.next();
+                    Path arr_25_lpath = new Path(arr_25_idx, (path != null ? lpath : null));
                     // .'$GeometryCollection'.bbox.0
-                    res = json.isNumber(arr_26_item);
+                    res = json.isNumber(arr_25_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path != null ? lpath : null) != null ? arr_26_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path != null ? lpath : null) != null ? arr_25_lpath : null));
                         break;
                     }
                 }
@@ -1581,18 +1576,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_27_idx = -1;
-                Iterator<Object> arr_27_item_loop = json.arrayIterator(pval);
-                while (arr_27_item_loop.hasNext())
+                int arr_26_idx = -1;
+                Iterator<Object> arr_26_item_loop = json.arrayIterator(pval);
+                while (arr_26_item_loop.hasNext())
                 {
-                    arr_27_idx++;
-                    Object arr_27_item = arr_27_item_loop.next();
-                    Path arr_27_lpath = new Path(arr_27_idx, (path != null ? lpath : null));
+                    arr_26_idx++;
+                    Object arr_26_item = arr_26_item_loop.next();
+                    Path arr_26_lpath = new Path(arr_26_idx, (path != null ? lpath : null));
                     // .'$Feature'.bbox.0
-                    res = json.isNumber(arr_27_item);
+                    res = json.isNumber(arr_26_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Feature'.bbox.0]", ((path != null ? lpath : null) != null ? arr_27_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$Feature'.bbox.0]", ((path != null ? lpath : null) != null ? arr_26_lpath : null));
                         break;
                     }
                 }
@@ -1643,18 +1638,18 @@ public class geo extends ModelChecker
         res = json.isArray(pval);
         if (res)
         {
-            int arr_28_idx = -1;
-            Iterator<Object> arr_28_item_loop = json.arrayIterator(pval);
-            while (arr_28_item_loop.hasNext())
+            int arr_27_idx = -1;
+            Iterator<Object> arr_27_item_loop = json.arrayIterator(pval);
+            while (arr_27_item_loop.hasNext())
             {
-                arr_28_idx++;
-                Object arr_28_item = arr_28_item_loop.next();
-                Path arr_28_lpath = new Path(arr_28_idx, (path != null ? lpath : null));
+                arr_27_idx++;
+                Object arr_27_item = arr_27_item_loop.next();
+                Path arr_27_lpath = new Path(arr_27_idx, (path != null ? lpath : null));
                 // .'$FeatureCollection'.features.0
-                res = json_model_13(arr_28_item, ((path != null ? lpath : null) != null ? arr_28_lpath : null), rep);
+                res = json_model_13(arr_27_item, ((path != null ? lpath : null) != null ? arr_27_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", ((path != null ? lpath : null) != null ? arr_28_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", ((path != null ? lpath : null) != null ? arr_27_lpath : null));
                     break;
                 }
             }
@@ -1672,18 +1667,18 @@ public class geo extends ModelChecker
             res = json.isArray(pval);
             if (res)
             {
-                int arr_29_idx = -1;
-                Iterator<Object> arr_29_item_loop = json.arrayIterator(pval);
-                while (arr_29_item_loop.hasNext())
+                int arr_28_idx = -1;
+                Iterator<Object> arr_28_item_loop = json.arrayIterator(pval);
+                while (arr_28_item_loop.hasNext())
                 {
-                    arr_29_idx++;
-                    Object arr_29_item = arr_29_item_loop.next();
-                    Path arr_29_lpath = new Path(arr_29_idx, (path != null ? lpath : null));
+                    arr_28_idx++;
+                    Object arr_28_item = arr_28_item_loop.next();
+                    Path arr_28_lpath = new Path(arr_28_idx, (path != null ? lpath : null));
                     // .'$FeatureCollection'.bbox.0
-                    res = json.isNumber(arr_29_item);
+                    res = json.isNumber(arr_28_item);
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path != null ? lpath : null) != null ? arr_29_lpath : null));
+                        if (rep != null) rep.addEntry("not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path != null ? lpath : null) != null ? arr_28_lpath : null));
                         break;
                     }
                 }

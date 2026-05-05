@@ -40,25 +40,31 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$position'
-    # .'$position'.'@'
     my $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_0_idx (0 .. $#$val)
+        my $size_0 = scalar @$val;
+        if ($size_0 >= 2 && $size_0 <= 3)
         {
-            my $arr_0_item = $$val[$arr_0_idx];
-            # .'$position'.'@'.0
-            $res = jm_is_numeric($arr_0_item);
-            if (! $res)
+            # unrolled prefix type check
+            my $item_0 = $$val[0];
+            my $item_1 = $$val[1];
+            $res = jm_is_numeric($item_0) && jm_is_numeric($item_1);
+            # optional remaining item
+            if ($res && $size_0 == 3)
             {
-                last;
+                my $item_2 = $$val[2];
+                $res = jm_is_numeric($item_2);
             }
         }
+        else
+        {
+            $res = 0;
+        }
     }
-    if ($res)
+    else
     {
-        my $ival_0 = scalar @$val;
-        $res = $ival_0 <= 3 && $ival_0 >= 2;
+        $res = 0;
     }
     return $res;
 }
@@ -72,11 +78,11 @@ sub json_model_3($$$)
     my $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_1_idx (0 .. $#$val)
+        for my $arr_0_idx (0 .. $#$val)
         {
-            my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_0_item = $$val[$arr_0_idx];
             # .'$coord_array'.'@'.0
-            $res = json_model_2($arr_1_item, undef, undef);
+            $res = json_model_2($arr_0_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -85,8 +91,8 @@ sub json_model_3($$$)
     }
     if ($res)
     {
-        my $ival_1 = scalar @$val;
-        $res = $ival_1 >= 2;
+        my $ival_0 = scalar @$val;
+        $res = $ival_0 >= 2;
     }
     return $res;
 }
@@ -100,11 +106,11 @@ sub json_model_4($$$)
     my $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_2_idx (0 .. $#$val)
+        for my $arr_1_idx (0 .. $#$val)
         {
-            my $arr_2_item = $$val[$arr_2_idx];
+            my $arr_1_item = $$val[$arr_1_idx];
             # .'$linear_ring'.'@'.0
-            $res = json_model_2($arr_2_item, undef, undef);
+            $res = json_model_2($arr_1_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -113,8 +119,8 @@ sub json_model_4($$$)
     }
     if ($res)
     {
-        my $ival_2 = scalar @$val;
-        $res = $ival_2 >= 4;
+        my $ival_1 = scalar @$val;
+        $res = $ival_1 >= 4;
     }
     return $res;
 }
@@ -164,11 +170,11 @@ sub json_model_5($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_3_idx (0 .. $#$pval)
+                for my $arr_2_idx (0 .. $#$pval)
                 {
-                    my $arr_3_item = $$pval[$arr_3_idx];
+                    my $arr_2_item = $$pval[$arr_2_idx];
                     # .'$Point'.bbox.0
-                    $res = jm_is_numeric($arr_3_item);
+                    $res = jm_is_numeric($arr_2_item);
                     if (! $res)
                     {
                         last;
@@ -220,11 +226,11 @@ sub json_model_6($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_4_idx (0 .. $#$pval)
+                for my $arr_3_idx (0 .. $#$pval)
                 {
-                    my $arr_4_item = $$pval[$arr_4_idx];
+                    my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$MultiPoint'.coordinates.0
-                    $res = json_model_2($arr_4_item, undef, undef);
+                    $res = json_model_2($arr_3_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -244,11 +250,11 @@ sub json_model_6($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_5_idx (0 .. $#$pval)
+                for my $arr_4_idx (0 .. $#$pval)
                 {
-                    my $arr_5_item = $$pval[$arr_5_idx];
+                    my $arr_4_item = $$pval[$arr_4_idx];
                     # .'$MultiPoint'.bbox.0
-                    $res = jm_is_numeric($arr_5_item);
+                    $res = jm_is_numeric($arr_4_item);
                     if (! $res)
                     {
                         last;
@@ -311,11 +317,11 @@ sub json_model_7($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_6_idx (0 .. $#$pval)
+                for my $arr_5_idx (0 .. $#$pval)
                 {
-                    my $arr_6_item = $$pval[$arr_6_idx];
+                    my $arr_5_item = $$pval[$arr_5_idx];
                     # .'$LineString'.bbox.0
-                    $res = jm_is_numeric($arr_6_item);
+                    $res = jm_is_numeric($arr_5_item);
                     if (! $res)
                     {
                         last;
@@ -367,11 +373,11 @@ sub json_model_8($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_7_idx (0 .. $#$pval)
+                for my $arr_6_idx (0 .. $#$pval)
                 {
-                    my $arr_7_item = $$pval[$arr_7_idx];
+                    my $arr_6_item = $$pval[$arr_6_idx];
                     # .'$MultiLineString'.coordinates.0
-                    $res = json_model_3($arr_7_item, undef, undef);
+                    $res = json_model_3($arr_6_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -391,11 +397,11 @@ sub json_model_8($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_8_idx (0 .. $#$pval)
+                for my $arr_7_idx (0 .. $#$pval)
                 {
-                    my $arr_8_item = $$pval[$arr_8_idx];
+                    my $arr_7_item = $$pval[$arr_7_idx];
                     # .'$MultiLineString'.bbox.0
-                    $res = jm_is_numeric($arr_8_item);
+                    $res = jm_is_numeric($arr_7_item);
                     if (! $res)
                     {
                         last;
@@ -447,11 +453,11 @@ sub json_model_9($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_9_idx (0 .. $#$pval)
+                for my $arr_8_idx (0 .. $#$pval)
                 {
-                    my $arr_9_item = $$pval[$arr_9_idx];
+                    my $arr_8_item = $$pval[$arr_8_idx];
                     # .'$Polygon'.coordinates.0
-                    $res = json_model_4($arr_9_item, undef, undef);
+                    $res = json_model_4($arr_8_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -471,11 +477,11 @@ sub json_model_9($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_10_idx (0 .. $#$pval)
+                for my $arr_9_idx (0 .. $#$pval)
                 {
-                    my $arr_10_item = $$pval[$arr_10_idx];
+                    my $arr_9_item = $$pval[$arr_9_idx];
                     # .'$Polygon'.bbox.0
-                    $res = jm_is_numeric($arr_10_item);
+                    $res = jm_is_numeric($arr_9_item);
                     if (! $res)
                     {
                         last;
@@ -527,18 +533,18 @@ sub json_model_10($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_11_idx (0 .. $#$pval)
+                for my $arr_10_idx (0 .. $#$pval)
                 {
-                    my $arr_11_item = $$pval[$arr_11_idx];
+                    my $arr_10_item = $$pval[$arr_10_idx];
                     # .'$MultiPolygon'.coordinates.0
-                    $res = jm_is_array($arr_11_item);
+                    $res = jm_is_array($arr_10_item);
                     if ($res)
                     {
-                        for my $arr_12_idx (0 .. $#$arr_11_item)
+                        for my $arr_11_idx (0 .. $#$arr_10_item)
                         {
-                            my $arr_12_item = $$arr_11_item[$arr_12_idx];
+                            my $arr_11_item = $$arr_10_item[$arr_11_idx];
                             # .'$MultiPolygon'.coordinates.0.0
-                            $res = json_model_4($arr_12_item, undef, undef);
+                            $res = json_model_4($arr_11_item, undef, undef);
                             if (! $res)
                             {
                                 last;
@@ -564,11 +570,11 @@ sub json_model_10($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_13_idx (0 .. $#$pval)
+                for my $arr_12_idx (0 .. $#$pval)
                 {
-                    my $arr_13_item = $$pval[$arr_13_idx];
+                    my $arr_12_item = $$pval[$arr_12_idx];
                     # .'$MultiPolygon'.bbox.0
-                    $res = jm_is_numeric($arr_13_item);
+                    $res = jm_is_numeric($arr_12_item);
                     if (! $res)
                     {
                         last;
@@ -625,11 +631,11 @@ sub _jm_obj_0($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_14_idx (0 .. $#$pval)
+            for my $arr_13_idx (0 .. $#$pval)
             {
-                my $arr_14_item = $$pval[$arr_14_idx];
+                my $arr_13_item = $$pval[$arr_13_idx];
                 # .'$geometry'.'|'.0.bbox.0
-                $res = jm_is_numeric($arr_14_item);
+                $res = jm_is_numeric($arr_13_item);
                 if (! $res)
                 {
                     last;
@@ -674,11 +680,11 @@ sub _jm_obj_1($$$)
     $res = jm_is_array($pval);
     if ($res)
     {
-        for my $arr_15_idx (0 .. $#$pval)
+        for my $arr_14_idx (0 .. $#$pval)
         {
-            my $arr_15_item = $$pval[$arr_15_idx];
+            my $arr_14_item = $$pval[$arr_14_idx];
             # .'$geometry'.'|'.1.coordinates.0
-            $res = json_model_2($arr_15_item, undef, undef);
+            $res = json_model_2($arr_14_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -696,11 +702,11 @@ sub _jm_obj_1($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_16_idx (0 .. $#$pval)
+            for my $arr_15_idx (0 .. $#$pval)
             {
-                my $arr_16_item = $$pval[$arr_16_idx];
+                my $arr_15_item = $$pval[$arr_15_idx];
                 # .'$geometry'.'|'.1.bbox.0
-                $res = jm_is_numeric($arr_16_item);
+                $res = jm_is_numeric($arr_15_item);
                 if (! $res)
                 {
                     last;
@@ -754,11 +760,11 @@ sub _jm_obj_2($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_17_idx (0 .. $#$pval)
+            for my $arr_16_idx (0 .. $#$pval)
             {
-                my $arr_17_item = $$pval[$arr_17_idx];
+                my $arr_16_item = $$pval[$arr_16_idx];
                 # .'$geometry'.'|'.2.bbox.0
-                $res = jm_is_numeric($arr_17_item);
+                $res = jm_is_numeric($arr_16_item);
                 if (! $res)
                 {
                     last;
@@ -803,11 +809,11 @@ sub _jm_obj_3($$$)
     $res = jm_is_array($pval);
     if ($res)
     {
-        for my $arr_18_idx (0 .. $#$pval)
+        for my $arr_17_idx (0 .. $#$pval)
         {
-            my $arr_18_item = $$pval[$arr_18_idx];
+            my $arr_17_item = $$pval[$arr_17_idx];
             # .'$geometry'.'|'.3.coordinates.0
-            $res = json_model_3($arr_18_item, undef, undef);
+            $res = json_model_3($arr_17_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -825,11 +831,11 @@ sub _jm_obj_3($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_19_idx (0 .. $#$pval)
+            for my $arr_18_idx (0 .. $#$pval)
             {
-                my $arr_19_item = $$pval[$arr_19_idx];
+                my $arr_18_item = $$pval[$arr_18_idx];
                 # .'$geometry'.'|'.3.bbox.0
-                $res = jm_is_numeric($arr_19_item);
+                $res = jm_is_numeric($arr_18_item);
                 if (! $res)
                 {
                     last;
@@ -874,11 +880,11 @@ sub _jm_obj_4($$$)
     $res = jm_is_array($pval);
     if ($res)
     {
-        for my $arr_20_idx (0 .. $#$pval)
+        for my $arr_19_idx (0 .. $#$pval)
         {
-            my $arr_20_item = $$pval[$arr_20_idx];
+            my $arr_19_item = $$pval[$arr_19_idx];
             # .'$geometry'.'|'.4.coordinates.0
-            $res = json_model_4($arr_20_item, undef, undef);
+            $res = json_model_4($arr_19_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -896,11 +902,11 @@ sub _jm_obj_4($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_21_idx (0 .. $#$pval)
+            for my $arr_20_idx (0 .. $#$pval)
             {
-                my $arr_21_item = $$pval[$arr_21_idx];
+                my $arr_20_item = $$pval[$arr_20_idx];
                 # .'$geometry'.'|'.4.bbox.0
-                $res = jm_is_numeric($arr_21_item);
+                $res = jm_is_numeric($arr_20_item);
                 if (! $res)
                 {
                     last;
@@ -945,18 +951,18 @@ sub _jm_obj_5($$$)
     $res = jm_is_array($pval);
     if ($res)
     {
-        for my $arr_22_idx (0 .. $#$pval)
+        for my $arr_21_idx (0 .. $#$pval)
         {
-            my $arr_22_item = $$pval[$arr_22_idx];
+            my $arr_21_item = $$pval[$arr_21_idx];
             # .'$geometry'.'|'.5.coordinates.0
-            $res = jm_is_array($arr_22_item);
+            $res = jm_is_array($arr_21_item);
             if ($res)
             {
-                for my $arr_23_idx (0 .. $#$arr_22_item)
+                for my $arr_22_idx (0 .. $#$arr_21_item)
                 {
-                    my $arr_23_item = $$arr_22_item[$arr_23_idx];
+                    my $arr_22_item = $$arr_21_item[$arr_22_idx];
                     # .'$geometry'.'|'.5.coordinates.0.0
-                    $res = json_model_4($arr_23_item, undef, undef);
+                    $res = json_model_4($arr_22_item, undef, undef);
                     if (! $res)
                     {
                         last;
@@ -980,11 +986,11 @@ sub _jm_obj_5($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_24_idx (0 .. $#$pval)
+            for my $arr_23_idx (0 .. $#$pval)
             {
-                my $arr_24_item = $$pval[$arr_24_idx];
+                my $arr_23_item = $$pval[$arr_23_idx];
                 # .'$geometry'.'|'.5.bbox.0
-                $res = jm_is_numeric($arr_24_item);
+                $res = jm_is_numeric($arr_23_item);
                 if (! $res)
                 {
                     last;
@@ -1053,11 +1059,11 @@ sub json_model_12($$$)
     $res = jm_is_array($pval);
     if ($res)
     {
-        for my $arr_25_idx (0 .. $#$pval)
+        for my $arr_24_idx (0 .. $#$pval)
         {
-            my $arr_25_item = $$pval[$arr_25_idx];
+            my $arr_24_item = $$pval[$arr_24_idx];
             # .'$GeometryCollection'.geometries.0
-            $res = json_model_11($arr_25_item, undef, undef);
+            $res = json_model_11($arr_24_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -1075,11 +1081,11 @@ sub json_model_12($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_26_idx (0 .. $#$pval)
+            for my $arr_25_idx (0 .. $#$pval)
             {
-                my $arr_26_item = $$pval[$arr_26_idx];
+                my $arr_25_item = $$pval[$arr_25_idx];
                 # .'$GeometryCollection'.bbox.0
-                $res = jm_is_numeric($arr_26_item);
+                $res = jm_is_numeric($arr_25_item);
                 if (! $res)
                 {
                     last;
@@ -1162,11 +1168,11 @@ sub json_model_13($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_27_idx (0 .. $#$pval)
+            for my $arr_26_idx (0 .. $#$pval)
             {
-                my $arr_27_item = $$pval[$arr_27_idx];
+                my $arr_26_item = $$pval[$arr_26_idx];
                 # .'$Feature'.bbox.0
-                $res = jm_is_numeric($arr_27_item);
+                $res = jm_is_numeric($arr_26_item);
                 if (! $res)
                 {
                     last;
@@ -1212,11 +1218,11 @@ sub json_model_14($$$)
     $res = jm_is_array($pval);
     if ($res)
     {
-        for my $arr_28_idx (0 .. $#$pval)
+        for my $arr_27_idx (0 .. $#$pval)
         {
-            my $arr_28_item = $$pval[$arr_28_idx];
+            my $arr_27_item = $$pval[$arr_27_idx];
             # .'$FeatureCollection'.features.0
-            $res = json_model_13($arr_28_item, undef, undef);
+            $res = json_model_13($arr_27_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -1234,11 +1240,11 @@ sub json_model_14($$$)
         $res = jm_is_array($pval);
         if ($res)
         {
-            for my $arr_29_idx (0 .. $#$pval)
+            for my $arr_28_idx (0 .. $#$pval)
             {
-                my $arr_29_item = $$pval[$arr_29_idx];
+                my $arr_28_item = $$pval[$arr_28_idx];
                 # .'$FeatureCollection'.bbox.0
-                $res = jm_is_numeric($arr_29_item);
+                $res = jm_is_numeric($arr_28_item);
                 if (! $res)
                 {
                     last;

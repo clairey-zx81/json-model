@@ -33,36 +33,33 @@ const size_t check_model_map_size = 14;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$position'
-    // .'$position'.'@'
     bool res = json_is_array(val);
     if (likely(res))
     {
-        size_t arr_0_idx;
-        json_t *arr_0_item;
-        json_array_foreach(val, arr_0_idx, arr_0_item)
+        int64_t size_0 = json_array_size(val);
+        if (likely(size_0 >= 2 && size_0 <= 3))
         {
-            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
-            // .'$position'.'@'.0
-            res = jm_json_is_number(arr_0_item);
-            if (unlikely(! res))
+            // unrolled prefix type check
+            json_t * item_0 = json_array_get(val, 0);
+            json_t * item_1 = json_array_get(val, 1);
+            res = jm_json_is_number(item_0) && jm_json_is_number(item_1);
+            // optional remaining item
+            if (res && size_0 == 3)
             {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$position'.'@'.0]", (path ? &arr_0_lpath : NULL));
-                break;
+                json_t * item_2 = json_array_get(val, 2);
+                res = jm_json_is_number(item_2);
             }
         }
-    }
-    if (likely(res))
-    {
-        int64_t ival_0 = json_array_size(val);
-        res = ival_0 <= 3 && ival_0 >= 2;
-        if (unlikely(! res))
+        else
         {
-            if (rep) jm_report_add_entry(rep, "constraints failed [.'$position']", path);
+            if (rep) jm_report_add_entry(rep, "unexpected array size [.'$position']", path);
+            res = false;
         }
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$position'.'@']", path);
+        if (rep) jm_report_add_entry(rep, "expecting an array [.'$position']", path);
+        res = false;
     }
     return res;
 }
@@ -75,24 +72,24 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_array(val);
     if (likely(res))
     {
-        size_t arr_1_idx;
-        json_t *arr_1_item;
-        json_array_foreach(val, arr_1_idx, arr_1_item)
+        size_t arr_0_idx;
+        json_t *arr_0_item;
+        json_array_foreach(val, arr_0_idx, arr_0_item)
         {
-            jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
+            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
             // .'$coord_array'.'@'.0
-            res = json_model_2(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
+            res = json_model_2(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", (path ? &arr_1_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", (path ? &arr_0_lpath : NULL));
                 break;
             }
         }
     }
     if (likely(res))
     {
-        int64_t ival_1 = json_array_size(val);
-        res = ival_1 >= 2;
+        int64_t ival_0 = json_array_size(val);
+        res = ival_0 >= 2;
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$coord_array']", path);
@@ -113,24 +110,24 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_array(val);
     if (likely(res))
     {
-        size_t arr_2_idx;
-        json_t *arr_2_item;
-        json_array_foreach(val, arr_2_idx, arr_2_item)
+        size_t arr_1_idx;
+        json_t *arr_1_item;
+        json_array_foreach(val, arr_1_idx, arr_1_item)
         {
-            jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, path, NULL };
+            jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
             // .'$linear_ring'.'@'.0
-            res = json_model_2(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
+            res = json_model_2(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", (path ? &arr_2_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", (path ? &arr_1_lpath : NULL));
                 break;
             }
         }
     }
     if (likely(res))
     {
-        int64_t ival_2 = json_array_size(val);
-        res = ival_2 >= 4;
+        int64_t ival_1 = json_array_size(val);
+        res = ival_1 >= 4;
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$linear_ring']", path);
@@ -194,16 +191,16 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_3_idx;
-                json_t *arr_3_item;
-                json_array_foreach(pval, arr_3_idx, arr_3_item)
+                size_t arr_2_idx;
+                json_t *arr_2_item;
+                json_array_foreach(pval, arr_2_idx, arr_2_item)
                 {
-                    jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_0 : NULL), NULL };
+                    jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, (path ? &lpath_0 : NULL), NULL };
                     // .'$Point'.bbox.0
-                    res = jm_json_is_number(arr_3_item);
+                    res = jm_json_is_number(arr_2_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Point'.bbox.0]", ((path ? &lpath_0 : NULL) ? &arr_3_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Point'.bbox.0]", ((path ? &lpath_0 : NULL) ? &arr_2_lpath : NULL));
                         break;
                     }
                 }
@@ -275,16 +272,16 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_4_idx;
-                json_t *arr_4_item;
-                json_array_foreach(pval, arr_4_idx, arr_4_item)
+                size_t arr_3_idx;
+                json_t *arr_3_item;
+                json_array_foreach(pval, arr_3_idx, arr_3_item)
                 {
-                    jm_path_t arr_4_lpath = (jm_path_t) { NULL, arr_4_idx, (path ? &lpath_1 : NULL), NULL };
+                    jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_1 : NULL), NULL };
                     // .'$MultiPoint'.coordinates.0
-                    res = json_model_2(arr_4_item, ((path ? &lpath_1 : NULL) ? &arr_4_lpath : NULL), rep);
+                    res = json_model_2(arr_3_item, ((path ? &lpath_1 : NULL) ? &arr_3_lpath : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", ((path ? &lpath_1 : NULL) ? &arr_4_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", ((path ? &lpath_1 : NULL) ? &arr_3_lpath : NULL));
                         break;
                     }
                 }
@@ -304,16 +301,16 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_5_idx;
-                json_t *arr_5_item;
-                json_array_foreach(pval, arr_5_idx, arr_5_item)
+                size_t arr_4_idx;
+                json_t *arr_4_item;
+                json_array_foreach(pval, arr_4_idx, arr_4_item)
                 {
-                    jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_1 : NULL), NULL };
+                    jm_path_t arr_4_lpath = (jm_path_t) { NULL, arr_4_idx, (path ? &lpath_1 : NULL), NULL };
                     // .'$MultiPoint'.bbox.0
-                    res = jm_json_is_number(arr_5_item);
+                    res = jm_json_is_number(arr_4_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path ? &lpath_1 : NULL) ? &arr_5_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path ? &lpath_1 : NULL) ? &arr_4_lpath : NULL));
                         break;
                     }
                 }
@@ -398,16 +395,16 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_6_idx;
-                json_t *arr_6_item;
-                json_array_foreach(pval, arr_6_idx, arr_6_item)
+                size_t arr_5_idx;
+                json_t *arr_5_item;
+                json_array_foreach(pval, arr_5_idx, arr_5_item)
                 {
-                    jm_path_t arr_6_lpath = (jm_path_t) { NULL, arr_6_idx, (path ? &lpath_2 : NULL), NULL };
+                    jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_2 : NULL), NULL };
                     // .'$LineString'.bbox.0
-                    res = jm_json_is_number(arr_6_item);
+                    res = jm_json_is_number(arr_5_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$LineString'.bbox.0]", ((path ? &lpath_2 : NULL) ? &arr_6_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$LineString'.bbox.0]", ((path ? &lpath_2 : NULL) ? &arr_5_lpath : NULL));
                         break;
                     }
                 }
@@ -479,16 +476,16 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_7_idx;
-                json_t *arr_7_item;
-                json_array_foreach(pval, arr_7_idx, arr_7_item)
+                size_t arr_6_idx;
+                json_t *arr_6_item;
+                json_array_foreach(pval, arr_6_idx, arr_6_item)
                 {
-                    jm_path_t arr_7_lpath = (jm_path_t) { NULL, arr_7_idx, (path ? &lpath_3 : NULL), NULL };
+                    jm_path_t arr_6_lpath = (jm_path_t) { NULL, arr_6_idx, (path ? &lpath_3 : NULL), NULL };
                     // .'$MultiLineString'.coordinates.0
-                    res = json_model_3(arr_7_item, ((path ? &lpath_3 : NULL) ? &arr_7_lpath : NULL), rep);
+                    res = json_model_3(arr_6_item, ((path ? &lpath_3 : NULL) ? &arr_6_lpath : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", ((path ? &lpath_3 : NULL) ? &arr_7_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", ((path ? &lpath_3 : NULL) ? &arr_6_lpath : NULL));
                         break;
                     }
                 }
@@ -508,16 +505,16 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_8_idx;
-                json_t *arr_8_item;
-                json_array_foreach(pval, arr_8_idx, arr_8_item)
+                size_t arr_7_idx;
+                json_t *arr_7_item;
+                json_array_foreach(pval, arr_7_idx, arr_7_item)
                 {
-                    jm_path_t arr_8_lpath = (jm_path_t) { NULL, arr_8_idx, (path ? &lpath_3 : NULL), NULL };
+                    jm_path_t arr_7_lpath = (jm_path_t) { NULL, arr_7_idx, (path ? &lpath_3 : NULL), NULL };
                     // .'$MultiLineString'.bbox.0
-                    res = jm_json_is_number(arr_8_item);
+                    res = jm_json_is_number(arr_7_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path ? &lpath_3 : NULL) ? &arr_8_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path ? &lpath_3 : NULL) ? &arr_7_lpath : NULL));
                         break;
                     }
                 }
@@ -588,16 +585,16 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_9_idx;
-                json_t *arr_9_item;
-                json_array_foreach(pval, arr_9_idx, arr_9_item)
+                size_t arr_8_idx;
+                json_t *arr_8_item;
+                json_array_foreach(pval, arr_8_idx, arr_8_item)
                 {
-                    jm_path_t arr_9_lpath = (jm_path_t) { NULL, arr_9_idx, (path ? &lpath_4 : NULL), NULL };
+                    jm_path_t arr_8_lpath = (jm_path_t) { NULL, arr_8_idx, (path ? &lpath_4 : NULL), NULL };
                     // .'$Polygon'.coordinates.0
-                    res = json_model_4(arr_9_item, ((path ? &lpath_4 : NULL) ? &arr_9_lpath : NULL), rep);
+                    res = json_model_4(arr_8_item, ((path ? &lpath_4 : NULL) ? &arr_8_lpath : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", ((path ? &lpath_4 : NULL) ? &arr_9_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", ((path ? &lpath_4 : NULL) ? &arr_8_lpath : NULL));
                         break;
                     }
                 }
@@ -617,16 +614,16 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_10_idx;
-                json_t *arr_10_item;
-                json_array_foreach(pval, arr_10_idx, arr_10_item)
+                size_t arr_9_idx;
+                json_t *arr_9_item;
+                json_array_foreach(pval, arr_9_idx, arr_9_item)
                 {
-                    jm_path_t arr_10_lpath = (jm_path_t) { NULL, arr_10_idx, (path ? &lpath_4 : NULL), NULL };
+                    jm_path_t arr_9_lpath = (jm_path_t) { NULL, arr_9_idx, (path ? &lpath_4 : NULL), NULL };
                     // .'$Polygon'.bbox.0
-                    res = jm_json_is_number(arr_10_item);
+                    res = jm_json_is_number(arr_9_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path ? &lpath_4 : NULL) ? &arr_10_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path ? &lpath_4 : NULL) ? &arr_9_lpath : NULL));
                         break;
                     }
                 }
@@ -698,32 +695,32 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_11_idx;
-                json_t *arr_11_item;
-                json_array_foreach(pval, arr_11_idx, arr_11_item)
+                size_t arr_10_idx;
+                json_t *arr_10_item;
+                json_array_foreach(pval, arr_10_idx, arr_10_item)
                 {
-                    jm_path_t arr_11_lpath = (jm_path_t) { NULL, arr_11_idx, (path ? &lpath_5 : NULL), NULL };
+                    jm_path_t arr_10_lpath = (jm_path_t) { NULL, arr_10_idx, (path ? &lpath_5 : NULL), NULL };
                     // .'$MultiPolygon'.coordinates.0
-                    res = json_is_array(arr_11_item);
+                    res = json_is_array(arr_10_item);
                     if (likely(res))
                     {
-                        size_t arr_12_idx;
-                        json_t *arr_12_item;
-                        json_array_foreach(arr_11_item, arr_12_idx, arr_12_item)
+                        size_t arr_11_idx;
+                        json_t *arr_11_item;
+                        json_array_foreach(arr_10_item, arr_11_idx, arr_11_item)
                         {
-                            jm_path_t arr_12_lpath = (jm_path_t) { NULL, arr_12_idx, ((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL), NULL };
+                            jm_path_t arr_11_lpath = (jm_path_t) { NULL, arr_11_idx, ((path ? &lpath_5 : NULL) ? &arr_10_lpath : NULL), NULL };
                             // .'$MultiPolygon'.coordinates.0.0
-                            res = json_model_4(arr_12_item, (((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL) ? &arr_12_lpath : NULL), rep);
+                            res = json_model_4(arr_11_item, (((path ? &lpath_5 : NULL) ? &arr_10_lpath : NULL) ? &arr_11_lpath : NULL), rep);
                             if (unlikely(! res))
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", (((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL) ? &arr_12_lpath : NULL));
+                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", (((path ? &lpath_5 : NULL) ? &arr_10_lpath : NULL) ? &arr_11_lpath : NULL));
                                 break;
                             }
                         }
                     }
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$MultiPolygon'.coordinates.0]", ((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$MultiPolygon'.coordinates.0]", ((path ? &lpath_5 : NULL) ? &arr_10_lpath : NULL));
                         break;
                     }
                 }
@@ -743,16 +740,16 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_13_idx;
-                json_t *arr_13_item;
-                json_array_foreach(pval, arr_13_idx, arr_13_item)
+                size_t arr_12_idx;
+                json_t *arr_12_item;
+                json_array_foreach(pval, arr_12_idx, arr_12_item)
                 {
-                    jm_path_t arr_13_lpath = (jm_path_t) { NULL, arr_13_idx, (path ? &lpath_5 : NULL), NULL };
+                    jm_path_t arr_12_lpath = (jm_path_t) { NULL, arr_12_idx, (path ? &lpath_5 : NULL), NULL };
                     // .'$MultiPolygon'.bbox.0
-                    res = jm_json_is_number(arr_13_item);
+                    res = jm_json_is_number(arr_12_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path ? &lpath_5 : NULL) ? &arr_13_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path ? &lpath_5 : NULL) ? &arr_12_lpath : NULL));
                         break;
                     }
                 }
@@ -863,16 +860,16 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_14_idx;
-                json_t *arr_14_item;
-                json_array_foreach(pval, arr_14_idx, arr_14_item)
+                size_t arr_13_idx;
+                json_t *arr_13_item;
+                json_array_foreach(pval, arr_13_idx, arr_13_item)
                 {
-                    jm_path_t arr_14_lpath = (jm_path_t) { NULL, arr_14_idx, (path ? &lpath_6 : NULL), NULL };
+                    jm_path_t arr_13_lpath = (jm_path_t) { NULL, arr_13_idx, (path ? &lpath_6 : NULL), NULL };
                     // .'$GeometryCollection'.geometries.0
-                    res = json_model_11(arr_14_item, ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL), rep);
+                    res = json_model_11(arr_13_item, ((path ? &lpath_6 : NULL) ? &arr_13_lpath : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", ((path ? &lpath_6 : NULL) ? &arr_13_lpath : NULL));
                         break;
                     }
                 }
@@ -892,16 +889,16 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_15_idx;
-                json_t *arr_15_item;
-                json_array_foreach(pval, arr_15_idx, arr_15_item)
+                size_t arr_14_idx;
+                json_t *arr_14_item;
+                json_array_foreach(pval, arr_14_idx, arr_14_item)
                 {
-                    jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, (path ? &lpath_6 : NULL), NULL };
+                    jm_path_t arr_14_lpath = (jm_path_t) { NULL, arr_14_idx, (path ? &lpath_6 : NULL), NULL };
                     // .'$GeometryCollection'.bbox.0
-                    res = jm_json_is_number(arr_15_item);
+                    res = jm_json_is_number(arr_14_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path ? &lpath_6 : NULL) ? &arr_15_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL));
                         break;
                     }
                 }
@@ -1059,16 +1056,16 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_16_idx;
-                json_t *arr_16_item;
-                json_array_foreach(pval, arr_16_idx, arr_16_item)
+                size_t arr_15_idx;
+                json_t *arr_15_item;
+                json_array_foreach(pval, arr_15_idx, arr_15_item)
                 {
-                    jm_path_t arr_16_lpath = (jm_path_t) { NULL, arr_16_idx, (path ? &lpath_7 : NULL), NULL };
+                    jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, (path ? &lpath_7 : NULL), NULL };
                     // .'$Feature'.bbox.0
-                    res = jm_json_is_number(arr_16_item);
+                    res = jm_json_is_number(arr_15_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Feature'.bbox.0]", ((path ? &lpath_7 : NULL) ? &arr_16_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Feature'.bbox.0]", ((path ? &lpath_7 : NULL) ? &arr_15_lpath : NULL));
                         break;
                     }
                 }
@@ -1144,16 +1141,16 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_17_idx;
-                json_t *arr_17_item;
-                json_array_foreach(pval, arr_17_idx, arr_17_item)
+                size_t arr_16_idx;
+                json_t *arr_16_item;
+                json_array_foreach(pval, arr_16_idx, arr_16_item)
                 {
-                    jm_path_t arr_17_lpath = (jm_path_t) { NULL, arr_17_idx, (path ? &lpath_8 : NULL), NULL };
+                    jm_path_t arr_16_lpath = (jm_path_t) { NULL, arr_16_idx, (path ? &lpath_8 : NULL), NULL };
                     // .'$FeatureCollection'.features.0
-                    res = json_model_13(arr_17_item, ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL), rep);
+                    res = json_model_13(arr_16_item, ((path ? &lpath_8 : NULL) ? &arr_16_lpath : NULL), rep);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", ((path ? &lpath_8 : NULL) ? &arr_16_lpath : NULL));
                         break;
                     }
                 }
@@ -1173,16 +1170,16 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_array(pval);
             if (likely(res))
             {
-                size_t arr_18_idx;
-                json_t *arr_18_item;
-                json_array_foreach(pval, arr_18_idx, arr_18_item)
+                size_t arr_17_idx;
+                json_t *arr_17_item;
+                json_array_foreach(pval, arr_17_idx, arr_17_item)
                 {
-                    jm_path_t arr_18_lpath = (jm_path_t) { NULL, arr_18_idx, (path ? &lpath_8 : NULL), NULL };
+                    jm_path_t arr_17_lpath = (jm_path_t) { NULL, arr_17_idx, (path ? &lpath_8 : NULL), NULL };
                     // .'$FeatureCollection'.bbox.0
-                    res = jm_json_is_number(arr_18_item);
+                    res = jm_json_is_number(arr_17_item);
                     if (unlikely(! res))
                     {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path ? &lpath_8 : NULL) ? &arr_18_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL));
                         break;
                     }
                 }

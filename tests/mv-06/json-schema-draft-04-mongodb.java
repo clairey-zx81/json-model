@@ -580,38 +580,44 @@ public class json_schema_draft_04_mongodb extends ModelChecker
     public boolean json_model_6(Object val, Path path, Report rep)
     {
         // .'$schema#stringArray'
-        // .'$schema#stringArray'.'@'
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_2_idx = -1;
-            Iterator<Object> arr_2_item_loop = json.arrayIterator(val);
-            while (arr_2_item_loop.hasNext())
+            long size_0 = json.arrayLength(val);
+            if (size_0 >= 1)
             {
-                arr_2_idx++;
-                Object arr_2_item = arr_2_item_loop.next();
-                Path arr_2_lpath = new Path(arr_2_idx, path);
-                // .'$schema#stringArray'.'@'.0
-                res = json.isString(arr_2_item);
-                if (! res)
+                // unrolled prefix type check
+                Object item_0 = json.arrayItem(val, 0);
+                res = json.isString(item_0);
+                // optional remaining items
+                if (res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.'$schema#stringArray'.'@'.0]", (path != null ? arr_2_lpath : null));
-                    break;
+                    for (int index_0 = 1; index_0 < size_0; index_0++)
+                    {
+                        Object item_1 = json.arrayItem(val, index_0);
+                        res = json.isString(item_1);
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                // other constraints
+                if (res)
+                {
+                    res = rt.array_is_unique(val, path, rep);
                 }
             }
-        }
-        if (res)
-        {
-            long ival_2 = json.arrayLength(val);
-            res = rt.array_is_unique(val, path, rep) && ival_2 >= 1;
-            if (! res)
+            else
             {
-                if (rep != null) rep.addEntry("constraints failed [.'$schema#stringArray']", path);
+                if (rep != null) rep.addEntry("unexpected array size [.'$schema#stringArray']", path);
+                res = false;
             }
         }
         else
         {
-            if (rep != null) rep.addEntry("not array or unexpected array [.'$schema#stringArray'.'@']", path);
+            if (rep != null) rep.addEntry("expecting an array [.'$schema#stringArray']", path);
+            res = false;
         }
         return res;
     }
@@ -624,26 +630,26 @@ public class json_schema_draft_04_mongodb extends ModelChecker
         boolean res = json.isArray(val);
         if (res)
         {
-            int arr_3_idx = -1;
-            Iterator<Object> arr_3_item_loop = json.arrayIterator(val);
-            while (arr_3_item_loop.hasNext())
+            int arr_2_idx = -1;
+            Iterator<Object> arr_2_item_loop = json.arrayIterator(val);
+            while (arr_2_item_loop.hasNext())
             {
-                arr_3_idx++;
-                Object arr_3_item = arr_3_item_loop.next();
-                Path arr_3_lpath = new Path(arr_3_idx, path);
+                arr_2_idx++;
+                Object arr_2_item = arr_2_item_loop.next();
+                Path arr_2_lpath = new Path(arr_2_idx, path);
                 // .'$schema#typeArray'.'@'.0
-                res = json_model_5(arr_3_item, (path != null ? arr_3_lpath : null), rep);
+                res = json_model_5(arr_2_item, (path != null ? arr_2_lpath : null), rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypes\" [.'$schema#typeArray'.'@'.0]", (path != null ? arr_3_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected value for model \"$simpleTypes\" [.'$schema#typeArray'.'@'.0]", (path != null ? arr_2_lpath : null));
                     break;
                 }
             }
         }
         if (res)
         {
-            long ival_3 = json.arrayLength(val);
-            res = rt.array_is_unique(val, path, rep) && ival_3 >= 1;
+            long ival_2 = json.arrayLength(val);
+            res = rt.array_is_unique(val, path, rep) && ival_2 >= 1;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.'$schema#typeArray']", path);

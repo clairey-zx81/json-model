@@ -10,26 +10,30 @@ CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_0_idx INT8;
-  arr_0_item JSONB;
-  ival_0 int;
+  size_0 int;
+  item_0 JSONB;
+  item_1 JSONB;
+  item_2 JSONB;
 BEGIN
   -- .'$position'
-  -- .'$position'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_0_item := val -> arr_0_idx;
-      -- .'$position'.'@'.0
-      res := JSONB_TYPEOF(arr_0_item) = 'number';
-      IF NOT res THEN
-        EXIT;
+    size_0 := JSONB_ARRAY_LENGTH(val);
+    IF size_0 >= 2 AND size_0 <= 3 THEN
+      -- unrolled prefix type check
+      item_0 := val -> 0;
+      item_1 := val -> 1;
+      res := JSONB_TYPEOF(item_0) = 'number' AND JSONB_TYPEOF(item_1) = 'number';
+      -- optional remaining item
+      IF res AND size_0 = 3 THEN
+        item_2 := val -> 2;
+        res := JSONB_TYPEOF(item_2) = 'number';
       END IF;
-    END LOOP;
-  END IF;
-  IF res THEN
-    ival_0 := JSONB_ARRAY_LENGTH(val);
-    res := ival_0 <= 3 AND ival_0 >= 2;
+    ELSE
+      res := FALSE;
+    END IF;
+  ELSE
+    res := FALSE;
   END IF;
   RETURN res;
 END;
@@ -40,26 +44,26 @@ CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_1_idx INT8;
-  arr_1_item JSONB;
-  ival_1 int;
+  arr_0_idx INT8;
+  arr_0_item JSONB;
+  ival_0 int;
 BEGIN
   -- .'$coord_array'
   -- .'$coord_array'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_1_item := val -> arr_1_idx;
+    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_0_item := val -> arr_0_idx;
       -- .'$coord_array'.'@'.0
-      res := json_model_2(arr_1_item, NULL, NULL);
+      res := json_model_2(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
   END IF;
   IF res THEN
-    ival_1 := JSONB_ARRAY_LENGTH(val);
-    res := ival_1 >= 2;
+    ival_0 := JSONB_ARRAY_LENGTH(val);
+    res := ival_0 >= 2;
   END IF;
   RETURN res;
 END;
@@ -70,26 +74,26 @@ CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_2_idx INT8;
-  arr_2_item JSONB;
-  ival_2 int;
+  arr_1_idx INT8;
+  arr_1_item JSONB;
+  ival_1 int;
 BEGIN
   -- .'$linear_ring'
   -- .'$linear_ring'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_2_item := val -> arr_2_idx;
+    FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_1_item := val -> arr_1_idx;
       -- .'$linear_ring'.'@'.0
-      res := json_model_2(arr_2_item, NULL, NULL);
+      res := json_model_2(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
   END IF;
   IF res THEN
-    ival_2 := JSONB_ARRAY_LENGTH(val);
-    res := ival_2 >= 4;
+    ival_1 := JSONB_ARRAY_LENGTH(val);
+    res := ival_1 >= 4;
   END IF;
   RETURN res;
 END;
@@ -103,8 +107,8 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
-  arr_3_idx INT8;
-  arr_3_item JSONB;
+  arr_2_idx INT8;
+  arr_2_item JSONB;
 BEGIN
   -- .'$Point'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -136,10 +140,10 @@ BEGIN
       -- .'$Point'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_3_item := pval -> arr_3_idx;
+        FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_2_item := pval -> arr_2_idx;
           -- .'$Point'.bbox.0
-          res := JSONB_TYPEOF(arr_3_item) = 'number';
+          res := JSONB_TYPEOF(arr_2_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -164,10 +168,10 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_3_idx INT8;
+  arr_3_item JSONB;
   arr_4_idx INT8;
   arr_4_item JSONB;
-  arr_5_idx INT8;
-  arr_5_item JSONB;
 BEGIN
   -- .'$MultiPoint'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -190,10 +194,10 @@ BEGIN
       -- .'$MultiPoint'.coordinates
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_4_item := pval -> arr_4_idx;
+        FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_3_item := pval -> arr_3_idx;
           -- .'$MultiPoint'.coordinates.0
-          res := json_model_2(arr_4_item, NULL, NULL);
+          res := json_model_2(arr_3_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -209,10 +213,10 @@ BEGIN
       -- .'$MultiPoint'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_5_item := pval -> arr_5_idx;
+        FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_4_item := pval -> arr_4_idx;
           -- .'$MultiPoint'.bbox.0
-          res := JSONB_TYPEOF(arr_5_item) = 'number';
+          res := JSONB_TYPEOF(arr_4_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -237,8 +241,8 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
-  arr_6_idx INT8;
-  arr_6_item JSONB;
+  arr_5_idx INT8;
+  arr_5_item JSONB;
 BEGIN
   -- .'$LineString'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -270,10 +274,10 @@ BEGIN
       -- .'$LineString'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_6_item := pval -> arr_6_idx;
+        FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_5_item := pval -> arr_5_idx;
           -- .'$LineString'.bbox.0
-          res := JSONB_TYPEOF(arr_6_item) = 'number';
+          res := JSONB_TYPEOF(arr_5_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -298,10 +302,10 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_6_idx INT8;
+  arr_6_item JSONB;
   arr_7_idx INT8;
   arr_7_item JSONB;
-  arr_8_idx INT8;
-  arr_8_item JSONB;
 BEGIN
   -- .'$MultiLineString'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -324,10 +328,10 @@ BEGIN
       -- .'$MultiLineString'.coordinates
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_7_item := pval -> arr_7_idx;
+        FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_6_item := pval -> arr_6_idx;
           -- .'$MultiLineString'.coordinates.0
-          res := json_model_3(arr_7_item, NULL, NULL);
+          res := json_model_3(arr_6_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -343,10 +347,10 @@ BEGIN
       -- .'$MultiLineString'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_8_item := pval -> arr_8_idx;
+        FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_7_item := pval -> arr_7_idx;
           -- .'$MultiLineString'.bbox.0
-          res := JSONB_TYPEOF(arr_8_item) = 'number';
+          res := JSONB_TYPEOF(arr_7_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -371,10 +375,10 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_8_idx INT8;
+  arr_8_item JSONB;
   arr_9_idx INT8;
   arr_9_item JSONB;
-  arr_10_idx INT8;
-  arr_10_item JSONB;
 BEGIN
   -- .'$Polygon'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -397,10 +401,10 @@ BEGIN
       -- .'$Polygon'.coordinates
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_9_item := pval -> arr_9_idx;
+        FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_8_item := pval -> arr_8_idx;
           -- .'$Polygon'.coordinates.0
-          res := json_model_4(arr_9_item, NULL, NULL);
+          res := json_model_4(arr_8_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -416,10 +420,10 @@ BEGIN
       -- .'$Polygon'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_10_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_10_item := pval -> arr_10_idx;
+        FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_9_item := pval -> arr_9_idx;
           -- .'$Polygon'.bbox.0
-          res := JSONB_TYPEOF(arr_10_item) = 'number';
+          res := JSONB_TYPEOF(arr_9_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -444,12 +448,12 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_10_idx INT8;
+  arr_10_item JSONB;
   arr_11_idx INT8;
   arr_11_item JSONB;
   arr_12_idx INT8;
   arr_12_item JSONB;
-  arr_13_idx INT8;
-  arr_13_item JSONB;
 BEGIN
   -- .'$MultiPolygon'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -472,15 +476,15 @@ BEGIN
       -- .'$MultiPolygon'.coordinates
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_11_item := pval -> arr_11_idx;
+        FOR arr_10_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_10_item := pval -> arr_10_idx;
           -- .'$MultiPolygon'.coordinates.0
-          res := JSONB_TYPEOF(arr_11_item) = 'array';
+          res := JSONB_TYPEOF(arr_10_item) = 'array';
           IF res THEN
-            FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_11_item) - 1 LOOP
-              arr_12_item := arr_11_item -> arr_12_idx;
+            FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_10_item) - 1 LOOP
+              arr_11_item := arr_10_item -> arr_11_idx;
               -- .'$MultiPolygon'.coordinates.0.0
-              res := json_model_4(arr_12_item, NULL, NULL);
+              res := json_model_4(arr_11_item, NULL, NULL);
               IF NOT res THEN
                 EXIT;
               END IF;
@@ -501,10 +505,10 @@ BEGIN
       -- .'$MultiPolygon'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_13_item := pval -> arr_13_idx;
+        FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_12_item := pval -> arr_12_idx;
           -- .'$MultiPolygon'.bbox.0
-          res := JSONB_TYPEOF(arr_13_item) = 'number';
+          res := JSONB_TYPEOF(arr_12_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -529,8 +533,8 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
-  arr_14_idx INT8;
-  arr_14_item JSONB;
+  arr_13_idx INT8;
+  arr_13_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -561,10 +565,10 @@ BEGIN
       -- .'$geometry'.'|'.0.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_14_item := pval -> arr_14_idx;
+        FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_13_item := pval -> arr_13_idx;
           -- .'$geometry'.'|'.0.bbox.0
-          res := JSONB_TYPEOF(arr_14_item) = 'number';
+          res := JSONB_TYPEOF(arr_13_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -590,10 +594,10 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_14_idx INT8;
+  arr_14_item JSONB;
   arr_15_idx INT8;
   arr_15_item JSONB;
-  arr_16_idx INT8;
-  arr_16_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -615,10 +619,10 @@ BEGIN
       -- .'$geometry'.'|'.1.coordinates
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_15_item := pval -> arr_15_idx;
+        FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_14_item := pval -> arr_14_idx;
           -- .'$geometry'.'|'.1.coordinates.0
-          res := json_model_2(arr_15_item, NULL, NULL);
+          res := json_model_2(arr_14_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -634,10 +638,10 @@ BEGIN
       -- .'$geometry'.'|'.1.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_16_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_16_item := pval -> arr_16_idx;
+        FOR arr_15_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_15_item := pval -> arr_15_idx;
           -- .'$geometry'.'|'.1.bbox.0
-          res := JSONB_TYPEOF(arr_16_item) = 'number';
+          res := JSONB_TYPEOF(arr_15_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -663,8 +667,8 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
-  arr_17_idx INT8;
-  arr_17_item JSONB;
+  arr_16_idx INT8;
+  arr_16_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -695,10 +699,10 @@ BEGIN
       -- .'$geometry'.'|'.2.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_17_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_17_item := pval -> arr_17_idx;
+        FOR arr_16_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_16_item := pval -> arr_16_idx;
           -- .'$geometry'.'|'.2.bbox.0
-          res := JSONB_TYPEOF(arr_17_item) = 'number';
+          res := JSONB_TYPEOF(arr_16_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -724,10 +728,10 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_17_idx INT8;
+  arr_17_item JSONB;
   arr_18_idx INT8;
   arr_18_item JSONB;
-  arr_19_idx INT8;
-  arr_19_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -749,10 +753,10 @@ BEGIN
       -- .'$geometry'.'|'.3.coordinates
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_18_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_18_item := pval -> arr_18_idx;
+        FOR arr_17_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_17_item := pval -> arr_17_idx;
           -- .'$geometry'.'|'.3.coordinates.0
-          res := json_model_3(arr_18_item, NULL, NULL);
+          res := json_model_3(arr_17_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -768,10 +772,10 @@ BEGIN
       -- .'$geometry'.'|'.3.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_19_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_19_item := pval -> arr_19_idx;
+        FOR arr_18_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_18_item := pval -> arr_18_idx;
           -- .'$geometry'.'|'.3.bbox.0
-          res := JSONB_TYPEOF(arr_19_item) = 'number';
+          res := JSONB_TYPEOF(arr_18_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -797,10 +801,10 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_19_idx INT8;
+  arr_19_item JSONB;
   arr_20_idx INT8;
   arr_20_item JSONB;
-  arr_21_idx INT8;
-  arr_21_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -822,10 +826,10 @@ BEGIN
       -- .'$geometry'.'|'.4.coordinates
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_20_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_20_item := pval -> arr_20_idx;
+        FOR arr_19_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_19_item := pval -> arr_19_idx;
           -- .'$geometry'.'|'.4.coordinates.0
-          res := json_model_4(arr_20_item, NULL, NULL);
+          res := json_model_4(arr_19_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -841,10 +845,10 @@ BEGIN
       -- .'$geometry'.'|'.4.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_21_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_21_item := pval -> arr_21_idx;
+        FOR arr_20_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_20_item := pval -> arr_20_idx;
           -- .'$geometry'.'|'.4.bbox.0
-          res := JSONB_TYPEOF(arr_21_item) = 'number';
+          res := JSONB_TYPEOF(arr_20_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -870,12 +874,12 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_21_idx INT8;
+  arr_21_item JSONB;
   arr_22_idx INT8;
   arr_22_item JSONB;
   arr_23_idx INT8;
   arr_23_item JSONB;
-  arr_24_idx INT8;
-  arr_24_item JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -897,15 +901,15 @@ BEGIN
       -- .'$geometry'.'|'.5.coordinates
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_22_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_22_item := pval -> arr_22_idx;
+        FOR arr_21_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_21_item := pval -> arr_21_idx;
           -- .'$geometry'.'|'.5.coordinates.0
-          res := JSONB_TYPEOF(arr_22_item) = 'array';
+          res := JSONB_TYPEOF(arr_21_item) = 'array';
           IF res THEN
-            FOR arr_23_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_22_item) - 1 LOOP
-              arr_23_item := arr_22_item -> arr_23_idx;
+            FOR arr_22_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_21_item) - 1 LOOP
+              arr_22_item := arr_21_item -> arr_22_idx;
               -- .'$geometry'.'|'.5.coordinates.0.0
-              res := json_model_4(arr_23_item, NULL, NULL);
+              res := json_model_4(arr_22_item, NULL, NULL);
               IF NOT res THEN
                 EXIT;
               END IF;
@@ -926,10 +930,10 @@ BEGIN
       -- .'$geometry'.'|'.5.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_24_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_24_item := pval -> arr_24_idx;
+        FOR arr_23_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_23_item := pval -> arr_23_idx;
           -- .'$geometry'.'|'.5.bbox.0
-          res := JSONB_TYPEOF(arr_24_item) = 'number';
+          res := JSONB_TYPEOF(arr_23_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -979,10 +983,10 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_24_idx INT8;
+  arr_24_item JSONB;
   arr_25_idx INT8;
   arr_25_item JSONB;
-  arr_26_idx INT8;
-  arr_26_item JSONB;
 BEGIN
   -- .'$GeometryCollection'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1005,10 +1009,10 @@ BEGIN
       -- .'$GeometryCollection'.geometries
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_25_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_25_item := pval -> arr_25_idx;
+        FOR arr_24_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_24_item := pval -> arr_24_idx;
           -- .'$GeometryCollection'.geometries.0
-          res := json_model_11(arr_25_item, NULL, NULL);
+          res := json_model_11(arr_24_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1024,10 +1028,10 @@ BEGIN
       -- .'$GeometryCollection'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_26_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_26_item := pval -> arr_26_idx;
+        FOR arr_25_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_25_item := pval -> arr_25_idx;
           -- .'$GeometryCollection'.bbox.0
-          res := JSONB_TYPEOF(arr_26_item) = 'number';
+          res := JSONB_TYPEOF(arr_25_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1053,8 +1057,8 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
-  arr_27_idx INT8;
-  arr_27_item JSONB;
+  arr_26_idx INT8;
+  arr_26_item JSONB;
 BEGIN
   -- .'$Feature'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1110,10 +1114,10 @@ BEGIN
       -- .'$Feature'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_27_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_27_item := pval -> arr_27_idx;
+        FOR arr_26_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_26_item := pval -> arr_26_idx;
           -- .'$Feature'.bbox.0
-          res := JSONB_TYPEOF(arr_27_item) = 'number';
+          res := JSONB_TYPEOF(arr_26_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1139,10 +1143,10 @@ DECLARE
   must_count int;
   prop TEXT;
   pval JSONB;
+  arr_27_idx INT8;
+  arr_27_item JSONB;
   arr_28_idx INT8;
   arr_28_item JSONB;
-  arr_29_idx INT8;
-  arr_29_item JSONB;
 BEGIN
   -- .'$FeatureCollection'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1165,10 +1169,10 @@ BEGIN
       -- .'$FeatureCollection'.features
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_28_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_28_item := pval -> arr_28_idx;
+        FOR arr_27_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_27_item := pval -> arr_27_idx;
           -- .'$FeatureCollection'.features.0
-          res := json_model_13(arr_28_item, NULL, NULL);
+          res := json_model_13(arr_27_item, NULL, NULL);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1184,10 +1188,10 @@ BEGIN
       -- .'$FeatureCollection'.bbox
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_29_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_29_item := pval -> arr_29_idx;
+        FOR arr_28_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_28_item := pval -> arr_28_idx;
           -- .'$FeatureCollection'.bbox.0
-          res := JSONB_TYPEOF(arr_29_item) = 'number';
+          res := JSONB_TYPEOF(arr_28_item) = 'number';
           IF NOT res THEN
             EXIT;
           END IF;

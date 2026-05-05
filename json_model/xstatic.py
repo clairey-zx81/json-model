@@ -306,6 +306,9 @@ class CodeGenerator:
         minsize = self._minSize(model)
         if minsize == 0 or minsize > self._unroll_max_array_minsize:
             return False
+        # unsupported constraints
+        if ".in" in model or ".mo" in model:
+            return False
         return is_base_model(tmodel[0]) is not None
 
     def _arrayPrefixOptim(

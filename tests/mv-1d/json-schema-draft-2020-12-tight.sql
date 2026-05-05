@@ -502,26 +502,34 @@ CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_0_idx INT8;
-  arr_0_item JSONB;
-  ival_0 int;
+  size_0 int;
+  item_0 JSONB;
+  index_0 INT8;
+  item_1 JSONB;
 BEGIN
   -- .'$stringArray'
-  -- .'$stringArray'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_0_item := val -> arr_0_idx;
-      -- .'$stringArray'.'@'.0
-      res := JSONB_TYPEOF(arr_0_item) = 'string';
-      IF NOT res THEN
-        EXIT;
+    size_0 := JSONB_ARRAY_LENGTH(val);
+    IF size_0 >= 1 THEN
+      -- unrolled prefix type check
+      item_0 := val -> 0;
+      res := JSONB_TYPEOF(item_0) = 'string';
+      -- optional remaining items
+      IF res THEN
+        FOR index_0 IN 1 .. size_0-1 LOOP
+          item_1 := val -> index_0;
+          res := JSONB_TYPEOF(item_1) = 'string';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
       END IF;
-    END LOOP;
-  END IF;
-  IF res THEN
-    ival_0 := JSONB_ARRAY_LENGTH(val);
-    res := ival_0 >= 1;
+    ELSE
+      res := FALSE;
+    END IF;
+  ELSE
+    res := FALSE;
   END IF;
   RETURN res;
 END;
@@ -532,26 +540,26 @@ CREATE OR REPLACE FUNCTION json_model_11(val JSONB, path TEXT[], rep jm_report_e
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_1_idx INT8;
-  arr_1_item JSONB;
-  ival_1 int;
+  arr_0_idx INT8;
+  arr_0_item JSONB;
+  ival_0 int;
 BEGIN
   -- .'$schemaArray'
   -- .'$schemaArray'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_1_item := val -> arr_1_idx;
+    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_0_item := val -> arr_0_idx;
       -- .'$schemaArray'.'@'.0
-      res := json_model_16(arr_1_item, NULL, NULL);
+      res := json_model_16(arr_0_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
   END IF;
   IF res THEN
-    ival_1 := JSONB_ARRAY_LENGTH(val);
-    res := ival_1 >= 1;
+    ival_0 := JSONB_ARRAY_LENGTH(val);
+    res := ival_0 >= 1;
   END IF;
   RETURN res;
 END;

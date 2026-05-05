@@ -578,23 +578,26 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $stringArray (.'$stringArray')
 def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$stringArray'
-    # .'$stringArray'.'@'
     res: bool = isinstance(val, list)
     if res:
-        for arr_0_idx, arr_0_item in enumerate(val):
-            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-            # .'$stringArray'.'@'.0
-            res = isinstance(arr_0_item, str)
-            if not res:
-                rep is None or rep.append(("unexpected value for model \"\" [.'$stringArray'.'@'.0]", arr_0_lpath if path is not None else None))
-                break
-    if res:
-        ival_0: int = len(val)
-        res = ival_0 >= 1
-        if not res:
-            rep is None or rep.append(("constraints failed [.'$stringArray']", path))
+        size_0: int = len(val)
+        if size_0 >= 1:
+            # unrolled prefix type check
+            item_0: Jsonable = val[0]
+            res = isinstance(item_0, str)
+            # optional remaining items
+            if res:
+                for index_0 in range(1, size_0):
+                    item_1: Jsonable = val[index_0]
+                    res = isinstance(item_1, str)
+                    if not res:
+                        break
+        else:
+            rep is None or rep.append(("unexpected array size [.'$stringArray']", path))
+            res = False
     else:
-        rep is None or rep.append(("not array or unexpected array [.'$stringArray'.'@']", path))
+        rep is None or rep.append(("expecting an array [.'$stringArray']", path))
+        res = False
     return res
 
 # check $schemaArray (.'$schemaArray')
@@ -603,16 +606,16 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schemaArray'.'@'
     res: bool = isinstance(val, list)
     if res:
-        for arr_1_idx, arr_1_item in enumerate(val):
-            arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
+        for arr_0_idx, arr_0_item in enumerate(val):
+            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # .'$schemaArray'.'@'.0
-            res = json_model_16(arr_1_item, arr_1_lpath if path is not None else None, rep)
+            res = json_model_16(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", arr_1_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", arr_0_lpath if path is not None else None))
                 break
     if res:
-        ival_1: int = len(val)
-        res = ival_1 >= 1
+        ival_0: int = len(val)
+        res = ival_0 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$schemaArray']", path))
     else:

@@ -447,26 +447,38 @@ CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_1_idx INT8;
-  arr_1_item JSONB;
-  ival_2 int;
+  size_0 int;
+  item_0 JSONB;
+  index_0 INT8;
+  item_1 JSONB;
 BEGIN
   -- .'$schema#stringArray'
-  -- .'$schema#stringArray'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_1_item := val -> arr_1_idx;
-      -- .'$schema#stringArray'.'@'.0
-      res := JSONB_TYPEOF(arr_1_item) = 'string';
-      IF NOT res THEN
-        EXIT;
+    size_0 := JSONB_ARRAY_LENGTH(val);
+    IF size_0 >= 1 THEN
+      -- unrolled prefix type check
+      item_0 := val -> 0;
+      res := JSONB_TYPEOF(item_0) = 'string';
+      -- optional remaining items
+      IF res THEN
+        FOR index_0 IN 1 .. size_0-1 LOOP
+          item_1 := val -> index_0;
+          res := JSONB_TYPEOF(item_1) = 'string';
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
       END IF;
-    END LOOP;
-  END IF;
-  IF res THEN
-    ival_2 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, NULL, NULL) AND ival_2 >= 1;
+      -- other constraints
+      IF res THEN
+        res := jm_array_is_unique(val, NULL, NULL);
+      END IF;
+    ELSE
+      res := FALSE;
+    END IF;
+  ELSE
+    res := FALSE;
   END IF;
   RETURN res;
 END;
@@ -477,26 +489,26 @@ CREATE OR REPLACE FUNCTION json_model_7(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_2_idx INT8;
-  arr_2_item JSONB;
-  ival_3 int;
+  arr_1_idx INT8;
+  arr_1_item JSONB;
+  ival_2 int;
 BEGIN
   -- .'$schema#typeArray'
   -- .'$schema#typeArray'.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_2_item := val -> arr_2_idx;
+    FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_1_item := val -> arr_1_idx;
       -- .'$schema#typeArray'.'@'.0
-      res := json_model_5(arr_2_item, NULL, NULL);
+      res := json_model_5(arr_1_item, NULL, NULL);
       IF NOT res THEN
         EXIT;
       END IF;
     END LOOP;
   END IF;
   IF res THEN
-    ival_3 := JSONB_ARRAY_LENGTH(val);
-    res := jm_array_is_unique(val, NULL, NULL) AND ival_3 >= 1;
+    ival_2 := JSONB_ARRAY_LENGTH(val);
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_2 >= 1;
   END IF;
   RETURN res;
 END;

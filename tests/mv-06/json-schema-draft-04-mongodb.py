@@ -378,23 +378,29 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $schema#stringArray (.'$schema#stringArray')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#stringArray'
-    # .'$schema#stringArray'.'@'
     res: bool = isinstance(val, list)
     if res:
-        for arr_2_idx, arr_2_item in enumerate(val):
-            arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
-            # .'$schema#stringArray'.'@'.0
-            res = isinstance(arr_2_item, str)
-            if not res:
-                rep is None or rep.append(("unexpected value for model \"\" [.'$schema#stringArray'.'@'.0]", arr_2_lpath if path is not None else None))
-                break
-    if res:
-        ival_2: int = len(val)
-        res = is_unique_array(val, path, rep) and ival_2 >= 1
-        if not res:
-            rep is None or rep.append(("constraints failed [.'$schema#stringArray']", path))
+        size_0: int = len(val)
+        if size_0 >= 1:
+            # unrolled prefix type check
+            item_0: Jsonable = val[0]
+            res = isinstance(item_0, str)
+            # optional remaining items
+            if res:
+                for index_0 in range(1, size_0):
+                    item_1: Jsonable = val[index_0]
+                    res = isinstance(item_1, str)
+                    if not res:
+                        break
+            # other constraints
+            if res:
+                res = is_unique_array(val, path, rep)
+        else:
+            rep is None or rep.append(("unexpected array size [.'$schema#stringArray']", path))
+            res = False
     else:
-        rep is None or rep.append(("not array or unexpected array [.'$schema#stringArray'.'@']", path))
+        rep is None or rep.append(("expecting an array [.'$schema#stringArray']", path))
+        res = False
     return res
 
 # check $schema#typeArray (.'$schema#typeArray')
@@ -403,16 +409,16 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#typeArray'.'@'
     res: bool = isinstance(val, list)
     if res:
-        for arr_3_idx, arr_3_item in enumerate(val):
-            arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
+        for arr_2_idx, arr_2_item in enumerate(val):
+            arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
             # .'$schema#typeArray'.'@'.0
-            res = json_model_5(arr_3_item, arr_3_lpath if path is not None else None, rep)
+            res = json_model_5(arr_2_item, arr_2_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected value for model \"$simpleTypes\" [.'$schema#typeArray'.'@'.0]", arr_3_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"$simpleTypes\" [.'$schema#typeArray'.'@'.0]", arr_2_lpath if path is not None else None))
                 break
     if res:
-        ival_3: int = len(val)
-        res = is_unique_array(val, path, rep) and ival_3 >= 1
+        ival_2: int = len(val)
+        res = is_unique_array(val, path, rep) and ival_2 >= 1
         if not res:
             rep is None or rep.append(("constraints failed [.'$schema#typeArray']", path))
     else:

@@ -936,36 +936,37 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$stringArray'
-    // .'$stringArray'.'@'
     bool res = json_is_array(val);
     if (likely(res))
     {
-        size_t arr_0_idx;
-        json_t *arr_0_item;
-        json_array_foreach(val, arr_0_idx, arr_0_item)
+        int64_t size_0 = json_array_size(val);
+        if (likely(size_0 >= 1))
         {
-            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
-            // .'$stringArray'.'@'.0
-            res = json_is_string(arr_0_item);
-            if (unlikely(! res))
+            // unrolled prefix type check
+            json_t * item_0 = json_array_get(val, 0);
+            res = json_is_string(item_0);
+            // optional remaining items
+            if (likely(res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'$stringArray'.'@'.0]", (path ? &arr_0_lpath : NULL));
-                break;
+                for (int64_t index_0 = 1; index_0 < size_0; index_0++)
+                {
+                    json_t * item_1 = json_array_get(val, index_0);
+                    res = json_is_string(item_1);
+                    if (unlikely(! res))
+                        break;
+                }
             }
         }
-    }
-    if (likely(res))
-    {
-        int64_t ival_0 = json_array_size(val);
-        res = ival_0 >= 1;
-        if (unlikely(! res))
+        else
         {
-            if (rep) jm_report_add_entry(rep, "constraints failed [.'$stringArray']", path);
+            if (rep) jm_report_add_entry(rep, "unexpected array size [.'$stringArray']", path);
+            res = false;
         }
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$stringArray'.'@']", path);
+        if (rep) jm_report_add_entry(rep, "expecting an array [.'$stringArray']", path);
+        res = false;
     }
     return res;
 }
@@ -978,24 +979,24 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res = json_is_array(val);
     if (likely(res))
     {
-        size_t arr_1_idx;
-        json_t *arr_1_item;
-        json_array_foreach(val, arr_1_idx, arr_1_item)
+        size_t arr_0_idx;
+        json_t *arr_0_item;
+        json_array_foreach(val, arr_0_idx, arr_0_item)
         {
-            jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
+            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
             // .'$schemaArray'.'@'.0
-            res = json_model_16(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
+            res = json_model_16(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", (path ? &arr_1_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", (path ? &arr_0_lpath : NULL));
                 break;
             }
         }
     }
     if (likely(res))
     {
-        int64_t ival_1 = json_array_size(val);
-        res = ival_1 >= 1;
+        int64_t ival_0 = json_array_size(val);
+        res = ival_0 >= 1;
         if (unlikely(! res))
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.'$schemaArray']", path);

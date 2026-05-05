@@ -831,35 +831,39 @@ function json_model_9(val, path, rep)
 function json_model_10(val, path, rep)
 {
     // .'$stringArray'
-    // .'$stringArray'.'@'
     let res = Array.isArray(val);
     if (res)
     {
-        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
+        let size_0 = val.length;
+        if (size_0 >= 1)
         {
-            let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
-            // .'$stringArray'.'@'.0
-            res = (typeof arr_0_item === 'string' || arr_0_item instanceof String);
-            if (! res)
+            // unrolled prefix type check
+            let item_0 = val[0];
+            res = ((typeof item_0 === 'string' || item_0 instanceof String));
+            // optional remaining items
+            if (res)
             {
-                rep !== null && rep.push(["unexpected value for model \"\" [.'$stringArray'.'@'.0]", (path ? arr_0_lpath : null)])
-                break;
+                for (let index_0 = 1; index_0 < size_0; index_0++)
+                {
+                    let item_1 = val[index_0];
+                    res = (typeof item_1 === 'string' || item_1 instanceof String);
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
             }
         }
-    }
-    if (res)
-    {
-        let ival_0 = val.length;
-        res = ival_0 >= 1;
-        if (! res)
+        else
         {
-            rep !== null && rep.push(["constraints failed [.'$stringArray']", path])
+            rep !== null && rep.push(["unexpected array size [.'$stringArray']", path])
+            res = false;
         }
     }
     else
     {
-        rep !== null && rep.push(["not array or unexpected array [.'$stringArray'.'@']", path])
+        rep !== null && rep.push(["expecting an array [.'$stringArray']", path])
+        res = false;
     }
     return res;
 }
@@ -872,23 +876,23 @@ function json_model_11(val, path, rep)
     let res = Array.isArray(val);
     if (res)
     {
-        for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
+        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
-            let arr_1_item = val[arr_1_idx]
-            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+            let arr_0_item = val[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
             // .'$schemaArray'.'@'.0
-            res = json_model_16(arr_1_item, (path ? arr_1_lpath : null), rep);
+            res = json_model_16(arr_0_item, (path ? arr_0_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", (path ? arr_1_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'$schemaArray'.'@'.0]", (path ? arr_0_lpath : null)])
                 break;
             }
         }
     }
     if (res)
     {
-        let ival_1 = val.length;
-        res = ival_1 >= 1;
+        let ival_0 = val.length;
+        res = ival_0 >= 1;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.'$schemaArray']", path])
