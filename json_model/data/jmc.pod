@@ -21,7 +21,7 @@ B<jmc> - JSON Model Compiler
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
      [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD]
-     [--partition-threshold THRESHOLD] [--or-must-prop THRESHOLD]
+     [--partition-threshold THRESHOLD] [--or-must-prop THRESHOLD] [--array-unrolling-size=SIZE]
      [--max-strcmp-cset SIZE] [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] (--model MODEL | MODEL) [VALUES ...]
@@ -213,6 +213,10 @@ whether to check value contents wrt predef declarations.
 =item B<--single-line-regex> vs B<--no-single-line-regex>
 
 whether to assume that regex are implicitely single line (C<s> option).
+
+=item B<--array-unrolling-size SIZE>
+
+maximum size of simple array unrolling.
 
 =back
 

@@ -458,6 +458,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="assume single line regex")
     arg("--no-single-line-regex", "-nslrx", dest="single_line_regex", action="store_false",
         help="do not assume single line regex")
+    arg("--array-unrolling-size", "-aus", type=int, default=None,
+        help="maximum array unrolling size for simple arrays")
 
     # IR optimizations (if simplification, call skipping?)
     arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=True,
@@ -750,6 +752,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             or_must_prop=args.or_must_prop, comment=args.comment,
             sort_must=args.sort_must, sort_may=args.sort_may,
             max_strcmp_cset=args.max_strcmp_cset,
+            array_unrolling_size=args.array_unrolling_size,
         )
         source = str(code)
 

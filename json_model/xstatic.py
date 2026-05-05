@@ -53,7 +53,8 @@ class CodeGenerator:
                 self, globs: Symbols, language: Language, fname: str = "check_model", *,
                 prefix: str = "", map_threshold: int = 3, map_share: bool = False,
                 may_must_open_threshold: int = 5, must_only_threshold: int = 5,
-                sort_must: bool = False, sort_may: bool = False, partition_threshold: int = 0,
+                array_unrolling_size: int = 8, partition_threshold: int = 0,
+                sort_must: bool = False, sort_may: bool = False,
                 or_must_prop: int = 0, comment: bool = True,
                 execute: bool = True, report: bool = True, path: bool = True,
                 package: str|None = None, debug: bool = False,
@@ -79,7 +80,9 @@ class CodeGenerator:
         self._partition_threshold = partition_threshold
         self._map_share = map_share
         self._or_must_prop = or_must_prop
-        self._unroll_max_array_minsize = 4
+        self._array_unrolling_size = array_unrolling_size
+
+        log.warning(f"array-unroll: {array_unrolling_size}")
 
         self._code = Code(language, fname, executable=execute, package=package)
 
@@ -304,7 +307,7 @@ class CodeGenerator:
         if not isinstance(tmodel, list) or len(tmodel) != 1:
             return False
         minsize = self._minSize(model)
-        if minsize == 0 or minsize > self._unroll_max_array_minsize:
+        if minsize == 0 or self._array_unrolling_size == 0 or minsize > self._array_unrolling_size:
             return False
         # unsupported constraints
         if ".in" in model or ".mo" in model:
@@ -322,7 +325,7 @@ class CodeGenerator:
         assert isinstance(tmodel, list) and len(tmodel) == 1
         itype = is_base_model(tmodel[0])
         minsize, maxsize = self._minSize(model), self._maxSize(model)
-        assert minsize <= self._unroll_max_array_minsize and minsize > 0
+        assert minsize <= self._array_unrolling_size and minsize > 0
 
         loose = jm._loose_float if itype is float else None
 
@@ -2313,6 +2316,7 @@ def xstatic_compile(
         partition_threshold: int|None = None,
         or_must_prop: int|None = None,
         strcmp_cset_partition_threshold: int = 32,  # or 64
+        array_unrolling_size: int|None = None,
         execute: bool = True,
         debug: bool = False,
         report: bool = True,
@@ -2343,6 +2347,7 @@ def xstatic_compile(
     - or_must_prop: length threshold for or-list shortcut based on mandatory properties
     - strcmp_cset_partition_threshold: string set partitioning target chunk size,
       0 for no partitioning
+    - array_unrolling_size: maximum size for array unrolling, 0 for no unrolling
     - report: whether to generate code to report rejection reasons.
     - comment: whether to generate comments
     - debug: debugging mode generates more traces.
@@ -2427,8 +2432,22 @@ def xstatic_compile(
     if or_must_prop is None:
         or_must_prop = OR_MUST_PROP.get(lang, 0)
 
+    # hardly interesting
+    ARRAY_UNROLL: dict[str, int] = {
+        "c": 4,
+        "java": 3,
+        "js": 0,
+        "pl": 0,
+        # UNTESTED
+        "sql": 0,
+        "plpgsql": 0,
+    }
+    if array_unrolling_size is None:
+        array_unrolling_size = ARRAY_UNROLL.get(lang, 0)
+
     log.info(f"lang={lang} mt={map_threshold} mmo={may_must_open_threshold} "
-             f"mo={must_only_threshold} pt={partition_threshold} omp={or_must_prop}")
+             f"mo={must_only_threshold} pt={partition_threshold} omp={or_must_prop}"
+             f"aus={array_unrolling_size}")
 
     # target language
     if lang == "py":
@@ -2444,7 +2463,7 @@ def xstatic_compile(
             with_predef=predef, relib=relib or "re2",
             inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
             max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt,
-            partition_threshold=strcmp_cset_partition_threshold
+            partition_threshold=strcmp_cset_partition_threshold,
         )
     elif lang == "js":
         from .javascript import JavaScript
@@ -2497,6 +2516,7 @@ def xstatic_compile(
         may_must_open_threshold=may_must_open_threshold,
         must_only_threshold=must_only_threshold,
         partition_threshold=partition_threshold,
+        array_unrolling_size=array_unrolling_size,
         or_must_prop=or_must_prop, sort_must=sort_must, sort_may=sort_may,
         execute=execute, debug=debug, report=report, package=package, comment=comment,
     )
