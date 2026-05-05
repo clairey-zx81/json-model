@@ -1,0 +1,8 @@
+{
+  "description": "unbounded string array",
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "minItems": 2
+}

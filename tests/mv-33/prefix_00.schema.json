@@ -1,0 +1,11 @@
+{
+  "description": "list type check unrolled prefix",
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "maxItems": 4,
+  "minItems": 2,
+  "$comment": "ignoring != constraint",
+  "uniqueItems": true
+}

@@ -346,7 +346,7 @@ class CodeGenerator:
                 icode += (
                     gen.lcom("optional remaining item") +
                     gen.if_stmt(
-                        gen.and_op(res, gen.num_cmp(size, "=", maxsize)),
+                        gen.and_op(gen.get_value(res, bool), gen.num_cmp(size, "=", maxsize)),
                         gen.json_var(item, gen.arr_item_val(val, minsize), declare=True) +
                         gen.bool_var(res, gen.is_a(item, itype, loose=loose))
                     )

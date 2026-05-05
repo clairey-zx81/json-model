@@ -1,0 +1,9 @@
+{
+  "description": "just 1 or 2 strings",
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "maxItems": 2,
+  "minItems": 1
+}

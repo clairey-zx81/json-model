@@ -105,6 +105,8 @@ def _getEffect(op: Jsonable, bool_vars: set[str], reporting: bool) -> Effect:
             read, write, value = _getEffect(op["e1"], bool_vars, reporting)
             r, w, v = _getEffect(op["e2"], bool_vars, reporting)
             read |= r; write |= w; value.update(v)
+        case "gv":
+            read |= {op["var"]}
         case "&"|"|":
             for e in op["exprs"]:
                 r, w, v = _getEffect(e, bool_vars, reporting)
