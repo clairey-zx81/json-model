@@ -517,7 +517,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     args = ap.parse_args(xargs)
 
     if args.version:
-        print(pkg_version("json_model_compiler") + " (" + git_hash() + ")")
+        print(pkg_version("json_model_compiler") + " [" + git_hash() + "]")
         return 0
 
     if args.runtime:
