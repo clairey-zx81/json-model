@@ -10,29 +10,27 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  size_0 int;
-  item_0 JSONB;
-  item_1 JSONB;
+  arr_0_idx INT8;
+  arr_0_item JSONB;
+  ival_0 int;
 BEGIN
   -- just 1 or 2 strings
   -- .
+  -- .'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    size_0 := JSONB_ARRAY_LENGTH(val);
-    IF size_0 >= 1 AND size_0 <= 2 THEN
-      -- unrolled prefix type check
-      item_0 := val -> 0;
-      res := JSONB_TYPEOF(item_0) = 'string';
-      -- optional remaining item
-      IF res AND size_0 = 2 THEN
-        item_1 := val -> 1;
-        res := JSONB_TYPEOF(item_1) = 'string';
+    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_0_item := val -> arr_0_idx;
+      -- .'@'.0
+      res := JSONB_TYPEOF(arr_0_item) = 'string';
+      IF NOT res THEN
+        EXIT;
       END IF;
-    ELSE
-      res := FALSE;
-    END IF;
-  ELSE
-    res := FALSE;
+    END LOOP;
+  END IF;
+  IF res THEN
+    ival_0 := JSONB_ARRAY_LENGTH(val);
+    res := ival_0 <= 2 AND ival_0 >= 1;
   END IF;
   RETURN res;
 END;

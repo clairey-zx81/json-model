@@ -20,30 +20,25 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # just 1 or 2 strings
     # .
+    # .'@'
     my $res = jm_is_array($val);
     if ($res)
     {
-        my $size_0 = scalar @$val;
-        if ($size_0 >= 1 && $size_0 <= 2)
+        for my $arr_0_idx (0 .. $#$val)
         {
-            # unrolled prefix type check
-            my $item_0 = $$val[0];
-            $res = jm_is_string($item_0);
-            # optional remaining item
-            if ($res && $size_0 == 2)
+            my $arr_0_item = $$val[$arr_0_idx];
+            # .'@'.0
+            $res = jm_is_string($arr_0_item);
+            if (! $res)
             {
-                my $item_1 = $$val[1];
-                $res = jm_is_string($item_1);
+                last;
             }
         }
-        else
-        {
-            $res = 0;
-        }
     }
-    else
+    if ($res)
     {
-        $res = 0;
+        my $ival_0 = scalar @$val;
+        $res = $ival_0 <= 2 && $ival_0 >= 1;
     }
     return $res;
 }

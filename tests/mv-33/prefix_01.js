@@ -15,28 +15,35 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
+    // .'@'
     let res = Array.isArray(val);
     if (res)
     {
-        let size_0 = val.length;
-        if (size_0 == 3)
+        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
-            // unrolled prefix type check
-            let item_0 = val[0];
-            let item_1 = val[1];
-            let item_2 = val[2];
-            res = ((typeof item_0 === 'number' || item_0 instanceof Number) && Number.isInteger(item_0)) && ((typeof item_1 === 'number' || item_1 instanceof Number) && Number.isInteger(item_1)) && ((typeof item_2 === 'number' || item_2 instanceof Number) && Number.isInteger(item_2));
+            let arr_0_item = val[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            // .'@'.0
+            res = (typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'@'.0]", (path ? arr_0_lpath : null)])
+                break;
+            }
         }
-        else
+    }
+    if (res)
+    {
+        let ival_0 = val.length;
+        res = ival_0 == 3;
+        if (! res)
         {
-            rep !== null && rep.push(["unexpected array size [.]", path])
-            res = false;
+            rep !== null && rep.push(["constraints failed [.]", path])
         }
     }
     else
     {
-        rep !== null && rep.push(["expecting an array [.]", path])
-        res = false;
+        rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
     return res;
 }

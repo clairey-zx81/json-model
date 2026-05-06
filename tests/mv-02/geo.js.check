@@ -1,17 +1,17 @@
-geo.values.json[0]: FAIL (.: unexpected array size [.'$position'])
-geo.values.json[1]: FAIL (.: unexpected array size [.'$position'])
-geo.values.json[2]: FAIL (.: unexpected array size [.'$position'])
+geo.values.json[0]: FAIL (.: constraints failed [.'$position'])
+geo.values.json[1]: FAIL (.: constraints failed [.'$position'])
+geo.values.json[2]: FAIL (.: constraints failed [.'$position'])
 geo.values.json[3]: PASS
 geo.values.json[4]: PASS
 geo.values.json[5]: PASS
-geo.values.json[6]: FAIL (.: unexpected array size [.'$position'])
-geo.values.json[7]: FAIL (.: unexpected array size [.'$position'])
-geo.values.json[8]: FAIL
-geo.values.json[9]: FAIL (.: expecting an array [.'$position'])
-geo.values.json[10]: FAIL (.: expecting an array [.'$position'])
-geo.values.json[11]: FAIL (.: expecting an array [.'$position'])
-geo.values.json[12]: FAIL (.: expecting an array [.'$position'])
-geo.values.json[13]: FAIL (.: expecting an array [.'$position'])
+geo.values.json[6]: FAIL (.: constraints failed [.'$position'])
+geo.values.json[7]: FAIL (.: constraints failed [.'$position'])
+geo.values.json[8]: FAIL (.: not array or unexpected array [.'$position'.'@']; .0: not a -1.0 loose float [.'$position'.'@'.0])
+geo.values.json[9]: FAIL (.: not array or unexpected array [.'$position'.'@'])
+geo.values.json[10]: FAIL (.: not array or unexpected array [.'$position'.'@'])
+geo.values.json[11]: FAIL (.: not array or unexpected array [.'$position'.'@'])
+geo.values.json[12]: FAIL (.: not array or unexpected array [.'$position'.'@'])
+geo.values.json[13]: FAIL (.: not array or unexpected array [.'$position'.'@'])
 geo.values.json[14]: FAIL (.: constraints failed [.'$coord_array'])
 geo.values.json[15]: FAIL (.: constraints failed [.'$coord_array'])
 geo.values.json[16]: PASS

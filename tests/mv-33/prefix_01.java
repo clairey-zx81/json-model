@@ -34,6 +34,10 @@ public class prefix_01 extends ModelChecker
                 Object item_1 = json.arrayItem(val, 1);
                 Object item_2 = json.arrayItem(val, 2);
                 res = json.isInteger(item_0) && json.isInteger(item_1) && json.isInteger(item_2);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected array item type [.'@'.1]", path);
+                }
             }
             else
             {
@@ -43,7 +47,7 @@ public class prefix_01 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("expecting an array [.]", path);
+            if (rep != null) rep.addEntry("expecting an array [..@]", path);
             res = false;
         }
         return res;

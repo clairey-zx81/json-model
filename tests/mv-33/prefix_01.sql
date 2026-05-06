@@ -10,26 +10,26 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  size_0 int;
-  item_0 JSONB;
-  item_1 JSONB;
-  item_2 JSONB;
+  arr_0_idx INT8;
+  arr_0_item JSONB;
+  ival_0 int;
 BEGIN
   -- .
+  -- .'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    size_0 := JSONB_ARRAY_LENGTH(val);
-    IF size_0 = 3 THEN
-      -- unrolled prefix type check
-      item_0 := val -> 0;
-      item_1 := val -> 1;
-      item_2 := val -> 2;
-      res := JSONB_TYPEOF(item_0) = 'number' AND (item_0)::INT8 = (item_0)::FLOAT8 AND JSONB_TYPEOF(item_1) = 'number' AND (item_1)::INT8 = (item_1)::FLOAT8 AND JSONB_TYPEOF(item_2) = 'number' AND (item_2)::INT8 = (item_2)::FLOAT8;
-    ELSE
-      res := FALSE;
-    END IF;
-  ELSE
-    res := FALSE;
+    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_0_item := val -> arr_0_idx;
+      -- .'@'.0
+      res := JSONB_TYPEOF(arr_0_item) = 'number' AND (arr_0_item)::INT8 = (arr_0_item)::FLOAT8;
+      IF NOT res THEN
+        EXIT;
+      END IF;
+    END LOOP;
+  END IF;
+  IF res THEN
+    ival_0 := JSONB_ARRAY_LENGTH(val);
+    res := ival_0 = 3;
   END IF;
   RETURN res;
 END;

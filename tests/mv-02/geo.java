@@ -35,11 +35,19 @@ public class geo extends ModelChecker
                 Object item_0 = json.arrayItem(val, 0);
                 Object item_1 = json.arrayItem(val, 1);
                 res = json.isNumber(item_0) && json.isNumber(item_1);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected array item type [.'$position'.'@'.1]", path);
+                }
                 // optional remaining item
                 if (res && size_0 == 3)
                 {
                     Object item_2 = json.arrayItem(val, 2);
                     res = json.isNumber(item_2);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected array item type [.'$position'.'@'.1]", path);
+                    }
                 }
             }
             else
@@ -50,7 +58,7 @@ public class geo extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("expecting an array [.'$position']", path);
+            if (rep != null) rep.addEntry("expecting an array [.'$position'.@]", path);
             res = false;
         }
         return res;

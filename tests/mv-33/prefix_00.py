@@ -27,34 +27,23 @@ check_model_map: PropMap
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # list type check unrolled prefix
     # .
+    # .'@'
     res: bool = isinstance(val, list)
     if res:
-        size_0: int = len(val)
-        if size_0 >= 2 and size_0 <= 4:
-            # unrolled prefix type check
-            item_0: Jsonable = val[0]
-            item_1: Jsonable = val[1]
-            res = isinstance(item_0, str) and isinstance(item_1, str)
-            # optional remaining items
-            if res:
-                for index_0 in range(2, size_0):
-                    item_2: Jsonable = val[index_0]
-                    res = isinstance(item_2, str)
-                    if not res:
-                        break
-            # other constraints
-            if res:
-                res = is_unique_array(val, path, rep)
-            if res:
-                res = size_0 != 3
-                if not res:
-                    rep is None or rep.append(("unexpected array size [.]", path))
-        else:
-            rep is None or rep.append(("unexpected array size [.]", path))
-            res = False
+        for arr_0_idx, arr_0_item in enumerate(val):
+            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
+            # .'@'.0
+            res = isinstance(arr_0_item, str)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"\" [.'@'.0]", arr_0_lpath if path is not None else None))
+                break
+    if res:
+        ival_0: int = len(val)
+        res = is_unique_array(val, path, rep) and ival_0 != 3 and ival_0 <= 4 and ival_0 >= 2
+        if not res:
+            rep is None or rep.append(("constraints failed [.]", path))
     else:
-        rep is None or rep.append(("expecting an array [.]", path))
-        res = False
+        rep is None or rep.append(("not array or unexpected array [.'@']", path))
     return res
 
 

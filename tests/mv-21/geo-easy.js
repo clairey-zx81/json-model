@@ -17,33 +17,35 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$position'
+    // .'$position'.'@'
     let res = Array.isArray(val);
     if (res)
     {
-        let size_0 = val.length;
-        if (size_0 >= 2 && size_0 <= 3)
+        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
-            // unrolled prefix type check
-            let item_0 = val[0];
-            let item_1 = val[1];
-            res = ((typeof item_0 === 'number' || item_0 instanceof Number)) && ((typeof item_1 === 'number' || item_1 instanceof Number));
-            // optional remaining item
-            if (res && size_0 == 3)
+            let arr_0_item = val[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            // .'$position'.'@'.0
+            res = (typeof arr_0_item === 'number' || arr_0_item instanceof Number);
+            if (! res)
             {
-                let item_2 = val[2];
-                res = (typeof item_2 === 'number' || item_2 instanceof Number);
+                rep !== null && rep.push(["not a -1.0 loose float [.'$position'.'@'.0]", (path ? arr_0_lpath : null)])
+                break;
             }
         }
-        else
+    }
+    if (res)
+    {
+        let ival_0 = val.length;
+        res = ival_0 <= 3 && ival_0 >= 2;
+        if (! res)
         {
-            rep !== null && rep.push(["unexpected array size [.'$position']", path])
-            res = false;
+            rep !== null && rep.push(["constraints failed [.'$position']", path])
         }
     }
     else
     {
-        rep !== null && rep.push(["expecting an array [.'$position']", path])
-        res = false;
+        rep !== null && rep.push(["not array or unexpected array [.'$position'.'@']", path])
     }
     return res;
 }
@@ -56,23 +58,23 @@ function json_model_3(val, path, rep)
     let res = Array.isArray(val);
     if (res)
     {
-        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
+        for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
         {
-            let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_1_item = val[arr_1_idx]
+            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
             // .'$coord_array'.'@'.0
-            res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = json_model_2(arr_1_item, (path ? arr_1_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", (path ? arr_0_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$coord_array'.'@'.0]", (path ? arr_1_lpath : null)])
                 break;
             }
         }
     }
     if (res)
     {
-        let ival_0 = val.length;
-        res = ival_0 >= 2;
+        let ival_1 = val.length;
+        res = ival_1 >= 2;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.'$coord_array']", path])
@@ -93,23 +95,23 @@ function json_model_4(val, path, rep)
     let res = Array.isArray(val);
     if (res)
     {
-        for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
+        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
         {
-            let arr_1_item = val[arr_1_idx]
-            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+            let arr_2_item = val[arr_2_idx]
+            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
             // .'$linear_ring'.'@'.0
-            res = json_model_2(arr_1_item, (path ? arr_1_lpath : null), rep);
+            res = json_model_2(arr_2_item, (path ? arr_2_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", (path ? arr_1_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$linear_ring'.'@'.0]", (path ? arr_2_lpath : null)])
                 break;
             }
         }
     }
     if (res)
     {
-        let ival_1 = val.length;
-        res = ival_1 >= 4;
+        let ival_2 = val.length;
+        res = ival_2 >= 4;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.'$linear_ring']", path])
@@ -172,15 +174,15 @@ function json_model_5(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
+            for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
             {
-                let arr_2_item = pval[arr_2_idx]
-                let arr_2_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_2_idx]) : null;
+                let arr_3_item = pval[arr_3_idx]
+                let arr_3_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_3_idx]) : null;
                 // .'$Point'.bbox.0
-                res = (typeof arr_2_item === 'number' || arr_2_item instanceof Number);
+                res = (typeof arr_3_item === 'number' || arr_3_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$Point'.bbox.0]", ((path ? lpath : null) ? arr_2_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$Point'.bbox.0]", ((path ? lpath : null) ? arr_3_lpath : null)])
                     break;
                 }
             }
@@ -233,15 +235,15 @@ function json_model_6(val, path, rep)
     res = Array.isArray(pval);
     if (res)
     {
-        for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
+        for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)
         {
-            let arr_3_item = pval[arr_3_idx]
-            let arr_3_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_3_idx]) : null;
+            let arr_4_item = pval[arr_4_idx]
+            let arr_4_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_4_idx]) : null;
             // .'$MultiPoint'.coordinates.0
-            res = json_model_2(arr_3_item, ((path ? lpath : null) ? arr_3_lpath : null), rep);
+            res = json_model_2(arr_4_item, ((path ? lpath : null) ? arr_4_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", ((path ? lpath : null) ? arr_3_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$position\" [.'$MultiPoint'.coordinates.0]", ((path ? lpath : null) ? arr_4_lpath : null)])
                 break;
             }
         }
@@ -260,15 +262,15 @@ function json_model_6(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)
+            for (let arr_5_idx = 0; arr_5_idx < pval.length; arr_5_idx++)
             {
-                let arr_4_item = pval[arr_4_idx]
-                let arr_4_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_4_idx]) : null;
+                let arr_5_item = pval[arr_5_idx]
+                let arr_5_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_5_idx]) : null;
                 // .'$MultiPoint'.bbox.0
-                res = (typeof arr_4_item === 'number' || arr_4_item instanceof Number);
+                res = (typeof arr_5_item === 'number' || arr_5_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path ? lpath : null) ? arr_4_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$MultiPoint'.bbox.0]", ((path ? lpath : null) ? arr_5_lpath : null)])
                     break;
                 }
             }
@@ -333,15 +335,15 @@ function json_model_7(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_5_idx = 0; arr_5_idx < pval.length; arr_5_idx++)
+            for (let arr_6_idx = 0; arr_6_idx < pval.length; arr_6_idx++)
             {
-                let arr_5_item = pval[arr_5_idx]
-                let arr_5_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_5_idx]) : null;
+                let arr_6_item = pval[arr_6_idx]
+                let arr_6_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_6_idx]) : null;
                 // .'$LineString'.bbox.0
-                res = (typeof arr_5_item === 'number' || arr_5_item instanceof Number);
+                res = (typeof arr_6_item === 'number' || arr_6_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$LineString'.bbox.0]", ((path ? lpath : null) ? arr_5_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$LineString'.bbox.0]", ((path ? lpath : null) ? arr_6_lpath : null)])
                     break;
                 }
             }
@@ -394,15 +396,15 @@ function json_model_8(val, path, rep)
     res = Array.isArray(pval);
     if (res)
     {
-        for (let arr_6_idx = 0; arr_6_idx < pval.length; arr_6_idx++)
+        for (let arr_7_idx = 0; arr_7_idx < pval.length; arr_7_idx++)
         {
-            let arr_6_item = pval[arr_6_idx]
-            let arr_6_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_6_idx]) : null;
+            let arr_7_item = pval[arr_7_idx]
+            let arr_7_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_7_idx]) : null;
             // .'$MultiLineString'.coordinates.0
-            res = json_model_3(arr_6_item, ((path ? lpath : null) ? arr_6_lpath : null), rep);
+            res = json_model_3(arr_7_item, ((path ? lpath : null) ? arr_7_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", ((path ? lpath : null) ? arr_6_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$coord_array\" [.'$MultiLineString'.coordinates.0]", ((path ? lpath : null) ? arr_7_lpath : null)])
                 break;
             }
         }
@@ -421,15 +423,15 @@ function json_model_8(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_7_idx = 0; arr_7_idx < pval.length; arr_7_idx++)
+            for (let arr_8_idx = 0; arr_8_idx < pval.length; arr_8_idx++)
             {
-                let arr_7_item = pval[arr_7_idx]
-                let arr_7_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_7_idx]) : null;
+                let arr_8_item = pval[arr_8_idx]
+                let arr_8_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_8_idx]) : null;
                 // .'$MultiLineString'.bbox.0
-                res = (typeof arr_7_item === 'number' || arr_7_item instanceof Number);
+                res = (typeof arr_8_item === 'number' || arr_8_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path ? lpath : null) ? arr_7_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$MultiLineString'.bbox.0]", ((path ? lpath : null) ? arr_8_lpath : null)])
                     break;
                 }
             }
@@ -482,15 +484,15 @@ function json_model_9(val, path, rep)
     res = Array.isArray(pval);
     if (res)
     {
-        for (let arr_8_idx = 0; arr_8_idx < pval.length; arr_8_idx++)
+        for (let arr_9_idx = 0; arr_9_idx < pval.length; arr_9_idx++)
         {
-            let arr_8_item = pval[arr_8_idx]
-            let arr_8_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_8_idx]) : null;
+            let arr_9_item = pval[arr_9_idx]
+            let arr_9_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_9_idx]) : null;
             // .'$Polygon'.coordinates.0
-            res = json_model_4(arr_8_item, ((path ? lpath : null) ? arr_8_lpath : null), rep);
+            res = json_model_4(arr_9_item, ((path ? lpath : null) ? arr_9_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", ((path ? lpath : null) ? arr_8_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$linear_ring\" [.'$Polygon'.coordinates.0]", ((path ? lpath : null) ? arr_9_lpath : null)])
                 break;
             }
         }
@@ -509,15 +511,15 @@ function json_model_9(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_9_idx = 0; arr_9_idx < pval.length; arr_9_idx++)
+            for (let arr_10_idx = 0; arr_10_idx < pval.length; arr_10_idx++)
             {
-                let arr_9_item = pval[arr_9_idx]
-                let arr_9_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_9_idx]) : null;
+                let arr_10_item = pval[arr_10_idx]
+                let arr_10_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_10_idx]) : null;
                 // .'$Polygon'.bbox.0
-                res = (typeof arr_9_item === 'number' || arr_9_item instanceof Number);
+                res = (typeof arr_10_item === 'number' || arr_10_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path ? lpath : null) ? arr_9_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$Polygon'.bbox.0]", ((path ? lpath : null) ? arr_10_lpath : null)])
                     break;
                 }
             }
@@ -570,30 +572,30 @@ function json_model_10(val, path, rep)
     res = Array.isArray(pval);
     if (res)
     {
-        for (let arr_10_idx = 0; arr_10_idx < pval.length; arr_10_idx++)
+        for (let arr_11_idx = 0; arr_11_idx < pval.length; arr_11_idx++)
         {
-            let arr_10_item = pval[arr_10_idx]
-            let arr_10_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_10_idx]) : null;
+            let arr_11_item = pval[arr_11_idx]
+            let arr_11_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_11_idx]) : null;
             // .'$MultiPolygon'.coordinates.0
-            res = Array.isArray(arr_10_item);
+            res = Array.isArray(arr_11_item);
             if (res)
             {
-                for (let arr_11_idx = 0; arr_11_idx < arr_10_item.length; arr_11_idx++)
+                for (let arr_12_idx = 0; arr_12_idx < arr_11_item.length; arr_12_idx++)
                 {
-                    let arr_11_item = arr_10_item[arr_11_idx]
-                    let arr_11_lpath = ((path ? lpath : null) ? arr_10_lpath : null) ? ((path ? lpath : null) ? arr_10_lpath : null).concat([arr_11_idx]) : null;
+                    let arr_12_item = arr_11_item[arr_12_idx]
+                    let arr_12_lpath = ((path ? lpath : null) ? arr_11_lpath : null) ? ((path ? lpath : null) ? arr_11_lpath : null).concat([arr_12_idx]) : null;
                     // .'$MultiPolygon'.coordinates.0.0
-                    res = json_model_4(arr_11_item, (((path ? lpath : null) ? arr_10_lpath : null) ? arr_11_lpath : null), rep);
+                    res = json_model_4(arr_12_item, (((path ? lpath : null) ? arr_11_lpath : null) ? arr_12_lpath : null), rep);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", (((path ? lpath : null) ? arr_10_lpath : null) ? arr_11_lpath : null)])
+                        rep !== null && rep.push(["unexpected value for model \"$linear_ring\" [.'$MultiPolygon'.coordinates.0.0]", (((path ? lpath : null) ? arr_11_lpath : null) ? arr_12_lpath : null)])
                         break;
                     }
                 }
             }
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'$MultiPolygon'.coordinates.0]", ((path ? lpath : null) ? arr_10_lpath : null)])
+                rep !== null && rep.push(["not array or unexpected array [.'$MultiPolygon'.coordinates.0]", ((path ? lpath : null) ? arr_11_lpath : null)])
                 break;
             }
         }
@@ -612,15 +614,15 @@ function json_model_10(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_12_idx = 0; arr_12_idx < pval.length; arr_12_idx++)
+            for (let arr_13_idx = 0; arr_13_idx < pval.length; arr_13_idx++)
             {
-                let arr_12_item = pval[arr_12_idx]
-                let arr_12_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_12_idx]) : null;
+                let arr_13_item = pval[arr_13_idx]
+                let arr_13_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_13_idx]) : null;
                 // .'$MultiPolygon'.bbox.0
-                res = (typeof arr_12_item === 'number' || arr_12_item instanceof Number);
+                res = (typeof arr_13_item === 'number' || arr_13_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path ? lpath : null) ? arr_12_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$MultiPolygon'.bbox.0]", ((path ? lpath : null) ? arr_13_lpath : null)])
                     break;
                 }
             }
@@ -708,15 +710,15 @@ function json_model_12(val, path, rep)
     res = Array.isArray(pval);
     if (res)
     {
-        for (let arr_13_idx = 0; arr_13_idx < pval.length; arr_13_idx++)
+        for (let arr_14_idx = 0; arr_14_idx < pval.length; arr_14_idx++)
         {
-            let arr_13_item = pval[arr_13_idx]
-            let arr_13_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_13_idx]) : null;
+            let arr_14_item = pval[arr_14_idx]
+            let arr_14_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_14_idx]) : null;
             // .'$GeometryCollection'.geometries.0
-            res = json_model_11(arr_13_item, ((path ? lpath : null) ? arr_13_lpath : null), rep);
+            res = json_model_11(arr_14_item, ((path ? lpath : null) ? arr_14_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", ((path ? lpath : null) ? arr_13_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$geometry\" [.'$GeometryCollection'.geometries.0]", ((path ? lpath : null) ? arr_14_lpath : null)])
                 break;
             }
         }
@@ -735,15 +737,15 @@ function json_model_12(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_14_idx = 0; arr_14_idx < pval.length; arr_14_idx++)
+            for (let arr_15_idx = 0; arr_15_idx < pval.length; arr_15_idx++)
             {
-                let arr_14_item = pval[arr_14_idx]
-                let arr_14_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_14_idx]) : null;
+                let arr_15_item = pval[arr_15_idx]
+                let arr_15_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_15_idx]) : null;
                 // .'$GeometryCollection'.bbox.0
-                res = (typeof arr_14_item === 'number' || arr_14_item instanceof Number);
+                res = (typeof arr_15_item === 'number' || arr_15_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path ? lpath : null) ? arr_14_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path ? lpath : null) ? arr_15_lpath : null)])
                     break;
                 }
             }
@@ -883,15 +885,15 @@ function json_model_13(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_15_idx = 0; arr_15_idx < pval.length; arr_15_idx++)
+            for (let arr_16_idx = 0; arr_16_idx < pval.length; arr_16_idx++)
             {
-                let arr_15_item = pval[arr_15_idx]
-                let arr_15_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_15_idx]) : null;
+                let arr_16_item = pval[arr_16_idx]
+                let arr_16_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_16_idx]) : null;
                 // .'$Feature'.bbox.0
-                res = (typeof arr_15_item === 'number' || arr_15_item instanceof Number);
+                res = (typeof arr_16_item === 'number' || arr_16_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.bbox.0]", ((path ? lpath : null) ? arr_15_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.bbox.0]", ((path ? lpath : null) ? arr_16_lpath : null)])
                     break;
                 }
             }
@@ -944,15 +946,15 @@ function json_model_14(val, path, rep)
     res = Array.isArray(pval);
     if (res)
     {
-        for (let arr_16_idx = 0; arr_16_idx < pval.length; arr_16_idx++)
+        for (let arr_17_idx = 0; arr_17_idx < pval.length; arr_17_idx++)
         {
-            let arr_16_item = pval[arr_16_idx]
-            let arr_16_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_16_idx]) : null;
+            let arr_17_item = pval[arr_17_idx]
+            let arr_17_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_17_idx]) : null;
             // .'$FeatureCollection'.features.0
-            res = json_model_13(arr_16_item, ((path ? lpath : null) ? arr_16_lpath : null), rep);
+            res = json_model_13(arr_17_item, ((path ? lpath : null) ? arr_17_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", ((path ? lpath : null) ? arr_16_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$Feature\" [.'$FeatureCollection'.features.0]", ((path ? lpath : null) ? arr_17_lpath : null)])
                 break;
             }
         }
@@ -971,15 +973,15 @@ function json_model_14(val, path, rep)
         res = Array.isArray(pval);
         if (res)
         {
-            for (let arr_17_idx = 0; arr_17_idx < pval.length; arr_17_idx++)
+            for (let arr_18_idx = 0; arr_18_idx < pval.length; arr_18_idx++)
             {
-                let arr_17_item = pval[arr_17_idx]
-                let arr_17_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_17_idx]) : null;
+                let arr_18_item = pval[arr_18_idx]
+                let arr_18_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_18_idx]) : null;
                 // .'$FeatureCollection'.bbox.0
-                res = (typeof arr_17_item === 'number' || arr_17_item instanceof Number);
+                res = (typeof arr_18_item === 'number' || arr_18_item instanceof Number);
                 if (! res)
                 {
-                    rep !== null && rep.push(["not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path ? lpath : null) ? arr_17_lpath : null)])
+                    rep !== null && rep.push(["not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path ? lpath : null) ? arr_18_lpath : null)])
                     break;
                 }
             }

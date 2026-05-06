@@ -33,11 +33,19 @@ public class prefix_03 extends ModelChecker
                 // unrolled prefix type check
                 Object item_0 = json.arrayItem(val, 0);
                 res = json.isString(item_0);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected array item type [.'@'.1]", path);
+                }
                 // optional remaining item
                 if (res && size_0 == 2)
                 {
                     Object item_1 = json.arrayItem(val, 1);
                     res = json.isString(item_1);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected array item type [.'@'.1]", path);
+                    }
                 }
             }
             else
@@ -48,7 +56,7 @@ public class prefix_03 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("expecting an array [.]", path);
+            if (rep != null) rep.addEntry("expecting an array [..@]", path);
             res = false;
         }
         return res;

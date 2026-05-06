@@ -26,21 +26,23 @@ check_model_map: PropMap
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
+    # .'@'
     res: bool = isinstance(val, list)
     if res:
-        size_0: int = len(val)
-        if size_0 == 3:
-            # unrolled prefix type check
-            item_0: Jsonable = val[0]
-            item_1: Jsonable = val[1]
-            item_2: Jsonable = val[2]
-            res = isinstance(item_0, int) and not isinstance(item_0, bool) and isinstance(item_1, int) and not isinstance(item_1, bool) and isinstance(item_2, int) and not isinstance(item_2, bool)
-        else:
-            rep is None or rep.append(("unexpected array size [.]", path))
-            res = False
+        for arr_0_idx, arr_0_item in enumerate(val):
+            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
+            # .'@'.0
+            res = isinstance(arr_0_item, int) and not isinstance(arr_0_item, bool)
+            if not res:
+                rep is None or rep.append(("not a -1 strict int [.'@'.0]", arr_0_lpath if path is not None else None))
+                break
+    if res:
+        ival_0: int = len(val)
+        res = ival_0 == 3
+        if not res:
+            rep is None or rep.append(("constraints failed [.]", path))
     else:
-        rep is None or rep.append(("expecting an array [.]", path))
-        res = False
+        rep is None or rep.append(("not array or unexpected array [.'@']", path))
     return res
 
 

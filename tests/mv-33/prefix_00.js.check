@@ -1,19 +1,19 @@
 prefix_00.values.json[0]: PASS
 prefix_00.values.json[1]: PASS
-prefix_00.values.json[2]: FAIL
-prefix_00.values.json[3]: FAIL (.: unexpected array size [.])
-prefix_00.values.json[4]: FAIL (.: unexpected array size [.])
-prefix_00.values.json[5]: FAIL (.: unexpected array size [.])
-prefix_00.values.json[6]: FAIL
-prefix_00.values.json[7]: FAIL (.: unexpected array size [.])
-prefix_00.values.json[8]: FAIL
-prefix_00.values.json[9]: FAIL
-prefix_00.values.json[10]: FAIL (.: expecting an array [.])
-prefix_00.values.json[11]: FAIL (.: expecting an array [.])
-prefix_00.values.json[12]: FAIL (.: expecting an array [.])
-prefix_00.values.json[13]: FAIL (.: expecting an array [.])
-prefix_00.values.json[14]: FAIL (.: expecting an array [.])
-prefix_00.values.json[15]: FAIL (.: expecting an array [.])
-prefix_00.values.json[16]: FAIL (.: expecting an array [.])
-prefix_00.values.json[17]: FAIL (.: expecting an array [.])
-prefix_00.values.json[18]: FAIL (.: expecting an array [.])
+prefix_00.values.json[2]: FAIL (.: constraints failed [.])
+prefix_00.values.json[3]: FAIL (.: constraints failed [.])
+prefix_00.values.json[4]: FAIL (.: constraints failed [.])
+prefix_00.values.json[5]: FAIL (.: constraints failed [.])
+prefix_00.values.json[6]: FAIL (.: constraints failed [.])
+prefix_00.values.json[7]: FAIL (.: constraints failed [.])
+prefix_00.values.json[8]: FAIL (.: not array or unexpected array [.'@']; .1: unexpected value for model "" [.'@'.0])
+prefix_00.values.json[9]: FAIL (.: not array or unexpected array [.'@']; .3: unexpected value for model "" [.'@'.0])
+prefix_00.values.json[10]: FAIL (.: not array or unexpected array [.'@'])
+prefix_00.values.json[11]: FAIL (.: not array or unexpected array [.'@'])
+prefix_00.values.json[12]: FAIL (.: not array or unexpected array [.'@'])
+prefix_00.values.json[13]: FAIL (.: not array or unexpected array [.'@'])
+prefix_00.values.json[14]: FAIL (.: not array or unexpected array [.'@'])
+prefix_00.values.json[15]: FAIL (.: not array or unexpected array [.'@'])
+prefix_00.values.json[16]: FAIL (.: not array or unexpected array [.'@'])
+prefix_00.values.json[17]: FAIL (.: not array or unexpected array [.'@'])
+prefix_00.values.json[18]: FAIL (.: not array or unexpected array [.'@'])

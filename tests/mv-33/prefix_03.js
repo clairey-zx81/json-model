@@ -16,32 +16,35 @@ function json_model_1(val, path, rep)
 {
     // just 1 or 2 strings
     // .
+    // .'@'
     let res = Array.isArray(val);
     if (res)
     {
-        let size_0 = val.length;
-        if (size_0 >= 1 && size_0 <= 2)
+        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
-            // unrolled prefix type check
-            let item_0 = val[0];
-            res = ((typeof item_0 === 'string' || item_0 instanceof String));
-            // optional remaining item
-            if (res && size_0 == 2)
+            let arr_0_item = val[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            // .'@'.0
+            res = (typeof arr_0_item === 'string' || arr_0_item instanceof String);
+            if (! res)
             {
-                let item_1 = val[1];
-                res = (typeof item_1 === 'string' || item_1 instanceof String);
+                rep !== null && rep.push(["unexpected value for model \"\" [.'@'.0]", (path ? arr_0_lpath : null)])
+                break;
             }
         }
-        else
+    }
+    if (res)
+    {
+        let ival_0 = val.length;
+        res = ival_0 <= 2 && ival_0 >= 1;
+        if (! res)
         {
-            rep !== null && rep.push(["unexpected array size [.]", path])
-            res = false;
+            rep !== null && rep.push(["constraints failed [.]", path])
         }
     }
     else
     {
-        rep !== null && rep.push(["expecting an array [.]", path])
-        res = false;
+        rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
     return res;
 }

@@ -10,44 +10,27 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  size_0 int;
-  item_0 JSONB;
-  item_1 JSONB;
-  index_0 INT8;
-  item_2 JSONB;
+  arr_0_idx INT8;
+  arr_0_item JSONB;
+  ival_0 int;
 BEGIN
   -- list type check unrolled prefix
   -- .
+  -- .'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    size_0 := JSONB_ARRAY_LENGTH(val);
-    IF size_0 >= 2 AND size_0 <= 4 THEN
-      -- unrolled prefix type check
-      item_0 := val -> 0;
-      item_1 := val -> 1;
-      res := JSONB_TYPEOF(item_0) = 'string' AND JSONB_TYPEOF(item_1) = 'string';
-      -- optional remaining items
-      IF res THEN
-        FOR index_0 IN 2 .. size_0-1 LOOP
-          item_2 := val -> index_0;
-          res := JSONB_TYPEOF(item_2) = 'string';
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
+    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+      arr_0_item := val -> arr_0_idx;
+      -- .'@'.0
+      res := JSONB_TYPEOF(arr_0_item) = 'string';
+      IF NOT res THEN
+        EXIT;
       END IF;
-      -- other constraints
-      IF res THEN
-        res := jm_array_is_unique(val, NULL, NULL);
-      END IF;
-      IF res THEN
-        res := size_0 <> 3;
-      END IF;
-    ELSE
-      res := FALSE;
-    END IF;
-  ELSE
-    res := FALSE;
+    END LOOP;
+  END IF;
+  IF res THEN
+    ival_0 := JSONB_ARRAY_LENGTH(val);
+    res := jm_array_is_unique(val, NULL, NULL) AND ival_0 <> 3 AND ival_0 <= 4 AND ival_0 >= 2;
   END IF;
   RETURN res;
 END;

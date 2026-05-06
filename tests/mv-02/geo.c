@@ -49,11 +49,19 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             json_t * item_0 = json_array_get(val, 0);
             json_t * item_1 = json_array_get(val, 1);
             res = jm_json_is_number(item_0) && jm_json_is_number(item_1);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected array item type [.'$position'.'@'.1]", path);
+            }
             // optional remaining item
             if (res && size_0 == 3)
             {
                 json_t * item_2 = json_array_get(val, 2);
                 res = jm_json_is_number(item_2);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected array item type [.'$position'.'@'.1]", path);
+                }
             }
         }
         else
@@ -64,7 +72,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "expecting an array [.'$position']", path);
+        if (rep) jm_report_add_entry(rep, "expecting an array [.'$position'.@]", path);
         res = false;
     }
     return res;

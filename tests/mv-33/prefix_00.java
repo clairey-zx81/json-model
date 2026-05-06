@@ -34,19 +34,25 @@ public class prefix_00 extends ModelChecker
                 Object item_0 = json.arrayItem(val, 0);
                 Object item_1 = json.arrayItem(val, 1);
                 res = json.isString(item_0) && json.isString(item_1);
-                // optional remaining items
                 if (res)
                 {
-                    for (int index_0 = 2; index_0 < size_0; index_0++)
+                    for (int scan_0_idx = 2; scan_0_idx < size_0; scan_0_idx++)
                     {
-                        Object item_2 = json.arrayItem(val, index_0);
+                        Object item_2 = json.arrayItem(val, scan_0_idx);
                         res = json.isString(item_2);
                         if (! res)
                         {
+                            Path scan_0_lpath = new Path(scan_0_idx, path);
+                            if (rep != null) rep.addEntry("unexpected array item type [.'@'.1]", (path != null ? scan_0_lpath : null));
                             break;
                         }
                     }
                 }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected array item type [.'@'.1]", path);
+                }
+                // optional remaining items
                 // other constraints
                 if (res)
                 {
@@ -57,7 +63,7 @@ public class prefix_00 extends ModelChecker
                     res = size_0 != 3;
                     if (! res)
                     {
-                        if (rep != null) rep.addEntry("unexpected array size [.]", path);
+                        if (rep != null) rep.addEntry("unexpected array size [.'!=']", path);
                     }
                 }
             }
@@ -69,7 +75,7 @@ public class prefix_00 extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("expecting an array [.]", path);
+            if (rep != null) rep.addEntry("expecting an array [..@]", path);
             res = false;
         }
         return res;

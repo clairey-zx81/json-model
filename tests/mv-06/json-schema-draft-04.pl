@@ -91,42 +91,25 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$stringArray'
+    # .'$stringArray'.'@'
     my $res = jm_is_array($val);
     if ($res)
     {
-        my $size_0 = scalar @$val;
-        if ($size_0 >= 1)
+        for my $arr_1_idx (0 .. $#$val)
         {
-            # unrolled prefix type check
-            my $item_0 = $$val[0];
-            $res = jm_is_string($item_0);
-            # optional remaining items
-            if ($res)
+            my $arr_1_item = $$val[$arr_1_idx];
+            # .'$stringArray'.'@'.0
+            $res = jm_is_string($arr_1_item);
+            if (! $res)
             {
-                for my $index_0 (1 .. $size_0 - 1)
-                {
-                    my $item_1 = $$val[$index_0];
-                    $res = jm_is_string($item_1);
-                    if (! $res)
-                    {
-                        last;
-                    }
-                }
+                last;
             }
-            # other constraints
-            if ($res)
-            {
-                $res = jm_is_unique_array($val, undef, undef);
-            }
-        }
-        else
-        {
-            $res = 0;
         }
     }
-    else
+    if ($res)
     {
-        $res = 0;
+        my $ival_1 = scalar @$val;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_1 >= 1;
     }
     return $res;
 }
@@ -140,11 +123,11 @@ sub json_model_5($$$)
     my $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_1_idx (0 .. $#$val)
+        for my $arr_2_idx (0 .. $#$val)
         {
-            my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_2_item = $$val[$arr_2_idx];
             # .'$typeArray'.'@'.0
-            $res = json_model_3($arr_1_item, undef, undef);
+            $res = json_model_3($arr_2_item, undef, undef);
             if (! $res)
             {
                 last;
@@ -153,8 +136,8 @@ sub json_model_5($$$)
     }
     if ($res)
     {
-        my $ival_1 = scalar @$val;
-        $res = jm_is_unique_array($val, undef, undef) && $ival_1 >= 1;
+        my $ival_2 = scalar @$val;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_2 >= 1;
     }
     return $res;
 }
@@ -272,8 +255,8 @@ sub _jm_f_8($$$)
     {
         # accept any array
         ;
-        my $ival_2 = scalar @$val;
-        $res = jm_is_unique_array($val, undef, undef) && $ival_2 >= 1;
+        my $ival_3 = scalar @$val;
+        $res = jm_is_unique_array($val, undef, undef) && $ival_3 >= 1;
     }
     return $res;
 }

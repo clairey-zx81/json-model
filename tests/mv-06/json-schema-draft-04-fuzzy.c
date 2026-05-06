@@ -806,17 +806,25 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // unrolled prefix type check
             json_t * item_0 = json_array_get(val, 0);
             res = json_is_string(item_0);
-            // optional remaining items
             if (likely(res))
             {
-                for (int64_t index_0 = 1; index_0 < size_0; index_0++)
+                for (int64_t scan_0_idx = 1; scan_0_idx < size_0; scan_0_idx++)
                 {
-                    json_t * item_1 = json_array_get(val, index_0);
+                    json_t * item_1 = json_array_get(val, scan_0_idx);
                     res = json_is_string(item_1);
                     if (unlikely(! res))
+                    {
+                        jm_path_t scan_0_lpath = (jm_path_t) { NULL, scan_0_idx, path, NULL };
+                        if (rep) jm_report_add_entry(rep, "unexpected array item type [.'$schema#stringArray'.'@'.1]", (path ? &scan_0_lpath : NULL));
                         break;
+                    }
                 }
             }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected array item type [.'$schema#stringArray'.'@'.1]", path);
+            }
+            // optional remaining items
             // other constraints
             if (likely(res))
                 res = jm_str_array_is_unique(val, path, rep);
@@ -829,7 +837,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "expecting an array [.'$schema#stringArray']", path);
+        if (rep) jm_report_add_entry(rep, "expecting an array [.'$schema#stringArray'.@]", path);
         res = false;
     }
     return res;

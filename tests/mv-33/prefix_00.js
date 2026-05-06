@@ -16,53 +16,35 @@ function json_model_1(val, path, rep)
 {
     // list type check unrolled prefix
     // .
+    // .'@'
     let res = Array.isArray(val);
     if (res)
     {
-        let size_0 = val.length;
-        if (size_0 >= 2 && size_0 <= 4)
+        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
-            // unrolled prefix type check
-            let item_0 = val[0];
-            let item_1 = val[1];
-            res = ((typeof item_0 === 'string' || item_0 instanceof String)) && ((typeof item_1 === 'string' || item_1 instanceof String));
-            // optional remaining items
-            if (res)
+            let arr_0_item = val[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            // .'@'.0
+            res = (typeof arr_0_item === 'string' || arr_0_item instanceof String);
+            if (! res)
             {
-                for (let index_0 = 2; index_0 < size_0; index_0++)
-                {
-                    let item_2 = val[index_0];
-                    res = (typeof item_2 === 'string' || item_2 instanceof String);
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
-            }
-            // other constraints
-            if (res)
-            {
-                res = runtime.jm_array_is_unique(val, path, rep);
-            }
-            if (res)
-            {
-                res = size_0 != 3;
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected array size [.]", path])
-                }
+                rep !== null && rep.push(["unexpected value for model \"\" [.'@'.0]", (path ? arr_0_lpath : null)])
+                break;
             }
         }
-        else
+    }
+    if (res)
+    {
+        let ival_0 = val.length;
+        res = runtime.jm_array_is_unique(val, path, rep) && ival_0 != 3 && ival_0 <= 4 && ival_0 >= 2;
+        if (! res)
         {
-            rep !== null && rep.push(["unexpected array size [.]", path])
-            res = false;
+            rep !== null && rep.push(["constraints failed [.]", path])
         }
     }
     else
     {
-        rep !== null && rep.push(["expecting an array [.]", path])
-        res = false;
+        rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
     return res;
 }

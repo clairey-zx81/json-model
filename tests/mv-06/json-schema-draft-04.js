@@ -67,44 +67,35 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$stringArray'
+    // .'$stringArray'.'@'
     let res = Array.isArray(val);
     if (res)
     {
-        let size_0 = val.length;
-        if (size_0 >= 1)
+        for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
         {
-            // unrolled prefix type check
-            let item_0 = val[0];
-            res = ((typeof item_0 === 'string' || item_0 instanceof String));
-            // optional remaining items
-            if (res)
+            let arr_1_item = val[arr_1_idx]
+            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+            // .'$stringArray'.'@'.0
+            res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
+            if (! res)
             {
-                for (let index_0 = 1; index_0 < size_0; index_0++)
-                {
-                    let item_1 = val[index_0];
-                    res = (typeof item_1 === 'string' || item_1 instanceof String);
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
-            }
-            // other constraints
-            if (res)
-            {
-                res = runtime.jm_array_is_unique(val, path, rep);
+                rep !== null && rep.push(["unexpected value for model \"\" [.'$stringArray'.'@'.0]", (path ? arr_1_lpath : null)])
+                break;
             }
         }
-        else
+    }
+    if (res)
+    {
+        let ival_1 = val.length;
+        res = runtime.jm_array_is_unique(val, path, rep) && ival_1 >= 1;
+        if (! res)
         {
-            rep !== null && rep.push(["unexpected array size [.'$stringArray']", path])
-            res = false;
+            rep !== null && rep.push(["constraints failed [.'$stringArray']", path])
         }
     }
     else
     {
-        rep !== null && rep.push(["expecting an array [.'$stringArray']", path])
-        res = false;
+        rep !== null && rep.push(["not array or unexpected array [.'$stringArray'.'@']", path])
     }
     return res;
 }
@@ -117,23 +108,23 @@ function json_model_5(val, path, rep)
     let res = Array.isArray(val);
     if (res)
     {
-        for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
+        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
         {
-            let arr_1_item = val[arr_1_idx]
-            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+            let arr_2_item = val[arr_2_idx]
+            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
             // .'$typeArray'.'@'.0
-            res = json_model_3(arr_1_item, (path ? arr_1_lpath : null), rep);
+            res = json_model_3(arr_2_item, (path ? arr_2_lpath : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"$simpleTypes\" [.'$typeArray'.'@'.0]", (path ? arr_1_lpath : null)])
+                rep !== null && rep.push(["unexpected value for model \"$simpleTypes\" [.'$typeArray'.'@'.0]", (path ? arr_2_lpath : null)])
                 break;
             }
         }
     }
     if (res)
     {
-        let ival_1 = val.length;
-        res = runtime.jm_array_is_unique(val, path, rep) && ival_1 >= 1;
+        let ival_2 = val.length;
+        res = runtime.jm_array_is_unique(val, path, rep) && ival_2 >= 1;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.'$typeArray']", path])
@@ -317,8 +308,8 @@ function _jm_f_8(val, path, rep)
     if (res)
     {
         // accept any array
-        let ival_2 = val.length;
-        res = runtime.jm_array_is_unique(val, path, rep) && ival_2 >= 1;
+        let ival_3 = val.length;
+        res = runtime.jm_array_is_unique(val, path, rep) && ival_3 >= 1;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.enum]", path])

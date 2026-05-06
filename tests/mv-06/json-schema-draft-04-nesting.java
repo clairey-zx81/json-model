@@ -633,19 +633,25 @@ public class json_schema_draft_04_nesting extends ModelChecker
                 // unrolled prefix type check
                 Object item_0 = json.arrayItem(val, 0);
                 res = json.isString(item_0);
-                // optional remaining items
                 if (res)
                 {
-                    for (int index_0 = 1; index_0 < size_0; index_0++)
+                    for (int scan_0_idx = 1; scan_0_idx < size_0; scan_0_idx++)
                     {
-                        Object item_1 = json.arrayItem(val, index_0);
+                        Object item_1 = json.arrayItem(val, scan_0_idx);
                         res = json.isString(item_1);
                         if (! res)
                         {
+                            Path scan_0_lpath = new Path(scan_0_idx, path);
+                            if (rep != null) rep.addEntry("unexpected array item type [.'$schema#stringArray'.'@'.1]", (path != null ? scan_0_lpath : null));
                             break;
                         }
                     }
                 }
+                else
+                {
+                    if (rep != null) rep.addEntry("unexpected array item type [.'$schema#stringArray'.'@'.1]", path);
+                }
+                // optional remaining items
                 // other constraints
                 if (res)
                 {
@@ -660,7 +666,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("expecting an array [.'$schema#stringArray']", path);
+            if (rep != null) rep.addEntry("expecting an array [.'$schema#stringArray'.@]", path);
             res = false;
         }
         return res;

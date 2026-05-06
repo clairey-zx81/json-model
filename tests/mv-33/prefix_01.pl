@@ -19,26 +19,25 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
+    # .'@'
     my $res = jm_is_array($val);
     if ($res)
     {
-        my $size_0 = scalar @$val;
-        if ($size_0 == 3)
+        for my $arr_0_idx (0 .. $#$val)
         {
-            # unrolled prefix type check
-            my $item_0 = $$val[0];
-            my $item_1 = $$val[1];
-            my $item_2 = $$val[2];
-            $res = jm_is_integer($item_0) && jm_is_integer($item_1) && jm_is_integer($item_2);
-        }
-        else
-        {
-            $res = 0;
+            my $arr_0_item = $$val[$arr_0_idx];
+            # .'@'.0
+            $res = jm_is_integer($arr_0_item);
+            if (! $res)
+            {
+                last;
+            }
         }
     }
-    else
+    if ($res)
     {
-        $res = 0;
+        my $ival_0 = scalar @$val;
+        $res = $ival_0 == 3;
     }
     return $res;
 }
