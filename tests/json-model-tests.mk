@@ -208,7 +208,7 @@ ir: $(F.ir)
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
-	$< -tr $*.values.json >> $@
+	./$< -tr $*.values.json >> $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0
@@ -226,7 +226,7 @@ ir: $(F.ir)
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
-	$< -tr $*.values.json >> $@
+	./$< -tr $*.values.json >> $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0
@@ -269,7 +269,7 @@ ir: $(F.ir)
 	shopt -s nullglob
 	set -o pipefail
 	./$< $*.*.{true,false}.json | sort > $@
-	$< -t $*.values.json >> $@
+	./$< -t $*.values.json >> $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0
