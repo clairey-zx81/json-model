@@ -82,8 +82,6 @@ class CodeGenerator:
         self._or_must_prop = or_must_prop
         self._array_unrolling_size = array_unrolling_size
 
-        log.warning(f"array-unroll: {array_unrolling_size}")
-
         self._code = Code(language, fname, executable=execute, package=package)
 
         # identifiers and functions
