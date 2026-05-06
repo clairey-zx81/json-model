@@ -157,7 +157,9 @@ json_model/version.py:
 	} > $@
 
 .PHONY: publish.py
-publish.py: venv/.dist json_model/version.py
+publish.py: venv/.dist
+	$(RM) json_model/version.py
+	$(MAKE) json_model/version.py
 	source venv/bin/activate
 	python -m build
 	twine check dist/*
