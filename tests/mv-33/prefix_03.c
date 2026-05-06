@@ -28,11 +28,19 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // unrolled prefix type check
             json_t * item_0 = json_array_get(val, 0);
             res = json_is_string(item_0);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected array item type [.'@'.1]", path);
+            }
             // optional remaining item
             if (res && size_0 == 2)
             {
                 json_t * item_1 = json_array_get(val, 1);
                 res = json_is_string(item_1);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected array item type [.'@'.1]", path);
+                }
             }
         }
         else
@@ -43,7 +51,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "expecting an array [.]", path);
+        if (rep) jm_report_add_entry(rep, "expecting an array [..@]", path);
         res = false;
     }
     return res;

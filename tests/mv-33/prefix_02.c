@@ -29,17 +29,25 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             json_t * item_0 = json_array_get(val, 0);
             json_t * item_1 = json_array_get(val, 1);
             res = json_is_string(item_0) && json_is_string(item_1);
-            // optional remaining items
             if (likely(res))
             {
-                for (int64_t index_0 = 2; index_0 < size_0; index_0++)
+                for (int64_t scan_0_idx = 2; scan_0_idx < size_0; scan_0_idx++)
                 {
-                    json_t * item_2 = json_array_get(val, index_0);
+                    json_t * item_2 = json_array_get(val, scan_0_idx);
                     res = json_is_string(item_2);
                     if (unlikely(! res))
+                    {
+                        jm_path_t scan_0_lpath = (jm_path_t) { NULL, scan_0_idx, path, NULL };
+                        if (rep) jm_report_add_entry(rep, "unexpected array item type [.'@'.1]", (path ? &scan_0_lpath : NULL));
                         break;
+                    }
                 }
             }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected array item type [.'@'.1]", path);
+            }
+            // optional remaining items
         }
         else
         {
@@ -49,7 +57,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "expecting an array [.]", path);
+        if (rep) jm_report_add_entry(rep, "expecting an array [..@]", path);
         res = false;
     }
     return res;

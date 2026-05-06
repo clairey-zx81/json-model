@@ -6,8 +6,8 @@
 - [x] test: cover more array unrolling cases
 - [x] front: add option to control array type check unrolling
 - [x] perf: check for unroll minsize parameter depending on language
-- [ ] static: improve reporting for unrolled array simple type check
-- [ ] optim: collect and display stats about what what works
+- [x] static: improve reporting for unrolled array simple type check
+- [ ] optim: collect and display stats about what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
 - [ ] perf: show schema to model conversion times
@@ -24,7 +24,6 @@
 - [ ] c-backend: use knowledge of Jansson hash to improve property lookup??
 - [ ] c-backend: generate custom character class ascii tables?
 - [ ] c-backend: custom char classes: `[:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
-- [ ] docker: use ubuntu 26.04  base
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`

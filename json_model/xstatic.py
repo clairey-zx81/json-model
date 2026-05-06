@@ -307,7 +307,7 @@ class CodeGenerator:
         minsize = self._minSize(model)
         if minsize == 0 or self._array_unrolling_size == 0 or minsize > self._array_unrolling_size:
             return False
-        # unsupported constraints
+        # unsupported constraints extensions
         if ".in" in model or ".mo" in model:
             return False
         return is_base_model(tmodel[0]) is not None
@@ -328,6 +328,7 @@ class CodeGenerator:
         loose = jm._loose_float if itype is float else None
 
         smpath = json_path(mpath)
+        simpath = json_path(mpath + ["@", 1])
         gen = self._lang
 
         ivars = [ gen.ident("item") for i in range(minsize) ]
@@ -339,7 +340,8 @@ class CodeGenerator:
                     for i, v in enumerate(ivars) ],
                 []
             ) +
-            gen.bool_var(res, gen.and_op(*[gen.is_a(v, itype, loose=loose) for v in ivars]))
+            gen.bool_var(res, gen.and_op(*[gen.is_a(v, itype, loose=loose) for v in ivars])) +
+            self._gen_report(res, f"unexpected array item type [{simpath}]", vpath)
         )
 
         size = gen.ident("size")
@@ -352,11 +354,13 @@ class CodeGenerator:
                     gen.if_stmt(
                         gen.and_op(gen.get_value(res, bool), gen.num_cmp(size, "=", maxsize)),
                         gen.json_var(item, gen.arr_item_val(val, minsize), declare=True) +
-                        gen.bool_var(res, gen.is_a(item, itype, loose=loose))
+                        gen.bool_var(res, gen.is_a(item, itype, loose=loose)) +
+                        self._gen_report(res, f"unexpected array item type [{simpath}]", vpath)
                     )
                 )
             else:
-                index = gen.ident("index")
+                scanid = gen.ident("scan")
+                index, lpath = f"{scanid}_idx", f"{scanid}_lpath"
                 icode += (
                     gen.lcom("optional remaining items") +
                     gen.if_stmt(
@@ -365,7 +369,13 @@ class CodeGenerator:
                             # &= ?
                             gen.json_var(item, gen.arr_item_val(val, index), declare=True) +
                             gen.bool_var(res, gen.is_a(item, itype, loose=loose)) +
-                            gen.if_stmt(gen.not_op(res), gen.brk(), likely=False)
+                            gen.if_stmt(
+                                gen.not_op(res),
+                                gen.path_var(lpath, gen.path_val(vpath, index, False, True), True) +
+                                gen.report(f"unexpected array item type [{simpath}]", gen.path_lvar(lpath, vpath)) +
+                                gen.brk(),
+                                likely=False
+                            )
                         ),
                         likely=True
                     )
@@ -382,13 +392,14 @@ class CodeGenerator:
                 )
             )
         if "!=" in model:
+            ne_smpath = f"{smpath}.'!='" if smpath != "." else ".'!='"
             nval = model["!="]
             assert isinstance(nval, int)
             icode += (
                 gen.if_stmt(
                     res,
                     gen.bool_var(res, gen.num_cmp(size, "!=", nval)) +
-                    self._gen_report(res, f"unexpected array size [{smpath}]", vpath),
+                    self._gen_report(res, f"unexpected array size [{ne_smpath}]", vpath),
                     likely=True
                 )
             )
@@ -413,7 +424,7 @@ class CodeGenerator:
             gen.bool_var(res, gen.is_a(val, list)) +
             gen.if_stmt(res,
                 code,
-                gen.report(f"expecting an array [{smpath}]", vpath) +
+                gen.report(f"expecting an array [{smpath}.@]", vpath) +
                 gen.bool_var(res, gen.const(False)),
                 likely=True
             )

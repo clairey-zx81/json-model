@@ -17,6 +17,7 @@
 - [x] optim: remove min props covered by mandatory props
 - [x] optim: check max props wrt mandatory props
 - [x] pr: cleanup backlog and create version markdown
+- [x] docker: use ubuntu 26.04  base
 
 ## 2.0b45 2026-04-25
 
