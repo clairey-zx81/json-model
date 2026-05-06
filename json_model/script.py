@@ -285,7 +285,7 @@ def java_compile(java_code: str, args):
     java_file.unlink()
     assert status == 0, f"Java compilation succeeded: {command}"
 
-def git_hash(script: str = __file__) -> str:
+def jmc_hash() -> str:
     """Return some git hash for the current script."""
     # may get git hash
     try:
@@ -294,7 +294,7 @@ def git_hash(script: str = __file__) -> str:
     except:
         pass
     try:
-        dirname = Path(script).parent
+        dirname = Path(__file__).parent
         return subprocess.check_output(["git", "-C", str(dirname), "rev-parse", "--short", "HEAD"]).decode("ASCII").strip()
     except Exception:
         pass
@@ -517,7 +517,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     args = ap.parse_args(xargs)
 
     if args.version:
-        print(pkg_version("json_model_compiler") + " [" + git_hash() + "]")
+        print(pkg_version("json_model_compiler") + " [" + jmc_hash() + "]")
         return 0
 
     if args.runtime:
