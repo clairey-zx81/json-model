@@ -297,7 +297,7 @@ class CodeGenerator:
         else:
            return None
 
-    def _isArrayPrefixOptim(self, jm: JsonModel, model: ModelType) -> bool:
+    def _isArrayPartialUnrolling(self, jm: JsonModel, model: ModelType) -> bool:
         """Whether to generate an array prefix optimization."""
         if not isinstance(model, dict) or "@" not in model:
             return False
@@ -312,7 +312,7 @@ class CodeGenerator:
             return False
         return is_base_model(tmodel[0]) is not None
 
-    def _arrayPrefixOptim(
+    def _arrayPartialUnrolling(
                 self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                 res: Var, val: JsonExpr, vpath: PathExpr,
             ) -> Block:
@@ -433,8 +433,8 @@ class CodeGenerator:
         Type incompatibilities may also lead to rejections.
         """
 
-        if self._isArrayPrefixOptim(jm, model):
-            return self._arrayPrefixOptim(jm, model, mpath, res, val, vpath)
+        if self._isArrayPartialUnrolling(jm, model):
+            return self._arrayPartialUnrolling(jm, model, mpath, res, val, vpath)
 
         # TODO make it a function?
         assert isinstance(model, dict) and "@" in model
