@@ -95,6 +95,7 @@ Maybe 5% improvement by removing breaks and using `res &= …`.
 ## Importmap
 
 Very small schema/model with objects with optional properties, mostly string checks.
+No impact of manual inlining, costs are in the json framework.
 
 ## Krakend
 
@@ -119,4 +120,4 @@ Note about blaze unique implementation:
 
 ## Yamllint
 
-Very small schema/model.
+Very small schema/model. No impact of manual inlining, most costs are in the json framework.
