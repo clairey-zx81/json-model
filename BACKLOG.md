@@ -8,11 +8,11 @@
 - [x] perf: check for unroll minsize parameter depending on language
 - [x] static: improve reporting for unrolled array simple type check
 - [x] perf: improve extraction script performance (sh to python)
+- [x] front: show git hash on `--version`?
 - [ ] optim: collect and display stats about what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
 - [ ] perf: show schema to model conversion times
-- [ ] front: show git hash on `--version`?
 - [ ] js-backend: remove useless braces and semi-colons
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
