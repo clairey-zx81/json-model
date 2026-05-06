@@ -171,7 +171,7 @@ export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
 # check for scripts
-for cmd in run.sh jmc js-cli run-to-csv.sh compile-to-csv.sh res-to-csv.sh mdalign.py ; do
+for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py mdalign.py ; do
   type $cmd || err 5 "script $cmd not found"
 done
 
@@ -214,9 +214,9 @@ done
 echo "# extracts"
 compile-to-csv.sh tmp/[0-9]*/*_compile.csv > compile.csv
 # 18 seconds for 3 runs (777 files)
-run-to-csv.sh tmp/[0-9]*/*.out > perf.csv
+run-to-csv.py tmp/[0-9]*/*.out > perf.csv
 # 15 seconds for 3 runs (777 files)
-res-to-csv.sh tmp/[0-9]*/*.out > result.csv
+res-to-csv.py tmp/[0-9]*/*.out > result.csv
 
 for dir in jsb/schemas/* ; do
   [ -d "$dir" ] || continue
