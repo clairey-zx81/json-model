@@ -1,6 +1,6 @@
 # JSON Model Compiler Versions
 
-## 2.0b47 2026-05-07
+## 2.0b48 2026-05-07
 
 - [x] static: unroll small array scans for simple type checks
 - [x] test: cover more array unrolling cases
