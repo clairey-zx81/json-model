@@ -1,6 +1,15 @@
 # JSON Model Compiler Versions
 
-## 2.0b47
+## 2.0b47 2026-05-07
+
+- [x] static: unroll small array scans for simple type checks
+- [x] test: cover more array unrolling cases
+- [x] front: add option to control array type check unrolling
+- [x] perf: check for unroll minsize parameter depending on language
+- [x] static: improve reporting for unrolled array simple type check
+- [x] perf: improve extraction script performance (sh to python)
+- [x] front: show git hash on `--version`?
+- [x] front: switch to dynamic versioning
 
 ## 2.0b46 2026-05-03
 

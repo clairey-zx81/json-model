@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=41", "setuptools-git-versioning>=3.0,<4", "wheel"]
+requires = ["setuptools>=41", "setuptools-scm", "setuptools-git-versioning>=3.0,<4", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -11,7 +11,7 @@ json_model = ["runtime/*", "data/*"]
 
 [tool.setuptools.packages.find]
 include = ["json_model", "json_model.runtime", "json_model.data"]
-exclude = ["tests/*", "models/*"]
+exclude = ["tests/*", "models/*", "site/*", "container/*"]
 
 [tool.setuptools-git-versioning]
 enabled = true

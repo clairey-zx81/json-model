@@ -1,1 +1,4 @@
 recursive-exclude tests *
+recursive-exclude site *
+recursive-exclude models *
+recursive-exclude container *
