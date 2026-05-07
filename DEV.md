@@ -7,6 +7,7 @@ Beware that the developer documentation is scarce. PR are always welcome, eg:
 - new language or library support implementations
 - new exporters
 - possibly new models
+- generated code optimizations
 
 ## Publication Accounts
 
@@ -23,7 +24,7 @@ See `publish.*` targets in `Makefile`.
 
 ## Hardcoded Versions
 
-- [pyproject](./pyproject.toml)
+- [VERSION](./json_model/data/VERSION) (extracted by setuptools at build time)
 - [pom](./json_model/runtime/java/pom.xml)
 - [pm](./json_model/runtime/pl/JSON/JsonModel.pm) (twice)
 - [pg](./json_model/META.json) (twice)
@@ -31,7 +32,7 @@ See `publish.*` targets in `Makefile`.
 - docker tag is extracted from `jmc`
 - git tag?
 
-## Setup
+## Developer Setup
 
 Get sources directly from GitHub in some Unix-like terminal:
 
