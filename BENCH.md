@@ -69,7 +69,6 @@ the run stops as soon as possible.
   over 300 µs for validating one value), a relative comparison ratio is shown.
 - Compilation times are the _minimum_ encountered over the runs.
   whereas performance times are the _median_ over the runs.
-- The C backend also includes the _runtime_ compilation from sources.
 
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
@@ -88,10 +87,13 @@ the following caveats, and others:
   a hash table which is more costly to build.
 - blaze does _not_ implement checking string values (eg dates, url…),
   so these checks may be disactivated (see `JMC_OPTS`) for fairness,
-  but reducing the results significance.
-- blaze uses its own special-purpose JSON representation: if interfaced from another
-  ecosystem, the cost of translating the JSON representation should be taken into account;
-  jmc uses native JSON representations and generate validation code around it.
+  reducing the results significance.
+- blaze uses its own special-purpose JSON representation which include a precomputed
+  custom hash for string comparisons.
+- blaze is a C++ library, if interfaced from another language, the cost of translating
+  the JSON representation to this library should be taken into account;
+  in contrast, jmc uses native JSON representations in the target ecosystem and generate
+  validation code around it.
 - due to intrinsic limitations of the underlying libraries and the quality of models or schemas,
   some results may differ, mostly for good reasons: regex incompatibilities, stricter
   model definitions compared to lax schemas…
@@ -99,8 +101,8 @@ the following caveats, and others:
   benchmarking loops and report undue very fast performances, eg on the GeoJSON case.
 - some execution environment (eg Java) may take advantage of parallelism with threads,
   which may or may not be a blessing: it can reduce the apparent latency (eg the gc runs
-  in another thread) but have a detrimental overall effect on throughput as more cpu ressources
-  are spent on the same task.
+  in another thread) but have a detrimental overall effect on throughput and costs as
+  more cpu ressources are spent on the same task.
 
 ## Other Artifacts
 
@@ -119,7 +121,13 @@ It should be noted that benchmarking conditions are quite different compared to 
 2. The benchmark focuses on schema conformance, including (buggy) schemas which
    are mostly dead code: It rejects tools which do not validate all strictly conformant
    values, even if these values would be rejected by the target application.
-3. The model used are strictly converted from schemas, native models are not used
+3. Three schemas (`krakend`, `stale` and `yamllint`) in the test suites have been
+   [edited](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/ad109eb210c0939bd8393da28d8212f75c1c2d92),
+   especially to deal corner cases issues with `$ref` under version 7 and prior,
+   thus do not conform to the initial official schemas.
+4. The benchmark  _removes_ format assertions before testing the schemas.
+5. The model used are strictly converted from schemas, native models are not used
    even if available and schemas are not fixed for typical errors (eg misplaced keywords).
 
-As of April 2026, the JSU C implementation is faster than Blaze on about 2/3 of benchmark cases.
+As of May 2026, the JSU C implementation is faster than Blaze on about 55% of benchmark cases
+on these artifacts.
