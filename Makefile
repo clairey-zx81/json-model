@@ -122,7 +122,7 @@ site/JMC.md: json_model/data/jmc.pod
 
 site/ABOUT.md: ./about.sh
 	source venv/bin/activate
-	$< > $@
+	./$< > $@
 
 jmc.1: json_model/data/jmc.pod dev
 	source venv/bin/activate
