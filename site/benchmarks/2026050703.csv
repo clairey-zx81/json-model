@@ -1,0 +1,176 @@
+
+## Tool Performance Summary
+
+For each tool: number of best performance, number of case failures (if any), overall
+validation speed in bytes per µs and lines per µs,
+maximum/geometrical average/minimum performance ratio.
+
+<!-- LRRRRRRR -->
+"best count",5,31,1,0,0,0,0
+"speed B/µs",1266,1905,630,826,479,491,81
+"speed l/µs",76.8,115.6,38.2,50.1,29.1,29.8,4.9
+"ratio max",16.50,3.41,45.22,15.60,41.67,42.59,95.66
+"ratio geo-avg",2.07,1.12,6.54,4.91,8.60,7.32,25.25
+"ratio min",1.00,1.00,1.00,1.45,2.13,2.87,7.72
+
+## Tool Performance Per Case
+
+For each case: number and name, number of test cases, best cumulated median performance (µs),
+best tool, performance slowdown ratio for blaze and jmc variants
+(java 1 is gson, 2 is jackson, 3 is jsonp/johnzon),
+the lower the better, **1.00** is best, empty denotes a tool failure.
+
+<!-- RLRRCRRRRRRR -->
+1,ansible,333,134.9,"jmc c",1.86,1.00,4.04,4.74,7.97,6.71,20.69
+2,aws-cdk,483,17.4,"jmc c",2.42,1.00,4.88,4.24,4.30,10.34,22.42
+3,babelrc,794,29.6,"jmc c",2.87,1.00,10.42,4.99,20.71,9.07,26.32
+4,clang-fmt,133,19.4,"jmc c",5.97,1.00,12.38,11.75,16.91,21.58,18.04
+5,cmake,967,1266.4,"jmc c",3.27,1.00,7.23,3.51,8.77,4.74,14.11
+6,code-clim,2484,89.1,"jmc c",1.20,1.00,4.98,4.27,5.12,7.19,16.69
+7,cql2,109,45.9,"jmc c",4.70,1.00,2.21,7.32,7.20,8.08,17.17
+8,cspell,981,450.1,blaze,1.00,1.17,2.61,2.40,3.50,3.39,28.82
+9,cypress,981,42.9,"jmc c",3.32,1.00,12.56,6.11,13.80,6.25,21.17
+10,deno,987,124.0,"jmc c",1.80,1.00,9.02,7.95,11.82,9.32,95.66
+11,dependabot,967,210.9,"jmc c",1.71,1.00,4.15,4.62,7.08,6.17,20.50
+12,draft-04,563,3149.7,"jmc c",2.33,1.00,8.21,3.18,7.72,4.50,19.90
+13,fabric-mod,911,230.8,"jmc c",2.91,1.00,8.89,5.59,9.61,7.65,35.34
+14,geojson,500,8764.5,"jmc js",2.17,2.10,1.00,2.64,2.99,6.28,49.40
+15,gitpod-cnf,986,108.5,"jmc c",1.96,1.00,10.70,4.97,12.34,5.82,20.24
+16,helm-chart,3888,101.1,blaze,1.00,3.41,10.50,5.33,2.66,9.56,47.71
+17,importmap,964,24.3,blaze,1.00,3.34,45.22,15.60,41.67,42.59,31.03
+18,jasmine,980,45.5,"jmc c",2.06,1.00,6.50,6.42,17.45,9.93,26.87
+19,jsconfig,981,174.8,"jmc c",1.89,1.00,4.88,4.04,6.69,5.87,57.45
+20,jshintrc,966,239.1,"jmc c",4.26,1.00,9.08,4.36,9.64,10.39,13.55
+21,krakend,47,190.8,blaze,1.00,1.88,6.45,7.35,10.66,7.73,61.37
+22,lazygit,280,49.9,"jmc c",2.51,1.00,10.13,9.10,20.27,14.44,39.25
+23,lerna,985,54.9,"jmc c",1.96,1.00,5.02,6.33,5.19,16.32,20.29
+24,nest-cli,1025,110.6,"jmc c",1.44,1.00,9.32,5.84,17.05,7.27,17.26
+25,omnisharp,987,148.3,"jmc c",3.65,1.00,9.24,7.85,11.09,10.47,18.12
+26,openapi,107,6653.3,"jmc c",1.96,1.00,4.09,2.70,4.43,3.91,23.27
+27,pre-ci,985,229.7,"jmc c",2.22,1.00,6.82,4.08,8.53,5.28,15.37
+28,pulumi,3807,174.3,"jmc c",2.57,1.00,10.39,5.26,16.20,6.75,28.87
+29,sem-rel,794,47.9,"jmc c",1.66,1.00,5.68,3.87,9.80,11.68,20.67
+30,stale,961,69.2,"jmc c",1.93,1.00,5.45,6.28,13.01,6.85,24.72
+31,stylecop,983,167.1,"jmc c",1.53,1.00,8.44,5.87,9.18,5.88,70.25
+32,tmuxinator,382,41.9,"jmc c",2.23,1.00,6.83,3.65,7.61,3.18,18.84
+33,ui5,942,29.7,"jmc c",16.50,1.00,4.19,3.34,2.13,3.76,25.53
+34,ui5-mfest,611,2016.4,"jmc c",1.19,1.00,3.04,3.41,4.82,4.37,24.21
+35,unreal-ng,859,430.3,"jmc c",1.02,1.00,15.34,6.28,20.71,8.94,49.31
+36,vercel,710,241.0,"jmc c",1.18,1.00,4.23,1.45,6.42,2.87,7.72
+37,yamllint,984,9.6,blaze,1.00,1.18,4.61,3.99,4.43,5.57,13.20
+
+## Result Success
+
+For each tool and cases with a partial success rate, percent of test cases validated.
+
+<!-- RLRRRRRRR -->
+1,ansible,100.0,99.1,99.1,99.1,99.1,99.1,99.1
+8,cspell,100.0,99.9,99.9,99.9,99.9,99.9,99.9
+9,cypress,100.0,99.9,99.9,99.9,99.9,99.9,99.9
+14,geojson,100.0,100.0,100.0,99.8,100.0,100.0,100.0
+37,yamllint,100.0,98.2,98.2,98.2,98.2,98.2,98.2
+
+As of April 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
+are not 100.0% because validation checks are stricter and some
+[values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
+are rightfully rejected.
+More values are rejected if formats are also checked.
+The `geoson` failure for Java/GSON is related to a corner case issue with GSON.
+
+## Compilation Per Case
+
+For each tool and case, compilation time (including both schema to model
+conversion and model compilation) in second.
+
+<!-- RLRRRRR -->
+1,ansible,0.5,2.4,1.3,2.7,1.2
+2,aws-cdk,0.3,1.1,0.9,1.6,0.8
+3,babelrc,0.3,1.1,0.9,1.8,0.9
+4,clang-fmt,0.4,2.2,1.0,2.3,1.0
+5,cmake,0.4,3.1,1.4,3.6,1.3
+6,code-clim,0.4,1.1,0.9,1.8,0.9
+7,cql2,0.5,1.8,1.1,2.7,1.1
+8,cspell,0.4,1.8,1.1,3.0,1.0
+9,cypress,0.3,1.4,1.0,2.6,1.0
+10,deno,0.3,1.3,0.9,2.3,0.9
+11,dependabot,0.4,1.2,0.9,2.0,0.9
+12,draft-04,0.2,1.2,1.0,2.1,1.0
+13,fabric-mod,0.3,1.3,0.9,2.0,1.0
+14,geojson,0.3,1.3,1.0,2.1,1.0
+15,gitpod-cnf,0.3,1.3,0.9,1.9,0.9
+16,helm-chart,0.3,1.1,0.8,1.8,0.9
+17,importmap,0.3,1.0,0.9,1.8,0.9
+18,jasmine,0.3,1.1,0.9,1.6,0.8
+19,jsconfig,0.3,2.1,1.0,2.5,1.0
+20,jshintrc,0.3,1.2,0.9,1.9,0.9
+21,krakend,0.5,5.0,2.0,4.8,2.0
+22,lazygit,0.3,1.9,1.0,2.4,1.0
+23,lerna,0.3,1.1,0.9,2.0,0.9
+24,nest-cli,0.4,1.3,0.9,2.2,0.9
+25,omnisharp,0.3,1.3,0.9,2.2,0.9
+26,openapi,0.3,2.2,1.3,3.4,1.2
+27,pre-ci,0.3,1.2,0.9,2.3,0.9
+28,pulumi,0.4,1.2,0.9,2.2,0.9
+29,sem-rel,0.3,1.1,0.9,1.9,0.9
+30,stale,0.3,1.1,0.9,1.9,0.9
+31,stylecop,0.3,1.2,0.9,2.1,0.9
+32,tmuxinator,0.3,1.1,0.9,1.9,0.9
+33,ui5,0.4,1.8,1.1,2.5,1.1
+34,ui5-mfest,1.0,8.3,3.3,7.0,3.2
+35,unreal-ng,0.3,1.2,0.9,1.7,0.9
+36,vercel,0.3,1.6,1.0,2.3,1.0
+37,yamllint,0.3,1.0,0.9,1.6,0.8
+
+## Compilation Summary
+
+For each tool, average/max/min compilation time in seconds.
+
+<!-- LRRRRR -->
+"max compile time (s)",1.0,8.3,3.3,7.0,3.2
+"avg compile time (s)",0.4,1.7,1.1,2.4,1.0
+"min compile time (s)",0.2,1.0,0.8,1.6,0.8
+
+## Cases Statistics
+
+For each case and a summary: the full schema, normalized schema and model sizes
+(number of lines), number/min/average/max size of test values.
+
+<!-- RLRRRRRRR -->
+,,1221,739,686,35407,13,1941,11487059
+1,ansible,1621,1104,1796,333,21,313,3425
+2,aws-cdk,38,25,22,483,22,1151,110477
+3,babelrc,200,117,206,794,13,140,1487
+4,clang-fmt,1416,860,750,133,20,336,6433
+5,cmake,2087,1287,1923,967,53,2721,60772
+6,code-clim,227,130,52,2484,21,282,35256
+7,cql2,1167,800,749,109,44,125,617
+8,cspell,1992,1254,658,981,14,820,21835
+9,cypress,383,229,348,981,15,403,150044
+10,deno,537,330,217,987,16,1023,133254
+11,dependabot,282,166,121,967,111,403,61986
+12,draft-04,221,149,121,563,155,12657,83418
+13,fabric-mod,344,194,160,911,70,691,12850
+14,geojson,1491,994,207,500,114,52419,11487059
+15,gitpod-cnf,361,209,173,986,28,358,5327
+16,helm-chart,51,32,12,3888,97,342,3675
+17,importmap,26,16,13,964,16,630,42754
+18,jasmine,109,66,59,980,36,133,529
+19,jsconfig,1119,743,902,981,15,177,4656
+20,jshintrc,416,257,147,966,14,429,2403
+21,krakend,8139,4333,4251,47,248,2432,15349
+22,lazygit,2017,1075,504,280,24,277,5605
+23,lerna,138,75,77,985,21,173,3029
+24,nest-cli,523,292,182,1025,19,290,3595
+25,omnisharp,506,361,198,987,18,596,16878
+26,openapi,1419,902,1682,107,1861,166065,1220635
+27,pre-ci,435,372,337,985,86,551,30256
+28,pulumi,321,185,213,3807,34,251,11155
+29,sem-rel,128,80,56,794,14,461,6284
+30,stale,124,64,116,961,21,469,9120
+31,stylecop,293,186,139,983,17,569,7866
+32,tmuxinator,162,92,73,382,71,631,10606
+33,ui5,3004,1977,698,942,73,487,10324
+34,ui5-mfest,12310,7369,7152,611,424,2356,11607
+35,unreal-ng,322,206,218,859,48,394,6548
+36,vercel,1194,801,819,710,15,406,62111
+37,yamllint,40,22,21,984,16,352,3635
