@@ -1,18 +1,28 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm", "wheel"]
+requires = ["setuptools>=41", "setuptools-git-versioning>=3.0,<4", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tools.setuptools]
+[tool.setuptools]
+zip-safe = false
 include-package-data = true
 
-[tools.setuptools.package-data]
+[tool.setuptools.package-data]
 json_model = ["runtime/*", "data/*"]
 
 [tool.setuptools.packages.find]
 include = ["json_model", "json_model.runtime", "json_model.data"]
 exclude = ["tests/*", "models/*"]
 
+[tool.setuptools-git-versioning]
+enabled = true
+version_file = "json_model/data/VERSION"
+count_commits_from_version_file = true
+# other tags: sha full_sha
+dev_template = "{tag}.{branch}{ccount}"
+dirty_template = "{tag}.{branch}{ccount}+dirty"
+
 [project]
+dynamic = ["version"]
 name = "json_model_compiler"
 authors = [ { name = "Fabien Coelho" }, { name = "Claire Yannou-Medrala" } ]
 description = "JSON Model Tools"
@@ -20,7 +30,6 @@ readme = "README.md"
 requires-python = ">=3.12"  # for "type"
 license = "CC0-1.0"
 classifiers = [ "Topic :: Software Development" ]
-version = "2.0b47"
 # NOTE this mixes dependencies for the compiler and the runtime, which overlap
 dependencies = [
   "requests", "google-re2", "pyyaml", "validators", "fqdn",

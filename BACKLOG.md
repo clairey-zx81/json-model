@@ -9,6 +9,7 @@
 - [x] static: improve reporting for unrolled array simple type check
 - [x] perf: improve extraction script performance (sh to python)
 - [x] front: show git hash on `--version`?
+- [x] front: switch to dynamic versioning
 - [ ] optim: collect and display stats about what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
