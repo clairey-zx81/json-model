@@ -11,7 +11,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- a scalar
   -- .
-  RETURN NOT (JSONB_TYPEOF(val) = 'object') AND NOT (JSONB_TYPEOF(val) = 'array');
+  RETURN NOT (JSONB_TYPEOF(val) = 'array') AND NOT (JSONB_TYPEOF(val) = 'object');
 END;
 $$ LANGUAGE PLpgSQL;
 

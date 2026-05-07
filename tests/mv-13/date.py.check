@@ -2,9 +2,9 @@ date.values.json[0]: PASS
 date.values.json[1]: PASS
 date.values.json[2]: FAIL (.: unexpected value for model "$DATE" [.]; .: invalid date not a date ! (Invalid isoformat string: 'not a date !'))
 date.values.json[3]: FAIL (.: unexpected value for model "$DATE" [.]; .: invalid date mercredi 29 juillet 2020 (Invalid isoformat string: 'mercredi 29 juillet 2020'))
-date.values.json[4]: FAIL (.: unexpected value for model "$DATE" [.]; .: invalid date 2025-02-29 (day 29 must be in range 1..28 for month 2 in year 2025))
-date.values.json[5]: FAIL (.: unexpected value for model "$DATE" [.]; .: invalid date 2000-13-01 (month must be in 1..12, not 13))
-date.values.json[6]: FAIL (.: unexpected value for model "$DATE" [.]; .: invalid date 1970-10-42 (day 42 must be in range 1..31 for month 10 in year 1970))
+date.values.json[4]: FAIL (.: unexpected value for model "$DATE" [.]; .: invalid date 2025-02-29 (day is out of range for month))
+date.values.json[5]: FAIL (.: unexpected value for model "$DATE" [.]; .: invalid date 2000-13-01 (month must be in 1..12))
+date.values.json[6]: FAIL (.: unexpected value for model "$DATE" [.]; .: invalid date 1970-10-42 (day is out of range for month))
 date.values.json[7]: FAIL (.: unexpected value for model "$DATE" [.]; .: incompatible type NoneType for date)
 date.values.json[8]: FAIL (.: unexpected value for model "$DATE" [.]; .: incompatible type bool for date)
 date.values.json[9]: FAIL (.: unexpected value for model "$DATE" [.]; .: incompatible type bool for date)

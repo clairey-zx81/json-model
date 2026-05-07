@@ -224,7 +224,7 @@ function json_model_4(val, path, rep)
 function json_model_5(val, path, rep)
 {
     // .'$atomic'
-    let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val);
+    let res = ! Array.isArray(val) && ! (Object.prototype.toString.call(val) === '[object Object]');
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$atomic'.'|']", path])

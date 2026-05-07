@@ -32,7 +32,7 @@ timetz.values.json[30]: PASS
 timetz.values.json[31]: PASS
 timetz.values.json[32]: FAIL
 timetz.values.json[33]: PASS
-timetz.values.json[34]: ERROR unexpected PASS
+timetz.values.json[34]: FAIL
 timetz.values.json[35]: FAIL
 timetz.values.json[36]: FAIL
 timetz.values.json[37]: FAIL

@@ -322,7 +322,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$const'
-    return ! jm_is_object($val) && ! jm_is_array($val);
+    return ! jm_is_array($val) && ! jm_is_object($val);
 }
 
 # check $enum (.'$enum')

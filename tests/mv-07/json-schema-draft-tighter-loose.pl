@@ -2619,7 +2619,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$tight#const'
-    return ! jm_is_object($val) && ! jm_is_array($val);
+    return ! jm_is_array($val) && ! jm_is_object($val);
 }
 
 # check json_model_24_map_$comment (.'$tight#Ref'.'$comment')

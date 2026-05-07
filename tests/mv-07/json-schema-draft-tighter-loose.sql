@@ -2564,7 +2564,7 @@ CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$tight#const'
-  RETURN NOT (JSONB_TYPEOF(val) = 'object') AND NOT (JSONB_TYPEOF(val) = 'array');
+  RETURN NOT (JSONB_TYPEOF(val) = 'array') AND NOT (JSONB_TYPEOF(val) = 'object');
 END;
 $$ LANGUAGE PLpgSQL;
 

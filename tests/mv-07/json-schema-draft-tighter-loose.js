@@ -3376,7 +3376,7 @@ function json_model_23(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$tight#const'
-    let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val);
+    let res = ! Array.isArray(val) && ! (Object.prototype.toString.call(val) === '[object Object]');
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$tight#const'.'|']", path])

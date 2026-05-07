@@ -204,7 +204,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$atomic'
-    return ! jm_is_object($val) && ! jm_is_array($val);
+    return ! jm_is_array($val) && ! jm_is_object($val);
 }
 
 # check json_model_6_map_enumeration (.'$Atomic'.enumeration)
