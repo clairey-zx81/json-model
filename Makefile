@@ -63,7 +63,7 @@ clean.site:
 
 .PHONY: clean.py
 clean.py:
-	$(RM) -r .pytest_cache .ruff_cache dist venv $(MODULE).egg-info build json_model/version.py
+	$(RM) -r .pytest_cache .ruff_cache dist venv *.egg-info *.dist-info build json_model/version.py
 	find . -type d -name __pycache__ | xargs $(RM) -r
 
 .PHONY: clean.dev
