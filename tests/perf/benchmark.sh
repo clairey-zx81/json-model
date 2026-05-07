@@ -6,6 +6,8 @@
 # eg: $0 --par 12 --runs 5 --loop 1000 --jmc latest --jsc latest --env JMC_OPTS
 #
 
+START=$SECONDS
+
 # expected by jmc and js-cli wrappers
 export POD=${POD:-docker}
 
@@ -145,6 +147,9 @@ for f in jsb tmp perf.db ; do
   test -e $f && err 3 "unexpected dir/file: $f"
 done
 
+echo "## started $(( $SECONDS - $START ))"
+START=$SECONDS
+
 #
 # SETUP
 #
@@ -186,6 +191,9 @@ tasks=""
 [[ $TASK =~ b ]] && tasks+=" blaze"
 [[ $TASK =~ c ]] && tasks+=" jmc-c"
 
+echo "## setup done $(( $SECONDS - $START ))"
+START=$SECONDS
+
 echo "# validation runs (include at least one compilation each)"
 
 for trg in $tasks ; do
@@ -208,15 +216,28 @@ while [ $running -gt 0 ] ; do
   do_wait 0
 done
 
+echo "## validation done $(( $SECONDS - $START ))"
+
 #
 # DATA
 #
-echo "# extracts"
+echo "# extracting data..."
+
+START=$SECONDS
 compile-to-csv.sh tmp/[0-9]*/*_compile.csv > compile.csv
+echo "## compilation times $(( $SECONDS - $START ))"
+
+START=$SECONDS
 # 18 seconds for 3 runs (777 files)
 run-to-csv.py tmp/[0-9]*/*.out > perf.csv
+echo "## run times $(( $SECONDS - $START ))"
+
+START=$SECONDS
 # 15 seconds for 3 runs (777 files)
 res-to-csv.py tmp/[0-9]*/*.out > result.csv
+echo "## result counts $(( $SECONDS - $START ))"
+
+START=$SECONDS
 
 for dir in jsb/schemas/* ; do
   [ -d "$dir" ] || continue
@@ -237,11 +258,17 @@ for dir in jsb/schemas/* ; do
   jsonl2csv.py $name $dir/instances.jsonl >> casevalues.csv
 done > cases.csv
 
+echo "## case stats $(( $SECONDS - $START ))"
+
 #
 # ANALYSIS
 #
-echo "# create performance tables"
+START=$SECONDS
+echo "# creating performance tables..."
 sqlite3 perf.db < $script_dir/perf.sql
+echo "## performance analysis $(( $SECONDS - $START ))"
+
+START=$SECONDS
 
 # cpu data
 cpu_model=$(lscpu --extended=MODELNAME | sed -n 2p)
@@ -311,6 +338,8 @@ sqlite3 -csv perf.db < $script_dir/show.sql > "$ID.csv"
 
 # for chart
 sqlite3 perf.db < $script_dir/radar.sql | jq > "$ID.json"
+
+echo "## report generation $(( $SECONDS - $START ))"
 
 #
 # DONE
