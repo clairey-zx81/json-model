@@ -2,10 +2,12 @@
 
 ## Current Tasks
 
+- [ ] pr: switch to semver on version _2.1.0_?
+- [ ] perf: keep only one java run?
+- [ ] perf: show schema to model conversion times
 - [ ] optim: collect and display stats about what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
-- [ ] perf: show schema to model conversion times
 - [ ] js-backend: remove useless braces and semi-colons
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
@@ -18,6 +20,7 @@
 - [ ] c-backend: use knowledge of Jansson hash to improve property lookup??
 - [ ] c-backend: generate custom character class ascii tables?
 - [ ] c-backend: custom char classes: `[:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
+- [ ] c-backend: handle small char classes?
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
