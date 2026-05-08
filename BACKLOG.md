@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] front: cleanup obsolete versioning stuff
 - [ ] pr: switch to semver on version _2.1.0_?
 - [ ] perf: keep only one java run?
 - [ ] perf: show schema to model conversion times
