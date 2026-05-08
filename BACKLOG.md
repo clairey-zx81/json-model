@@ -107,7 +107,6 @@
 - [ ] command: allow to pass some options from rc file?
 - [ ] tests: parallelize per-case instead of per-dir?
 - [ ] static: shorten xor exit?
-- [ ] perf: profile some cases
 - [ ] c-backend: use vector instructions for larger strcmp?
 - [ ] export: sqlalchemy
 - [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
@@ -162,8 +161,6 @@
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction with `ConstMap`?
 - [ ] py-backend: unique for scalars (`set` only works for str)
-- [ ] c-backend: optimize unique for scalar types using `constant_t`
-- [ ] c-backend: remove path build under no reporting code gen
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
 - [ ] optim: root xor should be simplified in `geo.model.json`, maybe with inlining?
 - [ ] python: how to keep looseness after inlining?
