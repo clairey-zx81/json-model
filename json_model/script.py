@@ -286,6 +286,18 @@ def java_compile(java_code: str, args):
     assert status == 0, f"Java compilation succeeded: {command}"
 
 
+def jmc_version() -> str:
+    version = pkg_version("json_model_compiler")
+    version_ref = load_data_file("VERSION")
+    # if we are in a development version, try to recompute the version dynamically
+    if version != version_ref:
+        try:
+            from setuptools_git_versioning import get_version
+            version = get_version()
+        except:
+            pass
+    return version
+
 #
 # Compiler entry point
 #
@@ -503,7 +515,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     args = ap.parse_args(xargs)
 
     if args.version:
-        print(pkg_version("json_model_compiler"))
+        print(jmc_version())
         return 0
 
     if args.runtime:
