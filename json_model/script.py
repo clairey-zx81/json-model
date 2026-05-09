@@ -293,7 +293,7 @@ def jmc_version(dynamic: bool = True) -> str:
     if dynamic and version != version_ref:
         try:
             from setuptools_git_versioning import get_version
-            version = get_version()
+            version = get_version(root=Path(__file__).parent)
         except:
             pass
     return version
