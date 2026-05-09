@@ -3,7 +3,8 @@
 # Generate a markdown report about the compiler sources
 #
 
-version=$(jmc --version)
+# version=$(jmc --version)
+read version < json_model/data/VERSION
 branch=$(git rev-parse --abbrev-ref HEAD)
 githash=$(git show --pretty=format:"%h" --no-patch)
 
