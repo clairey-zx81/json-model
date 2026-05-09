@@ -39,7 +39,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "flake8", "ruff", "pyright", "pytest", "pytest-xdist[psutils]", "filelock", "ipython"
+  "filelock", "ipython",
+  "flake8", "ruff", "pyright",
+  "pytest", "pytest-xdist[psutils]",
+  "setuptools-git-versioning"  # dynamic version
 ]
 dist = [ "build", "wheel", "twine" ]
 
