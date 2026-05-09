@@ -26,8 +26,6 @@ B<jmc> - JSON Model Compiler
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] (--model MODEL | MODEL) [VALUES ...]
 
-                        assume single line regex
-
 =head1 DESCRIPTION
 
 The JSON Model Compiler command processes a L<JSON Model|https://json-model.org/> to
