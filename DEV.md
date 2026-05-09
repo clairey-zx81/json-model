@@ -94,3 +94,7 @@ Procedure for releasing a new python package version:
   - publish package(s): `twine upload dist/*`
 - check `jsonschema-benchmark` container build
 - check `bowtie` container build
+
+Note: do not push non released stuff on branch `main`, only use `post` and `dev`
+as only these name are supported by Python `packaging.version`.
+Not following this rule breaks branch installation from git sources.
