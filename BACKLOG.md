@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] c-runtime: remove some warnings on build
+- [x] front: reduce version display verbosity
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] pr: switch to semver on version _2.1.0_?
 - [ ] perf: keep only one java run?
