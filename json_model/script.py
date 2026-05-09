@@ -296,7 +296,7 @@ def jmc_version(dynamic: bool = True) -> str:
             from setuptools_git_versioning import get_version
             version = str(get_version(root=Path(__file__).parent.parent))
         except Exception as e:
-            log.warning(f"error while computing version: {e}")
+            log.debug(f"error while computing version: {e}")
             pass
     return version
 
