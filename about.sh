@@ -24,7 +24,7 @@ but excludes language-specific code generators.
 EOF
 
 cloc --md \
-	json_model/analyze.py \
+    json_model/analyze.py \
     json_model/convert.py \
     json_model/export.py \
     json_model/predefs.py \
@@ -55,7 +55,7 @@ Language|files|blank|comment|code
 EOF
 
 cloc --md \
-	json_model/python.py \
+    json_model/python.py \
     json_model/data/*.py \
     | tail -1 | sed "s/SUM:/Python/"
 
