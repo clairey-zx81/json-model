@@ -59,7 +59,7 @@ clean.js:
 
 .PHONY: clean.site
 clean.site:
-	$(RM) site/MODELS.md site/JMC.md site/ABOUT.md
+	$(RM) site/MODELS.md site/JMC.md site/ABOUT.md .about.md
 
 .PHONY: clean.py
 clean.py:
@@ -120,8 +120,11 @@ site/MODELS.md: Makefile models/
 site/JMC.md: json_model/data/jmc.pod
 	pod2markdown $< > $@
 
-site/ABOUT.md: ./about.sh
+# generate twice to include the about page in the counts
+site/ABOUT.md: ./about.sh site/JMC.md site/MODELS.md
 	./$< > $@
+	./$< > .about.md
+	mv .about.md $@
 
 jmc.1: json_model/data/jmc.pod dev
 	source venv/bin/activate

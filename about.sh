@@ -6,7 +6,7 @@
 # version=$(jmc --version)
 read version < json_model/data/VERSION
 branch=$(git rev-parse --abbrev-ref HEAD)
-githash=$(git show --pretty=format:"%h" --no-patch)
+githash=$(git show --pretty=format:"%h on %cs" --no-patch)
 
 cat <<EOF
 # About JSON Model
@@ -137,4 +137,11 @@ on a set of test vectors.
 - total JSON model locs: _${model_locs}_
 - number of test vector JSON values: _${n_values}_
 - all tested JSON values (including models, generated schemas and test suite schemas): _${all_values}_
+
+## Documentation
+
+Documentation files, excluding benchmark results.
 EOF
+
+cloc --md site/*.md \
+    | sed -n -e '/^$/,$p' | head -4
