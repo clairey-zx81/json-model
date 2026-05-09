@@ -6,6 +6,7 @@ SHELL   = /bin/bash
 #
 
 MODULE  = json_model
+TMP =   /dev/shm
 
 ifndef PYTHON
 PYTHON  = python
@@ -100,6 +101,22 @@ check.pyright: dev
 check.tests: dev
 	source venv/bin/activate
 	$(MAKE) -C tests check
+
+.PHONY: check.sanity
+check.sanity: venv/.dev
+	source venv/bin/activate
+	# test directory, model and value
+	tmp="$(TMP)/$${USER}/sanity"
+	mkdir -p $${tmp} || exit 1
+	echo "null" > $${tmp}/null.model.json
+	echo "42" > $${tmp}/42.json
+	# compilation
+	jmc --version || exit 2
+	jmc -o $${tmp}/null.py $${tmp}/null.model.json || exit 2
+	# validation
+	$${tmp}/null.py --version || exit 3
+	$${tmp}/null.py $${tmp}/null.model.json $${tmp}/42.json || exit 3
+	# keep temporary directory…
 
 #
 # Docsify Web Site: https://json-model.org/
