@@ -288,7 +288,7 @@ def java_compile(java_code: str, args):
 
 def jmc_version(dynamic: bool = True) -> str:
     version = pkg_version("json_model_compiler")
-    version_ref = load_data_file("VERSION")
+    version_ref = load_data_file("VERSION").strip()
     # if we are in a development version, try to recompute the version dynamically
     if dynamic and version != version_ref:
         log.debug(f"recomputing version...")

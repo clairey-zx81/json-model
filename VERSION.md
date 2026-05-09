@@ -1,5 +1,14 @@
 # JSON Model Compiler Versions
 
+## 2.0.49 2026-05-09
+
+- [x] front: cleanup obsolete versioning stuff
+- [x] front: show dynamic version when under dev
+- [x] pr: show static version when generating ABOUT page
+- [x] pr: add documentation section in ABOUT page
+- [x] front: workaround, allow to skip dynamic version recomputation
+- [x] front: use semver
+
 ## 2.0b48 2026-05-07
 
 - [x] static: unroll small array scans for simple type checks

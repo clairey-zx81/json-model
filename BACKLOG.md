@@ -7,6 +7,7 @@
 - [x] pr: show static version when generating ABOUT page
 - [x] pr: add documentation section in ABOUT page
 - [x] front: workaround, allow to skip dynamic version recomputation
+- [x] front: use semver
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] pr: switch to semver on version _2.1.0_?
 - [ ] perf: keep only one java run?
