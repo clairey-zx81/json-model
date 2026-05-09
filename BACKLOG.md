@@ -5,6 +5,7 @@
 - [x] c-runtime: remove some warnings on build
 - [x] front: reduce version display verbosity
 - [x] doc: add release procedure section
+- [x] doc: fix type in jmc pod file
 - [ ] test: and minimal working sanity test
 - [ ] ci: add minimal CI configuration on GitHub
 - [ ] perf: improve resilience to bad overhead estimation
