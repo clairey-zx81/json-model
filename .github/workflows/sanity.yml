@@ -1,0 +1,18 @@
+name: JMC Sanity Check
+
+on:
+  push:
+    branches: [ main, dev, post ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v6
+    - name: Set up Python
+      uses: actions/setup-python@v6
+    - name: Install Package Stuff
+      run: make dev.py
+    - name: Sanity Check
+      run: make check.sanity
