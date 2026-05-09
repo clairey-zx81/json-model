@@ -68,3 +68,29 @@ source $PWD/json_model/runtime/java/env.bash
 Read sources…
 The magically-generated [deepwiki](https://deepwiki.com/clairey-zx81/json-model)
 Section _The jmc Compiler_ is not too bad for an initial understanding.
+
+## Release Procedure
+
+Procedure for releasing a new python package version:
+
+- consider releasing both JSU and JMC at the same time!
+- merge `dev` changes into the `main` branch
+- update `json_model/data/VERSION`, `BACKLOG.md` and `VERSION.md`
+- `git commit` and `git tag` as new version
+- run non-regression tests: `make -C tests check`, fix and squash if necessary
+- `make clean.dev && make publish.py`
+- test generated package(s) manually:
+
+  ```bash
+  cd /tmp
+  python -m venv venv
+  source venv/bin/activate
+  pip install path-to-generated-package.tar.gz
+  jmc --version  # should display the new version
+  ```
+
+- if okay:
+  - push sources and tags: `git push && git push --tags`
+  - publish package(s): `twine upload dist/*`
+- check `jsonschema-benchmark` container build
+- check `bowtie` container build
