@@ -291,10 +291,12 @@ def jmc_version(dynamic: bool = True) -> str:
     version_ref = load_data_file("VERSION")
     # if we are in a development version, try to recompute the version dynamically
     if dynamic and version != version_ref:
+        log.debug(f"recomputing version...")
         try:
             from setuptools_git_versioning import get_version
-            version = get_version(root=Path(__file__).parent)
-        except:
+            version = str(get_version(root=Path(__file__).parent.parent))
+        except Exception as e:
+            log.warning(f"error while computing version: {e}")
             pass
     return version
 
@@ -514,6 +516,9 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("values", nargs="*", help="JSON values to testing")
     args = ap.parse_args(xargs)
 
+    # set debug as early as possible
+    log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
+
     if args.version:
         print(jmc_version())
         return 0
@@ -670,9 +675,6 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             log.warning("keeping float strictness as already set")
 
     with_main = args.gen == "exec" or args.gen == "source" and args.format == "java"
-
-    # debug
-    log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
 
     # resolver
     maps: dict[str, str] = {}
