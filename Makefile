@@ -120,13 +120,16 @@ check.sanity: venv/.dev
 	tmp="$(TMP)/$${USER}/sanity"
 	mkdir -p $${tmp} || exit 1
 	echo "null" > $${tmp}/null.model.json
+	echo '"=42"' > $${tmp}/42.model.json
 	echo "42" > $${tmp}/42.json
 	# compilation
 	jmc --version || exit 2
 	jmc -o $${tmp}/null.py $${tmp}/null.model.json || exit 2
+	jmc -o $${tmp}/42.py $${tmp}/42.model.json || exit 2
 	# validation
 	$${tmp}/null.py --version || exit 3
 	$${tmp}/null.py $${tmp}/null.model.json $${tmp}/42.json || exit 3
+	$${tmp}/42.py $${tmp}/null.model.json $${tmp}/42.json || exit 3
 	# keep temporary directory…
 
 #
