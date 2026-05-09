@@ -7,6 +7,7 @@
 - [x] doc: add release procedure section
 - [x] doc: fix type in jmc pod file
 - [x] test: and minimal working sanity test
+- [x] dev: improve dev setup and cleanup
 - [ ] ci: add minimal CI configuration on GitHub
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] pr: switch to semver on version _2.1.0_?

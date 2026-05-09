@@ -30,7 +30,14 @@ venv/.dist: venv/.dev
 	touch $@
 
 .PHONY: dev
-dev: venv/.dev dev.js dev.java
+dev: dev.py dev.js dev.java dev.c
+
+.PHONY: dev.py
+dev.py: venv/.dev
+
+.PHONY: dev.c
+dev.c:
+	$(MAKE) -C json_model/runtime/c compile
 
 .PHONY: dev.js
 dev.js: node_modules
@@ -51,7 +58,6 @@ dev.java:
 clean: clean.site
 	$(RM) *~ jmc.1
 	$(MAKE) -C tests clean
-	$(MAKE) -C json_model/runtime clean
 
 .PHONY: clean.js
 clean.js:
@@ -67,8 +73,13 @@ clean.py:
 	$(RM) -r .pytest_cache .ruff_cache dist venv *.egg-info *.dist-info build
 	find . -type d -name __pycache__ | xargs $(RM) -r
 
+.PHONY: clean.c
+clean.c:
+	$(MAKE) -C json_model/runtime/c clean
+
 .PHONY: clean.dev
-clean.dev: clean clean.js clean.site clean.py
+clean.dev: clean clean.js clean.site clean.py clean.c
+	$(MAKE) -C json_model/runtime clean
 
 #
 # CHECK
