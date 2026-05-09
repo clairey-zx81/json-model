@@ -138,7 +138,7 @@ www: build.site
 #
 # PUBLICATION
 #
-# SITE, SITEPATH:
+# SITE and SITEPATH are out of the git repository
 -include local.mk
 
 .PHONY: build.site
@@ -146,6 +146,7 @@ build.site: site/MODELS.md site/JMC.md site/ABOUT.md
 
 .PHONY: publish.site
 publish.site: build.site
+	# NOTE --delete: no, keep old benchmark pages archive on the site for now
 	rsync -avL --progress ./site/. $(SITE):$(SITEPATH)/.
 	ssh $(SITE) chmod a+rx $(SITEPATH) $(SITEPATH)/models $(SITEPATH)/benchmarks
 	ssh $(SITE) chmod a+r $(SITEPATH)/* $(SITEPATH)/models/* $(SITEPATH)/benchmarks/*
