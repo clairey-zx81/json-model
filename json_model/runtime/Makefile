@@ -1,6 +1,3 @@
-#
-# PostGres eXtenSion makefile
-#
 SHELL   = /bin/bash
 .ONESHELL:
 
