@@ -48,6 +48,15 @@ SELECT * FROM ShowBadResults ORDER BY 1;
 .print The `geoson` failure for Java/GSON is related to a corner case issue with GSON.
 
 .print
+.print ## Compilation Summary
+.print
+.print For each tool, average/max/min compilation time in seconds.
+.print
+.print <!-- LRRRRR -->
+.width 0 -5 -5 -5 -5 -5
+SELECT data, blaze, c, js, jv, py FROM ShowCompileSummary ORDER BY ordre;
+
+.print
 .print ## Compilation Per Case
 .print
 .print For each tool and case, compilation time (including both schema to model
@@ -56,15 +65,6 @@ SELECT * FROM ShowBadResults ORDER BY 1;
 .print <!-- RLRRRRR -->
 .width -2 0 -5 -5 -5 -5 -5
 SELECT * FROM ShowCompilePerCase ORDER BY 1;
-
-.print
-.print ## Compilation Summary
-.print
-.print For each tool, average/max/min compilation time in seconds.
-.print
-.print <!-- LRRRRR -->
-.width 0 -5 -5 -5 -5 -5
-SELECT data, blaze, c, js, jv, py FROM ShowCompileSummary ORDER BY ordre;
 
 .print
 .print ## Cases Statistics
