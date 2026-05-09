@@ -24,13 +24,6 @@ schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon)
 - [2026040400](benchmarks/2026040400.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.19.0, 11 runs, 1000 iterations.
 - [2026040300](benchmarks/2026040300.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.18.0, 11 runs, 1000 iterations.
 - [2026040200](benchmarks/2026040200.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.17.1, 11 runs, 1000 iterations.
-- [2026032801](benchmarks/2026032801.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.17.0, 11 runs, 1000 iterations.
-- [2026032700](benchmarks/2026032700.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.16.2, 11 runs, 1000 iterations.
-- [2026032500](benchmarks/2026032500.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.16.1, 11 runs, 1000 iterations.
-- [2026031900](benchmarks/2026031900.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.16.0, 11 runs, 1000 iterations.
-- [2026031400](benchmarks/2026031400.md) clang, no predefs, jsu 0.9.2/jmc 2.0b41 vs sbc 14.14.2, 11 runs, 1000 iterations.
-- [2026031300](benchmarks/2026031300.md) clang, no predefs, jsu 0.9.1/jmc 2.0b40 vs sbc 14.14.2, 11 runs, 1000 iterations.
-- [2026031000](benchmarks/2026031000.md) clang, no predefs, jsu 0.9.1/jmc 2.0b39 vs sbc 14.14.2, 11 runs, 1000 iterations.
 
 ## Benchmarking Script
 
