@@ -9,6 +9,7 @@ schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon)
 
 ## Recent Artifacts
 
+- [2026050902](benchmarks/2026050902.md) clang, no predefs, jsu 0.9.9/jmc 2.0.49 vs sbc 15.6.0, 11 runs, 1000 iterations.
 - [2026050900](benchmarks/2026050900.md) clang, no predefs, jsu 0.9.8/jmc 2.0b48 vs sbc 15.6.0, 11 runs, 1000 iterations.
 - [2026050800](benchmarks/2026050800.md) clang, no predefs, jsu 0.9.8/jmc 2.0b48 vs sbc 15.5.0, 11 runs, 1000 iterations.
 - [2026050703](benchmarks/2026050703.md) clang, no predefs, jsu 0.9.8/jmc 2.0b48 vs sbc 15.4.0, 11 runs, 1000 iterations.
