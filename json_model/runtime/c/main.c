@@ -191,6 +191,70 @@ process_value(
     return !unexpected;
 }
 
+/* load file contents into memory, assuming no '\0' */
+#define CHUNK_SIZE 16536
+static char *load_file(FILE *input)
+{
+    char *chunk[CHUNK_SIZE];
+    char *result = NULL;
+    size_t size, total = 0;
+    while ((size = fread(chunk, sizeof(char), CHUNK_SIZE, input))) {
+        // fprintf(stderr, "result=%p size=%lu\n", result, size);
+        if (result == NULL)
+            result = (char *) malloc(sizeof(char) * (size + 1));
+        else
+            result = (char *) realloc(result, sizeof(char) * (total + size + 1));
+        memcpy(result + total, chunk, size);
+        total += size;
+    }
+    result[total] = '\0';
+    return result;
+}
+
+typedef struct {
+    char **array;
+    size_t size;
+} string_array_t;
+
+// split data per line in place, beware that the last line may or may not end with a '\n'
+static string_array_t split_data(char *data)
+{
+    size_t nlines = 1;
+    // first pass to count lines
+    char *current = data;
+    while (*current) {
+        if (*current == '\n') {
+            nlines++;
+            current++;
+            if (*current == '\0') {
+                nlines--;
+                break;
+            }
+        }
+        else
+            current++;
+    }
+    // second pass to extract array
+    string_array_t sa = (string_array_t) {
+        (char **) malloc(sizeof(char *) * nlines),
+        nlines
+    };
+    size_t index = 0;
+    current = data;
+    do {
+        sa.array[index++] = current;
+        while (*current && *current != '\n')
+            current++;
+        if (*current == '\0')
+            break;
+        *current = '\0';
+        current++;
+    }
+    while (*current);
+
+    return sa;
+}
+
 int main(int argc, char* argv[])
 {
     // get options
@@ -202,6 +266,7 @@ int main(int argc, char* argv[])
     bool list = false;
     bool version = false;
     bool show_time = false;
+    bool parse = false;
     int loop = 1;
 
     const struct option options[] = {
@@ -218,6 +283,7 @@ int main(int argc, char* argv[])
         { "no-report", no_argument, NULL, 1002 },
         { "resolution", no_argument, NULL, 1003 },
         { "clock", required_argument, NULL, 'C' },
+        { "parse", no_argument, NULL, 1004 },
         { NULL, 0, NULL, 0 }
     };
 
@@ -268,6 +334,9 @@ int main(int argc, char* argv[])
                 break;
             case 1003:
                 fprintf(stderr, "clock resolution: %.03f µs\n", getres());
+                break;
+            case 1004:
+                parse = true;
                 break;
             case 'C':
                 if (str_eq(optarg, "monotonic") || str_eq(optarg, "m"))
@@ -359,6 +428,34 @@ int main(int argc, char* argv[])
                 fprintf(stderr, "%s: ERROR while opening file\n", argv[i]);
                 errors++;
                 continue;
+            }
+
+            if (parse)
+            {
+                FILE *parsed = fopen(argv[i], "r");
+                char *data = load_file(parsed);
+                fclose(parsed);
+                string_array_t sa = split_data(data);
+                double sum1 = 0.0, sum2 = 0.0;
+                size_t n = loop;
+                while (n--)
+                {
+                    const double start = now();
+                    for (int j = 0; j < sa.size; j++)
+                    {
+                        json_t *val = json_loads(sa.array[j], JSON_DECODE_ANY|JSON_ALLOW_NUL, &error);
+                        json_decref(val);
+                    }
+                    const double delay = now() - start - empty;
+                    sum1 += delay;
+                    sum2 += delay * delay;
+                }
+                const double pavg = sum1 / loop;
+                const double pstd = sqrt(sum2 / loop - pavg * pavg);
+                fprintf(stderr, "%s %lu: PARSE %.03f ± %.03f µs (%.03f)\n",
+                        argv[i], sa.size, pavg, pstd, empty);
+                free(data);
+                free(sa.array);
             }
 
             while ((value = json_loadf(input,

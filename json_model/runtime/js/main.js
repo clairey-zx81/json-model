@@ -93,6 +93,7 @@ export default async function main(checker_init, checker, checker_free)
       'jsonl': { type: 'boolean', short: 'L' },
       're2': { type: 'boolean' },
       'regexp': { type: 'boolean' },
+      'parse': { type: 'boolean' },
     }
 
     const args = parseArgs({options, allowPositionals: true})
@@ -133,12 +134,34 @@ export default async function main(checker_init, checker, checker_free)
     {
         try {
             const data = await fs.readFile(fname, {encoding: 'UTF-8'})
+            const lines = (
+                args.values.jsonl ? data.split("\n").slice(0, -1) : data
+            )
+            if (args.values.parse && args.values.jsonl)
+            {
+                let n = args.values.time
+                let sum1 = 0.0, sum2 = 0.0
+                while (n--)
+                {
+                    const start = performance.now()
+                    const values = lines.map(s => JSON.parse(s))
+                    const delay = 1000.0 * (performance.now() - start) - overhead.empty
+                    sum1 += delay
+                    sum2 += delay * delay
+                }
+                const pavg = sum1 / args.values.time
+                const pstd = Math.sqrt(sum2 / args.values.time - pavg * pavg)
+                console.warn(
+                    `${fname} ${lines.length}: PARSE`,
+                    `${pavg.toFixed(3)} ± ${pstd.toFixed(3)} µs (${overhead.empty.toFixed(3)})`
+                )
+            }
             const value = (
                 args.values.jsonl ?
                     args.values.test ?
-                        data.split("\n").slice(0, -1).map(s => [null, JSON.parse(s)])
-                      : data.split("\n").slice(0, -1).map(s => JSON.parse(s))
-                  : JSON.parse(data)
+                        lines.map(s => [null, JSON.parse(s)])
+                      : lines.map(s => JSON.parse(s))
+                  : JSON.parse(lines)
             )
 
             if (args.values.test) {

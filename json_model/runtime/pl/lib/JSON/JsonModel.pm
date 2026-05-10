@@ -346,7 +346,7 @@ sub jm_check_constraint($$$$$)
     my ($tc, $tv) = (jm_type($cst), jm_type($val));
     my $cval;
 
-    # depending on 
+    # depending on
     if ($tc eq "null") {
         return jm_is_null($val);
     }
@@ -355,7 +355,7 @@ sub jm_check_constraint($$$$$)
         return 0;
     }
     elsif ($tc eq "integer") {
-        $cval = jm_any_len($val);            
+        $cval = jm_any_len($val);
     }
     elsif ($tc eq "number") {
         return 0 unless $tv eq "integer" || $tv eq "number";
@@ -472,7 +472,7 @@ sub jm_process($$$$$$$$$)
         # perforlance display
         my $avg = $sum / $time;
         my $stdev = sqrt( $sum2 / $time - $avg * $avg );
-        printf "$display: %.03f ± %.03f µs [%.03f]\n", $avg, $stdev, $empty;
+        printf "$display: %.03f ± %.03f µs (%.03f)\n", $avg, $stdev, $empty;
     }
 
     return $ok;
@@ -642,7 +642,7 @@ sub jm_main($$$)
     my $errors = 0;
 
     # options
-    my ($name, $test, $jsonl, $time, $report) = ("", 0, 0, 0, 0);
+    my ($name, $test, $jsonl, $time, $report, $parse) = ("", 0, 0, 0, 0, 0);
     my ($no_report);
     GetOptions(
         "version" => sub {
@@ -658,6 +658,7 @@ sub jm_main($$$)
         "test|t" => \$test,
         "time|T=i" => \$time,
         "jsonl|L" => \$jsonl,
+        "parse" => \$parse,
     );
 
     # option fix and warnings
@@ -682,6 +683,25 @@ sub jm_main($$$)
         }
         else {
             $contents = do { local $/ = undef; <STDIN> };
+        }
+
+        # json parsing time
+        if ($jsonl and $parse) {
+            my $n = $time;
+            my ($sum1, $sum2) = (0.0, 0.0);
+            my @contents = split /\n/, $contents;
+            my $njson = @contents;
+            while ($n--) {
+                my $start = time;
+                my $stuff = [ map { decode_json_nonref $_ } @contents ];
+                undef $stuff;
+                my $delay = 1_000_000 * (time - $start) - $empty;
+                $sum1 += $delay;
+                $sum2 += $delay * $delay;
+            }
+            my $pavg = $sum1 / $time;
+            my $pstd = sqrt($sum2 / $time - $pavg * $pavg);
+            printf STDERR "$file $njson: PARSE %.03f ± %.03f µs (%.03f)\n", $pavg, $pstd, $empty;
         }
 
         # read and parse contents
