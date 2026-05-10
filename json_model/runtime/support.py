@@ -416,6 +416,7 @@ def main(jm_fun, jm_map, jmc_version):
     ap.add_argument("--time", "-T", type=int, default=1, help="report performance measures")
     ap.add_argument("--test", "-t", action="store_true", help="assume test vector JSON files")
     ap.add_argument("--jsonl", "-L", action="store_true", default=False, help="assume JSONL files")
+    ap.add_argument("--parse", action="store_true", default=False, help="show jsonl parse time")
     ap.add_argument("values", nargs="*", help="JSON files")
     args = ap.parse_args()
 
@@ -451,7 +452,24 @@ def main(jm_fun, jm_map, jmc_version):
             # load json data
             if args.jsonl:
                 with open(fn) as f:
-                    values = [json.loads(r) for r in f]
+                    lines = list(f)
+                # show parse time
+                if args.parse:
+                    psum1, psum2 = 0.0, 0.0
+                    for _ in range(args.time):
+                        start = time.clock_gettime(0)
+                        values = [json.loads(r) for r in lines]
+                        assert len(values) == len(lines)
+                        del values
+                        delay = 1000000.0 * (time.clock_gettime(0) - start) - empty
+                        psum1 += delay
+                        psum2 += delay * delay
+                    pavg = psum1 / args.time
+                    pstd = math.sqrt(psum2 / args.time - pavg * pavg)
+                    print(f"{fn} {len(lines)}: PARSE "
+                          f"{pavg:.03f} ± {pstd:.03f} µs ({empty:.03f})",
+                          file=sys.stderr)
+                values = [json.loads(r) for r in lines]
             else:
                 with open(fn) as f:
                     value = json.load(f)

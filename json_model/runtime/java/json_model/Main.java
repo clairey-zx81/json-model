@@ -168,6 +168,7 @@ public class Main
             new LongOpt("no-report", LongOpt.NO_ARGUMENT, null, 1000),
             new LongOpt("test", LongOpt.NO_ARGUMENT, null, 't'),
             new LongOpt("jsonl", LongOpt.NO_ARGUMENT, null, 'L'),
+            new LongOpt("parse", LongOpt.NO_ARGUMENT, null, 1001),
         });
 
         Map<String, String> env = System.getenv();
@@ -178,7 +179,8 @@ public class Main
             list = false,
             report = false,
             test = false,
-            jsonl = false;
+            jsonl = false,
+            parse = false;
 
         int c;
         while ((c = g.getopt()) != -1)
@@ -228,6 +230,9 @@ public class Main
                     break;
                 case 1000:  // --no-report
                     report = false;
+                    break;
+                case 1001:  // --parse
+                    parse = true;
                     break;
                 case '?':
                     exit(1, "unexpected error");
@@ -284,6 +289,35 @@ public class Main
             catch (Exception e) {
                 System.err.println("skipping file " + fname + ": " + e);
                 continue;
+            }
+
+            // parse time evaluation
+            if (parse && jsonl)
+            {
+                double sum1 = 0.0, sum2 = 0.0;
+                int n = time;
+                Object[] values = new Object[contents.length];
+                while (n-- != 0) {
+                    long start = System.nanoTime();
+                    for (int i = 0; i < contents.length; i++)
+                        values[i] = json.fromJSON(contents[i]);
+                    for (int i = 0; i < contents.length; i++)
+                        values[i] = null;
+                    double delay = 0.001 * (System.nanoTime() - start) - empty;
+                    sum1 += delay;
+                    sum2 += delay * delay;
+                }
+                values = null;
+                double
+                    pavg = sum1 / time,
+                    pstd = Math.sqrt(sum2 / time - pavg * pavg);
+                String
+                    savg = String.format("%.03f", pavg),
+                    sstd =  String.format("%.03f", pstd),
+                    sempty = String.format("%.03f", empty);
+
+                System.err.println(fname + " " + contents.length + ": PARSE " +
+                                   savg + " ± " + sstd + " µs (" + sempty + ")");
             }
 
             // process contents
