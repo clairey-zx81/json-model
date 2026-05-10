@@ -11,6 +11,7 @@
 - [x] ci: add minimal CI configuration on GitHub
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
+- [ ] perf: compute compilation speed
 - [ ] pr: switch to semver on version _2.1.0_?
 - [ ] perf: keep only one java run?
 - [ ] perf: show schema to model conversion times
