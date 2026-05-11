@@ -10,6 +10,7 @@
 - [x] dev: improve dev setup and cleanup
 - [x] ci: add minimal CI configuration on GitHub
 - [x] main: add parse time measure for Python, JS, C, Java, Perl
+- [x] java-runtime: update to latest JSON libraries
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
 - [ ] perf: compute compilation speed
