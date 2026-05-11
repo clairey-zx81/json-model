@@ -3,17 +3,22 @@
 # Generate a markdown report about the compiler sources
 #
 
-# version=$(jmc --version)
-read version < json_model/data/VERSION
-branch=$(git rev-parse --abbrev-ref HEAD)
 githash=$(git show --pretty=format:"%h on %cs" --no-patch)
+
+if type jmc > /dev/null ; then
+    version=$(jmc --version)
+    git_version=$githash
+else
+    read version < json_model/data/VERSION
+    git_version="$(git rev-parse --abbrev-ref HEAD) $githash"
+fi
 
 cat <<EOF
 # About JSON Model
 
 JSON Model is an on-going [research project](PUBS.md).
 
-The following statistics for version **$version** (\`$branch\` \`$githash\`) show that the compiler,
+The following statistics for version **$version** (\`$git_version\`) show that the compiler,
 code generator and runtimes are quite small, but still heavily tested.
 
 ## Compiler Source Code
