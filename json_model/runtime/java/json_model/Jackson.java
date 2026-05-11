@@ -6,10 +6,10 @@ import java.util.Iterator;
 import java.io.Reader;
 import java.io.IOException;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.TextNode;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.node.StringNode;
 
 /**
  * Jackson JSON abstraction.
@@ -25,7 +25,7 @@ public class Jackson extends JSON<Object>
         try {
             return mapper.readTree(json);
         }
-        catch (JsonProcessingException e) {
+        catch (JacksonException e) {
             throw new JSON.Exception("jackson error: " + e);
         }
     }
@@ -35,17 +35,14 @@ public class Jackson extends JSON<Object>
         try {
             return mapper.readTree(reader);
         }
-        catch (JsonProcessingException e) {
+        catch (JacksonException e) {
             throw new JSON.Exception("jackson error: " + e);
-        }
-        catch (IOException e) {
-            throw new JSON.Exception("io error: " + e);
         }
     }
 
     public Object strToJSON(String s)
     {
-        return new TextNode(s);
+        return new StringNode(s);
     }
 
     public String toJSON(Object o) throws JSON.Exception
@@ -53,7 +50,7 @@ public class Jackson extends JSON<Object>
         try {
             return mapper.writeValueAsString((JsonNode) o);
         }
-        catch (JsonProcessingException e) {
+        catch (JacksonException e) {
             throw new JSON.Exception("jackson error: " + e);
         }
     }
@@ -111,12 +108,12 @@ public class Jackson extends JSON<Object>
 
     public boolean isString(Object o)
     {
-        return ((JsonNode) o).isTextual();
+        return ((JsonNode) o).isString();
     }
 
     public String asString(Object o)
     {
-        return ((JsonNode) o).asText();
+        return ((JsonNode) o).asString();
     }
 
     public boolean isArray(Object o)
