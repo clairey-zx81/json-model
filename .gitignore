@@ -17,3 +17,4 @@ site/ABOUT.md
 .about.md
 local.mk
 env.sh
+tmp/
