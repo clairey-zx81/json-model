@@ -46,13 +46,18 @@ RUN python -m venv venv ; \
 ENV PATH=/app/venv/bin:$PATH
 
 # nodejs >= 20.0.0
+# ARG NODE=stable
+ARG NODE=24
+
+# FIXME https://github.com/nodejs/nan/pull/1016: node 26 not supported, needed for re2
 ENV NVM_DIR=/usr/local/nvm
 RUN mkdir -p $NVM_DIR
 RUN curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 RUN . $NVM_DIR/nvm.sh && \
-	nvm install stable && \
-    nvm alias default stable && \
+	nvm install $NODE && \
+    nvm alias default $NODE && \
     nvm use default
+# FIXME is this useful?
 RUN ln -s $NVM_DIR/versions/node/v* $NVM_DIR/versions/node/stable
 # NOTE NODE_PATH is ignored by "import" on node :-/
 ENV NODE_PATH=/app/node_modules
@@ -84,7 +89,7 @@ RUN for artifact in \
         org.apache.johnzon:johnzon-core:$johnzon \
         ; \
     do \
-        mvn dependency:copy -Dartifact=$artifact -DoutputDirectory=$java ; \
+        mvn dependency:copy -Dartifact=$artifact -DoutputDirectory=$java || exit 1; \
     done
 
 ENV CLASSPATH=.:/app/workspace:/app/workspace/java:/app/workspace/tmp
