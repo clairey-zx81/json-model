@@ -122,9 +122,9 @@ It should be noted that benchmarking conditions are quite different compared to 
    [edited](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/ad109eb210c0939bd8393da28d8212f75c1c2d92),
    especially to deal corner cases issues with `$ref` under version 7 and prior,
    thus do not conform to the initial official schemas.
-4. The benchmark  _removes_ format assertions before testing the schemas.
+4. The benchmark  _removes_ format assertions before testing schemas.
 5. The model used are strictly converted from schemas, native models are not used
    even if available and schemas are not fixed for typical errors (eg misplaced keywords).
 
-As of May 2026, the JSU C implementation is faster than Blaze on about 55% of benchmark cases
+As of May 2026, the JSU C implementation is faster than Blaze on about 60% of benchmark cases
 on these artifacts.
