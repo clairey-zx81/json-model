@@ -62,20 +62,26 @@ jm_fast_hash(const json_t *v)
             hash += (int) (1024.0 * json_real_value(v));
             break;
         case JSON_STRING:  // consider first byte
+        {
             const size_t length = jansson_string_length(v);
             hash += extract_string_value(json_string_value(v), length) + (length << 16);
             break;
+        }
         case JSON_ARRAY:
+        {
             size_t n = json_array_size(v);
             while (n--)
                 hash = lrot1(hash) + jm_fast_hash(json_array_get(v, n));
             break;
+        }
         case JSON_OBJECT:
+        {
             const char *key;
             json_t *value;
             json_object_foreach((json_t *) v, key, value)
                 hash += extract_string_value(key, strlen(key)) + lrot(jm_fast_hash(value), 32);
             break;
+        }
         default:
             // NULL, TRUE, FALSE: okay through type
             break;
@@ -182,12 +188,16 @@ jm_json_cmp(const json_t *v1, const json_t *v2)
             // one only value is equal to itself
             return 0;
         case JSON_INTEGER:
+        {
             int64_t i1 = json_integer_value(v1), i2 = json_integer_value(v2);
             // do not substract to avoid overflows
             return i1 < i2 ? -1 : i1 == i2 ? 0 : 1;
+        }
         case JSON_REAL:
+        {
             double r1 = json_real_value(v1), r2 = json_real_value(v2);
             return r1 < r2 ? -1 : r1 == r2 ? 0 : 1;
+        }
         case JSON_STRING:
             return strcmp(json_string_value(v1), json_string_value(v2));
         case JSON_ARRAY:
@@ -602,9 +612,11 @@ jm_set_cst(jm_constant_t *c, const json_t *val)
     switch (json_typeof(val))
     {
         case JSON_STRING:
+        {
             const char * s = json_string_value(val);
             *c = (jm_constant_t) { strlen(s) + 1, { .s = s } };
             break;
+        }
         case JSON_INTEGER:
             *c = (jm_constant_t) { cst_is_integer, { .i = json_integer_value(val) } };
             break;
@@ -652,11 +664,15 @@ jm_cmp_cst(const jm_constant_t *c1, const jm_constant_t *c2)
     case cst_is_bool:  // false < true
         return c2->val.b - c1->val.b;
     case cst_is_integer:
+    {
         int64_t i1 = c1->val.i, i2 = c2->val.i;
         return i1 < i2 ? -1 : i1 == i2 ? 0 : 1;
+    }
     case cst_is_float:
+    {
         double f1 = c1->val.f, f2 = c2->val.f;
         return f1 < f2 ? -1 : f1 == f2 ? 0 : 1;
+    }
     default:  // internal error?!
         return 0;
     }
@@ -1166,6 +1182,7 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 okay &= paren >= 0;
                 break;
             default:  // ignore
+                break;
         }
         c++;
     }
