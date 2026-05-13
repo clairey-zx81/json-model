@@ -9,8 +9,8 @@ pDATETIME.values.json[7]: PASS
 pDATETIME.values.json[8]: PASS
 pDATETIME.values.json[9]: PASS
 pDATETIME.values.json[10]: FAIL (.: unexpected value for model "$DATETIME" [.]; .: invalid datetime 2020-07-29T12:34:56Zx (Invalid isoformat string: '2020-07-29T12:34:56ZX'))
-pDATETIME.values.json[11]: FAIL (.: unexpected value for model "$DATETIME" [.]; .: invalid datetime 2020-07-29T25:34:56Z (hour must be in 0..23))
-pDATETIME.values.json[12]: FAIL (.: unexpected value for model "$DATETIME" [.]; .: invalid datetime 2020-07-29T12:60:56Z (minute must be in 0..59))
+pDATETIME.values.json[11]: FAIL (.: unexpected value for model "$DATETIME" [.]; .: invalid datetime 2020-07-29T25:34:56Z (hour must be in 0..23, not 25))
+pDATETIME.values.json[12]: FAIL (.: unexpected value for model "$DATETIME" [.]; .: invalid datetime 2020-07-29T12:60:56Z (minute must be in 0..59, not 60))
 pDATETIME.values.json[13]: FAIL (.: unexpected value for model "$DATETIME" [.]; .: invalid datetime 2020-07-29T12:34:60Z (leap second at midnight))
 pDATETIME.values.json[14]: FAIL (.: unexpected value for model "$DATETIME" [.]; .: incompatible type NoneType for datetime)
 pDATETIME.values.json[15]: FAIL (.: unexpected value for model "$DATETIME" [.]; .: incompatible type bool for datetime)
