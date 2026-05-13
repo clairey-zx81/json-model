@@ -20,7 +20,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # JSON_MODEL_LOOSE_FLOAT: any but number or bool
     # .
-    return ! jm_is_numeric($val) && ! jm_is_boolean($val);
+    return ! jm_is_boolean($val) && ! jm_is_numeric($val);
 }
 
 

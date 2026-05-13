@@ -11,7 +11,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- JSON_MODEL_LOOSE_FLOAT: any but number or bool
   -- .
-  RETURN NOT (JSONB_TYPEOF(val) = 'number') AND NOT (JSONB_TYPEOF(val) = 'boolean');
+  RETURN NOT (JSONB_TYPEOF(val) = 'boolean') AND NOT (JSONB_TYPEOF(val) = 'number');
 END;
 $$ LANGUAGE PLpgSQL;
 
