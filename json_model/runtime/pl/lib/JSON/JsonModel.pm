@@ -758,7 +758,7 @@ sub jm_main($$$)
         }
     }
 
-    exit $errors ? 2 : 0;
+    exit($errors ? 2 : 0);
 }
 
 1;
