@@ -1554,7 +1554,7 @@ class CodeGenerator:
                 gen.and_op(
                     *[
                         gen.not_op(gen.is_a(val, t, jm._loose_float if t is float else None))
-                            for t in missing_basics
+                            for t in sorted(missing_basics, key=str)
                     ]
                 )
             )

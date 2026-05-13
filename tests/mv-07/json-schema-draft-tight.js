@@ -20,7 +20,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$const'
-    let res = ! Array.isArray(val) && ! (Object.prototype.toString.call(val) === '[object Object]');
+    let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$const'.'|']", path])

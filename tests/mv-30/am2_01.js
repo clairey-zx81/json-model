@@ -16,7 +16,7 @@ function json_model_1(val, path, rep)
 {
     // a scalar
     // .
-    let res = ! Array.isArray(val) && ! (Object.prototype.toString.call(val) === '[object Object]');
+    let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val);
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])

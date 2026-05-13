@@ -29,7 +29,7 @@ public class json_schema_linter extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         // .'$const'
-        boolean res = ! json.isArray(val) && ! json.isObject(val);
+        boolean res = ! json.isObject(val) && ! json.isArray(val);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected type [.'$const'.'|']", path);
