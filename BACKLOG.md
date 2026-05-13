@@ -14,6 +14,7 @@
 - [x] js-runtime: bump version
 - [x] pl-runtime: bump version
 - [x] static: fix generated code order determinism (again)
+- [ ] utils: improve model recurse with optional context
 - [ ] front: add options to control more optimization phases
 - [ ] perf: improve benchmark script to help with next task
 - [ ] perf: test with each optimizations disabled to mesure impact
