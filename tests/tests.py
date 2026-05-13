@@ -264,6 +264,8 @@ EXPECT: dict[str, int] = {
     "mv-2c:errors.sql": 10,
     "mv-2c:errors.js": 9,
     "mv-2c:errors.pl": 9,
+    "mv-2c:errors.py": 1,  # python 3.14 issue on dates with +8:000 offset
+    "mv-2c:verrors:dynpy": 1,  # idem
     # mv-2d
     "mv-2d:cmp-opts": {"report": False, "comment": False},
     "mv-2d:models": 10,
