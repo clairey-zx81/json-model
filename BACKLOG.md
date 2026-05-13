@@ -14,11 +14,11 @@
 - [x] js-runtime: bump version
 - [x] pl-runtime: bump version
 - [x] static: fix generated code order determinism (again)
-- [x] utils: ~improve model recurse with optional context~ probably not needed
+- [x] utils: ~improve model recurse with optional context~ not needed
 - [x] front: add options to control more optimization phases
-- [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
-- [ ] perf: improve benchmark script to help with next task
+- [x] perf: improve benchmark script to help with next task (`compare.py`)
 - [ ] perf: test with each optimizations disabled to mesure impact
+- [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
 - [ ] perf: compute compilation speed
