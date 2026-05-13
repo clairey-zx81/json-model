@@ -914,26 +914,38 @@ def simpler_regex(jm: JsonModel) -> bool:
 
     return changes > 0
 
-def optimize(jm: JsonModel, *, debug: bool = False):
+def optimize(
+        jm: JsonModel, *,
+        debug: bool = False,
+        srx: bool = True,
+        csp: bool = True,
+        sim: bool = True,
+        flt: bool = True,
+        pev: bool = True,
+        ans: bool = True,
+        aco: bool = True,
+        x2o: bool = True,
+        non: bool = True,
+        loops: int = 100,  # avoid an infinite loop, just in case
+    ):
     """Optimize model, probably not very efficient."""
-    loops = 100
     changed = True
 
     # out of loop because once is enough
-    simpler_regex(jm)
+    if srx: simpler_regex(jm)
 
     # in loop because simplifications can trigger other simplifications
     while changed and loops > 0:
         loops -= 1
         changed = False
-        changed |= const_prop(jm)
-        changed |= simplify(jm)
-        changed |= partial_eval(jm)
-        changed |= flatten(jm)
-        changed |= and_not_simpler(jm)
-        changed |= and_combine(jm)
-        changed |= xor_to_or(jm)
-        changed |= notor_to_not(jm)
+        if csp: changed |= const_prop(jm)
+        if sim: changed |= simplify(jm)
+        if pev: changed |= partial_eval(jm)
+        if flt: changed |= flatten(jm)
+        if ans: changed |= and_not_simpler(jm)
+        if aco: changed |= and_combine(jm)
+        if x2o: changed |= xor_to_or(jm)
+        if non: changed |= notor_to_not(jm)
 
-    if loops == 0:
+    if loops == 0:  # something is very probably wrong
         log.error("shorten optim loop on {jm._id}")

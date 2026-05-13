@@ -15,13 +15,13 @@
 - [x] pl-runtime: bump version
 - [x] static: fix generated code order determinism (again)
 - [x] utils: ~improve model recurse with optional context~ probably not needed
-- [ ] front: add options to control more optimization phases
+- [x] front: add options to control more optimization phases
+- [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve benchmark script to help with next task
 - [ ] perf: test with each optimizations disabled to mesure impact
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
 - [ ] perf: compute compilation speed
-- [ ] pr: switch to semver on version _2.1.0_?
 - [ ] perf: keep only one java run?
 - [ ] perf: show schema to model conversion times
 - [ ] optim: collect and display stats about what works

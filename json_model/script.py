@@ -34,13 +34,16 @@ LANG = {
 
 def process_model(model: JsonModel, *,
                   check: bool = True, merge: bool = True, optimize: bool = True,
-                  extend: bool = False, debug: int = 0):
+                  disabled_optims: list[str] = [], extend: bool = False, debug: int = 0):
     """Apply necessary preprocessing to JsonModel."""
 
     # initial sanity check
     assert model._is_head and model._is_root and model._models
 
-    all_models = list(sorted(model._models.values(), key=lambda m: m._id))
+    # ensure determinism
+    all_models = sorted(model._models.values(), key=lambda m: m._id)
+
+    disable_optims = { name: False for name in disabled_optims }
 
     if debug or check:
         for m in all_models:
@@ -50,7 +53,7 @@ def process_model(model: JsonModel, *,
     # simplify before merging
     if optimize:
         for m in all_models:
-            optim.optimize(m)
+            optim.optimize(m, **disable_optims)
 
     # check after initial optimize
     if debug or check:
@@ -67,7 +70,7 @@ def process_model(model: JsonModel, *,
     # optimize again?
     if optimize:
         for m in all_models:
-            optim.optimize(m)
+            optim.optimize(m, **disable_optims)
 
     # check after merge & optimize
     if debug or check:
@@ -77,11 +80,14 @@ def process_model(model: JsonModel, *,
 
 
 def model_from_json(
-            mjson: Jsonable, *, auto: bool = False,
-            debug: int = 0, murl: str = "",
+            mjson: Jsonable, *,
+            # JsonModel stuff
+            auto: bool = False, debug: int = 0, murl: str = "",
+            single_line: bool = False, resolver: Resolver|None = None,
+            loose_int: bool|None = None, loose_float: bool|None = None,
+            # processing stuff
             check: bool = True, merge: bool = True, optimize: bool = True,
-            loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
-            single_line: bool = False, resolver: Resolver|None = None
+            extend: bool = False, disabled_optims: list[str] = [],
         ) -> JsonModel:
     """JsonModel instanciation from JSON data."""
 
@@ -107,17 +113,19 @@ def model_from_json(
     jm = JsonModel(mjson, resolver, url=murl, debug=debug,
                    loose_int=loose_int, loose_float=loose_float, single_line=single_line)
 
-    if check or merge or optimize:
-        process_model(jm, check=check, merge=merge, optimize=optimize, debug=debug, extend=extend)
+    if check or merge or optimize or extend:
+        process_model(
+            jm, debug=debug, extend=extend, check=check, merge=merge,
+            optimize=optimize, disabled_optims=disabled_optims,
+        )
 
     return jm
 
 
 def model_from_url(
-            murl: str, *, auto: bool = False, debug: int = 0,
-            check: bool = True, merge: bool = True, optimize: bool = True,
-            loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
-            resolver: Resolver|None = None, follow: bool = True, single_line: bool = False
+            murl: str, *,
+            resolver: Resolver|None = None, follow: bool = True,
+            **kwargs,
         ) -> JsonModel:
     """JsonModel instanciation from a URL."""
 
@@ -126,24 +134,17 @@ def model_from_url(
 
     mjson = resolver(murl, follow=follow)
 
-    return model_from_json(mjson, murl=murl, auto=auto, debug=debug, resolver=resolver,
-                           loose_int=loose_int, loose_float=loose_float, single_line=single_line,
-                           check=check, merge=merge, optimize=optimize, extend=extend)
+    return model_from_json(mjson, murl=murl, resolver=resolver, **kwargs)
 
 
 def model_from_str(
-            mstring: str, *, auto: bool = False,
-            check: bool = True, merge: bool = True, optimize: bool = True,
-            loose_int: bool|None = None, loose_float: bool|None = None, extend: bool = False,
-            debug: int = 0, murl: str = "", allow_duplicates: bool = False,
-            single_line: bool = False,
+            mstring: str, *,
+            allow_duplicates: bool = False,
+            **kwargs,
         ) -> JsonModel:
     """JsonModel instanciation from a string."""
 
-    return model_from_json(json_loads(mstring, allow_duplicates=allow_duplicates),
-                           auto=auto, debug=debug, murl=murl,
-                           loose_int=loose_int, loose_float=loose_float, single_line=single_line,
-                           check=check, merge=merge, optimize=optimize, extend=extend)
+    return model_from_json(json_loads(mstring, allow_duplicates=allow_duplicates), **kwargs)
 
 
 # it is unclear if this tricks actually works
@@ -431,6 +432,9 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
+    arg("--no-optimization", "--no-opt", "-nOp", dest="no_opt", default=[], action="append",
+        choices=["srx", "csp", "sim", "flt", "pev", "ans", "aco", "x2o", "non"],
+        help="disable some model optimizations")
 
     # code generation settings
     # TODO add option for smaller vs faster code?
