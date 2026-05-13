@@ -1,7 +1,7 @@
 everything.values.json[0]: PASS
-everything.values.json[1]: FAIL (.predefs: invalid optional prop value [.]; .predefs.DATE: invalid optional prop value [.predefs]; .predefs.DATE: unexpected value for model "$DATE" [.predefs.DATE]; .predefs.DATE: invalid date 2025-06-31 (day is out of range for month))
+everything.values.json[1]: FAIL (.predefs: invalid optional prop value [.]; .predefs.DATE: invalid optional prop value [.predefs]; .predefs.DATE: unexpected value for model "$DATE" [.predefs.DATE]; .predefs.DATE: invalid date 2025-06-31 (day 31 must be in range 1..30 for month 6 in year 2025))
 everything.values.json[2]: PASS
-everything.values.json[3]: FAIL (.predefs: invalid optional prop value [.]; .predefs.DATETIME: invalid optional prop value [.predefs]; .predefs.DATETIME: unexpected value for model "$DATETIME" [.predefs.DATETIME]; .predefs.DATETIME: invalid datetime 1970-03-20T25:22:33.543Z (hour must be in 0..23))
+everything.values.json[3]: FAIL (.predefs: invalid optional prop value [.]; .predefs.DATETIME: invalid optional prop value [.predefs]; .predefs.DATETIME: unexpected value for model "$DATETIME" [.predefs.DATETIME]; .predefs.DATETIME: invalid datetime 1970-03-20T25:22:33.543Z (hour must be in 0..23, not 25))
 everything.values.json[4]: PASS
 everything.values.json[5]: FAIL (.predefs: invalid optional prop value [.]; .predefs.TIME: invalid optional prop value [.predefs]; .predefs.TIME: unexpected value for model "$TIME" [.predefs.TIME])
 everything.values.json[6]: PASS
@@ -231,7 +231,7 @@ everything.values.json[229]: FAIL (.object: invalid optional prop value [.]; .ob
 everything.values.json[230]: PASS
 everything.values.json[231]: PASS
 everything.values.json[232]: PASS
-everything.values.json[233]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4.'2020-07-32': unexpected prop [.object.o4]; .object.o4.'2020-07-32': invalid date 2020-07-32 (day is out of range for month))
+everything.values.json[233]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4.'2020-07-32': unexpected prop [.object.o4]; .object.o4.'2020-07-32': invalid date 2020-07-32 (day 32 must be in range 1..31 for month 7 in year 2020))
 everything.values.json[234]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4.'not a date': unexpected prop [.object.o4]; .object.o4.'not a date': invalid date not a date (Invalid isoformat string: 'not a date'))
 everything.values.json[235]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4.'2020-07-29': unexpected value for model "" [.object.o4.'$DATE'])
 everything.values.json[236]: FAIL (.object: invalid optional prop value [.]; .object.o4: invalid optional prop value [.object.o4]; .object.o4: unexpected element [.object.o4]; .object.o4: not an object [.object.o4])
