@@ -173,6 +173,7 @@ CREATE TABLE Comparison AS
   SELECT
     c.name AS name,
     tests AS cases,
+    -- this generates a NULL if the run failed or the tool was not tested
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'blaze' and cp.name = c.name) AS blaze,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-c' and cp.name = c.name) AS c,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-js' and cp.name = c.name) AS js,
@@ -200,14 +201,17 @@ CREATE TABLE RelativeComparison AS
     name,
     cases,
     best,
+    -- NOTE actual equality is unlikely
     CASE best
-      WHEN blaze THEN 'blaze'
+      -- jmc runs
       WHEN c THEN 'jmc c'
       WHEN js THEN 'jmc js'
       WHEN jv1 THEN 'jmc jv1'
       WHEN jv2 THEN 'jmc jv2'
       WHEN jv3 THEN 'jmc jv3'
       WHEN py THEN 'jmc py'
+      -- comparison
+      WHEN blaze THEN 'blaze'
     END as tool,
     blaze / best AS blaze,
     c / best AS c,
