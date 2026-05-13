@@ -129,7 +129,7 @@ def and_combine(jm: JsonModel) -> bool:
 
 # FIXME this is the inverse of no2n in some cases…
 def xor_to_or(jm: JsonModel) -> bool:
-    """Change xor to less coslty or if possible."""
+    """Change xor to less costly or if possible."""
 
     changes = 0
 
