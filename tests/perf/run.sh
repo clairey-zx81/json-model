@@ -12,6 +12,7 @@
 # env:
 # - JMC: json-model container tag
 # - PATH: where to find "jmc" and "js-cli" wrappers
+# - JMC_JAVA_LIBS: java JSON libraries, in GSON Jackson JSONP
 
 export PATH=$PATH:.
 export TMPDIR=.
@@ -57,6 +58,9 @@ case $TARGET in
 esac
 
 echo "# $0[$$]: cmp=$do_cmp run=$do_run targets=$targets dirs=$@"
+
+# setup default java libs
+[ "$JMC_JAVA_LIBS" ] || JMC_JAVA_LIBS="GSON Jackson JSONP"
 
 #
 # proceed
@@ -217,12 +221,10 @@ for dir ; do
       # FIXME java .java to work around classpath subdir
       # maybe we could do better with some wrapper to fix CLASSPATH on the fly
       echo "## $dir jmc-java run"
-      $jmc exec java ${sprefix}.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl \
-        2> ${prefix}_jmc-java-gson.out
-      $jmc exec java ${sprefix}.java -j Jackson -T $LOOP --jsonl $dir/instances.jsonl \
-        2> ${prefix}_jmc-java-jackson.out
-      $jmc exec java ${sprefix}.java -j JSONP -T $LOOP --jsonl $dir/instances.jsonl \
-        2> ${prefix}_jmc-java-jsonp.out
+      for lib in $JMC_JAVA_LIBS ; do
+        $jmc exec java ${sprefix}.java -j $lib -T $LOOP --jsonl $dir/instances.jsonl \
+          2> ${prefix}_jmc-java-$lib.out
+      done
     }
     [ "$trg" = "jmc-pl" -a "$jmc_pl_ko" -eq 0 ] && {
       echo "## $dir jmc-pl run"

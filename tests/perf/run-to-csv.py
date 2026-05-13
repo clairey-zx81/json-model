@@ -8,7 +8,7 @@ import re
 
 for file in sys.argv[1:]:
     assert file.endswith(".out")
-    name = file.split("/")[-1][:-4].replace("_", ",")
+    name = file.split("/")[-1][:-4].replace("_", ",").lower()
     num = int(re.match(r".*/([0-9]+)/", file).group(1))
     npass, nfail = 0, 0
     with open(file) as f:

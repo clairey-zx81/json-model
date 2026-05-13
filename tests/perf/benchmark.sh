@@ -136,7 +136,7 @@ function do_status()
 trap do_status SIGUSR1
 
 #
-# SANITY COMMANDS END FILES
+# SANITY COMMANDS, SCRIPTS AND FILES
 #
 echo "# sanity check"
 for cmd in git $POD sqlite3 jq id basename grep egrep sed wc gron /bin/bash /usr/bin/time ; do
@@ -145,6 +145,13 @@ done
 
 for f in jsb tmp perf.db ; do
   test -e $f && err 3 "unexpected dir/file: $f"
+done
+
+export JMC_BENCH_DEBUG=$debug
+export PATH=$script_dir:$PATH
+
+for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py mdalign.py ; do
+  type $cmd || err 5 "script $cmd not found"
 done
 
 echo "## started $(( $SECONDS - $START ))"
@@ -170,20 +177,12 @@ while let run-- ; do
   mkdir tmp/$run
 done
 
-echo "# script checks"
-
-export JMC_BENCH_DEBUG=$debug
-export PATH=$script_dir:$PATH
-
-# check for scripts
-for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py mdalign.py ; do
-  type $cmd || err 5 "script $cmd not found"
-done
-
 #
-# RUN (189 parallel tasks with default settings)
+# RUN (hundreds of parallel tasks with default settings)
 #
 # slowest first
+# TODO add perl? sql?
+# TODO control java json lib variants?
 tasks=""
 [[ $TASK =~ y ]] && tasks+=" jmc-py"
 [[ $TASK =~ v ]] && tasks+=" jmc-java"
