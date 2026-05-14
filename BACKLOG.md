@@ -18,6 +18,8 @@
 - [x] front: add options to control more optimization phases
 - [x] perf: improve benchmark script to help with next task (`compare.py`)
 - [ ] perf: test with each optimizations disabled to mesure impact
+- [ ] perf: improve and generalize performance comparison script
+- [ ] perf: update benchmark stuff to use new comparison script
 - [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
@@ -188,7 +190,6 @@
 - [ ] design: add `$URI-REF` or similar? `$PATH`?
 - [ ] c-backend: add reporting to predef failures?
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
-- [ ] backend: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] static: improve constraint failing message (length, unique…)
 - [ ] schema: inline external references to generate working schemas in more cases? (openapi-311)
@@ -223,7 +224,6 @@
 - [ ] backend: rethink `with_report` and `with_path`, keep the former only?
 - [ ] c-backend: add support for `re2` wrapper?
 - [ ] backend: name-based selector optimized for root.
-- [ ] perfs: measure performance against blaze benchmark for openapi at least
 - [ ] python: refactor in preproc tools…
 - [ ] optim: remove unused introduced names `__external_...`
 - [ ] optim: remove unused names at depth 1 and more?
@@ -277,7 +277,6 @@
 - [ ] perf: schema validation on yac data
 - [ ] perf: open data, eg RNCP and FRESQ
 - [ ] frontend: loop load/valid for perf
-- [ ] perf: reuse blaze data set where possible (implies schema to model)
 - [ ] design: conditionals or not conditionals… eg for interfaces?
   if not in the description language, it should be easy to express outside.
 - [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
@@ -296,7 +295,7 @@
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`. json lib popularity?
 - [ ] cpp-backend: also see [simdjson](https://github.com/simdjson/simdjson)?
-- [ ] backend: direct code for blaze? vs c++?
+- [ ] blaze-backend: use schema export plus simple cpp front or `jsonschema` cli?
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
 - [ ] ts-backend: js sharing ?
