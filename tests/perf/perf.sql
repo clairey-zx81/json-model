@@ -47,18 +47,20 @@ CREATE TABLE CaseValues(
 );
 
 CREATE TABLE Labels(
-  tool TEXT PRIMARY KEY,
-  label TEXT UNIQUE NOT NULL
+  ord INT NOT NULL,              -- prefered order of appearence
+  tool TEXT PRIMARY KEY,         -- tool name as imported
+  label TEXT UNIQUE NOT NULL,    -- pretty descriptive label
+  short TEXT UNIQUE NOT NULL     -- short descriptive label for column names
 );
 
-INSERT INTO Labels(tool, label) VALUES
-  ('blaze', 'Blaze CLI'),
-  ('jmc-c', 'JMC C'),
-  ('jmc-js', 'JMC JS'),
-  ('jmc-java-gson', 'JMC Java GSON'),
-  ('jmc-java-jackson', 'JMC Java Jackson'),
-  ('jmc-java-jsonp', 'JMC Java JSONP/Johnzon'),
-  ('jmc-py', 'JMC Python')
+INSERT INTO Labels(ord, tool, label, short) VALUES
+  (1, 'blaze', 'Blaze CLI', 'blaze'),
+  (2, 'jmc-c', 'JMC C', 'jmc c'),
+  (3, 'jmc-js', 'JMC JS', 'jmc js'),
+  (4, 'jmc-java-gson', 'JMC Java GSON', 'jmc jv1'),
+  (5, 'jmc-java-jackson', 'JMC Java Jackson', 'jmc jv2'),
+  (6, 'jmc-java-jsonp', 'JMC Java JSONP/Johnzon', 'jmc jv3'),
+  (7, 'jmc-py', 'JMC Python', 'jmc py')
 ;
 
 -- load raw data from generated files
@@ -170,6 +172,25 @@ UPDATE CumulatedPerf AS cp
 -- but do not allow zero
 UPDATE CumulatedPerf SET run = NULL WHERE run = 0.0;
 
+-- retrieve best performance for each case
+CREATE TABLE BestCumulatedPerf(
+  name TEXT PRIMARY KEY,
+  tool TEXT,
+  run DOUBLE
+);
+
+INSERT INTO BestCumulatedPerf(name, run)
+  SELECT name, MIN(run)
+  FROM CumulatedPerf
+  GROUP BY name;
+
+-- retrieve corresponding best tool
+UPDATE BestCumulatedPerf AS b
+  SET tool = c.tool
+  FROM CumulatedPerf AS c
+  WHERE b.name = c.name
+    AND b.run = c.run;
+
 -- per case time
 CREATE TABLE Comparison AS
   SELECT
@@ -183,19 +204,10 @@ CREATE TABLE Comparison AS
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-java-jackson' and cp.name = c.name) AS jv2,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-java-jsonp' and cp.name = c.name) AS jv3,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-py' and cp.name = c.name) AS py,
-    NULL AS best
+    (SELECT bc.run FROM BestCumulatedPerf AS bc WHERE bc.name = c.name) AS best,
+    (SELECT bc.tool FROM BestCumulatedPerf AS bc WHERE bc.name = c.name) AS tool
   FROM Cases AS c
   ORDER BY 1;
-
--- set best execution time is used as a reference, 1E999 is Infinity
-UPDATE Comparison
-  SET best = MIN(COALESCE(blaze, 1e999),
-       	         COALESCE(c, 1e999),
-       	         COALESCE(js, 1e999),
-       	         COALESCE(jv1, 1e999),
-       	         COALESCE(jv2, 1e999),
-       	         COALESCE(jv3, 1e999),
-       	         COALESCE(py, 1e999));
 
 -- execution time relative to the fastest, the lower the better
 CREATE TABLE RelativeComparison AS
@@ -203,18 +215,7 @@ CREATE TABLE RelativeComparison AS
     name,
     cases,
     best,
-    -- NOTE actual equality is unlikely
-    CASE best
-      -- jmc runs
-      WHEN c THEN 'jmc c'
-      WHEN js THEN 'jmc js'
-      WHEN jv1 THEN 'jmc jv1'
-      WHEN jv2 THEN 'jmc jv2'
-      WHEN jv3 THEN 'jmc jv3'
-      WHEN py THEN 'jmc py'
-      -- comparison
-      WHEN blaze THEN 'blaze'
-    END as tool,
+    l.short AS tool,
     blaze / best AS blaze,
     c / best AS c,
     js / best AS js,
@@ -222,7 +223,12 @@ CREATE TABLE RelativeComparison AS
     jv2 / best AS jv2,
     jv3 / best AS jv3,
     py / best AS py
-  FROM Comparison;
+  FROM Comparison
+  JOIN Labels AS l USING (tool);
+
+--
+-- COMPILATION TIME
+--
 
 -- compilation MIN time aggregation
 CREATE TABLE CompilePerf AS
