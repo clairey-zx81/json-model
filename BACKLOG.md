@@ -17,6 +17,9 @@
 - [x] utils: ~improve model recurse with optional context~ not needed
 - [x] front: add options to control more optimization phases
 - [x] perf: improve benchmark script to help with next task (`compare.py`)
+- [ ] perf: separate perf and show business
+- [ ] perf: rewrite perf as a shell (?) load script + sql
+- [ ] perf: rewrite show as a python script
 - [ ] perf: test with each optimizations disabled to mesure impact
 - [ ] perf: improve and generalize performance comparison script
 - [ ] perf: update benchmark stuff to use new comparison script
