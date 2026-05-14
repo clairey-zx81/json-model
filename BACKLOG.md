@@ -24,6 +24,7 @@
 - [ ] perf: compute compilation speed
 - [ ] perf: keep only one java run?
 - [ ] perf: show schema to model conversion times
+- [ ] pr: improve JSTS test results alignment between all backends
 - [ ] optim: collect and display stats about what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
