@@ -95,6 +95,8 @@ UPDATE Cases SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
 UPDATE CaseValues SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
 
 -- keep MEDIAN values for each case (line)
+-- NOTE MEDIAN requires sqlite 3.51
+-- NOTE percent_cont(X, 0.5) ? percent_rank() only works with odd numbers
 CREATE TABLE Run AS
   WITH OrderedRawRun AS (
     SELECT
