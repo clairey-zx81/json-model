@@ -20,7 +20,7 @@ function bench()
   shift
   local opt="$@"
   export JMC_OPTS="$jmc_opts $opt"
-  ./start_bench.sh $jmc_env $name $bench_opts
+  ./start_bench.sh $jmc_bench $name $bench_opts
 }
 
 # nothing
