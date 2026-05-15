@@ -44,7 +44,11 @@ done
 bench sco --no-strcmp-optimize
 bench set --max-strcmp-cset=0
 bench map --map-threshold=0
-
-# simple typed arrays
 bench au --array-unrolling-size=0
+bench mmo -mmot=0
+bench mot -mot=0
+bench omp -omp=0
+bench pat0 -pt=0
+bench patx -pt=1024
+
 bench ior --no-ir-optimize
