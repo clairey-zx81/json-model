@@ -18,8 +18,8 @@ function bench()
 {
   local name=$1
   shift
-  local opt="$@"
-  export JMC_OPTS="$jmc_opts $opt"
+  export JMC_OPTS="$jmc_opts"
+  [ "$@" ] && JMC_OPTS+=" $@"
   ./start_bench.sh $jmc_bench $name $bench_opts
 }
 
