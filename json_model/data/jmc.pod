@@ -15,7 +15,7 @@ B<jmc> - JSON Model Compiler
      [-[-no]-single-line-regex] [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
      [--format {json,yaml,py,c,js,plpgsql,pl,java}] [-[-no]-sort] [--indent INDENT]
      [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
-     [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS] [--precompiled]
+     [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS] [-[-no]-precompiled]
      [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
      [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version] [--short-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
@@ -258,9 +258,11 @@ maximum size for string constant set expansion.
 
 set byte order for string comparison, either C<le> (little endian) or C<be> (big endian).
 
-=item B<--precompiled>
+=item B<--precompiled> B<--no-precompiled>
 
-use precompiled runtime.
+Whether to use precompiled runtime.
+Beware that the precompiled runtime depends either on C<re2> or C<pcre2>,
+so the regex engine cannot be changed.
 
 =back
 
