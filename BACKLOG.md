@@ -26,6 +26,7 @@
 - [ ] perf: add stddev performance computation
 - [ ] perf: compare may use χ² test?
 - [ ] perf: test with each optimizations disabled to mesure impact
+- [ ] perf: analyze identical generated files when comparing same language
 - [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
