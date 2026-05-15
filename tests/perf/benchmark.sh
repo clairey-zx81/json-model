@@ -24,7 +24,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap_py=1 debug=
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap=1 debug=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -45,8 +45,8 @@ while [[ "$1" == -* ]] ; do
       echo " --runs|-r R: number of runs ($RUNS)"
       echo " --jmc=TAG: container tag for JSON Model Compiler container image ($JMC)"
       echo " --jsc=TAG: container tag for JSON Schema CLI (Blaze) container image ($JSC)"
-      echo " --cap-py: reduce loop iterations for python (default)"
-      echo " --no-cap-py: do not reduce loop iterations for python"
+      echo " --cap: reduce loop iterations for slow scripts (default)"
+      echo " --no-cap: do not reduce loop iterations for slow scripts"
       echo " --env|-e VARS: environment variables to export to jmc container"
       echo " --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python)"
       exit 0
@@ -80,8 +80,8 @@ while [[ "$1" == -* ]] ; do
     --jsc=*) JSC=${opt#*=} ;;
     --env=*) JMC_ENV=${opt#*=} ;;
     -e|--env) JMC_ENV=$1 ; shift ;;
-    --cap-py) cap_py=1 ;;
-    --no-cap-py) cap_py= ;;
+    --cap) cap=1 ;;
+    --no-cap) cap= ;;
     -d|--debug) debug=1 ;;
     --task=*) TASK=${opt#*=} ;;
     --task|-T) TASK=$1 ; shift ;;
@@ -181,9 +181,10 @@ done
 # RUN (hundreds of parallel tasks with default settings)
 #
 # slowest first
-# TODO add perl? sql?
+# TODO add sql?
 # TODO control java json lib variants?
 tasks=""
+[[ $TASK =~ l ]] && tasks+=" jmc-pl"
 [[ $TASK =~ y ]] && tasks+=" jmc-py"
 [[ $TASK =~ v ]] && tasks+=" jmc-java"
 [[ $TASK =~ s ]] && tasks+=" jmc-js"
@@ -200,7 +201,7 @@ for trg in $tasks ; do
   while let run-- ; do
     for dir in jsb/schemas/* ; do
       # time adjustment for slow runs
-      if [ "$cap_py" -a $trg = "jmc-py" ] ; then
+      if [[ "$cap" && $trg = jmc-p? ]] ; then
         loop=$(( $LOOP / 10 ))
       else
         loop=$LOOP
@@ -327,7 +328,7 @@ or deselect tools for easier comparisons.
 - **benchmark parallelism:** $PARA
 - **number of runs:** $RUNS
 - **number of case iterations:** $LOOP
-- **cap python:** $cap_py (whether to reduce iterations for python runs)
+- **cap:** $cap (whether to reduce iterations for slow script runs)
 - **debug:** $debug
 - **tasks:** $tasks
 - **exported environment variables:** \`$JMC_ENV\`
