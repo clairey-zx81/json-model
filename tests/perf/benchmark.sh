@@ -264,7 +264,13 @@ echo "## case stats $(( $SECONDS - $START ))"
 #
 START=$SECONDS
 echo "# creating performance tables..."
-sqlite3 perf.db < $script_dir/perf.sql
+
+sqlite3 perf.db \
+  ".read $script_dir/perf_init.sql" \
+  ".read $script_dir/perf_load.sql" \
+  ".read $script_dir/perf_comp.sql" \
+  ".read $script_dir/perf_show.sql"
+
 echo "## performance analysis $(( $SECONDS - $START ))"
 
 START=$SECONDS

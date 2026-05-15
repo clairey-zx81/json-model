@@ -1,195 +1,6 @@
 --
--- Performance summary queries
+-- SHOW
 --
-
-CREATE TABLE RawRun(
-  name TEXT NOT NULL,            -- test name
-  tool TEXT NOT NULL,            -- tool name
-  iter INT NOT NULL,             -- iteration
-  line INT NOT NULL,             -- test value line
-  runavg DOUBLE NOT NULL,        -- average run time
-  runstd DOUBLE NOT NULL,        -- standard deviation time
-  empty DOUBLE NOT NULL,         -- estimated measure overhead
-  PRIMARY KEY(name, tool, iter, line)
-);
-
-CREATE TABLE RawCompile(
-  name TEXT NOT NULL,            -- test name
-  tool TEXT NOT NULL,            -- tool name
-  ran TIMESTAMP NOT NULL,        -- compilation timestamp
-  run DOUBLE NOT NULL,           -- compilation time
-  PRIMARY KEY(name, tool, ran)
-);
-
-CREATE TABLE RawResult(
-  name TEXT NOT NULL,            -- test name
-  tool TEXT NOT NULL,            -- tool name
-  iter INT NOT NULL,             -- iteration
-  pass INT NOT NULL,             -- number of passes
-  fail INT NOT NULL,             -- number of fails
-  PRIMARY KEY(name, tool, iter)
-);
-
-CREATE TABLE Cases(
-  name TEXT PRIMARY KEY,         -- test name
-  ssize INT NOT NULL,            -- schema lines
-  nsize INT NOT NULL,            -- normalized schema lines (no doc)
-  msize INT NOT NULL,            -- model lines (may be a reference)
-  tests INT NOT NULL             -- number of test values in test
-);
-
-CREATE TABLE CaseValues(
-  name TEXT NOT NULL,            -- test name
-  line INT NOT NULL,             -- value line number (from 1)
-  bsize INT NOT NULL,            -- value size in bytes
-  lsize INT NOT NULL,            -- value size in lines
-  PRIMARY KEY (name, line)
-);
-
-CREATE TABLE Labels(
-  ord INT NOT NULL,              -- prefered order of appearence
-  tool TEXT PRIMARY KEY,         -- tool name as imported
-  label TEXT UNIQUE NOT NULL,    -- pretty descriptive label
-  short TEXT UNIQUE NOT NULL     -- short descriptive label for column names
-);
-
-INSERT INTO Labels(ord, tool, label, short) VALUES
-  (1, 'blaze', 'Blaze CLI', 'blaze'),
-  (2, 'jmc-c', 'JMC C', 'jmc c'),
-  (3, 'jmc-js', 'JMC JS', 'jmc js'),
-  (4, 'jmc-java-gson', 'JMC Java GSON', 'jmc jv1'),
-  (5, 'jmc-java-jackson', 'JMC Java Jackson', 'jmc jv2'),
-  (6, 'jmc-java-jsonp', 'JMC Java JSONP/Johnzon', 'jmc jv3'),
-  (7, 'jmc-py', 'JMC Python', 'jmc py')
-;
-
--- load raw data from generated files
-.mode csv
-.import perf.csv RawRun
-.import compile.csv RawCompile
-.import result.csv RawResult
-.import cases.csv Cases
-.import casevalues.csv CaseValues
-
--- shorten long names to improve display
-CREATE TABLE Renames(
-  oldname TEXT PRIMARY KEY,
-  newname TEXT UNIQUE NOT NULL
-);
-
-INSERT INTO Renames(oldname, newname) VALUES
-  ('unreal-engine-uproject', 'unreal-ng'),
-  ('gitpod-configuration', 'gitpod-cnf'),
-  ('pre-commit-hooks', 'pre-ci'),
-  ('semantic-release', 'sem-rel'),
-  ('helm-chart-lock', 'helm-chart'),
-  ('cmake-presets', 'cmake'),
-  ('code-climate', 'code-clim'),
-  ('ansible-meta', 'ansible'),
-  ('clang-format', 'clang-fmt'),
-  ('ui5-manifest', 'ui5-mfest')
-;
-
-UPDATE RawRun SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
-UPDATE RawCompile SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
-UPDATE RawResult SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
-UPDATE Cases SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
-UPDATE CaseValues SET name = r.newname FROM Renames AS r WHERE name = r.oldname;
-
--- keep MEDIAN values for each case (line)
--- NOTE MEDIAN requires sqlite 3.51
--- NOTE percent_cont(X, 0.5) ? percent_rank() only works with odd numbers
-CREATE TABLE Run AS
-  WITH OrderedRawRun AS (
-    SELECT
-      percent_rank() OVER (PARTITION BY name, tool, line ORDER BY runavg) AS ordering,
-      name, tool, line, runavg, runstd, empty
-    FROM RawRun
-  )
-  SELECT name, tool, line, runavg, runstd, empty
-  FROM OrderedRawRun
-  WHERE ordering = 0.5
-;
-
--- all tested tools
-CREATE TABLE Tools(tool TEXT PRIMARY KEY);
-
-INSERT INTO Tools(tool)
-  SELECT DISTINCT tool FROM Run ORDER BY 1;
-
--- tools x cases
-CREATE TABLE ToolCase AS
-  SELECT name, tool
-  FROM Cases CROSS JOIN Tools
-  ORDER BY 1, 2;
-
--- results selection, keep MIN pass
-CREATE TABLE Result AS
-  WITH OrderedRawResult AS (
-    SELECT
-      RANK() OVER (PARTITION BY name, tool ORDER BY pass) AS ordering,
-      name, tool, pass, fail
-    FROM RawResult
-  )
-  SELECT name, tool, pass, fail
-  FROM OrderedRawResult
-  WHERE ordering = 1;
-
--- all results, set to 0 if missing
-CREATE TABLE ResultRate AS
-  SELECT
-    c.name,
-    t.tool,
-    1.0 * COALESCE(r.pass + r.fail, 0.0) / c.tests AS executed,
-    100.0 * COALESCE(r.pass, 0) / c.tests AS rate,
-    NULL AS pc
-  FROM Cases AS c
-  CROSS JOIN Tools AS t
-  LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool);
-
--- show rounded pc
-UPDATE ResultRate
-  SET pc = ROUND(rate, 1);
-
--- cumulated perf per case/tool
-CREATE TABLE CumulatedPerf AS
-  SELECT name, tool,
-    SUM(runavg) AS run,
-    AVG(runstd/runavg) AS spread,
-    AVG(empty) AS empty,
-    COUNT(runavg) AS nb
-  FROM Run
-  RIGHT JOIN ToolCase USING (name, tool)
-  GROUP BY 1, 2
-  ORDER BY 1, 2;
-
--- scratch measure if not all cases were executed
-UPDATE CumulatedPerf AS cp
-  SET run = NULL, spread = NULL, empty = NULL
-  FROM ResultRate AS rr
-  WHERE cp.name = rr.name AND cp.tool = rr.tool AND rr.executed <> 1.0;
-
--- but do not allow zero
-UPDATE CumulatedPerf SET run = NULL WHERE run = 0.0;
-
--- retrieve best performance for each case
-CREATE TABLE BestCumulatedPerf(
-  name TEXT PRIMARY KEY,
-  tool TEXT,
-  run DOUBLE
-);
-
-INSERT INTO BestCumulatedPerf(name, run)
-  SELECT name, MIN(run)
-  FROM CumulatedPerf
-  GROUP BY name;
-
--- retrieve corresponding best tool
-UPDATE BestCumulatedPerf AS b
-  SET tool = c.tool
-  FROM CumulatedPerf AS c
-  WHERE b.name = c.name
-    AND b.run = c.run;
 
 -- per case time
 CREATE TABLE Comparison AS
@@ -226,16 +37,6 @@ CREATE TABLE RelativeComparison AS
   FROM Comparison
   JOIN Labels AS l USING (tool);
 
---
--- COMPILATION TIME
---
-
--- compilation MIN time aggregation
-CREATE TABLE CompilePerf AS
-  SELECT name, tool, MIN(run) AS run, COUNT(*) AS nb
-  FROM RawCompile
-  GROUP BY 1, 2;
-
 -- compilation time per cases
 CREATE TABLE CompilePerfCase AS
   SELECT
@@ -265,13 +66,13 @@ CREATE TABLE ResultComparison AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
     c.name AS name,
-    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'blaze') AS blaze,
-    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-c') AS c,
-    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-js') AS js,
-    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-java-gson') AS jv1,
-    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jackson') AS jv2,
-    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jsonp') AS jv3,
-    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-py') AS py
+    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'blaze') AS blaze,
+    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-c') AS c,
+    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-js') AS js,
+    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-java-gson') AS jv1,
+    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jackson') AS jv2,
+    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jsonp') AS jv3,
+    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-py') AS py
   FROM Cases AS c
   ORDER BY 1;
 
@@ -482,4 +283,5 @@ CREATE TABLE ShowBadResults AS
   SELECT *
   FROM ResultComparison
   WHERE blaze <> 100.0 OR c <> 100.0 OR js <> 100.0 OR jv1 <> 100.0
-     OR jv2 <> 100.0 OR jv3 <> 100.0 OR py <> 100.0;
+     OR jv2 <> 100.0 OR jv3 <> 100.0 OR py <> 100.0
+;
