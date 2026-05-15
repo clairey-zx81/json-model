@@ -7,8 +7,17 @@
 .import perf.csv RawRun
 .import compile.csv RawCompile
 .import result.csv RawResult
-.import cases.csv CasesTmp
 .import casevalues.csv CaseValues
+
+CREATE TEMPORARY TABLE CasesTmp(
+  name TEXT PRIMARY KEY,
+  ssize INT NOT NULL,
+  nsize INT NOT NULL,
+  msize INT NOT NULL,
+  tests INT NOT NULL
+);
+
+.import cases.csv CasesTmp
 
 INSERT INTO Cases(name, ssize, nsize, msize, tests)
   SELECT * FROM CasesTmp
