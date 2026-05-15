@@ -268,8 +268,7 @@ echo "# creating performance tables..."
 sqlite3 perf.db \
   ".read $script_dir/perf_init.sql" \
   ".read $script_dir/perf_load.sql" \
-  ".read $script_dir/perf_comp.sql" \
-  ".read $script_dir/perf_show.sql"
+  ".read $script_dir/perf_comp.sql"
 
 echo "## performance analysis $(( $SECONDS - $START ))"
 
@@ -335,11 +334,10 @@ or deselect tools for easier comparisons.
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
 
-# for markdown, including table alignment filter
-sqlite3 -markdown perf.db < $script_dir/show.sql | mdalign.py >> "$ID.md"
+# generate markdown tables
+show.py perf.db >> "$ID.md"
 
-# for latex
-sqlite3 -csv perf.db < $script_dir/show.sql > "$ID.csv"
+# NOTE for latex, just use markdown…
 
 # for chart
 sqlite3 perf.db < $script_dir/radar.sql | jq > "$ID.json"

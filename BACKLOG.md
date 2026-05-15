@@ -19,7 +19,7 @@
 - [x] perf: improve benchmark script to help with next task (`compare.py`)
 - [x] perf: separate perf and show business
 - [x] perf: rewrite perf as a shell load script + sql
-- [ ] perf: rewrite show as a python script
+- [x] perf: rewrite show as a python script
 - [ ] perf: test with each optimizations disabled to mesure impact
 - [ ] perf: improve and generalize performance comparison script
 - [ ] perf: update benchmark stuff to use new comparison script
