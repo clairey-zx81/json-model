@@ -12,15 +12,16 @@ Standalone command to start the jmc benchmark with docker-in-docker or podman-in
 in a local directory.
 
 Arguments:
-- TAG: (docker.io/zx80/jmc-bench-$POD docker tag, defaults to "latest")
+- TAG: docker.io/zx80/jmc-bench-$POD docker tag, default is "latest"
+- ID: bench id, name of new work directory, default is <date-number>, eg 2038011900
 - others: passed to "benchmark.sh"
 
 Environment:
-- POD: container command, "docker" or "podman"
+- POD: container command, "docker" or "podman", default is "docker"
 - JMC_BENCH_IMAGE: overide default docker.io/zx80/jmc-bench-$POD image for testing
-- JMC_OPTS: options for jmc
 - JMC: docker.io/zx80/jmc container tag, default is "latest"
 - JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest"
+- JMC_OPTS: options for jmc
 
 Example:
 
@@ -32,6 +33,7 @@ EOF
   exit 0
 fi
 
+# err status some message to display…
 function err()
 {
   local status=$1
@@ -40,19 +42,39 @@ function err()
   exit $status
 }
 
+# optional first argument container tag
+if [[ "$1" != -* ]] ; then
+  bench=$1
+  shift
+else
+  bench=latest
+fi
+
+# optional second argument benchmark id
+if [[ "$1" != -* ]] ; then
+  bench_id=$1
+  [ -e "$bench_id" ] && err 1 "cannot override $bench_id"
+  shift
+else
+  bench_id=
+fi
+
 container_opts=(--hostname=$(hostname))
 bench_opts=()
 
-let count=0 now=$(date +%Y%m%d)
-while true ; do
-  bench_id=$(printf "$now%02x" $count)
-  [ ! -e $bench_id ] && break
-  let count+=1
-  [ $count -eq 1024 ] && err 1 "cannot find bench directory name"
-done
+# default bench_id
+if [ ! "$bench_id" ] ; then
+  let count=0 now=$(date +%Y%m%d)
+  while true ; do
+    bench_id=$(printf "$now%02x" $count)
+    [ ! -e $bench_id ] && break
+    let count+=1
+    [ $count -eq 1024 ] && err 2 "cannot find bench directory name"
+  done
+fi
 
-mkdir $bench_id || err 2 "cannot create directory: $bench_id"
-cd $bench_id || err 3 "cannot change directory: $bench_id"
+mkdir $bench_id || err 3 "cannot create directory: $bench_id"
+cd $bench_id || err 4 "cannot change directory: $bench_id"
 
 # forward environment settings to container
 if [ "$JMC_OPTS" ] ; then
@@ -68,14 +90,6 @@ if [ "$JSC" ] ; then
   bench_opts+=(--jsc "$JSC")
 fi
 
-# optional first argument container tag
-if [[ "$1" != -* ]] ; then
-  bench=$1
-  shift
-else
-  bench=latest
-fi
-
 # hackish container-in-container
 if [ "$POD" = "docker" ] ; then
   # docker-in-docker
@@ -89,7 +103,7 @@ elif [ "$POD" = "podman" ] ; then
   container_opts+=(-v $HOME/.local/share/containers:/home/podman/.local/share/containers)
   container_opts+=(--privileged --security-opt label=disable)
 else
-  err 4 "unexpected container command: $POD"
+  err 5 "unexpected container command: $POD"
 fi
 
 image="${JMC_BENCH_IMAGE:-docker.io/zx80/jmc-bench-$POD}:$bench"
