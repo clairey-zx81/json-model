@@ -13,7 +13,7 @@ function err()
   exit $status
 }
 
-[ $# -ge 1 ] || err 1 "usage: $0 tool [directories…]"
+[ $# -lt 1 -o "$1" == "-h" -o "$1" == "--help" ] && err 0 "usage: $0 tool [directories…]"
 
 tool=$1
 shift
@@ -34,6 +34,10 @@ for dir in "$@" ; do
     [ -f "$dir/$file" ] || err 5 "missing csv file: $dir/$file"
   done
 done
+
+if [ ! "$@" ] ; then
+  err 0 "no directory arguments: nothing to do…"
+fi
 
 echo "# extract directory contents" >&2
 first=1
