@@ -20,6 +20,7 @@ function bench()
   shift
   export JMC_OPTS="$jmc_opts"
   [ "$@" ] && JMC_OPTS+=" $@"
+  echo "# starting benchmark $name ($JMC_OPTS)" >&2
   ./start_bench.sh $jmc_bench $name $bench_opts
 }
 
