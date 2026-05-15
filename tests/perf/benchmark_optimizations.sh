@@ -31,7 +31,7 @@ bench ref
 bench cc --cc=cc
 
 # regex engine
-bench pcre --regex-engine=pcre2
+bench pcre --regex-engine=pcre2 --no-precompiled
 bench slr --no-single-line-regex
 bench rxo --no-regex-optimize
 
