@@ -20,9 +20,9 @@
 - [x] perf: separate perf and show business
 - [x] perf: rewrite perf as a shell load script + sql
 - [x] perf: rewrite show as a python script
+- [x] perf: improve and generalize performance comparison script
+- [x] perf: update benchmark stuff to use new comparison script
 - [ ] perf: test with each optimizations disabled to mesure impact
-- [ ] perf: improve and generalize performance comparison script
-- [ ] perf: update benchmark stuff to use new comparison script
 - [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
