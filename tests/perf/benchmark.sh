@@ -24,7 +24,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap=1 debug=
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap=1 debug= show_opt=--standard
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -97,7 +97,10 @@ done
 [ $LOOP -ge 1 ] || err 1 "unexpected loop value, must be >= 1: $LOOP"
 [ $RUNS -ge 3 -a $(( $RUNS % 2 )) -eq 1 ] || err 1 "unexpected runs value, must be >= 1 and odd: $RUNS"
 
-echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=$JMC_ENV"
+# non standard run
+[ "$TASK" != "bcsvy" ] && show_opt=
+
+echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=$JMC_ENV task=$TASK"
 
 #
 # PARA RUNS
@@ -336,7 +339,7 @@ $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
 
 # generate markdown tables
-show.py perf.db >> "$ID.md"
+show.py $show_opt perf.db >> "$ID.md"
 
 # NOTE for latex, just use markdown…
 
