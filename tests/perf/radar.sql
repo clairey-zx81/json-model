@@ -23,7 +23,7 @@ WITH
         'data', JSON(data)
       ) AS obj
     FROM ArrayPerf
-    JOIN Labels USING (tool)
+    JOIN ToolLabels USING (tool)
     ORDER BY tool
   )
 SELECT json_group_array(JSON(obj)) -- OVER (ORDER BY obj->>'label')
