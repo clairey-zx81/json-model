@@ -28,10 +28,10 @@ function bench()
 bench ref
 
 # gnu compiler
-bench cc --cc=cc
+bench gcc --cc=cc
 
 # regex engine
-bench pcre --regex-engine=pcre2 --no-precompiled
+bench pcx --regex-engine=pcre2 --no-precompiled
 bench slr --no-single-line-regex
 bench rxo --no-regex-optimize
 
@@ -44,11 +44,11 @@ done
 bench sco --no-strcmp-optimize
 bench set --max-strcmp-cset=0
 bench map --map-threshold=0
-bench au --array-unrolling-size=0
+bench aun --array-unrolling-size=0
 bench mmo -mmot=0
 bench mot -mot=0
 bench omp -omp=0
-bench pat0 -pt=0
-bench patx -pt=1024
+bench pa0 -pt=0
+bench pax -pt=1024
 
 bench ior --no-ir-optimize
