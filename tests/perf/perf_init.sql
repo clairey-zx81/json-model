@@ -125,8 +125,6 @@ CREATE TABLE CaseToolResult(
   executed DOUBLE CHECK(executed IS NULL OR executed BETWEEN 0.0 AND 1.0),
   -- success rate achieved
   rate DOUBLE CHECK(rate IS NULL OR rate BETWEEN 0.0 AND 1.0),
-  -- rounded rate
-  pc DOUBLE CHECK(pc is NULL OR pc BETWEEN 0.0 AND 100.0),  -- percent
   PRIMARY KEY(name, tool)
 );
 
@@ -153,10 +151,13 @@ CREATE TABLE ToolSummaryPerf(
   tool TEXT PRIMARY KEY,
   nbest INT NOT NULL,
   nbroken INT,
-  -- relative time aggregation
-  rel_max DOUBLE,
-  rel_avg DOUBLE,  -- geometric
-  rel_min DOUBLE
+  -- speeds
+  bspeed DOUBLE,
+  lspeed DOUBLE,
+  -- relative time ratio aggregations
+  rmax DOUBLE,
+  ravg DOUBLE,  -- geometric
+  rmin DOUBLE
 );
 
 -- compilation times
