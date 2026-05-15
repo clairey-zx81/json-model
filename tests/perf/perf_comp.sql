@@ -11,16 +11,18 @@ UPDATE CaseValues SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldn
 
 -- compute test stats
 WITH
-  case_stats(name, minsz, avgsz, maxsz) AS (
-    SELECT name, MIN(bsize), AVG(bsize), MAX(bsize)
+  case_stats(name, minsz, avgsz, maxsz, bsize, lsize) AS (
+    SELECT name, MIN(bsize), AVG(bsize), MAX(bsize), SUM(bsize), SUM(lsize)
     FROM CaseValues
     GROUP BY 1
   )
-UPDATE CaseValues AS cv
+UPDATE Cases AS cv
   SET
     minsz = cs.minsz,
     avgsz = cs.avgsz,
-    maxsz = cs.maxsz
+    maxsz = cs.maxsz,
+    bsize = cs.bsize,
+    lsize = cs.lsize
   FROM case_stats AS cs
   WHERE cs.name = cv.name
 ;

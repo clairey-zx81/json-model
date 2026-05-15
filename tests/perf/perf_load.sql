@@ -7,8 +7,13 @@
 .import perf.csv RawRun
 .import compile.csv RawCompile
 .import result.csv RawResult
-.import cases.csv Cases
+.import cases.csv CasesTmp
 .import casevalues.csv CaseValues
+
+INSERT INTO Cases(name, ssize, nsize, msize, tests)
+  SELECT * FROM CasesTmp
+;
+DROP TABLE CasesTmp;
 
 .print loaded:
 SELECT COUNT(*) AS "# run" FROM RawRun;
