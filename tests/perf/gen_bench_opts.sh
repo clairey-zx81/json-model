@@ -9,7 +9,7 @@ export jmc_bench=dev
 jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled"
 
 # parallelism, loop, repeats
-bench_opts="-p 24 -l 10000 -r 29 -T c"
+bench_opts="-p 16 -l 10000 -r 29 -T c"
 
 # TODO remove --predef?
 jmc_common="--single-line-regex --no-predef --cc=clang --precompiled"
