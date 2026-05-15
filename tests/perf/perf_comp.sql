@@ -85,10 +85,6 @@ UPDATE CaseToolResult
   SET rate = 0.0
   WHERE rate IS NULL; 
 
--- rounded pc
-UPDATE CaseToolResult
-  SET pc = ROUND(100.0 * rate, 1);
-
 -- get aggregated case performance
 INSERT INTO CaseToolCumulatedPerf(name, tool, run, spread, empty, nb)
   SELECT
@@ -156,18 +152,39 @@ WITH
     FROM CaseToolCumulatedPerf AS cp
     JOIN CaseBestCumulatedPerf AS bc USING (name)
   ),
-  tool_perf(tool, rel_max, rel_avg, rel_min) AS (
+  tool_perf(tool, rmax, ravg, rmin) AS (
     SELECT tool, MAX(ratio), EXP(AVG(LN(ratio))), MIN(ratio)
     FROM perf_ratio
     GROUP BY 1
   )
 UPDATE ToolSummaryPerf AS cp
   SET
-    rel_max = pr.rel_max,
-    rel_avg = pr.rel_avg,
-    rel_min = pr.rel_min
+    rmax = pr.rmax,
+    ravg = pr.ravg,
+    rmin = pr.rmin
   FROM tool_perf AS pr
   WHERE cp.tool = pr.tool
+;
+
+WITH
+  -- total value size in bytes and lines
+  all_sizes(bsize, lsize) AS (
+    SELECT SUM(bsize), SUM(lsize)
+    FROM CaseValues
+  ),
+  -- for each tool, total time to process all values
+  all_times(tool, trun) AS (
+    SELECT tool, SUM(run)
+    FROM CaseToolCumulatedPerf
+    GROUP BY 1
+  )
+UPDATE ToolSummaryPerf AS cp
+  SET
+    bspeed = az.bsize / at.trun,
+    lspeed = az.lsize / at.trun
+  FROM all_sizes AS az
+  CROSS JOIN all_times AS at
+  WHERE cp.tool = at.tool
 ;
 
 -- compilation MIN time aggregation? median??
