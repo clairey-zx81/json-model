@@ -23,6 +23,8 @@
 - [x] perf: improve and generalize performance comparison script
 - [x] perf: update benchmark stuff to use new comparison script
 - [x] front: add `--no-precompiled` option
+- [ ] perf: add stddev performance computation
+- [ ] perf: compare may use χ² test?
 - [ ] perf: test with each optimizations disabled to mesure impact
 - [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve resilience to bad overhead estimation
