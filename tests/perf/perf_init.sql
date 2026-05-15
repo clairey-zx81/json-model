@@ -38,7 +38,10 @@ CREATE TABLE Cases(
   ssize INT NOT NULL,            -- schema lines
   nsize INT NOT NULL,            -- normalized schema lines (no doc)
   msize INT NOT NULL,            -- model lines (may be a reference)
-  tests INT NOT NULL             -- number of test values in test
+  tests INT NOT NULL,            -- number of test values in test
+  minsz INT,                     -- min value size in bytes
+  avgsz INT,                     -- avg value size in bytes
+  maxsz INT                      -- max value size in bytes
 );
 
 CREATE TABLE CaseValues(
