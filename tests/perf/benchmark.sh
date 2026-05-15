@@ -150,7 +150,7 @@ done
 export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
-for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py mdalign.py ; do
+for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py show.py ; do
   type $cmd || err 5 "script $cmd not found"
 done
 
