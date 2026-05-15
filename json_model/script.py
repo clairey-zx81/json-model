@@ -407,6 +407,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--inline", default=True, action="store_true", help="enable function inlining")
     arg("--no-inline", dest="inline", action="store_false", help="disable function inlining")
     arg("--precompiled", action="store_true", default=False, help="use precompiled C runtime")
+    arg("--no-precompiled", dest="precompiled", action="store_false", help="do not use precompiled C runtime")
 
     # TODO java-specific options
     arg("--javac", type=str, help="override default Java language compiler")
