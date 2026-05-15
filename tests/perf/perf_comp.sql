@@ -9,6 +9,22 @@ UPDATE RawResult SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldna
 UPDATE Cases SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
 UPDATE CaseValues SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
 
+-- compute test stats
+WITH
+  case_stats(name, minsz, avgsz, maxsz) AS (
+    SELECT name, MIN(bsize), AVG(bsize), MAX(bsize)
+    FROM CaseValues
+    GROUP BY 1
+  )
+UPDATE CaseValues AS cv
+  SET
+    minsz = cs.minsz,
+    avgsz = cs.avgsz,
+    maxsz = cs.maxsz
+  FROM case_stats AS cs
+  WHERE cs.name = cv.name
+;
+
 -- keep MEDIAN values for each case (line)
 -- NOTE MEDIAN requires sqlite 3.51
 -- NOTE percent_rank() hack only works with odd numbers
