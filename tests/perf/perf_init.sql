@@ -2,6 +2,9 @@
 -- Performance Summary SQLite infrastructure
 --
 
+--
+-- imported data
+--
 CREATE TABLE RawRun(
   name TEXT NOT NULL,            -- test name
   tool TEXT NOT NULL,            -- tool name
@@ -46,14 +49,15 @@ CREATE TABLE CaseValues(
   PRIMARY KEY (name, line)
 );
 
-CREATE TABLE Labels(
+-- tool descriptions
+CREATE TABLE ToolLabels(
   ord INT NOT NULL,              -- prefered order of appearence
   tool TEXT PRIMARY KEY,         -- tool name as imported
   label TEXT UNIQUE NOT NULL,    -- pretty descriptive label
   short TEXT UNIQUE NOT NULL     -- short descriptive label for column names
 );
 
-INSERT INTO Labels(ord, tool, label, short) VALUES
+INSERT INTO ToolLabels(ord, tool, label, short) VALUES
   (1, 'blaze', 'Blaze CLI', 'blaze'),
   (2, 'jmc-c', 'JMC C', 'jmc c'),
   (3, 'jmc-js', 'JMC JS', 'jmc js'),
@@ -64,12 +68,12 @@ INSERT INTO Labels(ord, tool, label, short) VALUES
 ;
 
 -- shorten long names to improve display
-CREATE TABLE Renames(
+CREATE TABLE CaseRenames(
   oldname TEXT PRIMARY KEY,
   newname TEXT UNIQUE NOT NULL
 );
 
-INSERT INTO Renames(oldname, newname) VALUES
+INSERT INTO CaseRenames(oldname, newname) VALUES
   ('unreal-engine-uproject', 'unreal-ng'),
   ('gitpod-configuration', 'gitpod-cnf'),
   ('pre-commit-hooks', 'pre-ci'),
@@ -82,8 +86,8 @@ INSERT INTO Renames(oldname, newname) VALUES
   ('ui5-manifest', 'ui5-mfest')
 ;
 
--- one performance point for a test (tool on name:line)
-CREATE TABLE Run(
+-- one performance point for a test (tool on name:line), kept from RawRun
+CREATE TABLE CaseToolRun(
   name TEXT NOT NULL,
   tool TEXT NOT NULL,
   line INT NOT NULL,
@@ -93,18 +97,20 @@ CREATE TABLE Run(
   PRIMARY KEY(name, tool, line)
 );
 
+-- actually used tools
 CREATE TABLE Tools(
   tool TEXT PRIMARY KEY
 );
 
-CREATE TABLE ToolCase(
+-- all case and tools
+CREATE TABLE CaseTool(
   name TEXT NOT NULL,
   tool TEXT NOT NULL,
   PRIMARY KEY(name, tool)
 );
 
--- results summary
-CREATE TABLE Result(
+-- results summary per case/tool
+CREATE TABLE CaseToolResult(
   name TEXT NOT NULL,
   tool TEXT NOT NULL,
   pass INT,
@@ -120,7 +126,7 @@ CREATE TABLE Result(
 );
 
 -- cumulated perf, aggregated per case/tool
-CREATE TABLE CumulatedPerf(
+CREATE TABLE CaseToolCumulatedPerf(
   name TEXT NOT NULL,
   tool TEXT NOT NULL,
   run DOUBLE,
@@ -130,13 +136,26 @@ CREATE TABLE CumulatedPerf(
   PRIMARY KEY(name, tool)
 );
 
-CREATE TABLE BestCumulatedPerf(
+-- case winner
+CREATE TABLE CaseBestCumulatedPerf(
   name TEXT PRIMARY KEY,
   tool TEXT,
   run DOUBLE
 );
 
-CREATE TABLE CompilePerf(
+-- tool perf over all cases
+CREATE TABLE ToolSummaryPerf(
+  tool TEXT PRIMARY KEY,
+  nbest INT NOT NULL,
+  nbroken INT,
+  -- relative time aggregation
+  rel_max DOUBLE,
+  rel_avg DOUBLE,  -- geometric
+  rel_min DOUBLE
+);
+
+-- compilation times
+CREATE TABLE CaseToolCompilePerf(
   name TEXT NOT NULL,
   tool TEXT NOT NULL,
   run DOUBLE NOT NULL,

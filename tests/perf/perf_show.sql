@@ -1,26 +1,28 @@
 --
--- SHOW
+-- SHOW, re-entrant
 --
 
 -- per case time
+DROP TABLE IF EXISTS Comparison;
 CREATE TABLE Comparison AS
   SELECT
     c.name AS name,
     tests AS cases,
     -- this generates a NULL if the run failed or the tool was not tested
-    (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'blaze' and cp.name = c.name) AS blaze,
-    (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-c' and cp.name = c.name) AS c,
-    (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-js' and cp.name = c.name) AS js,
-    (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-java-gson' and cp.name = c.name) AS jv1,
-    (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-java-jackson' and cp.name = c.name) AS jv2,
-    (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-java-jsonp' and cp.name = c.name) AS jv3,
-    (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-py' and cp.name = c.name) AS py,
-    (SELECT bc.run FROM BestCumulatedPerf AS bc WHERE bc.name = c.name) AS best,
-    (SELECT bc.tool FROM BestCumulatedPerf AS bc WHERE bc.name = c.name) AS tool
+    (SELECT cp.run FROM CaseToolCumulatedPerf AS cp WHERE cp.tool = 'blaze' and cp.name = c.name) AS blaze,
+    (SELECT cp.run FROM CaseToolCumulatedPerf AS cp WHERE cp.tool = 'jmc-c' and cp.name = c.name) AS c,
+    (SELECT cp.run FROM CaseToolCumulatedPerf AS cp WHERE cp.tool = 'jmc-js' and cp.name = c.name) AS js,
+    (SELECT cp.run FROM CaseToolCumulatedPerf AS cp WHERE cp.tool = 'jmc-java-gson' and cp.name = c.name) AS jv1,
+    (SELECT cp.run FROM CaseToolCumulatedPerf AS cp WHERE cp.tool = 'jmc-java-jackson' and cp.name = c.name) AS jv2,
+    (SELECT cp.run FROM CaseToolCumulatedPerf AS cp WHERE cp.tool = 'jmc-java-jsonp' and cp.name = c.name) AS jv3,
+    (SELECT cp.run FROM CaseToolCumulatedPerf AS cp WHERE cp.tool = 'jmc-py' and cp.name = c.name) AS py,
+    (SELECT bc.run FROM CaseBestCumulatedPerf AS bc WHERE bc.name = c.name) AS best,
+    (SELECT bc.tool FROM CaseBestCumulatedPerf AS bc WHERE bc.name = c.name) AS tool
   FROM Cases AS c
   ORDER BY 1;
 
 -- execution time relative to the fastest, the lower the better
+DROP TABLE IF EXISTS RelativeComparison;
 CREATE TABLE RelativeComparison AS
   SELECT
     name,
@@ -35,22 +37,24 @@ CREATE TABLE RelativeComparison AS
     jv3 / best AS jv3,
     py / best AS py
   FROM Comparison
-  JOIN Labels AS l USING (tool);
+  JOIN ToolLabels AS l USING (tool);
 
 -- compilation time per cases
-CREATE TABLE CompilePerfCase AS
+DROP TABLE IF EXISTS CaseCompilePerf;
+CREATE TABLE CaseCompilePerf AS
   SELECT
     c.name,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'blaze') AS blaze,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-c-src') AS jmc_c,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-c-out') AS jmc_out,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-js') AS jmc_js,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-py') AS jmc_py,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-java-src') AS jmc_java,
-    (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-java-class') AS jmc_class
+    (SELECT run FROM CaseToolCompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'blaze') AS blaze,
+    (SELECT run FROM CaseToolCompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-c-src') AS jmc_c,
+    (SELECT run FROM CaseToolCompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-c-out') AS jmc_out,
+    (SELECT run FROM CaseToolCompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-js') AS jmc_js,
+    (SELECT run FROM CaseToolCompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-py') AS jmc_py,
+    (SELECT run FROM CaseToolCompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-java-src') AS jmc_java,
+    (SELECT run FROM CaseToolCompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jmc-java-class') AS jmc_class
   FROM Cases AS c;
 
 -- compilation time with separate schema to model conversion
+DROP TABLE IF EXISTS CompilePerfCompare;
 CREATE TABLE CompilePerfCompare AS
   SELECT
     name,
@@ -59,24 +63,26 @@ CREATE TABLE CompilePerfCompare AS
     jmc_js AS js,
     jmc_py AS py,
     jmc_class AS jv
-  FROM CompilePerfCase;
+  FROM CaseCompilePerf;
 
 -- result summary
+DROP TABLE IF EXISTS ResultComparison;
 CREATE TABLE ResultComparison AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
     c.name AS name,
-    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'blaze') AS blaze,
-    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-c') AS c,
-    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-js') AS js,
-    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-java-gson') AS jv1,
-    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jackson') AS jv2,
-    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jsonp') AS jv3,
-    (SELECT pc FROM Result AS r WHERE r.name = c.name AND r.tool = 'jmc-py') AS py
+    (SELECT pc FROM CaseToolResult AS r WHERE r.name = c.name AND r.tool = 'blaze') AS blaze,
+    (SELECT pc FROM CaseToolResult AS r WHERE r.name = c.name AND r.tool = 'jmc-c') AS c,
+    (SELECT pc FROM CaseToolResult AS r WHERE r.name = c.name AND r.tool = 'jmc-js') AS js,
+    (SELECT pc FROM CaseToolResult AS r WHERE r.name = c.name AND r.tool = 'jmc-java-gson') AS jv1,
+    (SELECT pc FROM CaseToolResult AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jackson') AS jv2,
+    (SELECT pc FROM CaseToolResult AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jsonp') AS jv3,
+    (SELECT pc FROM CaseToolResult AS r WHERE r.name = c.name AND r.tool = 'jmc-py') AS py
   FROM Cases AS c
   ORDER BY 1;
 
 -- case stats display
+DROP TABLE IF EXISTS ShowCases;
 CREATE TABLE ShowCases AS WITH
   CaseInstances AS (
     SELECT
@@ -116,6 +122,7 @@ CREATE TABLE ShowCases AS WITH
 
 -- relative execution time comparison per cases
 -- display nothing on failures
+DROP TABLE IF EXISTS ShowPerfPerCase;
 CREATE TABLE ShowPerfPerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
@@ -134,17 +141,18 @@ CREATE TABLE ShowPerfPerCase AS
   ORDER BY 1 ASC;
 
 -- relative execution time summary
+DROP TABLE IF EXISTS ShowPerfSummary;
 CREATE TABLE ShowPerfSummary AS WITH
   TotalCaseSize AS (
     SELECT tool, SUM(bsize) AS bsize, SUM(lsize) AS lsize
     FROM CaseValues
-    JOIN CumulatedPerf USING (name)
+    JOIN CaseToolCumulatedPerf USING (name)
     WHERE run != 0.0
     GROUP BY 1
   ),
   TotalToolTime AS (
     SELECT tool, SUM(run) AS run
-    FROM CumulatedPerf
+    FROM CaseToolCumulatedPerf
     GROUP BY 1
   ),
   SpeedPerTool AS (
@@ -234,6 +242,7 @@ WHERE ordre = 2
   AND blaze + c + js + jv1 + jv2 + jv3 + py = 0;
 
 -- compile time per case
+DROP TABLE IF EXISTS ShowCompilePerCase;
 CREATE TABLE ShowCompilePerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
@@ -247,6 +256,7 @@ CREATE TABLE ShowCompilePerCase AS
   ORDER BY 1;
 
 -- compile time summary for all cases
+DROP TABLE IF EXISTS ShowCompileSummary;
 CREATE TABLE ShowCompileSummary AS
   SELECT
     3 AS ordre,
@@ -279,6 +289,7 @@ CREATE TABLE ShowCompileSummary AS
   FROM CompilePerfCompare;
 
 -- show only bad results
+DROP TABLE IF EXISTS ShowBadResults;
 CREATE TABLE ShowBadResults AS
   SELECT *
   FROM ResultComparison
