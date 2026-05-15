@@ -1,12 +1,12 @@
 WITH
    BestPerf AS (
     SELECT name, MIN(run) AS best
-    FROM CumulatedPerf
+    FROM CaseToolCumulatedPerf
     GROUP BY 1
   ),
   RelativePerf AS (
     SELECT tool, name, CASE WHEN run IS NOT NULL AND run <> 0 THEN best / run ELSE 0.0 END AS perf
-    FROM CumulatedPerf
+    FROM CaseToolCumulatedPerf
     LEFT JOIN BestPerf USING (name)
     GROUP BY 1, 2
     ORDER BY 1, 2
