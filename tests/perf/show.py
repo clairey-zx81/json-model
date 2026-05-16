@@ -95,6 +95,7 @@ def report():
     # analysis
     arg("--x2", type=str, default=None, help="perform a χ² analysis against this tool")
     arg("--alpha", type=float, default=0.05, help="alpha value for χ² test, default is 0.05")
+    arg("--sort", default="bs", choices=["ab", "bs", "ls", "geo"], help="sort tools by")
     # verbosity control
     arg("--debug", dest="level", action="store_const", const=logging.DEBUG, default=logging.INFO, help="run in debug mode")
     arg("--quiet", dest="level", action="store_const", const=logging.WARNING, help="be quiet")
@@ -114,13 +115,6 @@ def report():
         (t[0] for t in conn.execute("SELECT tool FROM Tools")),
         key=lambda n: "jmc-jas" if n == "jmc-js" else n
     )
-
-    if args.x2:
-        assert args.x2 in tools, f"reference must be available: {args.x2}"
-        # possibly move reference as first tool
-        if args.x2 != tools[0]:
-            tools.remove(args.x2)
-            tools.insert(0, args.x2)
     log.debug(f"tools = {tools}")
 
     # provide some names for non standard reports
@@ -180,6 +174,20 @@ def report():
     }
 
     if args.x2:
+        assert args.x2 in tools, f"reference must be available: {args.x2}"
+
+        FSORT = {
+            "ab": lambda t: t,
+            "bs": lambda t: -summary[t]["bs"],
+            "ls": lambda t: -summary[t]["ls"],
+            "geo": lambda t: -summary[t]["avg"],
+        }
+
+        # move reference as first and sort other tools
+        tools.remove(args.x2)
+        tools = sorted(tools, key=FSORT[args.sort])
+        tools.insert(0, args.x2)
+
         # (name X tool) -> line-1 -> [ runs ]
         runs: dict[tuple[str, str], list[list[float]]] = {
             (name, tool): [ [] for i in range(case_data[name]["nb"]) ]
