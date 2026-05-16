@@ -180,7 +180,7 @@ def report():
             "ab": lambda t: t,
             "bs": lambda t: -summary[t]["bs"],
             "ls": lambda t: -summary[t]["ls"],
-            "geo": lambda t: -summary[t]["avg"],
+            "geo": lambda t: summary[t]["avg"],
         }
 
         # move reference as first and sort other tools
@@ -390,7 +390,9 @@ def report():
         print(f"|| _betters_ |" + "".join(f"{betters[t]}|" for t in tools))
         print(f"|| _sames_ |" + "".join(f"{sames[t]}|" for t in tools))
         print(f"|| _worses_ |" + "".join(f"{worses[t]}|" for t in tools))
-        # TODO show relative speed delta
+        # show relative speed delta (inverted because the feature is removed in the test)
+        print(f"|| _delta_ |" +
+              "".join(f"{100.0 * (summary[args.x2]['ls'] - summary[t]['ls']) / summary[args.x2]['ls']:.01f}%|" for t in tools))
         # effectiveness summary
         print(f"||**summary**|", end="")
         for t in tools:
