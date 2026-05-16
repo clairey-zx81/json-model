@@ -95,7 +95,7 @@ def report():
     # analysis
     arg("--x2", type=str, default=None, help="perform a χ² analysis against this tool")
     arg("--alpha", type=float, default=0.05, help="alpha value for χ² test, default is 0.05")
-    arg("--sort", default="bs", choices=["ab", "bs", "ls", "geo"], help="sort tools by")
+    arg("--sort", default="bs", choices=["ab", "bs", "ls", "geo"], help="sort tools by criterion")
     # verbosity control
     arg("--debug", dest="level", action="store_const", const=logging.DEBUG, default=logging.INFO, help="run in debug mode")
     arg("--quiet", dest="level", action="store_const", const=logging.WARNING, help="be quiet")
@@ -321,7 +321,7 @@ def report():
         from scipy.stats import chi2_contingency
 
         print()
-        print(f"- **alpha:** {args.alpha}")
+        print(f"- **alpha:** {args.alpha} (χ² test)")
         print()
         print(f"|#|name|" + "".join(f"{NAME[t]}|" for t in tools))
         print("|---:|:---|" + "".join(":---:|" for t in tools))
