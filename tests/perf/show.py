@@ -176,11 +176,12 @@ def report():
     if args.x2:
         assert args.x2 in tools, f"reference must be available: {args.x2}"
 
+        # put worst first as it means that there is more effects
         FSORT = {
             "ab": lambda t: t,
-            "bs": lambda t: -summary[t]["bs"],
-            "ls": lambda t: -summary[t]["ls"],
-            "geo": lambda t: summary[t]["avg"],
+            "bs": lambda t: summary[t]["bs"],
+            "ls": lambda t: summary[t]["ls"],
+            "geo": lambda t: -summary[t]["avg"],
         }
 
         # move reference as first and sort other tools
