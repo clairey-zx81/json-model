@@ -226,7 +226,8 @@ def report():
 
     # generate markdown report
     log.info("generating report")
-    print("\n## Tool Performance Summary")
+    print()
+    print("## Tool Performance Summary")
     if args.standard: print(TOOL_SUMMARY, end="")
 
     assert len(tools) == len(summary)
@@ -242,7 +243,8 @@ def report():
     print("|ratio avg|" + "".join(f"{summary[t]['avg']:.02f}|" for t in tools))
     print("|ratio min|" + "".join(f"{summary[t]['min']:.02f}|" for t in tools))
 
-    print("\n# Tool Performance Per Case")
+    print()
+    print("## Tool Performance Per Case")
     if args.standard: print(TOOL_CASES, end="")
 
     print()
@@ -282,7 +284,8 @@ def report():
             "jmc-py": "py",
         }
 
-        print("\n## Compilation Times")
+        print()
+        print("## Compilation Times")
 
         if args.standard: print(COMP_CASES, end="")
 
@@ -309,7 +312,8 @@ def report():
             print(f"|{i+1}|{name}|" +
                   "".join(f"{compilation[(name,t)]['run']:.01f}|" for t in comp_tool))
 
-    print("\n## Cases Data")
+    print()
+    print("## Cases Data")
     if args.standard: print(CASE_DATA, end="")
     print()
     print(f"|#|name|schema|normal|model|nb|min (B)|avg (B)|max (B)|")
@@ -336,15 +340,19 @@ def report():
     if args.x2:
         # NOTE this is quite slow
         log.info("testing with chi-square")
-        print("\n## Tool Comparison Per Case χ² Test")
+
+        titles = "".join(f"{NAME[t]}|" for t in tools)
+        print()
+        print("## Tool Comparison Per Case χ² Test")
         from scipy.stats import chi2_contingency
 
         print()
         print(f"- **alpha:** {args.alpha} (χ² test)")
         print()
         print("### Detailed Performance Impact")
+
         print(X2_DETAIL_COMMENT)
-        titles = "".join(f"{NAME[t]}|" for t in tools)
+
         print(f"|#|name|{titles}")
         print("|---:|:---|" + "".join(":---:|" for t in tools))
 
@@ -410,7 +418,9 @@ def report():
         # summary counts below details
         print()
         print("### Summary Performance Impact")
+
         print(X2_SUMMARY_COMMENT)
+
         print(f"|data|{titles}")
         print("|:---|" + "".join("---:|" for t in tools))
         print(f"| changes |" + "".join(f"{changes[t]}|" for t in tools))
