@@ -54,6 +54,16 @@ CREATE TABLE CaseValues(
   PRIMARY KEY (name, line)
 );
 
+CREATE TABLE Files(
+  filename TEXT NOT NULL,
+  name TEXT NOT NULL,
+  tool TEXT NOT NULL,
+  nlines INT NOT NULL,
+  nchars INT NOT NULL,
+  hash TEXT NOT NULL,
+  PRIMARY KEY(name, tool)
+);
+
 -- tool descriptions
 CREATE TABLE ToolLabels(
   ord INT NOT NULL,              -- prefered order of appearence

@@ -9,7 +9,7 @@ export jmc_bench=dev
 jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled"
 
 # parallelism, loop, repeats
-bench_opts="-p 16 -l 10000 -r 29 -T c"
+bench_opts="-p 16 -l 1000 -r 29 -T c"
 
 # TODO remove --predef?
 jmc_common="--single-line-regex --no-predef --cc=clang --precompiled"
@@ -41,6 +41,7 @@ for oo in srx csp sim flt pev ans aco x2o non ; do
 done
 
 # others
+bench uni --no-unique-optimize
 bench sco --no-strcmp-optimize
 bench set --max-strcmp-cset=0
 bench map --map-threshold=0

@@ -153,7 +153,7 @@ done
 export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
-for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py show.py ; do
+for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py show.py ; do
   type $cmd || err 5 "script $cmd not found"
 done
 
@@ -231,14 +231,17 @@ compile-to-csv.sh tmp/[0-9]*/*_compile.csv > compile.csv
 echo "## compilation times $(( $SECONDS - $START ))"
 
 START=$SECONDS
-# 18 seconds for 3 runs (777 files)
 run-to-csv.py tmp/[0-9]*/*.out > perf.csv
 echo "## run times $(( $SECONDS - $START ))"
 
 START=$SECONDS
-# 15 seconds for 3 runs (777 files)
 res-to-csv.py tmp/[0-9]*/*.out > result.csv
 echo "## result counts $(( $SECONDS - $START ))"
+
+START=$SECONDS
+shopt -s nullglob
+src-to-csv.py tmp/[0-9]*/*.{c,java,js,pl,py,model.json} > sources.csv
+echo "## source summary $(( $SECONDS - $START ))"
 
 START=$SECONDS
 
