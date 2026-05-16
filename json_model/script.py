@@ -437,8 +437,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         choices=["srx", "csp", "sim", "flt", "pev", "ans", "aco", "x2o", "non"],
         help="disable some model optimizations")
 
-    # code generation settings
-    # TODO add option for smaller vs faster code?
+    # code generation optimizations
     arg("--map-threshold", "-mt", default=None, type=int,
         help="property map vs unrolling threshold, target-dependent default, 0 to force map")
     arg("--map-share", "-ms", default=False, action="store_true",
@@ -463,23 +462,29 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="sort may props")
     arg("--no-sort-may", "-nsma", action="store_false",
         help="do not sort may props (default)")
-    arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
-        help="optimize some string comparisons")
-    arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
-        help="do not optimize string comparisons")
-    arg("--max-strcmp-cset", default=512, type=int,  # actual cutoff about 2300 on tests
-        help="max size for str cset expression")
-    arg("--byte-order", choices=["le", "be", "dpd"], default="le", help="set endian-ness")
-    arg("--regex-optimize", "-rxO", dest="regex_opt", default=True, action="store_true",
-        help="optimize some regular expressions")
-    arg("--no-regex-optimize", "-nrxO", dest="regex_opt", action="store_false",
-        help="optimize some regular expressions")
     arg("--single-line-regex", "-slrx", action="store_true", default=False,
         help="assume single line regex")
     arg("--no-single-line-regex", "-nslrx", dest="single_line_regex", action="store_false",
         help="do not assume single line regex")
     arg("--array-unrolling-size", "-aus", type=int, default=None,
         help="maximum array unrolling size for simple arrays")
+
+    # (C) backend optimizations
+    arg("--max-strcmp-cset", default=512, type=int,  # actual cutoff about 2300 on tests
+        help="max size for str cset expression")
+    arg("--strcmp-optimize", "-scO", dest="strcmp_opt", default=True, action="store_true",
+        help="optimize some string comparisons")
+    arg("--no-strcmp-optimize", "-nscO", dest="strcmp_opt", action="store_false",
+        help="do not optimize string comparisons")
+    arg("--byte-order", choices=["le", "be", "dpd"], default="le", help="set endian-ness")
+    arg("--regex-optimize", "-rxO", dest="regex_opt", default=True, action="store_true",
+        help="optimize some regular expressions")
+    arg("--no-regex-optimize", "-nrxO", dest="regex_opt", action="store_false",
+        help="optimize some regular expressions")
+    arg("--unique-optimize", dest="unique_opt", action="store_true", default=True,
+        help="optimize unicity checks")
+    arg("--no-unique-optimize", dest="unique_opt", action="store_false",
+        help="do not optimize unicity checks")
 
     # IR optimizations (if simplification, call skipping?)
     arg("--ir-optimize", "-Oir", dest="ir_optimize", action="store_true", default=True,
@@ -765,7 +770,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             debug=args.debug, report=args.reporting, relib=args.regex_engine,
             short_version=args.short_version, package=args.package,
             predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize,
-            strcmp=args.strcmp_opt, byte_order=args.byte_order, regex_opt=args.regex_opt,
+            strcmp=args.strcmp_opt, byte_order=args.byte_order,
+            regex_opt=args.regex_opt, unique_opt=args.unique_opt,
             may_must_open_threshold=args.may_must_open_threshold,
             must_only_threshold=args.must_only_threshold,
             partition_threshold=args.partition_threshold,

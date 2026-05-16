@@ -576,7 +576,7 @@ class CLangJansson(Language):
             debug: bool = False,
             with_path: bool = True, with_report: bool = True, with_comment: bool = True,
             with_predef: bool = True, strcmp_opt: bool = True, regex_opt: bool = True,
-            inline: bool = True, with_hints: bool = True,
+            unique_opt: bool = True, inline: bool = True, with_hints: bool = True,
             byte_order: str = "le", max_strcmp_cset: int = 64,
             partition_threshold: int = 32, relib: str = "pcre2", int_t: str = "int64_t"
         ):
@@ -606,6 +606,7 @@ class CLangJansson(Language):
         self._inline = "INLINE " if inline else ""
         self._strcmp_opt = strcmp_opt
         self._regex_opt = regex_opt
+        self._unique_opt = unique_opt
         self._max_strcmp_cset = max_strcmp_cset
         # NOTE not necessary equal to the one in CodeGenerator
         self._partition_threshold = partition_threshold
@@ -799,13 +800,16 @@ class CLangJansson(Language):
             return super().check_call(name, val, path, is_ptr=is_ptr, is_raw=is_raw)  # type: ignore
 
     def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
-        # checking uniqueness is expensive, use specialized versions to help performance
-        fun = (
-            "jm_str_array_is_unique" if titem is str else
-            "jm_int_array_is_unique" if titem is int else
-            "jm_obj_array_is_unique" if titem is dict else
-            "jm_json_array_is_unique"
-        )
+        if self._unique_opt:
+            # checking uniqueness is expensive, use specialized versions to help performance
+            fun = (
+                "jm_str_array_is_unique" if titem is str else
+                "jm_int_array_is_unique" if titem is int else
+                "jm_obj_array_is_unique" if titem is dict else
+                "jm_json_array_is_unique"
+            )
+        else:
+            fun = "jm_json_array_is_unique"
         return f"{fun}({val}, {self.path(path)}, {self.rep()})"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
