@@ -23,6 +23,8 @@
 - [x] perf: improve and generalize performance comparison script
 - [x] perf: update benchmark stuff to use new comparison script
 - [x] front: add `--no-precompiled` option
+- [x] front: add `--no-unique-optimize` option
+- [ ] front: add argument groups
 - [ ] perf: add stddev performance computation
 - [ ] perf: compare may use χ² test?
 - [ ] perf: test with each optimizations disabled to mesure impact

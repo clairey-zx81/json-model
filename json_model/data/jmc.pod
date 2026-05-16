@@ -20,9 +20,10 @@ B<jmc> - JSON Model Compiler
      [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version] [--short-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
+     [--max-strcmp-cset SIZE] [-[-no]-unique-optimize] [-[-no]-regex-optimize]
      [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD]
      [--partition-threshold THRESHOLD] [--or-must-prop THRESHOLD] [--array-unrolling-size=SIZE]
-     [--max-strcmp-cset SIZE] [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef]
+     [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef] [--no-opt OPTIM]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] (--model MODEL | MODEL) [VALUES ...]
 
@@ -38,11 +39,11 @@ JSON Schema or pydantic type declarations.
 
 =item B<model>
 
-model to process, a local file or a URL.
+Model to process, a local file or a URL.
 
 =item B<values...>
 
-list of  value files to check.
+List of  value files to check.
 
 =back
 
@@ -56,19 +57,19 @@ Here are the most useful options:
 
 =item B<--help>/B<-h>
 
-show auto-generated synopsis and exit.
+Show auto-generated synopsis and exit.
 
 =item B<--version>
 
-show command version and exit.
+Show command version and exit.
 
 =item B<--doc {pod,syn,help,man}>
 
-show help in some format and exit.
+Show help in some format and exit.
 
 =item B<--man>
 
-show man page and exit.
+Show man page and exit.
 
 =back
 
@@ -78,15 +79,15 @@ show man page and exit.
 
 =item B<--verbose>/B<-v>
 
-set verbose mode.
+Set verbose mode.
 
 =item B<--quiet>
 
-set quiet mode, only show warnings.
+Set quiet mode, only show warnings.
 
 =item B<--debug>
 
-set debug mode, which is very verbose.
+Set debug mode, which is very verbose.
 
 =back
 
@@ -96,27 +97,27 @@ set debug mode, which is very verbose.
 
 =item B<--model MODEL">
 
-provide the mode with an option instead of a parameter.
+Provide the mode with an option instead of a parameter.
 
 =item B<--maps "URL PATH">/B<-m …>
 
-map remote urls to a local path.
+Map remote urls to a local path.
 
 =item B<--auto>/B<-a>
 
-infer url to path mapping from declared model URL (C<.$."">).
+Infer url to path mapping from declared model URL (C<.$."">).
 
 =item B<--check>
 
-whether to check the model for errors at various stages.
+Whether to check the model for errors at various stages.
 
 =item B<--allow-duplicates>
 
-accept JSON with objects containing duplicated properties.
+Accept JSON with objects containing duplicated properties.
 
 =item B<--extend>
 
-allow some extensions to help with JSU back-end implementation.
+Allow some extensions to help with JSU back-end implementation.
 
 =back
 
@@ -126,23 +127,28 @@ allow some extensions to help with JSU back-end implementation.
 
 =item B<--op {P,E,C,U,J,N}>
 
-operation to run (preprocessing, export, compile, dump, jdump, none).
+Operation to run (preprocessing, export, compile, dump, jdump, none).
 
 =item B<--{loose,strict}-{int,float,number}> B<--loose>
 
-whether to assume loose JSON numbers, i.e. accept I<42.0> as an integer or I<42> as a float.
+Whether to assume loose JSON numbers, i.e. accept I<42.0> as an integer or I<42> as a float.
 Default is strict, but JS, PL/pgSQL and Perl backends are always loose due to the language
 and type capabilities.
 
 =item B<--re RELIB>
 
-regular expression library to use, default is to use B<re2> when available,
+Regular expression library to use, default is to use B<re2> when available,
 else the internal library.
 
 =item B<--optimize>/B<-O>
 
-whether to optimize the model (partial eval, constraint simplifications, flattening,
+Whether to optimize the model (partial eval, constraint simplifications, flattening,
 or-inlining, dead code elimination, xor to or conversion…).
+
+=item B<--no-opt> OPTIM
+
+Whether to disable specific preprocessing optimizations:
+C<srx>, C<csp>, C<sim>, C<flt>, C<pev>, C<ans>, C<aco>, C<x2o>, C<non>.
 
 =back
 
@@ -152,69 +158,69 @@ or-inlining, dead code elimination, xor to or conversion…).
 
 =item B<--output FILE>/B<-o FILE>
 
-output file, the suffix of which is used for setting the default format and generation.
+Output file, the suffix of which is used for setting the default format and generation.
 
 =item B<--format FMT>/B<-F FMT>
 
-output language, to override defaults.
+Output language, to override defaults.
 
 =item B<--gen GEN>
 
-whether to generate an B<exec>utable, a B<module>, source B<code> or nothing B<none>,
+Whether to generate an B<exec>utable, a B<module>, source B<code> or nothing B<none>,
 to overide defaults.
 
 =item B<--entry ENTRY>
 
-name of the entry function to generate.
+Name of the entry function to generate.
 
 =item B<--package PKG>
 
-name of package for generated module, if appliable.
+Name of package for generated module, if appliable.
 
 =item B<--map-threshold THRESHOLD>
 
-maximum number of props to inline property checks in objects.
+Maximum number of props to inline property checks in objects.
 
 =item B<--map-share>
 
-whether to share common maps, may result in smaller generated code.
+Whether to share common maps, may result in smaller generated code.
 
 =item B<--may-must-open-threshold THRESHOLD>
 
-consider mmo object property scheme if the number of optional properties
+Consider mmo object property scheme if the number of optional properties
 is below the provided threshold, default is depends on target.
 
 =item B<--must-only-threshold THRESHOLD>
 
-consider must-only object property scheme if the number of mandatory
+Consider must-only object property scheme if the number of mandatory
 properties is below the provided threshold, default depends on target.
 
 =item B<--partition-threshold THRESHOLD>
 
-number of properties to trigger partitioning inlined property checks,
+Number of properties to trigger partitioning inlined property checks,
 default depends on target, 0 means no partitioning.
 
 =item B<--or-must-prop THRESHOLD>
 
-shortcut or-list based on full or partial discriminating mandatory properties
+Shortcut or-list based on full or partial discriminating mandatory properties
 if length above threshold, default depends on target, 0 to disable.
 
 =item B<--sort-must> B<--no-sort-must> B<--sort-may> B<--no-sort-may>
 
-whether to sort must or may properties when checks are unrolled,
+Whether to sort must or may properties when checks are unrolled,
 default is to preserve the initial order within each category.
 
 =item B<--predef> vs B<--no-predef>
 
-whether to check value contents wrt predef declarations.
+Whether to check value contents wrt predef declarations.
 
 =item B<--single-line-regex> vs B<--no-single-line-regex>
 
-whether to assume that regex are implicitely single line (C<s> option).
+Whether to assume that regex are implicitely single line (C<s> option).
 
 =item B<--array-unrolling-size SIZE>
 
-maximum size of simple array unrolling.
+Maximum size of simple array unrolling.
 
 =back
 
@@ -224,39 +230,47 @@ maximum size of simple array unrolling.
 
 =item B<--cc COMPILER>
 
-compiler to use, defaut is C<cc>.
+Compiler to use, defaut is C<cc>.
 
 =item B<--{cpp,c,ld}flags ...>
 
-set raw C<cpp>, C<cc> or C<ld> flags.
+Set raw C<cpp>, C<cc> or C<ld> flags.
 
 =item B<-I DIR> B<-D VAR=VAL>
 
-cpp include path and definitions.
+Add C<cpp> include path and definitions.
 
 =item B<-L DIR>
 
-C<ld> link path.
+Add to C<ld> link path.
 
 =item B<--static>
 
-generate a statically linked executable.
+Generate a statically linked executable.
 
 =item B<--inline> B<--no-inline>
 
-generate inline hints.
+Generate inline hints.
 
 =item B<--strcmp-optimize> B<--no-strcmp-optimize>
 
-whether to optimize string comparisons in some cases.
+Whether to optimize string comparisons in some cases.
 
 =item B<--max-strcmp-cset SIZE>
 
-maximum size for string constant set expansion.
+Maximum size for string constant set expansion.
 
 =item B<--byte-order ORDER>
 
-set byte order for string comparison, either C<le> (little endian) or C<be> (big endian).
+Set byte order for string comparison, either C<le> (little endian) or C<be> (big endian).
+
+=item B<--regex-optimize> B<--no-regex-optimize>
+
+Whether to optimize regex when possible.
+
+=item B<--unique-optimize> B<--no-unique-optimize>
+
+Whether to use type-specific uniticy check runtime functions.
 
 =item B<--precompiled> B<--no-precompiled>
 
@@ -298,19 +312,19 @@ When testing values:
 
 =item B<--name NAME>/B<-n NAME>
 
-name of model to use, default is empty string for the root model.
+Name of model to use, default is empty string for the root model.
 
 =item B<--test-vector>
 
-assume a test vector input format for tested values.
+Assume a test vector input format for tested values.
 
 =item B<--none>/B<--true>/B<--false>
 
-expected result of test values, return an error status if unexpected values are encountered.
+Expected result of test values, return an error status if unexpected values are encountered.
 
 =item B<--report>
 
-generate a report about why a value failed. Default is just to say PASS or FAIL.
+Generate a report about why a value failed. Default is just to say PASS or FAIL.
 
 =back
 
@@ -358,11 +372,11 @@ The compiler can export models to other data type declaration formats:
 
 =item B<JSON Schema>
 
-formatted in JSON (C<-E -o schema.json>) or yaml (C<-E -o schema.yaml>).
+Formatted in JSON (C<-E -o schema.json>) or yaml (C<-E -o schema.yaml>).
 
 =item B<Python Pydantic>
 
-generate classes and types with C<-E -o Models.py>).
+Generate classes and types with C<-E -o Models.py>).
 
 =back
 
