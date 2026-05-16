@@ -29,6 +29,7 @@
 - [ ] perf: compare may use χ² test?
 - [ ] perf: test with each optimizations disabled to mesure impact
 - [ ] perf: analyze identical generated files when comparing same language
+- [ ] c-runtime: move re header inclusion to `json-model.h`?
 - [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
@@ -36,6 +37,7 @@
 - [ ] perf: keep only one java run?
 - [ ] perf: show schema to model conversion times
 - [ ] pr: improve JSTS test results alignment between all backends
+- [ ] pr: better document optimizations, eg add compilier optimization page
 - [ ] optim: collect and display stats about what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
