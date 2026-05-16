@@ -10,9 +10,9 @@ jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled"
 
 # parallelism, loop, repeats
 bench_opts="-p 16 -l 1000 -r 29 -T c"
-
-# TODO remove --predef?
 jmc_common="--single-line-regex --no-predef --cc=clang --precompiled"
+
+# TODO add jsu-model options?
 
 function bench()
 {
@@ -24,20 +24,20 @@ function bench()
   ./start_bench.sh $jmc_bench $name $bench_opts
 }
 
-# nothing
+# default
 bench ref
 
-# gnu compiler
+# gnu compiler instead of clang
 bench gcc --cc=cc
 
-# regex engine
-bench pcx --regex-engine=pcre2 --no-precompiled
-bench slr --no-single-line-regex
+# regex engine and optimization
+bench rxe --regex-engine=pcre2 --no-precompiled
 bench rxo --no-regex-optimize
+bench slr --no-single-line-regex
 
-# preprocessor optimizations
-for oo in srx csp sim flt pev ans aco x2o non ; do
-  bench $oo -nOp=$oo
+# all preprocessor optimizations
+for opt in srx csp sim flt pev ans aco x2o non ; do
+  bench $opt -nOp=$opt
 done
 
 # others
@@ -52,4 +52,4 @@ bench omp -omp=0
 bench pa0 -pt=0
 bench pax -pt=1024
 
-bench ior --no-ir-optimize
+bench iro --no-ir-optimize
