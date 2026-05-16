@@ -19,7 +19,7 @@ tool=$1
 shift
 
 com_files="cases.csv casevalues.csv"
-run_files="result.csv perf.csv compile.csv cases.csv casevalues.csv"
+run_files="result.csv perf.csv compile.csv sources.csv"
 
 echo "# sanity check before proceeding" >&2
 [ -e ./perf.db ] && err 2 "cannot overwrite perf.db"
@@ -35,7 +35,7 @@ for dir in "$@" ; do
   done
 done
 
-if [ ! "$@" ] ; then
+if [ "$#" -eq 0 ] ; then
   err 0 "no directory arguments: nothing to do…"
 fi
 
@@ -64,4 +64,4 @@ sqlite3 ./perf.db \
   ".read $script_dir/perf_comp.sql"
 
 echo "# result" >&2
-sqlite3 ./perf.db "SELECT * FROM ToolSummaryPerf;"
+sqlite3 ./perf.db "SELECT * FROM ToolSummaryPerf ORDER BY bspeed DESC;"

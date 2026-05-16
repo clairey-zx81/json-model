@@ -8,7 +8,9 @@
 .import compile.csv RawCompile
 .import result.csv RawResult
 .import casevalues.csv CaseValues
+.import sources.csv Files
 
+-- intermediate table to avoid warnings because of missing columns
 CREATE TEMPORARY TABLE CasesTmp(
   name TEXT PRIMARY KEY,
   ssize INT NOT NULL,
@@ -22,6 +24,7 @@ CREATE TEMPORARY TABLE CasesTmp(
 INSERT INTO Cases(name, ssize, nsize, msize, tests)
   SELECT * FROM CasesTmp
 ;
+
 DROP TABLE CasesTmp;
 
 .print loaded:
@@ -30,3 +33,4 @@ SELECT COUNT(*) AS "# compile" FROM RawCompile;
 SELECT COUNT(*) AS "# result" FROM RawResult;
 SELECT COUNT(*) AS "# cases" FROM Cases;
 SELECT COUNT(*) AS "# tests" FROM CaseValues;
+SELECT COUNT(*) AS "# files" FROM Files;

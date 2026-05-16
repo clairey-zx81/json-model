@@ -8,6 +8,7 @@ UPDATE RawCompile SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldn
 UPDATE RawResult SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
 UPDATE Cases SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
 UPDATE CaseValues SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
+UPDATE Files SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
 
 -- compute test stats
 WITH
