@@ -71,6 +71,24 @@ For each case and a summary: the full schema, normalized schema and model sizes
 (number of lines), number/min/average/max size of test values.
 """
 
+X2_DETAIL_COMMENT: str = """
+For each case and tool, the impact on the source and performance on all tests.
+
+- `=` if generated source is the same, `!` if it differs.
+- _b/e/w_ when the optimization is **removed**,
+  number of proven improved, similar (unproven) or proven degraded performance.
+  Use _0_ if there is no proven improvement nor degradation on any test.
+"""
+
+X2_SUMMARY_COMMENT: str = """
+- **changes**: number of source file changed
+- **betters**: number of proven improved performance when _removing_ the optimization
+- **sames**: number of similar performance
+- **worses**: number of proven degraded performance (aka the optimization works!)
+- **delta**: percent performance impact of the optimization
+- **summary**: symbolic evaluation
+"""
+
 def median(data: list[float]) -> float:
     sdata, middle = sorted(data), len(data) // 2
     if len(data) % 2 == 1:
@@ -324,7 +342,10 @@ def report():
         print()
         print(f"- **alpha:** {args.alpha} (χ² test)")
         print()
-        print(f"|#|name|" + "".join(f"{NAME[t]}|" for t in tools))
+        print("### Detailed Performance Impact")
+        print(X2_DETAIL_COMMENT)
+        titles = "".join(f"{NAME[t]}|" for t in tools)
+        print(f"|#|name|{titles}")
         print("|---:|:---|" + "".join(":---:|" for t in tools))
 
         # how many changed source, improvements, nsame or worsening for a "tool"
@@ -385,24 +406,34 @@ def report():
                 worses[tool] += worse
             # flush on each line, which is quite slow to produce
             print(flush=True)
-            # sys.exit(0)
+
         # summary counts below details
-        print(f"|| _changes_ |" + "".join(f"{changes[t]}|" for t in tools))
-        print(f"|| _betters_ |" + "".join(f"{betters[t]}|" for t in tools))
-        print(f"|| _sames_ |" + "".join(f"{sames[t]}|" for t in tools))
-        print(f"|| _worses_ |" + "".join(f"{worses[t]}|" for t in tools))
+        print()
+        print("### Summary Performance Impact")
+        print(X2_SUMMARY_COMMENT)
+        print(f"|data|{titles}")
+        print("|:---|" + "".join("---:|" for t in tools))
+        print(f"| changes |" + "".join(f"{changes[t]}|" for t in tools))
+        print(f"| betters |" + "".join(f"{betters[t]}|" for t in tools))
+        print(f"| sames |" + "".join(f"{sames[t]}|" for t in tools))
+        print(f"| worses |" + "".join(f"{worses[t]}|" for t in tools))
         # show relative speed delta (inverted because the feature is removed in the test)
-        print(f"|| _delta_ |" +
-              "".join(f"{100.0 * (summary[args.x2]['ls'] - summary[t]['ls']) / summary[args.x2]['ls']:.01f}%|" for t in tools))
+        print(f"| delta |" +
+              "".join(f"{100.0 * (summary[args.x2]['ls'] - summary[t]['ls']) / summary[t]['ls']:.01f}%|" for t in tools))
         # effectiveness summary
-        print(f"||**summary**|", end="")
+        print(f"|**summary**|", end="")
         for t in tools:
-            ntests = sames[t] + betters[t] + worses[t]
-            threshold = 0.02 * ntests
-            sign = "+" if worses[t] > betters[t] else "-"
-            delta = int(abs(worses[t] - betters[t]) / threshold)
-            delta = 3 if delta > 3 else delta
-            summary = (sign * delta) if delta else "~"
+            if t == args.x2:
+                summary = "="
+            else:
+                ntests = sames[t] + betters[t] + worses[t]
+                thresholds = [f * ntests for f in [0.01, 0.02, 0.04, 0.08, 0.16, 1.0]]
+                deltat = worses[t] - betters[t]
+                sign = "+" if deltat > 0 else "-"
+                for delta, threshold in enumerate(thresholds):
+                    if abs(deltat) <= threshold:
+                        break
+                summary = (sign * delta) if delta else "~"
             print(summary + "|", end="")
         print(flush=True)
 
