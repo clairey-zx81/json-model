@@ -21,7 +21,7 @@ B<jmc> - JSON Model Compiler
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
      [--max-strcmp-cset SIZE] [-[-no]-unique-optimize] [-[-no]-regex-optimize]
-     [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD]
+     [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD] [-[-no]-call-shortcut]
      [--partition-threshold THRESHOLD] [--or-must-prop THRESHOLD] [--array-unrolling-size=SIZE]
      [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef] [--no-opt OPTIM] [-[-no]-regex-pattern]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
@@ -221,6 +221,10 @@ Whether to assume that regex are implicitely single line (C<s> option).
 =item B<--regex-pattern> B<--no-regex-pattern>
 
 Whether to optimize some regex pattern for starts with, ends with or equality.
+
+=item B<--call-shortcut> B<--no-call-shortcut>
+
+Whether to shortcut function calls when possible.
 
 =item B<--array-unrolling-size SIZE>
 

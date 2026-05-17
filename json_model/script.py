@@ -456,7 +456,11 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--regex-pattern", default=True, action="store_true",
         help="optimize some regex patterns")
     arg("--no-regex-pattern", dest="regex_pattern", action="store_true",
-        help="optimize some regex patterns")
+        help="do not optimize some regex patterns")
+    arg("--call-shortcut", default=True, action="store_true",
+        help="shortcut function call when possible")
+    arg("--no-call-shortcut", dest="shortcut_call", action="store_false",
+        help="do not shortcut function call when possible")
 
     # (C) backend optimizations
     arg("--max-strcmp-cset", default=512, type=int,  # actual cutoff about 2300 on tests
@@ -780,6 +784,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             or_must_prop=args.or_must_prop,
             sort_must=args.sort_must,
             sort_may=args.sort_may,
+            call_shortcut=args.call_shortcut,
             max_strcmp_cset=args.max_strcmp_cset,
             array_unrolling_size=args.array_unrolling_size,
         )

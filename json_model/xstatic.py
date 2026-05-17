@@ -45,6 +45,7 @@ class CodeGenerator:
     - sort_must: whether to sort must properties, default False
     - sort_may: whether to sort may properties, default False
     - regex_pattern: simplify simple regex patterns (starts with, ends with, equal…)
+    - call_shortcut: shortcut function calls if possible
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
@@ -56,7 +57,7 @@ class CodeGenerator:
                 may_must_open_threshold: int = 5, must_only_threshold: int = 5,
                 array_unrolling_size: int = 8, partition_threshold: int = 0,
                 sort_must: bool = False, sort_may: bool = False, or_must_prop: int = 0,
-                regex_pattern: bool = True,
+                regex_pattern: bool = True, call_shortcut: bool = True,
                 comment: bool = True, execute: bool = True, report: bool = True,
                 path: bool = True, package: str|None = None, debug: bool = False,
             ):
@@ -83,6 +84,7 @@ class CodeGenerator:
         self._or_must_prop = or_must_prop
         self._array_unrolling_size = array_unrolling_size
         self._regex_pattern = regex_pattern
+        self._call_shortcut = call_shortcut
 
         self._code = Code(language, fname, executable=execute, package=package)
 
@@ -2298,13 +2300,15 @@ class CodeGenerator:
             jm, gref = self._to_compile[min(todo)]
             self.compileOneJsonModel(jm, gref, [gref], True)
 
-        # for skip call optimization
-        self._code._shortcuts = self.computeShortcuts(model)
+        # skip call optimization
+        if self._call_shortcut:
 
-        # use shortcuts directly on entries
-        for name, fun in entries.items():
-            if fun in self._code._shortcuts:
-                entries[name] = self._code._shortcuts[fun]
+            self._code._shortcuts = self.computeShortcuts(model)
+
+            # use shortcuts directly on entries
+            for name, fun in entries.items():
+                if fun in self._code._shortcuts:
+                    entries[name] = self._code._shortcuts[fun]
 
         # generate mapping, beware of name consistency
         self._code.pmap(f"{self._code._entry}_map", entries, True)
@@ -2342,6 +2346,7 @@ def xstatic_compile(
         regex_opt: bool = True,
         regex_pattern: bool = True,
         unique_opt: bool = True,
+        call_shortcut: bool = True,
         max_strcmp_cset: int = 64,
         byte_order: str = "le",
     ) -> Code:
@@ -2375,6 +2380,7 @@ def xstatic_compile(
     - regex_pattern: whether to match simple regex (starts, ends, equals)
     - unique_opt: whether to use type-specific runtime for unicity checks
     - max_strcmp_cset: max size for direct str constant set
+    - call_shortcut: shortcut function calls when possible
     - byte_order: le, be or dpd
     """
 
@@ -2533,7 +2539,7 @@ def xstatic_compile(
         partition_threshold=partition_threshold,
         array_unrolling_size=array_unrolling_size,
         or_must_prop=or_must_prop, sort_must=sort_must, sort_may=sort_may,
-        regex_pattern=regex_pattern,
+        regex_pattern=regex_pattern, call_shortcut=call_shortcut,
         execute=execute, debug=debug, report=report, package=package, comment=comment,
     )
 

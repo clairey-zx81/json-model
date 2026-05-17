@@ -30,6 +30,7 @@
 - [x] backend: use current version instead of installed version in generated code
 - [x] js-runtime: fix string length as a number of chars
 - [x] static: allow do disable regex pattern matching
+- [x] static: allow to disable function call shortcuts
 - [ ] perf: allow to restrict reporting to a subset of tools
 - [ ] static: check for more optimization that may be disabled?
 - [ ] front: add argument groups

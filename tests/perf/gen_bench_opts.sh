@@ -44,6 +44,7 @@ done
 # others
 bench uni --no-unique-optimize
 bench sco --no-strcmp-optimize
+bench sho --no-call-shortcut
 bench set --max-strcmp-cset=0
 bench map --map-threshold=0
 bench aun --array-unrolling-size=0
