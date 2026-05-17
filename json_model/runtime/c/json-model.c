@@ -831,10 +831,6 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep, boo
         return false;
     hour += time[idx++] - '0';
 
-    if (unlikely(hour >= 24)) {
-        if (rep) jm_report_add_entry(rep, "unexpected time hour", path);
-        return false;
-    }
     with_colon = time[idx] == ':';
     if (with_colon)
         idx++;
@@ -865,7 +861,19 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep, boo
         if (rep) jm_report_add_entry(rep, "unexpected time second", path);
         return false;
     }
+    // NOTE leap second should only be at midnight UTC
     bool leap = second == 60;
+
+    // check hour
+    if (unlikely(hour >= 24)) {
+        if (unlikely(hour == 24 && minute == 0 && second == 0))
+            // NOTE latest ISO8601 allows 24:00:00 as next-day 00:00:00
+            ;
+        else {
+            if (rep) jm_report_add_entry(rep, "unexpected time hour", path);
+            return false;
+        }
+    }
 
     // optional millis (3, sometimes more, let us be nice)
     if (time[idx] == '.') {

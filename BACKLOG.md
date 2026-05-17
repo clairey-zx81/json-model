@@ -31,6 +31,8 @@
 - [x] js-runtime: fix string length as a number of chars
 - [x] static: allow do disable regex pattern matching
 - [x] static: allow to disable function call shortcuts
+- [x] c-runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
+- [x] test: do not test `24:00:00` as time validators are unlikely to agree
 - [ ] perf: allow to restrict reporting to a subset of tools
 - [ ] static: check for more optimization that may be disabled?
 - [ ] front: add argument groups
@@ -38,7 +40,6 @@
 - [ ] perf: add note about random frequency governor changes because of cpu temperature
 - [ ] perf: possibly mount jsb as a volume when benchmarking
 - [ ] c-runtime: move re header inclusion to `json-model.h`?
-- [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
 - [ ] perf: compute compilation speed
