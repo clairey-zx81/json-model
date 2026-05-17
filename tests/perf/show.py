@@ -133,7 +133,6 @@ def report():
         (t[0] for t in conn.execute("SELECT tool FROM Tools")),
         key=lambda n: "jmc-jas" if n == "jmc-js" else n
     )
-    log.debug(f"tools = {tools}")
 
     # provide some names for non standard reports
     for t in tools:
@@ -149,7 +148,6 @@ def report():
     cases: list[str] = [
         t[0] for t in conn.execute("SELECT name FROM Cases ORDER BY 1")
     ]
-    log.debug(f"cases = {cases}")
 
     if args.standard:
         assert len(cases) == 37, f"check expected number of cases: {len(cases)}"
@@ -223,6 +221,10 @@ def report():
         }
 
     conn.close()
+
+    # data to be analyzed
+    log.debug(f"tools = ({len(tools)}) {tools}")
+    log.debug(f"cases = ({len(cases)}) {cases}")
 
     # generate markdown report
     log.info("generating report")
