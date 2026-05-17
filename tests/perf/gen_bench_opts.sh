@@ -27,8 +27,8 @@ function bench()
 # default
 bench ref
 
-# gnu compiler instead of clang
-bench gcc --cc=cc
+# default gnu compiler instead of clang
+bench clg --cc=cc
 
 # regex engine and optimization
 bench rxe --regex-engine=pcre2 --no-precompiled
