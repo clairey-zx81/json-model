@@ -30,6 +30,7 @@
 - [ ] front: add argument groups
 - [ ] perf: add stddev performance computation
 - [ ] perf: add note about random frequency governor changes because of cpu temperature
+- [ ] perf: possibly mount jsb as a volume when benchmarking
 - [ ] c-runtime: move re header inclusion to `json-model.h`?
 - [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [ ] perf: improve resilience to bad overhead estimation
