@@ -44,6 +44,8 @@
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
 - [ ] js-backend: remove useless braces and semi-colons
+- [ ] js-runtime: length is not the number of graphemes, see `Intl.Segmenter`
+- [ ] js-runtime: check stability of `.mo` extension
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
