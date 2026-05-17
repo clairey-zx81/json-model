@@ -23,7 +23,7 @@ B<jmc> - JSON Model Compiler
      [--max-strcmp-cset SIZE] [-[-no]-unique-optimize] [-[-no]-regex-optimize]
      [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD]
      [--partition-threshold THRESHOLD] [--or-must-prop THRESHOLD] [--array-unrolling-size=SIZE]
-     [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef] [--no-opt OPTIM]
+     [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef] [--no-opt OPTIM] [-[-no]-regex-pattern]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] (--model MODEL | MODEL) [VALUES ...]
 
@@ -210,13 +210,17 @@ if length above threshold, default depends on target, 0 to disable.
 Whether to sort must or may properties when checks are unrolled,
 default is to preserve the initial order within each category.
 
-=item B<--predef> vs B<--no-predef>
+=item B<--predef> B<--no-predef>
 
 Whether to check value contents wrt predef declarations.
 
-=item B<--single-line-regex> vs B<--no-single-line-regex>
+=item B<--single-line-regex> B<--no-single-line-regex>
 
 Whether to assume that regex are implicitely single line (C<s> option).
+
+=item B<--regex-pattern> B<--no-regex-pattern>
+
+Whether to optimize some regex pattern for starts with, ends with or equality.
 
 =item B<--array-unrolling-size SIZE>
 

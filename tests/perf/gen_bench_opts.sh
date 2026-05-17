@@ -33,6 +33,7 @@ bench clg --cc=cc
 # regex engine and optimization
 bench rxe --regex-engine=pcre2 --no-precompiled
 bench rxo --no-regex-optimize
+bench rxp --no-regex-pattern
 bench slr --no-single-line-regex
 
 # all preprocessor optimizations

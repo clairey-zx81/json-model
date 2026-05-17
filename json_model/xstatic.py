@@ -44,6 +44,7 @@ class CodeGenerator:
     - or_must_prop: threshold to try or-list shortcut based on mandatory properties
     - sort_must: whether to sort must properties, default False
     - sort_may: whether to sort may properties, default False
+    - regex_pattern: simplify simple regex patterns (starts with, ends with, equal…)
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
@@ -54,10 +55,10 @@ class CodeGenerator:
                 prefix: str = "", map_threshold: int = 3, map_share: bool = False,
                 may_must_open_threshold: int = 5, must_only_threshold: int = 5,
                 array_unrolling_size: int = 8, partition_threshold: int = 0,
-                sort_must: bool = False, sort_may: bool = False,
-                or_must_prop: int = 0, comment: bool = True,
-                execute: bool = True, report: bool = True, path: bool = True,
-                package: str|None = None, debug: bool = False,
+                sort_must: bool = False, sort_may: bool = False, or_must_prop: int = 0,
+                regex_pattern: bool = True,
+                comment: bool = True, execute: bool = True, report: bool = True,
+                path: bool = True, package: str|None = None, debug: bool = False,
             ):
 
         super().__init__()
@@ -81,6 +82,7 @@ class CodeGenerator:
         self._map_share = map_share
         self._or_must_prop = or_must_prop
         self._array_unrolling_size = array_unrolling_size
+        self._regex_pattern = regex_pattern
 
         self._code = Code(language, fname, executable=execute, package=package)
 
@@ -220,35 +222,36 @@ class CodeGenerator:
             return n
 
         # optimized versions in some cases
-        if re.match(r"^/\.\*\$?/[mis]?$", regex):
-            return gen.true()
-        elif re.match(r"^/\^?\.\*/[mis]?$", regex):
-            return gen.true()
-        elif (gen.fast_strlen() and
-                (re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex))):
-            return gen.num_cmp(gen.str_len(sval), ">", gen.const(0), is_int=True)
-        elif repeat := re.match(r"^/\^\.\{(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
-            return gen.num_cmp(gen.str_len(sval), "=", gen.const(int(repeat.group(1))), is_int=True)
-        elif repeat := re.match(r"^/\^\.\{(\d+),}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
-            return gen.num_cmp(gen.str_len(sval), ">=", gen.const(int(repeat.group(1))), is_int=True)
-        elif repeat := re.match(r"^/\^\.\{0,(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
-            return gen.num_cmp(gen.str_len(sval), "<=", gen.const(int(repeat.group(1))), is_int=True)
-        elif (gen.fast_strlen() and
-                (repeat := re.match(r"^/\^\.\{(\d+),(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex))):
-            return gen.and_op(
-                gen.num_cmp(gen.str_len(sval), ">=", gen.const(int(repeat.group(1))), is_int=True),
-                gen.num_cmp(gen.str_len(sval), "<=", gen.const(int(repeat.group(2))), is_int=True)
-            )
-        elif begin := re.match(r"^/\^(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)/s?$", regex):  # starts with
-            return gen.str_start(sval, gen.const(unescape_re(begin.group(1))))
-        elif end := re.match(r"^/(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)\$/s?$", regex):  # ends with
-            return gen.str_end(sval, gen.const(unescape_re(end.group(1))))
-        elif seq := re.match(r"^/\^(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)\$/$", regex):  # streq
-            return gen.str_cmp(sval, "=", gen.const(unescape_re(seq.group(1))))
-        # TODO streq ic?
-        else:
-            fun = self._regex(jm, regex, path)
-            return gen.str_check_call(fun, sval, path)
+        if self._regex_pattern:
+            if re.match(r"^/\.\*\$?/[mis]?$", regex):
+                return gen.true()
+            elif re.match(r"^/\^?\.\*/[mis]?$", regex):
+                return gen.true()
+            elif (gen.fast_strlen() and
+                    (re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex))):
+                return gen.num_cmp(gen.str_len(sval), ">", gen.const(0), is_int=True)
+            elif repeat := re.match(r"^/\^\.\{(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
+                return gen.num_cmp(gen.str_len(sval), "=", gen.const(int(repeat.group(1))), is_int=True)
+            elif repeat := re.match(r"^/\^\.\{(\d+),}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
+                return gen.num_cmp(gen.str_len(sval), ">=", gen.const(int(repeat.group(1))), is_int=True)
+            elif repeat := re.match(r"^/\^\.\{0,(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex):
+                return gen.num_cmp(gen.str_len(sval), "<=", gen.const(int(repeat.group(1))), is_int=True)
+            elif (gen.fast_strlen() and
+                    (repeat := re.match(r"^/\^\.\{(\d+),(\d+)}\$/[a-zA-Z]*s[a-zA-Z]*$", regex))):
+                return gen.and_op(
+                    gen.num_cmp(gen.str_len(sval), ">=", gen.const(int(repeat.group(1))), is_int=True),
+                    gen.num_cmp(gen.str_len(sval), "<=", gen.const(int(repeat.group(2))), is_int=True)
+                )
+            elif begin := re.match(r"^/\^(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)/s?$", regex):  # starts with
+                return gen.str_start(sval, gen.const(unescape_re(begin.group(1))))
+            elif end := re.match(r"^/(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)\$/s?$", regex):  # ends with
+                return gen.str_end(sval, gen.const(unescape_re(end.group(1))))
+            elif seq := re.match(r"^/\^(([^[({|.+*?\\^$]|\\[([{|.+*?^$])+)\$/$", regex):  # streq
+                return gen.str_cmp(sval, "=", gen.const(unescape_re(seq.group(1))))
+
+        # genera case
+        fun = self._regex(jm, regex, path)
+        return gen.str_check_call(fun, sval, path)
 
     def _esc(self, val: Jsonable) -> str:
         """Escape value as necessary."""
@@ -2337,6 +2340,7 @@ def xstatic_compile(
         ir_optimize: bool = True,
         strcmp: bool = True,
         regex_opt: bool = True,
+        regex_pattern: bool = True,
         unique_opt: bool = True,
         max_strcmp_cset: int = 64,
         byte_order: str = "le",
@@ -2368,6 +2372,7 @@ def xstatic_compile(
     - ir_optimize: enable IR optimizations.
     - strcmp: whether to optimize some string comparisons
     - regex_opt: whether to optimize some regular expressions
+    - regex_pattern: whether to match simple regex (starts, ends, equals)
     - unique_opt: whether to use type-specific runtime for unicity checks
     - max_strcmp_cset: max size for direct str constant set
     - byte_order: le, be or dpd
@@ -2522,13 +2527,13 @@ def xstatic_compile(
     # source code generator
     gen = CodeGenerator(
         model._globs, target, fname, prefix=prefix,  # type: ignore
-        map_share=map_share,
-        map_threshold=map_threshold,
+        map_share=map_share, map_threshold=map_threshold,
         may_must_open_threshold=may_must_open_threshold,
         must_only_threshold=must_only_threshold,
         partition_threshold=partition_threshold,
         array_unrolling_size=array_unrolling_size,
         or_must_prop=or_must_prop, sort_must=sort_must, sort_may=sort_may,
+        regex_pattern=regex_pattern,
         execute=execute, debug=debug, report=report, package=package, comment=comment,
     )
 

@@ -414,13 +414,17 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--no-report", "-nr", dest="report", action="store_false",
         help="fast mode, do not give reasons")
 
-    # operations on model
+    # operations and optimizations on model (preprocessor)
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     arg("--no-optimization", "--no-opt", "-nOp", dest="no_opt", default=[], action="append",
         choices=["srx", "csp", "sim", "flt", "pev", "ans", "aco", "x2o", "non"],
         help="disable some model optimizations")
+    arg("--single-line-regex", "-slrx", action="store_true", default=False,
+        help="assume single line regex")
+    arg("--no-single-line-regex", "-nslrx", dest="single_line_regex", action="store_false",
+        help="do not assume single line regex")
 
     # code generation optimizations
     arg("--map-threshold", "-mt", default=None, type=int,
@@ -445,14 +449,14 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="do not sort must props (default)")
     arg("--sort-may", "-sma", default=False, action="store_true",
         help="sort may props")
-    arg("--no-sort-may", "-nsma", action="store_false",
+    arg("--no-sort-may", "-nsma", dest="sort_may", action="store_false",
         help="do not sort may props (default)")
-    arg("--single-line-regex", "-slrx", action="store_true", default=False,
-        help="assume single line regex")
-    arg("--no-single-line-regex", "-nslrx", dest="single_line_regex", action="store_false",
-        help="do not assume single line regex")
     arg("--array-unrolling-size", "-aus", type=int, default=None,
         help="maximum array unrolling size for simple arrays")
+    arg("--regex-pattern", default=True, action="store_true",
+        help="optimize some regex patterns")
+    arg("--no-regex-pattern", dest="regex_pattern", action="store_true",
+        help="optimize some regex patterns")
 
     # (C) backend optimizations
     arg("--max-strcmp-cset", default=512, type=int,  # actual cutoff about 2300 on tests
@@ -750,18 +754,32 @@ def jmc_script(xargs: list[str]|None = None) -> int:
 
         # compile to source
         code = xstatic_compile(
-            model, args.entry, lang=args.format, execute=with_main,
-            map_threshold=args.map_threshold, map_share=args.map_share,
-            debug=args.debug, report=args.reporting, relib=args.regex_engine,
-            short_version=args.short_version, package=args.package,
-            predef=args.predef, inline=args.inline, ir_optimize=args.ir_optimize,
-            strcmp=args.strcmp_opt, byte_order=args.byte_order,
-            regex_opt=args.regex_opt, unique_opt=args.unique_opt,
+            model, args.entry,
+            lang=args.format,
+            debug=args.debug,
+            execute=with_main,
+            report=args.reporting,
+            comment=args.comment,
+            package=args.package,
+            # optimizations
+            map_threshold=args.map_threshold,
+            map_share=args.map_share,
+            relib=args.regex_engine,
+            short_version=args.short_version,
+            predef=args.predef,
+            inline=args.inline,
+            ir_optimize=args.ir_optimize,
+            strcmp=args.strcmp_opt,
+            byte_order=args.byte_order,
+            regex_opt=args.regex_opt,
+            unique_opt=args.unique_opt,
+            regex_pattern=args.regex_pattern,
             may_must_open_threshold=args.may_must_open_threshold,
             must_only_threshold=args.must_only_threshold,
             partition_threshold=args.partition_threshold,
-            or_must_prop=args.or_must_prop, comment=args.comment,
-            sort_must=args.sort_must, sort_may=args.sort_may,
+            or_must_prop=args.or_must_prop,
+            sort_must=args.sort_must,
+            sort_may=args.sort_may,
             max_strcmp_cset=args.max_strcmp_cset,
             array_unrolling_size=args.array_unrolling_size,
         )
