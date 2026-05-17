@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
         }
         else if (prop == "dots")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length > 0;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0;
             if (! res)
             {
                 return false;
@@ -72,7 +72,7 @@ function json_model_1(val, path, rep)
         }
         else if (prop == "dot+s")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length > 0;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0;
             if (! res)
             {
                 return false;

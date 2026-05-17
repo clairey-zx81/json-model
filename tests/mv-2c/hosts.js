@@ -40,7 +40,7 @@ function json_model_1(val, path, rep)
         }
         else if (prop == "host")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_host(pval, null, null) && pval.length <= 255;
+            res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_host(pval, null, null) && runtime.jm_char_length(pval) <= 255;
             if (! res)
             {
                 return false;

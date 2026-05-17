@@ -1,0 +1,21 @@
+[
+  [ true,  "S" ],
+  [ true,  "à" ],
+  [ true,  "好" ],
+  [ true,  "😄" ],
+  [ true,  "🥰" ],
+  [ false, "" ],
+  [ false, "Sz" ],
+  [ false, "你好" ],
+  [ false, "🥰!" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

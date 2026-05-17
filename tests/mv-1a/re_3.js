@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
             // handle may nz property
             // .nz
             // "/./s"
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length > 0;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0;
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./s\" [.nz]", (path ? lpath_0 : null)])

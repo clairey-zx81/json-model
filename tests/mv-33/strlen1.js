@@ -20,7 +20,7 @@ function json_model_1(val, path, rep)
     if (res)
     {
         let ival_0 = runtime.jm_char_length(val);
-        res = ival_0 == 10;
+        res = ival_0 == 1;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])

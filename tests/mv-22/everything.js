@@ -294,7 +294,7 @@ function _jm_f_11(val, path, rep)
 function _jm_f_12(val, path, rep)
 {
     // .predefs.HOST
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_host(val, path, rep) && val.length <= 255;
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_host(val, path, rep) && runtime.jm_char_length(val) <= 255;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$HOST\" [.predefs.HOST]", path])
@@ -3205,7 +3205,7 @@ function _jm_f_44(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (res)
     {
-        let ival_10 = val.length;
+        let ival_10 = runtime.jm_char_length(val);
         res = ival_10 == 10;
         if (! res)
         {
@@ -3227,7 +3227,7 @@ function _jm_f_45(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (res)
     {
-        let ival_11 = val.length;
+        let ival_11 = runtime.jm_char_length(val);
         res = ival_11 != 10 && ival_11 <= 12 && ival_11 >= 8;
         if (! res)
         {
@@ -3249,7 +3249,7 @@ function _jm_f_46(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (res)
     {
-        let ival_12 = val.length;
+        let ival_12 = runtime.jm_char_length(val);
         res = ival_12 <= 9 && ival_12 >= 8;
         if (! res)
         {

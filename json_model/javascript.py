@@ -157,7 +157,7 @@ class JavaScript(Language):
         return f"{var}.length"
 
     def str_len(self, var: Var) -> IntExpr:
-        return f"{var}.length"
+        return f"runtime.jm_char_length({var})"
 
     def any_len(self, var: Var) -> IntExpr:
         return f"_any_len({var})"

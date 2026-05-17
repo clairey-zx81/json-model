@@ -19,7 +19,7 @@ function json_model_1(val, path, rep)
     let res = (typeof val === 'string' || val instanceof String);
     if (res)
     {
-        let ival_0 = val.length;
+        let ival_0 = runtime.jm_char_length(val);
         res = ival_0 <= 5;
         if (! res)
         {

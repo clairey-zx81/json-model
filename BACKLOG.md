@@ -28,6 +28,7 @@
 - [x] perf: test with each optimizations disabled to mesure impact
 - [x] perf: analyze identical generated files when comparing same language
 - [x] backend: use current version instead of installed version in generated code
+- [x] js-runtime: fix string length as a number of chars
 - [ ] front: add argument groups
 - [ ] perf: add stddev performance computation
 - [ ] perf: add note about random frequency governor changes because of cpu temperature
@@ -45,7 +46,6 @@
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
 - [ ] js-backend: remove useless braces and semi-colons
-- [ ] js-runtime: length is not the number of graphemes, see `Intl.Segmenter`
 - [ ] js-runtime: check stability of `.mo` extension
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting

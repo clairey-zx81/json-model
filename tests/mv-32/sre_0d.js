@@ -18,7 +18,7 @@ function json_model_1(val, path, rep)
     {
         if (prop == "eq4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length == 4;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) == 4;
             if (! res)
             {
                 return false;
@@ -27,7 +27,7 @@ function json_model_1(val, path, rep)
         }
         else if (prop == "le4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length <= 4;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) <= 4;
             if (! res)
             {
                 return false;
@@ -36,7 +36,7 @@ function json_model_1(val, path, rep)
         }
         else if (prop == "ge4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length >= 4;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) >= 4;
             if (! res)
             {
                 return false;
@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
         }
         else if (prop == "s35")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.length >= 3 && pval.length <= 5;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) >= 3 && runtime.jm_char_length(pval) <= 5;
             if (! res)
             {
                 return false;

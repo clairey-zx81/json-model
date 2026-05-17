@@ -151,13 +151,21 @@ export function jm_arr_cmp(a1, a2)
     return 0
 }
 
+// string length vs char length vs grapheme length?
+export function jm_char_length(v)
+{
+    return [...v].length
+}
+
 // get a number value out of anything
 export function jm_number_value(v)
 {
     const t = jm_typeof(v)
     if (t === 'integer' || t === 'number')
         return v
-    if (t === 'string' || t === 'array')
+    if (t === 'string')
+        return [...v].length
+    if (t === 'array')
         return v.length
     if (t === 'object')  // O(n)
         return Object.keys(v).length

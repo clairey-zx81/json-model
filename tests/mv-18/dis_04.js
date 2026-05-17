@@ -47,7 +47,7 @@ function _jm_obj_0(val, path, rep)
     pval = val["v"];
     // .'|'.5.v
     // "/./s"
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval.length > 0;
+    res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0;
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/./s\" [.'|'.5.v]", (path ? lpath : null)])
