@@ -29,6 +29,7 @@
 - [x] perf: analyze identical generated files when comparing same language
 - [x] backend: use current version instead of installed version in generated code
 - [x] js-runtime: fix string length as a number of chars
+- [ ] static: check for more optimization that may be disabled
 - [ ] front: add argument groups
 - [ ] perf: add stddev performance computation
 - [ ] perf: add note about random frequency governor changes because of cpu temperature
