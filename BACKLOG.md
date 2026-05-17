@@ -27,13 +27,13 @@
 - [x] perf: compare can use χ² test
 - [x] perf: test with each optimizations disabled to mesure impact
 - [x] perf: analyze identical generated files when comparing same language
+- [x] backend: use current version instead of installed version in generated code
 - [ ] front: add argument groups
 - [ ] perf: add stddev performance computation
 - [ ] perf: add note about random frequency governor changes because of cpu temperature
 - [ ] perf: possibly mount jsb as a volume when benchmarking
 - [ ] c-runtime: move re header inclusion to `json-model.h`?
 - [ ] runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
-- [ ] static: use current version instead of installed version in generated code
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
 - [ ] perf: compute compilation speed
