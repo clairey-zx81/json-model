@@ -3,7 +3,7 @@ from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals, Block
 from .mtypes import Var, JsonExpr, BoolExpr, IntExpr, NumExpr, StrExpr, PathExpr, Expr
 from .predefs import BOOL_MODEL_PREDEFS, INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, STR_MODEL_PREDEFS
 from .predefs import PREDEF_RE
-from .utils import log, __version__, load_data_file
+from .utils import log, jmc_version, load_data_file
 
 # must or may property name -> corresponding check function
 type PropMap = dict[str, str]
@@ -92,7 +92,7 @@ class Language:
         self._hash_t = hash_t
 
         # other stuff
-        self._version = __version__
+        self._version = jmc_version()
         self._idcounts: dict[str, int] = {}  # per-prefix ident count for unicity
         self._re_used: bool = False          # whether regular expressions are used
         self._byte_order: str = "le"         # just in case

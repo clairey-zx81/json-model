@@ -12,7 +12,7 @@ import subprocess
 import tempfile
 
 from .mtypes import Jsonable, JsonSchema, ModelError
-from .utils import log, tname, json_loads, load_data_file
+from .utils import log, tname, json_loads, load_data_file, jmc_version
 from .resolver import Resolver
 from .model import JsonModel
 from .xstatic import xstatic_compile
@@ -285,21 +285,6 @@ def java_compile(java_code: str, args):
     # cleanup and check
     java_file.unlink()
     assert status == 0, f"Java compilation succeeded: {command}"
-
-
-def jmc_version(dynamic: bool = True) -> str:
-    version = pkg_version("json_model_compiler")
-    version_ref = load_data_file("VERSION").strip()
-    # if we are in a development version, try to recompute the version dynamically
-    if dynamic and version != version_ref:
-        log.debug(f"recomputing version...")
-        try:
-            from setuptools_git_versioning import get_version
-            version = str(get_version(root=Path(__file__).parent.parent))
-        except Exception as e:
-            log.debug(f"error while computing version: {e}")
-            pass
-    return version
 
 #
 # Compiler entry point
