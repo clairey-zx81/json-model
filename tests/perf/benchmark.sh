@@ -240,7 +240,7 @@ echo "## result counts $(( $SECONDS - $START ))"
 
 START=$SECONDS
 shopt -s nullglob
-src-to-csv.py tmp/[0-9]*/*.{c,java,js,pl,py,model.json} > sources.csv
+src-to-csv.py tmp/0/*.{c,java,js,pl,py,model.json} > sources.csv
 echo "## source summary $(( $SECONDS - $START ))"
 
 START=$SECONDS
