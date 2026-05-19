@@ -41,11 +41,13 @@ for opt in srx csp sim flt pev ans aco x2o non ; do
   bench $opt -nOp=$opt
 done
 
-# others
+# c-backend
 bench uni --no-unique-optimize
 bench sco --no-strcmp-optimize
-bench sho --no-call-shortcut
 bench set --max-strcmp-cset=0
+
+# xstatic AST generation
+bench sho --no-call-shortcut
 bench map --map-threshold=0
 bench aun --array-unrolling-size=0
 bench mmo -mmot=0
@@ -53,5 +55,12 @@ bench mot -mot=0
 bench omp -omp=0
 bench pa0 -pt=0
 bench pax -pt=1024
+bench dis --no-disjunction
+bench abo --no-all-but-one
+bench mba --no-missing-basics
+bench xrp --no-xor-repeats
+bench xin --no-xor-is-not
+bench hol --no-homogeneous-list
 
+# IR
 bench iro --no-ir-optimize

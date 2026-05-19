@@ -46,6 +46,12 @@ class CodeGenerator:
     - sort_may: whether to sort may properties, default False
     - regex_pattern: simplify simple regex patterns (starts with, ends with, equal…)
     - call_shortcut: shortcut function calls if possible
+    - disjunction: try to detect disjunctions
+    - all_but_one: detect any but one type
+    - missing_basics: detect some missing basics
+    - xor_repeats: extract repeated models inside a xor
+    - xor_is_not: detect a xor which is a not (any or str)
+    - homogeneous_list: factor out type check on homogeneous lists (or, and…)
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
@@ -58,6 +64,8 @@ class CodeGenerator:
                 array_unrolling_size: int = 8, partition_threshold: int = 0,
                 sort_must: bool = False, sort_may: bool = False, or_must_prop: int = 0,
                 regex_pattern: bool = True, call_shortcut: bool = True,
+                disjunction: bool = True, all_but_one: bool = True, missing_basics: bool = True,
+                xor_repeats: bool = True, xor_is_not: bool = True, homogeneous_list: bool = True,
                 comment: bool = True, execute: bool = True, report: bool = True,
                 path: bool = True, package: str|None = None, debug: bool = False,
             ):
@@ -85,6 +93,12 @@ class CodeGenerator:
         self._array_unrolling_size = array_unrolling_size
         self._regex_pattern = regex_pattern
         self._call_shortcut = call_shortcut
+        self._disjunction = disjunction
+        self._all_but_one = all_but_one
+        self._missing_basics = missing_basics
+        self._xor_repeats = xor_repeats
+        self._xor_is_not = xor_is_not
+        self._homogeneous_list = homogeneous_list
 
         self._code = Code(language, fname, executable=execute, package=package)
 
@@ -661,13 +675,17 @@ class CodeGenerator:
 
         return code
 
-    def _disjunction(
+    def _is_disjunction(
                 self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                 res: str, val: str, vpath: str, known: set[BoolExpr]|None = None,
             ) -> Block|None:
         """Generate optimized disjunction check, return None if failed."""
 
         assert isinstance(model, dict) and "|" in model and isinstance(model["|"], list)
+
+        # optimization is disabled
+        if not self._disjunction:
+            return None
 
         dis = disjunct_analyse(jm, model, mpath, True)  # type: ignore
         log.debug(f"disjunct at {mpath}: dis={dis}")
@@ -1521,7 +1539,7 @@ class CodeGenerator:
 
         # all types but one
         all_but_one = self._checkAllButOne(jm, models, mpath)
-        if all_but_one:
+        if all_but_one and self._all_but_one:
             # res = type(val) is mtype
             # if res:
             #    res = ...
@@ -1554,7 +1572,7 @@ class CodeGenerator:
 
         # small subset of basics are negated
         missing_basics = self._allBasicsButSome(jm, models, mpath)
-        if missing_basics is not None and len(missing_basics) <= 2:
+        if missing_basics is not None and len(missing_basics) <= 2 and self._missing_basics:
             code += gen.bool_var(res,
                 gen.and_op(
                     *[
@@ -1565,9 +1583,9 @@ class CodeGenerator:
             )
             return code + self._gen_report(res, f"unexpected type [{smpath}]", vpath)
 
-        # discriminant optimization for list of objects, None if fails
+        # discriminant optimization for list of objects, None if fails or disabled
         tmp: ModelType = {"|": models}
-        if dcode := self._disjunction(jm, tmp, mpath, res, val, vpath, known):
+        if dcode := self._is_disjunction(jm, tmp, mpath, res, val, vpath, known):
             if need_if:
                 return code + gen.if_stmt(gen.not_op(res), dcode)
             else:
@@ -1577,7 +1595,7 @@ class CodeGenerator:
         same, expected = all_model_type(models, mpath)
         or_known: set[BoolExpr] = set()
         or_code = []
-        if same:
+        if same and self._homogeneous_list:
             # all models have the same ultimate type, type check shortcut
             type_test = gen.is_a(val, expected)
             or_known.add(type_test)
@@ -1674,7 +1692,7 @@ class CodeGenerator:
                 self._compileModel(jm, models[0], mpath + [0], res, val, vpath, known)
 
         # optimize out repeated models
-        if len(models) >= 2:
+        if len(models) >= 2 and self._xor_repeats:
             seen, dups, kept = [], [], []
             seen_i, dups_i, kept_i = [], [], []
             for i, m in enumerate(models):
@@ -1726,7 +1744,7 @@ class CodeGenerator:
             xcode += gen.lcom("singleton xor list") + \
                 self._compileModel(jm, mod, mpath + [idx], res, val, vpath, known)
         else:  # several models are inlined
-            if len(models) == 2 and "$ANY" in models:
+            if len(models) == 2 and "$ANY" in models and self._xor_is_not:
                 xcode += gen.lcom("not-case xor list")
                 # get other model
                 if models[0] == "$ANY":
@@ -1741,7 +1759,7 @@ class CodeGenerator:
                     self._compileModel(jm, m, mpath + [idx], is_m, val, vpath) +
                     gen.bool_var(res, gen.not_op(is_m))
                 )
-            elif len(models) == 2 and "" in models and (mtype := all_model_type(models, mpath)[1]) is str:
+            elif len(models) == 2 and "" in models and (mtype := all_model_type(models, mpath)[1]) is str and self._xor_is_not:
                 idx = 1 if models[0] == "" else 0
                 moth = models[idx]
                 is_str = gen.is_a(val, str)
@@ -1810,7 +1828,7 @@ class CodeGenerator:
 
         # homogeneous typed list
         same, expected = all_model_type(models, mpath)
-        if same:
+        if same and self._homogeneous_list:
             # all models have the same ultimate type, use a type shortcut
             type_test = gen.is_a(val, expected)
             code += gen.bool_var(res, type_test)
@@ -2347,6 +2365,12 @@ def xstatic_compile(
         regex_pattern: bool = True,
         unique_opt: bool = True,
         call_shortcut: bool = True,
+        disjunction: bool = True,
+        all_but_one: bool = True,
+        missing_basics: bool = True,
+        xor_repeats: bool = True,
+        xor_is_not: bool = True,
+        homogeneous_list: bool = True,
         max_strcmp_cset: int = 64,
         byte_order: str = "le",
     ) -> Code:
@@ -2381,6 +2405,12 @@ def xstatic_compile(
     - unique_opt: whether to use type-specific runtime for unicity checks
     - max_strcmp_cset: max size for direct str constant set
     - call_shortcut: shortcut function calls when possible
+    - disjunction: try to detect disjunctions
+    - all_but_one: detect any but one type
+    - missing_basics: detect some missing basics
+    - xor_repeats: extract repeated models inside a xor
+    - xor_is_not: detect a xor which is a not (any or str)
+    - homogeneous_list: factor out type check on homogeneous lists (or, and…)
     - byte_order: le, be or dpd
     """
 
@@ -2540,6 +2570,8 @@ def xstatic_compile(
         array_unrolling_size=array_unrolling_size,
         or_must_prop=or_must_prop, sort_must=sort_must, sort_may=sort_may,
         regex_pattern=regex_pattern, call_shortcut=call_shortcut,
+        disjunction=disjunction, all_but_one=all_but_one, missing_basics=missing_basics,
+        xor_repeats=xor_repeats, xor_is_not=xor_is_not, homogeneous_list=homogeneous_list,
         execute=execute, debug=debug, report=report, package=package, comment=comment,
     )
 

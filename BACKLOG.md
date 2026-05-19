@@ -35,7 +35,7 @@
 - [x] test: do not test `24:00:00` as time validators are unlikely to agree
 - [x] container: remove `cstring` add, `cre2` master is now fixed
 - [x] perf: allow to restrict reporting to a subset of tools
-- [ ] static: check for more optimization that may be disabled?
+- [x] static: allow disabling more xstatic optimization
 - [ ] front: add argument groups
 - [ ] perf: add stddev performance computation
 - [ ] perf: add note about random frequency governor changes because of cpu temperature

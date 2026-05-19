@@ -461,6 +461,30 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="shortcut function call when possible")
     arg("--no-call-shortcut", dest="shortcut_call", action="store_false",
         help="do not shortcut function call when possible")
+    arg("--disjunction", default=True, action="store_true",
+        help="detect object disjunctions, i.e. with discriminating property")
+    arg("--no-disjunction", dest="disjunction", action="store_false",
+        help="do not detect object disjunctions")
+    arg("--all-but-one", default=True, action="store_true",
+        help="simplify all-but-one type checks")
+    arg("--no-all-but-one", dest="all_but_one", action="store_false",
+        help="do not simplify all-but-one type checks")
+    arg("--missing-basics", default=True, action="store_true",
+        help="simplify few missing basics type checks")
+    arg("--no-missing_basics", dest="missing_basics", action="store_false",
+        help="do not simplify few missing basics type checks")
+    arg("--xor-repeats", default=True, action="store_true",
+        help="extract xor model repetitions")
+    arg("--no-xor-repeats", dest="xor_repeats", action="store_false",
+        help="do not extract xor model repetitions")
+    arg("--xor-is-not", default=True, action="store_true",
+        help="simplify xor as a not when possible")
+    arg("--no-xor-is-not", dest="xor_is_not", action="store_false",
+        help="do not simplify xor as a not when possible")
+    arg("--homogeneous-list", default=True, action="store_true",
+        help="factor out type check on homogeneous or/and lists")
+    arg("--no-homogeneous-list", dest="homogeneous_list", action="store_false",
+        help="do not factor out type check on homogeneous or/and lists")
 
     # (C) backend optimizations
     arg("--max-strcmp-cset", default=512, type=int,  # actual cutoff about 2300 on tests
@@ -785,6 +809,12 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             sort_must=args.sort_must,
             sort_may=args.sort_may,
             call_shortcut=args.call_shortcut,
+            disjunction=args.disjunction,
+            all_but_one=args.all_but_one,
+            missing_basics=args.missing_basics,
+            xor_repeats=args.xor_repeats,
+            xor_is_not=args.xor_is_not,
+            homogeneous_list=args.homogeneous_list,
             max_strcmp_cset=args.max_strcmp_cset,
             array_unrolling_size=args.array_unrolling_size,
         )

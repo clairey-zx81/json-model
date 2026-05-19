@@ -177,6 +177,12 @@ Name of the entry function to generate.
 
 Name of package for generated module, if appliable.
 
+=back
+
+=head2 Code Generation Optimizations
+
+=over 4
+
 =item B<--map-threshold THRESHOLD>
 
 Maximum number of props to inline property checks in objects.
@@ -229,6 +235,30 @@ Whether to shortcut function calls when possible.
 =item B<--array-unrolling-size SIZE>
 
 Maximum size of simple array unrolling.
+
+=item B<--disjunction> B<--no-disjunction>
+
+Whether to try to detect disjunctions, aka discriminating properties.
+
+=item B<--all-but-one> B<--no-all-but-one>
+
+Whether to detect and simplify all but one type checks.
+
+=item B<missing-basics> B<--no-missing-basics>
+
+Whether to detect type checks with few missing basics.
+
+=item B<xor-repeats> B<--no-xor-repeats>
+
+Whether to extract repeated models inside a xor.
+
+=item B<xor-is-not> B<--no-xor-is-not>
+
+Whether to detect a xor which is a not (any or str).
+
+=item B<homogeneous-list> B<--no-homogeneous-list>
+
+Whether to factor out type check on homogeneous or/and lists.
 
 =back
 
