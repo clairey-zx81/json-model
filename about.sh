@@ -29,6 +29,7 @@ but excludes language-specific code generators.
 EOF
 
 cloc --md \
+    json_model/__init__.py \
     json_model/analyze.py \
     json_model/convert.py \
     json_model/export.py \
