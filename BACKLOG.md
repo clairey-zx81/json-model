@@ -37,6 +37,7 @@
 - [x] perf: allow to restrict reporting to a subset of tools
 - [x] static: allow disabling more xstatic optimization
 - [ ] front: add argument groups
+- [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation
 - [ ] perf: add note about random frequency governor changes because of cpu temperature
 - [ ] perf: possibly mount jsb as a volume when benchmarking
