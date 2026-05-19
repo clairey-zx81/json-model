@@ -33,7 +33,7 @@
 - [x] static: allow to disable function call shortcuts
 - [x] c-runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
 - [x] test: do not test `24:00:00` as time validators are unlikely to agree
-- [ ] container: remove `cstring` add, `cre2` master is now fixed
+- [x] container: remove `cstring` add, `cre2` master is now fixed
 - [ ] perf: allow to restrict reporting to a subset of tools
 - [ ] static: check for more optimization that may be disabled?
 - [ ] front: add argument groups
