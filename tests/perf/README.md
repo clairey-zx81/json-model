@@ -14,6 +14,8 @@ sudo cpupower frequency-set -d 2.0GHz
 sudo cpupower frequency-set -g powersave
 sudo cpupower frequency-set -u 4.0GHz
 sudo cpupower frequency-set -d 1.2GHz
+# show
+cpupower frequency-info
 ```
 
 ## Start Script
