@@ -1,5 +1,21 @@
 # Build and run JSON Model compiler benchmarking artifact
 
+## Stabalizing performance
+
+On calcutta:
+
+```bash
+# set, temperature remains below 70°C (90W)
+sudo cpupower frequency-set -g performance
+sudo cpupower frequency-set -u 2.0GHz
+sudo cpupower frequency-set -d 2.0GHz
+# limit parallelism to 12 (24 cores, can handle HT)
+# reset to normal
+sudo cpupower frequency-set -g powersave
+sudo cpupower frequency-set -u 4.0GHz
+sudo cpupower frequency-set -d 1.2GHz
+```
+
 ## Start Script
 
 The `start_bench.sh` starts a benchmark into an empty subdirectory.
