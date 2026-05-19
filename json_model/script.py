@@ -471,7 +471,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="do not simplify all-but-one type checks")
     arg("--missing-basics", default=True, action="store_true",
         help="simplify few missing basics type checks")
-    arg("--no-missing_basics", dest="missing_basics", action="store_false",
+    arg("--no-missing-basics", dest="missing_basics", action="store_false",
         help="do not simplify few missing basics type checks")
     arg("--xor-repeats", default=True, action="store_true",
         help="extract xor model repetitions")
