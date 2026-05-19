@@ -329,7 +329,7 @@ or deselect tools for easier comparisons.
 - **host:** $(hostname)
 - **cpu model:** $cpu_model
 - **cpu cores:** $cpu_count
-- **cpu freq:** ($(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz)
+- **cpu freq:** $(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
 - **jsonschema-cli version:** $(js-cli --version)
