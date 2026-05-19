@@ -290,6 +290,15 @@ read cur_freq < $cpu0/scaling_cur_freq
 read min_freq < $cpu0/scaling_min_freq
 read max_freq < $cpu0/scaling_max_freq
 
+function unit()
+{
+  local perf=$1
+  perf=${perf%000000000}G
+  perf=${perf%000000}M
+  perf=${perf%000}K
+  echo $perf
+}
+
 function pod_id()
 {
   $POD inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
@@ -320,7 +329,7 @@ or deselect tools for easier comparisons.
 - **host:** $(hostname)
 - **cpu model:** $cpu_model
 - **cpu cores:** $cpu_count
-- **cpu freq:** $cur_freq Hz ($min_freq-$max_freq)
+- **cpu freq:** ($(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
 - **jsonschema-cli version:** $(js-cli --version)
