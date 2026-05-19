@@ -2,7 +2,7 @@
 #
 # Generate a markdown report about a benchmark run
 #
-# TODO consider pandas?
+# people would probably use pandas instead of sql + python
 
 import sys
 import argparse
@@ -118,9 +118,10 @@ def report():
     arg("--debug", dest="level", action="store_const", const=logging.DEBUG, default=logging.INFO, help="run in debug mode")
     arg("--quiet", dest="level", action="store_const", const=logging.WARNING, help="be quiet")
     # output
-    arg("--standard", action="store_true", help="Standard comparison report for web site")
+    arg("--standard", action="store_true", help="standard comparison report for web site")
+    arg("--tools", nargs="*", help="restrict analysis to these tools")
     # input
-    arg("database", nargs="?", default="perf.db", help="Use this SQLite database")
+    arg("database", nargs="?", default="perf.db", help="use this SQLite database")
     args = ap.parse_args()
 
     log.setLevel(args.level)
@@ -133,6 +134,12 @@ def report():
         (t[0] for t in conn.execute("SELECT tool FROM Tools")),
         key=lambda n: "jmc-jas" if n == "jmc-js" else n
     )
+
+    if args.tools:
+        # check availability and override, keeping the order
+        assert set(args.tools) in set(tools), "expected tools are available"
+        assert len(set(args.tools)) == len(args.tools), "no tool repetition"
+        tools = args.tools
 
     # provide some names for non standard reports
     for t in tools:
@@ -349,7 +356,7 @@ def report():
         from scipy.stats import chi2_contingency
 
         print()
-        print(f"- **alpha:** {args.alpha} (χ² test)")
+        print(f"- **alpha:** {args.alpha} (for χ² test)")
         print()
         print("### Detailed Performance Impact")
 
