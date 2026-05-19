@@ -9,7 +9,7 @@ export jmc_bench=dev
 jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled"
 
 # parallelism, loop, repeats
-bench_opts="-p 16 -l 1000 -r 47 -T c"
+bench_opts="-p 20 -l 1000 -r 47 -T c"
 jmc_common="--single-line-regex --no-predef --cc=clang --precompiled --short-version"
 
 # TODO add jsu-model options?

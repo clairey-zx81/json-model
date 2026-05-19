@@ -281,9 +281,14 @@ echo "## performance analysis $(( $SECONDS - $START ))"
 
 START=$SECONDS
 
-# cpu data
+# collect cpu data
 cpu_model=$(lscpu --extended=MODELNAME | sed -n 2p)
 cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
+
+cpu0=/sys/devices/system/cpu/cpu0/cpufreq
+read cur_freq < $cpu0/scaling_cur_freq
+read min_freq < $cpu0/scaling_min_freq
+read max_freq < $cpu0/scaling_max_freq
 
 function pod_id()
 {
@@ -293,6 +298,7 @@ function pod_id()
 #
 # OUTPUT
 #
+
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
 
@@ -314,6 +320,7 @@ or deselect tools for easier comparisons.
 - **host:** $(hostname)
 - **cpu model:** $cpu_model
 - **cpu cores:** $cpu_count
+- **cpu freq:** $cur_freq Hz ($min_freq-$max_freq)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
 - **jsonschema-cli version:** $(js-cli --version)

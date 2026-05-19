@@ -9,7 +9,7 @@ On calcutta:
 sudo cpupower frequency-set -g performance
 sudo cpupower frequency-set -u 2.0GHz
 sudo cpupower frequency-set -d 2.0GHz
-# limit parallelism to 12 (24 cores, can handle HT)
+# limit parallelism to 12 for java, 20 for others (24 cores, can handle HT)
 # reset to normal
 sudo cpupower frequency-set -g powersave
 sudo cpupower frequency-set -u 4.0GHz
