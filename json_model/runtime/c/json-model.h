@@ -10,7 +10,19 @@
 #include <assert.h>
 #include <ctype.h>
 
+// JSON library
 #include <jansson.h>
+
+// regular expression engine
+#if defined(REGEX_ENGINE_PCRE2)
+#  define PCRE2_CODE_UNIT_WIDTH 8
+#  include <pcre2.h>
+#elif defined(REGEX_ENGINE_RE2)
+#  include <stddef.h>
+#  include <cre2.h>
+#else
+#  error missing regex engine definition
+#endif
 
 /*
  * build generated API names

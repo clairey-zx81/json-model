@@ -620,17 +620,6 @@ class CLangJansson(Language):
     #
     def file_header(self, exe: bool = True) -> Block:
         code: Block = super().file_header(exe)
-        code += [ "", "// regular expression engine" ]
-        if self._relib == "pcre2":
-            code += [
-                "#define PCRE2_CODE_UNIT_WIDTH 8",
-                "#include <pcre2.h>",
-            ]
-        else:
-            code += [
-                "#include <stddef.h>",
-                "#include <cre2.h>",
-            ]
         code += [
             r"",
             r"#include <json-model.h>",
