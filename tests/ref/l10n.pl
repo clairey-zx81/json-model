@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -29,19 +29,19 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'Model')
+        if ($prop eq "Model")
         {
             # handle must Model property
             $must_count++;
             # .'$'.Model
-            $res = jm_is_string($pval) && $pval eq '$https://json-model.org/models/json-model';
+            $res = jm_is_string($pval) && $pval eq "\$https://json-model.org/models/json-model";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        if ($prop eq '')
+        if ($prop eq "")
         {
             # handle may  property
             # .'$'.''
@@ -83,7 +83,7 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, "#"))
         {
             # handle 2 re props
             # .'%'.'/^#/'
@@ -127,7 +127,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '$')
+        if ($prop eq "\$")
         {
             # handle must $ property
             $must_count++;
@@ -139,19 +139,19 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq '~')
+        elsif ($prop eq "~")
         {
             # handle must ~ property
             $must_count++;
             # .'~'
-            $res = jm_is_string($pval) && $pval eq 'https://json-model.org/models/l10n';
+            $res = jm_is_string($pval) && $pval eq "https://json-model.org/models/l10n";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq '%')
+        elsif ($prop eq "%")
         {
             # handle must % property
             $must_count++;
@@ -164,19 +164,19 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq '@')
+        elsif ($prop eq "\@")
         {
             # handle must @ property
             $must_count++;
             # .'@'
-            $res = jm_is_string($pval) && $pval eq '$Model';
+            $res = jm_is_string($pval) && $pval eq "\$Model";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        if (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, "#"))
         {
             # handle 1 re props
             # .'/^#/'
@@ -205,7 +205,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

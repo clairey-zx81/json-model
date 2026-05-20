@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -22,7 +22,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$c'
-    return jm_is_string($val) && $val eq 'c';
+    return jm_is_string($val) && $val eq "c";
 }
 
 # check $a (.'$a')
@@ -30,7 +30,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$a'
-    return jm_is_string($val) && $val eq 'a';
+    return jm_is_string($val) && $val eq "a";
 }
 
 # check $b (.'$b')
@@ -38,7 +38,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$b'
-    return jm_is_string($val) && $val eq 'b';
+    return jm_is_string($val) && $val eq "b";
 }
 
 # check $ (.)
@@ -60,10 +60,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'c' => \&json_model_2,
-            'a' => \&json_model_4,
-            'b' => \&json_model_5,
+            "" => \&json_model_1,
+            "c" => \&json_model_2,
+            "a" => \&json_model_4,
+            "b" => \&json_model_5,
         );
     }
 }

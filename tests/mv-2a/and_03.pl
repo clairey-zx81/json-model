@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -28,7 +28,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 's')
+        if ($prop eq "s")
         {
             # handle must s property
             $must_count++;
@@ -40,7 +40,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        if ($prop eq 'b')
+        if ($prop eq "b")
         {
             # handle may b property
             # .b
@@ -51,7 +51,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'i')
+        elsif ($prop eq "i")
         {
             # handle may i property
             # .i
@@ -62,7 +62,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'f')
+        elsif ($prop eq "f")
         {
             # handle may f property
             # .f
@@ -73,7 +73,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'xs'))
+        if (jm_starts_with($prop, "xs"))
         {
             # handle 4 re props
             # .'/^xs/'
@@ -83,7 +83,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'xb'))
+        elsif (jm_starts_with($prop, "xb"))
         {
             # handle 4 re props
             # .'/^xb/'
@@ -93,7 +93,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'xi'))
+        elsif (jm_starts_with($prop, "xi"))
         {
             # handle 4 re props
             # .'/^xi/'
@@ -103,7 +103,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'xf'))
+        elsif (jm_starts_with($prop, "xf"))
         {
             # handle 4 re props
             # .'/^xf/'
@@ -133,7 +133,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

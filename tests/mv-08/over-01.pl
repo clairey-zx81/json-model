@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_3($$$);
@@ -45,11 +45,11 @@ sub json_model_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'foo')
+        if ($prop eq "foo")
         {
             # handle may foo property
             # .'$over#Foo'.foo
-            $res = jm_is_string($pval) && $pval eq 'rewritten foo';
+            $res = jm_is_string($pval) && $pval eq "rewritten foo";
             if (! $res)
             {
                 return 0;
@@ -72,8 +72,8 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_4,
-            'over' => \&json_model_4,
+            "" => \&json_model_4,
+            "over" => \&json_model_4,
         );
     }
 }

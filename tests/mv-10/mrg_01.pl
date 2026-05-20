@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -22,7 +22,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$t'
-    return jm_is_string($val) && $val eq 'cst_01';
+    return jm_is_string($val) && $val eq "cst_01";
 }
 
 # check $x (.'$x')
@@ -40,24 +40,24 @@ sub json_model_3($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'$x'.a
-    my $res = jm_is_string($pval) && $pval eq 'cst_01';
+    my $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'$x'.b
-    return jm_is_string($pval) && $pval eq 'cst_01';
+    return jm_is_string($pval) && $pval eq "cst_01";
 }
 
 # check $y (.'$y')
@@ -75,24 +75,24 @@ sub json_model_4($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'$y'.c
-    my $res = jm_is_string($pval) && $pval eq 'cst_01';
+    my $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'d'})
+    if (! exists $$val{"d"})
     {
         return 0;
     }
-    $pval = $$val{'d'};
+    $pval = $$val{"d"};
     # .'$y'.d
-    return jm_is_string($pval) && $pval eq 'cst_01';
+    return jm_is_string($pval) && $pval eq "cst_01";
 }
 
 # check $ (.)
@@ -110,46 +110,46 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .a
-    my $res = jm_is_string($pval) && $pval eq 'cst_01';
+    my $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .b
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .c
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'d'})
+    if (! exists $$val{"d"})
     {
         return 0;
     }
-    $pval = $$val{'d'};
+    $pval = $$val{"d"};
     # .d
-    return jm_is_string($pval) && $pval eq 'cst_01';
+    return jm_is_string($pval) && $pval eq "cst_01";
 }
 
 
@@ -163,10 +163,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            't' => \&json_model_2,
-            'x' => \&json_model_3,
-            'y' => \&json_model_4,
+            "" => \&json_model_1,
+            "t" => \&json_model_2,
+            "x" => \&json_model_3,
+            "y" => \&json_model_4,
         );
     }
 }

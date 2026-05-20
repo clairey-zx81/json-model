@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_4($$$);
@@ -21,7 +21,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$x1'
-    return jm_is_string($val) && $val eq 'Susie';
+    return jm_is_string($val) && $val eq "Susie";
 }
 
 # check $x2 (.'$x2')
@@ -29,7 +29,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$x2'
-    return jm_is_string($val) && $val eq 'Susie';
+    return jm_is_string($val) && $val eq "Susie";
 }
 
 # check $ (.)
@@ -47,24 +47,24 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .a
-    my $res = jm_is_string($pval) && $pval eq 'Susie';
+    my $res = jm_is_string($pval) && $pval eq "Susie";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .b
-    return jm_is_string($pval) && $pval eq 'Susie';
+    return jm_is_string($pval) && $pval eq "Susie";
 }
 
 
@@ -78,9 +78,9 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'x1' => \&json_model_4,
-            'x2' => \&json_model_5,
+            "" => \&json_model_1,
+            "x1" => \&json_model_4,
+            "x2" => \&json_model_5,
         );
     }
 }

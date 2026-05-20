@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -34,24 +34,24 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'v'})
+    if (! exists $$val{"v"})
     {
         return 0;
     }
-    $pval = $$val{'v'};
+    $pval = $$val{"v"};
     # .'$oA'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$oA'.t
-    return jm_is_string($pval) && $pval eq 'a';
+    return jm_is_string($pval) && $pval eq "a";
 }
 
 
@@ -66,22 +66,22 @@ sub json_model_3($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'v'})
+    if (! exists $$val{"v"})
     {
         return 0;
     }
-    $pval = $$val{'v'};
+    $pval = $$val{"v"};
     # .'$oB'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$oB'.t
     return jm_is_string($pval) && exists $_jm_cst_0{$pval};
 }
@@ -96,7 +96,7 @@ sub json_model_4($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'t'}))
+        if (defined($tag_0 = $$val{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -120,24 +120,24 @@ sub json_model_5($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'v'})
+    if (! exists $$val{"v"})
     {
         return 0;
     }
-    $pval = $$val{'v'};
+    $pval = $$val{"v"};
     # .'$oL'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$oL'.t
-    return jm_is_string($pval) && $pval eq 'd';
+    return jm_is_string($pval) && $pval eq "d";
 }
 
 
@@ -152,22 +152,22 @@ sub json_model_6($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'v'})
+    if (! exists $$val{"v"})
     {
         return 0;
     }
-    $pval = $$val{'v'};
+    $pval = $$val{"v"};
     # .'$oX'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$oX'.t
     return jm_is_string($pval) && exists $_jm_cst_1{$pval};
 }
@@ -182,7 +182,7 @@ sub json_model_1($$$)
     if ($res)
     {
         my $tag_1;
-        if (defined($tag_1 = $$val{'t'}))
+        if (defined($tag_1 = $$val{"t"}))
         {
             my $fun_1 = $_jm_map_1{$tag_1};
             $res = defined($fun_1) && &$fun_1($val, undef, undef);
@@ -206,30 +206,30 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'b' => 1,
-            'c' => 1,
+            "b" => 1,
+            "c" => 1,
         );
         %_jm_map_0 = (
-            'e' => \&json_model_6,
-            'f' => \&json_model_6,
-            'd' => \&json_model_5,
+            "e" => \&json_model_6,
+            "f" => \&json_model_6,
+            "d" => \&json_model_5,
         );
         %_jm_cst_1 = (
-            'e' => 1,
-            'f' => 1,
+            "e" => 1,
+            "f" => 1,
         );
         %_jm_map_1 = (
-            'a' => \&json_model_2,
-            'b' => \&json_model_3,
-            'c' => \&json_model_3,
+            "a" => \&json_model_2,
+            "b" => \&json_model_3,
+            "c" => \&json_model_3,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'oA' => \&json_model_2,
-            'oB' => \&json_model_3,
-            'oC' => \&json_model_4,
-            'oL' => \&json_model_5,
-            'oX' => \&json_model_6,
+            "" => \&json_model_1,
+            "oA" => \&json_model_2,
+            "oB" => \&json_model_3,
+            "oC" => \&json_model_4,
+            "oL" => \&json_model_5,
+            "oX" => \&json_model_6,
         );
     }
 }

@@ -4,7 +4,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -42,7 +42,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'dot')
+        if ($prop eq "dot")
         {
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
             if (! $res)
@@ -51,7 +51,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'doti')
+        elsif ($prop eq "doti")
         {
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
             if (! $res)
@@ -60,7 +60,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'dots')
+        elsif ($prop eq "dots")
         {
             $res = jm_is_string($pval) && length $pval > 0;
             if (! $res)
@@ -69,7 +69,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'dot+')
+        elsif ($prop eq "dot+")
         {
             $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef);
             if (! $res)
@@ -78,7 +78,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'dot*')
+        elsif ($prop eq "dot*")
         {
             $res = jm_is_string($pval) && _jm_re_2($pval, undef, undef);
             if (! $res)
@@ -87,7 +87,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'dot+s')
+        elsif ($prop eq "dot+s")
         {
             $res = jm_is_string($pval) && length $pval > 0;
             if (! $res)
@@ -96,7 +96,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'dot*s')
+        elsif ($prop eq "dot*s")
         {
             $res = jm_is_string($pval);
             if (! $res)
@@ -121,7 +121,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

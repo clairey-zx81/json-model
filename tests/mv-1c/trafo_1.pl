@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -30,22 +30,22 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'ua'})
+    if (! exists $$val{"ua"})
     {
         return 0;
     }
-    $pval = $$val{'ua'};
+    $pval = $$val{"ua"};
     # .'$un'.ua
     my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'ub'})
+    if (! exists $$val{"ub"})
     {
         return 0;
     }
-    $pval = $$val{'ub'};
+    $pval = $$val{"ub"};
     # .'$un'.ub
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -69,8 +69,8 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_2,
-            'un' => \&json_model_2,
+            "" => \&json_model_2,
+            "un" => \&json_model_2,
         );
     }
 }

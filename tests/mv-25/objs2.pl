@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -32,22 +32,22 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'x'})
+    if (! exists $$val{"x"})
     {
         return 0;
     }
-    $pval = $$val{'x'};
+    $pval = $$val{"x"};
     # .'$bla'.x
     my $res = jm_is_numeric($pval);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'y'})
+    if (! exists $$val{"y"})
     {
         return 0;
     }
-    $pval = $$val{'y'};
+    $pval = $$val{"y"};
     # .'$bla'.y
     return jm_is_numeric($pval);
 }
@@ -87,10 +87,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_2,
-            'bla' => \&json_model_2,
-            'foo' => \&json_model_2,
-            'ob' => \&json_model_2,
+            "" => \&json_model_2,
+            "bla" => \&json_model_2,
+            "foo" => \&json_model_2,
+            "ob" => \&json_model_2,
         );
     }
 }

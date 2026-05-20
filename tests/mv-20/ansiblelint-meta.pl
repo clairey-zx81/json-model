@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 my %_jm_cst_0;
@@ -241,18 +241,18 @@ sub json_model_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$AIXPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'AIX';
+            $res = jm_is_string($pval) && $pval eq "AIX";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$AIXPlatformModel'.versions
@@ -294,18 +294,18 @@ sub json_model_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$AlpinePlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Alpine';
+            $res = jm_is_string($pval) && $pval eq "Alpine";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$AlpinePlatformModel'.versions
@@ -316,7 +316,7 @@ sub json_model_3($$$)
                 {
                     my $arr_1_item = $$pval[$arr_1_idx];
                     # .'$AlpinePlatformModel'.versions.0
-                    $res = jm_is_string($arr_1_item) && $arr_1_item eq 'all';
+                    $res = jm_is_string($arr_1_item) && $arr_1_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -348,18 +348,18 @@ sub json_model_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$AmazonLinuxPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Amazon Linux';
+            $res = jm_is_string($pval) && $pval eq "Amazon Linux";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$AmazonLinuxPlatformModel'.versions
@@ -402,18 +402,18 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$AmazonPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Amazon';
+            $res = jm_is_string($pval) && $pval eq "Amazon";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$AmazonPlatformModel'.versions
@@ -455,18 +455,18 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$ArchLinuxPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'ArchLinux';
+            $res = jm_is_string($pval) && $pval eq "ArchLinux";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$ArchLinuxPlatformModel'.versions
@@ -477,7 +477,7 @@ sub json_model_6($$$)
                 {
                     my $arr_4_item = $$pval[$arr_4_idx];
                     # .'$ArchLinuxPlatformModel'.versions.0
-                    $res = jm_is_string($arr_4_item) && $arr_4_item eq 'all';
+                    $res = jm_is_string($arr_4_item) && $arr_4_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -509,18 +509,18 @@ sub json_model_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$AstraLinuxPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Astra Linux';
+            $res = jm_is_string($pval) && $pval eq "Astra Linux";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$AstraLinuxPlatformModel'.versions
@@ -562,18 +562,18 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$ClearLinuxPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'ClearLinux';
+            $res = jm_is_string($pval) && $pval eq "ClearLinux";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$ClearLinuxPlatformModel'.versions
@@ -584,7 +584,7 @@ sub json_model_8($$$)
                 {
                     my $arr_6_item = $$pval[$arr_6_idx];
                     # .'$ClearLinuxPlatformModel'.versions.0
-                    $res = jm_is_string($arr_6_item) && $arr_6_item eq 'all';
+                    $res = jm_is_string($arr_6_item) && $arr_6_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -616,18 +616,18 @@ sub json_model_9($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$CumulusPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Cumulus';
+            $res = jm_is_string($pval) && $pval eq "Cumulus";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$CumulusPlatformModel'.versions
@@ -670,18 +670,18 @@ sub json_model_10($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$DebianPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Debian';
+            $res = jm_is_string($pval) && $pval eq "Debian";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$DebianPlatformModel'.versions
@@ -724,18 +724,18 @@ sub json_model_11($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$DellOSPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'DellOS';
+            $res = jm_is_string($pval) && $pval eq "DellOS";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$DellOSPlatformModel'.versions
@@ -778,18 +778,18 @@ sub json_model_12($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$DevuanPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Devuan';
+            $res = jm_is_string($pval) && $pval eq "Devuan";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$DevuanPlatformModel'.versions
@@ -832,18 +832,18 @@ sub json_model_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$DragonFlyBSDPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'DragonFlyBSD';
+            $res = jm_is_string($pval) && $pval eq "DragonFlyBSD";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$DragonFlyBSDPlatformModel'.versions
@@ -886,18 +886,18 @@ sub json_model_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$ELPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'EL';
+            $res = jm_is_string($pval) && $pval eq "EL";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$ELPlatformModel'.versions
@@ -940,18 +940,18 @@ sub json_model_15($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$FedoraPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Fedora';
+            $res = jm_is_string($pval) && $pval eq "Fedora";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$FedoraPlatformModel'.versions
@@ -994,18 +994,18 @@ sub json_model_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$FreeBSDPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'FreeBSD';
+            $res = jm_is_string($pval) && $pval eq "FreeBSD";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$FreeBSDPlatformModel'.versions
@@ -1047,18 +1047,18 @@ sub json_model_17($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$GenericBSDPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'GenericBSD';
+            $res = jm_is_string($pval) && $pval eq "GenericBSD";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$GenericBSDPlatformModel'.versions
@@ -1069,7 +1069,7 @@ sub json_model_17($$$)
                 {
                     my $arr_15_item = $$pval[$arr_15_idx];
                     # .'$GenericBSDPlatformModel'.versions.0
-                    $res = jm_is_string($arr_15_item) && $arr_15_item eq 'all';
+                    $res = jm_is_string($arr_15_item) && $arr_15_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -1100,18 +1100,18 @@ sub json_model_18($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$GenericLinuxPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'GenericLinux';
+            $res = jm_is_string($pval) && $pval eq "GenericLinux";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$GenericLinuxPlatformModel'.versions
@@ -1122,7 +1122,7 @@ sub json_model_18($$$)
                 {
                     my $arr_16_item = $$pval[$arr_16_idx];
                     # .'$GenericLinuxPlatformModel'.versions.0
-                    $res = jm_is_string($arr_16_item) && $arr_16_item eq 'all';
+                    $res = jm_is_string($arr_16_item) && $arr_16_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -1153,18 +1153,18 @@ sub json_model_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$GenericUNIXPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'GenericUNIX';
+            $res = jm_is_string($pval) && $pval eq "GenericUNIX";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$GenericUNIXPlatformModel'.versions
@@ -1175,7 +1175,7 @@ sub json_model_19($$$)
                 {
                     my $arr_17_item = $$pval[$arr_17_idx];
                     # .'$GenericUNIXPlatformModel'.versions.0
-                    $res = jm_is_string($arr_17_item) && $arr_17_item eq 'all';
+                    $res = jm_is_string($arr_17_item) && $arr_17_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -1206,18 +1206,18 @@ sub json_model_20($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$GentooPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Gentoo';
+            $res = jm_is_string($pval) && $pval eq "Gentoo";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$GentooPlatformModel'.versions
@@ -1228,7 +1228,7 @@ sub json_model_20($$$)
                 {
                     my $arr_18_item = $$pval[$arr_18_idx];
                     # .'$GentooPlatformModel'.versions.0
-                    $res = jm_is_string($arr_18_item) && $arr_18_item eq 'all';
+                    $res = jm_is_string($arr_18_item) && $arr_18_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -1260,18 +1260,18 @@ sub json_model_21($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$HardenedBSDPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'HardenedBSD';
+            $res = jm_is_string($pval) && $pval eq "HardenedBSD";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$HardenedBSDPlatformModel'.versions
@@ -1313,18 +1313,18 @@ sub json_model_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$IOSPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'IOS';
+            $res = jm_is_string($pval) && $pval eq "IOS";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$IOSPlatformModel'.versions
@@ -1335,7 +1335,7 @@ sub json_model_22($$$)
                 {
                     my $arr_20_item = $$pval[$arr_20_idx];
                     # .'$IOSPlatformModel'.versions.0
-                    $res = jm_is_string($arr_20_item) && $arr_20_item eq 'all';
+                    $res = jm_is_string($arr_20_item) && $arr_20_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -1366,18 +1366,18 @@ sub json_model_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$JunosPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Junos';
+            $res = jm_is_string($pval) && $pval eq "Junos";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$JunosPlatformModel'.versions
@@ -1388,7 +1388,7 @@ sub json_model_23($$$)
                 {
                     my $arr_21_item = $$pval[$arr_21_idx];
                     # .'$JunosPlatformModel'.versions.0
-                    $res = jm_is_string($arr_21_item) && $arr_21_item eq 'all';
+                    $res = jm_is_string($arr_21_item) && $arr_21_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -1420,18 +1420,18 @@ sub json_model_24($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$KaliPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Kali';
+            $res = jm_is_string($pval) && $pval eq "Kali";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$KaliPlatformModel'.versions
@@ -1474,18 +1474,18 @@ sub json_model_25($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$MacOSXPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Kali';
+            $res = jm_is_string($pval) && $pval eq "Kali";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$MacOSXPlatformModel'.versions
@@ -1528,18 +1528,18 @@ sub json_model_26($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$MageiaPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Megeia';
+            $res = jm_is_string($pval) && $pval eq "Megeia";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$MageiaPlatformModel'.versions
@@ -1581,18 +1581,18 @@ sub json_model_27($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$NXOSPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'NXOS';
+            $res = jm_is_string($pval) && $pval eq "NXOS";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$NXOSPlatformModel'.versions
@@ -1603,7 +1603,7 @@ sub json_model_27($$$)
                 {
                     my $arr_25_item = $$pval[$arr_25_idx];
                     # .'$NXOSPlatformModel'.versions.0
-                    $res = jm_is_string($arr_25_item) && $arr_25_item eq 'all';
+                    $res = jm_is_string($arr_25_item) && $arr_25_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -1635,18 +1635,18 @@ sub json_model_28($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$NetBSDPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'NetBSD';
+            $res = jm_is_string($pval) && $pval eq "NetBSD";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$NetBSDPlatformModel'.versions
@@ -1689,18 +1689,18 @@ sub json_model_29($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$OpenBSDPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'OpenBSD';
+            $res = jm_is_string($pval) && $pval eq "OpenBSD";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$OpenBSDPlatformModel'.versions
@@ -1743,18 +1743,18 @@ sub json_model_30($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$OpenWrtPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'OpenWrt';
+            $res = jm_is_string($pval) && $pval eq "OpenWrt";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$OpenWrtPlatformModel'.versions
@@ -1797,18 +1797,18 @@ sub json_model_31($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$OracleLinuxPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'OracleLinux';
+            $res = jm_is_string($pval) && $pval eq "OracleLinux";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$OracleLinuxPlatformModel'.versions
@@ -1851,18 +1851,18 @@ sub json_model_32($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$PAN-OSPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'PAN-OS';
+            $res = jm_is_string($pval) && $pval eq "PAN-OS";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$PAN-OSPlatformModel'.versions
@@ -1905,18 +1905,18 @@ sub json_model_33($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$RockyLinuxPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Rocky';
+            $res = jm_is_string($pval) && $pval eq "Rocky";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$RockyLinuxPlatformModel'.versions
@@ -1959,18 +1959,18 @@ sub json_model_34($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$SLESPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'SLES';
+            $res = jm_is_string($pval) && $pval eq "SLES";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$SLESPlatformModel'.versions
@@ -2012,18 +2012,18 @@ sub json_model_35($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$SmartOSPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'SmartOS';
+            $res = jm_is_string($pval) && $pval eq "SmartOS";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$SmartOSPlatformModel'.versions
@@ -2034,7 +2034,7 @@ sub json_model_35($$$)
                 {
                     my $arr_33_item = $$pval[$arr_33_idx];
                     # .'$SmartOSPlatformModel'.versions.0
-                    $res = jm_is_string($arr_33_item) && $arr_33_item eq 'all';
+                    $res = jm_is_string($arr_33_item) && $arr_33_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -2066,18 +2066,18 @@ sub json_model_36($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$SolarisPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Solaris';
+            $res = jm_is_string($pval) && $pval eq "Solaris";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$SolarisPlatformModel'.versions
@@ -2120,18 +2120,18 @@ sub json_model_37($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$SynologyPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Synology';
+            $res = jm_is_string($pval) && $pval eq "Synology";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$SynologyPlatformModel'.versions
@@ -2174,18 +2174,18 @@ sub json_model_38($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$TMOSPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'TMOS';
+            $res = jm_is_string($pval) && $pval eq "TMOS";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$TMOSPlatformModel'.versions
@@ -2228,18 +2228,18 @@ sub json_model_39($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$UbuntuPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Ubuntu';
+            $res = jm_is_string($pval) && $pval eq "Ubuntu";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$UbuntuPlatformModel'.versions
@@ -2281,18 +2281,18 @@ sub json_model_40($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$Void_LinuxPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Void Linux';
+            $res = jm_is_string($pval) && $pval eq "Void Linux";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$Void_LinuxPlatformModel'.versions
@@ -2303,7 +2303,7 @@ sub json_model_40($$$)
                 {
                     my $arr_38_item = $$pval[$arr_38_idx];
                     # .'$Void_LinuxPlatformModel'.versions.0
-                    $res = jm_is_string($arr_38_item) && $arr_38_item eq 'all';
+                    $res = jm_is_string($arr_38_item) && $arr_38_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -2335,18 +2335,18 @@ sub json_model_41($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$WindowsPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'Windows';
+            $res = jm_is_string($pval) && $pval eq "Windows";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$WindowsPlatformModel'.versions
@@ -2388,18 +2388,18 @@ sub json_model_42($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$aosPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'aos';
+            $res = jm_is_string($pval) && $pval eq "aos";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$aosPlatformModel'.versions
@@ -2410,7 +2410,7 @@ sub json_model_42($$$)
                 {
                     my $arr_40_item = $$pval[$arr_40_idx];
                     # .'$aosPlatformModel'.versions.0
-                    $res = jm_is_string($arr_40_item) && $arr_40_item eq 'all';
+                    $res = jm_is_string($arr_40_item) && $arr_40_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -2441,18 +2441,18 @@ sub json_model_43($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$eosPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'eos';
+            $res = jm_is_string($pval) && $pval eq "eos";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$eosPlatformModel'.versions
@@ -2463,7 +2463,7 @@ sub json_model_43($$$)
                 {
                     my $arr_41_item = $$pval[$arr_41_idx];
                     # .'$eosPlatformModel'.versions.0
-                    $res = jm_is_string($arr_41_item) && $arr_41_item eq 'all';
+                    $res = jm_is_string($arr_41_item) && $arr_41_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -2495,18 +2495,18 @@ sub json_model_44($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$macOSPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'macOS';
+            $res = jm_is_string($pval) && $pval eq "macOS";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$macOSPlatformModel'.versions
@@ -2549,18 +2549,18 @@ sub json_model_45($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$opensusePlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'opensuse';
+            $res = jm_is_string($pval) && $pval eq "opensuse";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$opensusePlatformModel'.versions
@@ -2602,18 +2602,18 @@ sub json_model_46($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$os10PlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'os10';
+            $res = jm_is_string($pval) && $pval eq "os10";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$os10PlatformModel'.versions
@@ -2624,7 +2624,7 @@ sub json_model_46($$$)
                 {
                     my $arr_44_item = $$pval[$arr_44_idx];
                     # .'$os10PlatformModel'.versions.0
-                    $res = jm_is_string($arr_44_item) && $arr_44_item eq 'all';
+                    $res = jm_is_string($arr_44_item) && $arr_44_item eq "all";
                     if (! $res)
                     {
                         last;
@@ -2656,18 +2656,18 @@ sub json_model_47($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$vCenterPlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'vCenter';
+            $res = jm_is_string($pval) && $pval eq "vCenter";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$vCenterPlatformModel'.versions
@@ -2710,18 +2710,18 @@ sub json_model_48($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$vSpherePlatformModel'.name
-            $res = jm_is_string($pval) && $pval eq 'vSphere';
+            $res = jm_is_string($pval) && $pval eq "vSphere";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'versions')
+        elsif ($prop eq "versions")
         {
             # handle may versions property
             # .'$vSpherePlatformModel'.versions
@@ -2818,19 +2818,19 @@ sub _jm_obj_0($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.46.name
-        $res = jm_is_string($pval) && $pval eq 'Windows';
+        $res = jm_is_string($pval) && $pval eq "Windows";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.46.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -2866,19 +2866,19 @@ sub _jm_obj_1($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.45.name
-        $res = jm_is_string($pval) && $pval eq 'vSphere';
+        $res = jm_is_string($pval) && $pval eq "vSphere";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.45.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -2913,19 +2913,19 @@ sub _jm_obj_2($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.44.name
-        $res = jm_is_string($pval) && $pval eq 'Void Linux';
+        $res = jm_is_string($pval) && $pval eq "Void Linux";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.44.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -2934,7 +2934,7 @@ sub _jm_obj_2($$$)
             {
                 my $arr_50_item = $$pval[$arr_50_idx];
                 # .'$platforms'.0.'|'.44.versions.0
-                $res = jm_is_string($arr_50_item) && $arr_50_item eq 'all';
+                $res = jm_is_string($arr_50_item) && $arr_50_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -2961,19 +2961,19 @@ sub _jm_obj_3($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.43.name
-        $res = jm_is_string($pval) && $pval eq 'vCenter';
+        $res = jm_is_string($pval) && $pval eq "vCenter";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.43.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3009,19 +3009,19 @@ sub _jm_obj_4($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.42.name
-        $res = jm_is_string($pval) && $pval eq 'Ubuntu';
+        $res = jm_is_string($pval) && $pval eq "Ubuntu";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.42.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3057,19 +3057,19 @@ sub _jm_obj_5($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.41.name
-        $res = jm_is_string($pval) && $pval eq 'TMOS';
+        $res = jm_is_string($pval) && $pval eq "TMOS";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.41.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3105,19 +3105,19 @@ sub _jm_obj_6($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.40.name
-        $res = jm_is_string($pval) && $pval eq 'Synology';
+        $res = jm_is_string($pval) && $pval eq "Synology";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.40.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3153,19 +3153,19 @@ sub _jm_obj_7($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.39.name
-        $res = jm_is_string($pval) && $pval eq 'Solaris';
+        $res = jm_is_string($pval) && $pval eq "Solaris";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.39.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3200,19 +3200,19 @@ sub _jm_obj_8($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.38.name
-        $res = jm_is_string($pval) && $pval eq 'SmartOS';
+        $res = jm_is_string($pval) && $pval eq "SmartOS";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.38.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3221,7 +3221,7 @@ sub _jm_obj_8($$$)
             {
                 my $arr_56_item = $$pval[$arr_56_idx];
                 # .'$platforms'.0.'|'.38.versions.0
-                $res = jm_is_string($arr_56_item) && $arr_56_item eq 'all';
+                $res = jm_is_string($arr_56_item) && $arr_56_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -3248,19 +3248,19 @@ sub _jm_obj_9($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.37.name
-        $res = jm_is_string($pval) && $pval eq 'SLES';
+        $res = jm_is_string($pval) && $pval eq "SLES";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.37.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3296,19 +3296,19 @@ sub _jm_obj_10($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.36.name
-        $res = jm_is_string($pval) && $pval eq 'Rocky';
+        $res = jm_is_string($pval) && $pval eq "Rocky";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.36.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3344,19 +3344,19 @@ sub _jm_obj_11($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.35.name
-        $res = jm_is_string($pval) && $pval eq 'PAN-OS';
+        $res = jm_is_string($pval) && $pval eq "PAN-OS";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.35.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3391,19 +3391,19 @@ sub _jm_obj_12($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.34.name
-        $res = jm_is_string($pval) && $pval eq 'os10';
+        $res = jm_is_string($pval) && $pval eq "os10";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.34.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3412,7 +3412,7 @@ sub _jm_obj_12($$$)
             {
                 my $arr_60_item = $$pval[$arr_60_idx];
                 # .'$platforms'.0.'|'.34.versions.0
-                $res = jm_is_string($arr_60_item) && $arr_60_item eq 'all';
+                $res = jm_is_string($arr_60_item) && $arr_60_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -3439,19 +3439,19 @@ sub _jm_obj_13($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.33.name
-        $res = jm_is_string($pval) && $pval eq 'OracleLinux';
+        $res = jm_is_string($pval) && $pval eq "OracleLinux";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.33.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3487,19 +3487,19 @@ sub _jm_obj_14($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.32.name
-        $res = jm_is_string($pval) && $pval eq 'OpenWrt';
+        $res = jm_is_string($pval) && $pval eq "OpenWrt";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.32.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3535,19 +3535,19 @@ sub _jm_obj_15($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.31.name
-        $res = jm_is_string($pval) && $pval eq 'opensuse';
+        $res = jm_is_string($pval) && $pval eq "opensuse";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.31.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3583,19 +3583,19 @@ sub _jm_obj_16($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.30.name
-        $res = jm_is_string($pval) && $pval eq 'OpenBSD';
+        $res = jm_is_string($pval) && $pval eq "OpenBSD";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.30.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3630,19 +3630,19 @@ sub _jm_obj_17($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.29.name
-        $res = jm_is_string($pval) && $pval eq 'NXOS';
+        $res = jm_is_string($pval) && $pval eq "NXOS";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.29.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3651,7 +3651,7 @@ sub _jm_obj_17($$$)
             {
                 my $arr_65_item = $$pval[$arr_65_idx];
                 # .'$platforms'.0.'|'.29.versions.0
-                $res = jm_is_string($arr_65_item) && $arr_65_item eq 'all';
+                $res = jm_is_string($arr_65_item) && $arr_65_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -3678,19 +3678,19 @@ sub _jm_obj_18($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.28.name
-        $res = jm_is_string($pval) && $pval eq 'Megeia';
+        $res = jm_is_string($pval) && $pval eq "Megeia";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.28.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3726,19 +3726,19 @@ sub _jm_obj_19($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.27.name
-        $res = jm_is_string($pval) && $pval eq 'Kali';
+        $res = jm_is_string($pval) && $pval eq "Kali";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.27.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3774,19 +3774,19 @@ sub _jm_obj_20($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.26.name
-        $res = jm_is_string($pval) && $pval eq 'macOS';
+        $res = jm_is_string($pval) && $pval eq "macOS";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.26.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3822,19 +3822,19 @@ sub _jm_obj_21($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.25.name
-        $res = jm_is_string($pval) && $pval eq 'Kali';
+        $res = jm_is_string($pval) && $pval eq "Kali";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.25.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3869,19 +3869,19 @@ sub _jm_obj_22($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.24.name
-        $res = jm_is_string($pval) && $pval eq 'Junos';
+        $res = jm_is_string($pval) && $pval eq "Junos";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.24.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3890,7 +3890,7 @@ sub _jm_obj_22($$$)
             {
                 my $arr_70_item = $$pval[$arr_70_idx];
                 # .'$platforms'.0.'|'.24.versions.0
-                $res = jm_is_string($arr_70_item) && $arr_70_item eq 'all';
+                $res = jm_is_string($arr_70_item) && $arr_70_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -3916,19 +3916,19 @@ sub _jm_obj_23($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.23.name
-        $res = jm_is_string($pval) && $pval eq 'IOS';
+        $res = jm_is_string($pval) && $pval eq "IOS";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.23.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -3937,7 +3937,7 @@ sub _jm_obj_23($$$)
             {
                 my $arr_71_item = $$pval[$arr_71_idx];
                 # .'$platforms'.0.'|'.23.versions.0
-                $res = jm_is_string($arr_71_item) && $arr_71_item eq 'all';
+                $res = jm_is_string($arr_71_item) && $arr_71_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -3964,19 +3964,19 @@ sub _jm_obj_24($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.22.name
-        $res = jm_is_string($pval) && $pval eq 'HardenedBSD';
+        $res = jm_is_string($pval) && $pval eq "HardenedBSD";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.22.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4011,19 +4011,19 @@ sub _jm_obj_25($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.21.name
-        $res = jm_is_string($pval) && $pval eq 'Gentoo';
+        $res = jm_is_string($pval) && $pval eq "Gentoo";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.21.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4032,7 +4032,7 @@ sub _jm_obj_25($$$)
             {
                 my $arr_73_item = $$pval[$arr_73_idx];
                 # .'$platforms'.0.'|'.21.versions.0
-                $res = jm_is_string($arr_73_item) && $arr_73_item eq 'all';
+                $res = jm_is_string($arr_73_item) && $arr_73_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -4058,19 +4058,19 @@ sub _jm_obj_26($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.20.name
-        $res = jm_is_string($pval) && $pval eq 'GenericUNIX';
+        $res = jm_is_string($pval) && $pval eq "GenericUNIX";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.20.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4079,7 +4079,7 @@ sub _jm_obj_26($$$)
             {
                 my $arr_74_item = $$pval[$arr_74_idx];
                 # .'$platforms'.0.'|'.20.versions.0
-                $res = jm_is_string($arr_74_item) && $arr_74_item eq 'all';
+                $res = jm_is_string($arr_74_item) && $arr_74_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -4105,19 +4105,19 @@ sub _jm_obj_27($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.19.name
-        $res = jm_is_string($pval) && $pval eq 'GenericLinux';
+        $res = jm_is_string($pval) && $pval eq "GenericLinux";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.19.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4126,7 +4126,7 @@ sub _jm_obj_27($$$)
             {
                 my $arr_75_item = $$pval[$arr_75_idx];
                 # .'$platforms'.0.'|'.19.versions.0
-                $res = jm_is_string($arr_75_item) && $arr_75_item eq 'all';
+                $res = jm_is_string($arr_75_item) && $arr_75_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -4152,19 +4152,19 @@ sub _jm_obj_28($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.18.name
-        $res = jm_is_string($pval) && $pval eq 'GenericBSD';
+        $res = jm_is_string($pval) && $pval eq "GenericBSD";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.18.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4173,7 +4173,7 @@ sub _jm_obj_28($$$)
             {
                 my $arr_76_item = $$pval[$arr_76_idx];
                 # .'$platforms'.0.'|'.18.versions.0
-                $res = jm_is_string($arr_76_item) && $arr_76_item eq 'all';
+                $res = jm_is_string($arr_76_item) && $arr_76_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -4200,19 +4200,19 @@ sub _jm_obj_29($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.17.name
-        $res = jm_is_string($pval) && $pval eq 'FreeBSD';
+        $res = jm_is_string($pval) && $pval eq "FreeBSD";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.17.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4248,19 +4248,19 @@ sub _jm_obj_30($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.16.name
-        $res = jm_is_string($pval) && $pval eq 'Fedora';
+        $res = jm_is_string($pval) && $pval eq "Fedora";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.16.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4295,19 +4295,19 @@ sub _jm_obj_31($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.15.name
-        $res = jm_is_string($pval) && $pval eq 'eos';
+        $res = jm_is_string($pval) && $pval eq "eos";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.15.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4316,7 +4316,7 @@ sub _jm_obj_31($$$)
             {
                 my $arr_79_item = $$pval[$arr_79_idx];
                 # .'$platforms'.0.'|'.15.versions.0
-                $res = jm_is_string($arr_79_item) && $arr_79_item eq 'all';
+                $res = jm_is_string($arr_79_item) && $arr_79_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -4343,19 +4343,19 @@ sub _jm_obj_32($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.14.name
-        $res = jm_is_string($pval) && $pval eq 'EL';
+        $res = jm_is_string($pval) && $pval eq "EL";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.14.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4391,19 +4391,19 @@ sub _jm_obj_33($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.13.name
-        $res = jm_is_string($pval) && $pval eq 'DragonFlyBSD';
+        $res = jm_is_string($pval) && $pval eq "DragonFlyBSD";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.13.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4439,19 +4439,19 @@ sub _jm_obj_34($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.12.name
-        $res = jm_is_string($pval) && $pval eq 'Devuan';
+        $res = jm_is_string($pval) && $pval eq "Devuan";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.12.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4487,19 +4487,19 @@ sub _jm_obj_35($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.11.name
-        $res = jm_is_string($pval) && $pval eq 'DellOS';
+        $res = jm_is_string($pval) && $pval eq "DellOS";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.11.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4535,19 +4535,19 @@ sub _jm_obj_36($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.10.name
-        $res = jm_is_string($pval) && $pval eq 'Debian';
+        $res = jm_is_string($pval) && $pval eq "Debian";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.10.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4583,19 +4583,19 @@ sub _jm_obj_37($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.9.name
-        $res = jm_is_string($pval) && $pval eq 'NetBSD';
+        $res = jm_is_string($pval) && $pval eq "NetBSD";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.9.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4631,19 +4631,19 @@ sub _jm_obj_38($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.8.name
-        $res = jm_is_string($pval) && $pval eq 'Cumulus';
+        $res = jm_is_string($pval) && $pval eq "Cumulus";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.8.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4678,19 +4678,19 @@ sub _jm_obj_39($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.7.name
-        $res = jm_is_string($pval) && $pval eq 'ClearLinux';
+        $res = jm_is_string($pval) && $pval eq "ClearLinux";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.7.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4699,7 +4699,7 @@ sub _jm_obj_39($$$)
             {
                 my $arr_87_item = $$pval[$arr_87_idx];
                 # .'$platforms'.0.'|'.7.versions.0
-                $res = jm_is_string($arr_87_item) && $arr_87_item eq 'all';
+                $res = jm_is_string($arr_87_item) && $arr_87_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -4726,19 +4726,19 @@ sub _jm_obj_40($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.6.name
-        $res = jm_is_string($pval) && $pval eq 'Astra Linux';
+        $res = jm_is_string($pval) && $pval eq "Astra Linux";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.6.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4773,19 +4773,19 @@ sub _jm_obj_41($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.5.name
-        $res = jm_is_string($pval) && $pval eq 'ArchLinux';
+        $res = jm_is_string($pval) && $pval eq "ArchLinux";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.5.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4794,7 +4794,7 @@ sub _jm_obj_41($$$)
             {
                 my $arr_89_item = $$pval[$arr_89_idx];
                 # .'$platforms'.0.'|'.5.versions.0
-                $res = jm_is_string($arr_89_item) && $arr_89_item eq 'all';
+                $res = jm_is_string($arr_89_item) && $arr_89_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -4820,19 +4820,19 @@ sub _jm_obj_42($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.4.name
-        $res = jm_is_string($pval) && $pval eq 'aos';
+        $res = jm_is_string($pval) && $pval eq "aos";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.4.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4841,7 +4841,7 @@ sub _jm_obj_42($$$)
             {
                 my $arr_90_item = $$pval[$arr_90_idx];
                 # .'$platforms'.0.'|'.4.versions.0
-                $res = jm_is_string($arr_90_item) && $arr_90_item eq 'all';
+                $res = jm_is_string($arr_90_item) && $arr_90_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -4868,19 +4868,19 @@ sub _jm_obj_43($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.3.name
-        $res = jm_is_string($pval) && $pval eq 'Amazon Linux';
+        $res = jm_is_string($pval) && $pval eq "Amazon Linux";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.3.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4916,19 +4916,19 @@ sub _jm_obj_44($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.2.name
-        $res = jm_is_string($pval) && $pval eq 'Amazon';
+        $res = jm_is_string($pval) && $pval eq "Amazon";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.2.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4963,19 +4963,19 @@ sub _jm_obj_45($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.1.name
-        $res = jm_is_string($pval) && $pval eq 'Alpine';
+        $res = jm_is_string($pval) && $pval eq "Alpine";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.1.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -4984,7 +4984,7 @@ sub _jm_obj_45($$$)
             {
                 my $arr_93_item = $$pval[$arr_93_idx];
                 # .'$platforms'.0.'|'.1.versions.0
-                $res = jm_is_string($arr_93_item) && $arr_93_item eq 'all';
+                $res = jm_is_string($arr_93_item) && $arr_93_item eq "all";
                 if (! $res)
                 {
                     last;
@@ -5011,19 +5011,19 @@ sub _jm_obj_46($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$platforms'.0.'|'.0.name
-        $res = jm_is_string($pval) && $pval eq 'AIX';
+        $res = jm_is_string($pval) && $pval eq "AIX";
         if (! $res)
         {
             return 0;
         }
     }
-    if (exists $$val{'versions'})
+    if (exists $$val{"versions"})
     {
-        $pval = $$val{'versions'};
+        $pval = $$val{"versions"};
         # .'$platforms'.0.'|'.0.versions
         $res = jm_is_array($pval);
         if ($res)
@@ -5143,14 +5143,14 @@ sub json_model_51($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'cloud_platforms')
+        if ($prop eq "cloud_platforms")
         {
             # handle may cloud_platforms property
             # .'$GalaxyInfoModelCollection'.cloud_platforms
             $res = 1;
             next;
         }
-        elsif ($prop eq 'galaxy_tags')
+        elsif ($prop eq "galaxy_tags")
         {
             # handle may galaxy_tags property
             # .'$GalaxyInfoModelCollection'.galaxy_tags
@@ -5174,7 +5174,7 @@ sub json_model_51($$$)
             }
             next;
         }
-        elsif ($prop eq 'min_ansible_version')
+        elsif ($prop eq "min_ansible_version")
         {
             # handle may min_ansible_version property
             # .'$GalaxyInfoModelCollection'.min_ansible_version
@@ -5185,7 +5185,7 @@ sub json_model_51($$$)
             }
             next;
         }
-        elsif ($prop eq 'namespace')
+        elsif ($prop eq "namespace")
         {
             # handle may namespace property
             # .'$GalaxyInfoModelCollection'.namespace
@@ -5197,7 +5197,7 @@ sub json_model_51($$$)
             }
             next;
         }
-        elsif ($prop eq 'platforms')
+        elsif ($prop eq "platforms")
         {
             # handle may platforms property
             # .'$GalaxyInfoModelCollection'.platforms
@@ -5208,7 +5208,7 @@ sub json_model_51($$$)
             }
             next;
         }
-        elsif ($prop eq 'role_name')
+        elsif ($prop eq "role_name")
         {
             # handle may role_name property
             # .'$GalaxyInfoModelCollection'.role_name
@@ -5220,7 +5220,7 @@ sub json_model_51($$$)
             }
             next;
         }
-        elsif ($prop eq 'video_links')
+        elsif ($prop eq "video_links")
         {
             # handle may video_links property
             # .'$GalaxyInfoModelCollection'.video_links
@@ -5251,7 +5251,7 @@ sub json_model_52($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle must description property
             $must_count++;
@@ -5263,7 +5263,7 @@ sub json_model_52($$$)
             }
             next;
         }
-        if ($prop eq 'author')
+        if ($prop eq "author")
         {
             # handle may author property
             # .'$GalaxyInfoModelLoose'.author
@@ -5274,7 +5274,7 @@ sub json_model_52($$$)
             }
             next;
         }
-        elsif ($prop eq 'company')
+        elsif ($prop eq "company")
         {
             # handle may company property
             # .'$GalaxyInfoModelLoose'.company
@@ -5285,7 +5285,7 @@ sub json_model_52($$$)
             }
             next;
         }
-        elsif ($prop eq 'github_branch')
+        elsif ($prop eq "github_branch")
         {
             # handle may github_branch property
             # .'$GalaxyInfoModelLoose'.github_branch
@@ -5296,7 +5296,7 @@ sub json_model_52($$$)
             }
             next;
         }
-        elsif ($prop eq 'issue_tracker_url')
+        elsif ($prop eq "issue_tracker_url")
         {
             # handle may issue_tracker_url property
             # .'$GalaxyInfoModelLoose'.issue_tracker_url
@@ -5307,7 +5307,7 @@ sub json_model_52($$$)
             }
             next;
         }
-        elsif ($prop eq 'license')
+        elsif ($prop eq "license")
         {
             # handle may license property
             # .'$GalaxyInfoModelLoose'.license
@@ -5318,7 +5318,7 @@ sub json_model_52($$$)
             }
             next;
         }
-        elsif ($prop eq 'min_ansible_container_version')
+        elsif ($prop eq "min_ansible_container_version")
         {
             # handle may min_ansible_container_version property
             # .'$GalaxyInfoModelLoose'.min_ansible_container_version
@@ -5438,7 +5438,7 @@ sub json_model_53($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'standalone')
+        if ($prop eq "standalone")
         {
             # handle must standalone property
             $must_count++;
@@ -5450,7 +5450,7 @@ sub json_model_53($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle must description property
             $must_count++;
@@ -5462,7 +5462,7 @@ sub json_model_53($$$)
             }
             next;
         }
-        elsif ($prop eq 'author')
+        elsif ($prop eq "author")
         {
             # handle must author property
             $must_count++;
@@ -5474,7 +5474,7 @@ sub json_model_53($$$)
             }
             next;
         }
-        elsif ($prop eq 'license')
+        elsif ($prop eq "license")
         {
             # handle must license property
             $must_count++;
@@ -5486,7 +5486,7 @@ sub json_model_53($$$)
             }
             next;
         }
-        elsif ($prop eq 'min_ansible_version')
+        elsif ($prop eq "min_ansible_version")
         {
             # handle must min_ansible_version property
             $must_count++;
@@ -5639,7 +5639,7 @@ sub _jm_obj_47($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'standalone')
+        if ($prop eq "standalone")
         {
             # handle must standalone property
             $must_count++;
@@ -5651,7 +5651,7 @@ sub _jm_obj_47($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle must description property
             $must_count++;
@@ -5804,7 +5804,7 @@ sub _jm_obj_48($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle must description property
             $must_count++;
@@ -5841,7 +5841,7 @@ sub json_model_54($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'standalone'}))
+        if (defined($tag_0 = $$val{"standalone"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -5934,9 +5934,9 @@ sub json_model_57($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'become'})
+    if (exists $$val{"become"})
     {
-        $pval = $$val{'become'};
+        $pval = $$val{"become"};
         # .'$DependencyModelLoose'.become
         $res = jm_is_boolean($pval);
         if (! $res)
@@ -5944,9 +5944,9 @@ sub json_model_57($$$)
             return 0;
         }
     }
-    if (exists $$val{'name'})
+    if (exists $$val{"name"})
     {
-        $pval = $$val{'name'};
+        $pval = $$val{"name"};
         # .'$DependencyModelLoose'.name
         $res = jm_is_string($pval);
         if (! $res)
@@ -5954,9 +5954,9 @@ sub json_model_57($$$)
             return 0;
         }
     }
-    if (exists $$val{'role'})
+    if (exists $$val{"role"})
     {
-        $pval = $$val{'role'};
+        $pval = $$val{"role"};
         # .'$DependencyModelLoose'.role
         $res = jm_is_string($pval);
         if (! $res)
@@ -5964,9 +5964,9 @@ sub json_model_57($$$)
             return 0;
         }
     }
-    if (exists $$val{'src'})
+    if (exists $$val{"src"})
     {
-        $pval = $$val{'src'};
+        $pval = $$val{"src"};
         # .'$DependencyModelLoose'.src
         $res = jm_is_string($pval);
         if (! $res)
@@ -5974,9 +5974,9 @@ sub json_model_57($$$)
             return 0;
         }
     }
-    if (exists $$val{'scm'})
+    if (exists $$val{"scm"})
     {
-        $pval = $$val{'scm'};
+        $pval = $$val{"scm"};
         # .'$DependencyModelLoose'.scm
         $res = jm_is_string($pval) && exists $_jm_cst_64{$pval};
         if (! $res)
@@ -5984,9 +5984,9 @@ sub json_model_57($$$)
             return 0;
         }
     }
-    if (exists $$val{'tags'})
+    if (exists $$val{"tags"})
     {
-        $pval = $$val{'tags'};
+        $pval = $$val{"tags"};
         # .'$DependencyModelLoose'.tags
         # .'$DependencyModelLoose'.tags.'|'.0
         $res = jm_is_string($pval);
@@ -6013,9 +6013,9 @@ sub json_model_57($$$)
             return 0;
         }
     }
-    if (exists $$val{'vars'})
+    if (exists $$val{"vars"})
     {
-        $pval = $$val{'vars'};
+        $pval = $$val{"vars"};
         # .'$DependencyModelLoose'.vars
         $res = jm_is_object($pval);
         if (! $res)
@@ -6023,9 +6023,9 @@ sub json_model_57($$$)
             return 0;
         }
     }
-    if (exists $$val{'version'})
+    if (exists $$val{"version"})
     {
-        $pval = $$val{'version'};
+        $pval = $$val{"version"};
         # .'$DependencyModelLoose'.version
         $res = jm_is_string($pval);
         if (! $res)
@@ -6033,9 +6033,9 @@ sub json_model_57($$$)
             return 0;
         }
     }
-    if (exists $$val{'when'})
+    if (exists $$val{"when"})
     {
-        $pval = $$val{'when'};
+        $pval = $$val{"when"};
         # .'$DependencyModelLoose'.when
         $res = json_model_56($pval, undef, undef);
         if (! $res)
@@ -6054,11 +6054,11 @@ sub _jm_obj_49($$$)
     # value known to be an object
     my $pval;
     my $res;
-    if (! exists $$val{'name'})
+    if (! exists $$val{"name"})
     {
         return 0;
     }
-    $pval = $$val{'name'};
+    $pval = $$val{"name"};
     # .'$DependencyModel'.'&'.1.'|'.2.name
     return jm_is_string($pval);
 }
@@ -6071,11 +6071,11 @@ sub _jm_obj_50($$$)
     # value known to be an object
     my $pval;
     my $res;
-    if (! exists $$val{'src'})
+    if (! exists $$val{"src"})
     {
         return 0;
     }
-    $pval = $$val{'src'};
+    $pval = $$val{"src"};
     # .'$DependencyModel'.'&'.1.'|'.1.src
     return jm_is_string($pval);
 }
@@ -6088,11 +6088,11 @@ sub _jm_obj_51($$$)
     # value known to be an object
     my $pval;
     my $res;
-    if (! exists $$val{'role'})
+    if (! exists $$val{"role"})
     {
         return 0;
     }
-    $pval = $$val{'role'};
+    $pval = $$val{"role"};
     # .'$DependencyModel'.'&'.1.'|'.0.role
     return jm_is_string($pval);
 }
@@ -6124,7 +6124,7 @@ sub json_model_59($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'allow_duplicates')
+        if ($prop eq "allow_duplicates")
         {
             # handle may allow_duplicates property
             # .'$AnsibleMetaObj'.allow_duplicates
@@ -6135,7 +6135,7 @@ sub json_model_59($$$)
             }
             next;
         }
-        elsif ($prop eq 'collections')
+        elsif ($prop eq "collections")
         {
             # handle may collections property
             # .'$AnsibleMetaObj'.collections
@@ -6146,7 +6146,7 @@ sub json_model_59($$$)
             }
             next;
         }
-        elsif ($prop eq 'dependencies')
+        elsif ($prop eq "dependencies")
         {
             # handle may dependencies property
             # .'$AnsibleMetaObj'.dependencies
@@ -6172,7 +6172,7 @@ sub json_model_59($$$)
             }
             next;
         }
-        elsif ($prop eq 'galaxy_info')
+        elsif ($prop eq "galaxy_info")
         {
             # handle may galaxy_info property
             # .'$AnsibleMetaObj'.galaxy_info
@@ -6218,948 +6218,948 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            '6.1' => 1,
-            '7.1' => 1,
-            '7.2' => 1,
-            'all' => 1,
+            "6.1" => 1,
+            "7.1" => 1,
+            "7.2" => 1,
+            "all" => 1,
         );
         %_jm_cst_1 = (
-            'all' => 1,
-            '1' => 1,
-            '2' => 1,
-            '2023' => 1,
+            "all" => 1,
+            "1" => 1,
+            "2" => 1,
+            "2023" => 1,
         );
         %_jm_cst_2 = (
-            '2013.03' => 1,
-            '2013.09' => 1,
-            '2014.03' => 1,
-            '2014.09' => 1,
-            '2015.03' => 1,
-            '2015.09' => 1,
-            '2016.03' => 1,
-            '2016.09' => 1,
-            '2017.03' => 1,
-            '2017.09' => 1,
-            '2017.12' => 1,
-            '2018.03' => 1,
-            'Candidate' => 1,
-            'all' => 1,
+            "2013.03" => 1,
+            "2013.09" => 1,
+            "2014.03" => 1,
+            "2014.09" => 1,
+            "2015.03" => 1,
+            "2015.09" => 1,
+            "2016.03" => 1,
+            "2016.09" => 1,
+            "2017.03" => 1,
+            "2017.09" => 1,
+            "2017.12" => 1,
+            "2018.03" => 1,
+            "Candidate" => 1,
+            "all" => 1,
         );
         %_jm_cst_3 = (
-            '1.8' => 1,
-            '1.7' => 1,
-            '1.6' => 1,
-            '2.12' => 1,
-            'all' => 1,
+            "1.8" => 1,
+            "1.7" => 1,
+            "1.6" => 1,
+            "2.12" => 1,
+            "all" => 1,
         );
         %_jm_cst_4 = (
-            '2.5' => 1,
-            '3.0' => 1,
-            '3.1' => 1,
-            '3.2' => 1,
-            '3.3' => 1,
-            '3.4' => 1,
-            '3.5' => 1,
-            'all' => 1,
+            "2.5" => 1,
+            "3.0" => 1,
+            "3.1" => 1,
+            "3.2" => 1,
+            "3.3" => 1,
+            "3.4" => 1,
+            "3.5" => 1,
+            "all" => 1,
         );
         %_jm_cst_5 = (
-            'bookworm' => 1,
-            'bullseye' => 1,
-            'buster' => 1,
-            'etch' => 1,
-            'jessie' => 1,
-            'lenny' => 1,
-            'sid' => 1,
-            'squeeze' => 1,
-            'stretch' => 1,
-            'trixie' => 1,
-            'wheezy' => 1,
-            'all' => 1,
+            "bookworm" => 1,
+            "bullseye" => 1,
+            "buster" => 1,
+            "etch" => 1,
+            "jessie" => 1,
+            "lenny" => 1,
+            "sid" => 1,
+            "squeeze" => 1,
+            "stretch" => 1,
+            "trixie" => 1,
+            "wheezy" => 1,
+            "all" => 1,
         );
         %_jm_cst_6 = (
-            '10' => 1,
-            '6' => 1,
-            '9' => 1,
-            'all' => 1,
+            "10" => 1,
+            "6" => 1,
+            "9" => 1,
+            "all" => 1,
         );
         %_jm_cst_7 = (
-            'ascii' => 1,
-            'beowulf' => 1,
-            'chimaera' => 1,
-            'daedalus' => 1,
-            'jessie' => 1,
-            'all' => 1,
+            "ascii" => 1,
+            "beowulf" => 1,
+            "chimaera" => 1,
+            "daedalus" => 1,
+            "jessie" => 1,
+            "all" => 1,
         );
         %_jm_cst_8 = (
-            '5.2' => 1,
-            '5.4' => 1,
-            '5.6' => 1,
-            '5.8' => 1,
-            '6.0' => 1,
-            '6.2' => 1,
-            '6.4' => 1,
-            'all' => 1,
+            "5.2" => 1,
+            "5.4" => 1,
+            "5.6" => 1,
+            "5.8" => 1,
+            "6.0" => 1,
+            "6.2" => 1,
+            "6.4" => 1,
+            "all" => 1,
         );
         %_jm_cst_9 = (
-            '5' => 1,
-            '6' => 1,
-            '7' => 1,
-            '8' => 1,
-            '9' => 1,
-            '10' => 1,
-            'all' => 1,
+            "5" => 1,
+            "6" => 1,
+            "7" => 1,
+            "8" => 1,
+            "9" => 1,
+            "10" => 1,
+            "all" => 1,
         );
         %_jm_cst_10 = (
-            '16' => 1,
-            '17' => 1,
-            '18' => 1,
-            '19' => 1,
-            '20' => 1,
-            '21' => 1,
-            '22' => 1,
-            '23' => 1,
-            '24' => 1,
-            '25' => 1,
-            '26' => 1,
-            '27' => 1,
-            '28' => 1,
-            '29' => 1,
-            '30' => 1,
-            '31' => 1,
-            '32' => 1,
-            '33' => 1,
-            '34' => 1,
-            '35' => 1,
-            '36' => 1,
-            '37' => 1,
-            '38' => 1,
-            '39' => 1,
-            '40' => 1,
-            '41' => 1,
-            '42' => 1,
-            'all' => 1,
+            "16" => 1,
+            "17" => 1,
+            "18" => 1,
+            "19" => 1,
+            "20" => 1,
+            "21" => 1,
+            "22" => 1,
+            "23" => 1,
+            "24" => 1,
+            "25" => 1,
+            "26" => 1,
+            "27" => 1,
+            "28" => 1,
+            "29" => 1,
+            "30" => 1,
+            "31" => 1,
+            "32" => 1,
+            "33" => 1,
+            "34" => 1,
+            "35" => 1,
+            "36" => 1,
+            "37" => 1,
+            "38" => 1,
+            "39" => 1,
+            "40" => 1,
+            "41" => 1,
+            "42" => 1,
+            "all" => 1,
         );
         %_jm_cst_11 = (
-            '8.0' => 1,
-            '8.1' => 1,
-            '8.2' => 1,
-            '8.3' => 1,
-            '8.4' => 1,
-            '9.0' => 1,
-            '9.1' => 1,
-            '9.2' => 1,
-            '9.3' => 1,
-            '10.0' => 1,
-            '10.1' => 1,
-            '10.2' => 1,
-            '10.3' => 1,
-            '10.4' => 1,
-            '11.0' => 1,
-            '11.1' => 1,
-            '11.2' => 1,
-            '11.3' => 1,
-            '11.4' => 1,
-            '12.0' => 1,
-            '12.1' => 1,
-            '12.2' => 1,
-            '13.0' => 1,
-            '13.1' => 1,
-            '13.2' => 1,
-            '14.0' => 1,
-            'all' => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "8.2" => 1,
+            "8.3" => 1,
+            "8.4" => 1,
+            "9.0" => 1,
+            "9.1" => 1,
+            "9.2" => 1,
+            "9.3" => 1,
+            "10.0" => 1,
+            "10.1" => 1,
+            "10.2" => 1,
+            "10.3" => 1,
+            "10.4" => 1,
+            "11.0" => 1,
+            "11.1" => 1,
+            "11.2" => 1,
+            "11.3" => 1,
+            "11.4" => 1,
+            "12.0" => 1,
+            "12.1" => 1,
+            "12.2" => 1,
+            "13.0" => 1,
+            "13.1" => 1,
+            "13.2" => 1,
+            "14.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_12 = (
-            '10' => 1,
-            '11' => 1,
-            'all' => 1,
+            "10" => 1,
+            "11" => 1,
+            "all" => 1,
         );
         %_jm_cst_13 = (
-            '2.0' => 1,
-            '2016' => 1,
-            '2017' => 1,
-            '2018' => 1,
-            '2019' => 1,
-            '2020' => 1,
-            '2021' => 1,
-            '2022' => 1,
-            '2023' => 1,
-            'all' => 1,
+            "2.0" => 1,
+            "2016" => 1,
+            "2017" => 1,
+            "2018" => 1,
+            "2019" => 1,
+            "2020" => 1,
+            "2021" => 1,
+            "2022" => 1,
+            "2023" => 1,
+            "all" => 1,
         );
         %_jm_cst_14 = (
-            '10.7' => 1,
-            '10.8' => 1,
-            '10.9' => 1,
-            '10.10' => 1,
-            '10.11' => 1,
-            '10.12' => 1,
-            '10.13' => 1,
-            '10.14' => 1,
-            '10.15' => 1,
-            'all' => 1,
+            "10.7" => 1,
+            "10.8" => 1,
+            "10.9" => 1,
+            "10.10" => 1,
+            "10.11" => 1,
+            "10.12" => 1,
+            "10.13" => 1,
+            "10.14" => 1,
+            "10.15" => 1,
+            "all" => 1,
         );
         %_jm_cst_15 = (
-            '7' => 1,
-            '8' => 1,
-            'all' => 1,
+            "7" => 1,
+            "8" => 1,
+            "all" => 1,
         );
         %_jm_cst_16 = (
-            '8.0' => 1,
-            '8.1' => 1,
-            '8.2' => 1,
-            '9.0' => 1,
-            '9.1' => 1,
-            '9.2' => 1,
-            '9.3' => 1,
-            '10.0' => 1,
-            'all' => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "8.2" => 1,
+            "9.0" => 1,
+            "9.1" => 1,
+            "9.2" => 1,
+            "9.3" => 1,
+            "10.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_17 = (
-            '5.6' => 1,
-            '5.7' => 1,
-            '5.8' => 1,
-            '5.9' => 1,
-            '6.0' => 1,
-            '6.1' => 1,
-            '6.2' => 1,
-            '6.3' => 1,
-            '6.4' => 1,
-            '6.5' => 1,
-            '6.6' => 1,
-            '6.7' => 1,
-            '6.8' => 1,
-            '6.9' => 1,
-            '7.0' => 1,
-            '7.1' => 1,
-            '7.2' => 1,
-            '7.3' => 1,
-            'all' => 1,
+            "5.6" => 1,
+            "5.7" => 1,
+            "5.8" => 1,
+            "5.9" => 1,
+            "6.0" => 1,
+            "6.1" => 1,
+            "6.2" => 1,
+            "6.3" => 1,
+            "6.4" => 1,
+            "6.5" => 1,
+            "6.6" => 1,
+            "6.7" => 1,
+            "6.8" => 1,
+            "6.9" => 1,
+            "7.0" => 1,
+            "7.1" => 1,
+            "7.2" => 1,
+            "7.3" => 1,
+            "all" => 1,
         );
         %_jm_cst_18 = (
-            '17.01' => 1,
-            '18.06' => 1,
-            '19.07' => 1,
-            '21.02' => 1,
-            '22.03' => 1,
-            '23.05' => 1,
-            '24.10' => 1,
-            'all' => 1,
+            "17.01" => 1,
+            "18.06" => 1,
+            "19.07" => 1,
+            "21.02" => 1,
+            "22.03" => 1,
+            "23.05" => 1,
+            "24.10" => 1,
+            "all" => 1,
         );
         %_jm_cst_19 = (
-            '7.0' => 1,
-            '7.1' => 1,
-            '7.2' => 1,
-            '7.3' => 1,
-            '7.4' => 1,
-            '7.5' => 1,
-            '7.6' => 1,
-            '7.7' => 1,
-            '7.8' => 1,
-            '7.9' => 1,
-            '8.0' => 1,
-            '8.1' => 1,
-            '8.2' => 1,
-            '8.3' => 1,
-            '8.4' => 1,
-            '8.5' => 1,
-            '8.6' => 1,
-            '8.7' => 1,
-            '8.8' => 1,
-            '8.9' => 1,
-            '8.10' => 1,
-            '9.0' => 1,
-            '9.1' => 1,
-            '9.2' => 1,
-            '9.3' => 1,
-            '9.4' => 1,
-            'all' => 1,
+            "7.0" => 1,
+            "7.1" => 1,
+            "7.2" => 1,
+            "7.3" => 1,
+            "7.4" => 1,
+            "7.5" => 1,
+            "7.6" => 1,
+            "7.7" => 1,
+            "7.8" => 1,
+            "7.9" => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "8.2" => 1,
+            "8.3" => 1,
+            "8.4" => 1,
+            "8.5" => 1,
+            "8.6" => 1,
+            "8.7" => 1,
+            "8.8" => 1,
+            "8.9" => 1,
+            "8.10" => 1,
+            "9.0" => 1,
+            "9.1" => 1,
+            "9.2" => 1,
+            "9.3" => 1,
+            "9.4" => 1,
+            "all" => 1,
         );
         %_jm_cst_20 = (
-            '7.1' => 1,
-            '8.0' => 1,
-            '8.1' => 1,
-            '9.0' => 1,
-            'all' => 1,
+            "7.1" => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "9.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_21 = (
-            '8.0' => 1,
-            '8.1' => 1,
-            '8.2' => 1,
-            '8.3' => 1,
-            '8.4' => 1,
-            '8.5' => 1,
-            '8.6' => 1,
-            '8.7' => 1,
-            '8.8' => 1,
-            '9.0' => 1,
-            '9.1' => 1,
-            '9.2' => 1,
-            'all' => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "8.2" => 1,
+            "8.3" => 1,
+            "8.4" => 1,
+            "8.5" => 1,
+            "8.6" => 1,
+            "8.7" => 1,
+            "8.8" => 1,
+            "9.0" => 1,
+            "9.1" => 1,
+            "9.2" => 1,
+            "all" => 1,
         );
         %_jm_cst_22 = (
-            '10SP3' => 1,
-            '10SP4' => 1,
-            '11' => 1,
-            '11SP1' => 1,
-            '11SP2' => 1,
-            '11SP3' => 1,
-            '11SP4' => 1,
-            '12' => 1,
-            '12SP1' => 1,
-            '12SP2' => 1,
-            '12SP3' => 1,
-            '12SP4' => 1,
-            '12SP5' => 1,
-            '15' => 1,
-            '15SP1' => 1,
-            '15SP2' => 1,
-            '15SP3' => 1,
-            '15SP4' => 1,
-            '15SP5' => 1,
-            '15SP6' => 1,
-            'all' => 1,
+            "10SP3" => 1,
+            "10SP4" => 1,
+            "11" => 1,
+            "11SP1" => 1,
+            "11SP2" => 1,
+            "11SP3" => 1,
+            "11SP4" => 1,
+            "12" => 1,
+            "12SP1" => 1,
+            "12SP2" => 1,
+            "12SP3" => 1,
+            "12SP4" => 1,
+            "12SP5" => 1,
+            "15" => 1,
+            "15SP1" => 1,
+            "15SP2" => 1,
+            "15SP3" => 1,
+            "15SP4" => 1,
+            "15SP5" => 1,
+            "15SP6" => 1,
+            "all" => 1,
         );
         %_jm_cst_23 = (
-            '10' => 1,
-            '11.0' => 1,
-            '11.1' => 1,
-            '11.2' => 1,
-            '11.3' => 1,
-            '11.4' => 1,
-            'all' => 1,
+            "10" => 1,
+            "11.0" => 1,
+            "11.1" => 1,
+            "11.2" => 1,
+            "11.3" => 1,
+            "11.4" => 1,
+            "all" => 1,
         );
         %_jm_cst_24 = (
-            '6.0' => 1,
-            '6.1' => 1,
-            '6.2' => 1,
-            '7.0' => 1,
-            'all' => 1,
+            "6.0" => 1,
+            "6.1" => 1,
+            "6.2" => 1,
+            "7.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_25 = (
-            '12.1' => 1,
-            '13.0' => 1,
-            '13.1' => 1,
-            '14.0' => 1,
-            'all' => 1,
+            "12.1" => 1,
+            "13.0" => 1,
+            "13.1" => 1,
+            "14.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_26 = (
-            'artful' => 1,
-            'bionic' => 1,
-            'cosmic' => 1,
-            'disco' => 1,
-            'eoan' => 1,
-            'focal' => 1,
-            'groovy' => 1,
-            'hirsute' => 1,
-            'impish' => 1,
-            'jammy' => 1,
-            'kinetic' => 1,
-            'lucid' => 1,
-            'lunar' => 1,
-            'mantic' => 1,
-            'noble' => 1,
-            'maverick' => 1,
-            'natty' => 1,
-            'oneiric' => 1,
-            'oracular' => 1,
-            'plucky' => 1,
-            'precise' => 1,
-            'quantal' => 1,
-            'raring' => 1,
-            'saucy' => 1,
-            'trusty' => 1,
-            'utopic' => 1,
-            'vivid' => 1,
-            'wily' => 1,
-            'xenial' => 1,
-            'yakkety' => 1,
-            'zesty' => 1,
-            'all' => 1,
+            "artful" => 1,
+            "bionic" => 1,
+            "cosmic" => 1,
+            "disco" => 1,
+            "eoan" => 1,
+            "focal" => 1,
+            "groovy" => 1,
+            "hirsute" => 1,
+            "impish" => 1,
+            "jammy" => 1,
+            "kinetic" => 1,
+            "lucid" => 1,
+            "lunar" => 1,
+            "mantic" => 1,
+            "noble" => 1,
+            "maverick" => 1,
+            "natty" => 1,
+            "oneiric" => 1,
+            "oracular" => 1,
+            "plucky" => 1,
+            "precise" => 1,
+            "quantal" => 1,
+            "raring" => 1,
+            "saucy" => 1,
+            "trusty" => 1,
+            "utopic" => 1,
+            "vivid" => 1,
+            "wily" => 1,
+            "xenial" => 1,
+            "yakkety" => 1,
+            "zesty" => 1,
+            "all" => 1,
         );
         %_jm_cst_27 = (
-            '2008R2' => 1,
-            '2008x64' => 1,
-            '2008x86' => 1,
-            '2012' => 1,
-            '2012R2' => 1,
-            '2016' => 1,
-            '2019' => 1,
-            '2022' => 1,
-            '2025' => 1,
-            'all' => 1,
+            "2008R2" => 1,
+            "2008x64" => 1,
+            "2008x86" => 1,
+            "2012" => 1,
+            "2012R2" => 1,
+            "2016" => 1,
+            "2019" => 1,
+            "2022" => 1,
+            "2025" => 1,
+            "all" => 1,
         );
         %_jm_cst_28 = (
-            'Big-Sur' => 1,
-            'Catalina' => 1,
-            'High-Sierra' => 1,
-            'Mojave' => 1,
-            'Monterey' => 1,
-            'Sierra' => 1,
-            'Sonoma' => 1,
-            'Ventura' => 1,
-            'all' => 1,
+            "Big-Sur" => 1,
+            "Catalina" => 1,
+            "High-Sierra" => 1,
+            "Mojave" => 1,
+            "Monterey" => 1,
+            "Sierra" => 1,
+            "Sonoma" => 1,
+            "Ventura" => 1,
+            "all" => 1,
         );
         %_jm_cst_29 = (
-            '12.1' => 1,
-            '12.2' => 1,
-            '12.3' => 1,
-            '13.1' => 1,
-            '13.2' => 1,
-            '15.0' => 1,
-            '15.1' => 1,
-            '15.2' => 1,
-            '15.3' => 1,
-            '15.4' => 1,
-            '15.5' => 1,
-            '42.1' => 1,
-            '42.2' => 1,
-            '42.3' => 1,
-            'all' => 1,
+            "12.1" => 1,
+            "12.2" => 1,
+            "12.3" => 1,
+            "13.1" => 1,
+            "13.2" => 1,
+            "15.0" => 1,
+            "15.1" => 1,
+            "15.2" => 1,
+            "15.3" => 1,
+            "15.4" => 1,
+            "15.5" => 1,
+            "42.1" => 1,
+            "42.2" => 1,
+            "42.3" => 1,
+            "all" => 1,
         );
         %_jm_cst_30 = (
-            '5.5' => 1,
-            '6.0' => 1,
-            '6.5' => 1,
-            '6.7' => 1,
-            '7.0' => 1,
-            '8.0' => 1,
-            'all' => 1,
+            "5.5" => 1,
+            "6.0" => 1,
+            "6.5" => 1,
+            "6.7" => 1,
+            "7.0" => 1,
+            "8.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_31 = (
-            '5.5' => 1,
-            '6.0' => 1,
-            '6.5' => 1,
-            '6.7' => 1,
-            '7.0' => 1,
-            '8.0' => 1,
-            'all' => 1,
+            "5.5" => 1,
+            "6.0" => 1,
+            "6.5" => 1,
+            "6.7" => 1,
+            "7.0" => 1,
+            "8.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_32 = (
-            '2008R2' => 1,
-            '2008x64' => 1,
-            '2008x86' => 1,
-            '2012' => 1,
-            '2012R2' => 1,
-            '2016' => 1,
-            '2019' => 1,
-            '2022' => 1,
-            '2025' => 1,
-            'all' => 1,
+            "2008R2" => 1,
+            "2008x64" => 1,
+            "2008x86" => 1,
+            "2012" => 1,
+            "2012R2" => 1,
+            "2016" => 1,
+            "2019" => 1,
+            "2022" => 1,
+            "2025" => 1,
+            "all" => 1,
         );
         %_jm_cst_33 = (
-            '5.5' => 1,
-            '6.0' => 1,
-            '6.5' => 1,
-            '6.7' => 1,
-            '7.0' => 1,
-            '8.0' => 1,
-            'all' => 1,
+            "5.5" => 1,
+            "6.0" => 1,
+            "6.5" => 1,
+            "6.7" => 1,
+            "7.0" => 1,
+            "8.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_34 = (
-            '5.5' => 1,
-            '6.0' => 1,
-            '6.5' => 1,
-            '6.7' => 1,
-            '7.0' => 1,
-            '8.0' => 1,
-            'all' => 1,
+            "5.5" => 1,
+            "6.0" => 1,
+            "6.5" => 1,
+            "6.7" => 1,
+            "7.0" => 1,
+            "8.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_35 = (
-            'artful' => 1,
-            'bionic' => 1,
-            'cosmic' => 1,
-            'disco' => 1,
-            'eoan' => 1,
-            'focal' => 1,
-            'groovy' => 1,
-            'hirsute' => 1,
-            'impish' => 1,
-            'jammy' => 1,
-            'kinetic' => 1,
-            'lucid' => 1,
-            'lunar' => 1,
-            'mantic' => 1,
-            'noble' => 1,
-            'maverick' => 1,
-            'natty' => 1,
-            'oneiric' => 1,
-            'oracular' => 1,
-            'plucky' => 1,
-            'precise' => 1,
-            'quantal' => 1,
-            'raring' => 1,
-            'saucy' => 1,
-            'trusty' => 1,
-            'utopic' => 1,
-            'vivid' => 1,
-            'wily' => 1,
-            'xenial' => 1,
-            'yakkety' => 1,
-            'zesty' => 1,
-            'all' => 1,
+            "artful" => 1,
+            "bionic" => 1,
+            "cosmic" => 1,
+            "disco" => 1,
+            "eoan" => 1,
+            "focal" => 1,
+            "groovy" => 1,
+            "hirsute" => 1,
+            "impish" => 1,
+            "jammy" => 1,
+            "kinetic" => 1,
+            "lucid" => 1,
+            "lunar" => 1,
+            "mantic" => 1,
+            "noble" => 1,
+            "maverick" => 1,
+            "natty" => 1,
+            "oneiric" => 1,
+            "oracular" => 1,
+            "plucky" => 1,
+            "precise" => 1,
+            "quantal" => 1,
+            "raring" => 1,
+            "saucy" => 1,
+            "trusty" => 1,
+            "utopic" => 1,
+            "vivid" => 1,
+            "wily" => 1,
+            "xenial" => 1,
+            "yakkety" => 1,
+            "zesty" => 1,
+            "all" => 1,
         );
         %_jm_cst_36 = (
-            '12.1' => 1,
-            '13.0' => 1,
-            '13.1' => 1,
-            '14.0' => 1,
-            'all' => 1,
+            "12.1" => 1,
+            "13.0" => 1,
+            "13.1" => 1,
+            "14.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_37 = (
-            '6.0' => 1,
-            '6.1' => 1,
-            '6.2' => 1,
-            '7.0' => 1,
-            'all' => 1,
+            "6.0" => 1,
+            "6.1" => 1,
+            "6.2" => 1,
+            "7.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_38 = (
-            '10' => 1,
-            '11.0' => 1,
-            '11.1' => 1,
-            '11.2' => 1,
-            '11.3' => 1,
-            '11.4' => 1,
-            'all' => 1,
+            "10" => 1,
+            "11.0" => 1,
+            "11.1" => 1,
+            "11.2" => 1,
+            "11.3" => 1,
+            "11.4" => 1,
+            "all" => 1,
         );
         %_jm_cst_39 = (
-            '10SP3' => 1,
-            '10SP4' => 1,
-            '11' => 1,
-            '11SP1' => 1,
-            '11SP2' => 1,
-            '11SP3' => 1,
-            '11SP4' => 1,
-            '12' => 1,
-            '12SP1' => 1,
-            '12SP2' => 1,
-            '12SP3' => 1,
-            '12SP4' => 1,
-            '12SP5' => 1,
-            '15' => 1,
-            '15SP1' => 1,
-            '15SP2' => 1,
-            '15SP3' => 1,
-            '15SP4' => 1,
-            '15SP5' => 1,
-            '15SP6' => 1,
-            'all' => 1,
+            "10SP3" => 1,
+            "10SP4" => 1,
+            "11" => 1,
+            "11SP1" => 1,
+            "11SP2" => 1,
+            "11SP3" => 1,
+            "11SP4" => 1,
+            "12" => 1,
+            "12SP1" => 1,
+            "12SP2" => 1,
+            "12SP3" => 1,
+            "12SP4" => 1,
+            "12SP5" => 1,
+            "15" => 1,
+            "15SP1" => 1,
+            "15SP2" => 1,
+            "15SP3" => 1,
+            "15SP4" => 1,
+            "15SP5" => 1,
+            "15SP6" => 1,
+            "all" => 1,
         );
         %_jm_cst_40 = (
-            '8.0' => 1,
-            '8.1' => 1,
-            '8.2' => 1,
-            '8.3' => 1,
-            '8.4' => 1,
-            '8.5' => 1,
-            '8.6' => 1,
-            '8.7' => 1,
-            '8.8' => 1,
-            '9.0' => 1,
-            '9.1' => 1,
-            '9.2' => 1,
-            'all' => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "8.2" => 1,
+            "8.3" => 1,
+            "8.4" => 1,
+            "8.5" => 1,
+            "8.6" => 1,
+            "8.7" => 1,
+            "8.8" => 1,
+            "9.0" => 1,
+            "9.1" => 1,
+            "9.2" => 1,
+            "all" => 1,
         );
         %_jm_cst_41 = (
-            '7.1' => 1,
-            '8.0' => 1,
-            '8.1' => 1,
-            '9.0' => 1,
-            'all' => 1,
+            "7.1" => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "9.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_42 = (
-            '7.0' => 1,
-            '7.1' => 1,
-            '7.2' => 1,
-            '7.3' => 1,
-            '7.4' => 1,
-            '7.5' => 1,
-            '7.6' => 1,
-            '7.7' => 1,
-            '7.8' => 1,
-            '7.9' => 1,
-            '8.0' => 1,
-            '8.1' => 1,
-            '8.2' => 1,
-            '8.3' => 1,
-            '8.4' => 1,
-            '8.5' => 1,
-            '8.6' => 1,
-            '8.7' => 1,
-            '8.8' => 1,
-            '8.9' => 1,
-            '8.10' => 1,
-            '9.0' => 1,
-            '9.1' => 1,
-            '9.2' => 1,
-            '9.3' => 1,
-            '9.4' => 1,
-            'all' => 1,
+            "7.0" => 1,
+            "7.1" => 1,
+            "7.2" => 1,
+            "7.3" => 1,
+            "7.4" => 1,
+            "7.5" => 1,
+            "7.6" => 1,
+            "7.7" => 1,
+            "7.8" => 1,
+            "7.9" => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "8.2" => 1,
+            "8.3" => 1,
+            "8.4" => 1,
+            "8.5" => 1,
+            "8.6" => 1,
+            "8.7" => 1,
+            "8.8" => 1,
+            "8.9" => 1,
+            "8.10" => 1,
+            "9.0" => 1,
+            "9.1" => 1,
+            "9.2" => 1,
+            "9.3" => 1,
+            "9.4" => 1,
+            "all" => 1,
         );
         %_jm_cst_43 = (
-            '17.01' => 1,
-            '18.06' => 1,
-            '19.07' => 1,
-            '21.02' => 1,
-            '22.03' => 1,
-            '23.05' => 1,
-            '24.10' => 1,
-            'all' => 1,
+            "17.01" => 1,
+            "18.06" => 1,
+            "19.07" => 1,
+            "21.02" => 1,
+            "22.03" => 1,
+            "23.05" => 1,
+            "24.10" => 1,
+            "all" => 1,
         );
         %_jm_cst_44 = (
-            '12.1' => 1,
-            '12.2' => 1,
-            '12.3' => 1,
-            '13.1' => 1,
-            '13.2' => 1,
-            '15.0' => 1,
-            '15.1' => 1,
-            '15.2' => 1,
-            '15.3' => 1,
-            '15.4' => 1,
-            '15.5' => 1,
-            '42.1' => 1,
-            '42.2' => 1,
-            '42.3' => 1,
-            'all' => 1,
+            "12.1" => 1,
+            "12.2" => 1,
+            "12.3" => 1,
+            "13.1" => 1,
+            "13.2" => 1,
+            "15.0" => 1,
+            "15.1" => 1,
+            "15.2" => 1,
+            "15.3" => 1,
+            "15.4" => 1,
+            "15.5" => 1,
+            "42.1" => 1,
+            "42.2" => 1,
+            "42.3" => 1,
+            "all" => 1,
         );
         %_jm_cst_45 = (
-            '5.6' => 1,
-            '5.7' => 1,
-            '5.8' => 1,
-            '5.9' => 1,
-            '6.0' => 1,
-            '6.1' => 1,
-            '6.2' => 1,
-            '6.3' => 1,
-            '6.4' => 1,
-            '6.5' => 1,
-            '6.6' => 1,
-            '6.7' => 1,
-            '6.8' => 1,
-            '6.9' => 1,
-            '7.0' => 1,
-            '7.1' => 1,
-            '7.2' => 1,
-            '7.3' => 1,
-            'all' => 1,
+            "5.6" => 1,
+            "5.7" => 1,
+            "5.8" => 1,
+            "5.9" => 1,
+            "6.0" => 1,
+            "6.1" => 1,
+            "6.2" => 1,
+            "6.3" => 1,
+            "6.4" => 1,
+            "6.5" => 1,
+            "6.6" => 1,
+            "6.7" => 1,
+            "6.8" => 1,
+            "6.9" => 1,
+            "7.0" => 1,
+            "7.1" => 1,
+            "7.2" => 1,
+            "7.3" => 1,
+            "all" => 1,
         );
         %_jm_cst_46 = (
-            '7' => 1,
-            '8' => 1,
-            'all' => 1,
+            "7" => 1,
+            "8" => 1,
+            "all" => 1,
         );
         %_jm_cst_47 = (
-            '10.7' => 1,
-            '10.8' => 1,
-            '10.9' => 1,
-            '10.10' => 1,
-            '10.11' => 1,
-            '10.12' => 1,
-            '10.13' => 1,
-            '10.14' => 1,
-            '10.15' => 1,
-            'all' => 1,
+            "10.7" => 1,
+            "10.8" => 1,
+            "10.9" => 1,
+            "10.10" => 1,
+            "10.11" => 1,
+            "10.12" => 1,
+            "10.13" => 1,
+            "10.14" => 1,
+            "10.15" => 1,
+            "all" => 1,
         );
         %_jm_cst_48 = (
-            'Big-Sur' => 1,
-            'Catalina' => 1,
-            'High-Sierra' => 1,
-            'Mojave' => 1,
-            'Monterey' => 1,
-            'Sierra' => 1,
-            'Sonoma' => 1,
-            'Ventura' => 1,
-            'all' => 1,
+            "Big-Sur" => 1,
+            "Catalina" => 1,
+            "High-Sierra" => 1,
+            "Mojave" => 1,
+            "Monterey" => 1,
+            "Sierra" => 1,
+            "Sonoma" => 1,
+            "Ventura" => 1,
+            "all" => 1,
         );
         %_jm_cst_49 = (
-            '2.0' => 1,
-            '2016' => 1,
-            '2017' => 1,
-            '2018' => 1,
-            '2019' => 1,
-            '2020' => 1,
-            '2021' => 1,
-            '2022' => 1,
-            '2023' => 1,
-            'all' => 1,
+            "2.0" => 1,
+            "2016" => 1,
+            "2017" => 1,
+            "2018" => 1,
+            "2019" => 1,
+            "2020" => 1,
+            "2021" => 1,
+            "2022" => 1,
+            "2023" => 1,
+            "all" => 1,
         );
         %_jm_cst_50 = (
-            '10' => 1,
-            '11' => 1,
-            'all' => 1,
+            "10" => 1,
+            "11" => 1,
+            "all" => 1,
         );
         %_jm_cst_51 = (
-            '8.0' => 1,
-            '8.1' => 1,
-            '8.2' => 1,
-            '8.3' => 1,
-            '8.4' => 1,
-            '9.0' => 1,
-            '9.1' => 1,
-            '9.2' => 1,
-            '9.3' => 1,
-            '10.0' => 1,
-            '10.1' => 1,
-            '10.2' => 1,
-            '10.3' => 1,
-            '10.4' => 1,
-            '11.0' => 1,
-            '11.1' => 1,
-            '11.2' => 1,
-            '11.3' => 1,
-            '11.4' => 1,
-            '12.0' => 1,
-            '12.1' => 1,
-            '12.2' => 1,
-            '13.0' => 1,
-            '13.1' => 1,
-            '13.2' => 1,
-            '14.0' => 1,
-            'all' => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "8.2" => 1,
+            "8.3" => 1,
+            "8.4" => 1,
+            "9.0" => 1,
+            "9.1" => 1,
+            "9.2" => 1,
+            "9.3" => 1,
+            "10.0" => 1,
+            "10.1" => 1,
+            "10.2" => 1,
+            "10.3" => 1,
+            "10.4" => 1,
+            "11.0" => 1,
+            "11.1" => 1,
+            "11.2" => 1,
+            "11.3" => 1,
+            "11.4" => 1,
+            "12.0" => 1,
+            "12.1" => 1,
+            "12.2" => 1,
+            "13.0" => 1,
+            "13.1" => 1,
+            "13.2" => 1,
+            "14.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_52 = (
-            '16' => 1,
-            '17' => 1,
-            '18' => 1,
-            '19' => 1,
-            '20' => 1,
-            '21' => 1,
-            '22' => 1,
-            '23' => 1,
-            '24' => 1,
-            '25' => 1,
-            '26' => 1,
-            '27' => 1,
-            '28' => 1,
-            '29' => 1,
-            '30' => 1,
-            '31' => 1,
-            '32' => 1,
-            '33' => 1,
-            '34' => 1,
-            '35' => 1,
-            '36' => 1,
-            '37' => 1,
-            '38' => 1,
-            '39' => 1,
-            '40' => 1,
-            '41' => 1,
-            '42' => 1,
-            'all' => 1,
+            "16" => 1,
+            "17" => 1,
+            "18" => 1,
+            "19" => 1,
+            "20" => 1,
+            "21" => 1,
+            "22" => 1,
+            "23" => 1,
+            "24" => 1,
+            "25" => 1,
+            "26" => 1,
+            "27" => 1,
+            "28" => 1,
+            "29" => 1,
+            "30" => 1,
+            "31" => 1,
+            "32" => 1,
+            "33" => 1,
+            "34" => 1,
+            "35" => 1,
+            "36" => 1,
+            "37" => 1,
+            "38" => 1,
+            "39" => 1,
+            "40" => 1,
+            "41" => 1,
+            "42" => 1,
+            "all" => 1,
         );
         %_jm_cst_53 = (
-            '5' => 1,
-            '6' => 1,
-            '7' => 1,
-            '8' => 1,
-            '9' => 1,
-            '10' => 1,
-            'all' => 1,
+            "5" => 1,
+            "6" => 1,
+            "7" => 1,
+            "8" => 1,
+            "9" => 1,
+            "10" => 1,
+            "all" => 1,
         );
         %_jm_cst_54 = (
-            '5.2' => 1,
-            '5.4' => 1,
-            '5.6' => 1,
-            '5.8' => 1,
-            '6.0' => 1,
-            '6.2' => 1,
-            '6.4' => 1,
-            'all' => 1,
+            "5.2" => 1,
+            "5.4" => 1,
+            "5.6" => 1,
+            "5.8" => 1,
+            "6.0" => 1,
+            "6.2" => 1,
+            "6.4" => 1,
+            "all" => 1,
         );
         %_jm_cst_55 = (
-            'ascii' => 1,
-            'beowulf' => 1,
-            'chimaera' => 1,
-            'daedalus' => 1,
-            'jessie' => 1,
-            'all' => 1,
+            "ascii" => 1,
+            "beowulf" => 1,
+            "chimaera" => 1,
+            "daedalus" => 1,
+            "jessie" => 1,
+            "all" => 1,
         );
         %_jm_cst_56 = (
-            '10' => 1,
-            '6' => 1,
-            '9' => 1,
-            'all' => 1,
+            "10" => 1,
+            "6" => 1,
+            "9" => 1,
+            "all" => 1,
         );
         %_jm_cst_57 = (
-            'bookworm' => 1,
-            'bullseye' => 1,
-            'buster' => 1,
-            'etch' => 1,
-            'jessie' => 1,
-            'lenny' => 1,
-            'sid' => 1,
-            'squeeze' => 1,
-            'stretch' => 1,
-            'trixie' => 1,
-            'wheezy' => 1,
-            'all' => 1,
+            "bookworm" => 1,
+            "bullseye" => 1,
+            "buster" => 1,
+            "etch" => 1,
+            "jessie" => 1,
+            "lenny" => 1,
+            "sid" => 1,
+            "squeeze" => 1,
+            "stretch" => 1,
+            "trixie" => 1,
+            "wheezy" => 1,
+            "all" => 1,
         );
         %_jm_cst_58 = (
-            '8.0' => 1,
-            '8.1' => 1,
-            '8.2' => 1,
-            '9.0' => 1,
-            '9.1' => 1,
-            '9.2' => 1,
-            '9.3' => 1,
-            '10.0' => 1,
-            'all' => 1,
+            "8.0" => 1,
+            "8.1" => 1,
+            "8.2" => 1,
+            "9.0" => 1,
+            "9.1" => 1,
+            "9.2" => 1,
+            "9.3" => 1,
+            "10.0" => 1,
+            "all" => 1,
         );
         %_jm_cst_59 = (
-            '2.5' => 1,
-            '3.0' => 1,
-            '3.1' => 1,
-            '3.2' => 1,
-            '3.3' => 1,
-            '3.4' => 1,
-            '3.5' => 1,
-            'all' => 1,
+            "2.5" => 1,
+            "3.0" => 1,
+            "3.1" => 1,
+            "3.2" => 1,
+            "3.3" => 1,
+            "3.4" => 1,
+            "3.5" => 1,
+            "all" => 1,
         );
         %_jm_cst_60 = (
-            '1.8' => 1,
-            '1.7' => 1,
-            '1.6' => 1,
-            '2.12' => 1,
-            'all' => 1,
+            "1.8" => 1,
+            "1.7" => 1,
+            "1.6" => 1,
+            "2.12" => 1,
+            "all" => 1,
         );
         %_jm_cst_61 = (
-            'all' => 1,
-            '1' => 1,
-            '2' => 1,
-            '2023' => 1,
+            "all" => 1,
+            "1" => 1,
+            "2" => 1,
+            "2023" => 1,
         );
         %_jm_cst_62 = (
-            '2013.03' => 1,
-            '2013.09' => 1,
-            '2014.03' => 1,
-            '2014.09' => 1,
-            '2015.03' => 1,
-            '2015.09' => 1,
-            '2016.03' => 1,
-            '2016.09' => 1,
-            '2017.03' => 1,
-            '2017.09' => 1,
-            '2017.12' => 1,
-            '2018.03' => 1,
-            'Candidate' => 1,
-            'all' => 1,
+            "2013.03" => 1,
+            "2013.09" => 1,
+            "2014.03" => 1,
+            "2014.09" => 1,
+            "2015.03" => 1,
+            "2015.09" => 1,
+            "2016.03" => 1,
+            "2016.09" => 1,
+            "2017.03" => 1,
+            "2017.09" => 1,
+            "2017.12" => 1,
+            "2018.03" => 1,
+            "Candidate" => 1,
+            "all" => 1,
         );
         %_jm_cst_63 = (
-            '6.1' => 1,
-            '7.1' => 1,
-            '7.2' => 1,
-            'all' => 1,
+            "6.1" => 1,
+            "7.1" => 1,
+            "7.2" => 1,
+            "all" => 1,
         );
         %json_model_53_map = (
-            'cloud_platforms' => \&_jm_f_0,
-            'company' => \&_jm_f_1,
-            'galaxy_tags' => \&_jm_f_2,
-            'github_branch' => \&_jm_f_3,
-            'issue_tracker_url' => \&_jm_f_4,
-            'min_ansible_container_version' => \&_jm_f_5,
-            'namespace' => \&_jm_f_6,
-            'platforms' => \&json_model_50,
-            'role_name' => \&_jm_f_7,
-            'video_links' => \&_jm_f_8,
+            "cloud_platforms" => \&_jm_f_0,
+            "company" => \&_jm_f_1,
+            "galaxy_tags" => \&_jm_f_2,
+            "github_branch" => \&_jm_f_3,
+            "issue_tracker_url" => \&_jm_f_4,
+            "min_ansible_container_version" => \&_jm_f_5,
+            "namespace" => \&_jm_f_6,
+            "platforms" => \&json_model_50,
+            "role_name" => \&_jm_f_7,
+            "video_links" => \&_jm_f_8,
         );
         %_jm_obj_47_map = (
-            'author' => \&_jm_f_9,
-            'cloud_platforms' => \&_jm_f_10,
-            'company' => \&_jm_f_11,
-            'galaxy_tags' => \&_jm_f_12,
-            'github_branch' => \&_jm_f_13,
-            'issue_tracker_url' => \&_jm_f_14,
-            'license' => \&_jm_f_15,
-            'min_ansible_container_version' => \&_jm_f_16,
-            'min_ansible_version' => \&_jm_f_17,
-            'namespace' => \&_jm_f_18,
-            'platforms' => \&json_model_50,
-            'role_name' => \&_jm_f_19,
-            'video_links' => \&_jm_f_20,
+            "author" => \&_jm_f_9,
+            "cloud_platforms" => \&_jm_f_10,
+            "company" => \&_jm_f_11,
+            "galaxy_tags" => \&_jm_f_12,
+            "github_branch" => \&_jm_f_13,
+            "issue_tracker_url" => \&_jm_f_14,
+            "license" => \&_jm_f_15,
+            "min_ansible_container_version" => \&_jm_f_16,
+            "min_ansible_version" => \&_jm_f_17,
+            "namespace" => \&_jm_f_18,
+            "platforms" => \&json_model_50,
+            "role_name" => \&_jm_f_19,
+            "video_links" => \&_jm_f_20,
         );
         %_jm_obj_48_map = (
-            'author' => \&_jm_f_21,
-            'cloud_platforms' => \&_jm_f_22,
-            'company' => \&_jm_f_23,
-            'galaxy_tags' => \&_jm_f_24,
-            'github_branch' => \&_jm_f_25,
-            'issue_tracker_url' => \&_jm_f_26,
-            'license' => \&_jm_f_27,
-            'min_ansible_container_version' => \&_jm_f_28,
-            'min_ansible_version' => \&_jm_f_29,
-            'namespace' => \&_jm_f_30,
-            'platforms' => \&json_model_50,
-            'role_name' => \&_jm_f_31,
-            'video_links' => \&_jm_f_32,
+            "author" => \&_jm_f_21,
+            "cloud_platforms" => \&_jm_f_22,
+            "company" => \&_jm_f_23,
+            "galaxy_tags" => \&_jm_f_24,
+            "github_branch" => \&_jm_f_25,
+            "issue_tracker_url" => \&_jm_f_26,
+            "license" => \&_jm_f_27,
+            "min_ansible_container_version" => \&_jm_f_28,
+            "min_ansible_version" => \&_jm_f_29,
+            "namespace" => \&_jm_f_30,
+            "platforms" => \&json_model_50,
+            "role_name" => \&_jm_f_31,
+            "video_links" => \&_jm_f_32,
         );
         %_jm_map_0 = (
             1 => \&json_model_53,
             0 => \&_jm_obj_47,
         );
         %_jm_cst_64 = (
-            'hg' => 1,
-            'git' => 1,
+            "hg" => 1,
+            "git" => 1,
         );
         %check_model_map = (
-            '' => \&json_model_60,
-            'AIXPlatformModel' => \&json_model_2,
-            'AlpinePlatformModel' => \&json_model_3,
-            'AmazonLinuxPlatformModel' => \&json_model_4,
-            'AmazonPlatformModel' => \&json_model_5,
-            'ArchLinuxPlatformModel' => \&json_model_6,
-            'AstraLinuxPlatformModel' => \&json_model_7,
-            'ClearLinuxPlatformModel' => \&json_model_8,
-            'CumulusPlatformModel' => \&json_model_9,
-            'DebianPlatformModel' => \&json_model_10,
-            'DellOSPlatformModel' => \&json_model_11,
-            'DevuanPlatformModel' => \&json_model_12,
-            'DragonFlyBSDPlatformModel' => \&json_model_13,
-            'ELPlatformModel' => \&json_model_14,
-            'FedoraPlatformModel' => \&json_model_15,
-            'FreeBSDPlatformModel' => \&json_model_16,
-            'GenericBSDPlatformModel' => \&json_model_17,
-            'GenericLinuxPlatformModel' => \&json_model_18,
-            'GenericUNIXPlatformModel' => \&json_model_19,
-            'GentooPlatformModel' => \&json_model_20,
-            'HardenedBSDPlatformModel' => \&json_model_21,
-            'IOSPlatformModel' => \&json_model_22,
-            'JunosPlatformModel' => \&json_model_23,
-            'KaliPlatformModel' => \&json_model_24,
-            'MacOSXPlatformModel' => \&json_model_25,
-            'MageiaPlatformModel' => \&json_model_26,
-            'NXOSPlatformModel' => \&json_model_27,
-            'NetBSDPlatformModel' => \&json_model_28,
-            'OpenBSDPlatformModel' => \&json_model_29,
-            'OpenWrtPlatformModel' => \&json_model_30,
-            'OracleLinuxPlatformModel' => \&json_model_31,
-            'PAN-OSPlatformModel' => \&json_model_32,
-            'RockyLinuxPlatformModel' => \&json_model_33,
-            'SLESPlatformModel' => \&json_model_34,
-            'SmartOSPlatformModel' => \&json_model_35,
-            'SolarisPlatformModel' => \&json_model_36,
-            'SynologyPlatformModel' => \&json_model_37,
-            'TMOSPlatformModel' => \&json_model_38,
-            'UbuntuPlatformModel' => \&json_model_39,
-            'Void_LinuxPlatformModel' => \&json_model_40,
-            'WindowsPlatformModel' => \&json_model_41,
-            'aosPlatformModel' => \&json_model_42,
-            'eosPlatformModel' => \&json_model_43,
-            'macOSPlatformModel' => \&json_model_44,
-            'opensusePlatformModel' => \&json_model_45,
-            'os10PlatformModel' => \&json_model_46,
-            'vCenterPlatformModel' => \&json_model_47,
-            'vSpherePlatformModel' => \&json_model_48,
-            'any_platform' => \&json_model_49,
-            'platforms' => \&json_model_50,
-            'GalaxyInfoModelCollection' => \&json_model_51,
-            'GalaxyInfoModelLoose' => \&json_model_52,
-            'GalaxyInfoModelStandalone' => \&json_model_53,
-            'GalaxyInfoModel' => \&json_model_54,
-            'collections' => \&json_model_55,
-            'complex_conditional' => \&json_model_56,
-            'DependencyModelLoose' => \&json_model_57,
-            'DependencyModel' => \&json_model_58,
-            'AnsibleMetaObj' => \&json_model_59,
-            'AnsibleMeta' => \&json_model_60,
+            "" => \&json_model_60,
+            "AIXPlatformModel" => \&json_model_2,
+            "AlpinePlatformModel" => \&json_model_3,
+            "AmazonLinuxPlatformModel" => \&json_model_4,
+            "AmazonPlatformModel" => \&json_model_5,
+            "ArchLinuxPlatformModel" => \&json_model_6,
+            "AstraLinuxPlatformModel" => \&json_model_7,
+            "ClearLinuxPlatformModel" => \&json_model_8,
+            "CumulusPlatformModel" => \&json_model_9,
+            "DebianPlatformModel" => \&json_model_10,
+            "DellOSPlatformModel" => \&json_model_11,
+            "DevuanPlatformModel" => \&json_model_12,
+            "DragonFlyBSDPlatformModel" => \&json_model_13,
+            "ELPlatformModel" => \&json_model_14,
+            "FedoraPlatformModel" => \&json_model_15,
+            "FreeBSDPlatformModel" => \&json_model_16,
+            "GenericBSDPlatformModel" => \&json_model_17,
+            "GenericLinuxPlatformModel" => \&json_model_18,
+            "GenericUNIXPlatformModel" => \&json_model_19,
+            "GentooPlatformModel" => \&json_model_20,
+            "HardenedBSDPlatformModel" => \&json_model_21,
+            "IOSPlatformModel" => \&json_model_22,
+            "JunosPlatformModel" => \&json_model_23,
+            "KaliPlatformModel" => \&json_model_24,
+            "MacOSXPlatformModel" => \&json_model_25,
+            "MageiaPlatformModel" => \&json_model_26,
+            "NXOSPlatformModel" => \&json_model_27,
+            "NetBSDPlatformModel" => \&json_model_28,
+            "OpenBSDPlatformModel" => \&json_model_29,
+            "OpenWrtPlatformModel" => \&json_model_30,
+            "OracleLinuxPlatformModel" => \&json_model_31,
+            "PAN-OSPlatformModel" => \&json_model_32,
+            "RockyLinuxPlatformModel" => \&json_model_33,
+            "SLESPlatformModel" => \&json_model_34,
+            "SmartOSPlatformModel" => \&json_model_35,
+            "SolarisPlatformModel" => \&json_model_36,
+            "SynologyPlatformModel" => \&json_model_37,
+            "TMOSPlatformModel" => \&json_model_38,
+            "UbuntuPlatformModel" => \&json_model_39,
+            "Void_LinuxPlatformModel" => \&json_model_40,
+            "WindowsPlatformModel" => \&json_model_41,
+            "aosPlatformModel" => \&json_model_42,
+            "eosPlatformModel" => \&json_model_43,
+            "macOSPlatformModel" => \&json_model_44,
+            "opensusePlatformModel" => \&json_model_45,
+            "os10PlatformModel" => \&json_model_46,
+            "vCenterPlatformModel" => \&json_model_47,
+            "vSpherePlatformModel" => \&json_model_48,
+            "any_platform" => \&json_model_49,
+            "platforms" => \&json_model_50,
+            "GalaxyInfoModelCollection" => \&json_model_51,
+            "GalaxyInfoModelLoose" => \&json_model_52,
+            "GalaxyInfoModelStandalone" => \&json_model_53,
+            "GalaxyInfoModel" => \&json_model_54,
+            "collections" => \&json_model_55,
+            "complex_conditional" => \&json_model_56,
+            "DependencyModelLoose" => \&json_model_57,
+            "DependencyModel" => \&json_model_58,
+            "AnsibleMetaObj" => \&json_model_59,
+            "AnsibleMeta" => \&json_model_60,
         );
     }
 }

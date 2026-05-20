@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -22,7 +22,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$t'
-    return jm_is_string($val) && $val eq 'cst_02';
+    return jm_is_string($val) && $val eq "cst_02";
 }
 
 # check $r (.'$r')
@@ -40,46 +40,46 @@ sub json_model_5($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'$r'.a
-    my $res = jm_is_string($pval) && $pval eq 'cst_01';
+    my $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'$r'.b
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'$r'.c
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'d'})
+    if (! exists $$val{"d"})
     {
         return 0;
     }
-    $pval = $$val{'d'};
+    $pval = $$val{"d"};
     # .'$r'.d
-    return jm_is_string($pval) && $pval eq 'cst_01';
+    return jm_is_string($pval) && $pval eq "cst_01";
 }
 
 # check $z (.'$z')
@@ -97,24 +97,24 @@ sub json_model_4($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'e'})
+    if (! exists $$val{"e"})
     {
         return 0;
     }
-    $pval = $$val{'e'};
+    $pval = $$val{"e"};
     # .'$z'.e
-    my $res = jm_is_string($pval) && $pval eq 'cst_02';
+    my $res = jm_is_string($pval) && $pval eq "cst_02";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'f'})
+    if (! exists $$val{"f"})
     {
         return 0;
     }
-    $pval = $$val{'f'};
+    $pval = $$val{"f"};
     # .'$z'.f
-    return jm_is_string($pval) && $pval eq 'cst_02';
+    return jm_is_string($pval) && $pval eq "cst_02";
 }
 
 # check $ (.)
@@ -132,68 +132,68 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .a
-    my $res = jm_is_string($pval) && $pval eq 'cst_01';
+    my $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .b
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'e'})
+    if (! exists $$val{"e"})
     {
         return 0;
     }
-    $pval = $$val{'e'};
+    $pval = $$val{"e"};
     # .e
-    $res = jm_is_string($pval) && $pval eq 'cst_02';
+    $res = jm_is_string($pval) && $pval eq "cst_02";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'f'})
+    if (! exists $$val{"f"})
     {
         return 0;
     }
-    $pval = $$val{'f'};
+    $pval = $$val{"f"};
     # .f
-    $res = jm_is_string($pval) && $pval eq 'cst_02';
+    $res = jm_is_string($pval) && $pval eq "cst_02";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .c
-    $res = jm_is_string($pval) && $pval eq 'cst_01';
+    $res = jm_is_string($pval) && $pval eq "cst_01";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'d'})
+    if (! exists $$val{"d"})
     {
         return 0;
     }
-    $pval = $$val{'d'};
+    $pval = $$val{"d"};
     # .d
-    return jm_is_string($pval) && $pval eq 'cst_01';
+    return jm_is_string($pval) && $pval eq "cst_01";
 }
 
 
@@ -207,10 +207,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            't' => \&json_model_2,
-            'r' => \&json_model_5,
-            'z' => \&json_model_4,
+            "" => \&json_model_1,
+            "t" => \&json_model_2,
+            "r" => \&json_model_5,
+            "z" => \&json_model_4,
         );
     }
 }

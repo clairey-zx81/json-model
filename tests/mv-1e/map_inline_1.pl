@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -29,7 +29,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'mu1')
+        if ($prop eq "mu1")
         {
             # handle must mu1 property
             $must_count++;
@@ -41,7 +41,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'mu2')
+        elsif ($prop eq "mu2")
         {
             # handle must mu2 property
             $must_count++;
@@ -53,7 +53,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'mu3')
+        elsif ($prop eq "mu3")
         {
             # handle must mu3 property
             $must_count++;
@@ -65,7 +65,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        if ($prop eq 'ma1')
+        if ($prop eq "ma1")
         {
             # handle may ma1 property
             # .ma1
@@ -76,7 +76,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'ma2')
+        elsif ($prop eq "ma2")
         {
             # handle may ma2 property
             # .ma2
@@ -87,7 +87,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'ma3')
+        elsif ($prop eq "ma3")
         {
             # handle may ma3 property
             # .ma3
@@ -114,7 +114,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -426,7 +426,7 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'pattern')
+        if ($prop eq "pattern")
         {
             # handle may pattern property
             # .'$stringKeywords'.pattern
@@ -437,7 +437,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'minLength')
+        elsif ($prop eq "minLength")
         {
             # handle may minLength property
             # .'$stringKeywords'.minLength
@@ -448,7 +448,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'maxLength')
+        elsif ($prop eq "maxLength")
         {
             # handle may maxLength property
             # .'$stringKeywords'.maxLength
@@ -459,7 +459,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'format')
+        elsif ($prop eq "format")
         {
             # handle may format property
             # .'$stringKeywords'.format
@@ -489,7 +489,7 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'prefixItems')
+        if ($prop eq "prefixItems")
         {
             # handle may prefixItems property
             # .'$arrayKeywords'.prefixItems
@@ -500,7 +500,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'items')
+        elsif ($prop eq "items")
         {
             # handle may items property
             # .'$arrayKeywords'.items
@@ -513,7 +513,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'additionalItems')
+        elsif ($prop eq "additionalItems")
         {
             # handle may additionalItems property
             # .'$arrayKeywords'.additionalItems
@@ -524,7 +524,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'unevaluatedItems')
+        elsif ($prop eq "unevaluatedItems")
         {
             # handle may unevaluatedItems property
             # .'$arrayKeywords'.unevaluatedItems
@@ -535,7 +535,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'minItems')
+        elsif ($prop eq "minItems")
         {
             # handle may minItems property
             # .'$arrayKeywords'.minItems
@@ -546,7 +546,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'maxItems')
+        elsif ($prop eq "maxItems")
         {
             # handle may maxItems property
             # .'$arrayKeywords'.maxItems
@@ -557,7 +557,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'uniqueItems')
+        elsif ($prop eq "uniqueItems")
         {
             # handle may uniqueItems property
             # .'$arrayKeywords'.uniqueItems
@@ -640,7 +640,7 @@ sub json_model_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'properties')
+        if ($prop eq "properties")
         {
             # handle may properties property
             # .'$objectKeywords'.properties
@@ -651,7 +651,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$objectKeywords'.required
@@ -675,7 +675,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'additionalProperties')
+        elsif ($prop eq "additionalProperties")
         {
             # handle may additionalProperties property
             # .'$objectKeywords'.additionalProperties
@@ -686,7 +686,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'unevaluatedProperties')
+        elsif ($prop eq "unevaluatedProperties")
         {
             # handle may unevaluatedProperties property
             # .'$objectKeywords'.unevaluatedProperties
@@ -697,7 +697,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'minProperties')
+        elsif ($prop eq "minProperties")
         {
             # handle may minProperties property
             # .'$objectKeywords'.minProperties
@@ -708,7 +708,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'maxProperties')
+        elsif ($prop eq "maxProperties")
         {
             # handle may maxProperties property
             # .'$objectKeywords'.maxProperties
@@ -719,7 +719,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'patternProperties')
+        elsif ($prop eq "patternProperties")
         {
             # handle may patternProperties property
             # .'$objectKeywords'.patternProperties
@@ -730,7 +730,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'propertyNames')
+        elsif ($prop eq "propertyNames")
         {
             # handle may propertyNames property
             # .'$objectKeywords'.propertyNames
@@ -760,7 +760,7 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'minimum')
+        if ($prop eq "minimum")
         {
             # handle may minimum property
             # .'$numberKeywords'.minimum
@@ -771,7 +771,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'maximum')
+        elsif ($prop eq "maximum")
         {
             # handle may maximum property
             # .'$numberKeywords'.maximum
@@ -1231,12 +1231,12 @@ sub json_model_10($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$String'.type
-            $res = jm_is_string($pval) && $pval eq 'string';
+            $res = jm_is_string($pval) && $pval eq "string";
             if (! $res)
             {
                 return 0;
@@ -1490,12 +1490,12 @@ sub json_model_11($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Array'.type
-            $res = jm_is_string($pval) && $pval eq 'array';
+            $res = jm_is_string($pval) && $pval eq "array";
             if (! $res)
             {
                 return 0;
@@ -1808,12 +1808,12 @@ sub json_model_12($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Object'.type
-            $res = jm_is_string($pval) && $pval eq 'object';
+            $res = jm_is_string($pval) && $pval eq "object";
             if (! $res)
             {
                 return 0;
@@ -2049,12 +2049,12 @@ sub json_model_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Integer'.type
-            $res = jm_is_string($pval) && $pval eq 'integer';
+            $res = jm_is_string($pval) && $pval eq "integer";
             if (! $res)
             {
                 return 0;
@@ -2290,12 +2290,12 @@ sub json_model_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Number'.type
-            $res = jm_is_string($pval) && $pval eq 'number';
+            $res = jm_is_string($pval) && $pval eq "number";
             if (! $res)
             {
                 return 0;
@@ -2515,12 +2515,12 @@ sub json_model_15($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Bool'.type
-            $res = jm_is_string($pval) && $pval eq 'boolean';
+            $res = jm_is_string($pval) && $pval eq "boolean";
             if (! $res)
             {
                 return 0;
@@ -2740,12 +2740,12 @@ sub json_model_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Null'.type
-            $res = jm_is_string($pval) && $pval eq 'null';
+            $res = jm_is_string($pval) && $pval eq "null";
             if (! $res)
             {
                 return 0;
@@ -2965,7 +2965,7 @@ sub json_model_17($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'allOf')
+        if ($prop eq "allOf")
         {
             # handle must allOf property
             $must_count++;
@@ -3190,7 +3190,7 @@ sub json_model_18($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'anyOf')
+        if ($prop eq "anyOf")
         {
             # handle must anyOf property
             $must_count++;
@@ -3415,7 +3415,7 @@ sub json_model_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'oneOf')
+        if ($prop eq "oneOf")
         {
             # handle must oneOf property
             $must_count++;
@@ -3640,7 +3640,7 @@ sub json_model_20($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'enum')
+        if ($prop eq "enum")
         {
             # handle must enum property
             $must_count++;
@@ -3865,7 +3865,7 @@ sub json_model_21($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'const')
+        if ($prop eq "const")
         {
             # handle must const property
             $must_count++;
@@ -4090,7 +4090,7 @@ sub json_model_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '$ref')
+        if ($prop eq "\$ref")
         {
             # handle must $ref property
             $must_count++;
@@ -4315,7 +4315,7 @@ sub json_model_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '$dynamicRef')
+        if ($prop eq "\$dynamicRef")
         {
             # handle must $dynamicRef property
             $must_count++;
@@ -4352,7 +4352,7 @@ sub json_model_24($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'type'}))
+        if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -4386,11 +4386,11 @@ sub _jm_obj_2($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'$schema'})
+    if (! exists $$val{"\$schema"})
     {
         return 0;
     }
-    $pval = $$val{'$schema'};
+    $pval = $$val{"\$schema"};
     # .'$RootSchema'.'&'.0.'$schema'
     return jm_is_string($pval);
 }
@@ -4425,392 +4425,392 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'uri' => 1,
-            'uri-reference' => 1,
-            'iri' => 1,
-            'iri-reference' => 1,
-            'date' => 1,
-            'time' => 1,
-            'date-time' => 1,
-            'ipv4' => 1,
-            'ipv6' => 1,
-            'regex' => 1,
-            'uuid' => 1,
-            'hostname' => 1,
-            'email' => 1,
-            'idn-hostname' => 1,
-            'idn-email' => 1,
-            'duration' => 1,
-            'int32' => 1,
-            'int64' => 1,
-            'uint' => 1,
-            'uint32' => 1,
-            'uint64' => 1,
-            'json-pointer' => 1,
-            'relative-json-pointer' => 1,
-            'byte' => 1,
-            'double' => 1,
-            'int' => 1,
-            'mime-type' => 1,
+            "uri" => 1,
+            "uri-reference" => 1,
+            "iri" => 1,
+            "iri-reference" => 1,
+            "date" => 1,
+            "time" => 1,
+            "date-time" => 1,
+            "ipv4" => 1,
+            "ipv6" => 1,
+            "regex" => 1,
+            "uuid" => 1,
+            "hostname" => 1,
+            "email" => 1,
+            "idn-hostname" => 1,
+            "idn-email" => 1,
+            "duration" => 1,
+            "int32" => 1,
+            "int64" => 1,
+            "uint" => 1,
+            "uint32" => 1,
+            "uint64" => 1,
+            "json-pointer" => 1,
+            "relative-json-pointer" => 1,
+            "byte" => 1,
+            "double" => 1,
+            "int" => 1,
+            "mime-type" => 1,
         );
         %json_model_9_map = (
-            '$anchor' => \&_jm_f_0,
-            '$comment' => \&_jm_f_1,
-            '$defs' => \&_jm_f_2,
-            '$dynamicAnchor' => \&_jm_f_3,
-            '$id' => \&_jm_f_4,
-            '$schema' => \&_jm_f_5,
-            '$vocabulary' => \&_jm_f_6,
-            'default' => \&_jm_f_7,
-            'definitions' => \&_jm_f_8,
-            'deprecated' => \&_jm_f_9,
-            'description' => \&_jm_f_10,
-            'examples' => \&_jm_f_11,
-            'id' => \&_jm_f_12,
-            'readOnly' => \&_jm_f_13,
-            'title' => \&_jm_f_14,
-            'writeOnly' => \&_jm_f_15,
+            "\$anchor" => \&_jm_f_0,
+            "\$comment" => \&_jm_f_1,
+            "\$defs" => \&_jm_f_2,
+            "\$dynamicAnchor" => \&_jm_f_3,
+            "\$id" => \&_jm_f_4,
+            "\$schema" => \&_jm_f_5,
+            "\$vocabulary" => \&_jm_f_6,
+            "default" => \&_jm_f_7,
+            "definitions" => \&_jm_f_8,
+            "deprecated" => \&_jm_f_9,
+            "description" => \&_jm_f_10,
+            "examples" => \&_jm_f_11,
+            "id" => \&_jm_f_12,
+            "readOnly" => \&_jm_f_13,
+            "title" => \&_jm_f_14,
+            "writeOnly" => \&_jm_f_15,
         );
         %_jm_cst_1 = (
-            'uri' => 1,
-            'uri-reference' => 1,
-            'iri' => 1,
-            'iri-reference' => 1,
-            'date' => 1,
-            'time' => 1,
-            'date-time' => 1,
-            'ipv4' => 1,
-            'ipv6' => 1,
-            'regex' => 1,
-            'uuid' => 1,
-            'hostname' => 1,
-            'email' => 1,
-            'idn-hostname' => 1,
-            'idn-email' => 1,
-            'duration' => 1,
-            'int32' => 1,
-            'int64' => 1,
-            'uint' => 1,
-            'uint32' => 1,
-            'uint64' => 1,
-            'json-pointer' => 1,
-            'relative-json-pointer' => 1,
-            'byte' => 1,
-            'double' => 1,
-            'int' => 1,
-            'mime-type' => 1,
+            "uri" => 1,
+            "uri-reference" => 1,
+            "iri" => 1,
+            "iri-reference" => 1,
+            "date" => 1,
+            "time" => 1,
+            "date-time" => 1,
+            "ipv4" => 1,
+            "ipv6" => 1,
+            "regex" => 1,
+            "uuid" => 1,
+            "hostname" => 1,
+            "email" => 1,
+            "idn-hostname" => 1,
+            "idn-email" => 1,
+            "duration" => 1,
+            "int32" => 1,
+            "int64" => 1,
+            "uint" => 1,
+            "uint32" => 1,
+            "uint64" => 1,
+            "json-pointer" => 1,
+            "relative-json-pointer" => 1,
+            "byte" => 1,
+            "double" => 1,
+            "int" => 1,
+            "mime-type" => 1,
         );
         %json_model_10_map = (
-            '$anchor' => \&_jm_f_16,
-            '$comment' => \&_jm_f_17,
-            '$defs' => \&_jm_f_18,
-            '$dynamicAnchor' => \&_jm_f_19,
-            '$id' => \&_jm_f_20,
-            '$schema' => \&_jm_f_21,
-            '$vocabulary' => \&_jm_f_22,
-            'default' => \&_jm_f_23,
-            'definitions' => \&_jm_f_24,
-            'deprecated' => \&_jm_f_25,
-            'description' => \&_jm_f_26,
-            'examples' => \&_jm_f_27,
-            'format' => \&_jm_f_28,
-            'id' => \&_jm_f_29,
-            'maxLength' => \&_jm_f_30,
-            'minLength' => \&_jm_f_31,
-            'pattern' => \&_jm_f_32,
-            'readOnly' => \&_jm_f_33,
-            'title' => \&_jm_f_34,
-            'writeOnly' => \&_jm_f_35,
+            "\$anchor" => \&_jm_f_16,
+            "\$comment" => \&_jm_f_17,
+            "\$defs" => \&_jm_f_18,
+            "\$dynamicAnchor" => \&_jm_f_19,
+            "\$id" => \&_jm_f_20,
+            "\$schema" => \&_jm_f_21,
+            "\$vocabulary" => \&_jm_f_22,
+            "default" => \&_jm_f_23,
+            "definitions" => \&_jm_f_24,
+            "deprecated" => \&_jm_f_25,
+            "description" => \&_jm_f_26,
+            "examples" => \&_jm_f_27,
+            "format" => \&_jm_f_28,
+            "id" => \&_jm_f_29,
+            "maxLength" => \&_jm_f_30,
+            "minLength" => \&_jm_f_31,
+            "pattern" => \&_jm_f_32,
+            "readOnly" => \&_jm_f_33,
+            "title" => \&_jm_f_34,
+            "writeOnly" => \&_jm_f_35,
         );
         %json_model_11_map = (
-            '$anchor' => \&_jm_f_36,
-            '$comment' => \&_jm_f_37,
-            '$defs' => \&_jm_f_38,
-            '$dynamicAnchor' => \&_jm_f_39,
-            '$id' => \&_jm_f_40,
-            '$schema' => \&_jm_f_41,
-            '$vocabulary' => \&_jm_f_42,
-            'additionalItems' => \&json_model_25,
-            'default' => \&_jm_f_43,
-            'definitions' => \&_jm_f_44,
-            'deprecated' => \&_jm_f_45,
-            'description' => \&_jm_f_46,
-            'examples' => \&_jm_f_47,
-            'id' => \&_jm_f_48,
-            'items' => \&_jm_f_49,
-            'maxItems' => \&_jm_f_50,
-            'minItems' => \&_jm_f_51,
-            'prefixItems' => \&json_model_4,
-            'readOnly' => \&_jm_f_52,
-            'title' => \&_jm_f_53,
-            'unevaluatedItems' => \&json_model_25,
-            'uniqueItems' => \&_jm_f_54,
-            'writeOnly' => \&_jm_f_55,
+            "\$anchor" => \&_jm_f_36,
+            "\$comment" => \&_jm_f_37,
+            "\$defs" => \&_jm_f_38,
+            "\$dynamicAnchor" => \&_jm_f_39,
+            "\$id" => \&_jm_f_40,
+            "\$schema" => \&_jm_f_41,
+            "\$vocabulary" => \&_jm_f_42,
+            "additionalItems" => \&json_model_25,
+            "default" => \&_jm_f_43,
+            "definitions" => \&_jm_f_44,
+            "deprecated" => \&_jm_f_45,
+            "description" => \&_jm_f_46,
+            "examples" => \&_jm_f_47,
+            "id" => \&_jm_f_48,
+            "items" => \&_jm_f_49,
+            "maxItems" => \&_jm_f_50,
+            "minItems" => \&_jm_f_51,
+            "prefixItems" => \&json_model_4,
+            "readOnly" => \&_jm_f_52,
+            "title" => \&_jm_f_53,
+            "unevaluatedItems" => \&json_model_25,
+            "uniqueItems" => \&_jm_f_54,
+            "writeOnly" => \&_jm_f_55,
         );
         %json_model_12_map = (
-            '$anchor' => \&_jm_f_56,
-            '$comment' => \&_jm_f_57,
-            '$defs' => \&_jm_f_58,
-            '$dynamicAnchor' => \&_jm_f_59,
-            '$id' => \&_jm_f_60,
-            '$schema' => \&_jm_f_61,
-            '$vocabulary' => \&_jm_f_62,
-            'additionalProperties' => \&json_model_25,
-            'default' => \&_jm_f_63,
-            'definitions' => \&_jm_f_64,
-            'deprecated' => \&_jm_f_65,
-            'description' => \&_jm_f_66,
-            'examples' => \&_jm_f_67,
-            'id' => \&_jm_f_68,
-            'maxProperties' => \&_jm_f_69,
-            'minProperties' => \&_jm_f_70,
-            'patternProperties' => \&_jm_f_71,
-            'properties' => \&_jm_f_72,
-            'propertyNames' => \&json_model_24,
-            'readOnly' => \&_jm_f_73,
-            'required' => \&_jm_f_74,
-            'title' => \&_jm_f_75,
-            'unevaluatedProperties' => \&json_model_25,
-            'writeOnly' => \&_jm_f_76,
+            "\$anchor" => \&_jm_f_56,
+            "\$comment" => \&_jm_f_57,
+            "\$defs" => \&_jm_f_58,
+            "\$dynamicAnchor" => \&_jm_f_59,
+            "\$id" => \&_jm_f_60,
+            "\$schema" => \&_jm_f_61,
+            "\$vocabulary" => \&_jm_f_62,
+            "additionalProperties" => \&json_model_25,
+            "default" => \&_jm_f_63,
+            "definitions" => \&_jm_f_64,
+            "deprecated" => \&_jm_f_65,
+            "description" => \&_jm_f_66,
+            "examples" => \&_jm_f_67,
+            "id" => \&_jm_f_68,
+            "maxProperties" => \&_jm_f_69,
+            "minProperties" => \&_jm_f_70,
+            "patternProperties" => \&_jm_f_71,
+            "properties" => \&_jm_f_72,
+            "propertyNames" => \&json_model_24,
+            "readOnly" => \&_jm_f_73,
+            "required" => \&_jm_f_74,
+            "title" => \&_jm_f_75,
+            "unevaluatedProperties" => \&json_model_25,
+            "writeOnly" => \&_jm_f_76,
         );
         %json_model_13_map = (
-            '$anchor' => \&_jm_f_77,
-            '$comment' => \&_jm_f_78,
-            '$defs' => \&_jm_f_79,
-            '$dynamicAnchor' => \&_jm_f_80,
-            '$id' => \&_jm_f_81,
-            '$schema' => \&_jm_f_82,
-            '$vocabulary' => \&_jm_f_83,
-            'default' => \&_jm_f_84,
-            'definitions' => \&_jm_f_85,
-            'deprecated' => \&_jm_f_86,
-            'description' => \&_jm_f_87,
-            'examples' => \&_jm_f_88,
-            'id' => \&_jm_f_89,
-            'maximum' => \&_jm_f_90,
-            'minimum' => \&_jm_f_91,
-            'readOnly' => \&_jm_f_92,
-            'title' => \&_jm_f_93,
-            'writeOnly' => \&_jm_f_94,
+            "\$anchor" => \&_jm_f_77,
+            "\$comment" => \&_jm_f_78,
+            "\$defs" => \&_jm_f_79,
+            "\$dynamicAnchor" => \&_jm_f_80,
+            "\$id" => \&_jm_f_81,
+            "\$schema" => \&_jm_f_82,
+            "\$vocabulary" => \&_jm_f_83,
+            "default" => \&_jm_f_84,
+            "definitions" => \&_jm_f_85,
+            "deprecated" => \&_jm_f_86,
+            "description" => \&_jm_f_87,
+            "examples" => \&_jm_f_88,
+            "id" => \&_jm_f_89,
+            "maximum" => \&_jm_f_90,
+            "minimum" => \&_jm_f_91,
+            "readOnly" => \&_jm_f_92,
+            "title" => \&_jm_f_93,
+            "writeOnly" => \&_jm_f_94,
         );
         %json_model_14_map = (
-            '$anchor' => \&_jm_f_95,
-            '$comment' => \&_jm_f_96,
-            '$defs' => \&_jm_f_97,
-            '$dynamicAnchor' => \&_jm_f_98,
-            '$id' => \&_jm_f_99,
-            '$schema' => \&_jm_f_100,
-            '$vocabulary' => \&_jm_f_101,
-            'default' => \&_jm_f_102,
-            'definitions' => \&_jm_f_103,
-            'deprecated' => \&_jm_f_104,
-            'description' => \&_jm_f_105,
-            'examples' => \&_jm_f_106,
-            'id' => \&_jm_f_107,
-            'maximum' => \&_jm_f_108,
-            'minimum' => \&_jm_f_109,
-            'readOnly' => \&_jm_f_110,
-            'title' => \&_jm_f_111,
-            'writeOnly' => \&_jm_f_112,
+            "\$anchor" => \&_jm_f_95,
+            "\$comment" => \&_jm_f_96,
+            "\$defs" => \&_jm_f_97,
+            "\$dynamicAnchor" => \&_jm_f_98,
+            "\$id" => \&_jm_f_99,
+            "\$schema" => \&_jm_f_100,
+            "\$vocabulary" => \&_jm_f_101,
+            "default" => \&_jm_f_102,
+            "definitions" => \&_jm_f_103,
+            "deprecated" => \&_jm_f_104,
+            "description" => \&_jm_f_105,
+            "examples" => \&_jm_f_106,
+            "id" => \&_jm_f_107,
+            "maximum" => \&_jm_f_108,
+            "minimum" => \&_jm_f_109,
+            "readOnly" => \&_jm_f_110,
+            "title" => \&_jm_f_111,
+            "writeOnly" => \&_jm_f_112,
         );
         %json_model_15_map = (
-            '$anchor' => \&_jm_f_113,
-            '$comment' => \&_jm_f_114,
-            '$defs' => \&_jm_f_115,
-            '$dynamicAnchor' => \&_jm_f_116,
-            '$id' => \&_jm_f_117,
-            '$schema' => \&_jm_f_118,
-            '$vocabulary' => \&_jm_f_119,
-            'default' => \&_jm_f_120,
-            'definitions' => \&_jm_f_121,
-            'deprecated' => \&_jm_f_122,
-            'description' => \&_jm_f_123,
-            'examples' => \&_jm_f_124,
-            'id' => \&_jm_f_125,
-            'readOnly' => \&_jm_f_126,
-            'title' => \&_jm_f_127,
-            'writeOnly' => \&_jm_f_128,
+            "\$anchor" => \&_jm_f_113,
+            "\$comment" => \&_jm_f_114,
+            "\$defs" => \&_jm_f_115,
+            "\$dynamicAnchor" => \&_jm_f_116,
+            "\$id" => \&_jm_f_117,
+            "\$schema" => \&_jm_f_118,
+            "\$vocabulary" => \&_jm_f_119,
+            "default" => \&_jm_f_120,
+            "definitions" => \&_jm_f_121,
+            "deprecated" => \&_jm_f_122,
+            "description" => \&_jm_f_123,
+            "examples" => \&_jm_f_124,
+            "id" => \&_jm_f_125,
+            "readOnly" => \&_jm_f_126,
+            "title" => \&_jm_f_127,
+            "writeOnly" => \&_jm_f_128,
         );
         %json_model_16_map = (
-            '$anchor' => \&_jm_f_129,
-            '$comment' => \&_jm_f_130,
-            '$defs' => \&_jm_f_131,
-            '$dynamicAnchor' => \&_jm_f_132,
-            '$id' => \&_jm_f_133,
-            '$schema' => \&_jm_f_134,
-            '$vocabulary' => \&_jm_f_135,
-            'default' => \&_jm_f_136,
-            'definitions' => \&_jm_f_137,
-            'deprecated' => \&_jm_f_138,
-            'description' => \&_jm_f_139,
-            'examples' => \&_jm_f_140,
-            'id' => \&_jm_f_141,
-            'readOnly' => \&_jm_f_142,
-            'title' => \&_jm_f_143,
-            'writeOnly' => \&_jm_f_144,
+            "\$anchor" => \&_jm_f_129,
+            "\$comment" => \&_jm_f_130,
+            "\$defs" => \&_jm_f_131,
+            "\$dynamicAnchor" => \&_jm_f_132,
+            "\$id" => \&_jm_f_133,
+            "\$schema" => \&_jm_f_134,
+            "\$vocabulary" => \&_jm_f_135,
+            "default" => \&_jm_f_136,
+            "definitions" => \&_jm_f_137,
+            "deprecated" => \&_jm_f_138,
+            "description" => \&_jm_f_139,
+            "examples" => \&_jm_f_140,
+            "id" => \&_jm_f_141,
+            "readOnly" => \&_jm_f_142,
+            "title" => \&_jm_f_143,
+            "writeOnly" => \&_jm_f_144,
         );
         %json_model_17_map = (
-            '$anchor' => \&_jm_f_145,
-            '$comment' => \&_jm_f_146,
-            '$defs' => \&_jm_f_147,
-            '$dynamicAnchor' => \&_jm_f_148,
-            '$id' => \&_jm_f_149,
-            '$schema' => \&_jm_f_150,
-            '$vocabulary' => \&_jm_f_151,
-            'default' => \&_jm_f_152,
-            'definitions' => \&_jm_f_153,
-            'deprecated' => \&_jm_f_154,
-            'description' => \&_jm_f_155,
-            'examples' => \&_jm_f_156,
-            'id' => \&_jm_f_157,
-            'readOnly' => \&_jm_f_158,
-            'title' => \&_jm_f_159,
-            'writeOnly' => \&_jm_f_160,
+            "\$anchor" => \&_jm_f_145,
+            "\$comment" => \&_jm_f_146,
+            "\$defs" => \&_jm_f_147,
+            "\$dynamicAnchor" => \&_jm_f_148,
+            "\$id" => \&_jm_f_149,
+            "\$schema" => \&_jm_f_150,
+            "\$vocabulary" => \&_jm_f_151,
+            "default" => \&_jm_f_152,
+            "definitions" => \&_jm_f_153,
+            "deprecated" => \&_jm_f_154,
+            "description" => \&_jm_f_155,
+            "examples" => \&_jm_f_156,
+            "id" => \&_jm_f_157,
+            "readOnly" => \&_jm_f_158,
+            "title" => \&_jm_f_159,
+            "writeOnly" => \&_jm_f_160,
         );
         %json_model_18_map = (
-            '$anchor' => \&_jm_f_161,
-            '$comment' => \&_jm_f_162,
-            '$defs' => \&_jm_f_163,
-            '$dynamicAnchor' => \&_jm_f_164,
-            '$id' => \&_jm_f_165,
-            '$schema' => \&_jm_f_166,
-            '$vocabulary' => \&_jm_f_167,
-            'default' => \&_jm_f_168,
-            'definitions' => \&_jm_f_169,
-            'deprecated' => \&_jm_f_170,
-            'description' => \&_jm_f_171,
-            'examples' => \&_jm_f_172,
-            'id' => \&_jm_f_173,
-            'readOnly' => \&_jm_f_174,
-            'title' => \&_jm_f_175,
-            'writeOnly' => \&_jm_f_176,
+            "\$anchor" => \&_jm_f_161,
+            "\$comment" => \&_jm_f_162,
+            "\$defs" => \&_jm_f_163,
+            "\$dynamicAnchor" => \&_jm_f_164,
+            "\$id" => \&_jm_f_165,
+            "\$schema" => \&_jm_f_166,
+            "\$vocabulary" => \&_jm_f_167,
+            "default" => \&_jm_f_168,
+            "definitions" => \&_jm_f_169,
+            "deprecated" => \&_jm_f_170,
+            "description" => \&_jm_f_171,
+            "examples" => \&_jm_f_172,
+            "id" => \&_jm_f_173,
+            "readOnly" => \&_jm_f_174,
+            "title" => \&_jm_f_175,
+            "writeOnly" => \&_jm_f_176,
         );
         %json_model_19_map = (
-            '$anchor' => \&_jm_f_177,
-            '$comment' => \&_jm_f_178,
-            '$defs' => \&_jm_f_179,
-            '$dynamicAnchor' => \&_jm_f_180,
-            '$id' => \&_jm_f_181,
-            '$schema' => \&_jm_f_182,
-            '$vocabulary' => \&_jm_f_183,
-            'default' => \&_jm_f_184,
-            'definitions' => \&_jm_f_185,
-            'deprecated' => \&_jm_f_186,
-            'description' => \&_jm_f_187,
-            'examples' => \&_jm_f_188,
-            'id' => \&_jm_f_189,
-            'readOnly' => \&_jm_f_190,
-            'title' => \&_jm_f_191,
-            'writeOnly' => \&_jm_f_192,
+            "\$anchor" => \&_jm_f_177,
+            "\$comment" => \&_jm_f_178,
+            "\$defs" => \&_jm_f_179,
+            "\$dynamicAnchor" => \&_jm_f_180,
+            "\$id" => \&_jm_f_181,
+            "\$schema" => \&_jm_f_182,
+            "\$vocabulary" => \&_jm_f_183,
+            "default" => \&_jm_f_184,
+            "definitions" => \&_jm_f_185,
+            "deprecated" => \&_jm_f_186,
+            "description" => \&_jm_f_187,
+            "examples" => \&_jm_f_188,
+            "id" => \&_jm_f_189,
+            "readOnly" => \&_jm_f_190,
+            "title" => \&_jm_f_191,
+            "writeOnly" => \&_jm_f_192,
         );
         %json_model_20_map = (
-            '$anchor' => \&_jm_f_193,
-            '$comment' => \&_jm_f_194,
-            '$defs' => \&_jm_f_195,
-            '$dynamicAnchor' => \&_jm_f_196,
-            '$id' => \&_jm_f_197,
-            '$schema' => \&_jm_f_198,
-            '$vocabulary' => \&_jm_f_199,
-            'default' => \&_jm_f_200,
-            'definitions' => \&_jm_f_201,
-            'deprecated' => \&_jm_f_202,
-            'description' => \&_jm_f_203,
-            'examples' => \&_jm_f_204,
-            'id' => \&_jm_f_205,
-            'readOnly' => \&_jm_f_206,
-            'title' => \&_jm_f_207,
-            'writeOnly' => \&_jm_f_208,
+            "\$anchor" => \&_jm_f_193,
+            "\$comment" => \&_jm_f_194,
+            "\$defs" => \&_jm_f_195,
+            "\$dynamicAnchor" => \&_jm_f_196,
+            "\$id" => \&_jm_f_197,
+            "\$schema" => \&_jm_f_198,
+            "\$vocabulary" => \&_jm_f_199,
+            "default" => \&_jm_f_200,
+            "definitions" => \&_jm_f_201,
+            "deprecated" => \&_jm_f_202,
+            "description" => \&_jm_f_203,
+            "examples" => \&_jm_f_204,
+            "id" => \&_jm_f_205,
+            "readOnly" => \&_jm_f_206,
+            "title" => \&_jm_f_207,
+            "writeOnly" => \&_jm_f_208,
         );
         %json_model_21_map = (
-            '$anchor' => \&_jm_f_209,
-            '$comment' => \&_jm_f_210,
-            '$defs' => \&_jm_f_211,
-            '$dynamicAnchor' => \&_jm_f_212,
-            '$id' => \&_jm_f_213,
-            '$schema' => \&_jm_f_214,
-            '$vocabulary' => \&_jm_f_215,
-            'default' => \&_jm_f_216,
-            'definitions' => \&_jm_f_217,
-            'deprecated' => \&_jm_f_218,
-            'description' => \&_jm_f_219,
-            'examples' => \&_jm_f_220,
-            'id' => \&_jm_f_221,
-            'readOnly' => \&_jm_f_222,
-            'title' => \&_jm_f_223,
-            'writeOnly' => \&_jm_f_224,
+            "\$anchor" => \&_jm_f_209,
+            "\$comment" => \&_jm_f_210,
+            "\$defs" => \&_jm_f_211,
+            "\$dynamicAnchor" => \&_jm_f_212,
+            "\$id" => \&_jm_f_213,
+            "\$schema" => \&_jm_f_214,
+            "\$vocabulary" => \&_jm_f_215,
+            "default" => \&_jm_f_216,
+            "definitions" => \&_jm_f_217,
+            "deprecated" => \&_jm_f_218,
+            "description" => \&_jm_f_219,
+            "examples" => \&_jm_f_220,
+            "id" => \&_jm_f_221,
+            "readOnly" => \&_jm_f_222,
+            "title" => \&_jm_f_223,
+            "writeOnly" => \&_jm_f_224,
         );
         %json_model_22_map = (
-            '$anchor' => \&_jm_f_225,
-            '$comment' => \&_jm_f_226,
-            '$defs' => \&_jm_f_227,
-            '$dynamicAnchor' => \&_jm_f_228,
-            '$id' => \&_jm_f_229,
-            '$schema' => \&_jm_f_230,
-            '$vocabulary' => \&_jm_f_231,
-            'default' => \&_jm_f_232,
-            'definitions' => \&_jm_f_233,
-            'deprecated' => \&_jm_f_234,
-            'description' => \&_jm_f_235,
-            'examples' => \&_jm_f_236,
-            'id' => \&_jm_f_237,
-            'readOnly' => \&_jm_f_238,
-            'title' => \&_jm_f_239,
-            'writeOnly' => \&_jm_f_240,
+            "\$anchor" => \&_jm_f_225,
+            "\$comment" => \&_jm_f_226,
+            "\$defs" => \&_jm_f_227,
+            "\$dynamicAnchor" => \&_jm_f_228,
+            "\$id" => \&_jm_f_229,
+            "\$schema" => \&_jm_f_230,
+            "\$vocabulary" => \&_jm_f_231,
+            "default" => \&_jm_f_232,
+            "definitions" => \&_jm_f_233,
+            "deprecated" => \&_jm_f_234,
+            "description" => \&_jm_f_235,
+            "examples" => \&_jm_f_236,
+            "id" => \&_jm_f_237,
+            "readOnly" => \&_jm_f_238,
+            "title" => \&_jm_f_239,
+            "writeOnly" => \&_jm_f_240,
         );
         %json_model_23_map = (
-            '$anchor' => \&_jm_f_241,
-            '$comment' => \&_jm_f_242,
-            '$defs' => \&_jm_f_243,
-            '$dynamicAnchor' => \&_jm_f_244,
-            '$id' => \&_jm_f_245,
-            '$schema' => \&_jm_f_246,
-            '$vocabulary' => \&_jm_f_247,
-            'default' => \&_jm_f_248,
-            'definitions' => \&_jm_f_249,
-            'deprecated' => \&_jm_f_250,
-            'description' => \&_jm_f_251,
-            'examples' => \&_jm_f_252,
-            'id' => \&_jm_f_253,
-            'readOnly' => \&_jm_f_254,
-            'title' => \&_jm_f_255,
-            'writeOnly' => \&_jm_f_256,
+            "\$anchor" => \&_jm_f_241,
+            "\$comment" => \&_jm_f_242,
+            "\$defs" => \&_jm_f_243,
+            "\$dynamicAnchor" => \&_jm_f_244,
+            "\$id" => \&_jm_f_245,
+            "\$schema" => \&_jm_f_246,
+            "\$vocabulary" => \&_jm_f_247,
+            "default" => \&_jm_f_248,
+            "definitions" => \&_jm_f_249,
+            "deprecated" => \&_jm_f_250,
+            "description" => \&_jm_f_251,
+            "examples" => \&_jm_f_252,
+            "id" => \&_jm_f_253,
+            "readOnly" => \&_jm_f_254,
+            "title" => \&_jm_f_255,
+            "writeOnly" => \&_jm_f_256,
         );
         %_jm_map_0 = (
-            'null' => \&json_model_16,
-            'boolean' => \&json_model_15,
-            'integer' => \&json_model_13,
-            'number' => \&json_model_14,
-            'string' => \&json_model_10,
-            'array' => \&json_model_11,
-            'object' => \&json_model_12,
+            "null" => \&json_model_16,
+            "boolean" => \&json_model_15,
+            "integer" => \&json_model_13,
+            "number" => \&json_model_14,
+            "string" => \&json_model_10,
+            "array" => \&json_model_11,
+            "object" => \&json_model_12,
         );
         %check_model_map = (
-            '' => \&json_model_26,
-            'const' => \&json_model_2,
-            'enum' => \&json_model_3,
-            'schemaArray' => \&json_model_4,
-            'stringKeywords' => \&json_model_5,
-            'arrayKeywords' => \&json_model_6,
-            'objectKeywords' => \&json_model_7,
-            'numberKeywords' => \&json_model_8,
-            'metas' => \&json_model_9,
-            'String' => \&json_model_10,
-            'Array' => \&json_model_11,
-            'Object' => \&json_model_12,
-            'Integer' => \&json_model_13,
-            'Number' => \&json_model_14,
-            'Bool' => \&json_model_15,
-            'Null' => \&json_model_16,
-            'AllOf' => \&json_model_17,
-            'AnyOf' => \&json_model_18,
-            'OneOf' => \&json_model_19,
-            'Enum' => \&json_model_20,
-            'Const' => \&json_model_21,
-            'Ref' => \&json_model_22,
-            'DynRef' => \&json_model_23,
-            'ObjectSchema' => \&json_model_24,
-            'Schema' => \&json_model_25,
-            'RootSchema' => \&json_model_26,
+            "" => \&json_model_26,
+            "const" => \&json_model_2,
+            "enum" => \&json_model_3,
+            "schemaArray" => \&json_model_4,
+            "stringKeywords" => \&json_model_5,
+            "arrayKeywords" => \&json_model_6,
+            "objectKeywords" => \&json_model_7,
+            "numberKeywords" => \&json_model_8,
+            "metas" => \&json_model_9,
+            "String" => \&json_model_10,
+            "Array" => \&json_model_11,
+            "Object" => \&json_model_12,
+            "Integer" => \&json_model_13,
+            "Number" => \&json_model_14,
+            "Bool" => \&json_model_15,
+            "Null" => \&json_model_16,
+            "AllOf" => \&json_model_17,
+            "AnyOf" => \&json_model_18,
+            "OneOf" => \&json_model_19,
+            "Enum" => \&json_model_20,
+            "Const" => \&json_model_21,
+            "Ref" => \&json_model_22,
+            "DynRef" => \&json_model_23,
+            "ObjectSchema" => \&json_model_24,
+            "Schema" => \&json_model_25,
+            "RootSchema" => \&json_model_26,
         );
     }
 }

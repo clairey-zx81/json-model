@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_3($$$);
@@ -208,7 +208,7 @@ sub json_model_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'openapi')
+        if ($prop eq "openapi")
         {
             # handle must openapi property
             $must_count++;
@@ -221,7 +221,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'info')
+        elsif ($prop eq "info")
         {
             # handle must info property
             $must_count++;
@@ -233,7 +233,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        if ($prop eq 'servers')
+        if ($prop eq "servers")
         {
             # handle may servers property
             # .'$openapi#OpenAPI'.servers
@@ -257,7 +257,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'paths')
+        elsif ($prop eq "paths")
         {
             # handle may paths property
             # .'$openapi#OpenAPI'.paths
@@ -268,7 +268,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'webhooks')
+        elsif ($prop eq "webhooks")
         {
             # handle may webhooks property
             # .'$openapi#OpenAPI'.webhooks
@@ -279,7 +279,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'components')
+        elsif ($prop eq "components")
         {
             # handle may components property
             # .'$openapi#OpenAPI'.components
@@ -290,7 +290,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'security')
+        elsif ($prop eq "security")
         {
             # handle may security property
             # .'$openapi#OpenAPI'.security
@@ -314,7 +314,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'tags')
+        elsif ($prop eq "tags")
         {
             # handle may tags property
             # .'$openapi#OpenAPI'.tags
@@ -338,7 +338,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'externalDocs')
+        elsif ($prop eq "externalDocs")
         {
             # handle may externalDocs property
             # .'$openapi#OpenAPI'.externalDocs
@@ -349,7 +349,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'jsonModelVersion')
+        elsif ($prop eq "jsonModelVersion")
         {
             # handle may jsonModelVersion property
             # .'$openapi#OpenAPI'.jsonModelVersion
@@ -360,7 +360,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#OpenAPI'.'/^x-/'
@@ -388,7 +388,7 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'title')
+        if ($prop eq "title")
         {
             # handle must title property
             $must_count++;
@@ -400,7 +400,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'version')
+        elsif ($prop eq "version")
         {
             # handle must version property
             $must_count++;
@@ -412,7 +412,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        if ($prop eq 'summary')
+        if ($prop eq "summary")
         {
             # handle may summary property
             # .'$openapi#Info'.summary
@@ -423,7 +423,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Info'.description
@@ -434,7 +434,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'termsOfService')
+        elsif ($prop eq "termsOfService")
         {
             # handle may termsOfService property
             # .'$openapi#Info'.termsOfService
@@ -445,7 +445,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'contact')
+        elsif ($prop eq "contact")
         {
             # handle may contact property
             # .'$openapi#Info'.contact
@@ -456,7 +456,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'license')
+        elsif ($prop eq "license")
         {
             # handle may license property
             # .'$openapi#Info'.license
@@ -467,7 +467,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Info'.'/^x-/'
@@ -494,7 +494,7 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$openapi#Contact'.name
@@ -505,7 +505,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'url')
+        elsif ($prop eq "url")
         {
             # handle may url property
             # .'$openapi#Contact'.url
@@ -516,7 +516,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'email')
+        elsif ($prop eq "email")
         {
             # handle may email property
             # .'$openapi#Contact'.email
@@ -527,7 +527,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Contact'.'/^x-/'
@@ -558,7 +558,7 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -570,7 +570,7 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'url')
+        elsif ($prop eq "url")
         {
             # handle must url property
             $must_count++;
@@ -606,7 +606,7 @@ sub _jm_obj_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -618,7 +618,7 @@ sub _jm_obj_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'identifier')
+        elsif ($prop eq "identifier")
         {
             # handle must identifier property
             $must_count++;
@@ -691,7 +691,7 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'url')
+        if ($prop eq "url")
         {
             # handle must url property
             $must_count++;
@@ -703,7 +703,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Server'.description
@@ -714,7 +714,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'variables')
+        elsif ($prop eq "variables")
         {
             # handle may variables property
             # .'$openapi#Server'.variables
@@ -725,7 +725,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Server'.'/^x-/'
@@ -753,7 +753,7 @@ sub json_model_9($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'default')
+        if ($prop eq "default")
         {
             # handle must default property
             $must_count++;
@@ -765,7 +765,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        if ($prop eq 'enum')
+        if ($prop eq "enum")
         {
             # handle may enum property
             # .'$openapi#ServerVariable'.enum
@@ -789,7 +789,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#ServerVariable'.description
@@ -800,7 +800,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#ServerVariable'.'/^x-/'
@@ -1096,7 +1096,7 @@ sub json_model_10($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Components'.'/^x-/'
@@ -1123,7 +1123,7 @@ sub json_model_11($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_starts_with($prop, '/'))
+        if (jm_starts_with($prop, "/"))
         {
             # handle 2 re props
             # .'$openapi#Paths'.'/^//'
@@ -1133,7 +1133,7 @@ sub json_model_11($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'x-'))
+        elsif (jm_starts_with($prop, "x-"))
         {
             # handle 2 re props
             # .'$openapi#Paths'.'/^x-/'
@@ -1241,7 +1241,7 @@ sub json_model_12($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#PathItem'.'/^x-/'
@@ -1437,7 +1437,7 @@ sub json_model_13($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Operation'.'/^x-/'
@@ -1465,7 +1465,7 @@ sub json_model_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'url')
+        if ($prop eq "url")
         {
             # handle must url property
             $must_count++;
@@ -1477,7 +1477,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#ExternalDocumentation'.description
@@ -1488,7 +1488,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#ExternalDocumentation'.'/^x-/'
@@ -1536,7 +1536,7 @@ sub _jm_obj_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -1548,7 +1548,7 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'in')
+        elsif ($prop eq "in")
         {
             # handle must in property
             $must_count++;
@@ -1560,7 +1560,7 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Parameter'.'|'.1.description
@@ -1571,7 +1571,7 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$openapi#Parameter'.'|'.1.required
@@ -1582,7 +1582,7 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'deprecated')
+        elsif ($prop eq "deprecated")
         {
             # handle may deprecated property
             # .'$openapi#Parameter'.'|'.1.deprecated
@@ -1593,7 +1593,7 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowEmptyValue')
+        elsif ($prop eq "allowEmptyValue")
         {
             # handle may allowEmptyValue property
             # .'$openapi#Parameter'.'|'.1.allowEmptyValue
@@ -1604,7 +1604,7 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$openapi#Parameter'.'|'.1.content
@@ -1615,7 +1615,7 @@ sub _jm_obj_4($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Parameter'.'|'.1.'/^x-/'
@@ -1724,7 +1724,7 @@ sub _jm_obj_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -1736,7 +1736,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'in')
+        elsif ($prop eq "in")
         {
             # handle must in property
             $must_count++;
@@ -1757,7 +1757,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Parameter'.'|'.0.'/^x-/'
@@ -1827,7 +1827,7 @@ sub json_model_21($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#RequestBody'.description
@@ -1838,7 +1838,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$openapi#RequestBody'.content
@@ -1849,7 +1849,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$openapi#RequestBody'.required
@@ -1860,7 +1860,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#RequestBody'.'/^x-/'
@@ -1935,14 +1935,14 @@ sub json_model_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'example')
+        if ($prop eq "example")
         {
             # handle may example property
             # .'$openapi#MediaType'.example
             $res = 1;
             next;
         }
-        elsif ($prop eq 'examples')
+        elsif ($prop eq "examples")
         {
             # handle may examples property
             # .'$openapi#MediaType'.examples
@@ -1953,7 +1953,7 @@ sub json_model_22($$$)
             }
             next;
         }
-        elsif ($prop eq 'encoding')
+        elsif ($prop eq "encoding")
         {
             # handle may encoding property
             # .'$openapi#MediaType'.encoding
@@ -1964,7 +1964,7 @@ sub json_model_22($$$)
             }
             next;
         }
-        elsif ($prop eq 'model')
+        elsif ($prop eq "model")
         {
             # handle may model property
             # .'$openapi#MediaType'.model
@@ -1975,7 +1975,7 @@ sub json_model_22($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#MediaType'.'/^x-/'
@@ -2027,7 +2027,7 @@ sub json_model_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'contentType')
+        if ($prop eq "contentType")
         {
             # handle may contentType property
             # .'$openapi#Encoding'.contentType
@@ -2038,7 +2038,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'headers')
+        elsif ($prop eq "headers")
         {
             # handle may headers property
             # .'$openapi#Encoding'.headers
@@ -2049,7 +2049,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'style')
+        elsif ($prop eq "style")
         {
             # handle may style property
             # .'$openapi#Encoding'.style
@@ -2060,7 +2060,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'explode')
+        elsif ($prop eq "explode")
         {
             # handle may explode property
             # .'$openapi#Encoding'.explode
@@ -2071,7 +2071,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowReserved')
+        elsif ($prop eq "allowReserved")
         {
             # handle may allowReserved property
             # .'$openapi#Encoding'.allowReserved
@@ -2082,7 +2082,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Encoding'.'/^x-/'
@@ -2116,7 +2116,7 @@ sub json_model_24($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'default')
+        if ($prop eq "default")
         {
             # handle may default property
             # .'$openapi#Responses'.default
@@ -2141,7 +2141,7 @@ sub json_model_24($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'x-'))
+        elsif (jm_starts_with($prop, "x-"))
         {
             # handle 2 re props
             # .'$openapi#Responses'.'/^x-/'
@@ -2241,7 +2241,7 @@ sub json_model_25($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Response'.description
@@ -2252,7 +2252,7 @@ sub json_model_25($$$)
             }
             next;
         }
-        elsif ($prop eq 'headers')
+        elsif ($prop eq "headers")
         {
             # handle may headers property
             # .'$openapi#Response'.headers
@@ -2263,7 +2263,7 @@ sub json_model_25($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$openapi#Response'.content
@@ -2274,7 +2274,7 @@ sub json_model_25($$$)
             }
             next;
         }
-        elsif ($prop eq 'links')
+        elsif ($prop eq "links")
         {
             # handle may links property
             # .'$openapi#Response'.links
@@ -2285,7 +2285,7 @@ sub json_model_25($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Response'.'/^x-/'
@@ -2324,7 +2324,7 @@ sub json_model_26($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'x-'))
+        elsif (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Callback'.'/^x-/'
@@ -2351,7 +2351,7 @@ sub json_model_27($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'summary')
+        if ($prop eq "summary")
         {
             # handle may summary property
             # .'$openapi#Example'.summary
@@ -2362,7 +2362,7 @@ sub json_model_27($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Example'.description
@@ -2373,14 +2373,14 @@ sub json_model_27($$$)
             }
             next;
         }
-        elsif ($prop eq 'value')
+        elsif ($prop eq "value")
         {
             # handle may value property
             # .'$openapi#Example'.value
             $res = 1;
             next;
         }
-        elsif ($prop eq 'externalValue')
+        elsif ($prop eq "externalValue")
         {
             # handle may externalValue property
             # .'$openapi#Example'.externalValue
@@ -2391,7 +2391,7 @@ sub json_model_27($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Example'.'/^x-/'
@@ -2423,7 +2423,7 @@ sub _jm_obj_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'operationId')
+        if ($prop eq "operationId")
         {
             # handle must operationId property
             $must_count++;
@@ -2435,7 +2435,7 @@ sub _jm_obj_14($$$)
             }
             next;
         }
-        if ($prop eq 'parameters')
+        if ($prop eq "parameters")
         {
             # handle may parameters property
             # .'$openapi#Link'.'|'.1.parameters
@@ -2446,14 +2446,14 @@ sub _jm_obj_14($$$)
             }
             next;
         }
-        elsif ($prop eq 'requestBody')
+        elsif ($prop eq "requestBody")
         {
             # handle may requestBody property
             # .'$openapi#Link'.'|'.1.requestBody
             $res = 1;
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Link'.'|'.1.description
@@ -2464,7 +2464,7 @@ sub _jm_obj_14($$$)
             }
             next;
         }
-        elsif ($prop eq 'server')
+        elsif ($prop eq "server")
         {
             # handle may server property
             # .'$openapi#Link'.'|'.1.server
@@ -2475,7 +2475,7 @@ sub _jm_obj_14($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Link'.'|'.1.'/^x-/'
@@ -2499,7 +2499,7 @@ sub _jm_obj_15($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'operationRef')
+        if ($prop eq "operationRef")
         {
             # handle must operationRef property
             $must_count++;
@@ -2511,7 +2511,7 @@ sub _jm_obj_15($$$)
             }
             next;
         }
-        if ($prop eq 'parameters')
+        if ($prop eq "parameters")
         {
             # handle may parameters property
             # .'$openapi#Link'.'|'.0.parameters
@@ -2522,14 +2522,14 @@ sub _jm_obj_15($$$)
             }
             next;
         }
-        elsif ($prop eq 'requestBody')
+        elsif ($prop eq "requestBody")
         {
             # handle may requestBody property
             # .'$openapi#Link'.'|'.0.requestBody
             $res = 1;
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Link'.'|'.0.description
@@ -2540,7 +2540,7 @@ sub _jm_obj_15($$$)
             }
             next;
         }
-        elsif ($prop eq 'server')
+        elsif ($prop eq "server")
         {
             # handle may server property
             # .'$openapi#Link'.'|'.0.server
@@ -2551,7 +2551,7 @@ sub _jm_obj_15($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Link'.'|'.0.'/^x-/'
@@ -2607,7 +2607,7 @@ sub _jm_obj_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Header'.'|'.1.description
@@ -2618,7 +2618,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$openapi#Header'.'|'.1.required
@@ -2629,7 +2629,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'deprecated')
+        elsif ($prop eq "deprecated")
         {
             # handle may deprecated property
             # .'$openapi#Header'.'|'.1.deprecated
@@ -2640,7 +2640,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowEmptyValue')
+        elsif ($prop eq "allowEmptyValue")
         {
             # handle may allowEmptyValue property
             # .'$openapi#Header'.'|'.1.allowEmptyValue
@@ -2651,7 +2651,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$openapi#Header'.'|'.1.content
@@ -2662,7 +2662,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Header'.'|'.1.'/^x-/'
@@ -2778,7 +2778,7 @@ sub _jm_obj_18($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Header'.'|'.0.'/^x-/'
@@ -2817,7 +2817,7 @@ sub json_model_31($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -2829,7 +2829,7 @@ sub json_model_31($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Tag'.description
@@ -2840,7 +2840,7 @@ sub json_model_31($$$)
             }
             next;
         }
-        elsif ($prop eq 'externalDocs')
+        elsif ($prop eq "externalDocs")
         {
             # handle may externalDocs property
             # .'$openapi#Tag'.externalDocs
@@ -2851,7 +2851,7 @@ sub json_model_31($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#Tag'.'/^x-/'
@@ -2879,7 +2879,7 @@ sub json_model_32($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '$ref')
+        if ($prop eq "\$ref")
         {
             # handle must $ref property
             $must_count++;
@@ -2891,7 +2891,7 @@ sub json_model_32($$$)
             }
             next;
         }
-        if ($prop eq 'summary')
+        if ($prop eq "summary")
         {
             # handle may summary property
             # .'$openapi#Reference'.summary
@@ -2902,7 +2902,7 @@ sub json_model_32($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Reference'.description
@@ -2932,19 +2932,19 @@ sub _jm_obj_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.0.type
-            $res = jm_is_string($pval) && $pval eq 'apiKey';
+            $res = jm_is_string($pval) && $pval eq "apiKey";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'name')
+        elsif ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -2956,7 +2956,7 @@ sub _jm_obj_19($$$)
             }
             next;
         }
-        elsif ($prop eq 'in')
+        elsif ($prop eq "in")
         {
             # handle must in property
             $must_count++;
@@ -2968,7 +2968,7 @@ sub _jm_obj_19($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.0.description
@@ -3004,19 +3004,19 @@ sub _jm_obj_20($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.1.type
-            $res = jm_is_string($pval) && $pval eq 'http';
+            $res = jm_is_string($pval) && $pval eq "http";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'scheme')
+        elsif ($prop eq "scheme")
         {
             # handle must scheme property
             $must_count++;
@@ -3029,7 +3029,7 @@ sub _jm_obj_20($$$)
             }
             next;
         }
-        if ($prop eq 'bearerFormat')
+        if ($prop eq "bearerFormat")
         {
             # handle may bearerFormat property
             # .'$openapi#SecurityScheme'.'|'.1.bearerFormat
@@ -3040,7 +3040,7 @@ sub _jm_obj_20($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.1.description
@@ -3069,19 +3069,19 @@ sub _jm_obj_21($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.2.type
-            $res = jm_is_string($pval) && $pval eq 'http';
+            $res = jm_is_string($pval) && $pval eq "http";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'scheme')
+        elsif ($prop eq "scheme")
         {
             # handle must scheme property
             $must_count++;
@@ -3093,7 +3093,7 @@ sub _jm_obj_21($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.2.description
@@ -3122,19 +3122,19 @@ sub _jm_obj_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.3.type
-            $res = jm_is_string($pval) && $pval eq 'oauth2';
+            $res = jm_is_string($pval) && $pval eq "oauth2";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'flows')
+        elsif ($prop eq "flows")
         {
             # handle must flows property
             $must_count++;
@@ -3146,7 +3146,7 @@ sub _jm_obj_22($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.3.description
@@ -3175,19 +3175,19 @@ sub _jm_obj_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.4.type
-            $res = jm_is_string($pval) && $pval eq 'openIdConnect';
+            $res = jm_is_string($pval) && $pval eq "openIdConnect";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'openIdConnectUrl')
+        elsif ($prop eq "openIdConnectUrl")
         {
             # handle must openIdConnectUrl property
             $must_count++;
@@ -3199,7 +3199,7 @@ sub _jm_obj_23($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.4.description
@@ -3227,7 +3227,7 @@ sub _jm_obj_24($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.5.description
@@ -3238,7 +3238,7 @@ sub _jm_obj_24($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
@@ -3262,7 +3262,7 @@ sub json_model_42($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'type'}))
+        if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -3290,7 +3290,7 @@ sub json_model_43($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'implicit')
+        if ($prop eq "implicit")
         {
             # handle may implicit property
             # .'$openapi#OAuthFlows'.implicit
@@ -3301,7 +3301,7 @@ sub json_model_43($$$)
             }
             next;
         }
-        elsif ($prop eq 'password')
+        elsif ($prop eq "password")
         {
             # handle may password property
             # .'$openapi#OAuthFlows'.password
@@ -3312,7 +3312,7 @@ sub json_model_43($$$)
             }
             next;
         }
-        elsif ($prop eq 'clientCredentials')
+        elsif ($prop eq "clientCredentials")
         {
             # handle may clientCredentials property
             # .'$openapi#OAuthFlows'.clientCredentials
@@ -3323,7 +3323,7 @@ sub json_model_43($$$)
             }
             next;
         }
-        elsif ($prop eq 'authorizationCode')
+        elsif ($prop eq "authorizationCode")
         {
             # handle may authorizationCode property
             # .'$openapi#OAuthFlows'.authorizationCode
@@ -3334,7 +3334,7 @@ sub json_model_43($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#OAuthFlows'.'/^x-/'
@@ -3385,7 +3385,7 @@ sub json_model_44($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'authorizationUrl')
+        if ($prop eq "authorizationUrl")
         {
             # handle must authorizationUrl property
             $must_count++;
@@ -3397,7 +3397,7 @@ sub json_model_44($$$)
             }
             next;
         }
-        elsif ($prop eq 'tokenUrl')
+        elsif ($prop eq "tokenUrl")
         {
             # handle must tokenUrl property
             $must_count++;
@@ -3409,7 +3409,7 @@ sub json_model_44($$$)
             }
             next;
         }
-        elsif ($prop eq 'scopes')
+        elsif ($prop eq "scopes")
         {
             # handle must scopes property
             $must_count++;
@@ -3421,7 +3421,7 @@ sub json_model_44($$$)
             }
             next;
         }
-        if ($prop eq 'refreshUrl')
+        if ($prop eq "refreshUrl")
         {
             # handle may refreshUrl property
             # .'$openapi#OAuthFlow'.refreshUrl
@@ -3432,7 +3432,7 @@ sub json_model_44($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$openapi#OAuthFlow'.'/^x-/'
@@ -3540,7 +3540,7 @@ sub json_model_69($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#ArrayComment'
     # "/^#/"
-    return jm_is_string($val) && jm_starts_with($val, '#');
+    return jm_is_string($val) && jm_starts_with($val, "#");
 }
 
 # object .'$openapi#model#Element'.'|'.5
@@ -3552,7 +3552,7 @@ sub _jm_obj_26($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '#')
+        if ($prop eq "#")
         {
             # handle may # property
             # .'$openapi#model#Element'.'|'.5.'#'
@@ -3573,7 +3573,7 @@ sub _jm_obj_26($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, '#'))
+        elsif (jm_starts_with($prop, "#"))
         {
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.5.'/^#/'
@@ -3597,7 +3597,7 @@ sub _jm_obj_27($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '+')
+        if ($prop eq "+")
         {
             # handle must + property
             $must_count++;
@@ -3622,7 +3622,7 @@ sub _jm_obj_27($$$)
             }
             next;
         }
-        if ($prop eq '#')
+        if ($prop eq "#")
         {
             # handle may # property
             # .'$openapi#model#Element'.'|'.4.'#'
@@ -3633,7 +3633,7 @@ sub _jm_obj_27($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, "#"))
         {
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.4.'/^#/'
@@ -3657,7 +3657,7 @@ sub _jm_obj_28($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '^')
+        if ($prop eq "^")
         {
             # handle must ^ property
             $must_count++;
@@ -3682,7 +3682,7 @@ sub _jm_obj_28($$$)
             }
             next;
         }
-        if ($prop eq '#')
+        if ($prop eq "#")
         {
             # handle may # property
             # .'$openapi#model#Element'.'|'.3.'#'
@@ -3693,7 +3693,7 @@ sub _jm_obj_28($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, "#"))
         {
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.3.'/^#/'
@@ -3717,7 +3717,7 @@ sub _jm_obj_29($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '&')
+        if ($prop eq "&")
         {
             # handle must & property
             $must_count++;
@@ -3742,7 +3742,7 @@ sub _jm_obj_29($$$)
             }
             next;
         }
-        if ($prop eq '#')
+        if ($prop eq "#")
         {
             # handle may # property
             # .'$openapi#model#Element'.'|'.2.'#'
@@ -3753,7 +3753,7 @@ sub _jm_obj_29($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, "#"))
         {
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.2.'/^#/'
@@ -3777,7 +3777,7 @@ sub _jm_obj_30($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '|')
+        if ($prop eq "|")
         {
             # handle must | property
             $must_count++;
@@ -3802,7 +3802,7 @@ sub _jm_obj_30($$$)
             }
             next;
         }
-        if ($prop eq '#')
+        if ($prop eq "#")
         {
             # handle may # property
             # .'$openapi#model#Element'.'|'.1.'#'
@@ -3813,7 +3813,7 @@ sub _jm_obj_30($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, "#"))
         {
             # handle 1 re props
             # .'$openapi#model#Element'.'|'.1.'/^#/'
@@ -3851,7 +3851,7 @@ sub _jm_obj_31($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '@')
+        if ($prop eq "\@")
         {
             # handle must @ property
             $must_count++;
@@ -3863,7 +3863,7 @@ sub _jm_obj_31($$$)
             }
             next;
         }
-        if ($prop eq '#')
+        if ($prop eq "#")
         {
             # handle may # property
             # .'$openapi#model#Element'.'|'.0.'#'
@@ -3874,7 +3874,7 @@ sub _jm_obj_31($$$)
             }
             next;
         }
-        elsif ($prop eq '!')
+        elsif ($prop eq "!")
         {
             # handle may ! property
             # .'$openapi#model#Element'.'|'.0.'!'
@@ -3885,7 +3885,7 @@ sub _jm_obj_31($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, '#'))
+        if (jm_starts_with($prop, "#"))
         {
             # handle 3 re props
             # .'$openapi#model#Element'.'|'.0.'/^#/'
@@ -3974,7 +3974,7 @@ sub json_model_90($$$)
     # .'$openapi#model#Prop'.'|'.3
     # .'$openapi#model#Prop'.'|'.4
     # .'$openapi#model#Prop'.'|'.5
-    return jm_is_string($val) && _jm_re_6($val, undef, undef) || json_model_73($val, undef, undef) || json_model_74($val, undef, undef) || json_model_71($val, undef, undef) || json_model_75($val, undef, undef) || jm_is_string($val) && $val eq '';
+    return jm_is_string($val) && _jm_re_6($val, undef, undef) || json_model_73($val, undef, undef) || json_model_74($val, undef, undef) || json_model_71($val, undef, undef) || json_model_75($val, undef, undef) || jm_is_string($val) && $val eq "";
 }
 
 sub _jm_re_7($$$)
@@ -4025,7 +4025,7 @@ sub _jm_xre_0($$$)
     {
         return 0;
     }
-    $extract = $+{'s1'};
+    $extract = $+{"s1"};
     if (! jm_is_valid_regex($extract, undef, undef))
     {
         return 0;
@@ -4049,7 +4049,7 @@ sub _jm_xre_1($$$)
     {
         return 0;
     }
-    $extract = $+{'s1'};
+    $extract = $+{"s1"};
     if (! jm_is_valid_exreg($extract, undef, undef))
     {
         return 0;
@@ -4122,7 +4122,7 @@ sub json_model_79($$$)
     # .'$openapi#model#StrModel'.'|'.3
     # .'$openapi#model#StrModel'.'|'.4
     # .'$openapi#model#StrModel'.'|'.5
-    return json_model_73($val, undef, undef) || json_model_72($val, undef, undef) || json_model_74($val, undef, undef) || json_model_67($val, undef, undef) || json_model_71($val, undef, undef) || jm_is_string($val) && $val eq '';
+    return json_model_73($val, undef, undef) || json_model_72($val, undef, undef) || json_model_74($val, undef, undef) || json_model_67($val, undef, undef) || json_model_71($val, undef, undef) || jm_is_string($val) && $val eq "";
 }
 
 
@@ -4161,136 +4161,136 @@ sub check_model_init()
     {
         $initialized = 1;
         %json_model_10_map = (
-            'callbacks' => \&_jm_f_0,
-            'examples' => \&_jm_f_1,
-            'headers' => \&_jm_f_2,
-            'links' => \&_jm_f_3,
-            'models' => \&_jm_f_4,
-            'parameters' => \&_jm_f_5,
-            'pathItems' => \&_jm_f_6,
-            'requestBodies' => \&_jm_f_7,
-            'responses' => \&_jm_f_8,
-            'securitySchemes' => \&_jm_f_9,
+            "callbacks" => \&_jm_f_0,
+            "examples" => \&_jm_f_1,
+            "headers" => \&_jm_f_2,
+            "links" => \&_jm_f_3,
+            "models" => \&_jm_f_4,
+            "parameters" => \&_jm_f_5,
+            "pathItems" => \&_jm_f_6,
+            "requestBodies" => \&_jm_f_7,
+            "responses" => \&_jm_f_8,
+            "securitySchemes" => \&_jm_f_9,
         );
         %json_model_12_map = (
-            '$ref' => \&_jm_f_10,
-            'delete' => \&json_model_13,
-            'description' => \&_jm_f_11,
-            'get' => \&json_model_13,
-            'head' => \&json_model_13,
-            'options' => \&json_model_13,
-            'parameters' => \&_jm_f_12,
-            'patch' => \&json_model_13,
-            'post' => \&json_model_13,
-            'put' => \&json_model_13,
-            'servers' => \&_jm_f_13,
-            'summary' => \&_jm_f_14,
-            'trace' => \&json_model_13,
+            "\$ref" => \&_jm_f_10,
+            "delete" => \&json_model_13,
+            "description" => \&_jm_f_11,
+            "get" => \&json_model_13,
+            "head" => \&json_model_13,
+            "options" => \&json_model_13,
+            "parameters" => \&_jm_f_12,
+            "patch" => \&json_model_13,
+            "post" => \&json_model_13,
+            "put" => \&json_model_13,
+            "servers" => \&_jm_f_13,
+            "summary" => \&_jm_f_14,
+            "trace" => \&json_model_13,
         );
         %json_model_13_map = (
-            'callbacks' => \&_jm_f_15,
-            'deprecated' => \&_jm_f_16,
-            'description' => \&_jm_f_17,
-            'externalDocs' => \&json_model_14,
-            'operationId' => \&_jm_f_18,
-            'parameters' => \&_jm_f_19,
-            'requestBody' => \&_jm_f_20,
-            'responses' => \&json_model_24,
-            'security' => \&_jm_f_21,
-            'servers' => \&_jm_f_22,
-            'summary' => \&_jm_f_23,
-            'tags' => \&_jm_f_24,
+            "callbacks" => \&_jm_f_15,
+            "deprecated" => \&_jm_f_16,
+            "description" => \&_jm_f_17,
+            "externalDocs" => \&json_model_14,
+            "operationId" => \&_jm_f_18,
+            "parameters" => \&_jm_f_19,
+            "requestBody" => \&_jm_f_20,
+            "responses" => \&json_model_24,
+            "security" => \&_jm_f_21,
+            "servers" => \&_jm_f_22,
+            "summary" => \&_jm_f_23,
+            "tags" => \&_jm_f_24,
         );
         %_jm_cst_0 = (
-            'query' => 1,
-            'header' => 1,
-            'path' => 1,
-            'cookie' => 1,
+            "query" => 1,
+            "header" => 1,
+            "path" => 1,
+            "cookie" => 1,
         );
         %_jm_cst_1 = (
-            'query' => 1,
-            'header' => 1,
-            'path' => 1,
-            'cookie' => 1,
+            "query" => 1,
+            "header" => 1,
+            "path" => 1,
+            "cookie" => 1,
         );
         %_jm_obj_6_map = (
-            'allowEmptyValue' => \&_jm_f_25,
-            'allowReserved' => \&_jm_f_26,
-            'deprecated' => \&_jm_f_27,
-            'description' => \&_jm_f_28,
-            'example' => \&_jm_f_29,
-            'examples' => \&_jm_f_30,
-            'explode' => \&_jm_f_31,
-            'model' => \&json_model_97,
-            'required' => \&_jm_f_32,
-            'style' => \&json_model_17,
+            "allowEmptyValue" => \&_jm_f_25,
+            "allowReserved" => \&_jm_f_26,
+            "deprecated" => \&_jm_f_27,
+            "description" => \&_jm_f_28,
+            "example" => \&_jm_f_29,
+            "examples" => \&_jm_f_30,
+            "explode" => \&_jm_f_31,
+            "model" => \&json_model_97,
+            "required" => \&_jm_f_32,
+            "style" => \&json_model_17,
         );
         %_jm_cst_2 = (
-            'matrix' => 1,
-            'label' => 1,
-            'form' => 1,
-            'simple' => 1,
-            'spaceDelimited' => 1,
-            'pipeDelimited' => 1,
-            'deepObject' => 1,
+            "matrix" => 1,
+            "label" => 1,
+            "form" => 1,
+            "simple" => 1,
+            "spaceDelimited" => 1,
+            "pipeDelimited" => 1,
+            "deepObject" => 1,
         );
         %_jm_obj_18_map = (
-            'allowEmptyValue' => \&_jm_f_33,
-            'allowReserved' => \&_jm_f_34,
-            'deprecated' => \&_jm_f_35,
-            'description' => \&_jm_f_36,
-            'example' => \&_jm_f_37,
-            'examples' => \&_jm_f_38,
-            'explode' => \&_jm_f_39,
-            'model' => \&json_model_97,
-            'required' => \&_jm_f_40,
-            'style' => \&json_model_17,
+            "allowEmptyValue" => \&_jm_f_33,
+            "allowReserved" => \&_jm_f_34,
+            "deprecated" => \&_jm_f_35,
+            "description" => \&_jm_f_36,
+            "example" => \&_jm_f_37,
+            "examples" => \&_jm_f_38,
+            "explode" => \&_jm_f_39,
+            "model" => \&json_model_97,
+            "required" => \&_jm_f_40,
+            "style" => \&json_model_17,
         );
         %_jm_cst_3 = (
-            'query' => 1,
-            'header' => 1,
-            'cookie' => 1,
+            "query" => 1,
+            "header" => 1,
+            "cookie" => 1,
         );
         %_jm_map_0 = (
-            'apiKey' => \&_jm_obj_19,
-            'http' => \&_jm_obj_20,
-            'oauth2' => \&_jm_obj_22,
-            'openIdConnect' => \&_jm_obj_23,
+            "apiKey" => \&_jm_obj_19,
+            "http" => \&_jm_obj_20,
+            "oauth2" => \&_jm_obj_22,
+            "openIdConnect" => \&_jm_obj_23,
         );
         %_jm_cst_4 = (
-            '$DATE' => 1,
-            '$TIME' => 1,
-            '$DATETIME' => 1,
-            '$URL' => 1,
-            '$URI' => 1,
-            '$UUID' => 1,
-            '$EMAIL' => 1,
-            '$REGEX' => 1,
-            '$EXREG' => 1,
-            '$NULL' => 1,
-            '$BOOL' => 1,
-            '$FLOAT' => 1,
-            '$F16' => 1,
-            '$F32' => 1,
-            '$F64' => 1,
-            '$NUMBER' => 1,
-            '$INT' => 1,
-            '$INTEGER' => 1,
-            '$I8' => 1,
-            '$I16' => 1,
-            '$I32' => 1,
-            '$I64' => 1,
-            '$U8' => 1,
-            '$U16' => 1,
-            '$U32' => 1,
-            '$U64' => 1,
-            '$STRING' => 1,
-            '$NONE' => 1,
-            '$ANY' => 1,
+            "\$DATE" => 1,
+            "\$TIME" => 1,
+            "\$DATETIME" => 1,
+            "\$URL" => 1,
+            "\$URI" => 1,
+            "\$UUID" => 1,
+            "\$EMAIL" => 1,
+            "\$REGEX" => 1,
+            "\$EXREG" => 1,
+            "\$NULL" => 1,
+            "\$BOOL" => 1,
+            "\$FLOAT" => 1,
+            "\$F16" => 1,
+            "\$F32" => 1,
+            "\$F64" => 1,
+            "\$NUMBER" => 1,
+            "\$INT" => 1,
+            "\$INTEGER" => 1,
+            "\$I8" => 1,
+            "\$I16" => 1,
+            "\$I32" => 1,
+            "\$I64" => 1,
+            "\$U8" => 1,
+            "\$U16" => 1,
+            "\$U32" => 1,
+            "\$U64" => 1,
+            "\$STRING" => 1,
+            "\$NONE" => 1,
+            "\$ANY" => 1,
         );
         %check_model_map = (
-            '' => \&json_model_4,
-            'openapi' => \&json_model_4,
+            "" => \&json_model_4,
+            "openapi" => \&json_model_4,
         );
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -25,7 +25,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_starts_with($prop, 's'))
+        if (jm_starts_with($prop, "s"))
         {
             # handle 2 re props
             # .'&'.1.'/^s/'
@@ -35,7 +35,7 @@ sub _jm_obj_0($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'i'))
+        elsif (jm_starts_with($prop, "i"))
         {
             # handle 2 re props
             # .'&'.1.'/^i/'
@@ -61,31 +61,31 @@ sub _jm_obj_1($$$)
     # check open must/may only props
     # value known to be an object
     my $pval;
-    if (! exists $$val{'i'})
+    if (! exists $$val{"i"})
     {
         return 0;
     }
-    $pval = $$val{'i'};
+    $pval = $$val{"i"};
     # .'&'.0.i
     my $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'&'.0.b
     $res = jm_is_boolean($pval);
     if (! $res)
     {
         return 0;
     }
-    if (exists $$val{'ss'})
+    if (exists $$val{"ss"})
     {
-        $pval = $$val{'ss'};
+        $pval = $$val{"ss"};
         # .'&'.0.ss
         $res = jm_is_string($pval);
         if (! $res)
@@ -118,7 +118,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

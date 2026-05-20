@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -29,7 +29,7 @@ sub json_model_1($$$)
         $xc_0++;
     }
     # .'^'.1
-    $xr_0 = jm_is_string($val) && $val eq '!';
+    $xr_0 = jm_is_string($val) && $val eq "!";
     if ($xr_0)
     {
         $xc_0++;
@@ -37,7 +37,7 @@ sub json_model_1($$$)
     if ($xc_0 <= 1)
     {
         # .'^'.2
-        $xr_0 = jm_is_string($val) && $val eq 'world';
+        $xr_0 = jm_is_string($val) && $val eq "world";
         if ($xr_0)
         {
             $xc_0++;
@@ -57,7 +57,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

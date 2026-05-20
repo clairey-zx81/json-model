@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -87,9 +87,9 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_3,
-            'a' => \&json_model_2,
-            'r' => \&json_model_3,
+            "" => \&json_model_3,
+            "a" => \&json_model_2,
+            "r" => \&json_model_3,
         );
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -29,11 +29,11 @@ sub _jm_obj_0($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'|'.2.c
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -50,11 +50,11 @@ sub _jm_obj_1($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'|'.1.b
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -71,11 +71,11 @@ sub _jm_obj_2($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'|'.0.a
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -89,21 +89,21 @@ sub json_model_1($$$)
     my $res = jm_is_object($val);
     if ($res)
     {
-        if (exists $$val{'a'})
+        if (exists $$val{"a"})
         {
             # .'|'.0
             $res = _jm_obj_2($val, undef, undef);
         }
         else
         {
-            if (exists $$val{'b'})
+            if (exists $$val{"b"})
             {
                 # .'|'.1
                 $res = _jm_obj_1($val, undef, undef);
             }
             else
             {
-                $res = exists $$val{'c'} && _jm_obj_0($val, undef, undef);
+                $res = exists $$val{"c"} && _jm_obj_0($val, undef, undef);
             }
         }
     }
@@ -121,7 +121,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

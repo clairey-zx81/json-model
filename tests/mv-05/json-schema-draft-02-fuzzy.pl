@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_f_0($$$);
@@ -440,47 +440,47 @@ sub check_model_init()
     {
         $initialized = 1;
         %json_model_3_map = (
-            '$schema' => \&_jm_f_0,
-            'additionalProperties' => \&_jm_f_1,
-            'contentEncoding' => \&_jm_f_2,
-            'default' => \&_jm_f_3,
-            'description' => \&_jm_f_4,
-            'disallow' => \&_jm_f_5,
-            'divisibleBy' => \&_jm_f_6,
-            'enum' => \&_jm_f_7,
-            'extends' => \&_jm_f_8,
-            'format' => \&_jm_f_9,
-            'id' => \&_jm_f_10,
-            'items' => \&_jm_f_11,
-            'maxItems' => \&_jm_f_12,
-            'maxLength' => \&_jm_f_13,
-            'maximum' => \&_jm_f_14,
-            'maximumCanEqual' => \&_jm_f_15,
-            'minItems' => \&_jm_f_16,
-            'minLength' => \&_jm_f_17,
-            'minimum' => \&_jm_f_18,
-            'minimumCanEqual' => \&_jm_f_19,
-            'optional' => \&_jm_f_20,
-            'pattern' => \&_jm_f_21,
-            'properties' => \&_jm_f_22,
-            'requires' => \&_jm_f_23,
-            'title' => \&_jm_f_24,
-            'type' => \&_jm_f_25,
-            'uniqueItems' => \&_jm_f_26,
+            "\$schema" => \&_jm_f_0,
+            "additionalProperties" => \&_jm_f_1,
+            "contentEncoding" => \&_jm_f_2,
+            "default" => \&_jm_f_3,
+            "description" => \&_jm_f_4,
+            "disallow" => \&_jm_f_5,
+            "divisibleBy" => \&_jm_f_6,
+            "enum" => \&_jm_f_7,
+            "extends" => \&_jm_f_8,
+            "format" => \&_jm_f_9,
+            "id" => \&_jm_f_10,
+            "items" => \&_jm_f_11,
+            "maxItems" => \&_jm_f_12,
+            "maxLength" => \&_jm_f_13,
+            "maximum" => \&_jm_f_14,
+            "maximumCanEqual" => \&_jm_f_15,
+            "minItems" => \&_jm_f_16,
+            "minLength" => \&_jm_f_17,
+            "minimum" => \&_jm_f_18,
+            "minimumCanEqual" => \&_jm_f_19,
+            "optional" => \&_jm_f_20,
+            "pattern" => \&_jm_f_21,
+            "properties" => \&_jm_f_22,
+            "requires" => \&_jm_f_23,
+            "title" => \&_jm_f_24,
+            "type" => \&_jm_f_25,
+            "uniqueItems" => \&_jm_f_26,
         );
         %_jm_cst_0 = (
-            'null' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'number' => 1,
-            'string' => 1,
-            'array' => 1,
-            'object' => 1,
-            'any' => 1,
+            "null" => 1,
+            "boolean" => 1,
+            "integer" => 1,
+            "number" => 1,
+            "string" => 1,
+            "array" => 1,
+            "object" => 1,
+            "any" => 1,
         );
         %check_model_map = (
-            '' => \&json_model_3,
-            'schema' => \&json_model_3,
+            "" => \&json_model_3,
+            "schema" => \&json_model_3,
         );
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_3($$$);
@@ -49,11 +49,11 @@ sub json_model_5($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'rt'})
+    if (! exists $$val{"rt"})
     {
         return 0;
     }
-    $pval = $$val{'rt'};
+    $pval = $$val{"rt"};
     # .'$foo#Foo'.rt
     return json_model_12($pval, undef, undef);
 }
@@ -73,22 +73,22 @@ sub json_model_12($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'id'})
+    if (! exists $$val{"id"})
     {
         return 0;
     }
-    $pval = $$val{'id'};
+    $pval = $$val{"id"};
     # .'$foo#root#root#Root'.id
     my $res = jm_is_integer($pval) && $pval == 1;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'name'})
+    if (! exists $$val{"name"})
     {
         return 0;
     }
-    $pval = $$val{'name'};
+    $pval = $$val{"name"};
     # .'$foo#root#root#Root'.name
     return jm_is_string($pval);
 }
@@ -104,8 +104,8 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_5,
-            'foo' => \&json_model_5,
+            "" => \&json_model_5,
+            "foo" => \&json_model_5,
         );
     }
 }

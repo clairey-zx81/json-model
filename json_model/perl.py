@@ -17,6 +17,18 @@ PERL_RUNTIME_PREDEFS: dict[str, str] = {
     # backup regex: "$EMAIL", $UUID, "$HOST", "$IP4", "$IP6",
 }
 
+# escaping for perl double quoted strings
+_ESC_TABLE = {
+    # '\'': r'\\\'',
+    "$": "\\$",
+    "@": "\\@",
+    "\\": "\\\\",
+    "\"": "\\\"",
+    "\x00": "\\0",
+    "\n": "\\n", "\r": "\\r", "\f": "\\f", "\t": "\\t",
+}
+
+
 class Perl(Language):
     """Perl language Code Generator."""
 
@@ -38,11 +50,12 @@ class Perl(Language):
 
         assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
 
+        self._json_esc_table = str.maketrans(_ESC_TABLE)
         # TODO check actual use to desactivate
         self._setmap_used = True
 
     def esc(self, s: str) -> StrExpr:
-        return "'" + s.replace("'", r"\'") + "'"
+        return "\"" + s.translate(self._json_esc_table) + "\""
 
     def rep(self) -> str:
         return "$rep" if self._with_report else "undef"

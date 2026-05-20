@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 my %_jm_cst_0;
@@ -47,7 +47,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'foo')
+        if ($prop eq "foo")
         {
             # handle must foo property
             $must_count++;
@@ -59,7 +59,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        if ($prop eq 'bla')
+        if ($prop eq "bla")
         {
             # handle may bla property
             # .bla
@@ -115,13 +115,13 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'X' => 1,
-            'XX' => 1,
-            'XXX' => 1,
+            "X" => 1,
+            "XX" => 1,
+            "XXX" => 1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'Xxx' => \&json_model_2,
+            "" => \&json_model_1,
+            "Xxx" => \&json_model_2,
         );
     }
 }

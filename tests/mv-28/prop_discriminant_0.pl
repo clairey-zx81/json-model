@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -27,7 +27,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'a')
+        if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
@@ -39,7 +39,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'd')
+        elsif ($prop eq "d")
         {
             # handle must d property
             $must_count++;
@@ -51,7 +51,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        if ($prop eq 'u')
+        if ($prop eq "u")
         {
             # handle may u property
             # .'|'.2.u
@@ -62,7 +62,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'x')
+        elsif ($prop eq "x")
         {
             # handle may x property
             # .'|'.2.x
@@ -88,7 +88,7 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'a')
+        if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
@@ -100,7 +100,7 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'c')
+        elsif ($prop eq "c")
         {
             # handle must c property
             $must_count++;
@@ -112,7 +112,7 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        if ($prop eq 'v')
+        if ($prop eq "v")
         {
             # handle may v property
             # .'|'.1.v
@@ -123,7 +123,7 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'z')
+        elsif ($prop eq "z")
         {
             # handle may z property
             # .'|'.1.z
@@ -149,7 +149,7 @@ sub _jm_obj_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'a')
+        if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
@@ -161,7 +161,7 @@ sub _jm_obj_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'b')
+        elsif ($prop eq "b")
         {
             # handle must b property
             $must_count++;
@@ -173,7 +173,7 @@ sub _jm_obj_2($$$)
             }
             next;
         }
-        if ($prop eq 'z')
+        if ($prop eq "z")
         {
             # handle may z property
             # .'|'.0.z
@@ -184,7 +184,7 @@ sub _jm_obj_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'w')
+        elsif ($prop eq "w")
         {
             # handle may w property
             # .'|'.0.w
@@ -209,21 +209,21 @@ sub json_model_1($$$)
     my $res = jm_is_object($val);
     if ($res)
     {
-        if (exists $$val{'b'})
+        if (exists $$val{"b"})
         {
             # .'|'.0
             $res = _jm_obj_2($val, undef, undef);
         }
         else
         {
-            if (exists $$val{'c'})
+            if (exists $$val{"c"})
             {
                 # .'|'.1
                 $res = _jm_obj_1($val, undef, undef);
             }
             else
             {
-                $res = exists $$val{'d'} && _jm_obj_0($val, undef, undef);
+                $res = exists $$val{"d"} && _jm_obj_0($val, undef, undef);
             }
         }
     }
@@ -241,7 +241,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

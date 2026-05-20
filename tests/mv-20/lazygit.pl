@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 my %_jm_cst_0;
@@ -217,7 +217,7 @@ sub json_model_8($$$)
     if ($res)
     {
         my $sval_0 = $val;
-        $res = $sval_0 ne '';
+        $res = $sval_0 ne "";
     }
     return $res;
 }
@@ -264,11 +264,11 @@ sub _jm_obj_1($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'command'})
+    if (! exists $$val{"command"})
     {
         return 0;
     }
-    $pval = $$val{'command'};
+    $pval = $$val{"command"};
     # .'$Prompts'.'|'.0.suggestions.'|'.1.command
     return jm_is_string($pval);
 }
@@ -289,11 +289,11 @@ sub _jm_obj_2($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'preset'})
+    if (! exists $$val{"preset"})
     {
         return 0;
     }
-    $pval = $$val{'preset'};
+    $pval = $$val{"preset"};
     # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
     return jm_is_string($pval) && exists $_jm_cst_2{$pval};
 }
@@ -311,19 +311,19 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Prompts'.'|'.0.type
-            $res = jm_is_string($pval) && $pval eq 'input';
+            $res = jm_is_string($pval) && $pval eq "input";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'title')
+        elsif ($prop eq "title")
         {
             # handle must title property
             $must_count++;
@@ -335,7 +335,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'key')
+        elsif ($prop eq "key")
         {
             # handle must key property
             $must_count++;
@@ -347,7 +347,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        if ($prop eq 'initialValue')
+        if ($prop eq "initialValue")
         {
             # handle may initialValue property
             # .'$Prompts'.'|'.0.initialValue
@@ -358,7 +358,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'suggestions')
+        elsif ($prop eq "suggestions")
         {
             # handle may suggestions property
             # .'$Prompts'.'|'.0.suggestions
@@ -389,19 +389,19 @@ sub _jm_obj_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Prompts'.'|'.1.type
-            $res = jm_is_string($pval) && $pval eq 'confirm';
+            $res = jm_is_string($pval) && $pval eq "confirm";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'title')
+        elsif ($prop eq "title")
         {
             # handle must title property
             $must_count++;
@@ -413,7 +413,7 @@ sub _jm_obj_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'key')
+        elsif ($prop eq "key")
         {
             # handle must key property
             $must_count++;
@@ -425,7 +425,7 @@ sub _jm_obj_3($$$)
             }
             next;
         }
-        if ($prop eq 'body')
+        if ($prop eq "body")
         {
             # handle may body property
             # .'$Prompts'.'|'.1.body
@@ -454,7 +454,7 @@ sub _jm_obj_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'value')
+        if ($prop eq "value")
         {
             # handle must value property
             $must_count++;
@@ -466,7 +466,7 @@ sub _jm_obj_5($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$Prompts'.'|'.2.options.'@'.0.description
@@ -477,7 +477,7 @@ sub _jm_obj_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'name')
+        elsif ($prop eq "name")
         {
             # handle may name property
             # .'$Prompts'.'|'.2.options.'@'.0.name
@@ -507,44 +507,44 @@ sub _jm_obj_4($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$Prompts'.'|'.2.type
-    my $res = jm_is_string($pval) && $pval eq 'menu';
+    my $res = jm_is_string($pval) && $pval eq "menu";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'title'})
+    if (! exists $$val{"title"})
     {
         return 0;
     }
-    $pval = $$val{'title'};
+    $pval = $$val{"title"};
     # .'$Prompts'.'|'.2.title
     $res = json_model_6($pval, undef, undef);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'key'})
+    if (! exists $$val{"key"})
     {
         return 0;
     }
-    $pval = $$val{'key'};
+    $pval = $$val{"key"};
     # .'$Prompts'.'|'.2.key
     $res = json_model_7($pval, undef, undef);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'options'})
+    if (! exists $$val{"options"})
     {
         return 0;
     }
-    $pval = $$val{'options'};
+    $pval = $$val{"options"};
     # .'$Prompts'.'|'.2.options
     # .'$Prompts'.'|'.2.options.'@'
     $res = jm_is_array($pval);
@@ -581,19 +581,19 @@ sub _jm_obj_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Prompts'.'|'.3.type
-            $res = jm_is_string($pval) && $pval eq 'menuFromCommand';
+            $res = jm_is_string($pval) && $pval eq "menuFromCommand";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'title')
+        elsif ($prop eq "title")
         {
             # handle must title property
             $must_count++;
@@ -605,7 +605,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'key')
+        elsif ($prop eq "key")
         {
             # handle must key property
             $must_count++;
@@ -617,7 +617,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'command')
+        elsif ($prop eq "command")
         {
             # handle must command property
             $must_count++;
@@ -629,7 +629,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        if ($prop eq 'filter')
+        if ($prop eq "filter")
         {
             # handle may filter property
             # .'$Prompts'.'|'.3.filter
@@ -640,7 +640,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'valueFormat')
+        elsif ($prop eq "valueFormat")
         {
             # handle may valueFormat property
             # .'$Prompts'.'|'.3.valueFormat
@@ -651,7 +651,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'labelFormat')
+        elsif ($prop eq "labelFormat")
         {
             # handle may labelFormat property
             # .'$Prompts'.'|'.3.labelFormat
@@ -677,7 +677,7 @@ sub json_model_10($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'type'}))
+        if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -711,7 +711,7 @@ sub _jm_obj_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'checkForConflicts')
+        if ($prop eq "checkForConflicts")
         {
             # handle may checkForConflicts property
             # .customCommands.'@'.0.after.checkForConflicts
@@ -740,7 +740,7 @@ sub _jm_obj_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'key')
+        if ($prop eq "key")
         {
             # handle must key property
             $must_count++;
@@ -752,7 +752,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'command')
+        elsif ($prop eq "command")
         {
             # handle must command property
             $must_count++;
@@ -764,7 +764,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'context')
+        elsif ($prop eq "context")
         {
             # handle must context property
             $must_count++;
@@ -776,7 +776,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        if ($prop eq 'subprocess')
+        if ($prop eq "subprocess")
         {
             # handle may subprocess property
             # .customCommands.'@'.0.subprocess
@@ -787,7 +787,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'prompts')
+        elsif ($prop eq "prompts")
         {
             # handle may prompts property
             # .customCommands.'@'.0.prompts
@@ -811,7 +811,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'loadingText')
+        elsif ($prop eq "loadingText")
         {
             # handle may loadingText property
             # .customCommands.'@'.0.loadingText
@@ -822,7 +822,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .customCommands.'@'.0.description
@@ -833,7 +833,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'stream')
+        elsif ($prop eq "stream")
         {
             # handle may stream property
             # .customCommands.'@'.0.stream
@@ -844,7 +844,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'showOutput')
+        elsif ($prop eq "showOutput")
         {
             # handle may showOutput property
             # .customCommands.'@'.0.showOutput
@@ -855,7 +855,7 @@ sub _jm_obj_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'after')
+        elsif ($prop eq "after")
         {
             # handle may after property
             # .customCommands.'@'.0.after
@@ -951,7 +951,7 @@ sub _jm_f_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'signOff')
+        if ($prop eq "signOff")
         {
             # handle may signOff property
             # .git.commit.signOff
@@ -988,22 +988,22 @@ sub _jm_obj_9($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'pattern'})
+    if (! exists $$val{"pattern"})
     {
         return 0;
     }
-    $pval = $$val{'pattern'};
+    $pval = $$val{"pattern"};
     # .git.commitPrefixes.'/./'.pattern
     my $res = json_model_8($pval, undef, undef);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'replace'})
+    if (! exists $$val{"replace"})
     {
         return 0;
     }
-    $pval = $$val{'replace'};
+    $pval = $$val{"replace"};
     # .git.commitPrefixes.'/./'.replace
     return json_model_8($pval, undef, undef);
 }
@@ -1078,7 +1078,7 @@ sub _jm_f_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'order')
+        if ($prop eq "order")
         {
             # handle may order property
             # .git.log.order
@@ -1089,7 +1089,7 @@ sub _jm_f_13($$$)
             }
             next;
         }
-        elsif ($prop eq 'showGraph')
+        elsif ($prop eq "showGraph")
         {
             # handle may showGraph property
             # .git.log.showGraph
@@ -1100,7 +1100,7 @@ sub _jm_f_13($$$)
             }
             next;
         }
-        elsif ($prop eq 'showWholeGraph')
+        elsif ($prop eq "showWholeGraph")
         {
             # handle may showWholeGraph property
             # .git.log.showWholeGraph
@@ -1129,7 +1129,7 @@ sub _jm_f_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'manualCommit')
+        if ($prop eq "manualCommit")
         {
             # handle may manualCommit property
             # .git.merging.manualCommit
@@ -1140,7 +1140,7 @@ sub _jm_f_14($$$)
             }
             next;
         }
-        elsif ($prop eq 'args')
+        elsif ($prop eq "args")
         {
             # handle may args property
             # .git.merging.args
@@ -1178,7 +1178,7 @@ sub _jm_f_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'colorArg')
+        if ($prop eq "colorArg")
         {
             # handle may colorArg property
             # .git.paging.colorArg
@@ -1189,7 +1189,7 @@ sub _jm_f_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'useConfig')
+        elsif ($prop eq "useConfig")
         {
             # handle may useConfig property
             # .git.paging.useConfig
@@ -1200,7 +1200,7 @@ sub _jm_f_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'pager')
+        elsif ($prop eq "pager")
         {
             # handle may pager property
             # .git.paging.pager
@@ -1209,7 +1209,7 @@ sub _jm_f_16($$$)
             if ($res)
             {
                 my $sval_1 = $pval;
-                $res = $sval_1 ne '';
+                $res = $sval_1 ne "";
             }
             if (! $res)
             {
@@ -1366,7 +1366,7 @@ sub _jm_f_25($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'show')
+        if ($prop eq "show")
         {
             # handle may show property
             # .gui.commitLength.show
@@ -1659,7 +1659,7 @@ sub _jm_f_50($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'checkoutCommitFile')
+        if ($prop eq "checkoutCommitFile")
         {
             # handle may checkoutCommitFile property
             # .keybinding.commitFiles.checkoutCommitFile
@@ -1744,7 +1744,7 @@ sub _jm_f_53($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'toggleDragSelect')
+        if ($prop eq "toggleDragSelect")
         {
             # handle may toggleDragSelect property
             # .keybinding.main.toggleDragSelect
@@ -1755,7 +1755,7 @@ sub _jm_f_53($$$)
             }
             next;
         }
-        elsif ($prop eq 'toggleDragSelect-alt')
+        elsif ($prop eq "toggleDragSelect-alt")
         {
             # handle may toggleDragSelect-alt property
             # .keybinding.main.'toggleDragSelect-alt'
@@ -1766,7 +1766,7 @@ sub _jm_f_53($$$)
             }
             next;
         }
-        elsif ($prop eq 'toggleSelectHunk')
+        elsif ($prop eq "toggleSelectHunk")
         {
             # handle may toggleSelectHunk property
             # .keybinding.main.toggleSelectHunk
@@ -1777,7 +1777,7 @@ sub _jm_f_53($$$)
             }
             next;
         }
-        elsif ($prop eq 'pickBothHunks')
+        elsif ($prop eq "pickBothHunks")
         {
             # handle may pickBothHunks property
             # .keybinding.main.pickBothHunks
@@ -1806,7 +1806,7 @@ sub _jm_f_54($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'popStash')
+        if ($prop eq "popStash")
         {
             # handle may popStash property
             # .keybinding.stash.popStash
@@ -1817,7 +1817,7 @@ sub _jm_f_54($$$)
             }
             next;
         }
-        elsif ($prop eq 'renameStash')
+        elsif ($prop eq "renameStash")
         {
             # handle may renameStash property
             # .keybinding.stash.renameStash
@@ -1846,7 +1846,7 @@ sub _jm_f_55($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'checkForUpdate')
+        if ($prop eq "checkForUpdate")
         {
             # handle may checkForUpdate property
             # .keybinding.status.checkForUpdate
@@ -1857,7 +1857,7 @@ sub _jm_f_55($$$)
             }
             next;
         }
-        elsif ($prop eq 'recentRepos')
+        elsif ($prop eq "recentRepos")
         {
             # handle may recentRepos property
             # .keybinding.status.recentRepos
@@ -1886,7 +1886,7 @@ sub _jm_f_56($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'init')
+        if ($prop eq "init")
         {
             # handle may init property
             # .keybinding.submodules.init
@@ -1897,7 +1897,7 @@ sub _jm_f_56($$$)
             }
             next;
         }
-        elsif ($prop eq 'update')
+        elsif ($prop eq "update")
         {
             # handle may update property
             # .keybinding.submodules.update
@@ -1908,7 +1908,7 @@ sub _jm_f_56($$$)
             }
             next;
         }
-        elsif ($prop eq 'bulkMenu')
+        elsif ($prop eq "bulkMenu")
         {
             # handle may bulkMenu property
             # .keybinding.submodules.bulkMenu
@@ -2019,7 +2019,7 @@ sub _jm_f_61($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'copyToClipboardCmd')
+        if ($prop eq "copyToClipboardCmd")
         {
             # handle may copyToClipboardCmd property
             # .os.copyToClipboardCmd
@@ -2030,7 +2030,7 @@ sub _jm_f_61($$$)
             }
             next;
         }
-        elsif ($prop eq 'editPreset')
+        elsif ($prop eq "editPreset")
         {
             # handle may editPreset property
             # .os.editPreset
@@ -2041,7 +2041,7 @@ sub _jm_f_61($$$)
             }
             next;
         }
-        elsif ($prop eq 'edit')
+        elsif ($prop eq "edit")
         {
             # handle may edit property
             # .os.edit
@@ -2052,7 +2052,7 @@ sub _jm_f_61($$$)
             }
             next;
         }
-        elsif ($prop eq 'editAtLine')
+        elsif ($prop eq "editAtLine")
         {
             # handle may editAtLine property
             # .os.editAtLine
@@ -2063,7 +2063,7 @@ sub _jm_f_61($$$)
             }
             next;
         }
-        elsif ($prop eq 'editAtLineAndWait')
+        elsif ($prop eq "editAtLineAndWait")
         {
             # handle may editAtLineAndWait property
             # .os.editAtLineAndWait
@@ -2074,7 +2074,7 @@ sub _jm_f_61($$$)
             }
             next;
         }
-        elsif ($prop eq 'open')
+        elsif ($prop eq "open")
         {
             # handle may open property
             # .os.open
@@ -2085,7 +2085,7 @@ sub _jm_f_61($$$)
             }
             next;
         }
-        elsif ($prop eq 'openLink')
+        elsif ($prop eq "openLink")
         {
             # handle may openLink property
             # .os.openLink
@@ -2130,7 +2130,7 @@ sub _jm_f_64($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'refreshInterval')
+        if ($prop eq "refreshInterval")
         {
             # handle may refreshInterval property
             # .refresher.refreshInterval
@@ -2141,7 +2141,7 @@ sub _jm_f_64($$$)
             }
             next;
         }
-        elsif ($prop eq 'fetchInterval')
+        elsif ($prop eq "fetchInterval")
         {
             # handle may fetchInterval property
             # .refresher.fetchInterval
@@ -2210,7 +2210,7 @@ sub _jm_f_66($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'method')
+        if ($prop eq "method")
         {
             # handle may method property
             # .update.method
@@ -2221,7 +2221,7 @@ sub _jm_f_66($$$)
             }
             next;
         }
-        elsif ($prop eq 'days')
+        elsif ($prop eq "days")
         {
             # handle may days property
             # .update.days
@@ -2277,341 +2277,341 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'black' => 1,
-            'red' => 1,
-            'green' => 1,
-            'yellow' => 1,
-            'blue' => 1,
-            'magenta' => 1,
-            'cyan' => 1,
-            'white' => 1,
-            'bold' => 1,
-            'default' => 1,
-            'reverse' => 1,
-            'underline' => 1,
-            'strikethrough' => 1,
+            "black" => 1,
+            "red" => 1,
+            "green" => 1,
+            "yellow" => 1,
+            "blue" => 1,
+            "magenta" => 1,
+            "cyan" => 1,
+            "white" => 1,
+            "bold" => 1,
+            "default" => 1,
+            "reverse" => 1,
+            "underline" => 1,
+            "strikethrough" => 1,
         );
         %_jm_cst_1 = (
-            'input' => 1,
-            'confirm' => 1,
-            'menu' => 1,
-            'menuFromCommand' => 1,
+            "input" => 1,
+            "confirm" => 1,
+            "menu" => 1,
+            "menuFromCommand" => 1,
         );
         %_jm_cst_2 = (
-            'authors' => 1,
-            'branches' => 1,
-            'files' => 1,
-            'refs' => 1,
-            'remotes' => 1,
-            'remoteBranches' => 1,
-            'tags' => 1,
+            "authors" => 1,
+            "branches" => 1,
+            "files" => 1,
+            "refs" => 1,
+            "remotes" => 1,
+            "remoteBranches" => 1,
+            "tags" => 1,
         );
         %_jm_map_0 = (
-            'input' => \&_jm_obj_0,
-            'confirm' => \&_jm_obj_3,
-            'menu' => \&_jm_obj_4,
-            'menuFromCommand' => \&_jm_obj_6,
+            "input" => \&_jm_obj_0,
+            "confirm" => \&_jm_obj_3,
+            "menu" => \&_jm_obj_4,
+            "menuFromCommand" => \&_jm_obj_6,
         );
         %_jm_cst_3 = (
-            'status' => 1,
-            'files' => 1,
-            'worktrees' => 1,
-            'localBranches' => 1,
-            'remotes' => 1,
-            'remoteBranches' => 1,
-            'tags' => 1,
-            'commits' => 1,
-            'reflogCommits' => 1,
-            'subCommits' => 1,
-            'commitFiles' => 1,
-            'stash' => 1,
-            'global' => 1,
+            "status" => 1,
+            "files" => 1,
+            "worktrees" => 1,
+            "localBranches" => 1,
+            "remotes" => 1,
+            "remoteBranches" => 1,
+            "tags" => 1,
+            "commits" => 1,
+            "reflogCommits" => 1,
+            "subCommits" => 1,
+            "commitFiles" => 1,
+            "stash" => 1,
+            "global" => 1,
         );
         %_jm_cst_4 = (
-            'date-order' => 1,
-            'author-date-order' => 1,
-            'topo-order' => 1,
-            'default' => 1,
+            "date-order" => 1,
+            "author-date-order" => 1,
+            "topo-order" => 1,
+            "default" => 1,
         );
         %_jm_cst_5 = (
-            'always' => 1,
-            'never' => 1,
-            'when-maximised' => 1,
+            "always" => 1,
+            "never" => 1,
+            "when-maximised" => 1,
         );
         %_jm_cst_6 = (
-            'always' => 1,
-            'never' => 1,
+            "always" => 1,
+            "never" => 1,
         );
         %_jm_f_3_map = (
-            'allBranchesLogCmd' => \&_jm_f_4,
-            'autoFetch' => \&_jm_f_5,
-            'autoRefresh' => \&_jm_f_6,
-            'branchLogCmd' => \&_jm_f_7,
-            'commit' => \&_jm_f_8,
-            'commitPrefixes' => \&_jm_f_9,
-            'diffContextSize' => \&_jm_f_10,
-            'disableForcePushing' => \&_jm_f_11,
-            'fetchAll' => \&_jm_f_12,
-            'log' => \&_jm_f_13,
-            'mainBranches' => \&json_model_9,
-            'merging' => \&_jm_f_14,
-            'overrideGpg' => \&_jm_f_15,
-            'paging' => \&_jm_f_16,
-            'parseEmoji' => \&_jm_f_17,
-            'skipHookPrefix' => \&_jm_f_18,
+            "allBranchesLogCmd" => \&_jm_f_4,
+            "autoFetch" => \&_jm_f_5,
+            "autoRefresh" => \&_jm_f_6,
+            "branchLogCmd" => \&_jm_f_7,
+            "commit" => \&_jm_f_8,
+            "commitPrefixes" => \&_jm_f_9,
+            "diffContextSize" => \&_jm_f_10,
+            "disableForcePushing" => \&_jm_f_11,
+            "fetchAll" => \&_jm_f_12,
+            "log" => \&_jm_f_13,
+            "mainBranches" => \&json_model_9,
+            "merging" => \&_jm_f_14,
+            "overrideGpg" => \&_jm_f_15,
+            "paging" => \&_jm_f_16,
+            "parseEmoji" => \&_jm_f_17,
+            "skipHookPrefix" => \&_jm_f_18,
         );
         %_jm_cst_7 = (
-            'single' => 1,
-            'double' => 1,
-            'rounded' => 1,
-            'hidden' => 1,
+            "single" => 1,
+            "double" => 1,
+            "rounded" => 1,
+            "hidden" => 1,
         );
         %_jm_cst_8 = (
-            'auto' => 1,
-            'en' => 1,
-            'zh-CN' => 1,
-            'zh-TW' => 1,
-            'pl' => 1,
-            'nl' => 1,
-            'ja' => 1,
-            'ko' => 1,
-            'ru' => 1,
+            "auto" => 1,
+            "en" => 1,
+            "zh-CN" => 1,
+            "zh-TW" => 1,
+            "pl" => 1,
+            "nl" => 1,
+            "ja" => 1,
+            "ko" => 1,
+            "ru" => 1,
         );
         %_jm_cst_9 = (
-            'horizontal' => 1,
-            'flexible' => 1,
-            'vertical' => 1,
+            "horizontal" => 1,
+            "flexible" => 1,
+            "vertical" => 1,
         );
         %_jm_cst_10 = (
-            '2' => 1,
-            '3' => 1,
+            "2" => 1,
+            "3" => 1,
         );
         %_jm_cst_11 = (
-            'auto' => 1,
-            'always' => 1,
+            "auto" => 1,
+            "always" => 1,
         );
         %_jm_f_45_map = (
-            'activeBorderColor' => \&json_model_3,
-            'cherryPickedCommitBgColor' => \&json_model_3,
-            'cherryPickedCommitFgColor' => \&json_model_3,
-            'defaultFgColor' => \&json_model_3,
-            'inactiveBorderColor' => \&json_model_3,
-            'optionsTextColor' => \&json_model_3,
-            'searchingActiveBorderColor' => \&json_model_3,
-            'selectedLineBgColor' => \&json_model_3,
-            'selectedRangeBgColor' => \&json_model_3,
-            'unstagedChangesColor' => \&json_model_3,
+            "activeBorderColor" => \&json_model_3,
+            "cherryPickedCommitBgColor" => \&json_model_3,
+            "cherryPickedCommitFgColor" => \&json_model_3,
+            "defaultFgColor" => \&json_model_3,
+            "inactiveBorderColor" => \&json_model_3,
+            "optionsTextColor" => \&json_model_3,
+            "searchingActiveBorderColor" => \&json_model_3,
+            "selectedLineBgColor" => \&json_model_3,
+            "selectedRangeBgColor" => \&json_model_3,
+            "unstagedChangesColor" => \&json_model_3,
         );
         %_jm_cst_12 = (
-            'normal' => 1,
-            'half' => 1,
-            'full' => 1,
+            "normal" => 1,
+            "half" => 1,
+            "full" => 1,
         );
         %_jm_f_19_map = (
-            'animateExplosion' => \&_jm_f_20,
-            'authorColors' => \&_jm_f_21,
-            'border' => \&_jm_f_22,
-            'branchColors' => \&_jm_f_23,
-            'commandLogSize' => \&_jm_f_24,
-            'commitLength' => \&_jm_f_25,
-            'expandFocusedSidePanel' => \&_jm_f_26,
-            'language' => \&_jm_f_27,
-            'mainPanelSplitMode' => \&_jm_f_28,
-            'mouseEvents' => \&_jm_f_29,
-            'nerdFontsVersion' => \&_jm_f_30,
-            'scrollHeight' => \&_jm_f_31,
-            'scrollPastBottom' => \&_jm_f_32,
-            'shortTimeFormat' => \&_jm_f_33,
-            'showBottomLine' => \&_jm_f_34,
-            'showBranchCommitHash' => \&_jm_f_35,
-            'showCommandLog' => \&_jm_f_36,
-            'showFileTree' => \&_jm_f_37,
-            'showListFooter' => \&_jm_f_38,
-            'showRandomTip' => \&_jm_f_39,
-            'sidePanelWidth' => \&_jm_f_40,
-            'skipDiscardChangeWarning' => \&_jm_f_41,
-            'skipRewordInEditorWarning' => \&_jm_f_42,
-            'skipStashWarning' => \&_jm_f_43,
-            'splitDiff' => \&_jm_f_44,
-            'theme' => \&_jm_f_45,
-            'timeFormat' => \&_jm_f_46,
-            'windowSize' => \&_jm_f_47,
+            "animateExplosion" => \&_jm_f_20,
+            "authorColors" => \&_jm_f_21,
+            "border" => \&_jm_f_22,
+            "branchColors" => \&_jm_f_23,
+            "commandLogSize" => \&_jm_f_24,
+            "commitLength" => \&_jm_f_25,
+            "expandFocusedSidePanel" => \&_jm_f_26,
+            "language" => \&_jm_f_27,
+            "mainPanelSplitMode" => \&_jm_f_28,
+            "mouseEvents" => \&_jm_f_29,
+            "nerdFontsVersion" => \&_jm_f_30,
+            "scrollHeight" => \&_jm_f_31,
+            "scrollPastBottom" => \&_jm_f_32,
+            "shortTimeFormat" => \&_jm_f_33,
+            "showBottomLine" => \&_jm_f_34,
+            "showBranchCommitHash" => \&_jm_f_35,
+            "showCommandLog" => \&_jm_f_36,
+            "showFileTree" => \&_jm_f_37,
+            "showListFooter" => \&_jm_f_38,
+            "showRandomTip" => \&_jm_f_39,
+            "sidePanelWidth" => \&_jm_f_40,
+            "skipDiscardChangeWarning" => \&_jm_f_41,
+            "skipRewordInEditorWarning" => \&_jm_f_42,
+            "skipStashWarning" => \&_jm_f_43,
+            "splitDiff" => \&_jm_f_44,
+            "theme" => \&_jm_f_45,
+            "timeFormat" => \&_jm_f_46,
+            "windowSize" => \&_jm_f_47,
         );
         %_jm_f_49_map = (
-            'checkoutBranchByName' => \&json_model_4,
-            'createPullRequest' => \&json_model_4,
-            'createTag' => \&json_model_4,
-            'fastForward' => \&json_model_4,
-            'fetchRemote' => \&json_model_4,
-            'forceCheckoutBranch' => \&json_model_4,
-            'mergeIntoCurrentBranch' => \&json_model_4,
-            'pushTag' => \&json_model_4,
-            'rebaseBranch' => \&json_model_4,
-            'renameBranch' => \&json_model_4,
-            'setUpstream' => \&json_model_4,
-            'viewGitFlowOptions' => \&json_model_4,
-            'viewPullRequestOptions' => \&json_model_4,
+            "checkoutBranchByName" => \&json_model_4,
+            "createPullRequest" => \&json_model_4,
+            "createTag" => \&json_model_4,
+            "fastForward" => \&json_model_4,
+            "fetchRemote" => \&json_model_4,
+            "forceCheckoutBranch" => \&json_model_4,
+            "mergeIntoCurrentBranch" => \&json_model_4,
+            "pushTag" => \&json_model_4,
+            "rebaseBranch" => \&json_model_4,
+            "renameBranch" => \&json_model_4,
+            "setUpstream" => \&json_model_4,
+            "viewGitFlowOptions" => \&json_model_4,
+            "viewPullRequestOptions" => \&json_model_4,
         );
         %_jm_f_51_map = (
-            'amendToCommit' => \&json_model_4,
-            'checkoutCommit' => \&json_model_4,
-            'cherryPickCopy' => \&json_model_4,
-            'cherryPickCopyRange' => \&json_model_4,
-            'copyCommitMessageToClipboard' => \&json_model_4,
-            'createFixupCommit' => \&json_model_4,
-            'markCommitAsFixup' => \&json_model_4,
-            'moveDownCommit' => \&json_model_4,
-            'moveUpCommit' => \&json_model_4,
-            'openLogMenu' => \&json_model_4,
-            'pasteCommits' => \&json_model_4,
-            'pickCommit' => \&json_model_4,
-            'renameCommit' => \&json_model_4,
-            'renameCommitWithEditor' => \&json_model_4,
-            'resetCherryPick' => \&json_model_4,
-            'revertCommit' => \&json_model_4,
-            'squashAboveCommits' => \&json_model_4,
-            'squashDown' => \&json_model_4,
-            'tagCommit' => \&json_model_4,
-            'viewBisectOptions' => \&json_model_4,
-            'viewResetOptions' => \&json_model_4,
+            "amendToCommit" => \&json_model_4,
+            "checkoutCommit" => \&json_model_4,
+            "cherryPickCopy" => \&json_model_4,
+            "cherryPickCopyRange" => \&json_model_4,
+            "copyCommitMessageToClipboard" => \&json_model_4,
+            "createFixupCommit" => \&json_model_4,
+            "markCommitAsFixup" => \&json_model_4,
+            "moveDownCommit" => \&json_model_4,
+            "moveUpCommit" => \&json_model_4,
+            "openLogMenu" => \&json_model_4,
+            "pasteCommits" => \&json_model_4,
+            "pickCommit" => \&json_model_4,
+            "renameCommit" => \&json_model_4,
+            "renameCommitWithEditor" => \&json_model_4,
+            "resetCherryPick" => \&json_model_4,
+            "revertCommit" => \&json_model_4,
+            "squashAboveCommits" => \&json_model_4,
+            "squashDown" => \&json_model_4,
+            "tagCommit" => \&json_model_4,
+            "viewBisectOptions" => \&json_model_4,
+            "viewResetOptions" => \&json_model_4,
         );
         %_jm_f_52_map = (
-            'amendLastCommit' => \&json_model_4,
-            'commitChanges' => \&json_model_4,
-            'commitChangesWithEditor' => \&json_model_4,
-            'commitChangesWithoutHook' => \&json_model_4,
-            'fetch' => \&json_model_4,
-            'ignoreFile' => \&json_model_4,
-            'openMergeTool' => \&json_model_4,
-            'openStatusFilter' => \&json_model_4,
-            'refreshFiles' => \&json_model_4,
-            'stashAllChanges' => \&json_model_4,
-            'toggleStagedAll' => \&json_model_4,
-            'toggleTreeView' => \&json_model_4,
-            'viewResetOptions' => \&json_model_4,
-            'viewStashOptions' => \&json_model_4,
+            "amendLastCommit" => \&json_model_4,
+            "commitChanges" => \&json_model_4,
+            "commitChangesWithEditor" => \&json_model_4,
+            "commitChangesWithoutHook" => \&json_model_4,
+            "fetch" => \&json_model_4,
+            "ignoreFile" => \&json_model_4,
+            "openMergeTool" => \&json_model_4,
+            "openStatusFilter" => \&json_model_4,
+            "refreshFiles" => \&json_model_4,
+            "stashAllChanges" => \&json_model_4,
+            "toggleStagedAll" => \&json_model_4,
+            "toggleTreeView" => \&json_model_4,
+            "viewResetOptions" => \&json_model_4,
+            "viewStashOptions" => \&json_model_4,
         );
         %_jm_f_57_map = (
-            'confirm' => \&json_model_4,
-            'copyToClipboard' => \&json_model_4,
-            'createPatchOptionsMenu' => \&json_model_4,
-            'createRebaseOptionsMenu' => \&json_model_4,
-            'decreaseContextInDiffView' => \&json_model_4,
-            'diffingMenu' => \&json_model_4,
-            'diffingMenu-alt' => \&json_model_4,
-            'edit' => \&json_model_4,
-            'executeCustomCommand' => \&json_model_4,
-            'extrasMenu' => \&json_model_4,
-            'filteringMenu' => \&json_model_4,
-            'goInto' => \&json_model_4,
-            'gotoBottom' => \&json_model_4,
-            'gotoTop' => \&json_model_4,
-            'increaseContextInDiffView' => \&json_model_4,
-            'jumpToBlock' => \&_jm_f_58,
-            'new' => \&json_model_4,
-            'nextBlock' => \&json_model_4,
-            'nextBlock-alt' => \&json_model_4,
-            'nextItem' => \&json_model_4,
-            'nextItem-alt' => \&json_model_4,
-            'nextMatch' => \&json_model_4,
-            'nextPage' => \&json_model_4,
-            'nextScreenMode' => \&json_model_4,
-            'nextTab' => \&json_model_4,
-            'openFile' => \&json_model_4,
-            'openRecentRepos' => \&json_model_4,
-            'optionMenu' => \&_jm_f_59,
-            'optionMenu-alt1' => \&json_model_4,
-            'prevBlock' => \&json_model_4,
-            'prevBlock-alt' => \&json_model_4,
-            'prevItem' => \&json_model_4,
-            'prevItem-alt' => \&json_model_4,
-            'prevMatch' => \&json_model_4,
-            'prevPage' => \&json_model_4,
-            'prevScreenMode' => \&json_model_4,
-            'prevTab' => \&json_model_4,
-            'pullFiles' => \&json_model_4,
-            'pushFiles' => \&json_model_4,
-            'quit' => \&json_model_4,
-            'quit-alt1' => \&json_model_4,
-            'quitWithoutChangingDirectory' => \&json_model_4,
-            'redo' => \&json_model_4,
-            'refresh' => \&json_model_4,
-            'remove' => \&json_model_4,
-            'return' => \&json_model_4,
-            'scrollDownMain' => \&json_model_4,
-            'scrollDownMain-alt1' => \&json_model_4,
-            'scrollDownMain-alt2' => \&json_model_4,
-            'scrollLeft' => \&json_model_4,
-            'scrollRight' => \&json_model_4,
-            'scrollUpMain' => \&json_model_4,
-            'scrollUpMain-alt1' => \&json_model_4,
-            'scrollUpMain-alt2' => \&json_model_4,
-            'select' => \&json_model_4,
-            'submitEditorText' => \&json_model_4,
-            'togglePanel' => \&json_model_4,
-            'toggleWhitespaceInDiffView' => \&json_model_4,
-            'undo' => \&json_model_4,
+            "confirm" => \&json_model_4,
+            "copyToClipboard" => \&json_model_4,
+            "createPatchOptionsMenu" => \&json_model_4,
+            "createRebaseOptionsMenu" => \&json_model_4,
+            "decreaseContextInDiffView" => \&json_model_4,
+            "diffingMenu" => \&json_model_4,
+            "diffingMenu-alt" => \&json_model_4,
+            "edit" => \&json_model_4,
+            "executeCustomCommand" => \&json_model_4,
+            "extrasMenu" => \&json_model_4,
+            "filteringMenu" => \&json_model_4,
+            "goInto" => \&json_model_4,
+            "gotoBottom" => \&json_model_4,
+            "gotoTop" => \&json_model_4,
+            "increaseContextInDiffView" => \&json_model_4,
+            "jumpToBlock" => \&_jm_f_58,
+            "new" => \&json_model_4,
+            "nextBlock" => \&json_model_4,
+            "nextBlock-alt" => \&json_model_4,
+            "nextItem" => \&json_model_4,
+            "nextItem-alt" => \&json_model_4,
+            "nextMatch" => \&json_model_4,
+            "nextPage" => \&json_model_4,
+            "nextScreenMode" => \&json_model_4,
+            "nextTab" => \&json_model_4,
+            "openFile" => \&json_model_4,
+            "openRecentRepos" => \&json_model_4,
+            "optionMenu" => \&_jm_f_59,
+            "optionMenu-alt1" => \&json_model_4,
+            "prevBlock" => \&json_model_4,
+            "prevBlock-alt" => \&json_model_4,
+            "prevItem" => \&json_model_4,
+            "prevItem-alt" => \&json_model_4,
+            "prevMatch" => \&json_model_4,
+            "prevPage" => \&json_model_4,
+            "prevScreenMode" => \&json_model_4,
+            "prevTab" => \&json_model_4,
+            "pullFiles" => \&json_model_4,
+            "pushFiles" => \&json_model_4,
+            "quit" => \&json_model_4,
+            "quit-alt1" => \&json_model_4,
+            "quitWithoutChangingDirectory" => \&json_model_4,
+            "redo" => \&json_model_4,
+            "refresh" => \&json_model_4,
+            "remove" => \&json_model_4,
+            "return" => \&json_model_4,
+            "scrollDownMain" => \&json_model_4,
+            "scrollDownMain-alt1" => \&json_model_4,
+            "scrollDownMain-alt2" => \&json_model_4,
+            "scrollLeft" => \&json_model_4,
+            "scrollRight" => \&json_model_4,
+            "scrollUpMain" => \&json_model_4,
+            "scrollUpMain-alt1" => \&json_model_4,
+            "scrollUpMain-alt2" => \&json_model_4,
+            "select" => \&json_model_4,
+            "submitEditorText" => \&json_model_4,
+            "togglePanel" => \&json_model_4,
+            "toggleWhitespaceInDiffView" => \&json_model_4,
+            "undo" => \&json_model_4,
         );
         %_jm_f_48_map = (
-            'branches' => \&_jm_f_49,
-            'commitFiles' => \&_jm_f_50,
-            'commits' => \&_jm_f_51,
-            'files' => \&_jm_f_52,
-            'main' => \&_jm_f_53,
-            'stash' => \&_jm_f_54,
-            'status' => \&_jm_f_55,
-            'submodules' => \&_jm_f_56,
-            'universal' => \&_jm_f_57,
+            "branches" => \&_jm_f_49,
+            "commitFiles" => \&_jm_f_50,
+            "commits" => \&_jm_f_51,
+            "files" => \&_jm_f_52,
+            "main" => \&_jm_f_53,
+            "stash" => \&_jm_f_54,
+            "status" => \&_jm_f_55,
+            "submodules" => \&_jm_f_56,
+            "universal" => \&_jm_f_57,
         );
         %_jm_cst_13 = (
-            'prompt' => 1,
-            'create' => 1,
-            'skip' => 1,
-            'quit' => 1,
+            "prompt" => 1,
+            "create" => 1,
+            "skip" => 1,
+            "quit" => 1,
         );
         %_jm_cst_14 = (
-            'vim' => 1,
-            'nvim' => 1,
-            'emacs' => 1,
-            'nano' => 1,
-            'vscode' => 1,
-            'sublime' => 1,
-            'bbedit' => 1,
-            'kakoune' => 1,
-            'helix' => 1,
-            'xcode' => 1,
+            "vim" => 1,
+            "nvim" => 1,
+            "emacs" => 1,
+            "nano" => 1,
+            "vscode" => 1,
+            "sublime" => 1,
+            "bbedit" => 1,
+            "kakoune" => 1,
+            "helix" => 1,
+            "xcode" => 1,
         );
         %_jm_cst_15 = (
-            'prompt' => 1,
-            'background' => 1,
-            'never' => 1,
+            "prompt" => 1,
+            "background" => 1,
+            "never" => 1,
         );
         %json_model_1_map = (
-            'confirmOnQuit' => \&_jm_f_0,
-            'customCommands' => \&_jm_f_1,
-            'disableStartupPopups' => \&_jm_f_2,
-            'git' => \&_jm_f_3,
-            'gui' => \&_jm_f_19,
-            'keybinding' => \&_jm_f_48,
-            'notARepository' => \&_jm_f_60,
-            'os' => \&_jm_f_61,
-            'promptToReturnFromSubprocess' => \&_jm_f_62,
-            'quitOnTopLevelReturn' => \&_jm_f_63,
-            'refresher' => \&_jm_f_64,
-            'services' => \&_jm_f_65,
-            'update' => \&_jm_f_66,
+            "confirmOnQuit" => \&_jm_f_0,
+            "customCommands" => \&_jm_f_1,
+            "disableStartupPopups" => \&_jm_f_2,
+            "git" => \&_jm_f_3,
+            "gui" => \&_jm_f_19,
+            "keybinding" => \&_jm_f_48,
+            "notARepository" => \&_jm_f_60,
+            "os" => \&_jm_f_61,
+            "promptToReturnFromSubprocess" => \&_jm_f_62,
+            "quitOnTopLevelReturn" => \&_jm_f_63,
+            "refresher" => \&_jm_f_64,
+            "services" => \&_jm_f_65,
+            "update" => \&_jm_f_66,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'color' => \&json_model_2,
-            'colorArray' => \&json_model_3,
-            'keybinding' => \&json_model_4,
-            'custom-commands-prompts-type-property' => \&json_model_5,
-            'custom-commands-prompts-title-property' => \&json_model_6,
-            'custom-commands-prompts-key-property' => \&json_model_7,
-            'neString' => \&json_model_8,
-            'stringArray' => \&json_model_9,
-            'Prompts' => \&json_model_10,
+            "" => \&json_model_1,
+            "color" => \&json_model_2,
+            "colorArray" => \&json_model_3,
+            "keybinding" => \&json_model_4,
+            "custom-commands-prompts-type-property" => \&json_model_5,
+            "custom-commands-prompts-title-property" => \&json_model_6,
+            "custom-commands-prompts-key-property" => \&json_model_7,
+            "neString" => \&json_model_8,
+            "stringArray" => \&json_model_9,
+            "Prompts" => \&json_model_10,
         );
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -29,22 +29,22 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'hello'})
+    if (! exists $$val{"hello"})
     {
         return 0;
     }
-    $pval = $$val{'hello'};
+    $pval = $$val{"hello"};
     # .hello
     my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'world'})
+    if (! exists $$val{"world"})
     {
         return 0;
     }
-    $pval = $$val{'world'};
+    $pval = $$val{"world"};
     # .world
     return jm_is_boolean($pval);
 }
@@ -60,7 +60,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_2,
+            "" => \&json_model_2,
         );
     }
 }

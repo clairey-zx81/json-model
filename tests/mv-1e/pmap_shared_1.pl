@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -31,7 +31,7 @@ sub json_model_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'a')
+        if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
@@ -43,7 +43,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'b')
+        elsif ($prop eq "b")
         {
             # handle must b property
             $must_count++;
@@ -55,7 +55,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'c')
+        elsif ($prop eq "c")
         {
             # handle must c property
             $must_count++;
@@ -67,7 +67,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'd')
+        elsif ($prop eq "d")
         {
             # handle must d property
             $must_count++;
@@ -104,7 +104,7 @@ sub json_model_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'z')
+        if ($prop eq "z")
         {
             # handle must z property
             $must_count++;
@@ -116,7 +116,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        if ($prop eq 'a')
+        if ($prop eq "a")
         {
             # handle may a property
             # .'$Oo1'.a
@@ -127,7 +127,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'b')
+        elsif ($prop eq "b")
         {
             # handle may b property
             # .'$Oo1'.b
@@ -138,7 +138,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'c')
+        elsif ($prop eq "c")
         {
             # handle may c property
             # .'$Oo1'.c
@@ -149,7 +149,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'd')
+        elsif ($prop eq "d")
         {
             # handle may d property
             # .'$Oo1'.d
@@ -179,7 +179,7 @@ sub json_model_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'a')
+        if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
@@ -191,7 +191,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'b')
+        elsif ($prop eq "b")
         {
             # handle must b property
             $must_count++;
@@ -203,7 +203,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'c')
+        elsif ($prop eq "c")
         {
             # handle must c property
             $must_count++;
@@ -215,7 +215,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'd')
+        elsif ($prop eq "d")
         {
             # handle must d property
             $must_count++;
@@ -227,7 +227,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        if ($prop eq 'y')
+        if ($prop eq "y")
         {
             # handle may y property
             # .'$Oo2'.y
@@ -265,10 +265,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'Oo0' => \&json_model_2,
-            'Oo1' => \&json_model_3,
-            'Oo2' => \&json_model_4,
+            "" => \&json_model_1,
+            "Oo0" => \&json_model_2,
+            "Oo1" => \&json_model_3,
+            "Oo2" => \&json_model_4,
         );
     }
 }

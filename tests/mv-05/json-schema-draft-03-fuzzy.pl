@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_f_0($$$);
@@ -516,49 +516,49 @@ sub check_model_init()
     {
         $initialized = 1;
         %json_model_3_map = (
-            '$ref' => \&_jm_f_0,
-            '$schema' => \&_jm_f_1,
-            'additionalItems' => \&_jm_f_2,
-            'additionalProperties' => \&_jm_f_3,
-            'default' => \&_jm_f_4,
-            'dependencies' => \&_jm_f_5,
-            'description' => \&_jm_f_6,
-            'disallow' => \&_jm_f_7,
-            'divisibleBy' => \&_jm_f_8,
-            'enum' => \&_jm_f_9,
-            'exclusiveMaximum' => \&_jm_f_10,
-            'exclusiveMinimum' => \&_jm_f_11,
-            'extends' => \&_jm_f_12,
-            'format' => \&_jm_f_13,
-            'id' => \&_jm_f_14,
-            'items' => \&_jm_f_15,
-            'maxItems' => \&_jm_f_16,
-            'maxLength' => \&_jm_f_17,
-            'maximum' => \&_jm_f_18,
-            'minItems' => \&_jm_f_19,
-            'minLength' => \&_jm_f_20,
-            'minimum' => \&_jm_f_21,
-            'pattern' => \&_jm_f_22,
-            'patternProperties' => \&_jm_f_23,
-            'properties' => \&_jm_f_24,
-            'required' => \&_jm_f_25,
-            'title' => \&_jm_f_26,
-            'type' => \&_jm_f_27,
-            'uniqueItems' => \&_jm_f_28,
+            "\$ref" => \&_jm_f_0,
+            "\$schema" => \&_jm_f_1,
+            "additionalItems" => \&_jm_f_2,
+            "additionalProperties" => \&_jm_f_3,
+            "default" => \&_jm_f_4,
+            "dependencies" => \&_jm_f_5,
+            "description" => \&_jm_f_6,
+            "disallow" => \&_jm_f_7,
+            "divisibleBy" => \&_jm_f_8,
+            "enum" => \&_jm_f_9,
+            "exclusiveMaximum" => \&_jm_f_10,
+            "exclusiveMinimum" => \&_jm_f_11,
+            "extends" => \&_jm_f_12,
+            "format" => \&_jm_f_13,
+            "id" => \&_jm_f_14,
+            "items" => \&_jm_f_15,
+            "maxItems" => \&_jm_f_16,
+            "maxLength" => \&_jm_f_17,
+            "maximum" => \&_jm_f_18,
+            "minItems" => \&_jm_f_19,
+            "minLength" => \&_jm_f_20,
+            "minimum" => \&_jm_f_21,
+            "pattern" => \&_jm_f_22,
+            "patternProperties" => \&_jm_f_23,
+            "properties" => \&_jm_f_24,
+            "required" => \&_jm_f_25,
+            "title" => \&_jm_f_26,
+            "type" => \&_jm_f_27,
+            "uniqueItems" => \&_jm_f_28,
         );
         %_jm_cst_0 = (
-            'null' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'number' => 1,
-            'string' => 1,
-            'array' => 1,
-            'object' => 1,
-            'any' => 1,
+            "null" => 1,
+            "boolean" => 1,
+            "integer" => 1,
+            "number" => 1,
+            "string" => 1,
+            "array" => 1,
+            "object" => 1,
+            "any" => 1,
         );
         %check_model_map = (
-            '' => \&json_model_3,
-            'schema' => \&json_model_3,
+            "" => \&json_model_3,
+            "schema" => \&json_model_3,
         );
     }
 }

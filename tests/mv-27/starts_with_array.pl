@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -27,7 +27,7 @@ sub json_model_1($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .0
             # "/^hello world!/"
-            $res = jm_is_string($arr_0_item) && jm_starts_with($arr_0_item, 'hello world!');
+            $res = jm_is_string($arr_0_item) && jm_starts_with($arr_0_item, "hello world!");
             if (! $res)
             {
                 last;
@@ -48,7 +48,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_f_0($$$);
@@ -30,7 +30,7 @@ sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'0'
-    return jm_is_string($val) && $val eq '';
+    return jm_is_string($val) && $val eq "";
 }
 
 # check json_model_1_map_1 (.'1')
@@ -38,7 +38,7 @@ sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'1'
-    return jm_is_string($val) && $val eq 'À';
+    return jm_is_string($val) && $val eq "À";
 }
 
 # check json_model_1_map_2 (.'2')
@@ -46,7 +46,7 @@ sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'2'
-    return jm_is_string($val) && $val eq 'Àß';
+    return jm_is_string($val) && $val eq "Àß";
 }
 
 # check json_model_1_map_3 (.'3')
@@ -54,7 +54,7 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'3'
-    return jm_is_string($val) && $val eq 'Àßç';
+    return jm_is_string($val) && $val eq "Àßç";
 }
 
 # check json_model_1_map_4 (.'4')
@@ -62,7 +62,7 @@ sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'4'
-    return jm_is_string($val) && $val eq 'ÀßçΔ';
+    return jm_is_string($val) && $val eq "ÀßçΔ";
 }
 
 # check json_model_1_map_5 (.'5')
@@ -70,7 +70,7 @@ sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'5'
-    return jm_is_string($val) && $val eq 'ÀßçΔ€';
+    return jm_is_string($val) && $val eq "ÀßçΔ€";
 }
 
 # check json_model_1_map_6 (.'6')
@@ -78,7 +78,7 @@ sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'6'
-    return jm_is_string($val) && $val eq 'ÀßçΔ€ᵳ';
+    return jm_is_string($val) && $val eq "ÀßçΔ€ᵳ";
 }
 
 # check json_model_1_map_7 (.'7')
@@ -86,7 +86,7 @@ sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'7'
-    return jm_is_string($val) && $val eq 'ÀßçΔ€ᵳǧ';
+    return jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧ";
 }
 
 # check json_model_1_map_8 (.'8')
@@ -94,7 +94,7 @@ sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'8'
-    return jm_is_string($val) && $val eq 'ÀßçΔ€ᵳǧℏ';
+    return jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧℏ";
 }
 
 # check json_model_1_map_9 (.'9')
@@ -102,7 +102,7 @@ sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'9'
-    return jm_is_string($val) && $val eq 'ÀßçΔ€ᵳǧℏı';
+    return jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧℏı";
 }
 
 
@@ -145,19 +145,19 @@ sub check_model_init()
     {
         $initialized = 1;
         %json_model_1_map = (
-            '0' => \&_jm_f_0,
-            '1' => \&_jm_f_1,
-            '2' => \&_jm_f_2,
-            '3' => \&_jm_f_3,
-            '4' => \&_jm_f_4,
-            '5' => \&_jm_f_5,
-            '6' => \&_jm_f_6,
-            '7' => \&_jm_f_7,
-            '8' => \&_jm_f_8,
-            '9' => \&_jm_f_9,
+            "0" => \&_jm_f_0,
+            "1" => \&_jm_f_1,
+            "2" => \&_jm_f_2,
+            "3" => \&_jm_f_3,
+            "4" => \&_jm_f_4,
+            "5" => \&_jm_f_5,
+            "6" => \&_jm_f_6,
+            "7" => \&_jm_f_7,
+            "8" => \&_jm_f_8,
+            "9" => \&_jm_f_9,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

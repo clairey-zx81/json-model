@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -28,7 +28,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'pretty_long_property_name')
+        if ($prop eq "pretty_long_property_name")
         {
             # handle may pretty_long_property_name property
             # .pretty_long_property_name
@@ -39,7 +39,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'zulu')
+        elsif ($prop eq "zulu")
         {
             # handle may zulu property
             # .zulu
@@ -50,7 +50,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'XXX')
+        elsif ($prop eq "XXX")
         {
             # handle may XXX property
             # .XXX
@@ -61,7 +61,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'Susie')
+        elsif ($prop eq "Susie")
         {
             # handle may Susie property
             # .Susie
@@ -72,7 +72,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'last')
+        elsif ($prop eq "last")
         {
             # handle may last property
             # .last
@@ -99,7 +99,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

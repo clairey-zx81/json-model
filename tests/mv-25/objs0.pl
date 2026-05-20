@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -33,22 +33,22 @@ sub json_model_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$table'.t
-    my $res = jm_is_string($pval) && $pval eq 'table';
+    my $res = jm_is_string($pval) && $pval eq "table";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'legs'})
+    if (! exists $$val{"legs"})
     {
         return 0;
     }
-    $pval = $$val{'legs'};
+    $pval = $$val{"legs"};
     # .'$table'.legs
     return jm_is_integer($pval) && $pval >= 1;
 }
@@ -68,22 +68,22 @@ sub json_model_3($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$chair'.t
-    my $res = jm_is_string($pval) && $pval eq 'chair';
+    my $res = jm_is_string($pval) && $pval eq "chair";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'color'})
+    if (! exists $$val{"color"})
     {
         return 0;
     }
-    $pval = $$val{'color'};
+    $pval = $$val{"color"};
     # .'$chair'.color
     return jm_is_string($pval);
 }
@@ -98,7 +98,7 @@ sub json_model_4($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'t'}))
+        if (defined($tag_0 = $$val{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -126,11 +126,11 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'stuff'})
+    if (! exists $$val{"stuff"})
     {
         return 0;
     }
-    $pval = $$val{'stuff'};
+    $pval = $$val{"stuff"};
     # .stuff
     my $res = jm_is_array($pval);
     if ($res)
@@ -160,14 +160,14 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'table' => \&json_model_2,
-            'chair' => \&json_model_3,
+            "table" => \&json_model_2,
+            "chair" => \&json_model_3,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'table' => \&json_model_2,
-            'chair' => \&json_model_3,
-            'furniture' => \&json_model_4,
+            "" => \&json_model_1,
+            "table" => \&json_model_2,
+            "chair" => \&json_model_3,
+            "furniture" => \&json_model_4,
         );
     }
 }

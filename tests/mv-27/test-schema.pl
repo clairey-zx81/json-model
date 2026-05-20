@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -50,7 +50,7 @@ sub json_model_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle must description property
             $must_count++;
@@ -62,7 +62,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'data')
+        elsif ($prop eq "data")
         {
             # handle must data property
             $must_count++;
@@ -70,7 +70,7 @@ sub json_model_3($$$)
             $res = 1;
             next;
         }
-        elsif ($prop eq 'valid')
+        elsif ($prop eq "valid")
         {
             # handle must valid property
             $must_count++;
@@ -82,7 +82,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        if ($prop eq 'comment')
+        if ($prop eq "comment")
         {
             # handle may comment property
             # .'$Test'.comment
@@ -124,7 +124,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'core')
+        if ($prop eq "core")
         {
             # handle may core property
             # .'$Specification'.'@'.core
@@ -135,7 +135,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'validation')
+        elsif ($prop eq "validation")
         {
             # handle may validation property
             # .'$Specification'.'@'.validation
@@ -146,7 +146,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'ecma262')
+        elsif ($prop eq "ecma262")
         {
             # handle may ecma262 property
             # .'$Specification'.'@'.ecma262
@@ -157,7 +157,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'perl5')
+        elsif ($prop eq "perl5")
         {
             # handle may perl5 property
             # .'$Specification'.'@'.perl5
@@ -168,7 +168,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'quote')
+        elsif ($prop eq "quote")
         {
             # handle may quote property
             # .'$Specification'.'@'.quote
@@ -236,7 +236,7 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle must description property
             $must_count++;
@@ -248,7 +248,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'schema')
+        elsif ($prop eq "schema")
         {
             # handle must schema property
             $must_count++;
@@ -256,7 +256,7 @@ sub json_model_5($$$)
             $res = 1;
             next;
         }
-        elsif ($prop eq 'tests')
+        elsif ($prop eq "tests")
         {
             # handle must tests property
             $must_count++;
@@ -287,7 +287,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        if ($prop eq 'comment')
+        if ($prop eq "comment")
         {
             # handle may comment property
             # .'$TestCase'.comment
@@ -298,7 +298,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'specification')
+        elsif ($prop eq "specification")
         {
             # handle may specification property
             # .'$TestCase'.specification
@@ -373,11 +373,11 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'Version' => \&json_model_2,
-            'Test' => \&json_model_3,
-            'Specification' => \&json_model_4,
-            'TestCase' => \&json_model_5,
+            "" => \&json_model_1,
+            "Version" => \&json_model_2,
+            "Test" => \&json_model_3,
+            "Specification" => \&json_model_4,
+            "TestCase" => \&json_model_5,
         );
     }
 }

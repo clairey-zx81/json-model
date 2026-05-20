@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -133,19 +133,19 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Point'.type
-            $res = jm_is_string($pval) && $pval eq 'Point';
+            $res = jm_is_string($pval) && $pval eq "Point";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'coordinates')
+        elsif ($prop eq "coordinates")
         {
             # handle must coordinates property
             $must_count++;
@@ -157,7 +157,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        if ($prop eq 'bbox')
+        if ($prop eq "bbox")
         {
             # handle may bbox property
             # .'$Point'.bbox
@@ -200,19 +200,19 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$MultiPoint'.type
-            $res = jm_is_string($pval) && $pval eq 'MultiPoint';
+            $res = jm_is_string($pval) && $pval eq "MultiPoint";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'coordinates')
+        elsif ($prop eq "coordinates")
         {
             # handle must coordinates property
             $must_count++;
@@ -237,7 +237,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        if ($prop eq 'bbox')
+        if ($prop eq "bbox")
         {
             # handle may bbox property
             # .'$MultiPoint'.bbox
@@ -280,19 +280,19 @@ sub json_model_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$LineString'.type
-            $res = jm_is_string($pval) && $pval eq 'LineString';
+            $res = jm_is_string($pval) && $pval eq "LineString";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'coordinates')
+        elsif ($prop eq "coordinates")
         {
             # handle must coordinates property
             $must_count++;
@@ -304,7 +304,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        if ($prop eq 'bbox')
+        if ($prop eq "bbox")
         {
             # handle may bbox property
             # .'$LineString'.bbox
@@ -347,19 +347,19 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$MultiLineString'.type
-            $res = jm_is_string($pval) && $pval eq 'MultiLineString';
+            $res = jm_is_string($pval) && $pval eq "MultiLineString";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'coordinates')
+        elsif ($prop eq "coordinates")
         {
             # handle must coordinates property
             $must_count++;
@@ -384,7 +384,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        if ($prop eq 'bbox')
+        if ($prop eq "bbox")
         {
             # handle may bbox property
             # .'$MultiLineString'.bbox
@@ -427,19 +427,19 @@ sub json_model_9($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Polygon'.type
-            $res = jm_is_string($pval) && $pval eq 'Polygon';
+            $res = jm_is_string($pval) && $pval eq "Polygon";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'coordinates')
+        elsif ($prop eq "coordinates")
         {
             # handle must coordinates property
             $must_count++;
@@ -464,7 +464,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        if ($prop eq 'bbox')
+        if ($prop eq "bbox")
         {
             # handle may bbox property
             # .'$Polygon'.bbox
@@ -507,19 +507,19 @@ sub json_model_10($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$MultiPolygon'.type
-            $res = jm_is_string($pval) && $pval eq 'MultiPolygon';
+            $res = jm_is_string($pval) && $pval eq "MultiPolygon";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'coordinates')
+        elsif ($prop eq "coordinates")
         {
             # handle must coordinates property
             $must_count++;
@@ -557,7 +557,7 @@ sub json_model_10($$$)
             }
             next;
         }
-        if ($prop eq 'bbox')
+        if ($prop eq "bbox")
         {
             # handle may bbox property
             # .'$MultiPolygon'.bbox
@@ -596,31 +596,31 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$geometry'.'|'.0.type
-    my $res = jm_is_string($pval) && $pval eq 'Point';
+    my $res = jm_is_string($pval) && $pval eq "Point";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'coordinates'})
+    if (! exists $$val{"coordinates"})
     {
         return 0;
     }
-    $pval = $$val{'coordinates'};
+    $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.0.coordinates
     $res = json_model_2($pval, undef, undef);
     if (! $res)
     {
         return 0;
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$geometry'.'|'.0.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -654,22 +654,22 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$geometry'.'|'.1.type
-    my $res = jm_is_string($pval) && $pval eq 'MultiPoint';
+    my $res = jm_is_string($pval) && $pval eq "MultiPoint";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'coordinates'})
+    if (! exists $$val{"coordinates"})
     {
         return 0;
     }
-    $pval = $$val{'coordinates'};
+    $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.1.coordinates
     $res = jm_is_array($pval);
     if ($res)
@@ -689,9 +689,9 @@ sub _jm_obj_1($$$)
     {
         return 0;
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$geometry'.'|'.1.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -725,31 +725,31 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$geometry'.'|'.2.type
-    my $res = jm_is_string($pval) && $pval eq 'LineString';
+    my $res = jm_is_string($pval) && $pval eq "LineString";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'coordinates'})
+    if (! exists $$val{"coordinates"})
     {
         return 0;
     }
-    $pval = $$val{'coordinates'};
+    $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.2.coordinates
     $res = json_model_3($pval, undef, undef);
     if (! $res)
     {
         return 0;
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$geometry'.'|'.2.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -783,22 +783,22 @@ sub _jm_obj_3($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$geometry'.'|'.3.type
-    my $res = jm_is_string($pval) && $pval eq 'MultiLineString';
+    my $res = jm_is_string($pval) && $pval eq "MultiLineString";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'coordinates'})
+    if (! exists $$val{"coordinates"})
     {
         return 0;
     }
-    $pval = $$val{'coordinates'};
+    $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.3.coordinates
     $res = jm_is_array($pval);
     if ($res)
@@ -818,9 +818,9 @@ sub _jm_obj_3($$$)
     {
         return 0;
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$geometry'.'|'.3.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -854,22 +854,22 @@ sub _jm_obj_4($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$geometry'.'|'.4.type
-    my $res = jm_is_string($pval) && $pval eq 'Polygon';
+    my $res = jm_is_string($pval) && $pval eq "Polygon";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'coordinates'})
+    if (! exists $$val{"coordinates"})
     {
         return 0;
     }
-    $pval = $$val{'coordinates'};
+    $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.4.coordinates
     $res = jm_is_array($pval);
     if ($res)
@@ -889,9 +889,9 @@ sub _jm_obj_4($$$)
     {
         return 0;
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$geometry'.'|'.4.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -925,22 +925,22 @@ sub _jm_obj_5($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$geometry'.'|'.5.type
-    my $res = jm_is_string($pval) && $pval eq 'MultiPolygon';
+    my $res = jm_is_string($pval) && $pval eq "MultiPolygon";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'coordinates'})
+    if (! exists $$val{"coordinates"})
     {
         return 0;
     }
-    $pval = $$val{'coordinates'};
+    $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.5.coordinates
     $res = jm_is_array($pval);
     if ($res)
@@ -973,9 +973,9 @@ sub _jm_obj_5($$$)
     {
         return 0;
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$geometry'.'|'.5.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -1009,7 +1009,7 @@ sub json_model_11($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'type'}))
+        if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -1033,22 +1033,22 @@ sub json_model_12($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$GeometryCollection'.type
-    my $res = jm_is_string($pval) && $pval eq 'GeometryCollection';
+    my $res = jm_is_string($pval) && $pval eq "GeometryCollection";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'geometries'})
+    if (! exists $$val{"geometries"})
     {
         return 0;
     }
-    $pval = $$val{'geometries'};
+    $pval = $$val{"geometries"};
     # .'$GeometryCollection'.geometries
     $res = jm_is_array($pval);
     if ($res)
@@ -1068,9 +1068,9 @@ sub json_model_12($$$)
     {
         return 0;
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$GeometryCollection'.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -1105,22 +1105,22 @@ sub json_model_13($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$Feature'.type
-    my $res = jm_is_string($pval) && $pval eq 'Feature';
+    my $res = jm_is_string($pval) && $pval eq "Feature";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'geometry'})
+    if (! exists $$val{"geometry"})
     {
         return 0;
     }
-    $pval = $$val{'geometry'};
+    $pval = $$val{"geometry"};
     # .'$Feature'.geometry
     # .'$Feature'.geometry.'|'.0
     # .'$Feature'.geometry.'|'.1
@@ -1130,11 +1130,11 @@ sub json_model_13($$$)
     {
         return 0;
     }
-    if (! exists $$val{'properties'})
+    if (! exists $$val{"properties"})
     {
         return 0;
     }
-    $pval = $$val{'properties'};
+    $pval = $$val{"properties"};
     # .'$Feature'.properties
     # .'$Feature'.properties.'|'.0
     # .'$Feature'.properties.'|'.1
@@ -1143,9 +1143,9 @@ sub json_model_13($$$)
     {
         return 0;
     }
-    if (exists $$val{'id'})
+    if (exists $$val{"id"})
     {
-        $pval = $$val{'id'};
+        $pval = $$val{"id"};
         # .'$Feature'.id
         # .'$Feature'.id.'|'.0
         # .'$Feature'.id.'|'.1
@@ -1155,9 +1155,9 @@ sub json_model_13($$$)
             return 0;
         }
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$Feature'.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -1192,22 +1192,22 @@ sub json_model_14($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$FeatureCollection'.type
-    my $res = jm_is_string($pval) && $pval eq 'FeatureCollection';
+    my $res = jm_is_string($pval) && $pval eq "FeatureCollection";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'features'})
+    if (! exists $$val{"features"})
     {
         return 0;
     }
-    $pval = $$val{'features'};
+    $pval = $$val{"features"};
     # .'$FeatureCollection'.features
     $res = jm_is_array($pval);
     if ($res)
@@ -1227,9 +1227,9 @@ sub json_model_14($$$)
     {
         return 0;
     }
-    if (exists $$val{'bbox'})
+    if (exists $$val{"bbox"})
     {
-        $pval = $$val{'bbox'};
+        $pval = $$val{"bbox"};
         # .'$FeatureCollection'.bbox
         $res = jm_is_array($pval);
         if ($res)
@@ -1264,7 +1264,7 @@ sub json_model_1($$$)
     if ($res)
     {
         my $tag_1;
-        if (defined($tag_1 = $$val{'type'}))
+        if (defined($tag_1 = $$val{"type"}))
         {
             my $fun_1 = $_jm_map_1{$tag_1};
             $res = defined($fun_1) && &$fun_1($val, undef, undef);
@@ -1288,33 +1288,33 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'Point' => \&_jm_obj_0,
-            'MultiPoint' => \&_jm_obj_1,
-            'LineString' => \&_jm_obj_2,
-            'MultiLineString' => \&_jm_obj_3,
-            'Polygon' => \&_jm_obj_4,
-            'MultiPolygon' => \&_jm_obj_5,
+            "Point" => \&_jm_obj_0,
+            "MultiPoint" => \&_jm_obj_1,
+            "LineString" => \&_jm_obj_2,
+            "MultiLineString" => \&_jm_obj_3,
+            "Polygon" => \&_jm_obj_4,
+            "MultiPolygon" => \&_jm_obj_5,
         );
         %_jm_map_1 = (
-            'GeometryCollection' => \&json_model_12,
-            'Feature' => \&json_model_13,
-            'FeatureCollection' => \&json_model_14,
+            "GeometryCollection" => \&json_model_12,
+            "Feature" => \&json_model_13,
+            "FeatureCollection" => \&json_model_14,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'position' => \&json_model_2,
-            'coord_array' => \&json_model_3,
-            'linear_ring' => \&json_model_4,
-            'Point' => \&json_model_5,
-            'MultiPoint' => \&json_model_6,
-            'LineString' => \&json_model_7,
-            'MultiLineString' => \&json_model_8,
-            'Polygon' => \&json_model_9,
-            'MultiPolygon' => \&json_model_10,
-            'geometry' => \&json_model_11,
-            'GeometryCollection' => \&json_model_12,
-            'Feature' => \&json_model_13,
-            'FeatureCollection' => \&json_model_14,
+            "" => \&json_model_1,
+            "position" => \&json_model_2,
+            "coord_array" => \&json_model_3,
+            "linear_ring" => \&json_model_4,
+            "Point" => \&json_model_5,
+            "MultiPoint" => \&json_model_6,
+            "LineString" => \&json_model_7,
+            "MultiLineString" => \&json_model_8,
+            "Polygon" => \&json_model_9,
+            "MultiPolygon" => \&json_model_10,
+            "geometry" => \&json_model_11,
+            "GeometryCollection" => \&json_model_12,
+            "Feature" => \&json_model_13,
+            "FeatureCollection" => \&json_model_14,
         );
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -32,22 +32,22 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$ab'.'|'.0.t
-    my $res = jm_is_string($pval) && $pval eq 'a';
+    my $res = jm_is_string($pval) && $pval eq "a";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'$ab'.'|'.0.a
     return jm_is_integer($pval) && $pval >= 1;
 }
@@ -66,22 +66,22 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$ab'.'|'.1.t
-    my $res = jm_is_string($pval) && $pval eq 'b';
+    my $res = jm_is_string($pval) && $pval eq "b";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'$ab'.'|'.1.b
     return jm_is_integer($pval) && $pval >= 1;
 }
@@ -96,7 +96,7 @@ sub json_model_2($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'t'}))
+        if (defined($tag_0 = $$val{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -128,12 +128,12 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'a' => \&_jm_obj_0,
-            'b' => \&_jm_obj_1,
+            "a" => \&_jm_obj_0,
+            "b" => \&_jm_obj_1,
         );
         %check_model_map = (
-            '' => \&json_model_2,
-            'ab' => \&json_model_2,
+            "" => \&json_model_2,
+            "ab" => \&json_model_2,
         );
     }
 }

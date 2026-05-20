@@ -4,7 +4,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -18,31 +18,31 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     my $res = jm_is_string($pval);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     $res = jm_is_string($pval);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     return jm_is_string($pval);
 }
 
@@ -57,7 +57,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

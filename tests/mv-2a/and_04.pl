@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -29,7 +29,7 @@ sub json_model_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 's')
+        if ($prop eq "s")
         {
             # handle may s property
             # .'$foo'.s
@@ -40,7 +40,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'xs'))
+        if (jm_starts_with($prop, "xs"))
         {
             # handle 1 re props
             # .'$foo'.'/^xs/'
@@ -72,7 +72,7 @@ sub json_model_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'b')
+        if ($prop eq "b")
         {
             # handle may b property
             # .'$bla'.b
@@ -83,7 +83,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'xb'))
+        if (jm_starts_with($prop, "xb"))
         {
             # handle 1 re props
             # .'$bla'.'/^xb/'
@@ -115,7 +115,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'u')
+        if ($prop eq "u")
         {
             # handle may u property
             # .u
@@ -126,7 +126,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 's')
+        elsif ($prop eq "s")
         {
             # handle may s property
             # .s
@@ -137,7 +137,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'a')
+        elsif ($prop eq "a")
         {
             # handle may a property
             # .a
@@ -148,7 +148,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'b')
+        elsif ($prop eq "b")
         {
             # handle may b property
             # .b
@@ -159,7 +159,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'xu'))
+        if (jm_starts_with($prop, "xu"))
         {
             # handle 4 re props
             # .'/^xu/'
@@ -169,7 +169,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'xs'))
+        elsif (jm_starts_with($prop, "xs"))
         {
             # handle 4 re props
             # .'/^xs/'
@@ -179,7 +179,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'xa'))
+        elsif (jm_starts_with($prop, "xa"))
         {
             # handle 4 re props
             # .'/^xa/'
@@ -189,7 +189,7 @@ sub json_model_1($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'xb'))
+        elsif (jm_starts_with($prop, "xb"))
         {
             # handle 4 re props
             # .'/^xb/'
@@ -219,9 +219,9 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'foo' => \&json_model_2,
-            'bla' => \&json_model_3,
+            "" => \&json_model_1,
+            "foo" => \&json_model_2,
+            "bla" => \&json_model_3,
         );
     }
 }

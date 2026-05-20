@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -29,44 +29,44 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .a
     my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .b
     $res = jm_is_integer($pval) && $pval >= 1;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .c
     $res = jm_is_boolean($pval);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'d'})
+    if (! exists $$val{"d"})
     {
         return 0;
     }
-    $pval = $$val{'d'};
+    $pval = $$val{"d"};
     # .d
     return jm_is_integer($pval);
 }
@@ -82,7 +82,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

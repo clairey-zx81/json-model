@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -32,22 +32,22 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .movie.'|'.0.t
-    my $res = jm_is_string($pval) && $pval eq 'fr';
+    my $res = jm_is_string($pval) && $pval eq "fr";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'titre'})
+    if (! exists $$val{"titre"})
     {
         return 0;
     }
-    $pval = $$val{'titre'};
+    $pval = $$val{"titre"};
     # .movie.'|'.0.titre
     return jm_is_string($pval);
 }
@@ -66,22 +66,22 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .movie.'|'.1.t
-    my $res = jm_is_string($pval) && $pval eq 'en';
+    my $res = jm_is_string($pval) && $pval eq "en";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'title'})
+    if (! exists $$val{"title"})
     {
         return 0;
     }
-    $pval = $$val{'title'};
+    $pval = $$val{"title"};
     # .movie.'|'.1.title
     return jm_is_string($pval);
 }
@@ -100,22 +100,22 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .movie.'|'.2.t
-    my $res = jm_is_string($pval) && $pval eq 'ru';
+    my $res = jm_is_string($pval) && $pval eq "ru";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'suti'})
+    if (! exists $$val{"suti"})
     {
         return 0;
     }
-    $pval = $$val{'suti'};
+    $pval = $$val{"suti"};
     # .movie.'|'.2.suti
     return jm_is_string($pval);
 }
@@ -137,17 +137,17 @@ sub json_model_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'movie'})
+    if (! exists $$val{"movie"})
     {
         return 0;
     }
-    $pval = $$val{'movie'};
+    $pval = $$val{"movie"};
     # .movie
     my $res = jm_is_object($pval);
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$pval{'t'}))
+        if (defined($tag_0 = $$pval{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($pval, undef, undef);
@@ -171,12 +171,12 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'fr' => \&_jm_obj_0,
-            'en' => \&_jm_obj_1,
-            'ru' => \&_jm_obj_2,
+            "fr" => \&_jm_obj_0,
+            "en" => \&_jm_obj_1,
+            "ru" => \&_jm_obj_2,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

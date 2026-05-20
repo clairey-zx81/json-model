@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_3($$$);
@@ -318,11 +318,11 @@ sub _jm_obj_0($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'$schema'})
+    if (! exists $$val{"\$schema"})
     {
         return 0;
     }
-    $pval = $$val{'$schema'};
+    $pval = $$val{"\$schema"};
     # .'$tight#RootSchema'.'&'.0.'$schema'
     return jm_is_string($pval);
 }
@@ -349,7 +349,7 @@ sub json_model_25($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'type'}))
+        if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -664,12 +664,12 @@ sub json_model_12($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#String'.type
-            $res = jm_is_string($pval) && $pval eq 'string';
+            $res = jm_is_string($pval) && $pval eq "string";
             if (! $res)
             {
                 return 0;
@@ -852,12 +852,12 @@ sub json_model_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#Array'.type
-            $res = jm_is_string($pval) && $pval eq 'array';
+            $res = jm_is_string($pval) && $pval eq "array";
             if (! $res)
             {
                 return 0;
@@ -1105,12 +1105,12 @@ sub json_model_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#Object'.type
-            $res = jm_is_string($pval) && $pval eq 'object';
+            $res = jm_is_string($pval) && $pval eq "object";
             if (! $res)
             {
                 return 0;
@@ -1275,12 +1275,12 @@ sub json_model_15($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#Integer'.type
-            $res = jm_is_string($pval) && $pval eq 'integer';
+            $res = jm_is_string($pval) && $pval eq "integer";
             if (! $res)
             {
                 return 0;
@@ -1445,12 +1445,12 @@ sub json_model_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#Number'.type
-            $res = jm_is_string($pval) && $pval eq 'number';
+            $res = jm_is_string($pval) && $pval eq "number";
             if (! $res)
             {
                 return 0;
@@ -1599,12 +1599,12 @@ sub json_model_17($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#Bool'.type
-            $res = jm_is_string($pval) && $pval eq 'boolean';
+            $res = jm_is_string($pval) && $pval eq "boolean";
             if (! $res)
             {
                 return 0;
@@ -1753,12 +1753,12 @@ sub json_model_18($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#Null'.type
-            $res = jm_is_string($pval) && $pval eq 'null';
+            $res = jm_is_string($pval) && $pval eq "null";
             if (! $res)
             {
                 return 0;
@@ -1907,7 +1907,7 @@ sub json_model_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'allOf')
+        if ($prop eq "allOf")
         {
             # handle must allOf property
             $must_count++;
@@ -2061,7 +2061,7 @@ sub json_model_20($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'anyOf')
+        if ($prop eq "anyOf")
         {
             # handle must anyOf property
             $must_count++;
@@ -2215,7 +2215,7 @@ sub json_model_21($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'oneOf')
+        if ($prop eq "oneOf")
         {
             # handle must oneOf property
             $must_count++;
@@ -2369,7 +2369,7 @@ sub json_model_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'enum')
+        if ($prop eq "enum")
         {
             # handle must enum property
             $must_count++;
@@ -2588,7 +2588,7 @@ sub json_model_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'const')
+        if ($prop eq "const")
         {
             # handle must const property
             $must_count++;
@@ -2750,7 +2750,7 @@ sub json_model_24($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '$ref')
+        if ($prop eq "\$ref")
         {
             # handle must $ref property
             $must_count++;
@@ -2914,7 +2914,7 @@ sub json_model_28($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'enum')
+        if ($prop eq "enum")
         {
             # handle must enum property
             $must_count++;
@@ -2939,12 +2939,12 @@ sub json_model_28($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#EnumString'.type
-            $res = jm_is_string($pval) && $pval eq 'string';
+            $res = jm_is_string($pval) && $pval eq "string";
             if (! $res)
             {
                 return 0;
@@ -3093,7 +3093,7 @@ sub json_model_29($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'enum')
+        if ($prop eq "enum")
         {
             # handle must enum property
             $must_count++;
@@ -3118,12 +3118,12 @@ sub json_model_29($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#EnumNum'.type
-            $res = jm_is_string($pval) && $pval eq 'number';
+            $res = jm_is_string($pval) && $pval eq "number";
             if (! $res)
             {
                 return 0;
@@ -3272,7 +3272,7 @@ sub json_model_30($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'enum')
+        if ($prop eq "enum")
         {
             # handle must enum property
             $must_count++;
@@ -3297,12 +3297,12 @@ sub json_model_30($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#EnumInt'.type
-            $res = jm_is_string($pval) && $pval eq 'integer';
+            $res = jm_is_string($pval) && $pval eq "integer";
             if (! $res)
             {
                 return 0;
@@ -3451,7 +3451,7 @@ sub json_model_31($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'const')
+        if ($prop eq "const")
         {
             # handle must const property
             $must_count++;
@@ -3463,12 +3463,12 @@ sub json_model_31($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#ConstString'.type
-            $res = jm_is_string($pval) && $pval eq 'string';
+            $res = jm_is_string($pval) && $pval eq "string";
             if (! $res)
             {
                 return 0;
@@ -3617,7 +3617,7 @@ sub json_model_32($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'const')
+        if ($prop eq "const")
         {
             # handle must const property
             $must_count++;
@@ -3629,12 +3629,12 @@ sub json_model_32($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#ConstNum'.type
-            $res = jm_is_string($pval) && $pval eq 'number';
+            $res = jm_is_string($pval) && $pval eq "number";
             if (! $res)
             {
                 return 0;
@@ -3783,7 +3783,7 @@ sub json_model_33($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'const')
+        if ($prop eq "const")
         {
             # handle must const property
             $must_count++;
@@ -3795,12 +3795,12 @@ sub json_model_33($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#ConstInt'.type
-            $res = jm_is_string($pval) && $pval eq 'integer';
+            $res = jm_is_string($pval) && $pval eq "integer";
             if (! $res)
             {
                 return 0;
@@ -3949,7 +3949,7 @@ sub json_model_34($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'const')
+        if ($prop eq "const")
         {
             # handle must const property
             $must_count++;
@@ -3961,12 +3961,12 @@ sub json_model_34($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$tight#ConstBool'.type
-            $res = jm_is_string($pval) && $pval eq 'boolean';
+            $res = jm_is_string($pval) && $pval eq "boolean";
             if (! $res)
             {
                 return 0;
@@ -3998,316 +3998,316 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'null' => \&json_model_18,
-            'boolean' => \&json_model_17,
-            'integer' => \&json_model_15,
-            'number' => \&json_model_16,
-            'string' => \&json_model_12,
-            'array' => \&json_model_13,
-            'object' => \&json_model_14,
+            "null" => \&json_model_18,
+            "boolean" => \&json_model_17,
+            "integer" => \&json_model_15,
+            "number" => \&json_model_16,
+            "string" => \&json_model_12,
+            "array" => \&json_model_13,
+            "object" => \&json_model_14,
         );
         %json_model_11_map = (
-            '$comment' => \&_jm_f_0,
-            '$defs' => \&_jm_f_1,
-            '$id' => \&_jm_f_2,
-            '$schema' => \&_jm_f_3,
-            'default' => \&_jm_f_4,
-            'definitions' => \&_jm_f_5,
-            'description' => \&_jm_f_6,
-            'examples' => \&_jm_f_7,
-            'id' => \&_jm_f_8,
-            'title' => \&_jm_f_9,
+            "\$comment" => \&_jm_f_0,
+            "\$defs" => \&_jm_f_1,
+            "\$id" => \&_jm_f_2,
+            "\$schema" => \&_jm_f_3,
+            "default" => \&_jm_f_4,
+            "definitions" => \&_jm_f_5,
+            "description" => \&_jm_f_6,
+            "examples" => \&_jm_f_7,
+            "id" => \&_jm_f_8,
+            "title" => \&_jm_f_9,
         );
         %_jm_cst_0 = (
-            'uri' => 1,
-            'uri-reference' => 1,
-            'iri' => 1,
-            'iri-reference' => 1,
-            'date' => 1,
-            'time' => 1,
-            'date-time' => 1,
-            'ipv4' => 1,
-            'ipv6' => 1,
-            'regex' => 1,
-            'uuid' => 1,
-            'hostname' => 1,
-            'email' => 1,
-            'idn-hostname' => 1,
-            'idn-email' => 1,
-            'duration' => 1,
-            'int32' => 1,
-            'int64' => 1,
-            'uint' => 1,
-            'uint32' => 1,
-            'uint64' => 1,
-            'json-pointer' => 1,
-            'relative-json-pointer' => 1,
-            'byte' => 1,
-            'double' => 1,
-            'int' => 1,
-            'mime-type' => 1,
+            "uri" => 1,
+            "uri-reference" => 1,
+            "iri" => 1,
+            "iri-reference" => 1,
+            "date" => 1,
+            "time" => 1,
+            "date-time" => 1,
+            "ipv4" => 1,
+            "ipv6" => 1,
+            "regex" => 1,
+            "uuid" => 1,
+            "hostname" => 1,
+            "email" => 1,
+            "idn-hostname" => 1,
+            "idn-email" => 1,
+            "duration" => 1,
+            "int32" => 1,
+            "int64" => 1,
+            "uint" => 1,
+            "uint32" => 1,
+            "uint64" => 1,
+            "json-pointer" => 1,
+            "relative-json-pointer" => 1,
+            "byte" => 1,
+            "double" => 1,
+            "int" => 1,
+            "mime-type" => 1,
         );
         %json_model_12_map = (
-            '$comment' => \&_jm_f_10,
-            '$defs' => \&_jm_f_11,
-            '$id' => \&_jm_f_12,
-            '$schema' => \&_jm_f_13,
-            'default' => \&_jm_f_14,
-            'definitions' => \&_jm_f_15,
-            'description' => \&_jm_f_16,
-            'examples' => \&_jm_f_17,
-            'format' => \&_jm_f_18,
-            'id' => \&_jm_f_19,
-            'maxLength' => \&_jm_f_20,
-            'minLength' => \&_jm_f_21,
-            'pattern' => \&_jm_f_22,
-            'title' => \&_jm_f_23,
+            "\$comment" => \&_jm_f_10,
+            "\$defs" => \&_jm_f_11,
+            "\$id" => \&_jm_f_12,
+            "\$schema" => \&_jm_f_13,
+            "default" => \&_jm_f_14,
+            "definitions" => \&_jm_f_15,
+            "description" => \&_jm_f_16,
+            "examples" => \&_jm_f_17,
+            "format" => \&_jm_f_18,
+            "id" => \&_jm_f_19,
+            "maxLength" => \&_jm_f_20,
+            "minLength" => \&_jm_f_21,
+            "pattern" => \&_jm_f_22,
+            "title" => \&_jm_f_23,
         );
         %json_model_13_map = (
-            '$comment' => \&_jm_f_24,
-            '$defs' => \&_jm_f_25,
-            '$id' => \&_jm_f_26,
-            '$schema' => \&_jm_f_27,
-            'additionalItems' => \&json_model_26,
-            'default' => \&_jm_f_28,
-            'definitions' => \&_jm_f_29,
-            'description' => \&_jm_f_30,
-            'examples' => \&_jm_f_31,
-            'id' => \&_jm_f_32,
-            'items' => \&_jm_f_33,
-            'maxItems' => \&_jm_f_34,
-            'minItems' => \&_jm_f_35,
-            'prefixItems' => \&json_model_6,
-            'title' => \&_jm_f_36,
-            'uniqueItems' => \&_jm_f_37,
+            "\$comment" => \&_jm_f_24,
+            "\$defs" => \&_jm_f_25,
+            "\$id" => \&_jm_f_26,
+            "\$schema" => \&_jm_f_27,
+            "additionalItems" => \&json_model_26,
+            "default" => \&_jm_f_28,
+            "definitions" => \&_jm_f_29,
+            "description" => \&_jm_f_30,
+            "examples" => \&_jm_f_31,
+            "id" => \&_jm_f_32,
+            "items" => \&_jm_f_33,
+            "maxItems" => \&_jm_f_34,
+            "minItems" => \&_jm_f_35,
+            "prefixItems" => \&json_model_6,
+            "title" => \&_jm_f_36,
+            "uniqueItems" => \&_jm_f_37,
         );
         %json_model_14_map = (
-            '$comment' => \&_jm_f_38,
-            '$defs' => \&_jm_f_39,
-            '$id' => \&_jm_f_40,
-            '$schema' => \&_jm_f_41,
-            'additionalProperties' => \&json_model_26,
-            'default' => \&_jm_f_42,
-            'definitions' => \&_jm_f_43,
-            'description' => \&_jm_f_44,
-            'examples' => \&_jm_f_45,
-            'id' => \&_jm_f_46,
-            'patternProperties' => \&_jm_f_47,
-            'properties' => \&_jm_f_48,
-            'required' => \&_jm_f_49,
-            'title' => \&_jm_f_50,
+            "\$comment" => \&_jm_f_38,
+            "\$defs" => \&_jm_f_39,
+            "\$id" => \&_jm_f_40,
+            "\$schema" => \&_jm_f_41,
+            "additionalProperties" => \&json_model_26,
+            "default" => \&_jm_f_42,
+            "definitions" => \&_jm_f_43,
+            "description" => \&_jm_f_44,
+            "examples" => \&_jm_f_45,
+            "id" => \&_jm_f_46,
+            "patternProperties" => \&_jm_f_47,
+            "properties" => \&_jm_f_48,
+            "required" => \&_jm_f_49,
+            "title" => \&_jm_f_50,
         );
         %json_model_15_map = (
-            '$comment' => \&_jm_f_51,
-            '$defs' => \&_jm_f_52,
-            '$id' => \&_jm_f_53,
-            '$schema' => \&_jm_f_54,
-            'default' => \&_jm_f_55,
-            'definitions' => \&_jm_f_56,
-            'description' => \&_jm_f_57,
-            'examples' => \&_jm_f_58,
-            'id' => \&_jm_f_59,
-            'maximum' => \&_jm_f_60,
-            'minimum' => \&_jm_f_61,
-            'title' => \&_jm_f_62,
+            "\$comment" => \&_jm_f_51,
+            "\$defs" => \&_jm_f_52,
+            "\$id" => \&_jm_f_53,
+            "\$schema" => \&_jm_f_54,
+            "default" => \&_jm_f_55,
+            "definitions" => \&_jm_f_56,
+            "description" => \&_jm_f_57,
+            "examples" => \&_jm_f_58,
+            "id" => \&_jm_f_59,
+            "maximum" => \&_jm_f_60,
+            "minimum" => \&_jm_f_61,
+            "title" => \&_jm_f_62,
         );
         %json_model_16_map = (
-            '$comment' => \&_jm_f_63,
-            '$defs' => \&_jm_f_64,
-            '$id' => \&_jm_f_65,
-            '$schema' => \&_jm_f_66,
-            'default' => \&_jm_f_67,
-            'definitions' => \&_jm_f_68,
-            'description' => \&_jm_f_69,
-            'examples' => \&_jm_f_70,
-            'id' => \&_jm_f_71,
-            'maximum' => \&_jm_f_72,
-            'minimum' => \&_jm_f_73,
-            'title' => \&_jm_f_74,
+            "\$comment" => \&_jm_f_63,
+            "\$defs" => \&_jm_f_64,
+            "\$id" => \&_jm_f_65,
+            "\$schema" => \&_jm_f_66,
+            "default" => \&_jm_f_67,
+            "definitions" => \&_jm_f_68,
+            "description" => \&_jm_f_69,
+            "examples" => \&_jm_f_70,
+            "id" => \&_jm_f_71,
+            "maximum" => \&_jm_f_72,
+            "minimum" => \&_jm_f_73,
+            "title" => \&_jm_f_74,
         );
         %json_model_17_map = (
-            '$comment' => \&_jm_f_75,
-            '$defs' => \&_jm_f_76,
-            '$id' => \&_jm_f_77,
-            '$schema' => \&_jm_f_78,
-            'default' => \&_jm_f_79,
-            'definitions' => \&_jm_f_80,
-            'description' => \&_jm_f_81,
-            'examples' => \&_jm_f_82,
-            'id' => \&_jm_f_83,
-            'title' => \&_jm_f_84,
+            "\$comment" => \&_jm_f_75,
+            "\$defs" => \&_jm_f_76,
+            "\$id" => \&_jm_f_77,
+            "\$schema" => \&_jm_f_78,
+            "default" => \&_jm_f_79,
+            "definitions" => \&_jm_f_80,
+            "description" => \&_jm_f_81,
+            "examples" => \&_jm_f_82,
+            "id" => \&_jm_f_83,
+            "title" => \&_jm_f_84,
         );
         %json_model_18_map = (
-            '$comment' => \&_jm_f_85,
-            '$defs' => \&_jm_f_86,
-            '$id' => \&_jm_f_87,
-            '$schema' => \&_jm_f_88,
-            'default' => \&_jm_f_89,
-            'definitions' => \&_jm_f_90,
-            'description' => \&_jm_f_91,
-            'examples' => \&_jm_f_92,
-            'id' => \&_jm_f_93,
-            'title' => \&_jm_f_94,
+            "\$comment" => \&_jm_f_85,
+            "\$defs" => \&_jm_f_86,
+            "\$id" => \&_jm_f_87,
+            "\$schema" => \&_jm_f_88,
+            "default" => \&_jm_f_89,
+            "definitions" => \&_jm_f_90,
+            "description" => \&_jm_f_91,
+            "examples" => \&_jm_f_92,
+            "id" => \&_jm_f_93,
+            "title" => \&_jm_f_94,
         );
         %json_model_19_map = (
-            '$comment' => \&_jm_f_95,
-            '$defs' => \&_jm_f_96,
-            '$id' => \&_jm_f_97,
-            '$schema' => \&_jm_f_98,
-            'default' => \&_jm_f_99,
-            'definitions' => \&_jm_f_100,
-            'description' => \&_jm_f_101,
-            'examples' => \&_jm_f_102,
-            'id' => \&_jm_f_103,
-            'title' => \&_jm_f_104,
+            "\$comment" => \&_jm_f_95,
+            "\$defs" => \&_jm_f_96,
+            "\$id" => \&_jm_f_97,
+            "\$schema" => \&_jm_f_98,
+            "default" => \&_jm_f_99,
+            "definitions" => \&_jm_f_100,
+            "description" => \&_jm_f_101,
+            "examples" => \&_jm_f_102,
+            "id" => \&_jm_f_103,
+            "title" => \&_jm_f_104,
         );
         %json_model_20_map = (
-            '$comment' => \&_jm_f_105,
-            '$defs' => \&_jm_f_106,
-            '$id' => \&_jm_f_107,
-            '$schema' => \&_jm_f_108,
-            'default' => \&_jm_f_109,
-            'definitions' => \&_jm_f_110,
-            'description' => \&_jm_f_111,
-            'examples' => \&_jm_f_112,
-            'id' => \&_jm_f_113,
-            'title' => \&_jm_f_114,
+            "\$comment" => \&_jm_f_105,
+            "\$defs" => \&_jm_f_106,
+            "\$id" => \&_jm_f_107,
+            "\$schema" => \&_jm_f_108,
+            "default" => \&_jm_f_109,
+            "definitions" => \&_jm_f_110,
+            "description" => \&_jm_f_111,
+            "examples" => \&_jm_f_112,
+            "id" => \&_jm_f_113,
+            "title" => \&_jm_f_114,
         );
         %json_model_21_map = (
-            '$comment' => \&_jm_f_115,
-            '$defs' => \&_jm_f_116,
-            '$id' => \&_jm_f_117,
-            '$schema' => \&_jm_f_118,
-            'default' => \&_jm_f_119,
-            'definitions' => \&_jm_f_120,
-            'description' => \&_jm_f_121,
-            'examples' => \&_jm_f_122,
-            'id' => \&_jm_f_123,
-            'title' => \&_jm_f_124,
+            "\$comment" => \&_jm_f_115,
+            "\$defs" => \&_jm_f_116,
+            "\$id" => \&_jm_f_117,
+            "\$schema" => \&_jm_f_118,
+            "default" => \&_jm_f_119,
+            "definitions" => \&_jm_f_120,
+            "description" => \&_jm_f_121,
+            "examples" => \&_jm_f_122,
+            "id" => \&_jm_f_123,
+            "title" => \&_jm_f_124,
         );
         %json_model_22_map = (
-            '$comment' => \&_jm_f_125,
-            '$defs' => \&_jm_f_126,
-            '$id' => \&_jm_f_127,
-            '$schema' => \&_jm_f_128,
-            'default' => \&_jm_f_129,
-            'definitions' => \&_jm_f_130,
-            'description' => \&_jm_f_131,
-            'examples' => \&_jm_f_132,
-            'id' => \&_jm_f_133,
-            'title' => \&_jm_f_134,
+            "\$comment" => \&_jm_f_125,
+            "\$defs" => \&_jm_f_126,
+            "\$id" => \&_jm_f_127,
+            "\$schema" => \&_jm_f_128,
+            "default" => \&_jm_f_129,
+            "definitions" => \&_jm_f_130,
+            "description" => \&_jm_f_131,
+            "examples" => \&_jm_f_132,
+            "id" => \&_jm_f_133,
+            "title" => \&_jm_f_134,
         );
         %json_model_23_map = (
-            '$comment' => \&_jm_f_135,
-            '$defs' => \&_jm_f_136,
-            '$id' => \&_jm_f_137,
-            '$schema' => \&_jm_f_138,
-            'default' => \&_jm_f_139,
-            'definitions' => \&_jm_f_140,
-            'description' => \&_jm_f_141,
-            'examples' => \&_jm_f_142,
-            'id' => \&_jm_f_143,
-            'title' => \&_jm_f_144,
+            "\$comment" => \&_jm_f_135,
+            "\$defs" => \&_jm_f_136,
+            "\$id" => \&_jm_f_137,
+            "\$schema" => \&_jm_f_138,
+            "default" => \&_jm_f_139,
+            "definitions" => \&_jm_f_140,
+            "description" => \&_jm_f_141,
+            "examples" => \&_jm_f_142,
+            "id" => \&_jm_f_143,
+            "title" => \&_jm_f_144,
         );
         %json_model_24_map = (
-            '$comment' => \&_jm_f_145,
-            '$defs' => \&_jm_f_146,
-            '$id' => \&_jm_f_147,
-            '$schema' => \&_jm_f_148,
-            'default' => \&_jm_f_149,
-            'definitions' => \&_jm_f_150,
-            'description' => \&_jm_f_151,
-            'examples' => \&_jm_f_152,
-            'id' => \&_jm_f_153,
-            'title' => \&_jm_f_154,
+            "\$comment" => \&_jm_f_145,
+            "\$defs" => \&_jm_f_146,
+            "\$id" => \&_jm_f_147,
+            "\$schema" => \&_jm_f_148,
+            "default" => \&_jm_f_149,
+            "definitions" => \&_jm_f_150,
+            "description" => \&_jm_f_151,
+            "examples" => \&_jm_f_152,
+            "id" => \&_jm_f_153,
+            "title" => \&_jm_f_154,
         );
         %json_model_28_map = (
-            '$comment' => \&_jm_f_155,
-            '$defs' => \&_jm_f_156,
-            '$id' => \&_jm_f_157,
-            '$schema' => \&_jm_f_158,
-            'default' => \&_jm_f_159,
-            'definitions' => \&_jm_f_160,
-            'description' => \&_jm_f_161,
-            'examples' => \&_jm_f_162,
-            'id' => \&_jm_f_163,
-            'title' => \&_jm_f_164,
+            "\$comment" => \&_jm_f_155,
+            "\$defs" => \&_jm_f_156,
+            "\$id" => \&_jm_f_157,
+            "\$schema" => \&_jm_f_158,
+            "default" => \&_jm_f_159,
+            "definitions" => \&_jm_f_160,
+            "description" => \&_jm_f_161,
+            "examples" => \&_jm_f_162,
+            "id" => \&_jm_f_163,
+            "title" => \&_jm_f_164,
         );
         %json_model_29_map = (
-            '$comment' => \&_jm_f_165,
-            '$defs' => \&_jm_f_166,
-            '$id' => \&_jm_f_167,
-            '$schema' => \&_jm_f_168,
-            'default' => \&_jm_f_169,
-            'definitions' => \&_jm_f_170,
-            'description' => \&_jm_f_171,
-            'examples' => \&_jm_f_172,
-            'id' => \&_jm_f_173,
-            'title' => \&_jm_f_174,
+            "\$comment" => \&_jm_f_165,
+            "\$defs" => \&_jm_f_166,
+            "\$id" => \&_jm_f_167,
+            "\$schema" => \&_jm_f_168,
+            "default" => \&_jm_f_169,
+            "definitions" => \&_jm_f_170,
+            "description" => \&_jm_f_171,
+            "examples" => \&_jm_f_172,
+            "id" => \&_jm_f_173,
+            "title" => \&_jm_f_174,
         );
         %json_model_30_map = (
-            '$comment' => \&_jm_f_175,
-            '$defs' => \&_jm_f_176,
-            '$id' => \&_jm_f_177,
-            '$schema' => \&_jm_f_178,
-            'default' => \&_jm_f_179,
-            'definitions' => \&_jm_f_180,
-            'description' => \&_jm_f_181,
-            'examples' => \&_jm_f_182,
-            'id' => \&_jm_f_183,
-            'title' => \&_jm_f_184,
+            "\$comment" => \&_jm_f_175,
+            "\$defs" => \&_jm_f_176,
+            "\$id" => \&_jm_f_177,
+            "\$schema" => \&_jm_f_178,
+            "default" => \&_jm_f_179,
+            "definitions" => \&_jm_f_180,
+            "description" => \&_jm_f_181,
+            "examples" => \&_jm_f_182,
+            "id" => \&_jm_f_183,
+            "title" => \&_jm_f_184,
         );
         %json_model_31_map = (
-            '$comment' => \&_jm_f_185,
-            '$defs' => \&_jm_f_186,
-            '$id' => \&_jm_f_187,
-            '$schema' => \&_jm_f_188,
-            'default' => \&_jm_f_189,
-            'definitions' => \&_jm_f_190,
-            'description' => \&_jm_f_191,
-            'examples' => \&_jm_f_192,
-            'id' => \&_jm_f_193,
-            'title' => \&_jm_f_194,
+            "\$comment" => \&_jm_f_185,
+            "\$defs" => \&_jm_f_186,
+            "\$id" => \&_jm_f_187,
+            "\$schema" => \&_jm_f_188,
+            "default" => \&_jm_f_189,
+            "definitions" => \&_jm_f_190,
+            "description" => \&_jm_f_191,
+            "examples" => \&_jm_f_192,
+            "id" => \&_jm_f_193,
+            "title" => \&_jm_f_194,
         );
         %json_model_32_map = (
-            '$comment' => \&_jm_f_195,
-            '$defs' => \&_jm_f_196,
-            '$id' => \&_jm_f_197,
-            '$schema' => \&_jm_f_198,
-            'default' => \&_jm_f_199,
-            'definitions' => \&_jm_f_200,
-            'description' => \&_jm_f_201,
-            'examples' => \&_jm_f_202,
-            'id' => \&_jm_f_203,
-            'title' => \&_jm_f_204,
+            "\$comment" => \&_jm_f_195,
+            "\$defs" => \&_jm_f_196,
+            "\$id" => \&_jm_f_197,
+            "\$schema" => \&_jm_f_198,
+            "default" => \&_jm_f_199,
+            "definitions" => \&_jm_f_200,
+            "description" => \&_jm_f_201,
+            "examples" => \&_jm_f_202,
+            "id" => \&_jm_f_203,
+            "title" => \&_jm_f_204,
         );
         %json_model_33_map = (
-            '$comment' => \&_jm_f_205,
-            '$defs' => \&_jm_f_206,
-            '$id' => \&_jm_f_207,
-            '$schema' => \&_jm_f_208,
-            'default' => \&_jm_f_209,
-            'definitions' => \&_jm_f_210,
-            'description' => \&_jm_f_211,
-            'examples' => \&_jm_f_212,
-            'id' => \&_jm_f_213,
-            'title' => \&_jm_f_214,
+            "\$comment" => \&_jm_f_205,
+            "\$defs" => \&_jm_f_206,
+            "\$id" => \&_jm_f_207,
+            "\$schema" => \&_jm_f_208,
+            "default" => \&_jm_f_209,
+            "definitions" => \&_jm_f_210,
+            "description" => \&_jm_f_211,
+            "examples" => \&_jm_f_212,
+            "id" => \&_jm_f_213,
+            "title" => \&_jm_f_214,
         );
         %json_model_34_map = (
-            '$comment' => \&_jm_f_215,
-            '$defs' => \&_jm_f_216,
-            '$id' => \&_jm_f_217,
-            '$schema' => \&_jm_f_218,
-            'default' => \&_jm_f_219,
-            'definitions' => \&_jm_f_220,
-            'description' => \&_jm_f_221,
-            'examples' => \&_jm_f_222,
-            'id' => \&_jm_f_223,
-            'title' => \&_jm_f_224,
+            "\$comment" => \&_jm_f_215,
+            "\$defs" => \&_jm_f_216,
+            "\$id" => \&_jm_f_217,
+            "\$schema" => \&_jm_f_218,
+            "default" => \&_jm_f_219,
+            "definitions" => \&_jm_f_220,
+            "description" => \&_jm_f_221,
+            "examples" => \&_jm_f_222,
+            "id" => \&_jm_f_223,
+            "title" => \&_jm_f_224,
         );
         %check_model_map = (
-            '' => \&json_model_27,
-            'tight' => \&json_model_27,
+            "" => \&json_model_27,
+            "tight" => \&json_model_27,
         );
     }
 }

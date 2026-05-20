@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_xre_0($$$);
@@ -31,7 +31,7 @@ sub _jm_xre_0($$$)
     {
         return 0;
     }
-    $extract = $+{'s1'};
+    $extract = $+{"s1"};
     if (! jm_is_valid_date($extract, undef, undef))
     {
         return 0;
@@ -59,7 +59,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

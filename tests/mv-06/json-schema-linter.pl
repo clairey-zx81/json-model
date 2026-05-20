@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -322,7 +322,7 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'pattern')
+        if ($prop eq "pattern")
         {
             # handle may pattern property
             # .'$stringKeywords'.pattern
@@ -333,7 +333,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'minLength')
+        elsif ($prop eq "minLength")
         {
             # handle may minLength property
             # .'$stringKeywords'.minLength
@@ -344,7 +344,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'maxLength')
+        elsif ($prop eq "maxLength")
         {
             # handle may maxLength property
             # .'$stringKeywords'.maxLength
@@ -355,7 +355,7 @@ sub json_model_5($$$)
             }
             next;
         }
-        elsif ($prop eq 'format')
+        elsif ($prop eq "format")
         {
             # handle may format property
             # .'$stringKeywords'.format
@@ -385,7 +385,7 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'prefixItems')
+        if ($prop eq "prefixItems")
         {
             # handle may prefixItems property
             # .'$arrayKeywords'.prefixItems
@@ -396,7 +396,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'items')
+        elsif ($prop eq "items")
         {
             # handle may items property
             # .'$arrayKeywords'.items
@@ -409,7 +409,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'additionalItems')
+        elsif ($prop eq "additionalItems")
         {
             # handle may additionalItems property
             # .'$arrayKeywords'.additionalItems
@@ -420,7 +420,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'minItems')
+        elsif ($prop eq "minItems")
         {
             # handle may minItems property
             # .'$arrayKeywords'.minItems
@@ -431,7 +431,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'maxItems')
+        elsif ($prop eq "maxItems")
         {
             # handle may maxItems property
             # .'$arrayKeywords'.maxItems
@@ -442,7 +442,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'uniqueItems')
+        elsif ($prop eq "uniqueItems")
         {
             # handle may uniqueItems property
             # .'$arrayKeywords'.uniqueItems
@@ -525,7 +525,7 @@ sub json_model_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'properties')
+        if ($prop eq "properties")
         {
             # handle may properties property
             # .'$objectKeywords'.properties
@@ -536,7 +536,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$objectKeywords'.required
@@ -560,7 +560,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'additionalProperties')
+        elsif ($prop eq "additionalProperties")
         {
             # handle may additionalProperties property
             # .'$objectKeywords'.additionalProperties
@@ -571,7 +571,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'patternProperties')
+        elsif ($prop eq "patternProperties")
         {
             # handle may patternProperties property
             # .'$objectKeywords'.patternProperties
@@ -601,7 +601,7 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'minimum')
+        if ($prop eq "minimum")
         {
             # handle may minimum property
             # .'$numberKeywords'.minimum
@@ -612,7 +612,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'maximum')
+        elsif ($prop eq "maximum")
         {
             # handle may maximum property
             # .'$numberKeywords'.maximum
@@ -765,7 +765,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$metas'.'/^x-/'
@@ -940,12 +940,12 @@ sub json_model_10($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$String'.type
-            $res = jm_is_string($pval) && $pval eq 'string';
+            $res = jm_is_string($pval) && $pval eq "string";
             if (! $res)
             {
                 return 0;
@@ -961,7 +961,7 @@ sub json_model_10($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$String'.'/^x-/'
@@ -1137,12 +1137,12 @@ sub json_model_11($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Array'.type
-            $res = jm_is_string($pval) && $pval eq 'array';
+            $res = jm_is_string($pval) && $pval eq "array";
             if (! $res)
             {
                 return 0;
@@ -1158,7 +1158,7 @@ sub json_model_11($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Array'.'/^x-/'
@@ -1377,12 +1377,12 @@ sub json_model_12($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Object'.type
-            $res = jm_is_string($pval) && $pval eq 'object';
+            $res = jm_is_string($pval) && $pval eq "object";
             if (! $res)
             {
                 return 0;
@@ -1398,7 +1398,7 @@ sub json_model_12($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Object'.'/^x-/'
@@ -1556,12 +1556,12 @@ sub json_model_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Integer'.type
-            $res = jm_is_string($pval) && $pval eq 'integer';
+            $res = jm_is_string($pval) && $pval eq "integer";
             if (! $res)
             {
                 return 0;
@@ -1577,7 +1577,7 @@ sub json_model_13($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Integer'.'/^x-/'
@@ -1735,12 +1735,12 @@ sub json_model_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Number'.type
-            $res = jm_is_string($pval) && $pval eq 'number';
+            $res = jm_is_string($pval) && $pval eq "number";
             if (! $res)
             {
                 return 0;
@@ -1756,7 +1756,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Number'.'/^x-/'
@@ -1898,12 +1898,12 @@ sub json_model_15($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Bool'.type
-            $res = jm_is_string($pval) && $pval eq 'boolean';
+            $res = jm_is_string($pval) && $pval eq "boolean";
             if (! $res)
             {
                 return 0;
@@ -1919,7 +1919,7 @@ sub json_model_15($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Bool'.'/^x-/'
@@ -2061,12 +2061,12 @@ sub json_model_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Null'.type
-            $res = jm_is_string($pval) && $pval eq 'null';
+            $res = jm_is_string($pval) && $pval eq "null";
             if (! $res)
             {
                 return 0;
@@ -2082,7 +2082,7 @@ sub json_model_16($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Null'.'/^x-/'
@@ -2224,7 +2224,7 @@ sub json_model_17($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'allOf')
+        if ($prop eq "allOf")
         {
             # handle must allOf property
             $must_count++;
@@ -2245,7 +2245,7 @@ sub json_model_17($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$AllOf'.'/^x-/'
@@ -2387,7 +2387,7 @@ sub json_model_18($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'anyOf')
+        if ($prop eq "anyOf")
         {
             # handle must anyOf property
             $must_count++;
@@ -2408,7 +2408,7 @@ sub json_model_18($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$AnyOf'.'/^x-/'
@@ -2550,7 +2550,7 @@ sub json_model_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'oneOf')
+        if ($prop eq "oneOf")
         {
             # handle must oneOf property
             $must_count++;
@@ -2571,7 +2571,7 @@ sub json_model_19($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$OneOf'.'/^x-/'
@@ -2713,7 +2713,7 @@ sub json_model_20($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'enum')
+        if ($prop eq "enum")
         {
             # handle must enum property
             $must_count++;
@@ -2734,7 +2734,7 @@ sub json_model_20($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Enum'.'/^x-/'
@@ -2876,7 +2876,7 @@ sub json_model_21($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'const')
+        if ($prop eq "const")
         {
             # handle must const property
             $must_count++;
@@ -2897,7 +2897,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Const'.'/^x-/'
@@ -3039,7 +3039,7 @@ sub json_model_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '$ref')
+        if ($prop eq "\$ref")
         {
             # handle must $ref property
             $must_count++;
@@ -3060,7 +3060,7 @@ sub json_model_22($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Ref'.'/^x-/'
@@ -3085,7 +3085,7 @@ sub json_model_23($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'type'}))
+        if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -3119,11 +3119,11 @@ sub _jm_obj_2($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'$schema'})
+    if (! exists $$val{"\$schema"})
     {
         return 0;
     }
-    $pval = $$val{'$schema'};
+    $pval = $$val{"\$schema"};
     # .'$RootSchema'.'&'.0.'$schema'
     return jm_is_string($pval);
 }
@@ -3158,284 +3158,284 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'uri' => 1,
-            'uri-reference' => 1,
-            'iri' => 1,
-            'iri-reference' => 1,
-            'date' => 1,
-            'time' => 1,
-            'date-time' => 1,
-            'ipv4' => 1,
-            'ipv6' => 1,
-            'regex' => 1,
-            'uuid' => 1,
-            'hostname' => 1,
-            'email' => 1,
-            'idn-hostname' => 1,
-            'idn-email' => 1,
-            'duration' => 1,
-            'int32' => 1,
-            'int64' => 1,
-            'uint' => 1,
-            'uint32' => 1,
-            'uint64' => 1,
-            'json-pointer' => 1,
-            'relative-json-pointer' => 1,
-            'byte' => 1,
-            'double' => 1,
-            'int' => 1,
-            'mime-type' => 1,
+            "uri" => 1,
+            "uri-reference" => 1,
+            "iri" => 1,
+            "iri-reference" => 1,
+            "date" => 1,
+            "time" => 1,
+            "date-time" => 1,
+            "ipv4" => 1,
+            "ipv6" => 1,
+            "regex" => 1,
+            "uuid" => 1,
+            "hostname" => 1,
+            "email" => 1,
+            "idn-hostname" => 1,
+            "idn-email" => 1,
+            "duration" => 1,
+            "int32" => 1,
+            "int64" => 1,
+            "uint" => 1,
+            "uint32" => 1,
+            "uint64" => 1,
+            "json-pointer" => 1,
+            "relative-json-pointer" => 1,
+            "byte" => 1,
+            "double" => 1,
+            "int" => 1,
+            "mime-type" => 1,
         );
         %json_model_9_map = (
-            '$comment' => \&_jm_f_0,
-            '$defs' => \&_jm_f_1,
-            '$id' => \&_jm_f_2,
-            '$schema' => \&_jm_f_3,
-            'default' => \&_jm_f_4,
-            'definitions' => \&_jm_f_5,
-            'description' => \&_jm_f_6,
-            'examples' => \&_jm_f_7,
-            'id' => \&_jm_f_8,
-            'title' => \&_jm_f_9,
+            "\$comment" => \&_jm_f_0,
+            "\$defs" => \&_jm_f_1,
+            "\$id" => \&_jm_f_2,
+            "\$schema" => \&_jm_f_3,
+            "default" => \&_jm_f_4,
+            "definitions" => \&_jm_f_5,
+            "description" => \&_jm_f_6,
+            "examples" => \&_jm_f_7,
+            "id" => \&_jm_f_8,
+            "title" => \&_jm_f_9,
         );
         %_jm_cst_1 = (
-            'uri' => 1,
-            'uri-reference' => 1,
-            'iri' => 1,
-            'iri-reference' => 1,
-            'date' => 1,
-            'time' => 1,
-            'date-time' => 1,
-            'ipv4' => 1,
-            'ipv6' => 1,
-            'regex' => 1,
-            'uuid' => 1,
-            'hostname' => 1,
-            'email' => 1,
-            'idn-hostname' => 1,
-            'idn-email' => 1,
-            'duration' => 1,
-            'int32' => 1,
-            'int64' => 1,
-            'uint' => 1,
-            'uint32' => 1,
-            'uint64' => 1,
-            'json-pointer' => 1,
-            'relative-json-pointer' => 1,
-            'byte' => 1,
-            'double' => 1,
-            'int' => 1,
-            'mime-type' => 1,
+            "uri" => 1,
+            "uri-reference" => 1,
+            "iri" => 1,
+            "iri-reference" => 1,
+            "date" => 1,
+            "time" => 1,
+            "date-time" => 1,
+            "ipv4" => 1,
+            "ipv6" => 1,
+            "regex" => 1,
+            "uuid" => 1,
+            "hostname" => 1,
+            "email" => 1,
+            "idn-hostname" => 1,
+            "idn-email" => 1,
+            "duration" => 1,
+            "int32" => 1,
+            "int64" => 1,
+            "uint" => 1,
+            "uint32" => 1,
+            "uint64" => 1,
+            "json-pointer" => 1,
+            "relative-json-pointer" => 1,
+            "byte" => 1,
+            "double" => 1,
+            "int" => 1,
+            "mime-type" => 1,
         );
         %json_model_10_map = (
-            '$comment' => \&_jm_f_10,
-            '$defs' => \&_jm_f_11,
-            '$id' => \&_jm_f_12,
-            '$schema' => \&_jm_f_13,
-            'default' => \&_jm_f_14,
-            'definitions' => \&_jm_f_15,
-            'description' => \&_jm_f_16,
-            'examples' => \&_jm_f_17,
-            'format' => \&_jm_f_18,
-            'id' => \&_jm_f_19,
-            'maxLength' => \&_jm_f_20,
-            'minLength' => \&_jm_f_21,
-            'pattern' => \&_jm_f_22,
-            'title' => \&_jm_f_23,
+            "\$comment" => \&_jm_f_10,
+            "\$defs" => \&_jm_f_11,
+            "\$id" => \&_jm_f_12,
+            "\$schema" => \&_jm_f_13,
+            "default" => \&_jm_f_14,
+            "definitions" => \&_jm_f_15,
+            "description" => \&_jm_f_16,
+            "examples" => \&_jm_f_17,
+            "format" => \&_jm_f_18,
+            "id" => \&_jm_f_19,
+            "maxLength" => \&_jm_f_20,
+            "minLength" => \&_jm_f_21,
+            "pattern" => \&_jm_f_22,
+            "title" => \&_jm_f_23,
         );
         %json_model_11_map = (
-            '$comment' => \&_jm_f_24,
-            '$defs' => \&_jm_f_25,
-            '$id' => \&_jm_f_26,
-            '$schema' => \&_jm_f_27,
-            'additionalItems' => \&json_model_24,
-            'default' => \&_jm_f_28,
-            'definitions' => \&_jm_f_29,
-            'description' => \&_jm_f_30,
-            'examples' => \&_jm_f_31,
-            'id' => \&_jm_f_32,
-            'items' => \&_jm_f_33,
-            'maxItems' => \&_jm_f_34,
-            'minItems' => \&_jm_f_35,
-            'prefixItems' => \&json_model_4,
-            'title' => \&_jm_f_36,
-            'uniqueItems' => \&_jm_f_37,
+            "\$comment" => \&_jm_f_24,
+            "\$defs" => \&_jm_f_25,
+            "\$id" => \&_jm_f_26,
+            "\$schema" => \&_jm_f_27,
+            "additionalItems" => \&json_model_24,
+            "default" => \&_jm_f_28,
+            "definitions" => \&_jm_f_29,
+            "description" => \&_jm_f_30,
+            "examples" => \&_jm_f_31,
+            "id" => \&_jm_f_32,
+            "items" => \&_jm_f_33,
+            "maxItems" => \&_jm_f_34,
+            "minItems" => \&_jm_f_35,
+            "prefixItems" => \&json_model_4,
+            "title" => \&_jm_f_36,
+            "uniqueItems" => \&_jm_f_37,
         );
         %json_model_12_map = (
-            '$comment' => \&_jm_f_38,
-            '$defs' => \&_jm_f_39,
-            '$id' => \&_jm_f_40,
-            '$schema' => \&_jm_f_41,
-            'additionalProperties' => \&json_model_24,
-            'default' => \&_jm_f_42,
-            'definitions' => \&_jm_f_43,
-            'description' => \&_jm_f_44,
-            'examples' => \&_jm_f_45,
-            'id' => \&_jm_f_46,
-            'patternProperties' => \&_jm_f_47,
-            'properties' => \&_jm_f_48,
-            'required' => \&_jm_f_49,
-            'title' => \&_jm_f_50,
+            "\$comment" => \&_jm_f_38,
+            "\$defs" => \&_jm_f_39,
+            "\$id" => \&_jm_f_40,
+            "\$schema" => \&_jm_f_41,
+            "additionalProperties" => \&json_model_24,
+            "default" => \&_jm_f_42,
+            "definitions" => \&_jm_f_43,
+            "description" => \&_jm_f_44,
+            "examples" => \&_jm_f_45,
+            "id" => \&_jm_f_46,
+            "patternProperties" => \&_jm_f_47,
+            "properties" => \&_jm_f_48,
+            "required" => \&_jm_f_49,
+            "title" => \&_jm_f_50,
         );
         %json_model_13_map = (
-            '$comment' => \&_jm_f_51,
-            '$defs' => \&_jm_f_52,
-            '$id' => \&_jm_f_53,
-            '$schema' => \&_jm_f_54,
-            'default' => \&_jm_f_55,
-            'definitions' => \&_jm_f_56,
-            'description' => \&_jm_f_57,
-            'examples' => \&_jm_f_58,
-            'id' => \&_jm_f_59,
-            'maximum' => \&_jm_f_60,
-            'minimum' => \&_jm_f_61,
-            'title' => \&_jm_f_62,
+            "\$comment" => \&_jm_f_51,
+            "\$defs" => \&_jm_f_52,
+            "\$id" => \&_jm_f_53,
+            "\$schema" => \&_jm_f_54,
+            "default" => \&_jm_f_55,
+            "definitions" => \&_jm_f_56,
+            "description" => \&_jm_f_57,
+            "examples" => \&_jm_f_58,
+            "id" => \&_jm_f_59,
+            "maximum" => \&_jm_f_60,
+            "minimum" => \&_jm_f_61,
+            "title" => \&_jm_f_62,
         );
         %json_model_14_map = (
-            '$comment' => \&_jm_f_63,
-            '$defs' => \&_jm_f_64,
-            '$id' => \&_jm_f_65,
-            '$schema' => \&_jm_f_66,
-            'default' => \&_jm_f_67,
-            'definitions' => \&_jm_f_68,
-            'description' => \&_jm_f_69,
-            'examples' => \&_jm_f_70,
-            'id' => \&_jm_f_71,
-            'maximum' => \&_jm_f_72,
-            'minimum' => \&_jm_f_73,
-            'title' => \&_jm_f_74,
+            "\$comment" => \&_jm_f_63,
+            "\$defs" => \&_jm_f_64,
+            "\$id" => \&_jm_f_65,
+            "\$schema" => \&_jm_f_66,
+            "default" => \&_jm_f_67,
+            "definitions" => \&_jm_f_68,
+            "description" => \&_jm_f_69,
+            "examples" => \&_jm_f_70,
+            "id" => \&_jm_f_71,
+            "maximum" => \&_jm_f_72,
+            "minimum" => \&_jm_f_73,
+            "title" => \&_jm_f_74,
         );
         %json_model_15_map = (
-            '$comment' => \&_jm_f_75,
-            '$defs' => \&_jm_f_76,
-            '$id' => \&_jm_f_77,
-            '$schema' => \&_jm_f_78,
-            'default' => \&_jm_f_79,
-            'definitions' => \&_jm_f_80,
-            'description' => \&_jm_f_81,
-            'examples' => \&_jm_f_82,
-            'id' => \&_jm_f_83,
-            'title' => \&_jm_f_84,
+            "\$comment" => \&_jm_f_75,
+            "\$defs" => \&_jm_f_76,
+            "\$id" => \&_jm_f_77,
+            "\$schema" => \&_jm_f_78,
+            "default" => \&_jm_f_79,
+            "definitions" => \&_jm_f_80,
+            "description" => \&_jm_f_81,
+            "examples" => \&_jm_f_82,
+            "id" => \&_jm_f_83,
+            "title" => \&_jm_f_84,
         );
         %json_model_16_map = (
-            '$comment' => \&_jm_f_85,
-            '$defs' => \&_jm_f_86,
-            '$id' => \&_jm_f_87,
-            '$schema' => \&_jm_f_88,
-            'default' => \&_jm_f_89,
-            'definitions' => \&_jm_f_90,
-            'description' => \&_jm_f_91,
-            'examples' => \&_jm_f_92,
-            'id' => \&_jm_f_93,
-            'title' => \&_jm_f_94,
+            "\$comment" => \&_jm_f_85,
+            "\$defs" => \&_jm_f_86,
+            "\$id" => \&_jm_f_87,
+            "\$schema" => \&_jm_f_88,
+            "default" => \&_jm_f_89,
+            "definitions" => \&_jm_f_90,
+            "description" => \&_jm_f_91,
+            "examples" => \&_jm_f_92,
+            "id" => \&_jm_f_93,
+            "title" => \&_jm_f_94,
         );
         %json_model_17_map = (
-            '$comment' => \&_jm_f_95,
-            '$defs' => \&_jm_f_96,
-            '$id' => \&_jm_f_97,
-            '$schema' => \&_jm_f_98,
-            'default' => \&_jm_f_99,
-            'definitions' => \&_jm_f_100,
-            'description' => \&_jm_f_101,
-            'examples' => \&_jm_f_102,
-            'id' => \&_jm_f_103,
-            'title' => \&_jm_f_104,
+            "\$comment" => \&_jm_f_95,
+            "\$defs" => \&_jm_f_96,
+            "\$id" => \&_jm_f_97,
+            "\$schema" => \&_jm_f_98,
+            "default" => \&_jm_f_99,
+            "definitions" => \&_jm_f_100,
+            "description" => \&_jm_f_101,
+            "examples" => \&_jm_f_102,
+            "id" => \&_jm_f_103,
+            "title" => \&_jm_f_104,
         );
         %json_model_18_map = (
-            '$comment' => \&_jm_f_105,
-            '$defs' => \&_jm_f_106,
-            '$id' => \&_jm_f_107,
-            '$schema' => \&_jm_f_108,
-            'default' => \&_jm_f_109,
-            'definitions' => \&_jm_f_110,
-            'description' => \&_jm_f_111,
-            'examples' => \&_jm_f_112,
-            'id' => \&_jm_f_113,
-            'title' => \&_jm_f_114,
+            "\$comment" => \&_jm_f_105,
+            "\$defs" => \&_jm_f_106,
+            "\$id" => \&_jm_f_107,
+            "\$schema" => \&_jm_f_108,
+            "default" => \&_jm_f_109,
+            "definitions" => \&_jm_f_110,
+            "description" => \&_jm_f_111,
+            "examples" => \&_jm_f_112,
+            "id" => \&_jm_f_113,
+            "title" => \&_jm_f_114,
         );
         %json_model_19_map = (
-            '$comment' => \&_jm_f_115,
-            '$defs' => \&_jm_f_116,
-            '$id' => \&_jm_f_117,
-            '$schema' => \&_jm_f_118,
-            'default' => \&_jm_f_119,
-            'definitions' => \&_jm_f_120,
-            'description' => \&_jm_f_121,
-            'examples' => \&_jm_f_122,
-            'id' => \&_jm_f_123,
-            'title' => \&_jm_f_124,
+            "\$comment" => \&_jm_f_115,
+            "\$defs" => \&_jm_f_116,
+            "\$id" => \&_jm_f_117,
+            "\$schema" => \&_jm_f_118,
+            "default" => \&_jm_f_119,
+            "definitions" => \&_jm_f_120,
+            "description" => \&_jm_f_121,
+            "examples" => \&_jm_f_122,
+            "id" => \&_jm_f_123,
+            "title" => \&_jm_f_124,
         );
         %json_model_20_map = (
-            '$comment' => \&_jm_f_125,
-            '$defs' => \&_jm_f_126,
-            '$id' => \&_jm_f_127,
-            '$schema' => \&_jm_f_128,
-            'default' => \&_jm_f_129,
-            'definitions' => \&_jm_f_130,
-            'description' => \&_jm_f_131,
-            'examples' => \&_jm_f_132,
-            'id' => \&_jm_f_133,
-            'title' => \&_jm_f_134,
+            "\$comment" => \&_jm_f_125,
+            "\$defs" => \&_jm_f_126,
+            "\$id" => \&_jm_f_127,
+            "\$schema" => \&_jm_f_128,
+            "default" => \&_jm_f_129,
+            "definitions" => \&_jm_f_130,
+            "description" => \&_jm_f_131,
+            "examples" => \&_jm_f_132,
+            "id" => \&_jm_f_133,
+            "title" => \&_jm_f_134,
         );
         %json_model_21_map = (
-            '$comment' => \&_jm_f_135,
-            '$defs' => \&_jm_f_136,
-            '$id' => \&_jm_f_137,
-            '$schema' => \&_jm_f_138,
-            'default' => \&_jm_f_139,
-            'definitions' => \&_jm_f_140,
-            'description' => \&_jm_f_141,
-            'examples' => \&_jm_f_142,
-            'id' => \&_jm_f_143,
-            'title' => \&_jm_f_144,
+            "\$comment" => \&_jm_f_135,
+            "\$defs" => \&_jm_f_136,
+            "\$id" => \&_jm_f_137,
+            "\$schema" => \&_jm_f_138,
+            "default" => \&_jm_f_139,
+            "definitions" => \&_jm_f_140,
+            "description" => \&_jm_f_141,
+            "examples" => \&_jm_f_142,
+            "id" => \&_jm_f_143,
+            "title" => \&_jm_f_144,
         );
         %json_model_22_map = (
-            '$comment' => \&_jm_f_145,
-            '$defs' => \&_jm_f_146,
-            '$id' => \&_jm_f_147,
-            '$schema' => \&_jm_f_148,
-            'default' => \&_jm_f_149,
-            'definitions' => \&_jm_f_150,
-            'description' => \&_jm_f_151,
-            'examples' => \&_jm_f_152,
-            'id' => \&_jm_f_153,
-            'title' => \&_jm_f_154,
+            "\$comment" => \&_jm_f_145,
+            "\$defs" => \&_jm_f_146,
+            "\$id" => \&_jm_f_147,
+            "\$schema" => \&_jm_f_148,
+            "default" => \&_jm_f_149,
+            "definitions" => \&_jm_f_150,
+            "description" => \&_jm_f_151,
+            "examples" => \&_jm_f_152,
+            "id" => \&_jm_f_153,
+            "title" => \&_jm_f_154,
         );
         %_jm_map_0 = (
-            'null' => \&json_model_16,
-            'boolean' => \&json_model_15,
-            'integer' => \&json_model_13,
-            'number' => \&json_model_14,
-            'string' => \&json_model_10,
-            'array' => \&json_model_11,
-            'object' => \&json_model_12,
+            "null" => \&json_model_16,
+            "boolean" => \&json_model_15,
+            "integer" => \&json_model_13,
+            "number" => \&json_model_14,
+            "string" => \&json_model_10,
+            "array" => \&json_model_11,
+            "object" => \&json_model_12,
         );
         %check_model_map = (
-            '' => \&json_model_25,
-            'const' => \&json_model_2,
-            'enum' => \&json_model_3,
-            'schemaArray' => \&json_model_4,
-            'stringKeywords' => \&json_model_5,
-            'arrayKeywords' => \&json_model_6,
-            'objectKeywords' => \&json_model_7,
-            'numberKeywords' => \&json_model_8,
-            'metas' => \&json_model_9,
-            'String' => \&json_model_10,
-            'Array' => \&json_model_11,
-            'Object' => \&json_model_12,
-            'Integer' => \&json_model_13,
-            'Number' => \&json_model_14,
-            'Bool' => \&json_model_15,
-            'Null' => \&json_model_16,
-            'AllOf' => \&json_model_17,
-            'AnyOf' => \&json_model_18,
-            'OneOf' => \&json_model_19,
-            'Enum' => \&json_model_20,
-            'Const' => \&json_model_21,
-            'Ref' => \&json_model_22,
-            'ObjectSchema' => \&json_model_23,
-            'Schema' => \&json_model_24,
-            'RootSchema' => \&json_model_25,
+            "" => \&json_model_25,
+            "const" => \&json_model_2,
+            "enum" => \&json_model_3,
+            "schemaArray" => \&json_model_4,
+            "stringKeywords" => \&json_model_5,
+            "arrayKeywords" => \&json_model_6,
+            "objectKeywords" => \&json_model_7,
+            "numberKeywords" => \&json_model_8,
+            "metas" => \&json_model_9,
+            "String" => \&json_model_10,
+            "Array" => \&json_model_11,
+            "Object" => \&json_model_12,
+            "Integer" => \&json_model_13,
+            "Number" => \&json_model_14,
+            "Bool" => \&json_model_15,
+            "Null" => \&json_model_16,
+            "AllOf" => \&json_model_17,
+            "AnyOf" => \&json_model_18,
+            "OneOf" => \&json_model_19,
+            "Enum" => \&json_model_20,
+            "Const" => \&json_model_21,
+            "Ref" => \&json_model_22,
+            "ObjectSchema" => \&json_model_23,
+            "Schema" => \&json_model_24,
+            "RootSchema" => \&json_model_25,
         );
     }
 }

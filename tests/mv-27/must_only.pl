@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -40,11 +40,11 @@ sub _jm_obj_1($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'p10'})
+    if (! exists $$val{"p10"})
     {
         return 0;
     }
-    $pval = $$val{'p10'};
+    $pval = $$val{"p10"};
     # .mo1.p10
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -63,22 +63,22 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'p20'})
+    if (! exists $$val{"p20"})
     {
         return 0;
     }
-    $pval = $$val{'p20'};
+    $pval = $$val{"p20"};
     # .mo2.p20
     my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'p21'})
+    if (! exists $$val{"p21"})
     {
         return 0;
     }
-    $pval = $$val{'p21'};
+    $pval = $$val{"p21"};
     # .mo2.p21
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -96,7 +96,7 @@ sub _jm_obj_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'p30')
+        if ($prop eq "p30")
         {
             # handle must p30 property
             $must_count++;
@@ -108,7 +108,7 @@ sub _jm_obj_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'p31')
+        elsif ($prop eq "p31")
         {
             # handle must p31 property
             $must_count++;
@@ -120,7 +120,7 @@ sub _jm_obj_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'p32')
+        elsif ($prop eq "p32")
         {
             # handle must p32 property
             $must_count++;
@@ -150,7 +150,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'mo0')
+        if ($prop eq "mo0")
         {
             # handle may mo0 property
             # empty object
@@ -162,7 +162,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'mo1')
+        elsif ($prop eq "mo1")
         {
             # handle may mo1 property
             # one mandatory prop
@@ -174,7 +174,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'mo2')
+        elsif ($prop eq "mo2")
         {
             # handle may mo2 property
             # two mandatory props
@@ -186,7 +186,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'mo3')
+        elsif ($prop eq "mo3")
         {
             # handle may mo3 property
             # three mandatory props
@@ -214,7 +214,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

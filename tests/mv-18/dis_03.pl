@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -31,22 +31,22 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'discriminator'})
+    if (! exists $$val{"discriminator"})
     {
         return 0;
     }
-    $pval = $$val{'discriminator'};
+    $pval = $$val{"discriminator"};
     # .'|'.0.discriminator
     my $res = jm_is_boolean($pval) && $pval == 1;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'x'})
+    if (! exists $$val{"x"})
     {
         return 0;
     }
-    $pval = $$val{'x'};
+    $pval = $$val{"x"};
     # .'|'.0.x
     return jm_is_string($pval);
 }
@@ -65,22 +65,22 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'discriminator'})
+    if (! exists $$val{"discriminator"})
     {
         return 0;
     }
-    $pval = $$val{'discriminator'};
+    $pval = $$val{"discriminator"};
     # .'|'.1.discriminator
     my $res = jm_is_boolean($pval) && $pval == 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'y'})
+    if (! exists $$val{"y"})
     {
         return 0;
     }
-    $pval = $$val{'y'};
+    $pval = $$val{"y"};
     # .'|'.1.y
     return jm_is_string($pval);
 }
@@ -96,7 +96,7 @@ sub json_model_1($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'discriminator'}))
+        if (defined($tag_0 = $$val{"discriminator"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -124,7 +124,7 @@ sub check_model_init()
             0 => \&_jm_obj_1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

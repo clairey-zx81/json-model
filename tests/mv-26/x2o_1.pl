@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -35,13 +35,13 @@ sub json_model_2($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$a'.t
-    return jm_is_string($pval) && $pval eq 'a';
+    return jm_is_string($pval) && $pval eq "a";
 }
 
 
@@ -61,11 +61,11 @@ sub json_model_3($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$bc'.t
     return jm_is_string($pval) && exists $_jm_cst_0{$pval};
 }
@@ -86,11 +86,11 @@ sub json_model_4($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$Nabc'.t
     # generic xor list
     my $xc_0 = 0;
@@ -101,7 +101,7 @@ sub json_model_4($$$)
         $xc_0++;
     }
     # .'$Nabc'.t.'^'.1
-    $xr_0 = jm_is_string($pval) && $pval eq 'a';
+    $xr_0 = jm_is_string($pval) && $pval eq "a";
     if ($xr_0)
     {
         $xc_0++;
@@ -109,7 +109,7 @@ sub json_model_4($$$)
     if ($xc_0 <= 1)
     {
         # .'$Nabc'.t.'^'.2
-        $xr_0 = jm_is_string($pval) && $pval eq 'b';
+        $xr_0 = jm_is_string($pval) && $pval eq "b";
         if ($xr_0)
         {
             $xc_0++;
@@ -118,7 +118,7 @@ sub json_model_4($$$)
     if ($xc_0 <= 1)
     {
         # .'$Nabc'.t.'^'.3
-        $xr_0 = jm_is_string($pval) && $pval eq 'c';
+        $xr_0 = jm_is_string($pval) && $pval eq "c";
         if ($xr_0)
         {
             $xc_0++;
@@ -138,7 +138,7 @@ sub json_model_1($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'t'}))
+        if (defined($tag_0 = $$val{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -162,19 +162,19 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'b' => 1,
-            'c' => 1,
+            "b" => 1,
+            "c" => 1,
         );
         %_jm_map_0 = (
-            'a' => \&json_model_2,
-            'b' => \&json_model_3,
-            'c' => \&json_model_3,
+            "a" => \&json_model_2,
+            "b" => \&json_model_3,
+            "c" => \&json_model_3,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'a' => \&json_model_2,
-            'bc' => \&json_model_3,
-            'Nabc' => \&json_model_4,
+            "" => \&json_model_1,
+            "a" => \&json_model_2,
+            "bc" => \&json_model_3,
+            "Nabc" => \&json_model_4,
         );
     }
 }

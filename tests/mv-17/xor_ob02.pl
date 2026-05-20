@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -39,11 +39,11 @@ sub _jm_obj_0($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'$Aa'.'|'.1.b
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -60,11 +60,11 @@ sub _jm_obj_1($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'$Aa'.'|'.0.a
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -91,11 +91,11 @@ sub _jm_obj_2($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'$Bb'.'|'.1.c
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -112,11 +112,11 @@ sub _jm_obj_3($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'$Bb'.'|'.0.a
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -143,11 +143,11 @@ sub _jm_obj_4($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'$Cc'.'|'.1.c
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -164,11 +164,11 @@ sub _jm_obj_5($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'$Cc'.'|'.0.b
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -194,22 +194,22 @@ sub _jm_obj_6($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'|'.3.b
     my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'|'.3.c
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -225,33 +225,33 @@ sub _jm_obj_7($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'|'.2.a
     my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'|'.2.c
     $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'|'.2.b
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -267,22 +267,22 @@ sub _jm_obj_8($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'|'.1.c
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -298,22 +298,22 @@ sub _jm_obj_9($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'|'.0.b
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -324,7 +324,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # props: a/b a/c b/c
     # .
-    return jm_is_object($val) && (exists $$val{'a'} && (_jm_obj_9($val, undef, undef) || _jm_obj_8($val, undef, undef) || _jm_obj_7($val, undef, undef)) || exists $$val{'b'} && _jm_obj_6($val, undef, undef));
+    return jm_is_object($val) && (exists $$val{"a"} && (_jm_obj_9($val, undef, undef) || _jm_obj_8($val, undef, undef) || _jm_obj_7($val, undef, undef)) || exists $$val{"b"} && _jm_obj_6($val, undef, undef));
 }
 
 
@@ -338,10 +338,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'Aa' => \&json_model_2,
-            'Bb' => \&json_model_3,
-            'Cc' => \&json_model_4,
+            "" => \&json_model_1,
+            "Aa" => \&json_model_2,
+            "Bb" => \&json_model_3,
+            "Cc" => \&json_model_4,
         );
     }
 }

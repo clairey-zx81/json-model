@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 my %_jm_cst_0;
@@ -70,23 +70,23 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'Susie' => 1,
-            'Calvin' => 1,
-            'Hobbes' => 1,
-            'Moe' => 1,
-            'Bad' => 1,
+            "Susie" => 1,
+            "Calvin" => 1,
+            "Hobbes" => 1,
+            "Moe" => 1,
+            "Bad" => 1,
         );
         %_jm_cst_1 = (
-            'Castafiore' => 1,
-            'Haddock' => 1,
-            'Milou' => 1,
-            'Tintin' => 1,
-            'Bad' => 1,
+            "Castafiore" => 1,
+            "Haddock" => 1,
+            "Milou" => 1,
+            "Tintin" => 1,
+            "Bad" => 1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'p1' => \&json_model_2,
-            'p2' => \&json_model_3,
+            "" => \&json_model_1,
+            "p1" => \&json_model_2,
+            "p2" => \&json_model_3,
         );
     }
 }

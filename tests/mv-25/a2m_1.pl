@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -30,9 +30,9 @@ sub json_model_2($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'a'})
+    if (exists $$val{"a"})
     {
-        $pval = $$val{'a'};
+        $pval = $$val{"a"};
         # .'$Oa'.a
         $res = jm_is_integer($pval) && $pval >= 0;
         if (! $res)
@@ -55,9 +55,9 @@ sub json_model_3($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'b'})
+    if (exists $$val{"b"})
     {
-        $pval = $$val{'b'};
+        $pval = $$val{"b"};
         # .'$Ob'.b
         $res = jm_is_integer($pval) && $pval >= 0;
         if (! $res)
@@ -80,9 +80,9 @@ sub json_model_4($$$)
     }
     my $pval;
     my $res;
-    if (exists $$val{'a'})
+    if (exists $$val{"a"})
     {
-        $pval = $$val{'a'};
+        $pval = $$val{"a"};
         # .'$merge'.a
         $res = jm_is_integer($pval) && $pval >= 0;
         if (! $res)
@@ -90,9 +90,9 @@ sub json_model_4($$$)
             return 0;
         }
     }
-    if (exists $$val{'b'})
+    if (exists $$val{"b"})
     {
-        $pval = $$val{'b'};
+        $pval = $$val{"b"};
         # .'$merge'.b
         $res = jm_is_integer($pval) && $pval >= 0;
         if (! $res)
@@ -119,11 +119,11 @@ sub json_model_5($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'$nomerge'.c
     return jm_is_integer($pval) && $pval >= 1;
 }
@@ -149,11 +149,11 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'Oa' => \&json_model_2,
-            'Ob' => \&json_model_3,
-            'merge' => \&json_model_4,
-            'nomerge' => \&json_model_5,
+            "" => \&json_model_1,
+            "Oa" => \&json_model_2,
+            "Ob" => \&json_model_3,
+            "merge" => \&json_model_4,
+            "nomerge" => \&json_model_5,
         );
     }
 }

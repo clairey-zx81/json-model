@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -32,7 +32,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$g'
-    return jm_is_string($val) && $val eq 'g';
+    return jm_is_string($val) && $val eq "g";
 }
 
 
@@ -59,22 +59,22 @@ sub json_model_4($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$d'.t
-    my $res = jm_is_string($pval) && $pval eq 'd';
+    my $res = jm_is_string($pval) && $pval eq "d";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'d'})
+    if (! exists $$val{"d"})
     {
         return 0;
     }
-    $pval = $$val{'d'};
+    $pval = $$val{"d"};
     # .'$d'.d
     return jm_is_string($pval);
 }
@@ -95,22 +95,22 @@ sub json_model_5($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$ef'.t
     my $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'ef'})
+    if (! exists $$val{"ef"})
     {
         return 0;
     }
-    $pval = $$val{'ef'};
+    $pval = $$val{"ef"};
     # .'$ef'.ef
     return jm_is_string($pval);
 }
@@ -129,22 +129,22 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$alternative'.'|'.0.t
-    my $res = jm_is_string($pval) && $pval eq 'a';
+    my $res = jm_is_string($pval) && $pval eq "a";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'$alternative'.'|'.0.a
     return jm_is_string($pval);
 }
@@ -164,22 +164,22 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$alternative'.'|'.1.t
     my $res = jm_is_string($pval) && exists $_jm_cst_2{$pval};
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'bc'})
+    if (! exists $$val{"bc"})
     {
         return 0;
     }
-    $pval = $$val{'bc'};
+    $pval = $$val{"bc"};
     # .'$alternative'.'|'.1.bc
     return jm_is_string($pval);
 }
@@ -198,22 +198,22 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$alternative'.'|'.2.t
-    my $res = jm_is_string($pval) && $pval eq 'g';
+    my $res = jm_is_string($pval) && $pval eq "g";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'g'})
+    if (! exists $$val{"g"})
     {
         return 0;
     }
-    $pval = $$val{'g'};
+    $pval = $$val{"g"};
     # .'$alternative'.'|'.2.g
     return jm_is_string($pval);
 }
@@ -232,22 +232,22 @@ sub _jm_obj_3($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$alternative'.'|'.3.t
     my $res = json_model_3($pval, undef, undef);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'hi'})
+    if (! exists $$val{"hi"})
     {
         return 0;
     }
-    $pval = $$val{'hi'};
+    $pval = $$val{"hi"};
     # .'$alternative'.'|'.3.hi
     return jm_is_string($pval);
 }
@@ -263,7 +263,7 @@ sub json_model_6($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'t'}))
+        if (defined($tag_0 = $$val{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -295,35 +295,35 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'h' => 1,
-            'i' => 1,
+            "h" => 1,
+            "i" => 1,
         );
         %_jm_cst_1 = (
-            'e' => 1,
-            'f' => 1,
+            "e" => 1,
+            "f" => 1,
         );
         %_jm_cst_2 = (
-            'b' => 1,
-            'c' => 1,
+            "b" => 1,
+            "c" => 1,
         );
         %_jm_map_0 = (
-            'a' => \&_jm_obj_0,
-            'b' => \&_jm_obj_1,
-            'c' => \&_jm_obj_1,
-            'g' => \&_jm_obj_2,
-            'h' => \&_jm_obj_3,
-            'i' => \&_jm_obj_3,
-            'd' => \&json_model_4,
-            'e' => \&json_model_5,
-            'f' => \&json_model_5,
+            "a" => \&_jm_obj_0,
+            "b" => \&_jm_obj_1,
+            "c" => \&_jm_obj_1,
+            "g" => \&_jm_obj_2,
+            "h" => \&_jm_obj_3,
+            "i" => \&_jm_obj_3,
+            "d" => \&json_model_4,
+            "e" => \&json_model_5,
+            "f" => \&json_model_5,
         );
         %check_model_map = (
-            '' => \&json_model_6,
-            'g' => \&json_model_2,
-            'h_ou_i' => \&json_model_3,
-            'd' => \&json_model_4,
-            'ef' => \&json_model_5,
-            'alternative' => \&json_model_6,
+            "" => \&json_model_6,
+            "g" => \&json_model_2,
+            "h_ou_i" => \&json_model_3,
+            "d" => \&json_model_4,
+            "ef" => \&json_model_5,
+            "alternative" => \&json_model_6,
         );
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_f_0($$$);
@@ -257,31 +257,31 @@ sub check_model_init()
     {
         $initialized = 1;
         %json_model_1_mup = (
-            '' => \&_jm_f_0,
-            'Calvin' => \&_jm_f_1,
-            'Hobbes' => \&_jm_f_2,
-            'Moe' => \&_jm_f_3,
-            'Rosalyn' => \&_jm_f_4,
-            'Susie' => \&_jm_f_5,
-            'aaa' => \&_jm_f_6,
-            'abc' => \&_jm_f_7,
-            'bcd' => \&_jm_f_8,
-            'calvin' => \&_jm_f_9,
-            'cdef' => \&_jm_f_10,
-            'def' => \&_jm_f_11,
-            'foo' => \&_jm_f_12,
-            'hobbes' => \&_jm_f_13,
-            'moe' => \&_jm_f_14,
-            'stu' => \&_jm_f_15,
-            'stuff' => \&_jm_f_16,
-            'surprise' => \&_jm_f_17,
-            'susie' => \&_jm_f_18,
-            'wtf' => \&_jm_f_19,
-            'zee' => \&_jm_f_20,
-            'zoo' => \&_jm_f_21,
+            "" => \&_jm_f_0,
+            "Calvin" => \&_jm_f_1,
+            "Hobbes" => \&_jm_f_2,
+            "Moe" => \&_jm_f_3,
+            "Rosalyn" => \&_jm_f_4,
+            "Susie" => \&_jm_f_5,
+            "aaa" => \&_jm_f_6,
+            "abc" => \&_jm_f_7,
+            "bcd" => \&_jm_f_8,
+            "calvin" => \&_jm_f_9,
+            "cdef" => \&_jm_f_10,
+            "def" => \&_jm_f_11,
+            "foo" => \&_jm_f_12,
+            "hobbes" => \&_jm_f_13,
+            "moe" => \&_jm_f_14,
+            "stu" => \&_jm_f_15,
+            "stuff" => \&_jm_f_16,
+            "surprise" => \&_jm_f_17,
+            "susie" => \&_jm_f_18,
+            "wtf" => \&_jm_f_19,
+            "zee" => \&_jm_f_20,
+            "zoo" => \&_jm_f_21,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

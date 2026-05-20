@@ -38,6 +38,7 @@
 - [x] static: allow disabling more xstatic optimization
 - [x] perf: show median compilation time instead of min
 - [x] c-runtime: move re header inclusion to `json-model.h`
+- [x] pl-backend: better escape some characters
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation

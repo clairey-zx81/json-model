@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -23,7 +23,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$b'
-    return jm_is_string($val) && $val eq 'b';
+    return jm_is_string($val) && $val eq "b";
 }
 
 # check $Bb (.'$Bb')
@@ -47,7 +47,7 @@ sub json_model_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'a')
+        if ($prop eq "a")
         {
             # handle may a property
             # .'$Rr'.a
@@ -77,7 +77,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'RA')
+        if ($prop eq "RA")
         {
             # handle must RA property
             $must_count++;
@@ -89,7 +89,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        if ($prop eq 'b')
+        if ($prop eq "b")
         {
             # handle may b property
             # .b
@@ -100,7 +100,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'a')
+        elsif ($prop eq "a")
         {
             # handle may a property
             # .a
@@ -135,10 +135,10 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'b' => \&json_model_2,
-            'Bb' => \&json_model_3,
-            'Rr' => \&json_model_5,
+            "" => \&json_model_1,
+            "b" => \&json_model_2,
+            "Bb" => \&json_model_3,
+            "Rr" => \&json_model_5,
         );
     }
 }

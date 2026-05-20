@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -50,7 +50,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$Schema'.metadata.name
@@ -61,7 +61,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'previous')
+        elsif ($prop eq "previous")
         {
             # handle may previous property
             # .'$Schema'.metadata.previous
@@ -72,7 +72,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'date')
+        elsif ($prop eq "date")
         {
             # handle may date property
             # .'$Schema'.metadata.date
@@ -83,7 +83,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'authors')
+        elsif ($prop eq "authors")
         {
             # handle may authors property
             # .'$Schema'.metadata.authors
@@ -126,7 +126,7 @@ sub json_model_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'types')
+        if ($prop eq "types")
         {
             # handle must types property
             $must_count++;
@@ -151,7 +151,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        if ($prop eq 'metadata')
+        if ($prop eq "metadata")
         {
             # handle may metadata property
             # .'$Schema'.metadata
@@ -177,7 +177,7 @@ sub json_model_3($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'kind'}))
+        if (defined($tag_0 = $$val{"kind"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -311,19 +311,19 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'kind')
+        if ($prop eq "kind")
         {
             # handle must kind property
             $must_count++;
             # .'$Atomic'.kind
-            $res = jm_is_string($pval) && $pval eq 'atomic';
+            $res = jm_is_string($pval) && $pval eq "atomic";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'baseType')
+        elsif ($prop eq "baseType")
         {
             # handle must baseType property
             $must_count++;
@@ -363,19 +363,19 @@ sub json_model_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'kind')
+        if ($prop eq "kind")
         {
             # handle must kind property
             $must_count++;
             # .'$Object'.kind
-            $res = jm_is_string($pval) && $pval eq 'object';
+            $res = jm_is_string($pval) && $pval eq "object";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$Object'.name
@@ -386,7 +386,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'baseType')
+        elsif ($prop eq "baseType")
         {
             # handle may baseType property
             # .'$Object'.baseType
@@ -397,7 +397,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$Object'.content
@@ -421,7 +421,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'closed')
+        elsif ($prop eq "closed")
         {
             # handle may closed property
             # .'$Object'.closed
@@ -451,7 +451,7 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -463,7 +463,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle must type property
             $must_count++;
@@ -475,7 +475,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        if ($prop eq 'required')
+        if ($prop eq "required")
         {
             # handle may required property
             # .'$Fields'.required
@@ -486,14 +486,14 @@ sub json_model_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'default')
+        elsif ($prop eq "default")
         {
             # handle may default property
             # .'$Fields'.default
             $res = 1;
             next;
         }
-        elsif ($prop eq 'unique')
+        elsif ($prop eq "unique")
         {
             # handle may unique property
             # .'$Fields'.unique
@@ -524,19 +524,19 @@ sub json_model_9($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'kind')
+        if ($prop eq "kind")
         {
             # handle must kind property
             $must_count++;
             # .'$Array'.kind
-            $res = jm_is_string($pval) && $pval eq 'array';
+            $res = jm_is_string($pval) && $pval eq "array";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$Array'.name
@@ -547,7 +547,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        elsif ($prop eq 'baseType')
+        elsif ($prop eq "baseType")
         {
             # handle may baseType property
             # .'$Array'.baseType
@@ -558,7 +558,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$Array'.content
@@ -569,7 +569,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        elsif ($prop eq 'minLength')
+        elsif ($prop eq "minLength")
         {
             # handle may minLength property
             # .'$Array'.minLength
@@ -580,7 +580,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        elsif ($prop eq 'maxLength')
+        elsif ($prop eq "maxLength")
         {
             # handle may maxLength property
             # .'$Array'.maxLength
@@ -611,7 +611,7 @@ sub json_model_10($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -623,19 +623,19 @@ sub json_model_10($$$)
             }
             next;
         }
-        elsif ($prop eq 'kind')
+        elsif ($prop eq "kind")
         {
             # handle must kind property
             $must_count++;
             # .'$Union'.kind
-            $res = jm_is_string($pval) && $pval eq 'union';
+            $res = jm_is_string($pval) && $pval eq "union";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle must content property
             $must_count++;
@@ -660,7 +660,7 @@ sub json_model_10($$$)
             }
             next;
         }
-        if ($prop eq 'baseType')
+        if ($prop eq "baseType")
         {
             # handle may baseType property
             # .'$Union'.baseType
@@ -705,59 +705,59 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'atomic' => \&json_model_6,
-            'object' => \&json_model_7,
-            'array' => \&json_model_9,
-            'union' => \&json_model_10,
+            "atomic" => \&json_model_6,
+            "object" => \&json_model_7,
+            "array" => \&json_model_9,
+            "union" => \&json_model_10,
         );
         %_jm_cst_0 = (
-            'string' => 1,
-            'decimal' => 1,
-            'integer' => 1,
-            'double' => 1,
-            'boolean' => 1,
-            'anyURI' => 1,
-            'base64Binary' => 1,
-            'hexBinary' => 1,
-            'date' => 1,
-            'dateTime' => 1,
-            'time' => 1,
-            'dateTimeStamp' => 1,
-            'duration' => 1,
-            'null' => 1,
+            "string" => 1,
+            "decimal" => 1,
+            "integer" => 1,
+            "double" => 1,
+            "boolean" => 1,
+            "anyURI" => 1,
+            "base64Binary" => 1,
+            "hexBinary" => 1,
+            "date" => 1,
+            "dateTime" => 1,
+            "time" => 1,
+            "dateTimeStamp" => 1,
+            "duration" => 1,
+            "null" => 1,
         );
         %_jm_cst_1 = (
-            'required' => 1,
-            'prohibited' => 1,
-            'optional' => 1,
+            "required" => 1,
+            "prohibited" => 1,
+            "optional" => 1,
         );
         %json_model_6_map = (
-            'enumeration' => \&_jm_f_0,
-            'explicitTypeZone' => \&_jm_f_1,
-            'fractionDigits' => \&_jm_f_2,
-            'length' => \&_jm_f_3,
-            'maxExclusive' => \&json_model_5,
-            'maxInclusive' => \&json_model_5,
-            'maxLength' => \&_jm_f_4,
-            'minExclusive' => \&json_model_5,
-            'minInclusive' => \&json_model_5,
-            'minLength' => \&_jm_f_5,
-            'name' => \&_jm_f_6,
-            'pattern' => \&_jm_f_7,
-            'totalDigits' => \&_jm_f_8,
+            "enumeration" => \&_jm_f_0,
+            "explicitTypeZone" => \&_jm_f_1,
+            "fractionDigits" => \&_jm_f_2,
+            "length" => \&_jm_f_3,
+            "maxExclusive" => \&json_model_5,
+            "maxInclusive" => \&json_model_5,
+            "maxLength" => \&_jm_f_4,
+            "minExclusive" => \&json_model_5,
+            "minInclusive" => \&json_model_5,
+            "minLength" => \&_jm_f_5,
+            "name" => \&_jm_f_6,
+            "pattern" => \&_jm_f_7,
+            "totalDigits" => \&_jm_f_8,
         );
         %check_model_map = (
-            '' => \&json_model_2,
-            'Schema' => \&json_model_2,
-            'Type' => \&json_model_3,
-            'atomic-types' => \&json_model_4,
-            'atomic' => \&json_model_5,
-            'Atomic' => \&json_model_6,
-            'Object' => \&json_model_7,
-            'Fields' => \&json_model_8,
-            'Array' => \&json_model_9,
-            'Union' => \&json_model_10,
-            'type-or-ref' => \&json_model_11,
+            "" => \&json_model_2,
+            "Schema" => \&json_model_2,
+            "Type" => \&json_model_3,
+            "atomic-types" => \&json_model_4,
+            "atomic" => \&json_model_5,
+            "Atomic" => \&json_model_6,
+            "Object" => \&json_model_7,
+            "Fields" => \&json_model_8,
+            "Array" => \&json_model_9,
+            "Union" => \&json_model_10,
+            "type-or-ref" => \&json_model_11,
         );
     }
 }

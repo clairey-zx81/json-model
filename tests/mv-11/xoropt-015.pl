@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -47,11 +47,11 @@ sub json_model_3($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'X'})
+    if (! exists $$val{"X"})
     {
         return 0;
     }
-    $pval = $$val{'X'};
+    $pval = $$val{"X"};
     # .'$Xx'.X
     return jm_is_string($pval);
 }
@@ -72,11 +72,11 @@ sub json_model_4($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'Y'})
+    if (! exists $$val{"Y"})
     {
         return 0;
     }
-    $pval = $$val{'Y'};
+    $pval = $$val{"Y"};
     # .'$Yy'.Y
     return jm_is_string($pval);
 }
@@ -91,7 +91,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'Y')
+        if ($prop eq "Y")
         {
             # handle must Y property
             $must_count++;
@@ -103,7 +103,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        if ($prop eq 'Z')
+        if ($prop eq "Z")
         {
             # handle may Z property
             # .'$Ee'.'|'.1.Z
@@ -129,7 +129,7 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'X')
+        if ($prop eq "X")
         {
             # handle must X property
             $must_count++;
@@ -141,7 +141,7 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        if ($prop eq 'Z')
+        if ($prop eq "Z")
         {
             # handle may Z property
             # .'$Ee'.'|'.0.Z
@@ -196,12 +196,12 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_6,
-            'Vv' => \&json_model_2,
-            'Xx' => \&json_model_3,
-            'Yy' => \&json_model_4,
-            'Ee' => \&json_model_5,
-            'Mm' => \&json_model_6,
+            "" => \&json_model_6,
+            "Vv" => \&json_model_2,
+            "Xx" => \&json_model_3,
+            "Yy" => \&json_model_4,
+            "Ee" => \&json_model_5,
+            "Mm" => \&json_model_6,
         );
     }
 }

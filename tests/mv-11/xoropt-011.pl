@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -33,11 +33,11 @@ sub _jm_obj_0($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'|'.0.a
     return jm_is_integer($pval) && $pval == 10;
 }
@@ -57,11 +57,11 @@ sub _jm_obj_1($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'|'.1.a
     return jm_is_integer($pval) && $pval == 1;
 }
@@ -81,11 +81,11 @@ sub _jm_obj_2($$$)
     }
     my $pval;
     my $res;
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'|'.2.a
     return jm_is_integer($pval) && $pval == 0;
 }
@@ -101,7 +101,7 @@ sub json_model_1($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'a'}))
+        if (defined($tag_0 = $$val{"a"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -130,7 +130,7 @@ sub check_model_init()
             0 => \&_jm_obj_2,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

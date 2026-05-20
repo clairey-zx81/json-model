@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -22,7 +22,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$u1'
-    return jm_is_string($val) && $val eq 'https://json-model.org/models/json-model';
+    return jm_is_string($val) && $val eq "https://json-model.org/models/json-model";
 }
 
 # check $u2 (.'$u2')
@@ -30,7 +30,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$u2'
-    return jm_is_string($val) && $val eq 'file://./url_looking.model.json';
+    return jm_is_string($val) && $val eq "file://./url_looking.model.json";
 }
 
 
@@ -54,13 +54,13 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'https://json-model.org/models/json-model' => 1,
-            'file://./url_looking.model.json' => 1,
+            "https://json-model.org/models/json-model" => 1,
+            "file://./url_looking.model.json" => 1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'u1' => \&json_model_2,
-            'u2' => \&json_model_3,
+            "" => \&json_model_1,
+            "u1" => \&json_model_2,
+            "u2" => \&json_model_3,
         );
     }
 }

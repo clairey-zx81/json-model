@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_2($$$);
@@ -142,7 +142,7 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'file')
+        if ($prop eq "file")
         {
             # handle must file property
             $must_count++;
@@ -154,7 +154,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'version')
+        elsif ($prop eq "version")
         {
             # handle must version property
             $must_count++;
@@ -166,7 +166,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        if ($prop eq 'abstract')
+        if ($prop eq "abstract")
         {
             # handle may abstract property
             # .'$Provide'.abstract
@@ -177,7 +177,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'docfile')
+        elsif ($prop eq "docfile")
         {
             # handle may docfile property
             # .'$Provide'.docfile
@@ -223,7 +223,7 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'web')
+        if ($prop eq "web")
         {
             # handle may web property
             # .'$Resources'.bugtracker.web
@@ -234,7 +234,7 @@ sub _jm_obj_0($$$)
             }
             next;
         }
-        elsif ($prop eq 'mailto')
+        elsif ($prop eq "mailto")
         {
             # handle may mailto property
             # .'$Resources'.bugtracker.mailto
@@ -271,7 +271,7 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'url')
+        if ($prop eq "url")
         {
             # handle may url property
             # .'$Resources'.repository.url
@@ -282,7 +282,7 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'web')
+        elsif ($prop eq "web")
         {
             # handle may web property
             # .'$Resources'.repository.web
@@ -293,7 +293,7 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'type')
+        elsif ($prop eq "type")
         {
             # handle may type property
             # .'$Resources'.repository.type
@@ -323,7 +323,7 @@ sub json_model_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'homepage')
+        if ($prop eq "homepage")
         {
             # handle may homepage property
             # .'$Resources'.homepage
@@ -334,7 +334,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'bugtracker')
+        elsif ($prop eq "bugtracker")
         {
             # handle may bugtracker property
             # .'$Resources'.bugtracker
@@ -345,7 +345,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'repository')
+        elsif ($prop eq "repository")
         {
             # handle may repository property
             # .'$Resources'.repository
@@ -595,19 +595,19 @@ sub _jm_obj_5($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'version')
+        if ($prop eq "version")
         {
             # handle must version property
             $must_count++;
             # .'meta-spec'.version
-            $res = jm_is_string($pval) && $pval eq '1.0.0';
+            $res = jm_is_string($pval) && $pval eq "1.0.0";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        if ($prop eq 'url')
+        if ($prop eq "url")
         {
             # handle may url property
             # .'meta-spec'.url
@@ -644,7 +644,7 @@ sub _jm_obj_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'file')
+        if ($prop eq "file")
         {
             # handle may file property
             # .no_index.file
@@ -655,7 +655,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'directory')
+        elsif ($prop eq "directory")
         {
             # handle may directory property
             # .no_index.directory
@@ -685,7 +685,7 @@ sub json_model_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -697,7 +697,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'version')
+        elsif ($prop eq "version")
         {
             # handle must version property
             $must_count++;
@@ -709,7 +709,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'abstract')
+        elsif ($prop eq "abstract")
         {
             # handle must abstract property
             $must_count++;
@@ -721,7 +721,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'maintainer')
+        elsif ($prop eq "maintainer")
         {
             # handle must maintainer property
             $must_count++;
@@ -735,7 +735,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'license')
+        elsif ($prop eq "license")
         {
             # handle must license property
             $must_count++;
@@ -750,7 +750,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'provides')
+        elsif ($prop eq "provides")
         {
             # handle must provides property
             $must_count++;
@@ -762,7 +762,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'meta-spec')
+        elsif ($prop eq "meta-spec")
         {
             # handle must meta-spec property
             $must_count++;
@@ -774,7 +774,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        if ($prop eq 'url')
+        if ($prop eq "url")
         {
             # handle may url property
             # .url
@@ -785,7 +785,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .description
@@ -796,7 +796,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'generated_by')
+        elsif ($prop eq "generated_by")
         {
             # handle may generated_by property
             # .generated_by
@@ -807,7 +807,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'tags')
+        elsif ($prop eq "tags")
         {
             # handle may tags property
             # .tags
@@ -818,7 +818,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'no_index')
+        elsif ($prop eq "no_index")
         {
             # handle may no_index property
             # .no_index
@@ -829,7 +829,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'release_status')
+        elsif ($prop eq "release_status")
         {
             # handle may release_status property
             # .release_status
@@ -840,7 +840,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'resources')
+        elsif ($prop eq "resources")
         {
             # handle may resources property
             # .resources
@@ -851,7 +851,7 @@ sub json_model_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'prereqs')
+        elsif ($prop eq "prereqs")
         {
             # handle may prereqs property
             # .prereqs
@@ -894,70 +894,70 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
-            'agpl_3' => 1,
-            'apache_1_1' => 1,
-            'apache_2_0' => 1,
-            'artistic_1' => 1,
-            'artistic_2' => 1,
-            'bsd' => 1,
-            'freebsd' => 1,
-            'gfdl_1_2' => 1,
-            'gfdl_1_3' => 1,
-            'gpl_1' => 1,
-            'gpl_2' => 1,
-            'gpl_3' => 1,
-            'lgpl_2_1' => 1,
-            'lgpl_3_0' => 1,
-            'mit' => 1,
-            'mozilla_1_0' => 1,
-            'mozilla_1_1' => 1,
-            'openssl' => 1,
-            'perl_5' => 1,
-            'postgresql' => 1,
-            'qpl_1_0' => 1,
-            'ssleay' => 1,
-            'sun' => 1,
-            'zlib' => 1,
-            'open_source' => 1,
-            'restricted' => 1,
-            'unrestricted' => 1,
-            'unknown' => 1,
+            "agpl_3" => 1,
+            "apache_1_1" => 1,
+            "apache_2_0" => 1,
+            "artistic_1" => 1,
+            "artistic_2" => 1,
+            "bsd" => 1,
+            "freebsd" => 1,
+            "gfdl_1_2" => 1,
+            "gfdl_1_3" => 1,
+            "gpl_1" => 1,
+            "gpl_2" => 1,
+            "gpl_3" => 1,
+            "lgpl_2_1" => 1,
+            "lgpl_3_0" => 1,
+            "mit" => 1,
+            "mozilla_1_0" => 1,
+            "mozilla_1_1" => 1,
+            "openssl" => 1,
+            "perl_5" => 1,
+            "postgresql" => 1,
+            "qpl_1_0" => 1,
+            "ssleay" => 1,
+            "sun" => 1,
+            "zlib" => 1,
+            "open_source" => 1,
+            "restricted" => 1,
+            "unrestricted" => 1,
+            "unknown" => 1,
         );
         %_jm_cst_1 = (
-            'stable' => 1,
-            'testing' => 1,
-            'unstable' => 1,
+            "stable" => 1,
+            "testing" => 1,
+            "unstable" => 1,
         );
         %_jm_cst_2 = (
-            'configure' => 1,
-            'build' => 1,
-            'test' => 1,
-            'runtime' => 1,
-            'develop' => 1,
+            "configure" => 1,
+            "build" => 1,
+            "test" => 1,
+            "runtime" => 1,
+            "develop" => 1,
         );
         %_jm_cst_3 = (
-            'requires' => 1,
-            'recommends' => 1,
-            'suggests' => 1,
-            'conflicts' => 1,
+            "requires" => 1,
+            "recommends" => 1,
+            "suggests" => 1,
+            "conflicts" => 1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
-            'neStr' => \&json_model_2,
-            'neStrList' => \&json_model_3,
-            'License' => \&json_model_4,
-            'LicenseList' => \&json_model_5,
-            'Provide' => \&json_model_6,
-            'Status' => \&json_model_7,
-            'Resources' => \&json_model_8,
-            'SemVer' => \&json_model_9,
-            'Version' => \&json_model_10,
-            'Ops' => \&json_model_11,
-            'VersionRange' => \&json_model_12,
-            'Phase' => \&json_model_13,
-            'Relation' => \&json_model_14,
-            'Prereq' => \&json_model_15,
-            'Prereqs' => \&json_model_16,
+            "" => \&json_model_1,
+            "neStr" => \&json_model_2,
+            "neStrList" => \&json_model_3,
+            "License" => \&json_model_4,
+            "LicenseList" => \&json_model_5,
+            "Provide" => \&json_model_6,
+            "Status" => \&json_model_7,
+            "Resources" => \&json_model_8,
+            "SemVer" => \&json_model_9,
+            "Version" => \&json_model_10,
+            "Ops" => \&json_model_11,
+            "VersionRange" => \&json_model_12,
+            "Phase" => \&json_model_13,
+            "Relation" => \&json_model_14,
+            "Prereq" => \&json_model_15,
+            "Prereqs" => \&json_model_16,
         );
     }
 }

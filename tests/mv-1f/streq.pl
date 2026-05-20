@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_1($$$);
@@ -20,7 +20,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/^Susie$/"
-    return jm_is_string($val) && $val eq 'Susie';
+    return jm_is_string($val) && $val eq "Susie";
 }
 
 
@@ -34,7 +34,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            "" => \&json_model_1,
         );
     }
 }

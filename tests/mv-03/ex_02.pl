@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub json_model_5($$$);
@@ -23,7 +23,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$x1'
-    return jm_is_string($val) && $val eq 'Susie';
+    return jm_is_string($val) && $val eq "Susie";
 }
 
 # check $x2 (.'$x2')
@@ -31,7 +31,7 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$x2'
-    return jm_is_string($val) && $val eq 'Susie';
+    return jm_is_string($val) && $val eq "Susie";
 }
 
 # check $x3 (.'$x3')
@@ -39,7 +39,7 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$x3'
-    return jm_is_string($val) && $val eq 'Susie';
+    return jm_is_string($val) && $val eq "Susie";
 }
 
 # check $__external_0 (.'$__external_0')
@@ -47,7 +47,7 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$__external_0'
-    return jm_is_string($val) && $val eq 'Susie';
+    return jm_is_string($val) && $val eq "Susie";
 }
 
 # check $ (.)
@@ -59,19 +59,19 @@ sub json_model_1($$$)
     if ($res)
     {
         # .0
-        $res = jm_is_string($$val[0]) && $$val[0] eq 'Susie';
+        $res = jm_is_string($$val[0]) && $$val[0] eq "Susie";
         if ($res)
         {
             # .1
-            $res = jm_is_string($$val[1]) && $$val[1] eq 'Susie';
+            $res = jm_is_string($$val[1]) && $$val[1] eq "Susie";
             if ($res)
             {
                 # .2
-                $res = jm_is_string($$val[2]) && $$val[2] eq 'Susie';
+                $res = jm_is_string($$val[2]) && $$val[2] eq "Susie";
                 if ($res)
                 {
                     # .3
-                    $res = jm_is_string($$val[3]) && $$val[3] eq 'Susie';
+                    $res = jm_is_string($$val[3]) && $$val[3] eq "Susie";
                 }
             }
         }
@@ -90,11 +90,11 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
-            'x1' => \&json_model_5,
-            'x2' => \&json_model_6,
-            'x3' => \&json_model_7,
-            '__external_0' => \&json_model_8,
+            "" => \&json_model_1,
+            "x1" => \&json_model_5,
+            "x2" => \&json_model_6,
+            "x3" => \&json_model_7,
+            "__external_0" => \&json_model_8,
         );
     }
 }

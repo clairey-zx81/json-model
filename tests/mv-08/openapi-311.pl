@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -251,7 +251,7 @@ sub json_model_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'openapi')
+        if ($prop eq "openapi")
         {
             # handle must openapi property
             $must_count++;
@@ -264,7 +264,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'info')
+        elsif ($prop eq "info")
         {
             # handle must info property
             $must_count++;
@@ -276,7 +276,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        if ($prop eq 'jsonSchemaDialect')
+        if ($prop eq "jsonSchemaDialect")
         {
             # handle may jsonSchemaDialect property
             # .'$OpenAPI'.jsonSchemaDialect
@@ -287,7 +287,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'servers')
+        elsif ($prop eq "servers")
         {
             # handle may servers property
             # .'$OpenAPI'.servers
@@ -311,7 +311,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'paths')
+        elsif ($prop eq "paths")
         {
             # handle may paths property
             # .'$OpenAPI'.paths
@@ -322,7 +322,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'webhooks')
+        elsif ($prop eq "webhooks")
         {
             # handle may webhooks property
             # .'$OpenAPI'.webhooks
@@ -333,7 +333,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'components')
+        elsif ($prop eq "components")
         {
             # handle may components property
             # .'$OpenAPI'.components
@@ -344,7 +344,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'security')
+        elsif ($prop eq "security")
         {
             # handle may security property
             # .'$OpenAPI'.security
@@ -368,7 +368,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'tags')
+        elsif ($prop eq "tags")
         {
             # handle may tags property
             # .'$OpenAPI'.tags
@@ -392,7 +392,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'externalDocs')
+        elsif ($prop eq "externalDocs")
         {
             # handle may externalDocs property
             # .'$OpenAPI'.externalDocs
@@ -403,7 +403,7 @@ sub json_model_2($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$OpenAPI'.'/^x-/'
@@ -431,7 +431,7 @@ sub json_model_3($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'title')
+        if ($prop eq "title")
         {
             # handle must title property
             $must_count++;
@@ -443,7 +443,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'version')
+        elsif ($prop eq "version")
         {
             # handle must version property
             $must_count++;
@@ -455,7 +455,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        if ($prop eq 'summary')
+        if ($prop eq "summary")
         {
             # handle may summary property
             # .'$Info'.summary
@@ -466,7 +466,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$Info'.description
@@ -477,7 +477,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'termsOfService')
+        elsif ($prop eq "termsOfService")
         {
             # handle may termsOfService property
             # .'$Info'.termsOfService
@@ -488,7 +488,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'contact')
+        elsif ($prop eq "contact")
         {
             # handle may contact property
             # .'$Info'.contact
@@ -499,7 +499,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        elsif ($prop eq 'license')
+        elsif ($prop eq "license")
         {
             # handle may license property
             # .'$Info'.license
@@ -510,7 +510,7 @@ sub json_model_3($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Info'.'/^x-/'
@@ -537,7 +537,7 @@ sub json_model_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$Contact'.name
@@ -548,7 +548,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'url')
+        elsif ($prop eq "url")
         {
             # handle may url property
             # .'$Contact'.url
@@ -559,7 +559,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        elsif ($prop eq 'email')
+        elsif ($prop eq "email")
         {
             # handle may email property
             # .'$Contact'.email
@@ -570,7 +570,7 @@ sub json_model_4($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Contact'.'/^x-/'
@@ -601,7 +601,7 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -613,7 +613,7 @@ sub _jm_obj_1($$$)
             }
             next;
         }
-        elsif ($prop eq 'url')
+        elsif ($prop eq "url")
         {
             # handle must url property
             $must_count++;
@@ -649,7 +649,7 @@ sub _jm_obj_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -661,7 +661,7 @@ sub _jm_obj_2($$$)
             }
             next;
         }
-        elsif ($prop eq 'identifier')
+        elsif ($prop eq "identifier")
         {
             # handle must identifier property
             $must_count++;
@@ -734,7 +734,7 @@ sub json_model_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'url')
+        if ($prop eq "url")
         {
             # handle must url property
             $must_count++;
@@ -746,7 +746,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$Server'.description
@@ -757,7 +757,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'variables')
+        elsif ($prop eq "variables")
         {
             # handle may variables property
             # .'$Server'.variables
@@ -768,7 +768,7 @@ sub json_model_6($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Server'.'/^x-/'
@@ -796,7 +796,7 @@ sub json_model_7($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'default')
+        if ($prop eq "default")
         {
             # handle must default property
             $must_count++;
@@ -808,7 +808,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        if ($prop eq 'enum')
+        if ($prop eq "enum")
         {
             # handle may enum property
             # .'$ServerVariable'.enum
@@ -832,7 +832,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$ServerVariable'.description
@@ -843,7 +843,7 @@ sub json_model_7($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$ServerVariable'.'/^x-/'
@@ -1139,7 +1139,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Components'.'/^x-/'
@@ -1166,7 +1166,7 @@ sub json_model_9($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_starts_with($prop, '/'))
+        if (jm_starts_with($prop, "/"))
         {
             # handle 2 re props
             # .'$Paths'.'/^//'
@@ -1176,7 +1176,7 @@ sub json_model_9($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'x-'))
+        elsif (jm_starts_with($prop, "x-"))
         {
             # handle 2 re props
             # .'$Paths'.'/^x-/'
@@ -1284,7 +1284,7 @@ sub json_model_10($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$PathItem'.'/^x-/'
@@ -1480,7 +1480,7 @@ sub json_model_11($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Operation'.'/^x-/'
@@ -1508,7 +1508,7 @@ sub json_model_12($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'url')
+        if ($prop eq "url")
         {
             # handle must url property
             $must_count++;
@@ -1520,7 +1520,7 @@ sub json_model_12($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$ExternalDocumentation'.description
@@ -1531,7 +1531,7 @@ sub json_model_12($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$ExternalDocumentation'.'/^x-/'
@@ -1558,7 +1558,7 @@ sub json_model_13($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$parameterShare'.description
@@ -1569,7 +1569,7 @@ sub json_model_13($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$parameterShare'.required
@@ -1580,7 +1580,7 @@ sub json_model_13($$$)
             }
             next;
         }
-        elsif ($prop eq 'deprecated')
+        elsif ($prop eq "deprecated")
         {
             # handle may deprecated property
             # .'$parameterShare'.deprecated
@@ -1591,7 +1591,7 @@ sub json_model_13($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowEmptyValue')
+        elsif ($prop eq "allowEmptyValue")
         {
             # handle may allowEmptyValue property
             # .'$parameterShare'.allowEmptyValue
@@ -1602,7 +1602,7 @@ sub json_model_13($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$parameterShare'.'/^x-/'
@@ -1631,7 +1631,7 @@ sub json_model_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -1643,7 +1643,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        elsif ($prop eq 'in')
+        elsif ($prop eq "in")
         {
             # handle must in property
             $must_count++;
@@ -1655,7 +1655,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$commonParameter'.description
@@ -1666,7 +1666,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$commonParameter'.required
@@ -1677,7 +1677,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        elsif ($prop eq 'deprecated')
+        elsif ($prop eq "deprecated")
         {
             # handle may deprecated property
             # .'$commonParameter'.deprecated
@@ -1688,7 +1688,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowEmptyValue')
+        elsif ($prop eq "allowEmptyValue")
         {
             # handle may allowEmptyValue property
             # .'$commonParameter'.allowEmptyValue
@@ -1699,7 +1699,7 @@ sub json_model_14($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$commonParameter'.'/^x-/'
@@ -1761,7 +1761,7 @@ sub json_model_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'style')
+        if ($prop eq "style")
         {
             # handle may style property
             # .'$parameterSchemaOnly'.style
@@ -1772,7 +1772,7 @@ sub json_model_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'explode')
+        elsif ($prop eq "explode")
         {
             # handle may explode property
             # .'$parameterSchemaOnly'.explode
@@ -1783,7 +1783,7 @@ sub json_model_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowReserved')
+        elsif ($prop eq "allowReserved")
         {
             # handle may allowReserved property
             # .'$parameterSchemaOnly'.allowReserved
@@ -1794,7 +1794,7 @@ sub json_model_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'schema')
+        elsif ($prop eq "schema")
         {
             # handle may schema property
             # .'$parameterSchemaOnly'.schema
@@ -1805,14 +1805,14 @@ sub json_model_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'example')
+        elsif ($prop eq "example")
         {
             # handle may example property
             # .'$parameterSchemaOnly'.example
             $res = 1;
             next;
         }
-        elsif ($prop eq 'examples')
+        elsif ($prop eq "examples")
         {
             # handle may examples property
             # .'$parameterSchemaOnly'.examples
@@ -1864,7 +1864,7 @@ sub json_model_17($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'content')
+        if ($prop eq "content")
         {
             # handle may content property
             # .'$parameterContentOnly'.content
@@ -1914,7 +1914,7 @@ sub _jm_obj_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -1926,7 +1926,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'in')
+        elsif ($prop eq "in")
         {
             # handle must in property
             $must_count++;
@@ -1938,7 +1938,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$Parameter'.'|'.1.description
@@ -1949,7 +1949,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$Parameter'.'|'.1.required
@@ -1960,7 +1960,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'deprecated')
+        elsif ($prop eq "deprecated")
         {
             # handle may deprecated property
             # .'$Parameter'.'|'.1.deprecated
@@ -1971,7 +1971,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowEmptyValue')
+        elsif ($prop eq "allowEmptyValue")
         {
             # handle may allowEmptyValue property
             # .'$Parameter'.'|'.1.allowEmptyValue
@@ -1982,7 +1982,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$Parameter'.'|'.1.content
@@ -1993,7 +1993,7 @@ sub _jm_obj_6($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Parameter'.'|'.1.'/^x-/'
@@ -2102,7 +2102,7 @@ sub _jm_obj_8($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -2114,7 +2114,7 @@ sub _jm_obj_8($$$)
             }
             next;
         }
-        elsif ($prop eq 'in')
+        elsif ($prop eq "in")
         {
             # handle must in property
             $must_count++;
@@ -2135,7 +2135,7 @@ sub _jm_obj_8($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Parameter'.'|'.0.'/^x-/'
@@ -2195,7 +2195,7 @@ sub json_model_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$RequestBody'.description
@@ -2206,7 +2206,7 @@ sub json_model_19($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$RequestBody'.content
@@ -2217,7 +2217,7 @@ sub json_model_19($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$RequestBody'.required
@@ -2228,7 +2228,7 @@ sub json_model_19($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$RequestBody'.'/^x-/'
@@ -2303,7 +2303,7 @@ sub json_model_20($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'schema')
+        if ($prop eq "schema")
         {
             # handle may schema property
             # .'$MediaType'.schema
@@ -2314,14 +2314,14 @@ sub json_model_20($$$)
             }
             next;
         }
-        elsif ($prop eq 'example')
+        elsif ($prop eq "example")
         {
             # handle may example property
             # .'$MediaType'.example
             $res = 1;
             next;
         }
-        elsif ($prop eq 'examples')
+        elsif ($prop eq "examples")
         {
             # handle may examples property
             # .'$MediaType'.examples
@@ -2332,7 +2332,7 @@ sub json_model_20($$$)
             }
             next;
         }
-        elsif ($prop eq 'encoding')
+        elsif ($prop eq "encoding")
         {
             # handle may encoding property
             # .'$MediaType'.encoding
@@ -2343,7 +2343,7 @@ sub json_model_20($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$MediaType'.'/^x-/'
@@ -2395,7 +2395,7 @@ sub json_model_21($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'contentType')
+        if ($prop eq "contentType")
         {
             # handle may contentType property
             # .'$Encoding'.contentType
@@ -2406,7 +2406,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        elsif ($prop eq 'headers')
+        elsif ($prop eq "headers")
         {
             # handle may headers property
             # .'$Encoding'.headers
@@ -2417,7 +2417,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        elsif ($prop eq 'style')
+        elsif ($prop eq "style")
         {
             # handle may style property
             # .'$Encoding'.style
@@ -2428,7 +2428,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        elsif ($prop eq 'explode')
+        elsif ($prop eq "explode")
         {
             # handle may explode property
             # .'$Encoding'.explode
@@ -2439,7 +2439,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowReserved')
+        elsif ($prop eq "allowReserved")
         {
             # handle may allowReserved property
             # .'$Encoding'.allowReserved
@@ -2450,7 +2450,7 @@ sub json_model_21($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Encoding'.'/^x-/'
@@ -2484,7 +2484,7 @@ sub json_model_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'default')
+        if ($prop eq "default")
         {
             # handle may default property
             # .'$Responses'.default
@@ -2509,7 +2509,7 @@ sub json_model_22($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'x-'))
+        elsif (jm_starts_with($prop, "x-"))
         {
             # handle 2 re props
             # .'$Responses'.'/^x-/'
@@ -2609,7 +2609,7 @@ sub json_model_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$Response'.description
@@ -2620,7 +2620,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'headers')
+        elsif ($prop eq "headers")
         {
             # handle may headers property
             # .'$Response'.headers
@@ -2631,7 +2631,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$Response'.content
@@ -2642,7 +2642,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'links')
+        elsif ($prop eq "links")
         {
             # handle may links property
             # .'$Response'.links
@@ -2653,7 +2653,7 @@ sub json_model_23($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Response'.'/^x-/'
@@ -2692,7 +2692,7 @@ sub json_model_24($$$)
                 return 0;
             }
         }
-        elsif (jm_starts_with($prop, 'x-'))
+        elsif (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Callback'.'/^x-/'
@@ -2719,7 +2719,7 @@ sub json_model_25($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'summary')
+        if ($prop eq "summary")
         {
             # handle may summary property
             # .'$Example'.summary
@@ -2730,7 +2730,7 @@ sub json_model_25($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$Example'.description
@@ -2741,14 +2741,14 @@ sub json_model_25($$$)
             }
             next;
         }
-        elsif ($prop eq 'value')
+        elsif ($prop eq "value")
         {
             # handle may value property
             # .'$Example'.value
             $res = 1;
             next;
         }
-        elsif ($prop eq 'externalValue')
+        elsif ($prop eq "externalValue")
         {
             # handle may externalValue property
             # .'$Example'.externalValue
@@ -2759,7 +2759,7 @@ sub json_model_25($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Example'.'/^x-/'
@@ -2791,7 +2791,7 @@ sub _jm_obj_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'operationId')
+        if ($prop eq "operationId")
         {
             # handle must operationId property
             $must_count++;
@@ -2803,7 +2803,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        if ($prop eq 'parameters')
+        if ($prop eq "parameters")
         {
             # handle may parameters property
             # .'$Link'.'|'.1.parameters
@@ -2814,14 +2814,14 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'requestBody')
+        elsif ($prop eq "requestBody")
         {
             # handle may requestBody property
             # .'$Link'.'|'.1.requestBody
             $res = 1;
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$Link'.'|'.1.description
@@ -2832,7 +2832,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        elsif ($prop eq 'server')
+        elsif ($prop eq "server")
         {
             # handle may server property
             # .'$Link'.'|'.1.server
@@ -2843,7 +2843,7 @@ sub _jm_obj_16($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Link'.'|'.1.'/^x-/'
@@ -2867,7 +2867,7 @@ sub _jm_obj_17($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'operationRef')
+        if ($prop eq "operationRef")
         {
             # handle must operationRef property
             $must_count++;
@@ -2879,7 +2879,7 @@ sub _jm_obj_17($$$)
             }
             next;
         }
-        if ($prop eq 'parameters')
+        if ($prop eq "parameters")
         {
             # handle may parameters property
             # .'$Link'.'|'.0.parameters
@@ -2890,14 +2890,14 @@ sub _jm_obj_17($$$)
             }
             next;
         }
-        elsif ($prop eq 'requestBody')
+        elsif ($prop eq "requestBody")
         {
             # handle may requestBody property
             # .'$Link'.'|'.0.requestBody
             $res = 1;
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$Link'.'|'.0.description
@@ -2908,7 +2908,7 @@ sub _jm_obj_17($$$)
             }
             next;
         }
-        elsif ($prop eq 'server')
+        elsif ($prop eq "server")
         {
             # handle may server property
             # .'$Link'.'|'.0.server
@@ -2919,7 +2919,7 @@ sub _jm_obj_17($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Link'.'|'.0.'/^x-/'
@@ -2975,7 +2975,7 @@ sub _jm_obj_18($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$Header'.'|'.1.description
@@ -2986,7 +2986,7 @@ sub _jm_obj_18($$$)
             }
             next;
         }
-        elsif ($prop eq 'required')
+        elsif ($prop eq "required")
         {
             # handle may required property
             # .'$Header'.'|'.1.required
@@ -2997,7 +2997,7 @@ sub _jm_obj_18($$$)
             }
             next;
         }
-        elsif ($prop eq 'deprecated')
+        elsif ($prop eq "deprecated")
         {
             # handle may deprecated property
             # .'$Header'.'|'.1.deprecated
@@ -3008,7 +3008,7 @@ sub _jm_obj_18($$$)
             }
             next;
         }
-        elsif ($prop eq 'allowEmptyValue')
+        elsif ($prop eq "allowEmptyValue")
         {
             # handle may allowEmptyValue property
             # .'$Header'.'|'.1.allowEmptyValue
@@ -3019,7 +3019,7 @@ sub _jm_obj_18($$$)
             }
             next;
         }
-        elsif ($prop eq 'content')
+        elsif ($prop eq "content")
         {
             # handle may content property
             # .'$Header'.'|'.1.content
@@ -3030,7 +3030,7 @@ sub _jm_obj_18($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Header'.'|'.1.'/^x-/'
@@ -3146,7 +3146,7 @@ sub _jm_obj_20($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Header'.'|'.0.'/^x-/'
@@ -3185,7 +3185,7 @@ sub json_model_29($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -3197,7 +3197,7 @@ sub json_model_29($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$Tag'.description
@@ -3208,7 +3208,7 @@ sub json_model_29($$$)
             }
             next;
         }
-        elsif ($prop eq 'externalDocs')
+        elsif ($prop eq "externalDocs")
         {
             # handle may externalDocs property
             # .'$Tag'.externalDocs
@@ -3219,7 +3219,7 @@ sub json_model_29($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Tag'.'/^x-/'
@@ -3247,7 +3247,7 @@ sub json_model_30($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq '$ref')
+        if ($prop eq "\$ref")
         {
             # handle must $ref property
             $must_count++;
@@ -3259,7 +3259,7 @@ sub json_model_30($$$)
             }
             next;
         }
-        if ($prop eq 'summary')
+        if ($prop eq "summary")
         {
             # handle may summary property
             # .'$Reference'.summary
@@ -3270,7 +3270,7 @@ sub json_model_30($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$Reference'.description
@@ -3333,7 +3333,7 @@ sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Schema'.'$schema'
-    return jm_is_string($val) && $val eq 'https://json-schema.org/draft/2020-12/schema';
+    return jm_is_string($val) && $val eq "https://json-schema.org/draft/2020-12/schema";
 }
 
 # check json_model_32_map_$vocabulary (.'$Schema'.'$vocabulary')
@@ -3705,7 +3705,7 @@ sub json_model_33($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'propertyName')
+        if ($prop eq "propertyName")
         {
             # handle must propertyName property
             $must_count++;
@@ -3717,7 +3717,7 @@ sub json_model_33($$$)
             }
             next;
         }
-        if ($prop eq 'mapping')
+        if ($prop eq "mapping")
         {
             # handle may mapping property
             # .'$Discriminator'.mapping
@@ -3728,7 +3728,7 @@ sub json_model_33($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Discriminator'.'/^x-/'
@@ -3755,7 +3755,7 @@ sub json_model_34($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'name')
+        if ($prop eq "name")
         {
             # handle may name property
             # .'$xml'.name
@@ -3766,7 +3766,7 @@ sub json_model_34($$$)
             }
             next;
         }
-        elsif ($prop eq 'namespace')
+        elsif ($prop eq "namespace")
         {
             # handle may namespace property
             # .'$xml'.namespace
@@ -3777,7 +3777,7 @@ sub json_model_34($$$)
             }
             next;
         }
-        elsif ($prop eq 'prefix')
+        elsif ($prop eq "prefix")
         {
             # handle may prefix property
             # .'$xml'.prefix
@@ -3788,7 +3788,7 @@ sub json_model_34($$$)
             }
             next;
         }
-        elsif ($prop eq 'attribute')
+        elsif ($prop eq "attribute")
         {
             # handle may attribute property
             # .'$xml'.attribute
@@ -3799,7 +3799,7 @@ sub json_model_34($$$)
             }
             next;
         }
-        elsif ($prop eq 'wrapped')
+        elsif ($prop eq "wrapped")
         {
             # handle may wrapped property
             # .'$xml'.wrapped
@@ -3810,7 +3810,7 @@ sub json_model_34($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$xml'.'/^x-/'
@@ -3840,33 +3840,33 @@ sub json_model_35($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$SS-apikey'.type
-    my $res = jm_is_string($pval) && $pval eq 'apiKey';
+    my $res = jm_is_string($pval) && $pval eq "apiKey";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'name'})
+    if (! exists $$val{"name"})
     {
         return 0;
     }
-    $pval = $$val{'name'};
+    $pval = $$val{"name"};
     # .'$SS-apikey'.name
     $res = jm_is_string($pval);
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'in'})
+    if (! exists $$val{"in"})
     {
         return 0;
     }
-    $pval = $$val{'in'};
+    $pval = $$val{"in"};
     # .'$SS-apikey'.in
     return jm_is_string($pval) && exists $_jm_cst_4{$pval};
 }
@@ -3886,22 +3886,22 @@ sub json_model_36($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$SS-http'.type
-    my $res = jm_is_string($pval) && $pval eq 'http';
+    my $res = jm_is_string($pval) && $pval eq "http";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'scheme'})
+    if (! exists $$val{"scheme"})
     {
         return 0;
     }
-    $pval = $$val{'scheme'};
+    $pval = $$val{"scheme"};
     # .'$SS-http'.scheme
     return jm_is_string($pval);
 }
@@ -3927,19 +3927,19 @@ sub json_model_37($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$SS-http-bearer'.type
-            $res = jm_is_string($pval) && $pval eq 'http';
+            $res = jm_is_string($pval) && $pval eq "http";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'scheme')
+        elsif ($prop eq "scheme")
         {
             # handle must scheme property
             $must_count++;
@@ -3952,7 +3952,7 @@ sub json_model_37($$$)
             }
             next;
         }
-        if ($prop eq 'bearerFormat')
+        if ($prop eq "bearerFormat")
         {
             # handle may bearerFormat property
             # .'$SS-http-bearer'.bearerFormat
@@ -3983,22 +3983,22 @@ sub json_model_38($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$SS-oauth2'.type
-    my $res = jm_is_string($pval) && $pval eq 'oauth2';
+    my $res = jm_is_string($pval) && $pval eq "oauth2";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'flows'})
+    if (! exists $$val{"flows"})
     {
         return 0;
     }
-    $pval = $$val{'flows'};
+    $pval = $$val{"flows"};
     # .'$SS-oauth2'.flows
     return json_model_41($pval, undef, undef);
 }
@@ -4018,22 +4018,22 @@ sub json_model_39($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'type'})
+    if (! exists $$val{"type"})
     {
         return 0;
     }
-    $pval = $$val{'type'};
+    $pval = $$val{"type"};
     # .'$SS-oic'.type
-    my $res = jm_is_string($pval) && $pval eq 'openIdConnect';
+    my $res = jm_is_string($pval) && $pval eq "openIdConnect";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'openIdConnectUrl'})
+    if (! exists $$val{"openIdConnectUrl"})
     {
         return 0;
     }
-    $pval = $$val{'openIdConnectUrl'};
+    $pval = $$val{"openIdConnectUrl"};
     # .'$SS-oic'.openIdConnectUrl
     return jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
 }
@@ -4052,19 +4052,19 @@ sub _jm_obj_22($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$SecurityScheme'.'|'.0.type
-            $res = jm_is_string($pval) && $pval eq 'apiKey';
+            $res = jm_is_string($pval) && $pval eq "apiKey";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'name')
+        elsif ($prop eq "name")
         {
             # handle must name property
             $must_count++;
@@ -4076,7 +4076,7 @@ sub _jm_obj_22($$$)
             }
             next;
         }
-        elsif ($prop eq 'in')
+        elsif ($prop eq "in")
         {
             # handle must in property
             $must_count++;
@@ -4088,7 +4088,7 @@ sub _jm_obj_22($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$SecurityScheme'.'|'.0.description
@@ -4117,19 +4117,19 @@ sub _jm_obj_23($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$SecurityScheme'.'|'.1.type
-            $res = jm_is_string($pval) && $pval eq 'http';
+            $res = jm_is_string($pval) && $pval eq "http";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'scheme')
+        elsif ($prop eq "scheme")
         {
             # handle must scheme property
             $must_count++;
@@ -4142,7 +4142,7 @@ sub _jm_obj_23($$$)
             }
             next;
         }
-        if ($prop eq 'bearerFormat')
+        if ($prop eq "bearerFormat")
         {
             # handle may bearerFormat property
             # .'$SecurityScheme'.'|'.1.bearerFormat
@@ -4153,7 +4153,7 @@ sub _jm_obj_23($$$)
             }
             next;
         }
-        elsif ($prop eq 'description')
+        elsif ($prop eq "description")
         {
             # handle may description property
             # .'$SecurityScheme'.'|'.1.description
@@ -4182,19 +4182,19 @@ sub _jm_obj_24($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$SecurityScheme'.'|'.2.type
-            $res = jm_is_string($pval) && $pval eq 'http';
+            $res = jm_is_string($pval) && $pval eq "http";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'scheme')
+        elsif ($prop eq "scheme")
         {
             # handle must scheme property
             $must_count++;
@@ -4206,7 +4206,7 @@ sub _jm_obj_24($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$SecurityScheme'.'|'.2.description
@@ -4235,19 +4235,19 @@ sub _jm_obj_25($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$SecurityScheme'.'|'.3.type
-            $res = jm_is_string($pval) && $pval eq 'oauth2';
+            $res = jm_is_string($pval) && $pval eq "oauth2";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'flows')
+        elsif ($prop eq "flows")
         {
             # handle must flows property
             $must_count++;
@@ -4259,7 +4259,7 @@ sub _jm_obj_25($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$SecurityScheme'.'|'.3.description
@@ -4288,19 +4288,19 @@ sub _jm_obj_26($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'type')
+        if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$SecurityScheme'.'|'.4.type
-            $res = jm_is_string($pval) && $pval eq 'openIdConnect';
+            $res = jm_is_string($pval) && $pval eq "openIdConnect";
             if (! $res)
             {
                 return 0;
             }
             next;
         }
-        elsif ($prop eq 'openIdConnectUrl')
+        elsif ($prop eq "openIdConnectUrl")
         {
             # handle must openIdConnectUrl property
             $must_count++;
@@ -4312,7 +4312,7 @@ sub _jm_obj_26($$$)
             }
             next;
         }
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$SecurityScheme'.'|'.4.description
@@ -4340,7 +4340,7 @@ sub _jm_obj_27($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'description')
+        if ($prop eq "description")
         {
             # handle may description property
             # .'$SecurityScheme'.'|'.5.description
@@ -4351,7 +4351,7 @@ sub _jm_obj_27($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$SecurityScheme'.'|'.5.'/^x-/'
@@ -4375,7 +4375,7 @@ sub json_model_40($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'type'}))
+        if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -4403,7 +4403,7 @@ sub json_model_41($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'implicit')
+        if ($prop eq "implicit")
         {
             # handle may implicit property
             # .'$OAuthFlows'.implicit
@@ -4414,7 +4414,7 @@ sub json_model_41($$$)
             }
             next;
         }
-        elsif ($prop eq 'password')
+        elsif ($prop eq "password")
         {
             # handle may password property
             # .'$OAuthFlows'.password
@@ -4425,7 +4425,7 @@ sub json_model_41($$$)
             }
             next;
         }
-        elsif ($prop eq 'clientCredentials')
+        elsif ($prop eq "clientCredentials")
         {
             # handle may clientCredentials property
             # .'$OAuthFlows'.clientCredentials
@@ -4436,7 +4436,7 @@ sub json_model_41($$$)
             }
             next;
         }
-        elsif ($prop eq 'authorizationCode')
+        elsif ($prop eq "authorizationCode")
         {
             # handle may authorizationCode property
             # .'$OAuthFlows'.authorizationCode
@@ -4447,7 +4447,7 @@ sub json_model_41($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$OAuthFlows'.'/^x-/'
@@ -4498,7 +4498,7 @@ sub json_model_42($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if ($prop eq 'authorizationUrl')
+        if ($prop eq "authorizationUrl")
         {
             # handle must authorizationUrl property
             $must_count++;
@@ -4510,7 +4510,7 @@ sub json_model_42($$$)
             }
             next;
         }
-        elsif ($prop eq 'tokenUrl')
+        elsif ($prop eq "tokenUrl")
         {
             # handle must tokenUrl property
             $must_count++;
@@ -4522,7 +4522,7 @@ sub json_model_42($$$)
             }
             next;
         }
-        elsif ($prop eq 'scopes')
+        elsif ($prop eq "scopes")
         {
             # handle must scopes property
             $must_count++;
@@ -4534,7 +4534,7 @@ sub json_model_42($$$)
             }
             next;
         }
-        if ($prop eq 'refreshUrl')
+        if ($prop eq "refreshUrl")
         {
             # handle may refreshUrl property
             # .'$OAuthFlow'.refreshUrl
@@ -4545,7 +4545,7 @@ sub json_model_42($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$OAuthFlow'.'/^x-/'
@@ -4609,7 +4609,7 @@ sub json_model_44($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_starts_with($prop, 'x-'))
+        if (jm_starts_with($prop, "x-"))
         {
             # handle 1 re props
             # .'$Extension'.'/^x-/'
@@ -4786,7 +4786,7 @@ sub _jm_f_72($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema#ObjectSchema'.'$schema'
-    return jm_is_string($val) && $val eq 'https://json-schema.org/draft/2020-12/schema';
+    return jm_is_string($val) && $val eq "https://json-schema.org/draft/2020-12/schema";
 }
 
 # check json_model_59_map_$vocabulary (.'$schema#ObjectSchema'.'$vocabulary')
@@ -5124,289 +5124,289 @@ sub check_model_init()
     {
         $initialized = 1;
         %json_model_8_map = (
-            'callbacks' => \&_jm_f_0,
-            'examples' => \&_jm_f_1,
-            'headers' => \&_jm_f_2,
-            'links' => \&_jm_f_3,
-            'parameters' => \&_jm_f_4,
-            'pathItems' => \&_jm_f_5,
-            'requestBodies' => \&_jm_f_6,
-            'responses' => \&_jm_f_7,
-            'schemas' => \&_jm_f_8,
-            'securitySchemes' => \&_jm_f_9,
+            "callbacks" => \&_jm_f_0,
+            "examples" => \&_jm_f_1,
+            "headers" => \&_jm_f_2,
+            "links" => \&_jm_f_3,
+            "parameters" => \&_jm_f_4,
+            "pathItems" => \&_jm_f_5,
+            "requestBodies" => \&_jm_f_6,
+            "responses" => \&_jm_f_7,
+            "schemas" => \&_jm_f_8,
+            "securitySchemes" => \&_jm_f_9,
         );
         %json_model_10_map = (
-            '$ref' => \&_jm_f_10,
-            'delete' => \&json_model_11,
-            'description' => \&_jm_f_11,
-            'get' => \&json_model_11,
-            'head' => \&json_model_11,
-            'options' => \&json_model_11,
-            'parameters' => \&_jm_f_12,
-            'patch' => \&json_model_11,
-            'post' => \&json_model_11,
-            'put' => \&json_model_11,
-            'servers' => \&_jm_f_13,
-            'summary' => \&_jm_f_14,
-            'trace' => \&json_model_11,
+            "\$ref" => \&_jm_f_10,
+            "delete" => \&json_model_11,
+            "description" => \&_jm_f_11,
+            "get" => \&json_model_11,
+            "head" => \&json_model_11,
+            "options" => \&json_model_11,
+            "parameters" => \&_jm_f_12,
+            "patch" => \&json_model_11,
+            "post" => \&json_model_11,
+            "put" => \&json_model_11,
+            "servers" => \&_jm_f_13,
+            "summary" => \&_jm_f_14,
+            "trace" => \&json_model_11,
         );
         %json_model_11_map = (
-            'callbacks' => \&_jm_f_15,
-            'deprecated' => \&_jm_f_16,
-            'description' => \&_jm_f_17,
-            'externalDocs' => \&json_model_12,
-            'operationId' => \&_jm_f_18,
-            'parameters' => \&_jm_f_19,
-            'requestBody' => \&_jm_f_20,
-            'responses' => \&json_model_22,
-            'security' => \&_jm_f_21,
-            'servers' => \&_jm_f_22,
-            'summary' => \&_jm_f_23,
-            'tags' => \&_jm_f_24,
+            "callbacks" => \&_jm_f_15,
+            "deprecated" => \&_jm_f_16,
+            "description" => \&_jm_f_17,
+            "externalDocs" => \&json_model_12,
+            "operationId" => \&_jm_f_18,
+            "parameters" => \&_jm_f_19,
+            "requestBody" => \&_jm_f_20,
+            "responses" => \&json_model_22,
+            "security" => \&_jm_f_21,
+            "servers" => \&_jm_f_22,
+            "summary" => \&_jm_f_23,
+            "tags" => \&_jm_f_24,
         );
         %_jm_cst_0 = (
-            'query' => 1,
-            'header' => 1,
-            'path' => 1,
-            'cookie' => 1,
+            "query" => 1,
+            "header" => 1,
+            "path" => 1,
+            "cookie" => 1,
         );
         %_jm_cst_1 = (
-            'matrix' => 1,
-            'label' => 1,
-            'form' => 1,
-            'simple' => 1,
-            'spaceDelimited' => 1,
-            'pipeDelimited' => 1,
-            'deepObject' => 1,
+            "matrix" => 1,
+            "label" => 1,
+            "form" => 1,
+            "simple" => 1,
+            "spaceDelimited" => 1,
+            "pipeDelimited" => 1,
+            "deepObject" => 1,
         );
         %_jm_cst_2 = (
-            'query' => 1,
-            'header' => 1,
-            'path' => 1,
-            'cookie' => 1,
+            "query" => 1,
+            "header" => 1,
+            "path" => 1,
+            "cookie" => 1,
         );
         %_jm_cst_3 = (
-            'query' => 1,
-            'header' => 1,
-            'path' => 1,
-            'cookie' => 1,
+            "query" => 1,
+            "header" => 1,
+            "path" => 1,
+            "cookie" => 1,
         );
         %_jm_obj_8_map = (
-            'allowEmptyValue' => \&_jm_f_25,
-            'allowReserved' => \&_jm_f_26,
-            'deprecated' => \&_jm_f_27,
-            'description' => \&_jm_f_28,
-            'example' => \&_jm_f_29,
-            'examples' => \&_jm_f_30,
-            'explode' => \&_jm_f_31,
-            'required' => \&_jm_f_32,
-            'schema' => \&json_model_32,
-            'style' => \&json_model_15,
+            "allowEmptyValue" => \&_jm_f_25,
+            "allowReserved" => \&_jm_f_26,
+            "deprecated" => \&_jm_f_27,
+            "description" => \&_jm_f_28,
+            "example" => \&_jm_f_29,
+            "examples" => \&_jm_f_30,
+            "explode" => \&_jm_f_31,
+            "required" => \&_jm_f_32,
+            "schema" => \&json_model_32,
+            "style" => \&json_model_15,
         );
         %_jm_obj_20_map = (
-            'allowEmptyValue' => \&_jm_f_33,
-            'allowReserved' => \&_jm_f_34,
-            'deprecated' => \&_jm_f_35,
-            'description' => \&_jm_f_36,
-            'example' => \&_jm_f_37,
-            'examples' => \&_jm_f_38,
-            'explode' => \&_jm_f_39,
-            'required' => \&_jm_f_40,
-            'schema' => \&json_model_32,
-            'style' => \&json_model_15,
+            "allowEmptyValue" => \&_jm_f_33,
+            "allowReserved" => \&_jm_f_34,
+            "deprecated" => \&_jm_f_35,
+            "description" => \&_jm_f_36,
+            "example" => \&_jm_f_37,
+            "examples" => \&_jm_f_38,
+            "explode" => \&_jm_f_39,
+            "required" => \&_jm_f_40,
+            "schema" => \&json_model_32,
+            "style" => \&json_model_15,
         );
         %json_model_32_map = (
-            '$anchor' => \&json_model_46,
-            '$comment' => \&_jm_f_41,
-            '$defs' => \&_jm_f_42,
-            '$dynamicAnchor' => \&json_model_46,
-            '$dynamicRef' => \&json_model_46,
-            '$id' => \&json_model_46,
-            '$ref' => \&json_model_46,
-            '$schema' => \&_jm_f_43,
-            '$vocabulary' => \&_jm_f_44,
-            'additionalProperties' => \&json_model_60,
-            'allOf' => \&json_model_57,
-            'anyOf' => \&json_model_57,
-            'const' => \&_jm_f_45,
-            'contains' => \&json_model_60,
-            'contentEncoding' => \&_jm_f_46,
-            'contentMediaType' => \&_jm_f_47,
-            'contentSchema' => \&json_model_60,
-            'default' => \&_jm_f_48,
-            'dependentRequired' => \&_jm_f_49,
-            'dependentSchemas' => \&_jm_f_50,
-            'deprecated' => \&_jm_f_51,
-            'description' => \&_jm_f_52,
-            'discriminator' => \&json_model_33,
-            'else' => \&json_model_60,
-            'enum' => \&_jm_f_53,
-            'example' => \&_jm_f_54,
-            'examples' => \&_jm_f_55,
-            'exclusiveMaximum' => \&_jm_f_56,
-            'exclusiveMinimum' => \&_jm_f_57,
-            'externalDocs' => \&json_model_12,
-            'format' => \&_jm_f_58,
-            'if' => \&json_model_60,
-            'items' => \&json_model_60,
-            'maxContains' => \&json_model_55,
-            'maxItems' => \&json_model_55,
-            'maxLength' => \&json_model_55,
-            'maxProperties' => \&json_model_55,
-            'maximum' => \&_jm_f_59,
-            'minContains' => \&json_model_55,
-            'minItems' => \&json_model_55,
-            'minLength' => \&json_model_55,
-            'minProperties' => \&json_model_55,
-            'minimum' => \&_jm_f_60,
-            'multipleOf' => \&_jm_f_61,
-            'not' => \&json_model_60,
-            'oneOf' => \&json_model_57,
-            'pattern' => \&_jm_f_62,
-            'patternProperties' => \&_jm_f_63,
-            'prefixItems' => \&json_model_57,
-            'properties' => \&_jm_f_64,
-            'propertyNames' => \&json_model_60,
-            'readOnly' => \&_jm_f_65,
-            'required' => \&json_model_54,
-            'then' => \&json_model_60,
-            'title' => \&_jm_f_66,
-            'type' => \&_jm_f_67,
-            'unevaluatedItems' => \&json_model_60,
-            'unevaluatedProperties' => \&json_model_60,
-            'uniqueItems' => \&_jm_f_68,
-            'writeOnly' => \&_jm_f_69,
-            'xml' => \&json_model_34,
+            "\$anchor" => \&json_model_46,
+            "\$comment" => \&_jm_f_41,
+            "\$defs" => \&_jm_f_42,
+            "\$dynamicAnchor" => \&json_model_46,
+            "\$dynamicRef" => \&json_model_46,
+            "\$id" => \&json_model_46,
+            "\$ref" => \&json_model_46,
+            "\$schema" => \&_jm_f_43,
+            "\$vocabulary" => \&_jm_f_44,
+            "additionalProperties" => \&json_model_60,
+            "allOf" => \&json_model_57,
+            "anyOf" => \&json_model_57,
+            "const" => \&_jm_f_45,
+            "contains" => \&json_model_60,
+            "contentEncoding" => \&_jm_f_46,
+            "contentMediaType" => \&_jm_f_47,
+            "contentSchema" => \&json_model_60,
+            "default" => \&_jm_f_48,
+            "dependentRequired" => \&_jm_f_49,
+            "dependentSchemas" => \&_jm_f_50,
+            "deprecated" => \&_jm_f_51,
+            "description" => \&_jm_f_52,
+            "discriminator" => \&json_model_33,
+            "else" => \&json_model_60,
+            "enum" => \&_jm_f_53,
+            "example" => \&_jm_f_54,
+            "examples" => \&_jm_f_55,
+            "exclusiveMaximum" => \&_jm_f_56,
+            "exclusiveMinimum" => \&_jm_f_57,
+            "externalDocs" => \&json_model_12,
+            "format" => \&_jm_f_58,
+            "if" => \&json_model_60,
+            "items" => \&json_model_60,
+            "maxContains" => \&json_model_55,
+            "maxItems" => \&json_model_55,
+            "maxLength" => \&json_model_55,
+            "maxProperties" => \&json_model_55,
+            "maximum" => \&_jm_f_59,
+            "minContains" => \&json_model_55,
+            "minItems" => \&json_model_55,
+            "minLength" => \&json_model_55,
+            "minProperties" => \&json_model_55,
+            "minimum" => \&_jm_f_60,
+            "multipleOf" => \&_jm_f_61,
+            "not" => \&json_model_60,
+            "oneOf" => \&json_model_57,
+            "pattern" => \&_jm_f_62,
+            "patternProperties" => \&_jm_f_63,
+            "prefixItems" => \&json_model_57,
+            "properties" => \&_jm_f_64,
+            "propertyNames" => \&json_model_60,
+            "readOnly" => \&_jm_f_65,
+            "required" => \&json_model_54,
+            "then" => \&json_model_60,
+            "title" => \&_jm_f_66,
+            "type" => \&_jm_f_67,
+            "unevaluatedItems" => \&json_model_60,
+            "unevaluatedProperties" => \&json_model_60,
+            "uniqueItems" => \&_jm_f_68,
+            "writeOnly" => \&_jm_f_69,
+            "xml" => \&json_model_34,
         );
         %_jm_cst_4 = (
-            'query' => 1,
-            'header' => 1,
-            'cookie' => 1,
+            "query" => 1,
+            "header" => 1,
+            "cookie" => 1,
         );
         %_jm_cst_5 = (
-            'query' => 1,
-            'header' => 1,
-            'cookie' => 1,
+            "query" => 1,
+            "header" => 1,
+            "cookie" => 1,
         );
         %_jm_map_0 = (
-            'apiKey' => \&_jm_obj_22,
-            'http' => \&_jm_obj_23,
-            'oauth2' => \&_jm_obj_25,
-            'openIdConnect' => \&_jm_obj_26,
+            "apiKey" => \&_jm_obj_22,
+            "http" => \&_jm_obj_23,
+            "oauth2" => \&_jm_obj_25,
+            "openIdConnect" => \&_jm_obj_26,
         );
         %_jm_cst_6 = (
-            'array' => 1,
-            'boolean' => 1,
-            'integer' => 1,
-            'null' => 1,
-            'number' => 1,
-            'object' => 1,
-            'string' => 1,
+            "array" => 1,
+            "boolean" => 1,
+            "integer" => 1,
+            "null" => 1,
+            "number" => 1,
+            "object" => 1,
+            "string" => 1,
         );
         %json_model_59_map = (
-            '$anchor' => \&json_model_46,
-            '$comment' => \&_jm_f_70,
-            '$defs' => \&_jm_f_71,
-            '$dynamicAnchor' => \&json_model_46,
-            '$dynamicRef' => \&json_model_46,
-            '$id' => \&json_model_46,
-            '$ref' => \&json_model_46,
-            '$schema' => \&_jm_f_72,
-            '$vocabulary' => \&_jm_f_73,
-            'additionalProperties' => \&json_model_60,
-            'allOf' => \&json_model_57,
-            'anyOf' => \&json_model_57,
-            'const' => \&_jm_f_74,
-            'contains' => \&json_model_60,
-            'contentEncoding' => \&_jm_f_75,
-            'contentMediaType' => \&_jm_f_76,
-            'contentSchema' => \&json_model_60,
-            'default' => \&_jm_f_77,
-            'dependentRequired' => \&_jm_f_78,
-            'dependentSchemas' => \&_jm_f_79,
-            'deprecated' => \&_jm_f_80,
-            'description' => \&_jm_f_81,
-            'else' => \&json_model_60,
-            'enum' => \&_jm_f_82,
-            'examples' => \&_jm_f_83,
-            'exclusiveMaximum' => \&_jm_f_84,
-            'exclusiveMinimum' => \&_jm_f_85,
-            'format' => \&_jm_f_86,
-            'if' => \&json_model_60,
-            'items' => \&json_model_60,
-            'maxContains' => \&json_model_55,
-            'maxItems' => \&json_model_55,
-            'maxLength' => \&json_model_55,
-            'maxProperties' => \&json_model_55,
-            'maximum' => \&_jm_f_87,
-            'minContains' => \&json_model_55,
-            'minItems' => \&json_model_55,
-            'minLength' => \&json_model_55,
-            'minProperties' => \&json_model_55,
-            'minimum' => \&_jm_f_88,
-            'multipleOf' => \&_jm_f_89,
-            'not' => \&json_model_60,
-            'oneOf' => \&json_model_57,
-            'pattern' => \&_jm_f_90,
-            'patternProperties' => \&_jm_f_91,
-            'prefixItems' => \&json_model_57,
-            'properties' => \&_jm_f_92,
-            'propertyNames' => \&json_model_60,
-            'readOnly' => \&_jm_f_93,
-            'required' => \&json_model_54,
-            'then' => \&json_model_60,
-            'title' => \&_jm_f_94,
-            'type' => \&_jm_f_95,
-            'unevaluatedItems' => \&json_model_60,
-            'unevaluatedProperties' => \&json_model_60,
-            'uniqueItems' => \&_jm_f_96,
-            'writeOnly' => \&_jm_f_97,
+            "\$anchor" => \&json_model_46,
+            "\$comment" => \&_jm_f_70,
+            "\$defs" => \&_jm_f_71,
+            "\$dynamicAnchor" => \&json_model_46,
+            "\$dynamicRef" => \&json_model_46,
+            "\$id" => \&json_model_46,
+            "\$ref" => \&json_model_46,
+            "\$schema" => \&_jm_f_72,
+            "\$vocabulary" => \&_jm_f_73,
+            "additionalProperties" => \&json_model_60,
+            "allOf" => \&json_model_57,
+            "anyOf" => \&json_model_57,
+            "const" => \&_jm_f_74,
+            "contains" => \&json_model_60,
+            "contentEncoding" => \&_jm_f_75,
+            "contentMediaType" => \&_jm_f_76,
+            "contentSchema" => \&json_model_60,
+            "default" => \&_jm_f_77,
+            "dependentRequired" => \&_jm_f_78,
+            "dependentSchemas" => \&_jm_f_79,
+            "deprecated" => \&_jm_f_80,
+            "description" => \&_jm_f_81,
+            "else" => \&json_model_60,
+            "enum" => \&_jm_f_82,
+            "examples" => \&_jm_f_83,
+            "exclusiveMaximum" => \&_jm_f_84,
+            "exclusiveMinimum" => \&_jm_f_85,
+            "format" => \&_jm_f_86,
+            "if" => \&json_model_60,
+            "items" => \&json_model_60,
+            "maxContains" => \&json_model_55,
+            "maxItems" => \&json_model_55,
+            "maxLength" => \&json_model_55,
+            "maxProperties" => \&json_model_55,
+            "maximum" => \&_jm_f_87,
+            "minContains" => \&json_model_55,
+            "minItems" => \&json_model_55,
+            "minLength" => \&json_model_55,
+            "minProperties" => \&json_model_55,
+            "minimum" => \&_jm_f_88,
+            "multipleOf" => \&_jm_f_89,
+            "not" => \&json_model_60,
+            "oneOf" => \&json_model_57,
+            "pattern" => \&_jm_f_90,
+            "patternProperties" => \&_jm_f_91,
+            "prefixItems" => \&json_model_57,
+            "properties" => \&_jm_f_92,
+            "propertyNames" => \&json_model_60,
+            "readOnly" => \&_jm_f_93,
+            "required" => \&json_model_54,
+            "then" => \&json_model_60,
+            "title" => \&_jm_f_94,
+            "type" => \&_jm_f_95,
+            "unevaluatedItems" => \&json_model_60,
+            "unevaluatedProperties" => \&json_model_60,
+            "uniqueItems" => \&_jm_f_96,
+            "writeOnly" => \&_jm_f_97,
         );
         %check_model_map = (
-            '' => \&json_model_2,
-            'OpenAPI' => \&json_model_2,
-            'Info' => \&json_model_3,
-            'Contact' => \&json_model_4,
-            'License' => \&json_model_5,
-            'Server' => \&json_model_6,
-            'ServerVariable' => \&json_model_7,
-            'Components' => \&json_model_8,
-            'Paths' => \&json_model_9,
-            'PathItem' => \&json_model_10,
-            'Operation' => \&json_model_11,
-            'ExternalDocumentation' => \&json_model_12,
-            'parameterShare' => \&json_model_13,
-            'commonParameter' => \&json_model_14,
-            'Style' => \&json_model_15,
-            'parameterSchemaOnly' => \&json_model_16,
-            'parameterContentOnly' => \&json_model_17,
-            'Parameter' => \&json_model_18,
-            'RequestBody' => \&json_model_19,
-            'MediaType' => \&json_model_20,
-            'Encoding' => \&json_model_21,
-            'Responses' => \&json_model_22,
-            'Response' => \&json_model_23,
-            'Callback' => \&json_model_24,
-            'Example' => \&json_model_25,
-            'Expression' => \&json_model_26,
-            'Link' => \&json_model_27,
-            'Header' => \&json_model_28,
-            'Tag' => \&json_model_29,
-            'Reference' => \&json_model_30,
-            'schema' => \&json_model_45,
-            'Schema' => \&json_model_32,
-            'Discriminator' => \&json_model_33,
-            'xml' => \&json_model_34,
-            'SS-apikey' => \&json_model_35,
-            'SS-http' => \&json_model_36,
-            'SS-http-bearer' => \&json_model_37,
-            'SS-oauth2' => \&json_model_38,
-            'SS-oic' => \&json_model_39,
-            'SecurityScheme' => \&json_model_40,
-            'OAuthFlows' => \&json_model_41,
-            'OAuthFlow' => \&json_model_42,
-            'SecurityRequirement' => \&json_model_43,
-            'Extension' => \&json_model_44,
+            "" => \&json_model_2,
+            "OpenAPI" => \&json_model_2,
+            "Info" => \&json_model_3,
+            "Contact" => \&json_model_4,
+            "License" => \&json_model_5,
+            "Server" => \&json_model_6,
+            "ServerVariable" => \&json_model_7,
+            "Components" => \&json_model_8,
+            "Paths" => \&json_model_9,
+            "PathItem" => \&json_model_10,
+            "Operation" => \&json_model_11,
+            "ExternalDocumentation" => \&json_model_12,
+            "parameterShare" => \&json_model_13,
+            "commonParameter" => \&json_model_14,
+            "Style" => \&json_model_15,
+            "parameterSchemaOnly" => \&json_model_16,
+            "parameterContentOnly" => \&json_model_17,
+            "Parameter" => \&json_model_18,
+            "RequestBody" => \&json_model_19,
+            "MediaType" => \&json_model_20,
+            "Encoding" => \&json_model_21,
+            "Responses" => \&json_model_22,
+            "Response" => \&json_model_23,
+            "Callback" => \&json_model_24,
+            "Example" => \&json_model_25,
+            "Expression" => \&json_model_26,
+            "Link" => \&json_model_27,
+            "Header" => \&json_model_28,
+            "Tag" => \&json_model_29,
+            "Reference" => \&json_model_30,
+            "schema" => \&json_model_45,
+            "Schema" => \&json_model_32,
+            "Discriminator" => \&json_model_33,
+            "xml" => \&json_model_34,
+            "SS-apikey" => \&json_model_35,
+            "SS-http" => \&json_model_36,
+            "SS-http-bearer" => \&json_model_37,
+            "SS-oauth2" => \&json_model_38,
+            "SS-oic" => \&json_model_39,
+            "SecurityScheme" => \&json_model_40,
+            "OAuthFlows" => \&json_model_41,
+            "OAuthFlow" => \&json_model_42,
+            "SecurityRequirement" => \&json_model_43,
+            "Extension" => \&json_model_44,
         );
     }
 }

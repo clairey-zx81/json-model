@@ -8,7 +8,7 @@ use warnings;
 no warnings "uninitialized";
 use re::engine::RE2;
 use JSON::JsonModel;
-use constant JMC_VERSION => '2';
+use constant JMC_VERSION => "2";
 
 
 sub _jm_obj_0($$$);
@@ -36,22 +36,22 @@ sub _jm_obj_0($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$ab'.'|'.0.t
-    my $res = jm_is_string($pval) && $pval eq 'a';
+    my $res = jm_is_string($pval) && $pval eq "a";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'a'})
+    if (! exists $$val{"a"})
     {
         return 0;
     }
-    $pval = $$val{'a'};
+    $pval = $$val{"a"};
     # .'$ab'.'|'.0.a
     return jm_is_integer($pval) && $pval >= 1;
 }
@@ -70,22 +70,22 @@ sub _jm_obj_1($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$ab'.'|'.1.t
-    my $res = jm_is_string($pval) && $pval eq 'b';
+    my $res = jm_is_string($pval) && $pval eq "b";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'b'})
+    if (! exists $$val{"b"})
     {
         return 0;
     }
-    $pval = $$val{'b'};
+    $pval = $$val{"b"};
     # .'$ab'.'|'.1.b
     return jm_is_integer($pval) && $pval >= 1;
 }
@@ -100,7 +100,7 @@ sub json_model_2($$$)
     if ($res)
     {
         my $tag_0;
-        if (defined($tag_0 = $$val{'t'}))
+        if (defined($tag_0 = $$val{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
             $res = defined($fun_0) && &$fun_0($val, undef, undef);
@@ -127,22 +127,22 @@ sub _jm_obj_2($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$cd'.'|'.0.t
-    my $res = jm_is_string($pval) && $pval eq 'c';
+    my $res = jm_is_string($pval) && $pval eq "c";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'c'})
+    if (! exists $$val{"c"})
     {
         return 0;
     }
-    $pval = $$val{'c'};
+    $pval = $$val{"c"};
     # .'$cd'.'|'.0.c
     return jm_is_integer($pval) && $pval >= 1;
 }
@@ -161,22 +161,22 @@ sub _jm_obj_3($$$)
         return 0;
     }
     my $pval;
-    if (! exists $$val{'t'})
+    if (! exists $$val{"t"})
     {
         return 0;
     }
-    $pval = $$val{'t'};
+    $pval = $$val{"t"};
     # .'$cd'.'|'.1.t
-    my $res = jm_is_string($pval) && $pval eq 'd';
+    my $res = jm_is_string($pval) && $pval eq "d";
     if (! $res)
     {
         return 0;
     }
-    if (! exists $$val{'d'})
+    if (! exists $$val{"d"})
     {
         return 0;
     }
-    $pval = $$val{'d'};
+    $pval = $$val{"d"};
     # .'$cd'.'|'.1.d
     return jm_is_integer($pval) && $pval >= 1;
 }
@@ -191,7 +191,7 @@ sub json_model_3($$$)
     if ($res)
     {
         my $tag_1;
-        if (defined($tag_1 = $$val{'t'}))
+        if (defined($tag_1 = $$val{"t"}))
         {
             my $fun_1 = $_jm_map_1{$tag_1};
             $res = defined($fun_1) && &$fun_1($val, undef, undef);
@@ -223,17 +223,17 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_map_0 = (
-            'a' => \&_jm_obj_0,
-            'b' => \&_jm_obj_1,
+            "a" => \&_jm_obj_0,
+            "b" => \&_jm_obj_1,
         );
         %_jm_map_1 = (
-            'c' => \&_jm_obj_2,
-            'd' => \&_jm_obj_3,
+            "c" => \&_jm_obj_2,
+            "d" => \&_jm_obj_3,
         );
         %check_model_map = (
-            '' => \&json_model_3,
-            'ab' => \&json_model_2,
-            'cd' => \&json_model_3,
+            "" => \&json_model_3,
+            "ab" => \&json_model_2,
+            "cd" => \&json_model_3,
         );
     }
 }
