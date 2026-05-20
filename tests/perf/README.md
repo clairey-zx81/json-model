@@ -5,7 +5,7 @@
 On calcutta, drop HT and set cpu frequency:
 
 ```bash
-# set, temperature remains below/around 70°C (90W) with a 50% load
+# set, temperature remains below 80°C (90W) with most core active
 sudo cpupower frequency-set -g performance
 sudo cpupower frequency-set -u 2.4GHz
 sudo cpupower frequency-set -d 2.4GHz
