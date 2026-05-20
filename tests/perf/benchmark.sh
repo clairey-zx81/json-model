@@ -62,9 +62,9 @@ while [[ "$1" == -* ]] ; do
       jmc exec node --version | head -1
       jmc exec javac --version | head -1
       jmc exec perl -e 'print "Perl $^V\n"' | head -1
-      dir=$(dirname $0)
-      if [ -f "$dir/.version" ] ; then
-        echo "$0 version: $(cat .version)"
+      version=$(dirname $0)/.version
+      if [ -f "$version" ] ; then
+        echo "$0 version: $(cat "$version")"
       else
         echo "$0 version: unknown"
       fi
