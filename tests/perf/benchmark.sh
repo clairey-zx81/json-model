@@ -170,7 +170,7 @@ START=$SECONDS
 # SETUP
 #
 
-if [ "$POD_PULL" ] ; then
+if [ "$POD_PULL" = "1" ] ; then
   echo "# pulling $POD images"
   for img in docker.io/zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC ; do
     $POD pull $img || err 4 "cannot $POD pull $img"
@@ -319,16 +319,16 @@ function pod_id()
   $POD inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
 }
 
+#
+# OUTPUT
+#
+
 version_file=$(dirname $0)/.version
 if [ -f "$version_file" ] ; then
   read version < "$version_file"
 else
   version="unknown"
 fi
-
-#
-# OUTPUT
-#
 
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run

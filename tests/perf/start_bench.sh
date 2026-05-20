@@ -20,7 +20,7 @@ Arguments:
 
 Environment:
 - POD: container command, "docker" or "podman", default is "docker" ($POD)
-- POD_PULL: whether to pull container images before launch ($POD_PULL)
+- POD_PULL: (1/0) whether to pull container images before launch ($POD_PULL)
 - JMC_BENCH_IMAGE: overide default docker.io/zx80/jmc-bench-$POD image for testing ($JMC_BENCH_IMAGE)
 - JMC: docker.io/zx80/jmc container tag, default is "latest" ($JMC)
 - JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest" ($JSC)
@@ -124,7 +124,7 @@ echo "# container options: ${container_opts[@]}"
 echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
 
 # possibly check for latest version
-[ "$POD_PULL" ] && $POD pull $image
+[ "$POD_PULL" = 1 ] && $POD pull $image
 
 # start "benchmark.sh" container
 exec $POD run \

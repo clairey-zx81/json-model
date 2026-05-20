@@ -5,7 +5,7 @@
 
 export JMC=dev
 export JSB_DIR=$PWD/jsb_dir
-export POD_PULL=
+export POD_PULL=0
 
 jmc_bench=dev
 
