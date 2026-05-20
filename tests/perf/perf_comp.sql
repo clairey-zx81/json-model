@@ -1,6 +1,7 @@
 --
 -- COMPUTE
 --
+-- FIXME potentially broken median…
 
 -- use simpler case names
 UPDATE RawRun SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
@@ -30,7 +31,7 @@ UPDATE Cases AS cv
 
 -- keep MEDIAN values for each case (line)
 -- NOTE MEDIAN requires sqlite 3.51
--- NOTE percent_rank() hack only works with odd numbers
+-- NOTE percent_rank() hack only works with odd numbers and distinct values…
 WITH
   OrderedRawRun AS (
     SELECT
@@ -39,7 +40,7 @@ WITH
     FROM RawRun
   )
 INSERT INTO CaseToolRun(name, tool, line, runavg, runstd, empty)
-  -- ensuire uniqueness
+  -- ensuxire uniqueness
   SELECT name, tool, line, AVG(runavg), AVG(runstd), AVG(empty)
   FROM OrderedRawRun
   WHERE ordering = 0.5
@@ -188,9 +189,11 @@ UPDATE ToolSummaryPerf AS cp
   WHERE cp.tool = at.tool
 ;
 
--- compilation MIN time aggregation? median??
+-- compilation time
+-- NOTE take average because median based on rank does not work:
+-- there can be no 0.5 value because of collisions
 INSERT INTO CaseToolCompilePerf(name, tool, run, nb)
-  SELECT name, tool, MIN(run), COUNT(*)
+  SELECT name, tool, AVG(run), COUNT(*)
   FROM RawCompile
   GROUP BY 1, 2
 ;

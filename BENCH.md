@@ -63,7 +63,7 @@ the run stops as soon as possible.
 
 - To smooth out the wide range of collected performances (from 10 ns to
   over 300 µs for validating one value), a relative comparison ratio is shown.
-- Compilation times are the _minimum_ encountered over the runs.
+- Compilation times are the _average_ encountered over the runs.
   whereas performance times are the _median_ over the runs.
 
 Note that performance figures **must** be taken with a pinch of salt, please consider

@@ -36,6 +36,7 @@
 - [x] container: remove `cstring` add, `cre2` master is now fixed
 - [x] perf: allow to restrict reporting to a subset of tools
 - [x] static: allow disabling more xstatic optimization
+- [x] perf: show avg compilation time instead of min
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation
@@ -153,6 +154,7 @@
 - [ ] export: sqlalchemy
 - [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
 - [ ] spec: be precise about predefs standard references, eg `$DATE` and co.
+- [ ] perf: show median compilation time instead of min
 
 ## Re Do
 
