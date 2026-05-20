@@ -36,7 +36,7 @@
 - [x] container: remove `cstring` add, `cre2` master is now fixed
 - [x] perf: allow to restrict reporting to a subset of tools
 - [x] static: allow disabling more xstatic optimization
-- [x] perf: show avg compilation time instead of min
+- [x] perf: show median compilation time instead of min
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation
@@ -45,8 +45,8 @@
 - [ ] c-runtime: move re header inclusion to `json-model.h`?
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
-- [ ] perf: compute compilation speed
 - [ ] perf: keep only one java run?
+- [ ] perf: check median hack for run times
 - [ ] perf: show schema to model conversion times
 - [ ] pr: improve JSTS test results alignment between all backends
 - [ ] pr: better document optimizations, eg add compilier optimization page
@@ -154,7 +154,6 @@
 - [ ] export: sqlalchemy
 - [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
 - [ ] spec: be precise about predefs standard references, eg `$DATE` and co.
-- [ ] perf: show median compilation time instead of min
 
 ## Re Do
 

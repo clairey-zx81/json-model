@@ -1,7 +1,6 @@
 --
 -- COMPUTE
 --
--- FIXME potentially broken median…
 
 -- use simpler case names
 UPDATE RawRun SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
@@ -190,10 +189,45 @@ UPDATE ToolSummaryPerf AS cp
 ;
 
 -- compilation time
--- NOTE take average because median based on rank does not work:
--- there can be no 0.5 value because of collisions
-INSERT INTO CaseToolCompilePerf(name, tool, run, nb)
-  SELECT name, tool, AVG(run), COUNT(*)
-  FROM RawCompile
-  GROUP BY 1, 2
+-- some effort to compute the median reliably
+WITH
+  -- rank and count run times
+  ranked_compile_time(name, tool, run, ordering, nb) AS (
+    SELECT DISTINCT name, tool, run,
+      PERCENT_RANK() OVER (PARTITION BY name, tool ORDER BY run),
+      COUNT(*) OVER (PARTITION BY name, tool, run)
+    FROM RawCompile
+  ),
+  -- re-rank lower than 0.5
+  smaller_run(name, tool, ordering, run, nb, closer) AS (
+    SELECT name, tool, ordering, run, nb,
+      PERCENT_RANK() OVER (partition BY name, tool ORDER BY ordering DESC)
+    FROM ranked_compile_time
+    WHERE ordering <= 0.5
+  ),
+  -- re-rank greater than 0.5
+  larger_run(name, tool, ordering, run, nb, closer) AS (
+    SELECT name, tool, ordering, run, nb,
+      PERCENT_RANK() OVER (partition BY name, tool ORDER BY ordering ASC)
+    FROM ranked_compile_time
+    WHERE ordering >= 0.5
+  ),
+  -- compute weighted average
+  median_run(name, tool, run) AS (
+    SELECT name, tool, (s.nb * s.run + l.nb * l.run) / (s.nb + l.nb)
+    FROM smaller_run AS s
+    JOIN larger_run AS l USING (name, tool)
+    WHERE s.closer = 0.0 AND l.closer = 0.0
+  ),
+  -- also collect counts
+  counts(name, tool, nb) AS (
+    SELECT name, tool, COUNT(*)
+    FROM RawCompile
+    GROUP BY 1, 2
+  )
+  -- result
+  INSERT INTO CaseToolCompilePerf(name, tool, run, nb)
+    SELECT name, tool, m.run, c.nb
+    FROM median_run AS m
+    JOIN counts AS c USING (name, tool)
 ;
