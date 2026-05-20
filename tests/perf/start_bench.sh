@@ -19,13 +19,13 @@ Arguments:
 - others: passed to "benchmark.sh"
 
 Environment:
-- POD: container command, "docker" or "podman", default is "docker"
-- POD_PULL: whether to pull container images before launch
-- JMC_BENCH_IMAGE: overide default docker.io/zx80/jmc-bench-$POD image for testing
-- JMC: docker.io/zx80/jmc container tag, default is "latest"
-- JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest"
-- JMC_OPTS: options for jmc
-- JSB_DIR: JSON Schema Benchmark directory, default is to clone
+- POD: container command, "docker" or "podman", default is "docker" ($POD)
+- POD_PULL: whether to pull container images before launch ($POD_PULL)
+- JMC_BENCH_IMAGE: overide default docker.io/zx80/jmc-bench-$POD image for testing ($JMC_BENCH_IMAGE)
+- JMC: docker.io/zx80/jmc container tag, default is "latest" ($JMC)
+- JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest" ($JSC)
+- JMC_OPTS: options for jmc ($JMC_OPTS)
+- JSB_DIR: JSON Schema Benchmark directory, default is to clone ($JSB_DIR)
 
 Example:
 
