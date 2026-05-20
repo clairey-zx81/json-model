@@ -85,7 +85,7 @@ if [ "$JMC_OPTS" ] ; then
   bench_opts+=(--env JMC_OPTS)
 fi
 
-if [ "$JSB_DIR" ] then
+if [ "$JSB_DIR" ] ; then
   [ -d "$JSB_DIR" ] || err 6 "no such directory: $JSB_DIR"
   container_opts+=(-v "$JSB_DIR:/workspace/jsb")
 fi
