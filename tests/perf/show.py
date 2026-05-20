@@ -111,17 +111,25 @@ def report():
     ap = argparse.ArgumentParser(description="Generate JMC benchmark report")
     arg = ap.add_argument
     # analysis
-    arg("--x2", type=str, default=None, help="perform a χ² analysis against this tool")
-    arg("--alpha", type=float, default=0.05, help="alpha value for χ² test, default is 0.05")
-    arg("--sort", default="bs", choices=["ab", "bs", "ls", "geo"], help="sort tools by criterion")
+    arg("--x2", type=str, default=None,
+        help="perform a χ² analysis against this tool, default is none")
+    arg("--alpha", type=float, default=0.05,
+        help="alpha value for χ² test, default is 0.05")
+    arg("--sort", default="bs", choices=["ab", "bs", "ls", "geo"],
+        help="sort tools by criterion, default is \"bs\"")
     # verbosity control
-    arg("--debug", dest="level", action="store_const", const=logging.DEBUG, default=logging.INFO, help="run in debug mode")
-    arg("--quiet", dest="level", action="store_const", const=logging.WARNING, help="be quiet")
+    arg("--debug", dest="level", action="store_const", const=logging.DEBUG, default=logging.INFO,
+        help="run in debug mode")
+    arg("--quiet", dest="level", action="store_const", const=logging.WARNING,
+        help="be quiet")
     # output
-    arg("--standard", action="store_true", help="standard comparison report for web site")
-    arg("--tools", nargs="*", help="restrict analysis to these tools")
+    arg("--standard", action="store_true",
+        help="standard comparison report for \"json-model.org\" web site")
+    arg("--tools", nargs="*",
+        help="restrict analysis to these tools, default is all available tools")
     # input
-    arg("database", nargs="?", default="perf.db", help="use this SQLite database")
+    arg("database", nargs="?", default="perf.db",
+        help="use this SQLite database, default is \"perf.db\"")
     args = ap.parse_args()
 
     log.setLevel(args.level)
