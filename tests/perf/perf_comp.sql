@@ -147,6 +147,7 @@ UPDATE ToolSummaryPerf AS ts
   WHERE tb.tool = ts.tool
 ;
 
+-- summary data with geometric average for the slowdown ratio
 WITH
   perf_ratio(name, tool, ratio) AS (
     SELECT cp.name, cp.tool, cp.run / bc.run
@@ -167,6 +168,8 @@ UPDATE ToolSummaryPerf AS cp
   WHERE cp.tool = pr.tool
 ;
 
+-- compute byte and line speeds
+-- NOTE byte makes more sense if the values are also checked, ie with predefs
 WITH
   -- total value size in bytes and lines
   all_sizes(bsize, lsize) AS (
@@ -188,8 +191,8 @@ UPDATE ToolSummaryPerf AS cp
   WHERE cp.tool = at.tool
 ;
 
--- compilation time
--- some effort to compute the median reliably
+-- medial compilation time
+-- NOTE some effort to compute the median reliably
 WITH
   -- rank and count run times
   ranked_compile_time(name, tool, run, ordering, nb) AS (
@@ -212,7 +215,8 @@ WITH
     FROM ranked_compile_time
     WHERE ordering >= 0.5
   ),
-  -- compute weighted average
+  -- compute weighted average of the closest above and below 0.5
+  -- NOTE it may be the same
   median_run(name, tool, run) AS (
     SELECT name, tool, (s.nb * s.run + l.nb * l.run) / (s.nb + l.nb)
     FROM smaller_run AS s
@@ -225,7 +229,7 @@ WITH
     FROM RawCompile
     GROUP BY 1, 2
   )
-  -- result
+  -- final result
   INSERT INTO CaseToolCompilePerf(name, tool, run, nb)
     SELECT name, tool, m.run, c.nb
     FROM median_run AS m
