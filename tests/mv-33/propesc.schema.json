@@ -1,0 +1,35 @@
+{
+  "description": "escaped property names",
+  "type": "object",
+  "properties": {
+    "\n": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "\t": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "\\": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "'": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "\f": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "\"": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "\r": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false
+}

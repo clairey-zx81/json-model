@@ -5,7 +5,17 @@ from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, E
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 
 _DECL = "%PL_DECL% "
-_ESC_TABLE = { "'": "''", "\x00": "<NULL>" }
+
+_ESC_TABLE = {
+    "'": "''",
+    "\x00": "<NULL>",  # not supported by postgres
+    "\r": "\\r",
+    "\t": "\\t",
+    "\f": "\\f",
+    "\n": "\\n",
+    "\b": "\\b",  # backspace?
+    # NOTE we let unicode characters as-is
+}
 
 PLPGSQL_RUNTIME_PREDEFS: dict[str, str] = {
     "$URL": "jm_is_valid_url",
@@ -108,7 +118,8 @@ class PLpgSQL(Language):
             raise Exception(f"unexpected tval: {tval.__name__}")
 
     def esc(self, s: str) -> StrExpr:
-        return "'" + s.translate(self._json_esc_table) + "'"
+        escape = "E" if any(c != "'" and c in _ESC_TABLE for c in s) else ""
+        return f"{escape}'" + s.translate(self._json_esc_table) + "'"
 
     def _unesc(self, s: StrExpr) -> str:
         assert s[0] == "'" and s[-1] == "'", "quoted SQL string"

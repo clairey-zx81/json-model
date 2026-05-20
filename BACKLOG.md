@@ -39,6 +39,7 @@
 - [x] perf: show median compilation time instead of min
 - [x] c-runtime: move re header inclusion to `json-model.h`
 - [x] pl-backend: better escape some characters
+- [x] sql-backend: use string escape syntax
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation
