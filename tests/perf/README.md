@@ -2,18 +2,20 @@
 
 ## Stabalizing performance
 
-On calcutta:
+On calcutta, drop HT and set cpu frequency:
 
 ```bash
 # set, temperature remains below/around 70°C (90W) with a 50% load
 sudo cpupower frequency-set -g performance
 sudo cpupower frequency-set -u 2.4GHz
 sudo cpupower frequency-set -d 2.4GHz
+echo off | sudo tee /sys/devices/system/cpu/smt/control
 # limit parallelism to 12 for java, 20 for others (24 cores, can handle HT)
 # reset to normal
 sudo cpupower frequency-set -g powersave
 sudo cpupower frequency-set -u 4.0GHz
 sudo cpupower frequency-set -d 1.2GHz
+echo off | sudo tee /sys/devices/system/cpu/smt/control
 # show
 cpupower frequency-info
 ```
