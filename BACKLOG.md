@@ -97,6 +97,7 @@
 - [ ] static: take into account str _byte_ len when partitioning
 - [ ] static: possibly use up to 8 bytes when hashing?
 - [ ] static: fix hash size to depends on byte encoding, not str len
+- [ ] static: check discriminator first? it help only if it appears first in the values
 - [ ] perf: test partitioning for js, java, perl, python…
 - [ ] perf: investigate best settings for js, java and python
 - [ ] perf: allow to run with any docker image
