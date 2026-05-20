@@ -36,30 +36,30 @@
 - [x] container: remove `cstring` add, `cre2` master is now fixed
 - [x] perf: allow to restrict reporting to a subset of tools
 - [x] static: allow disabling more xstatic optimization
+- [x] perf: add note about random frequency governor changes because of cpu temperature
 - [x] perf: show median compilation time instead of min
+- [x] perf: possibly mount jsb as a volume when benchmarking
 - [x] c-runtime: move re header inclusion to `json-model.h`
 - [x] pl-backend: better escape some characters
 - [x] sql-backend: use string escape syntax
 - [x] static: fix int constant comparison typing under loose ints
 - [x] c-backend: fix handling of small chars when building integers
 - [x] static: fix some prop name escaping on reporting
+- [ ] pr: improve JSTS test results alignment between all backends (wip)
+- [ ] js-runtime: check stability of `.mo` extension (wip: issue reported)
+- [ ] js-backend: remove useless braces and semi-colons
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation
-- [ ] perf: add note about random frequency governor changes because of cpu temperature
-- [ ] perf: possibly mount jsb as a volume when benchmarking
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
 - [ ] perf: keep only one java run?
 - [ ] perf: check median hack for run times
 - [ ] perf: show schema to model conversion times
-- [ ] pr: improve JSTS test results alignment between all backends
 - [ ] pr: better document optimizations, eg add compilier optimization page
 - [ ] optim: collect and display stats about what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
-- [ ] js-backend: remove useless braces and semi-colons
-- [ ] js-runtime: check stability of `.mo` extension
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
