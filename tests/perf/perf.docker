@@ -14,6 +14,7 @@ LABEL description="JSON Model compiler benchmarking artifact (docker-in-docker)"
 RUN apk add git bash bash-completion sqlite jq lscpu pythonispython3 gron
 RUN mkdir /app /workspace && chmod a+rx /app /workspace
 COPY . /app
+COPY .version /app
 RUN chmod a+r /app/* && chmod a+x /app/*.sh /app/*.py /app/jmc /app/js-cli
 ENV PATH=$PATH:/app
 WORKDIR /workspace

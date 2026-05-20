@@ -21,6 +21,7 @@ RUN yum upgrade -y && \
 RUN pip install gron
 RUN mkdir /app /workspace && chmod a+rx /app /workspace
 COPY . /app
+COPY .version /app
 RUN chmod a+r /app/* && chmod a+x /app/*.sh /app/*.py /app/jmc /app/js-cli
 ENV PATH=$PATH:/app
 WORKDIR /workspace
