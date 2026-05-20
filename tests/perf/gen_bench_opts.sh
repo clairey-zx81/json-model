@@ -25,17 +25,28 @@ function bench()
 {
   local name=$1
   shift
+
   export JMC_OPTS="$jmc_opts"
   [ $# -ge 1 ] && JMC_OPTS+=" $@"
+
+  # append a counter if the bench directory already exists
+  if [ -e "$name" ] ; then
+    local n=1
+    while [ -e "$name.$n" ] ; do
+      let n++
+    done
+    name="$name.$n"
+  fi
+
   echo "# starting benchmark $name ($JMC_OPTS)" >&2
   ./start_bench.sh $jmc_bench $name $bench_opts
 }
 
 # insist on defaults
-bench rf0
-bench rf1
-bench rf2
-bench rf3
+bench ref
+bench ref
+bench ref
+bench ref
 
 # default gnu compiler instead of clang
 bench clg --cc=cc
@@ -74,3 +85,7 @@ bench hol --no-homogeneous-list
 
 # IR
 bench iro --no-ir-optimize
+
+# show a summary
+echo "# benches completed"
+grep "speed B" */*.md | sort -t"|" -k3nr
