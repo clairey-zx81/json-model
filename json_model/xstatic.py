@@ -1968,8 +1968,7 @@ class CodeGenerator:
                         code += gen.bool_var(res, expr)
                     elif isinstance(value, int):
                         ttest = gen.is_a(val, int, jm._loose_int)
-                        # FIXME cast depends on type?
-                        expr = gen.num_cmp(gen.value(val, int), "=", gen.const(value), is_int=True)
+                        expr = gen.num_cmp(gen.value(val, Number if jm._loose_int else int), "=", gen.const(value), is_int=True)
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += gen.bool_var(res, expr)

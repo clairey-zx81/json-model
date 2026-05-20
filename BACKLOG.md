@@ -40,6 +40,7 @@
 - [x] c-runtime: move re header inclusion to `json-model.h`
 - [x] pl-backend: better escape some characters
 - [x] sql-backend: use string escape syntax
+- [x] static: fix int constant comparison typing under loose ints
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation
