@@ -27,7 +27,7 @@ endif
 
 .PHONY: clean
 clean:
-	$(RM) .*-*-build.*
+	$(RM) .*-*-build.* .version
 	$(RM) -rf jsb/ tmp/
 
 #
@@ -81,6 +81,7 @@ build: .$(POD)-$(VARIANT)-build.$(BRANCH)
 POD.opts    = --no-cache
 
 .$(POD)-$(VARIANT)-build.$(BRANCH): perf.$(VARIANT)
+	jmc --version > .version
 	$(POD) build $(POD.opts) -t jmc-bench-$(VARIANT) -f perf.$(VARIANT) . && date -Iseconds > $@
 
 .PHONY: docker.build
