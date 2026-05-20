@@ -319,6 +319,13 @@ function pod_id()
   $POD inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
 }
 
+version_file=$(dirname $0)/.version
+if [ -f "$version_file" ] ; then
+  read version < "$version_file"
+else
+  version="unknown"
+fi
+
 #
 # OUTPUT
 #
@@ -347,6 +354,7 @@ or deselect tools for easier comparisons.
 - **cpu freq:** $(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
+- **benchmarking script:** $version
 - **jsonschema-cli version:** $(js-cli --version)
 - **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD), $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) unique tests
 - **cc version:** $(jmc exec cc --version|head -1)
