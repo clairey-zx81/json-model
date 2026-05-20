@@ -1,0 +1,11 @@
+{
+  "description": "one mandatory prop with an escaped character",
+  "type": "object",
+  "properties": {
+    "foo\nbar": true
+  },
+  "required": [
+    "foo\nbar"
+  ],
+  "additionalProperties": true
+}

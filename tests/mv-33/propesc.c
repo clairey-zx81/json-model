@@ -29,7 +29,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         uint32_t hash_0 = (*((uint32_t *) (prop))) & 0xffff;
         if (hash_0 <= 0xc)
         {
-            if (jm_str_eq_2(prop, 0x00000000a))
+            if (jm_str_eq_2(prop, 0x0000000a))
             {
                 // handle may 
                 //  property
@@ -44,7 +44,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 continue;
             }
-            else if (jm_str_eq_2(prop, 0x000000009))
+            else if (jm_str_eq_2(prop, 0x00000009))
             {
                 // handle may 	 property
                 // .'	'
@@ -57,7 +57,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 continue;
             }
-            else if (jm_str_eq_2(prop, 0x00000000c))
+            else if (jm_str_eq_2(prop, 0x0000000c))
             {
                 // handle may 
                 //  property
@@ -114,7 +114,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 continue;
             }
-            else if (jm_str_eq_2(prop, 0x00000000d))
+            else if (jm_str_eq_2(prop, 0x0000000d))
             {
                 // handle may 
                 //  property

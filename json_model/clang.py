@@ -48,10 +48,13 @@ def _str_cmp_chunk(s: str, chunk: bytes, size: int,
     else:
         x: str = ""
         for b in chunk:
+            hexa = hex(b)[2:]
+            if len(hexa) == 1:
+                hexa = "0" + hexa
             if little:
-                x = hex(b)[2:] + x
+                x = hexa + x
             else:
-                x += hex(b)[2:]
+                x += hexa
         # adjust to 4/8 byte boundary
         zeros = "00" * ((8 if size > 4 else 4) - len(x) // 2)
         x = "0x" + ((zeros + x) if little else (x + zeros)) + ("LL" if size > 4 else "")

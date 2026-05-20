@@ -6,36 +6,51 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-static INLINE bool _jm_cst_0_str_test(const char *);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-static INLINE bool _jm_cst_0_str_test(const char *s)
-{
-    return
-           jm_str_eq_2(s, 0x00000009)  // "\t"
-        || jm_str_eq_2(s, 0x0000000a)  // "\n"
-        || jm_str_eq_2(s, 0x0000000c)  // "\f"
-        || jm_str_eq_2(s, 0x0000000d)  // "\r"
-        || jm_str_eq_2(s, 0x00000022)  // "\""
-        || jm_str_eq_2(s, 0x00000027)  // "'"
-        || jm_str_eq_2(s, 0x0000005c)  // "\\"
-
-    ;
-}
-
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // escaped values
+    // one mandatory prop with an escaped character
     // .
-    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
-    if (unlikely(! res))
+    if (unlikely(! json_is_object(val)))
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [.'|']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.]", path);
+        return false;
     }
-    return res;
+    bool res;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
+        if (jm_str_eq_8(prop, 0x007261620a6f6f66LL))
+        {
+            // handle must foo
+            // bar property
+            must_count += 1;
+            // .'foo
+            // bar'
+            res = true;
+            continue;
+        }
+        // accept any other props
+    }
+    if (unlikely(must_count != 1))
+    {
+        if (likely(rep != NULL))
+        {
+            if (! (json_object_get(val, "foo\nbar") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <foo\\nbar> [.'']", path);
+            }
+        }
+        return false;
+    }
+    return true;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

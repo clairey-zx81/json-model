@@ -938,7 +938,8 @@ class CodeGenerator:
 
         # must properties
         for prop, pmodel in must.items():
-            prop_fail: Block = self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath)
+            sprop = json.dumps(prop)[1:-1]
+            prop_fail: Block = self._gen_fail(f"missing mandatory prop <{sprop}> [{smpath}]", vpath)
             if combined and pmodel != "$ANY":
                 code += gen.if_stmt(
                     gen.not_op(gen.obj_has_prop_val("pval", val, prop, False)),
@@ -955,7 +956,7 @@ class CodeGenerator:
                     self._compileModel(jm, pmodel, mpath + [prop], res, "pval", lpath_ref) +
                     gen.if_stmt(
                         gen.not_op(res),
-                        self._gen_fail(f"unexpected value for mandatory prop <{prop}> [{smpath}]",
+                        self._gen_fail(f"unexpected value for mandatory prop <{sprop}> [{smpath}]",
                                        lpath_ref),
                         likely=False
                     )
@@ -1006,7 +1007,8 @@ class CodeGenerator:
         combined = gen.assign_obj_prop()
 
         for prop, pmodel in must.items():
-            prop_fail: Block = self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath)
+            sprop = json.dumps(prop)[1:-1]
+            prop_fail: Block = self._gen_fail(f"missing mandatory prop <{sprop}> [{smpath}]", vpath)
             if combined and pmodel != "$ANY":
                 code += gen.if_stmt(
                     gen.not_op(gen.obj_has_prop_val("pval", val, prop, False)),
@@ -1023,7 +1025,7 @@ class CodeGenerator:
                     self._compileModel(jm, pmodel, mpath + [prop], res, "pval", lpath_ref) +
                     gen.if_stmt(
                         gen.not_op(res),
-                        self._gen_fail(f"unexpected value for mandatory prop <{prop}> [{smpath}]",
+                        self._gen_fail(f"unexpected value for mandatory prop <{sprop}> [{smpath}]",
                                        lpath_ref),
                         likely=False
                     )
@@ -1429,10 +1431,11 @@ class CodeGenerator:
         if must:
             missing = []
             for prop in sorted(must.keys()):
+                sprop = json.dumps(prop)[1:-1]
                 missing += \
                     gen.if_stmt(
                         gen.not_op(gen.has_prop(val, prop)),
-                        gen.report(f"missing mandatory prop <{prop}> [{smpath}]", vpath),
+                        gen.report(f"missing mandatory prop <{sprop}> [{smpath}]", vpath),
                         likely=None
                     )
             code += \

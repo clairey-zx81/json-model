@@ -41,6 +41,8 @@
 - [x] pl-backend: better escape some characters
 - [x] sql-backend: use string escape syntax
 - [x] static: fix int constant comparison typing under loose ints
+- [x] c-backend: fix handling of small chars when building integers
+- [x] static: fix some prop name escaping on reporting
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation

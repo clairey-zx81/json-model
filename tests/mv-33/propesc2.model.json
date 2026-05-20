@@ -1,0 +1,5 @@
+{
+  "#": "one mandatory prop with an escaped character",
+  "_foo\nbar": "$ANY",
+  "": "$ANY"
+}

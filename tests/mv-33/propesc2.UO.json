@@ -1,0 +1,7 @@
+[
+  {
+    "_foo\nbar": "$ANY",
+    "": "$ANY",
+    "#": "JsonModel 1"
+  }
+]
