@@ -4,16 +4,23 @@
 #
 
 export JMC=dev
-export jmc_bench=dev
+export JSB_DIR=$PWD/jsb_dir
+export POD_PULL=
 
-jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled"
+jmc_bench=dev
 
-# parallelism, loop, repeats
+if [ ! -d ./jsb_dir ] ; then
+  git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git ./jsb_dir || exit 1
+fi
+
+# default JMC options
+jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled --short-version"
+
+# parallelism, loop, repeats, tasks
 bench_opts="-p 20 -l 1000 -r 47 -T c"
-jmc_common="--single-line-regex --no-predef --cc=clang --precompiled --short-version"
 
-# TODO add jsu-model options?
-
+# start a bench run with the expected setup
+# NOTE that environment JMC JSB_DIR POD_PULL also affect the run
 function bench()
 {
   local name=$1
@@ -24,8 +31,11 @@ function bench()
   ./start_bench.sh $jmc_bench $name $bench_opts
 }
 
-# default
-bench ref
+# insist on defaults
+bench rf0
+bench rf1
+bench rf2
+bench rf3
 
 # default gnu compiler instead of clang
 bench clg --cc=cc

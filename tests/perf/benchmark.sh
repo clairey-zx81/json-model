@@ -3,6 +3,7 @@
 # run jmc benchmark
 #
 # usage: $0 --help
+#
 # eg: $0 --par 12 --runs 5 --loop 1000 --jmc latest --jsc latest --env JMC_OPTS
 #
 
@@ -146,7 +147,7 @@ for cmd in git $POD sqlite3 jq id basename grep egrep sed wc gron /bin/bash /usr
   type $cmd || err 2 "command not found: $cmd"
 done
 
-for f in jsb tmp perf.db ; do
+for f in tmp perf.db ; do
   test -e $f && err 3 "unexpected dir/file: $f"
 done
 
@@ -163,13 +164,22 @@ START=$SECONDS
 #
 # SETUP
 #
-echo "# $POD images"
-for img in docker.io/zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC ; do
-  $POD pull $img || err 4 "cannot $POD pull $img"
-done
 
-echo "# cloning repos"
-git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git jsb || err 4 "git clone failed (jsb)"
+if [ "$POD_PULL" ] ; then
+  echo "# pulling $POD images"
+  for img in docker.io/zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC ; do
+    $POD pull $img || err 4 "cannot $POD pull $img"
+  done
+else
+  echo "# using $POD images"
+fi
+
+if [ -d jsb ] ; then
+  echo "# reusing existing jsb directory"
+else
+  echo "# cloning jsb repos"
+  git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git jsb || err 4 "git clone failed (jsb)"
+fi
 
 echo "# directory setup"
 # NOTE check that jmc CLASSPATH is consistent OR "java path/to/file.java"

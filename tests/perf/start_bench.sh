@@ -4,6 +4,7 @@
 #
 
 export POD=${POD:-docker}
+export POD_PULL=${POD_PULL:-1}
 
 if [ $1 = "-h" -o $1 = "--help" ] ; then
   cat <<EOF
@@ -18,10 +19,12 @@ Arguments:
 
 Environment:
 - POD: container command, "docker" or "podman", default is "docker"
+- POD_PULL: whether to pull container images
 - JMC_BENCH_IMAGE: overide default docker.io/zx80/jmc-bench-$POD image for testing
 - JMC: docker.io/zx80/jmc container tag, default is "latest"
 - JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest"
 - JMC_OPTS: options for jmc
+- JSB_DIR: JSON Schema Benchmark directory, default is to clone
 
 Example:
 
@@ -82,6 +85,11 @@ if [ "$JMC_OPTS" ] ; then
   bench_opts+=(--env JMC_OPTS)
 fi
 
+if [ "$JSB_DIR" ] then
+  [ -d "$JSB_DIR" ] || err 6 "no such directory: $JSB_DIR"
+  container_opts+=(-v "$JSB_DIR:/workspace/jsb")
+fi
+
 if [ "$JMC" ] ; then
   bench_opts+=(--jmc "$JMC")
 fi
@@ -111,14 +119,15 @@ image="${JMC_BENCH_IMAGE:-docker.io/zx80/jmc-bench-$POD}:$bench"
 echo "# container options: ${container_opts[@]}"
 echo "# benchmark options: --id=$bench_id ${bench_opts[@]} $@"
 
-# check latest version
-$POD pull $image
+# possibly check for latest version
+[ "$POD_PULL" ] && $POD pull $image
 
-# start container
+# start benchmark container
 exec $POD run --rm --name jmcbench_$bench_id \
   -v .:/workspace \
   -e WORKDIR="$WORKDIR" \
   -e POD="$POD" \
+  -e POD_PULL="$POD_PULL" \
   "${container_opts[@]}" \
     "$image" \
       --id=$bench_id "${bench_opts[@]}" "$@" > $bench_id.output 2>&1
