@@ -46,7 +46,7 @@ if [ "$pod" = "docker" ] ; then
 fi
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
-  echo "$0 [ help | run | exec | shell | root ] …"
+  echo "$0 [ help | run | exec | shell | root | echo ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
   shift 1
   exec "${container_user[@]}" -it --entrypoint /bin/bash "$container_image" "$@"
@@ -60,6 +60,9 @@ elif [ "$#" -ge 1 -a "$1" = "exec" ] ; then
 elif [ "$#" -ge 1 -a "$1" = "run" ] ; then
   shift 1
   exec "${container_user[@]}" "$container_image" "$@"
+elif [ "$#" -ge 1 -a "$1" = "echo" ] ; then
+  shift 1
+  echo "${container_user[@]}" "$container_image" "$@"
 else
   exec "${container_user[@]}" "$container_image" "$@"
 fi
