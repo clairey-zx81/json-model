@@ -305,12 +305,17 @@ read cur_freq < $cpu0/scaling_cur_freq
 read min_freq < $cpu0/scaling_min_freq
 read max_freq < $cpu0/scaling_max_freq
 
+# show convenient unit
 function unit()
 {
   local perf=$1
-  perf=${perf%000000000}G
-  perf=${perf%000000}M
-  perf=${perf%000}K
+  if [[ "$perf" == *000000000 ]] ; then
+    perf=${perf%000000000}G
+  elif [[ "$perf" == *000000 ]] ; then
+    perf=${perf%000000}M
+  elif [[ "$perf" == *000 ]] ; then
+    perf=${perf%000}K
+  fi
   echo $perf
 }
 
