@@ -49,7 +49,7 @@ while [[ "$1" == -* ]] ; do
       echo " --cap: reduce loop iterations for slow scripts (default)"
       echo " --no-cap: do not reduce loop iterations for slow scripts"
       echo " --env|-e VARS: environment variables to export to jmc container"
-      echo " --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python)"
+      echo " --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python l=Perl)"
       exit 0
       ;;
     -v|--version)
