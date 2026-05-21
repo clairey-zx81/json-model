@@ -61,14 +61,7 @@ if [[ "$1" != -* ]] ; then
   [ -e "$bench_id" ] && err 1 "cannot override $bench_id"
   shift
 else
-  bench_id=
-fi
-
-container_opts=(--hostname=$(hostname))
-bench_opts=()
-
-# default bench_id
-if [ ! "$bench_id" ] ; then
+  # set default bench_id based on current date
   let count=0 now=$(date +%Y%m%d)
   while true ; do
     bench_id=$(printf "$now%02x" $count)
@@ -80,6 +73,10 @@ fi
 
 mkdir $bench_id || err 3 "cannot create directory: $bench_id"
 cd $bench_id || err 4 "cannot change directory: $bench_id"
+
+# container stuff
+container_opts=(--hostname=$(hostname))
+bench_opts=()
 
 # forward environment settings to container
 if [ "$JMC_OPTS" ] ; then
@@ -95,6 +92,8 @@ if [ "$JSB_DIR" ] ; then
   JMC_POD_OPTS="-v $JSB_DIR:/app/workspace/jsb"
   # this is for "js-cli"
   JSC_POD_OPTS="-v $JSB_DIR:/workspace/jsb"
+  # forwarding? not needed, this is used directly by the bench/run scripts
+  # bench_opts+=(--env JMC_POD_OPTS --env JSC_POD_OPTS)
 fi
 
 if [ "$JMC" ] ; then
