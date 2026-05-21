@@ -3,14 +3,14 @@
 # Try desactivating compiler optimization options
 #
 
-export JMC=dev
-export JSB_DIR=$PWD/jsb_dir
+export JMC=main
+export JSB_DIR=$HOME/perf/jsb_dir
 export POD_PULL=0
 
-jmc_bench=dev
+jmc_bench=main
 
-if [ ! -d ./jsb_dir ] ; then
-  git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git ./jsb_dir || exit 1
+if [ ! -d $JSB_DIR ] ; then
+  git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git $JSB_DIR || exit 1
 fi
 
 # default JMC options
