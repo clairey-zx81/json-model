@@ -57,7 +57,6 @@ are rightfully rejected.
 - yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969} - raw strings
 
 More values are rejected if formats are also checked, eg urls with are not urls.
-The `geoson` failure for Java/GSON is related to a corner case issue with GSON.
 """
 
 COMP_CASES: str = """
