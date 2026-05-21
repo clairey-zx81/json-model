@@ -1,0 +1,4 @@
+{
+  "#": "optional prop which may be null",
+  "?null": { "|": [ null, "NULL", "NOPE"] }
+}

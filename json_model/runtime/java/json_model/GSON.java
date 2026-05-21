@@ -33,7 +33,8 @@ public class GSON extends JSON<Object>
 
     public Object fromJSON(String json) throws JSON.Exception
     {
-        return gson.fromJson(json, type);
+        // return gson.fromJson(json, type);
+        return json.equals("null") ? NULL : gson.fromJson(json, type);
     }
 
     public Object fromJSON(Reader reader) throws JSON.Exception

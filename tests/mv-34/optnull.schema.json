@@ -1,0 +1,14 @@
+{
+  "description": "optional prop which may be null",
+  "type": "object",
+  "properties": {
+    "null": {
+      "enum": [
+        null,
+        "NULL",
+        "NOPE"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

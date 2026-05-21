@@ -50,6 +50,7 @@
 - [x] java-backend: fix GSON issue where null property values are considered missing
 - [x] pl-backend: load "utf8" package to better deal with utf8 constants
 - [x] perf: also add jsb sharing when using js-cli
+- [x] java-runtime: fix GSON null when used in value sets
 - [ ] backend: check `mv-34/mu` test case which may require some normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
 - [ ] pr: improve JSTS test results alignment between all backends (wip)

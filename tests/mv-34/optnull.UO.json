@@ -1,0 +1,12 @@
+[
+  {
+    "?null": {
+      "|": [
+        null,
+        "_NULL",
+        "_NOPE"
+      ]
+    },
+    "#": "JsonModel 1"
+  }
+]
