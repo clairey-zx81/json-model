@@ -15,7 +15,7 @@ echo off | sudo tee /sys/devices/system/cpu/smt/control
 sudo cpupower frequency-set -g powersave
 sudo cpupower frequency-set -u 4.0GHz
 sudo cpupower frequency-set -d 1.2GHz
-echo off | sudo tee /sys/devices/system/cpu/smt/control
+echo on | sudo tee /sys/devices/system/cpu/smt/control
 # show
 cpupower frequency-info
 ```
