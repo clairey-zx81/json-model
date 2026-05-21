@@ -57,7 +57,7 @@ for dir in "$@" ; do
 done
 
 # analysis
-echo "# analyzing data…" >&2
+echo "# analyze data" >&2
 sqlite3 ./perf.db \
   ".read $script_dir/perf_init.sql" \
   ".read $script_dir/perf_load.sql" \

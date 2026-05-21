@@ -2,6 +2,8 @@
 -- LOAD
 --
 
+.print "## loading data"
+
 -- load raw data from benchmark generated files
 .mode csv
 .import perf.csv RawRun

@@ -2,6 +2,8 @@
 -- COMPUTE
 --
 
+.print "## analysing data"
+
 -- use simpler case names
 UPDATE RawRun SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;
 UPDATE RawCompile SET name = r.newname FROM CaseRenames AS r WHERE name = r.oldname;

@@ -2,6 +2,8 @@
 -- Performance Summary SQLite infrastructure
 --
 
+.print "## creating tables"
+
 --
 -- imported data
 --
