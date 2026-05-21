@@ -1,5 +1,57 @@
 # JSON Model Compiler Versions
 
+## 2.0.50 2026-05-21
+
+- [x] c-runtime: remove some warnings on build
+- [x] front: reduce version display verbosity
+- [x] doc: add release procedure section
+- [x] doc: fix type in jmc pod file
+- [x] test: and minimal working sanity test
+- [x] dev: improve dev setup and cleanup
+- [x] ci: add minimal CI configuration on GitHub
+- [x] main: add parse time measure for Python, JS, C, Java, Perl
+- [x] java-runtime: update to latest JSON libraries
+- [x] js-runtime: bump version
+- [x] pl-runtime: bump version
+- [x] static: fix generated code order determinism (again)
+- [x] utils: ~improve model recurse with optional context~ not needed
+- [x] front: add options to control more optimization phases
+- [x] perf: improve benchmark script to help with next task (`compare.py`)
+- [x] perf: separate perf and show business
+- [x] perf: rewrite perf as a shell load script + sql
+- [x] perf: rewrite show as a python script
+- [x] perf: improve and generalize performance comparison script
+- [x] perf: update benchmark stuff to use new comparison script
+- [x] front: add `--no-precompiled` option
+- [x] front: add `--no-unique-optimize` option
+- [x] perf: compare can use χ² test
+- [x] perf: test with each optimizations disabled to mesure impact
+- [x] perf: analyze identical generated files when comparing same language
+- [x] backend: use current version instead of installed version in generated code
+- [x] js-runtime: fix string length as a number of chars
+- [x] static: allow do disable regex pattern matching
+- [x] static: allow to disable function call shortcuts
+- [x] c-runtime: accept time `24:00:00` (8601-1:2019/Amd 1:2022)
+- [x] test: do not test `24:00:00` as time validators are unlikely to agree
+- [x] container: remove `cstring` add, `cre2` master is now fixed
+- [x] perf: allow to restrict reporting to a subset of tools
+- [x] static: allow disabling more xstatic optimization
+- [x] perf: add note about random frequency governor changes because of cpu temperature
+- [x] perf: show median compilation time instead of min
+- [x] perf: possibly mount jsb as a volume when benchmarking
+- [x] c-runtime: move re header inclusion to `json-model.h`
+- [x] pl-backend: better escape some characters
+- [x] sql-backend: use string escape syntax
+- [x] static: fix int constant comparison typing under loose ints
+- [x] c-backend: fix handling of small chars when building integers
+- [x] static: fix some prop name escaping on reporting
+- [x] java-backend: large int constants need a "L" suffix
+- [x] java-backend: fix long conversion with GSON
+- [x] java-backend: fix GSON issue where null property values are considered missing
+- [x] pl-backend: load "utf8" package to better deal with utf8 constants
+- [x] perf: also add jsb sharing when using js-cli
+- [x] java-runtime: fix GSON null when used in value sets
+
 ## 2.0.49 2026-05-09
 
 - [x] front: cleanup obsolete versioning stuff
