@@ -303,6 +303,11 @@ EXPECT: dict[str, int] = {
     "mv-33:values": 150,
     "mv-33:verrors:schema": 1,
     "mv-33:errors.java": 2,
+    # mv-34
+    "mv-34:cmp-opts": {"report": False, "comment": False},
+    "mv-34:mod-opts": {"single_line": True},
+    "mv-34:models": 1,
+    "mv-34:values": 17,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 309,
@@ -349,7 +354,7 @@ def has_exec(program: str) -> bool:
         "./mv-18", "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d", "./mv-1e", "./mv-1f",
         "./mv-20", "./mv-21", "./mv-22", "./mv-23", "./mv-24", "./mv-25", "./mv-26", "./mv-27",
         "./mv-28", "./mv-29", "./mv-2a", "./mv-2b", "./mv-2c", "./mv-2d", "./mv-2e", "./mv-2f",
-        "./mv-30", "./mv-31", "./mv-32", "./mv-33",
+        "./mv-30", "./mv-31", "./mv-32", "./mv-33", "./mv-34",
     ]
 )
 def directory(request):

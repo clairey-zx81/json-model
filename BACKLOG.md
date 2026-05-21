@@ -45,6 +45,7 @@
 - [x] static: fix int constant comparison typing under loose ints
 - [x] c-backend: fix handling of small chars when building integers
 - [x] static: fix some prop name escaping on reporting
+- [x] java-backend: large int constants need a "L" suffix
 - [ ] pr: improve JSTS test results alignment between all backends (wip)
 - [ ] js-runtime: check stability of `.mo` extension (wip: issue reported)
 - [ ] js-backend: remove useless braces and semi-colons

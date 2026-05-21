@@ -151,6 +151,8 @@ class Java(Language):
     def const(self, c: Jsonable) -> Expr:
         if isinstance(c, (list, dict)):
             return self.json_cst(c)
+        elif isinstance(c, int) and not isinstance(c, bool):
+            return str(c) + ("" if -2147483648 <= c <= 2147483647 else "L")  # java long constant
         else:
             return super().const(c)
 

@@ -1,0 +1,4 @@
+{
+  "description": "a pretty large int, 9 billion does not fit 32 bits JSON_MODEL_LOOSE_NUMBER",
+  "const": 9876543210
+}
