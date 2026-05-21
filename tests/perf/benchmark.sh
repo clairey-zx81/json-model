@@ -300,21 +300,22 @@ START=$SECONDS
 cpu_model=$(lscpu --extended=MODELNAME | sed -n 2p)
 cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
 
-cpu0=/sys/devices/system/cpu/cpu0/cpufreq
-read cur_freq < $cpu0/scaling_cur_freq
-read min_freq < $cpu0/scaling_min_freq
-read max_freq < $cpu0/scaling_max_freq
+cpu=/sys/devices/system/cpu
+read cur_freq < $cpu/cpu0/cpufreq/scaling_cur_freq
+read min_freq < $cpu/cpu0/cpufreq/scaling_min_freq
+read max_freq < $cpu/cpu0/cpufreq/scaling_max_freq
+read hyper_threading < $cpu/smt/active
 
-# show convenient unit
+# show convenient unit for data in K
 function unit()
 {
   local perf=$1
-  if [[ "$perf" == *000000000 ]] ; then
-    perf=${perf%000000000}G
-  elif [[ "$perf" == *000000 ]] ; then
-    perf=${perf%000000}M
+  if [[ "$perf" == *000000 ]] ; then
+    perf=${perf%000000}G
   elif [[ "$perf" == *000 ]] ; then
-    perf=${perf%000}K
+    perf=${perf%000}M
+  else
+    perf=${perf}K
   fi
   echo $perf
 }
@@ -356,7 +357,7 @@ or deselect tools for easier comparisons.
 - **host:** $(hostname)
 - **cpu model:** $cpu_model
 - **cpu cores:** $cpu_count
-- **cpu freq:** $(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz)
+- **cpu freq:** $(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz, HT=$hyper_threading)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
 - **benchmarking script:** $version
