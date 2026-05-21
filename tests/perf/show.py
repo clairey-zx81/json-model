@@ -158,7 +158,7 @@ def report():
         assert tools == [
             "blaze", "jmc-c", "jmc-js",
             "jmc-java-gson", "jmc-java-jackson", "jmc-java-jsonp", "jmc-py"
-        ], "expect ordered standard benchmark tools"
+        ], f"expect ordered standard benchmark tools ({tools})"
 
     cases: list[str] = [
         t[0] for t in conn.execute("SELECT name FROM Cases ORDER BY 1")
