@@ -132,6 +132,7 @@ public class GSON extends JSON<Object>
 
     public Object objectValue(Object o, String prop)
     {
+        // FIXME if the property value is "null", this is the same as missing
         return ((Map<String, Object>) o).get(prop);
     }
 
