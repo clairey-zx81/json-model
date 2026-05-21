@@ -4,9 +4,9 @@
 #
 # env:
 # - POD: container command, either "docker" or "podman"
-# - POD_OPTS: additional pod options
 # - JMC: jmc container tag to run
 # - JMC_ENV: names of environment variables to export
+# - JMC_POD_OPTS: additional pod options
 # - WORKDIR: working directory to use
 
 pod=${POD:-docker}
@@ -16,7 +16,7 @@ workspace="/app/workspace"
 [ "$pod" = "podman" ] && workspace+=":z"
 
 container_image="docker.io/zx80/jmc:${JMC:-latest}"
-container_root=($pod run --rm --name acme_jmc_$$ -v "${WORKDIR:-.}:$workspace" $POD_OPTS)
+container_root=($pod run --rm --name acme_jmc_$$ -v "${WORKDIR:-.}:$workspace" $JMC_POD_OPTS)
 
 # export environment variables to container
 for var in $JMC_ENV ; do

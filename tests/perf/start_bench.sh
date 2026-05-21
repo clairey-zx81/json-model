@@ -5,7 +5,8 @@
 
 export POD=${POD:-docker}
 export POD_PULL=${POD_PULL:-1}
-export POD_OPTS=
+export JMC_POD_OPTS=
+export JSC_POD_OPTS=
 
 if [ $1 = "-h" -o $1 = "--help" ] ; then
   cat <<EOF
@@ -91,7 +92,9 @@ if [ "$JSB_DIR" ] ; then
   # this is for "benchmark.sh"
   container_opts+=(-v "$JSB_DIR:/workspace/jsb")
   # this is for "jmc"
-  POD_OPTS="-v $JSB_DIR:/app/workspace/jsb"
+  JMC_POD_OPTS="-v $JSB_DIR:/app/workspace/jsb"
+  # this is for "js-cli"
+  JSC_POD_OPTS="-v $JSB_DIR:/workspace/jsb"
 fi
 
 if [ "$JMC" ] ; then
@@ -135,7 +138,8 @@ exec $POD run \
   -e WORKDIR="$WORKDIR" \
   -e POD="$POD" \
   -e POD_PULL="$POD_PULL" \
-  -e POD_OPTS="$POD_OPTS" \
+  -e JMC_POD_OPTS="$JMC_POD_OPTS" \
+  -e JSC_POD_OPTS="$JSC_POD_OPTS" \
   "${container_opts[@]}" \
     "$image" \
       --id=$bench_id "${bench_opts[@]}" "$@" > $bench_id.output 2>&1
