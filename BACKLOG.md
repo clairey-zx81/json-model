@@ -47,6 +47,7 @@
 - [x] static: fix some prop name escaping on reporting
 - [x] java-backend: large int constants need a "L" suffix
 - [x] java-backend: fix long conversion with GSON
+- [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
 - [ ] pr: improve JSTS test results alignment between all backends (wip)
 - [ ] js-runtime: check stability of `.mo` extension (wip: issue reported)
 - [ ] js-backend: remove useless braces and semi-colons
