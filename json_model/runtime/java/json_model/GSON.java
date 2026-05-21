@@ -20,6 +20,12 @@ public class GSON extends JSON<Object>
 {
     private static Type type = new TypeToken<Object>() {}.getType();  // deep voodoo
 
+    // workaround for distinguishing null values from missing properties in objectValue
+    private static Object NULL = new Object() {
+        @Override
+        public String toString() { return "null"; }
+    };
+
     private static final Gson gson = new GsonBuilder()
         .setObjectToNumberStrategy(ToNumberPolicy.LONG_OR_DOUBLE)
         .setStrictness(Strictness.STRICT)
@@ -42,7 +48,8 @@ public class GSON extends JSON<Object>
 
     public boolean isNull(Object o)
     {
-        return o == null;        
+        // NOTE must be consistent with objectValue()
+        return o == null || o == NULL;
     }
 
     public boolean isBoolean(Object o)
@@ -102,7 +109,7 @@ public class GSON extends JSON<Object>
 
     public boolean isArray(Object o)
     {
-        return o instanceof List; 
+        return o instanceof List;
     }
 
     public int arrayLength(Object o)
@@ -130,10 +137,14 @@ public class GSON extends JSON<Object>
         return ((Map<String, Object>) o).size();
     }
 
+    // NOTE returns NULL constant for null, null for missing.
     public Object objectValue(Object o, String prop)
     {
-        // FIXME if the property value is "null", this is the same as missing
-        return ((Map<String, Object>) o).get(prop);
+        Object value;
+        if ((value = ((Map<String, Object>) o).get(prop)) != null)
+            return value;
+        // else is it null or missing?
+        return objectHasProp(o, prop) ? NULL : null;
     }
 
     public boolean objectHasProp(Object o, String prop)

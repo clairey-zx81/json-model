@@ -1,0 +1,13 @@
+{
+  "description": "mandatory property with a null value",
+  "type": "object",
+  "properties": {
+    "null": {
+      "type": "null"
+    }
+  },
+  "required": [
+    "null"
+  ],
+  "additionalProperties": false
+}

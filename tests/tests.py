@@ -306,8 +306,8 @@ EXPECT: dict[str, int] = {
     # mv-34
     "mv-34:cmp-opts": {"report": False, "comment": False},
     "mv-34:mod-opts": {"single_line": True},
-    "mv-34:models": 1,
-    "mv-34:values": 17,
+    "mv-34:models": 2,
+    "mv-34:values": 38,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 309,
