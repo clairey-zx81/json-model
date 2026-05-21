@@ -163,6 +163,12 @@ for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-t
   type $cmd || err 5 "script $cmd not found"
 done
 
+if [ "$debug" ] ; then
+  echo "## raw docker commands"
+  jmc echo --version
+  js-cli echo --version
+fi
+
 echo "## started $(( $SECONDS - $START ))"
 START=$SECONDS
 
@@ -181,6 +187,8 @@ fi
 
 if [ -d jsb ] ; then
   echo "# reusing existing jsb directory"
+  echo "## jmc forwarding: $JMC_POD_OPTS"
+  echo "## js-cli forwarding: $JSC_POD_OPTS"
 else
   echo "# cloning jsb repos"
   git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git jsb || err 4 "git clone failed (jsb)"
@@ -192,7 +200,7 @@ mkdir tmp || err 4 "mkdir tmp failed"
 
 let run=$RUNS
 while let run-- ; do
-  mkdir tmp/$run
+  mkdir tmp/$run || err 4 "mkdir tmp/$run failed"
 done
 
 #
