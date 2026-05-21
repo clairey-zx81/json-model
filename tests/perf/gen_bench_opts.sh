@@ -45,8 +45,6 @@ function bench()
 # insist on defaults
 bench c ref
 bench c ref
-bench c ref
-bench c ref
 
 # default gnu compiler instead of clang
 bench c clg --cc=cc
@@ -57,10 +55,16 @@ bench c rxo --no-regex-optimize
 bench c rxp --no-regex-pattern
 bench c slr --no-single-line-regex
 
+# default 2
+bench c ref
+
 # all preprocessor optimizations
 for opt in srx csp sim flt pev ans aco x2o non ; do
   bench c $opt -nOp=$opt
 done
+
+# default 3
+bench c ref
 
 # c-backend
 bench c uni --no-unique-optimize
@@ -88,6 +92,7 @@ bench c iro --no-ir-optimize
 
 # for reference
 bench b blz
+bench c ref
 
 # show a summary
 echo "# benches completed"
