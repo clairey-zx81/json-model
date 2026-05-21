@@ -46,6 +46,7 @@
 - [x] c-backend: fix handling of small chars when building integers
 - [x] static: fix some prop name escaping on reporting
 - [x] java-backend: large int constants need a "L" suffix
+- [x] java-backend: fix long conversion with GSON
 - [ ] pr: improve JSTS test results alignment between all backends (wip)
 - [ ] js-runtime: check stability of `.mo` extension (wip: issue reported)
 - [ ] js-backend: remove useless braces and semi-colons

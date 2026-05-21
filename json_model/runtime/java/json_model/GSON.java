@@ -67,7 +67,7 @@ public class GSON extends JSON<Object>
 
     public long asLong(Object o)
     {
-        return (long) o;
+        return isDouble(o) ? ((Double) o).longValue() : (long) o;
     }
 
     public boolean isDouble(Object o)
