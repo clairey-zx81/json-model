@@ -285,7 +285,6 @@ EXPECT: dict[str, int] = {
     # mv-31
     "mv-31:models": 8,
     "mv-31:values": 237,
-    "mv-31:errors.pl": 10,
     # mv-32
     "mv-32:verrors:schema": 1,  # sre_0d.values [16]
     "mv-32:cmp-opts": {"report": False, "comment": False},
@@ -306,8 +305,16 @@ EXPECT: dict[str, int] = {
     # mv-34
     "mv-34:cmp-opts": {"report": False, "comment": False},
     "mv-34:mod-opts": {"single_line": True},
-    "mv-34:models": 2,
-    "mv-34:values": 38,
+    "mv-34:models": 3,
+    "mv-34:values": 54,
+    "mv-34:errors.java": 1,
+    "mv-34:errors.js": 1,
+    "mv-34:errors.c": 1,
+    "mv-34:errors.pl": 1,
+    "mv-34:errors.py": 1,
+    "mv-34:errors.sql": 1,
+    "mv-34:verrors:schema": 1,
+    "mv-34:verrors:dynpy": 1,
     # miscellaneous tests
     "bads:models": 58,
     "jsts-files": 309,
