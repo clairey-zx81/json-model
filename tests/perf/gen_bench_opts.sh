@@ -17,14 +17,14 @@ fi
 jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled --short-version"
 
 # parallelism, loop, repeats, tasks
-bench_opts="-p 20 -l 1000 -r 47 -T c"
+bench_opts="-p 20 -l 1000 -r 47"
 
 # start a bench run with the expected setup
 # NOTE that environment JMC JSB_DIR POD_PULL also affect the run
 function bench()
 {
-  local name=$1
-  shift
+  local bench=$1 name=$2
+  shift 2
 
   export JMC_OPTS="$jmc_opts"
   [ $# -ge 1 ] && JMC_OPTS+=" $@"
@@ -39,52 +39,55 @@ function bench()
   fi
 
   echo "# starting benchmark $name ($JMC_OPTS)" >&2
-  ./start_bench.sh $jmc_bench $name $bench_opts
+  ./start_bench.sh $jmc_bench $name $bench_opts -T $bench
 }
 
 # insist on defaults
-bench ref
-bench ref
-bench ref
-bench ref
+bench c ref
+bench c ref
+bench c ref
+bench c ref
 
 # default gnu compiler instead of clang
-bench clg --cc=cc
+bench c clg --cc=cc
 
 # regex engine and optimization
-bench rxe --regex-engine=pcre2 --no-precompiled
-bench rxo --no-regex-optimize
-bench rxp --no-regex-pattern
-bench slr --no-single-line-regex
+bench c rxe --regex-engine=pcre2 --no-precompiled
+bench c rxo --no-regex-optimize
+bench c rxp --no-regex-pattern
+bench c slr --no-single-line-regex
 
 # all preprocessor optimizations
 for opt in srx csp sim flt pev ans aco x2o non ; do
-  bench $opt -nOp=$opt
+  bench c $opt -nOp=$opt
 done
 
 # c-backend
-bench uni --no-unique-optimize
-bench sco --no-strcmp-optimize
-bench set --max-strcmp-cset=0
+bench c uni --no-unique-optimize
+bench c sco --no-strcmp-optimize
+bench c set --max-strcmp-cset=0
 
 # xstatic AST generation
-bench sho --no-call-shortcut
-bench map --map-threshold=0
-bench aun --array-unrolling-size=0
-bench mmo -mmot=0
-bench mot -mot=0
-bench omp -omp=0
-bench pa0 -pt=0
-bench pax -pt=1024
-bench dis --no-disjunction
-bench abo --no-all-but-one
-bench mba --no-missing-basics
-bench xrp --no-xor-repeats
-bench xin --no-xor-is-not
-bench hol --no-homogeneous-list
+bench c sho --no-call-shortcut
+bench c map --map-threshold=0
+bench c aun --array-unrolling-size=0
+bench c mmo -mmot=0
+bench c mot -mot=0
+bench c omp -omp=0
+bench c pa0 -pt=0
+bench c pax -pt=1024
+bench c dis --no-disjunction
+bench c abo --no-all-but-one
+bench c mba --no-missing-basics
+bench c xrp --no-xor-repeats
+bench c xin --no-xor-is-not
+bench c hol --no-homogeneous-list
 
 # IR
-bench iro --no-ir-optimize
+bench c iro --no-ir-optimize
+
+# for reference
+bench b blz
 
 # show a summary
 echo "# benches completed"
