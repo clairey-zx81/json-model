@@ -75,7 +75,8 @@ the following caveats, and others:
   especially wrt schema/model and value sizes.
 - the overall load on the test host can impact measures, as well as power control
   features which adjust the cpu frequency in real time.
-- Relying on hyper-threading can reduce performance for simple one thread tasks.
+- Relying on hyper-threading can reduce performance for simple one thread tasks,
+  so it is often disabled.
 - the measure overhead is estimated and deduced from the performance figures,
   which leads to potentially fuzzy results on very small data and schemas.
 - compilers, libraries and other design and updates can have dramatic effects:
@@ -86,7 +87,7 @@ the following caveats, and others:
   so these checks may be disactivated (see `JMC_OPTS`) for fairness,
   reducing the results significance.
 - blaze uses its own special-purpose JSON representation which include a precomputed
-  custom hash for string comparisons.
+  custom hash for string comparisons, aleviating the need to compare strings in most cases.
 - blaze is a C++ library, if interfaced from another language, the cost of translating
   the JSON representation to this library should be taken into account;
   in contrast, jmc uses native JSON representations in the target ecosystem and generate
@@ -97,9 +98,9 @@ the following caveats, and others:
 - it is unclear whether JIT optimizations (eg Java and JS) may work around the
   benchmarking loops and report undue very fast performances, eg on the GeoJSON case.
 - some execution environment (eg Java) takes advantage of parallelism with threads (possibly
-  for the garbage collector), which may or may not be a blessing: it can reduce the apparent
-  latency (eg the gc runs in another thread) but have a detrimental overall effect on throughput
-  and costs as more cpu ressources are spent on the same task.
+  for the garbage collector and JIT), which may or may not be a blessing: it can reduce
+  the apparent latency (eg the gc runs in another thread) but have a detrimental overall
+  effect on throughput and costs as more cpu ressources are spent on the same task.
 
 ## Other Artifacts
 
