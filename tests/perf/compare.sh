@@ -64,4 +64,5 @@ sqlite3 ./perf.db \
   ".read $script_dir/perf_comp.sql"
 
 echo "# result" >&2
-sqlite3 ./perf.db "SELECT * FROM ToolSummaryPerf ORDER BY bspeed DESC;"
+sqlite3 -box ./perf.db \
+  "SELECT * FROM ToolSummaryPerf ORDER BY bspeed DESC;"
