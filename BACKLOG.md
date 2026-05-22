@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] perf: rename `show.py` as `report.py`
+- [x] front: allow to add a comment in generated source files
 - [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`

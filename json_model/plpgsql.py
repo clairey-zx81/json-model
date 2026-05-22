@@ -61,8 +61,8 @@ class PLpgSQL(Language):
     #
     # file
     #
-    def file_header(self, exe: bool = True) -> Block:
-        code: Block = super().file_header(exe)
+    def file_header(self, exe: bool = True, mark: str|None = None) -> Block:
+        code: Block = super().file_header(exe, mark)
         code += [
             f"-- JSON_MODEL_VERSION is {self.version()}",
             r"CREATE EXTENSION IF NOT EXISTS json_model;",

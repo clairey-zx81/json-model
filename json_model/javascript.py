@@ -45,9 +45,9 @@ class JavaScript(Language):
     #
     # file
     #
-    def file_header(self, exe: bool = True) -> Block:
+    def file_header(self, exe: bool = True, mark: str|None = None) -> Block:
         code: Block = self.file_load("javascript_exe.js") if exe else []
-        code += super().file_header(exe)
+        code += super().file_header(exe, mark)
         code += self.file_load("javascript_head.js")
         code += [ f"const JSON_MODEL_VERSION = {self.esc(self.version())};" ]
         return code

@@ -84,9 +84,9 @@ class Python(Language):
     def regroup(self, name: str, pattern: str = ".*"):
         return f"(?P<{name}>{pattern})" if self._relib == "re" else super().regroup(name, pattern)
 
-    def file_header(self, exe: bool = True) -> Block:
+    def file_header(self, exe: bool = True, mark: str|None = None) -> Block:
         code: Block = self.file_load("python_exe.py") if exe else []
-        code += super().file_header(exe)
+        code += super().file_header(exe, mark)
         code += [
             r"import math",
             r"from typing import Callable",

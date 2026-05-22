@@ -1185,11 +1185,11 @@ class IRep(Language):
         raise Exception("indentation not a IR operation")
 
     # generic code generation
-    def lcom(self, text: str = "") -> Block:
-        return [ _j("co", text=text) ] if self._with_comment else []
+    def lcom(self, text: str = "", force: bool = False) -> Block:
+        return [ _j("co", text=text, force=force) ] if self._with_comment or force else []
 
-    def file_header(self, exe: bool = True) -> Block:
-        return [ _j("fh", exe=exe, version=self.version()) ]
+    def file_header(self, exe: bool = True, mark: str|None = None) -> Block:
+        return [ _j("fh", exe=exe, mark=mark, version=self.version()) ]
 
     def file_footer(self, exe: bool = True) -> Block:
         return [ _j("ff", exe=exe) ]
@@ -1513,8 +1513,8 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
         # introspection? generation? with a decorator?
         op = jv["o"]
         match op:
-            case "co": return gen.lcom(text=jv["text"])
-            case "fh": return gen.file_header(exe=jv["exe"])
+            case "co": return gen.lcom(text=jv["text"], force=jv["force"])
+            case "fh": return gen.file_header(exe=jv["exe"], mark=jv["mark"])
             case "ff": return gen.file_footer(exe=jv["exe"])
             case "in": return gen.is_num(var=ev("var"))
             case "is": return gen.is_scalar(var=ev("var"))
@@ -1668,7 +1668,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
         return jv
 
 def evaluate(ir: Code, lang: Language) -> Code:
-    code = Code(lang, ir._entry, ir._executable, ir._package)
+    code = Code(lang, ir._entry, ir._executable, ir._package, ir._mark)
     code._predefs = ir._predefs
     code._defs = _eval(_u(ir._defs), lang)
     code._subs = _eval(_u(ir._subs), lang)

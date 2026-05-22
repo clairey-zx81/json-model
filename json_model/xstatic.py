@@ -36,6 +36,7 @@ class CodeGenerator:
     - execute: true for executable, false for module.
     - fname: entry function name.
     - prefix: use this prefix for file-level identifiers.
+    - mark: add comment to generated code.
     - map_threshold: whether to inline property name checks (up to threshold) or use a map.
     - map_share: whether to share property maps
     - may_must_open_threshold: max number of optional props to mmop scheme, default 5
@@ -59,7 +60,8 @@ class CodeGenerator:
 
     def __init__(
                 self, globs: Symbols, language: Language, fname: str = "check_model", *,
-                prefix: str = "", map_threshold: int = 3, map_share: bool = False,
+                prefix: str = "", mark: str|None = None,
+                map_threshold: int = 3, map_share: bool = False,
                 may_must_open_threshold: int = 5, must_only_threshold: int = 5,
                 array_unrolling_size: int = 8, partition_threshold: int = 0,
                 sort_must: bool = False, sort_may: bool = False, or_must_prop: int = 0,
@@ -100,7 +102,8 @@ class CodeGenerator:
         self._xor_is_not = xor_is_not
         self._homogeneous_list = homogeneous_list
 
-        self._code = Code(language, fname, executable=execute, package=package)
+        # actual code manager
+        self._code = Code(language, fname, executable=execute, package=package, mark=mark)
 
         # identifiers and functions
         # ident-prefix -> next number to use to ensure unique identifiers
@@ -2286,7 +2289,8 @@ class CodeGenerator:
                 self._names[name] = "json_model_" + str(jm._id)
             self._compileName(jm, name, jm._model, path, local)
 
-    def compileJsonModelHead(self, model: JsonModel):
+    def compileJsonModelHead(self, model: JsonModel) -> Code:
+        """Overall entry point for compiling a model."""
         # $# special handing
         head_model_fun = f"json_model_{model._head._id}"
         self._names["$#"] = head_model_fun
@@ -2375,13 +2379,15 @@ def xstatic_compile(
         homogeneous_list: bool = True,
         max_strcmp_cset: int = 64,
         byte_order: str = "le",
+        mark: str|None = None,
     ) -> Code:
     """Generate the check source code for a model.
 
-    - model: JSON Model root to compile.
-    - fname: target function name.
-    - lang: name of target language.
-    - prefix: prefix for generated functions.
+    - model: JSON Model root to compile
+    - fname: target function name
+    - lang: name of target language
+    - prefix: prefix for generated functions
+    - mark: add comment to generated code
     - map_threshold: inline property checks under this threshold.
     - map_share: share generated property maps.
     - may_must_open_threshold: mmop scheme if below threshold opt props
@@ -2395,12 +2401,12 @@ def xstatic_compile(
     - array_unrolling_size: maximum size for array unrolling, 0 for no unrolling
     - report: whether to generate code to report rejection reasons.
     - comment: whether to generate comments
-    - debug: debugging mode generates more traces.
-    - short_version: in generated code.
-    - package: namespace to use (Perl module, Pg schema name, Java package).
-    - inline: enable function inlining (for C).
-    - predef: enable string content predef checks.
-    - ir_optimize: enable IR optimizations.
+    - debug: debugging mode generates more traces
+    - short_version: in generated code
+    - package: namespace to use (Perl module, Pg schema name, Java package)
+    - inline: enable function inlining (for C)
+    - predef: enable string content predef checks
+    - ir_optimize: enable IR optimizations
     - strcmp: whether to optimize some string comparisons
     - regex_opt: whether to optimize some regular expressions
     - regex_pattern: whether to match simple regex (starts, ends, equals)
@@ -2564,7 +2570,7 @@ def xstatic_compile(
 
     # source code generator
     gen = CodeGenerator(
-        model._globs, target, fname, prefix=prefix,  # type: ignore
+        model._globs, target, fname, prefix=prefix, mark=mark,  # type: ignore
         map_share=map_share, map_threshold=map_threshold,
         may_must_open_threshold=may_must_open_threshold,
         must_only_threshold=must_only_threshold,

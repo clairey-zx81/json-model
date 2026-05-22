@@ -48,8 +48,8 @@ class Java(Language):
     #
     # file
     #
-    def file_header(self, exe: bool = True) -> Block:
-        code: Block = super().file_header(exe)
+    def file_header(self, exe: bool = True, mark: str|None = None) -> Block:
+        code: Block = super().file_header(exe, mark)
         if self._with_package:
             code += [ "", "package CHECK_PACKAGE_NAME;" ]
         code += [

@@ -1,1 +1,1 @@
-JMC.opts    += --no-reporting --no-comment --single-line-regex
+JMC.opts    += --no-reporting --no-comment --single-line-regex --mark="hello world"

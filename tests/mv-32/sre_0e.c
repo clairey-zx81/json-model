@@ -1,3 +1,4 @@
+// hello world
 
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"

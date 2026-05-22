@@ -1,3 +1,4 @@
+-- hello world
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 

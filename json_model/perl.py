@@ -153,9 +153,9 @@ class Perl(Language):
             f"{self.esc(op)}, {self.const(vop)}, {path}, {self.rep()})"
         )
 
-    def file_header(self, exe: bool = True) -> Block:
+    def file_header(self, exe: bool = True, mark: str|None = None) -> Block:
         code: Block = self.file_load("perl_exe.pl") if exe else []
-        code += super().file_header(exe)
+        code += super().file_header(exe, mark)
         code += [
             "use utf8;",
             "use strict;",

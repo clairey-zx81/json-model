@@ -364,6 +364,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="enable predef content checks, the default")
     arg("--no-predef", dest="predef", action="store_false",
         help="disable predef content checks")
+    arg("--mark", type=str,
+        help="add comment to generated file")
 
     generate = ap.add_mutually_exclusive_group()
     gen = generate.add_argument
@@ -719,11 +721,12 @@ def jmc_script(xargs: list[str]|None = None) -> int:
 
     # CREATE FROM FILE OR URL
     try:
-        model = create_model(args.model, resolver, auto=args.auto, debug=args.debug,
-                             loose_int=args.loose_int, loose_float=args.loose_float,
-                             check=args.check, merge=args.op != "N",
-                             single_line=args.single_line_regex,
-                             optimize=args.optimize, extend=args.extend, follow=False)
+        model = create_model(
+            args.model, resolver, auto=args.auto, debug=args.debug,
+            loose_int=args.loose_int, loose_float=args.loose_float,
+            check=args.check, merge=args.op != "N", single_line=args.single_line_regex,
+            optimize=args.optimize, extend=args.extend, follow=False
+        )
     except Exception as e:
         log.error(e)
         if args.debug:
@@ -817,6 +820,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             homogeneous_list=args.homogeneous_list,
             max_strcmp_cset=args.max_strcmp_cset,
             array_unrolling_size=args.array_unrolling_size,
+            mark=args.mark,
         )
         source = str(code)
 

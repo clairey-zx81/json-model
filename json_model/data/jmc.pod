@@ -9,7 +9,7 @@ B<jmc> - JSON Model Compiler
 =head1 SYNOPSIS
 
  jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,syn,help,man}] [--man]
-     [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
+     [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}] [--mark COMMENT]
      [--allow-duplicates] [-[-no]-extend] [--loose-int] [--strict-int] [--loose-float]
      [--strict-float] [--loose-number] [--strict-number] [--loose] [--check]
      [-[-no]-single-line-regex] [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
@@ -176,6 +176,10 @@ Name of the entry function to generate.
 =item B<--package PKG>
 
 Name of package for generated module, if appliable.
+
+=item B<--mark COMMENT>
+
+Add comment to generated source file.
 
 =back
 
