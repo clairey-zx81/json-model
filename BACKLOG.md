@@ -6,6 +6,7 @@
 - [x] front: allow to add a comment in generated source files
 - [x] perf: allow to hide useless entries when generating a x2 comparison report
 - [x] perf: add geometrical average delta to x2 comparison report
+- [ ] spec: add `$SEMVER` predef
 - [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
