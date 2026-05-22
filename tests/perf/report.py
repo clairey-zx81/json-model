@@ -124,12 +124,18 @@ def report():
     # output
     arg("--standard", action="store_true",
         help="standard comparison report for \"json-model.org\" web site")
+    arg("--hide", default=False, action="store_true",
+        help="hide uneffective options from report")
     arg("--tools", nargs="*",
         help="restrict analysis to these tools, default is all available tools")
     # input
     arg("database", nargs="?", default="perf.db",
         help="use this SQLite database, default is \"perf.db\"")
     args = ap.parse_args()
+
+    if args.hide and not args.x2:
+        log.error("option --hide requires option --x2")
+        sys.exit(0)
 
     log.setLevel(args.level)
 
@@ -234,6 +240,17 @@ def report():
                 for name, tool, fhash in conn.execute("SELECT name, tool, hash FROM Files")
         }
 
+        # only keep tools with an effect on some generated code
+        if args.hide:
+            assert tools[0] == args.x2
+            ntools = tools[:1]
+            for tool in tools[1:]:
+                if any(files[(n, args.x2)] != files[(n, tool)] for n in cases):
+                    ntools.append(tool)
+            if ntools != tools:
+                log.info(f"hiding tools from report: {' '.join(sorted(set(tools) - set(ntools)))}")
+            tools = ntools
+
     conn.close()
 
     # data to be analyzed
@@ -246,7 +263,6 @@ def report():
     print("## Tool Performance Summary")
     if args.standard: print(TOOL_SUMMARY, end="")
 
-    assert len(tools) == len(summary)
     print()
     print("|Summary|" + "|".join(NAME[t] for t in tools) + "|")
     print("|:------|" + "".join("---:|" for t in tools))
