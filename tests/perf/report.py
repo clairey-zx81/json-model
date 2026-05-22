@@ -84,7 +84,8 @@ X2_SUMMARY_COMMENT: str = """
 - **betters**: number of proven improved performance when _removing_ the optimization
 - **sames**: number of similar performance
 - **worses**: number of proven degraded performance (aka the optimization works!)
-- **delta**: percent performance impact of the optimization
+- **speed Δ**: percent performance impact of the optimization on speed
+- **geo Δ**: percent performance impact of the optimization on performance geometrical average
 - **summary**: symbolic evaluation
 """
 
@@ -466,8 +467,10 @@ def report():
         print(f"| sames |" + "".join(f"{sames[t]}|" for t in tools))
         print(f"| worses |" + "".join(f"{worses[t]}|" for t in tools))
         # show relative speed delta (inverted because the feature is removed in the test)
-        print(f"| delta |" +
+        print(f"| speed Δ |" +
               "".join(f"{100.0 * (summary[args.x2]['ls'] - summary[t]['ls']) / summary[t]['ls']:.01f}%|" for t in tools))
+        print(f"| geo Δ |" +
+              "".join(f"{100.0 * (summary[t]['avg'] / summary[args.x2]['avg'] - 1.0):.01f}%|" for t in tools))
         # effectiveness summary
         print(f"|**summary**|", end="")
         for t in tools:
@@ -484,6 +487,8 @@ def report():
                 summary = (sign * delta) if delta else "~"
             print(summary + "|", end="")
         print(flush=True)
+
+        log.info("try: pandoc -s -o foo.html --title 'Great!' foo.md")
 
 if __name__ == "__main__":
     report()
