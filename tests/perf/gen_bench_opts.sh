@@ -47,10 +47,10 @@ bench c ref
 bench c ref
 
 # default gnu compiler instead of clang
-bench c clg --cc=cc
+bench c clg --cc=cc --mark="gcc instead of clang"
 
 # regex engine and optimization
-bench c rxe --regex-engine=pcre2 --no-precompiled
+bench c rxe --regex-engine=pcre2 --no-precompiled --mark="pcre2 instead of re2"
 bench c rxo --no-regex-optimize
 bench c rxp --no-regex-pattern
 bench c slr --no-single-line-regex
@@ -92,6 +92,8 @@ bench c iro --no-ir-optimize
 
 # for reference
 bench b blz
+
+# again
 bench c ref
 
 # show a summary
