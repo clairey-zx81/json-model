@@ -80,7 +80,7 @@ For each case and tool, the impact on the source and performance on all tests.
 """
 
 X2_SUMMARY_COMMENT: str = """
-- **changes**: number of source file changed
+- **changes**: number of source files changed
 - **betters**: number of proven improved performance when _removing_ the optimization
 - **sames**: number of similar performance
 - **worses**: number of proven degraded performance (aka the optimization works!)
