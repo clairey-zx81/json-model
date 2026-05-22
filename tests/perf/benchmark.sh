@@ -317,16 +317,20 @@ read hyper_threading < $cpu/smt/active
 # show convenient unit for data in K
 function unit()
 {
-  local perf=$1
-  if [[ "$perf" == *000000 ]] ; then
-    perf=${perf%000000}G
-  elif [[ "$perf" == *000 ]] ; then
-    perf=${perf%000}M
-  else
-    perf=${perf}K
-  fi
-  echo $perf
+  local perf=${1%?????}  # in 100M
+  local giga=${perf%?}
+  local frac=${perf#$giga}
+  echo "${giga}.${frac}G"
 }
+
+# frequency display depends on current conditions
+if [ $min_freq -eq $max_freq ] ; then
+  # TODO check that $cur_freq is indeed set as expected
+  frequency="$(unit $min_freq)Hz (HT=$hyper_threading)"
+else
+  frequency="$(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz, HT=$hyper_threading)"
+fi
+
 
 function pod_id()
 {
@@ -365,7 +369,7 @@ or deselect tools for easier comparisons.
 - **host:** $(hostname)
 - **cpu model:** $cpu_model
 - **cpu cores:** $cpu_count
-- **cpu freq:** $(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz, HT=$hyper_threading)
+- **cpu freq:** $frequency
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
 - **benchmarking script:** $version
