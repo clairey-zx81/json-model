@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
 - [ ] pr: improve JSTS test results alignment between all backends (wip)
