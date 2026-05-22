@@ -10,7 +10,7 @@ import logging
 import sqlite3
 
 logging.basicConfig(level=logging.INFO)
-log = logging.getLogger("show")
+log = logging.getLogger("report")
 
 # very short column name
 NAME: dict[str, str] = {

@@ -159,7 +159,7 @@ done
 export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
-for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py show.py ; do
+for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py report.py ; do
   type $cmd || err 5 "script $cmd not found"
 done
 
@@ -395,7 +395,7 @@ $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
 
 # generate markdown tables
-show.py $show_opt perf.db >> "$ID.md"
+report.py $show_opt perf.db >> "$ID.md"
 
 # NOTE for latex, just use markdown…
 
