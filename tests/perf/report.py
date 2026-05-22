@@ -54,7 +54,7 @@ are rightfully rejected.
 - ansible-meta:{201,312} - `.argument_spec` unexpected prop (idem)
 - cspell:75 - `.languageSettings[2].languageId[0]` is `yaml.ansible`, unexpected `.` in fixed regex
 - cypress:8 - `.reporter` stricter check, file should end with `.js`
-- yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969} - raw strings
+- yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969} - unrelated raw strings
 
 More values are rejected if formats are also checked, eg urls with are not urls.
 """
@@ -335,14 +335,20 @@ def report():
     print(f"|#|name|schema|normal|model|nb|min (B)|avg (B)|max (B)|")
     print(f"|---:|:---|---:|---:|---:|---:|---:|---:|---:|")
     # aggregations
-    print(f"|||{sum(case_data[name]['ss'] for name in cases)/len(cases):.0f}|"
-          f"{sum(case_data[name]['ns'] for name in cases)/len(cases):.0f}|"
-          f"{sum(case_data[name]['ms'] for name in cases)/len(cases):.0f}|"
-          f"{sum(case_data[name]['nb'] for name in cases)}|"
-          f"{min(case_data[name]['min'] for name in cases)}|"
-          f"{sum(case_data[name]['avg'] for name in cases)/len(cases):.0f}|"
-          f"{max(case_data[name]['max'] for name in cases)}|"
-    )
+    sum_ss = sum(case_data[name]['ss'] for name in cases)
+    sum_ns = sum(case_data[name]['ns'] for name in cases)
+    sum_ms = sum(case_data[name]['ms'] for name in cases)
+    sum_nb = sum(case_data[name]['nb'] for name in cases)
+    avg_ss = sum(case_data[name]['ss'] for name in cases)/len(cases)
+    avg_ns = sum(case_data[name]['ns'] for name in cases)/len(cases)
+    avg_ms = sum(case_data[name]['ms'] for name in cases)/len(cases)
+    avg_nb = sum(case_data[name]['nb'] for name in cases)/len(cases)
+    min_vs = min(case_data[name]['min'] for name in cases)
+    avg_vs = sum(case_data[name]['avg'] for name in cases)/len(cases)
+    max_vs = min(case_data[name]['min'] for name in cases)
+    print(f"|| _total_ | _{sum_ss}_ | _{sum_ns}_ | _{sum_ms}_ | _{sum_nb}_ ||||")
+    print(f"|| _average_ | _{avg_ss:.0f}_ | _{avg_ns:.0f}_ | _{avg_ms:.0f}_ | _{avg_nb:.0f}_ ||||")
+    print(f"|| _summary_ ||||| _{min_vs}_ | _{avg_vs:.0f}_ | _{max_vs}_ |")
     # details
     for i, name in enumerate(cases):
         print(
