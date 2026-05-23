@@ -148,7 +148,7 @@ on a set of test vectors.
 
 ## Documentation
 
-The documentation website `json-model.org` works thanks to [docsify](https://docsify.js.org/),
+The documentation website \`json-model.org\` works thanks to [docsify](https://docsify.js.org/),
 _a magical documentation site generator_, which styles raw markdown on the fly: awesome!
 
 Documentation files, excluding generated benchmark results, have the following footprint:
