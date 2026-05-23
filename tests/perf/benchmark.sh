@@ -350,7 +350,7 @@ else
 fi
 
 overhead="removed"
-[ "$unshift" ] && overhead="keept"
+[ "$unshift" ] && overhead="kept"
 
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
