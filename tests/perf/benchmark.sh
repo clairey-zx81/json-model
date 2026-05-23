@@ -25,7 +25,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap=1 debug= show_opt=--standard
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap=1 debug= show_opt=--standard unshift=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -50,6 +50,7 @@ while [[ "$1" == -* ]] ; do
       echo " --no-cap: do not reduce loop iterations for slow scripts"
       echo " --env|-e VARS: environment variables to export to jmc container"
       echo " --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python l=Perl)"
+      echo " --unshift|-u: unshift overhead estimation from measures"
       exit 0
       ;;
     -v|--version)
@@ -91,6 +92,7 @@ while [[ "$1" == -* ]] ; do
     -d|--debug) debug=1 ;;
     --task=*) TASK=${opt#*=} ;;
     --task|-T) TASK=$1 ; shift ;;
+    --unshift|-u) unshift="--unshift" ;;
     --) break ;;
     *) err 1 "unexpected option: $opt" ;;
   esac
@@ -254,7 +256,7 @@ compile-to-csv.sh tmp/[0-9]*/*_compile.csv > compile.csv
 echo "## compilation times $(( $SECONDS - $START ))"
 
 START=$SECONDS
-run-to-csv.py tmp/[0-9]*/*.out > perf.csv
+run-to-csv.py $unshift tmp/[0-9]*/*.out > perf.csv
 echo "## run times $(( $SECONDS - $START ))"
 
 START=$SECONDS
