@@ -113,7 +113,7 @@ cat <<EOF
 
 ## Per-Language Runtimes
 
-Each target language has a dedicated runtime to execute the generated codes:
+Each target language has a dedicated runtime to help execute the generated codes:
 EOF
 
 cloc --md \
