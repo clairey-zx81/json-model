@@ -352,6 +352,9 @@ fi
 overhead="removed"
 [ "$unshift" ] && overhead="kept"
 
+debug_status="no"
+[ "$debug" ] && debug_status="yes"
+
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
 
@@ -397,7 +400,7 @@ or deselect tools for easier comparisons.
 - **number of case iterations:** $LOOP
 - **cap:** $cap (whether to reduce iterations for slow script runs)
 - **overhead:** $overhead (measure overhead estimations may be removed from execution times)
-- **debug:** $debug
+- **debug:** $debug_status
 - **tasks:** $tasks
 - **exported environment variables:** \`$JMC_ENV\`
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
