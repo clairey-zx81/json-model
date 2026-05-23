@@ -20,14 +20,14 @@ cat <<EOF
 
 JSON Model is an on-going [research project](PUBS.md).
 
-The following data about version **$version** (\`$git_version\`) show that the compiler,
-code generator and runtimes are quite small, but still heavily tested.
+The following line and test counts about version **$version** (\`$git_version\`) show
+that the compiler, code generator and runtimes are quite small, but still heavily tested.
 
 ## Compiler Source Code
 
 This count includes model parsing and optimizations, compiler, exporter,
 importer, \`jmc\` command script and miscellaneous utilities,
-but excludes language-specific code generators.
+but excludes language-specific code generators and associated runtimes.
 EOF
 
 cloc --md \
@@ -128,6 +128,8 @@ n_schemas=$(echo tests/[mrb]*/*.schema.json | wc -w)
 n_test_schemas=$(grep '^        "schema": {' tests/JSON-Schema-Test-Suite/tests/*/*.json | wc -l)
 n_test_files=$(ls tests/JSON-Schema-Test-Suite/tests/*/*.json | wc -l)
 model_locs=$(cat tests/[mrb]*/*.model.json | wc -l)
+n_eg_models=$(ls models/*.model.json | wc -l)
+eg_models_locs=$(cat models/*.model.json | wc -l)
 
 all_values=$(( $n_values + $n_models + $n_value_files + $n_schemas + $n_test_schemas + $n_test_files ))
 
@@ -135,16 +137,21 @@ cat <<EOF
 
 Note that the generated code may also depend on third-party libraries.
 
-## Test Models
+## Models
 
 Test models cover the various features of JSON Model.
 Each model is tested for each target language (Python, C, JavaScript, PL/pgSQL, Perl, Java)
 on a set of test vectors.
 
-- number of JSON models: _${n_models}_
-- total JSON model locs: _${model_locs}_
+- number of test JSON models: _${n_models}_
+- total test JSON model locs: _${model_locs}_
 - number of test vector JSON values: _${n_values}_
 - all tested JSON values (including models, generated schemas and test suite schemas): _${all_values}_
+
+Example models cover typical use cases and demonstrate JSON Model power and ease of expression.
+
+- number of example models: _${n_eg_models}_
+- total example model locs: _${eg_models_locs}_
 
 ## Documentation
 
