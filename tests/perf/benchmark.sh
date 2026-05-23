@@ -333,15 +333,14 @@ else
   frequency="$(unit $cur_freq)Hz ($(unit $min_freq)Hz-$(unit $max_freq)Hz, HT=$hyper_threading)"
 fi
 
+#
+# OUTPUT
+#
 
 function pod_id()
 {
   $POD inspect --format="{{.Id}}" "$1" | cut -d: -f2 | cut -c -8
 }
-
-#
-# OUTPUT
-#
 
 version_file=$(dirname $0)/.version
 if [ -f "$version_file" ] ; then
@@ -349,6 +348,9 @@ if [ -f "$version_file" ] ; then
 else
   version="unknown"
 fi
+
+overhead="removed"
+[ "$unshift" ] && overhead="keept"
 
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
@@ -394,6 +396,7 @@ or deselect tools for easier comparisons.
 - **number of runs:** $RUNS
 - **number of case iterations:** $LOOP
 - **cap:** $cap (whether to reduce iterations for slow script runs)
+- **overhead:** $overhead (measure overhead estimations may be removed from execution times)
 - **debug:** $debug
 - **tasks:** $tasks
 - **exported environment variables:** \`$JMC_ENV\`
