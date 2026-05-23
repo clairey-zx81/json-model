@@ -3,6 +3,8 @@
 # Generate a markdown report about the compiler sources
 #
 
+echo "Generating ABOUT.md page…" >&2
+
 githash=$(git show --pretty=format:"%h on %cs" --no-patch)
 
 if type jmc > /dev/null ; then
