@@ -67,7 +67,7 @@ else
     bench_id=$(printf "$now%02x" $count)
     [ ! -e $bench_id ] && break
     let count+=1
-    [ $count -eq 1024 ] && err 2 "cannot find bench directory name"
+    [ $count -eq 256 ] && err 2 "cannot find bench directory name"
   done
 fi
 
