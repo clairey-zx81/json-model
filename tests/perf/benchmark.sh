@@ -370,9 +370,9 @@ or deselect tools for easier comparisons.
 - **cpu freq:** $frequency
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
-- **benchmarking script:** $version
 - **jsonschema-cli version:** $(js-cli --version)
 - **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD), $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) unique tests
+- **benchmark script version:** $version
 - **cc version:** $(jmc exec cc --version|head -1)
 - **clang version:** $(jmc exec clang --version|head -1)
 - **python version:** $(jmc exec python --version|head -1)
