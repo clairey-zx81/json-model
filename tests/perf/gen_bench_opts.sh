@@ -17,6 +17,7 @@ fi
 jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled --short-version"
 
 # parallelism, loop, repeats, tasks, unshift
+# 20: around 80-85% load on calcutta (24 cores, HT off), temperature <= 64°C (2.4GHz)
 bench_opts="-p 20 -l 1000 -r 47"
 
 # start a bench run with the expected setup
