@@ -17,7 +17,7 @@ fi
 jmc_opts="--single-line-regex --no-predef --cc=clang --precompiled --short-version"
 
 # parallelism, loop, repeats, tasks, unshift
-bench_opts="-p 20 -l 1000 -r 47 -u"
+bench_opts="-p 20 -l 1000 -r 47"
 
 # start a bench run with the expected setup
 # NOTE that environment JMC JSB_DIR POD_PULL also affect the run
