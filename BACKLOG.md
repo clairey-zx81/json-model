@@ -8,6 +8,7 @@
 - [x] perf: add geometrical average delta to x2 comparison report
 - [x] perf: rewrite benchmark analysis with pandas instead of sqlite3
 - [x] js-runtime: check stability of `.mo` extension (issue reported, does not work… as intended)
+- [x] perf: add --load benchmark option to reduce load when java is running
 - [ ] spec: add `$SEMVER` predef
 - [ ] models: update ir model wrt recent changes
 - [ ] tests: add test with ir model? on the fly?

@@ -25,7 +25,8 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy" cap=1 debug= show_opt=--standard unshift=
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy"
+cap=1 debug= show_opt=--standard unshift= load=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -51,6 +52,7 @@ while [[ "$1" == -* ]] ; do
       echo " --env|-e VARS: environment variables to export to jmc container"
       echo " --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python l=Perl)"
       echo " --unshift|-u: unshift overhead estimation from measures"
+      echo " --load: reduce load by half for java tests"
       exit 0
       ;;
     -v|--version)
@@ -93,6 +95,7 @@ while [[ "$1" == -* ]] ; do
     --task=*) TASK=${opt#*=} ;;
     --task|-T) TASK=$1 ; shift ;;
     --unshift|-u) unshift="--unshift" ;;
+    --load) load=1 ;;
     --) break ;;
     *) err 1 "unexpected option: $opt" ;;
   esac
@@ -124,17 +127,19 @@ function do_start()
   let started+=1 running+=1
 }
 
+# wait until load is below argument or zero
 function do_wait()
 {
   local loaded=${1:-0}
-  if [ $running -ge $loaded ] ; then
+  while [ $running -ge $loaded ] ; do
     echo "# waiting on $processes"
     wait -n -p stopped_pid
     # NOTE ps counting does not seem very reliable
     echo "# stopped: $stopped_pid"
     processes=${processes/ $stopped_pid /}
     let running-=1 stopped+=1
-  fi
+    [ $running -eq 0 ] && return
+  done
 }
 
 function do_status()
@@ -234,15 +239,29 @@ for trg in $tasks ; do
       else
         loop=$LOOP
       fi
-      do_start run.sh $loop tmp/$run/ all $trg $dir
-      do_wait $PARA
+      # adjust load for java
+      if [ "$load" ] ; then
+        # do we have some java?
+        n_java=$($POD ps --filter label=jmc-java --format json | wc -l)
+        if [ "$trg" = "jmc-java" -o $n_java -ge 1 ] ; then
+          para=$(( $PARA / 2 ))
+          do_wait $para
+        else
+          para=$PARA
+        fi
+      else
+        para=$PARA
+      fi
+      # forward target as a label to underlying jmc/js-cli command
+      JMC_POD_OPTS="$JMC_POD_OPTS --label $trg" \
+      JSC_POD_OPTS="$JSC_POD_OPTS --label $trg" \
+        do_start run.sh $loop tmp/$run/ all $trg $dir
+      do_wait $para
     done
   done
 done
 
-while [ $running -gt 0 ] ; do
-  do_wait 0
-done
+do_wait 0
 
 echo "## validation done $(( $SECONDS - $START ))"
 
