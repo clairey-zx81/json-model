@@ -1,6 +1,6 @@
 # Improving performance
 
-Investigation with `gprof`.
+## Investigation with `gprof`
 
 ```bash
 JMC_RUNTIME=$(jmc --runtime)
@@ -121,3 +121,9 @@ Note about blaze unique implementation:
 ## Yamllint
 
 Very small schema/model. No impact of manual inlining, most costs are in the json framework.
+
+## Java Execution
+
+Java seems to consume a lot of threads (at least 3? main, gc, jit?), performance is
+significantly improved of the test load is reduced so that core are available for these
+threads.
