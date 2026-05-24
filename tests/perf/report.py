@@ -208,12 +208,6 @@ def report():
         names=["case", "line", "size", "lines"],
         index_col=[0, 1]
     )
-    srcs_df = pd.read_csv(
-        "sources.csv",
-        names=["file", "case", "tool", "lines", "bytes", "hash"],
-        index_col=[1, 2]
-    )
-
     # very large
     perf_df = pd.read_csv(
         "perf.csv",
@@ -287,6 +281,12 @@ def report():
     if args.x2:
 
         assert args.x2 in tools, f"reference must be available: {args.x2}"
+
+        srcs_df = pd.read_csv(
+            "sources.csv",
+            names=["file", "case", "tool", "lines", "bytes", "hash"],
+            index_col=[1, 2]
+        )
 
         # put worst first as it means that there is more effects
         FSORT = {
