@@ -99,3 +99,6 @@ bench c ref
 # show a summary
 echo "# benches completed"
 grep "speed B" */*.md | sort -t"|" -k3nr
+
+# always 1.0 on single tool runs…
+# grep "ratio avg" */*.md | sort -t"|" -k3nr
