@@ -7,13 +7,15 @@
 - [x] perf: allow to hide useless entries when generating a x2 comparison report
 - [x] perf: add geometrical average delta to x2 comparison report
 - [x] perf: rewrite benchmark analysis with pandas instead of sqlite3
+- [x] js-runtime: check stability of `.mo` extension (issue reported, does not work… as intended)
 - [ ] spec: add `$SEMVER` predef
+- [ ] models: update ir model wrt recent changes
+- [ ] tests: add test with ir model? on the fly?
 - [ ] front: handle yaml values as well as json
 - [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
 - [ ] pr: improve JSTS test results alignment between all backends (wip)
-- [ ] js-runtime: check stability of `.mo` extension (wip: issue reported)
 - [ ] js-backend: remove useless braces and semi-colons
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
