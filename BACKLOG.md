@@ -6,6 +6,7 @@
 - [x] front: allow to add a comment in generated source files
 - [x] perf: allow to hide useless entries when generating a x2 comparison report
 - [x] perf: add geometrical average delta to x2 comparison report
+- [x] perf: rewrite benchmark analysis with pandas instead of sqlite3
 - [ ] spec: add `$SEMVER` predef
 - [ ] front: handle yaml values as well as json
 - [ ] perf: drop and/or merge identical results when comparing

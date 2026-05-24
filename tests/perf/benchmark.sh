@@ -150,7 +150,7 @@ trap do_status SIGUSR1
 # SANITY COMMANDS, SCRIPTS AND FILES
 #
 echo "# sanity check"
-for cmd in git $POD sqlite3 jq id basename grep egrep sed wc gron /bin/bash /usr/bin/time ; do
+for cmd in git $POD jq id basename grep egrep sed wc gron /bin/bash /usr/bin/time ; do
   type $cmd || err 2 "command not found: $cmd"
 done
 
@@ -161,7 +161,7 @@ done
 export JMC_BENCH_DEBUG=$debug
 export PATH=$script_dir:$PATH
 
-for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py report.py ; do
+for cmd in run.sh jmc js-cli run-to-csv.py compile-to-csv.sh res-to-csv.py src-to-csv.py report.py radar.py ; do
   type $cmd || err 5 "script $cmd not found"
 done
 
@@ -256,7 +256,7 @@ compile-to-csv.sh tmp/[0-9]*/*_compile.csv > compile.csv
 echo "## compilation times $(( $SECONDS - $START ))"
 
 START=$SECONDS
-run-to-csv.py $unshift tmp/[0-9]*/*.out > perf.csv
+run-to-csv.py tmp/[0-9]*/*.out > perf.csv
 echo "## run times $(( $SECONDS - $START ))"
 
 START=$SECONDS
@@ -292,18 +292,8 @@ done > cases.csv
 echo "## case stats $(( $SECONDS - $START ))"
 
 #
-# ANALYSIS
+# CPU DATA
 #
-START=$SECONDS
-echo "# creating performance tables..."
-
-sqlite3 perf.db \
-  ".read $script_dir/perf_init.sql" \
-  ".read $script_dir/perf_load.sql" \
-  ".read $script_dir/perf_comp.sql"
-
-echo "## performance analysis $(( $SECONDS - $START ))"
-
 START=$SECONDS
 
 # collect cpu data
@@ -334,8 +324,9 @@ else
 fi
 
 #
-# OUTPUT
+# REPORT
 #
+REPORT_START=$SECONDS
 
 function pod_id()
 {
@@ -406,15 +397,18 @@ or deselect tools for easier comparisons.
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
 
+echo "## report head $(( $SECONDS - $REPORT_START ))"
+
 # generate markdown tables
-report.py $show_opt perf.db >> "$ID.md"
+START=$SECONDS
+report.py $show_opt $unshift >> "$ID.md"
+echo "## report tables $(( $SECONDS - $START ))"
+echo "## report generation $(( $SECONDS - $REPORT_START ))"
 
-# NOTE for latex, just use markdown…
-
-# for chart
-sqlite3 perf.db < $script_dir/radar.sql | jq > "$ID.json"
-
-echo "## report generation $(( $SECONDS - $START ))"
+# generate radar chart data
+START=$SECONDS
+radar.py > "$ID.json"
+echo "## radar generation $(( $SECONDS - $START ))"
 
 #
 # DONE
