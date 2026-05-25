@@ -122,7 +122,7 @@ def report():
         help="perform a χ² analysis against this tool, default is none")
     arg("--alpha", type=float, default=0.05,
         help="alpha value for χ² test, default is 0.05")
-    arg("--sort", default="bs", choices=["ab", "bs", "ls", "geo"],
+    arg("--sort", default="bs", choices=["ab", "bs", "ls", "ga"],
         help="sort tools by criterion, default is \"bs\"")
     # verbosity control
     arg("--debug", dest="level", action="store_const", const=logging.DEBUG,
@@ -293,7 +293,7 @@ def report():
             "ab": lambda t: t,
             "bs": lambda t: speed_size[t],
             "ls": lambda t: speed_lines[t],
-            "geo": lambda t: - perf_geo[t],
+            "ga": lambda t: - perf_geo[t],
         }
 
         # move reference as first and sort other tools
