@@ -56,13 +56,4 @@ for dir in "$@" ; do
   done
 done
 
-# analysis
-echo "# analyze data" >&2
-sqlite3 ./perf.db \
-  ".read $script_dir/perf_init.sql" \
-  ".read $script_dir/perf_load.sql" \
-  ".read $script_dir/perf_comp.sql"
-
-echo "# result" >&2
-sqlite3 -box ./perf.db \
-  "SELECT * FROM ToolSummaryPerf ORDER BY bspeed DESC;"
+echo "# done, consider running \"report.py\"" >&2
