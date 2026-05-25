@@ -80,12 +80,12 @@ the following caveats, and others:
 - test cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
 - the overall load on the test host can impact measures, as well as power control
-  features which adjust the cpu frequency in real time, thus the frequency is set
+  features which adjust the cpu frequency in real time, thus the frequency may be set
   explicitely, and effort are made to cap the load to limit its impact on measures.
 - Relying on hyper-threading can reduce performance for simple one thread tasks,
   so it is often disabled.
 - the measure overhead is estimated and deduced from the performance figures by default,
-  which leads to potentially fuzzy results on very small data and schemas.
+  which leads to potentially fuzzy results when testing very small values.
 - compilers, libraries and other design and updates can have dramatic effects:
   for faster parsing, a library may use linked-list for properties, which means
   that retrieving a given property value will cost more than a library which uses
