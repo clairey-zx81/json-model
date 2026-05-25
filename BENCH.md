@@ -9,6 +9,9 @@ schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon)
 
 ## Recent Artifacts
 
+Overall, depending on the chosen metrics, the JSU converter and JMC C backend are 50 to 90%
+faster than Blaze in these artifacts.
+
 - [2026062102](benchmarks/2026062102.md) clang, no predefs, jsu 0.9.10/jmc 2.0.50 vs sbc 16.0.0, 11 runs, 1000 iterations.
 - [2026061700](benchmarks/2026061700.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 16.0.0, 11 runs, 1000 iterations.
 - [2026061300](benchmarks/2026061300.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 15.11.0, 11 runs, 1000 iterations.
@@ -77,10 +80,11 @@ the following caveats, and others:
 - test cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
 - the overall load on the test host can impact measures, as well as power control
-  features which adjust the cpu frequency in real time.
+  features which adjust the cpu frequency in real time, thus the frequency is set
+  explicitely, and effort are made to cap the load to limit its impact on measures.
 - Relying on hyper-threading can reduce performance for simple one thread tasks,
   so it is often disabled.
-- the measure overhead is estimated and deduced from the performance figures,
+- the measure overhead is estimated and deduced from the performance figures by default,
   which leads to potentially fuzzy results on very small data and schemas.
 - compilers, libraries and other design and updates can have dramatic effects:
   for faster parsing, a library may use linked-list for properties, which means
@@ -90,7 +94,8 @@ the following caveats, and others:
   so these checks may be disactivated (see `JMC_OPTS`) for fairness,
   reducing the results significance.
 - blaze uses its own special-purpose JSON representation which include a precomputed
-  custom hash for string comparisons, aleviating the need to compare strings in most cases.
+  custom hash for string comparisons, aleviating the need to actually compare strings
+  in most cases.
 - blaze is a C++ library, if interfaced from another language, the cost of translating
   the JSON representation to this library should be taken into account;
   in contrast, jmc uses native JSON representations in the target ecosystem and generate
@@ -100,7 +105,7 @@ the following caveats, and others:
   model definitions compared to lax schemas…
 - it is unclear whether JIT optimizations (eg Java and JS) may work around the
   benchmarking loops and report undue very fast performances, eg on the GeoJSON case.
-- some execution environment (eg Java) takes advantage of parallelism with threads (possibly
+- some execution environment (eg Java) take advantage of parallelism with threads (possibly
   for the garbage collector and JIT), which may or may not be a blessing: it can reduce
   the apparent latency (eg the gc runs in another thread) but have a detrimental overall
   effect on throughput and costs as more cpu ressources are spent on the same task.
@@ -117,8 +122,8 @@ C, JS and Python backends, using the `jsu-compile` command.
 It should be noted that benchmarking conditions are quite different compared to our own:
 
 1. There is no loop to compute an average performance, but an initial _cold_ one-shot measure,
-   a warming phase loop and a _hot_ one-shot measure: This may tend to mask effects from
-   occasional GC runs.
+   a warming phase loop (up to 1000 rounds, kept under 10 seconds) and a _hot_ one-shot measure:
+   This may tend to mask effects from occasional GC runs.
 2. The benchmark focuses on schema conformance, including (buggy) schemas which
    are mostly dead code: It rejects tools which do not validate all strictly conformant
    values, even if these values would be rejected by the target application.
@@ -129,6 +134,3 @@ It should be noted that benchmarking conditions are quite different compared to 
 4. The benchmark  _removes_ format assertions before testing schemas.
 5. The model used are strictly converted from schemas, native models are not used
    even if available and schemas are not fixed for typical errors (eg misplaced keywords).
-
-As of May 2026, the JSU C implementation is faster than Blaze on about 60% of benchmark cases
-on these artifacts.
