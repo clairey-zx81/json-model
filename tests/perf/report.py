@@ -474,10 +474,12 @@ def report():
 
         # cache matrix to whether it is independent
         INDEP: dict[str, bool] = {}
+        nst_equal, nst_chi2, nst_barnard, nst_hits = 0, 0, 0, 0
 
         # NOTE costly loop: over 35,000 tests for each tool
         for i, c in enumerate(cases):
-            log.debug(f"considering {c} {i+1}/{len(cases)} ({case_df.loc[c]['ntests']} tests)")
+            ntests = int(case_df.loc[c]['ntests'])
+            log.debug(f"considering {c} {i+1}/{len(cases)} ({ntests} tests)")
 
             ref_runs = {
                 line: runs.values
@@ -523,23 +525,28 @@ def report():
                         [ cmp_lower, len(cmp_runs) - cmp_lower ]
                     ]
 
+                    # key for the cache
                     matrix_key = str(matrix)
 
                     if matrix_key in INDEP:
+                        nst_hits += 1
                         pass
                     elif matrix[0] == matrix[1]:
+                        nst_equal += 1
                         # shortcut on identical rows
                         INDEP[matrix_key] = False
                     elif ref_lower in (0, len(ref_runs)) or cmp_lower in (0, len(cmp_runs)):
                         # Fisher? Barnard? Boschloo?
+                        nst_barnard += 1
                         barnard_test = barnard_exact(matrix)
                         INDEP[matrix_key] = barnard_test.pvalue <= args.alpha
                     else:  # Chi2? same as previous?
+                        nst_chi2 += 1
                         chi2_test = chi2_contingency(matrix, correction=True)
                         INDEP[matrix_key] = chi2_test.pvalue <= args.alpha
 
                     # count confirmed better or worst or same than ref measures
-                    if INDEP[matrix_key]
+                    if INDEP[matrix_key]:
                         ref_perf = pd.DataFrame(ref_runs[j]).median()[0]
                         cmp_perf = pd.DataFrame(cmp_runs[j]).median()[0]
                         if ref_perf < cmp_perf:
@@ -595,6 +602,8 @@ def report():
             print(summary + "|", end="")
         print(flush=True)
 
+        nst_total = nst_hits + nst_equal + nst_chi2 + nst_barnard
+        log.debug(f"statistical tests: {nst_hits} hits, {nst_equal} equals, {nst_chi2} chi2, {nst_barnard} barnard, cache size {len(INDEP)}")
         log.info("try: pandoc -s -o foo.html --title 'Great!' foo.md")
 
 if __name__ == "__main__":
