@@ -138,7 +138,7 @@ cat <<EOF
 
 Note that the generated code may also depend on third-party libraries.
 
-## Models
+## Test Models
 
 Test models cover the various features of JSON Model.
 Each model is tested for each target language (Python, C, JavaScript, PL/pgSQL, Perl, Java)
