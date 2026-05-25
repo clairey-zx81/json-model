@@ -440,6 +440,7 @@ def report():
     print(end="", flush=True)
 
     if args.x2:
+
         # NOTE this is quite slow
         log.info("testing statistical significance")
 
@@ -447,7 +448,7 @@ def report():
         print()
         print("## Tool Comparison")
         print()
-        print(f"- **alpha:** {args.alpha} (for χ² or Barnard test)")
+        print(f"- **alpha:** {args.alpha} (p-value limit for statistical tests)")
         print()
         print("### Detailed Performance Impact")
 
@@ -470,6 +471,9 @@ def report():
         betters = { t: 0 for t in tools }
         sames = { t: 0 for t in tools }
         worses = { t: 0 for t in tools }
+
+        # cache matrix to whether it is independent
+        INDEP: dict[str, bool] = {}
 
         # NOTE costly loop: over 35,000 tests for each tool
         for i, c in enumerate(cases):
@@ -519,19 +523,23 @@ def report():
                         [ cmp_lower, len(cmp_runs) - cmp_lower ]
                     ]
 
-                    if matrix[0] == matrix[1]:
+                    matrix_key = str(matrix)
+
+                    if matrix_key in INDEP:
+                        pass
+                    elif matrix[0] == matrix[1]:
                         # shortcut on identical rows
-                        indep = False
+                        INDEP[matrix_key] = False
                     elif ref_lower in (0, len(ref_runs)) or cmp_lower in (0, len(cmp_runs)):
                         # Fisher? Barnard? Boschloo?
                         barnard_test = barnard_exact(matrix)
-                        indep = barnard_test.pvalue <= args.alpha
+                        INDEP[matrix_key] = barnard_test.pvalue <= args.alpha
                     else:  # Chi2? same as previous?
                         chi2_test = chi2_contingency(matrix, correction=True)
-                        # log.debug(f"matrix[{j}] = {matrix} chi2={chi2_test} alpha={args.alpha}")
-                        indep = chi2_test.pvalue <= args.alpha
+                        INDEP[matrix_key] = chi2_test.pvalue <= args.alpha
+
                     # count confirmed better or worst or same than ref measures
-                    if indep:
+                    if INDEP[matrix_key]
                         ref_perf = pd.DataFrame(ref_runs[j]).median()[0]
                         cmp_perf = pd.DataFrame(cmp_runs[j]).median()[0]
                         if ref_perf < cmp_perf:
