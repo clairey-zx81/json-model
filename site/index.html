@@ -41,6 +41,7 @@
         mergeNavbar: true,
       };
     </script>
+    <!-- docsify with search, various primjs prettyprinting, and copy-code buttons -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
@@ -160,12 +161,14 @@
             // rescale chart on legend clicks
             plugins: {
               legend: {
-                onClick: updateVisible
+                onClick: updateVisible,
+                position: "right",
               }
             },
-            // ensure display in [0.0-1.0]
+            // ensure display in [0.0-1.0] but is hidden
             scales: {
               r: {
+                display: false,
                 beginAtZero: true,
                 max: 1.0
               }
@@ -174,6 +177,7 @@
             responsive: true,
             aspectRatio: window.innerWidth < window.innerHeight ? 1 : 1.8,
             maintainAspectRatio: false,
+            layout: { padding: 10 },
           }
         });
       }
