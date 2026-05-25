@@ -445,7 +445,17 @@ def report():
 
         titles = "".join(f"{TOOL[t]}|" for t in tools)
         print()
-        print("## Tool Comparison Per Case χ² Test")
+        print("## Tool Comparison")
+        print()
+        print(f"- **alpha:** {args.alpha} (for χ² or Barnard test)")
+        print()
+        print("### Detailed Performance Impact")
+
+        print(X2_DETAIL_COMMENT)
+
+        print(f"|#|name|{titles}")
+        print("|---:|:---|" + "".join(":---:|" for t in tools))
+
         from scipy.stats import chi2_contingency, barnard_exact
 
         # source to consider for a tool, default is identical
@@ -455,16 +465,6 @@ def report():
             "jmc-java-jsonp": "jmc-java",
         }
 
-        print()
-        print(f"- **alpha:** {args.alpha} (for χ² test)")
-        print()
-        print("### Detailed Performance Impact")
-
-        print(X2_DETAIL_COMMENT)
-
-        print(f"|#|name|{titles}")
-        print("|---:|:---|" + "".join(":---:|" for t in tools))
-
         # how many changed source, improvements, nsame or worsening for a "tool"
         changes = { t: 0 for t in tools }
         betters = { t: 0 for t in tools }
@@ -473,7 +473,7 @@ def report():
 
         # NOTE costly loop: over 35,000 tests for each tool
         for i, c in enumerate(cases):
-            log.debug(f"considering {c} {i+1}/{len(cases)}")
+            log.debug(f"considering {c} {i+1}/{len(cases)} ({case_df.loc[c]['ntests']} tests)")
 
             ref_runs = {
                 line: runs.values
