@@ -102,6 +102,7 @@ X2_SUMMARY_COMMENT: str = """
 - **betters**: number of proven improved performance when _removing_ the optimization
 - **sames**: number of similar performance
 - **worses**: number of proven degraded performance (aka the optimization works!)
+- **weights**: relative center of mass between betters and worses
 - **speed Δ**: percent performance impact of the optimization on speed
 - **geo Δ**: percent performance impact of the optimization on performance geometrical average
 - **summary**: symbolic evaluation
@@ -479,7 +480,7 @@ def report():
         # NOTE costly loop: over 35,000 tests for each tool
         for i, c in enumerate(cases):
             ntests = int(case_df.loc[c]['ntests'])
-            log.debug(f"considering {c} {i+1}/{len(cases)} ({ntests} tests)")
+            log.debug(f"comparing {CASE[c]} {i+1}/{len(cases)} ({ntests} tests)")
 
             ref_runs = {
                 line: runs.values
@@ -568,6 +569,11 @@ def report():
             # flush on each line, which is quite slow to produce
             print(flush=True)
 
+        weights = {
+            t: (worses[t] - betters[t]) / (betters[t] + sames[t] + worses[t])
+                for t in tools
+        }
+
         # summary counts below details
         print()
         print("### Summary Performance Impact")
@@ -580,23 +586,22 @@ def report():
         print(f"| betters |" + "".join(f"{betters[t]}|" for t in tools))
         print(f"| sames |" + "".join(f"{sames[t]}|" for t in tools))
         print(f"| worses |" + "".join(f"{worses[t]}|" for t in tools))
+        print(f"| weight |" + "".join(f"{weights[t]:.02f}|" for t in tools))
         # show relative speed delta (inverted because the feature is removed in the test)
         print(f"| speed Δ |" +
               "".join(f"{100.0 * (speed_lines[args.x2] - speed_lines[t]) / speed_lines[t]:.01f}%|" for t in tools))
         print(f"| geo Δ |" +
               "".join(f"{100.0 * (perf_geo[t] / perf_geo[args.x2] - 1.0):.01f}%|" for t in tools))
-        # effectiveness summary
+        # effectiveness summary is based on weights
         print(f"|**summary**|", end="")
         for t in tools:
             if t == args.x2:
                 summary = "="
             else:
-                ntests = sames[t] + betters[t] + worses[t]
-                thresholds = [f * ntests for f in [0.01, 0.02, 0.04, 0.08, 0.16, 1.0]]
-                deltat = worses[t] - betters[t]
-                sign = "+" if deltat > 0 else "-"
+                thresholds = [0.005, 0.015, 0.045, 0.135, 0.405, 1.0]
+                sign = "+" if weights[t] > 0 else "-"
                 for delta, threshold in enumerate(thresholds):
-                    if abs(deltat) <= threshold:
+                    if abs(weights[t]) <= threshold:
                         break
                 summary = (sign * delta) if delta else "~"
             print(summary + "|", end="")
