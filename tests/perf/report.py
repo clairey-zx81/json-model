@@ -556,6 +556,7 @@ def report():
                             better += 1
                     else:
                         same += 1
+                # NOTE on "=" source, maybe could show max(better, worse)?
                 if better + worse == 0:
                     result = f"{src} 0"
                 else:
