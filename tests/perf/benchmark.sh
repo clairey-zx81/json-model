@@ -52,7 +52,7 @@ while [[ "$1" == -* ]] ; do
       echo " --env|-e VARS: environment variables to export to jmc container"
       echo " --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python l=Perl)"
       echo " --unshift|-u: unshift overhead estimation from measures"
-      echo " --load: reduce load by half for java tests"
+      echo " --load|-L: reduce load by half for java tests"
       exit 0
       ;;
     -v|--version)
@@ -76,7 +76,7 @@ while [[ "$1" == -* ]] ; do
     --id=*) ID=${opt#*=} ;;
     --id) ID=$1 ; shift ;;
     --container=*) POD=${opt#*=} ;;
-    --container|-C) POD=$1 ; shift ;;
+    -C|--container) POD=$1 ; shift ;;
     -p|--para|--par|--parallel) PARA=$1 ; shift ;;
     --par=*|--para=*|--parallel=*) PARA=${opt#*=} ;;
     -l|--loop) LOOP=$1 ; shift ;;
@@ -93,9 +93,9 @@ while [[ "$1" == -* ]] ; do
     --no-cap) cap= ;;
     -d|--debug) debug=1 ;;
     --task=*) TASK=${opt#*=} ;;
-    --task|-T) TASK=$1 ; shift ;;
-    --unshift|-u) unshift="--unshift" ;;
-    --load) load=1 ;;
+    -T|--task) TASK=$1 ; shift ;;
+    -u|--unshift) unshift="--unshift" ;;
+    -L|--load) load=1 ;;
     --) break ;;
     *) err 1 "unexpected option: $opt" ;;
   esac
