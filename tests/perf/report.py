@@ -119,10 +119,10 @@ def report():
     ap = argparse.ArgumentParser(description="Generate JMC benchmark report")
     arg = ap.add_argument
     # analysis
-    arg("--x2", type=str, default=None,
-        help="perform a χ² analysis against this tool, default is none")
+    arg("--ref", type=str, default=None,
+        help="perform a statistical analysis against this tool, default is none")
     arg("--alpha", type=float, default=0.05,
-        help="alpha value for χ² test, default is 0.05")
+        help="alpha value for statistical test, default is 0.05")
     arg("--sort", default="bs", choices=["ab", "bs", "ls", "ga"],
         help="sort tools by criterion, default is \"bs\"")
     # verbosity control
@@ -139,10 +139,12 @@ def report():
         help="restrict analysis to these tools, default is all available tools")
     arg("--unshift", action="store_true", default=False,
         help="unshift measure overhead estimation from reported measures")
+    arg("--compact", action="store_true", default=False,
+        help="compact but less precise comparison display")
     args = ap.parse_args()
 
-    if args.hide and not args.x2:
-        log.error("option --hide requires option --x2")
+    if args.hide and not args.ref:
+        log.error("option --hide requires option --ref")
         sys.exit(0)
 
     log.setLevel(args.level)
@@ -279,9 +281,9 @@ def report():
             for t in tools
     }
 
-    if args.x2:
+    if args.ref:
 
-        assert args.x2 in tools, f"reference must be available: {args.x2}"
+        assert args.ref in tools, f"reference must be available: {args.ref}"
 
         srcs_df = pd.read_csv(
             "sources.csv",
@@ -298,19 +300,19 @@ def report():
         }
 
         # move reference as first and sort other tools
-        tools.remove(args.x2)
+        tools.remove(args.ref)
         tools = sorted(tools, key=FSORT[args.sort])
-        tools.insert(0, args.x2)
+        tools.insert(0, args.ref)
 
         # tool -> [ list of hashes by case order ]
         tool_hashes = srcs_df.sort_values("case").groupby(["tool"])["hash"].apply(list)
 
         # only keep tools with an effect on some generated code
         if args.hide:
-            assert tools[0] == args.x2
+            assert tools[0] == args.ref
             ntools = tools[:1]
             for tool in tools[1:]:
-                if tool_hashes[args.x2] != tool_hashes[tool]:
+                if tool_hashes[args.ref] != tool_hashes[tool]:
                     ntools.append(tool)
             if ntools != tools:
                 log.info(f"hiding tools from report: {' '.join(sorted(set(tools) - set(ntools)))}")
@@ -440,7 +442,7 @@ def report():
     # force flush at end of main sections
     print(end="", flush=True)
 
-    if args.x2:
+    if args.ref:
 
         # NOTE this is quite slow
         log.info("testing statistical significance")
@@ -484,19 +486,19 @@ def report():
 
             ref_runs = {
                 line: runs.values
-                    for line, runs in perf_df.loc[c, args.x2].groupby("line")["runavg"]
+                    for line, runs in perf_df.loc[c, args.ref].groupby("line")["runavg"]
             }
 
             print(f"|{i+1}|{CASE[c]}|", end="")
             for tool in tools:
                 # NOTE we compute a tool against itself for sanity checking
                 # log.debug(f"name={name} tool={tool}")
-                # if tool == args.x2:
+                # if tool == args.ref:
                 #     print("-|", end="")
                 #     continue
                 # same source was generated?
                 try:
-                    ref_src = tool_source.get(args.x2, args.x2)
+                    ref_src = tool_source.get(args.ref, args.ref)
                     cmp_src = tool_source.get(tool, tool)
                     src = "=" if (srcs_df.loc[c, ref_src] == srcs_df.loc[c, cmp_src]).all() else "!"
                 except:
@@ -557,13 +559,15 @@ def report():
                     else:
                         same += 1
                 # NOTE on "=" source, maybe could show max(better, worse)?
-                if better + worse == 0:
+                if args.compact and src == "=":
+                    result = f"{src} {max(better, worse)}"
+                elif better + worse == 0:
                     result = f"{src} 0"
                 else:
                     # NOTE showing same is not very useful
                     result = f"{src} {better}/{same}/{worse}"
                 print(f"{result}|", end="")
-                assert args.x2 != tool or (src == "=" and better == 0 and worse == 0)
+                assert args.ref != tool or (src == "=" and better == 0 and worse == 0)
                 betters[tool] += better
                 sames[tool] += same
                 worses[tool] += worse
@@ -590,13 +594,13 @@ def report():
         print(f"| weight |" + "".join(f"{weights[t]:.02f}|" for t in tools))
         # show relative speed delta (inverted because the feature is removed in the test)
         print(f"| speed Δ |" +
-              "".join(f"{100.0 * (speed_lines[args.x2] - speed_lines[t]) / speed_lines[t]:.01f}%|" for t in tools))
+              "".join(f"{100.0 * (speed_lines[args.ref] - speed_lines[t]) / speed_lines[t]:.01f}%|" for t in tools))
         print(f"| geo Δ |" +
-              "".join(f"{100.0 * (perf_geo[t] / perf_geo[args.x2] - 1.0):.01f}%|" for t in tools))
+              "".join(f"{100.0 * (perf_geo[t] / perf_geo[args.ref] - 1.0):.01f}%|" for t in tools))
         # effectiveness summary is based on weights
         print(f"|**summary**|", end="")
         for t in tools:
-            if t == args.x2:
+            if t == args.ref:
                 summary = "="
             else:
                 thresholds = [0.005, 0.015, 0.045, 0.135, 0.405, 1.0]
