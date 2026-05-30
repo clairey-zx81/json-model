@@ -29,6 +29,8 @@ arg("--cache", "-C", default=None,
     help="file to keep statistical tests results")
 arg("--sort", "-s", default="bs", choices=["ab", "bs", "ls", "ga"],
     help="sort tools by criterion, default is \"bs\"")
+arg("--iterations", "-i", type=int, default=0,
+    help="expected number of measures for each test case")
 # verbosity control
 arg("--debug", "-d", dest="level", action="store_const", const=logging.DEBUG,
     default=logging.INFO, help="run in debug mode")
@@ -496,8 +498,8 @@ if args.ref:
     # NOTE costly loop: over 35,000 tests for each tool
     for i, c in progress(list(enumerate(cases)), desc="Cases", leave=False):
 
+        ntests = int(case_df.loc[c]['ntests'])
         if not args.progress:
-            ntests = int(case_df.loc[c]['ntests'])
             log.debug(f"comparing {CASE[c]} {i+1}/{len(cases)} ({ntests} tests)")
 
         ref_runs = {
@@ -505,8 +507,13 @@ if args.ref:
                 for line, runs in perf_df.loc[c, args.ref].groupby("line")["runavg"]
         }
 
+        assert len(ref_runs) == ntests
+        if args.iterations:
+            assert all(len(times) == args.iterations for _, times in ref_runs.items())
+
         print(f"|{i+1}|{CASE[c]}|", end="")
         for tool in progress(tools, desc="Tools", leave=False):
+
             # NOTE we compute a tool against itself for sanity checking
             # log.debug(f"name={name} tool={tool}")
             # if tool == args.ref:
@@ -528,9 +535,13 @@ if args.ref:
                     for line, runs in perf_df.loc[c, tool].groupby("line")["runavg"]
             }
 
+            assert len(cmp_runs) == ntests
+            if args.iterations:
+                assert all(len(times) == args.iterations for _, times in cmp_runs.items())
+
             # compare each test performance
             better, worse, same = 0, 0, 0
-            for j in progress(range(1, 1+int(case_df.loc[c]["ntests"])), desc="Tests", leave=False):
+            for j in progress(range(1, ntests + 1), desc="Tests", leave=False):
 
                 # this is more or less Mood's median-test using Boschloo's exact test
                 all_runs = pd.DataFrame(np.concatenate((ref_runs[j], cmp_runs[j])))
@@ -542,9 +553,11 @@ if args.ref:
 
                 # contingency table
                 matrix = [
-                    [ ref_lower, len(ref_runs) - ref_lower ],
-                    [ cmp_lower, len(cmp_runs) - cmp_lower ]
+                    [ ref_lower, len(ref_runs[j]) - ref_lower ],
+                    [ cmp_lower, len(cmp_runs[j]) - cmp_lower ]
                 ]
+
+                # TODO normalize matrix (row/column exchanges, transpose?) to improve cache hits
 
                 # cache key
                 m_key = f"{matrix[0][0]} {matrix[0][1]} {matrix[1][0]} {matrix[1][1]}"
