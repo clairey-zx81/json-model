@@ -6,6 +6,7 @@
 import sys
 import argparse
 import logging
+import json
 import numpy as np
 import pandas as pd
 import warnings
@@ -24,6 +25,8 @@ arg("--ref", "-r", type=str, default=None,
     help="perform a statistical analysis against this tool, default is none")
 arg("--alpha", "-a", type=float, default=0.05,
     help="alpha value for statistical test, default is 0.05")
+arg("--cache", "-C", default=None,
+    help="file to keep statistical tests results")
 arg("--sort", "-s", default="bs", choices=["ab", "bs", "ls", "ga"],
     help="sort tools by criterion, default is \"bs\"")
 # verbosity control
@@ -33,17 +36,17 @@ arg("--quiet", "-q", dest="level", action="store_const", const=logging.WARNING,
     help="be quiet")
 # output
 arg("--standard", action="store_true",
-    help="standard comparison report for \"json-model.org\" web site")
+    help="generate standard comparison report for \"json-model.org\" web site")
 arg("--hide", default=False, action="store_true",
-    help="hide uneffective options from report")
+    help="hide uneffective options from report, default is not")
 arg("--tools", "-t", nargs="*",
     help="restrict analysis to these tools, default is all available tools")
 arg("--unshift", "-u", action="store_true", default=False,
-    help="unshift measure overhead estimation from reported measures")
+    help="unshift measure overhead estimation from reported measures, default is not")
 arg("--compact", "-c", action="store_true", default=False,
-    help="compact but less precise comparison display")
+    help="compact but less precise comparison display, default is not")
 arg("--aggregate", "-g", default="median", choices=["min", "mean", "median"],
-    help="choose aggregate function")
+    help="choose aggregate function for summarizing performance, default is \"median\"")
 args = ap.parse_args()
 
 if args.hide and not args.ref:
@@ -455,7 +458,9 @@ if args.ref:
     print(f"|#|name|{titles}")
     print("|---:|:---|" + "".join(":---:|" for t in tools))
 
-    from scipy.stats import chi2_contingency, barnard_exact
+    # NOTE chi2 and fisher would error on zeros
+    # chi2_contingency, fisher_exact, barnard_exact, boschloo_exact
+    from scipy.stats import boschloo_exact as stats_test
 
     # source to consider for a tool, default is identical
     tool_source = {
@@ -470,9 +475,15 @@ if args.ref:
     sames = { t: 0 for t in tools }
     worses = { t: 0 for t in tools }
 
-    # cache matrix to whether it is independent
-    INDEP: dict[str, bool] = {}
-    nst_equal, nst_chi2, nst_barnard, nst_hits = 0, 0, 0, 0
+    # cache matrix for pvalues
+    PVALUES: dict[str, float] = {}
+    if args.cache:
+        try:
+            with open(args.cache) as fp:
+                PVALUES = json.load(fp)
+        except:  # coldly ignore missing cache file
+            pass
+    n_stats, n_hits = 0, 0
 
     # NOTE costly loop: over 35,000 tests for each tool
     for i, c in enumerate(cases):
@@ -483,6 +494,7 @@ if args.ref:
             line: runs.values
                 for line, runs in perf_df.loc[c, args.ref].groupby("line")["runavg"]
         }
+        ref_perf = pd.DataFrame(ref_runs[j]).aggregate(args.aggregate)[0]
 
         print(f"|{i+1}|{CASE[c]}|", end="")
         for tool in tools:
@@ -501,7 +513,7 @@ if args.ref:
             if src == "!":
                 changes[tool] += 1
 
-            # compute data
+            # retrieve raw data for each test value
             cmp_runs = {
                 line: runs.values
                     for line, runs in perf_df.loc[c, tool].groupby("line")["runavg"]
@@ -511,41 +523,32 @@ if args.ref:
             better, worse, same = 0, 0, 0
             for j in range(1, 1+int(case_df.loc[c]["ntests"])):
 
+                # this is more or less Mood's median-test using Boschloo's exact test
                 all_runs = pd.DataFrame(np.concatenate((ref_runs[j], cmp_runs[j])))
 
                 pivot = float(all_runs.median()[0])
 
-                ref_lower = (ref_runs[j] <= pivot).sum()
-                cmp_lower = (cmp_runs[j] <= pivot).sum()
+                ref_lower = int((ref_runs[j] <= pivot).sum())
+                cmp_lower = int((cmp_runs[j] <= pivot).sum())
 
                 matrix = [
                     [ ref_lower, len(ref_runs) - ref_lower ],
                     [ cmp_lower, len(cmp_runs) - cmp_lower ]
                 ]
 
-                # key for the cache
-                matrix_key = str(matrix)
+                # cache key
+                m_key = f"{matrix[0][0]} {matrix[0][1]} {matrix[1][0]} {matrix[1][1]}"
 
-                if matrix_key in INDEP:
-                    nst_hits += 1
-                    pass
-                elif matrix[0] == matrix[1]:
-                    nst_equal += 1
-                    # shortcut on identical rows
-                    INDEP[matrix_key] = False
-                elif ref_lower in (0, len(ref_runs)) or cmp_lower in (0, len(cmp_runs)):
-                    # Fisher? Barnard? Boschloo?
-                    nst_barnard += 1
-                    barnard_test = barnard_exact(matrix)
-                    INDEP[matrix_key] = barnard_test.pvalue <= args.alpha
-                else:  # Chi2? same as previous?
-                    nst_chi2 += 1
-                    chi2_test = chi2_contingency(matrix, correction=True)
-                    INDEP[matrix_key] = chi2_test.pvalue <= args.alpha
+                if m_key in PVALUES:
+                    n_hits += 1
+                else:
+                    n_stats += 1
+                    # NOTE we use two-sided, but maybe a sided version could make sense?
+                    test = stats_test(matrix)
+                    PVALUES[m_key] = test.pvalue
 
-                # count confirmed better or worst or same than ref measures
-                if INDEP[matrix_key]:
-                    ref_perf = pd.DataFrame(ref_runs[j]).aggregate(args.aggregate)[0]
+                # count confirmed better or worse or same than ref measures
+                if PVALUES[m_key] <= args.alpha:
                     cmp_perf = pd.DataFrame(cmp_runs[j]).aggregate(args.aggregate)[0]
                     if ref_perf < cmp_perf:
                         worse += 1
@@ -553,6 +556,7 @@ if args.ref:
                         better += 1
                 else:
                     same += 1
+
             # NOTE on "=" source, maybe could show max(better, worse)?
             if args.compact and src == "=":
                 result = f"{src} {max(better, worse)}"
@@ -562,12 +566,19 @@ if args.ref:
                 # NOTE showing same is not very useful
                 result = f"{src} {better}/{same}/{worse}"
             print(f"{result}|", end="")
+
             assert args.ref != tool or (src == "=" and better == 0 and worse == 0)
+
             betters[tool] += better
             sames[tool] += same
             worses[tool] += worse
+
         # flush on each line, which is quite slow to produce
         print(flush=True)
+
+    if n_stats > 0 and args.cache:
+        with open(args.cache, "w") as fp:
+            json.dump(PVALUES, fp, indent=2)
 
     weights = {
         t: (worses[t] - betters[t]) / (betters[t] + sames[t] + worses[t])
@@ -607,6 +618,5 @@ if args.ref:
         print(summary + "|", end="")
     print(flush=True)
 
-    nst_total = nst_hits + nst_equal + nst_chi2 + nst_barnard
-    log.debug(f"statistical tests: {nst_hits} hits, {nst_equal} equals, {nst_chi2} chi2, {nst_barnard} barnard, cache size {len(INDEP)}")
+    log.debug(f"statistical tests: {n_hits} hits, {n_stats} computes, cache size {len(PVALUES)}")
     log.info("try: pandoc -s -o foo.html --title 'Great!' foo.md")
