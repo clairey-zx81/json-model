@@ -34,6 +34,8 @@ arg("--debug", "-d", dest="level", action="store_const", const=logging.DEBUG,
     default=logging.INFO, help="run in debug mode")
 arg("--quiet", "-q", dest="level", action="store_const", const=logging.WARNING,
     help="be quiet")
+arg("--progress", "-p", default=False, action="store_true",
+    help="show progress bars when performing (slow) statistical tests")
 # output
 arg("--standard", action="store_true",
     help="generate standard comparison report for \"json-model.org\" web site")
@@ -54,6 +56,12 @@ if args.hide and not args.ref:
     sys.exit(0)
 
 log.setLevel(args.level)
+
+if args.progress:
+    from tqdm import tqdm as progress
+else:
+    def progress(iterator, *args, **kwargs):
+        return iterator
 
 # short column names
 TOOL: dict[str, str] = {
@@ -483,21 +491,22 @@ if args.ref:
                 PVALUES = json.load(fp)
         except:  # coldly ignore missing cache file
             pass
-    n_stats, n_hits = 0, 0
+    n_stats, n_hits, cache_changed = 0, 0, False
 
     # NOTE costly loop: over 35,000 tests for each tool
-    for i, c in enumerate(cases):
-        ntests = int(case_df.loc[c]['ntests'])
-        log.debug(f"comparing {CASE[c]} {i+1}/{len(cases)} ({ntests} tests)")
+    for i, c in progress(list(enumerate(cases)), desc="Cases", leave=False):
+
+        if not args.progress:
+            ntests = int(case_df.loc[c]['ntests'])
+            log.debug(f"comparing {CASE[c]} {i+1}/{len(cases)} ({ntests} tests)")
 
         ref_runs = {
             line: runs.values
                 for line, runs in perf_df.loc[c, args.ref].groupby("line")["runavg"]
         }
-        ref_perf = pd.DataFrame(ref_runs[j]).aggregate(args.aggregate)[0]
 
         print(f"|{i+1}|{CASE[c]}|", end="")
-        for tool in tools:
+        for tool in progress(tools, desc="Tools", leave=False):
             # NOTE we compute a tool against itself for sanity checking
             # log.debug(f"name={name} tool={tool}")
             # if tool == args.ref:
@@ -521,7 +530,7 @@ if args.ref:
 
             # compare each test performance
             better, worse, same = 0, 0, 0
-            for j in range(1, 1+int(case_df.loc[c]["ntests"])):
+            for j in progress(range(1, 1+int(case_df.loc[c]["ntests"])), desc="Tests", leave=False):
 
                 # this is more or less Mood's median-test using Boschloo's exact test
                 all_runs = pd.DataFrame(np.concatenate((ref_runs[j], cmp_runs[j])))
@@ -531,6 +540,7 @@ if args.ref:
                 ref_lower = int((ref_runs[j] <= pivot).sum())
                 cmp_lower = int((cmp_runs[j] <= pivot).sum())
 
+                # contingency table
                 matrix = [
                     [ ref_lower, len(ref_runs) - ref_lower ],
                     [ cmp_lower, len(cmp_runs) - cmp_lower ]
@@ -545,10 +555,12 @@ if args.ref:
                     n_stats += 1
                     # NOTE we use two-sided, but maybe a sided version could make sense?
                     test = stats_test(matrix)
+                    cache_changed = True
                     PVALUES[m_key] = test.pvalue
 
                 # count confirmed better or worse or same than ref measures
                 if PVALUES[m_key] <= args.alpha:
+                    ref_perf = pd.DataFrame(ref_runs[j]).aggregate(args.aggregate)[0]
                     cmp_perf = pd.DataFrame(cmp_runs[j]).aggregate(args.aggregate)[0]
                     if ref_perf < cmp_perf:
                         worse += 1
@@ -557,6 +569,7 @@ if args.ref:
                 else:
                     same += 1
 
+            # end of test loop
             # NOTE on "=" source, maybe could show max(better, worse)?
             if args.compact and src == "=":
                 result = f"{src} {max(better, worse)}"
@@ -573,13 +586,17 @@ if args.ref:
             sames[tool] += same
             worses[tool] += worse
 
+        # end of tool loop
         # flush on each line, which is quite slow to produce
         print(flush=True)
 
-    if n_stats > 0 and args.cache:
-        with open(args.cache, "w") as fp:
-            json.dump(PVALUES, fp, indent=2)
+        # save cache status if changed
+        if cache_changed and args.cache:
+            with open(args.cache, "w") as fp:
+                json.dump(PVALUES, fp, indent=2)
+            cache_changed = False
 
+    # end of case loop
     weights = {
         t: (worses[t] - betters[t]) / (betters[t] + sames[t] + worses[t])
             for t in tools
