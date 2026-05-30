@@ -369,11 +369,11 @@ def jmc_script(xargs: list[str]|None = None) -> int:
 
     generate = ap.add_mutually_exclusive_group()
     gen = generate.add_argument
-    gen("--generate", "--gen", dest="gen", choices=["exec", "module", "source", "none"],
+    gen("--generate", "--gen", "-g", dest="gen", choices=["exec", "module", "source", "none"],
         help="select what to generate")
     gen("--exec", "--executable", dest="gen", action="store_const", const="exec", default=None,
         help="generate an executable")
-    gen("--module", dest="gen", action="store_const", const="module", help="generate a module")
+    gen("--module", "-M", dest="gen", action="store_const", const="module", help="generate a module")
     gen("--code", dest="gen", action="store_const", const="code", help="generate source code")
     gen("--no-gen", "-ng", dest="gen", action="store_const", const="none",
         help="do not generate anything")
