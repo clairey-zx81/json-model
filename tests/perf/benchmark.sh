@@ -245,18 +245,17 @@ for trg in $tasks ; do
         n_java=$($POD ps --filter label=jmc-java --format json | wc -l)
         if [ "$trg" = "jmc-java" -o $n_java -ge 1 ] ; then
           para=$(( $PARA / 2 ))
-          do_wait $para
         else
           para=$PARA
         fi
       else
         para=$PARA
       fi
+      do_wait $para
       # forward target as a label to underlying jmc/js-cli command
       JMC_POD_OPTS="$JMC_POD_OPTS --label $trg" \
       JSC_POD_OPTS="$JSC_POD_OPTS --label $trg" \
         do_start run.sh $loop tmp/$run/ all $trg $dir
-      do_wait $para
     done
   done
 done
