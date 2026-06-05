@@ -27,7 +27,7 @@ arg("--alpha", "-a", type=float, default=0.05,
     help="alpha value for statistical test, default is 0.05")
 arg("--cache", "-C", default=None,
     help="file to keep statistical tests results")
-arg("--sort", "-s", default="bs", choices=["ab", "bs", "ls", "ga"],
+arg("--sort", "-s", default="ga", choices=["ab", "bs", "ls", "ga"],
     help="sort tools by criterion, default is \"bs\"")
 arg("--iterations", "-i", type=int, default=0,
     help="expected number of measures for each test case")
@@ -465,8 +465,8 @@ if args.ref:
 
     print(X2_DETAIL_COMMENT)
 
-    print(f"|#|name|{titles}")
-    print("|---:|:---|" + "".join(":---:|" for t in tools))
+    print(f"|#|name|tests|{titles}")
+    print("|---:|:---|---:|" + "".join(":---:|" for t in tools))
 
     # NOTE chi2 and fisher would error on zeros
     # chi2_contingency, fisher_exact, barnard_exact, boschloo_exact
@@ -511,7 +511,7 @@ if args.ref:
         if args.iterations:
             assert all(len(times) == args.iterations for _, times in ref_runs.items())
 
-        print(f"|{i+1}|{CASE[c]}|", end="")
+        print(f"|{i+1}|{CASE[c]}|{ntests}|", end="")
         for tool in progress(tools, desc="Tools", leave=False):
 
             # NOTE we compute a tool against itself for sanity checking
