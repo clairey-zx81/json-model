@@ -564,7 +564,7 @@ sub _jm_f_8($$$)
     my ($val, $path, $rep) = @_;
     # .constraints.cii1
     # .constraints.cii1.'@'
-    my $res = jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val);
     if ($res)
     {
         my $ival_3 = $val;
@@ -579,7 +579,7 @@ sub _jm_f_9($$$)
     my ($val, $path, $rep) = @_;
     # .constraints.cii2
     # .constraints.cii2.'@'
-    my $res = jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val);
     if ($res)
     {
         my $ival_4 = $val;

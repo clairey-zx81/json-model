@@ -758,6 +758,10 @@ def simplify(jm: JsonModel):
                             changes += 1
                             model["@"] = 0
                             ge = None
+                        elif ge > 1 and target >= 0:
+                            # avoid redundant check >=? 0 and >= ge > 1
+                            changes += 1
+                            model["@"] = -1
                     if le is not None:
                         if target >= 0 and target > le:
                             changes += 1

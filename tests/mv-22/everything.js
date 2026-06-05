@@ -3038,7 +3038,7 @@ function _jm_f_36(val, path, rep)
 {
     // .constraints.cii1
     // .constraints.cii1.'@'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
     if (res)
     {
         let ival_5 = val;
@@ -3050,7 +3050,7 @@ function _jm_f_36(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["not a 0 strict int [.constraints.cii1.'@']", path])
+        rep !== null && rep.push(["not a -1 strict int [.constraints.cii1.'@']", path])
     }
     return res;
 }
@@ -3060,7 +3060,7 @@ function _jm_f_37(val, path, rep)
 {
     // .constraints.cii2
     // .constraints.cii2.'@'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
     if (res)
     {
         let ival_6 = val;
@@ -3072,7 +3072,7 @@ function _jm_f_37(val, path, rep)
     }
     else
     {
-        rep !== null && rep.push(["not a 0 strict int [.constraints.cii2.'@']", path])
+        rep !== null && rep.push(["not a -1 strict int [.constraints.cii2.'@']", path])
     }
     return res;
 }

@@ -1591,7 +1591,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                     // handle may cii1 property
                     // .constraints.cii1
                     // .constraints.cii1.'@'
-                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    res = json_is_integer(pval);
                     if (likely(res))
                     {
                         int64_t ival_3 = json_integer_value(pval);
@@ -1603,7 +1603,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                     else
                     {
-                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cii1.'@']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1 strict int [.constraints.cii1.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {
@@ -1766,7 +1766,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                     // handle may cii2 property
                     // .constraints.cii2
                     // .constraints.cii2.'@'
-                    res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+                    res = json_is_integer(pval);
                     if (likely(res))
                     {
                         int64_t ival_8 = json_integer_value(pval);
@@ -1778,7 +1778,7 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                     }
                     else
                     {
-                        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cii2.'@']", (path ? &lpath_14 : NULL));
+                        if (rep) jm_report_add_entry(rep, "not a -1 strict int [.constraints.cii2.'@']", (path ? &lpath_14 : NULL));
                     }
                     if (unlikely(! res))
                     {

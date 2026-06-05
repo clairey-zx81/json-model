@@ -430,7 +430,7 @@ DECLARE
 BEGIN
   -- .constraints.cii1
   -- .constraints.cii1.'@'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   IF res THEN
     ival_3 := (val)::INT8;
     res := ival_3 <> 10 AND ival_3 <= 12 AND ival_3 >= 8;
@@ -448,7 +448,7 @@ DECLARE
 BEGIN
   -- .constraints.cii2
   -- .constraints.cii2.'@'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
   IF res THEN
     ival_4 := (val)::INT8;
     res := ival_4 <= 9 AND ival_4 >= 8;

@@ -9,6 +9,7 @@
 - [x] perf: rewrite benchmark analysis with pandas instead of sqlite3
 - [x] js-runtime: check stability of `.mo` extension (issue reported, does not work… as intended)
 - [x] perf: add --load benchmark option to reduce load when java is running
+- [x] optim: avoid redundant lower bound checks on constrain integers
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
 - [ ] perf: add another loop over performance collection?
 - [ ] spec: add `$SEMVER` predef

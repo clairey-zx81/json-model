@@ -1,0 +1,6 @@
+{
+  "description": "do not check lower bound twice!",
+  "type": "integer",
+  "maximum": 999,
+  "minimum": 100
+}

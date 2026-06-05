@@ -851,16 +851,16 @@
         },
         "cii1": {
           "type": "integer",
-          "minimum": 8,
           "maximum": 12,
+          "minimum": 8,
           "not": {
             "const": 10
           }
         },
         "cii2": {
           "type": "integer",
-          "minimum": 8,
-          "maximum": 9
+          "maximum": 9,
+          "minimum": 8
         },
         "cin0": {
           "type": "number",

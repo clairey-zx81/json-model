@@ -614,7 +614,7 @@ public class everything extends ModelChecker
     {
         // .constraints.cii1
         // .constraints.cii1.'@'
-        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val);
         if (res)
         {
             long ival_3 = json.asLong(val);
@@ -626,7 +626,7 @@ public class everything extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cii1.'@']", path);
+            if (rep != null) rep.addEntry("not a -1 strict int [.constraints.cii1.'@']", path);
         }
         return res;
     }
@@ -636,7 +636,7 @@ public class everything extends ModelChecker
     {
         // .constraints.cii2
         // .constraints.cii2.'@'
-        boolean res = json.isInteger(val) && json.asLong(val) >= 0;
+        boolean res = json.isInteger(val);
         if (res)
         {
             long ival_4 = json.asLong(val);
@@ -648,7 +648,7 @@ public class everything extends ModelChecker
         }
         else
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cii2.'@']", path);
+            if (rep != null) rep.addEntry("not a -1 strict int [.constraints.cii2.'@']", path);
         }
         return res;
     }

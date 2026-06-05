@@ -410,28 +410,28 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cii1
     # .constraints.cii1.'@'
-    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool)
     if res:
         ival_3: int = val
         res = ival_3 != 10 and ival_3 <= 12 and ival_3 >= 8
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cii1]", path))
     else:
-        rep is None or rep.append(("not a 0 strict int [.constraints.cii1.'@']", path))
+        rep is None or rep.append(("not a -1 strict int [.constraints.cii1.'@']", path))
     return res
 
 # check _jm_f_3_map_cii2 (.constraints.cii2)
 def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .constraints.cii2
     # .constraints.cii2.'@'
-    res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res: bool = isinstance(val, int) and not isinstance(val, bool)
     if res:
         ival_4: int = val
         res = ival_4 <= 9 and ival_4 >= 8
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cii2]", path))
     else:
-        rep is None or rep.append(("not a 0 strict int [.constraints.cii2.'@']", path))
+        rep is None or rep.append(("not a -1 strict int [.constraints.cii2.'@']", path))
     return res
 
 # check _jm_f_3_map_cin0 (.constraints.cin0)
