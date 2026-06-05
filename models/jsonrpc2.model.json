@@ -1,0 +1,59 @@
+{
+  "#": "JSON-RPC 2.0 Protocol",
+  "#.url": "https://www.jsonrpc.org/specification",
+  "~": "https://json-model.org/models/json-model",
+  "": "https://json-model.org/models/jsonrpc2",
+  "$": {
+    "Id": {
+      "#": "Request/response identifier: null, integer, or string",
+      "#.note": "Null is discouraged for requests; Do not use floats!",
+      "|": [ null, -1, "" ]
+    },
+    "#.client": "2 types of client messages, plus batch",
+    "Notification": {
+      "jsonrpc": "_2.0",
+      "method": "/./",
+      "?params": { "|": [ [ "$ANY" ], { "": "$ANY" } ] }
+    },
+    "Request": {
+      "#": "A notification with an id is really a request",
+      "+": [
+        "$Notification",
+        { "id": "$Id" }
+      ]
+    },
+    "BatchRequest": {
+      "#": "One or more client messages sent together",
+      "@": [ { "|": [ "$Request", "$Notification" ] } ],
+      ">=": 1
+    },
+    "ClientMessage": {
+      "|": [ "$Notification", "$Request", "$BatchRequest" ]
+    },
+    "#.server": "2 types of client messages, plus batch",
+    "Response": {
+      "jsonrpc": "_2.0",
+      "id": "$Id",
+      "result": "$ANY"
+    },
+    "Error": {
+      "jsonrpc": "_2.0",
+      "id": "$Id",
+      "error": {
+        "code": -1,
+        "message": "",
+        "?data": "$ANY"
+      }
+    },
+    "BatchResponse": {
+      "#": "One or more responses returned for a batch (notifications omitted)",
+      "@": [ { "|": [ "$Response", "$Error" ] } ],
+      ">=": 1
+    },
+    "ServerMessage": {
+      "|": [ "$Response", "$Error", "$BatchResponse" ]
+    }
+  },
+  "#.root": "Top-level message: single or batch, client or server",
+  "|": [ "$ClientMessage", "$ServerMessage" ]
+}
