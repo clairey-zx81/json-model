@@ -542,6 +542,13 @@ def partial_eval(jm: JsonModel):
                         if 1.0 / mo == int(1.0 / mo):
                             changes += 1
                             del model[".mo"]
+                # stupid cases for fun: too many distinct values for the target type
+                if model["@"] == [ True ] and model.get("!", False) and gev >= 3:
+                    changes += 1
+                    return "$NONE"
+                if model["@"] == [ None ] and model.get("!", False) and gev >= 2:
+                    changes += 1
+                    return "$NONE"
                 # .in?
                 # TODO could do other cases about str?
             else:  # simple object

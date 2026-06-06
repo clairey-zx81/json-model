@@ -1,0 +1,6 @@
+{
+  "#": "cannot have 3 distinct booleans!",
+  "@": [ true ],
+  ">": 2,
+  "!": true
+}
