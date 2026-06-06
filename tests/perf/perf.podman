@@ -16,7 +16,7 @@ FROM quay.io/podman/stable
 LABEL description="JSON Model compiler benchmarking artifact (podman-in-podman)"
 RUN yum upgrade -y && \
     yum install -y time hostname jq python3 python3-pip python3-pandas python3-numpy && \
-    yum autoremove && \
+    yum autoremove -y && \
     yum clean all
 RUN pip install gron
 RUN mkdir /app /workspace && chmod a+rx /app /workspace
