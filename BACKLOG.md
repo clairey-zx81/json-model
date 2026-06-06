@@ -15,6 +15,9 @@
 - [x] optim: check unfeasible distinct values for a minimum number of distinct values
 - [x] c-runtime: require `:` to appear in a url
 - [x] pl-backend: fix reporting code
+- [ ] front: generate valid minimal, maximal and random values from a model
+- [ ] front: generate invalid minimal values from a model
+- [ ] optim: simplify some '!=' cases
 - [ ] perf: run benchmark for formats/predefs enabled
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
 - [ ] perf: add another loop over performance collection?
