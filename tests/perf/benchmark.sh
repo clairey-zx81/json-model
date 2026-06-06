@@ -15,10 +15,37 @@ export POD=${POD:-docker}
 # error handling
 function err()
 {
-    local status=$1
-    shift 1
-    echo "$@" >&2
-    exit $status
+  local status=$1
+  shift 1
+  echo "$@" >&2
+  exit $status
+}
+
+function usage()
+{
+  cat <<EOF
+    $0 [-h] [-v] [-p 8] [-c 5] [-l 1000] [-T $TASK] [--jmc=latest] [--jsc=latest]
+    Options and defaults:
+     --help|-h: this help
+     --debug|-d: set debugging messages
+     --version|-v: show jmc version
+     --id ID: benchmark identifier
+     --container|-C POD: command (current is $POD)
+     --parallel|-p N: benchmark parallelism, eg half available cores ($PARA)
+     --loop|-l L: number of run iterations for performance figures ($LOOP)
+     --runs|-r R: number of runs ($RUNS)
+     --jmc=TAG: container tag for JSON Model Compiler container image ($JMC)
+     --jsc=TAG: container tag for JSON Schema CLI (Blaze) container image ($JSC)
+     --content|-c: also check for value content (aka schema formats and model predefs)
+     --no-content|-nc: do not check value content
+     --cap: reduce loop iterations for slow scripts (default)
+     --no-cap: do not reduce loop iterations for slow scripts
+     --env|-e VARS: environment variables to export to jmc container
+     --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python l=Perl)
+     --unshift|-u: unshift overhead estimation from measures
+     --load|-L: reduce load by half for java tests
+EOF
+  exit 0
 }
 
 # script directory
@@ -26,7 +53,7 @@ script_dir=$(dirname $0)
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy"
-cap=1 debug= show_opt=--standard unshift= load=
+cap=1 debug= show_opt=--standard unshift= load= content= run_opts=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -34,27 +61,7 @@ while [[ "$1" == -* ]] ; do
   opt=$1
   shift
   case $opt in
-    -h|--help)
-      echo "$0 [-h] [-v] [-p 8] [-c 5] [-l 1000] [-T $TASK] [--jmc=latest] [--jsc=latest]"
-      echo "Options and defaults:"
-      echo " --help|-h: this help"
-      echo " --debug|-d: set debugging messages"
-      echo " --version|-v: show jmc version"
-      echo " --id ID: benchmark identifier"
-      echo " --container|-C POD: command (current is $POD)"
-      echo " --parallel|-p N: benchmark parallelism, eg half available cores ($PARA)"
-      echo " --loop|-l L: number of run iterations for performance figures ($LOOP)"
-      echo " --runs|-r R: number of runs ($RUNS)"
-      echo " --jmc=TAG: container tag for JSON Model Compiler container image ($JMC)"
-      echo " --jsc=TAG: container tag for JSON Schema CLI (Blaze) container image ($JSC)"
-      echo " --cap: reduce loop iterations for slow scripts (default)"
-      echo " --no-cap: do not reduce loop iterations for slow scripts"
-      echo " --env|-e VARS: environment variables to export to jmc container"
-      echo " --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python l=Perl)"
-      echo " --unshift|-u: unshift overhead estimation from measures"
-      echo " --load|-L: reduce load by half for java tests"
-      exit 0
-      ;;
+    -h|--help) usage ;;
     -v|--version)
       # NOTE expects "jmc" wrapper, depends on docker.io/zx80/jmc container image
       jmc --version
@@ -96,6 +103,8 @@ while [[ "$1" == -* ]] ; do
     -T|--task) TASK=$1 ; shift ;;
     -u|--unshift) unshift="--unshift" ;;
     -L|--load) load=1 ;;
+    -c|--content) run_opts+=" --content" ; content=1 ;;
+    -nc|--no-content) run_opts+=" --no-content" ; content= ;;
     --) break ;;
     *) err 1 "unexpected option: $opt" ;;
   esac
@@ -255,7 +264,7 @@ for trg in $tasks ; do
       # forward target as a label to underlying jmc/js-cli command
       JMC_POD_OPTS="$JMC_POD_OPTS --label $trg" \
       JSC_POD_OPTS="$JSC_POD_OPTS --label $trg" \
-        do_start run.sh $loop tmp/$run/ all $trg $dir
+        do_start run.sh -l $loop -t all $run_opts tmp/$run/ $trg $dir
     done
   done
 done
@@ -406,11 +415,12 @@ or deselect tools for easier comparisons.
 - **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))
 - **benchmark parallelism:** $PARA
 - **number of runs:** $RUNS
-- **number of case iterations:** $LOOP
+- **number of test iterations:** $LOOP
 - **cap:** $cap (whether to reduce iterations for slow script runs)
 - **overhead:** $overhead (measure overhead estimations may be removed from execution times)
 - **debug:** $debug_status
 - **tasks:** $tasks
+- **content:** $content
 - **exported environment variables:** \`$JMC_ENV\`
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF

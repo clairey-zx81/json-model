@@ -2,17 +2,22 @@
 #
 # execute jmc bench bite
 #
+# options:
+#
+# - -l loop: number of performance loop iterations, eg 1000 or 10000
+# - -t task: cmp (aka compile) or all = cmp + run
+#
 # arguments:
-# - loop: number of performance loop iterations, eg 1000 or 10000
+#
 # - prefix: directory where to write results
-# - task: cmp ou all = cmp + run
 # - target: implementation/phase to run (all, jmc, jmc-*, blaze)
 # - dirs: jsb schema directories to process
 #
 # env:
+#
 # - JMC: json-model container tag
 # - PATH: where to find "jmc" and "js-cli" wrappers
-# - JMC_JAVA_LIBS: java JSON libraries, in GSON Jackson JSONP
+# - JMC_JAVA_LIBS: java JSON libraries, in GSON Jackson JSONP, default is all
 
 export PATH=$PATH:.
 export TMPDIR=.
@@ -32,19 +37,63 @@ function err()
   exit $status
 }
 
+function usage()
+{
+  err ${1:-0} "usage: $0 -h -l LOOP -t TASK prefix target dirs..."
+}
+
 #
-# handle arguments
+# OPTIONS AND ARGS
 #
 
-[ $# -ge 4 ] || err 1 "usage: $0 loop prefix task target dirs..."
+# defaults
+LOOP=1000 TASK="all" jsu_opts_2= jmc_opts_2= blaze_opts=
 
-LOOP=$1 PREFIX=$2 TASK=$3 TARGET=$4
-shift 4
+# handle options
+while $1 == -* ; do
+  opt=$1
+  shift
+  case $opt in
+    -h|--help)
+      ;;
+    -l|--loop)
+      LOOP=$1
+      shift
+      ;;
+    --loop=*)
+      LOOP=${1#*=}
+      ;;
+    -t|--task)
+      TASK=$1
+      ;;
+    --task=*)
+      TASK=${1#*=}
+      ;;
+    -c|--content)  # check contents
+      blaze_opts+=" -F"
+      jsu_opts_2+=" --format"
+      jmc_opts_2+=" --predef"
+      ;;
+    -nc|--no-content)
+      blaze_opts=${blaze_opts/-F/}
+      jsu_opts_2+=" --no-format"
+      jmc_opts_2+=" --no-predef"
+      ;;
+    --)  # end of options
+      break
+      ;;
+  esac
+done
+
+[ $# -ge 2 ] || usage 1
+
+PREFIX=$1 TARGET=$2
+shift 2
 
 case $TASK in
   all) do_cmp=1 do_run=1 ;;
   cmp) do_cmp=1 do_run= ;;
-  # TODO run with pre-compiled stuff?
+  # TODO run with pre-compiled stuff? where is it found?
   # run) do_cmp= do_run=1 ;;
   *) err 1 "unexpected task: $TASK" ;;
 esac
@@ -88,25 +137,33 @@ for dir ; do
   sprefix="$PREFIX${safe}"
 
   # JSU compiler options:
-  #  - `--quiet`: reduce compiler verbosity
-  #  - `--id`: use custom models when available
-  #  - `--no-strict`: just warn about some ill-defined schemas
-  #  - `--fix`: fix common schema issues (missing types, misplaced keywords)
-  #             improving both accuracy and performance
+  #
+  # - `--quiet`: reduce compiler verbosity
+  # - `--id`: use custom models when available
+  # - `--no-strict`: just warn about some ill-defined schemas
+  # - `--fix`: fix common schema issues (missing types, misplaced keywords)
+  #            improving accuracy and possibly performance (unclear ?)
+  # - `--loose`: allow loose numbers (42.0 is an int, 42 is a float)
+  #
+  jsu_opts="--quiet --id --no-strict --fix --no-reporting --loose"
+
+  # skip custom OpenAPI model as the schema does not check sub-schemas, for fairer comparison
+  # this means that a large chunk of the schema is not checked…
+  [ $name = "openapi" ] && jsu_opts+=" --no-id"
+
   # JMC compiler forwarded options:
+  #
   #  - `--no-format`: do not check formats
   #  - `--no-reporting`: do not generate invalidation location reporting code
   #  - `--loose`: assume loose integers (42.0 is an int) and floats (42 is a float)
-  jsu_opts="--quiet --id --no-strict --fix --no-reporting --loose"
+  #
+  jmc_c_opts=""
+  jmc_x_opts=$jmc_c_opts
 
-  # JMC compiler options:
-  jmc_c_opt=""
-  jmc_x_opt=$jmc_c_opt
-
-  # skip custom OpenAPI model as the schema does not check sub-schemas, for fairer comparison
-  if [ $name = "openapi" ] ; then
-    jsu_opts+=" --no-id"
-  fi
+  # additional options may override the above defaults
+  jsu_opts+=$jsu_opts_2
+  jmc_c_opts+=$jmc_opts_2
+  jmc_x_opts+=$jmc_opts_2
 
   for trg in $targets ; do
 
@@ -115,7 +172,8 @@ for dir ; do
     #
     # COMPILE
     #
-    blaze_ko=9 jmc_c_ko=9 jmc_out_ko=9
+    blaze_ko=9
+    jmc_c_ko=9 jmc_out_ko=9
     jmc_js_ko=9 jmc_py_ko=9 jmc_pl_ko=9
     jmc_java_ko=9 jmc_class_ko=9
 
@@ -123,7 +181,7 @@ for dir ; do
     [ "$do_cmp" -a $trg = "blaze" ] && {
       echo "## $dir blaze compile"
       ctime "$name,blaze,$now," "$prefix" blaze \
-        $js_cli compile -m -f $dir/schema.json > ${prefix}.blaze.json
+        $js_cli compile $blaze_opts -m -f $dir/schema.json > ${prefix}.blaze.json
       blaze_ko=$?
       echo "## blaze ko: $blaze_ko"
     }
@@ -140,11 +198,11 @@ for dir ; do
       echo "## $dir jmc-c compile"
       ctime "$name,jmc-c-src,$now," "$prefix" jmc-c \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_c_opt -o ${prefix}.c
+          -- $jmc_c_opts -o ${prefix}.c
       jmc_c_ko=$?
       ctime "$name,jmc-c-out,$now," "$prefix" jmc-c \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_c_opt -o ${prefix}.out
+          -- $jmc_c_opts -o ${prefix}.out
       jmc_out_ko=$?
       echo "## jmc out ko: $jmc_out_ko"
       # rename to avoid .out
@@ -156,7 +214,7 @@ for dir ; do
       echo "## $dir jmc-js compile"
       ctime "$name,jmc-js,$now," "$prefix" jmc-js \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${prefix}.js
+          -- $jmc_x_opts -o ${prefix}.js
       jmc_js_ko=$?
     }
 
@@ -165,7 +223,7 @@ for dir ; do
       echo "## $dir jmc-py compile"
       ctime "$name,jmc-py,$now," "$prefix" jmc-py \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${prefix}.py
+          -- $jmc_x_opts -o ${prefix}.py
       jmc_py_ko=$?
     }
 
@@ -174,11 +232,11 @@ for dir ; do
       echo "## $dir jmc-java compile"
       ctime "$name,jmc-java-src,$now," "$prefix" jmc-java \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${sprefix}.java
+          -- $jmc_x_opts -o ${sprefix}.java
       jmc_java_ko=$?
       ctime "$name,jmc-java-class,$now," "$prefix" jmc-java \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${sprefix}.class
+          -- $jmc_x_opts -o ${sprefix}.class
       jmc_class_ko=$?
     }
 
@@ -187,7 +245,7 @@ for dir ; do
       echo "## $dir jmc-pl compile"
       ctime "$dir,jmc-pl,$now," "$prefix" jmc-pl \
         $jsu_compile $jsu_opts --no-format $dir/schema.json \
-          -- $jmc_x_opt -o ${prefix}.pl
+          -- $jmc_x_opts -o ${prefix}.pl
       jmc_pl_ko=$?
     }
 
@@ -199,24 +257,29 @@ for dir ; do
     #
     [ "$trg" = "blaze" -a "$blaze_ko" -eq 0 ] && {
       echo "## $dir blaze run"
-      $js_cli validate -m ${prefix}.blaze.json -b -l $LOOP $dir/schema.json $dir/instances.jsonl \
-        > ${prefix}_blaze.out
+      $js_cli validate $blaze_opts -m ${prefix}.blaze.json -b -l $LOOP \
+        $dir/schema.json $dir/instances.jsonl \
+          > ${prefix}_blaze.out
     }
+
     [ "$trg" = "jmc-c" -a "$jmc_out_ko" -eq 0 ] && {
       echo "## $dir jmc-c run"
       $jmc exec ${prefix}.exe -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-c.out
     }
+
     [ "$trg" = "jmc-js" -a "$jmc_js_ko" -eq 0 ] && {
       echo "## $dir jmc-js run"
       $jmc exec ${prefix}.js -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-js.out
     }
+
     [ "$trg" = "jmc-py" -a "$jmc_py_ko" -eq 0 ] && {
       echo "## $dir jmc-py run"
       $jmc exec ${prefix}.py -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-py.out
     }
+
     [ "$trg" = "jmc-java" -a "$jmc_class_ko" -eq 0 ] && {
       # FIXME java .java to work around classpath subdir
       # maybe we could do better with some wrapper to fix CLASSPATH on the fly
@@ -226,9 +289,10 @@ for dir ; do
           2> ${prefix}_jmc-java-$lib.out
       done
     }
+
     [ "$trg" = "jmc-pl" -a "$jmc_pl_ko" -eq 0 ] && {
       echo "## $dir jmc-pl run"
-      $jmc exec ${prefix}.pl -T $(( $LOOP / 10 )) --jsonl $dir/instances.jsonl \
+      $jmc exec ${prefix}.pl -T $LOOP --jsonl $dir/instances.jsonl \
         2> ${prefix}_jmc-pl.out
     }
   done
