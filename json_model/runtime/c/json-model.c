@@ -1199,13 +1199,16 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
     if (!url)
         return false;
     char *c = (char *) url;
+    bool has_colon = false;
     while (*c) {
         // check url validity (hmmm, just check for strange characters)
         if (!(*c >= 33 && *c < 126 && *c != '"' && *c != '<' && *c != '>'))
             return false;
+        if (*c == ':')
+            has_colon = true;
         c++;
     }
-    return true;
+    return has_colon;
 }
 
 /*
