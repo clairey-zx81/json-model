@@ -14,7 +14,7 @@
 - [x] perf: add switch to enable value contents checks
 - [x] optim: check unfeasible distinct values for a minimum number of distinct values
 - [x] c-runtime: require `:` to appear in a url
-- [x] py-runtime: add separate uri function
+- [x] pl-backend: fix reporting code
 - [ ] perf: run benchmark for formats/predefs enabled
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
 - [ ] perf: add another loop over performance collection?

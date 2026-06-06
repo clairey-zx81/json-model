@@ -5,7 +5,7 @@ from .mtypes import Number, TestHint, Conditionals
 
 PYTHON_RUNTIME_PREDEFS: dict[str, str] = {
     "$URL": "is_valid_url",
-    "$URI": "is_valid_uri",
+    "$URI": "is_valid_url",
     "$DATE": "is_valid_date",
     "$TIME": "is_valid_time",
     "$TIMETZ": "is_valid_timetz",

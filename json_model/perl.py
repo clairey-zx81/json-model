@@ -179,7 +179,7 @@ class Perl(Language):
         return code
 
     def clean_report(self) -> Block:
-        return [ "defined $rep && $rep = [];" ] if self._with_report else []
+        return [ "$rep = [] if defined $rep;" ] if self._with_report else []
 
     def nope(self) -> Block:
         return [ ";" ]
@@ -252,7 +252,7 @@ class Perl(Language):
 
     # FIXME broken
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool, is_var: bool) -> PathExpr:
-        seg = "${pseg}" if is_var else self.esc(pseg) if is_prop else str(pseg)
+        seg = f"${pseg}" if is_var else self.esc(pseg) if is_prop else str(pseg)
         pvar = f"${pvar}" if self.is_a_var(pvar) else pvar
         pvar = f"({pvar})" if " " in pvar else pvar
         return f"defined {pvar} ? [@{{{pvar}}}, {seg}] : undef" if self._with_path else "undef"
