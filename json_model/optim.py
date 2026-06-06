@@ -543,10 +543,10 @@ def partial_eval(jm: JsonModel):
                             changes += 1
                             del model[".mo"]
                 # stupid cases for fun: too many distinct values for the target type
-                if model["@"] == [ True ] and model.get("!", False) and gev >= 3:
+                if model["@"] == [ True ] and model.get("!", False) and gev and gev >= 3:
                     changes += 1
                     return "$NONE"
-                if model["@"] == [ None ] and model.get("!", False) and gev >= 2:
+                if model["@"] == [ None ] and model.get("!", False) and gev and gev >= 2:
                     changes += 1
                     return "$NONE"
                 # .in?
