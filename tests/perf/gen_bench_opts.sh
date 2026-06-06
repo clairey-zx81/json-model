@@ -79,8 +79,7 @@ bench c aun --array-unrolling-size=0
 bench c mmo -mmot=0
 bench c mot -mot=0
 bench c omp -omp=0
-bench c pa0 -pt=0
-bench c pax -pt=1024
+bench c pat -pt=0
 bench c dis --no-disjunction
 bench c abo --no-all-but-one
 bench c mba --no-missing-basics
