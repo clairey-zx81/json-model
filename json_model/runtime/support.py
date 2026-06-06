@@ -247,6 +247,12 @@ def is_valid_url(value: Jsonable, path: Path, rep: Report = None) -> bool:
         _ = rep is None or rep.append((f"invalid url {value}", path))
     return valid
 
+def is_valid_uri(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    valid = isinstance(value, str) and validators.uri(value, simple_host=True) is True
+    if not valid:
+        _ = rep is None or rep.append((f"invalid uri {value}", path))
+    return valid
+
 def is_valid_email(value: Jsonable, path: Path, rep: Report = None) -> bool:
     valid = isinstance(value, str) and validators.email(value, simple_host=True) is True
     if not valid:
