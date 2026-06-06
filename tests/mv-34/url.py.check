@@ -1,0 +1,17 @@
+url.values.json[0]: PASS
+url.values.json[1]: PASS
+url.values.json[2]: ERROR unexpected FAIL
+url.values.json[3]: FAIL (.: invalid url foo:bla)
+url.values.json[4]: FAIL (.: invalid url not a url)
+url.values.json[5]: FAIL (.: invalid url not-a-url…)
+url.values.json[6]: FAIL (.: invalid url )
+url.values.json[7]: FAIL (.: invalid url None)
+url.values.json[8]: FAIL (.: invalid url True)
+url.values.json[9]: FAIL (.: invalid url False)
+url.values.json[10]: FAIL (.: invalid url -42)
+url.values.json[11]: FAIL (.: invalid url 3.1415927)
+url.values.json[12]: FAIL (.: invalid url [])
+url.values.json[13]: FAIL (.: invalid url [1, 'expected'])
+url.values.json[14]: FAIL (.: invalid url {})
+url.values.json[15]: FAIL (.: invalid url {'un': 'expected'})
+url.values.json[16]: FAIL (.: invalid url {'url': 'https://json-model.org'})

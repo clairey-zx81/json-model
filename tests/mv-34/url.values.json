@@ -1,0 +1,20 @@
+[
+  "# what is a URL?",
+  [ true,  "https://json-model.org/" ],
+  [ true,  "http://www.coelho.net/" ],
+  [ true,  "file://../elsewhere" ],
+  [ false, "foo:bla" ],
+  [ false, "not a url" ],
+  [ false, "not-a-url…" ],
+  [ false, "" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ],
+  [ false, {"url": "https://json-model.org"} ]
+]
