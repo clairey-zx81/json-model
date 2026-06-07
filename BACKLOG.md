@@ -152,8 +152,9 @@
 ## Internship
 
 - [ ] pr: try tutorial, report issues and suggest improvements
-- [ ] dev: install a dev environment
+- [ ] tests: add a few tests for jsonrpc model
 - [ ] model: write a model for MCP
+- [ ] tests: add a few tests for MCP model
 - [ ] export: generate ts interfaces
 - [ ] tests: generate invalid minimal, maximal, random values
 - [ ] tests: generate invalid values on each constraint
