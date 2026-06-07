@@ -137,13 +137,12 @@ class JavaScript(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        val = var
         if name == "$REGEX":
-            return f"runtime.jm_is_valid_regex({val}, false)"
+            return f"runtime.jm_is_valid_regex({var}, false)"
         elif name == "$EXREG":
-            return f"runtime.jm_is_valid_regex({val}, true)"
+            return f"runtime.jm_is_valid_regex({var}, true)"
         elif name in JS_RUNTIME_PREDEFS:
-            return f"runtime.{JS_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
+            return f"runtime.{JS_RUNTIME_PREDEFS[name]}({var}, {self.path(path)}, {self.rep()})"
         else:
             return super().predef(var, name, path, is_str, is_val)
 

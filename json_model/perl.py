@@ -135,12 +135,12 @@ class Perl(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        var, path = self._val(var), self._val(path)  # type: ignore
+        val, path = self._val(var), self._val(path)  # type: ignore
         if name in PERL_RUNTIME_PREDEFS:
-            expr = f"{PERL_RUNTIME_PREDEFS[name]}({var}, {self.path(path)}, {self.rep()})"
-            return expr if is_str else self.and_op(self.is_a(var, str), expr)
+            expr = f"{PERL_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
+            return expr if is_str else self.and_op(self.is_a(val, str), expr)
         else:
-            return super().predef(var, name, path, is_str, is_val)
+            return super().predef(val, name, path, is_str, True)
 
     def check_unique(self, val: JsonExpr, titem: type|None, path: Var) -> BoolExpr:
         path = self.path(self._val(path))

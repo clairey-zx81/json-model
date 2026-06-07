@@ -1,0 +1,17 @@
+[
+  [ true,  "localhost" ],
+  [ true,  "www.json-model.org" ],
+  [ true,  "10.2.14.62" ],
+  [ true,  "::a02:e3e" ],
+  [ false, "" ],
+  [ false, "not expected" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [10, 2, 14, 62] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

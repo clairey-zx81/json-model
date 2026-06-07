@@ -4,6 +4,7 @@ from functools import reduce
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr, NumExpr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
+from .predefs import STR_MODEL_PREDEFS
 from .utils import partition, log
 
 _ESC_TABLE = {
@@ -697,18 +698,26 @@ class CLangJansson(Language):
 
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
-        val = var if is_val else f"json_string_value({var})"
+        if name in STR_MODEL_PREDEFS and not is_val:
+            val = f"json_string_value({var})"
+        else:
+            val = var
         # no content checks
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
+        # callpredef implementations
         if name == "$REGEX":
             return f"jm_is_valid_regex({val}, false, {self.path(path)}, {self.rep()})"
         elif name == "$EXREG":
             return f"jm_is_valid_regex({val}, true, {self.path(path)}, {self.rep()})"
         elif name in CLANG_RUNTIME_PREDEFS:
             return f"{CLANG_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
+        elif name == "$STRING":
+            return self.const(True) if is_str else self.is_a(var, str)
         else:
-            return super().predef(var, name, path, is_str, is_val)
+            check_str = name in STR_MODEL_PREDEFS
+            expr = super().predef(val, name, path, is_str or check_str, True)
+            return self.and_op(self.is_a(var, str), expr) if check_str and not is_str else expr
 
     def value(self, var: Var, tvar: type) -> Expr:
         """Known type value extraction."""

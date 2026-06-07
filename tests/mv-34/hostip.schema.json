@@ -1,0 +1,17 @@
+{
+  "description": "fix missing json 2 str extraction",
+  "anyOf": [
+    {
+      "type": "string",
+      "format": "hostname"
+    },
+    {
+      "type": "string",
+      "format": "ipv4"
+    },
+    {
+      "type": "string",
+      "format": "ipv6"
+    }
+  ]
+}

@@ -277,7 +277,11 @@ def is_valid_host(value: Jsonable, path: Path, rep: Report = None) -> bool:
     #         value, skip_ipv4_addr=True, skip_ipv6_addr=True,  # ???
     #         may_have_port=False, maybe_simple=True,
     #     ) is True and len(value) <= 255
-    valid = isinstance(value, str) and fqdn.FQDN(value, min_labels=1).is_valid and value[-1] != "."
+    try:
+        valid = isinstance(value, str) and fqdn.FQDN(value, min_labels=1).is_valid and value[-1] != "."
+    except:
+        # FIXME fqdn raises an issue on empty strings
+        valid = False
     if not valid:
         _ = rep is None or rep.append((f"invalid hostname {value}", path))
     return valid

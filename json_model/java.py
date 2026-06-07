@@ -2,6 +2,7 @@ import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
+from .predefs import STR_MODEL_PREDEFS
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
@@ -163,12 +164,19 @@ class Java(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
-        if name in JAVA_RUNTIME_PREDEFS:
-            val = var if is_val else f"json.asString({var})"
-            expr = f"rt.{JAVA_RUNTIME_PREDEFS[name]}({val})"
-            return expr if is_str else self.and_op(self.is_a(var, str), expr)
+        if name in STR_MODEL_PREDEFS and not is_val:
+            val = f"json.asString({var})"
         else:
-            return super().predef(var, name, path, is_str, is_val)
+            val = var
+        if name in JAVA_RUNTIME_PREDEFS:
+            check_str = True
+            expr = f"rt.{JAVA_RUNTIME_PREDEFS[name]}({val})"
+        elif name == "$STRING":
+            return self.const(True) if is_str else self.is_a(var, str)
+        else:
+            check_str = name in STR_MODEL_PREDEFS
+            expr = super().predef(val, name, path, is_str or check_str, True)
+        return self.and_op(self.is_a(var, str), expr) if check_str and not is_str else expr
 
     def value(self, var: Var, tvar: type) -> Expr:
         """Known type value extraction."""

@@ -3,6 +3,7 @@ import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
+from .predefs import STR_MODEL_PREDEFS
 
 _DECL = "%PL_DECL% "
 
@@ -153,12 +154,19 @@ class PLpgSQL(Language):
         if not self._with_predef and self.str_content_predef(name):
             return self.const(True) if is_str else self.is_a(var, str)
         # val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
-        val = var if is_val else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
-        if name in PLPGSQL_RUNTIME_PREDEFS:
-            expr = f"{PLPGSQL_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
-            return expr if is_str else self.and_op(self.is_a(var, str), expr)
+        if name in STR_MODEL_PREDEFS and not is_val:
+            val = f"JSON_VALUE({var}, '$' RETURNING TEXT)"
         else:
-            return super().predef(var, name, path, is_str, is_val)
+            val = var
+        if name in PLPGSQL_RUNTIME_PREDEFS:
+            check_str = True
+            expr = f"{PLPGSQL_RUNTIME_PREDEFS[name]}({val}, {self.path(path)}, {self.rep()})"
+        elif name == "$STRING":
+            return self.const(True) if is_str else self.is_a(var, str)
+        else:
+            check_str = name in STR_MODEL_PREDEFS
+            expr = super().predef(val, name, path, is_str or check_str, True)
+        return self.and_op(self.is_a(var, str), expr) if check_str and not is_str else expr
 
     def value(self, var: Var, tvar: type) -> Expr:
         """Known type value extraction."""

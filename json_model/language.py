@@ -12,6 +12,7 @@ type ConstMap = dict[JsonScalar, str]
 type RegMap = dict[str, str]
 
 # predefs for null, bool, int and number
+# all others are expected to be strings (?!)
 _TYPED_PREDEFS: set[str] = {"$NULL"} | BOOL_MODEL_PREDEFS | INT_MODEL_PREDEFS | FLOAT_MODEL_PREDEFS
 
 class Language:
@@ -191,6 +192,7 @@ class Language:
     # predefs
     #
     # FIXME loose vs strict
+    # FIXME API not clean, is_str does not make sense for non-string predefs
     #
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         """Compile a predef."""

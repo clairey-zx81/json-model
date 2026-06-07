@@ -1,0 +1,4 @@
+{
+  "#": "fix missing json 2 str extraction",
+  "|": [ "$HOST", "$IP4", "$IP6" ]
+}
