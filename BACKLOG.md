@@ -27,6 +27,7 @@
 - [ ] optim: simplify some '!=' cases
 - [ ] perf: run benchmark for formats/predefs enabled
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
+- [ ] static: check for common object part
 - [ ] perf: add another loop over performance collection?
 - [ ] models: update ir model wrt recent changes
 - [ ] tests: add test with ir model? on the fly?
