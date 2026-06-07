@@ -35,7 +35,8 @@ const char *check_model_init(void)
         jm_version_string = JSON_MODEL_VERSION;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
-        jm_is_email_re2 = cre2_new("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", strlen("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$"), NULL);
+        const char * jm_is_email_rx = "(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$";
+        jm_is_email_re2 = cre2_new(jm_is_email_rx, strlen(jm_is_email_rx), NULL);
         if (cre2_error_code(jm_is_email_re2))
             return cre2_error_string(jm_is_email_re2);
         jm_is_email_nn = cre2_num_capturing_groups(jm_is_email_re2) + 1;

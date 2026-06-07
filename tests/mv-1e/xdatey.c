@@ -63,7 +63,8 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_xre_0_re_re2 = cre2_new("^X-(?P<s1>.*)-Y$", strlen("^X-(?P<s1>.*)-Y$"), NULL);
+        const char * _jm_xre_0_re_rx = "^X-(?P<s1>.*)-Y$";
+        _jm_xre_0_re_re2 = cre2_new(_jm_xre_0_re_rx, strlen(_jm_xre_0_re_rx), NULL);
         if (cre2_error_code(_jm_xre_0_re_re2))
             return cre2_error_string(_jm_xre_0_re_re2);
         _jm_xre_0_re_nn = cre2_num_capturing_groups(_jm_xre_0_re_re2) + 1;

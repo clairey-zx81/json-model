@@ -3236,47 +3236,58 @@ const char *check_model_init(void)
         _jm_cst_0[6] = (jm_constant_t) { cst_is_float, { .f = 1.0 } };
         _jm_cst_0[7] = (jm_constant_t) { cst_is_float, { .f = -1.0 } };
         jm_sort_cst(_jm_cst_0, 8);
-        _jm_re_0_re2 = cre2_new("^\\$.", strlen("^\\$."), NULL);
+        const char * _jm_re_0_rx = "^\\$.";
+        _jm_re_0_re2 = cre2_new(_jm_re_0_rx, strlen(_jm_re_0_rx), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
-        _jm_re_1_re2 = cre2_new("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$", strlen("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$"), NULL);
+        const char * _jm_re_1_rx = "^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$";
+        _jm_re_1_re2 = cre2_new(_jm_re_1_rx, strlen(_jm_re_1_rx), NULL);
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        _jm_xre_0_re_re2 = cre2_new("^/(?P<s1>.*)/[a-z]*$", strlen("^/(?P<s1>.*)/[a-z]*$"), NULL);
+        const char * _jm_xre_0_re_rx = "^/(?P<s1>.*)/[a-z]*$";
+        _jm_xre_0_re_re2 = cre2_new(_jm_xre_0_re_rx, strlen(_jm_xre_0_re_rx), NULL);
         if (cre2_error_code(_jm_xre_0_re_re2))
             return cre2_error_string(_jm_xre_0_re_re2);
         _jm_xre_0_re_nn = cre2_num_capturing_groups(_jm_xre_0_re_re2) + 1;
-        _jm_xre_1_re_re2 = cre2_new("^/(?P<s1>.*)/[a-z]*X[a-z]*$", strlen("^/(?P<s1>.*)/[a-z]*X[a-z]*$"), NULL);
+        const char * _jm_xre_1_re_rx = "^/(?P<s1>.*)/[a-z]*X[a-z]*$";
+        _jm_xre_1_re_re2 = cre2_new(_jm_xre_1_re_rx, strlen(_jm_xre_1_re_rx), NULL);
         if (cre2_error_code(_jm_xre_1_re_re2))
             return cre2_error_string(_jm_xre_1_re_re2);
         _jm_xre_1_re_nn = cre2_num_capturing_groups(_jm_xre_1_re_re2) + 1;
-        _jm_re_5_re2 = cre2_new("^[?!]", strlen("^[?!]"), NULL);
+        const char * _jm_re_5_rx = "^[?!]";
+        _jm_re_5_re2 = cre2_new(_jm_re_5_rx, strlen(_jm_re_5_rx), NULL);
         if (cre2_error_code(_jm_re_5_re2))
             return cre2_error_string(_jm_re_5_re2);
         _jm_re_5_nn = cre2_num_capturing_groups(_jm_re_5_re2) + 1;
-        _jm_re_6_re2 = cre2_new("^\\..+$", strlen("^\\..+$"), NULL);
+        const char * _jm_re_6_rx = "^\\..+$";
+        _jm_re_6_re2 = cre2_new(_jm_re_6_rx, strlen(_jm_re_6_rx), NULL);
         if (cre2_error_code(_jm_re_6_re2))
             return cre2_error_string(_jm_re_6_re2);
         _jm_re_6_nn = cre2_num_capturing_groups(_jm_re_6_re2) + 1;
-        _jm_re_7_re2 = cre2_new("^([#|&^+/*@~=$%]|[<>!]=?)$", strlen("^([#|&^+/*@~=$%]|[<>!]=?)$"), NULL);
+        const char * _jm_re_7_rx = "^([#|&^+/*@~=$%]|[<>!]=?)$";
+        _jm_re_7_re2 = cre2_new(_jm_re_7_rx, strlen(_jm_re_7_rx), NULL);
         if (cre2_error_code(_jm_re_7_re2))
             return cre2_error_string(_jm_re_7_re2);
         _jm_re_7_nn = cre2_num_capturing_groups(_jm_re_7_re2) + 1;
-        _jm_re_8_re2 = cre2_new("^\\$.*$", strlen("^\\$.*$"), NULL);
+        const char * _jm_re_8_rx = "^\\$.*$";
+        _jm_re_8_re2 = cre2_new(_jm_re_8_rx, strlen(_jm_re_8_rx), NULL);
         if (cre2_error_code(_jm_re_8_re2))
             return cre2_error_string(_jm_re_8_re2);
         _jm_re_8_nn = cre2_num_capturing_groups(_jm_re_8_re2) + 1;
-        _jm_re_9_re2 = cre2_new("^((file|https?)://.+|\\./.*|\\.\\./.*)$", strlen("^((file|https?)://.+|\\./.*|\\.\\./.*)$"), NULL);
+        const char * _jm_re_9_rx = "^((file|https?)://.+|\\./.*|\\.\\./.*)$";
+        _jm_re_9_re2 = cre2_new(_jm_re_9_rx, strlen(_jm_re_9_rx), NULL);
         if (cre2_error_code(_jm_re_9_re2))
             return cre2_error_string(_jm_re_9_re2);
         _jm_re_9_nn = cre2_num_capturing_groups(_jm_re_9_re2) + 1;
-        _jm_re_10_re2 = cre2_new("[^A-Z0-9]", strlen("[^A-Z0-9]"), NULL);
+        const char * _jm_re_10_rx = "[^A-Z0-9]";
+        _jm_re_10_re2 = cre2_new(_jm_re_10_rx, strlen(_jm_re_10_rx), NULL);
         if (cre2_error_code(_jm_re_10_re2))
             return cre2_error_string(_jm_re_10_re2);
         _jm_re_10_nn = cre2_num_capturing_groups(_jm_re_10_re2) + 1;
-        _jm_re_11_re2 = cre2_new("^\\w(\\w|-)*$", strlen("^\\w(\\w|-)*$"), NULL);
+        const char * _jm_re_11_rx = "^\\w(\\w|-)*$";
+        _jm_re_11_re2 = cre2_new(_jm_re_11_rx, strlen(_jm_re_11_rx), NULL);
         if (cre2_error_code(_jm_re_11_re2))
             return cre2_error_string(_jm_re_11_re2);
         _jm_re_11_nn = cre2_num_capturing_groups(_jm_re_11_re2) + 1;

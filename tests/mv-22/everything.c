@@ -4251,27 +4251,33 @@ const char *check_model_init(void)
         check_model_map_tab[3] = (jm_propmap_t) { "ab", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "cd", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
-        jm_is_duration_re2 = cre2_new("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$", strlen("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$"), NULL);
+        const char * jm_is_duration_rx = "^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$";
+        jm_is_duration_re2 = cre2_new(jm_is_duration_rx, strlen(jm_is_duration_rx), NULL);
         if (cre2_error_code(jm_is_duration_re2))
             return cre2_error_string(jm_is_duration_re2);
         jm_is_duration_nn = cre2_num_capturing_groups(jm_is_duration_re2) + 1;
-        jm_is_email_re2 = cre2_new("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", strlen("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$"), NULL);
+        const char * jm_is_email_rx = "(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$";
+        jm_is_email_re2 = cre2_new(jm_is_email_rx, strlen(jm_is_email_rx), NULL);
         if (cre2_error_code(jm_is_email_re2))
             return cre2_error_string(jm_is_email_re2);
         jm_is_email_nn = cre2_num_capturing_groups(jm_is_email_re2) + 1;
-        jm_is_host_re2 = cre2_new("(?i)^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", strlen("(?i)^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$"), NULL);
+        const char * jm_is_host_rx = "(?i)^([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$";
+        jm_is_host_re2 = cre2_new(jm_is_host_rx, strlen(jm_is_host_rx), NULL);
         if (cre2_error_code(jm_is_host_re2))
             return cre2_error_string(jm_is_host_re2);
         jm_is_host_nn = cre2_num_capturing_groups(jm_is_host_re2) + 1;
-        jm_is_ip4_re2 = cre2_new("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$", strlen("^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$"), NULL);
+        const char * jm_is_ip4_rx = "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$";
+        jm_is_ip4_re2 = cre2_new(jm_is_ip4_rx, strlen(jm_is_ip4_rx), NULL);
         if (cre2_error_code(jm_is_ip4_re2))
             return cre2_error_string(jm_is_ip4_re2);
         jm_is_ip4_nn = cre2_num_capturing_groups(jm_is_ip4_re2) + 1;
-        jm_is_ip6_re2 = cre2_new("(?i)^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$", strlen("(?i)^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$"), NULL);
+        const char * jm_is_ip6_rx = "(?i)^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f]{1,4}:){1,7}:|([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1}|([0-9a-f]{1,4}:){1,5}(:[0-9a-f]{1,4}){1,2}|([0-9a-f]{1,4}:){1,4}(:[0-9a-f]{1,4}){1,3}|([0-9a-f]{1,4}:){1,3}(:[0-9a-f]{1,4}){1,4}|([0-9a-f]{1,4}:){1,2}(:[0-9a-f]{1,4}){1,5}|[0-9a-f]{1,4}:(:[0-9a-f]{1,4}){1,6}|:(:[0-9a-f]{1,4}){1,7}|::)$";
+        jm_is_ip6_re2 = cre2_new(jm_is_ip6_rx, strlen(jm_is_ip6_rx), NULL);
         if (cre2_error_code(jm_is_ip6_re2))
             return cre2_error_string(jm_is_ip6_re2);
         jm_is_ip6_nn = cre2_num_capturing_groups(jm_is_ip6_re2) + 1;
-        jm_is_jsonpt_re2 = cre2_new("(?s)^(/([^~]|~0|~1)*)*$", strlen("(?s)^(/([^~]|~0|~1)*)*$"), NULL);
+        const char * jm_is_jsonpt_rx = "(?s)^(/([^~]|~0|~1)*)*$";
+        jm_is_jsonpt_re2 = cre2_new(jm_is_jsonpt_rx, strlen(jm_is_jsonpt_rx), NULL);
         if (cre2_error_code(jm_is_jsonpt_re2))
             return cre2_error_string(jm_is_jsonpt_re2);
         jm_is_jsonpt_nn = cre2_num_capturing_groups(jm_is_jsonpt_re2) + 1;

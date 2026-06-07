@@ -1240,15 +1240,18 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_re_1_re2 = cre2_new("^[Xx]_", strlen("^[Xx]_"), NULL);
+        const char * _jm_re_1_rx = "^[Xx]_";
+        _jm_re_1_re2 = cre2_new(_jm_re_1_rx, strlen(_jm_re_1_rx), NULL);
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        _jm_re_2_re2 = cre2_new("^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$", strlen("^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$"), NULL);
+        const char * _jm_re_2_rx = "^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$";
+        _jm_re_2_re2 = cre2_new(_jm_re_2_rx, strlen(_jm_re_2_rx), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
-        _jm_re_4_re2 = cre2_new("^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$", strlen("^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$"), NULL);
+        const char * _jm_re_4_rx = "^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$";
+        _jm_re_4_re2 = cre2_new(_jm_re_4_rx, strlen(_jm_re_4_rx), NULL);
         if (cre2_error_code(_jm_re_4_re2))
             return cre2_error_string(_jm_re_4_re2);
         _jm_re_4_nn = cre2_num_capturing_groups(_jm_re_4_re2) + 1;
@@ -1269,7 +1272,8 @@ const char *check_model_init(void)
         check_model_map_tab[14] = (jm_propmap_t) { "Prereq", json_model_15 };
         check_model_map_tab[15] = (jm_propmap_t) { "Prereqs", json_model_16 };
         jm_sort_propmap(check_model_map_tab, 16);
-        jm_is_email_re2 = cre2_new("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$", strlen("(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$"), NULL);
+        const char * jm_is_email_rx = "(?i)^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*$";
+        jm_is_email_re2 = cre2_new(jm_is_email_rx, strlen(jm_is_email_rx), NULL);
         if (cre2_error_code(jm_is_email_re2))
             return cre2_error_string(jm_is_email_re2);
         jm_is_email_nn = cre2_num_capturing_groups(jm_is_email_re2) + 1;

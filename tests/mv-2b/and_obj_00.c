@@ -51,7 +51,8 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_re_0_re2 = cre2_new("^[aA]", strlen("^[aA]"), NULL);
+        const char * _jm_re_0_rx = "^[aA]";
+        _jm_re_0_re2 = cre2_new(_jm_re_0_rx, strlen(_jm_re_0_rx), NULL);
         if (cre2_error_code(_jm_re_0_re2))
             return cre2_error_string(_jm_re_0_re2);
         _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;

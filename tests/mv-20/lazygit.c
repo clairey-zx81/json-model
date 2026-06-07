@@ -5121,7 +5121,8 @@ const char *check_model_init(void)
         _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { 5, { .s = "menu" } }, _jm_obj_4 };
         _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { 16, { .s = "menuFromCommand" } }, _jm_obj_6 };
         jm_sort_constmap(_jm_map_0_tab, 4);
-        _jm_re_2_re2 = cre2_new("^[^:]+:[^:]+$", strlen("^[^:]+:[^:]+$"), NULL);
+        const char * _jm_re_2_rx = "^[^:]+:[^:]+$";
+        _jm_re_2_re2 = cre2_new(_jm_re_2_rx, strlen(_jm_re_2_rx), NULL);
         if (cre2_error_code(_jm_re_2_re2))
             return cre2_error_string(_jm_re_2_re2);
         _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;

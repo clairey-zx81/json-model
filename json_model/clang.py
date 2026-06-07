@@ -1026,7 +1026,8 @@ class CLangJansson(Language):
         sregex = self.esc((f"(?{opts})" if opts else "") + regex)
         if self._relib == "pcre2":
             code += [
-                f"{name}_code = pcre2_compile((PCRE2_SPTR) {sregex},"
+                f"const char * {name}_rx = {sregex};",
+                f"{name}_code = pcre2_compile((PCRE2_SPTR) {name}_rx,"
                  " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",
                 f"if ({name}_code == NULL)",
                 r"{",
@@ -1037,7 +1038,8 @@ class CLangJansson(Language):
             ]
         else:
             code += [
-                f"{name}_re2 = cre2_new({sregex}, strlen({sregex}), NULL);",
+                f"const char * {name}_rx = {sregex};",
+                f"{name}_re2 = cre2_new({name}_rx, strlen({name}_rx), NULL);",
                 f"if (cre2_error_code({name}_re2))",
                 f"    return cre2_error_string({name}_re2);",
                 f"{name}_nn = cre2_num_capturing_groups({name}_re2) + 1;",  # why?
