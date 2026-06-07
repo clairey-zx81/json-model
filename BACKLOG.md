@@ -17,7 +17,7 @@
 - [x] pl-backend: fix reporting code
 - [x] backends: fix handling of json str predefs in some cases
 - [x] c-backend: avoid inserting regex strings twice on re predefs
-- [ ] backends: refactor re optim stuff in `regex.py`
+- [x] backends: refactor re optim stuff in `regex.py`
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model

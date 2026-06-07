@@ -37,6 +37,7 @@ cloc --md \
     json_model/convert.py \
     json_model/export.py \
     json_model/predefs.py \
+    json_model/regex.py \
     json_model/language.py \
     json_model/model.py \
     json_model/mtypes.py \
