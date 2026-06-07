@@ -20,6 +20,7 @@
 - [x] backends: refactor re optim stuff in `regex.py`
 - [x] spec: add `$SEMVER` predef
 - [x] export: use regex when available when exporting predefs to schema
+- [x] py-backend: handle arbitrary typed tag values on string maps
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model

@@ -277,8 +277,13 @@ class Python(Language):
             f"{dname}{decl} = {mname}.groupdict()[{self.esc(sname)}]"
         ]
 
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
-        return f"{name}.get({self.value(tag, ttag)}, UNDEFINED)"
+    def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
+        expr = f"{name}.get({self.value(tag, ttag)}, UNDEFINED)"
+        if self._str_map(mapping):
+            # NOTE dict requires a scalar key
+            return f"{expr} if not isinstance({tag}, (list, dict)) else UNDEFINED"
+        else:
+            return expr
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         if self._str_map(mapping):

@@ -468,7 +468,7 @@ class Java(Language):
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [ f"{name}_cmap = null;" ]
 
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+    def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
         return f"{name}_cmap.get({tag})"
 
     def gen_init(self, init: Block) -> Block:

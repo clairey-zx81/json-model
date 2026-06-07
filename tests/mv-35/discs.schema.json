@@ -1,0 +1,136 @@
+{
+  "description": "string discriminator relies on dict",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "d": {
+          "const": "n"
+        },
+        "v": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "d",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "d": {
+          "const": "b"
+        },
+        "v": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "d",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "d": {
+          "const": "i"
+        },
+        "v": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "d",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "d": {
+          "const": "u"
+        },
+        "v": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "d",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "d": {
+          "const": "f"
+        },
+        "v": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "d",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "d": {
+          "const": "s"
+        },
+        "v": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "d",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "d": {
+          "const": "a"
+        },
+        "v": {
+          "type": "array",
+          "items": true
+        }
+      },
+      "required": [
+        "d",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "d": {
+          "const": "o"
+        },
+        "v": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "d",
+        "v"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

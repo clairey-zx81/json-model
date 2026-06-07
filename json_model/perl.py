@@ -416,7 +416,7 @@ class Perl(Language):
         return [ f"${dname} = $+{{{self.esc(sname)}}};" ]
 
     # constants map
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+    def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
         return f"${name}{{{self.value(tag, ttag)}}}"
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:

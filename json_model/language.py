@@ -741,7 +741,7 @@ class Language:
     def _str_map(self, mapping: dict[JsonScalar, str]) -> bool:
         return all(isinstance(k, str) for k in mapping.keys())
 
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+    def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
         """Return the function associated to the tag value if any."""
         raise NotImplementedError("see derived classes")
 

@@ -489,7 +489,7 @@ class PLpgSQL(Language):
             code[i] += ","
         return [ "INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES" ] + code + [";"]
 
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+    def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
         return f"jm_cmap_get({self.esc(name)}, {tag})"
 
     def gen_init(self, init: Block) -> Block:

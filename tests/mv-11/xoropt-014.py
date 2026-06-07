@@ -178,7 +178,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         tag_0: Jsonable
         if (tag_0 := pval.get("t", UNDEFINED)) != UNDEFINED:
-            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
+            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED) if not isinstance(tag_0, (list, dict)) else UNDEFINED
             if fun_0 != UNDEFINED:
                 res = fun_0(pval, lpath if path is not None else None, rep)
             else:

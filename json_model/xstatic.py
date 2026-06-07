@@ -756,7 +756,7 @@ class CodeGenerator:
                 etag = gen.has_prop(val, tag_name)
 
             fun = gen.ident("fun")
-            ifun = gen.fun_var(fun, gen.get_cmap(cmap, tag, tag_type), True)
+            ifun = gen.fun_var(fun, gen.get_cmap(cmap, TAG_CHECKS, tag, tag_type), True)
             icall = gen.bool_var(res, gen.check_call(fun, val, vpath, is_ptr=True))
             tagt = (
                 dtag +

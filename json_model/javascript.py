@@ -324,7 +324,7 @@ class JavaScript(Language):
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [ f"{name}.set({self.const(k)}, {m})" for k, m in mapping.items() ]
 
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+    def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
         return f"{name}.get({tag})"
 
     def gen_init(self, init: Block) -> Block:

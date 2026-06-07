@@ -1,0 +1,13 @@
+{
+  "#": "string discriminator relies on dict",
+  "^": [
+    { "d": "n", "v": null },
+    { "d": "b", "v": true },
+    { "d": "i", "v": -1 },
+    { "d": "u", "v": 0 },
+    { "d": "f", "v": -1.0 },
+    { "d": "s", "v": "" },
+    { "d": "a", "v": ["$ANY"] },
+    { "d": "o", "v": {"": "$ANY"} }
+  ]
+}

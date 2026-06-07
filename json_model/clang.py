@@ -1004,7 +1004,7 @@ class CLangJansson(Language):
         code += [ f"jm_sort_constmap({name}_tab, {len(mapping)});" ]
         return code
 
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+    def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
         return f"{name}({tag})"
 
     def gen_init(self, init: Block) -> Block:

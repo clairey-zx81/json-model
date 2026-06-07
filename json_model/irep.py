@@ -1466,8 +1466,8 @@ class IRep(Language):
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [ _j("rcm", name=name, mapping=_cmap2json(mapping)) ]
 
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
-        return _j("gcm", name=name, tag=_l(tag), ttag=_t2s(ttag))
+    def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
+        return _j("gcm", name=name, mapping=_cmap2json(mapping), tag=_l(tag), ttag=_t2s(ttag))
 
     def gen_init(self, init: Block) -> Block:
         return [ _j("gi", init=_u(init)) ]
@@ -1646,7 +1646,9 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "scm": return gen.sub_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
             case "icm": return gen.ini_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
             case "rcm": return gen.del_cmap(name=jv["name"], mapping=_json2cmap(jv["mapping"]))
-            case "gcm": return gen.get_cmap(name=jv["name"], tag=ev("tag"), ttag=_s2t(jv["ttag"]))
+            case "gcm": return gen.get_cmap(
+                name=jv["name"], mapping=_json2cmap(jv["mapping"]), tag=ev("tag"), ttag=_s2t(jv["ttag"])
+            )
             # final generation
             case "gi": return gen.gen_init(init=ev("init"))
             case "gf": return gen.gen_free(free=ev("free"))
