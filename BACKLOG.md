@@ -147,6 +147,22 @@
 - [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
 - [ ] spec: be precise about predefs standard references, eg `$DATE` and co.
 
+## Internship
+
+- [ ] pr: try tutorial, report issues and suggest improvements
+- [ ] dev: install a dev environment
+- [ ] model: write a model for MCP
+- [ ] export: generate ts interfaces
+- [ ] tests: generate invalid minimal, maximal, random values
+- [ ] tests: generate invalid values on each constraint
+- [ ] backend: C and runtime with other json lib
+- [ ] backend: C++
+- [ ] backend: go
+- [ ] backend: php
+- [ ] backend: ruby
+- [ ] backend: rust
+- [ ] export: generate annotated java interfaces/classes?
+
 ## Re Do
 
 - [ ] pr: publish web page
