@@ -12,6 +12,7 @@ STR_MODEL_PREDEFS = {
     "$IP4", "$IP6", "$HOST", "$ETH",
     "$URL", "$URI", "$EMAIL",
     "$JSON", "$JSONPT",
+    "$SEMVER",
     "$__EXTENSION_COLOR",
     "$__EXTENSION_REL_JSONPT",
 }
@@ -108,13 +109,23 @@ _REL_JSONPT = f"([0-9]|[1-9][0-9]+)(([-+]([0-9]|[1-9][0-9]+))?{_JSONPT}|#)"
 
 # CSS colors: simple and short list (not the 150)
 _COLOR_HEXA = "#([0-9A-F]{6}|[0-9A-F]{3})"
-# 16 CSS1 names, aliases and specials
+# 16 CSS1 names, aliases and specials, with various spellings
 _COLOR_NAMES = (
     "(black|silver|white|maroon|red|purple|fuchsia|green|lime|olive"
     "|yellow|navy|blue|teal|aqua|transparent|current[cC]olor|orange"
     "|cyan|magenta|((dark|light)?(slate)?|dim)gr[ae]y|rebeccapurple)"
 )
 _COLOR = f"({_COLOR_HEXA}|{_COLOR_NAMES})"
+
+# semver 2.0: https://semver.org/
+_SEMVER_NUM = r"([0-9]|[1-9][0-9]+)"
+_SEMVER_CORE = f"{_SEMVER_NUM}\\.{_SEMVER_NUM}\\.{_SEMVER_NUM}"
+_SEMVER_CHAR = f"[-0-9a-zA-Z]"
+_SEMVER_LTTR = f"[-a-zA-Z]"
+_SEMVER_ID = f"({_SEMVER_NUM}|{_SEMVER_CHAR}*{_SEMVER_LTTR}{_SEMVER_CHAR}*)"
+_SEMVER_PRE = f"{_SEMVER_ID}(\\.{_SEMVER_ID})*"
+_SEMVER_BLD = f"{_SEMVER_ID}(\\.{_SEMVER_ID})*"
+_SEMVER = f"{_SEMVER_CORE}(-{_SEMVER_PRE})?(\\+{_SEMVER_BLD})?"
 
 # model constants
 CONST_RE = r"^=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$"
@@ -139,6 +150,7 @@ PREDEF_RE: dict[str, tuple[str, str, str]] = {
     "$JSONPT": ("jm_is_jsonpt", f"^{_JSONPT}$", "s"),
     "$CARD": ("jm_is_card", f"^{_CARD}$", ""),
     "$REGEX": ("jm_is_regex", "^.*$", "s"),
+    "$SEMVER": ("jm_is_semver", f"^{_SEMVER}$", ""),
     # some extensions for JSU backend
     "$__EXTENSION_COLOR": ("jm_is_color", f"^{_COLOR}$", ""),  # v3
     "$__EXTENSION_REL_JSONPT": ("jm_is_rel_jsonpt", f"^{_REL_JSONPT}$", "s"),

@@ -18,6 +18,8 @@
 - [x] backends: fix handling of json str predefs in some cases
 - [x] c-backend: avoid inserting regex strings twice on re predefs
 - [x] backends: refactor re optim stuff in `regex.py`
+- [x] spec: add `$SEMVER` predef
+- [x] export: use regex when available when exporting predefs to schema
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
@@ -25,7 +27,6 @@
 - [ ] perf: run benchmark for formats/predefs enabled
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
 - [ ] perf: add another loop over performance collection?
-- [ ] spec: add `$SEMVER` predef
 - [ ] models: update ir model wrt recent changes
 - [ ] tests: add test with ir model? on the fly?
 - [ ] front: handle yaml values as well as json

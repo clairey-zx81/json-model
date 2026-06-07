@@ -1,0 +1,24 @@
+semver.values.json[0]: PASS
+semver.values.json[1]: PASS
+semver.values.json[2]: PASS
+semver.values.json[3]: PASS
+semver.values.json[4]: PASS
+semver.values.json[5]: PASS
+semver.values.json[6]: FAIL ()
+semver.values.json[7]: FAIL ()
+semver.values.json[8]: FAIL ()
+semver.values.json[9]: FAIL ()
+semver.values.json[10]: FAIL ()
+semver.values.json[11]: FAIL ()
+semver.values.json[12]: FAIL ()
+semver.values.json[13]: FAIL ()
+semver.values.json[14]: FAIL ()
+semver.values.json[15]: FAIL ()
+semver.values.json[16]: FAIL ()
+semver.values.json[17]: FAIL ()
+semver.values.json[18]: FAIL ()
+semver.values.json[19]: FAIL ()
+semver.values.json[20]: FAIL ()
+semver.values.json[21]: FAIL ()
+semver.values.json[22]: FAIL ()
+semver.values.json[23]: FAIL ()

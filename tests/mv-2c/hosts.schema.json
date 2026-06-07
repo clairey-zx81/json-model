@@ -15,7 +15,8 @@
       "format": "hostname"
     },
     "eth": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
     }
   },
   "additionalProperties": false

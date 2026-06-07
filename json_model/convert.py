@@ -143,6 +143,8 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                     schema["format"] = PREDEF_FORMATS[model]
                 elif model == "$JSON":  # $JSON;encoding
                     schema["contentMediaType"] = "application/json"
+                elif model in PREDEF_RE:
+                    schema["pattern"] = PREDEF_RE[model][1]
                 # else: ignore
             elif model[0] == "$":
                 if model == "$#":

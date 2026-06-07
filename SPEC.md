@@ -147,6 +147,7 @@ for all possible values for that type.
   - `"$CARD"`: a credit card number with a Luhn checksum, eg _1234567890123452_
   - `"$JSONPT"`: an RFC6901 json pointer, eg _/http:~1~1json-model.org_
   - `"$TIMETZ"`: time with timezone
+  - `"$SEMVER"`: semantic versioning 2.0
 
   Any other all-capital ASCII character and digit names must be rejected as they
   are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).
