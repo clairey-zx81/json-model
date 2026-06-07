@@ -280,8 +280,8 @@ class Python(Language):
     def get_cmap(self, name: str, mapping: dict[JsonScalar, str], tag: Var, ttag: type) -> Expr:
         expr = f"{name}.get({self.value(tag, ttag)}, UNDEFINED)"
         if self._str_map(mapping):
-            # NOTE dict requires a scalar key
-            return f"{expr} if not isinstance({tag}, (list, dict)) else UNDEFINED"
+            # NOTE dict requires a scalar key, and we know that we only have strings
+            return f"{expr} if isinstance({tag}, str) else UNDEFINED"
         else:
             return expr
 

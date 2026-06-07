@@ -115,7 +115,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         tag_0: Jsonable
         if (tag_0 := val.get("t", UNDEFINED)) != UNDEFINED:
-            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED) if not isinstance(tag_0, (list, dict)) else UNDEFINED
+            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED) if isinstance(tag_0, str) else UNDEFINED
             res = fun_0 != UNDEFINED and fun_0(val, None, None)
         else:
             res = False
