@@ -166,6 +166,8 @@
 - [ ] backend: ruby
 - [ ] backend: rust
 - [ ] export: generate annotated java interfaces/classes?
+- [ ] tool: jmc api in flask
+- [ ] front: allow IR re-entrance?
 
 ## Re Do
 
