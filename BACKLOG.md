@@ -152,6 +152,7 @@
 
 ## Internship
 
+- [ ] pr: read www, papers, spec… setup dev env, report issues
 - [ ] pr: try tutorial, report issues and suggest improvements
 - [ ] tests: add a few tests for jsonrpc model
 - [ ] model: write a model for MCP
