@@ -157,6 +157,7 @@
 - [ ] model: write a model for MCP
 - [ ] tests: add a few tests for MCP model
 - [ ] export: generate ts interfaces
+- [ ] tests: improve predef validators cross-language consistency
 - [ ] tests: generate invalid minimal, maximal, random values
 - [ ] tests: generate invalid values on each constraint
 - [ ] backend: C and runtime with other json lib
