@@ -100,7 +100,7 @@ overall validation speed in bytes per µs and lines per µs,
 maximum/geometrical average/minimum performance ratio.
 """
 
-TOOL_CASES: str = """
+TOOL_CASES: str = f"""
 For each case: number and name, number of test cases, best cumulated {args.aggregate} performance (µs),
 best tool, performance slowdown ratio for blaze and jmc variants
 (java 1 is gson, 2 is jackson, 3 is jsonp/johnzon),
