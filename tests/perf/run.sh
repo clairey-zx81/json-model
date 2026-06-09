@@ -50,7 +50,7 @@ function usage()
 LOOP=1000 TASK="all" jsu_opts_2= jmc_opts_2= blaze_opts=
 
 # handle options
-while $1 == -* ; do
+while [[ "$1" == -* ]] ; do
   opt=$1
   shift
   case $opt in
