@@ -65,6 +65,7 @@ while [[ "$1" == -* ]] ; do
       ;;
     -t|--task)
       TASK=$1
+      shift
       ;;
     --task=*)
       TASK=${1#*=}
