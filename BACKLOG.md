@@ -22,6 +22,10 @@
 - [x] export: use regex when available when exporting predefs to schema
 - [x] py-backend: handle arbitrary typed tag values on string maps
 - [ ] c-backend: factor out str extraction in or-list in more cases
+- [ ] pl-backend: use short post-if where possible (filtering)
+- [ ] pl-backend: use `unless` where appropriate (filtering?)
+- [ ] js-backend: remove useless braces and semi-colons
+- [ ] java-backend: remove useless braces
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
 - [ ] optim: simplify some '!=' cases
@@ -36,7 +40,6 @@
 - [ ] backend: check `mv-34/mu` test case which may require some normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
 - [ ] pr: improve JSTS test results alignment between all backends (wip)
-- [ ] js-backend: remove useless braces and semi-colons
 - [ ] front: add argument groups
 - [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation
