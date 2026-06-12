@@ -161,6 +161,7 @@
 - [ ] model: write a model for MCP
 - [ ] tests: add a few tests for MCP model
 - [ ] export: generate ts interfaces
+- [ ] backend: improve generated code with filters for js, java, pl
 - [ ] tests: improve predef validators cross-language consistency
 - [ ] tests: generate invalid minimal, maximal, random values
 - [ ] tests: generate invalid values on each constraint
