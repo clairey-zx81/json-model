@@ -26,6 +26,7 @@
 - [ ] pl-backend: use `unless` where appropriate (filtering?)
 - [ ] js-backend: remove useless braces and semi-colons
 - [ ] java-backend: remove useless braces
+- [ ] export: generate a [katydid](https://katydid.github.io/) expression?
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
 - [ ] optim: simplify some '!=' cases
@@ -161,6 +162,7 @@
 - [ ] model: write a model for MCP
 - [ ] tests: add a few tests for MCP model
 - [ ] export: generate ts interfaces
+- [ ] export: katydid?
 - [ ] backend: improve generated code with filters for js, java, pl
 - [ ] tests: improve predef validators cross-language consistency
 - [ ] tests: generate invalid minimal, maximal, random values
