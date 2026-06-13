@@ -2,22 +2,6 @@
 #
 # execute jmc bench bite
 #
-# options:
-#
-# - -l loop: number of performance loop iterations, eg 1000 or 10000
-# - -t task: cmp (aka compile) or all = cmp + run
-#
-# arguments:
-#
-# - prefix: directory where to write results
-# - target: implementation/phase to run (all, jmc, jmc-*, blaze)
-# - dirs: jsb schema directories to process
-#
-# env:
-#
-# - JMC: json-model container tag
-# - PATH: where to find "jmc" and "js-cli" wrappers
-# - JMC_JAVA_LIBS: java JSON libraries, in GSON Jackson JSONP, default is all
 
 export PATH=$PATH:.
 export TMPDIR=.
@@ -39,7 +23,42 @@ function err()
 
 function usage()
 {
-  err ${1:-0} "usage: $0 -h -l LOOP -t TASK prefix target dirs..."
+  err ${1:-0} "usage: $0 -h -c -l LOOP -t TASK prefix target dirs..."
+}
+
+function script_help()
+{
+  cat <<EOF
+
+Execute JMC benchmark workbite
+
+Synopsis:
+  $0 -h -c -l LOOP -t TASK prefix target dirs...
+
+Options:
+- -l loop: number of performance loop iterations, eg 1000 or 10000
+- -t task: cmp (aka compile) or all = cmp + run
+- -c: check for contents
+
+Arguments:
+- prefix: directory where to write results
+- target: implementation/phase to run (all, jmc, jmc-*, blaze)
+- dirs: jsb schema directories to process
+
+Environment:
+- POD: container command, either "docker" or "podman"
+- POD_PULL: whether to pull images before running
+- JMC: json-model container tag
+- JMC_ENV: names of environment variables to export
+- JMC_POD_OPTS: additional pod options
+- JMC_OPTS: jmc options
+- JMC_JAVA_LIBS: java JSON libraries, in GSON Jackson JSONP, default is all
+- JSC: jsonschema blaze cli container tag
+- PATH: where to find "jmc" and "js-cli" wrappers
+- WORKDIR: working directory to use
+- JSB_DIR: jsonschema benchmark directory
+EOF
+  exit 0
 }
 
 #
@@ -55,6 +74,7 @@ while [[ "$1" == -* ]] ; do
   shift
   case $opt in
     -h|--help)
+      script_help
       ;;
     -l|--loop)
       LOOP=$1
