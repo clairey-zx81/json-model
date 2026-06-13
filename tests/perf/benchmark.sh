@@ -324,14 +324,16 @@ echo "## case stats $(( $SECONDS - $START ))"
 START=$SECONDS
 
 # collect cpu data
-cpu_model=$(lscpu --extended=MODELNAME | sed -n 2p)
+cpu_model=$(lscpu --parse=MODELNAME | sed -e "/^#/d" | sort -u)
 cpu_count=$(lscpu --extended=CPU | sed 1d | wc -l)
+core_count=$(lscpu --parse=SOCKET,CORE | sed -e "/^#/d" | sort -u | wc -l)
 
 cpu=/sys/devices/system/cpu
 read cur_freq < $cpu/cpu0/cpufreq/scaling_cur_freq
 read min_freq < $cpu/cpu0/cpufreq/scaling_min_freq
 read max_freq < $cpu/cpu0/cpufreq/scaling_max_freq
 read hyper_threading < $cpu/smt/active
+
 
 # show convenient unit for data in K
 function unit()
@@ -393,7 +395,7 @@ or deselect tools for easier comparisons.
 - **now:** $(date)
 - **host:** $(hostname)
 - **cpu model:** $cpu_model
-- **cpu cores:** $cpu_count
+- **cpu count:** $cpu_count ($core_count cores)
 - **cpu freq:** $frequency
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
