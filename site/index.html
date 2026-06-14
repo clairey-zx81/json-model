@@ -34,12 +34,25 @@
         logo: "json_logo.svg",
         homepage: "README.md",
         repo: "https://github.com/clairey-zx81/json-model",
-        // routerMode: "history", model links do not work?
         relativePath: true,
         auto2top: true,
         coverpage: "cover.md",
         executeScript: true,
         mergeNavbar: true,
+        /*
+        routerMode: "history", // FIXME model links do not work?
+        plugins: [
+          function (hook, vm) {
+            hook.doneEach(function() {
+              const current = window.location.hash
+              // remove "#" first char
+              if (current.startsWith('#/')) {
+                window.location.href = current.slice(1)
+              }
+            })
+          }
+        ],
+        */
       };
     </script>
     <!-- docsify with search, various primjs prettyprinting, and copy-code buttons -->
