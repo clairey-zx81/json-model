@@ -44,10 +44,20 @@
           "/models/.*": (path, _m, next) => {
             fetch(path)
               .then(res => res.json())
-              .then(data => ("## " + data["#"] + "\n\n" +
-                             "```json\n" +
-                             JSON.stringify(data, null, 2) + "\n" +
-                             "```\n"))
+              .then(data => {
+                let title = data["#"]
+                if (! title.match(/json model/i))
+                  title = "JSON Model: " + title
+                title = title.replace(/ *\[.*\] *$/, "")
+                title = title.replace(/JSON_MODEL_[A-Z_]* */g, "")
+                title = title.replace(/ +$/, "")
+                return (
+                  "## " + title + "\n\n" +
+                  "```json\n" +
+                  JSON.stringify(data, null, 2) + "\n" +
+                  "```\n"
+                )
+              })
               .catch(err => (`## Error: ${err}`))
               .then(next)
           },
