@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow:
+Sitemap: https://json-model.org/sitemap.txt

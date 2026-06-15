@@ -1,0 +1,15 @@
+https://json-model.org/ABOUT.md
+https://json-model.org/API.md
+https://json-model.org/BACKLOG.md
+https://json-model.org/BENCH.md
+https://json-model.org/DEV.md
+https://json-model.org/DOCKER.md
+https://json-model.org/DOC.md
+https://json-model.org/HOWTO.md
+https://json-model.org/JMC.md
+https://json-model.org/MODELS.md
+https://json-model.org/PUBS.md
+https://json-model.org/README.md
+https://json-model.org/SPEC.md
+https://json-model.org/TUTO.md
+https://json-model.org/VERSION.md
