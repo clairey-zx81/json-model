@@ -109,7 +109,7 @@ def and_combine(jm: JsonModel) -> bool:
                             land[i] = intersect(jm, land[i], land[j], path + [i], path + [j])
                             delete.add(j)
                         except OperatorError as e:
-                            log.debug(f"intersect error: {e}")
+                            log.debug(f"AC intersect error: {e}")
                             pass
                     j += 1
                 i += 1

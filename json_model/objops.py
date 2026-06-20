@@ -348,6 +348,12 @@ def intersect(
         # TODO $NONE for &("=-42", 0)
         # TODO investigate further, eg constant is compatible or not with constraints…
     if type(m1) is not type(m2):
+        # catch string set inclusion
+        if isinstance(m2, dict) and isinstance(m1, str):
+            m1, m2 = m2, m1
+        if isinstance(m1, dict) and "|" in m1 and isinstance(m2, str) and m2.startswith("_"):
+            if m2 in m1["|"]:
+                return m2
         raise OperatorError("cannot intersect models: distinct base types")
     # recurse on list or tuple
     if isinstance(m1, list) and len(m1) == len(m2):
