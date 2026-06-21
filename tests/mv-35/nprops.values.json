@@ -1,0 +1,19 @@
+[
+  "# one or two string props starting with an a",
+  [ false, {} ],
+  [ true,  {"a0": "Susie"} ],
+  [ true,  {"a0": "Susie", "a1": "Calvin"} ],
+  [ false, {"a0": "Susie", "a1": "Calvin", "a2": "Hobbes"} ],
+  [ false, {"a0": "Susie", "b": "Oops"} ],
+  [ false, {"a0": ["Oops!"]} ],
+  [ false, {"b": "Oops!"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

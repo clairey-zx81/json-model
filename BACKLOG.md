@@ -22,6 +22,7 @@
 - [x] export: use regex when available when exporting predefs to schema
 - [x] py-backend: handle arbitrary typed tag values on string maps
 - [x] optim: do not flatten `^`!
+- [x] optim: fix wrong removal of min props constraint when not an object
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] pl-backend: use short post-if where possible (filtering)
 - [ ] pl-backend: use `unless` where appropriate (filtering?)

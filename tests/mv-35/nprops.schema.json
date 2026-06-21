@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "patternProperties": {
+    "(?s)^a": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "maxProperties": 2,
+  "minProperties": 1
+}

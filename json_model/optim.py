@@ -683,11 +683,13 @@ def simplify(jm: JsonModel):
                     le = lt - 1 if le is None or le >= lt else le
                     lt = None
                     del model["<"]
+                    # model["<="] = le
                     changes += 1
                 if gt is not None:
                     ge = gt + 1 if ge is None or ge <= gt else ge
                     gt = None
                     del model[">"]
+                    # model[">="] = ge
                     changes += 1
                 # boolean and null cannot have int comparisons
                 if ultimate in (type(None), bool) and \
@@ -780,33 +782,37 @@ def simplify(jm: JsonModel):
                 # property consistency
                 if ultimate is dict and (le is not None or ge is not None):
                     amod = ultimate_model(jm, model["@"])
-                    nmandatory = len(list(filter(lambda p: p.startswith("!") or p.startswith("_") or (p != "" and p[0] not in"?/$#@%~$"), amod)))
-                    # log.warning(f"model={model} nmandatory={nmandatory} ge={ge} le={le}")
-                    if ge is not None and nmandatory >= ge:
-                        ge = None  # redundant
-                        if ">=" in model:
-                            del model[">="]
-                        if ">" in model:
-                            del model[">"]
-                    if le is not None:
-                        if nmandatory == le:
-                            # remove optional props only if direct…
-                            if isinstance(model["@"], dict) and "@" not in model["@"]:
-                                for p in list(model["@"].keys()):
-                                    if p == "" or p[0] in "?$/":
-                                        changes += 1
-                                        del model["@"][p]
-                            # cleanup useless constraint
+                    if "&" in amod or "|" in amod or "^" in amod or "+" in amod or "@" in amod:
+                        # skip constructed model which may not be objects
+                        pass
+                    else:
+                        nmandatory = len(list(filter(lambda p: p.startswith("!") or p.startswith("_") or (p != "" and p[0] not in"?/$#@%~$"), amod)))
+                        # log.warning(f"model={model} nmandatory={nmandatory} ge={ge} le={le}")
+                        if ge is not None and nmandatory >= ge:
+                            ge = None  # redundant
                             if ">=" in model:
-                                changes += 1
                                 del model[">="]
                             if ">" in model:
-                                changes += 1
                                 del model[">"]
-                            le = None
-                        elif nmandatory > le:  # unfeasible
-                            changes += 1
-                            return "$NONE"
+                        if le is not None:
+                            if nmandatory == le:
+                                # remove optional props only if direct…
+                                if isinstance(model["@"], dict) and "@" not in model["@"]:
+                                    for p in list(model["@"].keys()):
+                                        if p == "" or p[0] in "?$/":
+                                            changes += 1
+                                            del model["@"][p]
+                                # cleanup useless constraint
+                                if ">=" in model:
+                                    changes += 1
+                                    del model[">="]
+                                if ">" in model:
+                                    changes += 1
+                                    del model[">"]
+                                le = None
+                            elif nmandatory > le:  # unfeasible
+                                changes += 1
+                                return "$NONE"
                 # update possibly changed values
                 if le is not None:
                     model["<="] = le
@@ -819,6 +825,8 @@ def simplify(jm: JsonModel):
         return model
 
     jm._model = recModel(jm._model, allFlt, simpRwt)
+
+    log.debug(f"{jm._id}: sim {changes}")
 
     return changes > 0
 
@@ -946,6 +954,8 @@ def optimize(
     """Optimize model, probably not very efficient."""
     changed = True
 
+    # log.debug(f"{jm._id}: optimize in = {jm._model}")
+
     # out of loop because once is enough
     if srx: simpler_regex(jm)
 
@@ -964,3 +974,5 @@ def optimize(
 
     if loops == 0:  # something is very probably wrong
         log.error("shorten optim loop on {jm._id}")
+
+    # log.debug(f"{jm._id}: optimize out = {jm._model}")
