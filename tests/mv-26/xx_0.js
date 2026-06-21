@@ -18,10 +18,36 @@ function json_model_1(val, path, rep)
 {
     // world or !
     // .
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
-    if (! res)
+    // generic xor list
+    let xc_0 = 0;
+    // .'^'.0
+    let xr_0 = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    if (xr_0)
     {
-        rep !== null && rep.push(["value not in enum [.'|']", path])
+        xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["value not in enum [.'^'.0.'|']", path])
+    }
+    // .'^'.1
+    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "hello";
+    if (xr_0)
+    {
+        xc_0 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected value for model \"_hello\" [.'^'.1]", path])
+    }
+    let res = xc_0 == 1;
+    if (res)
+    {
+        if (rep !== null) rep.length = 0
+    }
+    else
+    {
+        rep !== null && rep.push(["not one model match [.'^']", path])
     }
     return res;
 }
@@ -36,6 +62,7 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        _jm_cst_0.add("hello")
         _jm_cst_0.add("world")
         _jm_cst_0.add("!")
         check_model_map.set("", json_model_1)

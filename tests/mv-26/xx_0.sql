@@ -8,7 +8,7 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  constants JSONB = JSONB '["world","!"]';
+  constants JSONB = JSONB '["hello","world","!"]';
 BEGIN
   RETURN constants @> value;
 END;
@@ -17,10 +17,26 @@ $$ LANGUAGE plpgsql;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  xc_0 int;
+  xr_0 bool;
 BEGIN
   -- world or !
   -- .
-  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
+  -- generic xor list
+  xc_0 := 0;
+  -- .'^'.0
+  xr_0 := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
+  IF xr_0 THEN
+    xc_0 := xc_0 + 1;
+  END IF;
+  -- .'^'.1
+  xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'hello';
+  IF xr_0 THEN
+    xc_0 := xc_0 + 1;
+  END IF;
+  RETURN xc_0 = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 

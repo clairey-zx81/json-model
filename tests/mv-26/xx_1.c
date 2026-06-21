@@ -13,49 +13,71 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // not hello, world or !
+    bool res;
+    // not world or !, hello is kept
     // .
     // generic xor list
     int64_t xc_0 = 0;
     // .'^'.0
-    bool xr_0 = json_is_string(val);
-    if (likely(xr_0))
-        xc_0 += 1;
+    // generic xor list
+    int64_t xc_1 = 0;
+    // .'^'.0.'^'.0
+    bool xr_1 = json_is_string(val);
+    if (likely(xr_1))
+        xc_1 += 1;
     else
     {
-        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'^'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.'^'.0.'^'.0]", path);
+    }
+    // .'^'.0.'^'.1
+    xr_1 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006f6c6c6568LL);
+    if (likely(xr_1))
+        xc_1 += 1;
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_hello\" [.'^'.0.'^'.1]", path);
+    }
+    if (xc_1 <= 1)
+    {
+        // .'^'.0.'^'.2
+        xr_1 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x000000646c726f77LL);
+        if (likely(xr_1))
+            xc_1 += 1;
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"_world\" [.'^'.0.'^'.2]", path);
+        }
+    }
+    if (xc_1 <= 1)
+    {
+        // .'^'.0.'^'.3
+        xr_1 = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000021);
+        if (likely(xr_1))
+            xc_1 += 1;
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for model \"_!\" [.'^'.0.'^'.3]", path);
+        }
+    }
+    bool xr_0 = xc_1 == 1;
+    if (likely(xr_0))
+    {
+        if (rep) jm_report_free_entries(rep);
+        xc_0 += 1;
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not one model match [.'^'.0.'^']", path);
     }
     // .'^'.1
-    xr_0 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x000000646c726f77LL);
+    xr_0 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006f6c6c6568LL);
     if (likely(xr_0))
         xc_0 += 1;
     else
     {
-        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_world\" [.'^'.1]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_hello\" [.'^'.1]", path);
     }
-    if (xc_0 <= 1)
-    {
-        // .'^'.2
-        xr_0 = json_is_string(val) && jm_str_eq_2(json_string_value(val), 0x00000021);
-        if (likely(xr_0))
-            xc_0 += 1;
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected value for model \"_!\" [.'^'.2]", path);
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.3
-        xr_0 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006f6c6c6568LL);
-        if (likely(xr_0))
-            xc_0 += 1;
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected value for model \"_hello\" [.'^'.3]", path);
-        }
-    }
-    bool res = xc_0 == 1;
+    res = xc_0 == 1;
     if (likely(res))
     {
         if (rep) jm_report_free_entries(rep);

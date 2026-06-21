@@ -26,10 +26,36 @@ public class xx_0 extends ModelChecker
     {
         // world or !
         // .
-        boolean res = json.isScalar(val) && _jm_cst_0_set.contains(val);
-        if (! res)
+        // generic xor list
+        long xc_0 = 0;
+        // .'^'.0
+        boolean xr_0 = json.isScalar(val) && _jm_cst_0_set.contains(val);
+        if (xr_0)
         {
-            if (rep != null) rep.addEntry("value not in enum [.'|']", path);
+            xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("value not in enum [.'^'.0.'|']", path);
+        }
+        // .'^'.1
+        xr_0 = json.isString(val) && json.asString(val).compareTo("hello") == 0;
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"_hello\" [.'^'.1]", path);
+        }
+        boolean res = xc_0 == 1;
+        if (res)
+        {
+            if (rep != null) rep.clearEntries();
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("not one model match [.'^']", path);
         }
         return res;
     }
@@ -41,6 +67,7 @@ public class xx_0 extends ModelChecker
         {
             try {
             _jm_cst_0_set = new HashSet<Object>();
+            _jm_cst_0_set.add(json.safeJSON("\"hello\""));
             _jm_cst_0_set.add(json.safeJSON("\"world\""));
             _jm_cst_0_set.add(json.safeJSON("\"!\""));
             xx_0_map_pmap = new HashMap<String, Checker>();

@@ -22,57 +22,81 @@ public class xx_1 extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        // not hello, world or !
+        boolean res;
+        // not world or !, hello is kept
         // .
         // generic xor list
         long xc_0 = 0;
         // .'^'.0
-        boolean xr_0 = json.isString(val);
+        // generic xor list
+        long xc_1 = 0;
+        // .'^'.0.'^'.0
+        boolean xr_1 = json.isString(val);
+        if (xr_1)
+        {
+            xc_1 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.0.'^'.0]", path);
+        }
+        // .'^'.0.'^'.1
+        xr_1 = json.isString(val) && json.asString(val).compareTo("hello") == 0;
+        if (xr_1)
+        {
+            xc_1 += 1;
+        }
+        else
+        {
+            if (rep != null) rep.addEntry("unexpected value for model \"_hello\" [.'^'.0.'^'.1]", path);
+        }
+        if (xc_1 <= 1)
+        {
+            // .'^'.0.'^'.2
+            xr_1 = json.isString(val) && json.asString(val).compareTo("world") == 0;
+            if (xr_1)
+            {
+                xc_1 += 1;
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"_world\" [.'^'.0.'^'.2]", path);
+            }
+        }
+        if (xc_1 <= 1)
+        {
+            // .'^'.0.'^'.3
+            xr_1 = json.isString(val) && json.asString(val).compareTo("!") == 0;
+            if (xr_1)
+            {
+                xc_1 += 1;
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("unexpected value for model \"_!\" [.'^'.0.'^'.3]", path);
+            }
+        }
+        boolean xr_0 = xc_1 == 1;
         if (xr_0)
         {
+            if (rep != null) rep.clearEntries();
             xc_0 += 1;
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.0]", path);
+            if (rep != null) rep.addEntry("not one model match [.'^'.0.'^']", path);
         }
         // .'^'.1
-        xr_0 = json.isString(val) && json.asString(val).compareTo("world") == 0;
+        xr_0 = json.isString(val) && json.asString(val).compareTo("hello") == 0;
         if (xr_0)
         {
             xc_0 += 1;
         }
         else
         {
-            if (rep != null) rep.addEntry("unexpected value for model \"_world\" [.'^'.1]", path);
+            if (rep != null) rep.addEntry("unexpected value for model \"_hello\" [.'^'.1]", path);
         }
-        if (xc_0 <= 1)
-        {
-            // .'^'.2
-            xr_0 = json.isString(val) && json.asString(val).compareTo("!") == 0;
-            if (xr_0)
-            {
-                xc_0 += 1;
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected value for model \"_!\" [.'^'.2]", path);
-            }
-        }
-        if (xc_0 <= 1)
-        {
-            // .'^'.3
-            xr_0 = json.isString(val) && json.asString(val).compareTo("hello") == 0;
-            if (xr_0)
-            {
-                xc_0 += 1;
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected value for model \"_hello\" [.'^'.3]", path);
-            }
-        }
-        boolean res = xc_0 == 1;
+        res = xc_0 == 1;
         if (res)
         {
             if (rep != null) rep.clearEntries();

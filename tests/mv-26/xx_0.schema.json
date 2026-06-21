@@ -1,7 +1,15 @@
 {
   "description": "world or !",
-  "enum": [
-    "world",
-    "!"
+  "oneOf": [
+    {
+      "enum": [
+        "hello",
+        "world",
+        "!"
+      ]
+    },
+    {
+      "const": "hello"
+    }
   ]
 }

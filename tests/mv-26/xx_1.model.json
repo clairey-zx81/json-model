@@ -1,8 +1,7 @@
 {
-  "#": "not hello, world or !",
+  "#": "not world or !, hello is kept",
   "^": [
     { "^": [ "", "_hello", "_world", "_!" ] },
-    "# doubled model can be removed",
     "hello"
   ]
 }

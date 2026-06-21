@@ -14,57 +14,81 @@ export var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    // not hello, world or !
+    let res;
+    // not world or !, hello is kept
     // .
     // generic xor list
     let xc_0 = 0;
     // .'^'.0
-    let xr_0 = (typeof val === 'string' || val instanceof String);
+    // generic xor list
+    let xc_1 = 0;
+    // .'^'.0.'^'.0
+    let xr_1 = (typeof val === 'string' || val instanceof String);
+    if (xr_1)
+    {
+        xc_1 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0.'^'.0]", path])
+    }
+    // .'^'.0.'^'.1
+    xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "hello";
+    if (xr_1)
+    {
+        xc_1 += 1;
+    }
+    else
+    {
+        rep !== null && rep.push(["unexpected value for model \"_hello\" [.'^'.0.'^'.1]", path])
+    }
+    if (xc_1 <= 1)
+    {
+        // .'^'.0.'^'.2
+        xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "world";
+        if (xr_1)
+        {
+            xc_1 += 1;
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected value for model \"_world\" [.'^'.0.'^'.2]", path])
+        }
+    }
+    if (xc_1 <= 1)
+    {
+        // .'^'.0.'^'.3
+        xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "!";
+        if (xr_1)
+        {
+            xc_1 += 1;
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected value for model \"_!\" [.'^'.0.'^'.3]", path])
+        }
+    }
+    let xr_0 = xc_1 == 1;
     if (xr_0)
     {
+        if (rep !== null) rep.length = 0
         xc_0 += 1;
     }
     else
     {
-        rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0]", path])
+        rep !== null && rep.push(["not one model match [.'^'.0.'^']", path])
     }
     // .'^'.1
-    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "world";
+    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "hello";
     if (xr_0)
     {
         xc_0 += 1;
     }
     else
     {
-        rep !== null && rep.push(["unexpected value for model \"_world\" [.'^'.1]", path])
+        rep !== null && rep.push(["unexpected value for model \"_hello\" [.'^'.1]", path])
     }
-    if (xc_0 <= 1)
-    {
-        // .'^'.2
-        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "!";
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected value for model \"_!\" [.'^'.2]", path])
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.3
-        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "hello";
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected value for model \"_hello\" [.'^'.3]", path])
-        }
-    }
-    let res = xc_0 == 1;
+    res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0

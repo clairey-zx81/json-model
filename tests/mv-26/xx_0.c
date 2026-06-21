@@ -15,6 +15,7 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
 {
     return
            jm_str_eq_2(s, 0x00000021)  // "!"
+        || jm_str_eq_6(s, 0x0000006f6c6c6568LL)  // "hello"
         || jm_str_eq_6(s, 0x000000646c726f77LL)  // "world"
 
     ;
@@ -25,10 +26,32 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // world or !
     // .
-    bool res = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
-    if (unlikely(! res))
+    // generic xor list
+    int64_t xc_0 = 0;
+    // .'^'.0
+    bool xr_0 = json_is_string(val) && _jm_cst_0_str_test(json_string_value(val));
+    if (likely(xr_0))
+        xc_0 += 1;
+    else
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'^'.0.'|']", path);
+    }
+    // .'^'.1
+    xr_0 = json_is_string(val) && jm_str_eq_6(json_string_value(val), 0x0000006f6c6c6568LL);
+    if (likely(xr_0))
+        xc_0 += 1;
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for model \"_hello\" [.'^'.1]", path);
+    }
+    bool res = xc_0 == 1;
+    if (likely(res))
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
     }
     return res;
 }

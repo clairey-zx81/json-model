@@ -29,9 +29,25 @@ check_model_map: PropMap
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # world or !
     # .
-    res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
-    if not res:
-        rep is None or rep.append(("value not in enum [.'|']", path))
+    # generic xor list
+    xc_0: int = 0
+    # .'^'.0
+    xr_0: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
+    if xr_0:
+        xc_0 += 1
+    else:
+        rep is None or rep.append(("value not in enum [.'^'.0.'|']", path))
+    # .'^'.1
+    xr_0 = isinstance(val, str) and val == "hello"
+    if xr_0:
+        xc_0 += 1
+    else:
+        rep is None or rep.append(("unexpected value for model \"_hello\" [.'^'.1]", path))
+    res: bool = xc_0 == 1
+    if res:
+        rep is None or rep.clear()
+    else:
+        rep is None or rep.append(("not one model match [.'^']", path))
     return res
 
 
@@ -44,7 +60,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_cst_0
-        _jm_cst_0 = {'!', 'world'}
+        _jm_cst_0 = {'!', 'hello', 'world'}
         global check_model_map
         check_model_map = {
             "": json_model_1,

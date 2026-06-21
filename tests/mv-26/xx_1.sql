@@ -11,35 +11,49 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
   xc_0 int;
+  xc_1 int;
+  xr_1 bool;
   xr_0 bool;
 BEGIN
-  -- not hello, world or !
+  -- not world or !, hello is kept
   -- .
   -- generic xor list
   xc_0 := 0;
   -- .'^'.0
-  xr_0 := JSONB_TYPEOF(val) = 'string';
+  -- generic xor list
+  xc_1 := 0;
+  -- .'^'.0.'^'.0
+  xr_1 := JSONB_TYPEOF(val) = 'string';
+  IF xr_1 THEN
+    xc_1 := xc_1 + 1;
+  END IF;
+  -- .'^'.0.'^'.1
+  xr_1 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'hello';
+  IF xr_1 THEN
+    xc_1 := xc_1 + 1;
+  END IF;
+  IF xc_1 <= 1 THEN
+    -- .'^'.0.'^'.2
+    xr_1 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'world';
+    IF xr_1 THEN
+      xc_1 := xc_1 + 1;
+    END IF;
+  END IF;
+  IF xc_1 <= 1 THEN
+    -- .'^'.0.'^'.3
+    xr_1 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '!';
+    IF xr_1 THEN
+      xc_1 := xc_1 + 1;
+    END IF;
+  END IF;
+  xr_0 := xc_1 = 1;
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
   END IF;
   -- .'^'.1
-  xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'world';
+  xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'hello';
   IF xr_0 THEN
     xc_0 := xc_0 + 1;
-  END IF;
-  IF xc_0 <= 1 THEN
-    -- .'^'.2
-    xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = '!';
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
-    END IF;
-  END IF;
-  IF xc_0 <= 1 THEN
-    -- .'^'.3
-    xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'hello';
-    IF xr_0 THEN
-      xc_0 := xc_0 + 1;
-    END IF;
   END IF;
   RETURN xc_0 = 1;
 END;

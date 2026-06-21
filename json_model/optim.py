@@ -114,9 +114,10 @@ def and_combine(jm: JsonModel) -> bool:
                     j += 1
                 i += 1
             changes += len(delete)
-            log.debug(f"AC deleting: {delete}")
-            for i in reversed(sorted(delete)):
-                land.pop(i)
+            if delete:
+                log.debug(f"AC deleting: {delete}")
+                for i in reversed(sorted(delete)):
+                    land.pop(i)
             if len(land) == 1:
                 return land[0]
         return model
@@ -225,7 +226,10 @@ def flatten(jm: JsonModel) -> bool:
 
     def flatRwt(model: ModelType, path: ModelPath) -> ModelType:
         nonlocal changes
-        for op in ("|", "&", "^", "+"):
+        # NOTE cannot flatten ^:
+        # - ^(x, ^(y, z)) = x & y & z | x & !y & !z | !x & y & !z | !x & !y & z
+        # - ^(x, y, z)    =             x & !y & !z | !x & y & !z | !x & !y & z
+        for op in ("|", "&", "+"):
             if isinstance(model, dict) and op in model:
                 models, updated = model[op], False
                 assert isinstance(models, list)

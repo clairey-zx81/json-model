@@ -25,37 +25,53 @@ check_model_map: PropMap
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # not hello, world or !
+    res: bool
+    # not world or !, hello is kept
     # .
     # generic xor list
     xc_0: int = 0
     # .'^'.0
-    xr_0: bool = isinstance(val, str)
+    # generic xor list
+    xc_1: int = 0
+    # .'^'.0.'^'.0
+    xr_1: bool = isinstance(val, str)
+    if xr_1:
+        xc_1 += 1
+    else:
+        rep is None or rep.append(("unexpected value for model \"\" [.'^'.0.'^'.0]", path))
+    # .'^'.0.'^'.1
+    xr_1 = isinstance(val, str) and val == "hello"
+    if xr_1:
+        xc_1 += 1
+    else:
+        rep is None or rep.append(("unexpected value for model \"_hello\" [.'^'.0.'^'.1]", path))
+    if xc_1 <= 1:
+        # .'^'.0.'^'.2
+        xr_1 = isinstance(val, str) and (val == "world")
+        if xr_1:
+            xc_1 += 1
+        else:
+            rep is None or rep.append(("unexpected value for model \"_world\" [.'^'.0.'^'.2]", path))
+    if xc_1 <= 1:
+        # .'^'.0.'^'.3
+        xr_1 = isinstance(val, str) and val == "!"
+        if xr_1:
+            xc_1 += 1
+        else:
+            rep is None or rep.append(("unexpected value for model \"_!\" [.'^'.0.'^'.3]", path))
+    xr_0: bool = xc_1 == 1
     if xr_0:
+        rep is None or rep.clear()
         xc_0 += 1
     else:
-        rep is None or rep.append(("unexpected value for model \"\" [.'^'.0]", path))
+        rep is None or rep.append(("not one model match [.'^'.0.'^']", path))
     # .'^'.1
-    xr_0 = isinstance(val, str) and (val == "world")
+    xr_0 = isinstance(val, str) and val == "hello"
     if xr_0:
         xc_0 += 1
     else:
-        rep is None or rep.append(("unexpected value for model \"_world\" [.'^'.1]", path))
-    if xc_0 <= 1:
-        # .'^'.2
-        xr_0 = isinstance(val, str) and val == "!"
-        if xr_0:
-            xc_0 += 1
-        else:
-            rep is None or rep.append(("unexpected value for model \"_!\" [.'^'.2]", path))
-    if xc_0 <= 1:
-        # .'^'.3
-        xr_0 = isinstance(val, str) and val == "hello"
-        if xr_0:
-            xc_0 += 1
-        else:
-            rep is None or rep.append(("unexpected value for model \"_hello\" [.'^'.3]", path))
-    res: bool = xc_0 == 1
+        rep is None or rep.append(("unexpected value for model \"_hello\" [.'^'.1]", path))
+    res = xc_0 == 1
     if res:
         rep is None or rep.clear()
     else:

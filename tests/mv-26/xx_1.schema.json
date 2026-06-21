@@ -1,14 +1,21 @@
 {
-  "description": "not hello, world or !",
+  "description": "not world or !, hello is kept",
   "oneOf": [
     {
-      "type": "string"
-    },
-    {
-      "const": "world"
-    },
-    {
-      "const": "!"
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "const": "hello"
+        },
+        {
+          "const": "world"
+        },
+        {
+          "const": "!"
+        }
+      ]
     },
     {
       "const": "hello"

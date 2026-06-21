@@ -3,7 +3,7 @@
   [ true,  "expected" ],
   [ false, "world" ],
   [ false, "!" ],
-  [ false, "hello" ],
+  [ true,  "hello" ],
   [ false, null ],
   [ false, true ],
   [ false, false ],
