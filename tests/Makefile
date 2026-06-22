@@ -16,7 +16,7 @@ clean:
 
 LOGLEVEL = info
 PYTEST  = pytest --log-level=$(LOGLEVEL) --capture=tee-sys --durations=5
-PYTOPT	= -n auto
+PYTOPT	= -n logical
 
 .PHONY: check.pytest
 check.pytest:
