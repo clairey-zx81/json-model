@@ -2,27 +2,6 @@
 
 ## Current Tasks
 
-- [x] perf: rename `show.py` as `report.py`
-- [x] front: allow to add a comment in generated source files
-- [x] perf: allow to hide useless entries when generating a x2 comparison report
-- [x] perf: add geometrical average delta to x2 comparison report
-- [x] perf: rewrite benchmark analysis with pandas instead of sqlite3
-- [x] js-runtime: check stability of `.mo` extension (issue reported, does not work… as intended)
-- [x] perf: add --load benchmark option to reduce load when java is running
-- [x] optim: avoid redundant lower bound checks on constrain integers
-- [x] perf: add ntests, change default order
-- [x] perf: add switch to enable value contents checks
-- [x] optim: check unfeasible distinct values for a minimum number of distinct values
-- [x] c-runtime: require `:` to appear in a url
-- [x] pl-backend: fix reporting code
-- [x] backends: fix handling of json str predefs in some cases
-- [x] c-backend: avoid inserting regex strings twice on re predefs
-- [x] backends: refactor re optim stuff in `regex.py`
-- [x] spec: add `$SEMVER` predef
-- [x] export: use regex when available when exporting predefs to schema
-- [x] py-backend: handle arbitrary typed tag values on string maps
-- [x] optim: do not flatten `^`!
-- [x] optim: fix wrong removal of min props constraint when not an object
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] pl-backend: use short post-if where possible (filtering)
 - [ ] pl-backend: use `unless` where appropriate (filtering?)
