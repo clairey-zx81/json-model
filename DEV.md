@@ -6,7 +6,7 @@ Beware that the developer documentation is scarce. PR are always welcome, eg:
 
 - new language or library support implementations
 - new exporters
-- possibly new models
+- new native models
 - generated code optimizations
 
 ## Publication Accounts
@@ -63,6 +63,43 @@ source $PWD/json_model/runtime/java/env.bash
 # have psql ready to connect to a local Postgres
 ```
 
+## Tests
+
+Tests use `pytest`, possibly through `make`.
+
+### Root directory
+
+Python linting (not well maintained) and non regression tests
+
+```bash
+make check
+make check.src        # linting
+make check.tests      # tests
+```
+
+### Tests directory
+
+Pytests tests inside `tests`
+
+```bash
+make check            # run pytest tests in parallel
+make check.check      # regenerate all reference files
+make clean.js js      # regenerate javascript stuff
+make clean.java java  # regenerate java stuff
+make clean.pl pl      # regenerate pl stuff
+make clean            # remove intermediate files
+```
+
+### Tests subdirectories
+
+Subdirectories provide a parallel work unit:
+
+```bash
+make check            # regenerate reference files
+make clean            # remove intermediate files
+make clean.js js      # regenerate js stuff (and other languages)
+```
+
 ## Code Doc
 
 Read sources…
@@ -74,6 +111,7 @@ Section _The jmc Compiler_ is not too bad for an initial understanding.
 Procedure for releasing a new python package version:
 
 - consider releasing both JSU and JMC at the same time!
+- consider testing bowtie and jsonschema-benchmark dockers with the dev branch
 - merge `dev` changes into the `main` branch
 - update `json_model/data/VERSION`, `BACKLOG.md` and `VERSION.md`
 - `git commit` and `git tag` as new version
