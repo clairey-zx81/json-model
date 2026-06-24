@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$one'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 1;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'$one']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 1;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

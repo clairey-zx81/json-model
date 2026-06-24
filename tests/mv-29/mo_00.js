@@ -17,11 +17,11 @@ function json_model_1(val, path, rep)
     // even positive integers
     // .
     // .'@'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
     if (res)
     {
-        let ival_0 = val;
-        res = (ival_0 % 2) == 0;
+        let ival_0 = val
+        res = (ival_0 % 2) == 0
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
@@ -31,7 +31,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not a 1 strict int [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

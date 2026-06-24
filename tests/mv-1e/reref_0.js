@@ -18,35 +18,35 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$character'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$character'.'|']", path])
     }
-    return res;
+    return res
 }
 
 const _jm_xre_0_re = (s) => _jm_xre_0_re_re.exec(s) !== null
 
 function _jm_xre_0(val, path, rep)
 {
-    let extract = val;
-    let match = _jm_xre_0_re_re.exec(val);
+    let extract = val
+    let match = _jm_xre_0_re_re.exec(val)
     if (! match)
     {
-        return false;
+        return false
     }
     extract = match.groups["s1"]
     if (! json_model_2(extract, path, rep))
     {
-        return false;
+        return false
     }
     extract = match.groups["s2"]
     if (! json_model_2(extract, path, rep))
     {
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -54,12 +54,12 @@ function json_model_1(val, path, rep)
 {
     // .
     // "/'($character:\\w+)'.*'($character:\\w+)'/X"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/'($character:\\\\w+)'.*'($character:\\\\w+)'/X\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

@@ -20,31 +20,31 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("li"))
     {
         rep !== null && rep.push(["missing mandatory prop <li> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["li"]) : null;
-    pval = val["li"];
+    lpath = path ? path.concat(["li"]) : null
+    pval = val["li"]
     // .li
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 loose int [.li]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <li> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

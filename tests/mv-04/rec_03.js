@@ -19,35 +19,35 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "foo")
         {
             // handle may foo property
             // .foo
             // .foo.'|'.0
-            res = json_model_1(pval, (path ? lpath_0 : null), rep);
+            res = json_model_1(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$root\" [.foo.'|'.0]", (path ? lpath_0 : null)])
                 // .foo.'|'.1
-                res = Array.isArray(pval);
+                res = Array.isArray(pval)
                 if (res)
                 {
                     for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
                     {
                         let arr_0_item = pval[arr_0_idx]
-                        let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null;
+                        let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null
                         // .foo.'|'.1.0
-                        res = json_model_1(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
+                        res = json_model_1(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep)
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected value for model \"$root\" [.foo.'|'.1.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
-                            break;
+                            break
                         }
                     }
                 }
@@ -64,14 +64,14 @@ function json_model_1(val, path, rep)
             {
                 rep !== null && rep.push(["no model matched [.foo.'|']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.foo]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

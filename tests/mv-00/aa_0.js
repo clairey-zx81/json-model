@@ -9,32 +9,32 @@ export var check_model_map = new Map()
 
 function json_model_1(val, path, rep)
 {
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            res = Array.isArray(arr_0_item);
+            res = Array.isArray(arr_0_item)
             if (res)
             {
                 for (let arr_1_idx = 0; arr_1_idx < arr_0_item.length; arr_1_idx++)
                 {
                     let arr_1_item = arr_0_item[arr_1_idx]
-                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
+                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String)
                     if (! res)
                     {
-                        break;
+                        break
                     }
                 }
             }
             if (! res)
             {
-                break;
+                break
             }
         }
     }
-    return res;
+    return res
 }
 
 

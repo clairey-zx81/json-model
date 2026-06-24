@@ -17,12 +17,12 @@ function json_model_1(val, path, rep)
     // JSON_MODEL_LOOSE_NUMBER
     // .
     // .'@'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 1;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

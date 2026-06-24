@@ -9,7 +9,7 @@ export var check_model_map = new Map()
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
+    return ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42
 }
 
 

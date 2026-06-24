@@ -17,35 +17,35 @@ function json_model_1(val, path, rep)
     // an array of string with one starting with an a
     // .
     // .'@'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'@'.0
-            res = (typeof arr_0_item === 'string' || arr_0_item instanceof String);
+            res = (typeof arr_0_item === 'string' || arr_0_item instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'@'.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
     if (res)
     {
-        res = false;
+        res = false
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
         {
             let arr_1_item = val[arr_1_idx]
-            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null
             // .'.in'
             // "/^a/"
-            res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && arr_1_item.startsWith("a");
+            res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && arr_1_item.startsWith("a")
             if (res)
             {
-                break;
+                break
             }
             else
             {
@@ -58,7 +58,7 @@ function json_model_1(val, path, rep)
         rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
     // .in test at .
-    return res;
+    return res
 }
 
 

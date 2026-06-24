@@ -15,12 +15,12 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    let res = Array.isArray(val) && val.length == 0;
+    let res = Array.isArray(val) && val.length == 0
     if (! res)
     {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
     }
-    return res;
+    return res
 }
 
 

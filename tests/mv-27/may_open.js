@@ -18,21 +18,21 @@ function json_model_1(val, path, rep)
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (val.hasOwnProperty("hello"))
     {
-        pval = val["hello"];
+        pval = val["hello"]
         // .hello
-        res = (typeof pval === 'string' || pval instanceof String);
+        res = (typeof pval === 'string' || pval instanceof String)
         if (! res)
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 

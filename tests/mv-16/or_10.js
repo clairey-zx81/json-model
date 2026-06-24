@@ -19,26 +19,26 @@ function _jm_obj_0(val, path, rep)
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'|'.1]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("name"))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'|'.1]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["name"]) : null;
-    pval = val["name"];
+    lpath = path ? path.concat(["name"]) : null
+    pval = val["name"]
     // .'|'.1.name
-    let res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'|'.1]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'|'.0
@@ -47,12 +47,12 @@ function _jm_obj_1(val, path, rep)
     // value known to be an object
     if (Object.keys(val).length == 0)
     {
-        return true;
+        return true
     }
     else
     {
         rep !== null && rep.push(["expecting empty object [.'|'.0]", path])
-        return false;
+        return false
     }
 }
 
@@ -60,18 +60,18 @@ function _jm_obj_1(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         // .'|'.0
-        res = _jm_obj_1(val, path, rep);
+        res = _jm_obj_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'|'.0]", path])
             if (val.hasOwnProperty("name"))
             {
                 // .'|'.1
-                res = _jm_obj_0(val, path, rep);
+                res = _jm_obj_0(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'|'.1]", path])
@@ -79,7 +79,7 @@ function json_model_1(val, path, rep)
             }
             else
             {
-                res = false;
+                res = false
             }
         }
         if (res)
@@ -95,7 +95,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

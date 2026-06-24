@@ -15,25 +15,25 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .0
-            res = Array.isArray(arr_0_item) && arr_0_item.length == 2;
+            res = Array.isArray(arr_0_item) && arr_0_item.length == 2
             if (res)
             {
-                let lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([0]) : null;
+                let lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([0]) : null
                 // .0.0
-                res = (typeof arr_0_item[0] === 'string' || arr_0_item[0] instanceof String);
+                res = (typeof arr_0_item[0] === 'string' || arr_0_item[0] instanceof String)
                 if (res)
                 {
-                    lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null;
+                    lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null
                     // .0.1
-                    res = (typeof arr_0_item[1] === 'string' || arr_0_item[1] instanceof String);
+                    res = (typeof arr_0_item[1] === 'string' || arr_0_item[1] instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.0.1]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
@@ -47,7 +47,7 @@ function json_model_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -55,7 +55,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
     }
-    return res;
+    return res
 }
 
 

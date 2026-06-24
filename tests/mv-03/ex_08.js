@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Val'
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Val']", path])
     }
-    return res;
+    return res
 }
 
 // check $Key (.'$Key')
 function json_model_3(val, path, rep)
 {
     // .'$Key'
-    let res = runtime.jm_is_valid_url(val, path, rep);
+    let res = runtime.jm_is_valid_url(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Key']", path])
     }
-    return res;
+    return res
 }
 
 // check $map (.'$map')
@@ -42,30 +42,30 @@ function json_model_4(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$map']", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (runtime.jm_is_valid_url(prop, (path ? lpath_0 : null), rep))
         {
             // handle 1 key props
             // .'$map'.'$URL'
-            res = json_model_2(pval, (path ? lpath_0 : null), rep);
+            res = json_model_2(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Val\" [.'$map'.'$URL']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$map']", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 // check $Ex08 (.'$Ex08')
@@ -73,17 +73,17 @@ function json_model_5(val, path, rep)
 {
     // .'$Ex08'
     // .'$Ex08'.'|'.0
-    let res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$map\" [.'$Ex08'.'|'.0]", path])
         // .'$Ex08'.'|'.1
-        res = runtime.jm_is_valid_url(val, path, rep);
+        res = runtime.jm_is_valid_url(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$Ex08'.'|'.1]", path])
             // .'$Ex08'.'|'.2
-            res = json_model_2(val, path, rep);
+            res = json_model_2(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Val\" [.'$Ex08'.'|'.2]", path])
@@ -98,19 +98,19 @@ function json_model_5(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$Ex08'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Ex08\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

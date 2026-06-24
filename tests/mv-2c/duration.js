@@ -10,7 +10,7 @@ const jm_is_duration_re = new runtime.RX("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y(
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && jm_is_duration(val, null, null);
+    return ((typeof val === 'string' || val instanceof String)) && jm_is_duration(val, null, null)
 }
 
 

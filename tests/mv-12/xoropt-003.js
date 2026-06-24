@@ -19,23 +19,23 @@ function json_model_2(val, path, rep)
 {
     // .'$Aa'
     // .'$Aa'.'|'.0
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Aa'.'|'.0]", path])
         // .'$Aa'.'|'.1
-        res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+        res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
         if (! res)
         {
             rep !== null && rep.push(["not a 1 strict int [.'$Aa'.'|'.1]", path])
             // .'$Aa'.'|'.2
-            res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
+            res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.'$Aa'.'|'.2]", path])
                 // .'$Aa'.'|'.3
                 // "/[a-z]/"
-                res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+                res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'$Aa'.'|'.3]", path])
@@ -51,19 +51,19 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$Aa'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Aa\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

@@ -15,19 +15,19 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$array'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'$array'.0
-            res = json_model_1(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = json_model_1(arr_0_item, (path ? arr_0_lpath : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$self\" [.'$array'.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -35,7 +35,7 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$array']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
@@ -45,29 +45,29 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "prop")
         {
             // handle may prop property
             // .prop
-            res = json_model_1(pval, (path ? lpath_0 : null), rep);
+            res = json_model_1(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$self\" [.prop]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.prop]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

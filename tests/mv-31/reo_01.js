@@ -16,24 +16,24 @@ function json_model_1(val, path, rep)
 {
     // mixed sw eq le optimization with longer strings
     // .
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (res)
     {
         // .'|'.0
         // "/^abcdefghij/"
-        res = val.startsWith("abcdefghij");
+        res = val.startsWith("abcdefghij")
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"/^abcdefghij/\" [.'|'.0]", path])
             // .'|'.1
             // "/^klmnopqrst$/"
-            res = val == "klmnopqrst";
+            res = val == "klmnopqrst"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^klmnopqrst$/\" [.'|'.1]", path])
                 // .'|'.2
                 // "/qrstuvwxyz$/"
-                res = val.endsWith("qrstuvwxyz");
+                res = val.endsWith("qrstuvwxyz")
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"/qrstuvwxyz$/\" [.'|'.2]", path])
@@ -53,7 +53,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

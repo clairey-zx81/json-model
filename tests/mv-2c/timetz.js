@@ -10,7 +10,7 @@ const jm_is_timetz_re = new runtime.RX("^([01]\\d|2[0-3]):[0-5]\\d:([0-5]\\d|60)
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && jm_is_timetz(val, null, null);
+    return ((typeof val === 'string' || val instanceof String)) && jm_is_timetz(val, null, null)
 }
 
 

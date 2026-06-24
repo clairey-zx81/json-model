@@ -22,30 +22,30 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'/^[0-9]+$/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'/^[0-9]+$/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
         {
             rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 

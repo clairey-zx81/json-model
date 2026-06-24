@@ -17,20 +17,20 @@ function json_model_1(val, path, rep)
     // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         // handle other props
         // .''
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 

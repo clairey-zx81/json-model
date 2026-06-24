@@ -19,36 +19,36 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$bibi']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$bibi']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("bibi"))
     {
         rep !== null && rep.push(["missing mandatory prop <bibi> [.'$bibi']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["bibi"]) : null;
-    pval = val["bibi"];
+    lpath = path ? path.concat(["bibi"]) : null
+    pval = val["bibi"]
     // .'$bibi'.bibi
-    let res = Array.isArray(pval);
+    let res = Array.isArray(pval)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
         {
             let arr_0_item = pval[arr_0_idx]
-            let arr_0_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_0_idx]) : null;
+            let arr_0_lpath = (path ? lpath : null) ? (path ? lpath : null).concat([arr_0_idx]) : null
             // .'$bibi'.bibi.0
-            res = json_model_2(arr_0_item, ((path ? lpath : null) ? arr_0_lpath : null), rep);
+            res = json_model_2(arr_0_item, ((path ? lpath : null) ? arr_0_lpath : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$bibi\" [.'$bibi'.bibi.0]", ((path ? lpath : null) ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -56,21 +56,21 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$bibi'.bibi]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <bibi> [.'$bibi']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$bibi\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

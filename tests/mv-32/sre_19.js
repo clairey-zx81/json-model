@@ -12,18 +12,18 @@ function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        res = (typeof pval === 'string' || pval instanceof String);
+        res = (typeof pval === 'string' || pval instanceof String)
         if (! res)
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 

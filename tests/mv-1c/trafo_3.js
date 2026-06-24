@@ -15,43 +15,43 @@ export var check_model_map = new Map()
 function json_model_3(val, path, rep)
 {
     // .'$Dd'
-    let res = json_model_6(val, path, rep);
+    let res = json_model_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$l\" [.'$Dd']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_6(val, path, rep);
+    let res = json_model_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Dd\" [.]", path])
     }
-    return res;
+    return res
 }
 
 // check $Dd#l (.'$Dd#l')
 function json_model_6(val, path, rep)
 {
     // .'$Dd#l'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'$Dd#l'.0
-            res = json_model_12(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = json_model_12(arr_0_item, (path ? arr_0_lpath : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$u\" [.'$Dd#l'.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -59,19 +59,19 @@ function json_model_6(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Dd#l']", path])
     }
-    return res;
+    return res
 }
 
 // check $Dd#u (.'$Dd#u')
 function json_model_10(val, path, rep)
 {
     // .'$Dd#u'
-    let res = json_model_12(val, path, rep);
+    let res = json_model_12(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Uu#un\" [.'$Dd#u']", path])
     }
-    return res;
+    return res
 }
 
 // check $Dd#Uu#un (.'$Dd#Uu#un')
@@ -82,46 +82,46 @@ function json_model_12(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Dd#Uu#un']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'$Dd#Uu#un']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("ua"))
     {
         rep !== null && rep.push(["missing mandatory prop <ua> [.'$Dd#Uu#un']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["ua"]) : null;
-    pval = val["ua"];
+    lpath = path ? path.concat(["ua"]) : null
+    pval = val["ua"]
     // .'$Dd#Uu#un'.ua
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Dd#Uu#un'.ua]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <ua> [.'$Dd#Uu#un']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("ub"))
     {
         rep !== null && rep.push(["missing mandatory prop <ub> [.'$Dd#Uu#un']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["ub"]) : null;
-    pval = val["ub"];
+    lpath = path ? path.concat(["ub"]) : null
+    pval = val["ub"]
     // .'$Dd#Uu#un'.ub
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Dd#Uu#un'.ub]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <ub> [.'$Dd#Uu#un']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

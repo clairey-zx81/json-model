@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$foo'
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.'$foo']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

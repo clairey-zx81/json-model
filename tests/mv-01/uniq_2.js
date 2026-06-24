@@ -17,11 +17,11 @@ function json_model_1(val, path, rep)
     // require generic unique implementation
     // .
     // .'@'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         // accept any array
-        res = runtime.jm_array_is_unique(val, path, rep);
+        res = runtime.jm_array_is_unique(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
@@ -31,7 +31,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

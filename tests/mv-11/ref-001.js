@@ -19,46 +19,46 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$a']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'$a']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'$a']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["a"]) : null;
-    pval = val["a"];
+    lpath = path ? path.concat(["a"]) : null
+    pval = val["a"]
     // .'$a'.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$a'.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'$a']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("b"))
     {
         rep !== null && rep.push(["missing mandatory prop <b> [.'$a']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["b"]) : null;
-    pval = val["b"];
+    lpath = path ? path.concat(["b"]) : null
+    pval = val["b"]
     // .'$a'.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$a'.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'$a']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $b (.'$b')
@@ -69,61 +69,61 @@ function json_model_3(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$b']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 3)
     {
         rep !== null && rep.push(["bad property count [.'$b']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'$b']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["a"]) : null;
-    pval = val["a"];
+    lpath = path ? path.concat(["a"]) : null
+    pval = val["a"]
     // .'$b'.a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$b'.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'$b']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("b"))
     {
         rep !== null && rep.push(["missing mandatory prop <b> [.'$b']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["b"]) : null;
-    pval = val["b"];
+    lpath = path ? path.concat(["b"]) : null
+    pval = val["b"]
     // .'$b'.b
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$b'.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'$b']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("c"))
     {
         rep !== null && rep.push(["missing mandatory prop <c> [.'$b']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["c"]) : null;
-    pval = val["c"];
+    lpath = path ? path.concat(["c"]) : null
+    pval = val["c"]
     // .'$b'.c
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$b'.c]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <c> [.'$b']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -133,16 +133,16 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length == 0)
     {
-        return true;
+        return true
     }
     else
     {
         rep !== null && rep.push(["expecting empty object [.]", path])
-        return false;
+        return false
     }
 }
 

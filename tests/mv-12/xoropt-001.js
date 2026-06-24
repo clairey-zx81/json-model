@@ -15,79 +15,79 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Nn'
-    let res = val === null;
+    let res = val === null
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Nn']", path])
     }
-    return res;
+    return res
 }
 
 // check $Bb (.'$Bb')
 function json_model_3(val, path, rep)
 {
     // .'$Bb'
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Bb']", path])
     }
-    return res;
+    return res
 }
 
 // check $Ii (.'$Ii')
 function json_model_4(val, path, rep)
 {
     // .'$Ii'
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$Ii']", path])
     }
-    return res;
+    return res
 }
 
 // check $Ff (.'$Ff')
 function json_model_5(val, path, rep)
 {
     // .'$Ff'
-    let res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 strict float [.'$Ff']", path])
     }
-    return res;
+    return res
 }
 
 // check $Ss (.'$Ss')
 function json_model_6(val, path, rep)
 {
     // .'$Ss'
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Ss']", path])
     }
-    return res;
+    return res
 }
 
 // check $Aa (.'$Aa')
 function json_model_7(val, path, rep)
 {
     // .'$Aa'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'$Aa'.0
-            res = json_model_9(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = json_model_9(arr_0_item, (path ? arr_0_lpath : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Any\" [.'$Aa'.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -95,7 +95,7 @@ function json_model_7(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Aa']", path])
     }
-    return res;
+    return res
 }
 
 // check $Oo (.'$Oo')
@@ -105,22 +105,22 @@ function json_model_8(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Oo']", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         // handle other props
         // .'$Oo'.''
-        res = json_model_9(pval, (path ? lpath_0 : null), rep);
+        res = json_model_9(pval, (path ? lpath_0 : null), rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$Any\" [.'$Oo'.'']", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 // check $Any (.'$Any')
@@ -128,37 +128,37 @@ function json_model_9(val, path, rep)
 {
     // .'$Any'
     // .'$Any'.'|'.0
-    let res = val === null;
+    let res = val === null
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Any'.'|'.0]", path])
         // .'$Any'.'|'.1
-        res = json_model_3(val, path, rep);
+        res = json_model_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$Bb\" [.'$Any'.'|'.1]", path])
             // .'$Any'.'|'.2
-            res = json_model_4(val, path, rep);
+            res = json_model_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Ii\" [.'$Any'.'|'.2]", path])
                 // .'$Any'.'|'.3
-                res = json_model_5(val, path, rep);
+                res = json_model_5(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"$Ff\" [.'$Any'.'|'.3]", path])
                     // .'$Any'.'|'.4
-                    res = json_model_6(val, path, rep);
+                    res = json_model_6(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$Ss\" [.'$Any'.'|'.4]", path])
                         // .'$Any'.'|'.5
-                        res = json_model_7(val, path, rep);
+                        res = json_model_7(val, path, rep)
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected value for model \"$Aa\" [.'$Any'.'|'.5]", path])
                             // .'$Any'.'|'.6
-                            res = json_model_8(val, path, rep);
+                            res = json_model_8(val, path, rep)
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected value for model \"$Oo\" [.'$Any'.'|'.6]", path])
@@ -177,19 +177,19 @@ function json_model_9(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$Any'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_9(val, path, rep);
+    let res = json_model_9(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Any\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

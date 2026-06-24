@@ -4,10 +4,14 @@ SHELL   = /bin/bash
 # relevant validation sub directories
 D.subs  = $(wildcard mv-*) bads ref
 
+# forwarding
 D.check = $(D.subs:%=%.check)
 D.clean = $(D.subs:%=%.clean)
 D.gen = $(D.subs:%=%.gen)
 D.java = $(D.subs:%=%.java)
+D.clean.java = $(D.subs:%=%.clean.java)
+D.js = $(D.subs:%=%.js)
+D.clean.js = $(D.subs:%=%.clean.js)
 
 .PHONY: clean
 clean:
@@ -34,6 +38,7 @@ check.check:
 	$(MAKE) TARGET=check $(D.check)
 	$(MAKE) clean
 
+# forwarding continued
 .PHONY: gen
 gen:
 	$(MAKE) TARGET=gen $(D.gen)
@@ -41,6 +46,18 @@ gen:
 .PHONY: java
 java:
 	$(MAKE) TARGET=java $(D.java)
+
+.PHONY: clean.java
+clean.java:
+	$(MAKE) TARGET=clean.java $(D.clean.java)
+
+.PHONY: js
+js:
+	$(MAKE) TARGET=js $(D.js)
+
+.PHONY: clean.js
+clean.js:
+	$(MAKE) TARGET=clean.js $(D.clean.js)
 
 # show statistics about tests
 .PHONY: stats

@@ -12,50 +12,50 @@ function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "eq4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) == 4;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) == 4
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "le4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) <= 4;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) <= 4
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "ge4")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) >= 4;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) >= 4
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "s35")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) >= 3 && runtime.jm_char_length(pval) <= 5;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) >= 3 && runtime.jm_char_length(pval) <= 5
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

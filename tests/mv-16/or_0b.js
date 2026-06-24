@@ -18,12 +18,12 @@ function json_model_1(val, path, rep)
 {
     // mixed type constants
     // .
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

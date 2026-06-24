@@ -18,108 +18,108 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "s")
         {
             // handle must s property
-            must_count += 1;
+            must_count += 1
             // .s
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.s]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.s]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "b")
         {
             // handle may b property
             // .b
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.b]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.b]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "i")
         {
             // handle may i property
             // .i
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.i]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.i]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f")
         {
             // handle may f property
             // .f
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.f]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.f]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop.startsWith("xs"))
         {
             // handle 4 re props
             // .'/^xs/'
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'/^xs/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("xb"))
         {
             // handle 4 re props
             // .'/^xb/'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'/^xb/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("xi"))
         {
             // handle 4 re props
             // .'/^xi/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'/^xi/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("xf"))
         {
             // handle 4 re props
             // .'/^xf/'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.'/^xf/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
@@ -136,9 +136,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <s> [.'']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

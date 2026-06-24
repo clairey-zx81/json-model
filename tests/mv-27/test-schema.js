@@ -21,7 +21,7 @@ function json_model_2(val, path, rep)
 {
     // .'$Version'
     // "/^[0-9a-zA-Z]+(\\.[0-9a-zA-Z]+)*$/"
-    return ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, null, null);
+    return ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, null, null)
 }
 
 // check $Test (.'$Test')
@@ -31,58 +31,58 @@ function json_model_3(val, path, rep)
     // .'$Test'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "description")
         {
             // handle must description property
-            must_count += 1;
+            must_count += 1
             // .'$Test'.description
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "data")
         {
             // handle must data property
-            must_count += 1;
+            must_count += 1
             // .'$Test'.data
-            res = true;
-            continue;
+            res = true
+            continue
         }
         else if (prop == "valid")
         {
             // handle must valid property
-            must_count += 1;
+            must_count += 1
             // .'$Test'.valid
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "comment")
         {
             // handle may comment property
             // .'$Test'.comment
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return must_count == 3;
+    return must_count == 3
 }
 
 const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
@@ -94,92 +94,92 @@ function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "core")
         {
             // handle may core property
             // .'$Specification'.'@'.core
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "validation")
         {
             // handle may validation property
             // .'$Specification'.'@'.validation
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "ecma262")
         {
             // handle may ecma262 property
             // .'$Specification'.'@'.ecma262
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "perl5")
         {
             // handle may perl5 property
             // .'$Specification'.'@'.perl5
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "quote")
         {
             // handle may quote property
             // .'$Specification'.'@'.quote
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (_jm_re_1(prop, null, null))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^rfc\\d+$/'
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
         }
         else if (_jm_re_2(prop, null, null))
         {
             // handle 2 re props
             // .'$Specification'.'@'.'/^iso\\d+$/'
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
         }
         else
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 // check $Specification (.'$Specification')
@@ -187,13 +187,13 @@ function json_model_4(val, path, rep)
 {
     // .'$Specification'
     // .'$Specification'.'@'
-    let res = _jm_obj_0(val, null, null);
+    let res = _jm_obj_0(val, null, null)
     if (res)
     {
-        let ival_0 = Object.keys(val).length;
-        res = ival_0 >= 1;
+        let ival_0 = Object.keys(val).length
+        res = ival_0 >= 1
     }
-    return res;
+    return res
 }
 
 // check $TestCase (.'$TestCase')
@@ -202,107 +202,107 @@ function json_model_5(val, path, rep)
     // .'$TestCase'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "description")
         {
             // handle must description property
-            must_count += 1;
+            must_count += 1
             // .'$TestCase'.description
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "schema")
         {
             // handle must schema property
-            must_count += 1;
+            must_count += 1
             // .'$TestCase'.schema
-            res = true;
-            continue;
+            res = true
+            continue
         }
         else if (prop == "tests")
         {
             // handle must tests property
-            must_count += 1;
+            must_count += 1
             // .'$TestCase'.tests
             // .'$TestCase'.tests.'@'
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (res)
             {
                 for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
                 {
                     let arr_0_item = pval[arr_0_idx]
                     // .'$TestCase'.tests.'@'.0
-                    res = json_model_3(arr_0_item, null, null);
+                    res = json_model_3(arr_0_item, null, null)
                     if (! res)
                     {
-                        break;
+                        break
                     }
                 }
             }
             if (res)
             {
-                let ival_1 = pval.length;
-                res = ival_1 >= 1;
+                let ival_1 = pval.length
+                res = ival_1 >= 1
             }
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "comment")
         {
             // handle may comment property
             // .'$TestCase'.comment
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "specification")
         {
             // handle may specification property
             // .'$TestCase'.specification
             // .'$TestCase'.specification.'@'
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (res)
             {
                 for (let arr_1_idx = 0; arr_1_idx < pval.length; arr_1_idx++)
                 {
                     let arr_1_item = pval[arr_1_idx]
                     // .'$TestCase'.specification.'@'.0
-                    res = json_model_4(arr_1_item, null, null);
+                    res = json_model_4(arr_1_item, null, null)
                     if (! res)
                     {
-                        break;
+                        break
                     }
                 }
             }
             if (res)
             {
-                let ival_2 = pval.length;
-                res = runtime.jm_array_is_unique(pval, null, null) && ival_2 >= 1;
+                let ival_2 = pval.length
+                res = runtime.jm_array_is_unique(pval, null, null) && ival_2 >= 1
             }
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return must_count == 3;
+    return must_count == 3
 }
 
 // check $ (.)
@@ -311,26 +311,26 @@ function json_model_1(val, path, rep)
     // Model for the JSON Schema Test Suite tests
     // .
     // .'@'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
         {
             let arr_2_item = val[arr_2_idx]
             // .'@'.0
-            res = json_model_5(arr_2_item, null, null);
+            res = json_model_5(arr_2_item, null, null)
             if (! res)
             {
-                break;
+                break
             }
         }
     }
     if (res)
     {
-        let ival_3 = val.length;
-        res = ival_3 >= 1;
+        let ival_3 = val.length
+        res = ival_3 >= 1
     }
-    return res;
+    return res
 }
 
 

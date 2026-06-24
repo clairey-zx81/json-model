@@ -16,7 +16,7 @@ function json_model_2(val, path, rep)
 {
     // .'$n0'
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$n0']", path])
-    return false;
+    return false
 }
 
 // check $n1 (.'$n1')
@@ -24,7 +24,7 @@ function json_model_3(val, path, rep)
 {
     // .'$n1'
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$n1']", path])
-    return false;
+    return false
 }
 
 // check $n2 (.'$n2')
@@ -32,7 +32,7 @@ function json_model_4(val, path, rep)
 {
     // .'$n2'
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$n2']", path])
-    return false;
+    return false
 }
 
 // check $ (.)
@@ -40,7 +40,7 @@ function json_model_1(val, path, rep)
 {
     // .
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.]", path])
-    return false;
+    return false
 }
 
 

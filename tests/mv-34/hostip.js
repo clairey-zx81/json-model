@@ -12,7 +12,7 @@ const jm_is_ip6_re = new runtime.RX("^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && (jm_is_host(val, null, null) && runtime.jm_char_length(val) <= 255 || jm_is_ip4(val, null, null) || jm_is_ip6(val, null, null));
+    return ((typeof val === 'string' || val instanceof String)) && (jm_is_host(val, null, null) && runtime.jm_char_length(val) <= 255 || jm_is_ip4(val, null, null) || jm_is_ip6(val, null, null))
 }
 
 

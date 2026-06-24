@@ -20,68 +20,68 @@ function _jm_obj_0(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Schema'.metadata]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_1 = path ? path.concat([prop]) : null
         if (prop == "name")
         {
             // handle may name property
             // .'$Schema'.metadata.name
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.name]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.name]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "previous")
         {
             // handle may previous property
             // .'$Schema'.metadata.previous
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.previous]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.previous]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "date")
         {
             // handle may date property
             // .'$Schema'.metadata.date
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.date]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.date]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "authors")
         {
             // handle may authors property
             // .'$Schema'.metadata.authors
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (res)
             {
                 for (let arr_1_idx = 0; arr_1_idx < pval.length; arr_1_idx++)
                 {
                     let arr_1_item = pval[arr_1_idx]
-                    let arr_1_lpath = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([arr_1_idx]) : null;
+                    let arr_1_lpath = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([arr_1_idx]) : null
                     // .'$Schema'.metadata.authors.0
-                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
+                    res = (typeof arr_1_item === 'string' || arr_1_item instanceof String)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"\" [.'$Schema'.metadata.authors.0]", ((path ? lpath_1 : null) ? arr_1_lpath : null)])
-                        break;
+                        break
                     }
                 }
             }
@@ -89,14 +89,14 @@ function _jm_obj_0(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$Schema'.metadata.authors]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata.authors]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Schema'.metadata]", (path ? lpath_1 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Schema (.'$Schema')
@@ -106,31 +106,31 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Schema']", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "types")
         {
             // handle must types property
-            must_count += 1;
+            must_count += 1
             // .'$Schema'.types
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (res)
             {
                 for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
                 {
                     let arr_0_item = pval[arr_0_idx]
-                    let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null;
+                    let arr_0_lpath = (path ? lpath_0 : null) ? (path ? lpath_0 : null).concat([arr_0_idx]) : null
                     // .'$Schema'.types.0
-                    res = json_model_3(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep);
+                    res = json_model_3(arr_0_item, ((path ? lpath_0 : null) ? arr_0_lpath : null), rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$Type\" [.'$Schema'.types.0]", ((path ? lpath_0 : null) ? arr_0_lpath : null)])
-                        break;
+                        break
                     }
                 }
             }
@@ -138,25 +138,25 @@ function json_model_2(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$Schema'.types]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Schema'.types]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "metadata")
         {
             // handle may metadata property
             // .'$Schema'.metadata
-            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Schema'.metadata]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Schema'.metadata]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Schema']", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
     if (must_count != 1)
     {
@@ -167,9 +167,9 @@ function json_model_2(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <types> [.'$Schema']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 
@@ -177,26 +177,26 @@ function json_model_2(val, path, rep)
 function json_model_3(val, path, rep)
 {
     // .'$Type'
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
-        let tag_0;
+        let tag_0
         if ((tag_0 = val["kind"]) != null)
         {
-            let fun_0 = _jm_map_0.get(tag_0);
+            let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
             {
-                res = fun_0(val, path, rep);
+                res = fun_0(val, path, rep)
             }
             else
             {
-                res = false;
+                res = false
                 rep !== null && rep.push(["tag <kind> value not found [.'$Type'.'|']", path])
             }
         }
         else
         {
-            res = false;
+            res = false
             rep !== null && rep.push(["tag prop <kind> is missing [.'$Type'.'|']", path])
         }
     }
@@ -204,7 +204,7 @@ function json_model_3(val, path, rep)
     {
         rep !== null && rep.push(["value is not an object [.'$Type'.'|']", path])
     }
-    return res;
+    return res
 }
 
 
@@ -212,24 +212,24 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$atomic-types'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$atomic-types'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $atomic (.'$atomic')
 function json_model_5(val, path, rep)
 {
     // .'$atomic'
-    let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val);
+    let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val)
     if (! res)
     {
         rep !== null && rep.push(["unexpected type [.'$atomic'.'|']", path])
     }
-    return res;
+    return res
 }
 
 
@@ -241,201 +241,201 @@ function json_model_6(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Atomic']", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_2 = path ? path.concat([prop]) : null;
+        let lpath_2 = path ? path.concat([prop]) : null
         if (prop == "kind")
         {
             // handle must kind property
-            must_count += 1;
+            must_count += 1
             // .'$Atomic'.kind
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "atomic";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "atomic"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"atomic\" [.'$Atomic'.kind]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.kind]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "baseType")
         {
             // handle must baseType property
-            must_count += 1;
+            must_count += 1
             // .'$Atomic'.baseType
-            res = json_model_4(pval, (path ? lpath_2 : null), rep);
+            res = json_model_4(pval, (path ? lpath_2 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$atomic-types\" [.'$Atomic'.baseType]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Atomic'.baseType]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "name")
         {
             // handle may name property
             // .'$Atomic'.name
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Atomic'.name]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.name]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "pattern")
         {
             // handle may pattern property
             // .'$Atomic'.pattern
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.pattern]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "length")
         {
             // handle may length property
             // .'$Atomic'.length
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.length]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.length]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "minLength")
         {
             // handle may minLength property
             // .'$Atomic'.minLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.minLength]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minLength]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "maxLength")
         {
             // handle may maxLength property
             // .'$Atomic'.maxLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.maxLength]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxLength]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "totalDigits")
         {
             // handle may totalDigits property
             // .'$Atomic'.totalDigits
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.totalDigits]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.totalDigits]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "fractionDigits")
         {
             // handle may fractionDigits property
             // .'$Atomic'.fractionDigits
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Atomic'.fractionDigits]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.fractionDigits]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "maxInclusive")
         {
             // handle may maxInclusive property
             // .'$Atomic'.maxInclusive
-            res = json_model_5(pval, (path ? lpath_2 : null), rep);
+            res = json_model_5(pval, (path ? lpath_2 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.maxInclusive]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxInclusive]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "maxExclusive")
         {
             // handle may maxExclusive property
             // .'$Atomic'.maxExclusive
-            res = json_model_5(pval, (path ? lpath_2 : null), rep);
+            res = json_model_5(pval, (path ? lpath_2 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.maxExclusive]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.maxExclusive]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "minInclusive")
         {
             // handle may minInclusive property
             // .'$Atomic'.minInclusive
-            res = json_model_5(pval, (path ? lpath_2 : null), rep);
+            res = json_model_5(pval, (path ? lpath_2 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.minInclusive]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minInclusive]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "minExclusive")
         {
             // handle may minExclusive property
             // .'$Atomic'.minExclusive
-            res = json_model_5(pval, (path ? lpath_2 : null), rep);
+            res = json_model_5(pval, (path ? lpath_2 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.minExclusive]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.minExclusive]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "enumeration")
         {
             // handle may enumeration property
             // .'$Atomic'.enumeration
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (res)
             {
                 for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
                 {
                     let arr_2_item = pval[arr_2_idx]
-                    let arr_2_lpath = (path ? lpath_2 : null) ? (path ? lpath_2 : null).concat([arr_2_idx]) : null;
+                    let arr_2_lpath = (path ? lpath_2 : null) ? (path ? lpath_2 : null).concat([arr_2_idx]) : null
                     // .'$Atomic'.enumeration.0
-                    res = json_model_5(arr_2_item, ((path ? lpath_2 : null) ? arr_2_lpath : null), rep);
+                    res = json_model_5(arr_2_item, ((path ? lpath_2 : null) ? arr_2_lpath : null), rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$atomic\" [.'$Atomic'.enumeration.0]", ((path ? lpath_2 : null) ? arr_2_lpath : null)])
-                        break;
+                        break
                     }
                 }
             }
@@ -443,25 +443,25 @@ function json_model_6(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$Atomic'.enumeration]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.enumeration]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "explicitTypeZone")
         {
             // handle may explicitTypeZone property
             // .'$Atomic'.explicitTypeZone
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval);
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.'$Atomic'.explicitTypeZone.'|']", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Atomic'.explicitTypeZone]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Atomic']", (path ? lpath_2 : null)])
-        return false;
+        return false
     }
     if (must_count != 2)
     {
@@ -476,9 +476,9 @@ function json_model_6(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <kind> [.'$Atomic']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Object (.'$Object')
@@ -488,70 +488,70 @@ function json_model_7(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Object']", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_3 = path ? path.concat([prop]) : null;
+        let lpath_3 = path ? path.concat([prop]) : null
         if (prop == "kind")
         {
             // handle must kind property
-            must_count += 1;
+            must_count += 1
             // .'$Object'.kind
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "object"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"object\" [.'$Object'.kind]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Object'.kind]", (path ? lpath_3 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "name")
         {
             // handle may name property
             // .'$Object'.name
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.name]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.name]", (path ? lpath_3 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "baseType")
         {
             // handle may baseType property
             // .'$Object'.baseType
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.baseType]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.baseType]", (path ? lpath_3 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "content")
         {
             // handle may content property
             // .'$Object'.content
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (res)
             {
                 for (let arr_3_idx = 0; arr_3_idx < pval.length; arr_3_idx++)
                 {
                     let arr_3_item = pval[arr_3_idx]
-                    let arr_3_lpath = (path ? lpath_3 : null) ? (path ? lpath_3 : null).concat([arr_3_idx]) : null;
+                    let arr_3_lpath = (path ? lpath_3 : null) ? (path ? lpath_3 : null).concat([arr_3_idx]) : null
                     // .'$Object'.content.0
-                    res = json_model_8(arr_3_item, ((path ? lpath_3 : null) ? arr_3_lpath : null), rep);
+                    res = json_model_8(arr_3_item, ((path ? lpath_3 : null) ? arr_3_lpath : null), rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$Fields\" [.'$Object'.content.0]", ((path ? lpath_3 : null) ? arr_3_lpath : null)])
-                        break;
+                        break
                     }
                 }
             }
@@ -559,25 +559,25 @@ function json_model_7(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$Object'.content]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.content]", (path ? lpath_3 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "closed")
         {
             // handle may closed property
             // .'$Object'.closed
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Object'.closed]", (path ? lpath_3 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Object'.closed]", (path ? lpath_3 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_3 : null)])
-        return false;
+        return false
     }
     if (must_count != 1)
     {
@@ -588,9 +588,9 @@ function json_model_7(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <kind> [.'$Object']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Fields (.'$Fields')
@@ -600,76 +600,76 @@ function json_model_8(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Fields']", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_4 = path ? path.concat([prop]) : null;
+        let lpath_4 = path ? path.concat([prop]) : null
         if (prop == "name")
         {
             // handle must name property
-            must_count += 1;
+            must_count += 1
             // .'$Fields'.name
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Fields'.name]", (path ? lpath_4 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.name]", (path ? lpath_4 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "type")
         {
             // handle must type property
-            must_count += 1;
+            must_count += 1
             // .'$Fields'.type
-            res = json_model_11(pval, (path ? lpath_4 : null), rep);
+            res = json_model_11(pval, (path ? lpath_4 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$type-or-ref\" [.'$Fields'.type]", (path ? lpath_4 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Fields'.type]", (path ? lpath_4 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "required")
         {
             // handle may required property
             // .'$Fields'.required
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Fields'.required]", (path ? lpath_4 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Fields'.required]", (path ? lpath_4 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "default")
         {
             // handle may default property
             // .'$Fields'.default
-            res = true;
-            continue;
+            res = true
+            continue
         }
         else if (prop == "unique")
         {
             // handle may unique property
             // .'$Fields'.unique
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$Fields'.unique]", (path ? lpath_4 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Fields'.unique]", (path ? lpath_4 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Fields']", (path ? lpath_4 : null)])
-        return false;
+        return false
     }
     if (must_count != 2)
     {
@@ -684,9 +684,9 @@ function json_model_8(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Fields']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Array (.'$Array')
@@ -697,94 +697,94 @@ function json_model_9(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Array']", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_5 = path ? path.concat([prop]) : null;
+        let lpath_5 = path ? path.concat([prop]) : null
         if (prop == "kind")
         {
             // handle must kind property
-            must_count += 1;
+            must_count += 1
             // .'$Array'.kind
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "array"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"array\" [.'$Array'.kind]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Array'.kind]", (path ? lpath_5 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "name")
         {
             // handle may name property
             // .'$Array'.name
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.name]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.name]", (path ? lpath_5 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "baseType")
         {
             // handle may baseType property
             // .'$Array'.baseType
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.baseType]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.baseType]", (path ? lpath_5 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "content")
         {
             // handle may content property
             // .'$Array'.content
-            res = json_model_11(pval, (path ? lpath_5 : null), rep);
+            res = json_model_11(pval, (path ? lpath_5 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$type-or-ref\" [.'$Array'.content]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.content]", (path ? lpath_5 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "minLength")
         {
             // handle may minLength property
             // .'$Array'.minLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Array'.minLength]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.minLength]", (path ? lpath_5 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "maxLength")
         {
             // handle may maxLength property
             // .'$Array'.maxLength
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$Array'.maxLength]", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Array'.maxLength]", (path ? lpath_5 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_5 : null)])
-        return false;
+        return false
     }
     if (must_count != 1)
     {
@@ -795,9 +795,9 @@ function json_model_9(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <kind> [.'$Array']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Union (.'$Union')
@@ -808,59 +808,59 @@ function json_model_10(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Union']", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_6 = path ? path.concat([prop]) : null;
+        let lpath_6 = path ? path.concat([prop]) : null
         if (prop == "name")
         {
             // handle must name property
-            must_count += 1;
+            must_count += 1
             // .'$Union'.name
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Union'.name]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.name]", (path ? lpath_6 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "kind")
         {
             // handle must kind property
-            must_count += 1;
+            must_count += 1
             // .'$Union'.kind
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "union";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "union"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"union\" [.'$Union'.kind]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.kind]", (path ? lpath_6 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "content")
         {
             // handle must content property
-            must_count += 1;
+            must_count += 1
             // .'$Union'.content
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (res)
             {
                 for (let arr_4_idx = 0; arr_4_idx < pval.length; arr_4_idx++)
                 {
                     let arr_4_item = pval[arr_4_idx]
-                    let arr_4_lpath = (path ? lpath_6 : null) ? (path ? lpath_6 : null).concat([arr_4_idx]) : null;
+                    let arr_4_lpath = (path ? lpath_6 : null) ? (path ? lpath_6 : null).concat([arr_4_idx]) : null
                     // .'$Union'.content.0
-                    res = json_model_11(arr_4_item, ((path ? lpath_6 : null) ? arr_4_lpath : null), rep);
+                    res = json_model_11(arr_4_item, ((path ? lpath_6 : null) ? arr_4_lpath : null), rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected value for model \"$type-or-ref\" [.'$Union'.content.0]", ((path ? lpath_6 : null) ? arr_4_lpath : null)])
-                        break;
+                        break
                     }
                 }
             }
@@ -868,25 +868,25 @@ function json_model_10(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'$Union'.content]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Union'.content]", (path ? lpath_6 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "baseType")
         {
             // handle may baseType property
             // .'$Union'.baseType
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Union'.baseType]", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Union'.baseType]", (path ? lpath_6 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Union']", (path ? lpath_6 : null)])
-        return false;
+        return false
     }
     if (must_count != 3)
     {
@@ -905,9 +905,9 @@ function json_model_10(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$Union']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $type-or-ref (.'$type-or-ref')
@@ -915,12 +915,12 @@ function json_model_11(val, path, rep)
 {
     // .'$type-or-ref'
     // .'$type-or-ref'.'|'.0
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$type-or-ref'.'|'.0]", path])
         // .'$type-or-ref'.'|'.1
-        res = json_model_3(val, path, rep);
+        res = json_model_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$Type\" [.'$type-or-ref'.'|'.1]", path])
@@ -934,19 +934,19 @@ function json_model_11(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$type-or-ref'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Schema\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

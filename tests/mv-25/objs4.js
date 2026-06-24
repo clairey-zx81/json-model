@@ -14,61 +14,61 @@ export var check_model_map = new Map()
 // object .f0
 function _jm_obj_0(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f1
 function _jm_obj_1(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f2
 function _jm_obj_2(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f3
 function _jm_obj_3(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f4
 function _jm_obj_4(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f5
 function _jm_obj_5(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f6
 function _jm_obj_6(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f7
 function _jm_obj_7(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f8
 function _jm_obj_8(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .f9
 function _jm_obj_9(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // check $ (.)
@@ -77,124 +77,124 @@ function json_model_1(val, path, rep)
     // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "f0")
         {
             // handle may f0 property
             // .f0
-            res = _jm_obj_0(pval, null, null);
+            res = _jm_obj_0(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f1")
         {
             // handle may f1 property
             // .f1
-            res = _jm_obj_1(pval, null, null);
+            res = _jm_obj_1(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f2")
         {
             // handle may f2 property
             // .f2
-            res = _jm_obj_2(pval, null, null);
+            res = _jm_obj_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f3")
         {
             // handle may f3 property
             // .f3
-            res = _jm_obj_3(pval, null, null);
+            res = _jm_obj_3(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f4")
         {
             // handle may f4 property
             // .f4
-            res = _jm_obj_4(pval, null, null);
+            res = _jm_obj_4(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f5")
         {
             // handle may f5 property
             // .f5
-            res = _jm_obj_5(pval, null, null);
+            res = _jm_obj_5(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f6")
         {
             // handle may f6 property
             // .f6
-            res = _jm_obj_6(pval, null, null);
+            res = _jm_obj_6(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f7")
         {
             // handle may f7 property
             // .f7
-            res = _jm_obj_7(pval, null, null);
+            res = _jm_obj_7(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f8")
         {
             // handle may f8 property
             // .f8
-            res = _jm_obj_8(pval, null, null);
+            res = _jm_obj_8(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f9")
         {
             // handle may f9 property
             // .f9
-            res = _jm_obj_9(pval, null, null);
+            res = _jm_obj_9(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

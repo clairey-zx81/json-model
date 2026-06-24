@@ -19,58 +19,58 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Root']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'$Root']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("id"))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$Root']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["id"]) : null;
-    pval = val["id"];
+    lpath = path ? path.concat(["id"]) : null
+    pval = val["id"]
     // .'$Root'.id
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0\" [.'$Root'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$Root']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("name"))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'$Root']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["name"]) : null;
-    pval = val["name"];
+    lpath = path ? path.concat(["name"]) : null
+    pval = val["name"]
     // .'$Root'.name
-    res = (typeof pval === 'string' || pval instanceof String);
+    res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Root'.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$Root']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Root\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

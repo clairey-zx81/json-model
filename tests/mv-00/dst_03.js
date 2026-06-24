@@ -11,46 +11,46 @@ function _jm_obj_0(val, path, rep)
 {
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("a"))
     {
-        return false;
+        return false
     }
-    pval = val["a"];
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    pval = val["a"]
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("c"))
     {
-        return false;
+        return false
     }
-    pval = val["c"];
-    return (typeof pval === 'string' || pval instanceof String);
+    pval = val["c"]
+    return (typeof pval === 'string' || pval instanceof String)
 }
 
 function _jm_obj_1(val, path, rep)
 {
     if (Object.keys(val).length != 1)
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (! val.hasOwnProperty("a"))
     {
-        return false;
+        return false
     }
-    pval = val["a"];
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    pval = val["a"]
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 function json_model_1(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && (_jm_obj_1(val, null, null) || val.hasOwnProperty("c") && _jm_obj_0(val, null, null));
+    return Object.prototype.toString.call(val) === '[object Object]' && (_jm_obj_1(val, null, null) || val.hasOwnProperty("c") && _jm_obj_0(val, null, null))
 }
 
 

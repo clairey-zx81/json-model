@@ -17,17 +17,17 @@ export var check_model_map = new Map()
 function json_model_4(val, path, rep)
 {
     // .'$r'
-    let res = Array.isArray(val) && val.length == 2;
+    let res = Array.isArray(val) && val.length == 2
     if (res)
     {
-        let lpath_0 = path ? path.concat([0]) : null;
+        let lpath_0 = path ? path.concat([0]) : null
         // .'$r'.0
-        res = json_model_5(val[0], (path ? lpath_0 : null), rep);
+        res = json_model_5(val[0], (path ? lpath_0 : null), rep)
         if (res)
         {
-            lpath_0 = path ? path.concat([1]) : null;
+            lpath_0 = path ? path.concat([1]) : null
             // .'$r'.1
-            res = json_model_5(val[1], (path ? lpath_0 : null), rep);
+            res = json_model_5(val[1], (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$s\" [.'$r'.1]", (path ? lpath_0 : null)])
@@ -42,7 +42,7 @@ function json_model_4(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$r']", path])
     }
-    return res;
+    return res
 }
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
@@ -52,12 +52,12 @@ function json_model_3(val, path, rep)
 {
     // .'$s'
     // "/[a-z]/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'$s']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
@@ -66,12 +66,12 @@ function json_model_1(val, path, rep)
     // a string with a lower case later or a digit
     // .
     // .'|'.0
-    let res = json_model_3(val, path, rep);
+    let res = json_model_3(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$s\" [.'|'.0]", path])
         // .'|'.1
-        res = json_model_5(val, path, rep);
+        res = json_model_5(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$r#s\" [.'|'.1]", path])
@@ -85,7 +85,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'|']", path])
     }
-    return res;
+    return res
 }
 
 const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
@@ -95,12 +95,12 @@ function json_model_5(val, path, rep)
 {
     // .'$r#s'
     // "/[0-9]/"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'$r#s']", path])
     }
-    return res;
+    return res
 }
 
 

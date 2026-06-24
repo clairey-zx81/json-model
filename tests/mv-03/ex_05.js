@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Ex05a'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Ex05a']", path])
     }
-    return res;
+    return res
 }
 
 // check $Ex05b (.'$Ex05b')
 function json_model_3(val, path, rep)
 {
     // .'$Ex05b'
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Ex05b']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
@@ -40,12 +40,12 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'|'.0
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Ex05a\" [.'|'.0]", path])
         // .'|'.1
-        res = json_model_3(val, path, rep);
+        res = json_model_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$Ex05b\" [.'|'.1]", path])
@@ -59,7 +59,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

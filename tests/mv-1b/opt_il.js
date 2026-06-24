@@ -17,12 +17,12 @@ function json_model_1(val, path, rep)
     // JSON_MODEL_LOOSE_INT
     // .
     // .'@'
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 loose int [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

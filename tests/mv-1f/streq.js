@@ -16,12 +16,12 @@ function json_model_1(val, path, rep)
 {
     // .
     // "/^Susie$/"
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/^Susie$/\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

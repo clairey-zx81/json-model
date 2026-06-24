@@ -19,81 +19,81 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "pretty_long_property_name")
         {
             // handle may pretty_long_property_name property
             // .pretty_long_property_name
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.pretty_long_property_name]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.pretty_long_property_name]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "zulu")
         {
             // handle may zulu property
             // .zulu
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.zulu]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.zulu]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "XXX")
         {
             // handle may XXX property
             // .XXX
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.XXX]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.XXX]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "Susie")
         {
             // handle may Susie property
             // .Susie
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.Susie]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.Susie]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "last")
         {
             // handle may last property
             // .last
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.last]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.last]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

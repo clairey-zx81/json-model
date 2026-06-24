@@ -16,16 +16,16 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'@'
-    let lpath_0;
-    let res = Array.isArray(val);
+    let lpath_0
+    let res = Array.isArray(val)
     if (res)
     {
-        let len_0 = val.length;
+        let len_0 = val.length
         if (len_0 > 0)
         {
-            lpath_0 = path ? path.concat([0]) : null;
+            lpath_0 = path ? path.concat([0]) : null
             // .'@'.0
-            res = (typeof val[0] === 'number' || val[0] instanceof Number) && Number.isInteger(val[0]);
+            res = (typeof val[0] === 'number' || val[0] instanceof Number) && Number.isInteger(val[0])
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'@'.0]", (path ? lpath_0 : null)])
@@ -35,9 +35,9 @@ function json_model_1(val, path, rep)
         {
             if (len_0 > 1)
             {
-                lpath_0 = path ? path.concat([1]) : null;
+                lpath_0 = path ? path.concat([1]) : null
                 // .'@'.1
-                res = (typeof val[1] === 'string' || val[1] instanceof String);
+                res = (typeof val[1] === 'string' || val[1] instanceof String)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"\" [.'@'.1]", (path ? lpath_0 : null)])
@@ -47,13 +47,13 @@ function json_model_1(val, path, rep)
             {
                 for (let idx_0 = 2; idx_0 < len_0; idx_0++)
                 {
-                    lpath_0 = path ? path.concat([idx_0]) : null;
+                    lpath_0 = path ? path.concat([idx_0]) : null
                     // .'@'.2
-                    res = (typeof val[idx_0] === 'boolean' || val[idx_0] instanceof Boolean);
+                    res = (typeof val[idx_0] === 'boolean' || val[idx_0] instanceof Boolean)
                     if (! res)
                     {
                         rep !== null && rep.push(["not a bool [.'@'.2]", (path ? lpath_0 : null)])
-                        break;
+                        break
                     }
                 }
             }
@@ -61,8 +61,8 @@ function json_model_1(val, path, rep)
     }
     if (res)
     {
-        let ival_0 = val.length;
-        res = ival_0 >= 5;
+        let ival_0 = val.length
+        res = ival_0 >= 5
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
@@ -72,7 +72,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

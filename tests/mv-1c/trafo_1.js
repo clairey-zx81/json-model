@@ -19,58 +19,58 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$un']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'$un']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("ua"))
     {
         rep !== null && rep.push(["missing mandatory prop <ua> [.'$un']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["ua"]) : null;
-    pval = val["ua"];
+    lpath = path ? path.concat(["ua"]) : null
+    pval = val["ua"]
     // .'$un'.ua
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$un'.ua]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <ua> [.'$un']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("ub"))
     {
         rep !== null && rep.push(["missing mandatory prop <ub> [.'$un']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["ub"]) : null;
-    pval = val["ub"];
+    lpath = path ? path.concat(["ub"]) : null
+    pval = val["ub"]
     // .'$un'.ub
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$un'.ub]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <ub> [.'$un']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$un\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

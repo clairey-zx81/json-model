@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$b'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "b";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "b"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_b\" [.'$b']", path])
     }
-    return res;
+    return res
 }
 
 // check $Bb (.'$Bb')
 function json_model_3(val, path, rep)
 {
     // .'$Bb'
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Bb']", path])
     }
-    return res;
+    return res
 }
 
 // check $Rr (.'$Rr')
@@ -42,29 +42,29 @@ function json_model_5(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Rr']", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "a")
         {
             // handle may a property
             // .'$Rr'.a
-            res = json_model_7(pval, (path ? lpath_0 : null), rep);
+            res = json_model_7(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Aa\" [.'$Rr'.a]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Rr'.a]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Rr']", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -74,55 +74,55 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_1 = path ? path.concat([prop]) : null
         if (prop == "RA")
         {
             // handle must RA property
-            must_count += 1;
+            must_count += 1
             // .RA
-            res = json_model_5(pval, (path ? lpath_1 : null), rep);
+            res = json_model_5(pval, (path ? lpath_1 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Rr\" [.RA]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.RA]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "b")
         {
             // handle may b property
             // .b
-            res = json_model_3(pval, (path ? lpath_1 : null), rep);
+            res = json_model_3(pval, (path ? lpath_1 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Bb\" [.b]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.b]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "a")
         {
             // handle may a property
             // .a
-            res = json_model_7(pval, (path ? lpath_1 : null), rep);
+            res = json_model_7(pval, (path ? lpath_1 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Rr#Aa\" [.a]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_1 : null)])
-        return false;
+        return false
     }
     if (must_count != 1)
     {
@@ -133,21 +133,21 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <RA> [.]", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Rr#Aa (.'$Rr#Aa')
 function json_model_7(val, path, rep)
 {
     // .'$Rr#Aa'
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Rr#Aa']", path])
     }
-    return res;
+    return res
 }
 
 

@@ -18,21 +18,21 @@ function json_model_2(val, path, rep)
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (val.hasOwnProperty("a"))
     {
-        pval = val["a"];
+        pval = val["a"]
         // .'$Oa'.a
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 // check $Ob (.'$Ob')
@@ -42,21 +42,21 @@ function json_model_3(val, path, rep)
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (val.hasOwnProperty("b"))
     {
-        pval = val["b"];
+        pval = val["b"]
         // .'$Ob'.b
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 // check $merge (.'$merge')
@@ -66,31 +66,31 @@ function json_model_4(val, path, rep)
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (val.hasOwnProperty("a"))
     {
-        pval = val["a"];
+        pval = val["a"]
         // .'$merge'.a
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
         {
-            return false;
+            return false
         }
     }
     if (val.hasOwnProperty("b"))
     {
-        pval = val["b"];
+        pval = val["b"]
         // .'$merge'.b
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 // check $nomerge (.'$nomerge')
@@ -100,21 +100,21 @@ function json_model_5(val, path, rep)
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (! val.hasOwnProperty("c"))
     {
-        return false;
+        return false
     }
-    pval = val["c"];
+    pval = val["c"]
     // .'$nomerge'.c
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
 }
 
 // check $ (.)
@@ -123,7 +123,7 @@ function json_model_1(val, path, rep)
     // .
     // .'|'.0
     // .'|'.1
-    return json_model_4(val, null, null) || json_model_5(val, null, null);
+    return json_model_4(val, null, null) || json_model_5(val, null, null)
 }
 
 

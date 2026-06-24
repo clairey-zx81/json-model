@@ -19,61 +19,61 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 3)
     {
         rep !== null && rep.push(["bad property count [.]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["a"]) : null;
-    pval = val["a"];
+    lpath = path ? path.concat(["a"]) : null
+    pval = val["a"]
     // .a
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("b"))
     {
         rep !== null && rep.push(["missing mandatory prop <b> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["b"]) : null;
-    pval = val["b"];
+    lpath = path ? path.concat(["b"]) : null
+    pval = val["b"]
     // .b
-    res = (typeof pval === 'string' || pval instanceof String);
+    res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("c"))
     {
         rep !== null && rep.push(["missing mandatory prop <c> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["c"]) : null;
-    pval = val["c"];
+    lpath = path ? path.concat(["c"]) : null
+    pval = val["c"]
     // .c
-    res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+    res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
     if (! res)
     {
         rep !== null && rep.push(["not a 1.0 strict float [.c]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <c> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

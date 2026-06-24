@@ -20,16 +20,16 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 function json_model_1(val, path, rep)
 {
     // .
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|']", path])
-        res = (typeof val === 'string' || val instanceof String);
+        res = (typeof val === 'string' || val instanceof String)
         if (res)
         {
             // .'|'.0
             // "/[0-9]/"
-            res = _jm_re_0(val, path, rep);
+            res = _jm_re_0(val, path, rep)
             if (res)
             {
                 if (rep !== null) rep.length = 0
@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
             rep !== null && rep.push(["unexpected type [.'|']", path])
         }
     }
-    return res;
+    return res
 }
 
 

@@ -10,7 +10,7 @@ const jm_is_semver_re = new runtime.RX("^([0-9]|[1-9][0-9]+)\\.([0-9]|[1-9][0-9]
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && jm_is_semver(val, null, null);
+    return ((typeof val === 'string' || val instanceof String)) && jm_is_semver(val, null, null)
 }
 
 

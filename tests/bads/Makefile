@@ -46,6 +46,18 @@ json: $(F.json)
 java:
 	# skip
 
+.PHONY: clean.java
+clean.java:
+	# skip
+
+.PHONY: js
+js:
+	# skip
+
+.PHONY: clean.js
+clean.js:
+	# skip
+
 # test that --check rejects **all** bads
 bads.check.out:
 	shopt -s nullglob

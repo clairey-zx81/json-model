@@ -16,22 +16,22 @@ function json_model_1(val, path, rep)
 {
     // .
     // generic xor list
-    let xc_0 = 0;
+    let xc_0 = 0
     // .'^'.0
-    let xr_0 = (typeof val === 'string' || val instanceof String);
+    let xr_0 = (typeof val === 'string' || val instanceof String)
     if (xr_0)
     {
-        xc_0 += 1;
+        xc_0 += 1
     }
     else
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0]", path])
     }
     // .'^'.1
-    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "!";
+    xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "!"
     if (xr_0)
     {
-        xc_0 += 1;
+        xc_0 += 1
     }
     else
     {
@@ -40,17 +40,17 @@ function json_model_1(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'^'.2
-        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "world";
+        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "world"
         if (xr_0)
         {
-            xc_0 += 1;
+            xc_0 += 1
         }
         else
         {
             rep !== null && rep.push(["unexpected value for model \"_world\" [.'^'.2]", path])
         }
     }
-    let res = xc_0 == 1;
+    let res = xc_0 == 1
     if (res)
     {
         if (rep !== null) rep.length = 0
@@ -59,7 +59,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not one model match [.'^']", path])
     }
-    return res;
+    return res
 }
 
 

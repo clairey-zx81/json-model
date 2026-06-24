@@ -20,30 +20,30 @@ function _jm_obj_0(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'^'.0]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'^'.0.'/a/'
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0.'/a/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'^'.0]", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 // object .'^'.1
@@ -52,29 +52,29 @@ function _jm_obj_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'^'.1]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_1 = path ? path.concat([prop]) : null
         if (prop == "a")
         {
             // handle may a property
             // .'^'.1.a
-            res = pval === null;
+            res = pval === null
             if (! res)
             {
                 rep !== null && rep.push(["not null [.'^'.1.a]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'^'.1.a]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'^'.1]", (path ? lpath_1 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -83,28 +83,28 @@ function json_model_1(val, path, rep)
     // NOT ^ to | because both empty objects are ok
     // .
     // generic xor list
-    let xc_0 = 0;
+    let xc_0 = 0
     // .'^'.0
-    let xr_0 = _jm_obj_0(val, path, rep);
+    let xr_0 = _jm_obj_0(val, path, rep)
     if (xr_0)
     {
-        xc_0 += 1;
+        xc_0 += 1
     }
     else
     {
         rep !== null && rep.push(["unexpected element [.'^'.0]", path])
     }
     // .'^'.1
-    xr_0 = _jm_obj_1(val, path, rep);
+    xr_0 = _jm_obj_1(val, path, rep)
     if (xr_0)
     {
-        xc_0 += 1;
+        xc_0 += 1
     }
     else
     {
         rep !== null && rep.push(["unexpected element [.'^'.1]", path])
     }
-    let res = xc_0 == 1;
+    let res = xc_0 == 1
     if (res)
     {
         if (rep !== null) rep.length = 0
@@ -113,7 +113,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not one model match [.'^']", path])
     }
-    return res;
+    return res
 }
 
 

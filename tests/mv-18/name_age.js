@@ -19,46 +19,46 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("name"))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["name"]) : null;
-    pval = val["name"];
+    lpath = path ? path.concat(["name"]) : null
+    pval = val["name"]
     // .name
-    let res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("age"))
     {
         rep !== null && rep.push(["missing mandatory prop <age> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["age"]) : null;
-    pval = val["age"];
+    lpath = path ? path.concat(["age"]) : null
+    pval = val["age"]
     // .age
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.age]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <age> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

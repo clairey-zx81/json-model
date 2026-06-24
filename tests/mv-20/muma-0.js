@@ -19,40 +19,40 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("name"))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["name"]) : null;
-    pval = val["name"];
+    lpath = path ? path.concat(["name"]) : null
+    pval = val["name"]
     // .name
-    let res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (val.hasOwnProperty("born"))
     {
-        lpath = path ? path.concat(["born"]) : null;
-        pval = val["born"];
+        lpath = path ? path.concat(["born"]) : null
+        pval = val["born"]
         // .born
-        res = runtime.jm_is_valid_date(pval, (path ? lpath : null), rep);
+        res = runtime.jm_is_valid_date(pval, (path ? lpath : null), rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$DATE\" [.born]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <born> [.]", (path ? lpath : null)])
-            return false;
+            return false
         }
     }
     // ignored ..useless
-    return true;
+    return true
 }
 
 

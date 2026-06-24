@@ -20,13 +20,13 @@ function json_model_1(val, path, rep)
     // xor to or simplification, float vs string
     // .
     // .'|'.0
-    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
     if (! res)
     {
         rep !== null && rep.push(["not a 0.0 strict float [.'|'.0]", path])
         // .'|'.1
         // "/^[a-z]+$/i"
-        res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+        res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"/^[a-z]+$/i\" [.'|'.1]", path])
@@ -40,7 +40,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

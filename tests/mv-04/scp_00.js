@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$a'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "a";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'$a']", path])
     }
-    return res;
+    return res
 }
 
 // check $Aa (.'$Aa')
 function json_model_3(val, path, rep)
 {
     // .'$Aa'
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Aa']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
@@ -42,29 +42,29 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "a")
         {
             // handle may a property
             // .a
-            res = json_model_3(pval, (path ? lpath_0 : null), rep);
+            res = json_model_3(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Aa\" [.a]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

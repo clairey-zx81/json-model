@@ -15,41 +15,41 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "b")
         {
             // handle must b property
-            must_count += 1;
+            must_count += 1
             // .'|'.1.b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'|'.1.b]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.1.b]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "a")
         {
             // handle may a property
             // .'|'.1.a
-            res = false;
+            res = false
             rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'|'.1.a]", (path ? lpath_0 : null)])
             rep !== null && rep.push(["invalid optional prop value [.'|'.1.a]", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
         // handle other props
         // .'|'.1.''
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.'|'.1.'']", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
     if (must_count != 1)
@@ -61,50 +61,50 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <b> [.'|'.1.'']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'|'.0
 function _jm_obj_1(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_1 = path ? path.concat([prop]) : null
         if (prop == "a")
         {
             // handle must a property
-            must_count += 1;
+            must_count += 1
             // .'|'.0.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'|'.0.a]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.0.a]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "b")
         {
             // handle may b property
             // .'|'.0.b
-            res = false;
+            res = false
             rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'|'.0.b]", (path ? lpath_1 : null)])
             rep !== null && rep.push(["invalid optional prop value [.'|'.0.b]", (path ? lpath_1 : null)])
-            return false;
+            return false
         }
         // handle other props
         // .'|'.0.''
-        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+        res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.'|'.0.'']", (path ? lpath_1 : null)])
-            return false;
+            return false
         }
     }
     if (must_count != 1)
@@ -116,9 +116,9 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <a> [.'|'.0.'']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -126,16 +126,16 @@ function json_model_1(val, path, rep)
 {
     // exclusive properties: a ^ b
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         // .'|'.0
-        res = _jm_obj_1(val, path, rep);
+        res = _jm_obj_1(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'|'.0]", path])
             // .'|'.1
-            res = _jm_obj_0(val, path, rep);
+            res = _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'|'.1]", path])
@@ -154,7 +154,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

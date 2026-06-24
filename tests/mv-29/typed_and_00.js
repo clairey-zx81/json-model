@@ -19,43 +19,43 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$foo']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$foo']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("bla"))
     {
         rep !== null && rep.push(["missing mandatory prop <bla> [.'$foo']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["bla"]) : null;
-    pval = val["bla"];
+    lpath = path ? path.concat(["bla"]) : null
+    pval = val["bla"]
     // .'$foo'.bla
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$foo'.bla]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <bla> [.'$foo']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$foo\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

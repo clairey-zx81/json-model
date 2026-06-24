@@ -19,146 +19,146 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "0")
         {
             // handle may 0 property
             // .'0'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == ""
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_\" [.'0']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'0']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "1")
         {
             // handle may 1 property
             // .'1'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "À";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "À"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_À\" [.'1']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'1']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "2")
         {
             // handle may 2 property
             // .'2'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Àß";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Àß"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Àß\" [.'2']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'2']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "3")
         {
             // handle may 3 property
             // .'3'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Àßç";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "Àßç"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_Àßç\" [.'3']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'3']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "4")
         {
             // handle may 4 property
             // .'4'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_ÀßçΔ\" [.'4']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'4']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "5")
         {
             // handle may 5 property
             // .'5'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_ÀßçΔ€\" [.'5']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'5']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "6")
         {
             // handle may 6 property
             // .'6'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳ";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳ"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_ÀßçΔ€ᵳ\" [.'6']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'6']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "7")
         {
             // handle may 7 property
             // .'7'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧ";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧ"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_ÀßçΔ€ᵳǧ\" [.'7']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'7']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "8")
         {
             // handle may 8 property
             // .'8'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧℏ";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧℏ"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_ÀßçΔ€ᵳǧℏ\" [.'8']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'8']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "9")
         {
             // handle may 9 property
             // .'9'
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧℏı";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "ÀßçΔ€ᵳǧℏı"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_ÀßçΔ€ᵳǧℏı\" [.'9']", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'9']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

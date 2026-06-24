@@ -16,154 +16,154 @@ export var check_model_map = new Map()
 function _jm_f_0(val, path, rep)
 {
     // .Calvin
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_Hobbes (.Hobbes)
 function _jm_f_1(val, path, rep)
 {
     // .Hobbes
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_Moe (.Moe)
 function _jm_f_2(val, path, rep)
 {
     // .Moe
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_Rosalyn (.Rosalyn)
 function _jm_f_3(val, path, rep)
 {
     // .Rosalyn
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_Susie (.Susie)
 function _jm_f_4(val, path, rep)
 {
     // .Susie
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_a (.a)
 function _jm_f_5(val, path, rep)
 {
     // .a
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_aaa (.aaa)
 function _jm_f_6(val, path, rep)
 {
     // .aaa
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_abc (.abc)
 function _jm_f_7(val, path, rep)
 {
     // .abc
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_bcd (.bcd)
 function _jm_f_8(val, path, rep)
 {
     // .bcd
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_calvin (.calvin)
 function _jm_f_9(val, path, rep)
 {
     // .calvin
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_cdef (.cdef)
 function _jm_f_10(val, path, rep)
 {
     // .cdef
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_def (.def)
 function _jm_f_11(val, path, rep)
 {
     // .def
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_foo (.foo)
 function _jm_f_12(val, path, rep)
 {
     // .foo
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_hobbes (.hobbes)
 function _jm_f_13(val, path, rep)
 {
     // .hobbes
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_moe (.moe)
 function _jm_f_14(val, path, rep)
 {
     // .moe
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_saxo (.saxo)
 function _jm_f_15(val, path, rep)
 {
     // .saxo
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_stuff (.stuff)
 function _jm_f_16(val, path, rep)
 {
     // .stuff
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_susie (.susie)
 function _jm_f_17(val, path, rep)
 {
     // .susie
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_swap (.swap)
 function _jm_f_18(val, path, rep)
 {
     // .swap
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_wtf (.wtf)
 function _jm_f_19(val, path, rep)
 {
     // .wtf
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_zee (.zee)
 function _jm_f_20(val, path, rep)
 {
     // .zee
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 // check json_model_1_map_zoo (.zoo)
 function _jm_f_21(val, path, rep)
 {
     // .zoo
-    return (typeof val === 'string' || val instanceof String);
+    return (typeof val === 'string' || val instanceof String)
 }
 
 
@@ -173,9 +173,9 @@ function json_model_1(val, path, rep)
     // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let pfun;
+    let pfun
     for (const [prop, pval] of Object.entries(val))
     {
         if ((pfun = json_model_1_map.get(prop)))
@@ -183,13 +183,13 @@ function json_model_1(val, path, rep)
             // handle 22 may props
             if (pfun !== undefined && ! pfun(pval, null, null))
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

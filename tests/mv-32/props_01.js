@@ -12,29 +12,29 @@ function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("x"))
     {
-        return false;
+        return false
     }
-    pval = val["x"];
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    pval = val["x"]
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("y"))
     {
-        return false;
+        return false
     }
-    pval = val["y"];
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    pval = val["y"]
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 

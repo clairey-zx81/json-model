@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    return true;
+    return true
 }
 
 

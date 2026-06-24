@@ -15,12 +15,12 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    let res = runtime.jm_is_valid_regex(val, true);
+    let res = runtime.jm_is_valid_regex(val, true)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$EXREG\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

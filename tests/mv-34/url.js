@@ -9,7 +9,7 @@ export var check_model_map = new Map()
 
 function json_model_1(val, path, rep)
 {
-    return runtime.jm_is_valid_url(val, null, null);
+    return runtime.jm_is_valid_url(val, null, null)
 }
 
 

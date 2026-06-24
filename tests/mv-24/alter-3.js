@@ -20,31 +20,31 @@ function json_model_2(val, path, rep)
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("t"))
     {
-        return false;
+        return false
     }
-    pval = val["t"];
+    pval = val["t"]
     // .'$d'.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d"
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("d"))
     {
-        return false;
+        return false
     }
-    pval = val["d"];
+    pval = val["d"]
     // .'$d'.d
-    return (typeof pval === 'string' || pval instanceof String);
+    return (typeof pval === 'string' || pval instanceof String)
 }
 
 // object .'$alternative'.'|'.0
@@ -53,31 +53,31 @@ function _jm_obj_0(val, path, rep)
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("u"))
     {
-        return false;
+        return false
     }
-    pval = val["u"];
+    pval = val["u"]
     // .'$alternative'.'|'.0.u
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("a"))
     {
-        return false;
+        return false
     }
-    pval = val["a"];
+    pval = val["a"]
     // .'$alternative'.'|'.0.a
-    return (typeof pval === 'string' || pval instanceof String);
+    return (typeof pval === 'string' || pval instanceof String)
 }
 
 
@@ -87,31 +87,31 @@ function _jm_obj_1(val, path, rep)
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("t"))
     {
-        return false;
+        return false
     }
-    pval = val["t"];
+    pval = val["t"]
     // .'$alternative'.'|'.1.t
-    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("bc"))
     {
-        return false;
+        return false
     }
-    pval = val["bc"];
+    pval = val["bc"]
     // .'$alternative'.'|'.1.bc
-    return (typeof pval === 'string' || pval instanceof String);
+    return (typeof pval === 'string' || pval instanceof String)
 }
 
 
@@ -120,29 +120,29 @@ function json_model_3(val, path, rep)
 {
     // expecting xor-to-or and tag detection, but not for u
     // .'$alternative'
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
-        let tag_0;
+        let tag_0
         if ((tag_0 = val["t"]) != null)
         {
-            let fun_0 = _jm_map_0.get(tag_0);
-            res = fun_0 !== undefined && fun_0(val, null, null);
+            let fun_0 = _jm_map_0.get(tag_0)
+            res = fun_0 !== undefined && fun_0(val, null, null)
         }
         else
         {
-            res = false;
+            res = false
         }
     }
     // .'$alternative'.'|'.0
-    return res || _jm_obj_0(val, null, null);
+    return res || _jm_obj_0(val, null, null)
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    return json_model_3(val, null, null);
+    return json_model_3(val, null, null)
 }
 
 

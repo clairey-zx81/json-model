@@ -20,31 +20,31 @@ function json_model_5(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$loose']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$loose']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("li"))
     {
         rep !== null && rep.push(["missing mandatory prop <li> [.'$loose']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["li"]) : null;
-    pval = val["li"];
+    lpath = path ? path.concat(["li"]) : null
+    pval = val["li"]
     // .'$loose'.li
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 loose int [.'$loose'.li]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$loose']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $strict (.'$strict')
@@ -56,31 +56,31 @@ function json_model_6(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$strict']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$strict']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("si"))
     {
         rep !== null && rep.push(["missing mandatory prop <si> [.'$strict']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["si"]) : null;
-    pval = val["si"];
+    lpath = path ? path.concat(["si"]) : null
+    pval = val["si"]
     // .'$strict'.si
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$strict'.si]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <si> [.'$strict']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $combined (.'$combined')
@@ -91,58 +91,58 @@ function json_model_4(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$combined']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'$combined']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("li"))
     {
         rep !== null && rep.push(["missing mandatory prop <li> [.'$combined']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["li"]) : null;
-    pval = val["li"];
+    lpath = path ? path.concat(["li"]) : null
+    pval = val["li"]
     // .'$combined'.li
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$combined'.li]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <li> [.'$combined']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("si"))
     {
         rep !== null && rep.push(["missing mandatory prop <si> [.'$combined']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["si"]) : null;
-    pval = val["si"];
+    lpath = path ? path.concat(["si"]) : null
+    pval = val["si"]
     // .'$combined'.si
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$combined'.si]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <si> [.'$combined']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$combined\" [.]", path])
     }
-    return res;
+    return res
 }
 
 
