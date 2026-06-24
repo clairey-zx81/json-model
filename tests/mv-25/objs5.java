@@ -31,9 +31,7 @@ public class objs5 extends ModelChecker
     {
         // .
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -46,9 +44,7 @@ public class objs5 extends ModelChecker
                 // .f0
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f1") == 0)
@@ -57,9 +53,7 @@ public class objs5 extends ModelChecker
                 // .f1
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f2") == 0)
@@ -68,9 +62,7 @@ public class objs5 extends ModelChecker
                 // .f2
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f3") == 0)
@@ -79,9 +71,7 @@ public class objs5 extends ModelChecker
                 // .f3
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f4") == 0)
@@ -90,9 +80,7 @@ public class objs5 extends ModelChecker
                 // .f4
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f5") == 0)
@@ -101,9 +89,7 @@ public class objs5 extends ModelChecker
                 // .f5
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f6") == 0)
@@ -112,9 +98,7 @@ public class objs5 extends ModelChecker
                 // .f6
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f7") == 0)
@@ -123,9 +107,7 @@ public class objs5 extends ModelChecker
                 // .f7
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f8") == 0)
@@ -134,9 +116,7 @@ public class objs5 extends ModelChecker
                 // .f8
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f9") == 0)
@@ -145,9 +125,7 @@ public class objs5 extends ModelChecker
                 // .f9
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;

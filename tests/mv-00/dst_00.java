@@ -18,46 +18,30 @@ public class dst_00 extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "c")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "b")) != null))
-        {
             return false;
-        }
         return json.isInteger(pval) && json.asLong(pval) >= 1;
     }
 
@@ -67,13 +51,9 @@ public class dst_00 extends ModelChecker
         if (res)
         {
             if (json.objectHasProp(val, "b"))
-            {
                 res = _jm_obj_1(val, null, null);
-            }
             else
-            {
                 res = json.objectHasProp(val, "c") && _jm_obj_0(val, null, null);
-            }
         }
         return res;
     }

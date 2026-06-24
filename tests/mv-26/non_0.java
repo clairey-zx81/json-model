@@ -28,9 +28,7 @@ public class non_0 extends ModelChecker
         // .'^'.0
         boolean xr_0 = json.isString(val);
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.0]", path);
@@ -38,9 +36,7 @@ public class non_0 extends ModelChecker
         // .'^'.1
         xr_0 = json.isString(val) && json.asString(val).compareTo("!") == 0;
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_!\" [.'^'.1]", path);
@@ -50,9 +46,7 @@ public class non_0 extends ModelChecker
             // .'^'.2
             xr_0 = json.isString(val) && json.asString(val).compareTo("world") == 0;
             if (xr_0)
-            {
                 xc_0 += 1;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"_world\" [.'^'.2]", path);

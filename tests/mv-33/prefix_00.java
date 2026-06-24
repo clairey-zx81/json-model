@@ -55,9 +55,7 @@ public class prefix_00 extends ModelChecker
                 // optional remaining items
                 // other constraints
                 if (res)
-                {
                     res = rt.array_is_unique(val, path, rep);
-                }
                 if (res)
                 {
                     res = size_0 != 3;

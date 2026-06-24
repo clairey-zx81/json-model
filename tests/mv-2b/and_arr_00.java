@@ -33,9 +33,7 @@ public class and_arr_00 extends ModelChecker
         {
             res = json_model_2(json.arrayItem(val, 0), null, null);
             if (res)
-            {
                 res = json_model_2(json.arrayItem(val, 1), null, null);
-            }
         }
         return res;
     }

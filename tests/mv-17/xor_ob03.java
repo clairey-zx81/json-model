@@ -195,9 +195,7 @@ public class xor_ob03 extends ModelChecker
             {
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
-                {
                     res = fun_0.call(pval, (path != null ? lpath : null), rep);
-                }
                 else
                 {
                     res = false;

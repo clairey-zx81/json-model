@@ -19,216 +19,136 @@ public class discs extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval) && json.asString(pval).compareTo("n") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "v")) != null))
-        {
             return false;
-        }
         return json.isNull(pval);
     }
 
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval) && json.asString(pval).compareTo("b") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "v")) != null))
-        {
             return false;
-        }
         return json.isBoolean(pval);
     }
 
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval) && json.asString(pval).compareTo("i") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "v")) != null))
-        {
             return false;
-        }
         return json.isInteger(pval);
     }
 
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval) && json.asString(pval).compareTo("u") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "v")) != null))
-        {
             return false;
-        }
         return json.isInteger(pval) && json.asLong(pval) >= 0;
     }
 
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval) && json.asString(pval).compareTo("f") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "v")) != null))
-        {
             return false;
-        }
         return json.isDouble(pval);
     }
 
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval) && json.asString(pval).compareTo("s") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "v")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 
     public boolean _jm_obj_6(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "v")) != null))
-        {
             return false;
-        }
         return json.isArray(pval);
     }
 
     public boolean _jm_obj_7(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval) && json.asString(pval).compareTo("o") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "v")) != null))
-        {
             return false;
-        }
         return json.isObject(pval);
     }
 
@@ -245,9 +165,7 @@ public class discs extends ModelChecker
                 res = fun_0 != null && fun_0.call(val, null, null);
             }
             else
-            {
                 res = false;
-            }
         }
         return res;
     }

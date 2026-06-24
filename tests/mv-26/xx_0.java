@@ -31,9 +31,7 @@ public class xx_0 extends ModelChecker
         // .'^'.0
         boolean xr_0 = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("value not in enum [.'^'.0.'|']", path);
@@ -41,9 +39,7 @@ public class xx_0 extends ModelChecker
         // .'^'.1
         xr_0 = json.isString(val) && json.asString(val).compareTo("hello") == 0;
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_hello\" [.'^'.1]", path);

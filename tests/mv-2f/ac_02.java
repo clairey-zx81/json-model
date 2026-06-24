@@ -18,23 +18,15 @@ public class ac_02 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval);
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "b")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 

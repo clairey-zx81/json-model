@@ -106,9 +106,7 @@ public class orob_00 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
             }
             if (res)
             {

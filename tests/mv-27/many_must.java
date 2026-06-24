@@ -180,9 +180,7 @@ public class many_must extends ModelChecker
     {
         // .
         if (! json.isObject(val))
-        {
             return false;
-        }
         Checker pfun;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -197,9 +195,7 @@ public class many_must extends ModelChecker
                 {
                     must_count += 1;
                     if (! pfun.call(pval, null, null))
-                    {
                         return false;
-                    }
                     continue;
                 }
             }

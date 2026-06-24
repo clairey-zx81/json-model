@@ -30,19 +30,13 @@ public class must_only extends ModelChecker
     {
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 1)
-        {
             return false;
-        }
         Object pval;
         boolean res;
         if (! ((pval = json.objectValue(val, "p10")) != null))
-        {
             return false;
-        }
         // .mo1.p10
         return json.isInteger(pval) && json.asLong(pval) >= 0;
     }
@@ -52,28 +46,18 @@ public class must_only extends ModelChecker
     {
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "p20")) != null))
-        {
             return false;
-        }
         // .mo2.p20
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "p21")) != null))
-        {
             return false;
-        }
         // .mo2.p21
         return json.isInteger(pval) && json.asLong(pval) >= 0;
     }
@@ -82,9 +66,7 @@ public class must_only extends ModelChecker
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -99,9 +81,7 @@ public class must_only extends ModelChecker
                 // .mo3.p30
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("p31") == 0)
@@ -111,9 +91,7 @@ public class must_only extends ModelChecker
                 // .mo3.p31
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("p32") == 0)
@@ -123,9 +101,7 @@ public class must_only extends ModelChecker
                 // .mo3.p32
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;
@@ -138,9 +114,7 @@ public class must_only extends ModelChecker
     {
         // .
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -154,9 +128,7 @@ public class must_only extends ModelChecker
                 // .mo0
                 res = _jm_obj_0(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("mo1") == 0)
@@ -166,9 +138,7 @@ public class must_only extends ModelChecker
                 // .mo1
                 res = _jm_obj_1(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("mo2") == 0)
@@ -178,9 +148,7 @@ public class must_only extends ModelChecker
                 // .mo2
                 res = _jm_obj_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("mo3") == 0)
@@ -190,9 +158,7 @@ public class must_only extends ModelChecker
                 // .mo3
                 res = _jm_obj_3(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;

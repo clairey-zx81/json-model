@@ -330,14 +330,10 @@ public class francais extends ModelChecker
         Matcher _jm_xre_0_re_match;
         boolean match = (_jm_xre_0_re_match = _jm_xre_0_re_pat.matcher(val)).find();
         if (! match)
-        {
             return false;
-        }
         String extract = _jm_xre_0_re_match.group("s1");
         if (! rt.is_valid_regex(extract))
-        {
             return false;
-        }
         return true;
     }
 
@@ -351,14 +347,10 @@ public class francais extends ModelChecker
         Matcher _jm_xre_1_re_match;
         boolean match = (_jm_xre_1_re_match = _jm_xre_1_re_pat.matcher(val)).find();
         if (! match)
-        {
             return false;
-        }
         String extract = _jm_xre_1_re_match.group("s1");
         if (! rt.is_valid_exreg(extract))
-        {
             return false;
-        }
         return true;
     }
 
@@ -468,11 +460,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.5.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Element'.'|'.5]", (path != null ? lpath_0 : null));
@@ -540,11 +530,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.4.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Element'.'|'.4]", (path != null ? lpath_1 : null));
@@ -623,11 +611,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.3.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Element'.'|'.3]", (path != null ? lpath_2 : null));
@@ -706,11 +692,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.2.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Element'.'|'.2]", (path != null ? lpath_3 : null));
@@ -789,11 +773,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Element'.'|'.1.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Element'.'|'.1]", (path != null ? lpath_4 : null));
@@ -877,11 +859,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 3 re props
                 // .'$Model#Element'.'|'.0.'/^#/'
                 res = true;
-            }
             else if (_jm_re_3(prop, path, rep))
             {
                 // handle 3 re props
@@ -1177,11 +1157,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.5.'$'.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.5.'$']", (path != null ? lpath_7 : null));
@@ -1288,11 +1266,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.5.'%'.'/^#/'
                 res = true;
-            }
             else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
@@ -1388,11 +1364,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.5.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.5]", (path != null ? lpath_6 : null));
@@ -1455,11 +1429,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.4.'$'.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.4.'$']", (path != null ? lpath_10 : null));
@@ -1556,11 +1528,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.4.'%'.'/^#/'
                 res = true;
-            }
             else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
@@ -1678,11 +1648,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.4.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.4]", (path != null ? lpath_9 : null));
@@ -1756,11 +1724,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.3.'$'.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.3.'$']", (path != null ? lpath_13 : null));
@@ -1857,11 +1823,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.3.'%'.'/^#/'
                 res = true;
-            }
             else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
@@ -1979,11 +1943,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.3.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.3]", (path != null ? lpath_12 : null));
@@ -2057,11 +2019,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.2.'$'.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.2.'$']", (path != null ? lpath_16 : null));
@@ -2158,11 +2118,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.2.'%'.'/^#/'
                 res = true;
-            }
             else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
@@ -2280,11 +2238,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.2.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.2]", (path != null ? lpath_15 : null));
@@ -2358,11 +2314,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.1.'$'.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.1.'$']", (path != null ? lpath_19 : null));
@@ -2459,11 +2413,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.1.'%'.'/^#/'
                 res = true;
-            }
             else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
@@ -2581,11 +2533,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.1.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.1]", (path != null ? lpath_18 : null));
@@ -2659,11 +2609,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Root'.'|'.0.'$'.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Root'.'|'.0.'$']", (path != null ? lpath_22 : null));
@@ -2760,11 +2708,9 @@ public class francais extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.0.'%'.'/^#/'
                 res = true;
-            }
             else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
@@ -2877,11 +2823,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 3 re props
                 // .'$Model#Root'.'|'.0.'/^#/'
                 res = true;
-            }
             else if (_jm_re_3(prop, path, rep))
             {
                 // handle 3 re props
@@ -3151,11 +3095,9 @@ public class francais extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$Model#Transformation'.'|'.1.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Model#Transformation'.'|'.1]", (path != null ? lpath_24 : null));

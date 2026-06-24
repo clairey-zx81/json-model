@@ -18,192 +18,120 @@ public class dst_01 extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (json.objectSize(val) != 3)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "c")) != null))
-        {
             return false;
-        }
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "f")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 
     public boolean _jm_obj_1(Object val, Path path, Report rep)
     {
         if (json.objectSize(val) != 3)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "c")) != null))
-        {
             return false;
-        }
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "e")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 
     public boolean _jm_obj_2(Object val, Path path, Report rep)
     {
         if (json.objectSize(val) != 3)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "c")) != null))
-        {
             return false;
-        }
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 
     public boolean _jm_obj_3(Object val, Path path, Report rep)
     {
         if (json.objectSize(val) != 3)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "b")) != null))
-        {
             return false;
-        }
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "f")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 
     public boolean _jm_obj_4(Object val, Path path, Report rep)
     {
         if (json.objectSize(val) != 3)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "b")) != null))
-        {
             return false;
-        }
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "e")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 
     public boolean _jm_obj_5(Object val, Path path, Report rep)
     {
         if (json.objectSize(val) != 3)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "b")) != null))
-        {
             return false;
-        }
         res = json.isInteger(pval) && json.asLong(pval) >= 1;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 

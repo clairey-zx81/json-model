@@ -28,9 +28,7 @@ public class xoropt_010 extends ModelChecker
             return false;
         }
         if (json.objectSize(val) == 0)
-        {
             return true;
-        }
         else
         {
             if (rep != null) rep.addEntry("expecting empty object [.'|'.1.a]", path);

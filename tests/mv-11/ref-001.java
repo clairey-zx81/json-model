@@ -139,9 +139,7 @@ public class ref_001 extends ModelChecker
             return false;
         }
         if (json.objectSize(val) == 0)
-        {
             return true;
-        }
         else
         {
             if (rep != null) rep.addEntry("expecting empty object [.]", path);

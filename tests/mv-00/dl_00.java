@@ -18,9 +18,7 @@ public class dl_00 extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -29,9 +27,7 @@ public class dl_00 extends ModelChecker
             Object pval = json.objectValue(val, prop);
             res = json_model_2(pval, null, null);
             if (! res)
-            {
                 return false;
-            }
         }
         return true;
     }

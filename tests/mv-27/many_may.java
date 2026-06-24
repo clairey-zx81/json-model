@@ -180,9 +180,7 @@ public class many_may extends ModelChecker
     {
         // .
         if (! json.isObject(val))
-        {
             return false;
-        }
         Checker pfun;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -193,9 +191,7 @@ public class many_may extends ModelChecker
             {
                 // handle 22 may props
                 if (pfun != null && ! pfun.call(pval, null, null))
-                {
                     return false;
-                }
                 continue;
             }
             return false;

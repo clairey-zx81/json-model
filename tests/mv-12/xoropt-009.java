@@ -104,9 +104,7 @@ public class xoropt_009 extends ModelChecker
         // .'^'.0
         boolean xr_0 = _jm_obj_0(val, path, rep);
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected element [.'^'.0]", path);
@@ -114,9 +112,7 @@ public class xoropt_009 extends ModelChecker
         // .'^'.1
         xr_0 = _jm_obj_1(val, path, rep);
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected element [.'^'.1]", path);

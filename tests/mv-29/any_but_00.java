@@ -91,9 +91,7 @@ public class any_but_00 extends ModelChecker
             }
         }
         else
-        {
             res = true;
-        }
         return res;
     }
 

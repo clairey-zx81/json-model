@@ -33,9 +33,7 @@ public class xx_1 extends ModelChecker
         // .'^'.0.'^'.0
         boolean xr_1 = json.isString(val);
         if (xr_1)
-        {
             xc_1 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'^'.0.'^'.0]", path);
@@ -43,9 +41,7 @@ public class xx_1 extends ModelChecker
         // .'^'.0.'^'.1
         xr_1 = json.isString(val) && json.asString(val).compareTo("hello") == 0;
         if (xr_1)
-        {
             xc_1 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_hello\" [.'^'.0.'^'.1]", path);
@@ -55,9 +51,7 @@ public class xx_1 extends ModelChecker
             // .'^'.0.'^'.2
             xr_1 = json.isString(val) && json.asString(val).compareTo("world") == 0;
             if (xr_1)
-            {
                 xc_1 += 1;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"_world\" [.'^'.0.'^'.2]", path);
@@ -68,9 +62,7 @@ public class xx_1 extends ModelChecker
             // .'^'.0.'^'.3
             xr_1 = json.isString(val) && json.asString(val).compareTo("!") == 0;
             if (xr_1)
-            {
                 xc_1 += 1;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"_!\" [.'^'.0.'^'.3]", path);
@@ -89,9 +81,7 @@ public class xx_1 extends ModelChecker
         // .'^'.1
         xr_0 = json.isString(val) && json.asString(val).compareTo("hello") == 0;
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_hello\" [.'^'.1]", path);

@@ -133,9 +133,7 @@ public class xoropt_011 extends ModelChecker
             {
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
-                {
                     res = fun_0.call(val, path, rep);
-                }
                 else
                 {
                     res = false;

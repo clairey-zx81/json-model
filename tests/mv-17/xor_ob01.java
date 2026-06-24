@@ -105,9 +105,7 @@ public class xor_ob01 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
             }
             if (res)
             {
@@ -211,9 +209,7 @@ public class xor_ob01 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
             }
             if (res)
             {
@@ -407,9 +403,7 @@ public class xor_ob01 extends ModelChecker
                 }
             }
             else
-            {
                 res = false;
-            }
             if (! res)
             {
                 if (json.objectHasProp(val, "c"))
@@ -422,9 +416,7 @@ public class xor_ob01 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
                 if (! res)
                 {
                     if (json.objectHasProp(val, "b"))
@@ -437,9 +429,7 @@ public class xor_ob01 extends ModelChecker
                         }
                     }
                     else
-                    {
                         res = false;
-                    }
                     if (! res)
                     {
                         if (json.objectHasProp(val, "b"))
@@ -452,9 +442,7 @@ public class xor_ob01 extends ModelChecker
                             }
                         }
                         else
-                        {
                             res = false;
-                        }
                     }
                 }
             }

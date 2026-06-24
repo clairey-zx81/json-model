@@ -40,9 +40,7 @@ public class ac_03 extends ModelChecker
                 Object arr_1_item = arr_1_item_loop.next();
                 res = json.isString(arr_1_item) && _jm_re_1(json.asString(arr_1_item), null, null);
                 if (! res)
-                {
                     break;
-                }
             }
             if (res)
             {
@@ -54,9 +52,7 @@ public class ac_03 extends ModelChecker
                     Object arr_0_item = arr_0_item_loop.next();
                     res = json.isString(arr_0_item) && _jm_re_0(json.asString(arr_0_item), null, null);
                     if (! res)
-                    {
                         break;
-                    }
                 }
             }
         }

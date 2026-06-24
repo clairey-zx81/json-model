@@ -37,9 +37,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.4.a
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("c") == 0)
@@ -49,9 +47,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.4.c
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("d") == 0)
@@ -61,9 +57,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.4.d
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("e") == 0)
@@ -73,9 +67,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.4.e
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (prop.compareTo("r") == 0)
@@ -84,9 +76,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.4.r
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;
@@ -112,9 +102,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.3.a
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("e") == 0)
@@ -124,9 +112,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.3.e
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (prop.compareTo("s") == 0)
@@ -135,9 +121,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.3.s
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("q") == 0)
@@ -146,9 +130,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.3.q
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;
@@ -174,9 +156,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.2.a
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("d") == 0)
@@ -186,9 +166,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.2.d
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (prop.compareTo("u") == 0)
@@ -197,9 +175,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.2.u
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("x") == 0)
@@ -208,9 +184,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.2.x
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;
@@ -236,9 +210,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.1.a
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("c") == 0)
@@ -248,9 +220,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.1.c
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (prop.compareTo("v") == 0)
@@ -259,9 +229,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.1.v
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("z") == 0)
@@ -270,9 +238,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.1.z
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;
@@ -298,9 +264,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.0.a
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("b") == 0)
@@ -310,9 +274,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.0.b
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (prop.compareTo("z") == 0)
@@ -321,9 +283,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.0.z
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("w") == 0)
@@ -332,9 +292,7 @@ public class prop_discriminant_2 extends ModelChecker
                 // .'|'.0.w
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;
@@ -351,14 +309,10 @@ public class prop_discriminant_2 extends ModelChecker
         if (res)
         {
             if (json.objectHasProp(val, "b"))
-            {
                 // .'|'.0
                 res = _jm_obj_4(val, null, null);
-            }
             else
-            {
                 res = json.objectHasProp(val, "c") && _jm_obj_3(val, null, null) || json.objectHasProp(val, "d") && _jm_obj_2(val, null, null) || json.objectHasProp(val, "e") && _jm_obj_1(val, null, null) || json.objectHasProp(val, "c") && _jm_obj_0(val, null, null);
-            }
         }
         return res;
     }

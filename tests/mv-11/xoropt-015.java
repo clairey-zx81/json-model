@@ -254,9 +254,7 @@ public class xoropt_015 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
             }
             if (res)
             {

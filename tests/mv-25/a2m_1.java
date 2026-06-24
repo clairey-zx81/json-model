@@ -25,9 +25,7 @@ public class a2m_1 extends ModelChecker
         // .'$Oa'
         // check open must/may only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         Object pval;
         boolean res;
         if ((pval = json.objectValue(val, "a")) != null)
@@ -35,9 +33,7 @@ public class a2m_1 extends ModelChecker
             // .'$Oa'.a
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
-            {
                 return false;
-            }
         }
         return true;
     }
@@ -48,9 +44,7 @@ public class a2m_1 extends ModelChecker
         // .'$Ob'
         // check open must/may only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         Object pval;
         boolean res;
         if ((pval = json.objectValue(val, "b")) != null)
@@ -58,9 +52,7 @@ public class a2m_1 extends ModelChecker
             // .'$Ob'.b
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
-            {
                 return false;
-            }
         }
         return true;
     }
@@ -71,9 +63,7 @@ public class a2m_1 extends ModelChecker
         // .'$merge'
         // check open must/may only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         Object pval;
         boolean res;
         if ((pval = json.objectValue(val, "a")) != null)
@@ -81,18 +71,14 @@ public class a2m_1 extends ModelChecker
             // .'$merge'.a
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
-            {
                 return false;
-            }
         }
         if ((pval = json.objectValue(val, "b")) != null)
         {
             // .'$merge'.b
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
-            {
                 return false;
-            }
         }
         return true;
     }
@@ -103,19 +89,13 @@ public class a2m_1 extends ModelChecker
         // .'$nomerge'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 1)
-        {
             return false;
-        }
         Object pval;
         boolean res;
         if (! ((pval = json.objectValue(val, "c")) != null))
-        {
             return false;
-        }
         // .'$nomerge'.c
         return json.isInteger(pval) && json.asLong(pval) >= 1;
     }

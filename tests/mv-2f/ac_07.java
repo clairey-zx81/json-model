@@ -18,9 +18,7 @@ public class ac_07 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -33,18 +31,14 @@ public class ac_07 extends ModelChecker
                 must_count += 1;
                 res = json.isInteger(pval) && json.asLong(pval) >= 1;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (prop.compareTo("b") == 0)
             {
                 res = json.isInteger(pval) && json.asLong(pval) >= 1;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;

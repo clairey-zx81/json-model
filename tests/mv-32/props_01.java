@@ -19,27 +19,17 @@ public class props_01 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "x")) != null))
-        {
             return false;
-        }
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "y")) != null))
-        {
             return false;
-        }
         return json.isInteger(pval) && json.asLong(pval) >= 0;
     }
 

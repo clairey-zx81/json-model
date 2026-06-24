@@ -105,9 +105,7 @@ public class dis_004 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
             }
             if (res)
             {

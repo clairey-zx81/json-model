@@ -84,9 +84,7 @@ public class objs4 extends ModelChecker
     {
         // .
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -99,9 +97,7 @@ public class objs4 extends ModelChecker
                 // .f0
                 res = _jm_obj_0(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f1") == 0)
@@ -110,9 +106,7 @@ public class objs4 extends ModelChecker
                 // .f1
                 res = _jm_obj_1(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f2") == 0)
@@ -121,9 +115,7 @@ public class objs4 extends ModelChecker
                 // .f2
                 res = _jm_obj_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f3") == 0)
@@ -132,9 +124,7 @@ public class objs4 extends ModelChecker
                 // .f3
                 res = _jm_obj_3(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f4") == 0)
@@ -143,9 +133,7 @@ public class objs4 extends ModelChecker
                 // .f4
                 res = _jm_obj_4(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f5") == 0)
@@ -154,9 +142,7 @@ public class objs4 extends ModelChecker
                 // .f5
                 res = _jm_obj_5(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f6") == 0)
@@ -165,9 +151,7 @@ public class objs4 extends ModelChecker
                 // .f6
                 res = _jm_obj_6(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f7") == 0)
@@ -176,9 +160,7 @@ public class objs4 extends ModelChecker
                 // .f7
                 res = _jm_obj_7(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f8") == 0)
@@ -187,9 +169,7 @@ public class objs4 extends ModelChecker
                 // .f8
                 res = _jm_obj_8(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("f9") == 0)
@@ -198,9 +178,7 @@ public class objs4 extends ModelChecker
                 // .f9
                 res = _jm_obj_9(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;

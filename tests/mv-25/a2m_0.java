@@ -25,24 +25,16 @@ public class a2m_0 extends ModelChecker
         // .
         // check open must/may only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         // .a
         boolean res = json.isInteger(pval) && json.asLong(pval) >= 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "b")) != null))
-        {
             return false;
-        }
         // .b
         return json.isInteger(pval) && json.asLong(pval) >= 0;
     }

@@ -53,9 +53,7 @@ public class or_10 extends ModelChecker
     {
         // value known to be an object
         if (json.objectSize(val) == 0)
-        {
             return true;
-        }
         else
         {
             if (rep != null) rep.addEntry("expecting empty object [.'|'.0]", path);
@@ -85,9 +83,7 @@ public class or_10 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
             }
             if (res)
             {

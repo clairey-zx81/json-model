@@ -116,9 +116,7 @@ public class x2o_0 extends ModelChecker
         // .'|'.2.t.'^'.0
         boolean xr_0 = json.isString(pval);
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"\" [.'|'.2.t.'^'.0]", (path != null ? lpath : null));
@@ -126,9 +124,7 @@ public class x2o_0 extends ModelChecker
         // .'|'.2.t.'^'.1
         xr_0 = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"_a\" [.'|'.2.t.'^'.1]", (path != null ? lpath : null));
@@ -138,9 +134,7 @@ public class x2o_0 extends ModelChecker
             // .'|'.2.t.'^'.2
             xr_0 = json.isString(pval) && json.asString(pval).compareTo("b") == 0;
             if (xr_0)
-            {
                 xc_0 += 1;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"_b\" [.'|'.2.t.'^'.2]", (path != null ? lpath : null));
@@ -151,9 +145,7 @@ public class x2o_0 extends ModelChecker
             // .'|'.2.t.'^'.3
             xr_0 = json.isString(pval) && json.asString(pval).compareTo("c") == 0;
             if (xr_0)
-            {
                 xc_0 += 1;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected value for model \"_c\" [.'|'.2.t.'^'.3]", (path != null ? lpath : null));
@@ -187,9 +179,7 @@ public class x2o_0 extends ModelChecker
             {
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
-                {
                     res = fun_0.call(val, path, rep);
-                }
                 else
                 {
                     res = false;

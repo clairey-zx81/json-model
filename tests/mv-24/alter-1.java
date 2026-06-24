@@ -44,28 +44,18 @@ public class alter_1 extends ModelChecker
         // .'$d'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$d'.t
         boolean res = json.isString(pval) && json.asString(pval).compareTo("d") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "d")) != null))
-        {
             return false;
-        }
         // .'$d'.d
         return json.isString(pval);
     }
@@ -77,28 +67,18 @@ public class alter_1 extends ModelChecker
         // .'$ef'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$ef'.t
         boolean res = json.isScalar(pval) && _jm_cst_1_set.contains(pval);
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "ef")) != null))
-        {
             return false;
-        }
         // .'$ef'.ef
         return json.isString(pval);
     }
@@ -108,28 +88,18 @@ public class alter_1 extends ModelChecker
     {
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$alternative'.'|'.0.t
         boolean res = json.isString(pval) && json.asString(pval).compareTo("a") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "a")) != null))
-        {
             return false;
-        }
         // .'$alternative'.'|'.0.a
         return json.isString(pval);
     }
@@ -140,28 +110,18 @@ public class alter_1 extends ModelChecker
     {
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$alternative'.'|'.1.t
         boolean res = json.isScalar(pval) && _jm_cst_2_set.contains(pval);
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "bc")) != null))
-        {
             return false;
-        }
         // .'$alternative'.'|'.1.bc
         return json.isString(pval);
     }
@@ -171,28 +131,18 @@ public class alter_1 extends ModelChecker
     {
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$alternative'.'|'.2.t
         boolean res = json.isString(pval) && json.asString(pval).compareTo("g") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "g")) != null))
-        {
             return false;
-        }
         // .'$alternative'.'|'.2.g
         return json.isString(pval);
     }
@@ -202,28 +152,18 @@ public class alter_1 extends ModelChecker
     {
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$alternative'.'|'.3.t
         boolean res = json_model_3(pval, null, null);
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "hi")) != null))
-        {
             return false;
-        }
         // .'$alternative'.'|'.3.hi
         return json.isString(pval);
     }
@@ -244,9 +184,7 @@ public class alter_1 extends ModelChecker
                 res = fun_0 != null && fun_0.call(val, null, null);
             }
             else
-            {
                 res = false;
-            }
         }
         return res;
     }

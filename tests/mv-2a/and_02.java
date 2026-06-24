@@ -129,11 +129,9 @@ public class and_02 extends ModelChecker
                 continue;
             }
             if (prop.startsWith("z"))
-            {
                 // handle 2 re props
                 // .'&'.0.'/^z/'
                 res = true;
-            }
             else if (_jm_re_1(prop, path, rep))
             {
                 // handle 2 re props
