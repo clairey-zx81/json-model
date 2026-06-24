@@ -57,9 +57,7 @@ public class enum_00 extends ModelChecker
         // .'^'.0
         boolean xr_0 = json_model_2(val, path, rep);
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$p1\" [.'^'.0]", path);
@@ -67,9 +65,7 @@ public class enum_00 extends ModelChecker
         // .'^'.1
         xr_0 = json_model_3(val, path, rep);
         if (xr_0)
-        {
             xc_0 += 1;
-        }
         else
         {
             if (rep != null) rep.addEntry("unexpected value for model \"$p2\" [.'^'.1]", path);

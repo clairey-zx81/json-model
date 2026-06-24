@@ -20,9 +20,7 @@ public class optnull extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -33,9 +31,7 @@ public class optnull extends ModelChecker
             {
                 res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;

@@ -761,11 +761,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$metas'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$metas']", (path != null ? lpath_6 : null));
@@ -1015,11 +1013,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$String'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$String']", (path != null ? lpath_9 : null));
@@ -1294,11 +1290,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Array'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Array']", (path != null ? lpath_12 : null));
@@ -1604,11 +1598,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Object'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Object']", (path != null ? lpath_15 : null));
@@ -1865,11 +1857,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Integer'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Integer']", (path != null ? lpath_20 : null));
@@ -2126,11 +2116,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Number'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Number']", (path != null ? lpath_23 : null));
@@ -2361,11 +2349,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Bool'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Bool']", (path != null ? lpath_26 : null));
@@ -2596,11 +2582,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Null'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Null']", (path != null ? lpath_29 : null));
@@ -2831,11 +2815,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$AllOf'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$AllOf']", (path != null ? lpath_32 : null));
@@ -3066,11 +3048,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$AnyOf'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$AnyOf']", (path != null ? lpath_35 : null));
@@ -3301,11 +3281,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$OneOf'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$OneOf']", (path != null ? lpath_38 : null));
@@ -3536,11 +3514,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Enum'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Enum']", (path != null ? lpath_41 : null));
@@ -3771,11 +3747,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Const'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Const']", (path != null ? lpath_44 : null));
@@ -4006,11 +3980,9 @@ public class json_schema_linter extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$Ref'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Ref']", (path != null ? lpath_47 : null));
@@ -4045,9 +4017,7 @@ public class json_schema_linter extends ModelChecker
             {
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
-                {
                     res = fun_0.call(val, path, rep);
-                }
                 else
                 {
                     res = false;

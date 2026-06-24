@@ -36,9 +36,7 @@ public class starts_with_array extends ModelChecker
                 // "/^hello world!/"
                 res = json.isString(arr_0_item) && json.asString(arr_0_item).startsWith("hello world!");
                 if (! res)
-                {
                     break;
-                }
             }
         }
         return res;

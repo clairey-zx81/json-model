@@ -37,15 +37,11 @@ public class aa_0 extends ModelChecker
                         Object arr_1_item = arr_1_item_loop.next();
                         res = json.isString(arr_1_item);
                         if (! res)
-                        {
                             break;
-                        }
                     }
                 }
                 if (! res)
-                {
                     break;
-                }
             }
         }
         return res;

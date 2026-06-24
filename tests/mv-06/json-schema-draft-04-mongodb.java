@@ -610,9 +610,7 @@ public class json_schema_draft_04_mongodb extends ModelChecker
                 // optional remaining items
                 // other constraints
                 if (res)
-                {
                     res = rt.array_is_unique(val, path, rep);
-                }
             }
             else
             {

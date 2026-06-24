@@ -19,27 +19,17 @@ public class uniq_obj extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "x")) != null))
-        {
             return false;
-        }
         boolean res = json.isString(pval);
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "y")) != null))
-        {
             return false;
-        }
         return json.isString(pval);
     }
 
@@ -56,15 +46,11 @@ public class uniq_obj extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 res = json_model_2(arr_0_item, null, null);
                 if (! res)
-                {
                     break;
-                }
             }
         }
         if (res)
-        {
             res = rt.array_is_unique(val, null, null);
-        }
         return res;
     }
 

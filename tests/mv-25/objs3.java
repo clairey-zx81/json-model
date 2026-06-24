@@ -25,28 +25,18 @@ public class objs3 extends ModelChecker
         // .'$book'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "title")) != null))
-        {
             return false;
-        }
         // .'$book'.title
         boolean res = json.isString(pval);
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "author")) != null))
-        {
             return false;
-        }
         // .'$book'.author
         return json.isString(pval);
     }
@@ -67,9 +57,7 @@ public class objs3 extends ModelChecker
                 // .0
                 res = json_model_2(arr_0_item, null, null);
                 if (! res)
-                {
                     break;
-                }
             }
         }
         return res;

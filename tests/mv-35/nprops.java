@@ -18,9 +18,7 @@ public class nprops extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -31,14 +29,10 @@ public class nprops extends ModelChecker
             {
                 res = json.isString(pval);
                 if (! res)
-                {
                     return false;
-                }
             }
             else
-            {
                 return false;
-            }
         }
         return true;
     }

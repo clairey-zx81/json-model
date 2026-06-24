@@ -133,9 +133,7 @@ public class notag extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
             }
             if (res)
             {

@@ -30,14 +30,10 @@ public class xdatey extends ModelChecker
         Matcher _jm_xre_0_re_match;
         boolean match = (_jm_xre_0_re_match = _jm_xre_0_re_pat.matcher(val)).find();
         if (! match)
-        {
             return false;
-        }
         String extract = _jm_xre_0_re_match.group("s1");
         if (! rt.is_valid_date(extract))
-        {
             return false;
-        }
         return true;
     }
 

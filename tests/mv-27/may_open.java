@@ -25,9 +25,7 @@ public class may_open extends ModelChecker
         // .
         // check open must/may only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         Object pval;
         boolean res;
         if ((pval = json.objectValue(val, "hello")) != null)
@@ -35,9 +33,7 @@ public class may_open extends ModelChecker
             // .hello
             res = json.isString(pval);
             if (! res)
-            {
                 return false;
-            }
         }
         return true;
     }

@@ -25,28 +25,18 @@ public class objs2 extends ModelChecker
         // .'$bla'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "x")) != null))
-        {
             return false;
-        }
         // .'$bla'.x
         boolean res = json.isDouble(pval);
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "y")) != null))
-        {
             return false;
-        }
         // .'$bla'.y
         return json.isDouble(pval);
     }

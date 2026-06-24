@@ -301,11 +301,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#OpenAPI'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#OpenAPI']", (path != null ? lpath_0 : null));
@@ -441,11 +439,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Info'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Info']", (path != null ? lpath_2 : null));
@@ -526,11 +522,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Contact'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Contact']", (path != null ? lpath_3 : null));
@@ -586,11 +580,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (_jm_re_1(prop, path, rep))
-            {
                 // handle 1 re props
                 // .'$openapi#License'.'|'.1.'/^x\\-.*$/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#License'.'|'.1]", (path != null ? lpath_4 : null));
@@ -656,11 +648,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (_jm_re_1(prop, path, rep))
-            {
                 // handle 1 re props
                 // .'$openapi#License'.'|'.0.'/^x\\-.*$/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#License'.'|'.0]", (path != null ? lpath_5 : null));
@@ -805,11 +795,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Server'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Server']", (path != null ? lpath_6 : null));
@@ -906,11 +894,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#ServerVariable'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#ServerVariable']", (path != null ? lpath_8 : null));
@@ -1483,11 +1469,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Components'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Components']", (path != null ? lpath_9 : null));
@@ -1525,11 +1509,9 @@ public class openapi_311_models extends ModelChecker
                 }
             }
             else if (prop.startsWith("x-"))
-            {
                 // handle 2 re props
                 // .'$openapi#Paths'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Paths']", (path != null ? lpath_20 : null));
@@ -1679,11 +1661,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#PathItem'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#PathItem']", (path != null ? lpath_21 : null));
@@ -2010,11 +1990,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Operation'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Operation']", (path != null ? lpath_22 : null));
@@ -2069,11 +2047,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#ExternalDocumentation'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#ExternalDocumentation']", (path != null ? lpath_24 : null));
@@ -2228,11 +2204,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Parameter'.'|'.1.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Parameter'.'|'.1]", (path != null ? lpath_25 : null));
@@ -2465,11 +2439,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Parameter'.'|'.0.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Parameter'.'|'.0]", (path != null ? lpath_27 : null));
@@ -2626,11 +2598,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#RequestBody'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#RequestBody']", (path != null ? lpath_29 : null));
@@ -2772,11 +2742,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#MediaType'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#MediaType']", (path != null ? lpath_31 : null));
@@ -2910,11 +2878,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Encoding'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Encoding']", (path != null ? lpath_34 : null));
@@ -3000,11 +2966,9 @@ public class openapi_311_models extends ModelChecker
                 }
             }
             else if (prop.startsWith("x-"))
-            {
                 // handle 2 re props
                 // .'$openapi#Responses'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Responses']", (path != null ? lpath_36 : null));
@@ -3194,11 +3158,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Response'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Response']", (path != null ? lpath_37 : null));
@@ -3251,11 +3213,9 @@ public class openapi_311_models extends ModelChecker
                 }
             }
             else if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Callback'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Callback']", (path != null ? lpath_41 : null));
@@ -3328,11 +3288,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Example'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Example']", (path != null ? lpath_42 : null));
@@ -3426,11 +3384,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Link'.'|'.1.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Link'.'|'.1]", (path != null ? lpath_43 : null));
@@ -3523,11 +3479,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Link'.'|'.0.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Link'.'|'.0]", (path != null ? lpath_44 : null));
@@ -3687,11 +3641,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Header'.'|'.1.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Header'.'|'.1]", (path != null ? lpath_45 : null));
@@ -3879,11 +3831,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Header'.'|'.0.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Header'.'|'.0]", (path != null ? lpath_47 : null));
@@ -3987,11 +3937,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#Tag'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#Tag']", (path != null ? lpath_49 : null));
@@ -4543,11 +4491,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#SecurityScheme'.'|'.5.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#SecurityScheme'.'|'.5]", (path != null ? lpath_56 : null));
@@ -4570,9 +4516,7 @@ public class openapi_311_models extends ModelChecker
             {
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
-                {
                     res = fun_0.call(val, path, rep);
-                }
                 else
                 {
                     res = false;
@@ -4676,11 +4620,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#OAuthFlows'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#OAuthFlows']", (path != null ? lpath_57 : null));
@@ -4790,11 +4732,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("x-"))
-            {
                 // handle 1 re props
                 // .'$openapi#OAuthFlow'.'/^x-/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#OAuthFlow']", (path != null ? lpath_58 : null));
@@ -5020,11 +4960,9 @@ public class openapi_311_models extends ModelChecker
                 }
             }
             else if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$openapi#model#Element'.'|'.5.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#model#Element'.'|'.5]", (path != null ? lpath_61 : null));
@@ -5092,11 +5030,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$openapi#model#Element'.'|'.4.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#model#Element'.'|'.4]", (path != null ? lpath_62 : null));
@@ -5175,11 +5111,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$openapi#model#Element'.'|'.3.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#model#Element'.'|'.3]", (path != null ? lpath_63 : null));
@@ -5258,11 +5192,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$openapi#model#Element'.'|'.2.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#model#Element'.'|'.2]", (path != null ? lpath_64 : null));
@@ -5341,11 +5273,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 1 re props
                 // .'$openapi#model#Element'.'|'.1.'/^#/'
                 res = true;
-            }
             else
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$openapi#model#Element'.'|'.1]", (path != null ? lpath_65 : null));
@@ -5429,11 +5359,9 @@ public class openapi_311_models extends ModelChecker
                 continue;
             }
             if (prop.startsWith("#"))
-            {
                 // handle 3 re props
                 // .'$openapi#model#Element'.'|'.0.'/^#/'
                 res = true;
-            }
             else if (_jm_re_4(prop, path, rep))
             {
                 // handle 3 re props
@@ -5704,14 +5632,10 @@ public class openapi_311_models extends ModelChecker
         Matcher _jm_xre_0_re_match;
         boolean match = (_jm_xre_0_re_match = _jm_xre_0_re_pat.matcher(val)).find();
         if (! match)
-        {
             return false;
-        }
         String extract = _jm_xre_0_re_match.group("s1");
         if (! rt.is_valid_regex(extract))
-        {
             return false;
-        }
         return true;
     }
 
@@ -5725,14 +5649,10 @@ public class openapi_311_models extends ModelChecker
         Matcher _jm_xre_1_re_match;
         boolean match = (_jm_xre_1_re_match = _jm_xre_1_re_pat.matcher(val)).find();
         if (! match)
-        {
             return false;
-        }
         String extract = _jm_xre_1_re_match.group("s1");
         if (! rt.is_valid_exreg(extract))
-        {
             return false;
-        }
         return true;
     }
 

@@ -133,9 +133,7 @@ public class dis_002 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
             }
             if (res)
             {

@@ -28,9 +28,7 @@ public class alts_2 extends ModelChecker
             return false;
         }
         if (json.objectSize(val) == 0)
-        {
             return true;
-        }
         else
         {
             if (rep != null) rep.addEntry("expecting empty object [.'$a'.''.'|'.1]", path);
@@ -90,9 +88,7 @@ public class alts_2 extends ModelChecker
             return false;
         }
         if (json.objectSize(val) == 0)
-        {
             return true;
-        }
         else
         {
             if (rep != null) rep.addEntry("expecting empty object [.'$r'.'|'.1]", path);

@@ -63,9 +63,7 @@ public class in_01 extends ModelChecker
                 // "/^a/"
                 boolean arr_1_inres = json.isString(arr_1_item) && json.asString(arr_1_item).startsWith("a");
                 if (arr_1_inres)
-                {
                     arr_1_inlen += 1;
-                }
                 else
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^a/\" [.'.in']", (path != null ? arr_1_lpath : null));

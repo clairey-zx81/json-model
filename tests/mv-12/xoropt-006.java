@@ -142,9 +142,7 @@ public class xoropt_006 extends ModelChecker
                 }
             }
             else
-            {
                 res = false;
-            }
             if (! res)
             {
                 if (json.objectHasProp(val, "b"))
@@ -157,9 +155,7 @@ public class xoropt_006 extends ModelChecker
                     }
                 }
                 else
-                {
                     res = false;
-                }
                 if (! res)
                 {
                     // .'|'.2

@@ -41,9 +41,7 @@ public class test_schema extends ModelChecker
         // A single test
         // .'$Test'
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -58,9 +56,7 @@ public class test_schema extends ModelChecker
                 // .'$Test'.description
                 res = json.isString(pval);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("data") == 0)
@@ -78,9 +74,7 @@ public class test_schema extends ModelChecker
                 // .'$Test'.valid
                 res = json.isBoolean(pval);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (prop.compareTo("comment") == 0)
@@ -89,9 +83,7 @@ public class test_schema extends ModelChecker
                 // .'$Test'.comment
                 res = json.isString(pval);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;
@@ -113,9 +105,7 @@ public class test_schema extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -128,9 +118,7 @@ public class test_schema extends ModelChecker
                 // .'$Specification'.'@'.core
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("validation") == 0)
@@ -139,9 +127,7 @@ public class test_schema extends ModelChecker
                 // .'$Specification'.'@'.validation
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("ecma262") == 0)
@@ -150,9 +136,7 @@ public class test_schema extends ModelChecker
                 // .'$Specification'.'@'.ecma262
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("perl5") == 0)
@@ -161,9 +145,7 @@ public class test_schema extends ModelChecker
                 // .'$Specification'.'@'.perl5
                 res = json.isString(pval);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("quote") == 0)
@@ -172,9 +154,7 @@ public class test_schema extends ModelChecker
                 // .'$Specification'.'@'.quote
                 res = json.isString(pval);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (_jm_re_1(prop, null, null))
@@ -183,9 +163,7 @@ public class test_schema extends ModelChecker
                 // .'$Specification'.'@'.'/^rfc\\d+$/'
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
             }
             else if (_jm_re_2(prop, null, null))
             {
@@ -193,14 +171,10 @@ public class test_schema extends ModelChecker
                 // .'$Specification'.'@'.'/^iso\\d+$/'
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
             }
             else
-            {
                 return false;
-            }
         }
         return true;
     }
@@ -224,9 +198,7 @@ public class test_schema extends ModelChecker
     {
         // .'$TestCase'
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         long must_count = 0;
         Iterator<String> prop_loop = json.objectIterator(val);
@@ -241,9 +213,7 @@ public class test_schema extends ModelChecker
                 // .'$TestCase'.description
                 res = json.isString(pval);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("schema") == 0)
@@ -272,9 +242,7 @@ public class test_schema extends ModelChecker
                         // .'$TestCase'.tests.'@'.0
                         res = json_model_3(arr_0_item, null, null);
                         if (! res)
-                        {
                             break;
-                        }
                     }
                 }
                 if (res)
@@ -283,9 +251,7 @@ public class test_schema extends ModelChecker
                     res = ival_1 >= 1;
                 }
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             if (prop.compareTo("comment") == 0)
@@ -294,9 +260,7 @@ public class test_schema extends ModelChecker
                 // .'$TestCase'.comment
                 res = json.isString(pval);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("specification") == 0)
@@ -316,9 +280,7 @@ public class test_schema extends ModelChecker
                         // .'$TestCase'.specification.'@'.0
                         res = json_model_4(arr_1_item, null, null);
                         if (! res)
-                        {
                             break;
-                        }
                     }
                 }
                 if (res)
@@ -327,9 +289,7 @@ public class test_schema extends ModelChecker
                     res = rt.array_is_unique(pval, null, null) && ival_2 >= 1;
                 }
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;
@@ -355,9 +315,7 @@ public class test_schema extends ModelChecker
                 // .'@'.0
                 res = json_model_5(arr_2_item, null, null);
                 if (! res)
-                {
                     break;
-                }
             }
         }
         if (res)

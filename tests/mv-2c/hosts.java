@@ -22,9 +22,7 @@ public class hosts extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -35,36 +33,28 @@ public class hosts extends ModelChecker
             {
                 res = json.isString(pval) && jm_is_ip4(json.asString(pval), null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("ipv6") == 0)
             {
                 res = json.isString(pval) && jm_is_ip6(json.asString(pval), null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("host") == 0)
             {
                 res = json.isString(pval) && jm_is_host(json.asString(pval), null, null) && json.asString(pval).length() <= 255;
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             else if (prop.compareTo("eth") == 0)
             {
                 res = json.isString(pval) && jm_is_eth(json.asString(pval), null, null);
                 if (! res)
-                {
                     return false;
-                }
                 continue;
             }
             return false;

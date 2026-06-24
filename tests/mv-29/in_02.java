@@ -44,9 +44,7 @@ public class in_02 extends ModelChecker
                 // .'.in'
                 boolean arr_0_inres = json.isInteger(arr_0_item) && json.asLong(arr_0_item) == 1;
                 if (arr_0_inres)
-                {
                     arr_0_inlen += 1;
-                }
                 else
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'.in']", (path != null ? arr_0_lpath : null));

@@ -26,18 +26,12 @@ public class objs1 extends ModelChecker
         // .'$objs0'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 1)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "stuff")) != null))
-        {
             return false;
-        }
         // .'$objs0'.stuff
         boolean res = json.isArray(pval);
         if (res)
@@ -51,9 +45,7 @@ public class objs1 extends ModelChecker
                 // .'$objs0'.stuff.0
                 res = json_model_6(arr_0_item, null, null);
                 if (! res)
-                {
                     break;
-                }
             }
         }
         return res;
@@ -65,19 +57,13 @@ public class objs1 extends ModelChecker
         // .
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 1)
-        {
             return false;
-        }
         Object pval;
         boolean res;
         if (! ((pval = json.objectValue(val, "foo")) != null))
-        {
             return false;
-        }
         // .foo
         return json_model_3(pval, null, null);
     }
@@ -97,9 +83,7 @@ public class objs1 extends ModelChecker
                 res = fun_0 != null && fun_0.call(val, null, null);
             }
             else
-            {
                 res = false;
-            }
         }
         return res;
     }
@@ -110,28 +94,18 @@ public class objs1 extends ModelChecker
         // .'$objs0#table'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$objs0#table'.t
         boolean res = json.isString(pval) && json.asString(pval).compareTo("table") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "legs")) != null))
-        {
             return false;
-        }
         // .'$objs0#table'.legs
         return json.isInteger(pval) && json.asLong(pval) >= 1;
     }
@@ -142,28 +116,18 @@ public class objs1 extends ModelChecker
         // .'$objs0#chair'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$objs0#chair'.t
         boolean res = json.isString(pval) && json.asString(pval).compareTo("chair") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "color")) != null))
-        {
             return false;
-        }
         // .'$objs0#chair'.color
         return json.isString(pval);
     }

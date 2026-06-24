@@ -18,19 +18,13 @@ public class mandanull extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 1)
-        {
             return false;
-        }
         Object pval;
         boolean res;
         if (! ((pval = json.objectValue(val, "null")) != null))
-        {
             return false;
-        }
         return json.isNull(pval);
     }
 

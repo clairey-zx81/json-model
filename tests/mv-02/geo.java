@@ -1351,9 +1351,7 @@ public class geo extends ModelChecker
             {
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
-                {
                     res = fun_0.call(val, path, rep);
-                }
                 else
                 {
                     res = false;
@@ -1715,9 +1713,7 @@ public class geo extends ModelChecker
             {
                 Checker fun_1 = _jm_map_1_cmap.get(tag_1);
                 if (fun_1 != null)
-                {
                     res = fun_1.call(val, path, rep);
-                }
                 else
                 {
                     res = false;

@@ -2027,9 +2027,7 @@ public class everything extends ModelChecker
                             }
                         }
                         else
-                        {
                             res = false;
-                        }
                     }
                     if (res)
                     {
@@ -2079,9 +2077,7 @@ public class everything extends ModelChecker
                             }
                         }
                         else
-                        {
                             res = false;
-                        }
                     }
                     if (res)
                     {
@@ -2120,9 +2116,7 @@ public class everything extends ModelChecker
                         }
                     }
                     else
-                    {
                         res = false;
-                    }
                     if (! res)
                     {
                         if (json.objectHasProp(pval, "a"))
@@ -2135,9 +2129,7 @@ public class everything extends ModelChecker
                             }
                         }
                         else
-                        {
                             res = false;
-                        }
                         if (! res)
                         {
                             if (json.objectHasProp(pval, "b"))
@@ -2150,9 +2142,7 @@ public class everything extends ModelChecker
                                 }
                             }
                             else
-                            {
                                 res = false;
-                            }
                             if (! res)
                             {
                                 if (json.objectHasProp(pval, "b"))
@@ -2165,9 +2155,7 @@ public class everything extends ModelChecker
                                     }
                                 }
                                 else
-                                {
                                     res = false;
-                                }
                             }
                         }
                     }
@@ -2281,9 +2269,7 @@ public class everything extends ModelChecker
             return false;
         }
         if (json.objectSize(val) == 0)
-        {
             return true;
-        }
         else
         {
             if (rep != null) rep.addEntry("expecting empty object [.object.o0]", path);
@@ -3491,9 +3477,7 @@ public class everything extends ModelChecker
                 // "/^a/"
                 boolean xr_0 = json.isString(pval) && json.asString(pval).startsWith("a");
                 if (xr_0)
-                {
                     xc_0 += 1;
-                }
                 else
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/^a/\" [.xor.x1.'^'.0]", (path != null ? lpath_23 : null));
@@ -3502,9 +3486,7 @@ public class everything extends ModelChecker
                 // "/z$/"
                 xr_0 = json.isString(pval) && json.asString(pval).endsWith("z");
                 if (xr_0)
-                {
                     xc_0 += 1;
-                }
                 else
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"/z$/\" [.xor.x1.'^'.1]", (path != null ? lpath_23 : null));
@@ -3531,9 +3513,7 @@ public class everything extends ModelChecker
                 // .xor.x2.'^'.0
                 boolean xr_1 = json.isInteger(pval);
                 if (xr_1)
-                {
                     xc_1 += 1;
-                }
                 else
                 {
                     if (rep != null) rep.addEntry("not a -1 strict int [.xor.x2.'^'.0]", (path != null ? lpath_23 : null));
@@ -3541,9 +3521,7 @@ public class everything extends ModelChecker
                 // .xor.x2.'^'.1
                 xr_1 = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (xr_1)
-                {
                     xc_1 += 1;
-                }
                 else
                 {
                     if (rep != null) rep.addEntry("not a 0 strict int [.xor.x2.'^'.1]", (path != null ? lpath_23 : null));

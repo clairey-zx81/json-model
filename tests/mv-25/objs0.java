@@ -26,28 +26,18 @@ public class objs0 extends ModelChecker
         // .'$table'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$table'.t
         boolean res = json.isString(pval) && json.asString(pval).compareTo("table") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "legs")) != null))
-        {
             return false;
-        }
         // .'$table'.legs
         return json.isInteger(pval) && json.asLong(pval) >= 1;
     }
@@ -58,28 +48,18 @@ public class objs0 extends ModelChecker
         // .'$chair'
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 2)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "t")) != null))
-        {
             return false;
-        }
         // .'$chair'.t
         boolean res = json.isString(pval) && json.asString(pval).compareTo("chair") == 0;
         if (! res)
-        {
             return false;
-        }
         if (! ((pval = json.objectValue(val, "color")) != null))
-        {
             return false;
-        }
         // .'$chair'.color
         return json.isString(pval);
     }
@@ -99,9 +79,7 @@ public class objs0 extends ModelChecker
                 res = fun_0 != null && fun_0.call(val, null, null);
             }
             else
-            {
                 res = false;
-            }
         }
         return res;
     }
@@ -112,18 +90,12 @@ public class objs0 extends ModelChecker
         // .
         // check close must only props
         if (! json.isObject(val))
-        {
             return false;
-        }
         if (json.objectSize(val) != 1)
-        {
             return false;
-        }
         Object pval;
         if (! ((pval = json.objectValue(val, "stuff")) != null))
-        {
             return false;
-        }
         // .stuff
         boolean res = json.isArray(pval);
         if (res)
@@ -137,9 +109,7 @@ public class objs0 extends ModelChecker
                 // .stuff.0
                 res = json_model_4(arr_0_item, null, null);
                 if (! res)
-                {
                     break;
-                }
             }
         }
         return res;

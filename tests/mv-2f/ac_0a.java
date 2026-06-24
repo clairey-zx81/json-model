@@ -24,9 +24,7 @@ public class ac_0a extends ModelChecker
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -37,14 +35,10 @@ public class ac_0a extends ModelChecker
             {
                 res = json_model_2(pval, null, null);
                 if (! res)
-                {
                     return false;
-                }
             }
             else
-            {
                 return false;
-            }
         }
         return true;
     }

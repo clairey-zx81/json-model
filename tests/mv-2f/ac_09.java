@@ -24,9 +24,7 @@ public class ac_09 extends ModelChecker
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -37,14 +35,10 @@ public class ac_09 extends ModelChecker
             {
                 res = json.isString(pval) && json.asString(pval).startsWith("bla");
                 if (! res)
-                {
                     return false;
-                }
             }
             else
-            {
                 return false;
-            }
         }
         return true;
     }
@@ -62,9 +56,7 @@ public class ac_09 extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 res = json.isString(arr_0_item) && json.asString(arr_0_item).startsWith("foo");
                 if (! res)
-                {
                     break;
-                }
             }
         }
         return res || _jm_obj_0(val, null, null);

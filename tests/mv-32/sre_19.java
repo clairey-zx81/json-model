@@ -19,9 +19,7 @@ public class sre_19 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -30,9 +28,7 @@ public class sre_19 extends ModelChecker
             Object pval = json.objectValue(val, prop);
             res = json.isString(pval);
             if (! res)
-            {
                 return false;
-            }
         }
         return true;
     }

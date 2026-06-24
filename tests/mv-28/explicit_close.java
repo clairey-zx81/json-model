@@ -24,9 +24,7 @@ public class explicit_close extends ModelChecker
     {
         // .
         if (! json.isObject(val))
-        {
             return false;
-        }
         boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -37,9 +35,7 @@ public class explicit_close extends ModelChecker
             // .''
             res = json.isInteger(pval) && json.asLong(pval) >= 0;
             if (! res)
-            {
                 return false;
-            }
         }
         return true;
     }
