@@ -32,10 +32,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'|'.6.a
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "b")
@@ -43,10 +40,7 @@ sub _jm_obj_0($$$)
             # handle may b property
             # .'|'.6.b
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

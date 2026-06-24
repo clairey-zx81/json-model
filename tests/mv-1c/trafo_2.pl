@@ -48,10 +48,7 @@ sub json_model_4($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$l'.0
             $res = json_model_6($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -71,30 +68,15 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # .'$Zz#zero'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"za"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"za"};
     $pval = $$val{"za"};
     # .'$Zz#zero'.za
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"zb"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"zb"};
     $pval = $$val{"zb"};
     # .'$Zz#zero'.zb
     return jm_is_integer($pval) && $pval >= 0;

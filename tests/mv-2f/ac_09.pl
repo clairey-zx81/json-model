@@ -22,10 +22,7 @@ sub _jm_re_0($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -33,10 +30,7 @@ sub _jm_obj_0($$$)
         if (_jm_re_0($prop, undef, undef))
         {
             $res = jm_is_string($pval) && jm_starts_with($pval, "bla");
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -56,10 +50,7 @@ sub json_model_1($$$)
         {
             my $arr_0_item = $$val[$arr_0_idx];
             $res = jm_is_string($arr_0_item) && jm_starts_with($arr_0_item, "foo");
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res || _jm_obj_0($val, undef, undef);

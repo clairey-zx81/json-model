@@ -22,20 +22,11 @@ sub json_model_1($$$)
     # JSON_MODEL_STRICT_INT
     # .
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"si"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"si"};
     $pval = $$val{"si"};
     # .si
     return jm_is_integer($pval) && $pval >= 0;

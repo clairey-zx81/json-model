@@ -26,16 +26,10 @@ sub json_model_1($$$)
                 {
                     my $arr_1_item = $$arr_0_item[$arr_1_idx];
                     $res = jm_is_string($arr_1_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

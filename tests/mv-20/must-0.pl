@@ -22,26 +22,14 @@ sub json_model_1($$$)
     # open with only some mandatory properties
     # .
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"name"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"name"};
     $pval = $$val{"name"};
     # .name
     my $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"born"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"born"};
     $pval = $$val{"born"};
     # .born
     return jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);

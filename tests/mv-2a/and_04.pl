@@ -22,10 +22,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$foo'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -35,10 +32,7 @@ sub json_model_2($$$)
             # handle may s property
             # .'$foo'.s
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "xs"))
@@ -46,10 +40,7 @@ sub json_model_2($$$)
             # handle 1 re props
             # .'$foo'.'/^xs/'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -65,10 +56,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$bla'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -78,10 +66,7 @@ sub json_model_3($$$)
             # handle may b property
             # .'$bla'.b
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "xb"))
@@ -89,10 +74,7 @@ sub json_model_3($$$)
             # handle 1 re props
             # .'$bla'.'/^xb/'
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -108,10 +90,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -121,10 +100,7 @@ sub json_model_1($$$)
             # handle may u property
             # .u
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "s")
@@ -132,10 +108,7 @@ sub json_model_1($$$)
             # handle may s property
             # .s
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "a")
@@ -143,10 +116,7 @@ sub json_model_1($$$)
             # handle may a property
             # .a
             $res = jm_is_array($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b")
@@ -154,10 +124,7 @@ sub json_model_1($$$)
             # handle may b property
             # .b
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "xu"))
@@ -165,40 +132,28 @@ sub json_model_1($$$)
             # handle 4 re props
             # .'/^xu/'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "xs"))
         {
             # handle 4 re props
             # .'/^xs/'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "xa"))
         {
             # handle 4 re props
             # .'/^xa/'
             $res = jm_is_array($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "xb"))
         {
             # handle 4 re props
             # .'/^xb/'
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

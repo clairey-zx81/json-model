@@ -75,7 +75,7 @@ sub _jm_f_2($$$)
     # .'$schema'.bsonType
     # .'$schema'.bsonType.'|'.0
     my $res = json_model_9($val, undef, undef);
-    if (! $res)
+    unless ($res)
     {
         # .'$schema'.bsonType.'|'.1
         $res = jm_is_array($val);
@@ -86,10 +86,7 @@ sub _jm_f_2($$$)
                 my $arr_0_item = $$val[$arr_0_idx];
                 # .'$schema'.bsonType.'|'.1.0
                 $res = json_model_9($arr_0_item, undef, undef);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
     }
@@ -101,10 +98,7 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.dependencies
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -114,10 +108,7 @@ sub _jm_f_3($$$)
         # .'$schema'.dependencies.''.'|'.0
         # .'$schema'.dependencies.''.'|'.1
         $res = json_model_3($pval, undef, undef) || json_model_6($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -258,10 +249,7 @@ sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.patternProperties
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -269,10 +257,7 @@ sub _jm_f_19($$$)
         # handle other props
         # .'$schema'.patternProperties.''
         $res = json_model_3($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -282,10 +267,7 @@ sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.properties
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -293,10 +275,7 @@ sub _jm_f_20($$$)
         # handle other props
         # .'$schema'.properties.''
         $res = json_model_3($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -334,10 +313,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
     # .'$schema'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -345,10 +321,7 @@ sub json_model_3($$$)
         if (($pfun = $json_model_3_map{$prop}))
         {
             # handle 29 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -378,10 +351,7 @@ sub json_model_4($$$)
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$schema#schemaArray'.'@'.0
             $res = json_model_3($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -415,10 +385,7 @@ sub json_model_6($$$)
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$schema#stringArray'.'@'.0
             $res = jm_is_string($arr_2_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -443,10 +410,7 @@ sub json_model_7($$$)
             my $arr_3_item = $$val[$arr_3_idx];
             # .'$schema#typeArray'.'@'.0
             $res = json_model_5($arr_3_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)

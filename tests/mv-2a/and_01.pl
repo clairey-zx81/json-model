@@ -31,20 +31,14 @@ sub _jm_obj_0($$$)
             # handle 2 re props
             # .'&'.1.'/^s/'
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "i"))
         {
             # handle 2 re props
             # .'&'.1.'/^i/'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -62,37 +56,22 @@ sub _jm_obj_1($$$)
     # check open must/may only props
     # value known to be an object
     my $pval;
-    if (! exists $$val{"i"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"i"};
     $pval = $$val{"i"};
     # .'&'.0.i
     my $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'&'.0.b
     $res = jm_is_boolean($pval);
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"ss"})
     {
         $pval = $$val{"ss"};
         # .'&'.0.ss
         $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }

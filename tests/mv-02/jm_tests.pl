@@ -29,7 +29,7 @@ sub json_model_1($$$)
             # .0
             # .0.'|'.0
             $res = jm_is_string($arr_0_item);
-            if (! $res)
+            unless ($res)
             {
                 # .0.'|'.1
                 $res = jm_is_array($arr_0_item) && scalar @$arr_0_item == 2;
@@ -37,13 +37,10 @@ sub json_model_1($$$)
                 {
                     # .0.'|'.1.0
                     $res = jm_is_boolean($$arr_0_item[0]);
-                    if ($res)
-                    {
-                        # .0.'|'.1.1
-                        $res = 1;
-                    }
+                    $res = 1 if $res;
+                    # .0.'|'.1.1
                 }
-                if (! $res)
+                unless ($res)
                 {
                     # .0.'|'.2
                     $res = jm_is_array($arr_0_item) && scalar @$arr_0_item == 3;
@@ -55,19 +52,13 @@ sub json_model_1($$$)
                         {
                             # .0.'|'.2.1
                             $res = jm_is_string($$arr_0_item[1]);
-                            if ($res)
-                            {
-                                # .0.'|'.2.2
-                                $res = 1;
-                            }
+                            $res = 1 if $res;
+                            # .0.'|'.2.2
                         }
                     }
                 }
             }
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

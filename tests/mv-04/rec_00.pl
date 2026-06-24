@@ -22,10 +22,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$obj'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -33,10 +30,7 @@ sub json_model_2($$$)
         # handle other props
         # .'$obj'.''
         $res = json_model_3($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }

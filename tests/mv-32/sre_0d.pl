@@ -15,10 +15,7 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -26,37 +23,25 @@ sub json_model_1($$$)
         if ($prop eq "eq4")
         {
             $res = jm_is_string($pval) && length $pval == 4;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "le4")
         {
             $res = jm_is_string($pval) && length $pval <= 4;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "ge4")
         {
             $res = jm_is_string($pval) && length $pval >= 4;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "s35")
         {
             $res = jm_is_string($pval) && length $pval >= 3 && length $pval <= 5;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

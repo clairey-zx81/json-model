@@ -28,10 +28,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # minimal regex prop
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -41,10 +38,7 @@ sub json_model_1($$$)
             # handle 1 re props
             # .'/^[A-Z]$/'
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

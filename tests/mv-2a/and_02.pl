@@ -38,10 +38,7 @@ sub _jm_obj_0($$$)
             # handle 1 re props
             # .'&'.1.'/^d[0-9]/'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -75,10 +72,7 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'&'.0.s
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b")
@@ -87,10 +81,7 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'&'.0.b
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "f")
@@ -99,10 +90,7 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'&'.0.f
             $res = jm_is_numeric($pval) && $pval > 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "u")
@@ -110,10 +98,7 @@ sub _jm_obj_1($$$)
             # handle may u property
             # .'&'.0.u
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "z"))
@@ -127,10 +112,7 @@ sub _jm_obj_1($$$)
             # handle 2 re props
             # .'&'.0.'/^d[a-z]/'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

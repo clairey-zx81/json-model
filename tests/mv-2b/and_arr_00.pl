@@ -32,10 +32,7 @@ sub json_model_1($$$)
     if ($res)
     {
         $res = json_model_2($$val[0], undef, undef);
-        if ($res)
-        {
-            $res = json_model_2($$val[1], undef, undef);
-        }
+        $res = json_model_2($$val[1], undef, undef) if $res;
     }
     return $res;
 }

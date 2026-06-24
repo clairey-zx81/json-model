@@ -32,10 +32,7 @@ sub json_model_1($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'.in'
             my $arr_0_inres = jm_is_integer($arr_0_item) && $arr_0_item == 1;
-            if ($arr_0_inres)
-            {
-                $arr_0_inlen++;
-            }
+            $arr_0_inlen++ if $arr_0_inres;
         }
         $res = $arr_0_inlen == 1;
     }

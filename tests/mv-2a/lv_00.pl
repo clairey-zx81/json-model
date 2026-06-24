@@ -32,16 +32,10 @@ sub json_model_1($$$)
             {
                 # .0.0
                 $res = jm_is_string($$arr_0_item[0]);
-                if ($res)
-                {
-                    # .0.1
-                    $res = jm_is_string($$arr_0_item[1]);
-                }
+                $res = jm_is_string($$arr_0_item[1]) if $res;
+                # .0.1
             }
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

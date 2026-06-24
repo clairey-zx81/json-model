@@ -25,20 +25,11 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.0.t
     return jm_is_string($pval) && $pval eq "a";
@@ -50,20 +41,11 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.1.t
     return jm_is_string($pval) && exists $_jm_cst_0{$pval};
@@ -74,53 +56,32 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.2.t
     # generic xor list
     my $xc_0 = 0;
     # .'|'.2.t.'^'.0
     my $xr_0 = jm_is_string($pval);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     # .'|'.2.t.'^'.1
     $xr_0 = jm_is_string($pval) && $pval eq "a";
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     if ($xc_0 <= 1)
     {
         # .'|'.2.t.'^'.2
         $xr_0 = jm_is_string($pval) && $pval eq "b";
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
+        $xc_0++ if $xr_0;
     }
     if ($xc_0 <= 1)
     {
         # .'|'.2.t.'^'.3
         $xr_0 = jm_is_string($pval) && $pval eq "c";
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
+        $xc_0++ if $xr_0;
     }
     return $xc_0 == 1;
 }

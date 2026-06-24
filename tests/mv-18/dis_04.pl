@@ -27,26 +27,14 @@ sub _jm_obj_0($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.5.t
     my $res = jm_is_string($pval) && $pval eq "t";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'|'.5.v
     # "/./s"
@@ -59,26 +47,14 @@ sub _jm_obj_1($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.4.t
     my $res = jm_is_string($pval) && $pval eq "s";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'|'.4.v
     return jm_is_string($pval);
@@ -90,26 +66,14 @@ sub _jm_obj_2($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.3.t
     my $res = jm_is_numeric($pval) && $pval == 0.0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'|'.3.v
     return jm_is_numeric($pval) && $pval >= 0.0;
@@ -121,26 +85,14 @@ sub _jm_obj_3($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.2.t
     my $res = jm_is_integer($pval) && $pval == 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'|'.2.v
     return jm_is_integer($pval) && $pval >= 0;
@@ -152,26 +104,14 @@ sub _jm_obj_4($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.1.t
     my $res = jm_is_boolean($pval) && $pval == 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'|'.1.v
     return jm_is_boolean($pval);
@@ -183,26 +123,14 @@ sub _jm_obj_5($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.0.t
     my $res = !defined($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'|'.0.v
     return !defined($pval);

@@ -27,10 +27,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -40,10 +37,7 @@ sub json_model_1($$$)
             # handle may all property
             # .all
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "nz")
@@ -52,10 +46,7 @@ sub json_model_1($$$)
             # .nz
             # "/./s"
             $res = jm_is_string($pval) && length $pval > 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "some")
@@ -64,10 +55,7 @@ sub json_model_1($$$)
             # .some
             # "/./"
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

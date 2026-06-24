@@ -78,10 +78,7 @@ sub json_model_3($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$schemaArray'.'@'.0
             $res = json_model_7($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -115,10 +112,7 @@ sub json_model_5($$$)
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$arrayTypes'.'@'.0
             $res = json_model_4($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -182,10 +176,7 @@ sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.definitions
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -193,10 +184,7 @@ sub _jm_f_6($$$)
         # handle other props
         # .'$ObjectSchema'.definitions.''
         $res = json_model_7($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -206,10 +194,7 @@ sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.dependencies
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -218,7 +203,7 @@ sub _jm_f_7($$$)
         # .'$ObjectSchema'.dependencies.''
         # .'$ObjectSchema'.dependencies.''.'|'.0
         $res = json_model_7($pval, undef, undef);
-        if (! $res)
+        unless ($res)
         {
             # .'$ObjectSchema'.dependencies.''.'|'.1
             $res = jm_is_array($pval);
@@ -229,17 +214,11 @@ sub _jm_f_7($$$)
                     my $arr_2_item = $$pval[$arr_2_idx];
                     # .'$ObjectSchema'.dependencies.''.'|'.1.0
                     $res = jm_is_string($arr_2_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -396,10 +375,7 @@ sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.patternProperties
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -409,10 +385,7 @@ sub _jm_f_25($$$)
             # handle 1 key props
             # .'$ObjectSchema'.patternProperties.'$REGEX'
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -427,10 +400,7 @@ sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.properties
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -438,10 +408,7 @@ sub _jm_f_26($$$)
         # handle other props
         # .'$ObjectSchema'.properties.''
         $res = json_model_7($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -467,10 +434,7 @@ sub _jm_f_28($$$)
             my $arr_3_item = $$val[$arr_3_idx];
             # .'$ObjectSchema'.required.0
             $res = jm_is_string($arr_3_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -516,10 +480,7 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -527,10 +488,7 @@ sub json_model_6($$$)
         if (($pfun = $json_model_6_map{$prop}))
         {
             # handle 46 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;

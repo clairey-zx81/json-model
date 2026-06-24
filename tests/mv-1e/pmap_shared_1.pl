@@ -23,10 +23,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Oo0'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -38,10 +35,7 @@ sub json_model_2($$$)
             $must_count++;
             # .'$Oo0'.a
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b")
@@ -50,10 +44,7 @@ sub json_model_2($$$)
             $must_count++;
             # .'$Oo0'.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "c")
@@ -62,10 +53,7 @@ sub json_model_2($$$)
             $must_count++;
             # .'$Oo0'.c
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "d")
@@ -74,19 +62,13 @@ sub json_model_2($$$)
             $must_count++;
             # .'$Oo0'.d
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         # handle other props
         # .'$Oo0'.''
         $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return $must_count == 4;
 }
@@ -96,10 +78,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Oo1'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -111,10 +90,7 @@ sub json_model_3($$$)
             $must_count++;
             # .'$Oo1'.z
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "a")
@@ -122,10 +98,7 @@ sub json_model_3($$$)
             # handle may a property
             # .'$Oo1'.a
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b")
@@ -133,10 +106,7 @@ sub json_model_3($$$)
             # handle may b property
             # .'$Oo1'.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "c")
@@ -144,10 +114,7 @@ sub json_model_3($$$)
             # handle may c property
             # .'$Oo1'.c
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "d")
@@ -155,10 +122,7 @@ sub json_model_3($$$)
             # handle may d property
             # .'$Oo1'.d
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -171,10 +135,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Oo2'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -186,10 +147,7 @@ sub json_model_4($$$)
             $must_count++;
             # .'$Oo2'.a
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b")
@@ -198,10 +156,7 @@ sub json_model_4($$$)
             $must_count++;
             # .'$Oo2'.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "c")
@@ -210,10 +165,7 @@ sub json_model_4($$$)
             $must_count++;
             # .'$Oo2'.c
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "d")
@@ -222,10 +174,7 @@ sub json_model_4($$$)
             $must_count++;
             # .'$Oo2'.d
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "y")
@@ -233,10 +182,7 @@ sub json_model_4($$$)
             # handle may y property
             # .'$Oo2'.y
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

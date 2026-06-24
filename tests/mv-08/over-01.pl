@@ -38,10 +38,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$over#Foo'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -51,10 +48,7 @@ sub json_model_4($$$)
             # handle may foo property
             # .'$over#Foo'.foo
             $res = jm_is_string($pval) && $pval eq "rewritten foo";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

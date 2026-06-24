@@ -21,10 +21,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"hello"})
@@ -32,10 +29,7 @@ sub json_model_1($$$)
         $pval = $$val{"hello"};
         # .hello
         $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }

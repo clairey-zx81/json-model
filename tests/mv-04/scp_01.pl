@@ -40,10 +40,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Rr'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -53,10 +50,7 @@ sub json_model_5($$$)
             # handle may a property
             # .'$Rr'.a
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -69,10 +63,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -84,10 +75,7 @@ sub json_model_1($$$)
             $must_count++;
             # .RA
             $res = json_model_5($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "b")
@@ -95,10 +83,7 @@ sub json_model_1($$$)
             # handle may b property
             # .b
             $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "a")
@@ -106,10 +91,7 @@ sub json_model_1($$$)
             # handle may a property
             # .a
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

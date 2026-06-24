@@ -58,6 +58,14 @@ js:
 clean.js:
 	# skip
 
+.PHONY: pl
+pl:
+	# skip
+
+.PHONY: clean.pl
+clean.pl:
+	# skip
+
 # test that --check rejects **all** bads
 bads.check.out:
 	shopt -s nullglob

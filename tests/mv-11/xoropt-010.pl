@@ -41,10 +41,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'|'.1.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "a")
@@ -52,10 +49,7 @@ sub _jm_obj_0($$$)
             # handle may a property
             # .'|'.1.a
             $res = _jm_obj_1($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -69,26 +63,14 @@ sub _jm_obj_2($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'|'.0.b
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.0.a
     return jm_is_string($pval);

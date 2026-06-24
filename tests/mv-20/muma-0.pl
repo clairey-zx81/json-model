@@ -21,31 +21,19 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"name"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"name"};
     $pval = $$val{"name"};
     # .name
     my $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"born"})
     {
         $pval = $$val{"born"};
         # .born
         $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     # ignored ..useless
     return 1;

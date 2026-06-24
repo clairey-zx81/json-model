@@ -25,28 +25,19 @@ sub json_model_1($$$)
     if ($res)
     {
         my $len_0 = scalar @$val;
-        if ($len_0 > 0)
-        {
-            # .'@'.0
-            $res = jm_is_integer($$val[0]);
-        }
+        $res = jm_is_integer($$val[0]) if $len_0 > 0;
+        # .'@'.0
         if ($res)
         {
-            if ($len_0 > 1)
-            {
-                # .'@'.1
-                $res = jm_is_string($$val[1]);
-            }
+            $res = jm_is_string($$val[1]) if $len_0 > 1;
+            # .'@'.1
             if ($res)
             {
                 for my $idx_0 (2 .. $len_0 - 1)
                 {
                     # .'@'.2
                     $res = jm_is_boolean($$val[$idx_0]);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
         }

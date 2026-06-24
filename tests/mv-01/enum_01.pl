@@ -47,16 +47,10 @@ sub json_model_1($$$)
     my $xc_0 = 0;
     # .'^'.0
     my $xr_0 = json_model_2($val, undef, undef);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     # .'^'.1
     $xr_0 = json_model_3($val, undef, undef);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     return $xc_0 == 1;
 }
 

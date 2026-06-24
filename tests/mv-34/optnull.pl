@@ -16,10 +16,7 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -27,10 +24,7 @@ sub json_model_1($$$)
         if ($prop eq "null")
         {
             $res = jm_is_string($pval) && exists $_jm_cst_0{$pval} || !defined($pval) && !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

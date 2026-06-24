@@ -151,10 +151,7 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectComment'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -164,10 +161,7 @@ sub json_model_6($$$)
             # handle may # property
             # .'$ObjectComment'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -244,15 +238,9 @@ sub _jm_xre_0($$$)
     my ($val, $path, $rep) = @_;
     my $extract;
     my $match = $val =~ /^\/(?<s1>.*)\/[a-z]*$/;
-    if (! $match)
-    {
-        return 0;
-    }
+    return 0 unless $match;
     $extract = $+{"s1"};
-    if (! jm_is_valid_regex($extract, undef, undef))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_valid_regex($extract, undef, undef);
     return 1;
 }
 
@@ -268,15 +256,9 @@ sub _jm_xre_1($$$)
     my ($val, $path, $rep) = @_;
     my $extract;
     my $match = $val =~ /^\/(?<s1>.*)\/[a-z]*X[a-z]*$/;
-    if (! $match)
-    {
-        return 0;
-    }
+    return 0 unless $match;
     $extract = $+{"s1"};
-    if (! jm_is_valid_exreg($extract, undef, undef))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_valid_exreg($extract, undef, undef);
     return 1;
 }
 
@@ -399,10 +381,7 @@ sub json_model_19($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$Array'.0
             $res = json_model_18($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -435,10 +414,7 @@ sub json_model_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Constraint'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -450,10 +426,7 @@ sub json_model_21($$$)
             $must_count++;
             # .'$Constraint'.'@'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "!")
@@ -461,10 +434,7 @@ sub json_model_21($$$)
             # handle may ! property
             # .'$Constraint'.'!'
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (_jm_re_7($prop, undef, undef))
@@ -472,20 +442,14 @@ sub json_model_21($$$)
             # handle 2 re props
             # .'$Constraint'.'/^(<=|>=|<|>)$/'
             $res = json_model_12($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_8($prop, undef, undef))
         {
             # handle 2 re props
             # .'$Constraint'.'/^(=|!=)$/'
             $res = json_model_13($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -501,19 +465,10 @@ sub json_model_22($$$)
     my ($val, $path, $rep) = @_;
     # .'$Or'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
-    if (! exists $$val{"|"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"|"};
     $pval = $$val{"|"};
     # .'$Or'.'|'
     my $res = jm_is_array($pval);
@@ -524,10 +479,7 @@ sub json_model_22($$$)
             my $arr_1_item = $$pval[$arr_1_idx];
             # .'$Or'.'|'.0
             $res = json_model_18($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -539,19 +491,10 @@ sub json_model_23($$$)
     my ($val, $path, $rep) = @_;
     # .'$And'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
-    if (! exists $$val{"&"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"&"};
     $pval = $$val{"&"};
     # .'$And'.'&'
     my $res = jm_is_array($pval);
@@ -562,10 +505,7 @@ sub json_model_23($$$)
             my $arr_2_item = $$pval[$arr_2_idx];
             # .'$And'.'&'.0
             $res = json_model_18($arr_2_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -577,19 +517,10 @@ sub json_model_24($$$)
     my ($val, $path, $rep) = @_;
     # .'$Xor'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
-    if (! exists $$val{"^"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"^"};
     $pval = $$val{"^"};
     # .'$Xor'.'^'
     my $res = jm_is_array($pval);
@@ -600,10 +531,7 @@ sub json_model_24($$$)
             my $arr_3_item = $$pval[$arr_3_idx];
             # .'$Xor'.'^'.0
             $res = json_model_18($arr_3_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -615,19 +543,10 @@ sub json_model_25($$$)
     my ($val, $path, $rep) = @_;
     # .'$Add'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
-    if (! exists $$val{"+"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"+"};
     $pval = $$val{"+"};
     # .'$Add'.'+'
     my $res = jm_is_array($pval);
@@ -638,10 +557,7 @@ sub json_model_25($$$)
             my $arr_4_item = $$pval[$arr_4_idx];
             # .'$Add'.'+'.0
             $res = json_model_18($arr_4_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -674,10 +590,7 @@ sub json_model_27($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Obj'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -687,10 +600,7 @@ sub json_model_27($$$)
             # handle 1 key props
             # .'$Obj'.'$Prop'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -728,10 +638,7 @@ sub _jm_obj_0($$$)
             # handle may # property
             # .'$Element'.'|'.5.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_26($prop, undef, undef))
@@ -739,10 +646,7 @@ sub _jm_obj_0($$$)
             # handle 1 key props
             # .'$Element'.'|'.5.'$Prop'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -781,16 +685,10 @@ sub _jm_obj_1($$$)
                     my $arr_5_item = $$pval[$arr_5_idx];
                     # .'$Element'.'|'.4.'+'.0
                     $res = json_model_18($arr_5_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "#")
@@ -798,10 +696,7 @@ sub _jm_obj_1($$$)
             # handle may # property
             # .'$Element'.'|'.4.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -841,16 +736,10 @@ sub _jm_obj_2($$$)
                     my $arr_6_item = $$pval[$arr_6_idx];
                     # .'$Element'.'|'.3.'^'.0
                     $res = json_model_18($arr_6_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "#")
@@ -858,10 +747,7 @@ sub _jm_obj_2($$$)
             # handle may # property
             # .'$Element'.'|'.3.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -901,16 +787,10 @@ sub _jm_obj_3($$$)
                     my $arr_7_item = $$pval[$arr_7_idx];
                     # .'$Element'.'|'.2.'&'.0
                     $res = json_model_18($arr_7_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "#")
@@ -918,10 +798,7 @@ sub _jm_obj_3($$$)
             # handle may # property
             # .'$Element'.'|'.2.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -961,16 +838,10 @@ sub _jm_obj_4($$$)
                     my $arr_8_item = $$pval[$arr_8_idx];
                     # .'$Element'.'|'.1.'|'.0
                     $res = json_model_18($arr_8_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "#")
@@ -978,10 +849,7 @@ sub _jm_obj_4($$$)
             # handle may # property
             # .'$Element'.'|'.1.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -1014,10 +882,7 @@ sub _jm_obj_5($$$)
             $must_count++;
             # .'$Element'.'|'.0.'@'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "#")
@@ -1025,10 +890,7 @@ sub _jm_obj_5($$$)
             # handle may # property
             # .'$Element'.'|'.0.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "!")
@@ -1036,10 +898,7 @@ sub _jm_obj_5($$$)
             # handle may ! property
             # .'$Element'.'|'.0.'!'
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -1053,20 +912,14 @@ sub _jm_obj_5($$$)
             # handle 3 re props
             # .'$Element'.'|'.0.'/^(<=|>=|<|>)$/'
             $res = json_model_12($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_8($prop, undef, undef))
         {
             # handle 3 re props
             # .'$Element'.'|'.0.'/^(=|!=)$/'
             $res = json_model_13($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1094,10 +947,7 @@ sub json_model_29($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1105,10 +955,7 @@ sub _jm_obj_6($$$)
         # handle other props
         # .'$Trafo'.'~'.''
         $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -1119,10 +966,7 @@ sub json_model_30($$$)
     my ($val, $path, $rep) = @_;
     # remove, rename or add stuff
     # .'$Trafo'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1134,10 +978,7 @@ sub json_model_30($$$)
             # .'$Trafo'.'/'.'|'.0
             # .'$Trafo'.'/'.'|'.1
             $res = json_model_13($pval, undef, undef) || jm_is_array($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "~")
@@ -1145,10 +986,7 @@ sub json_model_30($$$)
             # handle may ~ property
             # .'$Trafo'.'~'
             $res = _jm_obj_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "*")
@@ -1167,10 +1005,7 @@ sub json_model_30($$$)
 sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1178,10 +1013,7 @@ sub _jm_obj_8($$$)
         # handle other props
         # .'$Transformation'.'|'.1.'~'.''
         $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -1190,10 +1022,7 @@ sub _jm_obj_8($$$)
 sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1203,10 +1032,7 @@ sub _jm_obj_7($$$)
             # handle may # property
             # .'$Transformation'.'|'.1.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "/")
@@ -1216,10 +1042,7 @@ sub _jm_obj_7($$$)
             # .'$Transformation'.'|'.1.'/'.'|'.0
             # .'$Transformation'.'|'.1.'/'.'|'.1
             $res = json_model_13($pval, undef, undef) || jm_is_array($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "~")
@@ -1227,10 +1050,7 @@ sub _jm_obj_7($$$)
             # handle may ~ property
             # .'$Transformation'.'|'.1.'~'
             $res = _jm_obj_8($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "*")
@@ -1290,10 +1110,7 @@ sub json_model_34($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Defs'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1303,10 +1120,7 @@ sub json_model_34($$$)
             # handle may  property
             # .'$Defs'.''
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_4($prop, undef, undef))
@@ -1314,10 +1128,7 @@ sub json_model_34($$$)
             # handle 1 key props
             # .'$Defs'.'$Identifier'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1339,10 +1150,7 @@ sub json_model_35($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Rename'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1353,10 +1161,7 @@ sub json_model_35($$$)
             # .'$Rename'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1378,10 +1183,7 @@ sub json_model_36($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Rewrite'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1391,10 +1193,7 @@ sub json_model_36($$$)
             # handle 1 re props
             # .'$Rewrite'.'/^\\$.*$/'
             $res = json_model_31($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1409,10 +1208,7 @@ sub json_model_37($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Import'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1423,7 +1219,7 @@ sub json_model_37($$$)
             # .'$Import'.'<'
             # .'$Import'.'<'.'|'.0
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .'$Import'.'<'.'|'.1
                 $res = jm_is_array($pval);
@@ -1434,17 +1230,11 @@ sub json_model_37($$$)
                         my $arr_9_item = $$pval[$arr_9_idx];
                         # .'$Import'.'<'.'|'.1.0
                         $res = json_model_7($arr_9_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1456,10 +1246,7 @@ sub json_model_37($$$)
 sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1469,10 +1256,7 @@ sub _jm_obj_9($$$)
             # handle may # property
             # .'$RootOnly'.'$'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "")
@@ -1480,10 +1264,7 @@ sub _jm_obj_9($$$)
             # handle may  property
             # .'$RootOnly'.'$'.''
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_4($prop, undef, undef))
@@ -1491,10 +1272,7 @@ sub _jm_obj_9($$$)
             # handle 1 key props
             # .'$RootOnly'.'$'.'$Identifier'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -1514,10 +1292,7 @@ sub _jm_obj_9($$$)
 sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1527,10 +1302,7 @@ sub _jm_obj_10($$$)
             # handle may # property
             # .'$RootOnly'.'%'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "<")
@@ -1539,7 +1311,7 @@ sub _jm_obj_10($$$)
             # .'$RootOnly'.'%'.'<'
             # .'$RootOnly'.'%'.'<'.'|'.0
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .'$RootOnly'.'%'.'<'.'|'.1
                 $res = jm_is_array($pval);
@@ -1550,17 +1322,11 @@ sub _jm_obj_10($$$)
                         my $arr_10_item = $$pval[$arr_10_idx];
                         # .'$RootOnly'.'%'.'<'.'|'.1.0
                         $res = json_model_7($arr_10_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_11($prop, undef, undef))
@@ -1569,10 +1335,7 @@ sub _jm_obj_10($$$)
             # .'$RootOnly'.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -1585,10 +1348,7 @@ sub _jm_obj_10($$$)
             # handle 2 re props
             # .'$RootOnly'.'%'.'/^\\$.*$/'
             $res = json_model_31($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1604,10 +1364,7 @@ sub json_model_38($$$)
     my ($val, $path, $rep) = @_;
     # symbols that can only appear at the model's root
     # .'$RootOnly'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1617,10 +1374,7 @@ sub json_model_38($$$)
             # handle may ~ property
             # .'$RootOnly'.'~'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\$")
@@ -1628,10 +1382,7 @@ sub json_model_38($$$)
             # handle may $ property
             # .'$RootOnly'.'$'
             $res = _jm_obj_9($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "%")
@@ -1639,10 +1390,7 @@ sub json_model_38($$$)
             # handle may % property
             # .'$RootOnly'.'%'
             $res = _jm_obj_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1654,10 +1402,7 @@ sub json_model_38($$$)
 sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1667,10 +1412,7 @@ sub _jm_obj_12($$$)
             # handle may # property
             # .'$Root'.'|'.5.'$'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "")
@@ -1678,10 +1420,7 @@ sub _jm_obj_12($$$)
             # handle may  property
             # .'$Root'.'|'.5.'$'.''
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_4($prop, undef, undef))
@@ -1689,10 +1428,7 @@ sub _jm_obj_12($$$)
             # handle 1 key props
             # .'$Root'.'|'.5.'$'.'$Identifier'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -1712,10 +1448,7 @@ sub _jm_obj_12($$$)
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1725,10 +1458,7 @@ sub _jm_obj_13($$$)
             # handle may # property
             # .'$Root'.'|'.5.'%'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "<")
@@ -1737,7 +1467,7 @@ sub _jm_obj_13($$$)
             # .'$Root'.'|'.5.'%'.'<'
             # .'$Root'.'|'.5.'%'.'<'.'|'.0
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .'$Root'.'|'.5.'%'.'<'.'|'.1
                 $res = jm_is_array($pval);
@@ -1748,17 +1478,11 @@ sub _jm_obj_13($$$)
                         my $arr_11_item = $$pval[$arr_11_idx];
                         # .'$Root'.'|'.5.'%'.'<'.'|'.1.0
                         $res = json_model_7($arr_11_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_11($prop, undef, undef))
@@ -1767,10 +1491,7 @@ sub _jm_obj_13($$$)
             # .'$Root'.'|'.5.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -1783,10 +1504,7 @@ sub _jm_obj_13($$$)
             # handle 2 re props
             # .'$Root'.'|'.5.'%'.'/^\\$.*$/'
             $res = json_model_31($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1810,10 +1528,7 @@ sub _jm_obj_11($$$)
             # handle may ~ property
             # .'$Root'.'|'.5.'~'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\$")
@@ -1821,10 +1536,7 @@ sub _jm_obj_11($$$)
             # handle may $ property
             # .'$Root'.'|'.5.'$'
             $res = _jm_obj_12($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "%")
@@ -1832,10 +1544,7 @@ sub _jm_obj_11($$$)
             # handle may % property
             # .'$Root'.'|'.5.'%'
             $res = _jm_obj_13($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "#")
@@ -1843,10 +1552,7 @@ sub _jm_obj_11($$$)
             # handle may # property
             # .'$Root'.'|'.5.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_26($prop, undef, undef))
@@ -1854,10 +1560,7 @@ sub _jm_obj_11($$$)
             # handle 1 key props
             # .'$Root'.'|'.5.'$Prop'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -1877,10 +1580,7 @@ sub _jm_obj_11($$$)
 sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1890,10 +1590,7 @@ sub _jm_obj_15($$$)
             # handle may # property
             # .'$Root'.'|'.4.'$'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "")
@@ -1901,10 +1598,7 @@ sub _jm_obj_15($$$)
             # handle may  property
             # .'$Root'.'|'.4.'$'.''
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_4($prop, undef, undef))
@@ -1912,10 +1606,7 @@ sub _jm_obj_15($$$)
             # handle 1 key props
             # .'$Root'.'|'.4.'$'.'$Identifier'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -1935,10 +1626,7 @@ sub _jm_obj_15($$$)
 sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1948,10 +1636,7 @@ sub _jm_obj_16($$$)
             # handle may # property
             # .'$Root'.'|'.4.'%'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "<")
@@ -1960,7 +1645,7 @@ sub _jm_obj_16($$$)
             # .'$Root'.'|'.4.'%'.'<'
             # .'$Root'.'|'.4.'%'.'<'.'|'.0
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .'$Root'.'|'.4.'%'.'<'.'|'.1
                 $res = jm_is_array($pval);
@@ -1971,17 +1656,11 @@ sub _jm_obj_16($$$)
                         my $arr_13_item = $$pval[$arr_13_idx];
                         # .'$Root'.'|'.4.'%'.'<'.'|'.1.0
                         $res = json_model_7($arr_13_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_11($prop, undef, undef))
@@ -1990,10 +1669,7 @@ sub _jm_obj_16($$$)
             # .'$Root'.'|'.4.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2006,10 +1682,7 @@ sub _jm_obj_16($$$)
             # handle 2 re props
             # .'$Root'.'|'.4.'%'.'/^\\$.*$/'
             $res = json_model_31($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -2042,16 +1715,10 @@ sub _jm_obj_14($$$)
                     my $arr_12_item = $$pval[$arr_12_idx];
                     # .'$Root'.'|'.4.'+'.0
                     $res = json_model_18($arr_12_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "~")
@@ -2059,10 +1726,7 @@ sub _jm_obj_14($$$)
             # handle may ~ property
             # .'$Root'.'|'.4.'~'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\$")
@@ -2070,10 +1734,7 @@ sub _jm_obj_14($$$)
             # handle may $ property
             # .'$Root'.'|'.4.'$'
             $res = _jm_obj_15($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "%")
@@ -2081,10 +1742,7 @@ sub _jm_obj_14($$$)
             # handle may % property
             # .'$Root'.'|'.4.'%'
             $res = _jm_obj_16($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "#")
@@ -2092,10 +1750,7 @@ sub _jm_obj_14($$$)
             # handle may # property
             # .'$Root'.'|'.4.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -2116,10 +1771,7 @@ sub _jm_obj_14($$$)
 sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2129,10 +1781,7 @@ sub _jm_obj_18($$$)
             # handle may # property
             # .'$Root'.'|'.3.'$'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "")
@@ -2140,10 +1789,7 @@ sub _jm_obj_18($$$)
             # handle may  property
             # .'$Root'.'|'.3.'$'.''
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_4($prop, undef, undef))
@@ -2151,10 +1797,7 @@ sub _jm_obj_18($$$)
             # handle 1 key props
             # .'$Root'.'|'.3.'$'.'$Identifier'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2174,10 +1817,7 @@ sub _jm_obj_18($$$)
 sub _jm_obj_19($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2187,10 +1827,7 @@ sub _jm_obj_19($$$)
             # handle may # property
             # .'$Root'.'|'.3.'%'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "<")
@@ -2199,7 +1836,7 @@ sub _jm_obj_19($$$)
             # .'$Root'.'|'.3.'%'.'<'
             # .'$Root'.'|'.3.'%'.'<'.'|'.0
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .'$Root'.'|'.3.'%'.'<'.'|'.1
                 $res = jm_is_array($pval);
@@ -2210,17 +1847,11 @@ sub _jm_obj_19($$$)
                         my $arr_15_item = $$pval[$arr_15_idx];
                         # .'$Root'.'|'.3.'%'.'<'.'|'.1.0
                         $res = json_model_7($arr_15_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_11($prop, undef, undef))
@@ -2229,10 +1860,7 @@ sub _jm_obj_19($$$)
             # .'$Root'.'|'.3.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2245,10 +1873,7 @@ sub _jm_obj_19($$$)
             # handle 2 re props
             # .'$Root'.'|'.3.'%'.'/^\\$.*$/'
             $res = json_model_31($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -2281,16 +1906,10 @@ sub _jm_obj_17($$$)
                     my $arr_14_item = $$pval[$arr_14_idx];
                     # .'$Root'.'|'.3.'^'.0
                     $res = json_model_18($arr_14_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "~")
@@ -2298,10 +1917,7 @@ sub _jm_obj_17($$$)
             # handle may ~ property
             # .'$Root'.'|'.3.'~'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\$")
@@ -2309,10 +1925,7 @@ sub _jm_obj_17($$$)
             # handle may $ property
             # .'$Root'.'|'.3.'$'
             $res = _jm_obj_18($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "%")
@@ -2320,10 +1933,7 @@ sub _jm_obj_17($$$)
             # handle may % property
             # .'$Root'.'|'.3.'%'
             $res = _jm_obj_19($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "#")
@@ -2331,10 +1941,7 @@ sub _jm_obj_17($$$)
             # handle may # property
             # .'$Root'.'|'.3.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -2355,10 +1962,7 @@ sub _jm_obj_17($$$)
 sub _jm_obj_21($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2368,10 +1972,7 @@ sub _jm_obj_21($$$)
             # handle may # property
             # .'$Root'.'|'.2.'$'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "")
@@ -2379,10 +1980,7 @@ sub _jm_obj_21($$$)
             # handle may  property
             # .'$Root'.'|'.2.'$'.''
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_4($prop, undef, undef))
@@ -2390,10 +1988,7 @@ sub _jm_obj_21($$$)
             # handle 1 key props
             # .'$Root'.'|'.2.'$'.'$Identifier'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2413,10 +2008,7 @@ sub _jm_obj_21($$$)
 sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2426,10 +2018,7 @@ sub _jm_obj_22($$$)
             # handle may # property
             # .'$Root'.'|'.2.'%'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "<")
@@ -2438,7 +2027,7 @@ sub _jm_obj_22($$$)
             # .'$Root'.'|'.2.'%'.'<'
             # .'$Root'.'|'.2.'%'.'<'.'|'.0
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .'$Root'.'|'.2.'%'.'<'.'|'.1
                 $res = jm_is_array($pval);
@@ -2449,17 +2038,11 @@ sub _jm_obj_22($$$)
                         my $arr_17_item = $$pval[$arr_17_idx];
                         # .'$Root'.'|'.2.'%'.'<'.'|'.1.0
                         $res = json_model_7($arr_17_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_11($prop, undef, undef))
@@ -2468,10 +2051,7 @@ sub _jm_obj_22($$$)
             # .'$Root'.'|'.2.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2484,10 +2064,7 @@ sub _jm_obj_22($$$)
             # handle 2 re props
             # .'$Root'.'|'.2.'%'.'/^\\$.*$/'
             $res = json_model_31($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -2520,16 +2097,10 @@ sub _jm_obj_20($$$)
                     my $arr_16_item = $$pval[$arr_16_idx];
                     # .'$Root'.'|'.2.'&'.0
                     $res = json_model_18($arr_16_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "~")
@@ -2537,10 +2108,7 @@ sub _jm_obj_20($$$)
             # handle may ~ property
             # .'$Root'.'|'.2.'~'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\$")
@@ -2548,10 +2116,7 @@ sub _jm_obj_20($$$)
             # handle may $ property
             # .'$Root'.'|'.2.'$'
             $res = _jm_obj_21($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "%")
@@ -2559,10 +2124,7 @@ sub _jm_obj_20($$$)
             # handle may % property
             # .'$Root'.'|'.2.'%'
             $res = _jm_obj_22($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "#")
@@ -2570,10 +2132,7 @@ sub _jm_obj_20($$$)
             # handle may # property
             # .'$Root'.'|'.2.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -2594,10 +2153,7 @@ sub _jm_obj_20($$$)
 sub _jm_obj_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2607,10 +2163,7 @@ sub _jm_obj_24($$$)
             # handle may # property
             # .'$Root'.'|'.1.'$'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "")
@@ -2618,10 +2171,7 @@ sub _jm_obj_24($$$)
             # handle may  property
             # .'$Root'.'|'.1.'$'.''
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_4($prop, undef, undef))
@@ -2629,10 +2179,7 @@ sub _jm_obj_24($$$)
             # handle 1 key props
             # .'$Root'.'|'.1.'$'.'$Identifier'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2652,10 +2199,7 @@ sub _jm_obj_24($$$)
 sub _jm_obj_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2665,10 +2209,7 @@ sub _jm_obj_25($$$)
             # handle may # property
             # .'$Root'.'|'.1.'%'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "<")
@@ -2677,7 +2218,7 @@ sub _jm_obj_25($$$)
             # .'$Root'.'|'.1.'%'.'<'
             # .'$Root'.'|'.1.'%'.'<'.'|'.0
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .'$Root'.'|'.1.'%'.'<'.'|'.1
                 $res = jm_is_array($pval);
@@ -2688,17 +2229,11 @@ sub _jm_obj_25($$$)
                         my $arr_19_item = $$pval[$arr_19_idx];
                         # .'$Root'.'|'.1.'%'.'<'.'|'.1.0
                         $res = json_model_7($arr_19_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_11($prop, undef, undef))
@@ -2707,10 +2242,7 @@ sub _jm_obj_25($$$)
             # .'$Root'.'|'.1.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2723,10 +2255,7 @@ sub _jm_obj_25($$$)
             # handle 2 re props
             # .'$Root'.'|'.1.'%'.'/^\\$.*$/'
             $res = json_model_31($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -2759,16 +2288,10 @@ sub _jm_obj_23($$$)
                     my $arr_18_item = $$pval[$arr_18_idx];
                     # .'$Root'.'|'.1.'|'.0
                     $res = json_model_18($arr_18_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "~")
@@ -2776,10 +2299,7 @@ sub _jm_obj_23($$$)
             # handle may ~ property
             # .'$Root'.'|'.1.'~'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\$")
@@ -2787,10 +2307,7 @@ sub _jm_obj_23($$$)
             # handle may $ property
             # .'$Root'.'|'.1.'$'
             $res = _jm_obj_24($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "%")
@@ -2798,10 +2315,7 @@ sub _jm_obj_23($$$)
             # handle may % property
             # .'$Root'.'|'.1.'%'
             $res = _jm_obj_25($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "#")
@@ -2809,10 +2323,7 @@ sub _jm_obj_23($$$)
             # handle may # property
             # .'$Root'.'|'.1.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -2833,10 +2344,7 @@ sub _jm_obj_23($$$)
 sub _jm_obj_27($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2846,10 +2354,7 @@ sub _jm_obj_27($$$)
             # handle may # property
             # .'$Root'.'|'.0.'$'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "")
@@ -2857,10 +2362,7 @@ sub _jm_obj_27($$$)
             # handle may  property
             # .'$Root'.'|'.0.'$'.''
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_4($prop, undef, undef))
@@ -2868,10 +2370,7 @@ sub _jm_obj_27($$$)
             # handle 1 key props
             # .'$Root'.'|'.0.'$'.'$Identifier'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2891,10 +2390,7 @@ sub _jm_obj_27($$$)
 sub _jm_obj_28($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2904,10 +2400,7 @@ sub _jm_obj_28($$$)
             # handle may # property
             # .'$Root'.'|'.0.'%'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "<")
@@ -2916,7 +2409,7 @@ sub _jm_obj_28($$$)
             # .'$Root'.'|'.0.'%'.'<'
             # .'$Root'.'|'.0.'%'.'<'.'|'.0
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .'$Root'.'|'.0.'%'.'<'.'|'.1
                 $res = jm_is_array($pval);
@@ -2927,17 +2420,11 @@ sub _jm_obj_28($$$)
                         my $arr_20_item = $$pval[$arr_20_idx];
                         # .'$Root'.'|'.0.'%'.'<'.'|'.1.0
                         $res = json_model_7($arr_20_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_11($prop, undef, undef))
@@ -2946,10 +2433,7 @@ sub _jm_obj_28($$$)
             # .'$Root'.'|'.0.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2962,10 +2446,7 @@ sub _jm_obj_28($$$)
             # handle 2 re props
             # .'$Root'.'|'.0.'%'.'/^\\$.*$/'
             $res = json_model_31($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -2991,10 +2472,7 @@ sub _jm_obj_26($$$)
             $must_count++;
             # .'$Root'.'|'.0.'@'
             $res = json_model_33($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "~")
@@ -3002,10 +2480,7 @@ sub _jm_obj_26($$$)
             # handle may ~ property
             # .'$Root'.'|'.0.'~'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\$")
@@ -3013,10 +2488,7 @@ sub _jm_obj_26($$$)
             # handle may $ property
             # .'$Root'.'|'.0.'$'
             $res = _jm_obj_27($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "%")
@@ -3024,10 +2496,7 @@ sub _jm_obj_26($$$)
             # handle may % property
             # .'$Root'.'|'.0.'%'
             $res = _jm_obj_28($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "#")
@@ -3035,10 +2504,7 @@ sub _jm_obj_26($$$)
             # handle may # property
             # .'$Root'.'|'.0.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "!")
@@ -3046,10 +2512,7 @@ sub _jm_obj_26($$$)
             # handle may ! property
             # .'$Root'.'|'.0.'!'
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -3063,20 +2526,14 @@ sub _jm_obj_26($$$)
             # handle 3 re props
             # .'$Root'.'|'.0.'/^(<=|>=|<|>)$/'
             $res = json_model_12($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_8($prop, undef, undef))
         {
             # handle 3 re props
             # .'$Root'.'|'.0.'/^(=|!=)$/'
             $res = json_model_13($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

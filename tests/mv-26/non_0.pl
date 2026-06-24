@@ -25,24 +25,15 @@ sub json_model_1($$$)
     my $xc_0 = 0;
     # .'^'.0
     my $xr_0 = jm_is_string($val);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     # .'^'.1
     $xr_0 = jm_is_string($val) && $val eq "!";
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     if ($xc_0 <= 1)
     {
         # .'^'.2
         $xr_0 = jm_is_string($val) && $val eq "world";
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
+        $xc_0++ if $xr_0;
     }
     return $xc_0 == 1;
 }

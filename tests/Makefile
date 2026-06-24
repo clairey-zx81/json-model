@@ -12,6 +12,8 @@ D.java = $(D.subs:%=%.java)
 D.clean.java = $(D.subs:%=%.clean.java)
 D.js = $(D.subs:%=%.js)
 D.clean.js = $(D.subs:%=%.clean.js)
+D.pl = $(D.subs:%=%.pl)
+D.clean.pl = $(D.subs:%=%.clean.pl)
 
 .PHONY: clean
 clean:
@@ -58,6 +60,14 @@ js:
 .PHONY: clean.js
 clean.js:
 	$(MAKE) TARGET=clean.js $(D.clean.js)
+
+.PHONY: pl
+pl:
+	$(MAKE) TARGET=pl $(D.pl)
+
+.PHONY: clean.pl
+clean.pl:
+	$(MAKE) TARGET=clean.pl $(D.clean.pl)
 
 # show statistics about tests
 .PHONY: stats

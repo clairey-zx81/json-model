@@ -20,10 +20,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -35,10 +32,7 @@ sub json_model_1($$$)
             $must_count++;
             # .'!'
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "_")
@@ -47,10 +41,7 @@ sub json_model_1($$$)
             $must_count++;
             # ._
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "a")
@@ -59,10 +50,7 @@ sub json_model_1($$$)
             $must_count++;
             # .a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "?")
@@ -71,10 +59,7 @@ sub json_model_1($$$)
             $must_count++;
             # .'?'
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "/")
@@ -83,10 +68,7 @@ sub json_model_1($$$)
             $must_count++;
             # .'/'
             $res = jm_is_integer($pval) && $pval == 17;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "b")
@@ -94,10 +76,7 @@ sub json_model_1($$$)
             # handle may b property
             # .b
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

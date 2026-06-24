@@ -26,19 +26,10 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$objs0'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
-    if (! exists $$val{"stuff"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"stuff"};
     $pval = $$val{"stuff"};
     # .'$objs0'.stuff
     my $res = jm_is_array($pval);
@@ -49,10 +40,7 @@ sub json_model_3($$$)
             my $arr_0_item = $$pval[$arr_0_idx];
             # .'$objs0'.stuff.0
             $res = json_model_6($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -64,20 +52,11 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"foo"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"foo"};
     $pval = $$val{"foo"};
     # .foo
     return json_model_3($pval, undef, undef);
@@ -112,30 +91,15 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$objs0#table'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$objs0#table'.t
     my $res = jm_is_string($pval) && $pval eq "table";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"legs"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"legs"};
     $pval = $$val{"legs"};
     # .'$objs0#table'.legs
     return jm_is_integer($pval) && $pval >= 1;
@@ -147,30 +111,15 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$objs0#chair'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$objs0#chair'.t
     my $res = jm_is_string($pval) && $pval eq "chair";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"color"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"color"};
     $pval = $$val{"color"};
     # .'$objs0#chair'.color
     return jm_is_string($pval);

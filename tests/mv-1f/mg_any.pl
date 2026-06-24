@@ -27,10 +27,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -42,10 +39,7 @@ sub json_model_1($$$)
             $must_count++;
             # .a
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b")
@@ -54,10 +48,7 @@ sub json_model_1($$$)
             $must_count++;
             # .b
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "c")
@@ -65,10 +56,7 @@ sub json_model_1($$$)
             # handle may c property
             # .c
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_is_valid_date($prop, undef, undef))
@@ -76,20 +64,14 @@ sub json_model_1($$$)
             # handle 1 key props
             # .'$DATE'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'/foo/'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

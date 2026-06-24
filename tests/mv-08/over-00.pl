@@ -21,10 +21,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Foo'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -34,10 +31,7 @@ sub json_model_2($$$)
             # handle may foo property
             # .'$Foo'.foo
             $res = jm_is_string($pval) && $pval eq "initial foo";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

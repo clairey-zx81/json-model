@@ -42,11 +42,8 @@ sub json_model_1($$$)
     {
         # .0
         $res = json_model_2($$val[0], undef, undef);
-        if ($res)
-        {
-            # .1
-            $res = json_model_2($$val[1], undef, undef);
-        }
+        $res = json_model_2($$val[1], undef, undef) if $res;
+        # .1
     }
     return $res;
 }

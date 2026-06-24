@@ -25,11 +25,8 @@ sub json_model_1($$$)
     if ($res)
     {
         my $len_0 = scalar @$val;
-        if ($len_0 > 0)
-        {
-            # .'@'.0
-            $res = jm_is_string($$val[0]);
-        }
+        $res = jm_is_string($$val[0]) if $len_0 > 0;
+        # .'@'.0
         # no array tail value checks needed
     }
     if ($res)

@@ -71,10 +71,7 @@ sub json_model_3($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$neStrList'.'@'.0
             $res = json_model_2($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -108,10 +105,7 @@ sub json_model_5($$$)
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$LicenseList'.'@'.0
             $res = json_model_4($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -134,10 +128,7 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Provide'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -149,10 +140,7 @@ sub json_model_6($$$)
             $must_count++;
             # .'$Provide'.file
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "version")
@@ -161,10 +149,7 @@ sub json_model_6($$$)
             $must_count++;
             # .'$Provide'.version
             $res = json_model_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "abstract")
@@ -172,10 +157,7 @@ sub json_model_6($$$)
             # handle may abstract property
             # .'$Provide'.abstract
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "docfile")
@@ -183,10 +165,7 @@ sub json_model_6($$$)
             # handle may docfile property
             # .'$Provide'.docfile
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (_jm_re_1($prop, undef, undef))
@@ -216,10 +195,7 @@ sub json_model_7($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -229,10 +205,7 @@ sub _jm_obj_0($$$)
             # handle may web property
             # .'$Resources'.bugtracker.web
             $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "mailto")
@@ -240,10 +213,7 @@ sub _jm_obj_0($$$)
             # handle may mailto property
             # .'$Resources'.bugtracker.mailto
             $res = jm_is_string($pval) && jm_is_email($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (_jm_re_1($prop, undef, undef))
@@ -264,10 +234,7 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -277,10 +244,7 @@ sub _jm_obj_1($$$)
             # handle may url property
             # .'$Resources'.repository.url
             $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "web")
@@ -288,10 +252,7 @@ sub _jm_obj_1($$$)
             # handle may web property
             # .'$Resources'.repository.web
             $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "type")
@@ -300,10 +261,7 @@ sub _jm_obj_1($$$)
             # .'$Resources'.repository.type
             # "/./"
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -316,10 +274,7 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Resources'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -329,10 +284,7 @@ sub json_model_8($$$)
             # handle may homepage property
             # .'$Resources'.homepage
             $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "bugtracker")
@@ -340,10 +292,7 @@ sub json_model_8($$$)
             # handle may bugtracker property
             # .'$Resources'.bugtracker
             $res = _jm_obj_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "repository")
@@ -351,10 +300,7 @@ sub json_model_8($$$)
             # handle may repository property
             # .'$Resources'.repository
             $res = _jm_obj_1($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -443,10 +389,7 @@ sub json_model_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Prereq'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -456,10 +399,7 @@ sub json_model_15($$$)
         # .'$Prereq'.''.'|'.0
         # .'$Prereq'.''.'|'.1
         $res = json_model_10($pval, undef, undef) || json_model_12($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -468,10 +408,7 @@ sub json_model_15($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -481,10 +418,7 @@ sub _jm_obj_2($$$)
             # handle 1 key props
             # .'$Prereqs'.'$Phase'.'$Relation'
             $res = json_model_15($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_1($prop, undef, undef))
         {
@@ -505,10 +439,7 @@ sub json_model_16($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Prereqs'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -518,10 +449,7 @@ sub json_model_16($$$)
             # handle 1 key props
             # .'$Prereqs'.'$Phase'
             $res = _jm_obj_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_1($prop, undef, undef))
         {
@@ -541,10 +469,7 @@ sub json_model_16($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -552,10 +477,7 @@ sub _jm_obj_3($$$)
         # handle other props
         # .license.'|'.2.''
         $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -564,10 +486,7 @@ sub _jm_obj_3($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -575,10 +494,7 @@ sub _jm_obj_4($$$)
         # handle other props
         # .provides.''
         $res = json_model_6($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -587,10 +503,7 @@ sub _jm_obj_4($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -602,10 +515,7 @@ sub _jm_obj_5($$$)
             $must_count++;
             # .'meta-spec'.version
             $res = jm_is_string($pval) && $pval eq "1.0.0";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "url")
@@ -613,10 +523,7 @@ sub _jm_obj_5($$$)
             # handle may url property
             # .'meta-spec'.url
             $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (_jm_re_1($prop, undef, undef))
@@ -637,10 +544,7 @@ sub _jm_obj_5($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -650,10 +554,7 @@ sub _jm_obj_6($$$)
             # handle may file property
             # .no_index.file
             $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "directory")
@@ -661,10 +562,7 @@ sub _jm_obj_6($$$)
             # handle may directory property
             # .no_index.directory
             $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -677,10 +575,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -692,10 +587,7 @@ sub json_model_1($$$)
             $must_count++;
             # .name
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "version")
@@ -704,10 +596,7 @@ sub json_model_1($$$)
             $must_count++;
             # .version
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "abstract")
@@ -716,10 +605,7 @@ sub json_model_1($$$)
             $must_count++;
             # .abstract
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "maintainer")
@@ -730,10 +616,7 @@ sub json_model_1($$$)
             # .maintainer.'|'.0
             # .maintainer.'|'.1
             $res = json_model_2($pval, undef, undef) || json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "license")
@@ -745,10 +628,7 @@ sub json_model_1($$$)
             # .license.'|'.1
             # .license.'|'.2
             $res = json_model_4($pval, undef, undef) || json_model_5($pval, undef, undef) || _jm_obj_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "provides")
@@ -757,10 +637,7 @@ sub json_model_1($$$)
             $must_count++;
             # .provides
             $res = _jm_obj_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "meta-spec")
@@ -769,10 +646,7 @@ sub json_model_1($$$)
             $must_count++;
             # .'meta-spec'
             $res = _jm_obj_5($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "url")
@@ -780,10 +654,7 @@ sub json_model_1($$$)
             # handle may url property
             # .url
             $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "description")
@@ -791,10 +662,7 @@ sub json_model_1($$$)
             # handle may description property
             # .description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "generated_by")
@@ -802,10 +670,7 @@ sub json_model_1($$$)
             # handle may generated_by property
             # .generated_by
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "tags")
@@ -813,10 +678,7 @@ sub json_model_1($$$)
             # handle may tags property
             # .tags
             $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "no_index")
@@ -824,10 +686,7 @@ sub json_model_1($$$)
             # handle may no_index property
             # .no_index
             $res = _jm_obj_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "release_status")
@@ -835,10 +694,7 @@ sub json_model_1($$$)
             # handle may release_status property
             # .release_status
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "resources")
@@ -846,10 +702,7 @@ sub json_model_1($$$)
             # handle may resources property
             # .resources
             $res = json_model_8($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "prereqs")
@@ -857,10 +710,7 @@ sub json_model_1($$$)
             # handle may prereqs property
             # .prereqs
             $res = json_model_16($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (_jm_re_1($prop, undef, undef))

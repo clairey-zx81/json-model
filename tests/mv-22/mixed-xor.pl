@@ -27,30 +27,15 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$cs'.'|'.0.t
     my $res = jm_is_string($pval) && $pval eq "c";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"cal"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"cal"};
     $pval = $$val{"cal"};
     # .'$cs'.'|'.0.cal
     return jm_is_integer($pval) && $pval >= 1;
@@ -61,30 +46,15 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$cs'.'|'.1.t
     my $res = jm_is_string($pval) && $pval eq "s";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"sus"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"sus"};
     $pval = $$val{"sus"};
     # .'$cs'.'|'.1.sus
     return jm_is_integer($pval) && $pval >= 1;
@@ -118,30 +88,15 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.0.t
     my $res = jm_is_string($pval) && $pval eq "m";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"moe"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"moe"};
     $pval = $$val{"moe"};
     # .'|'.0.moe
     return jm_is_integer($pval) && $pval >= 1;
@@ -152,30 +107,15 @@ sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.1.t
     my $res = jm_is_string($pval) && $pval eq "h";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"hob"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"hob"};
     $pval = $$val{"hob"};
     # .'|'.1.hob
     return jm_is_integer($pval) && $pval >= 1;

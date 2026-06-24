@@ -234,10 +234,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$AIXPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -247,10 +244,7 @@ sub json_model_2($$$)
             # handle may name property
             # .'$AIXPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "AIX";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -265,16 +259,10 @@ sub json_model_2($$$)
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .'$AIXPlatformModel'.versions.0
                     $res = jm_is_string($arr_0_item) && exists $_jm_cst_0{$arr_0_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -287,10 +275,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$AlpinePlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -300,10 +285,7 @@ sub json_model_3($$$)
             # handle may name property
             # .'$AlpinePlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Alpine";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -318,16 +300,10 @@ sub json_model_3($$$)
                     my $arr_1_item = $$pval[$arr_1_idx];
                     # .'$AlpinePlatformModel'.versions.0
                     $res = jm_is_string($arr_1_item) && $arr_1_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -341,10 +317,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$AmazonLinuxPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -354,10 +327,7 @@ sub json_model_4($$$)
             # handle may name property
             # .'$AmazonLinuxPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Amazon Linux";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -372,16 +342,10 @@ sub json_model_4($$$)
                     my $arr_2_item = $$pval[$arr_2_idx];
                     # .'$AmazonLinuxPlatformModel'.versions.0
                     $res = jm_is_string($arr_2_item) && exists $_jm_cst_1{$arr_2_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -395,10 +359,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$AmazonPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -408,10 +369,7 @@ sub json_model_5($$$)
             # handle may name property
             # .'$AmazonPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Amazon";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -426,16 +384,10 @@ sub json_model_5($$$)
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$AmazonPlatformModel'.versions.0
                     $res = jm_is_string($arr_3_item) && exists $_jm_cst_2{$arr_3_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -448,10 +400,7 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ArchLinuxPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -461,10 +410,7 @@ sub json_model_6($$$)
             # handle may name property
             # .'$ArchLinuxPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "ArchLinux";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -479,16 +425,10 @@ sub json_model_6($$$)
                     my $arr_4_item = $$pval[$arr_4_idx];
                     # .'$ArchLinuxPlatformModel'.versions.0
                     $res = jm_is_string($arr_4_item) && $arr_4_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -502,10 +442,7 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$AstraLinuxPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -515,10 +452,7 @@ sub json_model_7($$$)
             # handle may name property
             # .'$AstraLinuxPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Astra Linux";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -533,16 +467,10 @@ sub json_model_7($$$)
                     my $arr_5_item = $$pval[$arr_5_idx];
                     # .'$AstraLinuxPlatformModel'.versions.0
                     $res = jm_is_string($arr_5_item) && exists $_jm_cst_3{$arr_5_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -555,10 +483,7 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ClearLinuxPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -568,10 +493,7 @@ sub json_model_8($$$)
             # handle may name property
             # .'$ClearLinuxPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "ClearLinux";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -586,16 +508,10 @@ sub json_model_8($$$)
                     my $arr_6_item = $$pval[$arr_6_idx];
                     # .'$ClearLinuxPlatformModel'.versions.0
                     $res = jm_is_string($arr_6_item) && $arr_6_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -609,10 +525,7 @@ sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$CumulusPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -622,10 +535,7 @@ sub json_model_9($$$)
             # handle may name property
             # .'$CumulusPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Cumulus";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -640,16 +550,10 @@ sub json_model_9($$$)
                     my $arr_7_item = $$pval[$arr_7_idx];
                     # .'$CumulusPlatformModel'.versions.0
                     $res = jm_is_string($arr_7_item) && exists $_jm_cst_4{$arr_7_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -663,10 +567,7 @@ sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$DebianPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -676,10 +577,7 @@ sub json_model_10($$$)
             # handle may name property
             # .'$DebianPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Debian";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -694,16 +592,10 @@ sub json_model_10($$$)
                     my $arr_8_item = $$pval[$arr_8_idx];
                     # .'$DebianPlatformModel'.versions.0
                     $res = jm_is_string($arr_8_item) && exists $_jm_cst_5{$arr_8_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -717,10 +609,7 @@ sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$DellOSPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -730,10 +619,7 @@ sub json_model_11($$$)
             # handle may name property
             # .'$DellOSPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "DellOS";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -748,16 +634,10 @@ sub json_model_11($$$)
                     my $arr_9_item = $$pval[$arr_9_idx];
                     # .'$DellOSPlatformModel'.versions.0
                     $res = jm_is_string($arr_9_item) && exists $_jm_cst_6{$arr_9_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -771,10 +651,7 @@ sub json_model_12($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$DevuanPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -784,10 +661,7 @@ sub json_model_12($$$)
             # handle may name property
             # .'$DevuanPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Devuan";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -802,16 +676,10 @@ sub json_model_12($$$)
                     my $arr_10_item = $$pval[$arr_10_idx];
                     # .'$DevuanPlatformModel'.versions.0
                     $res = jm_is_string($arr_10_item) && exists $_jm_cst_7{$arr_10_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -825,10 +693,7 @@ sub json_model_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$DragonFlyBSDPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -838,10 +703,7 @@ sub json_model_13($$$)
             # handle may name property
             # .'$DragonFlyBSDPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "DragonFlyBSD";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -856,16 +718,10 @@ sub json_model_13($$$)
                     my $arr_11_item = $$pval[$arr_11_idx];
                     # .'$DragonFlyBSDPlatformModel'.versions.0
                     $res = jm_is_string($arr_11_item) && exists $_jm_cst_8{$arr_11_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -879,10 +735,7 @@ sub json_model_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ELPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -892,10 +745,7 @@ sub json_model_14($$$)
             # handle may name property
             # .'$ELPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "EL";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -910,16 +760,10 @@ sub json_model_14($$$)
                     my $arr_12_item = $$pval[$arr_12_idx];
                     # .'$ELPlatformModel'.versions.0
                     $res = jm_is_string($arr_12_item) && exists $_jm_cst_9{$arr_12_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -933,10 +777,7 @@ sub json_model_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$FedoraPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -946,10 +787,7 @@ sub json_model_15($$$)
             # handle may name property
             # .'$FedoraPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Fedora";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -964,16 +802,10 @@ sub json_model_15($$$)
                     my $arr_13_item = $$pval[$arr_13_idx];
                     # .'$FedoraPlatformModel'.versions.0
                     $res = jm_is_string($arr_13_item) && exists $_jm_cst_10{$arr_13_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -987,10 +819,7 @@ sub json_model_16($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$FreeBSDPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1000,10 +829,7 @@ sub json_model_16($$$)
             # handle may name property
             # .'$FreeBSDPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "FreeBSD";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1018,16 +844,10 @@ sub json_model_16($$$)
                     my $arr_14_item = $$pval[$arr_14_idx];
                     # .'$FreeBSDPlatformModel'.versions.0
                     $res = jm_is_string($arr_14_item) && exists $_jm_cst_11{$arr_14_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1040,10 +860,7 @@ sub json_model_17($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$GenericBSDPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1053,10 +870,7 @@ sub json_model_17($$$)
             # handle may name property
             # .'$GenericBSDPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "GenericBSD";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1071,16 +885,10 @@ sub json_model_17($$$)
                     my $arr_15_item = $$pval[$arr_15_idx];
                     # .'$GenericBSDPlatformModel'.versions.0
                     $res = jm_is_string($arr_15_item) && $arr_15_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1093,10 +901,7 @@ sub json_model_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$GenericLinuxPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1106,10 +911,7 @@ sub json_model_18($$$)
             # handle may name property
             # .'$GenericLinuxPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "GenericLinux";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1124,16 +926,10 @@ sub json_model_18($$$)
                     my $arr_16_item = $$pval[$arr_16_idx];
                     # .'$GenericLinuxPlatformModel'.versions.0
                     $res = jm_is_string($arr_16_item) && $arr_16_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1146,10 +942,7 @@ sub json_model_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$GenericUNIXPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1159,10 +952,7 @@ sub json_model_19($$$)
             # handle may name property
             # .'$GenericUNIXPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "GenericUNIX";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1177,16 +967,10 @@ sub json_model_19($$$)
                     my $arr_17_item = $$pval[$arr_17_idx];
                     # .'$GenericUNIXPlatformModel'.versions.0
                     $res = jm_is_string($arr_17_item) && $arr_17_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1199,10 +983,7 @@ sub json_model_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$GentooPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1212,10 +993,7 @@ sub json_model_20($$$)
             # handle may name property
             # .'$GentooPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Gentoo";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1230,16 +1008,10 @@ sub json_model_20($$$)
                     my $arr_18_item = $$pval[$arr_18_idx];
                     # .'$GentooPlatformModel'.versions.0
                     $res = jm_is_string($arr_18_item) && $arr_18_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1253,10 +1025,7 @@ sub json_model_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$HardenedBSDPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1266,10 +1035,7 @@ sub json_model_21($$$)
             # handle may name property
             # .'$HardenedBSDPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "HardenedBSD";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1284,16 +1050,10 @@ sub json_model_21($$$)
                     my $arr_19_item = $$pval[$arr_19_idx];
                     # .'$HardenedBSDPlatformModel'.versions.0
                     $res = jm_is_string($arr_19_item) && exists $_jm_cst_12{$arr_19_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1306,10 +1066,7 @@ sub json_model_22($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$IOSPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1319,10 +1076,7 @@ sub json_model_22($$$)
             # handle may name property
             # .'$IOSPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "IOS";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1337,16 +1091,10 @@ sub json_model_22($$$)
                     my $arr_20_item = $$pval[$arr_20_idx];
                     # .'$IOSPlatformModel'.versions.0
                     $res = jm_is_string($arr_20_item) && $arr_20_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1359,10 +1107,7 @@ sub json_model_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$JunosPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1372,10 +1117,7 @@ sub json_model_23($$$)
             # handle may name property
             # .'$JunosPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Junos";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1390,16 +1132,10 @@ sub json_model_23($$$)
                     my $arr_21_item = $$pval[$arr_21_idx];
                     # .'$JunosPlatformModel'.versions.0
                     $res = jm_is_string($arr_21_item) && $arr_21_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1413,10 +1149,7 @@ sub json_model_24($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$KaliPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1426,10 +1159,7 @@ sub json_model_24($$$)
             # handle may name property
             # .'$KaliPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Kali";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1444,16 +1174,10 @@ sub json_model_24($$$)
                     my $arr_22_item = $$pval[$arr_22_idx];
                     # .'$KaliPlatformModel'.versions.0
                     $res = jm_is_string($arr_22_item) && exists $_jm_cst_13{$arr_22_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1467,10 +1191,7 @@ sub json_model_25($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$MacOSXPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1480,10 +1201,7 @@ sub json_model_25($$$)
             # handle may name property
             # .'$MacOSXPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Kali";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1498,16 +1216,10 @@ sub json_model_25($$$)
                     my $arr_23_item = $$pval[$arr_23_idx];
                     # .'$MacOSXPlatformModel'.versions.0
                     $res = jm_is_string($arr_23_item) && exists $_jm_cst_14{$arr_23_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1521,10 +1233,7 @@ sub json_model_26($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$MageiaPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1534,10 +1243,7 @@ sub json_model_26($$$)
             # handle may name property
             # .'$MageiaPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Megeia";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1552,16 +1258,10 @@ sub json_model_26($$$)
                     my $arr_24_item = $$pval[$arr_24_idx];
                     # .'$MageiaPlatformModel'.versions.0
                     $res = jm_is_string($arr_24_item) && exists $_jm_cst_15{$arr_24_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1574,10 +1274,7 @@ sub json_model_27($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$NXOSPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1587,10 +1284,7 @@ sub json_model_27($$$)
             # handle may name property
             # .'$NXOSPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "NXOS";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1605,16 +1299,10 @@ sub json_model_27($$$)
                     my $arr_25_item = $$pval[$arr_25_idx];
                     # .'$NXOSPlatformModel'.versions.0
                     $res = jm_is_string($arr_25_item) && $arr_25_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1628,10 +1316,7 @@ sub json_model_28($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$NetBSDPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1641,10 +1326,7 @@ sub json_model_28($$$)
             # handle may name property
             # .'$NetBSDPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "NetBSD";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1659,16 +1341,10 @@ sub json_model_28($$$)
                     my $arr_26_item = $$pval[$arr_26_idx];
                     # .'$NetBSDPlatformModel'.versions.0
                     $res = jm_is_string($arr_26_item) && exists $_jm_cst_16{$arr_26_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1682,10 +1358,7 @@ sub json_model_29($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$OpenBSDPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1695,10 +1368,7 @@ sub json_model_29($$$)
             # handle may name property
             # .'$OpenBSDPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "OpenBSD";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1713,16 +1383,10 @@ sub json_model_29($$$)
                     my $arr_27_item = $$pval[$arr_27_idx];
                     # .'$OpenBSDPlatformModel'.versions.0
                     $res = jm_is_string($arr_27_item) && exists $_jm_cst_17{$arr_27_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1736,10 +1400,7 @@ sub json_model_30($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$OpenWrtPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1749,10 +1410,7 @@ sub json_model_30($$$)
             # handle may name property
             # .'$OpenWrtPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "OpenWrt";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1767,16 +1425,10 @@ sub json_model_30($$$)
                     my $arr_28_item = $$pval[$arr_28_idx];
                     # .'$OpenWrtPlatformModel'.versions.0
                     $res = jm_is_string($arr_28_item) && exists $_jm_cst_18{$arr_28_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1790,10 +1442,7 @@ sub json_model_31($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$OracleLinuxPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1803,10 +1452,7 @@ sub json_model_31($$$)
             # handle may name property
             # .'$OracleLinuxPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "OracleLinux";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1821,16 +1467,10 @@ sub json_model_31($$$)
                     my $arr_29_item = $$pval[$arr_29_idx];
                     # .'$OracleLinuxPlatformModel'.versions.0
                     $res = jm_is_string($arr_29_item) && exists $_jm_cst_19{$arr_29_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1844,10 +1484,7 @@ sub json_model_32($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$PAN-OSPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1857,10 +1494,7 @@ sub json_model_32($$$)
             # handle may name property
             # .'$PAN-OSPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "PAN-OS";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1875,16 +1509,10 @@ sub json_model_32($$$)
                     my $arr_30_item = $$pval[$arr_30_idx];
                     # .'$PAN-OSPlatformModel'.versions.0
                     $res = jm_is_string($arr_30_item) && exists $_jm_cst_20{$arr_30_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1898,10 +1526,7 @@ sub json_model_33($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$RockyLinuxPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1911,10 +1536,7 @@ sub json_model_33($$$)
             # handle may name property
             # .'$RockyLinuxPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Rocky";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1929,16 +1551,10 @@ sub json_model_33($$$)
                     my $arr_31_item = $$pval[$arr_31_idx];
                     # .'$RockyLinuxPlatformModel'.versions.0
                     $res = jm_is_string($arr_31_item) && exists $_jm_cst_21{$arr_31_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1952,10 +1568,7 @@ sub json_model_34($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$SLESPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1965,10 +1578,7 @@ sub json_model_34($$$)
             # handle may name property
             # .'$SLESPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "SLES";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -1983,16 +1593,10 @@ sub json_model_34($$$)
                     my $arr_32_item = $$pval[$arr_32_idx];
                     # .'$SLESPlatformModel'.versions.0
                     $res = jm_is_string($arr_32_item) && exists $_jm_cst_22{$arr_32_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2005,10 +1609,7 @@ sub json_model_35($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$SmartOSPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2018,10 +1619,7 @@ sub json_model_35($$$)
             # handle may name property
             # .'$SmartOSPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "SmartOS";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2036,16 +1634,10 @@ sub json_model_35($$$)
                     my $arr_33_item = $$pval[$arr_33_idx];
                     # .'$SmartOSPlatformModel'.versions.0
                     $res = jm_is_string($arr_33_item) && $arr_33_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2059,10 +1651,7 @@ sub json_model_36($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$SolarisPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2072,10 +1661,7 @@ sub json_model_36($$$)
             # handle may name property
             # .'$SolarisPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Solaris";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2090,16 +1676,10 @@ sub json_model_36($$$)
                     my $arr_34_item = $$pval[$arr_34_idx];
                     # .'$SolarisPlatformModel'.versions.0
                     $res = jm_is_string($arr_34_item) && exists $_jm_cst_23{$arr_34_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2113,10 +1693,7 @@ sub json_model_37($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$SynologyPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2126,10 +1703,7 @@ sub json_model_37($$$)
             # handle may name property
             # .'$SynologyPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Synology";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2144,16 +1718,10 @@ sub json_model_37($$$)
                     my $arr_35_item = $$pval[$arr_35_idx];
                     # .'$SynologyPlatformModel'.versions.0
                     $res = jm_is_string($arr_35_item) && exists $_jm_cst_24{$arr_35_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2167,10 +1735,7 @@ sub json_model_38($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$TMOSPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2180,10 +1745,7 @@ sub json_model_38($$$)
             # handle may name property
             # .'$TMOSPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "TMOS";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2198,16 +1760,10 @@ sub json_model_38($$$)
                     my $arr_36_item = $$pval[$arr_36_idx];
                     # .'$TMOSPlatformModel'.versions.0
                     $res = jm_is_string($arr_36_item) && exists $_jm_cst_25{$arr_36_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2221,10 +1777,7 @@ sub json_model_39($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$UbuntuPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2234,10 +1787,7 @@ sub json_model_39($$$)
             # handle may name property
             # .'$UbuntuPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Ubuntu";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2252,16 +1802,10 @@ sub json_model_39($$$)
                     my $arr_37_item = $$pval[$arr_37_idx];
                     # .'$UbuntuPlatformModel'.versions.0
                     $res = jm_is_string($arr_37_item) && exists $_jm_cst_26{$arr_37_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2274,10 +1818,7 @@ sub json_model_40($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Void_LinuxPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2287,10 +1828,7 @@ sub json_model_40($$$)
             # handle may name property
             # .'$Void_LinuxPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Void Linux";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2305,16 +1843,10 @@ sub json_model_40($$$)
                     my $arr_38_item = $$pval[$arr_38_idx];
                     # .'$Void_LinuxPlatformModel'.versions.0
                     $res = jm_is_string($arr_38_item) && $arr_38_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2328,10 +1860,7 @@ sub json_model_41($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$WindowsPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2341,10 +1870,7 @@ sub json_model_41($$$)
             # handle may name property
             # .'$WindowsPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "Windows";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2359,16 +1885,10 @@ sub json_model_41($$$)
                     my $arr_39_item = $$pval[$arr_39_idx];
                     # .'$WindowsPlatformModel'.versions.0
                     $res = jm_is_string($arr_39_item) && exists $_jm_cst_27{$arr_39_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2381,10 +1901,7 @@ sub json_model_42($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$aosPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2394,10 +1911,7 @@ sub json_model_42($$$)
             # handle may name property
             # .'$aosPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "aos";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2412,16 +1926,10 @@ sub json_model_42($$$)
                     my $arr_40_item = $$pval[$arr_40_idx];
                     # .'$aosPlatformModel'.versions.0
                     $res = jm_is_string($arr_40_item) && $arr_40_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2434,10 +1942,7 @@ sub json_model_43($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$eosPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2447,10 +1952,7 @@ sub json_model_43($$$)
             # handle may name property
             # .'$eosPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "eos";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2465,16 +1967,10 @@ sub json_model_43($$$)
                     my $arr_41_item = $$pval[$arr_41_idx];
                     # .'$eosPlatformModel'.versions.0
                     $res = jm_is_string($arr_41_item) && $arr_41_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2488,10 +1984,7 @@ sub json_model_44($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$macOSPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2501,10 +1994,7 @@ sub json_model_44($$$)
             # handle may name property
             # .'$macOSPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "macOS";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2519,16 +2009,10 @@ sub json_model_44($$$)
                     my $arr_42_item = $$pval[$arr_42_idx];
                     # .'$macOSPlatformModel'.versions.0
                     $res = jm_is_string($arr_42_item) && exists $_jm_cst_28{$arr_42_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2542,10 +2026,7 @@ sub json_model_45($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$opensusePlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2555,10 +2036,7 @@ sub json_model_45($$$)
             # handle may name property
             # .'$opensusePlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "opensuse";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2573,16 +2051,10 @@ sub json_model_45($$$)
                     my $arr_43_item = $$pval[$arr_43_idx];
                     # .'$opensusePlatformModel'.versions.0
                     $res = jm_is_string($arr_43_item) && exists $_jm_cst_29{$arr_43_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2595,10 +2067,7 @@ sub json_model_46($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$os10PlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2608,10 +2077,7 @@ sub json_model_46($$$)
             # handle may name property
             # .'$os10PlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "os10";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2626,16 +2092,10 @@ sub json_model_46($$$)
                     my $arr_44_item = $$pval[$arr_44_idx];
                     # .'$os10PlatformModel'.versions.0
                     $res = jm_is_string($arr_44_item) && $arr_44_item eq "all";
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2649,10 +2109,7 @@ sub json_model_47($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$vCenterPlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2662,10 +2119,7 @@ sub json_model_47($$$)
             # handle may name property
             # .'$vCenterPlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "vCenter";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2680,16 +2134,10 @@ sub json_model_47($$$)
                     my $arr_45_item = $$pval[$arr_45_idx];
                     # .'$vCenterPlatformModel'.versions.0
                     $res = jm_is_string($arr_45_item) && exists $_jm_cst_30{$arr_45_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2703,10 +2151,7 @@ sub json_model_48($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$vSpherePlatformModel'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2716,10 +2161,7 @@ sub json_model_48($$$)
             # handle may name property
             # .'$vSpherePlatformModel'.name
             $res = jm_is_string($pval) && $pval eq "vSphere";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "versions")
@@ -2734,16 +2176,10 @@ sub json_model_48($$$)
                     my $arr_46_item = $$pval[$arr_46_idx];
                     # .'$vSpherePlatformModel'.versions.0
                     $res = jm_is_string($arr_46_item) && exists $_jm_cst_31{$arr_46_item};
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2813,10 +2249,7 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -2824,10 +2257,7 @@ sub _jm_obj_0($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.46.name
         $res = jm_is_string($pval) && $pval eq "Windows";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -2841,16 +2271,10 @@ sub _jm_obj_0($$$)
                 my $arr_48_item = $$pval[$arr_48_idx];
                 # .'$platforms'.0.'|'.46.versions.0
                 $res = jm_is_string($arr_48_item) && exists $_jm_cst_32{$arr_48_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -2861,10 +2285,7 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -2872,10 +2293,7 @@ sub _jm_obj_1($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.45.name
         $res = jm_is_string($pval) && $pval eq "vSphere";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -2889,16 +2307,10 @@ sub _jm_obj_1($$$)
                 my $arr_49_item = $$pval[$arr_49_idx];
                 # .'$platforms'.0.'|'.45.versions.0
                 $res = jm_is_string($arr_49_item) && exists $_jm_cst_33{$arr_49_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -2908,10 +2320,7 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -2919,10 +2328,7 @@ sub _jm_obj_2($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.44.name
         $res = jm_is_string($pval) && $pval eq "Void Linux";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -2936,16 +2342,10 @@ sub _jm_obj_2($$$)
                 my $arr_50_item = $$pval[$arr_50_idx];
                 # .'$platforms'.0.'|'.44.versions.0
                 $res = jm_is_string($arr_50_item) && $arr_50_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -2956,10 +2356,7 @@ sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -2967,10 +2364,7 @@ sub _jm_obj_3($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.43.name
         $res = jm_is_string($pval) && $pval eq "vCenter";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -2984,16 +2378,10 @@ sub _jm_obj_3($$$)
                 my $arr_51_item = $$pval[$arr_51_idx];
                 # .'$platforms'.0.'|'.43.versions.0
                 $res = jm_is_string($arr_51_item) && exists $_jm_cst_34{$arr_51_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3004,10 +2392,7 @@ sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3015,10 +2400,7 @@ sub _jm_obj_4($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.42.name
         $res = jm_is_string($pval) && $pval eq "Ubuntu";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3032,16 +2414,10 @@ sub _jm_obj_4($$$)
                 my $arr_52_item = $$pval[$arr_52_idx];
                 # .'$platforms'.0.'|'.42.versions.0
                 $res = jm_is_string($arr_52_item) && exists $_jm_cst_35{$arr_52_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3052,10 +2428,7 @@ sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3063,10 +2436,7 @@ sub _jm_obj_5($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.41.name
         $res = jm_is_string($pval) && $pval eq "TMOS";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3080,16 +2450,10 @@ sub _jm_obj_5($$$)
                 my $arr_53_item = $$pval[$arr_53_idx];
                 # .'$platforms'.0.'|'.41.versions.0
                 $res = jm_is_string($arr_53_item) && exists $_jm_cst_36{$arr_53_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3100,10 +2464,7 @@ sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3111,10 +2472,7 @@ sub _jm_obj_6($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.40.name
         $res = jm_is_string($pval) && $pval eq "Synology";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3128,16 +2486,10 @@ sub _jm_obj_6($$$)
                 my $arr_54_item = $$pval[$arr_54_idx];
                 # .'$platforms'.0.'|'.40.versions.0
                 $res = jm_is_string($arr_54_item) && exists $_jm_cst_37{$arr_54_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3148,10 +2500,7 @@ sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3159,10 +2508,7 @@ sub _jm_obj_7($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.39.name
         $res = jm_is_string($pval) && $pval eq "Solaris";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3176,16 +2522,10 @@ sub _jm_obj_7($$$)
                 my $arr_55_item = $$pval[$arr_55_idx];
                 # .'$platforms'.0.'|'.39.versions.0
                 $res = jm_is_string($arr_55_item) && exists $_jm_cst_38{$arr_55_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3195,10 +2535,7 @@ sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3206,10 +2543,7 @@ sub _jm_obj_8($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.38.name
         $res = jm_is_string($pval) && $pval eq "SmartOS";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3223,16 +2557,10 @@ sub _jm_obj_8($$$)
                 my $arr_56_item = $$pval[$arr_56_idx];
                 # .'$platforms'.0.'|'.38.versions.0
                 $res = jm_is_string($arr_56_item) && $arr_56_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3243,10 +2571,7 @@ sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3254,10 +2579,7 @@ sub _jm_obj_9($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.37.name
         $res = jm_is_string($pval) && $pval eq "SLES";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3271,16 +2593,10 @@ sub _jm_obj_9($$$)
                 my $arr_57_item = $$pval[$arr_57_idx];
                 # .'$platforms'.0.'|'.37.versions.0
                 $res = jm_is_string($arr_57_item) && exists $_jm_cst_39{$arr_57_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3291,10 +2607,7 @@ sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3302,10 +2615,7 @@ sub _jm_obj_10($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.36.name
         $res = jm_is_string($pval) && $pval eq "Rocky";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3319,16 +2629,10 @@ sub _jm_obj_10($$$)
                 my $arr_58_item = $$pval[$arr_58_idx];
                 # .'$platforms'.0.'|'.36.versions.0
                 $res = jm_is_string($arr_58_item) && exists $_jm_cst_40{$arr_58_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3339,10 +2643,7 @@ sub _jm_obj_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3350,10 +2651,7 @@ sub _jm_obj_11($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.35.name
         $res = jm_is_string($pval) && $pval eq "PAN-OS";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3367,16 +2665,10 @@ sub _jm_obj_11($$$)
                 my $arr_59_item = $$pval[$arr_59_idx];
                 # .'$platforms'.0.'|'.35.versions.0
                 $res = jm_is_string($arr_59_item) && exists $_jm_cst_41{$arr_59_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3386,10 +2678,7 @@ sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3397,10 +2686,7 @@ sub _jm_obj_12($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.34.name
         $res = jm_is_string($pval) && $pval eq "os10";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3414,16 +2700,10 @@ sub _jm_obj_12($$$)
                 my $arr_60_item = $$pval[$arr_60_idx];
                 # .'$platforms'.0.'|'.34.versions.0
                 $res = jm_is_string($arr_60_item) && $arr_60_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3434,10 +2714,7 @@ sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3445,10 +2722,7 @@ sub _jm_obj_13($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.33.name
         $res = jm_is_string($pval) && $pval eq "OracleLinux";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3462,16 +2736,10 @@ sub _jm_obj_13($$$)
                 my $arr_61_item = $$pval[$arr_61_idx];
                 # .'$platforms'.0.'|'.33.versions.0
                 $res = jm_is_string($arr_61_item) && exists $_jm_cst_42{$arr_61_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3482,10 +2750,7 @@ sub _jm_obj_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3493,10 +2758,7 @@ sub _jm_obj_14($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.32.name
         $res = jm_is_string($pval) && $pval eq "OpenWrt";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3510,16 +2772,10 @@ sub _jm_obj_14($$$)
                 my $arr_62_item = $$pval[$arr_62_idx];
                 # .'$platforms'.0.'|'.32.versions.0
                 $res = jm_is_string($arr_62_item) && exists $_jm_cst_43{$arr_62_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3530,10 +2786,7 @@ sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3541,10 +2794,7 @@ sub _jm_obj_15($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.31.name
         $res = jm_is_string($pval) && $pval eq "opensuse";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3558,16 +2808,10 @@ sub _jm_obj_15($$$)
                 my $arr_63_item = $$pval[$arr_63_idx];
                 # .'$platforms'.0.'|'.31.versions.0
                 $res = jm_is_string($arr_63_item) && exists $_jm_cst_44{$arr_63_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3578,10 +2822,7 @@ sub _jm_obj_16($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3589,10 +2830,7 @@ sub _jm_obj_16($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.30.name
         $res = jm_is_string($pval) && $pval eq "OpenBSD";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3606,16 +2844,10 @@ sub _jm_obj_16($$$)
                 my $arr_64_item = $$pval[$arr_64_idx];
                 # .'$platforms'.0.'|'.30.versions.0
                 $res = jm_is_string($arr_64_item) && exists $_jm_cst_45{$arr_64_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3625,10 +2857,7 @@ sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3636,10 +2865,7 @@ sub _jm_obj_17($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.29.name
         $res = jm_is_string($pval) && $pval eq "NXOS";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3653,16 +2879,10 @@ sub _jm_obj_17($$$)
                 my $arr_65_item = $$pval[$arr_65_idx];
                 # .'$platforms'.0.'|'.29.versions.0
                 $res = jm_is_string($arr_65_item) && $arr_65_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3673,10 +2893,7 @@ sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3684,10 +2901,7 @@ sub _jm_obj_18($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.28.name
         $res = jm_is_string($pval) && $pval eq "Megeia";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3701,16 +2915,10 @@ sub _jm_obj_18($$$)
                 my $arr_66_item = $$pval[$arr_66_idx];
                 # .'$platforms'.0.'|'.28.versions.0
                 $res = jm_is_string($arr_66_item) && exists $_jm_cst_46{$arr_66_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3721,10 +2929,7 @@ sub _jm_obj_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3732,10 +2937,7 @@ sub _jm_obj_19($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.27.name
         $res = jm_is_string($pval) && $pval eq "Kali";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3749,16 +2951,10 @@ sub _jm_obj_19($$$)
                 my $arr_67_item = $$pval[$arr_67_idx];
                 # .'$platforms'.0.'|'.27.versions.0
                 $res = jm_is_string($arr_67_item) && exists $_jm_cst_47{$arr_67_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3769,10 +2965,7 @@ sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3780,10 +2973,7 @@ sub _jm_obj_20($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.26.name
         $res = jm_is_string($pval) && $pval eq "macOS";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3797,16 +2987,10 @@ sub _jm_obj_20($$$)
                 my $arr_68_item = $$pval[$arr_68_idx];
                 # .'$platforms'.0.'|'.26.versions.0
                 $res = jm_is_string($arr_68_item) && exists $_jm_cst_48{$arr_68_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3817,10 +3001,7 @@ sub _jm_obj_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3828,10 +3009,7 @@ sub _jm_obj_21($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.25.name
         $res = jm_is_string($pval) && $pval eq "Kali";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3845,16 +3023,10 @@ sub _jm_obj_21($$$)
                 my $arr_69_item = $$pval[$arr_69_idx];
                 # .'$platforms'.0.'|'.25.versions.0
                 $res = jm_is_string($arr_69_item) && exists $_jm_cst_49{$arr_69_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3864,10 +3036,7 @@ sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3875,10 +3044,7 @@ sub _jm_obj_22($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.24.name
         $res = jm_is_string($pval) && $pval eq "Junos";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3892,16 +3058,10 @@ sub _jm_obj_22($$$)
                 my $arr_70_item = $$pval[$arr_70_idx];
                 # .'$platforms'.0.'|'.24.versions.0
                 $res = jm_is_string($arr_70_item) && $arr_70_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3911,10 +3071,7 @@ sub _jm_obj_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3922,10 +3079,7 @@ sub _jm_obj_23($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.23.name
         $res = jm_is_string($pval) && $pval eq "IOS";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3939,16 +3093,10 @@ sub _jm_obj_23($$$)
                 my $arr_71_item = $$pval[$arr_71_idx];
                 # .'$platforms'.0.'|'.23.versions.0
                 $res = jm_is_string($arr_71_item) && $arr_71_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -3959,10 +3107,7 @@ sub _jm_obj_24($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -3970,10 +3115,7 @@ sub _jm_obj_24($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.22.name
         $res = jm_is_string($pval) && $pval eq "HardenedBSD";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -3987,16 +3129,10 @@ sub _jm_obj_24($$$)
                 my $arr_72_item = $$pval[$arr_72_idx];
                 # .'$platforms'.0.'|'.22.versions.0
                 $res = jm_is_string($arr_72_item) && exists $_jm_cst_50{$arr_72_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4006,10 +3142,7 @@ sub _jm_obj_25($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4017,10 +3150,7 @@ sub _jm_obj_25($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.21.name
         $res = jm_is_string($pval) && $pval eq "Gentoo";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4034,16 +3164,10 @@ sub _jm_obj_25($$$)
                 my $arr_73_item = $$pval[$arr_73_idx];
                 # .'$platforms'.0.'|'.21.versions.0
                 $res = jm_is_string($arr_73_item) && $arr_73_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4053,10 +3177,7 @@ sub _jm_obj_26($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4064,10 +3185,7 @@ sub _jm_obj_26($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.20.name
         $res = jm_is_string($pval) && $pval eq "GenericUNIX";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4081,16 +3199,10 @@ sub _jm_obj_26($$$)
                 my $arr_74_item = $$pval[$arr_74_idx];
                 # .'$platforms'.0.'|'.20.versions.0
                 $res = jm_is_string($arr_74_item) && $arr_74_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4100,10 +3212,7 @@ sub _jm_obj_27($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4111,10 +3220,7 @@ sub _jm_obj_27($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.19.name
         $res = jm_is_string($pval) && $pval eq "GenericLinux";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4128,16 +3234,10 @@ sub _jm_obj_27($$$)
                 my $arr_75_item = $$pval[$arr_75_idx];
                 # .'$platforms'.0.'|'.19.versions.0
                 $res = jm_is_string($arr_75_item) && $arr_75_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4147,10 +3247,7 @@ sub _jm_obj_28($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4158,10 +3255,7 @@ sub _jm_obj_28($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.18.name
         $res = jm_is_string($pval) && $pval eq "GenericBSD";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4175,16 +3269,10 @@ sub _jm_obj_28($$$)
                 my $arr_76_item = $$pval[$arr_76_idx];
                 # .'$platforms'.0.'|'.18.versions.0
                 $res = jm_is_string($arr_76_item) && $arr_76_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4195,10 +3283,7 @@ sub _jm_obj_29($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4206,10 +3291,7 @@ sub _jm_obj_29($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.17.name
         $res = jm_is_string($pval) && $pval eq "FreeBSD";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4223,16 +3305,10 @@ sub _jm_obj_29($$$)
                 my $arr_77_item = $$pval[$arr_77_idx];
                 # .'$platforms'.0.'|'.17.versions.0
                 $res = jm_is_string($arr_77_item) && exists $_jm_cst_51{$arr_77_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4243,10 +3319,7 @@ sub _jm_obj_30($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4254,10 +3327,7 @@ sub _jm_obj_30($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.16.name
         $res = jm_is_string($pval) && $pval eq "Fedora";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4271,16 +3341,10 @@ sub _jm_obj_30($$$)
                 my $arr_78_item = $$pval[$arr_78_idx];
                 # .'$platforms'.0.'|'.16.versions.0
                 $res = jm_is_string($arr_78_item) && exists $_jm_cst_52{$arr_78_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4290,10 +3354,7 @@ sub _jm_obj_31($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4301,10 +3362,7 @@ sub _jm_obj_31($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.15.name
         $res = jm_is_string($pval) && $pval eq "eos";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4318,16 +3376,10 @@ sub _jm_obj_31($$$)
                 my $arr_79_item = $$pval[$arr_79_idx];
                 # .'$platforms'.0.'|'.15.versions.0
                 $res = jm_is_string($arr_79_item) && $arr_79_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4338,10 +3390,7 @@ sub _jm_obj_32($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4349,10 +3398,7 @@ sub _jm_obj_32($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.14.name
         $res = jm_is_string($pval) && $pval eq "EL";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4366,16 +3412,10 @@ sub _jm_obj_32($$$)
                 my $arr_80_item = $$pval[$arr_80_idx];
                 # .'$platforms'.0.'|'.14.versions.0
                 $res = jm_is_string($arr_80_item) && exists $_jm_cst_53{$arr_80_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4386,10 +3426,7 @@ sub _jm_obj_33($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4397,10 +3434,7 @@ sub _jm_obj_33($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.13.name
         $res = jm_is_string($pval) && $pval eq "DragonFlyBSD";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4414,16 +3448,10 @@ sub _jm_obj_33($$$)
                 my $arr_81_item = $$pval[$arr_81_idx];
                 # .'$platforms'.0.'|'.13.versions.0
                 $res = jm_is_string($arr_81_item) && exists $_jm_cst_54{$arr_81_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4434,10 +3462,7 @@ sub _jm_obj_34($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4445,10 +3470,7 @@ sub _jm_obj_34($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.12.name
         $res = jm_is_string($pval) && $pval eq "Devuan";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4462,16 +3484,10 @@ sub _jm_obj_34($$$)
                 my $arr_82_item = $$pval[$arr_82_idx];
                 # .'$platforms'.0.'|'.12.versions.0
                 $res = jm_is_string($arr_82_item) && exists $_jm_cst_55{$arr_82_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4482,10 +3498,7 @@ sub _jm_obj_35($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4493,10 +3506,7 @@ sub _jm_obj_35($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.11.name
         $res = jm_is_string($pval) && $pval eq "DellOS";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4510,16 +3520,10 @@ sub _jm_obj_35($$$)
                 my $arr_83_item = $$pval[$arr_83_idx];
                 # .'$platforms'.0.'|'.11.versions.0
                 $res = jm_is_string($arr_83_item) && exists $_jm_cst_56{$arr_83_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4530,10 +3534,7 @@ sub _jm_obj_36($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4541,10 +3542,7 @@ sub _jm_obj_36($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.10.name
         $res = jm_is_string($pval) && $pval eq "Debian";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4558,16 +3556,10 @@ sub _jm_obj_36($$$)
                 my $arr_84_item = $$pval[$arr_84_idx];
                 # .'$platforms'.0.'|'.10.versions.0
                 $res = jm_is_string($arr_84_item) && exists $_jm_cst_57{$arr_84_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4578,10 +3570,7 @@ sub _jm_obj_37($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4589,10 +3578,7 @@ sub _jm_obj_37($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.9.name
         $res = jm_is_string($pval) && $pval eq "NetBSD";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4606,16 +3592,10 @@ sub _jm_obj_37($$$)
                 my $arr_85_item = $$pval[$arr_85_idx];
                 # .'$platforms'.0.'|'.9.versions.0
                 $res = jm_is_string($arr_85_item) && exists $_jm_cst_58{$arr_85_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4626,10 +3606,7 @@ sub _jm_obj_38($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4637,10 +3614,7 @@ sub _jm_obj_38($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.8.name
         $res = jm_is_string($pval) && $pval eq "Cumulus";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4654,16 +3628,10 @@ sub _jm_obj_38($$$)
                 my $arr_86_item = $$pval[$arr_86_idx];
                 # .'$platforms'.0.'|'.8.versions.0
                 $res = jm_is_string($arr_86_item) && exists $_jm_cst_59{$arr_86_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4673,10 +3641,7 @@ sub _jm_obj_39($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4684,10 +3649,7 @@ sub _jm_obj_39($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.7.name
         $res = jm_is_string($pval) && $pval eq "ClearLinux";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4701,16 +3663,10 @@ sub _jm_obj_39($$$)
                 my $arr_87_item = $$pval[$arr_87_idx];
                 # .'$platforms'.0.'|'.7.versions.0
                 $res = jm_is_string($arr_87_item) && $arr_87_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4721,10 +3677,7 @@ sub _jm_obj_40($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4732,10 +3685,7 @@ sub _jm_obj_40($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.6.name
         $res = jm_is_string($pval) && $pval eq "Astra Linux";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4749,16 +3699,10 @@ sub _jm_obj_40($$$)
                 my $arr_88_item = $$pval[$arr_88_idx];
                 # .'$platforms'.0.'|'.6.versions.0
                 $res = jm_is_string($arr_88_item) && exists $_jm_cst_60{$arr_88_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4768,10 +3712,7 @@ sub _jm_obj_41($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4779,10 +3720,7 @@ sub _jm_obj_41($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.5.name
         $res = jm_is_string($pval) && $pval eq "ArchLinux";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4796,16 +3734,10 @@ sub _jm_obj_41($$$)
                 my $arr_89_item = $$pval[$arr_89_idx];
                 # .'$platforms'.0.'|'.5.versions.0
                 $res = jm_is_string($arr_89_item) && $arr_89_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4815,10 +3747,7 @@ sub _jm_obj_42($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4826,10 +3755,7 @@ sub _jm_obj_42($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.4.name
         $res = jm_is_string($pval) && $pval eq "aos";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4843,16 +3769,10 @@ sub _jm_obj_42($$$)
                 my $arr_90_item = $$pval[$arr_90_idx];
                 # .'$platforms'.0.'|'.4.versions.0
                 $res = jm_is_string($arr_90_item) && $arr_90_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4863,10 +3783,7 @@ sub _jm_obj_43($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4874,10 +3791,7 @@ sub _jm_obj_43($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.3.name
         $res = jm_is_string($pval) && $pval eq "Amazon Linux";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4891,16 +3805,10 @@ sub _jm_obj_43($$$)
                 my $arr_91_item = $$pval[$arr_91_idx];
                 # .'$platforms'.0.'|'.3.versions.0
                 $res = jm_is_string($arr_91_item) && exists $_jm_cst_61{$arr_91_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4911,10 +3819,7 @@ sub _jm_obj_44($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4922,10 +3827,7 @@ sub _jm_obj_44($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.2.name
         $res = jm_is_string($pval) && $pval eq "Amazon";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4939,16 +3841,10 @@ sub _jm_obj_44($$$)
                 my $arr_92_item = $$pval[$arr_92_idx];
                 # .'$platforms'.0.'|'.2.versions.0
                 $res = jm_is_string($arr_92_item) && exists $_jm_cst_62{$arr_92_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -4958,10 +3854,7 @@ sub _jm_obj_45($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -4969,10 +3862,7 @@ sub _jm_obj_45($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.1.name
         $res = jm_is_string($pval) && $pval eq "Alpine";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -4986,16 +3876,10 @@ sub _jm_obj_45($$$)
                 my $arr_93_item = $$pval[$arr_93_idx];
                 # .'$platforms'.0.'|'.1.versions.0
                 $res = jm_is_string($arr_93_item) && $arr_93_item eq "all";
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -5006,10 +3890,7 @@ sub _jm_obj_46($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"name"})
@@ -5017,10 +3898,7 @@ sub _jm_obj_46($$$)
         $pval = $$val{"name"};
         # .'$platforms'.0.'|'.0.name
         $res = jm_is_string($pval) && $pval eq "AIX";
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"versions"})
     {
@@ -5034,16 +3912,10 @@ sub _jm_obj_46($$$)
                 my $arr_94_item = $$pval[$arr_94_idx];
                 # .'$platforms'.0.'|'.0.versions.0
                 $res = jm_is_string($arr_94_item) && exists $_jm_cst_63{$arr_94_item};
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -5108,10 +3980,7 @@ sub json_model_50($$$)
             # .'$platforms'.0.'|'.45
             # .'$platforms'.0.'|'.46
             $res = jm_is_object($arr_47_item) && (_jm_obj_46($arr_47_item, undef, undef) || _jm_obj_45($arr_47_item, undef, undef) || _jm_obj_44($arr_47_item, undef, undef) || _jm_obj_43($arr_47_item, undef, undef) || _jm_obj_42($arr_47_item, undef, undef) || _jm_obj_41($arr_47_item, undef, undef) || _jm_obj_40($arr_47_item, undef, undef) || _jm_obj_39($arr_47_item, undef, undef) || _jm_obj_38($arr_47_item, undef, undef) || _jm_obj_37($arr_47_item, undef, undef) || _jm_obj_36($arr_47_item, undef, undef) || _jm_obj_35($arr_47_item, undef, undef) || _jm_obj_34($arr_47_item, undef, undef) || _jm_obj_33($arr_47_item, undef, undef) || _jm_obj_32($arr_47_item, undef, undef) || _jm_obj_31($arr_47_item, undef, undef) || _jm_obj_30($arr_47_item, undef, undef) || _jm_obj_29($arr_47_item, undef, undef) || _jm_obj_28($arr_47_item, undef, undef) || _jm_obj_27($arr_47_item, undef, undef) || _jm_obj_26($arr_47_item, undef, undef) || _jm_obj_25($arr_47_item, undef, undef) || _jm_obj_24($arr_47_item, undef, undef) || _jm_obj_23($arr_47_item, undef, undef) || _jm_obj_22($arr_47_item, undef, undef) || _jm_obj_21($arr_47_item, undef, undef) || _jm_obj_20($arr_47_item, undef, undef) || _jm_obj_19($arr_47_item, undef, undef) || _jm_obj_18($arr_47_item, undef, undef) || _jm_obj_17($arr_47_item, undef, undef) || _jm_obj_16($arr_47_item, undef, undef) || _jm_obj_15($arr_47_item, undef, undef) || _jm_obj_14($arr_47_item, undef, undef) || _jm_obj_13($arr_47_item, undef, undef) || _jm_obj_12($arr_47_item, undef, undef) || _jm_obj_11($arr_47_item, undef, undef) || _jm_obj_10($arr_47_item, undef, undef) || _jm_obj_9($arr_47_item, undef, undef) || _jm_obj_8($arr_47_item, undef, undef) || _jm_obj_7($arr_47_item, undef, undef) || _jm_obj_6($arr_47_item, undef, undef) || _jm_obj_5($arr_47_item, undef, undef) || _jm_obj_4($arr_47_item, undef, undef) || _jm_obj_3($arr_47_item, undef, undef) || _jm_obj_2($arr_47_item, undef, undef) || _jm_obj_1($arr_47_item, undef, undef) || _jm_obj_0($arr_47_item, undef, undef));
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -5136,10 +4005,7 @@ sub json_model_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModelCollection'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -5163,16 +4029,10 @@ sub json_model_51($$$)
                     my $arr_95_item = $$pval[$arr_95_idx];
                     # .'$GalaxyInfoModelCollection'.galaxy_tags.0
                     $res = jm_is_string($arr_95_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "min_ansible_version")
@@ -5180,10 +4040,7 @@ sub json_model_51($$$)
             # handle may min_ansible_version property
             # .'$GalaxyInfoModelCollection'.min_ansible_version
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "namespace")
@@ -5192,10 +4049,7 @@ sub json_model_51($$$)
             # .'$GalaxyInfoModelCollection'.namespace
             # "/^[a-z][-a-z0-9_]+$/"
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "platforms")
@@ -5203,10 +4057,7 @@ sub json_model_51($$$)
             # handle may platforms property
             # .'$GalaxyInfoModelCollection'.platforms
             $res = json_model_50($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "role_name")
@@ -5215,10 +4066,7 @@ sub json_model_51($$$)
             # .'$GalaxyInfoModelCollection'.role_name
             # "/^[a-z][a-z0-9_]+$/"
             $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "video_links")
@@ -5226,10 +4074,7 @@ sub json_model_51($$$)
             # handle may video_links property
             # .'$GalaxyInfoModelCollection'.video_links
             $res = jm_is_array($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -5243,10 +4088,7 @@ sub json_model_52($$$)
     my ($val, $path, $rep) = @_;
     # some $URL should be added?
     # .'$GalaxyInfoModelLoose'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -5258,10 +4100,7 @@ sub json_model_52($$$)
             $must_count++;
             # .'$GalaxyInfoModelLoose'.description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "author")
@@ -5269,10 +4108,7 @@ sub json_model_52($$$)
             # handle may author property
             # .'$GalaxyInfoModelLoose'.author
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "company")
@@ -5280,10 +4116,7 @@ sub json_model_52($$$)
             # handle may company property
             # .'$GalaxyInfoModelLoose'.company
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "github_branch")
@@ -5291,10 +4124,7 @@ sub json_model_52($$$)
             # handle may github_branch property
             # .'$GalaxyInfoModelLoose'.github_branch
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "issue_tracker_url")
@@ -5302,10 +4132,7 @@ sub json_model_52($$$)
             # handle may issue_tracker_url property
             # .'$GalaxyInfoModelLoose'.issue_tracker_url
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "license")
@@ -5313,10 +4140,7 @@ sub json_model_52($$$)
             # handle may license property
             # .'$GalaxyInfoModelLoose'.license
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "min_ansible_container_version")
@@ -5324,10 +4148,7 @@ sub json_model_52($$$)
             # handle may min_ansible_container_version property
             # .'$GalaxyInfoModelLoose'.min_ansible_container_version
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -5364,10 +4185,7 @@ sub _jm_f_2($$$)
             my $arr_96_item = $$val[$arr_96_idx];
             # .'$GalaxyInfoModelStandalone'.galaxy_tags.0
             $res = jm_is_string($arr_96_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -5429,10 +4247,7 @@ sub json_model_53($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$GalaxyInfoModelStandalone'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $pfun;
     my $must_count = 0;
@@ -5445,10 +4260,7 @@ sub json_model_53($$$)
             $must_count++;
             # .'$GalaxyInfoModelStandalone'.standalone
             $res = jm_is_boolean($pval) && $pval == 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "description")
@@ -5457,10 +4269,7 @@ sub json_model_53($$$)
             $must_count++;
             # .'$GalaxyInfoModelStandalone'.description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "author")
@@ -5469,10 +4278,7 @@ sub json_model_53($$$)
             $must_count++;
             # .'$GalaxyInfoModelStandalone'.author
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "license")
@@ -5481,10 +4287,7 @@ sub json_model_53($$$)
             $must_count++;
             # .'$GalaxyInfoModelStandalone'.license
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "min_ansible_version")
@@ -5493,19 +4296,13 @@ sub json_model_53($$$)
             $must_count++;
             # .'$GalaxyInfoModelStandalone'.min_ansible_version
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (($pfun = $json_model_53_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -5550,10 +4347,7 @@ sub _jm_f_12($$$)
             my $arr_97_item = $$val[$arr_97_idx];
             # .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
             $res = jm_is_string($arr_97_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -5630,10 +4424,7 @@ sub _jm_f_20($$$)
 sub _jm_obj_47($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $pfun;
     my $must_count = 0;
@@ -5646,10 +4437,7 @@ sub _jm_obj_47($$$)
             $must_count++;
             # .'$GalaxyInfoModel'.'|'.1.standalone
             $res = jm_is_boolean($pval) && $pval == 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "description")
@@ -5658,19 +4446,13 @@ sub _jm_obj_47($$$)
             $must_count++;
             # .'$GalaxyInfoModel'.'|'.1.description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (($pfun = $_jm_obj_47_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -5715,10 +4497,7 @@ sub _jm_f_24($$$)
             my $arr_98_item = $$val[$arr_98_idx];
             # .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
             $res = jm_is_string($arr_98_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -5795,10 +4574,7 @@ sub _jm_f_32($$$)
 sub _jm_obj_48($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $pfun;
     my $must_count = 0;
@@ -5811,19 +4587,13 @@ sub _jm_obj_48($$$)
             $must_count++;
             # .'$GalaxyInfoModel'.'|'.2.description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (($pfun = $_jm_obj_48_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -5877,10 +4647,7 @@ sub json_model_55($$$)
             # .'$collections'.0
             # "/^[a-z_]+\\.[a-z_]+$/"
             $res = jm_is_string($arr_99_item) && _jm_re_2($arr_99_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -5893,11 +4660,11 @@ sub json_model_56($$$)
     # .'$complex_conditional'
     # .'$complex_conditional'.'|'.0
     my $res = jm_is_boolean($val);
-    if (! $res)
+    unless ($res)
     {
         # .'$complex_conditional'.'|'.1
         $res = jm_is_string($val);
-        if (! $res)
+        unless ($res)
         {
             # .'$complex_conditional'.'|'.2
             $res = jm_is_array($val);
@@ -5908,10 +4675,7 @@ sub json_model_56($$$)
                     my $arr_100_item = $$val[$arr_100_idx];
                     # .'$complex_conditional'.'|'.2.0
                     $res = jm_is_string($arr_100_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
         }
@@ -5929,10 +4693,7 @@ sub json_model_57($$$)
     # Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
     # .'$DependencyModelLoose'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"become"})
@@ -5940,50 +4701,35 @@ sub json_model_57($$$)
         $pval = $$val{"become"};
         # .'$DependencyModelLoose'.become
         $res = jm_is_boolean($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"name"})
     {
         $pval = $$val{"name"};
         # .'$DependencyModelLoose'.name
         $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"role"})
     {
         $pval = $$val{"role"};
         # .'$DependencyModelLoose'.role
         $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"src"})
     {
         $pval = $$val{"src"};
         # .'$DependencyModelLoose'.src
         $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"scm"})
     {
         $pval = $$val{"scm"};
         # .'$DependencyModelLoose'.scm
         $res = jm_is_string($pval) && exists $_jm_cst_64{$pval};
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"tags"})
     {
@@ -5991,7 +4737,7 @@ sub json_model_57($$$)
         # .'$DependencyModelLoose'.tags
         # .'$DependencyModelLoose'.tags.'|'.0
         $res = jm_is_string($pval);
-        if (! $res)
+        unless ($res)
         {
             # .'$DependencyModelLoose'.tags.'|'.1
             $res = jm_is_array($pval);
@@ -6002,47 +4748,32 @@ sub json_model_57($$$)
                     my $arr_101_item = $$pval[$arr_101_idx];
                     # .'$DependencyModelLoose'.tags.'|'.1.0
                     $res = jm_is_string($arr_101_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"vars"})
     {
         $pval = $$val{"vars"};
         # .'$DependencyModelLoose'.vars
         $res = jm_is_object($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"version"})
     {
         $pval = $$val{"version"};
         # .'$DependencyModelLoose'.version
         $res = jm_is_string($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"when"})
     {
         $pval = $$val{"when"};
         # .'$DependencyModelLoose'.when
         $res = json_model_56($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -6055,10 +4786,7 @@ sub _jm_obj_49($$$)
     # value known to be an object
     my $pval;
     my $res;
-    if (! exists $$val{"name"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"name"};
     $pval = $$val{"name"};
     # .'$DependencyModel'.'&'.1.'|'.2.name
     return jm_is_string($pval);
@@ -6072,10 +4800,7 @@ sub _jm_obj_50($$$)
     # value known to be an object
     my $pval;
     my $res;
-    if (! exists $$val{"src"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"src"};
     $pval = $$val{"src"};
     # .'$DependencyModel'.'&'.1.'|'.1.src
     return jm_is_string($pval);
@@ -6089,10 +4814,7 @@ sub _jm_obj_51($$$)
     # value known to be an object
     my $pval;
     my $res;
-    if (! exists $$val{"role"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"role"};
     $pval = $$val{"role"};
     # .'$DependencyModel'.'&'.1.'|'.0.role
     return jm_is_string($pval);
@@ -6117,10 +4839,7 @@ sub json_model_59($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$AnsibleMetaObj'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -6130,10 +4849,7 @@ sub json_model_59($$$)
             # handle may allow_duplicates property
             # .'$AnsibleMetaObj'.allow_duplicates
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "collections")
@@ -6141,10 +4857,7 @@ sub json_model_59($$$)
             # handle may collections property
             # .'$AnsibleMetaObj'.collections
             $res = json_model_55($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "dependencies")
@@ -6161,16 +4874,10 @@ sub json_model_59($$$)
                     # .'$AnsibleMetaObj'.dependencies.0.'|'.0
                     # .'$AnsibleMetaObj'.dependencies.0.'|'.1
                     $res = jm_is_string($arr_102_item) || json_model_58($arr_102_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "galaxy_info")
@@ -6178,10 +4885,7 @@ sub json_model_59($$$)
             # handle may galaxy_info property
             # .'$AnsibleMetaObj'.galaxy_info
             $res = json_model_54($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

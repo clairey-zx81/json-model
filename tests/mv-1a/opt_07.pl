@@ -24,30 +24,15 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .'|'.0.d
     my $res = jm_is_integer($pval) && $pval == 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"val"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"val"};
     $pval = $$val{"val"};
     # .'|'.0.val
     return jm_is_integer($pval);
@@ -58,30 +43,15 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .'|'.1.d
     my $res = jm_is_integer($pval) && $pval == 2;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"val"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"val"};
     $pval = $$val{"val"};
     # .'|'.1.val
     return jm_is_string($pval);
@@ -92,30 +62,15 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .'|'.2.d
     my $res = jm_is_integer($pval) && $pval == 3;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"val"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"val"};
     $pval = $$val{"val"};
     # .'|'.2.val
     return jm_is_boolean($pval);
