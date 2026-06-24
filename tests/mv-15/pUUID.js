@@ -16,12 +16,12 @@ const jm_is_uuid_re = new runtime.RX("^[0-9a-f]{4}([0-9a-f]{4}-){4}[0-9a-f]{12}$
 function json_model_1(val, path, rep)
 {
     // .
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$UUID\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

@@ -17,12 +17,12 @@ function json_model_1(val, path, rep)
     // JSON_MODEL_LOOSE_FLOAT
     // .
     // .'@'
-    let res = (typeof val === 'number' || val instanceof Number);
+    let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 loose float [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

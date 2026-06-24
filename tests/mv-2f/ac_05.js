@@ -11,34 +11,34 @@ function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "a")
         {
-            must_count += 1;
-            res = (typeof pval === 'string' || pval instanceof String);
+            must_count += 1
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "b")
         {
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return must_count == 1;
+    return must_count == 1
 }
 
 

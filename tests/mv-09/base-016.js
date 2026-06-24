@@ -16,17 +16,17 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'|'.0
-    let res = val === null;
+    let res = val === null
     if (! res)
     {
         rep !== null && rep.push(["not null [.'|'.0]", path])
         // .'|'.1
-        res = (typeof val === 'string' || val instanceof String);
+        res = (typeof val === 'string' || val instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'|'.1]", path])
             // .'|'.2
-            res = (typeof val === 'boolean' || val instanceof Boolean);
+            res = (typeof val === 'boolean' || val instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'|'.2]", path])
@@ -41,7 +41,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

@@ -15,7 +15,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$empty'
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // check $ (.)
@@ -24,124 +24,124 @@ function json_model_1(val, path, rep)
     // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "f0")
         {
             // handle may f0 property
             // .f0
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f1")
         {
             // handle may f1 property
             // .f1
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f2")
         {
             // handle may f2 property
             // .f2
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f3")
         {
             // handle may f3 property
             // .f3
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f4")
         {
             // handle may f4 property
             // .f4
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f5")
         {
             // handle may f5 property
             // .f5
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f6")
         {
             // handle may f6 property
             // .f6
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f7")
         {
             // handle may f7 property
             // .f7
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f8")
         {
             // handle may f8 property
             // .f8
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f9")
         {
             // handle may f9 property
             // .f9
-            res = json_model_2(pval, null, null);
+            res = json_model_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

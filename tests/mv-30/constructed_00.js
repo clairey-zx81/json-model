@@ -17,11 +17,11 @@ function json_model_1(val, path, rep)
     // any constructed stuff
     // .
     // .'|'.0
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (! res)
     {
         // .'|'.1
-        res = Array.isArray(val);
+        res = Array.isArray(val)
         if (! res)
         {
             rep !== null && rep.push(["not array or unexpected array [.'|'.1]", path])
@@ -35,7 +35,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

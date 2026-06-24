@@ -15,31 +15,31 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Pp'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$Pp']", path])
     }
-    return res;
+    return res
 }
 
 // check $Qq (.'$Qq')
 function json_model_3(val, path, rep)
 {
     // .'$Qq'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'$Qq'.0
-            res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
+            res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Pp\" [.'$Qq'.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -47,7 +47,7 @@ function json_model_3(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$Qq']", path])
     }
-    return res;
+    return res
 }
 
 // object .o
@@ -56,53 +56,53 @@ function _jm_obj_0(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.o]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_1 = path ? path.concat([prop]) : null
         if (prop == "p")
         {
             // handle may p property
             // .o.p
-            res = json_model_2(pval, (path ? lpath_1 : null), rep);
+            res = json_model_2(pval, (path ? lpath_1 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Pp\" [.o.p]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.o.p]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "q")
         {
             // handle may q property
             // .o.q
-            res = json_model_3(pval, (path ? lpath_1 : null), rep);
+            res = json_model_3(pval, (path ? lpath_1 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Qq\" [.o.q]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.o.q]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "t")
         {
             // handle may t property
             // .o.t
-            res = Array.isArray(pval) && pval.length == 2;
+            res = Array.isArray(pval) && pval.length == 2
             if (res)
             {
-                let lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([0]) : null;
+                let lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([0]) : null
                 // .o.t.0
-                res = (typeof pval[0] === 'boolean' || pval[0] instanceof Boolean);
+                res = (typeof pval[0] === 'boolean' || pval[0] instanceof Boolean)
                 if (res)
                 {
-                    lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([1]) : null;
+                    lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([1]) : null
                     // .o.t.1
-                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0;
+                    res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
                     if (! res)
                     {
                         rep !== null && rep.push(["not a 0 strict int [.o.t.1]", ((path ? lpath_1 : null) ? lpath_2 : null)])
@@ -117,14 +117,14 @@ function _jm_obj_0(val, path, rep)
             {
                 rep !== null && rep.push(["not array or unexpected array [.o.t]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.o.t]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.o]", (path ? lpath_1 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -135,30 +135,30 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "o")
         {
             // handle may o property
             // an object
             // .o
-            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep);
+            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.o]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.o]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

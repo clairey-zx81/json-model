@@ -18,41 +18,41 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Foo']", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "foo")
         {
             // handle may foo property
             // .'$Foo'.foo
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "initial foo";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "initial foo"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_initial foo\" [.'$Foo'.foo]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Foo'.foo]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Foo']", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Foo\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

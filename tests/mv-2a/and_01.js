@@ -15,30 +15,30 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // value known to be an object
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop.startsWith("s"))
         {
             // handle 2 re props
             // .'&'.1.'/^s/'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'&'.1.'/^s/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("i"))
         {
             // handle 2 re props
             // .'&'.1.'/^i/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'&'.1.'/^i/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
@@ -46,7 +46,7 @@ function _jm_obj_0(val, path, rep)
             // accept any other props
         }
     }
-    return true;
+    return true
 }
 
 // object .'&'.0
@@ -54,52 +54,52 @@ function _jm_obj_1(val, path, rep)
 {
     // check open must/may only props
     // value known to be an object
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("i"))
     {
         rep !== null && rep.push(["missing mandatory prop <i> [.'&'.0]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["i"]) : null;
-    pval = val["i"];
+    lpath = path ? path.concat(["i"]) : null
+    pval = val["i"]
     // .'&'.0.i
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'&'.0.i]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <i> [.'&'.0]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("b"))
     {
         rep !== null && rep.push(["missing mandatory prop <b> [.'&'.0]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["b"]) : null;
-    pval = val["b"];
+    lpath = path ? path.concat(["b"]) : null
+    pval = val["b"]
     // .'&'.0.b
-    res = (typeof pval === 'boolean' || pval instanceof Boolean);
+    res = (typeof pval === 'boolean' || pval instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'&'.0.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'&'.0]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (val.hasOwnProperty("ss"))
     {
-        lpath = path ? path.concat(["ss"]) : null;
-        pval = val["ss"];
+        lpath = path ? path.concat(["ss"]) : null
+        pval = val["ss"]
         // .'&'.0.ss
-        res = (typeof pval === 'string' || pval instanceof String);
+        res = (typeof pval === 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.ss]", (path ? lpath : null)])
             rep !== null && rep.push(["unexpected value for optional prop <ss> [.'&'.0]", (path ? lpath : null)])
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -107,15 +107,15 @@ function json_model_1(val, path, rep)
 {
     // merge object stuff if possible, cannot have ss
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         // .'&'.0
-        res = _jm_obj_1(val, path, rep);
+        res = _jm_obj_1(val, path, rep)
         if (res)
         {
             // .'&'.1
-            res = _jm_obj_0(val, path, rep);
+            res = _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'&'.1]", path])
@@ -134,7 +134,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not all model match [.'&']", path])
     }
-    return res;
+    return res
 }
 
 

@@ -16,13 +16,13 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'@'
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (res)
     {
-        let sval_0 = val;
-        res = sval_0 != "";
+        let sval_0 = val
+        res = sval_0 != ""
     }
-    return res;
+    return res
 }
 
 

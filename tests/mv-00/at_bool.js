@@ -9,7 +9,7 @@ export var check_model_map = new Map()
 
 function json_model_1(val, path, rep)
 {
-    return (typeof val === 'boolean' || val instanceof Boolean);
+    return (typeof val === 'boolean' || val instanceof Boolean)
 }
 
 

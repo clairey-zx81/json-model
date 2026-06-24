@@ -16,21 +16,21 @@ function json_model_2(val, path, rep)
 {
     // .'$false'
     rep !== null && rep.push(["unexpected value for model \"$NONE\" [.'$false']", path])
-    return false;
+    return false
 }
 
 // check $true (.'$true')
 function json_model_3(val, path, rep)
 {
     // .'$true'
-    return true;
+    return true
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    return true;
+    return true
 }
 
 

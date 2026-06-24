@@ -16,16 +16,16 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'@'
-    let lpath_0;
-    let res = Array.isArray(val);
+    let lpath_0
+    let res = Array.isArray(val)
     if (res)
     {
-        let len_0 = val.length;
+        let len_0 = val.length
         if (len_0 > 0)
         {
-            lpath_0 = path ? path.concat([0]) : null;
+            lpath_0 = path ? path.concat([0]) : null
             // .'@'.0
-            res = (typeof val[0] === 'string' || val[0] instanceof String);
+            res = (typeof val[0] === 'string' || val[0] instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'@'.0]", (path ? lpath_0 : null)])
@@ -35,8 +35,8 @@ function json_model_1(val, path, rep)
     }
     if (res)
     {
-        let ival_0 = val.length;
-        res = ival_0 >= 3;
+        let ival_0 = val.length
+        res = ival_0 >= 3
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
@@ -46,7 +46,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

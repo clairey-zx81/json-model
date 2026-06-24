@@ -35,7 +35,7 @@ class JavaScript(Language):
              true="true", false="false", null="null", relib=relib,
              check_t="object", json_t="object", int_t="Number", float_t="Number",
              path_t="?", str_t="String", match_t="bool", predefs=set(JS_RUNTIME_PREDEFS),
-             eoi=";", set_caps=(type(None), bool, int, float, str)
+             eoi="", set_caps=(type(None), bool, int, float, str)
         )  # type: ignore
 
         assert self._relib in ("re", "re2"), f"unsupported regex engine: {self._relib}"

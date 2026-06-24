@@ -16,12 +16,12 @@ function json_model_2(val, path, rep)
 {
     // .'$Vv'
     // .'$Vv'.'|'.0
-    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
+    let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 strict int [.'$Vv'.'|'.0]", path])
         // .'$Vv'.'|'.1
-        res = (typeof val === 'string' || val instanceof String);
+        res = (typeof val === 'string' || val instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$Vv'.'|'.1]", path])
@@ -35,7 +35,7 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$Vv'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $Xx (.'$Xx')
@@ -46,31 +46,31 @@ function json_model_3(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Xx']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$Xx']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("X"))
     {
         rep !== null && rep.push(["missing mandatory prop <X> [.'$Xx']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["X"]) : null;
-    pval = val["X"];
+    lpath = path ? path.concat(["X"]) : null
+    pval = val["X"]
     // .'$Xx'.X
-    let res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Xx'.X]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <X> [.'$Xx']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Yy (.'$Yy')
@@ -81,71 +81,71 @@ function json_model_4(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Yy']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$Yy']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("Y"))
     {
         rep !== null && rep.push(["missing mandatory prop <Y> [.'$Yy']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["Y"]) : null;
-    pval = val["Y"];
+    lpath = path ? path.concat(["Y"]) : null
+    pval = val["Y"]
     // .'$Yy'.Y
-    let res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Yy'.Y]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <Y> [.'$Yy']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'$Ee'.'|'.1
 function _jm_obj_0(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "Y")
         {
             // handle must Y property
-            must_count += 1;
+            must_count += 1
             // .'$Ee'.'|'.1.Y
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ee'.'|'.1.Y]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ee'.'|'.1.Y]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "Z")
         {
             // handle may Z property
             // .'$Ee'.'|'.1.Z
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ee'.'|'.1.Z]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Ee'.'|'.1.Z]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Ee'.'|'.1]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
     if (must_count != 1)
     {
@@ -156,49 +156,49 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <Y> [.'$Ee'.'|'.1]", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'$Ee'.'|'.0
 function _jm_obj_1(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_1 = path ? path.concat([prop]) : null
         if (prop == "X")
         {
             // handle must X property
-            must_count += 1;
+            must_count += 1
             // .'$Ee'.'|'.0.X
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ee'.'|'.0.X]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'$Ee'.'|'.0.X]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "Z")
         {
             // handle may Z property
             // .'$Ee'.'|'.0.Z
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$Ee'.'|'.0.Z]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Ee'.'|'.0.Z]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$Ee'.'|'.0]", (path ? lpath_1 : null)])
-        return false;
+        return false
     }
     if (must_count != 1)
     {
@@ -209,22 +209,22 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <X> [.'$Ee'.'|'.0]", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Ee (.'$Ee')
 function json_model_5(val, path, rep)
 {
     // .'$Ee'
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         if (val.hasOwnProperty("X"))
         {
             // .'$Ee'.'|'.0
-            res = _jm_obj_1(val, path, rep);
+            res = _jm_obj_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'$Ee'.'|'.0]", path])
@@ -235,7 +235,7 @@ function json_model_5(val, path, rep)
             if (val.hasOwnProperty("Y"))
             {
                 // .'$Ee'.'|'.1
-                res = _jm_obj_0(val, path, rep);
+                res = _jm_obj_0(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'$Ee'.'|'.1]", path])
@@ -243,7 +243,7 @@ function json_model_5(val, path, rep)
             }
             else
             {
-                res = false;
+                res = false
             }
         }
         if (res)
@@ -259,7 +259,7 @@ function json_model_5(val, path, rep)
     {
         rep !== null && rep.push(["unexpected type [.'$Ee'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $Mm (.'$Mm')
@@ -267,12 +267,12 @@ function json_model_6(val, path, rep)
 {
     // .'$Mm'
     // .'$Mm'.'|'.0
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Vv\" [.'$Mm'.'|'.0]", path])
         // .'$Mm'.'|'.1
-        res = json_model_5(val, path, rep);
+        res = json_model_5(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$Ee\" [.'$Mm'.'|'.1]", path])
@@ -286,19 +286,19 @@ function json_model_6(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$Mm'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_6(val, path, rep);
+    let res = json_model_6(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Mm\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

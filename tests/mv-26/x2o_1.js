@@ -21,31 +21,31 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$a']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$a']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$a']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'$a'.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"a\" [.'$a'.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$a']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 
@@ -57,31 +57,31 @@ function json_model_3(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$bc']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$bc']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$bc']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'$bc'.t
-    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+    let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$bc'.t.'|']", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$bc']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $Nabc (.'$Nabc')
@@ -92,40 +92,40 @@ function json_model_4(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$Nabc']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$Nabc']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$Nabc']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'$Nabc'.t
     // generic xor list
-    let xc_0 = 0;
+    let xc_0 = 0
     // .'$Nabc'.t.'^'.0
-    let xr_0 = (typeof pval === 'string' || pval instanceof String);
+    let xr_0 = (typeof pval === 'string' || pval instanceof String)
     if (xr_0)
     {
-        xc_0 += 1;
+        xc_0 += 1
     }
     else
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Nabc'.t.'^'.0]", (path ? lpath : null)])
     }
     // .'$Nabc'.t.'^'.1
-    xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
+    xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
     if (xr_0)
     {
-        xc_0 += 1;
+        xc_0 += 1
     }
     else
     {
@@ -134,10 +134,10 @@ function json_model_4(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'$Nabc'.t.'^'.2
-        xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "b";
+        xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "b"
         if (xr_0)
         {
-            xc_0 += 1;
+            xc_0 += 1
         }
         else
         {
@@ -147,17 +147,17 @@ function json_model_4(val, path, rep)
     if (xc_0 <= 1)
     {
         // .'$Nabc'.t.'^'.3
-        xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "c";
+        xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "c"
         if (xr_0)
         {
-            xc_0 += 1;
+            xc_0 += 1
         }
         else
         {
             rep !== null && rep.push(["unexpected value for model \"_c\" [.'$Nabc'.t.'^'.3]", (path ? lpath : null)])
         }
     }
-    let res = xc_0 == 1;
+    let res = xc_0 == 1
     if (res)
     {
         if (rep !== null) rep.length = 0
@@ -166,9 +166,9 @@ function json_model_4(val, path, rep)
     {
         rep !== null && rep.push(["not one model match [.'$Nabc'.t.'^']", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$Nabc']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 
@@ -177,26 +177,26 @@ function json_model_1(val, path, rep)
 {
     // xor-to-or with not constant exclusion behind references
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
-        let tag_0;
+        let tag_0
         if ((tag_0 = val["t"]) != null)
         {
-            let fun_0 = _jm_map_0.get(tag_0);
+            let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
             {
-                res = fun_0(val, path, rep);
+                res = fun_0(val, path, rep)
             }
             else
             {
-                res = false;
+                res = false
                 rep !== null && rep.push(["tag <t> value not found [.'|']", path])
             }
         }
         else
         {
-            res = false;
+            res = false
             rep !== null && rep.push(["tag prop <t> is missing [.'|']", path])
         }
     }
@@ -204,7 +204,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["value is not an object [.'|']", path])
     }
-    return res || json_model_4(val, path, rep);
+    return res || json_model_4(val, path, rep)
 }
 
 

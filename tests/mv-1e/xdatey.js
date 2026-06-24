@@ -16,18 +16,18 @@ const _jm_xre_0_re = (s) => _jm_xre_0_re_re.exec(s) !== null
 
 function _jm_xre_0(val, path, rep)
 {
-    let extract = val;
-    let match = _jm_xre_0_re_re.exec(val);
+    let extract = val
+    let match = _jm_xre_0_re_re.exec(val)
     if (! match)
     {
-        return false;
+        return false
     }
     extract = match.groups["s1"]
     if (! runtime.jm_is_valid_date(extract, path, rep))
     {
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -35,12 +35,12 @@ function json_model_1(val, path, rep)
 {
     // .
     // "/^X-($DATE)-Y$/X"
-    let res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/^X-($DATE)-Y$/X\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

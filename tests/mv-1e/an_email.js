@@ -16,12 +16,12 @@ const jm_is_email_re = new runtime.RX("^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#
 function json_model_1(val, path, rep)
 {
     // .
-    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, path, rep);
+    let res = ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

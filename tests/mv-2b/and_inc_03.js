@@ -23,32 +23,32 @@ function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "a")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, null, null) && _jm_re_0(pval, null, null);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_1(pval, null, null) && _jm_re_0(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "b")
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, null, null) && _jm_re_2(pval, null, null);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_3(pval, null, null) && _jm_re_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

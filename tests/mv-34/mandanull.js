@@ -11,20 +11,20 @@ function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (! val.hasOwnProperty("null"))
     {
-        return false;
+        return false
     }
-    pval = val["null"];
-    return pval === null;
+    pval = val["null"]
+    return pval === null
 }
 
 

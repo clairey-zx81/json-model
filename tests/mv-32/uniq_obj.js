@@ -12,51 +12,51 @@ function json_model_2(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("x"))
     {
-        return false;
+        return false
     }
-    pval = val["x"];
-    let res = (typeof pval === 'string' || pval instanceof String);
+    pval = val["x"]
+    let res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("y"))
     {
-        return false;
+        return false
     }
-    pval = val["y"];
-    return (typeof pval === 'string' || pval instanceof String);
+    pval = val["y"]
+    return (typeof pval === 'string' || pval instanceof String)
 }
 
 function json_model_1(val, path, rep)
 {
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            res = json_model_2(arr_0_item, null, null);
+            res = json_model_2(arr_0_item, null, null)
             if (! res)
             {
-                break;
+                break
             }
         }
     }
     if (res)
     {
-        res = runtime.jm_array_is_unique(val, null, null);
+        res = runtime.jm_array_is_unique(val, null, null)
     }
-    return res;
+    return res
 }
 
 

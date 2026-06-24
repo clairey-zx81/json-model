@@ -15,16 +15,16 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 
 function json_model_1(val, path, rep)
 {
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
         {
             let arr_1_item = val[arr_1_idx]
-            res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && _jm_re_1(arr_1_item, null, null);
+            res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && _jm_re_1(arr_1_item, null, null)
             if (! res)
             {
-                break;
+                break
             }
         }
         if (res)
@@ -32,15 +32,15 @@ function json_model_1(val, path, rep)
             for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
             {
                 let arr_0_item = val[arr_0_idx]
-                res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && _jm_re_0(arr_0_item, null, null);
+                res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && _jm_re_0(arr_0_item, null, null)
                 if (! res)
                 {
-                    break;
+                    break
                 }
             }
         }
     }
-    return res;
+    return res
 }
 
 

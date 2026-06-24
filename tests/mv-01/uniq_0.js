@@ -16,25 +16,25 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'@'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'@'.0
-            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 1;
+            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'@'.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
     if (res)
     {
-        res = runtime.jm_array_is_unique(val, path, rep);
+        res = runtime.jm_array_is_unique(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
@@ -44,7 +44,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

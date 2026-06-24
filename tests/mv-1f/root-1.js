@@ -15,36 +15,36 @@ export var check_model_map = new Map()
 function json_model_4(val, path, rep)
 {
     // .'$root'
-    let res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Root\" [.'$root']", path])
     }
-    return res;
+    return res
 }
 
 // check $Root (.'$Root')
 function json_model_3(val, path, rep)
 {
     // .'$Root'
-    let res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$root#Root\" [.'$Root']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Root\" [.]", path])
     }
-    return res;
+    return res
 }
 
 // check $root#Root (.'$root#Root')
@@ -55,46 +55,46 @@ function json_model_5(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$root#Root']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'$root#Root']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("id"))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$root#Root']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["id"]) : null;
-    pval = val["id"];
+    lpath = path ? path.concat(["id"]) : null
+    pval = val["id"]
     // .'$root#Root'.id
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'$root#Root'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$root#Root']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("name"))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'$root#Root']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["name"]) : null;
-    pval = val["name"];
+    lpath = path ? path.concat(["name"]) : null
+    pval = val["name"]
     // .'$root#Root'.name
-    res = (typeof pval === 'string' || pval instanceof String);
+    res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$root#Root'.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$root#Root']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

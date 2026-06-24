@@ -18,22 +18,22 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         // handle other props
         // .''
-        res = json_model_1(pval, (path ? lpath_0 : null), rep);
+        res = json_model_1(pval, (path ? lpath_0 : null), rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$#\" [.'']", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 

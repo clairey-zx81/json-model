@@ -15,12 +15,12 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    let res = runtime.jm_is_valid_datetime(val, path, rep);
+    let res = runtime.jm_is_valid_datetime(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$DATETIME\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

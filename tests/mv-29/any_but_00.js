@@ -15,40 +15,40 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "a")
         {
             // handle must a property
-            must_count += 1;
+            must_count += 1
             // .'|'.6.a
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'|'.6.a]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'|'.6.a]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "b")
         {
             // handle may b property
             // .'|'.6.b
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'|'.6.b]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'|'.6.b]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'|'.6]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
     if (must_count != 1)
     {
@@ -59,9 +59,9 @@ function _jm_obj_0(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <a> [.'|'.6]", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -69,11 +69,11 @@ function json_model_1(val, path, rep)
 {
     // typical jsu output for undertyped schemas, whatever but
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         // .'|'.6
-        res = _jm_obj_0(val, path, rep);
+        res = _jm_obj_0(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'|'.6]", path])
@@ -81,9 +81,9 @@ function json_model_1(val, path, rep)
     }
     else
     {
-        res = true;
+        res = true
     }
-    return res;
+    return res
 }
 
 

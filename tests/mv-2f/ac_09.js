@@ -14,43 +14,43 @@ function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (_jm_re_0(prop, null, null))
         {
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("bla");
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("bla")
             if (! res)
             {
-                return false;
+                return false
             }
         }
         else
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 function json_model_1(val, path, rep)
 {
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && arr_0_item.startsWith("foo");
+            res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && arr_0_item.startsWith("foo")
             if (! res)
             {
-                break;
+                break
             }
         }
     }
-    return res || _jm_obj_0(val, null, null);
+    return res || _jm_obj_0(val, null, null)
 }
 
 

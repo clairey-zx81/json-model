@@ -17,11 +17,11 @@ function json_model_1(val, path, rep)
     // 4 character string
     // .
     // .'@'
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (res)
     {
-        let ival_0 = runtime.jm_char_length(val);
-        res = ival_0 == 4;
+        let ival_0 = runtime.jm_char_length(val)
+        res = ival_0 == 4
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
@@ -31,7 +31,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

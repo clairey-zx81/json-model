@@ -18,37 +18,37 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "")
         {
             // handle may  property
             // .''
-            res = true;
-            continue;
+            res = true
+            continue
         }
         else if (prop == "hello")
         {
             // handle may hello property
             // .hello
-            res = true;
-            continue;
+            res = true
+            continue
         }
         else if (prop == "quite-a-long-property-name")
         {
             // handle may quite-a-long-property-name property
             // .'quite-a-long-property-name'
-            res = true;
-            continue;
+            res = true
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

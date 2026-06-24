@@ -18,12 +18,12 @@ function json_model_1(val, path, rep)
     // .
     // .'@'
     // .'@'.'|'.0
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'@'.'|'.0]", path])
         // .'@'.'|'.1
-        res = (typeof val === 'string' || val instanceof String);
+        res = (typeof val === 'string' || val instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'@'.'|'.1]", path])
@@ -32,7 +32,7 @@ function json_model_1(val, path, rep)
     if (res)
     {
         if (rep !== null) rep.length = 0
-        res = runtime.jm_check_constraint(val, ">=", 10, path, rep);
+        res = runtime.jm_check_constraint(val, ">=", 10, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
@@ -42,7 +42,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'@'.'|']", path])
     }
-    return res;
+    return res
 }
 
 

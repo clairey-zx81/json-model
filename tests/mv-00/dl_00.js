@@ -11,28 +11,28 @@ function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        res = json_model_2(pval, null, null);
+        res = json_model_2(pval, null, null)
         if (! res)
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 function json_model_2(val, path, rep)
 {
-    return (typeof val === 'boolean' || val instanceof Boolean) || _jm_obj_0(val, null, null);
+    return (typeof val === 'boolean' || val instanceof Boolean) || _jm_obj_0(val, null, null)
 }
 
 function json_model_1(val, path, rep)
 {
-    return json_model_2(val, null, null);
+    return json_model_2(val, null, null)
 }
 
 

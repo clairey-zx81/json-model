@@ -22,47 +22,47 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("hello"))
     {
         rep !== null && rep.push(["missing mandatory prop <hello> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["hello"]) : null;
-    pval = val["hello"];
+    lpath = path ? path.concat(["hello"]) : null
+    pval = val["hello"]
     // .hello
-    let res = (typeof pval === 'string' || pval instanceof String);
+    let res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.hello]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <hello> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("world"))
     {
         rep !== null && rep.push(["missing mandatory prop <world> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["world"]) : null;
-    pval = val["world"];
+    lpath = path ? path.concat(["world"]) : null
+    pval = val["world"]
     // .world
     // "/^!/"
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("!");
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("!")
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/^!/\" [.world]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <world> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

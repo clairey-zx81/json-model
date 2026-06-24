@@ -16,22 +16,22 @@ function json_model_3(val, path, rep)
 {
     // .'$foo'
     // .'$foo'.'|'.0
-    let res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$li0\" [.'$foo'.'|'.0]", path])
         // .'$foo'.'|'.1
-        res = json_model_5(val, path, rep);
+        res = json_model_5(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$ls0\" [.'$foo'.'|'.1]", path])
             // .'$foo'.'|'.2
-            res = json_model_6(val, path, rep);
+            res = json_model_6(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$lb0\" [.'$foo'.'|'.2]", path])
                 // .'$foo'.'|'.3
-                res = json_model_7(val, path, rep);
+                res = json_model_7(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"$lf0\" [.'$foo'.'|'.3]", path])
@@ -47,38 +47,38 @@ function json_model_3(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$foo'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$foo#ls0\" [.]", path])
     }
-    return res;
+    return res
 }
 
 // check $foo#li0 (.'$foo#li0')
 function json_model_4(val, path, rep)
 {
     // .'$foo#li0'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'$foo#li0'.0
-            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0;
+            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$foo#li0'.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -86,26 +86,26 @@ function json_model_4(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$foo#li0']", path])
     }
-    return res;
+    return res
 }
 
 // check $foo#ls0 (.'$foo#ls0')
 function json_model_5(val, path, rep)
 {
     // .'$foo#ls0'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
         {
             let arr_1_item = val[arr_1_idx]
-            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null
             // .'$foo#ls0'.0
-            res = runtime.jm_is_valid_date(arr_1_item, (path ? arr_1_lpath : null), rep);
+            res = runtime.jm_is_valid_date(arr_1_item, (path ? arr_1_lpath : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$DATE\" [.'$foo#ls0'.0]", (path ? arr_1_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -113,26 +113,26 @@ function json_model_5(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$foo#ls0']", path])
     }
-    return res;
+    return res
 }
 
 // check $foo#lb0 (.'$foo#lb0')
 function json_model_6(val, path, rep)
 {
     // .'$foo#lb0'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
         {
             let arr_2_item = val[arr_2_idx]
-            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
+            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null
             // .'$foo#lb0'.0
-            res = (typeof arr_2_item === 'boolean' || arr_2_item instanceof Boolean);
+            res = (typeof arr_2_item === 'boolean' || arr_2_item instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.'$foo#lb0'.0]", (path ? arr_2_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -140,26 +140,26 @@ function json_model_6(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$foo#lb0']", path])
     }
-    return res;
+    return res
 }
 
 // check $foo#lf0 (.'$foo#lf0')
 function json_model_7(val, path, rep)
 {
     // .'$foo#lf0'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_3_idx = 0; arr_3_idx < val.length; arr_3_idx++)
         {
             let arr_3_item = val[arr_3_idx]
-            let arr_3_lpath = path ? path.concat([arr_3_idx]) : null;
+            let arr_3_lpath = path ? path.concat([arr_3_idx]) : null
             // .'$foo#lf0'.0
-            res = ((typeof arr_3_item === 'number' || arr_3_item instanceof Number)) && arr_3_item >= 0.0;
+            res = ((typeof arr_3_item === 'number' || arr_3_item instanceof Number)) && arr_3_item >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$foo#lf0'.0]", (path ? arr_3_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -167,7 +167,7 @@ function json_model_7(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$foo#lf0']", path])
     }
-    return res;
+    return res
 }
 
 

@@ -18,16 +18,16 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length == 0)
     {
-        return true;
+        return true
     }
     else
     {
         rep !== null && rep.push(["expecting empty object [.]", path])
-        return false;
+        return false
     }
 }
 

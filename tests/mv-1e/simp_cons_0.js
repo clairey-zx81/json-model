@@ -16,11 +16,11 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'@'
-    let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
+    let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
     if (res)
     {
-        let fval_0 = val;
-        res = fval_0 == 42;
+        let fval_0 = val
+        res = fval_0 == 42
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
@@ -30,7 +30,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not a 1.0 strict float [.'@']", path])
     }
-    return res;
+    return res
 }
 
 

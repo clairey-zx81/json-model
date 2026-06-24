@@ -12,8 +12,8 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 function json_model_1(val, path, rep)
 {
-    let res;
-    return ! (((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, null, null));
+    let res
+    return ! (((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, null, null))
 }
 
 

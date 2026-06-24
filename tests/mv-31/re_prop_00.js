@@ -18,52 +18,52 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop.startsWith("s"))
         {
             // handle 3 re props
             // .'/^s/'
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'/^s/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("i"))
         {
             // handle 3 re props
             // .'/^i/'
-            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (! res)
             {
                 rep !== null && rep.push(["not a -1 strict int [.'/^i/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("b"))
         {
             // handle 3 re props
             // .'/^b/'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'/^b/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
         {
             rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 

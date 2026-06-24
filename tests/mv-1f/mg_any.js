@@ -21,80 +21,80 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "a")
         {
             // handle must a property
-            must_count += 1;
+            must_count += 1
             // .a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.a]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.a]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "b")
         {
             // handle must b property
-            must_count += 1;
+            must_count += 1
             // .b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.b]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.b]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "c")
         {
             // handle may c property
             // .c
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.c]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.c]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (runtime.jm_is_valid_date(prop, (path ? lpath_0 : null), rep))
         {
             // handle 1 key props
             // .'$DATE'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'$DATE']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'/foo/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'/foo/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
         {
             rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
     if (must_count != 2)
@@ -110,9 +110,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <b> [.]", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

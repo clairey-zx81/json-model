@@ -11,36 +11,36 @@ function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop.startsWith("a"))
         {
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
-                return false;
+                return false
             }
         }
         else
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 function json_model_1(val, path, rep)
 {
-    let res = _jm_obj_0(val, null, null);
+    let res = _jm_obj_0(val, null, null)
     if (res)
     {
-        let ival_0 = Object.keys(val).length;
-        res = ival_0 <= 2 && ival_0 >= 1;
+        let ival_0 = Object.keys(val).length
+        res = ival_0 <= 2 && ival_0 >= 1
     }
-    return res;
+    return res
 }
 
 

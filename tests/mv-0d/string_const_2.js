@@ -15,12 +15,12 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     // .
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "#";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "#"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_#\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

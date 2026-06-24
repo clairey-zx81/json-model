@@ -18,34 +18,34 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$foo']", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "s")
         {
             // handle may s property
             // .'$foo'.s
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$foo'.s]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$foo'.s]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop.startsWith("xs"))
         {
             // handle 1 re props
             // .'$foo'.'/^xs/'
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'$foo'.'/^xs/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
@@ -53,7 +53,7 @@ function json_model_2(val, path, rep)
             // accept any other props
         }
     }
-    return true;
+    return true
 }
 
 // check $bla (.'$bla')
@@ -63,34 +63,34 @@ function json_model_3(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$bla']", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_1 = path ? path.concat([prop]) : null
         if (prop == "b")
         {
             // handle may b property
             // .'$bla'.b
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$bla'.b]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$bla'.b]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop.startsWith("xb"))
         {
             // handle 1 re props
             // .'$bla'.'/^xb/'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'$bla'.'/^xb/']", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
         }
         else
@@ -98,7 +98,7 @@ function json_model_3(val, path, rep)
             // accept any other props
         }
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -108,106 +108,106 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_2 = path ? path.concat([prop]) : null;
+        let lpath_2 = path ? path.concat([prop]) : null
         if (prop == "u")
         {
             // handle may u property
             // .u
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.u]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.u]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "s")
         {
             // handle may s property
             // .s
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.s]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.s]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "a")
         {
             // handle may a property
             // .a
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.a]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.a]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "b")
         {
             // handle may b property
             // .b
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.b]", (path ? lpath_2 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.b]", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop.startsWith("xu"))
         {
             // handle 4 re props
             // .'/^xu/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'/^xu/']", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("xs"))
         {
             // handle 4 re props
             // .'/^xs/'
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'/^xs/']", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("xa"))
         {
             // handle 4 re props
             // .'/^xa/'
-            res = Array.isArray(pval);
+            res = Array.isArray(pval)
             if (! res)
             {
                 rep !== null && rep.push(["not array or unexpected array [.'/^xa/']", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
         }
         else if (prop.startsWith("xb"))
         {
             // handle 4 re props
             // .'/^xb/'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'/^xb/']", (path ? lpath_2 : null)])
-                return false;
+                return false
             }
         }
         else
@@ -215,7 +215,7 @@ function json_model_1(val, path, rep)
             // accept any other props
         }
     }
-    return true;
+    return true
 }
 
 

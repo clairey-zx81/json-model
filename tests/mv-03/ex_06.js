@@ -16,12 +16,12 @@ function json_model_4(val, path, rep)
 {
     // .'$ex5'
     // .'$ex5'.'|'.0
-    let res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Ex05a\" [.'$ex5'.'|'.0]", path])
         // .'$ex5'.'|'.1
-        res = json_model_6(val, path, rep);
+        res = json_model_6(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$Ex05b\" [.'$ex5'.'|'.1]", path])
@@ -35,41 +35,41 @@ function json_model_4(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$ex5'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $Ex06 (.'$Ex06')
 function json_model_3(val, path, rep)
 {
     // .'$Ex06'
-    let res = (typeof val === 'boolean' || val instanceof Boolean);
+    let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'$Ex06']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = Array.isArray(val) && val.length == 3;
+    let res = Array.isArray(val) && val.length == 3
     if (res)
     {
-        let lpath_0 = path ? path.concat([0]) : null;
+        let lpath_0 = path ? path.concat([0]) : null
         // .0
-        res = json_model_5(val[0], (path ? lpath_0 : null), rep);
+        res = json_model_5(val[0], (path ? lpath_0 : null), rep)
         if (res)
         {
-            lpath_0 = path ? path.concat([1]) : null;
+            lpath_0 = path ? path.concat([1]) : null
             // .1
-            res = json_model_6(val[1], (path ? lpath_0 : null), rep);
+            res = json_model_6(val[1], (path ? lpath_0 : null), rep)
             if (res)
             {
-                lpath_0 = path ? path.concat([2]) : null;
+                lpath_0 = path ? path.concat([2]) : null
                 // .2
-                res = json_model_3(val[2], (path ? lpath_0 : null), rep);
+                res = json_model_3(val[2], (path ? lpath_0 : null), rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"$Ex06\" [.2]", (path ? lpath_0 : null)])
@@ -89,31 +89,31 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
     }
-    return res;
+    return res
 }
 
 // check $ex5#Ex05a (.'$ex5#Ex05a')
 function json_model_5(val, path, rep)
 {
     // .'$ex5#Ex05a'
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'$ex5#Ex05a']", path])
     }
-    return res;
+    return res
 }
 
 // check $ex5#Ex05b (.'$ex5#Ex05b')
 function json_model_6(val, path, rep)
 {
     // .'$ex5#Ex05b'
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ex5#Ex05b']", path])
     }
-    return res;
+    return res
 }
 
 

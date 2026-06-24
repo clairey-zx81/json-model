@@ -20,46 +20,46 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("i"))
     {
         rep !== null && rep.push(["missing mandatory prop <i> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["i"]) : null;
-    pval = val["i"];
+    lpath = path ? path.concat(["i"]) : null
+    pval = val["i"]
     // .i
-    let res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+    let res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
     if (! res)
     {
         rep !== null && rep.push(["not a -1 loose int [.i]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <i> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("f"))
     {
         rep !== null && rep.push(["missing mandatory prop <f> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["f"]) : null;
-    pval = val["f"];
+    lpath = path ? path.concat(["f"]) : null
+    pval = val["f"]
     // .f
-    res = (typeof pval === 'number' || pval instanceof Number);
+    res = (typeof pval === 'number' || pval instanceof Number)
     if (! res)
     {
         rep !== null && rep.push(["not a -1.0 strict float [.f]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <f> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

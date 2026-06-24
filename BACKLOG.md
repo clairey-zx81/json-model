@@ -2,10 +2,11 @@
 
 ## Current Tasks
 
+- [x] js-backend: remove useless semi-colons
+- [ ] js-backend: remove useless braces (filtering?)
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] pl-backend: use short post-if where possible (filtering)
 - [ ] pl-backend: use `unless` where appropriate (filtering?)
-- [ ] js-backend: remove useless braces and semi-colons
 - [ ] java-backend: remove useless braces
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] front: generate valid minimal, maximal and random values from a model

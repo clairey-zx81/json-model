@@ -10,7 +10,7 @@ const jm_is_jsonpt_re = new runtime.RX("^(/([^~]|~0|~1)*)*$", "s")
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && jm_is_jsonpt(val, null, null);
+    return ((typeof val === 'string' || val instanceof String)) && jm_is_jsonpt(val, null, null)
 }
 
 

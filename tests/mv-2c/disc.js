@@ -12,136 +12,136 @@ function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("d"))
     {
-        return false;
+        return false
     }
-    pval = val["d"];
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
+    pval = val["d"]
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("a"))
     {
-        return false;
+        return false
     }
-    pval = val["a"];
-    return (typeof pval === 'string' || pval instanceof String);
+    pval = val["a"]
+    return (typeof pval === 'string' || pval instanceof String)
 }
 
 function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("d"))
     {
-        return false;
+        return false
     }
-    pval = val["d"];
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
+    pval = val["d"]
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("a"))
     {
-        return false;
+        return false
     }
-    pval = val["a"];
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    pval = val["a"]
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 function _jm_obj_2(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("d"))
     {
-        return false;
+        return false
     }
-    pval = val["d"];
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2;
+    pval = val["d"]
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 2
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("a"))
     {
-        return false;
+        return false
     }
-    pval = val["a"];
-    return pval === null;
+    pval = val["a"]
+    return pval === null
 }
 
 function _jm_obj_3(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("d"))
     {
-        return false;
+        return false
     }
-    pval = val["d"];
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 3;
+    pval = val["d"]
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 3
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("a"))
     {
-        return false;
+        return false
     }
-    pval = val["a"];
-    return (typeof pval === 'boolean' || pval instanceof Boolean);
+    pval = val["a"]
+    return (typeof pval === 'boolean' || pval instanceof Boolean)
 }
 
 
 function json_model_1(val, path, rep)
 {
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
-        let tag_0;
+        let tag_0
         if ((tag_0 = val["d"]) != null)
         {
-            let fun_0 = _jm_map_0.get(tag_0);
-            res = fun_0 !== undefined && fun_0(val, null, null);
+            let fun_0 = _jm_map_0.get(tag_0)
+            res = fun_0 !== undefined && fun_0(val, null, null)
         }
         else
         {
-            res = false;
+            res = false
         }
     }
-    return res;
+    return res
 }
 
 

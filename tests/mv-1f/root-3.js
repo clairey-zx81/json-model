@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_3(val, path, rep)
 {
     // .'$foo'
-    let res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Foo\" [.'$foo']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_5(val, path, rep);
+    let res = json_model_5(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$foo#Foo\" [.]", path])
     }
-    return res;
+    return res
 }
 
 // check $foo#Foo (.'$foo#Foo')
@@ -43,31 +43,31 @@ function json_model_5(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$foo#Foo']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
         rep !== null && rep.push(["bad property count [.'$foo#Foo']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("rt"))
     {
         rep !== null && rep.push(["missing mandatory prop <rt> [.'$foo#Foo']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["rt"]) : null;
-    pval = val["rt"];
+    lpath = path ? path.concat(["rt"]) : null
+    pval = val["rt"]
     // .'$foo#Foo'.rt
-    let res = json_model_12(pval, (path ? lpath : null), rep);
+    let res = json_model_12(pval, (path ? lpath : null), rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$root#Root\" [.'$foo#Foo'.rt]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <rt> [.'$foo#Foo']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $foo#root#root#Root (.'$foo#root#root#Root')
@@ -78,46 +78,46 @@ function json_model_12(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$foo#root#root#Root']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'$foo#root#root#Root']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("id"))
     {
         rep !== null && rep.push(["missing mandatory prop <id> [.'$foo#root#root#Root']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["id"]) : null;
-    pval = val["id"];
+    lpath = path ? path.concat(["id"]) : null
+    pval = val["id"]
     // .'$foo#root#root#Root'.id
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 1
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=1\" [.'$foo#root#root#Root'.id]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <id> [.'$foo#root#root#Root']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("name"))
     {
         rep !== null && rep.push(["missing mandatory prop <name> [.'$foo#root#root#Root']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["name"]) : null;
-    pval = val["name"];
+    lpath = path ? path.concat(["name"]) : null
+    pval = val["name"]
     // .'$foo#root#root#Root'.name
-    res = (typeof pval === 'string' || pval instanceof String);
+    res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$foo#root#root#Root'.name]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <name> [.'$foo#root#root#Root']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

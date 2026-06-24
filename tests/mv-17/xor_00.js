@@ -14,23 +14,23 @@ export var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
+    let res
     // equivalent to =0
     // .
     // remove duplicate xor list
-    res = true;
+    res = true
     // .'^'.2
-    let is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+    let is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
     if (! is_0)
     {
         rep !== null && rep.push(["not a 1 strict int [.'^'.2]", path])
     }
-    res = ! is_0;
+    res = ! is_0
     if (res)
     {
         // singleton xor list
         // .'^'.0
-        res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+        res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
         if (! res)
         {
             rep !== null && rep.push(["not a 0 strict int [.'^'.0]", path])
@@ -44,7 +44,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not one model match [.'^']", path])
     }
-    return res;
+    return res
 }
 
 

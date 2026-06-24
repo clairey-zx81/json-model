@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_3(val, path, rep)
 {
     // .'$bla'
-    let res = runtime.jm_is_valid_date(val, path, rep);
+    let res = runtime.jm_is_valid_date(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$DATE\" [.'$bla']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_3(val, path, rep);
+    let res = json_model_3(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$bla\" [.]", path])
     }
-    return res;
+    return res
 }
 
 

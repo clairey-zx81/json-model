@@ -15,36 +15,36 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$c'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "c";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "c"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_c\" [.'$c']", path])
     }
-    return res;
+    return res
 }
 
 // check $a (.'$a')
 function json_model_4(val, path, rep)
 {
     // .'$a'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "a";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'$a']", path])
     }
-    return res;
+    return res
 }
 
 // check $b (.'$b')
 function json_model_5(val, path, rep)
 {
     // .'$b'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "b";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "b"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_b\" [.'$b']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
@@ -54,16 +54,16 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length == 0)
     {
-        return true;
+        return true
     }
     else
     {
         rep !== null && rep.push(["expecting empty object [.]", path])
-        return false;
+        return false
     }
 }
 

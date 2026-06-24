@@ -21,17 +21,17 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 function json_model_1(val, path, rep)
 {
     // .
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (res)
     {
         // .'&'.0
         // "/[a-z]/"
-        res = _jm_re_1(val, path, rep);
+        res = _jm_re_1(val, path, rep)
         if (res)
         {
             // .'&'.1
             // "/[0-9]/"
-            res = _jm_re_0(val, path, rep);
+            res = _jm_re_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'&'.1]", path])
@@ -50,7 +50,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not all model match [.'&']", path])
     }
-    return res;
+    return res
 }
 
 

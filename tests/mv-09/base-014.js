@@ -18,47 +18,47 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "nom")
         {
             // handle must nom property
-            must_count += 1;
+            must_count += 1
             // .nom
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.nom]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.nom]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "age")
         {
             // handle may age property
             // .age
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.age]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.age]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         // handle other props
         // .''
-        res = (typeof pval === 'string' || pval instanceof String);
+        res = (typeof pval === 'string' || pval instanceof String)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'']", (path ? lpath_0 : null)])
-            return false;
+            return false
         }
     }
     if (must_count != 1)
@@ -70,9 +70,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <nom> [.'']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

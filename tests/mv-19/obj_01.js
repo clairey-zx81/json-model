@@ -18,12 +18,12 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$Xxx'
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$Xxx'.'|']", path])
     }
-    return res;
+    return res
 }
 
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
@@ -36,71 +36,71 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "foo")
         {
             // handle must foo property
-            must_count += 1;
+            must_count += 1
             // .foo
-            res = runtime.jm_is_valid_date(pval, (path ? lpath_0 : null), rep);
+            res = runtime.jm_is_valid_date(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$DATE\" [.foo]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.foo]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "bla")
         {
             // handle may bla property
             // .bla
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.bla]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.bla]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (json_model_2(prop, (path ? lpath_0 : null), rep))
         {
             // handle 1 key props
             // .'$Xxx'
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$Xxx']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'/^[0-9]+$/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'/^[0-9]+$/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
         {
             // handle other props
             // .''
-            res = pval === null;
+            res = pval === null
             if (! res)
             {
                 rep !== null && rep.push(["not null [.'']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
     }
@@ -113,9 +113,9 @@ function json_model_1(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <foo> [.'']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

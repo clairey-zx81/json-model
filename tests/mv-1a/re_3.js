@@ -21,57 +21,57 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "all")
         {
             // handle may all property
             // .all
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.all]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.all]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "nz")
         {
             // handle may nz property
             // .nz
             // "/./s"
-            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0;
+            res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./s\" [.nz]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.nz]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "some")
         {
             // handle may some property
             // .some
             // "/./"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/./\" [.some]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.some]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

@@ -23,41 +23,41 @@ function json_model_2(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$oA']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'$oA']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'$oA'.v
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oA'.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oA']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$oA']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'$oA'.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'$oA'.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oA']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 
@@ -69,41 +69,41 @@ function json_model_3(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$oB']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'$oB']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'$oB'.v
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oB'.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oB']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$oB']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'$oB'.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oB'.t.'|']", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oB']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 
@@ -111,26 +111,26 @@ function json_model_3(val, path, rep)
 function json_model_4(val, path, rep)
 {
     // .'$oC'
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
-        let tag_0;
+        let tag_0
         if ((tag_0 = val["t"]) != null)
         {
-            let fun_0 = _jm_map_0.get(tag_0);
+            let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
             {
-                res = fun_0(val, path, rep);
+                res = fun_0(val, path, rep)
             }
             else
             {
-                res = false;
+                res = false
                 rep !== null && rep.push(["tag <t> value not found [.'$oC'.'|']", path])
             }
         }
         else
         {
-            res = false;
+            res = false
             rep !== null && rep.push(["tag prop <t> is missing [.'$oC'.'|']", path])
         }
     }
@@ -138,7 +138,7 @@ function json_model_4(val, path, rep)
     {
         rep !== null && rep.push(["value is not an object [.'$oC'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $oL (.'$oL')
@@ -149,41 +149,41 @@ function json_model_5(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$oL']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'$oL']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'$oL'.v
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oL'.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oL']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$oL']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'$oL'.t
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_d\" [.'$oL'.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oL']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 
@@ -195,41 +195,41 @@ function json_model_6(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$oX']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'$oX']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'$oX'.v
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
     {
         rep !== null && rep.push(["not a 1 strict int [.'$oX'.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'$oX']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'$oX']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'$oX'.t
-    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval);
+    res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'$oX'.t.'|']", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'$oX']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 
@@ -237,26 +237,26 @@ function json_model_6(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
-        let tag_1;
+        let tag_1
         if ((tag_1 = val["t"]) != null)
         {
-            let fun_1 = _jm_map_1.get(tag_1);
+            let fun_1 = _jm_map_1.get(tag_1)
             if (fun_1 !== undefined)
             {
-                res = fun_1(val, path, rep);
+                res = fun_1(val, path, rep)
             }
             else
             {
-                res = false;
+                res = false
                 rep !== null && rep.push(["tag <t> value not found [.'|']", path])
             }
         }
         else
         {
-            res = false;
+            res = false
             rep !== null && rep.push(["tag prop <t> is missing [.'|']", path])
         }
     }
@@ -264,7 +264,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["value is not an object [.'|']", path])
     }
-    return res || json_model_4(val, path, rep);
+    return res || json_model_4(val, path, rep)
 }
 
 

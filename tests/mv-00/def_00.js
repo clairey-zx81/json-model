@@ -9,12 +9,12 @@ export var check_model_map = new Map()
 
 function json_model_2(val, path, rep)
 {
-    return ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+    return ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
 }
 
 function json_model_1(val, path, rep)
 {
-    return json_model_2(val, null, null);
+    return json_model_2(val, null, null)
 }
 
 

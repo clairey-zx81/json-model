@@ -19,42 +19,42 @@ function _jm_obj_0(val, path, rep)
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.5]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.5]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'|'.5.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "t";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "t"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"t\" [.'|'.5.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.5]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'|'.5]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'|'.5.v
     // "/./s"
-    res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0;
+    res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) > 0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"/./s\" [.'|'.5.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.5]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'|'.4
@@ -65,41 +65,41 @@ function _jm_obj_1(val, path, rep)
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.4]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.4]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'|'.4.t
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "s";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "s"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"s\" [.'|'.4.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.4]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'|'.4]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'|'.4.v
-    res = (typeof pval === 'string' || pval instanceof String);
+    res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.4.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.4]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'|'.3
@@ -110,41 +110,41 @@ function _jm_obj_2(val, path, rep)
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.3]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.3]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'|'.3.t
-    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 0.0;
+    let res = ((typeof pval === 'number' || pval instanceof Number)) && pval == 0.0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0.0\" [.'|'.3.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.3]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'|'.3]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'|'.3.v
-    res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+    res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0
     if (! res)
     {
         rep !== null && rep.push(["not a 0.0 strict float [.'|'.3.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.3]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'|'.2
@@ -155,41 +155,41 @@ function _jm_obj_3(val, path, rep)
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.2]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.2]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'|'.2.t
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 0
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=0\" [.'|'.2.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.2]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'|'.2]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'|'.2.v
-    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.2.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.2]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'|'.1
@@ -200,41 +200,41 @@ function _jm_obj_4(val, path, rep)
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.1]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.1]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'|'.1.t
-    let res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true;
+    let res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == true
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=true\" [.'|'.1.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.1]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'|'.1]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'|'.1.v
-    res = (typeof pval === 'boolean' || pval instanceof Boolean);
+    res = (typeof pval === 'boolean' || pval instanceof Boolean)
     if (! res)
     {
         rep !== null && rep.push(["not a bool [.'|'.1.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.1]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // object .'|'.0
@@ -245,41 +245,41 @@ function _jm_obj_5(val, path, rep)
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'|'.0]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("t"))
     {
         rep !== null && rep.push(["missing mandatory prop <t> [.'|'.0]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["t"]) : null;
-    pval = val["t"];
+    lpath = path ? path.concat(["t"]) : null
+    pval = val["t"]
     // .'|'.0.t
-    let res = pval === null;
+    let res = pval === null
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"=null\" [.'|'.0.t]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <t> [.'|'.0]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("v"))
     {
         rep !== null && rep.push(["missing mandatory prop <v> [.'|'.0]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["v"]) : null;
-    pval = val["v"];
+    lpath = path ? path.concat(["v"]) : null
+    pval = val["v"]
     // .'|'.0.v
-    res = pval === null;
+    res = pval === null
     if (! res)
     {
         rep !== null && rep.push(["not null [.'|'.0.v]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <v> [.'|'.0]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -287,36 +287,36 @@ function json_model_1(val, path, rep)
 {
     // multi-type discriminator
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         // .'|'.0
-        res = _jm_obj_5(val, path, rep);
+        res = _jm_obj_5(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected element [.'|'.0]", path])
             // .'|'.1
-            res = _jm_obj_4(val, path, rep);
+            res = _jm_obj_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'|'.1]", path])
                 // .'|'.2
-                res = _jm_obj_3(val, path, rep);
+                res = _jm_obj_3(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected element [.'|'.2]", path])
                     // .'|'.3
-                    res = _jm_obj_2(val, path, rep);
+                    res = _jm_obj_2(val, path, rep)
                     if (! res)
                     {
                         rep !== null && rep.push(["unexpected element [.'|'.3]", path])
                         // .'|'.4
-                        res = _jm_obj_1(val, path, rep);
+                        res = _jm_obj_1(val, path, rep)
                         if (! res)
                         {
                             rep !== null && rep.push(["unexpected element [.'|'.4]", path])
                             // .'|'.5
-                            res = _jm_obj_0(val, path, rep);
+                            res = _jm_obj_0(val, path, rep)
                             if (! res)
                             {
                                 rep !== null && rep.push(["unexpected element [.'|'.5]", path])
@@ -339,7 +339,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

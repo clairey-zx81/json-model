@@ -16,22 +16,22 @@ function json_model_2(val, path, rep)
 {
     // .'$Xx'
     // .'$Xx'.'|'.0
-    let res = val === null;
+    let res = val === null
     if (! res)
     {
         rep !== null && rep.push(["not null [.'$Xx'.'|'.0]", path])
         // .'$Xx'.'|'.1
-        res = (typeof val === 'boolean' || val instanceof Boolean);
+        res = (typeof val === 'boolean' || val instanceof Boolean)
         if (! res)
         {
             rep !== null && rep.push(["not a bool [.'$Xx'.'|'.1]", path])
             // .'$Xx'.'|'.2
-            res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+            res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'$Xx'.'|'.2]", path])
                 // .'$Xx'.'|'.3
-                res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
+                res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
                 if (! res)
                 {
                     rep !== null && rep.push(["not a 1.0 strict float [.'$Xx'.'|'.3]", path])
@@ -47,7 +47,7 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'$Xx'.'|']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
@@ -55,24 +55,24 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'|'.0
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Xx\" [.'|'.0]", path])
         // .'|'.1
-        res = Array.isArray(val);
+        res = Array.isArray(val)
         if (res)
         {
             for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
             {
                 let arr_0_item = val[arr_0_idx]
-                let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+                let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
                 // .'|'.1.0
-                res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep);
+                res = json_model_2(arr_0_item, (path ? arr_0_lpath : null), rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"$Xx\" [.'|'.1.0]", (path ? arr_0_lpath : null)])
-                    break;
+                    break
                 }
             }
         }
@@ -89,7 +89,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

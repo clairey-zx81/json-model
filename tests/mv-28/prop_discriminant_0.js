@@ -15,177 +15,177 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "a")
         {
             // handle must a property
-            must_count += 1;
+            must_count += 1
             // .'|'.2.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "d")
         {
             // handle must d property
-            must_count += 1;
+            must_count += 1
             // .'|'.2.d
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "u")
         {
             // handle may u property
             // .'|'.2.u
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "x")
         {
             // handle may x property
             // .'|'.2.x
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return must_count == 2;
+    return must_count == 2
 }
 
 // object .'|'.1
 function _jm_obj_1(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "a")
         {
             // handle must a property
-            must_count += 1;
+            must_count += 1
             // .'|'.1.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "c")
         {
             // handle must c property
-            must_count += 1;
+            must_count += 1
             // .'|'.1.c
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "v")
         {
             // handle may v property
             // .'|'.1.v
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "z")
         {
             // handle may z property
             // .'|'.1.z
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return must_count == 2;
+    return must_count == 2
 }
 
 // object .'|'.0
 function _jm_obj_2(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "a")
         {
             // handle must a property
-            must_count += 1;
+            must_count += 1
             // .'|'.0.a
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "b")
         {
             // handle must b property
-            must_count += 1;
+            must_count += 1
             // .'|'.0.b
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "z")
         {
             // handle may z property
             // .'|'.0.z
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "w")
         {
             // handle may w property
             // .'|'.0.w
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return must_count == 2;
+    return must_count == 2
 }
 
 // check $ (.)
@@ -193,28 +193,28 @@ function json_model_1(val, path, rep)
 {
     // objects with incompatible mandatory properties
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         if (val.hasOwnProperty("b"))
         {
             // .'|'.0
-            res = _jm_obj_2(val, null, null);
+            res = _jm_obj_2(val, null, null)
         }
         else
         {
             if (val.hasOwnProperty("c"))
             {
                 // .'|'.1
-                res = _jm_obj_1(val, null, null);
+                res = _jm_obj_1(val, null, null)
             }
             else
             {
-                res = val.hasOwnProperty("d") && _jm_obj_0(val, null, null);
+                res = val.hasOwnProperty("d") && _jm_obj_0(val, null, null)
             }
         }
     }
-    return res;
+    return res
 }
 
 

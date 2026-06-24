@@ -20,14 +20,14 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("foo\nbar"))
     {
         rep !== null && rep.push(["missing mandatory prop <foo\\nbar> [.]", path])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

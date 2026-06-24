@@ -19,7 +19,7 @@ function json_model_1(val, path, rep)
 {
     // .
     // "/^[^\\[\\]]*$/"
-    return ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, null, null);
+    return ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, null, null)
 }
 
 

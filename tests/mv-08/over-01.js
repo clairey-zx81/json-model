@@ -15,24 +15,24 @@ export var check_model_map = new Map()
 function json_model_3(val, path, rep)
 {
     // .'$over'
-    let res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$Foo\" [.'$over']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_4(val, path, rep);
+    let res = json_model_4(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$over#Foo\" [.]", path])
     }
-    return res;
+    return res
 }
 
 // check $over#Foo (.'$over#Foo')
@@ -42,29 +42,29 @@ function json_model_4(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$over#Foo']", path])
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "foo")
         {
             // handle may foo property
             // .'$over#Foo'.foo
-            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "rewritten foo";
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "rewritten foo"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"_rewritten foo\" [.'$over#Foo'.foo]", (path ? lpath_0 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$over#Foo'.foo]", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         rep !== null && rep.push(["unexpected prop [.'$over#Foo']", (path ? lpath_0 : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

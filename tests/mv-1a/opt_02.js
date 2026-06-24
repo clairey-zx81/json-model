@@ -17,22 +17,22 @@ function json_model_1(val, path, rep)
     // flatten and xor to or test
     // .
     // .'|'.0
-    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
     {
         rep !== null && rep.push(["not a 0 strict int [.'|'.0]", path])
         // .'|'.1
-        res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
+        res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
         if (! res)
         {
             rep !== null && rep.push(["not a 0.0 strict float [.'|'.1]", path])
             // .'|'.2
-            res = val === null;
+            res = val === null
             if (! res)
             {
                 rep !== null && rep.push(["not null [.'|'.2]", path])
                 // .'|'.3
-                res = (typeof val === 'boolean' || val instanceof Boolean);
+                res = (typeof val === 'boolean' || val instanceof Boolean)
                 if (! res)
                 {
                     rep !== null && rep.push(["not a bool [.'|'.3]", path])
@@ -48,7 +48,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

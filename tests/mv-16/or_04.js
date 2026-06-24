@@ -24,22 +24,22 @@ function json_model_1(val, path, rep)
 {
     // deux chaînes constantes et deux re, séparation possible ; constantes matchent re…
     // .
-    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
     {
         rep !== null && rep.push(["value not in enum [.'|']", path])
-        res = (typeof val === 'string' || val instanceof String);
+        res = (typeof val === 'string' || val instanceof String)
         if (res)
         {
             // .'|'.0
             // "/[0-9]/"
-            res = _jm_re_1(val, path, rep);
+            res = _jm_re_1(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'|'.0]", path])
                 // .'|'.1
                 // "/[a-z]/"
-                res = _jm_re_0(val, path, rep);
+                res = _jm_re_0(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'|'.1]", path])
@@ -59,7 +59,7 @@ function json_model_1(val, path, rep)
             rep !== null && rep.push(["unexpected type [.'|']", path])
         }
     }
-    return res;
+    return res
 }
 
 

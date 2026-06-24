@@ -15,12 +15,12 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$t'
-    let res = ((typeof val === 'string' || val instanceof String)) && val == "cst_02";
+    let res = ((typeof val === 'string' || val instanceof String)) && val == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$t']", path])
     }
-    return res;
+    return res
 }
 
 // check $r (.'$r')
@@ -31,76 +31,76 @@ function json_model_5(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$r']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 4)
     {
         rep !== null && rep.push(["bad property count [.'$r']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.'$r']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["a"]) : null;
-    pval = val["a"];
+    lpath = path ? path.concat(["a"]) : null
+    pval = val["a"]
     // .'$r'.a
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.'$r']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("b"))
     {
         rep !== null && rep.push(["missing mandatory prop <b> [.'$r']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["b"]) : null;
-    pval = val["b"];
+    lpath = path ? path.concat(["b"]) : null
+    pval = val["b"]
     // .'$r'.b
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.'$r']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("c"))
     {
         rep !== null && rep.push(["missing mandatory prop <c> [.'$r']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["c"]) : null;
-    pval = val["c"];
+    lpath = path ? path.concat(["c"]) : null
+    pval = val["c"]
     // .'$r'.c
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.c]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <c> [.'$r']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("d"))
     {
         rep !== null && rep.push(["missing mandatory prop <d> [.'$r']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["d"]) : null;
-    pval = val["d"];
+    lpath = path ? path.concat(["d"]) : null
+    pval = val["d"]
     // .'$r'.d
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.'$r'.d]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <d> [.'$r']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $z (.'$z')
@@ -111,46 +111,46 @@ function json_model_4(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$z']", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
         rep !== null && rep.push(["bad property count [.'$z']", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("e"))
     {
         rep !== null && rep.push(["missing mandatory prop <e> [.'$z']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["e"]) : null;
-    pval = val["e"];
+    lpath = path ? path.concat(["e"]) : null
+    pval = val["e"]
     // .'$z'.e
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$z'.e]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <e> [.'$z']", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("f"))
     {
         rep !== null && rep.push(["missing mandatory prop <f> [.'$z']", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["f"]) : null;
-    pval = val["f"];
+    lpath = path ? path.concat(["f"]) : null
+    pval = val["f"]
     // .'$z'.f
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$z'.f]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <f> [.'$z']", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -161,106 +161,106 @@ function json_model_1(val, path, rep)
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.]", path])
-        return false;
+        return false
     }
     if (Object.keys(val).length != 6)
     {
         rep !== null && rep.push(["bad property count [.]", path])
-        return false;
+        return false
     }
-    let lpath;
-    let pval;
+    let lpath
+    let pval
     if (! val.hasOwnProperty("a"))
     {
         rep !== null && rep.push(["missing mandatory prop <a> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["a"]) : null;
-    pval = val["a"];
+    lpath = path ? path.concat(["a"]) : null
+    pval = val["a"]
     // .a
-    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.a]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <a> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("b"))
     {
         rep !== null && rep.push(["missing mandatory prop <b> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["b"]) : null;
-    pval = val["b"];
+    lpath = path ? path.concat(["b"]) : null
+    pval = val["b"]
     // .b
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.b]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <b> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("e"))
     {
         rep !== null && rep.push(["missing mandatory prop <e> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["e"]) : null;
-    pval = val["e"];
+    lpath = path ? path.concat(["e"]) : null
+    pval = val["e"]
     // .e
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.e]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <e> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("f"))
     {
         rep !== null && rep.push(["missing mandatory prop <f> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["f"]) : null;
-    pval = val["f"];
+    lpath = path ? path.concat(["f"]) : null
+    pval = val["f"]
     // .f
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_02"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.f]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <f> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("c"))
     {
         rep !== null && rep.push(["missing mandatory prop <c> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["c"]) : null;
-    pval = val["c"];
+    lpath = path ? path.concat(["c"]) : null
+    pval = val["c"]
     // .c
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.c]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <c> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("d"))
     {
         rep !== null && rep.push(["missing mandatory prop <d> [.]", path])
-        return false;
+        return false
     }
-    lpath = path ? path.concat(["d"]) : null;
-    pval = val["d"];
+    lpath = path ? path.concat(["d"]) : null
+    pval = val["d"]
     // .d
-    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+    res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01"
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"_cst_01\" [.d]", (path ? lpath : null)])
         rep !== null && rep.push(["unexpected value for mandatory prop <d> [.]", (path ? lpath : null)])
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

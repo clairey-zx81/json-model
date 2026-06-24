@@ -16,24 +16,24 @@ function json_model_1(val, path, rep)
 {
     // mixed sw eq ew regex optim
     // .
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (res)
     {
         // .'|'.0
         // "/^hello/"
-        res = val.startsWith("hello");
+        res = val.startsWith("hello")
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"/^hello/\" [.'|'.0]", path])
             // .'|'.1
             // "/^world$/"
-            res = val == "world";
+            res = val == "world"
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^world$/\" [.'|'.1]", path])
                 // .'|'.2
                 // "/!$/"
-                res = val.endsWith("!");
+                res = val.endsWith("!")
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"/!$/\" [.'|'.2]", path])
@@ -53,7 +53,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

@@ -15,19 +15,19 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     // .'$li0'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
         {
             let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null
             // .'$li0'.0
-            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0;
+            res = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item >= 0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0 strict int [.'$li0'.0]", (path ? arr_0_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -35,26 +35,26 @@ function json_model_2(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$li0']", path])
     }
-    return res;
+    return res
 }
 
 // check $ls0 (.'$ls0')
 function json_model_3(val, path, rep)
 {
     // .'$ls0'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
         {
             let arr_1_item = val[arr_1_idx]
-            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null
             // .'$ls0'.0
-            res = runtime.jm_is_valid_url(arr_1_item, (path ? arr_1_lpath : null), rep);
+            res = runtime.jm_is_valid_url(arr_1_item, (path ? arr_1_lpath : null), rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$URL\" [.'$ls0'.0]", (path ? arr_1_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -62,26 +62,26 @@ function json_model_3(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$ls0']", path])
     }
-    return res;
+    return res
 }
 
 // check $lb0 (.'$lb0')
 function json_model_4(val, path, rep)
 {
     // .'$lb0'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
         {
             let arr_2_item = val[arr_2_idx]
-            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
+            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null
             // .'$lb0'.0
-            res = (typeof arr_2_item === 'boolean' || arr_2_item instanceof Boolean);
+            res = (typeof arr_2_item === 'boolean' || arr_2_item instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.'$lb0'.0]", (path ? arr_2_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -89,26 +89,26 @@ function json_model_4(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$lb0']", path])
     }
-    return res;
+    return res
 }
 
 // check $lf0 (.'$lf0')
 function json_model_5(val, path, rep)
 {
     // .'$lf0'
-    let res = Array.isArray(val);
+    let res = Array.isArray(val)
     if (res)
     {
         for (let arr_3_idx = 0; arr_3_idx < val.length; arr_3_idx++)
         {
             let arr_3_item = val[arr_3_idx]
-            let arr_3_lpath = path ? path.concat([arr_3_idx]) : null;
+            let arr_3_lpath = path ? path.concat([arr_3_idx]) : null
             // .'$lf0'.0
-            res = ((typeof arr_3_item === 'number' || arr_3_item instanceof Number)) && arr_3_item >= 0.0;
+            res = ((typeof arr_3_item === 'number' || arr_3_item instanceof Number)) && arr_3_item >= 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 0.0 strict float [.'$lf0'.0]", (path ? arr_3_lpath : null)])
-                break;
+                break
             }
         }
     }
@@ -116,7 +116,7 @@ function json_model_5(val, path, rep)
     {
         rep !== null && rep.push(["not array or unexpected array [.'$lf0']", path])
     }
-    return res;
+    return res
 }
 
 // check $ (.)
@@ -124,22 +124,22 @@ function json_model_1(val, path, rep)
 {
     // .
     // .'|'.0
-    let res = json_model_2(val, path, rep);
+    let res = json_model_2(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for model \"$li0\" [.'|'.0]", path])
         // .'|'.1
-        res = json_model_3(val, path, rep);
+        res = json_model_3(val, path, rep)
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"$ls0\" [.'|'.1]", path])
             // .'|'.2
-            res = json_model_4(val, path, rep);
+            res = json_model_4(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"$lb0\" [.'|'.2]", path])
                 // .'|'.3
-                res = json_model_5(val, path, rep);
+                res = json_model_5(val, path, rep)
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected value for model \"$lf0\" [.'|'.3]", path])
@@ -155,7 +155,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["no model matched [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

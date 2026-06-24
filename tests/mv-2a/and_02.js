@@ -19,19 +19,19 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 function _jm_obj_0(val, path, rep)
 {
     // value known to be an object
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_0 = path ? path.concat([prop]) : null;
+        let lpath_0 = path ? path.concat([prop]) : null
         if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'&'.1.'/^d[0-9]/'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'&'.1.'/^d[0-9]/']", (path ? lpath_0 : null)])
-                return false;
+                return false
             }
         }
         else
@@ -39,7 +39,7 @@ function _jm_obj_0(val, path, rep)
             // accept any other props
         }
     }
-    return true;
+    return true
 }
 
 const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
@@ -48,81 +48,81 @@ const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
 function _jm_obj_1(val, path, rep)
 {
     // value known to be an object
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
-        let lpath_1 = path ? path.concat([prop]) : null;
+        let lpath_1 = path ? path.concat([prop]) : null
         if (prop == "s")
         {
             // handle must s property
-            must_count += 1;
+            must_count += 1
             // .'&'.0.s
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.s]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'&'.0.s]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "b")
         {
             // handle must b property
-            must_count += 1;
+            must_count += 1
             // .'&'.0.b
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
             {
                 rep !== null && rep.push(["not a bool [.'&'.0.b]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'&'.0.b]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "f")
         {
             // handle must f property
-            must_count += 1;
+            must_count += 1
             // .'&'.0.f
-            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
             if (! res)
             {
                 rep !== null && rep.push(["not a 1.0 strict float [.'&'.0.f]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid mandatory prop value [.'&'.0.f]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop == "u")
         {
             // handle may u property
             // .'&'.0.u
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
             {
                 rep !== null && rep.push(["not a 1 strict int [.'&'.0.u]", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'&'.0.u]", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         if (prop.startsWith("z"))
         {
             // handle 2 re props
             // .'&'.0.'/^z/'
-            res = true;
+            res = true
         }
         else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
             // .'&'.0.'/^d[a-z]/'
-            res = (typeof pval === 'string' || pval instanceof String);
+            res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'&'.0.'/^d[a-z]/']", (path ? lpath_1 : null)])
-                return false;
+                return false
             }
         }
         else
@@ -147,9 +147,9 @@ function _jm_obj_1(val, path, rep)
                 rep !== null && rep.push(["missing mandatory prop <s> [.'&'.0.'']", path])
             }
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 // check $ (.)
@@ -157,15 +157,15 @@ function json_model_1(val, path, rep)
 {
     // merge object stuff if possible
     // .
-    let res = Object.prototype.toString.call(val) === '[object Object]';
+    let res = Object.prototype.toString.call(val) === '[object Object]'
     if (res)
     {
         // .'&'.0
-        res = _jm_obj_1(val, path, rep);
+        res = _jm_obj_1(val, path, rep)
         if (res)
         {
             // .'&'.1
-            res = _jm_obj_0(val, path, rep);
+            res = _jm_obj_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected element [.'&'.1]", path])
@@ -184,7 +184,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["not all model match [.'&']", path])
     }
-    return res;
+    return res
 }
 
 

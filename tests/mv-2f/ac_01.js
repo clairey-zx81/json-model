@@ -11,38 +11,38 @@ function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (val.hasOwnProperty("a"))
     {
-        pval = val["a"];
-        res = (typeof pval === 'string' || pval instanceof String);
+        pval = val["a"]
+        res = (typeof pval === 'string' || pval instanceof String)
         if (! res)
         {
-            return false;
+            return false
         }
     }
     if (val.hasOwnProperty("b"))
     {
-        pval = val["b"];
-        res = (typeof pval === 'string' || pval instanceof String);
+        pval = val["b"]
+        res = (typeof pval === 'string' || pval instanceof String)
         if (! res)
         {
-            return false;
+            return false
         }
     }
     if (val.hasOwnProperty("c"))
     {
-        pval = val["c"];
-        res = (typeof pval === 'string' || pval instanceof String);
+        pval = val["c"]
+        res = (typeof pval === 'string' || pval instanceof String)
         if (! res)
         {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 

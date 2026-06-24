@@ -14,7 +14,7 @@ export var check_model_map = new Map()
 // object .mo0
 function _jm_obj_0(val, path, rep)
 {
-    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0;
+    return Object.prototype.toString.call(val) === '[object Object]' && Object.keys(val).length == 0
 }
 
 // object .mo1
@@ -23,21 +23,21 @@ function _jm_obj_1(val, path, rep)
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 1)
     {
-        return false;
+        return false
     }
-    let pval;
-    let res;
+    let pval
+    let res
     if (! val.hasOwnProperty("p10"))
     {
-        return false;
+        return false
     }
-    pval = val["p10"];
+    pval = val["p10"]
     // .mo1.p10
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 // object .mo2
@@ -46,31 +46,31 @@ function _jm_obj_2(val, path, rep)
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
     if (Object.keys(val).length != 2)
     {
-        return false;
+        return false
     }
-    let pval;
+    let pval
     if (! val.hasOwnProperty("p20"))
     {
-        return false;
+        return false
     }
-    pval = val["p20"];
+    pval = val["p20"]
     // .mo2.p20
-    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
     {
-        return false;
+        return false
     }
     if (! val.hasOwnProperty("p21"))
     {
-        return false;
+        return false
     }
-    pval = val["p21"];
+    pval = val["p21"]
     // .mo2.p21
-    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+    return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
 
 // object .mo3
@@ -78,51 +78,51 @@ function _jm_obj_3(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
-    let must_count = 0;
+    let res
+    let must_count = 0
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "p30")
         {
             // handle must p30 property
-            must_count += 1;
+            must_count += 1
             // .mo3.p30
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "p31")
         {
             // handle must p31 property
-            must_count += 1;
+            must_count += 1
             // .mo3.p31
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "p32")
         {
             // handle must p32 property
-            must_count += 1;
+            must_count += 1
             // .mo3.p32
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return must_count == 3;
+    return must_count == 3
 }
 
 // check $ (.)
@@ -131,9 +131,9 @@ function json_model_1(val, path, rep)
     // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
-        return false;
+        return false
     }
-    let res;
+    let res
     for (const [prop, pval] of Object.entries(val))
     {
         if (prop == "mo0")
@@ -141,52 +141,52 @@ function json_model_1(val, path, rep)
             // handle may mo0 property
             // empty object
             // .mo0
-            res = _jm_obj_0(pval, null, null);
+            res = _jm_obj_0(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "mo1")
         {
             // handle may mo1 property
             // one mandatory prop
             // .mo1
-            res = _jm_obj_1(pval, null, null);
+            res = _jm_obj_1(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "mo2")
         {
             // handle may mo2 property
             // two mandatory props
             // .mo2
-            res = _jm_obj_2(pval, null, null);
+            res = _jm_obj_2(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
         else if (prop == "mo3")
         {
             // handle may mo3 property
             // three mandatory props
             // .mo3
-            res = _jm_obj_3(pval, null, null);
+            res = _jm_obj_3(pval, null, null)
             if (! res)
             {
-                return false;
+                return false
             }
-            continue;
+            continue
         }
-        return false;
+        return false
     }
-    return true;
+    return true
 }
 
 

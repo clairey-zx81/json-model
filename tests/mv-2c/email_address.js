@@ -10,7 +10,7 @@ const jm_is_email_re = new runtime.RX("^([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#
 
 function json_model_1(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, null, null);
+    return ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, null, null)
 }
 
 

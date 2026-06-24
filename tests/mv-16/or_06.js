@@ -18,17 +18,17 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 function json_model_1(val, path, rep)
 {
     // .
-    let res = (typeof val === 'string' || val instanceof String);
+    let res = (typeof val === 'string' || val instanceof String)
     if (res)
     {
         // .'|'.0
-        res = val == "Susie";
+        res = val == "Susie"
         if (! res)
         {
             rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'|'.0]", path])
             // .'|'.1
             // "/^[a-z]+$/"
-            res = _jm_re_0(val, path, rep);
+            res = _jm_re_0(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["unexpected value for model \"/^[a-z]+$/\" [.'|'.1]", path])
@@ -47,7 +47,7 @@ function json_model_1(val, path, rep)
     {
         rep !== null && rep.push(["unexpected type [.'|']", path])
     }
-    return res;
+    return res
 }
 
 

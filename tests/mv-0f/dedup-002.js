@@ -14,41 +14,41 @@ export var check_model_map = new Map()
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    let res;
+    let res
     // .
     // remove duplicate xor list
-    let is_0;
-    res = true;
+    let is_0
+    res = true
     // .'^'.1
-    is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! is_0)
     {
         rep !== null && rep.push(["not a 0 strict int [.'^'.1]", path])
     }
-    res = ! is_0;
+    res = ! is_0
     if (res)
     {
         // .'^'.4
-        is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+        is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
         if (! is_0)
         {
             rep !== null && rep.push(["not a 1 strict int [.'^'.4]", path])
         }
-        res = ! is_0;
+        res = ! is_0
     }
     if (res)
     {
         // .'^'.7
-        is_0 = (typeof val === 'string' || val instanceof String);
+        is_0 = (typeof val === 'string' || val instanceof String)
         if (! is_0)
         {
             rep !== null && rep.push(["unexpected value for model \"\" [.'^'.7]", path])
         }
-        res = ! is_0;
+        res = ! is_0
     }
-    res = false;
+    res = false
     rep !== null && rep.push(["not one model match [.'^']", path])
-    return res;
+    return res
 }
 
 
