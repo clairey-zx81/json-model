@@ -7,6 +7,7 @@
 - [x] pl-backend: use `unless` where appropriate by filtering output
 - [x] pl-backend: use short post-if/unless where possible by filtering output
 - [x] java-backend: remove useless braces by filtering output
+- [x] doc: improve developer documentation
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] front: generate valid minimal, maximal and random values from a model
@@ -58,7 +59,6 @@
 - [ ] predefs: improve `$URI` and `$URL`
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
 - [ ] doc: add _known limitations_ stuff
-- [ ] doc: improve developer documentation
 - [ ] spec: restrict regex syntax to a smaller subset
 - [ ] predefs: add `$SIMPLE_REGEX` for regex syntax subset?
 - [ ] docker: enable user remap
