@@ -21,10 +21,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # inline up to 3 must/may properties
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -36,10 +33,7 @@ sub json_model_1($$$)
             $must_count++;
             # .mu1
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "mu2")
@@ -48,10 +42,7 @@ sub json_model_1($$$)
             $must_count++;
             # .mu2
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "mu3")
@@ -60,10 +51,7 @@ sub json_model_1($$$)
             $must_count++;
             # .mu3
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "ma1")
@@ -71,10 +59,7 @@ sub json_model_1($$$)
             # handle may ma1 property
             # .ma1
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "ma2")
@@ -82,10 +67,7 @@ sub json_model_1($$$)
             # handle may ma2 property
             # .ma2
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "ma3")
@@ -93,10 +75,7 @@ sub json_model_1($$$)
             # handle may ma3 property
             # .ma3
             $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

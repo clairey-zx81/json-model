@@ -24,30 +24,15 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.0.t
     my $res = jm_is_numeric($pval) && $pval == 3.1415927;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"pi"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"pi"};
     $pval = $$val{"pi"};
     # .'|'.0.pi
     return jm_is_string($pval);
@@ -58,30 +43,15 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.1.t
     my $res = jm_is_numeric($pval) && $pval == 1.0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"one"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"one"};
     $pval = $$val{"one"};
     # .'|'.1.one
     return jm_is_string($pval);
@@ -92,30 +62,15 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'|'.2.t
     my $res = jm_is_numeric($pval) && $pval == 0.5;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"half"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"half"};
     $pval = $$val{"half"};
     # .'|'.2.half
     return jm_is_string($pval);

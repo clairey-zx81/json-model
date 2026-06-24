@@ -35,10 +35,7 @@ sub json_model_1($$$)
         {
             my $arr_1_item = $$val[$arr_1_idx];
             $res = jm_is_string($arr_1_item) && _jm_re_1($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
         if ($res)
         {
@@ -46,10 +43,7 @@ sub json_model_1($$$)
             {
                 my $arr_0_item = $$val[$arr_0_idx];
                 $res = jm_is_string($arr_0_item) && _jm_re_0($arr_0_item, undef, undef);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
     }

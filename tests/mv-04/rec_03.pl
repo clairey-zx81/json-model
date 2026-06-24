@@ -21,10 +21,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # Recursion test 03
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -35,7 +32,7 @@ sub json_model_1($$$)
             # .foo
             # .foo.'|'.0
             $res = json_model_1($pval, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 # .foo.'|'.1
                 $res = jm_is_array($pval);
@@ -46,17 +43,11 @@ sub json_model_1($$$)
                         my $arr_0_item = $$pval[$arr_0_idx];
                         # .foo.'|'.1.0
                         $res = json_model_1($arr_0_item, undef, undef);
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

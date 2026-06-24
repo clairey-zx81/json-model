@@ -76,10 +76,7 @@ sub json_model_7($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$Aa'.0
             $res = json_model_9($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -90,10 +87,7 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Oo'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -101,10 +95,7 @@ sub json_model_8($$$)
         # handle other props
         # .'$Oo'.''
         $res = json_model_9($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }

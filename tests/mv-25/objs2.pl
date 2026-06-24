@@ -24,30 +24,15 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$bla'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"x"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"x"};
     $pval = $$val{"x"};
     # .'$bla'.x
     my $res = jm_is_numeric($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"y"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"y"};
     $pval = $$val{"y"};
     # .'$bla'.y
     return jm_is_numeric($pval);

@@ -36,10 +36,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'|'.4.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "c")
@@ -48,10 +45,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'|'.4.c
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "e")
@@ -60,10 +54,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'|'.4.e
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "r")
@@ -71,10 +62,7 @@ sub _jm_obj_0($$$)
             # handle may r property
             # .'|'.4.r
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -98,10 +86,7 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'|'.3.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "e")
@@ -110,10 +95,7 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'|'.3.e
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "s")
@@ -121,10 +103,7 @@ sub _jm_obj_1($$$)
             # handle may s property
             # .'|'.3.s
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "q")
@@ -132,10 +111,7 @@ sub _jm_obj_1($$$)
             # handle may q property
             # .'|'.3.q
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -159,10 +135,7 @@ sub _jm_obj_2($$$)
             $must_count++;
             # .'|'.2.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "d")
@@ -171,10 +144,7 @@ sub _jm_obj_2($$$)
             $must_count++;
             # .'|'.2.d
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "u")
@@ -182,10 +152,7 @@ sub _jm_obj_2($$$)
             # handle may u property
             # .'|'.2.u
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "x")
@@ -193,10 +160,7 @@ sub _jm_obj_2($$$)
             # handle may x property
             # .'|'.2.x
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -220,10 +184,7 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .'|'.1.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "c")
@@ -232,10 +193,7 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .'|'.1.c
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "v")
@@ -243,10 +201,7 @@ sub _jm_obj_3($$$)
             # handle may v property
             # .'|'.1.v
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "z")
@@ -254,10 +209,7 @@ sub _jm_obj_3($$$)
             # handle may z property
             # .'|'.1.z
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -281,10 +233,7 @@ sub _jm_obj_4($$$)
             $must_count++;
             # .'|'.0.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b")
@@ -293,10 +242,7 @@ sub _jm_obj_4($$$)
             $must_count++;
             # .'|'.0.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "z")
@@ -304,10 +250,7 @@ sub _jm_obj_4($$$)
             # handle may z property
             # .'|'.0.z
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "w")
@@ -315,10 +258,7 @@ sub _jm_obj_4($$$)
             # handle may w property
             # .'|'.0.w
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -343,7 +283,7 @@ sub json_model_1($$$)
         else
         {
             $res = exists $$val{"c"} && _jm_obj_3($val, undef, undef);
-            if (! $res)
+            unless ($res)
             {
                 if (exists $$val{"d"})
                 {

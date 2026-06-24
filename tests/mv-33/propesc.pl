@@ -21,10 +21,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # escaped property names
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -36,10 +33,7 @@ sub json_model_1($$$)
             # .'
             # '
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\t")
@@ -47,10 +41,7 @@ sub json_model_1($$$)
             # handle may 	 property
             # .'	'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\\")
@@ -58,10 +49,7 @@ sub json_model_1($$$)
             # handle may \ property
             # .'\\'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "'")
@@ -69,10 +57,7 @@ sub json_model_1($$$)
             # handle may ' property
             # .'\''
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\f")
@@ -82,10 +67,7 @@ sub json_model_1($$$)
             # .'
             # '
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\"")
@@ -93,10 +75,7 @@ sub json_model_1($$$)
             # handle may " property
             # .'"'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\r")
@@ -106,10 +85,7 @@ sub json_model_1($$$)
             # .'
             # '
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

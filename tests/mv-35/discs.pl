@@ -23,29 +23,14 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     my $res = jm_is_string($pval) && $pval eq "n";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     return !defined($pval);
 }
@@ -53,29 +38,14 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     my $res = jm_is_string($pval) && $pval eq "b";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     return jm_is_boolean($pval);
 }
@@ -83,29 +53,14 @@ sub _jm_obj_1($$$)
 sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     my $res = jm_is_string($pval) && $pval eq "i";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     return jm_is_integer($pval);
 }
@@ -113,29 +68,14 @@ sub _jm_obj_2($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     my $res = jm_is_string($pval) && $pval eq "u";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     return jm_is_integer($pval) && $pval >= 0;
 }
@@ -143,29 +83,14 @@ sub _jm_obj_3($$$)
 sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     my $res = jm_is_string($pval) && $pval eq "f";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     return jm_is_numeric($pval);
 }
@@ -173,29 +98,14 @@ sub _jm_obj_4($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     my $res = jm_is_string($pval) && $pval eq "s";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     return jm_is_string($pval);
 }
@@ -203,29 +113,14 @@ sub _jm_obj_5($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     my $res = jm_is_string($pval) && $pval eq "a";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     return jm_is_array($pval);
 }
@@ -233,29 +128,14 @@ sub _jm_obj_6($$$)
 sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     my $res = jm_is_string($pval) && $pval eq "o";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     return jm_is_object($pval);
 }

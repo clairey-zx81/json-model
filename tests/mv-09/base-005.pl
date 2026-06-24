@@ -28,10 +28,7 @@ sub json_model_1($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .0
             $res = jm_is_integer($arr_0_item) && $arr_0_item >= 0;
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

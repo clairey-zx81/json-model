@@ -21,10 +21,7 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -36,10 +33,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'^'.0.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "b")
@@ -47,10 +41,7 @@ sub _jm_obj_0($$$)
             # handle may b property
             # .'^'.0.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -62,10 +53,7 @@ sub _jm_obj_0($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -77,10 +65,7 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'^'.1.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "a")
@@ -88,10 +73,7 @@ sub _jm_obj_1($$$)
             # handle may a property
             # .'^'.1.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -110,16 +92,10 @@ sub json_model_1($$$)
     my $xc_0 = 0;
     # .'^'.0
     my $xr_0 = _jm_obj_0($val, undef, undef);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     # .'^'.1
     $xr_0 = _jm_obj_1($val, undef, undef);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     return $xc_0 == 1;
 }
 

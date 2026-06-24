@@ -22,19 +22,10 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$bibi'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
-    if (! exists $$val{"bibi"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"bibi"};
     $pval = $$val{"bibi"};
     # .'$bibi'.bibi
     my $res = jm_is_array($pval);
@@ -45,10 +36,7 @@ sub json_model_2($$$)
             my $arr_0_item = $$pval[$arr_0_idx];
             # .'$bibi'.bibi.0
             $res = json_model_2($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

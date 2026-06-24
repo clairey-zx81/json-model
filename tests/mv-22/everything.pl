@@ -156,30 +156,15 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$ab'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'$ab'.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'$ab'.b
     return jm_is_integer($pval) && $pval >= 0;
@@ -191,30 +176,15 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$cd'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'$cd'.c
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .'$cd'.d
     return jm_is_integer($pval) && $pval >= 0;
@@ -226,10 +196,7 @@ sub _jm_f_0($$$)
     my ($val, $path, $rep) = @_;
     # conjunction, all must match
     # .and
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -242,10 +209,7 @@ sub _jm_f_0($$$)
             # .and.a0.'&'.1
             # "/^2020-/"
             $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef) && jm_starts_with($pval, "2020-");
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -259,10 +223,7 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     # example arrays
     # .array
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -279,16 +240,10 @@ sub _jm_f_1($$$)
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .array.a0.0
                     $res = jm_is_integer($arr_0_item) && $arr_0_item >= 0;
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "a1")
@@ -303,16 +258,10 @@ sub _jm_f_1($$$)
                     my $arr_1_item = $$pval[$arr_1_idx];
                     # .array.a1.0
                     $res = jm_is_string($arr_1_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "a2")
@@ -327,16 +276,10 @@ sub _jm_f_1($$$)
                     my $arr_2_item = $$pval[$arr_2_idx];
                     # .array.a2.0
                     $res = jm_is_string($arr_2_item) && jm_is_valid_date($arr_2_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "a3")
@@ -351,16 +294,10 @@ sub _jm_f_1($$$)
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .array.a3.0
                     $res = jm_is_boolean($arr_3_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "a4")
@@ -368,10 +305,7 @@ sub _jm_f_1($$$)
             # handle may a4 property
             # .array.a4
             $res = jm_is_array($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -385,10 +319,7 @@ sub _jm_f_2($$$)
     my ($val, $path, $rep) = @_;
     # booleans: inference, predefs, constants, enum
     # .bool
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -398,10 +329,7 @@ sub _jm_f_2($$$)
             # handle may b0 property
             # .bool.b0
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b1")
@@ -409,10 +337,7 @@ sub _jm_f_2($$$)
             # handle may b1 property
             # .bool.b1
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b2")
@@ -420,10 +345,7 @@ sub _jm_f_2($$$)
             # handle may b2 property
             # .bool.b2
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b3")
@@ -431,10 +353,7 @@ sub _jm_f_2($$$)
             # handle may b3 property
             # .bool.b3
             $res = jm_is_boolean($pval) && $pval == 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b4")
@@ -442,10 +361,7 @@ sub _jm_f_2($$$)
             # handle may b4 property
             # .bool.b4
             $res = jm_is_boolean($pval) && $pval == 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "b5")
@@ -455,10 +371,7 @@ sub _jm_f_2($$$)
             # .bool.b5.'|'.0
             # .bool.b5.'|'.1
             $res = jm_is_boolean($pval) && ($pval == 0 || $pval == 1);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -480,10 +393,7 @@ sub _jm_f_4($$$)
             my $arr_4_item = $$val[$arr_4_idx];
             # .constraints.cia0.'@'.0
             $res = jm_is_integer($arr_4_item) && $arr_4_item >= 0;
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -508,10 +418,7 @@ sub _jm_f_5($$$)
             my $arr_5_item = $$val[$arr_5_idx];
             # .constraints.cia1.'@'.0
             $res = jm_is_integer($arr_5_item) && $arr_5_item >= 0;
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -536,10 +443,7 @@ sub _jm_f_6($$$)
             my $arr_6_item = $$val[$arr_6_idx];
             # .constraints.cia2.'@'.0
             $res = jm_is_integer($arr_6_item) && $arr_6_item >= 0;
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -862,10 +766,7 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .constraints
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -873,10 +774,7 @@ sub _jm_f_3($$$)
         if (($pfun = $_jm_f_3_map{$prop}))
         {
             # handle 25 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -892,10 +790,7 @@ sub _jm_f_29($$$)
     my ($val, $path, $rep) = @_;
     # an enumeration only contains constants
     # .enum
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -907,10 +802,7 @@ sub _jm_f_29($$$)
             # .enum.e0.'|'.0
             # .enum.e0.'|'.1
             $res = jm_is_boolean($pval) && ($pval == 1 || $pval == 0);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "e1")
@@ -921,10 +813,7 @@ sub _jm_f_29($$$)
             # .enum.e1.'|'.1
             # .enum.e1.'|'.2
             $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 200 || $pval == 201 || $pval == 204));
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "e2")
@@ -932,10 +821,7 @@ sub _jm_f_29($$$)
             # handle may e2 property
             # .enum.e2
             $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "e3")
@@ -946,10 +832,7 @@ sub _jm_f_29($$$)
             # .enum.e3.'|'.1
             # .enum.e3.'|'.2
             $res = jm_is_string($pval) && exists $_jm_cst_1{$pval} || jm_is_integer($pval) && $pval == 42 || jm_is_boolean($pval) && $pval == 1 || !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1036,10 +919,7 @@ sub _jm_f_30($$$)
     my ($val, $path, $rep) = @_;
     # floats: inference, predefs, constants
     # .float
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1047,10 +927,7 @@ sub _jm_f_30($$$)
         if (($pfun = $_jm_f_30_map{$prop}))
         {
             # handle 9 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1153,10 +1030,7 @@ sub _jm_f_40($$$)
     my ($val, $path, $rep) = @_;
     # integers: inference, predefs, constants
     # .int
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1164,10 +1038,7 @@ sub _jm_f_40($$$)
         if (($pfun = $_jm_f_40_map{$prop}))
         {
             # handle 11 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1179,10 +1050,7 @@ sub _jm_f_40($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -1194,10 +1062,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .merge.m0.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "b")
@@ -1205,10 +1070,7 @@ sub _jm_obj_0($$$)
             # handle may b property
             # .merge.m0.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1221,30 +1083,15 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .merge.m1.'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .merge.m1.'|'.1.c
     return jm_is_integer($pval) && $pval >= 1;
@@ -1255,30 +1102,15 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .merge.m1.'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .merge.m1.'|'.0.b
     return jm_is_integer($pval) && $pval >= 1;
@@ -1289,30 +1121,15 @@ sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .merge.m2.'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .merge.m2.'|'.1.c
     return jm_is_integer($pval) && $pval >= 1;
@@ -1323,30 +1140,15 @@ sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .merge.m2.'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .merge.m2.'|'.0.b
     return jm_is_integer($pval) && $pval >= 1;
@@ -1357,30 +1159,15 @@ sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .merge.m3.'|'.3.b
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .merge.m3.'|'.3.d
     return jm_is_integer($pval) && $pval >= 1;
@@ -1391,30 +1178,15 @@ sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .merge.m3.'|'.2.b
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .merge.m3.'|'.2.c
     return jm_is_integer($pval) && $pval >= 1;
@@ -1425,30 +1197,15 @@ sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .merge.m3.'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .merge.m3.'|'.1.d
     return jm_is_integer($pval) && $pval >= 1;
@@ -1459,30 +1216,15 @@ sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .merge.m3.'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .merge.m3.'|'.0.c
     return jm_is_integer($pval) && $pval >= 1;
@@ -1493,52 +1235,25 @@ sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 4)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 4;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .merge.m4.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .merge.m4.b
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .merge.m4.c
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .merge.m4.d
     return jm_is_integer($pval) && $pval >= 0;
@@ -1550,10 +1265,7 @@ sub _jm_f_52($$$)
     my ($val, $path, $rep) = @_;
     # merge object properties
     # .merge
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1563,10 +1275,7 @@ sub _jm_f_52($$$)
             # handle may m0 property
             # .merge.m0
             $res = _jm_obj_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "m1")
@@ -1576,10 +1285,7 @@ sub _jm_f_52($$$)
             # .merge.m1.'|'.0
             # .merge.m1.'|'.1
             $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, undef) || _jm_obj_1($pval, undef, undef));
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "m2")
@@ -1589,10 +1295,7 @@ sub _jm_f_52($$$)
             # .merge.m2.'|'.0
             # .merge.m2.'|'.1
             $res = jm_is_object($pval) && (_jm_obj_4($pval, undef, undef) || _jm_obj_3($pval, undef, undef));
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "m3")
@@ -1600,10 +1303,7 @@ sub _jm_f_52($$$)
             # handle may m3 property
             # .merge.m3
             $res = jm_is_object($pval) && (exists $$pval{"a"} && (_jm_obj_8($pval, undef, undef) || _jm_obj_7($pval, undef, undef)) || exists $$pval{"b"} && _jm_obj_6($pval, undef, undef) || exists $$pval{"b"} && _jm_obj_5($pval, undef, undef));
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "m4")
@@ -1611,10 +1311,7 @@ sub _jm_f_52($$$)
             # handle may m4 property
             # .merge.m4
             $res = _jm_obj_9($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1628,10 +1325,7 @@ sub _jm_f_53($$$)
     my ($val, $path, $rep) = @_;
     # null: inference, predefs, constants
     # .null
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1641,10 +1335,7 @@ sub _jm_f_53($$$)
             # handle may n0 property
             # .null.n0
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "n1")
@@ -1652,10 +1343,7 @@ sub _jm_f_53($$$)
             # handle may n1 property
             # .null.n1
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "n2")
@@ -1663,10 +1351,7 @@ sub _jm_f_53($$$)
             # handle may n2 property
             # .null.n2
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1686,41 +1371,20 @@ sub _jm_obj_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 3)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 3;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .object.o1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .object.o1.b
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .object.o1.c
     return jm_is_integer($pval) && $pval >= 0;
@@ -1730,10 +1394,7 @@ sub _jm_obj_11($$$)
 sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1743,10 +1404,7 @@ sub _jm_obj_12($$$)
             # handle may a property
             # .object.o2.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1758,10 +1416,7 @@ sub _jm_obj_12($$$)
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1771,10 +1426,7 @@ sub _jm_obj_13($$$)
             # handle 1 re props
             # .object.o3.'/^a/'
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1788,10 +1440,7 @@ sub _jm_obj_13($$$)
 sub _jm_obj_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1801,10 +1450,7 @@ sub _jm_obj_14($$$)
             # handle 1 key props
             # .object.o4.'$DATE'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1818,10 +1464,7 @@ sub _jm_obj_14($$$)
 sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1829,10 +1472,7 @@ sub _jm_obj_15($$$)
         # handle other props
         # .object.o5.''
         $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -1843,10 +1483,7 @@ sub _jm_f_54($$$)
     my ($val, $path, $rep) = @_;
     # object map property names to values
     # .object
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1856,10 +1493,7 @@ sub _jm_f_54($$$)
             # handle may o0 property
             # .object.o0
             $res = _jm_obj_10($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "o1")
@@ -1867,10 +1501,7 @@ sub _jm_f_54($$$)
             # handle may o1 property
             # .object.o1
             $res = _jm_obj_11($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "o2")
@@ -1878,10 +1509,7 @@ sub _jm_f_54($$$)
             # handle may o2 property
             # .object.o2
             $res = _jm_obj_12($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "o3")
@@ -1889,10 +1517,7 @@ sub _jm_f_54($$$)
             # handle may o3 property
             # .object.o3
             $res = _jm_obj_13($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "o4")
@@ -1900,10 +1525,7 @@ sub _jm_f_54($$$)
             # handle may o4 property
             # .object.o4
             $res = _jm_obj_14($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "o5")
@@ -1911,10 +1533,7 @@ sub _jm_f_54($$$)
             # handle may o5 property
             # .object.o5
             $res = _jm_obj_15($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "o6")
@@ -1922,10 +1541,7 @@ sub _jm_f_54($$$)
             # handle may o6 property
             # .object.o6
             $res = jm_is_object($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1939,10 +1555,7 @@ sub _jm_f_55($$$)
     my ($val, $path, $rep) = @_;
     # soft alternative, first match
     # .or
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1954,10 +1567,7 @@ sub _jm_f_55($$$)
             # .or.o0.'|'.0
             # .or.o0.'|'.1
             $res = jm_is_boolean($pval) || jm_is_integer($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "o1")
@@ -1967,10 +1577,7 @@ sub _jm_f_55($$$)
             # .or.o1.'|'.0
             # .or.o1.'|'.1
             $res = jm_is_string($pval) && (jm_is_valid_date($pval, undef, undef) || jm_is_valid_time($pval, undef, undef));
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "o2")
@@ -1982,10 +1589,7 @@ sub _jm_f_55($$$)
             # .or.o2.'|'.2
             # .or.o2.'|'.3
             $res = jm_is_integer($pval) && $pval >= 0 || jm_is_string($pval) && jm_is_uuid($pval, undef, undef) || jm_is_array($pval) || jm_is_object($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2256,10 +1860,7 @@ sub _jm_f_56($$$)
     my ($val, $path, $rep) = @_;
     # predefined models
     # .predefs
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2267,10 +1868,7 @@ sub _jm_f_56($$$)
         if (($pfun = $_jm_f_56_map{$prop}))
         {
             # handle 32 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -2291,10 +1889,7 @@ sub _jm_f_89($$$)
     my ($val, $path, $rep) = @_;
     # strings: inference, predef, constants, regex
     # .string
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2304,10 +1899,7 @@ sub _jm_f_89($$$)
             # handle may s0 property
             # .string.s0
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "s1")
@@ -2315,10 +1907,7 @@ sub _jm_f_89($$$)
             # handle may s1 property
             # .string.s1
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "s2")
@@ -2326,10 +1915,7 @@ sub _jm_f_89($$$)
             # handle may s2 property
             # .string.s2
             $res = jm_is_string($pval) && $pval eq "Susie";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "s3")
@@ -2337,10 +1923,7 @@ sub _jm_f_89($$$)
             # handle may s3 property
             # .string.s3
             $res = jm_is_string($pval) && $pval eq "Calvin";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "s4")
@@ -2349,10 +1932,7 @@ sub _jm_f_89($$$)
             # .string.s4
             # "/^(Calvin|Susie)$/"
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2366,10 +1946,7 @@ sub _jm_f_90($$$)
     my ($val, $path, $rep) = @_;
     # tuple items have a type
     # .tuple
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2379,10 +1956,7 @@ sub _jm_f_90($$$)
             # handle may t0 property
             # .tuple.t0
             $res = jm_is_array($pval) && scalar @$pval == 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "t1")
@@ -2398,10 +1972,7 @@ sub _jm_f_90($$$)
                     my $arr_7_item = $$pval[$arr_7_idx];
                     # .tuple.t1.'@'.0
                     $res = jm_is_integer($arr_7_item) && $arr_7_item >= 0;
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
             if ($res)
@@ -2409,10 +1980,7 @@ sub _jm_f_90($$$)
                 my $ival_12 = scalar @$pval;
                 $res = $ival_12 == 1;
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "t2")
@@ -2424,16 +1992,10 @@ sub _jm_f_90($$$)
             {
                 # .tuple.t2.0
                 $res = jm_is_integer($$pval[0]) && $$pval[0] >= 0;
-                if ($res)
-                {
-                    # .tuple.t2.1
-                    $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0;
-                }
+                $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0 if $res;
+                # .tuple.t2.1
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "t3")
@@ -2449,17 +2011,11 @@ sub _jm_f_90($$$)
                 {
                     # .tuple.t3.1
                     $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0;
-                    if ($res)
-                    {
-                        # .tuple.t3.2
-                        $res = jm_is_string($$pval[2]);
-                    }
+                    $res = jm_is_string($$pval[2]) if $res;
+                    # .tuple.t3.2
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "t4")
@@ -2471,21 +2027,15 @@ sub _jm_f_90($$$)
             if ($res)
             {
                 my $len_0 = scalar @$pval;
-                if ($len_0 > 0)
-                {
-                    # .tuple.t4.'@'.0
-                    $res = jm_is_string($$pval[0]);
-                }
+                $res = jm_is_string($$pval[0]) if $len_0 > 0;
+                # .tuple.t4.'@'.0
                 if ($res)
                 {
                     for my $idx_0 (1 .. $len_0 - 1)
                     {
                         # .tuple.t4.'@'.1
                         $res = jm_is_integer($$pval[$idx_0]) && $$pval[$idx_0] >= 0;
-                        if (! $res)
-                        {
-                            last;
-                        }
+                        last unless $res;
                     }
                 }
             }
@@ -2494,10 +2044,7 @@ sub _jm_f_90($$$)
                 my $ival_13 = scalar @$pval;
                 $res = $ival_13 >= 2;
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2511,10 +2058,7 @@ sub _jm_f_91($$$)
     my ($val, $path, $rep) = @_;
     # hard alternative, only one must match
     # .xor
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2526,10 +2070,7 @@ sub _jm_f_91($$$)
             # .xor.x0.'|'.0
             # .xor.x0.'|'.1
             $res = jm_is_boolean($pval) || jm_is_integer($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "x1")
@@ -2541,22 +2082,13 @@ sub _jm_f_91($$$)
             # .xor.x1.'^'.0
             # "/^a/"
             my $xr_0 = jm_is_string($pval) && jm_starts_with($pval, "a");
-            if ($xr_0)
-            {
-                $xc_0++;
-            }
+            $xc_0++ if $xr_0;
             # .xor.x1.'^'.1
             # "/z$/"
             $xr_0 = jm_is_string($pval) && jm_ends_with($pval, "z");
-            if ($xr_0)
-            {
-                $xc_0++;
-            }
+            $xc_0++ if $xr_0;
             $res = $xc_0 == 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "x2")
@@ -2567,21 +2099,12 @@ sub _jm_f_91($$$)
             my $xc_1 = 0;
             # .xor.x2.'^'.0
             my $xr_1 = jm_is_integer($pval);
-            if ($xr_1)
-            {
-                $xc_1++;
-            }
+            $xc_1++ if $xr_1;
             # .xor.x2.'^'.1
             $xr_1 = jm_is_integer($pval) && $pval >= 0;
-            if ($xr_1)
-            {
-                $xc_1++;
-            }
+            $xc_1++ if $xr_1;
             $res = $xc_1 == 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "x3")
@@ -2591,10 +2114,7 @@ sub _jm_f_91($$$)
             # not-case xor list
             # .xor.x3.'^'.1
             $res = ! (jm_is_integer($pval) && $pval >= 0);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2609,10 +2129,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # A model to illustrate most design features
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2620,10 +2137,7 @@ sub json_model_1($$$)
         if (($pfun = $json_model_1_map{$prop}))
         {
             # handle 15 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;

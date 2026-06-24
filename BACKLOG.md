@@ -4,9 +4,9 @@
 
 - [x] js-backend: remove useless semi-colons
 - [x] js-backend: remove useless braces by filtering output
+- [x] pl-backend: use `unless` where appropriate by filtering output
+- [x] pl-backend: use short post-if/unless where possible by filtering output
 - [ ] c-backend: factor out str extraction in or-list in more cases
-- [ ] pl-backend: use short post-if where possible (filtering)
-- [ ] pl-backend: use `unless` where appropriate (filtering?)
 - [ ] java-backend: remove useless braces
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] front: generate valid minimal, maximal and random values from a model

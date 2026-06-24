@@ -42,10 +42,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ex09'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -55,10 +52,7 @@ sub json_model_4($$$)
             # handle may # property
             # .'$Ex09'.'#'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_is_valid_url($prop, undef, undef))
@@ -66,10 +60,7 @@ sub json_model_4($$$)
             # handle 1 key props
             # .'$Ex09'.'$URL'
             $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -111,10 +102,7 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ex08#map'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -124,10 +112,7 @@ sub json_model_8($$$)
             # handle 1 key props
             # .'$ex08#map'.'$URL'
             $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

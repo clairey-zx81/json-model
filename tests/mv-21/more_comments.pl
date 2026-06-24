@@ -39,10 +39,7 @@ sub json_model_3($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$Qq'.0
             $res = json_model_2($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -52,10 +49,7 @@ sub json_model_3($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -65,10 +59,7 @@ sub _jm_obj_0($$$)
             # handle may p property
             # .o.p
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "q")
@@ -76,10 +67,7 @@ sub _jm_obj_0($$$)
             # handle may q property
             # .o.q
             $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "t")
@@ -91,16 +79,10 @@ sub _jm_obj_0($$$)
             {
                 # .o.t.0
                 $res = jm_is_boolean($$pval[0]);
-                if ($res)
-                {
-                    # .o.t.1
-                    $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0;
-                }
+                $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0 if $res;
+                # .o.t.1
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -114,10 +96,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # trivial and non trivial comments
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -128,10 +107,7 @@ sub json_model_1($$$)
             # an object
             # .o
             $res = _jm_obj_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

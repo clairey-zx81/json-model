@@ -39,20 +39,11 @@ sub _jm_xre_0($$$)
     my ($val, $path, $rep) = @_;
     my $extract;
     my $match = $val =~ /'(?<s1>\w+)'.*'(?<s2>\w+)'/;
-    if (! $match)
-    {
-        return 0;
-    }
+    return 0 unless $match;
     $extract = $+{"s1"};
-    if (! json_model_2($extract, undef, undef))
-    {
-        return 0;
-    }
+    return 0 unless json_model_2($extract, undef, undef);
     $extract = $+{"s2"};
-    if (! json_model_2($extract, undef, undef))
-    {
-        return 0;
-    }
+    return 0 unless json_model_2($extract, undef, undef);
     return 1;
 }
 

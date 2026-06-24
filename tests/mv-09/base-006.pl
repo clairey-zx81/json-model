@@ -33,11 +33,8 @@ sub json_model_1($$$)
             {
                 # .2
                 $res = jm_is_boolean($$val[2]);
-                if ($res)
-                {
-                    # .3
-                    $res = jm_is_numeric($$val[3]) && $$val[3] >= 0.0;
-                }
+                $res = jm_is_numeric($$val[3]) && $$val[3] >= 0.0 if $res;
+                # .3
             }
         }
     }

@@ -73,10 +73,7 @@ sub json_model_3($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$schemaArray'.'@'.0
             $res = json_model_8($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -110,10 +107,7 @@ sub json_model_5($$$)
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$typeArray'.'@'.0
             $res = json_model_4($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -137,10 +131,7 @@ sub json_model_6($$$)
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$stringArray'.0
             $res = jm_is_string($arr_2_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -175,10 +166,7 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.definitions
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -186,10 +174,7 @@ sub _jm_f_3($$$)
         # handle other props
         # .'$ObjectSchema'.definitions.''
         $res = json_model_8($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -199,10 +184,7 @@ sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.dependencies
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -212,10 +194,7 @@ sub _jm_f_4($$$)
         # .'$ObjectSchema'.dependencies.''.'|'.0
         # .'$ObjectSchema'.dependencies.''.'|'.1
         $res = json_model_8($pval, undef, undef) || json_model_6($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -372,10 +351,7 @@ sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.patternProperties
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -385,10 +361,7 @@ sub _jm_f_22($$$)
             # handle 1 key props
             # .'$ObjectSchema'.patternProperties.'$REGEX'
             $res = json_model_8($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -403,10 +376,7 @@ sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'.properties
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -414,10 +384,7 @@ sub _jm_f_23($$$)
         # handle other props
         # .'$ObjectSchema'.properties.''
         $res = json_model_8($pval, undef, undef);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -454,10 +421,7 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ObjectSchema'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -465,10 +429,7 @@ sub json_model_7($$$)
         if (($pfun = $json_model_7_map{$prop}))
         {
             # handle 38 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;

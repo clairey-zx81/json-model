@@ -14,10 +14,7 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -25,37 +22,25 @@ sub json_model_1($$$)
         if ($prop eq "ipv4")
         {
             $res = jm_is_string($pval) && jm_is_ip4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "ipv6")
         {
             $res = jm_is_string($pval) && jm_is_ip6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "host")
         {
             $res = jm_is_string($pval) && jm_is_host($pval, undef, undef) && length $pval <= 255;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "eth")
         {
             $res = jm_is_string($pval) && jm_is_eth($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

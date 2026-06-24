@@ -22,10 +22,7 @@ sub json_model_1($$$)
     # one mandatory prop with an escaped character
     # .
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     return exists $$val{"foo\nbar"};
 }
 

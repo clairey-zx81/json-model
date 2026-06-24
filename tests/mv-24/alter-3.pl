@@ -27,30 +27,15 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$d'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$d'.t
     my $res = jm_is_string($pval) && $pval eq "d";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .'$d'.d
     return jm_is_string($pval);
@@ -61,30 +46,15 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"u"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"u"};
     $pval = $$val{"u"};
     # .'$alternative'.'|'.0.u
     my $res = jm_is_string($pval) && $pval eq "a";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'$alternative'.'|'.0.a
     return jm_is_string($pval);
@@ -96,30 +66,15 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$alternative'.'|'.1.t
     my $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"bc"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"bc"};
     $pval = $$val{"bc"};
     # .'$alternative'.'|'.1.bc
     return jm_is_string($pval);

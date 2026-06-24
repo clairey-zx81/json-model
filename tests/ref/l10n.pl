@@ -21,10 +21,7 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -36,10 +33,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'$'.Model
             $res = jm_is_string($pval) && $pval eq "\$https://json-model.org/models/json-model";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "")
@@ -47,10 +41,7 @@ sub _jm_obj_0($$$)
             # handle may  property
             # .'$'.''
             $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -76,10 +67,7 @@ sub _jm_re_1($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -89,10 +77,7 @@ sub _jm_obj_1($$$)
             # handle 2 re props
             # .'%'.'/^#/'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_0($prop, undef, undef))
         {
@@ -100,10 +85,7 @@ sub _jm_obj_1($$$)
             # .'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -119,10 +101,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # JSON Model Subset for Localization Renames
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -134,10 +113,7 @@ sub json_model_1($$$)
             $must_count++;
             # .'$'
             $res = _jm_obj_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "~")
@@ -146,10 +122,7 @@ sub json_model_1($$$)
             $must_count++;
             # .'~'
             $res = jm_is_string($pval) && $pval eq "https://json-model.org/models/l10n";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "%")
@@ -159,10 +132,7 @@ sub json_model_1($$$)
             # dot-prefixed arbitrary key, one or two char keyword values
             # .'%'
             $res = _jm_obj_1($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "\@")
@@ -171,10 +141,7 @@ sub json_model_1($$$)
             $must_count++;
             # .'@'
             $res = jm_is_string($pval) && $pval eq "\$Model";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -182,10 +149,7 @@ sub json_model_1($$$)
             # handle 1 re props
             # .'/^#/'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

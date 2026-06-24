@@ -33,10 +33,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'|'.1.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "a")
@@ -49,10 +46,7 @@ sub _jm_obj_0($$$)
         # handle other props
         # .'|'.1.''
         $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return $must_count == 1;
 }
@@ -73,10 +67,7 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'|'.0.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "b")
@@ -89,10 +80,7 @@ sub _jm_obj_1($$$)
         # handle other props
         # .'|'.0.''
         $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return $must_count == 1;
 }

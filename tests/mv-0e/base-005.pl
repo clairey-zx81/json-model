@@ -20,10 +20,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -35,10 +32,7 @@ sub json_model_1($$$)
             $must_count++;
             # .b
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "a")
@@ -46,10 +40,7 @@ sub json_model_1($$$)
             # handle may a property
             # .a
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

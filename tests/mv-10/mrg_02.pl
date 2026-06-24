@@ -32,52 +32,25 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$r'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 4)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 4;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'$r'.a
     my $res = jm_is_string($pval) && $pval eq "cst_01";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'$r'.b
     $res = jm_is_string($pval) && $pval eq "cst_01";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'$r'.c
     $res = jm_is_string($pval) && $pval eq "cst_01";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .'$r'.d
     return jm_is_string($pval) && $pval eq "cst_01";
@@ -89,30 +62,15 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$z'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"e"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"e"};
     $pval = $$val{"e"};
     # .'$z'.e
     my $res = jm_is_string($pval) && $pval eq "cst_02";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"f"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"f"};
     $pval = $$val{"f"};
     # .'$z'.f
     return jm_is_string($pval) && $pval eq "cst_02";
@@ -124,74 +82,35 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 6)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 6;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .a
     my $res = jm_is_string($pval) && $pval eq "cst_01";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .b
     $res = jm_is_string($pval) && $pval eq "cst_01";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"e"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"e"};
     $pval = $$val{"e"};
     # .e
     $res = jm_is_string($pval) && $pval eq "cst_02";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"f"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"f"};
     $pval = $$val{"f"};
     # .f
     $res = jm_is_string($pval) && $pval eq "cst_02";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .c
     $res = jm_is_string($pval) && $pval eq "cst_01";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .d
     return jm_is_string($pval) && $pval eq "cst_01";

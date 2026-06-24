@@ -42,10 +42,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # A single test
     # .'$Test'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -57,10 +54,7 @@ sub json_model_3($$$)
             $must_count++;
             # .'$Test'.description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "data")
@@ -77,10 +71,7 @@ sub json_model_3($$$)
             $must_count++;
             # .'$Test'.valid
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "comment")
@@ -88,10 +79,7 @@ sub json_model_3($$$)
             # handle may comment property
             # .'$Test'.comment
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -117,10 +105,7 @@ sub _jm_re_2($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -130,10 +115,7 @@ sub _jm_obj_0($$$)
             # handle may core property
             # .'$Specification'.'@'.core
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "validation")
@@ -141,10 +123,7 @@ sub _jm_obj_0($$$)
             # handle may validation property
             # .'$Specification'.'@'.validation
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "ecma262")
@@ -152,10 +131,7 @@ sub _jm_obj_0($$$)
             # handle may ecma262 property
             # .'$Specification'.'@'.ecma262
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "perl5")
@@ -163,10 +139,7 @@ sub _jm_obj_0($$$)
             # handle may perl5 property
             # .'$Specification'.'@'.perl5
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "quote")
@@ -174,10 +147,7 @@ sub _jm_obj_0($$$)
             # handle may quote property
             # .'$Specification'.'@'.quote
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (_jm_re_1($prop, undef, undef))
@@ -185,20 +155,14 @@ sub _jm_obj_0($$$)
             # handle 2 re props
             # .'$Specification'.'@'.'/^rfc\\d+$/'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_2($prop, undef, undef))
         {
             # handle 2 re props
             # .'$Specification'.'@'.'/^iso\\d+$/'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -228,10 +192,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$TestCase'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -243,10 +204,7 @@ sub json_model_5($$$)
             $must_count++;
             # .'$TestCase'.description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "schema")
@@ -271,10 +229,7 @@ sub json_model_5($$$)
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .'$TestCase'.tests.'@'.0
                     $res = json_model_3($arr_0_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
             if ($res)
@@ -282,10 +237,7 @@ sub json_model_5($$$)
                 my $ival_1 = scalar @$pval;
                 $res = $ival_1 >= 1;
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "comment")
@@ -293,10 +245,7 @@ sub json_model_5($$$)
             # handle may comment property
             # .'$TestCase'.comment
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "specification")
@@ -312,10 +261,7 @@ sub json_model_5($$$)
                     my $arr_1_item = $$pval[$arr_1_idx];
                     # .'$TestCase'.specification.'@'.0
                     $res = json_model_4($arr_1_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
             if ($res)
@@ -323,10 +269,7 @@ sub json_model_5($$$)
                 my $ival_2 = scalar @$pval;
                 $res = jm_is_unique_array($pval, undef, undef) && $ival_2 >= 1;
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -349,10 +292,7 @@ sub json_model_1($$$)
             my $arr_2_item = $$val[$arr_2_idx];
             # .'@'.0
             $res = json_model_5($arr_2_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)

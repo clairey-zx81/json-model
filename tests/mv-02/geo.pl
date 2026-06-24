@@ -50,10 +50,7 @@ sub json_model_2($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$position'.'@'.0
             $res = jm_is_numeric($arr_0_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -78,10 +75,7 @@ sub json_model_3($$$)
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$coord_array'.'@'.0
             $res = json_model_2($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -106,10 +100,7 @@ sub json_model_4($$$)
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$linear_ring'.'@'.0
             $res = json_model_2($arr_2_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -125,10 +116,7 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Point'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -140,10 +128,7 @@ sub json_model_5($$$)
             $must_count++;
             # .'$Point'.type
             $res = jm_is_string($pval) && $pval eq "Point";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "coordinates")
@@ -152,10 +137,7 @@ sub json_model_5($$$)
             $must_count++;
             # .'$Point'.coordinates
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "bbox")
@@ -170,16 +152,10 @@ sub json_model_5($$$)
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$Point'.bbox.0
                     $res = jm_is_numeric($arr_3_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -192,10 +168,7 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$MultiPoint'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -207,10 +180,7 @@ sub json_model_6($$$)
             $must_count++;
             # .'$MultiPoint'.type
             $res = jm_is_string($pval) && $pval eq "MultiPoint";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "coordinates")
@@ -226,16 +196,10 @@ sub json_model_6($$$)
                     my $arr_4_item = $$pval[$arr_4_idx];
                     # .'$MultiPoint'.coordinates.0
                     $res = json_model_2($arr_4_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "bbox")
@@ -250,16 +214,10 @@ sub json_model_6($$$)
                     my $arr_5_item = $$pval[$arr_5_idx];
                     # .'$MultiPoint'.bbox.0
                     $res = jm_is_numeric($arr_5_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -272,10 +230,7 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$LineString'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -287,10 +242,7 @@ sub json_model_7($$$)
             $must_count++;
             # .'$LineString'.type
             $res = jm_is_string($pval) && $pval eq "LineString";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "coordinates")
@@ -299,10 +251,7 @@ sub json_model_7($$$)
             $must_count++;
             # .'$LineString'.coordinates
             $res = json_model_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "bbox")
@@ -317,16 +266,10 @@ sub json_model_7($$$)
                     my $arr_6_item = $$pval[$arr_6_idx];
                     # .'$LineString'.bbox.0
                     $res = jm_is_numeric($arr_6_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -339,10 +282,7 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$MultiLineString'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -354,10 +294,7 @@ sub json_model_8($$$)
             $must_count++;
             # .'$MultiLineString'.type
             $res = jm_is_string($pval) && $pval eq "MultiLineString";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "coordinates")
@@ -373,16 +310,10 @@ sub json_model_8($$$)
                     my $arr_7_item = $$pval[$arr_7_idx];
                     # .'$MultiLineString'.coordinates.0
                     $res = json_model_3($arr_7_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "bbox")
@@ -397,16 +328,10 @@ sub json_model_8($$$)
                     my $arr_8_item = $$pval[$arr_8_idx];
                     # .'$MultiLineString'.bbox.0
                     $res = jm_is_numeric($arr_8_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -419,10 +344,7 @@ sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Polygon'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -434,10 +356,7 @@ sub json_model_9($$$)
             $must_count++;
             # .'$Polygon'.type
             $res = jm_is_string($pval) && $pval eq "Polygon";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "coordinates")
@@ -453,16 +372,10 @@ sub json_model_9($$$)
                     my $arr_9_item = $$pval[$arr_9_idx];
                     # .'$Polygon'.coordinates.0
                     $res = json_model_4($arr_9_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "bbox")
@@ -477,16 +390,10 @@ sub json_model_9($$$)
                     my $arr_10_item = $$pval[$arr_10_idx];
                     # .'$Polygon'.bbox.0
                     $res = jm_is_numeric($arr_10_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -499,10 +406,7 @@ sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$MultiPolygon'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -514,10 +418,7 @@ sub json_model_10($$$)
             $must_count++;
             # .'$MultiPolygon'.type
             $res = jm_is_string($pval) && $pval eq "MultiPolygon";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "coordinates")
@@ -540,22 +441,13 @@ sub json_model_10($$$)
                             my $arr_12_item = $$arr_11_item[$arr_12_idx];
                             # .'$MultiPolygon'.coordinates.0.0
                             $res = json_model_4($arr_12_item, undef, undef);
-                            if (! $res)
-                            {
-                                last;
-                            }
+                            last unless $res;
                         }
                     }
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "bbox")
@@ -570,16 +462,10 @@ sub json_model_10($$$)
                     my $arr_13_item = $$pval[$arr_13_idx];
                     # .'$MultiPolygon'.bbox.0
                     $res = jm_is_numeric($arr_13_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -592,33 +478,18 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$geometry'.'|'.0.type
     my $res = jm_is_string($pval) && $pval eq "Point";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"coordinates"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"coordinates"};
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.0.coordinates
     $res = json_model_2($pval, undef, undef);
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"bbox"})
     {
         $pval = $$val{"bbox"};
@@ -631,16 +502,10 @@ sub _jm_obj_0($$$)
                 my $arr_14_item = $$pval[$arr_14_idx];
                 # .'$geometry'.'|'.0.bbox.0
                 $res = jm_is_numeric($arr_14_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -650,26 +515,14 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$geometry'.'|'.1.type
     my $res = jm_is_string($pval) && $pval eq "MultiPoint";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"coordinates"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"coordinates"};
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.1.coordinates
     $res = jm_is_array($pval);
@@ -680,16 +533,10 @@ sub _jm_obj_1($$$)
             my $arr_15_item = $$pval[$arr_15_idx];
             # .'$geometry'.'|'.1.coordinates.0
             $res = json_model_2($arr_15_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"bbox"})
     {
         $pval = $$val{"bbox"};
@@ -702,16 +549,10 @@ sub _jm_obj_1($$$)
                 my $arr_16_item = $$pval[$arr_16_idx];
                 # .'$geometry'.'|'.1.bbox.0
                 $res = jm_is_numeric($arr_16_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -721,33 +562,18 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$geometry'.'|'.2.type
     my $res = jm_is_string($pval) && $pval eq "LineString";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"coordinates"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"coordinates"};
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.2.coordinates
     $res = json_model_3($pval, undef, undef);
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"bbox"})
     {
         $pval = $$val{"bbox"};
@@ -760,16 +586,10 @@ sub _jm_obj_2($$$)
                 my $arr_17_item = $$pval[$arr_17_idx];
                 # .'$geometry'.'|'.2.bbox.0
                 $res = jm_is_numeric($arr_17_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -779,26 +599,14 @@ sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$geometry'.'|'.3.type
     my $res = jm_is_string($pval) && $pval eq "MultiLineString";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"coordinates"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"coordinates"};
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.3.coordinates
     $res = jm_is_array($pval);
@@ -809,16 +617,10 @@ sub _jm_obj_3($$$)
             my $arr_18_item = $$pval[$arr_18_idx];
             # .'$geometry'.'|'.3.coordinates.0
             $res = json_model_3($arr_18_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"bbox"})
     {
         $pval = $$val{"bbox"};
@@ -831,16 +633,10 @@ sub _jm_obj_3($$$)
                 my $arr_19_item = $$pval[$arr_19_idx];
                 # .'$geometry'.'|'.3.bbox.0
                 $res = jm_is_numeric($arr_19_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -850,26 +646,14 @@ sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$geometry'.'|'.4.type
     my $res = jm_is_string($pval) && $pval eq "Polygon";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"coordinates"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"coordinates"};
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.4.coordinates
     $res = jm_is_array($pval);
@@ -880,16 +664,10 @@ sub _jm_obj_4($$$)
             my $arr_20_item = $$pval[$arr_20_idx];
             # .'$geometry'.'|'.4.coordinates.0
             $res = json_model_4($arr_20_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"bbox"})
     {
         $pval = $$val{"bbox"};
@@ -902,16 +680,10 @@ sub _jm_obj_4($$$)
                 my $arr_21_item = $$pval[$arr_21_idx];
                 # .'$geometry'.'|'.4.bbox.0
                 $res = jm_is_numeric($arr_21_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -921,26 +693,14 @@ sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$geometry'.'|'.5.type
     my $res = jm_is_string($pval) && $pval eq "MultiPolygon";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"coordinates"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"coordinates"};
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.5.coordinates
     $res = jm_is_array($pval);
@@ -958,22 +718,13 @@ sub _jm_obj_5($$$)
                     my $arr_23_item = $$arr_22_item[$arr_23_idx];
                     # .'$geometry'.'|'.5.coordinates.0.0
                     $res = json_model_4($arr_23_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"bbox"})
     {
         $pval = $$val{"bbox"};
@@ -986,16 +737,10 @@ sub _jm_obj_5($$$)
                 my $arr_24_item = $$pval[$arr_24_idx];
                 # .'$geometry'.'|'.5.bbox.0
                 $res = jm_is_numeric($arr_24_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -1029,26 +774,14 @@ sub json_model_12($$$)
     my ($val, $path, $rep) = @_;
     # .'$GeometryCollection'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$GeometryCollection'.type
     my $res = jm_is_string($pval) && $pval eq "GeometryCollection";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"geometries"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"geometries"};
     $pval = $$val{"geometries"};
     # .'$GeometryCollection'.geometries
     $res = jm_is_array($pval);
@@ -1059,16 +792,10 @@ sub json_model_12($$$)
             my $arr_25_item = $$pval[$arr_25_idx];
             # .'$GeometryCollection'.geometries.0
             $res = json_model_11($arr_25_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"bbox"})
     {
         $pval = $$val{"bbox"};
@@ -1081,16 +808,10 @@ sub json_model_12($$$)
                 my $arr_26_item = $$pval[$arr_26_idx];
                 # .'$GeometryCollection'.bbox.0
                 $res = jm_is_numeric($arr_26_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -1101,49 +822,28 @@ sub json_model_13($$$)
     my ($val, $path, $rep) = @_;
     # .'$Feature'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$Feature'.type
     my $res = jm_is_string($pval) && $pval eq "Feature";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"geometry"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"geometry"};
     $pval = $$val{"geometry"};
     # .'$Feature'.geometry
     # .'$Feature'.geometry.'|'.0
     # .'$Feature'.geometry.'|'.1
     # .'$Feature'.geometry.'|'.2
     $res = !defined($pval) || json_model_11($pval, undef, undef) || json_model_12($pval, undef, undef);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"properties"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"properties"};
     $pval = $$val{"properties"};
     # .'$Feature'.properties
     # .'$Feature'.properties.'|'.0
     # .'$Feature'.properties.'|'.1
     $res = !defined($pval) || jm_is_object($pval);
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"id"})
     {
         $pval = $$val{"id"};
@@ -1151,10 +851,7 @@ sub json_model_13($$$)
         # .'$Feature'.id.'|'.0
         # .'$Feature'.id.'|'.1
         $res = jm_is_string($pval) || jm_is_numeric($pval);
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"bbox"})
     {
@@ -1168,16 +865,10 @@ sub json_model_13($$$)
                 my $arr_27_item = $$pval[$arr_27_idx];
                 # .'$Feature'.bbox.0
                 $res = jm_is_numeric($arr_27_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -1188,26 +879,14 @@ sub json_model_14($$$)
     my ($val, $path, $rep) = @_;
     # .'$FeatureCollection'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$FeatureCollection'.type
     my $res = jm_is_string($pval) && $pval eq "FeatureCollection";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"features"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"features"};
     $pval = $$val{"features"};
     # .'$FeatureCollection'.features
     $res = jm_is_array($pval);
@@ -1218,16 +897,10 @@ sub json_model_14($$$)
             my $arr_28_item = $$pval[$arr_28_idx];
             # .'$FeatureCollection'.features.0
             $res = json_model_13($arr_28_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     if (exists $$val{"bbox"})
     {
         $pval = $$val{"bbox"};
@@ -1240,16 +913,10 @@ sub json_model_14($$$)
                 my $arr_29_item = $$pval[$arr_29_idx];
                 # .'$FeatureCollection'.bbox.0
                 $res = jm_is_numeric($arr_29_item);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }

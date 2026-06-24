@@ -20,10 +20,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -35,10 +32,7 @@ sub json_model_1($$$)
             $must_count++;
             # .s
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "b")
@@ -46,10 +40,7 @@ sub json_model_1($$$)
             # handle may b property
             # .b
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "i")
@@ -57,10 +48,7 @@ sub json_model_1($$$)
             # handle may i property
             # .i
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "f")
@@ -68,10 +56,7 @@ sub json_model_1($$$)
             # handle may f property
             # .f
             $res = jm_is_numeric($pval) && $pval > 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (jm_starts_with($prop, "xs"))
@@ -79,40 +64,28 @@ sub json_model_1($$$)
             # handle 4 re props
             # .'/^xs/'
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "xb"))
         {
             # handle 4 re props
             # .'/^xb/'
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "xi"))
         {
             # handle 4 re props
             # .'/^xi/'
             $res = jm_is_integer($pval) && $pval >= 1;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (jm_starts_with($prop, "xf"))
         {
             # handle 4 re props
             # .'/^xf/'
             $res = jm_is_numeric($pval) && $pval > 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

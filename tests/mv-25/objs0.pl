@@ -25,30 +25,15 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$table'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$table'.t
     my $res = jm_is_string($pval) && $pval eq "table";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"legs"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"legs"};
     $pval = $$val{"legs"};
     # .'$table'.legs
     return jm_is_integer($pval) && $pval >= 1;
@@ -60,30 +45,15 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$chair'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$chair'.t
     my $res = jm_is_string($pval) && $pval eq "chair";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"color"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"color"};
     $pval = $$val{"color"};
     # .'$chair'.color
     return jm_is_string($pval);
@@ -118,19 +88,10 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
-    if (! exists $$val{"stuff"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"stuff"};
     $pval = $$val{"stuff"};
     # .stuff
     my $res = jm_is_array($pval);
@@ -141,10 +102,7 @@ sub json_model_1($$$)
             my $arr_0_item = $$pval[$arr_0_idx];
             # .stuff.0
             $res = json_model_4($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

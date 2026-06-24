@@ -28,10 +28,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # regex property… beware that \d character class does not seem to be supported by re2
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -41,10 +38,7 @@ sub json_model_1($$$)
             # handle 1 re props
             # .'/^[0-9]+$/'
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

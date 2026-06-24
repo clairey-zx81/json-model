@@ -28,11 +28,8 @@ sub json_model_4($$$)
     {
         # .'$r'.0
         $res = json_model_5($$val[0], undef, undef);
-        if ($res)
-        {
-            # .'$r'.1
-            $res = json_model_5($$val[1], undef, undef);
-        }
+        $res = json_model_5($$val[1], undef, undef) if $res;
+        # .'$r'.1
     }
     return $res;
 }

@@ -28,15 +28,9 @@ sub _jm_xre_0($$$)
     my ($val, $path, $rep) = @_;
     my $extract;
     my $match = $val =~ /^X-(?<s1>.*)-Y$/;
-    if (! $match)
-    {
-        return 0;
-    }
+    return 0 unless $match;
     $extract = $+{"s1"};
-    if (! jm_is_valid_date($extract, undef, undef))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_valid_date($extract, undef, undef);
     return 1;
 }
 

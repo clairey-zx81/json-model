@@ -22,30 +22,15 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$book'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"title"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"title"};
     $pval = $$val{"title"};
     # .'$book'.title
     my $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"author"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"author"};
     $pval = $$val{"author"};
     # .'$book'.author
     return jm_is_string($pval);
@@ -64,10 +49,7 @@ sub json_model_1($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .0
             $res = json_model_2($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

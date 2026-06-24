@@ -442,6 +442,7 @@ class Perl(Language):
             line = code[i]
             if line is None:
                 continue
+            # simplify some expressions
             if " && 1" in line:
                 line = re.sub(r" && 1", "", line)
                 code[i] = line
@@ -449,5 +450,27 @@ class Perl(Language):
             if "jm_is_scalar" in line:
                 code[i] = re.sub(r" jm_is_scalar\((\$\w+)\) && jm_is_string\(\1\)",
                                  r" jm_is_string(\1)", line)
+            # if to unless
+            if re.match(r"^ +if \(! ", line) and " && " not in line and " || " not in line:
+                code[i] = line.replace("if (! ", "unless (")
+            # simplify if no else one liners
+            # FIXME overflow?
+            if (ifm := re.match(r"^( +)(if|unless) \((.*)\)", code[i])) and re.match(r"^ *\{$", code[i+1]):
+                j = i + 2
+                # skip comments and blanks
+                while code[j] is None or re.match(r"^ *#", code[j]) or re.match(r"^ *$", code[j]):
+                    j += 1
+                # match single instruction
+                if (insm := re.match("^ *(.*);$", code[j])) and re.match(r"^ +}$", code[j+1]) and "els" not in code[j+2]:
+                    # go!
+                    indent, cond, expr = ifm.group(1), ifm.group(2), ifm.group(3)
+                    ins = insm.group(1)
+                    code[i] = f"{indent}{ins} {cond} {expr};"
+                    code[i+1] = None
+                    for k in range(i+2, j):
+                        if code[k] is not None and code[k].startswith("    "):
+                            code[k] = code[k][4:]
+                    code[j] = None
+                    code[j+1] = None
 
         return list(filter(lambda line: line is not None, code))

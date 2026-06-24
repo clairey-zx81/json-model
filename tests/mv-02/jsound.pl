@@ -43,10 +43,7 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -56,10 +53,7 @@ sub _jm_obj_0($$$)
             # handle may name property
             # .'$Schema'.metadata.name
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "previous")
@@ -67,10 +61,7 @@ sub _jm_obj_0($$$)
             # handle may previous property
             # .'$Schema'.metadata.previous
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "date")
@@ -78,10 +69,7 @@ sub _jm_obj_0($$$)
             # handle may date property
             # .'$Schema'.metadata.date
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "authors")
@@ -96,16 +84,10 @@ sub _jm_obj_0($$$)
                     my $arr_1_item = $$pval[$arr_1_idx];
                     # .'$Schema'.metadata.authors.0
                     $res = jm_is_string($arr_1_item);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -118,10 +100,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Schema'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -140,16 +119,10 @@ sub json_model_2($$$)
                     my $arr_0_item = $$pval[$arr_0_idx];
                     # .'$Schema'.types.0
                     $res = json_model_3($arr_0_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "metadata")
@@ -157,10 +130,7 @@ sub json_model_2($$$)
             # handle may metadata property
             # .'$Schema'.metadata
             $res = _jm_obj_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -221,10 +191,7 @@ sub _jm_f_0($$$)
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$Atomic'.enumeration.0
             $res = json_model_5($arr_2_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -302,10 +269,7 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # could there be derived atomics as well?
     # .'$Atomic'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $pfun;
     my $must_count = 0;
@@ -318,10 +282,7 @@ sub json_model_6($$$)
             $must_count++;
             # .'$Atomic'.kind
             $res = jm_is_string($pval) && $pval eq "atomic";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "baseType")
@@ -330,19 +291,13 @@ sub json_model_6($$$)
             $must_count++;
             # .'$Atomic'.baseType
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (($pfun = $json_model_6_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -355,10 +310,7 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Object'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -370,10 +322,7 @@ sub json_model_7($$$)
             $must_count++;
             # .'$Object'.kind
             $res = jm_is_string($pval) && $pval eq "object";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "name")
@@ -381,10 +330,7 @@ sub json_model_7($$$)
             # handle may name property
             # .'$Object'.name
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "baseType")
@@ -392,10 +338,7 @@ sub json_model_7($$$)
             # handle may baseType property
             # .'$Object'.baseType
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "content")
@@ -410,16 +353,10 @@ sub json_model_7($$$)
                     my $arr_3_item = $$pval[$arr_3_idx];
                     # .'$Object'.content.0
                     $res = json_model_8($arr_3_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "closed")
@@ -427,10 +364,7 @@ sub json_model_7($$$)
             # handle may closed property
             # .'$Object'.closed
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -443,10 +377,7 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Fields'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -458,10 +389,7 @@ sub json_model_8($$$)
             $must_count++;
             # .'$Fields'.name
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "type")
@@ -470,10 +398,7 @@ sub json_model_8($$$)
             $must_count++;
             # .'$Fields'.type
             $res = json_model_11($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "required")
@@ -481,10 +406,7 @@ sub json_model_8($$$)
             # handle may required property
             # .'$Fields'.required
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "default")
@@ -499,10 +421,7 @@ sub json_model_8($$$)
             # handle may unique property
             # .'$Fields'.unique
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -516,10 +435,7 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # WTF about 'content'?
     # .'$Array'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -531,10 +447,7 @@ sub json_model_9($$$)
             $must_count++;
             # .'$Array'.kind
             $res = jm_is_string($pval) && $pval eq "array";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "name")
@@ -542,10 +455,7 @@ sub json_model_9($$$)
             # handle may name property
             # .'$Array'.name
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "baseType")
@@ -553,10 +463,7 @@ sub json_model_9($$$)
             # handle may baseType property
             # .'$Array'.baseType
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "content")
@@ -564,10 +471,7 @@ sub json_model_9($$$)
             # handle may content property
             # .'$Array'.content
             $res = json_model_11($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "minLength")
@@ -575,10 +479,7 @@ sub json_model_9($$$)
             # handle may minLength property
             # .'$Array'.minLength
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "maxLength")
@@ -586,10 +487,7 @@ sub json_model_9($$$)
             # handle may maxLength property
             # .'$Array'.maxLength
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -603,10 +501,7 @@ sub json_model_10($$$)
     my ($val, $path, $rep) = @_;
     # jsound.jsound.json does not say that it is a type…
     # .'$Union'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -618,10 +513,7 @@ sub json_model_10($$$)
             $must_count++;
             # .'$Union'.name
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "kind")
@@ -630,10 +522,7 @@ sub json_model_10($$$)
             $must_count++;
             # .'$Union'.kind
             $res = jm_is_string($pval) && $pval eq "union";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "content")
@@ -649,16 +538,10 @@ sub json_model_10($$$)
                     my $arr_4_item = $$pval[$arr_4_idx];
                     # .'$Union'.content.0
                     $res = json_model_11($arr_4_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "baseType")
@@ -666,10 +549,7 @@ sub json_model_10($$$)
             # handle may baseType property
             # .'$Union'.baseType
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

@@ -23,30 +23,15 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"discriminator"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"discriminator"};
     $pval = $$val{"discriminator"};
     # .'|'.0.discriminator
     my $res = jm_is_boolean($pval) && $pval == 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"x"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"x"};
     $pval = $$val{"x"};
     # .'|'.0.x
     return jm_is_string($pval);
@@ -57,30 +42,15 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"discriminator"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"discriminator"};
     $pval = $$val{"discriminator"};
     # .'|'.1.discriminator
     my $res = jm_is_boolean($pval) && $pval == 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"y"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"y"};
     $pval = $$val{"y"};
     # .'|'.1.y
     return jm_is_string($pval);

@@ -159,10 +159,7 @@ sub json_model_3($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$colorArray'.'@'.0
             $res = json_model_2($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -237,16 +234,10 @@ sub json_model_9($$$)
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$stringArray'.'@'.0
             $res = json_model_8($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if ($res)
-    {
-        $res = jm_is_unique_array($val, undef, undef);
-    }
+    $res = jm_is_unique_array($val, undef, undef) if $res;
     return $res;
 }
 
@@ -255,20 +246,11 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"command"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"command"};
     $pval = $$val{"command"};
     # .'$Prompts'.'|'.0.suggestions.'|'.1.command
     return jm_is_string($pval);
@@ -280,20 +262,11 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"preset"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"preset"};
     $pval = $$val{"preset"};
     # .'$Prompts'.'|'.0.suggestions.'|'.0.preset
     return jm_is_string($pval) && exists $_jm_cst_2{$pval};
@@ -303,10 +276,7 @@ sub _jm_obj_2($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -318,10 +288,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'$Prompts'.'|'.0.type
             $res = jm_is_string($pval) && $pval eq "input";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "title")
@@ -330,10 +297,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'$Prompts'.'|'.0.title
             $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "key")
@@ -342,10 +306,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'$Prompts'.'|'.0.key
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "initialValue")
@@ -353,10 +314,7 @@ sub _jm_obj_0($$$)
             # handle may initialValue property
             # .'$Prompts'.'|'.0.initialValue
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "suggestions")
@@ -366,10 +324,7 @@ sub _jm_obj_0($$$)
             # .'$Prompts'.'|'.0.suggestions.'|'.0
             # .'$Prompts'.'|'.0.suggestions.'|'.1
             $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, undef) || _jm_obj_1($pval, undef, undef));
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -381,10 +336,7 @@ sub _jm_obj_0($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -396,10 +348,7 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .'$Prompts'.'|'.1.type
             $res = jm_is_string($pval) && $pval eq "confirm";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "title")
@@ -408,10 +357,7 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .'$Prompts'.'|'.1.title
             $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "key")
@@ -420,10 +366,7 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .'$Prompts'.'|'.1.key
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "body")
@@ -431,10 +374,7 @@ sub _jm_obj_3($$$)
             # handle may body property
             # .'$Prompts'.'|'.1.body
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -446,10 +386,7 @@ sub _jm_obj_3($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -461,10 +398,7 @@ sub _jm_obj_5($$$)
             $must_count++;
             # .'$Prompts'.'|'.2.options.'@'.0.value
             $res = json_model_8($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "description")
@@ -472,10 +406,7 @@ sub _jm_obj_5($$$)
             # handle may description property
             # .'$Prompts'.'|'.2.options.'@'.0.description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "name")
@@ -483,10 +414,7 @@ sub _jm_obj_5($$$)
             # handle may name property
             # .'$Prompts'.'|'.2.options.'@'.0.name
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -499,52 +427,25 @@ sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 4)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 4;
     my $pval;
-    if (! exists $$val{"type"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"type"};
     $pval = $$val{"type"};
     # .'$Prompts'.'|'.2.type
     my $res = jm_is_string($pval) && $pval eq "menu";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"title"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"title"};
     $pval = $$val{"title"};
     # .'$Prompts'.'|'.2.title
     $res = json_model_6($pval, undef, undef);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"key"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"key"};
     $pval = $$val{"key"};
     # .'$Prompts'.'|'.2.key
     $res = json_model_7($pval, undef, undef);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"options"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"options"};
     $pval = $$val{"options"};
     # .'$Prompts'.'|'.2.options
     # .'$Prompts'.'|'.2.options.'@'
@@ -556,16 +457,10 @@ sub _jm_obj_4($$$)
             my $arr_2_item = $$pval[$arr_2_idx];
             # .'$Prompts'.'|'.2.options.'@'.0
             $res = _jm_obj_5($arr_2_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if ($res)
-    {
-        $res = jm_is_unique_array($pval, undef, undef);
-    }
+    $res = jm_is_unique_array($pval, undef, undef) if $res;
     return $res;
 }
 
@@ -573,10 +468,7 @@ sub _jm_obj_4($$$)
 sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -588,10 +480,7 @@ sub _jm_obj_6($$$)
             $must_count++;
             # .'$Prompts'.'|'.3.type
             $res = jm_is_string($pval) && $pval eq "menuFromCommand";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "title")
@@ -600,10 +489,7 @@ sub _jm_obj_6($$$)
             $must_count++;
             # .'$Prompts'.'|'.3.title
             $res = json_model_6($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "key")
@@ -612,10 +498,7 @@ sub _jm_obj_6($$$)
             $must_count++;
             # .'$Prompts'.'|'.3.key
             $res = json_model_7($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "command")
@@ -624,10 +507,7 @@ sub _jm_obj_6($$$)
             $must_count++;
             # .'$Prompts'.'|'.3.command
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "filter")
@@ -635,10 +515,7 @@ sub _jm_obj_6($$$)
             # handle may filter property
             # .'$Prompts'.'|'.3.filter
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "valueFormat")
@@ -646,10 +523,7 @@ sub _jm_obj_6($$$)
             # handle may valueFormat property
             # .'$Prompts'.'|'.3.valueFormat
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "labelFormat")
@@ -657,10 +531,7 @@ sub _jm_obj_6($$$)
             # handle may labelFormat property
             # .'$Prompts'.'|'.3.labelFormat
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -704,10 +575,7 @@ sub _jm_f_0($$$)
 sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -717,10 +585,7 @@ sub _jm_obj_8($$$)
             # handle may checkForConflicts property
             # .customCommands.'@'.0.after.checkForConflicts
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -732,10 +597,7 @@ sub _jm_obj_8($$$)
 sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -747,10 +609,7 @@ sub _jm_obj_7($$$)
             $must_count++;
             # .customCommands.'@'.0.key
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "command")
@@ -759,10 +618,7 @@ sub _jm_obj_7($$$)
             $must_count++;
             # .customCommands.'@'.0.command
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "context")
@@ -771,10 +627,7 @@ sub _jm_obj_7($$$)
             $must_count++;
             # .customCommands.'@'.0.context
             $res = jm_is_string($pval) && exists $_jm_cst_3{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "subprocess")
@@ -782,10 +635,7 @@ sub _jm_obj_7($$$)
             # handle may subprocess property
             # .customCommands.'@'.0.subprocess
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "prompts")
@@ -800,16 +650,10 @@ sub _jm_obj_7($$$)
                     my $arr_4_item = $$pval[$arr_4_idx];
                     # .customCommands.'@'.0.prompts.0
                     $res = json_model_10($arr_4_item, undef, undef);
-                    if (! $res)
-                    {
-                        last;
-                    }
+                    last unless $res;
                 }
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "loadingText")
@@ -817,10 +661,7 @@ sub _jm_obj_7($$$)
             # handle may loadingText property
             # .customCommands.'@'.0.loadingText
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "description")
@@ -828,10 +669,7 @@ sub _jm_obj_7($$$)
             # handle may description property
             # .customCommands.'@'.0.description
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "stream")
@@ -839,10 +677,7 @@ sub _jm_obj_7($$$)
             # handle may stream property
             # .customCommands.'@'.0.stream
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "showOutput")
@@ -850,10 +685,7 @@ sub _jm_obj_7($$$)
             # handle may showOutput property
             # .customCommands.'@'.0.showOutput
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "after")
@@ -861,10 +693,7 @@ sub _jm_obj_7($$$)
             # handle may after property
             # .customCommands.'@'.0.after
             $res = _jm_obj_8($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -886,16 +715,10 @@ sub _jm_f_1($$$)
             my $arr_3_item = $$val[$arr_3_idx];
             # .customCommands.'@'.0
             $res = _jm_obj_7($arr_3_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if ($res)
-    {
-        $res = jm_is_unique_array($val, undef, undef);
-    }
+    $res = jm_is_unique_array($val, undef, undef) if $res;
     return $res;
 }
 
@@ -944,10 +767,7 @@ sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.commit
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -957,10 +777,7 @@ sub _jm_f_8($$$)
             # handle may signOff property
             # .git.commit.signOff
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -980,30 +797,15 @@ sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"pattern"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"pattern"};
     $pval = $$val{"pattern"};
     # .git.commitPrefixes.'/./'.pattern
     my $res = json_model_8($pval, undef, undef);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"replace"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"replace"};
     $pval = $$val{"replace"};
     # .git.commitPrefixes.'/./'.replace
     return json_model_8($pval, undef, undef);
@@ -1014,10 +816,7 @@ sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.commitPrefixes
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1027,10 +826,7 @@ sub _jm_f_9($$$)
             # handle 1 re props
             # .git.commitPrefixes.'/./'
             $res = _jm_obj_9($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1071,10 +867,7 @@ sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.log
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1084,10 +877,7 @@ sub _jm_f_13($$$)
             # handle may order property
             # .git.log.order
             $res = jm_is_string($pval) && exists $_jm_cst_4{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "showGraph")
@@ -1095,10 +885,7 @@ sub _jm_f_13($$$)
             # handle may showGraph property
             # .git.log.showGraph
             $res = jm_is_string($pval) && exists $_jm_cst_5{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "showWholeGraph")
@@ -1106,10 +893,7 @@ sub _jm_f_13($$$)
             # handle may showWholeGraph property
             # .git.log.showWholeGraph
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1122,10 +906,7 @@ sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.merging
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1135,10 +916,7 @@ sub _jm_f_14($$$)
             # handle may manualCommit property
             # .git.merging.manualCommit
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "args")
@@ -1146,10 +924,7 @@ sub _jm_f_14($$$)
             # handle may args property
             # .git.merging.args
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1171,10 +946,7 @@ sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git.paging
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1184,10 +956,7 @@ sub _jm_f_16($$$)
             # handle may colorArg property
             # .git.paging.colorArg
             $res = jm_is_string($pval) && exists $_jm_cst_6{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "useConfig")
@@ -1195,10 +964,7 @@ sub _jm_f_16($$$)
             # handle may useConfig property
             # .git.paging.useConfig
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "pager")
@@ -1212,10 +978,7 @@ sub _jm_f_16($$$)
                 my $sval_1 = $pval;
                 $res = $sval_1 ne "";
             }
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1245,10 +1008,7 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .git
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1256,10 +1016,7 @@ sub _jm_f_3($$$)
         if (($pfun = $_jm_f_3_map{$prop}))
         {
             # handle 16 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1280,10 +1037,7 @@ sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.authorColors
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1293,10 +1047,7 @@ sub _jm_f_21($$$)
             # handle 1 re props
             # .gui.authorColors.'/./'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1320,10 +1071,7 @@ sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.branchColors
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1333,10 +1081,7 @@ sub _jm_f_23($$$)
             # handle 1 re props
             # .gui.branchColors.'/./'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -1359,10 +1104,7 @@ sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.commitLength
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1372,10 +1114,7 @@ sub _jm_f_25($$$)
             # handle may show property
             # .gui.commitLength.show
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1552,10 +1291,7 @@ sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui.theme
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1563,10 +1299,7 @@ sub _jm_f_45($$$)
         if (($pfun = $_jm_f_45_map{$prop}))
         {
             # handle 10 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1597,10 +1330,7 @@ sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # .gui
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1608,10 +1338,7 @@ sub _jm_f_19($$$)
         if (($pfun = $_jm_f_19_map{$prop}))
         {
             # handle 28 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1625,10 +1352,7 @@ sub _jm_f_49($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.branches
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1636,10 +1360,7 @@ sub _jm_f_49($$$)
         if (($pfun = $_jm_f_49_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1652,10 +1373,7 @@ sub _jm_f_50($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.commitFiles
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1665,10 +1383,7 @@ sub _jm_f_50($$$)
             # handle may checkoutCommitFile property
             # .keybinding.commitFiles.checkoutCommitFile
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1682,10 +1397,7 @@ sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.commits
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1693,10 +1405,7 @@ sub _jm_f_51($$$)
         if (($pfun = $_jm_f_51_map{$prop}))
         {
             # handle 21 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1710,10 +1419,7 @@ sub _jm_f_52($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.files
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1721,10 +1427,7 @@ sub _jm_f_52($$$)
         if (($pfun = $_jm_f_52_map{$prop}))
         {
             # handle 14 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1737,10 +1440,7 @@ sub _jm_f_53($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.main
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1750,10 +1450,7 @@ sub _jm_f_53($$$)
             # handle may toggleDragSelect property
             # .keybinding.main.toggleDragSelect
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "toggleDragSelect-alt")
@@ -1761,10 +1458,7 @@ sub _jm_f_53($$$)
             # handle may toggleDragSelect-alt property
             # .keybinding.main.'toggleDragSelect-alt'
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "toggleSelectHunk")
@@ -1772,10 +1466,7 @@ sub _jm_f_53($$$)
             # handle may toggleSelectHunk property
             # .keybinding.main.toggleSelectHunk
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "pickBothHunks")
@@ -1783,10 +1474,7 @@ sub _jm_f_53($$$)
             # handle may pickBothHunks property
             # .keybinding.main.pickBothHunks
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1799,10 +1487,7 @@ sub _jm_f_54($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.stash
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1812,10 +1497,7 @@ sub _jm_f_54($$$)
             # handle may popStash property
             # .keybinding.stash.popStash
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "renameStash")
@@ -1823,10 +1505,7 @@ sub _jm_f_54($$$)
             # handle may renameStash property
             # .keybinding.stash.renameStash
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1839,10 +1518,7 @@ sub _jm_f_55($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.status
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1852,10 +1528,7 @@ sub _jm_f_55($$$)
             # handle may checkForUpdate property
             # .keybinding.status.checkForUpdate
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "recentRepos")
@@ -1863,10 +1536,7 @@ sub _jm_f_55($$$)
             # handle may recentRepos property
             # .keybinding.status.recentRepos
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1879,10 +1549,7 @@ sub _jm_f_56($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.submodules
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1892,10 +1559,7 @@ sub _jm_f_56($$$)
             # handle may init property
             # .keybinding.submodules.init
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "update")
@@ -1903,10 +1567,7 @@ sub _jm_f_56($$$)
             # handle may update property
             # .keybinding.submodules.update
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "bulkMenu")
@@ -1914,10 +1575,7 @@ sub _jm_f_56($$$)
             # handle may bulkMenu property
             # .keybinding.submodules.bulkMenu
             $res = json_model_4($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -1947,10 +1605,7 @@ sub _jm_f_57($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding.universal
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1958,10 +1613,7 @@ sub _jm_f_57($$$)
         if (($pfun = $_jm_f_57_map{$prop}))
         {
             # handle 59 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -1975,10 +1627,7 @@ sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
     # .keybinding
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -1986,10 +1635,7 @@ sub _jm_f_48($$$)
         if (($pfun = $_jm_f_48_map{$prop}))
         {
             # handle 9 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;
@@ -2012,10 +1658,7 @@ sub _jm_f_61($$$)
 {
     my ($val, $path, $rep) = @_;
     # .os
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2025,10 +1668,7 @@ sub _jm_f_61($$$)
             # handle may copyToClipboardCmd property
             # .os.copyToClipboardCmd
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "editPreset")
@@ -2036,10 +1676,7 @@ sub _jm_f_61($$$)
             # handle may editPreset property
             # .os.editPreset
             $res = jm_is_string($pval) && exists $_jm_cst_14{$pval} || jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "edit")
@@ -2047,10 +1684,7 @@ sub _jm_f_61($$$)
             # handle may edit property
             # .os.edit
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "editAtLine")
@@ -2058,10 +1692,7 @@ sub _jm_f_61($$$)
             # handle may editAtLine property
             # .os.editAtLine
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "editAtLineAndWait")
@@ -2069,10 +1700,7 @@ sub _jm_f_61($$$)
             # handle may editAtLineAndWait property
             # .os.editAtLineAndWait
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "open")
@@ -2080,10 +1708,7 @@ sub _jm_f_61($$$)
             # handle may open property
             # .os.open
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "openLink")
@@ -2091,10 +1716,7 @@ sub _jm_f_61($$$)
             # handle may openLink property
             # .os.openLink
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2123,10 +1745,7 @@ sub _jm_f_64($$$)
 {
     my ($val, $path, $rep) = @_;
     # .refresher
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2136,10 +1755,7 @@ sub _jm_f_64($$$)
             # handle may refreshInterval property
             # .refresher.refreshInterval
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "fetchInterval")
@@ -2147,10 +1763,7 @@ sub _jm_f_64($$$)
             # handle may fetchInterval property
             # .refresher.fetchInterval
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2170,10 +1783,7 @@ sub _jm_f_65($$$)
 {
     my ($val, $path, $rep) = @_;
     # .services
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2184,10 +1794,7 @@ sub _jm_f_65($$$)
             # .services.'/./'
             # "/^[^:]+:[^:]+$/"
             $res = jm_is_string($pval) && _jm_re_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
@@ -2203,10 +1810,7 @@ sub _jm_f_66($$$)
 {
     my ($val, $path, $rep) = @_;
     # .update
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2216,10 +1820,7 @@ sub _jm_f_66($$$)
             # handle may method property
             # .update.method
             $res = jm_is_string($pval) && exists $_jm_cst_15{$pval};
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "days")
@@ -2227,10 +1828,7 @@ sub _jm_f_66($$$)
             # handle may days property
             # .update.days
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -2245,10 +1843,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # JSON Model for Lazy Git
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -2256,10 +1851,7 @@ sub json_model_1($$$)
         if (($pfun = $json_model_1_map{$prop}))
         {
             # handle 13 may props
-            if (defined($pfun) && ! &$pfun($pval, undef, undef))
-            {
-                return 0;
-            }
+            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
             next;
         }
         return 0;

@@ -24,30 +24,15 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .movie.'|'.0.t
     my $res = jm_is_string($pval) && $pval eq "fr";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"titre"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"titre"};
     $pval = $$val{"titre"};
     # .movie.'|'.0.titre
     return jm_is_string($pval);
@@ -58,30 +43,15 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .movie.'|'.1.t
     my $res = jm_is_string($pval) && $pval eq "en";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"title"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"title"};
     $pval = $$val{"title"};
     # .movie.'|'.1.title
     return jm_is_string($pval);
@@ -92,30 +62,15 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .movie.'|'.2.t
     my $res = jm_is_string($pval) && $pval eq "ru";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"suti"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"suti"};
     $pval = $$val{"suti"};
     # .movie.'|'.2.suti
     return jm_is_string($pval);
@@ -129,19 +84,10 @@ sub json_model_1($$$)
     # exemple d'un rapport
     # .
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
-    if (! exists $$val{"movie"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"movie"};
     $pval = $$val{"movie"};
     # .movie
     my $res = jm_is_object($pval);

@@ -39,10 +39,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # object with must/may/regex/ref/others
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -54,10 +51,7 @@ sub json_model_1($$$)
             $must_count++;
             # .foo
             $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "bla")
@@ -65,10 +59,7 @@ sub json_model_1($$$)
             # handle may bla property
             # .bla
             $res = jm_is_boolean($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if (json_model_2($prop, undef, undef))
@@ -76,30 +67,21 @@ sub json_model_1($$$)
             # handle 1 key props
             # .'$Xxx'
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         elsif (_jm_re_0($prop, undef, undef))
         {
             # handle 1 re props
             # .'/^[0-9]+$/'
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {
             # handle other props
             # .''
             $res = !defined($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
     }
     return $must_count == 1;

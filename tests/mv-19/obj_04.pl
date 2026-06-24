@@ -32,10 +32,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # prop ref to enum
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -45,10 +42,7 @@ sub json_model_1($$$)
             # handle 1 key props
             # .'$Xxx'
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

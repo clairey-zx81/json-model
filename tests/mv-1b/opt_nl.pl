@@ -22,30 +22,15 @@ sub json_model_1($$$)
     # JSON_MODEL_LOOSE_NUMBER
     # .
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"i"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"i"};
     $pval = $$val{"i"};
     # .i
     my $res = jm_is_integer($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"f"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"f"};
     $pval = $$val{"f"};
     # .f
     return jm_is_numeric($pval);

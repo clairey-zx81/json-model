@@ -33,11 +33,8 @@ sub json_model_1($$$)
             {
                 # .2
                 $res = jm_is_numeric($$val[2]) && $$val[2] >= 0.0;
-                if ($res)
-                {
-                    # .3
-                    $res = jm_is_string($$val[3]);
-                }
+                $res = jm_is_string($$val[3]) if $res;
+                # .3
             }
         }
     }

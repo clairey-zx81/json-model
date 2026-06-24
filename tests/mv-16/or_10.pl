@@ -23,16 +23,10 @@ sub _jm_obj_0($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"name"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"name"};
     $pval = $$val{"name"};
     # .'|'.1.name
     return jm_is_string($pval);

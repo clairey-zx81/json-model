@@ -14,35 +14,17 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     my $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     return jm_is_string($pval);
 }

@@ -21,10 +21,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Obj'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -36,10 +33,7 @@ sub json_model_2($$$)
             $must_count++;
             # .'$Obj'.a
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "b")
@@ -47,10 +41,7 @@ sub json_model_2($$$)
             # handle may b property
             # .'$Obj'.b
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

@@ -35,7 +35,7 @@ sub json_model_1($$$)
     # .
     # .'|'.0
     my $res = json_model_2($val, undef, undef);
-    if (! $res)
+    unless ($res)
     {
         # .'|'.1
         $res = jm_is_array($val);
@@ -46,10 +46,7 @@ sub json_model_1($$$)
                 my $arr_0_item = $$val[$arr_0_idx];
                 # .'|'.1.0
                 $res = json_model_2($arr_0_item, undef, undef);
-                if (! $res)
-                {
-                    last;
-                }
+                last unless $res;
             }
         }
     }

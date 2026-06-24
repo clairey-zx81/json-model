@@ -30,26 +30,14 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$oA'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'$oA'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$oA'.t
     return jm_is_string($pval) && $pval eq "a";
@@ -62,26 +50,14 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$oB'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'$oB'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$oB'.t
     return jm_is_string($pval) && exists $_jm_cst_0{$pval};
@@ -116,26 +92,14 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$oL'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'$oL'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$oL'.t
     return jm_is_string($pval) && $pval eq "d";
@@ -148,26 +112,14 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # .'$oX'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
-    if (! exists $$val{"v"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"v"};
     $pval = $$val{"v"};
     # .'$oX'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"t"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"t"};
     $pval = $$val{"t"};
     # .'$oX'.t
     return jm_is_string($pval) && exists $_jm_cst_1{$pval};

@@ -32,10 +32,7 @@ sub json_model_2($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'$li0'.0
             $res = jm_is_integer($arr_0_item) && $arr_0_item >= 0;
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -54,10 +51,7 @@ sub json_model_3($$$)
             my $arr_1_item = $$val[$arr_1_idx];
             # .'$ls0'.0
             $res = jm_is_string($arr_1_item) && jm_is_valid_url($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -76,10 +70,7 @@ sub json_model_4($$$)
             my $arr_2_item = $$val[$arr_2_idx];
             # .'$lb0'.0
             $res = jm_is_boolean($arr_2_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;
@@ -98,10 +89,7 @@ sub json_model_5($$$)
             my $arr_3_item = $$val[$arr_3_idx];
             # .'$lf0'.0
             $res = jm_is_numeric($arr_3_item) && $arr_3_item >= 0.0;
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

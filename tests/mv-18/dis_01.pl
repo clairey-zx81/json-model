@@ -24,30 +24,15 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"tag"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"tag"};
     $pval = $$val{"tag"};
     # .'|'.0.tag
     my $res = jm_is_integer($pval) && $pval == 18;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.0.a
     return jm_is_string($pval);
@@ -58,30 +43,15 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"tag"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"tag"};
     $pval = $$val{"tag"};
     # .'|'.1.tag
     my $res = jm_is_integer($pval) && $pval == 42;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'|'.1.b
     return jm_is_string($pval);
@@ -92,30 +62,15 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"tag"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"tag"};
     $pval = $$val{"tag"};
     # .'|'.2.tag
     my $res = jm_is_integer($pval) && $pval == 1024;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'|'.2.c
     return jm_is_string($pval);

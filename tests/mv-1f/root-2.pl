@@ -32,20 +32,11 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$Foo'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"rt"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"rt"};
     $pval = $$val{"rt"};
     # .'$Foo'.rt
     return json_model_5($pval, undef, undef);
@@ -65,30 +56,15 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$root#Root'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"id"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"id"};
     $pval = $$val{"id"};
     # .'$root#Root'.id
     my $res = jm_is_integer($pval) && $pval == 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"name"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"name"};
     $pval = $$val{"name"};
     # .'$root#Root'.name
     return jm_is_string($pval);

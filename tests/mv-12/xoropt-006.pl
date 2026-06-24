@@ -55,10 +55,7 @@ sub _jm_obj_0($$$)
             # handle other props
             # .'|'.2.''
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
     }
     return 1;
@@ -70,16 +67,10 @@ sub _jm_obj_1($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'|'.1.b
     return jm_is_integer($pval) && $pval >= 0;
@@ -91,16 +82,10 @@ sub _jm_obj_2($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.0.a
     return jm_is_integer($pval) && $pval >= 0;

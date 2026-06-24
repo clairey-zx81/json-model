@@ -25,11 +25,8 @@ sub json_model_1($$$)
     {
         # .0
         $res = jm_is_boolean($$val[0]);
-        if ($res)
-        {
-            # .1
-            $res = jm_is_integer($$val[1]) && $$val[1] >= 0;
-        }
+        $res = jm_is_integer($$val[1]) && $$val[1] >= 0 if $res;
+        # .1
     }
     return $res;
 }

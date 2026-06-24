@@ -69,11 +69,8 @@ sub json_model_1($$$)
             {
                 # .2
                 $res = jm_is_string($$val[2]) && $$val[2] eq "Susie";
-                if ($res)
-                {
-                    # .3
-                    $res = jm_is_string($$val[3]) && $$val[3] eq "Susie";
-                }
+                $res = jm_is_string($$val[3]) && $$val[3] eq "Susie" if $res;
+                # .3
             }
         }
     }

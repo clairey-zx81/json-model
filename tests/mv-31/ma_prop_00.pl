@@ -21,10 +21,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # prop order check is preserved
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -34,10 +31,7 @@ sub json_model_1($$$)
             # handle may pretty_long_property_name property
             # .pretty_long_property_name
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "zulu")
@@ -45,10 +39,7 @@ sub json_model_1($$$)
             # handle may zulu property
             # .zulu
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "XXX")
@@ -56,10 +47,7 @@ sub json_model_1($$$)
             # handle may XXX property
             # .XXX
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "Susie")
@@ -67,10 +55,7 @@ sub json_model_1($$$)
             # handle may Susie property
             # .Susie
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "last")
@@ -78,10 +63,7 @@ sub json_model_1($$$)
             # handle may last property
             # .last
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

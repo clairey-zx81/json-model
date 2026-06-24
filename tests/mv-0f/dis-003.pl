@@ -24,26 +24,14 @@ sub _jm_obj_0($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.2.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"d"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"d"};
     $pval = $$val{"d"};
     # .'|'.2.d
     return jm_is_string($pval);
@@ -55,26 +43,14 @@ sub _jm_obj_1($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'|'.1.c
     return jm_is_integer($pval);
@@ -86,26 +62,14 @@ sub _jm_obj_2($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'|'.0.b
     return jm_is_integer($pval) && $pval >= 1;

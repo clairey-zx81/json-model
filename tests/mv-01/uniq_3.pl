@@ -30,16 +30,10 @@ sub json_model_1($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'@'.0
             $res = jm_is_string($arr_0_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
-    if ($res)
-    {
-        $res = jm_is_unique_array($val, undef, undef);
-    }
+    $res = jm_is_unique_array($val, undef, undef) if $res;
     return $res;
 }
 

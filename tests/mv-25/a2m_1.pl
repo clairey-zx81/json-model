@@ -25,10 +25,7 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$Oa'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"a"})
@@ -36,10 +33,7 @@ sub json_model_2($$$)
         $pval = $$val{"a"};
         # .'$Oa'.a
         $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -50,10 +44,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$Ob'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"b"})
@@ -61,10 +52,7 @@ sub json_model_3($$$)
         $pval = $$val{"b"};
         # .'$Ob'.b
         $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -75,10 +63,7 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$merge'
     # check open must/may only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pval;
     my $res;
     if (exists $$val{"a"})
@@ -86,20 +71,14 @@ sub json_model_4($$$)
         $pval = $$val{"a"};
         # .'$merge'.a
         $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     if (exists $$val{"b"})
     {
         $pval = $$val{"b"};
         # .'$merge'.b
         $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
+        return 0 unless $res;
     }
     return 1;
 }
@@ -110,20 +89,11 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$nomerge'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'$nomerge'.c
     return jm_is_integer($pval) && $pval >= 1;

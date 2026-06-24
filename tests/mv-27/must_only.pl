@@ -31,20 +31,11 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"p10"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"p10"};
     $pval = $$val{"p10"};
     # .mo1.p10
     return jm_is_integer($pval) && $pval >= 0;
@@ -55,30 +46,15 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"p20"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"p20"};
     $pval = $$val{"p20"};
     # .mo2.p20
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"p21"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"p21"};
     $pval = $$val{"p21"};
     # .mo2.p21
     return jm_is_integer($pval) && $pval >= 0;
@@ -88,10 +64,7 @@ sub _jm_obj_2($$$)
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -103,10 +76,7 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .mo3.p30
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "p31")
@@ -115,10 +85,7 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .mo3.p31
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "p32")
@@ -127,10 +94,7 @@ sub _jm_obj_3($$$)
             $must_count++;
             # .mo3.p32
             $res = jm_is_integer($pval) && $pval >= 0;
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -143,10 +107,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -157,10 +118,7 @@ sub json_model_1($$$)
             # empty object
             # .mo0
             $res = _jm_obj_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "mo1")
@@ -169,10 +127,7 @@ sub json_model_1($$$)
             # one mandatory prop
             # .mo1
             $res = _jm_obj_1($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "mo2")
@@ -181,10 +136,7 @@ sub json_model_1($$$)
             # two mandatory props
             # .mo2
             $res = _jm_obj_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "mo3")
@@ -193,10 +145,7 @@ sub json_model_1($$$)
             # three mandatory props
             # .mo3
             $res = _jm_obj_3($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

@@ -30,10 +30,7 @@ sub json_model_1($$$)
             my $arr_0_item = $$val[$arr_0_idx];
             # .'@'.0
             $res = jm_is_string($arr_0_item);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     # .in test at .
@@ -46,10 +43,7 @@ sub json_model_1($$$)
             # .'.in'
             # "/^a/"
             $res = jm_is_string($arr_1_item) && jm_starts_with($arr_1_item, "a");
-            if ($res)
-            {
-                last;
-            }
+            last if $res;
         }
     }
     return $res;

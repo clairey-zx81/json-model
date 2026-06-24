@@ -220,10 +220,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
@@ -235,10 +232,7 @@ sub json_model_1($$$)
             if (defined($pfun))
             {
                 $must_count++;
-                if (! &$pfun($pval, undef, undef))
-                {
-                    return 0;
-                }
+                return 0 unless &$pfun($pval, undef, undef);
                 next;
             }
         }

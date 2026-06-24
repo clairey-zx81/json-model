@@ -53,16 +53,10 @@ sub _jm_obj_0($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.4.a
     return jm_is_boolean($pval) && $pval == 0;
@@ -74,16 +68,10 @@ sub _jm_obj_1($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.3.a
     return jm_is_boolean($pval) && $pval == 1;
@@ -95,16 +83,10 @@ sub _jm_obj_2($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.2.a
     return jm_is_numeric($pval) && $pval == 1.0;
@@ -116,16 +98,10 @@ sub _jm_obj_3($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.1.a
     return jm_is_numeric($pval) && $pval == 10.0;
@@ -137,16 +113,10 @@ sub _jm_obj_4($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.0.a
     return !defined($pval);

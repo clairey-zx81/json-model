@@ -29,10 +29,7 @@ sub json_model_1($$$)
             # .0
             # "/^hello world!/"
             $res = jm_is_string($arr_0_item) && jm_starts_with($arr_0_item, "hello world!");
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     return $res;

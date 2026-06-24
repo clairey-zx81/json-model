@@ -24,30 +24,15 @@ sub json_model_1($$$)
     # comment.
     # .
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"hello"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"hello"};
     $pval = $$val{"hello"};
     # .hello
     my $res = jm_is_string($pval);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"world"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"world"};
     $pval = $$val{"world"};
     # .world
     # "/^!/"

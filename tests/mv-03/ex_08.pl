@@ -40,10 +40,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$map'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -53,10 +50,7 @@ sub json_model_4($$$)
             # handle 1 key props
             # .'$map'.'$URL'
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
         }
         else
         {

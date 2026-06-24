@@ -34,16 +34,10 @@ sub _jm_obj_0($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'$Aa'.'|'.1.b
     return jm_is_integer($pval) && $pval >= 0;
@@ -55,16 +49,10 @@ sub _jm_obj_1($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'$Aa'.'|'.0.a
     return jm_is_integer($pval) && $pval >= 0;
@@ -86,16 +74,10 @@ sub _jm_obj_2($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'$Bb'.'|'.1.c
     return jm_is_integer($pval) && $pval >= 0;
@@ -107,16 +89,10 @@ sub _jm_obj_3($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'$Bb'.'|'.0.a
     return jm_is_integer($pval) && $pval >= 0;
@@ -138,16 +114,10 @@ sub _jm_obj_4($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'$Cc'.'|'.1.c
     return jm_is_integer($pval) && $pval >= 0;
@@ -159,16 +129,10 @@ sub _jm_obj_5($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'$Cc'.'|'.0.b
     return jm_is_integer($pval) && $pval >= 0;
@@ -190,26 +154,14 @@ sub _jm_obj_6($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'|'.3.b
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'|'.3.c
     return jm_is_integer($pval) && $pval >= 0;
@@ -221,37 +173,19 @@ sub _jm_obj_7($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 3)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 3;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.2.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'|'.2.c
     $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'|'.2.b
     return jm_is_integer($pval) && $pval >= 0;
@@ -263,26 +197,14 @@ sub _jm_obj_8($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"c"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"c"};
     $pval = $$val{"c"};
     # .'|'.1.c
     return jm_is_integer($pval) && $pval >= 0;
@@ -294,26 +216,14 @@ sub _jm_obj_9($$$)
     my ($val, $path, $rep) = @_;
     # check close must only props
     # value known to be an object
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"a"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     # .'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"b"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"b"};
     $pval = $$val{"b"};
     # .'|'.0.b
     return jm_is_integer($pval) && $pval >= 0;

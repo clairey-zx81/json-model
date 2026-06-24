@@ -38,20 +38,11 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$Xx'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"X"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"X"};
     $pval = $$val{"X"};
     # .'$Xx'.X
     return jm_is_string($pval);
@@ -63,20 +54,11 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$Yy'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"Y"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"Y"};
     $pval = $$val{"Y"};
     # .'$Yy'.Y
     return jm_is_string($pval);
@@ -98,10 +80,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'$Ee'.'|'.1.Y
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "Z")
@@ -109,10 +88,7 @@ sub _jm_obj_0($$$)
             # handle may Z property
             # .'$Ee'.'|'.1.Z
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -136,10 +112,7 @@ sub _jm_obj_1($$$)
             $must_count++;
             # .'$Ee'.'|'.0.X
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "Z")
@@ -147,10 +120,7 @@ sub _jm_obj_1($$$)
             # handle may Z property
             # .'$Ee'.'|'.0.Z
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

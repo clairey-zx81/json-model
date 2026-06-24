@@ -28,16 +28,10 @@ sub json_model_1($$$)
     my $xc_0 = 0;
     # .'^'.0
     my $xr_0 = jm_is_string($val) && exists $_jm_cst_0{$val};
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     # .'^'.1
     $xr_0 = jm_is_string($val) && $val eq "hello";
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
+    $xc_0++ if $xr_0;
     return $xc_0 == 1;
 }
 

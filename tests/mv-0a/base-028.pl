@@ -21,10 +21,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # ZA
     # .
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
@@ -34,10 +31,7 @@ sub json_model_1($$$)
             # handle may country property
             # .country
             $res = jm_is_string($pval) && $pval eq "South Africa";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;

@@ -25,20 +25,11 @@ sub json_model_5($$$)
     # JSON_MODEL_LOOSE_INT
     # .'$loose'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"li"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"li"};
     $pval = $$val{"li"};
     # .'$loose'.li
     return jm_is_integer($pval) && $pval >= 0;
@@ -51,20 +42,11 @@ sub json_model_6($$$)
     # JSON_MODEL_STRICT_INT
     # .'$strict'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 1)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 1;
     my $pval;
     my $res;
-    if (! exists $$val{"si"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"si"};
     $pval = $$val{"si"};
     # .'$strict'.si
     return jm_is_integer($pval) && $pval >= 0;
@@ -76,30 +58,15 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$combined'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 2)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 2;
     my $pval;
-    if (! exists $$val{"li"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"li"};
     $pval = $$val{"li"};
     # .'$combined'.li
     my $res = jm_is_integer($pval) && $pval >= 0;
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"si"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"si"};
     $pval = $$val{"si"};
     # .'$combined'.si
     return jm_is_integer($pval) && $pval >= 0;
