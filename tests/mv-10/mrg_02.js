@@ -17,9 +17,7 @@ function json_model_2(val, path, rep)
     // .'$t'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "cst_02"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_cst_02\" [.'$t']", path])
-    }
     return res
 }
 
@@ -284,9 +282,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

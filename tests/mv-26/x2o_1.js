@@ -114,48 +114,32 @@ function json_model_4(val, path, rep)
     // .'$Nabc'.t.'^'.0
     let xr_0 = (typeof pval === 'string' || pval instanceof String)
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Nabc'.t.'^'.0]", (path ? lpath : null)])
-    }
     // .'$Nabc'.t.'^'.1
     xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'$Nabc'.t.'^'.1]", (path ? lpath : null)])
-    }
     if (xc_0 <= 1)
     {
         // .'$Nabc'.t.'^'.2
         xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "b"
         if (xr_0)
-        {
             xc_0 += 1
-        }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"_b\" [.'$Nabc'.t.'^'.2]", (path ? lpath : null)])
-        }
     }
     if (xc_0 <= 1)
     {
         // .'$Nabc'.t.'^'.3
         xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "c"
         if (xr_0)
-        {
             xc_0 += 1
-        }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"_c\" [.'$Nabc'.t.'^'.3]", (path ? lpath : null)])
-        }
     }
     let res = xc_0 == 1
     if (res)
@@ -185,9 +169,7 @@ function json_model_1(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -201,9 +183,7 @@ function json_model_1(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'|']", path])
-    }
     return res || json_model_4(val, path, rep)
 }
 
@@ -233,9 +213,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

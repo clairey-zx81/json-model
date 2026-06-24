@@ -20,29 +20,19 @@ function json_model_2(val, path, rep)
     // .'$d'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("t"))
-    {
         return false
-    }
     pval = val["t"]
     // .'$d'.t
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "d"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     // .'$d'.d
     return (typeof pval === 'string' || pval instanceof String)
@@ -55,29 +45,19 @@ function json_model_3(val, path, rep)
     // .'$ef'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("t"))
-    {
         return false
-    }
     pval = val["t"]
     // .'$ef'.t
     let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval)
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("ef"))
-    {
         return false
-    }
     pval = val["ef"]
     // .'$ef'.ef
     return (typeof pval === 'string' || pval instanceof String)
@@ -88,29 +68,19 @@ function _jm_obj_0(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("t"))
-    {
         return false
-    }
     pval = val["t"]
     // .'$alternative'.'|'.0.t
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("a"))
-    {
         return false
-    }
     pval = val["a"]
     // .'$alternative'.'|'.0.a
     return (typeof pval === 'string' || pval instanceof String)
@@ -122,29 +92,19 @@ function _jm_obj_1(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("t"))
-    {
         return false
-    }
     pval = val["t"]
     // .'$alternative'.'|'.1.t
     let res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("bc"))
-    {
         return false
-    }
     pval = val["bc"]
     // .'$alternative'.'|'.1.bc
     return (typeof pval === 'string' || pval instanceof String)
@@ -166,9 +126,7 @@ function json_model_4(val, path, rep)
             res = fun_0 !== undefined && fun_0(val, null, null)
         }
         else
-        {
             res = false
-        }
     }
     return res
 }
@@ -211,9 +169,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

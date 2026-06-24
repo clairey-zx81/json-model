@@ -132,9 +132,7 @@ function json_model_1(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("s"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <s> [.'']", path])
-            }
         }
         return false
     }
@@ -159,9 +157,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

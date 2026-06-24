@@ -95,21 +95,13 @@ function json_model_2(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("a"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <a> [.'$Oo0'.'']", path])
-            }
             if (! val.hasOwnProperty("b"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <b> [.'$Oo0'.'']", path])
-            }
             if (! val.hasOwnProperty("c"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <c> [.'$Oo0'.'']", path])
-            }
             if (! val.hasOwnProperty("d"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <d> [.'$Oo0'.'']", path])
-            }
         }
         return false
     }
@@ -204,9 +196,7 @@ function json_model_3(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("z"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <z> [.'$Oo1']", path])
-            }
         }
         return false
     }
@@ -304,21 +294,13 @@ function json_model_4(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("a"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <a> [.'$Oo2']", path])
-            }
             if (! val.hasOwnProperty("b"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <b> [.'$Oo2']", path])
-            }
             if (! val.hasOwnProperty("c"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <c> [.'$Oo2']", path])
-            }
             if (! val.hasOwnProperty("d"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <d> [.'$Oo2']", path])
-            }
         }
         return false
     }
@@ -342,9 +324,7 @@ function json_model_1(val, path, rep)
             // .'|'.2
             res = json_model_4(val, path, rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"$Oo2\" [.'|'.2]", path])
-            }
         }
     }
     if (res)
@@ -352,9 +332,7 @@ function json_model_1(val, path, rep)
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'|']", path])
-    }
     return res
 }
 
@@ -379,9 +357,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

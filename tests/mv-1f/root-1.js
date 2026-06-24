@@ -17,9 +17,7 @@ function json_model_4(val, path, rep)
     // .'$root'
     let res = json_model_5(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Root\" [.'$root']", path])
-    }
     return res
 }
 
@@ -29,9 +27,7 @@ function json_model_3(val, path, rep)
     // .'$Root'
     let res = json_model_5(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$root#Root\" [.'$Root']", path])
-    }
     return res
 }
 
@@ -41,9 +37,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_5(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Root\" [.]", path])
-    }
     return res
 }
 
@@ -117,9 +111,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -87,32 +87,22 @@ function json_model_1(val, path, rep)
     // .'^'.0
     let xr_0 = _jm_obj_0(val, path, rep)
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected element [.'^'.0]", path])
-    }
     // .'^'.1
     xr_0 = _jm_obj_1(val, path, rep)
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected element [.'^'.1]", path])
-    }
     let res = xc_0 == 1
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not one model match [.'^']", path])
-    }
     return res
 }
 
@@ -134,9 +124,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

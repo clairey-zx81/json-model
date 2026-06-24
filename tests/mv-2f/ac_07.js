@@ -10,9 +10,7 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     let must_count = 0
     for (const [prop, pval] of Object.entries(val))
@@ -22,18 +20,14 @@ function json_model_1(val, path, rep)
             must_count += 1
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (prop == "b")
         {
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -59,9 +53,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

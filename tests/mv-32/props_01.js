@@ -11,28 +11,18 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("x"))
-    {
         return false
-    }
     pval = val["x"]
     let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("y"))
-    {
         return false
-    }
     pval = val["y"]
     return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
@@ -55,9 +45,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

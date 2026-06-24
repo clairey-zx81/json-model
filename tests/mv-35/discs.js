@@ -11,28 +11,18 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "n"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("v"))
-    {
         return false
-    }
     pval = val["v"]
     return pval === null
 }
@@ -40,28 +30,18 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "b"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("v"))
-    {
         return false
-    }
     pval = val["v"]
     return (typeof pval === 'boolean' || pval instanceof Boolean)
 }
@@ -69,28 +49,18 @@ function _jm_obj_1(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "i"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("v"))
-    {
         return false
-    }
     pval = val["v"]
     return (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
 }
@@ -98,28 +68,18 @@ function _jm_obj_2(val, path, rep)
 function _jm_obj_3(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "u"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("v"))
-    {
         return false
-    }
     pval = val["v"]
     return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
 }
@@ -127,28 +87,18 @@ function _jm_obj_3(val, path, rep)
 function _jm_obj_4(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "f"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("v"))
-    {
         return false
-    }
     pval = val["v"]
     return (typeof pval === 'number' || pval instanceof Number)
 }
@@ -156,28 +106,18 @@ function _jm_obj_4(val, path, rep)
 function _jm_obj_5(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "s"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("v"))
-    {
         return false
-    }
     pval = val["v"]
     return (typeof pval === 'string' || pval instanceof String)
 }
@@ -185,28 +125,18 @@ function _jm_obj_5(val, path, rep)
 function _jm_obj_6(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("v"))
-    {
         return false
-    }
     pval = val["v"]
     return Array.isArray(pval)
 }
@@ -214,28 +144,18 @@ function _jm_obj_6(val, path, rep)
 function _jm_obj_7(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     let res = ((typeof pval === 'string' || pval instanceof String)) && pval == "o"
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("v"))
-    {
         return false
-    }
     pval = val["v"]
     return Object.prototype.toString.call(pval) === '[object Object]'
 }
@@ -253,9 +173,7 @@ function json_model_1(val, path, rep)
             res = fun_0 !== undefined && fun_0(val, null, null)
         }
         else
-        {
             res = false
-        }
     }
     return res
 }
@@ -286,9 +204,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

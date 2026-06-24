@@ -33,9 +33,7 @@ function json_model_2(val, path, rep)
     // .'$a'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "A"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_A\" [.'$a']", path])
-    }
     return res
 }
 
@@ -45,9 +43,7 @@ function json_model_3(val, path, rep)
     // .'$b'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "A"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_A\" [.'$b']", path])
-    }
     return res
 }
 
@@ -164,9 +160,7 @@ function _jm_f_1(val, path, rep)
     // .predefs.BOOL
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$BOOL\" [.predefs.BOOL]", path])
-    }
     return res
 }
 
@@ -176,9 +170,7 @@ function _jm_f_2(val, path, rep)
     // .predefs.BOOLEAN
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$BOOLEAN\" [.predefs.BOOLEAN]", path])
-    }
     return res
 }
 
@@ -188,9 +180,7 @@ function _jm_f_3(val, path, rep)
     // .predefs.DATE
     let res = runtime.jm_is_valid_date(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$DATE\" [.predefs.DATE]", path])
-    }
     return res
 }
 
@@ -200,9 +190,7 @@ function _jm_f_4(val, path, rep)
     // .predefs.DATETIME
     let res = runtime.jm_is_valid_datetime(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$DATETIME\" [.predefs.DATETIME]", path])
-    }
     return res
 }
 
@@ -212,9 +200,7 @@ function _jm_f_5(val, path, rep)
     // .predefs.DURATION
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_duration(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$DURATION\" [.predefs.DURATION]", path])
-    }
     return res
 }
 
@@ -224,9 +210,7 @@ function _jm_f_6(val, path, rep)
     // .predefs.EMAIL
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_email(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$EMAIL\" [.predefs.EMAIL]", path])
-    }
     return res
 }
 
@@ -236,9 +220,7 @@ function _jm_f_7(val, path, rep)
     // .predefs.ETH
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_eth(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$ETH\" [.predefs.ETH]", path])
-    }
     return res
 }
 
@@ -248,9 +230,7 @@ function _jm_f_8(val, path, rep)
     // .predefs.EXREG
     let res = runtime.jm_is_valid_regex(val, true)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$EXREG\" [.predefs.EXREG]", path])
-    }
     return res
 }
 
@@ -260,9 +240,7 @@ function _jm_f_9(val, path, rep)
     // .predefs.F32
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$F32\" [.predefs.F32]", path])
-    }
     return res
 }
 
@@ -272,9 +250,7 @@ function _jm_f_10(val, path, rep)
     // .predefs.F64
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$F64\" [.predefs.F64]", path])
-    }
     return res
 }
 
@@ -284,9 +260,7 @@ function _jm_f_11(val, path, rep)
     // .predefs.FLOAT
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$FLOAT\" [.predefs.FLOAT]", path])
-    }
     return res
 }
 
@@ -296,9 +270,7 @@ function _jm_f_12(val, path, rep)
     // .predefs.HOST
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_host(val, path, rep) && runtime.jm_char_length(val) <= 255
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$HOST\" [.predefs.HOST]", path])
-    }
     return res
 }
 
@@ -308,9 +280,7 @@ function _jm_f_13(val, path, rep)
     // .predefs.I32
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$I32\" [.predefs.I32]", path])
-    }
     return res
 }
 
@@ -320,9 +290,7 @@ function _jm_f_14(val, path, rep)
     // .predefs.I64
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$I64\" [.predefs.I64]", path])
-    }
     return res
 }
 
@@ -332,9 +300,7 @@ function _jm_f_15(val, path, rep)
     // .predefs.INT
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$INT\" [.predefs.INT]", path])
-    }
     return res
 }
 
@@ -344,9 +310,7 @@ function _jm_f_16(val, path, rep)
     // .predefs.INTEGER
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$INTEGER\" [.predefs.INTEGER]", path])
-    }
     return res
 }
 
@@ -356,9 +320,7 @@ function _jm_f_17(val, path, rep)
     // .predefs.IP4
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip4(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$IP4\" [.predefs.IP4]", path])
-    }
     return res
 }
 
@@ -368,9 +330,7 @@ function _jm_f_18(val, path, rep)
     // .predefs.IP6
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_ip6(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$IP6\" [.predefs.IP6]", path])
-    }
     return res
 }
 
@@ -380,9 +340,7 @@ function _jm_f_19(val, path, rep)
     // .predefs.JSON
     let res = runtime.jm_is_valid_json(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$JSON\" [.predefs.JSON]", path])
-    }
     return res
 }
 
@@ -392,9 +350,7 @@ function _jm_f_20(val, path, rep)
     // .predefs.JSONPT
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_jsonpt(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$JSONPT\" [.predefs.JSONPT]", path])
-    }
     return res
 }
 
@@ -412,9 +368,7 @@ function _jm_f_22(val, path, rep)
     // .predefs.NULL
     let res = val === null
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$NULL\" [.predefs.NULL]", path])
-    }
     return res
 }
 
@@ -424,9 +378,7 @@ function _jm_f_23(val, path, rep)
     // .predefs.NUMBER
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$NUMBER\" [.predefs.NUMBER]", path])
-    }
     return res
 }
 
@@ -436,9 +388,7 @@ function _jm_f_24(val, path, rep)
     // .predefs.REGEX
     let res = runtime.jm_is_valid_regex(val, false)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$REGEX\" [.predefs.REGEX]", path])
-    }
     return res
 }
 
@@ -448,9 +398,7 @@ function _jm_f_25(val, path, rep)
     // .predefs.STRING
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$STRING\" [.predefs.STRING]", path])
-    }
     return res
 }
 
@@ -460,9 +408,7 @@ function _jm_f_26(val, path, rep)
     // .predefs.TIME
     let res = runtime.jm_is_valid_time(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$TIME\" [.predefs.TIME]", path])
-    }
     return res
 }
 
@@ -472,9 +418,7 @@ function _jm_f_27(val, path, rep)
     // .predefs.U32
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$U32\" [.predefs.U32]", path])
-    }
     return res
 }
 
@@ -484,9 +428,7 @@ function _jm_f_28(val, path, rep)
     // .predefs.U64
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$U64\" [.predefs.U64]", path])
-    }
     return res
 }
 
@@ -496,9 +438,7 @@ function _jm_f_29(val, path, rep)
     // .predefs.URI
     let res = runtime.jm_is_valid_url(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.predefs.URI]", path])
-    }
     return res
 }
 
@@ -508,9 +448,7 @@ function _jm_f_30(val, path, rep)
     // .predefs.URL
     let res = runtime.jm_is_valid_url(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$URL\" [.predefs.URL]", path])
-    }
     return res
 }
 
@@ -520,9 +458,7 @@ function _jm_f_31(val, path, rep)
     // .predefs.UUID
     let res = ((typeof val === 'string' || val instanceof String)) && jm_is_uuid(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$UUID\" [.predefs.UUID]", path])
-    }
     return res
 }
 
@@ -1285,14 +1221,10 @@ function _jm_obj_7(val, path, rep)
                 let ival_0 = pval.length
                 res = ival_0 == 1
                 if (! res)
-                {
                     rep !== null && rep.push(["constraints failed [.tuple.t1]", (path ? lpath_8 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["not array or unexpected array [.tuple.t1.'@']", (path ? lpath_8 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.tuple.t1]", (path ? lpath_8 : null)])
@@ -1316,14 +1248,10 @@ function _jm_obj_7(val, path, rep)
                     // .tuple.t2.1
                     res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
                     if (! res)
-                    {
                         rep !== null && rep.push(["not a 0 strict int [.tuple.t2.1]", ((path ? lpath_8 : null) ? lpath_9 : null)])
-                    }
                 }
                 else
-                {
                     rep !== null && rep.push(["not a 0 strict int [.tuple.t2.0]", ((path ? lpath_8 : null) ? lpath_9 : null)])
-                }
             }
             if (! res)
             {
@@ -1354,19 +1282,13 @@ function _jm_obj_7(val, path, rep)
                         // .tuple.t3.2
                         res = (typeof pval[2] === 'string' || pval[2] instanceof String)
                         if (! res)
-                        {
                             rep !== null && rep.push(["unexpected value for model \"\" [.tuple.t3.2]", ((path ? lpath_8 : null) ? lpath_10 : null)])
-                        }
                     }
                     else
-                    {
                         rep !== null && rep.push(["not a 0 strict int [.tuple.t3.1]", ((path ? lpath_8 : null) ? lpath_10 : null)])
-                    }
                 }
                 else
-                {
                     rep !== null && rep.push(["not a bool [.tuple.t3.0]", ((path ? lpath_8 : null) ? lpath_10 : null)])
-                }
             }
             if (! res)
             {
@@ -1392,9 +1314,7 @@ function _jm_obj_7(val, path, rep)
                     // .tuple.t4.'@'.0
                     res = (typeof pval[0] === 'string' || pval[0] instanceof String)
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected value for model \"\" [.tuple.t4.'@'.0]", ((path ? lpath_8 : null) ? lpath_11 : null)])
-                    }
                 }
                 if (res)
                 {
@@ -1416,14 +1336,10 @@ function _jm_obj_7(val, path, rep)
                 let ival_1 = pval.length
                 res = ival_1 >= 2
                 if (! res)
-                {
                     rep !== null && rep.push(["constraints failed [.tuple.t4]", (path ? lpath_8 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["not array or unexpected array [.tuple.t4.'@']", (path ? lpath_8 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.tuple.t4]", (path ? lpath_8 : null)])
@@ -1446,9 +1362,7 @@ function _jm_obj_9(val, path, rep)
         return false
     }
     if (Object.keys(val).length == 0)
-    {
         return true
-    }
     else
     {
         rep !== null && rep.push(["expecting empty object [.object.o0]", path])
@@ -1845,9 +1759,7 @@ function _jm_obj_16(val, path, rep)
                 // .or.o0.'|'.1
                 res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
                 if (! res)
-                {
                     rep !== null && rep.push(["not a -1 strict int [.or.o0.'|'.1]", (path ? lpath_18 : null)])
-                }
             }
             if (res)
             {
@@ -1876,23 +1788,17 @@ function _jm_obj_16(val, path, rep)
                     // .or.o1.'|'.1
                     res = runtime.jm_is_valid_time(pval, (path ? lpath_18 : null), rep)
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected value for model \"$TIME\" [.or.o1.'|'.1]", (path ? lpath_18 : null)])
-                    }
                 }
                 if (res)
                 {
                     if (rep !== null) rep.length = 0
                 }
                 else
-                {
                     rep !== null && rep.push(["no model matched [.or.o1.'|']", (path ? lpath_18 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected type [.or.o1.'|']", (path ? lpath_18 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.or.o1]", (path ? lpath_18 : null)])
@@ -1966,9 +1872,7 @@ function _jm_obj_17(val, path, rep)
                 // .xor.x0.'|'.1
                 res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
                 if (! res)
-                {
                     rep !== null && rep.push(["not a -1 strict int [.xor.x0.'|'.1]", (path ? lpath_19 : null)])
-                }
             }
             if (res)
             {
@@ -1992,24 +1896,16 @@ function _jm_obj_17(val, path, rep)
             // "/^a/"
             let xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval.startsWith("a")
             if (xr_0)
-            {
                 xc_0 += 1
-            }
             else
-            {
                 rep !== null && rep.push(["unexpected value for model \"/^a/\" [.xor.x1.'^'.0]", (path ? lpath_19 : null)])
-            }
             // .xor.x1.'^'.1
             // "/z$/"
             xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval.endsWith("z")
             if (xr_0)
-            {
                 xc_0 += 1
-            }
             else
-            {
                 rep !== null && rep.push(["unexpected value for model \"/z$/\" [.xor.x1.'^'.1]", (path ? lpath_19 : null)])
-            }
             res = xc_0 == 1
             if (res)
             {
@@ -2032,23 +1928,15 @@ function _jm_obj_17(val, path, rep)
             // .xor.x2.'^'.0
             let xr_1 = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)
             if (xr_1)
-            {
                 xc_1 += 1
-            }
             else
-            {
                 rep !== null && rep.push(["not a -1 strict int [.xor.x2.'^'.0]", (path ? lpath_19 : null)])
-            }
             // .xor.x2.'^'.1
             xr_1 = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (xr_1)
-            {
                 xc_1 += 1
-            }
             else
-            {
                 rep !== null && rep.push(["not a 0 strict int [.xor.x2.'^'.1]", (path ? lpath_19 : null)])
-            }
             res = xc_1 == 1
             if (res)
             {
@@ -2070,9 +1958,7 @@ function _jm_obj_17(val, path, rep)
             // .xor.x3.'^'.1
             let is_0 = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! is_0)
-            {
                 rep !== null && rep.push(["not a 0 strict int [.xor.x3.'^'.1]", (path ? lpath_19 : null)])
-            }
             res = ! is_0
             if (res)
             {
@@ -2119,14 +2005,10 @@ function _jm_obj_18(val, path, rep)
                     // "/^2020-/"
                     res = pval.startsWith("2020-")
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", (path ? lpath_20 : null)])
-                    }
                 }
                 else
-                {
                     rep !== null && rep.push(["unexpected value for model \"$DATE\" [.and.a0.'&'.0]", (path ? lpath_20 : null)])
-                }
             }
             if (res)
             {
@@ -2194,9 +2076,7 @@ function _jm_obj_20(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("a"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <a> [.merge.m0]", path])
-            }
         }
         return false
     }
@@ -2711,9 +2591,7 @@ function _jm_obj_19(val, path, rep)
                     // .merge.m1.'|'.0
                     res = _jm_obj_22(pval, (path ? lpath_21 : null), rep)
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected element [.merge.m1.'|'.0]", (path ? lpath_21 : null)])
-                    }
                 }
                 else
                 {
@@ -2722,28 +2600,20 @@ function _jm_obj_19(val, path, rep)
                         // .merge.m1.'|'.1
                         res = _jm_obj_21(pval, (path ? lpath_21 : null), rep)
                         if (! res)
-                        {
                             rep !== null && rep.push(["unexpected element [.merge.m1.'|'.1]", (path ? lpath_21 : null)])
-                        }
                     }
                     else
-                    {
                         res = false
-                    }
                 }
                 if (res)
                 {
                     if (rep !== null) rep.length = 0
                 }
                 else
-                {
                     rep !== null && rep.push(["no model matched [.merge.m1.'|']", (path ? lpath_21 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected type [.merge.m1.'|']", (path ? lpath_21 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.merge.m1]", (path ? lpath_21 : null)])
@@ -2763,9 +2633,7 @@ function _jm_obj_19(val, path, rep)
                     // .merge.m2.'|'.0
                     res = _jm_obj_24(pval, (path ? lpath_21 : null), rep)
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected element [.merge.m2.'|'.0]", (path ? lpath_21 : null)])
-                    }
                 }
                 else
                 {
@@ -2774,28 +2642,20 @@ function _jm_obj_19(val, path, rep)
                         // .merge.m2.'|'.1
                         res = _jm_obj_23(pval, (path ? lpath_21 : null), rep)
                         if (! res)
-                        {
                             rep !== null && rep.push(["unexpected element [.merge.m2.'|'.1]", (path ? lpath_21 : null)])
-                        }
                     }
                     else
-                    {
                         res = false
-                    }
                 }
                 if (res)
                 {
                     if (rep !== null) rep.length = 0
                 }
                 else
-                {
                     rep !== null && rep.push(["no model matched [.merge.m2.'|']", (path ? lpath_21 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected type [.merge.m2.'|']", (path ? lpath_21 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.merge.m2]", (path ? lpath_21 : null)])
@@ -2815,14 +2675,10 @@ function _jm_obj_19(val, path, rep)
                     // .merge.m3.'|'.0
                     res = _jm_obj_28(pval, (path ? lpath_21 : null), rep)
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected element [.merge.m3.'|'.0]", (path ? lpath_21 : null)])
-                    }
                 }
                 else
-                {
                     res = false
-                }
                 if (! res)
                 {
                     if (pval.hasOwnProperty("a"))
@@ -2830,14 +2686,10 @@ function _jm_obj_19(val, path, rep)
                         // .merge.m3.'|'.1
                         res = _jm_obj_27(pval, (path ? lpath_21 : null), rep)
                         if (! res)
-                        {
                             rep !== null && rep.push(["unexpected element [.merge.m3.'|'.1]", (path ? lpath_21 : null)])
-                        }
                     }
                     else
-                    {
                         res = false
-                    }
                     if (! res)
                     {
                         if (pval.hasOwnProperty("b"))
@@ -2845,14 +2697,10 @@ function _jm_obj_19(val, path, rep)
                             // .merge.m3.'|'.2
                             res = _jm_obj_26(pval, (path ? lpath_21 : null), rep)
                             if (! res)
-                            {
                                 rep !== null && rep.push(["unexpected element [.merge.m3.'|'.2]", (path ? lpath_21 : null)])
-                            }
                         }
                         else
-                        {
                             res = false
-                        }
                         if (! res)
                         {
                             if (pval.hasOwnProperty("b"))
@@ -2860,14 +2708,10 @@ function _jm_obj_19(val, path, rep)
                                 // .merge.m3.'|'.3
                                 res = _jm_obj_25(pval, (path ? lpath_21 : null), rep)
                                 if (! res)
-                                {
                                     rep !== null && rep.push(["unexpected element [.merge.m3.'|'.3]", (path ? lpath_21 : null)])
-                                }
                             }
                             else
-                            {
                                 res = false
-                            }
                         }
                     }
                 }
@@ -2876,14 +2720,10 @@ function _jm_obj_19(val, path, rep)
                     if (rep !== null) rep.length = 0
                 }
                 else
-                {
                     rep !== null && rep.push(["no model matched [.merge.m3.'|']", (path ? lpath_21 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected type [.merge.m3.'|']", (path ? lpath_21 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.merge.m3]", (path ? lpath_21 : null)])
@@ -2936,14 +2776,10 @@ function _jm_f_32(val, path, rep)
         let ival_2 = val.length
         res = ival_2 == 3
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cia0]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.constraints.cia0.'@']", path])
-    }
     return res
 }
 
@@ -2973,14 +2809,10 @@ function _jm_f_33(val, path, rep)
         let ival_3 = val.length
         res = ival_3 != 4 && ival_3 <= 5 && ival_3 >= 2
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cia1]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.constraints.cia1.'@']", path])
-    }
     return res
 }
 
@@ -3010,14 +2842,10 @@ function _jm_f_34(val, path, rep)
         let ival_4 = val.length
         res = ival_4 <= 4 && ival_4 >= 3
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cia2]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.constraints.cia2.'@']", path])
-    }
     return res
 }
 
@@ -3027,9 +2855,7 @@ function _jm_f_35(val, path, rep)
     // .constraints.cii0
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 10
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"=10\" [.constraints.cii0]", path])
-    }
     return res
 }
 
@@ -3044,14 +2870,10 @@ function _jm_f_36(val, path, rep)
         let ival_5 = val
         res = ival_5 != 10 && ival_5 <= 12 && ival_5 >= 8
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cii1]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a -1 strict int [.constraints.cii1.'@']", path])
-    }
     return res
 }
 
@@ -3066,14 +2888,10 @@ function _jm_f_37(val, path, rep)
         let ival_6 = val
         res = ival_6 <= 9 && ival_6 >= 8
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cii2]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a -1 strict int [.constraints.cii2.'@']", path])
-    }
     return res
 }
 
@@ -3088,14 +2906,10 @@ function _jm_f_38(val, path, rep)
         let fval_0 = val
         res = fval_0 == 10
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cin0]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin0.'@']", path])
-    }
     return res
 }
 
@@ -3110,14 +2924,10 @@ function _jm_f_39(val, path, rep)
         let fval_1 = val
         res = fval_1 != 10 && fval_1 <= 12 && fval_1 >= 8
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cin1]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin1.'@']", path])
-    }
     return res
 }
 
@@ -3132,14 +2942,10 @@ function _jm_f_40(val, path, rep)
         let fval_2 = val
         res = fval_2 < 10 && fval_2 > 7
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cin2]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a 0.0 strict float [.constraints.cin2.'@']", path])
-    }
     return res
 }
 
@@ -3154,9 +2960,7 @@ function _jm_f_41(val, path, rep)
         let ival_7 = Object.keys(val).length
         res = ival_7 == 2
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cio0]", path])
-        }
     }
     return res
 }
@@ -3172,9 +2976,7 @@ function _jm_f_42(val, path, rep)
         let ival_8 = Object.keys(val).length
         res = ival_8 != 2 && ival_8 <= 3 && ival_8 >= 1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cio1]", path])
-        }
     }
     return res
 }
@@ -3190,9 +2992,7 @@ function _jm_f_43(val, path, rep)
         let ival_9 = Object.keys(val).length
         res = ival_9 <= 4 && ival_9 >= 3
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cio2]", path])
-        }
     }
     return res
 }
@@ -3208,14 +3008,10 @@ function _jm_f_44(val, path, rep)
         let ival_10 = runtime.jm_char_length(val)
         res = ival_10 == 10
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cis0]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.constraints.cis0.'@']", path])
-    }
     return res
 }
 
@@ -3230,14 +3026,10 @@ function _jm_f_45(val, path, rep)
         let ival_11 = runtime.jm_char_length(val)
         res = ival_11 != 10 && ival_11 <= 12 && ival_11 >= 8
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cis1]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.constraints.cis1.'@']", path])
-    }
     return res
 }
 
@@ -3252,14 +3044,10 @@ function _jm_f_46(val, path, rep)
         let ival_12 = runtime.jm_char_length(val)
         res = ival_12 <= 9 && ival_12 >= 8
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cis2]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.constraints.cis2.'@']", path])
-    }
     return res
 }
 
@@ -3269,9 +3057,7 @@ function _jm_f_47(val, path, rep)
     // .constraints.cni0
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"=42\" [.constraints.cni0]", path])
-    }
     return res
 }
 
@@ -3287,14 +3073,10 @@ function _jm_f_48(val, path, rep)
         let fval_3 = val
         res = fval_3 != 42.0 && ival_13 <= 99
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cni1]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a 1 strict int [.constraints.cni1.'@']", path])
-    }
     return res
 }
 
@@ -3304,9 +3086,7 @@ function _jm_f_49(val, path, rep)
     // .constraints.cni2
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"=42\" [.constraints.cni2]", path])
-    }
     return res
 }
 
@@ -3321,14 +3101,10 @@ function _jm_f_50(val, path, rep)
         let fval_4 = val
         res = fval_4 == 42.1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cnn0]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn0.'@']", path])
-    }
     return res
 }
 
@@ -3343,14 +3119,10 @@ function _jm_f_51(val, path, rep)
         let fval_5 = val
         res = fval_5 != 42.5 && fval_5 <= 43.0 && fval_5 >= 42.0
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cnn1]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn1.'@']", path])
-    }
     return res
 }
 
@@ -3365,14 +3137,10 @@ function _jm_f_52(val, path, rep)
         let fval_6 = val
         res = fval_6 < 43.0 && fval_6 > 42.0
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cnn2]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a 0.0 strict float [.constraints.cnn2.'@']", path])
-    }
     return res
 }
 
@@ -3387,14 +3155,10 @@ function _jm_f_53(val, path, rep)
         let sval_0 = val
         res = sval_0 == "Susie"
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.css0]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.constraints.css0.'@']", path])
-    }
     return res
 }
 
@@ -3409,14 +3173,10 @@ function _jm_f_54(val, path, rep)
         let sval_1 = val
         res = sval_1 != "Hobbes" && sval_1 <= "Z" && sval_1 >= "A"
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.css1]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.constraints.css1.'@']", path])
-    }
     return res
 }
 
@@ -3431,14 +3191,10 @@ function _jm_f_55(val, path, rep)
         let sval_2 = val
         res = sval_2 < "Z" && sval_2 > "A"
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.css2]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.constraints.css2.'@']", path])
-    }
     return res
 }
 
@@ -3453,14 +3209,10 @@ function _jm_f_56(val, path, rep)
         // accept any array
         res = runtime.jm_array_is_unique(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.constraints.cua0]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.constraints.cua0.'@']", path])
-    }
     return res
 }
 
@@ -3831,9 +3583,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

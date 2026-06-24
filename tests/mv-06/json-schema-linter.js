@@ -20,9 +20,7 @@ function json_model_2(val, path, rep)
     // .'$const'
     let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected type [.'$const'.'|']", path])
-    }
     return res
 }
 
@@ -95,9 +93,7 @@ function json_model_3(val, path, rep)
                         }
                     }
                     if (! res)
-                    {
                         rep !== null && rep.push(["not array or unexpected array [.'$enum'.'|'.3]", path])
-                    }
                 }
             }
         }
@@ -106,14 +102,10 @@ function json_model_3(val, path, rep)
             if (rep !== null) rep.length = 0
         }
         else
-        {
             rep !== null && rep.push(["no model matched [.'$enum'.'|']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected type [.'$enum'.'|']", path])
-    }
     return res
 }
 
@@ -138,9 +130,7 @@ function json_model_4(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$schemaArray']", path])
-    }
     return res
 }
 
@@ -255,9 +245,7 @@ function json_model_6(val, path, rep)
                 // .'$arrayKeywords'.items.'|'.1
                 res = json_model_4(pval, (path ? lpath_1 : null), rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"$schemaArray\" [.'$arrayKeywords'.items.'|'.1]", (path ? lpath_1 : null)])
-                }
             }
             if (res)
             {
@@ -705,11 +693,9 @@ function json_model_9(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$metas'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$metas']", (path ? lpath_6 : null)])
@@ -973,11 +959,9 @@ function json_model_10(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$String'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$String']", (path ? lpath_9 : null)])
@@ -989,9 +973,7 @@ function json_model_10(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$String']", path])
-            }
         }
         return false
     }
@@ -1223,9 +1205,7 @@ function json_model_11(val, path, rep)
                 // .'$Array'.items.'|'.1
                 res = json_model_4(pval, (path ? lpath_12 : null), rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"$schemaArray\" [.'$Array'.items.'|'.1]", (path ? lpath_12 : null)])
-                }
             }
             if (res)
             {
@@ -1292,11 +1272,9 @@ function json_model_11(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Array'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Array']", (path ? lpath_12 : null)])
@@ -1308,9 +1286,7 @@ function json_model_11(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Array']", path])
-            }
         }
         return false
     }
@@ -1641,11 +1617,9 @@ function json_model_12(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Object'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Object']", (path ? lpath_15 : null)])
@@ -1657,9 +1631,7 @@ function json_model_12(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Object']", path])
-            }
         }
         return false
     }
@@ -1893,11 +1865,9 @@ function json_model_13(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Integer'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Integer']", (path ? lpath_20 : null)])
@@ -1909,9 +1879,7 @@ function json_model_13(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Integer']", path])
-            }
         }
         return false
     }
@@ -2145,11 +2113,9 @@ function json_model_14(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Number'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Number']", (path ? lpath_23 : null)])
@@ -2161,9 +2127,7 @@ function json_model_14(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Number']", path])
-            }
         }
         return false
     }
@@ -2371,11 +2335,9 @@ function json_model_15(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Bool'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Bool']", (path ? lpath_26 : null)])
@@ -2387,9 +2349,7 @@ function json_model_15(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Bool']", path])
-            }
         }
         return false
     }
@@ -2597,11 +2557,9 @@ function json_model_16(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Null'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Null']", (path ? lpath_29 : null)])
@@ -2613,9 +2571,7 @@ function json_model_16(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Null']", path])
-            }
         }
         return false
     }
@@ -2823,11 +2779,9 @@ function json_model_17(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$AllOf'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$AllOf']", (path ? lpath_32 : null)])
@@ -2839,9 +2793,7 @@ function json_model_17(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("allOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <allOf> [.'$AllOf']", path])
-            }
         }
         return false
     }
@@ -3049,11 +3001,9 @@ function json_model_18(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$AnyOf'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$AnyOf']", (path ? lpath_35 : null)])
@@ -3065,9 +3015,7 @@ function json_model_18(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("anyOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <anyOf> [.'$AnyOf']", path])
-            }
         }
         return false
     }
@@ -3275,11 +3223,9 @@ function json_model_19(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$OneOf'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$OneOf']", (path ? lpath_38 : null)])
@@ -3291,9 +3237,7 @@ function json_model_19(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("oneOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <oneOf> [.'$OneOf']", path])
-            }
         }
         return false
     }
@@ -3501,11 +3445,9 @@ function json_model_20(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Enum'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Enum']", (path ? lpath_41 : null)])
@@ -3517,9 +3459,7 @@ function json_model_20(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("enum"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <enum> [.'$Enum']", path])
-            }
         }
         return false
     }
@@ -3727,11 +3667,9 @@ function json_model_21(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Const'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Const']", (path ? lpath_44 : null)])
@@ -3743,9 +3681,7 @@ function json_model_21(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("const"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <const> [.'$Const']", path])
-            }
         }
         return false
     }
@@ -3953,11 +3889,9 @@ function json_model_22(val, path, rep)
             continue
         }
         if (prop.startsWith("x-"))
-        {
             // handle 1 re props
             // .'$Ref'.'/^x-/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Ref']", (path ? lpath_47 : null)])
@@ -3969,9 +3903,7 @@ function json_model_22(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("$ref"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <$ref> [.'$Ref']", path])
-            }
         }
         return false
     }
@@ -3992,9 +3924,7 @@ function json_model_23(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -4008,9 +3938,7 @@ function json_model_23(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'$ObjectSchema'.'|']", path])
-    }
     return res || json_model_9(val, path, rep) || json_model_21(val, path, rep) || json_model_20(val, path, rep) || json_model_17(val, path, rep) || json_model_18(val, path, rep) || json_model_19(val, path, rep) || json_model_22(val, path, rep)
 }
 
@@ -4026,18 +3954,14 @@ function json_model_24(val, path, rep)
         // .'$Schema'.'|'.1
         res = json_model_23(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$ObjectSchema\" [.'$Schema'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$Schema'.'|']", path])
-    }
     return res
 }
 
@@ -4085,23 +4009,17 @@ function json_model_25(val, path, rep)
             // .'$RootSchema'.'&'.1
             res = json_model_23(val, path, rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"$ObjectSchema\" [.'$RootSchema'.'&'.1]", path])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected element [.'$RootSchema'.'&'.0]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not all model match [.'$RootSchema'.'&']", path])
-    }
     return res
 }
 
@@ -4111,9 +4029,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_25(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$RootSchema\" [.]", path])
-    }
     return res
 }
 
@@ -4220,9 +4136,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

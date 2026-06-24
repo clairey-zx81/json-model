@@ -17,9 +17,7 @@ function json_model_2(val, path, rep)
     // .'$Oa'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let pval
     let res
     if (val.hasOwnProperty("a"))
@@ -28,9 +26,7 @@ function json_model_2(val, path, rep)
         // .'$Oa'.a
         res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
-        {
             return false
-        }
     }
     return true
 }
@@ -41,9 +37,7 @@ function json_model_3(val, path, rep)
     // .'$Ob'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let pval
     let res
     if (val.hasOwnProperty("b"))
@@ -52,9 +46,7 @@ function json_model_3(val, path, rep)
         // .'$Ob'.b
         res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
-        {
             return false
-        }
     }
     return true
 }
@@ -65,9 +57,7 @@ function json_model_4(val, path, rep)
     // .'$merge'
     // check open must/may only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let pval
     let res
     if (val.hasOwnProperty("a"))
@@ -76,9 +66,7 @@ function json_model_4(val, path, rep)
         // .'$merge'.a
         res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
-        {
             return false
-        }
     }
     if (val.hasOwnProperty("b"))
     {
@@ -86,9 +74,7 @@ function json_model_4(val, path, rep)
         // .'$merge'.b
         res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
         if (! res)
-        {
             return false
-        }
     }
     return true
 }
@@ -99,19 +85,13 @@ function json_model_5(val, path, rep)
     // .'$nomerge'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 1)
-    {
         return false
-    }
     let pval
     let res
     if (! val.hasOwnProperty("c"))
-    {
         return false
-    }
     pval = val["c"]
     // .'$nomerge'.c
     return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
@@ -148,9 +128,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

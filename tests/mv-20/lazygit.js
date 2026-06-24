@@ -62,9 +62,7 @@ function json_model_2(val, path, rep)
             }
         }
         else
-        {
             rep !== null && rep.push(["unexpected type [.'$color'.'|']", path])
-        }
     }
     return res
 }
@@ -95,14 +93,10 @@ function json_model_3(val, path, rep)
         let ival_0 = val.length
         res = runtime.jm_array_is_unique(val, path, rep) && ival_0 >= 1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$colorArray']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$colorArray'.'@']", path])
-    }
     return res
 }
 
@@ -118,18 +112,14 @@ function json_model_4(val, path, rep)
         // .'$keybinding'.'|'.1
         res = (typeof val === 'string' || val instanceof String)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"\" [.'$keybinding'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$keybinding'.'|']", path])
-    }
     return res
 }
 
@@ -140,9 +130,7 @@ function json_model_5(val, path, rep)
     // .'$custom-commands-prompts-type-property'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$custom-commands-prompts-type-property'.'|']", path])
-    }
     return res
 }
 
@@ -152,9 +140,7 @@ function json_model_6(val, path, rep)
     // .'$custom-commands-prompts-title-property'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$custom-commands-prompts-title-property']", path])
-    }
     return res
 }
 
@@ -164,9 +150,7 @@ function json_model_7(val, path, rep)
     // .'$custom-commands-prompts-key-property'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$custom-commands-prompts-key-property']", path])
-    }
     return res
 }
 
@@ -181,14 +165,10 @@ function json_model_8(val, path, rep)
         let sval_0 = val
         res = sval_0 != ""
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$neString']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$neString'.'@']", path])
-    }
     return res
 }
 
@@ -217,14 +197,10 @@ function json_model_9(val, path, rep)
     {
         res = runtime.jm_array_is_unique(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$stringArray']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$stringArray'.'@']", path])
-    }
     return res
 }
 
@@ -377,9 +353,7 @@ function _jm_obj_0(val, path, rep)
                     // .'$Prompts'.'|'.0.suggestions.'|'.0
                     res = _jm_obj_2(pval, (path ? lpath_0 : null), rep)
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.0]", (path ? lpath_0 : null)])
-                    }
                 }
                 else
                 {
@@ -388,28 +362,20 @@ function _jm_obj_0(val, path, rep)
                         // .'$Prompts'.'|'.0.suggestions.'|'.1
                         res = _jm_obj_1(pval, (path ? lpath_0 : null), rep)
                         if (! res)
-                        {
                             rep !== null && rep.push(["unexpected element [.'$Prompts'.'|'.0.suggestions.'|'.1]", (path ? lpath_0 : null)])
-                        }
                     }
                     else
-                    {
                         res = false
-                    }
                 }
                 if (res)
                 {
                     if (rep !== null) rep.length = 0
                 }
                 else
-                {
                     rep !== null && rep.push(["no model matched [.'$Prompts'.'|'.0.suggestions.'|']", (path ? lpath_0 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected type [.'$Prompts'.'|'.0.suggestions.'|']", (path ? lpath_0 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.'$Prompts'.'|'.0.suggestions]", (path ? lpath_0 : null)])
@@ -425,17 +391,11 @@ function _jm_obj_0(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("key"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <key> [.'$Prompts'.'|'.0]", path])
-            }
             if (! val.hasOwnProperty("title"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <title> [.'$Prompts'.'|'.0]", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Prompts'.'|'.0]", path])
-            }
         }
         return false
     }
@@ -518,17 +478,11 @@ function _jm_obj_3(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("key"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <key> [.'$Prompts'.'|'.1]", path])
-            }
             if (! val.hasOwnProperty("title"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <title> [.'$Prompts'.'|'.1]", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Prompts'.'|'.1]", path])
-            }
         }
         return false
     }
@@ -596,9 +550,7 @@ function _jm_obj_5(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("value"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <value> [.'$Prompts'.'|'.2.options.'@'.0]", path])
-            }
         }
         return false
     }
@@ -695,14 +647,10 @@ function _jm_obj_4(val, path, rep)
     {
         res = runtime.jm_array_is_unique(pval, (path ? lpath : null), rep)
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$Prompts'.'|'.2.options]", (path ? lpath : null)])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$Prompts'.'|'.2.options.'@']", (path ? lpath : null)])
-    }
     if (! res)
     {
         rep !== null && rep.push(["unexpected value for mandatory prop <options> [.'$Prompts'.'|'.2]", (path ? lpath : null)])
@@ -827,21 +775,13 @@ function _jm_obj_6(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("command"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <command> [.'$Prompts'.'|'.3]", path])
-            }
             if (! val.hasOwnProperty("key"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <key> [.'$Prompts'.'|'.3]", path])
-            }
             if (! val.hasOwnProperty("title"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <title> [.'$Prompts'.'|'.3]", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Prompts'.'|'.3]", path])
-            }
         }
         return false
     }
@@ -861,9 +801,7 @@ function json_model_10(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -877,9 +815,7 @@ function json_model_10(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'$Prompts'.'|']", path])
-    }
     return res
 }
 
@@ -889,9 +825,7 @@ function _jm_f_0(val, path, rep)
     // .gui.animateExplosion
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.animateExplosion]", path])
-    }
     return res
 }
 
@@ -937,9 +871,7 @@ function _jm_f_2(val, path, rep)
     // .gui.border
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_3.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.gui.border.'|']", path])
-    }
     return res
 }
 
@@ -982,9 +914,7 @@ function _jm_f_4(val, path, rep)
     // .gui.commandLogSize
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.gui.commandLogSize]", path])
-    }
     return res
 }
 
@@ -1026,9 +956,7 @@ function _jm_f_6(val, path, rep)
     // .gui.expandFocusedSidePanel
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.expandFocusedSidePanel]", path])
-    }
     return res
 }
 
@@ -1039,9 +967,7 @@ function _jm_f_7(val, path, rep)
     // .gui.language
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_4.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.gui.language.'|']", path])
-    }
     return res
 }
 
@@ -1052,9 +978,7 @@ function _jm_f_8(val, path, rep)
     // .gui.mainPanelSplitMode
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_5.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.gui.mainPanelSplitMode.'|']", path])
-    }
     return res
 }
 
@@ -1064,9 +988,7 @@ function _jm_f_9(val, path, rep)
     // .gui.mouseEvents
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.mouseEvents]", path])
-    }
     return res
 }
 
@@ -1095,9 +1017,7 @@ function _jm_f_10(val, path, rep)
             }
         }
         else
-        {
             rep !== null && rep.push(["unexpected type [.gui.nerdFontsVersion.'|']", path])
-        }
     }
     return res
 }
@@ -1108,9 +1028,7 @@ function _jm_f_11(val, path, rep)
     // .gui.scrollHeight
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
     if (! res)
-    {
         rep !== null && rep.push(["not a 1 strict int [.gui.scrollHeight]", path])
-    }
     return res
 }
 
@@ -1120,9 +1038,7 @@ function _jm_f_12(val, path, rep)
     // .gui.scrollPastBottom
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.scrollPastBottom]", path])
-    }
     return res
 }
 
@@ -1132,9 +1048,7 @@ function _jm_f_13(val, path, rep)
     // .gui.shortTimeFormat
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.gui.shortTimeFormat]", path])
-    }
     return res
 }
 
@@ -1144,9 +1058,7 @@ function _jm_f_14(val, path, rep)
     // .gui.showBottomLine
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.showBottomLine]", path])
-    }
     return res
 }
 
@@ -1156,9 +1068,7 @@ function _jm_f_15(val, path, rep)
     // .gui.showBranchCommitHash
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.showBranchCommitHash]", path])
-    }
     return res
 }
 
@@ -1168,9 +1078,7 @@ function _jm_f_16(val, path, rep)
     // .gui.showCommandLog
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.showCommandLog]", path])
-    }
     return res
 }
 
@@ -1180,9 +1088,7 @@ function _jm_f_17(val, path, rep)
     // .gui.showFileTree
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.showFileTree]", path])
-    }
     return res
 }
 
@@ -1192,9 +1098,7 @@ function _jm_f_18(val, path, rep)
     // .gui.showListFooter
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.showListFooter]", path])
-    }
     return res
 }
 
@@ -1204,9 +1108,7 @@ function _jm_f_19(val, path, rep)
     // .gui.showRandomTip
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.showRandomTip]", path])
-    }
     return res
 }
 
@@ -1221,14 +1123,10 @@ function _jm_f_20(val, path, rep)
         let fval_0 = val
         res = fval_0 <= 1.0
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.gui.sidePanelWidth]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not a 0.0 strict float [.gui.sidePanelWidth.'@']", path])
-    }
     return res
 }
 
@@ -1238,9 +1136,7 @@ function _jm_f_21(val, path, rep)
     // .gui.skipDiscardChangeWarning
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.skipDiscardChangeWarning]", path])
-    }
     return res
 }
 
@@ -1250,9 +1146,7 @@ function _jm_f_22(val, path, rep)
     // .gui.skipRewordInEditorWarning
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.skipRewordInEditorWarning]", path])
-    }
     return res
 }
 
@@ -1262,9 +1156,7 @@ function _jm_f_23(val, path, rep)
     // .gui.skipStashWarning
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.gui.skipStashWarning]", path])
-    }
     return res
 }
 
@@ -1275,9 +1167,7 @@ function _jm_f_24(val, path, rep)
     // .gui.splitDiff
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_7.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.gui.splitDiff.'|']", path])
-    }
     return res
 }
 
@@ -1436,9 +1326,7 @@ function _jm_f_26(val, path, rep)
     // .gui.timeFormat
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.gui.timeFormat]", path])
-    }
     return res
 }
 
@@ -1449,9 +1337,7 @@ function _jm_f_27(val, path, rep)
     // .gui.windowSize
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_8.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.gui.windowSize.'|']", path])
-    }
     return res
 }
 
@@ -1534,14 +1420,10 @@ function _jm_obj_9(val, path, rep)
                 let sval_1 = pval
                 res = sval_1 != ""
                 if (! res)
-                {
                     rep !== null && rep.push(["constraints failed [.git.paging.pager]", (path ? lpath_11 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected value for model \"\" [.git.paging.pager.'@']", (path ? lpath_11 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.git.paging.pager]", (path ? lpath_11 : null)])
@@ -2046,9 +1928,7 @@ function _jm_obj_15(val, path, rep)
                     }
                 }
                 else
-                {
                     rep !== null && rep.push(["unexpected type [.os.editPreset.'|']", (path ? lpath_16 : null)])
-                }
             }
             if (! res)
             {
@@ -2224,9 +2104,7 @@ function _jm_f_28(val, path, rep)
     // .keybinding.universal.jumpToBlock
     let res = Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.keybinding.universal.jumpToBlock]", path])
-    }
     return res
 }
 
@@ -2236,9 +2114,7 @@ function _jm_f_29(val, path, rep)
     // .keybinding.universal.optionMenu
     let res = val === null
     if (! res)
-    {
         rep !== null && rep.push(["not null [.keybinding.universal.optionMenu]", path])
-    }
     return res
 }
 
@@ -3304,17 +3180,11 @@ function _jm_obj_29(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("command"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <command> [.customCommands.'@'.0]", path])
-            }
             if (! val.hasOwnProperty("context"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <context> [.customCommands.'@'.0]", path])
-            }
             if (! val.hasOwnProperty("key"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <key> [.customCommands.'@'.0]", path])
-            }
         }
         return false
     }
@@ -3516,14 +3386,10 @@ function json_model_1(val, path, rep)
             {
                 res = runtime.jm_array_is_unique(pval, (path ? lpath_4 : null), rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["constraints failed [.customCommands]", (path ? lpath_4 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["not array or unexpected array [.customCommands.'@']", (path ? lpath_4 : null)])
-            }
             if (! res)
             {
                 rep !== null && rep.push(["invalid optional prop value [.customCommands]", (path ? lpath_4 : null)])
@@ -3762,9 +3628,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -11,9 +11,7 @@ export var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
@@ -21,36 +19,28 @@ function json_model_1(val, path, rep)
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) == 4
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "le4")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) <= 4
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "ge4")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) >= 4
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "s35")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && runtime.jm_char_length(pval) >= 3 && runtime.jm_char_length(pval) <= 5
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -76,9 +66,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

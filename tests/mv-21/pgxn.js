@@ -30,9 +30,7 @@ function json_model_2(val, path, rep)
     // "/./"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/./\" [.'$neStr']", path])
-    }
     return res
 }
 
@@ -62,14 +60,10 @@ function json_model_3(val, path, rep)
         let ival_0 = val.length
         res = runtime.jm_array_is_unique(val, path, rep) && ival_0 >= 1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$neStrList']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$neStrList'.'@']", path])
-    }
     return res
 }
 
@@ -80,9 +74,7 @@ function json_model_4(val, path, rep)
     // .'$License'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$License'.'|']", path])
-    }
     return res
 }
 
@@ -112,14 +104,10 @@ function json_model_5(val, path, rep)
         let ival_1 = val.length
         res = runtime.jm_array_is_unique(val, path, rep) && ival_1 >= 1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$LicenseList']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$LicenseList'.'@']", path])
-    }
     return res
 }
 
@@ -194,11 +182,9 @@ function json_model_6(val, path, rep)
             continue
         }
         if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'$Provide'.'/^[Xx]_/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Provide']", (path ? lpath_0 : null)])
@@ -210,13 +196,9 @@ function json_model_6(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("file"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <file> [.'$Provide']", path])
-            }
             if (! val.hasOwnProperty("version"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <version> [.'$Provide']", path])
-            }
         }
         return false
     }
@@ -230,9 +212,7 @@ function json_model_7(val, path, rep)
     // .'$Status'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$Status'.'|']", path])
-    }
     return res
 }
 
@@ -275,11 +255,9 @@ function _jm_obj_0(val, path, rep)
             continue
         }
         if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'$Resources'.bugtracker.'/^[Xx]_/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Resources'.bugtracker]", (path ? lpath_2 : null)])
@@ -414,9 +392,7 @@ function json_model_9(val, path, rep)
     // "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_2(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/^\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*$/\" [.'$SemVer']", path])
-    }
     return res
 }
 
@@ -432,18 +408,14 @@ function json_model_10(val, path, rep)
         // .'$Version'.'|'.1
         res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 0
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"=0\" [.'$Version'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$Version'.'|']", path])
-    }
     return res
 }
 
@@ -456,9 +428,7 @@ function json_model_11(val, path, rep)
     // "/^(<=|<|>=|>|!=|==)$/"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_3(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/^(<=|<|>=|>|!=|==)$/\" [.'$Ops']", path])
-    }
     return res
 }
 
@@ -471,9 +441,7 @@ function json_model_12(val, path, rep)
     // "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_4(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/^\\\\s*(<=|<|>=|>|!=|==)\\\\s*(\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*)\\\\s*(,\\\\s*(<=|<|>=|>|!=|==)\\\\s*(\\\\d+\\\\.\\\\d+\\\\.\\\\d+[-_A-Za-z0-9]*))*\\\\s*$/\" [.'$VersionRange']", path])
-    }
     return res
 }
 
@@ -484,9 +452,7 @@ function json_model_13(val, path, rep)
     // .'$Phase'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_2.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$Phase'.'|']", path])
-    }
     return res
 }
 
@@ -497,9 +463,7 @@ function json_model_14(val, path, rep)
     // .'$Relation'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_3.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$Relation'.'|']", path])
-    }
     return res
 }
 
@@ -526,9 +490,7 @@ function json_model_15(val, path, rep)
             // .'$Prereq'.''.'|'.1
             res = json_model_12(pval, (path ? lpath_4 : null), rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"$VersionRange\" [.'$Prereq'.''.'|'.1]", (path ? lpath_4 : null)])
-            }
         }
         if (res)
         {
@@ -567,11 +529,9 @@ function _jm_obj_2(val, path, rep)
             }
         }
         else if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'$Prereqs'.'$Phase'.'/^[Xx]_/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Prereqs'.'$Phase']", (path ? lpath_6 : null)])
@@ -606,11 +566,9 @@ function json_model_16(val, path, rep)
             }
         }
         else if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'$Prereqs'.'/^[Xx]_/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'$Prereqs']", (path ? lpath_5 : null)])
@@ -709,11 +667,9 @@ function _jm_obj_5(val, path, rep)
             continue
         }
         if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'meta-spec'.'/^[Xx]_/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.'meta-spec']", (path ? lpath_10 : null)])
@@ -725,9 +681,7 @@ function _jm_obj_5(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("version"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <version> [.'meta-spec']", path])
-            }
         }
         return false
     }
@@ -847,9 +801,7 @@ function json_model_1(val, path, rep)
                 // .maintainer.'|'.1
                 res = json_model_3(pval, (path ? lpath_7 : null), rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"$neStrList\" [.maintainer.'|'.1]", (path ? lpath_7 : null)])
-                }
             }
             if (res)
             {
@@ -881,9 +833,7 @@ function json_model_1(val, path, rep)
                     // .license.'|'.2
                     res = _jm_obj_3(pval, (path ? lpath_7 : null), rep)
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected element [.license.'|'.2]", (path ? lpath_7 : null)])
-                    }
                 }
             }
             if (res)
@@ -1031,11 +981,9 @@ function json_model_1(val, path, rep)
             continue
         }
         if (_jm_re_1(prop, path, rep))
-        {
             // handle 1 re props
             // .'/^[Xx]_/'
             res = true
-        }
         else
         {
             rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_7 : null)])
@@ -1047,33 +995,19 @@ function json_model_1(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("abstract"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <abstract> [.]", path])
-            }
             if (! val.hasOwnProperty("license"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <license> [.]", path])
-            }
             if (! val.hasOwnProperty("maintainer"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <maintainer> [.]", path])
-            }
             if (! val.hasOwnProperty("meta-spec"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <meta-spec> [.]", path])
-            }
             if (! val.hasOwnProperty("name"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <name> [.]", path])
-            }
             if (! val.hasOwnProperty("provides"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <provides> [.]", path])
-            }
             if (! val.hasOwnProperty("version"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <version> [.]", path])
-            }
         }
         return false
     }
@@ -1155,9 +1089,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

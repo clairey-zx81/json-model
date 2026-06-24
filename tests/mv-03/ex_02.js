@@ -17,9 +17,7 @@ function json_model_5(val, path, rep)
     // .'$x1'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x1']", path])
-    }
     return res
 }
 
@@ -29,9 +27,7 @@ function json_model_6(val, path, rep)
     // .'$x2'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x2']", path])
-    }
     return res
 }
 
@@ -41,9 +37,7 @@ function json_model_7(val, path, rep)
     // .'$x3'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x3']", path])
-    }
     return res
 }
 
@@ -53,9 +47,7 @@ function json_model_8(val, path, rep)
     // .'$__external_0'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$__external_0']", path])
-    }
     return res
 }
 
@@ -85,29 +77,19 @@ function json_model_1(val, path, rep)
                     // .3
                     res = ((typeof val[3] === 'string' || val[3] instanceof String)) && val[3] == "Susie"
                     if (! res)
-                    {
                         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.3]", (path ? lpath_0 : null)])
-                    }
                 }
                 else
-                {
                     rep !== null && rep.push(["unexpected value for model \"_Susie\" [.2]", (path ? lpath_0 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected value for model \"_Susie\" [.1]", (path ? lpath_0 : null)])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"_Susie\" [.0]", (path ? lpath_0 : null)])
-        }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
-    }
     return res
 }
 
@@ -133,9 +115,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

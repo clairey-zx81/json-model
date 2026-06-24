@@ -30,9 +30,7 @@ function json_model_3(val, path, rep)
     // A single test
     // .'$Test'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     let must_count = 0
     for (const [prop, pval] of Object.entries(val))
@@ -44,9 +42,7 @@ function json_model_3(val, path, rep)
             // .'$Test'.description
             res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "data")
@@ -64,9 +60,7 @@ function json_model_3(val, path, rep)
             // .'$Test'.valid
             res = (typeof pval === 'boolean' || pval instanceof Boolean)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (prop == "comment")
@@ -75,9 +69,7 @@ function json_model_3(val, path, rep)
             // .'$Test'.comment
             res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -93,9 +85,7 @@ const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 function _jm_obj_0(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
@@ -105,9 +95,7 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.core
             res = json_model_2(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "validation")
@@ -116,9 +104,7 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.validation
             res = json_model_2(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "ecma262")
@@ -127,9 +113,7 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.ecma262
             res = json_model_2(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "perl5")
@@ -138,9 +122,7 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.perl5
             res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "quote")
@@ -149,9 +131,7 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.quote
             res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (_jm_re_1(prop, null, null))
@@ -160,9 +140,7 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.'/^rfc\\d+$/'
             res = json_model_2(pval, null, null)
             if (! res)
-            {
                 return false
-            }
         }
         else if (_jm_re_2(prop, null, null))
         {
@@ -170,14 +148,10 @@ function _jm_obj_0(val, path, rep)
             // .'$Specification'.'@'.'/^iso\\d+$/'
             res = json_model_2(pval, null, null)
             if (! res)
-            {
                 return false
-            }
         }
         else
-        {
             return false
-        }
     }
     return true
 }
@@ -201,9 +175,7 @@ function json_model_5(val, path, rep)
 {
     // .'$TestCase'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     let must_count = 0
     for (const [prop, pval] of Object.entries(val))
@@ -215,9 +187,7 @@ function json_model_5(val, path, rep)
             // .'$TestCase'.description
             res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "schema")
@@ -243,9 +213,7 @@ function json_model_5(val, path, rep)
                     // .'$TestCase'.tests.'@'.0
                     res = json_model_3(arr_0_item, null, null)
                     if (! res)
-                    {
                         break
-                    }
                 }
             }
             if (res)
@@ -254,9 +222,7 @@ function json_model_5(val, path, rep)
                 res = ival_1 >= 1
             }
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (prop == "comment")
@@ -265,9 +231,7 @@ function json_model_5(val, path, rep)
             // .'$TestCase'.comment
             res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "specification")
@@ -284,9 +248,7 @@ function json_model_5(val, path, rep)
                     // .'$TestCase'.specification.'@'.0
                     res = json_model_4(arr_1_item, null, null)
                     if (! res)
-                    {
                         break
-                    }
                 }
             }
             if (res)
@@ -295,9 +257,7 @@ function json_model_5(val, path, rep)
                 res = runtime.jm_array_is_unique(pval, null, null) && ival_2 >= 1
             }
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -320,9 +280,7 @@ function json_model_1(val, path, rep)
             // .'@'.0
             res = json_model_5(arr_2_item, null, null)
             if (! res)
-            {
                 break
-            }
         }
     }
     if (res)
@@ -355,9 +313,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

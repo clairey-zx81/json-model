@@ -111,48 +111,32 @@ function _jm_obj_2(val, path, rep)
     // .'|'.2.t.'^'.0
     let xr_0 = (typeof pval === 'string' || pval instanceof String)
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'|'.2.t.'^'.0]", (path ? lpath : null)])
-    }
     // .'|'.2.t.'^'.1
     xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "a"
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'|'.2.t.'^'.1]", (path ? lpath : null)])
-    }
     if (xc_0 <= 1)
     {
         // .'|'.2.t.'^'.2
         xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "b"
         if (xr_0)
-        {
             xc_0 += 1
-        }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"_b\" [.'|'.2.t.'^'.2]", (path ? lpath : null)])
-        }
     }
     if (xc_0 <= 1)
     {
         // .'|'.2.t.'^'.3
         xr_0 = ((typeof pval === 'string' || pval instanceof String)) && pval == "c"
         if (xr_0)
-        {
             xc_0 += 1
-        }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"_c\" [.'|'.2.t.'^'.3]", (path ? lpath : null)])
-        }
     }
     let res = xc_0 == 1
     if (res)
@@ -182,9 +166,7 @@ function json_model_1(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -198,17 +180,13 @@ function json_model_1(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'|']", path])
-    }
     if (! res)
     {
         // .'|'.2
         res = _jm_obj_2(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected element [.'|'.2]", path])
-        }
     }
     return res
 }
@@ -236,9 +214,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

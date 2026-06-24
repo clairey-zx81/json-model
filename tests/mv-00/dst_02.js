@@ -10,34 +10,22 @@ export var check_model_map = new Map()
 function _jm_obj_0(val, path, rep)
 {
     if (Object.keys(val).length != 3)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("c"))
-    {
         return false
-    }
     pval = val["c"]
     let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("a"))
-    {
         return false
-    }
     pval = val["a"]
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("f"))
-    {
         return false
-    }
     pval = val["f"]
     return (typeof pval === 'boolean' || pval instanceof Boolean)
 }
@@ -45,34 +33,22 @@ function _jm_obj_0(val, path, rep)
 function _jm_obj_1(val, path, rep)
 {
     if (Object.keys(val).length != 3)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("c"))
-    {
         return false
-    }
     pval = val["c"]
     let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("a"))
-    {
         return false
-    }
     pval = val["a"]
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("e"))
-    {
         return false
-    }
     pval = val["e"]
     return (typeof pval === 'boolean' || pval instanceof Boolean)
 }
@@ -80,34 +56,22 @@ function _jm_obj_1(val, path, rep)
 function _jm_obj_2(val, path, rep)
 {
     if (Object.keys(val).length != 3)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("c"))
-    {
         return false
-    }
     pval = val["c"]
     let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("a"))
-    {
         return false
-    }
     pval = val["a"]
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     return (typeof pval === 'boolean' || pval instanceof Boolean)
 }
@@ -115,34 +79,22 @@ function _jm_obj_2(val, path, rep)
 function _jm_obj_3(val, path, rep)
 {
     if (Object.keys(val).length != 3)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("b"))
-    {
         return false
-    }
     pval = val["b"]
     let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("a"))
-    {
         return false
-    }
     pval = val["a"]
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("f"))
-    {
         return false
-    }
     pval = val["f"]
     return (typeof pval === 'boolean' || pval instanceof Boolean)
 }
@@ -150,34 +102,22 @@ function _jm_obj_3(val, path, rep)
 function _jm_obj_4(val, path, rep)
 {
     if (Object.keys(val).length != 3)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("b"))
-    {
         return false
-    }
     pval = val["b"]
     let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("a"))
-    {
         return false
-    }
     pval = val["a"]
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("e"))
-    {
         return false
-    }
     pval = val["e"]
     return (typeof pval === 'boolean' || pval instanceof Boolean)
 }
@@ -185,34 +125,22 @@ function _jm_obj_4(val, path, rep)
 function _jm_obj_5(val, path, rep)
 {
     if (Object.keys(val).length != 3)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("b"))
-    {
         return false
-    }
     pval = val["b"]
     let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("a"))
-    {
         return false
-    }
     pval = val["a"]
     res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("d"))
-    {
         return false
-    }
     pval = val["d"]
     return (typeof pval === 'boolean' || pval instanceof Boolean)
 }
@@ -240,9 +168,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

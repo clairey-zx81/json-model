@@ -37,29 +37,19 @@ function json_model_1(val, path, rep)
                     // .3
                     res = ((typeof val[3] === 'number' || val[3] instanceof Number)) && val[3] >= 0.0
                     if (! res)
-                    {
                         rep !== null && rep.push(["not a 0.0 strict float [.3]", (path ? lpath_0 : null)])
-                    }
                 }
                 else
-                {
                     rep !== null && rep.push(["not a bool [.2]", (path ? lpath_0 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["not a 0 strict int [.1]", (path ? lpath_0 : null)])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"\" [.0]", (path ? lpath_0 : null)])
-        }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
-    }
     return res
 }
 
@@ -81,9 +71,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -1,3 +1,4 @@
+import re
 import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, PathExpr, Expr, StrExpr
@@ -336,3 +337,36 @@ class JavaScript(Language):
 
     def gen_free(self, free: Block) -> Block:
         return self.file_subs("javascript_free.js", free)
+
+    def filter_code(self, code: Block) -> Block:
+        # remove useless braces
+        for i in range(len(code)):
+            line = code[i]
+            if line is None:  # skip
+                continue
+            # remove useless braces around one instruction in some safe cases
+            if re.match(r"^ +\{$", line):
+                ninst, n, opened = 0, 0, 1
+                while True:
+                    n += 1
+                    nline = code[i+n]
+                    if nline is None or re.match(r"^ *$", nline) or re.match(r"^ *//", nline):
+                        continue
+                    if re.match(r"^ +\{$", nline):
+                        opened += 1
+                    elif re.match(r"^ +\}$", nline):
+                        opened -= 1
+                        if opened == 0:
+                            break
+                    elif " if (" in nline:
+                        # keep braces around nested ifs
+                        ninst = -1
+                        break
+                    else:
+                        # note this is intentionnaly pessimistic
+                        ninst += 1
+                if ninst == 1:
+                    # log.warning(code[i:i+n+1])
+                    code[i], code[i+n] = None, None
+
+        return list(filter(lambda s: s is not None, code))

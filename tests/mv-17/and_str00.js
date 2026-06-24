@@ -33,23 +33,17 @@ function json_model_1(val, path, rep)
             // "/[0-9]/"
             res = _jm_re_0(val, path, rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'&'.1]", path])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'&'.0]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not all model match [.'&']", path])
-    }
     return res
 }
 
@@ -71,9 +65,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

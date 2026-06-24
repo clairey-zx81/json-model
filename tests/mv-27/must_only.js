@@ -22,19 +22,13 @@ function _jm_obj_1(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 1)
-    {
         return false
-    }
     let pval
     let res
     if (! val.hasOwnProperty("p10"))
-    {
         return false
-    }
     pval = val["p10"]
     // .mo1.p10
     return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
@@ -45,29 +39,19 @@ function _jm_obj_2(val, path, rep)
 {
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("p20"))
-    {
         return false
-    }
     pval = val["p20"]
     // .mo2.p20
     let res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("p21"))
-    {
         return false
-    }
     pval = val["p21"]
     // .mo2.p21
     return ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
@@ -77,9 +61,7 @@ function _jm_obj_2(val, path, rep)
 function _jm_obj_3(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     let must_count = 0
     for (const [prop, pval] of Object.entries(val))
@@ -91,9 +73,7 @@ function _jm_obj_3(val, path, rep)
             // .mo3.p30
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "p31")
@@ -103,9 +83,7 @@ function _jm_obj_3(val, path, rep)
             // .mo3.p31
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "p32")
@@ -115,9 +93,7 @@ function _jm_obj_3(val, path, rep)
             // .mo3.p32
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -130,9 +106,7 @@ function json_model_1(val, path, rep)
 {
     // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
@@ -143,9 +117,7 @@ function json_model_1(val, path, rep)
             // .mo0
             res = _jm_obj_0(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "mo1")
@@ -155,9 +127,7 @@ function json_model_1(val, path, rep)
             // .mo1
             res = _jm_obj_1(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "mo2")
@@ -167,9 +137,7 @@ function json_model_1(val, path, rep)
             // .mo2
             res = _jm_obj_2(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "mo3")
@@ -179,9 +147,7 @@ function json_model_1(val, path, rep)
             // .mo3
             res = _jm_obj_3(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -207,9 +173,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

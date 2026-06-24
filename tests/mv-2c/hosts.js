@@ -14,9 +14,7 @@ const jm_is_ip6_re = new runtime.RX("^(([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}|([0-9a-f
 function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
@@ -24,36 +22,28 @@ function json_model_1(val, path, rep)
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_ip4(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "ipv6")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_ip6(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "host")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_host(pval, null, null) && runtime.jm_char_length(pval) <= 255
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "eth")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && jm_is_eth(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -87,9 +77,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

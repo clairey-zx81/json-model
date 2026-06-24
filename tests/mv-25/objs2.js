@@ -17,29 +17,19 @@ function json_model_2(val, path, rep)
     // .'$bla'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("x"))
-    {
         return false
-    }
     pval = val["x"]
     // .'$bla'.x
     let res = (typeof pval === 'number' || pval instanceof Number)
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("y"))
-    {
         return false
-    }
     pval = val["y"]
     // .'$bla'.y
     return (typeof pval === 'number' || pval instanceof Number)
@@ -87,9 +77,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

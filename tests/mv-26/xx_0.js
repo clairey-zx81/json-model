@@ -23,32 +23,22 @@ function json_model_1(val, path, rep)
     // .'^'.0
     let xr_0 = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["value not in enum [.'^'.0.'|']", path])
-    }
     // .'^'.1
     xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "hello"
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"_hello\" [.'^'.1]", path])
-    }
     let res = xc_0 == 1
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not one model match [.'^']", path])
-    }
     return res
 }
 
@@ -73,9 +63,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

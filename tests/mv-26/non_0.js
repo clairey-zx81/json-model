@@ -20,35 +20,23 @@ function json_model_1(val, path, rep)
     // .'^'.0
     let xr_0 = (typeof val === 'string' || val instanceof String)
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0]", path])
-    }
     // .'^'.1
     xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "!"
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"_!\" [.'^'.1]", path])
-    }
     if (xc_0 <= 1)
     {
         // .'^'.2
         xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "world"
         if (xr_0)
-        {
             xc_0 += 1
-        }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"_world\" [.'^'.2]", path])
-        }
     }
     let res = xc_0 == 1
     if (res)
@@ -56,9 +44,7 @@ function json_model_1(val, path, rep)
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not one model match [.'^']", path])
-    }
     return res
 }
 
@@ -80,9 +66,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -24,18 +24,14 @@ function json_model_4(val, path, rep)
         // .'$ex5'.'|'.1
         res = json_model_6(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$Ex05b\" [.'$ex5'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$ex5'.'|']", path])
-    }
     return res
 }
 
@@ -48,9 +44,7 @@ function json_model_3(val, path, rep)
     // "/[a-z]/"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/[a-z]/\" [.'$Ex07']", path])
-    }
     return res
 }
 
@@ -66,18 +60,14 @@ function json_model_7(val, path, rep)
         // .'$__external_0'.'|'.1
         res = json_model_9(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$Ex05b\" [.'$__external_0'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$__external_0'.'|']", path])
-    }
     return res
 }
 
@@ -102,24 +92,16 @@ function json_model_1(val, path, rep)
                 // .2
                 res = json_model_3(val[2], (path ? lpath_0 : null), rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"$Ex07\" [.2]", (path ? lpath_0 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected value for model \"$__external_0#Ex05b\" [.1]", (path ? lpath_0 : null)])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"$ex5#Ex05a\" [.0]", (path ? lpath_0 : null)])
-        }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
-    }
     return res
 }
 
@@ -129,9 +111,7 @@ function json_model_5(val, path, rep)
     // .'$ex5#Ex05a'
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$ex5#Ex05a']", path])
-    }
     return res
 }
 
@@ -141,9 +121,7 @@ function json_model_6(val, path, rep)
     // .'$ex5#Ex05b'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ex5#Ex05b']", path])
-    }
     return res
 }
 
@@ -153,9 +131,7 @@ function json_model_8(val, path, rep)
     // .'$__external_0#Ex05a'
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$__external_0#Ex05a']", path])
-    }
     return res
 }
 
@@ -165,9 +141,7 @@ function json_model_9(val, path, rep)
     // .'$__external_0#Ex05b'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$__external_0#Ex05b']", path])
-    }
     return res
 }
 
@@ -192,9 +166,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -17,9 +17,7 @@ function json_model_2(val, path, rep)
     // .'$Nn'
     let res = val === null
     if (! res)
-    {
         rep !== null && rep.push(["not null [.'$Nn']", path])
-    }
     return res
 }
 
@@ -29,9 +27,7 @@ function json_model_3(val, path, rep)
     // .'$Bb'
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Bb']", path])
-    }
     return res
 }
 
@@ -41,9 +37,7 @@ function json_model_4(val, path, rep)
     // .'$Ii'
     let res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val)
     if (! res)
-    {
         rep !== null && rep.push(["not a -1 strict int [.'$Ii']", path])
-    }
     return res
 }
 
@@ -53,9 +47,7 @@ function json_model_5(val, path, rep)
     // .'$Ff'
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["not a -1.0 strict float [.'$Ff']", path])
-    }
     return res
 }
 
@@ -65,9 +57,7 @@ function json_model_6(val, path, rep)
     // .'$Ss'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Ss']", path])
-    }
     return res
 }
 
@@ -92,9 +82,7 @@ function json_model_7(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$Aa']", path])
-    }
     return res
 }
 
@@ -160,9 +148,7 @@ function json_model_9(val, path, rep)
                             // .'$Any'.'|'.6
                             res = json_model_8(val, path, rep)
                             if (! res)
-                            {
                                 rep !== null && rep.push(["unexpected value for model \"$Oo\" [.'$Any'.'|'.6]", path])
-                            }
                         }
                     }
                 }
@@ -174,9 +160,7 @@ function json_model_9(val, path, rep)
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$Any'.'|']", path])
-    }
     return res
 }
 
@@ -186,9 +170,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_9(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Any\" [.]", path])
-    }
     return res
 }
 
@@ -218,9 +200,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

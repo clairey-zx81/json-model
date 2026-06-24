@@ -20,9 +20,7 @@ function json_model_2(val, path, rep)
     // .'$Xxx'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$Xxx'.'|']", path])
-    }
     return res
 }
 
@@ -109,9 +107,7 @@ function json_model_1(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("foo"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <foo> [.'']", path])
-            }
         }
         return false
     }
@@ -140,9 +136,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

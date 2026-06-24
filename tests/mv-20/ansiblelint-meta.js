@@ -3170,9 +3170,7 @@ function json_model_49(val, path, rep)
                                                                                                                                                                                             // .'$any_platform'.'|'.46
                                                                                                                                                                                             res = json_model_41(val, path, rep)
                                                                                                                                                                                             if (! res)
-                                                                                                                                                                                            {
                                                                                                                                                                                                 rep !== null && rep.push(["unexpected value for model \"$WindowsPlatformModel\" [.'$any_platform'.'|'.46]", path])
-                                                                                                                                                                                            }
                                                                                                                                                                                         }
                                                                                                                                                                                     }
                                                                                                                                                                                 }
@@ -3224,9 +3222,7 @@ function json_model_49(val, path, rep)
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$any_platform'.'|']", path])
-    }
     return res
 }
 
@@ -6142,9 +6138,7 @@ function json_model_50(val, path, rep)
                                                                                                                                                                                                         // .'$platforms'.0.'|'.46
                                                                                                                                                                                                         res = _jm_obj_0(arr_47_item, (path ? arr_47_lpath : null), rep)
                                                                                                                                                                                                         if (! res)
-                                                                                                                                                                                                        {
                                                                                                                                                                                                             rep !== null && rep.push(["unexpected element [.'$platforms'.0.'|'.46]", (path ? arr_47_lpath : null)])
-                                                                                                                                                                                                        }
                                                                                                                                                                                                     }
                                                                                                                                                                                                 }
                                                                                                                                                                                             }
@@ -6196,24 +6190,16 @@ function json_model_50(val, path, rep)
                     if (rep !== null) rep.length = 0
                 }
                 else
-                {
                     rep !== null && rep.push(["no model matched [.'$platforms'.0.'|']", (path ? arr_47_lpath : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected type [.'$platforms'.0.'|']", (path ? arr_47_lpath : null)])
-            }
             if (! res)
-            {
                 break
-            }
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$platforms']", path])
-    }
     return res
 }
 
@@ -6457,9 +6443,7 @@ function json_model_52(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("description"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <description> [.'$GalaxyInfoModelLoose']", path])
-            }
         }
         return false
     }
@@ -6699,25 +6683,15 @@ function json_model_53(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("author"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <author> [.'$GalaxyInfoModelStandalone']", path])
-            }
             if (! val.hasOwnProperty("description"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <description> [.'$GalaxyInfoModelStandalone']", path])
-            }
             if (! val.hasOwnProperty("license"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <license> [.'$GalaxyInfoModelStandalone']", path])
-            }
             if (! val.hasOwnProperty("min_ansible_version"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <min_ansible_version> [.'$GalaxyInfoModelStandalone']", path])
-            }
             if (! val.hasOwnProperty("standalone"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <standalone> [.'$GalaxyInfoModelStandalone']", path])
-            }
         }
         return false
     }
@@ -6953,13 +6927,9 @@ function _jm_obj_47(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("description"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path])
-            }
             if (! val.hasOwnProperty("standalone"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.1]", path])
-            }
         }
         return false
     }
@@ -7181,9 +7151,7 @@ function _jm_obj_48(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("description"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.2]", path])
-            }
         }
         return false
     }
@@ -7204,9 +7172,7 @@ function json_model_54(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -7220,17 +7186,13 @@ function json_model_54(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'$GalaxyInfoModel'.'|']", path])
-    }
     if (! res)
     {
         // .'$GalaxyInfoModel'.'|'.2
         res = _jm_obj_48(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected element [.'$GalaxyInfoModel'.'|'.2]", path])
-        }
     }
     return res
 }
@@ -7259,9 +7221,7 @@ function json_model_55(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$collections']", path])
-    }
     return res
 }
 
@@ -7297,9 +7257,7 @@ function json_model_56(val, path, rep)
                 }
             }
             if (! res)
-            {
                 rep !== null && rep.push(["not array or unexpected array [.'$complex_conditional'.'|'.2]", path])
-            }
         }
     }
     if (res)
@@ -7307,9 +7265,7 @@ function json_model_56(val, path, rep)
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$complex_conditional'.'|']", path])
-    }
     return res
 }
 
@@ -7423,9 +7379,7 @@ function json_model_57(val, path, rep)
                 }
             }
             if (! res)
-            {
                 rep !== null && rep.push(["not array or unexpected array [.'$DependencyModelLoose'.tags.'|'.1]", (path ? lpath : null)])
-            }
         }
         if (res)
         {
@@ -7583,9 +7537,7 @@ function json_model_58(val, path, rep)
                         // .'$DependencyModel'.'&'.1.'|'.2
                         res = _jm_obj_49(val, path, rep)
                         if (! res)
-                        {
                             rep !== null && rep.push(["unexpected element [.'$DependencyModel'.'&'.1.'|'.2]", path])
-                        }
                     }
                 }
                 if (res)
@@ -7593,28 +7545,20 @@ function json_model_58(val, path, rep)
                     if (rep !== null) rep.length = 0
                 }
                 else
-                {
                     rep !== null && rep.push(["no model matched [.'$DependencyModel'.'&'.1.'|']", path])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected type [.'$DependencyModel'.'&'.1.'|']", path])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"$DependencyModelLoose\" [.'$DependencyModel'.'&'.0]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not all model match [.'$DependencyModel'.'&']", path])
-    }
     return res
 }
 
@@ -7677,9 +7621,7 @@ function json_model_59(val, path, rep)
                         // .'$AnsibleMetaObj'.dependencies.0.'|'.1
                         res = json_model_58(arr_102_item, ((path ? lpath_52 : null) ? arr_102_lpath : null), rep)
                         if (! res)
-                        {
                             rep !== null && rep.push(["unexpected value for model \"$DependencyModel\" [.'$AnsibleMetaObj'.dependencies.0.'|'.1]", ((path ? lpath_52 : null) ? arr_102_lpath : null)])
-                        }
                     }
                     if (res)
                     {
@@ -7732,18 +7674,14 @@ function json_model_60(val, path, rep)
         // .'$AnsibleMeta'.'|'.1
         res = json_model_59(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$AnsibleMetaObj\" [.'$AnsibleMeta'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$AnsibleMeta'.'|']", path])
-    }
     return res
 }
 
@@ -7753,9 +7691,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_60(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$AnsibleMeta\" [.]", path])
-    }
     return res
 }
 
@@ -8544,9 +8480,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

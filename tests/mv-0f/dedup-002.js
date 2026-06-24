@@ -22,18 +22,14 @@ function json_model_1(val, path, rep)
     // .'^'.1
     is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! is_0)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'^'.1]", path])
-    }
     res = ! is_0
     if (res)
     {
         // .'^'.4
         is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
         if (! is_0)
-        {
             rep !== null && rep.push(["not a 1 strict int [.'^'.4]", path])
-        }
         res = ! is_0
     }
     if (res)
@@ -41,9 +37,7 @@ function json_model_1(val, path, rep)
         // .'^'.7
         is_0 = (typeof val === 'string' || val instanceof String)
         if (! is_0)
-        {
             rep !== null && rep.push(["unexpected value for model \"\" [.'^'.7]", path])
-        }
         res = ! is_0
     }
     res = false
@@ -69,9 +63,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

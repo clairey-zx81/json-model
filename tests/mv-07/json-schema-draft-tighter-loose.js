@@ -19,9 +19,7 @@ function json_model_3(val, path, rep)
     // .'$tight'
     let res = json_model_27(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$RootSchema\" [.'$tight']", path])
-    }
     return res
 }
 
@@ -31,9 +29,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_27(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$tight#RootSchema\" [.]", path])
-    }
     return res
 }
 
@@ -81,23 +77,17 @@ function json_model_27(val, path, rep)
             // .'$tight#RootSchema'.'&'.1
             res = json_model_25(val, path, rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"$ObjectSchema\" [.'$tight#RootSchema'.'&'.1]", path])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected element [.'$tight#RootSchema'.'&'.0]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not all model match [.'$tight#RootSchema'.'&']", path])
-    }
     return res
 }
 
@@ -115,9 +105,7 @@ function json_model_25(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -131,9 +119,7 @@ function json_model_25(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'$tight#ObjectSchema'.'|']", path])
-    }
     return res || json_model_11(val, path, rep) || json_model_23(val, path, rep) || json_model_22(val, path, rep) || json_model_19(val, path, rep) || json_model_20(val, path, rep) || json_model_21(val, path, rep) || json_model_24(val, path, rep) || json_model_28(val, path, rep) || json_model_29(val, path, rep) || json_model_30(val, path, rep) || json_model_31(val, path, rep) || json_model_32(val, path, rep) || json_model_33(val, path, rep) || json_model_34(val, path, rep)
 }
 
@@ -590,9 +576,7 @@ function json_model_12(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#String']", path])
-            }
         }
         return false
     }
@@ -824,9 +808,7 @@ function json_model_13(val, path, rep)
                 // .'$tight#Array'.items.'|'.1
                 res = json_model_6(pval, (path ? lpath_6 : null), rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"$schemaArray\" [.'$tight#Array'.items.'|'.1]", (path ? lpath_6 : null)])
-                }
             }
             if (res)
             {
@@ -900,9 +882,7 @@ function json_model_13(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#Array']", path])
-            }
         }
         return false
     }
@@ -930,9 +910,7 @@ function json_model_6(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$tight#schemaArray']", path])
-    }
     return res
 }
 
@@ -1267,9 +1245,7 @@ function json_model_14(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#Object']", path])
-            }
         }
         return false
     }
@@ -1510,9 +1486,7 @@ function json_model_15(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#Integer']", path])
-            }
         }
         return false
     }
@@ -1753,9 +1727,7 @@ function json_model_16(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#Number']", path])
-            }
         }
         return false
     }
@@ -1970,9 +1942,7 @@ function json_model_17(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#Bool']", path])
-            }
         }
         return false
     }
@@ -2187,9 +2157,7 @@ function json_model_18(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#Null']", path])
-            }
         }
         return false
     }
@@ -2404,9 +2372,7 @@ function json_model_19(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("allOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <allOf> [.'$tight#AllOf']", path])
-            }
         }
         return false
     }
@@ -2621,9 +2587,7 @@ function json_model_20(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("anyOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <anyOf> [.'$tight#AnyOf']", path])
-            }
         }
         return false
     }
@@ -2838,9 +2802,7 @@ function json_model_21(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("oneOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <oneOf> [.'$tight#OneOf']", path])
-            }
         }
         return false
     }
@@ -3055,9 +3017,7 @@ function json_model_22(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("enum"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <enum> [.'$tight#Enum']", path])
-            }
         }
         return false
     }
@@ -3133,9 +3093,7 @@ function json_model_5(val, path, rep)
                         }
                     }
                     if (! res)
-                    {
                         rep !== null && rep.push(["not array or unexpected array [.'$tight#enum'.'|'.3]", path])
-                    }
                 }
             }
         }
@@ -3144,14 +3102,10 @@ function json_model_5(val, path, rep)
             if (rep !== null) rep.length = 0
         }
         else
-        {
             rep !== null && rep.push(["no model matched [.'$tight#enum'.'|']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected type [.'$tight#enum'.'|']", path])
-    }
     return res
 }
 
@@ -3363,9 +3317,7 @@ function json_model_23(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("const"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <const> [.'$tight#Const']", path])
-            }
         }
         return false
     }
@@ -3378,9 +3330,7 @@ function json_model_4(val, path, rep)
     // .'$tight#const'
     let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected type [.'$tight#const'.'|']", path])
-    }
     return res
 }
 
@@ -3592,9 +3542,7 @@ function json_model_24(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("$ref"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <$ref> [.'$tight#Ref']", path])
-            }
         }
         return false
     }
@@ -3613,18 +3561,14 @@ function json_model_26(val, path, rep)
         // .'$tight#Schema'.'|'.1
         res = json_model_25(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$ObjectSchema\" [.'$tight#Schema'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$tight#Schema'.'|']", path])
-    }
     return res
 }
 
@@ -3865,13 +3809,9 @@ function json_model_28(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("enum"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <enum> [.'$tight#EnumString']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#EnumString']", path])
-            }
         }
         return false
     }
@@ -4115,13 +4055,9 @@ function json_model_29(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("enum"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <enum> [.'$tight#EnumNum']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#EnumNum']", path])
-            }
         }
         return false
     }
@@ -4365,13 +4301,9 @@ function json_model_30(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("enum"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <enum> [.'$tight#EnumInt']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#EnumInt']", path])
-            }
         }
         return false
     }
@@ -4600,13 +4532,9 @@ function json_model_31(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("const"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <const> [.'$tight#ConstString']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#ConstString']", path])
-            }
         }
         return false
     }
@@ -4835,13 +4763,9 @@ function json_model_32(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("const"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <const> [.'$tight#ConstNum']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#ConstNum']", path])
-            }
         }
         return false
     }
@@ -5070,13 +4994,9 @@ function json_model_33(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("const"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <const> [.'$tight#ConstInt']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#ConstInt']", path])
-            }
         }
         return false
     }
@@ -5305,13 +5225,9 @@ function json_model_34(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("const"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <const> [.'$tight#ConstBool']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$tight#ConstBool']", path])
-            }
         }
         return false
     }
@@ -5371,9 +5287,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

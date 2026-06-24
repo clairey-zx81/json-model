@@ -56,9 +56,7 @@ function json_model_1(val, path, rep)
     // .'^'.1
     is_0 = _jm_obj_0(val, path, rep)
     if (! is_0)
-    {
         rep !== null && rep.push(["unexpected element [.'^'.1]", path])
-    }
     res = ! is_0
     res = false
     rep !== null && rep.push(["not one model match [.'^']", path])
@@ -83,9 +81,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

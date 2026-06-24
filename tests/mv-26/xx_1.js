@@ -25,48 +25,32 @@ function json_model_1(val, path, rep)
     // .'^'.0.'^'.0
     let xr_1 = (typeof val === 'string' || val instanceof String)
     if (xr_1)
-    {
         xc_1 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'^'.0.'^'.0]", path])
-    }
     // .'^'.0.'^'.1
     xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "hello"
     if (xr_1)
-    {
         xc_1 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"_hello\" [.'^'.0.'^'.1]", path])
-    }
     if (xc_1 <= 1)
     {
         // .'^'.0.'^'.2
         xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "world"
         if (xr_1)
-        {
             xc_1 += 1
-        }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"_world\" [.'^'.0.'^'.2]", path])
-        }
     }
     if (xc_1 <= 1)
     {
         // .'^'.0.'^'.3
         xr_1 = ((typeof val === 'string' || val instanceof String)) && val == "!"
         if (xr_1)
-        {
             xc_1 += 1
-        }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"_!\" [.'^'.0.'^'.3]", path])
-        }
     }
     let xr_0 = xc_1 == 1
     if (xr_0)
@@ -75,28 +59,20 @@ function json_model_1(val, path, rep)
         xc_0 += 1
     }
     else
-    {
         rep !== null && rep.push(["not one model match [.'^'.0.'^']", path])
-    }
     // .'^'.1
     xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "hello"
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"_hello\" [.'^'.1]", path])
-    }
     res = xc_0 == 1
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not one model match [.'^']", path])
-    }
     return res
 }
 
@@ -118,9 +94,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -83,9 +83,7 @@ function json_model_2(val, path, rep)
             // .'$Aa'.'|'.0
             res = _jm_obj_1(val, path, rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.0]", path])
-            }
         }
         else
         {
@@ -94,28 +92,20 @@ function json_model_2(val, path, rep)
                 // .'$Aa'.'|'.1
                 res = _jm_obj_0(val, path, rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected element [.'$Aa'.'|'.1]", path])
-                }
             }
             else
-            {
                 res = false
-            }
         }
         if (res)
         {
             if (rep !== null) rep.length = 0
         }
         else
-        {
             rep !== null && rep.push(["no model matched [.'$Aa'.'|']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected type [.'$Aa'.'|']", path])
-    }
     return res
 }
 
@@ -165,18 +155,14 @@ function json_model_3(val, path, rep)
         // .'$Bb'.'|'.1
         res = json_model_2(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$Aa\" [.'$Bb'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$Bb'.'|']", path])
-    }
     return res
 }
 
@@ -186,9 +172,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_3(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Bb\" [.]", path])
-    }
     return res
 }
 
@@ -212,9 +196,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

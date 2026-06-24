@@ -109,11 +109,9 @@ function _jm_obj_1(val, path, rep)
             continue
         }
         if (prop.startsWith("z"))
-        {
             // handle 2 re props
             // .'&'.0.'/^z/'
             res = true
-        }
         else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
@@ -135,17 +133,11 @@ function _jm_obj_1(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("b"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <b> [.'&'.0.'']", path])
-            }
             if (! val.hasOwnProperty("f"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <f> [.'&'.0.'']", path])
-            }
             if (! val.hasOwnProperty("s"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <s> [.'&'.0.'']", path])
-            }
         }
         return false
     }
@@ -167,23 +159,17 @@ function json_model_1(val, path, rep)
             // .'&'.1
             res = _jm_obj_0(val, path, rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected element [.'&'.1]", path])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected element [.'&'.0]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not all model match [.'&']", path])
-    }
     return res
 }
 
@@ -205,9 +191,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -23,9 +23,7 @@ function json_model_1(val, path, rep)
             let arr_1_item = val[arr_1_idx]
             res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && _jm_re_1(arr_1_item, null, null)
             if (! res)
-            {
                 break
-            }
         }
         if (res)
         {
@@ -34,9 +32,7 @@ function json_model_1(val, path, rep)
                 let arr_0_item = val[arr_0_idx]
                 res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && _jm_re_0(arr_0_item, null, null)
                 if (! res)
-                {
                     break
-                }
             }
         }
     }
@@ -61,9 +57,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

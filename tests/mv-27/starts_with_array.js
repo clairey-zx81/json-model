@@ -25,9 +25,7 @@ function json_model_1(val, path, rep)
             // "/^hello world!/"
             res = ((typeof arr_0_item === 'string' || arr_0_item instanceof String)) && arr_0_item.startsWith("hello world!")
             if (! res)
-            {
                 break
-            }
         }
     }
     return res
@@ -51,9 +49,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

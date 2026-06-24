@@ -44,19 +44,13 @@ function json_model_1(val, path, rep)
             // "/^a/"
             res = ((typeof arr_1_item === 'string' || arr_1_item instanceof String)) && arr_1_item.startsWith("a")
             if (res)
-            {
                 break
-            }
             else
-            {
                 rep !== null && rep.push(["unexpected value for model \"/^a/\" [.'.in']", (path ? arr_1_lpath : null)])
-            }
         }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'@']", path])
-    }
     // .in test at .
     return res
 }
@@ -79,9 +73,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

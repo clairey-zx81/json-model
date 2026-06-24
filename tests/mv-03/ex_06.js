@@ -23,18 +23,14 @@ function json_model_4(val, path, rep)
         // .'$ex5'.'|'.1
         res = json_model_6(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$Ex05b\" [.'$ex5'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$ex5'.'|']", path])
-    }
     return res
 }
 
@@ -44,9 +40,7 @@ function json_model_3(val, path, rep)
     // .'$Ex06'
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Ex06']", path])
-    }
     return res
 }
 
@@ -71,24 +65,16 @@ function json_model_1(val, path, rep)
                 // .2
                 res = json_model_3(val[2], (path ? lpath_0 : null), rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"$Ex06\" [.2]", (path ? lpath_0 : null)])
-                }
             }
             else
-            {
                 rep !== null && rep.push(["unexpected value for model \"$ex5#Ex05b\" [.1]", (path ? lpath_0 : null)])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"$ex5#Ex05a\" [.0]", (path ? lpath_0 : null)])
-        }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
-    }
     return res
 }
 
@@ -98,9 +84,7 @@ function json_model_5(val, path, rep)
     // .'$ex5#Ex05a'
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$ex5#Ex05a']", path])
-    }
     return res
 }
 
@@ -110,9 +94,7 @@ function json_model_6(val, path, rep)
     // .'$ex5#Ex05b'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ex5#Ex05b']", path])
-    }
     return res
 }
 
@@ -136,9 +118,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

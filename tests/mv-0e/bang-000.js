@@ -116,25 +116,15 @@ function json_model_1(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("!"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <!> [.]", path])
-            }
             if (! val.hasOwnProperty("/"))
-            {
                 rep !== null && rep.push(["missing mandatory prop </> [.]", path])
-            }
             if (! val.hasOwnProperty("?"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <?> [.]", path])
-            }
             if (! val.hasOwnProperty("_"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <_> [.]", path])
-            }
             if (! val.hasOwnProperty("a"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <a> [.]", path])
-            }
         }
         return false
     }
@@ -159,9 +149,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)
