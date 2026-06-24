@@ -150,7 +150,7 @@
 - [ ] tests: improve predef validators cross-language consistency
 - [ ] tests: generate invalid minimal, maximal, random values
 - [ ] tests: generate invalid values on each constraint
-- [ ] backend: C and runtime with other well-chosen json lib
+- [ ] backend: C and runtime with json-c
 - [ ] backend: C++
 - [ ] backend: go
 - [ ] backend: php
@@ -344,7 +344,7 @@
 - [ ] design: documentation use case, with added _markdown description_
 - [ ] pr: validation must be optimized for the valid case, as it is the most likely.
 - [ ] case: use trafo in geo to have either 2 or 3 vectors, no mix.
+- [ ] c-backend: consider [json-c](https://github.com/json-c/json-c)
 - [ ] c-backend: consider [yyjson](https://github.com/ibireme/yyjson)
 - [ ] c-backend: consider [cJSON](https://github.com/davegamble/cjson) (linked lists? no ints?…)
-- [ ] c-backend: consider [json-c](https://github.com/json-c/json-c)
 - [ ] ~c-backend: consider [json.h](https://github.com/sheredom/json.h) (hmmm, linked lists)~
