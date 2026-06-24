@@ -21,9 +21,7 @@ function json_model_1(val, path, rep)
     // "/^(Il|a|devale|la|colline|Ses|pieds|faisaient|rouler|des|pierres|La_haut|entre|les|quatre|murs|La|sirene|chantait|sans|joie|Il|respirait|l_odeur|des|arbres|De|tout|son|corps|comme|une|forge|La|lumiere|l_accompagnait|Et|lui|faisait|danser|son|ombre|Pourvu|qu_ils|me|laissent|le|temps|Il|sautait|a|travers|les|herbes|Il|a|cueilli|deux|feuilles|jaunes|Gorgees|de|seve|et|de|soleil)$/i"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/^(Il|a|devale|la|colline|Ses|pieds|faisaient|rouler|des|pierres|La_haut|entre|les|quatre|murs|La|sirene|chantait|sans|joie|Il|respirait|l_odeur|des|arbres|De|tout|son|corps|comme|une|forge|La|lumiere|l_accompagnait|Et|lui|faisait|danser|son|ombre|Pourvu|qu_ils|me|laissent|le|temps|Il|sautait|a|travers|les|herbes|Il|a|cueilli|deux|feuilles|jaunes|Gorgees|de|seve|et|de|soleil)$/i\" [.]", path])
-    }
     return res
 }
 
@@ -45,9 +43,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

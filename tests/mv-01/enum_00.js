@@ -20,9 +20,7 @@ function json_model_2(val, path, rep)
     // .'$p1'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$p1'.'|']", path])
-    }
     return res
 }
 
@@ -33,9 +31,7 @@ function json_model_3(val, path, rep)
     // .'$p2'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$p2'.'|']", path])
-    }
     return res
 }
 
@@ -49,32 +45,22 @@ function json_model_1(val, path, rep)
     // .'^'.0
     let xr_0 = json_model_2(val, path, rep)
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"$p1\" [.'^'.0]", path])
-    }
     // .'^'.1
     xr_0 = json_model_3(val, path, rep)
     if (xr_0)
-    {
         xc_0 += 1
-    }
     else
-    {
         rep !== null && rep.push(["unexpected value for model \"$p2\" [.'^'.1]", path])
-    }
     let res = xc_0 == 1
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not one model match [.'^']", path])
-    }
     return res
 }
 
@@ -108,9 +94,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

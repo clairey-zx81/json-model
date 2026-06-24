@@ -19,9 +19,7 @@ function json_model_1(val, path, rep)
     // .'@'
     let res = Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'@']", path])
-    }
     // .in len at .
     let arr_0_inlen = 0
     if (res)
@@ -33,19 +31,13 @@ function json_model_1(val, path, rep)
             // .'.in'
             let arr_0_inres = ((typeof arr_0_item === 'number' || arr_0_item instanceof Number) && Number.isInteger(arr_0_item)) && arr_0_item == 1
             if (arr_0_inres)
-            {
                 arr_0_inlen += 1
-            }
             else
-            {
                 rep !== null && rep.push(["unexpected value for model \"=1\" [.'.in']", (path ? arr_0_lpath : null)])
-            }
         }
         res = arr_0_inlen == 1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.]", path])
-        }
     }
     return res
 }
@@ -68,9 +60,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

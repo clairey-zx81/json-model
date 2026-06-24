@@ -76,9 +76,7 @@ function json_model_1(val, path, rep)
 {
     // .
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
@@ -88,9 +86,7 @@ function json_model_1(val, path, rep)
             // .f0
             res = _jm_obj_0(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f1")
@@ -99,9 +95,7 @@ function json_model_1(val, path, rep)
             // .f1
             res = _jm_obj_1(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f2")
@@ -110,9 +104,7 @@ function json_model_1(val, path, rep)
             // .f2
             res = _jm_obj_2(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f3")
@@ -121,9 +113,7 @@ function json_model_1(val, path, rep)
             // .f3
             res = _jm_obj_3(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f4")
@@ -132,9 +122,7 @@ function json_model_1(val, path, rep)
             // .f4
             res = _jm_obj_4(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f5")
@@ -143,9 +131,7 @@ function json_model_1(val, path, rep)
             // .f5
             res = _jm_obj_5(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f6")
@@ -154,9 +140,7 @@ function json_model_1(val, path, rep)
             // .f6
             res = _jm_obj_6(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f7")
@@ -165,9 +149,7 @@ function json_model_1(val, path, rep)
             // .f7
             res = _jm_obj_7(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f8")
@@ -176,9 +158,7 @@ function json_model_1(val, path, rep)
             // .f8
             res = _jm_obj_8(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "f9")
@@ -187,9 +167,7 @@ function json_model_1(val, path, rep)
             // .f9
             res = _jm_obj_9(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -215,9 +193,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

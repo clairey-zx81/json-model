@@ -22,9 +22,7 @@ function json_model_2(val, path, rep)
     // .'$const'
     let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected type [.'$const'.'|']", path])
-    }
     return res
 }
 
@@ -97,9 +95,7 @@ function json_model_3(val, path, rep)
                         }
                     }
                     if (! res)
-                    {
                         rep !== null && rep.push(["not array or unexpected array [.'$enum'.'|'.3]", path])
-                    }
                 }
             }
         }
@@ -108,14 +104,10 @@ function json_model_3(val, path, rep)
             if (rep !== null) rep.length = 0
         }
         else
-        {
             rep !== null && rep.push(["no model matched [.'$enum'.'|']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected type [.'$enum'.'|']", path])
-    }
     return res
 }
 
@@ -140,9 +132,7 @@ function json_model_4(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$schemaArray']", path])
-    }
     return res
 }
 
@@ -257,9 +247,7 @@ function json_model_6(val, path, rep)
                 // .'$arrayKeywords'.items.'|'.1
                 res = json_model_4(pval, (path ? lpath_1 : null), rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"$schemaArray\" [.'$arrayKeywords'.items.'|'.1]", (path ? lpath_1 : null)])
-                }
             }
             if (res)
             {
@@ -1258,9 +1246,7 @@ function json_model_10(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$String']", path])
-            }
         }
         return false
     }
@@ -1273,9 +1259,7 @@ function _jm_f_0(val, path, rep)
     // .'$Array'.'$anchor'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.'$anchor']", path])
-    }
     return res
 }
 
@@ -1285,9 +1269,7 @@ function _jm_f_1(val, path, rep)
     // .'$Array'.'$comment'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.'$comment']", path])
-    }
     return res
 }
 
@@ -1322,9 +1304,7 @@ function _jm_f_3(val, path, rep)
     // .'$Array'.'$dynamicAnchor'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.'$dynamicAnchor']", path])
-    }
     return res
 }
 
@@ -1334,9 +1314,7 @@ function _jm_f_4(val, path, rep)
     // .'$Array'.'$id'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.'$id']", path])
-    }
     return res
 }
 
@@ -1346,9 +1324,7 @@ function _jm_f_5(val, path, rep)
     // .'$Array'.'$schema'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.'$schema']", path])
-    }
     return res
 }
 
@@ -1423,9 +1399,7 @@ function _jm_f_9(val, path, rep)
     // .'$Array'.deprecated
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Array'.deprecated]", path])
-    }
     return res
 }
 
@@ -1435,9 +1409,7 @@ function _jm_f_10(val, path, rep)
     // .'$Array'.description
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.description]", path])
-    }
     return res
 }
 
@@ -1447,9 +1419,7 @@ function _jm_f_11(val, path, rep)
     // .'$Array'.examples
     let res = Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$Array'.examples]", path])
-    }
     return res
 }
 
@@ -1459,9 +1429,7 @@ function _jm_f_12(val, path, rep)
     // .'$Array'.id
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.id]", path])
-    }
     return res
 }
 
@@ -1477,18 +1445,14 @@ function _jm_f_13(val, path, rep)
         // .'$Array'.items.'|'.1
         res = json_model_4(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$schemaArray\" [.'$Array'.items.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$Array'.items.'|']", path])
-    }
     return res
 }
 
@@ -1498,9 +1462,7 @@ function _jm_f_14(val, path, rep)
     // .'$Array'.maxItems
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$Array'.maxItems]", path])
-    }
     return res
 }
 
@@ -1510,9 +1472,7 @@ function _jm_f_15(val, path, rep)
     // .'$Array'.minItems
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$Array'.minItems]", path])
-    }
     return res
 }
 
@@ -1522,9 +1482,7 @@ function _jm_f_16(val, path, rep)
     // .'$Array'.readOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Array'.readOnly]", path])
-    }
     return res
 }
 
@@ -1534,9 +1492,7 @@ function _jm_f_17(val, path, rep)
     // .'$Array'.title
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Array'.title]", path])
-    }
     return res
 }
 
@@ -1546,9 +1502,7 @@ function _jm_f_18(val, path, rep)
     // .'$Array'.uniqueItems
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Array'.uniqueItems]", path])
-    }
     return res
 }
 
@@ -1558,9 +1512,7 @@ function _jm_f_19(val, path, rep)
     // .'$Array'.writeOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Array'.writeOnly]", path])
-    }
     return res
 }
 
@@ -1612,9 +1564,7 @@ function json_model_11(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Array']", path])
-            }
         }
         return false
     }
@@ -1627,9 +1577,7 @@ function _jm_f_20(val, path, rep)
     // .'$Object'.'$anchor'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.'$anchor']", path])
-    }
     return res
 }
 
@@ -1639,9 +1587,7 @@ function _jm_f_21(val, path, rep)
     // .'$Object'.'$comment'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.'$comment']", path])
-    }
     return res
 }
 
@@ -1676,9 +1622,7 @@ function _jm_f_23(val, path, rep)
     // .'$Object'.'$dynamicAnchor'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.'$dynamicAnchor']", path])
-    }
     return res
 }
 
@@ -1688,9 +1632,7 @@ function _jm_f_24(val, path, rep)
     // .'$Object'.'$id'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.'$id']", path])
-    }
     return res
 }
 
@@ -1700,9 +1642,7 @@ function _jm_f_25(val, path, rep)
     // .'$Object'.'$schema'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.'$schema']", path])
-    }
     return res
 }
 
@@ -1777,9 +1717,7 @@ function _jm_f_29(val, path, rep)
     // .'$Object'.deprecated
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Object'.deprecated]", path])
-    }
     return res
 }
 
@@ -1789,9 +1727,7 @@ function _jm_f_30(val, path, rep)
     // .'$Object'.description
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.description]", path])
-    }
     return res
 }
 
@@ -1801,9 +1737,7 @@ function _jm_f_31(val, path, rep)
     // .'$Object'.examples
     let res = Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$Object'.examples]", path])
-    }
     return res
 }
 
@@ -1813,9 +1747,7 @@ function _jm_f_32(val, path, rep)
     // .'$Object'.id
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.id]", path])
-    }
     return res
 }
 
@@ -1825,9 +1757,7 @@ function _jm_f_33(val, path, rep)
     // .'$Object'.maxProperties
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$Object'.maxProperties]", path])
-    }
     return res
 }
 
@@ -1837,9 +1767,7 @@ function _jm_f_34(val, path, rep)
     // .'$Object'.minProperties
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$Object'.minProperties]", path])
-    }
     return res
 }
 
@@ -1907,9 +1835,7 @@ function _jm_f_37(val, path, rep)
     // .'$Object'.readOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Object'.readOnly]", path])
-    }
     return res
 }
 
@@ -1934,9 +1860,7 @@ function _jm_f_38(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$Object'.required]", path])
-    }
     return res
 }
 
@@ -1946,9 +1870,7 @@ function _jm_f_39(val, path, rep)
     // .'$Object'.title
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$Object'.title]", path])
-    }
     return res
 }
 
@@ -1958,9 +1880,7 @@ function _jm_f_40(val, path, rep)
     // .'$Object'.writeOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$Object'.writeOnly]", path])
-    }
     return res
 }
 
@@ -2012,9 +1932,7 @@ function json_model_12(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Object']", path])
-            }
         }
         return false
     }
@@ -2365,9 +2283,7 @@ function json_model_13(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Integer']", path])
-            }
         }
         return false
     }
@@ -2718,9 +2634,7 @@ function json_model_14(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Number']", path])
-            }
         }
         return false
     }
@@ -3045,9 +2959,7 @@ function json_model_15(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Bool']", path])
-            }
         }
         return false
     }
@@ -3372,9 +3284,7 @@ function json_model_16(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Null']", path])
-            }
         }
         return false
     }
@@ -3699,9 +3609,7 @@ function json_model_17(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("allOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <allOf> [.'$AllOf']", path])
-            }
         }
         return false
     }
@@ -4026,9 +3934,7 @@ function json_model_18(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("anyOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <anyOf> [.'$AnyOf']", path])
-            }
         }
         return false
     }
@@ -4353,9 +4259,7 @@ function json_model_19(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("oneOf"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <oneOf> [.'$OneOf']", path])
-            }
         }
         return false
     }
@@ -4680,9 +4584,7 @@ function json_model_20(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("enum"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <enum> [.'$Enum']", path])
-            }
         }
         return false
     }
@@ -5007,9 +4909,7 @@ function json_model_21(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("const"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <const> [.'$Const']", path])
-            }
         }
         return false
     }
@@ -5334,9 +5234,7 @@ function json_model_22(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("$ref"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <$ref> [.'$Ref']", path])
-            }
         }
         return false
     }
@@ -5661,9 +5559,7 @@ function json_model_23(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("$dynamicRef"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <$dynamicRef> [.'$DynRef']", path])
-            }
         }
         return false
     }
@@ -5684,9 +5580,7 @@ function json_model_24(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -5700,9 +5594,7 @@ function json_model_24(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'$ObjectSchema'.'|']", path])
-    }
     return res || json_model_9(val, path, rep) || json_model_21(val, path, rep) || json_model_20(val, path, rep) || json_model_17(val, path, rep) || json_model_18(val, path, rep) || json_model_19(val, path, rep) || json_model_22(val, path, rep) || json_model_23(val, path, rep)
 }
 
@@ -5718,18 +5610,14 @@ function json_model_25(val, path, rep)
         // .'$Schema'.'|'.1
         res = json_model_24(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$ObjectSchema\" [.'$Schema'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$Schema'.'|']", path])
-    }
     return res
 }
 
@@ -5777,23 +5665,17 @@ function json_model_26(val, path, rep)
             // .'$RootSchema'.'&'.1
             res = json_model_24(val, path, rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"$ObjectSchema\" [.'$RootSchema'.'&'.1]", path])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected element [.'$RootSchema'.'&'.0]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not all model match [.'$RootSchema'.'&']", path])
-    }
     return res
 }
 
@@ -5803,9 +5685,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_26(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$RootSchema\" [.]", path])
-    }
     return res
 }
 
@@ -5960,9 +5840,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

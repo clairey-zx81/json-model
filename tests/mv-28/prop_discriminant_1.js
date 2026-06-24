@@ -26,9 +26,7 @@ function _jm_obj_0(val, path, rep)
             // .'|'.4.b
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "c")
@@ -38,9 +36,7 @@ function _jm_obj_0(val, path, rep)
             // .'|'.4.c
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "d")
@@ -50,9 +46,7 @@ function _jm_obj_0(val, path, rep)
             // .'|'.4.d
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "e")
@@ -62,9 +56,7 @@ function _jm_obj_0(val, path, rep)
             // .'|'.4.e
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (prop == "r")
@@ -73,9 +65,7 @@ function _jm_obj_0(val, path, rep)
             // .'|'.4.r
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -98,9 +88,7 @@ function _jm_obj_1(val, path, rep)
             // .'|'.3.a
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "e")
@@ -110,9 +98,7 @@ function _jm_obj_1(val, path, rep)
             // .'|'.3.e
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (prop == "s")
@@ -121,9 +107,7 @@ function _jm_obj_1(val, path, rep)
             // .'|'.3.s
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "q")
@@ -132,9 +116,7 @@ function _jm_obj_1(val, path, rep)
             // .'|'.3.q
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -157,9 +139,7 @@ function _jm_obj_2(val, path, rep)
             // .'|'.2.a
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "d")
@@ -169,9 +149,7 @@ function _jm_obj_2(val, path, rep)
             // .'|'.2.d
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (prop == "u")
@@ -180,9 +158,7 @@ function _jm_obj_2(val, path, rep)
             // .'|'.2.u
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "x")
@@ -191,9 +167,7 @@ function _jm_obj_2(val, path, rep)
             // .'|'.2.x
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -216,9 +190,7 @@ function _jm_obj_3(val, path, rep)
             // .'|'.1.a
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "c")
@@ -228,9 +200,7 @@ function _jm_obj_3(val, path, rep)
             // .'|'.1.c
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (prop == "v")
@@ -239,9 +209,7 @@ function _jm_obj_3(val, path, rep)
             // .'|'.1.v
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "z")
@@ -250,9 +218,7 @@ function _jm_obj_3(val, path, rep)
             // .'|'.1.z
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -275,9 +241,7 @@ function _jm_obj_4(val, path, rep)
             // .'|'.0.a
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "b")
@@ -287,9 +251,7 @@ function _jm_obj_4(val, path, rep)
             // .'|'.0.b
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         if (prop == "z")
@@ -298,9 +260,7 @@ function _jm_obj_4(val, path, rep)
             // .'|'.0.z
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "w")
@@ -309,9 +269,7 @@ function _jm_obj_4(val, path, rep)
             // .'|'.0.w
             res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -345,9 +303,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

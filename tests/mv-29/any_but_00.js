@@ -55,9 +55,7 @@ function _jm_obj_0(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("a"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <a> [.'|'.6]", path])
-            }
         }
         return false
     }
@@ -75,14 +73,10 @@ function json_model_1(val, path, rep)
         // .'|'.6
         res = _jm_obj_0(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected element [.'|'.6]", path])
-        }
     }
     else
-    {
         res = true
-    }
     return res
 }
 
@@ -104,9 +98,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

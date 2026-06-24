@@ -19,9 +19,7 @@ function json_model_2(val, path, rep)
     // .'$URI-REFERENCE'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$URI-REFERENCE']", path])
-    }
     return res
 }
 
@@ -51,14 +49,10 @@ function json_model_3(val, path, rep)
         let ival_0 = val.length
         res = ival_0 >= 1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$schemaArray']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$schemaArray'.'@']", path])
-    }
     return res
 }
 
@@ -69,9 +63,7 @@ function json_model_4(val, path, rep)
     // .'$simpleTypes'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$simpleTypes'.'|']", path])
-    }
     return res
 }
 
@@ -101,14 +93,10 @@ function json_model_5(val, path, rep)
         let ival_1 = val.length
         res = runtime.jm_array_is_unique(val, path, rep) && ival_1 >= 1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$arrayTypes']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$arrayTypes'.'@']", path])
-    }
     return res
 }
 
@@ -118,9 +106,7 @@ function _jm_f_0(val, path, rep)
     // .'$ObjectSchema'.'$comment'
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ObjectSchema'.'$comment']", path])
-    }
     return res
 }
 
@@ -130,9 +116,7 @@ function _jm_f_1(val, path, rep)
     // .'$ObjectSchema'.'$schema'
     let res = runtime.jm_is_valid_url(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$URI\" [.'$ObjectSchema'.'$schema']", path])
-    }
     return res
 }
 
@@ -149,9 +133,7 @@ function _jm_f_3(val, path, rep)
     // .'$ObjectSchema'.contentEncoding
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ObjectSchema'.contentEncoding]", path])
-    }
     return res
 }
 
@@ -161,9 +143,7 @@ function _jm_f_4(val, path, rep)
     // .'$ObjectSchema'.contentMediaType
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ObjectSchema'.contentMediaType]", path])
-    }
     return res
 }
 
@@ -237,9 +217,7 @@ function _jm_f_7(val, path, rep)
                 }
             }
             if (! res)
-            {
                 rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.dependencies.''.'|'.1]", (path ? lpath_2 : null)])
-            }
         }
         if (res)
         {
@@ -260,9 +238,7 @@ function _jm_f_8(val, path, rep)
     // .'$ObjectSchema'.description
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ObjectSchema'.description]", path])
-    }
     return res
 }
 
@@ -278,14 +254,10 @@ function _jm_f_9(val, path, rep)
         let ival_2 = val.length
         res = runtime.jm_array_is_unique(val, path, rep) && ival_2 >= 1
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$ObjectSchema'.enum]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.enum.'@']", path])
-    }
     return res
 }
 
@@ -295,9 +267,7 @@ function _jm_f_10(val, path, rep)
     // .'$ObjectSchema'.examples
     let res = Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.examples]", path])
-    }
     return res
 }
 
@@ -307,9 +277,7 @@ function _jm_f_11(val, path, rep)
     // .'$ObjectSchema'.exclusiveMaximum
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.exclusiveMaximum]", path])
-    }
     return res
 }
 
@@ -319,9 +287,7 @@ function _jm_f_12(val, path, rep)
     // .'$ObjectSchema'.exclusiveMinimum
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.exclusiveMinimum]", path])
-    }
     return res
 }
 
@@ -331,9 +297,7 @@ function _jm_f_13(val, path, rep)
     // .'$ObjectSchema'.format
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ObjectSchema'.format]", path])
-    }
     return res
 }
 
@@ -349,18 +313,14 @@ function _jm_f_14(val, path, rep)
         // .'$ObjectSchema'.items.'|'.1
         res = json_model_3(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$schemaArray\" [.'$ObjectSchema'.items.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$ObjectSchema'.items.'|']", path])
-    }
     return res
 }
 
@@ -370,9 +330,7 @@ function _jm_f_15(val, path, rep)
     // .'$ObjectSchema'.maxItems
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 loose int [.'$ObjectSchema'.maxItems]", path])
-    }
     return res
 }
 
@@ -382,9 +340,7 @@ function _jm_f_16(val, path, rep)
     // .'$ObjectSchema'.maxLength
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 loose int [.'$ObjectSchema'.maxLength]", path])
-    }
     return res
 }
 
@@ -394,9 +350,7 @@ function _jm_f_17(val, path, rep)
     // .'$ObjectSchema'.maxProperties
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 loose int [.'$ObjectSchema'.maxProperties]", path])
-    }
     return res
 }
 
@@ -406,9 +360,7 @@ function _jm_f_18(val, path, rep)
     // .'$ObjectSchema'.maximum
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.maximum]", path])
-    }
     return res
 }
 
@@ -418,9 +370,7 @@ function _jm_f_19(val, path, rep)
     // .'$ObjectSchema'.minItems
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 loose int [.'$ObjectSchema'.minItems]", path])
-    }
     return res
 }
 
@@ -430,9 +380,7 @@ function _jm_f_20(val, path, rep)
     // .'$ObjectSchema'.minLength
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 loose int [.'$ObjectSchema'.minLength]", path])
-    }
     return res
 }
 
@@ -442,9 +390,7 @@ function _jm_f_21(val, path, rep)
     // .'$ObjectSchema'.minProperties
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 loose int [.'$ObjectSchema'.minProperties]", path])
-    }
     return res
 }
 
@@ -454,9 +400,7 @@ function _jm_f_22(val, path, rep)
     // .'$ObjectSchema'.minimum
     let res = (typeof val === 'number' || val instanceof Number)
     if (! res)
-    {
         rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.minimum]", path])
-    }
     return res
 }
 
@@ -466,9 +410,7 @@ function _jm_f_23(val, path, rep)
     // .'$ObjectSchema'.multipleOf
     let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
     if (! res)
-    {
         rep !== null && rep.push(["not a 1.0 loose float [.'$ObjectSchema'.multipleOf]", path])
-    }
     return res
 }
 
@@ -478,9 +420,7 @@ function _jm_f_24(val, path, rep)
     // .'$ObjectSchema'.pattern
     let res = runtime.jm_is_valid_regex(val, false)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$REGEX\" [.'$ObjectSchema'.pattern]", path])
-    }
     return res
 }
 
@@ -548,9 +488,7 @@ function _jm_f_27(val, path, rep)
     // .'$ObjectSchema'.readOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$ObjectSchema'.readOnly]", path])
-    }
     return res
 }
 
@@ -575,9 +513,7 @@ function _jm_f_28(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.required]", path])
-    }
     return res
 }
 
@@ -587,9 +523,7 @@ function _jm_f_29(val, path, rep)
     // .'$ObjectSchema'.title
     let res = (typeof val === 'string' || val instanceof String)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"\" [.'$ObjectSchema'.title]", path])
-    }
     return res
 }
 
@@ -605,18 +539,14 @@ function _jm_f_30(val, path, rep)
         // .'$ObjectSchema'.type.'|'.1
         res = json_model_5(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$arrayTypes\" [.'$ObjectSchema'.type.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$ObjectSchema'.type.'|']", path])
-    }
     return res
 }
 
@@ -626,9 +556,7 @@ function _jm_f_31(val, path, rep)
     // .'$ObjectSchema'.uniqueItems
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$ObjectSchema'.uniqueItems]", path])
-    }
     return res
 }
 
@@ -638,9 +566,7 @@ function _jm_f_32(val, path, rep)
     // .'$ObjectSchema'.writeOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
     if (! res)
-    {
         rep !== null && rep.push(["not a bool [.'$ObjectSchema'.writeOnly]", path])
-    }
     return res
 }
 
@@ -686,18 +612,14 @@ function json_model_7(val, path, rep)
         // .'$Schema'.'|'.1
         res = json_model_6(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$ObjectSchema\" [.'$Schema'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$Schema'.'|']", path])
-    }
     return res
 }
 
@@ -709,9 +631,7 @@ function json_model_1(val, path, rep)
     // .'@'
     let res = json_model_7(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Schema\" [.'@']", path])
-    }
     return res
 }
 
@@ -792,9 +712,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

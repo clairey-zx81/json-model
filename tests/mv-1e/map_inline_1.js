@@ -115,17 +115,11 @@ function json_model_1(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("mu1"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <mu1> [.]", path])
-            }
             if (! val.hasOwnProperty("mu2"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <mu2> [.]", path])
-            }
             if (! val.hasOwnProperty("mu3"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <mu3> [.]", path])
-            }
         }
         return false
     }
@@ -150,9 +144,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

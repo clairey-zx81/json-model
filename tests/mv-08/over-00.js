@@ -49,9 +49,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_2(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Foo\" [.]", path])
-    }
     return res
 }
 
@@ -74,9 +72,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

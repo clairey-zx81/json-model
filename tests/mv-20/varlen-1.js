@@ -27,9 +27,7 @@ function json_model_1(val, path, rep)
             // .'@'.0
             res = (typeof val[0] === 'string' || val[0] instanceof String)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"\" [.'@'.0]", (path ? lpath_0 : null)])
-            }
         }
         // no array tail value checks needed
     }
@@ -38,14 +36,10 @@ function json_model_1(val, path, rep)
         let ival_0 = val.length
         res = ival_0 >= 3
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'@']", path])
-    }
     return res
 }
 
@@ -67,9 +61,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

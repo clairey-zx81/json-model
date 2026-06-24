@@ -10,9 +10,7 @@ export var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
@@ -20,9 +18,7 @@ function json_model_2(val, path, rep)
         {
             res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
-            {
                 return false
-            }
         }
     }
     return true
@@ -31,9 +27,7 @@ function json_model_2(val, path, rep)
 function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
@@ -41,14 +35,10 @@ function json_model_1(val, path, rep)
         {
             res = (typeof pval === 'string' || pval instanceof String)
             if (! res)
-            {
                 return false
-            }
         }
         else
-        {
             return false
-        }
     }
     return true
 }
@@ -72,9 +62,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

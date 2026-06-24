@@ -23,18 +23,14 @@ function json_model_1(val, path, rep)
         // .'|'.1
         res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0
         if (! res)
-        {
             rep !== null && rep.push(["not a 0.0 strict float [.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'|']", path])
-    }
     return res
 }
 
@@ -56,9 +52,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

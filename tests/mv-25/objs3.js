@@ -17,29 +17,19 @@ function json_model_2(val, path, rep)
     // .'$book'
     // check close must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     if (Object.keys(val).length != 2)
-    {
         return false
-    }
     let pval
     if (! val.hasOwnProperty("title"))
-    {
         return false
-    }
     pval = val["title"]
     // .'$book'.title
     let res = (typeof pval === 'string' || pval instanceof String)
     if (! res)
-    {
         return false
-    }
     if (! val.hasOwnProperty("author"))
-    {
         return false
-    }
     pval = val["author"]
     // .'$book'.author
     return (typeof pval === 'string' || pval instanceof String)
@@ -58,9 +48,7 @@ function json_model_1(val, path, rep)
             // .0
             res = json_model_2(arr_0_item, null, null)
             if (! res)
-            {
                 break
-            }
         }
     }
     return res
@@ -85,9 +73,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

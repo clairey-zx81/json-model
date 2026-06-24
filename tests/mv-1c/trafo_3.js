@@ -17,9 +17,7 @@ function json_model_3(val, path, rep)
     // .'$Dd'
     let res = json_model_6(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$l\" [.'$Dd']", path])
-    }
     return res
 }
 
@@ -29,9 +27,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_6(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Dd\" [.]", path])
-    }
     return res
 }
 
@@ -56,9 +52,7 @@ function json_model_6(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$Dd#l']", path])
-    }
     return res
 }
 
@@ -68,9 +62,7 @@ function json_model_10(val, path, rep)
     // .'$Dd#u'
     let res = json_model_12(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Uu#un\" [.'$Dd#u']", path])
-    }
     return res
 }
 
@@ -143,9 +135,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

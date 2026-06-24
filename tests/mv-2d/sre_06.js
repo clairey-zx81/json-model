@@ -13,9 +13,7 @@ const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 function json_model_1(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
         return false
-    }
     let res
     for (const [prop, pval] of Object.entries(val))
     {
@@ -23,18 +21,14 @@ function json_model_1(val, path, rep)
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         else if (prop == "b")
         {
             res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, null, null)
             if (! res)
-            {
                 return false
-            }
             continue
         }
         return false
@@ -60,9 +54,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

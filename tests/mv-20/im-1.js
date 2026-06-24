@@ -17,9 +17,7 @@ function json_model_2(val, path, rep)
     // .'$c'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "c"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_c\" [.'$c']", path])
-    }
     return res
 }
 
@@ -29,9 +27,7 @@ function json_model_4(val, path, rep)
     // .'$a'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "a"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_a\" [.'$a']", path])
-    }
     return res
 }
 
@@ -41,9 +37,7 @@ function json_model_5(val, path, rep)
     // .'$b'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "b"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_b\" [.'$b']", path])
-    }
     return res
 }
 
@@ -57,9 +51,7 @@ function json_model_1(val, path, rep)
         return false
     }
     if (Object.keys(val).length == 0)
-    {
         return true
-    }
     else
     {
         rep !== null && rep.push(["expecting empty object [.]", path])
@@ -88,9 +80,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

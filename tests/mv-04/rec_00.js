@@ -48,18 +48,14 @@ function json_model_3(val, path, rep)
         // .'$rec'.'|'.1
         res = json_model_2(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$obj\" [.'$rec'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$rec'.'|']", path])
-    }
     return res
 }
 
@@ -69,9 +65,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_3(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$rec\" [.]", path])
-    }
     return res
 }
 
@@ -95,9 +89,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

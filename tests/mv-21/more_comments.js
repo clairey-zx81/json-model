@@ -17,9 +17,7 @@ function json_model_2(val, path, rep)
     // .'$Pp'
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$Pp']", path])
-    }
     return res
 }
 
@@ -44,9 +42,7 @@ function json_model_3(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$Qq']", path])
-    }
     return res
 }
 
@@ -104,14 +100,10 @@ function _jm_obj_0(val, path, rep)
                     // .o.t.1
                     res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0
                     if (! res)
-                    {
                         rep !== null && rep.push(["not a 0 strict int [.o.t.1]", ((path ? lpath_1 : null) ? lpath_2 : null)])
-                    }
                 }
                 else
-                {
                     rep !== null && rep.push(["not a bool [.o.t.0]", ((path ? lpath_1 : null) ? lpath_2 : null)])
-                }
             }
             if (! res)
             {
@@ -181,9 +173,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

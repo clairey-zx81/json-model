@@ -17,9 +17,7 @@ function json_model_4(val, path, rep)
     // .'$x1'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x1']", path])
-    }
     return res
 }
 
@@ -29,9 +27,7 @@ function json_model_5(val, path, rep)
     // .'$x2'
     let res = ((typeof val === 'string' || val instanceof String)) && val == "Susie"
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"_Susie\" [.'$x2']", path])
-    }
     return res
 }
 
@@ -105,9 +101,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -3,7 +3,7 @@
 ## Current Tasks
 
 - [x] js-backend: remove useless semi-colons
-- [ ] js-backend: remove useless braces (filtering?)
+- [x] js-backend: remove useless braces by filtering output
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] pl-backend: use short post-if where possible (filtering)
 - [ ] pl-backend: use `unless` where appropriate (filtering?)

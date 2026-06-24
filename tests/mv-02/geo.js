@@ -39,14 +39,10 @@ function json_model_2(val, path, rep)
         let ival_0 = val.length
         res = ival_0 <= 3 && ival_0 >= 2
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$position']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$position'.'@']", path])
-    }
     return res
 }
 
@@ -76,14 +72,10 @@ function json_model_3(val, path, rep)
         let ival_1 = val.length
         res = ival_1 >= 2
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$coord_array']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$coord_array'.'@']", path])
-    }
     return res
 }
 
@@ -113,14 +105,10 @@ function json_model_4(val, path, rep)
         let ival_2 = val.length
         res = ival_2 >= 4
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.'$linear_ring']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$linear_ring'.'@']", path])
-    }
     return res
 }
 
@@ -202,13 +190,9 @@ function json_model_5(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("coordinates"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <coordinates> [.'$Point']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Point']", path])
-            }
         }
         return false
     }
@@ -308,13 +292,9 @@ function json_model_6(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("coordinates"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <coordinates> [.'$MultiPoint']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$MultiPoint']", path])
-            }
         }
         return false
     }
@@ -399,13 +379,9 @@ function json_model_7(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("coordinates"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <coordinates> [.'$LineString']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$LineString']", path])
-            }
         }
         return false
     }
@@ -505,13 +481,9 @@ function json_model_8(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("coordinates"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <coordinates> [.'$MultiLineString']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$MultiLineString']", path])
-            }
         }
         return false
     }
@@ -611,13 +583,9 @@ function json_model_9(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("coordinates"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <coordinates> [.'$Polygon']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Polygon']", path])
-            }
         }
         return false
     }
@@ -732,13 +700,9 @@ function json_model_10(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("coordinates"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <coordinates> [.'$MultiPolygon']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$MultiPolygon']", path])
-            }
         }
         return false
     }
@@ -1265,9 +1229,7 @@ function json_model_11(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -1281,9 +1243,7 @@ function json_model_11(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'$geometry'.'|']", path])
-    }
     return res
 }
 
@@ -1423,9 +1383,7 @@ function json_model_13(val, path, rep)
             // .'$Feature'.geometry.'|'.2
             res = json_model_12(pval, (path ? lpath : null), rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"$GeometryCollection\" [.'$Feature'.geometry.'|'.2]", (path ? lpath : null)])
-            }
         }
     }
     if (res)
@@ -1477,9 +1435,7 @@ function json_model_13(val, path, rep)
             // .'$Feature'.id.'|'.1
             res = (typeof pval === 'number' || pval instanceof Number)
             if (! res)
-            {
                 rep !== null && rep.push(["not a -1.0 loose float [.'$Feature'.id.'|'.1]", (path ? lpath : null)])
-            }
         }
         if (res)
         {
@@ -1625,9 +1581,7 @@ function json_model_1(val, path, rep)
         {
             let fun_1 = _jm_map_1.get(tag_1)
             if (fun_1 !== undefined)
-            {
                 res = fun_1(val, path, rep)
-            }
             else
             {
                 res = false
@@ -1641,9 +1595,7 @@ function json_model_1(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'|']", path])
-    }
     return res || json_model_11(val, path, rep)
 }
 
@@ -1687,9 +1639,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

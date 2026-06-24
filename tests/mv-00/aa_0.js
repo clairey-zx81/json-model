@@ -23,15 +23,11 @@ function json_model_1(val, path, rep)
                     let arr_1_item = arr_0_item[arr_1_idx]
                     res = (typeof arr_1_item === 'string' || arr_1_item instanceof String)
                     if (! res)
-                    {
                         break
-                    }
                 }
             }
             if (! res)
-            {
                 break
-            }
         }
     }
     return res
@@ -55,9 +51,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

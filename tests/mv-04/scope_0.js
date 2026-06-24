@@ -21,9 +21,7 @@ function json_model_2(val, path, rep)
     // "/[0-9]/"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/[0-9]/\" [.'$s']", path])
-    }
     return res
 }
 
@@ -43,19 +41,13 @@ function json_model_1(val, path, rep)
             // .1
             res = json_model_2(val[1], (path ? lpath_0 : null), rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected value for model \"$s\" [.1]", (path ? lpath_0 : null)])
-            }
         }
         else
-        {
             rep !== null && rep.push(["unexpected value for model \"$s\" [.0]", (path ? lpath_0 : null)])
-        }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
-    }
     return res
 }
 
@@ -78,9 +70,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -32,9 +32,7 @@ function json_model_2(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$li0']", path])
-    }
     return res
 }
 
@@ -59,9 +57,7 @@ function json_model_3(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$ls0']", path])
-    }
     return res
 }
 
@@ -86,9 +82,7 @@ function json_model_4(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$lb0']", path])
-    }
     return res
 }
 
@@ -113,9 +107,7 @@ function json_model_5(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.'$lf0']", path])
-    }
     return res
 }
 
@@ -141,9 +133,7 @@ function json_model_1(val, path, rep)
                 // .'|'.3
                 res = json_model_5(val, path, rep)
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"$lf0\" [.'|'.3]", path])
-                }
             }
         }
     }
@@ -152,9 +142,7 @@ function json_model_1(val, path, rep)
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'|']", path])
-    }
     return res
 }
 
@@ -180,9 +168,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

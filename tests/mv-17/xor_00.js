@@ -22,9 +22,7 @@ function json_model_1(val, path, rep)
     // .'^'.2
     let is_0 = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1
     if (! is_0)
-    {
         rep !== null && rep.push(["not a 1 strict int [.'^'.2]", path])
-    }
     res = ! is_0
     if (res)
     {
@@ -32,18 +30,14 @@ function json_model_1(val, path, rep)
         // .'^'.0
         res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
         if (! res)
-        {
             rep !== null && rep.push(["not a 0 strict int [.'^'.0]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["not one model match [.'^']", path])
-    }
     return res
 }
 
@@ -65,9 +59,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

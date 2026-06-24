@@ -35,9 +35,7 @@ function json_model_1(val, path, rep)
                 // "/qrstuvwxyz$/"
                 res = val.endsWith("qrstuvwxyz")
                 if (! res)
-                {
                     rep !== null && rep.push(["unexpected value for model \"/qrstuvwxyz$/\" [.'|'.2]", path])
-                }
             }
         }
         if (res)
@@ -45,14 +43,10 @@ function json_model_1(val, path, rep)
             if (rep !== null) rep.length = 0
         }
         else
-        {
             rep !== null && rep.push(["no model matched [.'|']", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["unexpected type [.'|']", path])
-    }
     return res
 }
 
@@ -74,9 +68,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

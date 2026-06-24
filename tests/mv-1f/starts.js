@@ -18,9 +18,7 @@ function json_model_1(val, path, rep)
     // "/^Hello/"
     let res = ((typeof val === 'string' || val instanceof String)) && val.startsWith("Hello")
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/^Hello/\" [.]", path])
-    }
     return res
 }
 
@@ -42,9 +40,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

@@ -21,9 +21,7 @@ function json_model_1(val, path, rep)
     // "/^[a-z_][_A-Z]+$/"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/^[a-z_][_A-Z]+$/\" [.]", path])
-    }
     return res
 }
 
@@ -45,9 +43,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

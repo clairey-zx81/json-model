@@ -163,9 +163,7 @@ function json_model_2(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("types"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <types> [.'$Schema']", path])
-            }
         }
         return false
     }
@@ -185,9 +183,7 @@ function json_model_3(val, path, rep)
         {
             let fun_0 = _jm_map_0.get(tag_0)
             if (fun_0 !== undefined)
-            {
                 res = fun_0(val, path, rep)
-            }
             else
             {
                 res = false
@@ -201,9 +197,7 @@ function json_model_3(val, path, rep)
         }
     }
     else
-    {
         rep !== null && rep.push(["value is not an object [.'$Type'.'|']", path])
-    }
     return res
 }
 
@@ -214,9 +208,7 @@ function json_model_4(val, path, rep)
     // .'$atomic-types'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$atomic-types'.'|']", path])
-    }
     return res
 }
 
@@ -226,9 +218,7 @@ function json_model_5(val, path, rep)
     // .'$atomic'
     let res = ! (Object.prototype.toString.call(val) === '[object Object]') && ! Array.isArray(val)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected type [.'$atomic'.'|']", path])
-    }
     return res
 }
 
@@ -468,13 +458,9 @@ function json_model_6(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("baseType"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <baseType> [.'$Atomic']", path])
-            }
             if (! val.hasOwnProperty("kind"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <kind> [.'$Atomic']", path])
-            }
         }
         return false
     }
@@ -584,9 +570,7 @@ function json_model_7(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("kind"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <kind> [.'$Object']", path])
-            }
         }
         return false
     }
@@ -676,13 +660,9 @@ function json_model_8(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("name"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$Fields']", path])
-            }
             if (! val.hasOwnProperty("type"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <type> [.'$Fields']", path])
-            }
         }
         return false
     }
@@ -791,9 +771,7 @@ function json_model_9(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("kind"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <kind> [.'$Array']", path])
-            }
         }
         return false
     }
@@ -893,17 +871,11 @@ function json_model_10(val, path, rep)
         if (rep !== null)
         {
             if (! val.hasOwnProperty("content"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <content> [.'$Union']", path])
-            }
             if (! val.hasOwnProperty("kind"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <kind> [.'$Union']", path])
-            }
             if (! val.hasOwnProperty("name"))
-            {
                 rep !== null && rep.push(["missing mandatory prop <name> [.'$Union']", path])
-            }
         }
         return false
     }
@@ -922,18 +894,14 @@ function json_model_11(val, path, rep)
         // .'$type-or-ref'.'|'.1
         res = json_model_3(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"$Type\" [.'$type-or-ref'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$type-or-ref'.'|']", path])
-    }
     return res
 }
 
@@ -943,9 +911,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_2(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$Schema\" [.]", path])
-    }
     return res
 }
 
@@ -998,9 +964,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

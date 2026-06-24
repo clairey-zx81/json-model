@@ -20,9 +20,7 @@ function _jm_obj_0(val, path, rep)
         return false
     }
     if (Object.keys(val).length == 0)
-    {
         return true
-    }
     else
     {
         rep !== null && rep.push(["expecting empty object [.'$a'.''.'|'.1]", path])
@@ -53,9 +51,7 @@ function json_model_2(val, path, rep)
             // .'$a'.''.'|'.1
             res = _jm_obj_0(pval, (path ? lpath_0 : null), rep)
             if (! res)
-            {
                 rep !== null && rep.push(["unexpected element [.'$a'.''.'|'.1]", (path ? lpath_0 : null)])
-            }
         }
         if (res)
         {
@@ -79,9 +75,7 @@ function _jm_obj_1(val, path, rep)
         return false
     }
     if (Object.keys(val).length == 0)
-    {
         return true
-    }
     else
     {
         rep !== null && rep.push(["expecting empty object [.'$r'.'|'.1]", path])
@@ -101,18 +95,14 @@ function json_model_3(val, path, rep)
         // .'$r'.'|'.1
         res = _jm_obj_1(val, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected element [.'$r'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'$r'.'|']", path])
-    }
     return res
 }
 
@@ -122,9 +112,7 @@ function json_model_1(val, path, rep)
     // .
     let res = json_model_3(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"$r\" [.]", path])
-    }
     return res
 }
 
@@ -148,9 +136,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

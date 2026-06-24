@@ -25,23 +25,17 @@ function json_model_1(val, path, rep)
         // .'@'.'|'.1
         res = (typeof val === 'string' || val instanceof String)
         if (! res)
-        {
             rep !== null && rep.push(["unexpected value for model \"\" [.'@'.'|'.1]", path])
-        }
     }
     if (res)
     {
         if (rep !== null) rep.length = 0
         res = runtime.jm_check_constraint(val, ">=", 10, path, rep)
         if (! res)
-        {
             rep !== null && rep.push(["constraints failed [.]", path])
-        }
     }
     else
-    {
         rep !== null && rep.push(["no model matched [.'@'.'|']", path])
-    }
     return res
 }
 
@@ -63,9 +57,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

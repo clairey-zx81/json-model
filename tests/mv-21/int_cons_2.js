@@ -17,9 +17,7 @@ function json_model_2(val, path, rep)
     // .'$forty-two'
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"=42\" [.'$forty-two']", path])
-    }
     return res
 }
 
@@ -29,9 +27,7 @@ function json_model_3(val, path, rep)
     // .'$positif'
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
     if (! res)
-    {
         rep !== null && rep.push(["not a 0 strict int [.'$positif']", path])
-    }
     return res
 }
 
@@ -45,9 +41,7 @@ function json_model_1(val, path, rep)
         return false
     }
     if (Object.keys(val).length == 0)
-    {
         return true
-    }
     else
     {
         rep !== null && rep.push(["expecting empty object [.]", path])
@@ -75,9 +69,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

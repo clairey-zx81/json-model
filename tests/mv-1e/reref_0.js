@@ -20,9 +20,7 @@ function json_model_2(val, path, rep)
     // .'$character'
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.'$character'.'|']", path])
-    }
     return res
 }
 
@@ -33,19 +31,13 @@ function _jm_xre_0(val, path, rep)
     let extract = val
     let match = _jm_xre_0_re_re.exec(val)
     if (! match)
-    {
         return false
-    }
     extract = match.groups["s1"]
     if (! json_model_2(extract, path, rep))
-    {
         return false
-    }
     extract = match.groups["s2"]
     if (! json_model_2(extract, path, rep))
-    {
         return false
-    }
     return true
 }
 
@@ -56,9 +48,7 @@ function json_model_1(val, path, rep)
     // "/'($character:\\w+)'.*'($character:\\w+)'/X"
     let res = ((typeof val === 'string' || val instanceof String)) && _jm_xre_0(val, path, rep)
     if (! res)
-    {
         rep !== null && rep.push(["unexpected value for model \"/'($character:\\\\w+)'.*'($character:\\\\w+)'/X\" [.]", path])
-    }
     return res
 }
 
@@ -84,9 +74,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)

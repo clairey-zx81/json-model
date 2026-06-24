@@ -42,9 +42,7 @@ function json_model_1(val, path, rep)
                         res = true
                     }
                     else
-                    {
                         rep !== null && rep.push(["not a bool [.0.'|'.1.0]", ((path ? arr_0_lpath : null) ? lpath_1 : null)])
-                    }
                 }
                 if (! res)
                 {
@@ -68,19 +66,13 @@ function json_model_1(val, path, rep)
                                 res = true
                             }
                             else
-                            {
                                 rep !== null && rep.push(["unexpected value for model \"\" [.0.'|'.2.1]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
-                            }
                         }
                         else
-                        {
                             rep !== null && rep.push(["not a bool [.0.'|'.2.0]", ((path ? arr_0_lpath : null) ? lpath_0 : null)])
-                        }
                     }
                     if (! res)
-                    {
                         rep !== null && rep.push(["not array or unexpected array [.0.'|'.2]", (path ? arr_0_lpath : null)])
-                    }
                 }
             }
             if (res)
@@ -95,9 +87,7 @@ function json_model_1(val, path, rep)
         }
     }
     if (! res)
-    {
         rep !== null && rep.push(["not array or unexpected array [.]", path])
-    }
     return res
 }
 
@@ -119,9 +109,7 @@ export function check_model_init()
 export function check_model_free()
 {
     if (initialized)
-    {
         initialized = false;
-    }
 }
 
 export function check_model(val, name, rep)
