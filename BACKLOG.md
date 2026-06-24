@@ -347,4 +347,5 @@
 - [ ] c-backend: consider [json-c](https://github.com/json-c/json-c)
 - [ ] c-backend: consider [yyjson](https://github.com/ibireme/yyjson)
 - [ ] c-backend: consider [cJSON](https://github.com/davegamble/cjson) (linked lists? no ints?…)
+- [ ] ~c-backend: consider [Parson](https://github.com/kgabis/parson) (unmaintained?)~
 - [ ] ~c-backend: consider [json.h](https://github.com/sheredom/json.h) (hmmm, linked lists)~
