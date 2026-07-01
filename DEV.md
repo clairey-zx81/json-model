@@ -41,7 +41,18 @@ git clone --recursive-submodules git@github.com:clairey-zx81/json-model.git
 cd json-model
 ```
 
-If you intend to develop and submit a PR, fork the repos before cloning.
+If you intend to develop and submit a PR, fork the repos before cloning, and create a branch.
+
+There are 3 branches:
+
+- `main` for releases
+- `post` for post-release changes
+- `dev` for fixes and features
+
+New things happen on `dev`, the are merged into `main` from time to time.
+Branch `post` is used to add new benchmark artifacts out of the release cycle.
+
+The `post`/`main` branches are needed so that automatic versioning works.
 
 To setup a local developer environment, run at the root of the project:
 
