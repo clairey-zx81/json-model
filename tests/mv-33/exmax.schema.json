@@ -1,0 +1,13 @@
+{
+  "description": "JsonModel 1 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
+  "anyOf": [
+    {
+      "type": "integer",
+      "maximum": 2
+    },
+    {
+      "type": "number",
+      "exclusiveMaximum": 3.0
+    }
+  ]
+}

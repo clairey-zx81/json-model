@@ -105,6 +105,15 @@ typedef struct {
 
 extern int jm_propval_cmp(const jm_propval_t *, const jm_propval_t *);
 
+static INLINE int64_t
+jm_json_loose_integer_value(const json_t * val)
+{
+    return json_is_integer(val) ?
+        json_integer_value(val) :
+        (int64_t) json_real_value(val)
+    ;
+}
+
 extern bool jm_json_is_scalar(const json_t *);
 extern int jm_json_cmp(const json_t *, const json_t *);
 extern int jm_json_array_cmp(const json_t *, const json_t *);

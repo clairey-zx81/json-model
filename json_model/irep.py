@@ -1221,8 +1221,8 @@ class IRep(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False, is_val: bool = False) -> BoolExpr:
         return _j("pre", var=_l(var), name=name, path=_l(path), is_str=is_str, is_val=is_val)
 
-    def value(self, var: Var, tvar: type) -> Expr:
-        return _j("val", var=_l(var), tvar=_t2s(tvar))
+    def value(self, var: Var, tvar: type, loose: bool = False) -> Expr:
+        return _j("val", var=_l(var), tvar=_t2s(tvar), loose=loose)
 
     def get_value(self, var: str, tvar: type) -> Expr:
         return _j("gv", var=var, tvar=_t2s(tvar))
@@ -1527,7 +1527,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             case "pre": return gen.predef(
                 var=ev("var"), name=jv["name"], path=ev("path"), is_str=jv["is_str"], is_val=jv["is_val"]
             )
-            case "val": return gen.value(var=ev("var"), tvar=_s2t(jv["tvar"]))
+            case "val": return gen.value(var=ev("var"), tvar=_s2t(jv["tvar"]), loose=jv["loose"])
             case "gv": return gen.get_value(var=jv["var"], tvar=_s2t(jv["tvar"]))
             case "aiv": return gen.arr_item_val(arr=ev("arr"), idx=ev("idx"))
             case "opv": return gen.obj_prop_val(obj=ev("obj"), prop=jv["prop"], is_var=jv["is_var"])

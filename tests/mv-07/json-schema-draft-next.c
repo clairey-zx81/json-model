@@ -618,7 +618,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$nonNegativeInteger'
-    bool res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
+    bool res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && jm_json_loose_integer_value(val) >= 0;
     if (unlikely(! res))
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$nonNegativeInteger']", path);

@@ -8,7 +8,7 @@ const size_t check_model_map_size = 1;
 
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    return ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) == 9876543210;
+    return ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && jm_json_loose_integer_value(val) == 9876543210;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

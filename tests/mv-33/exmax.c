@@ -13,49 +13,52 @@ const size_t check_model_map_size = 1;
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // JSON_MODEL_LOOSE_INT
+    // JsonModel 1 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)
     // .
-    if (unlikely(! json_is_object(val)))
+    // .'|'.0
+    // .'|'.0.'@'
+    bool res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))));
+    if (likely(res))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [.]", path);
-        return false;
-    }
-    bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
-    {
-        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_str_eq_3(prop, 0x0000696c)))
+        int64_t ival_0 = jm_json_loose_integer_value(val);
+        res = ival_0 <= 2;
+        if (unlikely(! res))
         {
-            // handle must li property
-            must_count += 1;
-            // .li
-            res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && jm_json_loose_integer_value(pval) >= 0;
+            if (rep) jm_report_add_entry(rep, "constraints failed [.'|'.0]", path);
+        }
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "not a -1 loose int [.'|'.0.'@']", path);
+    }
+    if (! res)
+    {
+        // .'|'.1
+        // .'|'.1.'@'
+        res = jm_json_is_number(val);
+        if (likely(res))
+        {
+            double fval_0 = json_number_value(val);
+            res = fval_0 < 3.0;
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "not a 0 loose int [.li]", (path ? &lpath_0 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.li]", (path ? &lpath_0 : NULL));
-                return false;
+                if (rep) jm_report_add_entry(rep, "constraints failed [.'|'.1]", path);
             }
-            continue;
         }
-        if (rep) jm_report_add_entry(rep, "unexpected prop [.]", (path ? &lpath_0 : NULL));
-        return false;
-    }
-    if (unlikely(must_count != 1))
-    {
-        if (likely(rep != NULL))
+        else
         {
-            if (! (json_object_get(val, "li") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <li> [.]", path);
-            }
+            if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'|'.1.'@']", path);
         }
-        return false;
     }
-    return true;
+    if (likely(res))
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'|']", path);
+    }
+    return res;
 }
 
 jm_check_fun_t check_model_map(const char *pname)

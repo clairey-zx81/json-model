@@ -1,0 +1,13 @@
+exmax.values.json[0]: PASS
+exmax.values.json[1]: PASS
+exmax.values.json[2]: FAIL (.: no model matched [.'|']; .: constraints failed [.'|'.1]; .: constraints failed [.'|'.0])
+exmax.values.json[3]: FAIL (.: no model matched [.'|']; .: constraints failed [.'|'.1]; .: constraints failed [.'|'.0])
+exmax.values.json[4]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
+exmax.values.json[5]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
+exmax.values.json[6]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
+exmax.values.json[7]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
+exmax.values.json[8]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
+exmax.values.json[9]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
+exmax.values.json[10]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
+exmax.values.json[11]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
+exmax.values.json[12]: FAIL (.: no model matched [.'|']; .: not a -1.0 loose float [.'|'.1.'@']; .: not a -1 loose int [.'|'.0.'@'])
