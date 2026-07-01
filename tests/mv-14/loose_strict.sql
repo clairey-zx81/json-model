@@ -25,7 +25,7 @@ BEGIN
       -- handle must li property
       must_count := must_count + 1;
       -- .'$loose'.li
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::FLOAT8 >= 0;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

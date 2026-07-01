@@ -12,7 +12,7 @@ BEGIN
   -- JSON_MODEL_LOOSE_NUMBER
   -- .
   -- .'@'
-  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::FLOAT8 = 1;
+  RETURN JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 1;
 END;
 $$ LANGUAGE PLpgSQL;
 

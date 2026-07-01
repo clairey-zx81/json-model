@@ -44,7 +44,7 @@ public class loose_strict extends ModelChecker
         }
         lpath = new Path("li", path);
         // .'$loose'.li
-        boolean res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asNumber(pval) >= 0;
+        boolean res = ((json.isInteger(pval) || (json.isDouble(pval) && json.asDouble(pval) == ((long) json.asDouble(pval))))) && json.asLong(pval) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$loose'.li]", (path != null ? lpath : null));
