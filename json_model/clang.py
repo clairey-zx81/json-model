@@ -403,14 +403,17 @@ class CLangJansson(Language):
             expr = super().predef(val, name, path, is_str or check_str, True)
             return self.and_op(self.is_a(var, str), expr) if check_str and not is_str else expr
 
-    def value(self, var: Var, tvar: type) -> Expr:
+    def value(self, var: Var, tvar: type, loose: bool = False) -> Expr:
         """Known type value extraction."""
         if tvar is type(None):
             return "NULL"
         elif tvar is bool:
             return f"json_boolean_value({var})"
         elif tvar is int:
-            return f"json_integer_value({var})"
+            if loose:
+                return f"jm_json_loose_integer_value({var})"
+            else:
+                return f"json_integer_value({var})"
         elif tvar is float:
             return f"json_real_value({var})"
         elif tvar is Number:  # NOTE this cast from int if necessary

@@ -367,7 +367,7 @@ public class json_schema_draft_06 extends ModelChecker
     public boolean _jm_f_12(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.maxItems
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$ObjectSchema'.maxItems]", path);
@@ -379,7 +379,7 @@ public class json_schema_draft_06 extends ModelChecker
     public boolean _jm_f_13(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.maxLength
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$ObjectSchema'.maxLength]", path);
@@ -391,7 +391,7 @@ public class json_schema_draft_06 extends ModelChecker
     public boolean _jm_f_14(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.maxProperties
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$ObjectSchema'.maxProperties]", path);
@@ -415,7 +415,7 @@ public class json_schema_draft_06 extends ModelChecker
     public boolean _jm_f_16(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.minItems
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$ObjectSchema'.minItems]", path);
@@ -427,7 +427,7 @@ public class json_schema_draft_06 extends ModelChecker
     public boolean _jm_f_17(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.minLength
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$ObjectSchema'.minLength]", path);
@@ -439,7 +439,7 @@ public class json_schema_draft_06 extends ModelChecker
     public boolean _jm_f_18(Object val, Path path, Report rep)
     {
         // .'$ObjectSchema'.minProperties
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$ObjectSchema'.minProperties]", path);

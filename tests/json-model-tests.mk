@@ -293,15 +293,11 @@ java: $(F.java) $(F.jvc)
 
 %.java: %.model.json
 	$(JMC.cmd) -o $@ $<
-	status=$$?
-	java_name=$*
-	java_name=$${java_name//-/_}
-	[ $* != $$java_name ] && ln -s $@ $$java_name.java
-	exit $$status
 
 %.class: %.java
 	java_name=$*
 	java_name=$${java_name//-/_}
+	[ $* != $$java_name ] && ln -s $*.java $$java_name.java
 	javac $$java_name.java
 	status=$$?
 	[ $* != $$java_name ] && ln -s $$java_name.class $@

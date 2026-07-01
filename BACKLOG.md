@@ -8,8 +8,8 @@
 - [x] pl-backend: use short post-if/unless where possible by filtering output
 - [x] java-backend: remove useless braces by filtering output
 - [x] doc: improve developer documentation
-- [ ] clang: fix clang loose int extraction (`json_integer_value` returns 0 on floats)
-- [ ] static: use combined type test and value extraction when available
+- [x] clang: fix clang loose int extraction (`json_integer_value` returns 0 on floats)
+- [ ] static: use combined type test and value extraction when available?
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] front: generate valid minimal, maximal and random values from a model

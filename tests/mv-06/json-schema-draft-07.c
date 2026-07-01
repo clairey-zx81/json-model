@@ -585,7 +585,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may minLength property
                         // .'$ObjectSchema'.minLength
-                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
+                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && jm_json_loose_integer_value(pval) >= 0;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minLength]", (path ? &lpath_0 : NULL));
@@ -598,7 +598,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may minItems property
                         // .'$ObjectSchema'.minItems
-                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
+                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && jm_json_loose_integer_value(pval) >= 0;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minItems]", (path ? &lpath_0 : NULL));
@@ -611,7 +611,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may minProperties property
                         // .'$ObjectSchema'.minProperties
-                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
+                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && jm_json_loose_integer_value(pval) >= 0;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minProperties]", (path ? &lpath_0 : NULL));
@@ -931,7 +931,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may maxLength property
                         // .'$ObjectSchema'.maxLength
-                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
+                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && jm_json_loose_integer_value(pval) >= 0;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxLength]", (path ? &lpath_0 : NULL));
@@ -944,7 +944,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may maxItems property
                         // .'$ObjectSchema'.maxItems
-                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
+                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && jm_json_loose_integer_value(pval) >= 0;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxItems]", (path ? &lpath_0 : NULL));
@@ -957,7 +957,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     {
                         // handle may maxProperties property
                         // .'$ObjectSchema'.maxProperties
-                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
+                        res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && jm_json_loose_integer_value(pval) >= 0;
                         if (unlikely(! res))
                         {
                             if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxProperties]", (path ? &lpath_0 : NULL));

@@ -168,7 +168,7 @@ class PLpgSQL(Language):
             expr = super().predef(val, name, path, is_str or check_str, True)
         return self.and_op(self.is_a(var, str), expr) if check_str and not is_str else expr
 
-    def value(self, var: Var, tvar: type) -> Expr:
+    def value(self, var: Var, tvar: type, loose: bool = False) -> Expr:
         """Known type value extraction."""
         if tvar is type(None):
             return "NULL"

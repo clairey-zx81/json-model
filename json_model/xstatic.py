@@ -624,18 +624,18 @@ class CodeGenerator:
                 elif tmodel in (int, str, list, dict):
                     # skip float
                     ival = gen.ident("ival")
-                    cvars += gen.int_var(ival, gen.any_int_val(val, tmodel), declare=True)
+                    cvars += gen.int_var(ival, gen.any_int_val(val, tmodel, jm._loose_int), declare=True)
                 else:
                     assert tmodel is float
                     fval = gen.ident("fval")
                     cvars += gen.flt_var(fval,
                         gen.value(val,
-                            Number if jm._loose_float else float), declare=True)  # type: ignore
+                            Number if jm._loose_float else float, jm._loose_float), declare=True)  # type: ignore
             if has_flt:
                 if tmodel is float and not has_int:
                     fval = gen.ident("fval")
                     cvars += gen.flt_var(fval, gen.value(val,
-                                         Number if jm._loose_float else float),  # type: ignore
+                                         Number if jm._loose_float else float, jm._loose_float),  # type: ignore
                                          declare=True)
                 elif tmodel is int:
                     fval = gen.ident("fval")
@@ -1892,15 +1892,13 @@ class CodeGenerator:
                     if not expr:
                         expr = gen.true()
                 elif model == 0:
-                    # TODO add cast to int?
                     compare = gen.num_cmp(
-                        gen.value(val, Number if jm._loose_int else int),  # type: ignore
+                        gen.value(val, int, jm._loose_int),  # type: ignore
                                   ">=", gen.const(0), is_int=False if jm._loose_int else True)
                     expr = gen.and_op(expr, compare) if expr else compare
                 elif model == 1:
-                    # TODO add cast to int?
                     compare = gen.num_cmp(
-                        gen.value(val, Number if jm._loose_int else int),  # type: ignore
+                        gen.value(val, int, jm._loose_int),  # type: ignore
                                   ">=", gen.const(1), is_int=False if jm._loose_int else True)
                     expr = gen.and_op(expr, compare) if expr else compare
                 else:
@@ -1924,12 +1922,12 @@ class CodeGenerator:
                         expr = gen.true()
                 elif model == 0.0:
                     compare = gen.num_cmp(
-                        gen.value(val, Number if jm._loose_float else float),  # type: ignore
+                        gen.value(val, Number if jm._loose_float else float, jm._loose_float),  # type: ignore
                                   ">=", gen.const(0.0), is_int=False)
                     expr = gen.and_op(expr, compare) if expr else compare
                 elif model == 1.0:
                     compare = gen.num_cmp(
-                        gen.value(val, Number if jm._loose_float else float),  # type: ignore
+                        gen.value(val, Number if jm._loose_float else float, jm._loose_float),  # type: ignore
                                   ">", gen.const(0.0), is_int=False)
                     expr = gen.and_op(expr, compare) if expr else compare
                 else:
@@ -1974,14 +1972,14 @@ class CodeGenerator:
                         code += gen.bool_var(res, expr)
                     elif isinstance(value, int):
                         ttest = gen.is_a(val, int, jm._loose_int)
-                        expr = gen.num_cmp(gen.value(val, Number if jm._loose_int else int), "=", gen.const(value), is_int=True)
+                        expr = gen.num_cmp(gen.value(val, int, jm._loose_int), "=", gen.const(value), is_int=True)
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += gen.bool_var(res, expr)
                     elif isinstance(value, float):
                         ttest = gen.is_a(val, float, jm._loose_float)
                         expr = gen.num_cmp(
-                            gen.value(val, Number if jm._loose_float else float),  # type: ignore
+                            gen.value(val, Number if jm._loose_float else float, jm._loose_float),  # type: ignore
                                       "=", gen.const(value), is_int=False)
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)

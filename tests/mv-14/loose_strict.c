@@ -35,7 +35,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must li property
             must_count += 1;
             // .'$loose'.li
-            res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && json_number_value(pval) >= 0;
+            res = ((json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval))))) && jm_json_loose_integer_value(pval) >= 0;
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$loose'.li]", (path ? &lpath_0 : NULL));

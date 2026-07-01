@@ -266,8 +266,9 @@ class Language:
     #
     # inline json scalar value extraction
     #
-    def value(self, var: Var, tvar: type) -> Expr:
+    def value(self, var: Var, tvar: type, loose: bool = False) -> Expr:
         """Extract a type from JSON var."""
+        assert not loose or tvar in (int, float, Number)
         if tvar in (bool, int, float, Number, str):
             return var
         else:
@@ -328,10 +329,11 @@ class Language:
         """Get hash for string partitioning purpose."""
         raise NotImplementedError("str_hash")
 
-    def any_int_val(self, val: JsonExpr, tval: type) -> IntExpr:
+    # NOTE forward to primitive operations
+    def any_int_val(self, val: JsonExpr, tval: type, loose: bool = False) -> IntExpr:
         """Known type int extraction for constraints."""
         if tval is int:
-            return self.value(val, int)
+            return self.value(val, int, loose)
         elif tval is str:
             return self.str_len(self.value(val, str))  # type: ignore
         elif tval is list:

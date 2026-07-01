@@ -100,7 +100,7 @@ class Perl(Language):
     def _val(self, expr: Expr) -> Expr:
         return f"${expr}" if self.is_a_var(expr) else expr
 
-    def value(self, var: Var, tvar: type) -> Expr:
+    def value(self, var: Var, tvar: type, loose: bool = False) -> Expr:
         return self._val(var)
 
     def get_value(self, var: Var, tvar: type) -> Expr:
