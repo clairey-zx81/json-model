@@ -150,7 +150,6 @@
 - [ ] model: add a clean model for SAP UI5 tools?
 - [ ] model: update and test `ri.model.json`
 - [ ] export: generate ts interfaces
-- [ ] backend: improve generated code with filters for js, java, pl
 - [ ] tests: improve predef validators cross-language consistency
 - [ ] tests: generate invalid minimal, maximal, random values
 - [ ] tests: generate invalid values on each constraint
@@ -164,6 +163,7 @@
 - [ ] tool: jmc api in flask
 - [ ] front: allow IR re-entrance?
 - [ ] export: katydid?
+- [ ] api: json model as a service backend with flask
 
 ## Re Do
 
