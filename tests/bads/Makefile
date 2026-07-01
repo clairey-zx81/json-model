@@ -24,6 +24,9 @@ F.gen   = bads.check.out
 .PHONY: gen
 gen: $(F.gen)
 
+.PHONY: genone
+	# skip
+
 .PHONY: check
 check:
 	$(MAKE) clean
@@ -64,6 +67,14 @@ pl:
 
 .PHONY: clean.pl
 clean.pl:
+	# skip
+
+.PHONY: schema
+schema:
+	# skip
+
+.PHONY: clean.schema
+clean.schema:
 	# skip
 
 # test that --check rejects **all** bads

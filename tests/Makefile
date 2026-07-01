@@ -14,6 +14,9 @@ D.js = $(D.subs:%=%.js)
 D.clean.js = $(D.subs:%=%.clean.js)
 D.pl = $(D.subs:%=%.pl)
 D.clean.pl = $(D.subs:%=%.clean.pl)
+D.schema = $(D.subs:%=%.schema)
+D.clean.schema = $(D.subs:%=%.clean.schema)
+D.genone = $(D.subs:%=%.genone)
 
 .PHONY: clean
 clean:
@@ -28,6 +31,7 @@ PYTOPT	= -n logical
 check.pytest:
 	$(PYTEST) $(PYTOPT) tests.py
 
+# parallel forward trick
 .PHONY: %.$(TARGET)
 %.$(TARGET):
 	$(MAKE) -C $* $(TARGET)
@@ -44,6 +48,10 @@ check.check:
 .PHONY: gen
 gen:
 	$(MAKE) TARGET=gen $(D.gen)
+
+.PHONY: genone
+genone:
+	$(MAKE) TARGET=genone GENONE=$(GENONE) $(D.genone)
 
 .PHONY: java
 java:
@@ -68,6 +76,14 @@ pl:
 .PHONY: clean.pl
 clean.pl:
 	$(MAKE) TARGET=clean.pl $(D.clean.pl)
+
+.PHONY: schema
+schema:
+	$(MAKE) TARGET=schema $(D.schema)
+
+.PHONY: clean.schema
+clean.schema:
+	$(MAKE) TARGET=clean.schema $(D.clean.schema)
 
 # show statistics about tests
 .PHONY: stats
