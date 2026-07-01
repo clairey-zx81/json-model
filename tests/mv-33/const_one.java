@@ -25,7 +25,7 @@ public class const_one extends ModelChecker
         // JSON_MODEL_LOOSE_NUMBER
         // .
         // .'@'
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) == 1;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) == 1;
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected value for model \"=1\" [.'@']", path);

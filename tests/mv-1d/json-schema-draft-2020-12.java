@@ -583,7 +583,7 @@ public class json_schema_draft_2020_12 extends ModelChecker
     public boolean json_model_11(Object val, Path path, Report rep)
     {
         // .'$nonNegativeInteger'
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$nonNegativeInteger']", path);

@@ -17,7 +17,7 @@ public class largeint extends ModelChecker
 
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        return ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) == 9876543210L;
+        return ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) == 9876543210L;
     }
 
 

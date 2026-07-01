@@ -785,7 +785,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
     public boolean json_model_13(Object val, Path path, Report rep)
     {
         // .'$schema#nonNegativeInteger'
-        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asNumber(val) >= 0;
+        boolean res = ((json.isInteger(val) || (json.isDouble(val) && json.asDouble(val) == ((long) json.asDouble(val))))) && json.asLong(val) >= 0;
         if (! res)
         {
             if (rep != null) rep.addEntry("not a 0 loose int [.'$schema#nonNegativeInteger']", path);
