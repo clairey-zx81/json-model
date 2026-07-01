@@ -249,7 +249,7 @@ This generated code exports 4 useful functions:
   plus two parameters which must be `undef` for now.
 
 The generated functions and runtime depends in `JSON::JsonModel`, `re::engine::RE2`,
-`JSON::MaybeXS` for JSON.
+`JSON::MaybeXS` and `Algorithm::LUHN`.
 
 For instance, generate a Perl module:
 
