@@ -9,7 +9,9 @@
 - [x] java-backend: remove useless braces by filtering output
 - [x] doc: improve developer documentation
 - [x] clang: fix clang loose int extraction (`json_integer_value` returns 0 on floats)
+- [x] tests: add `schema.check` for most test models
 - [ ] static: use combined type test and value extraction when available?
+- [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] front: generate valid minimal, maximal and random values from a model

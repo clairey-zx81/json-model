@@ -11,7 +11,7 @@ JMC.cmd = \
         -m "https://json-model.org/tests/ ./"
 
 # JSON Schema Checker
-JSC = jsu-check --quiet
+# JSC = jsu-check --quiet
 
 # inputs, skip _*
 F.mjs   = $(wildcard [a-zA-Z]*.model.js)
@@ -47,6 +47,7 @@ F.jsc   = $(F.root:%=%.js.check)
 F.sqlc  = $(F.root:%=%.sql.check)
 F.plc   = $(F.root:%=%.pl.check)
 F.jvc   = $(F.root:%=%.java.check)
+F.schc  = $(F.root:%=%.schema.check)
 
 DASHED  = $(wildcard *-*.model.json)
 FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
@@ -54,9 +55,9 @@ FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
 # all generated
 # TODO F.ir
 F.gen   = \
-    $(F.json) $(F.UO) $(F.PO) $(F.EO) \
-    $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) \
-    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc)
+    $(F.json) $(F.UO) $(F.PO) \
+    $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) $(F.EO) \
+    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc) $(F.schc)
 
 .PHONY: all
 all: $(F.gen)
@@ -81,6 +82,19 @@ clean.gen:
 
 .PHONY: gen
 gen: $(F.gen)
+
+.PHONY: genone
+genone:
+	[ "$(GENONE)" ] || exit 1
+	for base in $(F.root) ; do
+	  target=$${base}$(GENONE)
+	  $(RM) $${target}
+	  $(MAKE) $${target}
+	  if [ $$? -ne 0 ] ; then
+	    touch $${target}.KO
+	  fi
+	done
+	exit 0
 
 .PHONY: check
 check:
@@ -121,13 +135,31 @@ PO: $(F.PO)
 %.JO.json: %.model.json
 	$(JMC.cmd) -JO ./$* > $@
 
-.PHONY: schema
-schema: $(F.EO)
+# check for schema (partial) reintrance: model -> schema -> model -> check
+# NOTE regex extension features are not supported
+.PHONY: schema clean.schema
+schema: $(F.EO) $(F.schc)
 %.schema.json: %.model.json
 	$(JMC.cmd) -EO -ns ./$< > $@
 
+# jsu-check -e jsonschema -t ./$< ./$*.values.json > $@
 %.schema.check: %.schema.json
-	jsu-check -e jsonschema -t ./$< ./$*.values.json > $@
+	shopt -s nullglob
+	set -o pipefail
+	if [ -e $@.skip ] ; then
+	  echo SKIPPED > $@
+	  exit 0
+	fi
+	# jsu-compile --backend f $< $*.*.{true,false}.json | sort > $@
+	jsu-compile --backend f $< -- -tv ./$*.values.json >> $@
+	status=$$?
+	if [ $$status -ne 0 ] ; then
+	    test -f $*.errors.json && status=0
+	fi
+	exit $$status
+
+clean.schema:
+	$(RM) *.schema.json *.schema.check
 
 #
 # C Backend
@@ -173,6 +205,7 @@ $(F.out): json-model.o main.o
 %.out: %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< $(LDFLAGS) -o $@
 
+# TODO check precise errors!
 %.c.check: %.out %.values.json
 	shopt -s nullglob
 	set -o pipefail
@@ -300,7 +333,10 @@ java: $(F.java) $(F.jvc)
 	[ $* != $$java_name ] && ln -s $*.java $$java_name.java
 	javac $$java_name.java
 	status=$$?
-	[ $* != $$java_name ] && ln -s $$java_name.class $@
+	[ $* != $$java_name ] && {
+	  mv $$java_name.class $@
+	  $(RM) $$java_name.java
+	}
 	exit $$status
 
 %.java.check: %.class %.values.json
@@ -308,12 +344,14 @@ java: $(F.java) $(F.jvc)
 	set -o pipefail
 	java_name=$*
 	java_name=$${java_name//-/_}
+	[ $* != $$java_name ] && ln -s $*.class $$java_name.class
 	$(JAVA) $$java_name $(J.opt) $*.*.{true,false}.json | sort > $@
 	$(JAVA) $$java_name $(J.opt) -t $*.values.json >> $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0
 	fi
+	[ $* != $$java_name ] && $(RM) $$java_name.class
 	exit $$status
 
 #
