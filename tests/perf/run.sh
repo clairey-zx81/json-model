@@ -66,7 +66,9 @@ EOF
 #
 
 # defaults
-LOOP=1000 TASK="all" jsu_opts_2= jmc_opts_2= blaze_opts=
+LOOP=1000 TASK="all"
+# command options
+jsu_opts_2= jmc_opts_2= blaze_cmp_opts= blaze_val_opts=
 
 # handle options
 while [[ "$1" == -* ]] ; do
@@ -91,12 +93,12 @@ while [[ "$1" == -* ]] ; do
       TASK=${1#*=}
       ;;
     -c|--content)  # check contents
-      blaze_opts+=" -F"
+      blaze_cmp_opts+=" -F"
       jsu_opts_2+=" --format"
       jmc_opts_2+=" --predef"
       ;;
     -nc|--no-content)
-      blaze_opts=${blaze_opts/-F/}
+      blaze_cmp_opts=${blaze_cmp_opts/-F/}
       jsu_opts_2+=" --no-format"
       jmc_opts_2+=" --no-predef"
       ;;
@@ -202,7 +204,7 @@ for dir ; do
     [ "$do_cmp" -a $trg = "blaze" ] && {
       echo "## $dir blaze compile"
       ctime "$name,blaze,$now," "$prefix" blaze \
-        $js_cli compile $blaze_opts -m -f $dir/schema.json > ${prefix}.blaze.json
+        $js_cli compile $blaze_cmp_opts -m -f $dir/schema.json > ${prefix}.blaze.json
       blaze_ko=$?
       echo "## blaze ko: $blaze_ko"
     }
@@ -278,7 +280,7 @@ for dir ; do
     #
     [ "$trg" = "blaze" -a "$blaze_ko" -eq 0 ] && {
       echo "## $dir blaze run"
-      $js_cli validate $blaze_opts -m ${prefix}.blaze.json -b -l $LOOP \
+      $js_cli validate $blaze_val_opts -m ${prefix}.blaze.json -b -l $LOOP \
         $dir/schema.json $dir/instances.jsonl \
           > ${prefix}_blaze.out
     }
