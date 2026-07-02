@@ -42,6 +42,7 @@ cd json-model
 ```
 
 If you intend to develop and submit a PR, fork the repos before cloning, and create a branch.
+Use `pull` with `rebase` to ensure a linear commit history.
 
 There are 3 branches:
 
@@ -49,16 +50,16 @@ There are 3 branches:
 - `post` for post-release changes
 - `dev` for fixes and features
 
-New things happen on `dev`, the are merged into `main` from time to time.
+New things happen on `dev`, the are merged into `main` for release from time to time.
 Branch `post` is used to add new benchmark artifacts out of the release cycle.
 
-The `post`/`main` branches are needed so that automatic versioning works.
+The `post`/`main` branches and `main` tags are needed so that automatic versioning works.
 
-To setup a local developer environment, run at the root of the project:
+To setup a local developer environment, run at the root of the project, try `make dev`.
 
 ```sh
 # for Python
-make dev
+make dev.py
 source venv/bin/activate
 # for JS
 npm install
@@ -69,9 +70,9 @@ source $PWD/json_model/runtime/pl/env.bash
 make -C json_model/runtime/java jar
 source $PWD/json_model/runtime/java/env.bash
 # for C
-# install pcre2, cre2, gnu getopt, jansson
+# install pcre2, cre2, gnu getopt, jansson, compile runtime
 # for SQL
-# have psql ready to connect to a local Postgres
+# have psql ready to connect to a local Postgres, install `json_model` extension…
 ```
 
 ## Tests
