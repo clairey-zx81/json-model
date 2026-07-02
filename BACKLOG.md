@@ -10,6 +10,7 @@
 - [x] doc: improve developer documentation
 - [x] clang: fix clang loose int extraction (`json_integer_value` returns 0 on floats)
 - [x] tests: add `schema.check` for most test models
+- [ ] perf: run benchmark for formats/predefs enabled
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
 - [ ] c-backend: factor out str extraction in or-list in more cases
@@ -17,7 +18,6 @@
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
 - [ ] optim: simplify some '!=' cases
-- [ ] perf: run benchmark for formats/predefs enabled
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
 - [ ] static: check for common object part
 - [ ] perf: add another loop over performance collection?
