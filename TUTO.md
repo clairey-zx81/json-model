@@ -628,7 +628,13 @@ a value so as to compute the average and standard deviation times in µs.
   # hobbes.json: 9.386 ± 0.972 µs/call (0.050)
   # hobbes.json: PASS
   ```
-
+I have some problems with Perl in awesome_jmc docker:
+oot@cef480b4c304:/app/workspace# ./person.pl -T 1000 hobbes.json 
+Can't locate Algorithm/LUHN.pm in @INC (you may need to install the Algorithm::LUHN module) (@INC entries checked: /app/json-model/json_model/runtime/pl/lib /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /app/json-model/json_model/runtime/pl/lib/JSON/JsonModel.pm line 21.
+BEGIN failed--compilation aborted at /app/json-model/json_model/runtime/pl/lib/JSON/JsonModel.pm line 21.
+Compilation failed in require at ./person.pl line 11.
+BEGIN failed--compilation aborted at ./person.pl line 11.
+you have to install something
 - generate and execute a Perl script:
 
   Assuming that the `JSON::JsonModel` Perl module is available in your `PERLLIB`,
