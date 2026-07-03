@@ -249,7 +249,7 @@ jmc --name Pi Person-2 pi.json  # PASS
 A common use case is to define some data structure and to reuse them in other
 related settings, much like one would _import_ a module or _include_ a header file.
 JSON Model allows definitions to be local or remote URLs so as to fetch and reuse
-external models easily.
+external models easily. '#' keywoard means property of each definition.
 
 Let us write file `Class.model.json` which reuses `Person-2.model.json` by loading
 it as a file (`$./Person-2`) for defining the class name and array of students:
@@ -257,9 +257,9 @@ it as a file (`$./Person-2`) for defining the class name and array of students:
 ```json
 {
   "#": "Import Person to define a model for a class",
-  "$": { "pv2": "$./Person-2" },
-  "name": "$pv2#Name",
-  "students": [ "$pv2#Person" ]
+  "$": { "Person-2": "$./Person-2" },
+  "name": "$Person-2#Name",
+  "students": [ "$Person2#Person" ]
 }
 ```
 
