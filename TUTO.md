@@ -324,19 +324,19 @@ This can be expressed with a model involving either the special `^` (xor, one-of
 
 Let us consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
 a pair of numbers, and use it for point and segment objects:
-
+ -- Name convention
 ```json
 {
   "#": "Geometrical Model",
-  "$": { "coord": [ -1.0, -1.0 ] },
+  "$": { "Coord": [ -1.0, -1.0 ] },
   "^": [
     {
       "type": "_Point",
-      "data": "$coord"
+      "data": "$Coord"
     },
     {
       "type": "_Segment",
-      "data": [ "$coord", "$coord" ]
+      "data": [ "$Coord", "$Coord" ]
     }
   ]
 }
