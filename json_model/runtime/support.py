@@ -241,9 +241,16 @@ def value_len(value: Jsonable, path: Path) -> None|bool|int|float:
 def is_valid_url(value: Jsonable, path: Path, rep: Report = None) -> bool:
     # NOTE urllib.parse accepts any garbage…
     # NOTE simple_host required to accept "localhost"
-    # FIXME file:// is not a url…
-    valid = isinstance(value, str) and validators.url(value, simple_host=True) is True
+    if not isinstance(value, str):
+        _ = rep is None or rep.append((f"invalid url base type: {value}", path))
+        return False
+    valid = validators.url(value, simple_host=True) is True
     if not valid:
+        if value.startswith("file://"):  # FIXME simplistic
+            return True
+        elif value.startswith("oci:"):
+            # NOTE handle oci:... (Oracle Cloud Infrastructure) with a recursion
+            return is_valid_url("http:" + value[4:], path, rep)
         _ = rep is None or rep.append((f"invalid url {value}", path))
     return valid
 

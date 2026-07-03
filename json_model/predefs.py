@@ -71,7 +71,7 @@ _ETH = "([0-9a-f]{2}:){5}[0-9a-f]{2}"  # i
 # FIXME TODO improve!
 _URL = r"((https?|file)://.*|\..*)"
 # RFC3986 https://datatracker.ietf.org/doc/html/rfc3986
-_URI = f"({_URL}|urn:.*)"
+_URI = f"({_URL}|(urn|oci):.*)"
 
 #
 # date time and duration
