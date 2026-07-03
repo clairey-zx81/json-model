@@ -687,7 +687,7 @@ jmc -o person.pm Person-2           # Perl Module
 jmc -o Person.java Person-2         # Java class
 jmc -o person.sql Person-2          # PL/pgSQL functions
 ```
-
+Lower not working
 Here is an example of checking JSONB values inside Postgres, by importing
 JSON Model runtime and generated code:
 
