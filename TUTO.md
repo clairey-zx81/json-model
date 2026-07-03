@@ -237,6 +237,7 @@ for instance with file `pi.json`:
 ```json
 3.141592653589793238462643
 ```
+why when we use for example 3.1415926535897932384626432342345235235235235235 it also pass ( float comparing? )
 
 We can check that its content conforms to Pi definition inside the `Person-2` model:
 
