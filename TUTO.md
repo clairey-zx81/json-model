@@ -518,16 +518,16 @@ must not be empty and must contain distinct people, in file `Person-3.model.json
 {
   "#": "Constrained Person",
   "$": {
-    "p2": "$./Person-2"
+    "P2": "$./Person-2"
   },
   "%": {
-    "$p2#Person.?friends": {
+    "$P2#Person.?friends": {
       "@": [ "$Name" ],
       "!": true,
       ">": 0
     }
   },
-  "@": "$p2#Person"
+  "@": "$P2#Person"
 }
 ```
 
