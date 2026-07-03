@@ -83,14 +83,15 @@ for all possible values for that type.
   - `"=3.1415927E0`: the approximated pi float value.
 
   Any other model strings starting with `=` must be treated as errors and rejected.
-
+  it's hard to uderstand that
+  //
   String scalar constant are expressed with strings using sentinel `_`:
 
   - `"_XXX"`: the _XXX_ string constant, where _XXX_ can be anything.
     `"_"` is the empty string, `"_&"` is the ampersand character, `"_#"` is the sharp character.
   - as a convenience, `"XXX"`: the _XXX_ string constant **if** the first character
     is an identifier character, i.e. a letter of some sort.
-
+//
 - **Regular Expression String Models**
 
   Regular expression are specified in string with the `/` sentinel: `"/regex/options"`
