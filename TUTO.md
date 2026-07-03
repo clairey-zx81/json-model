@@ -249,7 +249,7 @@ jmc --name Pi Person-2 pi.json  # PASS
 A common use case is to define some data structure and to reuse them in other
 related settings, much like one would _import_ a module or _include_ a header file.
 JSON Model allows definitions to be local or remote URLs so as to fetch and reuse
-external models easily.
+external models easily. Here the `#` keyword is not a comment but a definition selector.
 
 Let us write file `Class.model.json` which reuses `Person-2.model.json` by loading
 it as a file (`$./Person-2`) for defining the class name and array of students:
@@ -320,7 +320,8 @@ jmc Loose moe.json  # PASS
 A common pattern is to allow several kind of object as some point in the data structure,
 aka a _union_.
 This can be expressed with a model involving either the special `^` (xor, one-of) or `|`
-(or, any-of) property with an array of possible models.
+(or, any-of) property with an array of possible models. A sample value stands for its whole type, 
+and its sign selects the range: -1.0 means any float, 0.0 non-negative, 1.0 strictly positive — likewise -1, 0, 1 for integers.
 
 Let us consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
 a pair of numbers, and use it for point and segment objects:
@@ -328,15 +329,15 @@ a pair of numbers, and use it for point and segment objects:
 ```json
 {
   "#": "Geometrical Model",
-  "$": { "coord": [ -1.0, -1.0 ] },
+  "$": { "Coord": [ -1.0, -1.0 ] },
   "^": [
     {
       "type": "_Point",
-      "data": "$coord"
+      "data": "$Coord"
     },
     {
       "type": "_Segment",
-      "data": [ "$coord", "$coord" ]
+      "data": [ "$Coord", "$Coord" ]
     }
   ]
 }
@@ -678,11 +679,12 @@ jmc -o Person.java Person-2         # Java class
 jmc -o person.sql Person-2          # PL/pgSQL functions
 ```
 
+If you have postgresql instance installed then:
 Here is an example of checking JSONB values inside Postgres, by importing
 JSON Model runtime and generated code:
 
 ```sh
-sudo make -C json_model/runtime install  # install runtime
+sudo make -C json_model/runtime/sql install  # install runtime
 # OR: sudo pgxn install json_model
 psql -f person.sql                       # load runtime and model checking functions
 ```
