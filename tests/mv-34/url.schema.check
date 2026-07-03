@@ -5,9 +5,9 @@
 ./url.values.json[4]: PASS
 ./url.values.json[5]: PASS
 ./url.values.json[6]: PASS
-./url.values.json[7]: FAIL
-./url.values.json[8]: FAIL
-./url.values.json[9]: FAIL
+./url.values.json[7]: PASS
+./url.values.json[8]: PASS
+./url.values.json[9]: PASS
 ./url.values.json[10]: FAIL
 ./url.values.json[11]: FAIL
 ./url.values.json[12]: FAIL
@@ -15,3 +15,6 @@
 ./url.values.json[14]: FAIL
 ./url.values.json[15]: FAIL
 ./url.values.json[16]: FAIL
+./url.values.json[17]: FAIL
+./url.values.json[18]: FAIL
+./url.values.json[19]: FAIL

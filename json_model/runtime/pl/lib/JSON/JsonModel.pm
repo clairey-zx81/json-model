@@ -146,7 +146,7 @@ sub jm_is_object($)
 sub jm_is_valid_url($$$)
 {
     my ($u) = @_;
-    return $u =~ m,^((https?|file)://.*|\./|\.\./).*$,;
+    return $u =~ m,^((https?|file|sftp|ftps?|irc|rtmps?|rtsp|sftp|oci)://|(ssh|telnet):|\./|\.\./).*$,;
 }
 
 # $DATE

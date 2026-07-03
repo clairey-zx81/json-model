@@ -120,6 +120,9 @@ public class Runtime
         return is_valid_regex(s);
     }
 
+    static public final Pattern
+        SSH_RE = Pattern.compile("^ssh:\\w+@\\w+(\\.\\w+)*$");
+
     /** Is it a URL? */
     public boolean is_valid_url(String s)
     {
@@ -128,6 +131,11 @@ public class Runtime
             return true;
         }
         catch (Exception e) {
+            // URI is quite restrictive
+            if (s.startsWith("ssh:"))
+                return SSH_RE.matcher(s).find();
+            if (s.startsWith("oci:"))
+                return is_valid_url("http:" + s.substring(4));
             return false;
         }
     }
