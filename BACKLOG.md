@@ -11,6 +11,7 @@
 - [x] clang: fix clang loose int extraction (`json_integer_value` returns 0 on floats)
 - [x] tests: add `schema.check` for most test models
 - [x] runtimes: accept "oci:..." as valid urls in java, python, perl, plpgsql…
+- [x] container: add missing `Algorithm::LUHN` Perl module installation
 - [ ] perf: run benchmark for formats/predefs enabled
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used

@@ -96,4 +96,7 @@ ENV CLASSPATH=$CLASSPATH:$java/gson-$gson.jar
 ENV CLASSPATH=$CLASSPATH:$java/jackson-core-$jackson.jar:$java/jackson-databind-$jackson.jar:$java/jackson-annotations-$jackson_ann.jar
 ENV CLASSPATH=$CLASSPATH:$java/jakarta.json-api-$jakarta.jar:$java/johnzon-core-$johnzon.jar
 
+# perl runtime needs the luhn algorithm implementation
+RUN echo "yes" | cpan install -T Algorithm::LUHN
+
 ENTRYPOINT ["/bin/bash"]
