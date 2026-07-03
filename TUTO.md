@@ -730,6 +730,28 @@ classes very simply using type hints.
 
 Let us export a model to pydantic with the `-E` export task:
 
+I have error: 
+root@cef480b4c304:/app/workspace# jmc -E -F -n Root Person-2
+usage: jmc [-h] [--doc {pod,syn,help,man}] [--man] [--runtime] [--version] [--debug] [--verbose] [--quiet] [--allow-duplicates] [--maps MAPS]
+           [--auto] [--extend] [--no-extend] [--loose-int] [--strict-int] [--loose-float] [--strict-float] [--loose-number] [--strict-number]
+           [--output OUTPUT] [--package PACKAGE] [--entry ENTRY] [--regex-engine {re,re2,pcre2}] [--comment] [--no-comment] [--sort] [--no-sort]
+           [--indent INDENT] [--reporting] [--no-reporting] [--short-version] [--predef] [--no-predef] [--mark MARK]
+           [--generate {exec,module,source,none} | --exec | --module | --code | --no-gen] [--format {json,yaml,py,c,js,plpgsql,pl,java}] [--cc CC]
+           [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS] [--static] [--include [INCLUDE ...]] [--library [LIBRARY ...]]
+           [--define [DEFINE ...]] [--inline] [--no-inline] [--precompiled] [--no-precompiled] [--javac JAVAC] [--jflags JFLAGS] [--name NAME]
+           [--none] [--true] [--false] [--test-vector] [--jsonl] [--report] [--no-report] [--check] [--optimize] [--no-optimize]
+           [--no-optimization {srx,csp,sim,flt,pev,ans,aco,x2o,non}] [--single-line-regex] [--no-single-line-regex] [--map-threshold MAP_THRESHOLD]
+           [--map-share] [--no-map-share] [--may-must-open-threshold MAY_MUST_OPEN_THRESHOLD] [--must-only-threshold MUST_ONLY_THRESHOLD]
+           [--partition-threshold PARTITION_THRESHOLD] [--or-must-prop OR_MUST_PROP] [--sort-must] [--no-sort-must] [--sort-may] [--no-sort-may]
+           [--array-unrolling-size ARRAY_UNROLLING_SIZE] [--regex-pattern] [--no-regex-pattern] [--call-shortcut] [--no-call-shortcut]
+           [--disjunction] [--no-disjunction] [--all-but-one] [--no-all-but-one] [--missing-basics] [--no-missing-basics] [--xor-repeats]
+           [--no-xor-repeats] [--xor-is-not] [--no-xor-is-not] [--homogeneous-list] [--no-homogeneous-list] [--max-strcmp-cset MAX_STRCMP_CSET]
+           [--strcmp-optimize] [--no-strcmp-optimize] [--byte-order {le,be,dpd}] [--regex-optimize] [--no-regex-optimize] [--unique-optimize]
+           [--no-unique-optimize] [--ir-optimize] [--no-ir-optimize] [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export |
+           --compile] [--schema-version] [--no-schema-version] [--cache-dir CACHE_DIR] [--cache-ignore] [--cache-clear] [--model MODEL_OPTION]
+           [model] [values ...]
+jmc: error: argument --format/-F: expected one argument
+
 ```sh
 jmc -E -F PersonModels.py -n Root Person-2
 ```
