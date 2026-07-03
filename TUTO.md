@@ -326,6 +326,9 @@ This can be expressed with a model involving either the special `^` (xor, one-of
 Let us consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
 a pair of numbers, and use it for point and segment objects:
  -- Name convention
+ -1.0 - first introduced and not descripted
+ it does mean any float? can we put 1.0 or only -1.0?
+ when we want int we have to put 1? or -1 or any?
 ```json
 {
   "#": "Geometrical Model",
