@@ -49,10 +49,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Notification'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -64,10 +61,7 @@ sub json_model_3($$$)
             $must_count++;
             # .'$Notification'.jsonrpc
             $res = jm_is_string($pval) && $pval eq "2.0";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "method")
@@ -77,10 +71,7 @@ sub json_model_3($$$)
             # .'$Notification'.method
             # "/./"
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "params")
@@ -90,10 +81,7 @@ sub json_model_3($$$)
             # .'$Notification'.params.'|'.0
             # .'$Notification'.params.'|'.1
             $res = jm_is_array($pval) || jm_is_object($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -106,10 +94,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Request'
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -121,10 +106,7 @@ sub json_model_4($$$)
             $must_count++;
             # .'$Request'.jsonrpc
             $res = jm_is_string($pval) && $pval eq "2.0";
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "method")
@@ -134,10 +116,7 @@ sub json_model_4($$$)
             # .'$Request'.method
             # "/./"
             $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "id")
@@ -146,10 +125,7 @@ sub json_model_4($$$)
             $must_count++;
             # .'$Request'.id
             $res = json_model_2($pval, undef, undef);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "params")
@@ -159,10 +135,7 @@ sub json_model_4($$$)
             # .'$Request'.params.'|'.0
             # .'$Request'.params.'|'.1
             $res = jm_is_array($pval) || jm_is_object($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         return 0;
@@ -187,10 +160,7 @@ sub json_model_5($$$)
             # .'$BatchRequest'.'@'.0.'|'.0
             # .'$BatchRequest'.'@'.0.'|'.1
             $res = json_model_4($arr_0_item, undef, undef) || json_model_3($arr_0_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
@@ -218,37 +188,19 @@ sub json_model_7($$$)
     my ($val, $path, $rep) = @_;
     # .'$Response'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 3)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 3;
     my $pval;
-    if (! exists $$val{"jsonrpc"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"jsonrpc"};
     $pval = $$val{"jsonrpc"};
     # .'$Response'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"id"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"id"};
     $pval = $$val{"id"};
     # .'$Response'.id
     $res = json_model_2($pval, undef, undef);
-    if (! $res)
-    {
-        return 0;
-    }
+    return 0 unless $res;
     return exists $$val{"result"};
 }
 
@@ -256,10 +208,7 @@ sub json_model_7($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
     my $res;
     my $must_count = 0;
     scalar keys %$val;
@@ -271,10 +220,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'$Error'.error.code
             $res = jm_is_integer($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         elsif ($prop eq "message")
@@ -283,10 +229,7 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'$Error'.error.message
             $res = jm_is_string($pval);
-            if (! $res)
-            {
-                return 0;
-            }
+            return 0 unless $res;
             next;
         }
         if ($prop eq "data")
@@ -307,41 +250,20 @@ sub json_model_8($$$)
     my ($val, $path, $rep) = @_;
     # .'$Error'
     # check close must only props
-    if (! jm_is_object($val))
-    {
-        return 0;
-    }
-    if (jm_obj_size($val) != 3)
-    {
-        return 0;
-    }
+    return 0 unless jm_is_object($val);
+    return 0 if jm_obj_size($val) != 3;
     my $pval;
-    if (! exists $$val{"jsonrpc"})
-    {
-        return 0;
-    }
+    return 0 unless exists $$val{"jsonrpc"};
     $pval = $$val{"jsonrpc"};
     # .'$Error'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"id"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"id"};
     $pval = $$val{"id"};
     # .'$Error'.id
     $res = json_model_2($pval, undef, undef);
-    if (! $res)
-    {
-        return 0;
-    }
-    if (! exists $$val{"error"})
-    {
-        return 0;
-    }
+    return 0 unless $res;
+    return 0 unless exists $$val{"error"};
     $pval = $$val{"error"};
     # .'$Error'.error
     return _jm_obj_0($pval, undef, undef);
@@ -364,10 +286,7 @@ sub json_model_9($$$)
             # .'$BatchResponse'.'@'.0.'|'.0
             # .'$BatchResponse'.'@'.0.'|'.1
             $res = json_model_7($arr_1_item, undef, undef) || json_model_8($arr_1_item, undef, undef);
-            if (! $res)
-            {
-                last;
-            }
+            last unless $res;
         }
     }
     if ($res)
