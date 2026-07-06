@@ -2,8 +2,8 @@
   "#": "JSON-RPC 2.0 Protocol",
   "#.url": "https://www.jsonrpc.org/specification",
   "~": "https://json-model.org/models/json-model",
-  "": "https://json-model.org/models/jsonrpc2",
   "$": {
+    "": "https://json-model.org/models/jsonrpc2",
     "Id": {
       "#": "Request/response identifier: null, integer, or string",
       "#.note": "Null is discouraged for requests; Do not use floats!",
