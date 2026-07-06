@@ -18,5 +18,7 @@
   [ false, [1, "expected"] ],
   [ false, {} ],
   [ false, {"un": "expected"} ],
-  [ false, {"url": "https://json-model.org"} ]
+  [ false, {"url": "https://json-model.org"} ],
+  [ false, "https://{defaulthost}" ],
+  [ false, "<local-name>" ]
 ]
