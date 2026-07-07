@@ -1192,6 +1192,53 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
 // default version
 bool (*jm_is_valid_regex)(const char *, bool, jm_path_t *, jm_report_t *) = jm_is_valid_regex_fast;
 
+/*
+ * URL PARSING
+ */
+#if defined(URL_PARSER_CURL)
+static bool
+curl_url_parser(const char *url, bool authority)
+{
+    static CURLU *cu = NULL;
+    if (cu == NULL)
+        cu = curl_url();
+
+    unsigned int flag = CURLU_NON_SUPPORT_SCHEME;
+    if (!authority)
+        flag |= CURLU_NO_AUTHORITY;
+
+    CURLUcode rc = curl_url_set(cu, CURLUPART_URL, url, flag);
+
+    return rc == CURLUE_OK;
+}
+#endif  // CURL_URL_PARSER
+
+// something that looks like an email or ssh address
+// TODO extend to make first part optional?
+static bool
+jmc_dest_address(const char *stuff)
+{
+    char * c = (char *) stuff;
+    if (!isalnum(*c++))
+        return false;
+    while (isalnum(*c) || (*c) == '-' || (*c) == '.')
+        c++;
+    if ((*c++) != '@')
+        return false;
+    while (*c)
+    {
+        if (!isalnum(*c++))
+            return false;
+        while (isalnum(*c) || (*c) == '-')
+            c++;
+        if ((*c) == '\0')
+            return true;
+        if ((*c++) != '.')
+            return false;
+    }
+    return false;
+}
+
 // known url schemes
 static const uint64_t
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__  // reversed
@@ -1200,22 +1247,22 @@ static const uint64_t
     s_sftp   = 0x0000003a70746673LL,
     s_file   = 0x0000003a656c6966LL,
     s_rtsp   = 0x0000003a70737472LL,
-    s_imap   = 0x0000003a70616d69LL,
     s_rtsps  = 0x00003a7370737472LL,
-    s_imaps  = 0x00003a7370616d69LL,
     s_telnet = 0x003a74656e6c6574LL,
     s_mailto = 0x003a6f746c69616dLL
+    // s_imap   = 0x0000003a70616d69LL,
+    // s_imaps  = 0x00003a7370616d69LL,
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__   // ordered
     s_https  = 0x68747470733a0000LL,
     s_http   = 0x687474703a000000LL,
     s_sftp   = 0x736674703a000000LL,
     s_file   = 0x66696c653a000000LL,
     s_rtsp   = 0x727473703a000000LL,
-    s_imap   = 0x696d61703a000000LL,
     s_rtsps  = 0x72747370733a0000LL,
-    s_imaps  = 0x696d6170733a0000LL,
     s_telnet = 0x74656c6e65743a00LL,
     s_mailto = 0x6d61696c746f3a00LL
+    // s_imap   = 0x696d61703a000000LL,
+    // s_imaps  = 0x696d6170733a0000LL,
 #else
 #  error FIXME unhandled byte order
 #endif
@@ -1225,13 +1272,13 @@ static const uint32_t
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__  // reversed
     s_ftp = 0x3a707466,
     s_oci = 0x3a69636f,
-    s_ssh = 0x3a687373,
-    s_irc = 0x3a637269
+    s_ssh = 0x3a687373
+    // s_irc = 0x3a637269
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__   // ordered
     s_ftp = 0x6674703a,
     s_oci = 0x6f63693a,
-    s_ssh = 0x7373683a,
-    s_irc = 0x6972633a
+    s_ssh = 0x7373683a
+    // s_irc = 0x6972633a
 #else
 #  error FIXME unhandled byte order
 #endif
@@ -1244,6 +1291,31 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
 {
     if (!url)
         return false;
+
+#if defined(URL_PARSER_CURL)
+
+    if (jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
+        jm_str_eq_4(url, s_ftp)   || jm_str_eq_5(url, s_sftp)   ||
+        jm_str_eq_5(url, s_rtsp)  || jm_str_eq_6(url, s_rtsps)  ||
+        jm_str_eq_4(url, s_oci))
+        return curl_url_parser(url, true);
+    else if (jm_str_eq_5(url, s_file))
+        return curl_url_parser(url, false);
+    else if (jm_str_eq_4(url, s_ssh))
+        return jmc_dest_address(url + 4);
+    else if (jm_str_eq_8(url, s_telnet) || jm_str_eq_8(url, s_mailto))
+        return jmc_dest_address(url + 7);
+    else
+        // TODO other protocols?
+        return false;
+
+/*
+      jm_str_eq_4(url, s_irc)
+      jm_str_eq_5(url, s_imap)  || jm_str_eq_6(url, s_imaps)
+*/
+
+#else
+
     char *c = (char *) url;
     bool has_colon = false;
     while (*c) {
@@ -1257,15 +1329,18 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
             if (!(jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
                   jm_str_eq_4(url, s_ftp)   || jm_str_eq_5(url, s_sftp)   ||
                   jm_str_eq_5(url, s_file)  || jm_str_eq_4(url, s_oci)    ||
+                  jm_str_eq_5(url, s_rtsp)  || jm_str_eq_6(url, s_rtsps)  ||
                   jm_str_eq_4(url, s_ssh)   || jm_str_eq_8(url, s_telnet) ||
-                  jm_str_eq_4(url, s_irc)   || jm_str_eq_5(url, s_rtsp)   ||
-                  jm_str_eq_6(url, s_rtsps) || jm_str_eq_8(url, s_mailto) ||
-                  jm_str_eq_5(url, s_imap)  || jm_str_eq_6(url, s_imaps)))
+                  jm_str_eq_8(url, s_mailto)))
+                  // jm_str_eq_4(url, s_irc)   ||
+                  // jm_str_eq_5(url, s_imap)  || jm_str_eq_6(url, s_imaps)
                 return false;
         }
         c++;
     }
     return has_colon;
+
+#endif // URL_PARSER_CURL
 }
 
 /*

@@ -24,6 +24,15 @@
 #  error missing regex engine definition
 #endif
 
+// url parser
+#if defined(URL_PARSER_CURL)
+#  include <curl/curl.h>
+#elif defined(URL_PARSER_NONE)
+#  warning using weak internal url parser
+#else
+#  error missing url parser definition
+#endif
+
 /*
  * build generated API names
  */
