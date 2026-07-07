@@ -1,0 +1,147 @@
+[
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "initialize",
+            "params": {
+                "protocolVersion": "2025-06-18",
+                "capabilities": {
+                "elicitation": {}
+                },
+                "clientInfo": {
+                "name": "example-client",
+                "version": "1.0.0"
+                }
+            }
+        }
+    ],
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "result": {
+                "protocolVersion": "2025-06-18",
+                "capabilities": {
+                "tools": {
+                    "listChanged": true
+                },
+                "resources": {}
+                },
+                "serverInfo": {
+                "name": "example-server",
+                "version": "1.0.0"
+                }
+            }
+        }
+    ],
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "method": "notifications/initialized"
+        }
+    ],
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "id": 2,
+            "method": "tools/list"
+        }
+    ],
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "id": 2,
+            "result": {
+                "tools": [
+                {
+                    "name": "calculator_arithmetic",
+                    "title": "Calculator",
+                    "description": "Perform mathematical calculations including basic arithmetic, trigonometric functions, and algebraic operations",
+                    "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "expression": {
+                        "type": "string",
+                        "description": "Mathematical expression to evaluate (e.g., '2 + 3 * 4', 'sin(30)', 'sqrt(16)')"
+                        }
+                    },
+                    "required": ["expression"]
+                    }
+                },
+                {
+                    "name": "weather_current",
+                    "title": "Weather Information",
+                    "description": "Get current weather information for any location worldwide",
+                    "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "location": {
+                        "type": "string",
+                        "description": "City name, address, or coordinates (latitude,longitude)"
+                        },
+                        "units": {
+                        "type": "string",
+                        "enum": ["metric", "imperial", "kelvin"],
+                        "description": "Temperature units to use in response",
+                        "default": "metric"
+                        }
+                    },
+                    "required": ["location"]
+                    }
+                }
+                ]
+            }
+        }
+    ],
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "id": 3,
+            "method": "tools/call",
+            "params": {
+                "name": "weather_current",
+                "arguments": {
+                "location": "San Francisco",
+                "units": "imperial"
+                }
+            }
+        }
+    ],
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "id": 3,
+            "result": {
+                "content": [
+                {
+                    "type": "text",
+                    "text": "Current weather in San Francisco: 68°F, partly cloudy with light winds from the west at 8 mph. Humidity: 65%"
+                }
+                ]
+            }
+        }
+    ],
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "method": "notifications/tools/list_changed"
+        }
+    ],
+    [
+        true,
+        {
+            "jsonrpc": "2.0",
+            "id": 4,
+            "method": "tools/list"
+        }
+    ]
+]
