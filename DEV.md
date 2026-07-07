@@ -63,16 +63,28 @@ make dev.py
 source venv/bin/activate
 # for JS
 npm install
-# for Perl
+# for Perl, install dependencies, see "PREREQ_PM" in Makefile.PL, then:
 source $PWD/json_model/runtime/pl/env.bash
 # for Java
-# get needed dependency jars (see pom.xml), then
-make -C json_model/runtime/java jar
+# get needed dependencies and compile jar
+make -C json_model/runtime/java mvn.jar mvn.deps
 source $PWD/json_model/runtime/java/env.bash
 # for C
 # install pcre2, cre2, gnu getopt, jansson, compile runtime
+make -C json_model/runtime/c compile
 # for SQL
-# have psql ready to connect to a local Postgres, install `json_model` extension…
+# have psql ready to connect to a local Postgres, and the permissions to
+# create databases and install the `json_model` extension (for running tests).
+```
+
+It can be convenient to have a local `env.sh` (or similar) file at the root
+of the project to setup the needed environment:
+
+```bash
+# File env.sh
+source venv/bin/activate
+source $PWD/json_model/runtime/pl/env.sh
+source $PWD/json_model/runtime/java/env.sh
 ```
 
 ## Tests
@@ -102,11 +114,18 @@ make clean.pl pl      # regenerate pl stuff
 make clean            # remove intermediate files
 ```
 
+Example manual command:
+
+```bash
+pytest -n auto -k mv-22 tests.py
+```
+
 ### Tests subdirectories
 
 Subdirectories provide a parallel work unit:
 
 ```bash
+make gen              # generate reference files
 make check            # regenerate reference files
 make clean            # remove intermediate files
 make clean.js js      # regenerate js stuff (and other languages)
