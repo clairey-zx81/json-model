@@ -12,6 +12,9 @@
 - [x] tests: add `schema.check` for most test models
 - [x] runtimes: accept "oci:..." as valid urls in java, python, perl, plpgsql…
 - [x] container: add missing `Algorithm::LUHN` Perl module installation
+- [x] java-runtime: use maven to get dependencies and compile
+- [x] pr: improve dev setup documentation
+- [x] tests: add jsonrpc tests
 - [ ] perf: run benchmark for formats/predefs enabled
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
