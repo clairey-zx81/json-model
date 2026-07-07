@@ -97,8 +97,8 @@ Python linting (not well maintained) and non regression tests
 
 ```bash
 make check
-make check.src        # linting
-make check.tests      # tests
+make check.src          # linting
+make check.tests        # tests
 ```
 
 ### Tests directory
@@ -106,12 +106,12 @@ make check.tests      # tests
 Pytests tests inside `tests`
 
 ```bash
-make check            # run pytest tests in parallel
-make check.check      # regenerate all reference files
-make clean.js js      # regenerate javascript stuff
-make clean.java java  # regenerate java stuff
-make clean.pl pl      # regenerate pl stuff
-make clean            # remove intermediate files
+make check              # run pytest tests in parallel
+make check.check        # regenerate all reference files
+make clean.js js        # regenerate javascript stuff
+make clean.java java    # regenerate java stuff
+make clean.pl pl        # regenerate pl stuff
+make clean              # remove intermediate files
 ```
 
 Example manual command:
@@ -125,10 +125,11 @@ pytest -n auto -k mv-22 tests.py
 Subdirectories provide a parallel work unit:
 
 ```bash
-make gen              # generate reference files
-make check            # regenerate reference files
-make clean            # remove intermediate files
-make clean.js js      # regenerate js stuff (and other languages)
+make gen                # generate reference files
+make check              # regenerate reference files
+make clean              # remove intermediate files
+make clean.js js        # regenerate js stuff (and other languages)
+make foo.CLEAN foo.ALL  # clean/regenerate all stuff for case "foo"
 ```
 
 ## Code Doc
