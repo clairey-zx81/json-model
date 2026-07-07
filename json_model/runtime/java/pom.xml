@@ -53,6 +53,7 @@
     <getopt.version>1.0.13</getopt.version>
     <gson.version>2.14</gson.version>
     <jackson.version>3.1</jackson.version>
+    <jackson.ann.version>2.22</jackson.ann.version>
     <jakarta.version>2.1</jakarta.version>
     <johnzon.version>2.1</johnzon.version>
   </properties>
@@ -81,14 +82,14 @@
     <dependency>
       <groupId>tools.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>[${jackson.version},4.0)</version>
+      <version>[${jackson.version},4)</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>tools.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>[${jackson.version},4.0)</version>
+      <version>[${jackson.version},4)</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
@@ -96,7 +97,7 @@
       <!-- this one is not relocated yet? -->
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <version>[2.21,3.0)</version>
+      <version>[${jackson.ann.version}]</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
