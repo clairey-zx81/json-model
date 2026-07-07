@@ -1,7 +1,7 @@
 [
   [ true,  "https://json-model.org/" ],
   [ true,  "http://www.coelho.net/" ],
-  [ true,  "file://../elsewhere" ],
+  [ true,  "file:///some/where" ],
   [ true,  "oci://somewhere.org/bla/foo?x=y&z=2#anchor" ],
   [ true,  "ftp://somewhere.org/" ],
   [ true,  "ssh:calvin@ssh.comics.net" ],

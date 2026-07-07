@@ -243,6 +243,9 @@ def clang_compile(c_code: str, args):
         (DEFAULT_LDFLAGS_PCRE2 if args.regex_engine == "pcre2" else DEFAULT_LDFLAGS_CRE2)
     if args.library:
         ldflags = " -L".join([""] + args.library) + " " + ldflags
+    if args.url_parser == "curl":
+        cppflags += " -DURL_PARSER_CURL"
+        ldflags  += " -lcurl"
     if args.static:
         ldflags += " --static"
 
@@ -395,6 +398,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--no-inline", dest="inline", action="store_false", help="disable function inlining")
     arg("--precompiled", action="store_true", default=False, help="use precompiled C runtime")
     arg("--no-precompiled", dest="precompiled", action="store_false", help="do not use precompiled C runtime")
+    arg("--url-parser", "-up", default="none", choices=["none", "curl"],
+        help="select C url parser library (defaults to none)")
 
     # TODO java-specific options
     arg("--javac", type=str, help="override default Java language compiler")

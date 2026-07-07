@@ -168,7 +168,8 @@ clean.schema:
 .PHONY: c
 c: $(F.c)
 
-RELIB    = re2
+URLIB   = curl
+RELIB   = re2
 
 %.c: %.model.json
 	$(JMC.cmd) -re $(RELIB) -o $@ ./$<
@@ -187,6 +188,13 @@ LDFLAGS   = json-model.o -ljansson -lpcre2-8 main.o -lm
 else
 CPPFLAGS  += -I/usr/local/include -DREGEX_ENGINE_RE2
 LDFLAGS   = -L/usr/local/lib json-model.o -ljansson -lcre2 -lpthread -lre2 main.o -lm
+endif
+
+ifeq ($(URLIB), curl)
+CPPFLAGS  += -DURL_PARSER_CURL
+LDFLAGS   += -lcurl
+else
+CPPFLAGS  += -DURL_PARSER_NONE
 endif
 
 # local makefile
