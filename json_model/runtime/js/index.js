@@ -55,10 +55,12 @@ export function jm_is_valid_date(date, path, rep)
     }
 }
 
+// FIXME should add leap seconds?
+const TIME_RX = /^[T ]?([01][0-9]|2[0-3]):?[0-5][0-9]:?[0-5][0-9](\.[0-9]{1,9})?(Z|[-+][0-9]{2}(:?[0-5][0-9])?)?$/
+
 export function jm_is_valid_time(time, path, rep)
 {
-    return ((typeof time === 'string' || time instanceof String) &&
-            /^[T ]?([01][0-9]|2[0-3]):?[0-5][0-9]:?[0-5][0-9](\.[0-9]{1,9})?(Z|[-+][0-9]{2}(:?[0-5][0-9])?)?$/.exec(time) != null)
+    return (typeof time === 'string' || time instanceof String) && TIME_RX.exec(time) != null
 }
 
 export function jm_is_valid_datetime(datetime, path, rep)
@@ -80,6 +82,15 @@ export function jm_is_valid_datetime(datetime, path, rep)
     return okay
 }
 
+// improve over simplistic URL parsing
+// FIXME ipv6?
+const HOST_RX = /^[-\w.]*$/
+// FIXME other protocols?
+const URL_SCHEMES = new Set([
+    "http:", "https:", "sftp:", "ftp:", "telnet:", "ssh:", "file:",
+    "irc:", "oci:", "rstp:", "rstps:", "mailto:", "imap:", "imaps:",
+])
+
 // return whether url is a valid url ($URL)
 export function jm_is_valid_url(url, path, rep)
 {
@@ -87,8 +98,8 @@ export function jm_is_valid_url(url, path, rep)
         return false
 
     try {
-        new URL(url)
-        return true
+        const u = new URL(url)
+        return HOST_RX.exec(u.host) !== null && URL_SCHEMES.has(u.protocol)
     }
     catch (e) {
         return false
