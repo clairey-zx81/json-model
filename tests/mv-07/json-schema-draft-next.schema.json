@@ -31,7 +31,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
+            "^(((https?|file)://.*|\\..*)|(urn|oci):.*)$": {
               "type": "boolean"
             }
           },
@@ -322,7 +322,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "^(((https?|file)://.*|\\..*)|urn:.*)$": {
+            "^(((https?|file)://.*|\\..*)|(urn|oci):.*)$": {
               "type": "boolean"
             }
           },
