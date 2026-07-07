@@ -1192,7 +1192,53 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
 // default version
 bool (*jm_is_valid_regex)(const char *, bool, jm_path_t *, jm_report_t *) = jm_is_valid_regex_fast;
 
+// known url schemes
+static const uint64_t
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__  // reversed
+    s_https  = 0x00003a7370747468LL,
+    s_http   = 0x0000003a70747468LL,
+    s_sftp   = 0x0000003a70746673LL,
+    s_file   = 0x0000003a656c6966LL,
+    s_rtsp   = 0x0000003a70737472LL,
+    s_imap   = 0x0000003a70616d69LL,
+    s_rtsps  = 0x00003a7370737472LL,
+    s_imaps  = 0x00003a7370616d69LL,
+    s_telnet = 0x003a74656e6c6574LL,
+    s_mailto = 0x003a6f746c69616dLL
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__   // ordered
+    s_https  = 0x68747470733a0000LL,
+    s_http   = 0x687474703a000000LL,
+    s_sftp   = 0x736674703a000000LL,
+    s_file   = 0x66696c653a000000LL,
+    s_rtsp   = 0x727473703a000000LL,
+    s_imap   = 0x696d61703a000000LL,
+    s_rtsps  = 0x72747370733a0000LL,
+    s_imaps  = 0x696d6170733a0000LL,
+    s_telnet = 0x74656c6e65743a00LL,
+    s_mailto = 0x6d61696c746f3a00LL
+#else
+#  error FIXME unhandled byte order
+#endif
+;
+
+static const uint32_t
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__  // reversed
+    s_ftp = 0x3a707466,
+    s_oci = 0x3a69636f,
+    s_ssh = 0x3a687373,
+    s_irc = 0x3a637269
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__   // ordered
+    s_ftp = 0x6674703a,
+    s_oci = 0x6f63693a,
+    s_ssh = 0x7373683a,
+    s_irc = 0x6972633a
+#else
+#  error FIXME unhandled byte order
+#endif
+;
+
 // this is utf-8 compatible because multi-byte encoding uses chars over 128.
+// TODO improve validator! eg special handling of hierarchical urls
 bool
 jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
 {
@@ -1204,8 +1250,19 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
         // check url validity (hmmm, just check for strange characters)
         if (!(*c >= 33 && *c < 126 && *c != '"' && *c != '<' && *c != '>'))
             return false;
-        if (*c == ':')
+        if (!has_colon && *c == ':')
+        {
             has_colon = true;
+            // check for known schemes
+            if (!(jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
+                  jm_str_eq_4(url, s_ftp)   || jm_str_eq_5(url, s_sftp)   ||
+                  jm_str_eq_5(url, s_file)  || jm_str_eq_4(url, s_oci)    ||
+                  jm_str_eq_4(url, s_ssh)   || jm_str_eq_8(url, s_telnet) ||
+                  jm_str_eq_4(url, s_irc)   || jm_str_eq_5(url, s_rtsp)   ||
+                  jm_str_eq_6(url, s_rtsps) || jm_str_eq_8(url, s_mailto) ||
+                  jm_str_eq_5(url, s_imap)  || jm_str_eq_6(url, s_imaps)))
+                return false;
+        }
         c++;
     }
     return has_colon;
