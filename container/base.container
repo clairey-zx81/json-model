@@ -12,7 +12,7 @@ RUN apt update ; \
         texinfo jq curl less \
         nano vim libpcre2-dev libre2-dev libjansson-dev libcurl4-gnutls-dev \
         python3 python-is-python3 python3-venv python3-pip \
-        perl libre-engine-re2-perl libjson-maybexs-perl libcpanel-json-xs-perl libdatetime-hires-perl \
+        perl libre-engine-re2-perl libjson-maybexs-perl libcpanel-json-xs-perl libdatetime-hires-perl liburi-perl \
         openjdk-25-jdk openjdk-25-jre default-jdk libgetopt-java maven \
         locales ; \
     apt clean
