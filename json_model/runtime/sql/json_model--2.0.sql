@@ -196,7 +196,8 @@ CREATE OR REPLACE FUNCTION
   jm_is_valid_url(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN val IS NOT NULL AND val ~ '^((https?|file|oci|ftps?|irc|rtmps?|rtsp|sftp)://|(ssh|telnet):|\.)\S*$';
+  RETURN val IS NOT NULL
+     AND val ~ '^((https?|file|oci|ftps?|irc|rtmps?|rtsp|sftp)://\S*$|(ssh|telnet|mailto):\w[-\w.]*@\w[-\w]*(\.\w[-\w]*)*$|\.\S$)';
 END;
 $$ LANGUAGE plpgsql;
 
