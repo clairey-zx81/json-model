@@ -10,7 +10,7 @@ use warnings;
 
 # no Carp, this modules runs with automatically generated code, all issues are ours?
 
-our $VERSION = 1.999042;  # aka 2.0b42
+our $VERSION = 2.000052;  # aka 2.0.52
 
 eval "use re::engine::RE2";   # try to replace regex engine
 use List::Util qw( min );
@@ -19,6 +19,7 @@ use Getopt::Long qw(:config no_ignore_case);
 use Time::HiRes 'time';
 use Pod::Usage;
 use Algorithm::LUHN ();
+use URI ();
 
 # automatic export
 use Exporter 'import';
@@ -142,11 +143,42 @@ sub jm_is_object($)
 # PREDEFS
 #
 
+my %WITH_AUTH = (
+    "http" => 1,
+    "https" => 1,
+    "ftp" => 1,
+    "sftp" => 1,
+    "rtmp" => 1,
+    "rtmps" => 1,
+    "oci" => 1,
+);
+
+my %WITH_ADDR = (
+    "ssh" => 1,
+    "telnet" => 1,
+    "mailto" => 1,
+);
+
+my %URL_SCHEMES = (
+    %WITH_AUTH,
+    %WITH_ADDR,
+    "file" => 1,
+);
+
 # $URL
 sub jm_is_valid_url($$$)
 {
-    my ($u) = @_;
-    return $u =~ m,^((https?|file|sftp|ftps?|irc|rtmps?|rtsp|sftp|oci)://|(ssh|telnet):|\./|\.\./).*$,;
+    my ($url) = @_;
+    eval {
+        my $u = URI->new($url);
+        die "bad scheme" unless defined $u->scheme && exists $URL_SCHEMES{$u->scheme};
+        die "bad addr" if exists $WITH_ADDR{$u->scheme} && (defined $u->authority || $u->path !~ /^\w[-\w.]*@\w[-\w]*(\.\w[-\w]*)*$/);
+        die "bad auth" if exists $WITH_AUTH{$u->scheme} && (!defined $u->authority || $u->authority !~ /^[-\w.]+$/);
+        die "bad path" if !exists $WITH_ADDR{$u->scheme} && defined $u->path && $u->path !~ m|^/.*|;
+    };
+    # NOTE no exception raised?
+    warn "msg = ", $@;
+    return $@ eq "";
 }
 
 # $DATE
