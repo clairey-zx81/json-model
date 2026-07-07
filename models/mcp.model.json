@@ -4,52 +4,35 @@
 
     "$": {
         "Object": { "": "$ANY" },
+        "ProtocolVersion": {
+            "|": [
+                "2025-11-25",
+                "2025-06-18",
+                "2025-03-26",
+                "2024-11-05"
+            ]
+        },
+        "Tool": {
+            "name": "",
+            "?title": "",
+            "?description": "",
+            "inputSchema": "$Object",
+            "": "$ANY"
+        },
         "InitializeRequest": {
             "jsonrpc": "_2.0",
             "id": -1,
             "method": "_initialize",
             "params": {
-                "protocolVersion": {
-                    "|": [
-                        "2025-11-25",
-                        "2025-06-18",
-                        "2025-03-26",
-                        "2024-11-05"
-                    ]
-                },
+                "protocolVersion": "$ProtocolVersion",
                 "capabilities": {
-                    "roots": {
-                        "listChanged": true
-                    },
-                    "sampling": "$Object",
-                    "elicitation": {
-                        "form": "$Object",
-                        "url": "$Object"
-                    },
-                    "tasks": {
-                        "requests": {
-                            "elicitation": {
-                                "create": "$Object"
-                            },
-                            "sampling": {
-                                "createMessage": "$Object"
-                            }
-                        }
-                    }
+                    "elicitation": "$Object",
+                    "": "$ANY"
                 },
                 "clientInfo": {
                     "name": "",
-                    "title": "",
                     "version": "",
-                    "description": "",
-                    "icons": [
-                        {
-                            "src": "",
-                            "mimeType": "",
-                            "sizes": [""]
-                        }
-                    ],
-                    "websiteUrl": ""
+                    "": "$ANY"
                 }
             }
         },
@@ -57,54 +40,56 @@
             "jsonrpc": "_2.0",
             "id": -1,
             "result": {
-                "protocolVersion": {
-                    "|": [
-                        "2025-11-25",
-                        "2025-06-18",
-                        "2025-03-26",
-                        "2024-11-05"
-                    ]
-                },
+                "protocolVersion": "$ProtocolVersion",
                 "capabilities": {
-                    "logging": { "": "$ANY" },
-                    "prompts": {
-                        "listChanged": true
-                    },
-                    "resources": {
-                        "subscribe": true,
-                        "listChanged": true
-                    },
                     "tools": {
                         "listChanged": true
                     },
-                    "tasks": {
-                        "list": { "": "$ANY" },
-                        "cancel": { "": "$ANY" },
-                        "requests": {
-                            "tools": {
-                                "call": { "": "$ANY" }
-                            }
-                        }
-                    }
+                    "resources": "$Object",
+                    "": "$ANY"
                 },
                 "serverInfo": {
-                "name": "",
-                "title": "",
-                "version": "",
-                "description": "",
-                "icons": [
-                    {
-                        "src": "",
-                        "mimeType": "",
-                        "sizes": [""]
-                    }
-                ],
-                "websiteUrl": ""
-            },
-            "instructions": ""
+                    "name": "",
+                    "version": "",
+                    "": "$ANY"
+                }
             }
+        },
+        "Notification": {
+            "jsonrpc": "_2.0",
+            "method": "_notifications/initialized"
+        },
+        "ToolsListRequest": {
+            "jsonrpc": "_2.0",
+            "id": -1,
+            "method": "_tools/list",
+            "": "$ANY"
+        },
+        "ToolsListResponse": {
+            "jsonrpc": "_2.0",
+            "id": -1,
+            "result": {
+                "tools": {
+                    "@": [ "$Tool" ],
+                    "!": true
+                }
+            }
+        },
+        "ToolCallRequest": {
+            "jsonrpc": "_2.0",
+            "id": -1,
+            "method": "_tools/call",
+            "params": "$Object"
+        },
+        "ToolCallResponse": {
+            "jsonrpc": "_2.0",
+            "id": -1,
+            "result": "$Object"
         }
     },
-
-    "|": [ "$InitializeRequest", "$InitializeResponse" ]
+    "|": [ 
+        "$InitializeRequest", "$InitializeResponse", "$Notification", 
+        "$ToolsListRequest", "$ToolsListResponse",
+        "$ToolCallRequest", "$ToolCallResponse"
+    ]
 }
