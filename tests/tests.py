@@ -306,15 +306,15 @@ EXPECT: dict[str, int] = {
     "mv-34:cmp-opts": {"report": False, "comment": False},
     "mv-34:mod-opts": {"single_line": True},
     "mv-34:models": 8,
-    "mv-34:values": 129,
+    "mv-34:values": 131,
     "mv-34:errors.java": 1,
-    "mv-34:errors.js": 2,
-    "mv-34:errors.c": 2,
+    "mv-34:errors.js": 1,
+    "mv-34:errors.c": 1,
     "mv-34:errors.pl": 1,
-    "mv-34:errors.py": 2,
-    "mv-34:errors.sql": 1,
+    "mv-34:errors.py": 1,
+    "mv-34:errors.sql": 2,
     "mv-34:verrors:schema": 2,
-    "mv-34:verrors:dynpy": 2,
+    "mv-34:verrors:dynpy": 1,
     # mv-35
     "mv-35:cmp-opts": {"report": False, "comment": False},
     "mv-35:mod-opts": {"single_line": True},
@@ -417,9 +417,9 @@ def clibjm(tmp_dir):
     # compilation settings with re2
     cc = os.environ.get("CC", DEFAULT_CC)
     cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
-    cppflags += " -DREGEX_ENGINE_RE2"
+    cppflags += " -DREGEX_ENGINE_RE2 -DURL_PARSER_CURL"
     cflags = os.environ.get("CFLAGS", DEFAULT_CFLAGS)
-    ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} " + DEFAULT_LDFLAGS)
+    ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} -lcurl " + DEFAULT_LDFLAGS)
 
 
     # compile library once
