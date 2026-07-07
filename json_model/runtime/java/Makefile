@@ -6,7 +6,7 @@ clean:
 	$(RM) *.class json_model/*.class json-model*.jar json-model-*.zip
 	$(RM) -r target org doc
 
-# direct compilation
+# direct compilation, eg for testing
 .PHONY: compile
 # -Xlint:unchecked
 compile:
@@ -21,6 +21,10 @@ json-model.jar: compile
 #
 # With maven
 #
+.PHONY: mvn.deps
+mvn.deps:
+	mvn dependency:copy-dependencies
+
 .PHONY: mvn.jar
 mvn.jar:
 	mvn install

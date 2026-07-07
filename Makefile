@@ -48,7 +48,7 @@ node_modules:
 # FIXME get jar dependencies? rely on mvn?
 .PHONY: dev.java
 dev.java:
-	$(MAKE) -C json_model/runtime/java jar
+	$(MAKE) -C json_model/runtime/java mvn.jar mvn.deps
 
 #
 # CLEANUP

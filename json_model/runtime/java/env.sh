@@ -1,9 +1,11 @@
-# set classpath with bash: source $PWD/path/to/env.bash
+# set classpath: source $PWD/path/to/env.sh
+# this assumes a build using maven: make mvn.jar mvn.deps
 
-DIR=$(dirname $BASH_SOURCE)
-export CLASSPATH="/usr/share/java/gnu-getopt.jar"
+dir=$(dirname $BASH_SOURCE)
 
-for jar in $DIR/*.jar ; do
+export CLASSPATH=$(echo $dir/target/*.jar)
+
+for jar in $dir/target/dependency/*.jar ; do
   CLASSPATH+=":$jar"
 done
 
