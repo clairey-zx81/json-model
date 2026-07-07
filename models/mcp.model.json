@@ -1,0 +1,110 @@
+{
+    "#": "MCP - Model Context Protocol",
+    "#.url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
+
+    "$": {
+        "Object": { "": "$ANY" },
+        "InitializeRequest": {
+            "jsonrpc": "_2.0",
+            "id": -1,
+            "method": "_initialize",
+            "params": {
+                "protocolVersion": {
+                    "|": [
+                        "2025-11-25",
+                        "2025-06-18",
+                        "2025-03-26",
+                        "2024-11-05"
+                    ]
+                },
+                "capabilities": {
+                    "roots": {
+                        "listChanged": true
+                    },
+                    "sampling": "$Object",
+                    "elicitation": {
+                        "form": "$Object",
+                        "url": "$Object"
+                    },
+                    "tasks": {
+                        "requests": {
+                            "elicitation": {
+                                "create": "$Object"
+                            },
+                            "sampling": {
+                                "createMessage": "$Object"
+                            }
+                        }
+                    }
+                },
+                "clientInfo": {
+                    "name": "",
+                    "title": "",
+                    "version": "",
+                    "description": "",
+                    "icons": [
+                        {
+                            "src": "",
+                            "mimeType": "",
+                            "sizes": [""]
+                        }
+                    ],
+                    "websiteUrl": ""
+                }
+            }
+        },
+        "InitializeResponse": {
+            "jsonrpc": "_2.0",
+            "id": -1,
+            "result": {
+                "protocolVersion": {
+                    "|": [
+                        "2025-11-25",
+                        "2025-06-18",
+                        "2025-03-26",
+                        "2024-11-05"
+                    ]
+                },
+                "capabilities": {
+                    "logging": { "": "$ANY" },
+                    "prompts": {
+                        "listChanged": true
+                    },
+                    "resources": {
+                        "subscribe": true,
+                        "listChanged": true
+                    },
+                    "tools": {
+                        "listChanged": true
+                    },
+                    "tasks": {
+                        "list": { "": "$ANY" },
+                        "cancel": { "": "$ANY" },
+                        "requests": {
+                            "tools": {
+                                "call": { "": "$ANY" }
+                            }
+                        }
+                    }
+                },
+                "serverInfo": {
+                "name": "",
+                "title": "",
+                "version": "",
+                "description": "",
+                "icons": [
+                    {
+                        "src": "",
+                        "mimeType": "",
+                        "sizes": [""]
+                    }
+                ],
+                "websiteUrl": ""
+            },
+            "instructions": ""
+            }
+        }
+    },
+
+    "|": [ "$InitializeRequest", "$InitializeResponse" ]
+}
