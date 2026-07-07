@@ -11,7 +11,7 @@
 - [x] clang: fix clang loose int extraction (`json_integer_value` returns 0 on floats)
 - [x] tests: add `schema.check` for most test models
 - [x] runtimes: accept "oci:..." as valid urls in java, python, perl, plpgsql…
-- [x] runtimes: improve homogeneity for `$URL` across languages (js, c)
+- [x] runtimes: improve homogeneity for `$URL` across languages (js, c, py)
 - [x] container: add missing `Algorithm::LUHN` Perl module installation
 - [x] java-runtime: use maven to get dependencies and compile
 - [x] pr: improve dev setup documentation

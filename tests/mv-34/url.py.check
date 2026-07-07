@@ -3,7 +3,7 @@ url.values.json[1]: PASS
 url.values.json[2]: PASS
 url.values.json[3]: PASS
 url.values.json[4]: PASS
-url.values.json[5]: ERROR unexpected FAIL
+url.values.json[5]: PASS
 url.values.json[6]: FAIL (.: invalid url foo:bla)
 url.values.json[7]: FAIL (.: invalid url not a url)
 url.values.json[8]: FAIL (.: invalid url not-a-url…)
