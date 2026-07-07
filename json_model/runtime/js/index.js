@@ -88,7 +88,7 @@ const HOST_RX = /^[-\w.]*$/
 // FIXME other protocols?
 const URL_SCHEMES = new Set([
     "http:", "https:", "sftp:", "ftp:", "telnet:", "ssh:", "file:",
-    "irc:", "oci:", "rstp:", "rstps:", "mailto:", "imap:", "imaps:",
+    "irc:", "oci:", "rtsp:", "rtsps:", "mailto:", "imap:", "imaps:",
 ])
 
 // return whether url is a valid url ($URL)
