@@ -83,8 +83,8 @@ export function jm_is_valid_datetime(datetime, path, rep)
 }
 
 // improve over simplistic URL parsing
-// FIXME ipv6?
-const HOST_RX = /^[-\w.]*$/
+// FIXME ipv6? login/pass?
+const HOST_RX = /^[-\w.]*(:\d+)?$/
 // FIXME other protocols?
 const URL_SCHEMES = new Set([
     "http:", "https:", "sftp:", "ftp:", "telnet:", "ssh:", "file:",

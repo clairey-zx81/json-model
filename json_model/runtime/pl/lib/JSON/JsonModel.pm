@@ -173,11 +173,11 @@ sub jm_is_valid_url($$$)
         my $u = URI->new($url);
         die "bad scheme" unless defined $u->scheme && exists $URL_SCHEMES{$u->scheme};
         die "bad addr" if exists $WITH_ADDR{$u->scheme} && (defined $u->authority || $u->path !~ /^\w[-\w.]*@\w[-\w]*(\.\w[-\w]*)*$/);
-        die "bad auth" if exists $WITH_AUTH{$u->scheme} && (!defined $u->authority || $u->authority !~ /^[-\w.]+$/);
-        die "bad path" if !exists $WITH_ADDR{$u->scheme} && defined $u->path && $u->path !~ m|^/.*|;
+        die "bad auth" if exists $WITH_AUTH{$u->scheme} && (!defined $u->authority || $u->authority !~ /^[-\w.]+(:\d+)?$/);
+        die "bad path" if !exists $WITH_ADDR{$u->scheme} && defined $u->path && $u->path && $u->path !~ m|^/|;
     };
     # NOTE no exception raised?
-    warn "msg = ", $@;
+    # warn "msg = ", $@, ", url = ", $url;;
     return $@ eq "";
 }
 
