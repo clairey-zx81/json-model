@@ -84,7 +84,10 @@
         "ToolCallResponse": {
             "jsonrpc": "_2.0",
             "id": -1,
-            "result": "$Object"
+            "result": {
+                "content": [""],
+                "": "$ANY"
+            }
         }
     },
     "|": [ 
