@@ -49,15 +49,15 @@ def m2ts(name: str, model: ModelType) -> Block:
                 hoisted += m2ts(nested, child) + [""]
                 ftype = nested
             else:
-                ftype = m2type(child)
+                ftype = m2type(child) or "any"
             code += [f"\t{field}{'?' if optional else ''}: {ftype}"]
         code += ["}"]
         code = hoisted + code
     elif isinstance(model, list):
         pass
     else:
-        mtype = m2type(model)
-        code.append(f"{name}: {mtype}")
+        mtype = m2type(model) or "any"
+        code.append(f"type {name} = {mtype}")
 
     return code
 
