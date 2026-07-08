@@ -32,18 +32,30 @@ def m2ts(name: str, model: ModelType) -> Block:
         model = model["@"]
     code: Block = []
     if isinstance(model, dict):
+        hoisted: Block = []
         code += [f"interface {name} {{"]
         for key, jm in model.items():
             optional = key.startswith("?")
             field = key[1:] if optional else key
-            code += m2ts(field + ("?" if optional else ""), jm)
+
+            child = jm
+            while isinstance(child, dict) and "@" in child:
+                child = child["@"]
+            if isinstance(child, dict):
+                nested = f"{name}_{field}"
+                hoisted += m2ts(nested, child) + [""]
+                ftype = nested
+            else:
+                ftype = m2type(child)
+            code += [f"\t{field}{'?' if optional else ''}: {ftype}"]
         code += ["}"]
+        code = hoisted + code
     elif isinstance(model, list):
         pass
     else:
         mtype = m2type(model)
         code.append(f"{name}: {mtype}")
-    
+
     return code
 
 def model2tsinterface(model: JsonModel, root: str|None = "RootModel") -> Block:
@@ -51,17 +63,9 @@ def model2tsinterface(model: JsonModel, root: str|None = "RootModel") -> Block:
     global def_keys
     def_keys = model._defs.keys()
     for name, jm in model._defs.items():
-        result = m2ts(name, jm._model)
-        last = len(result) - 1
-        result = [line if i in (0, last) else "\t" + line
-                for i, line in enumerate(result)]
-        code = result + code
+        code = m2ts(name, jm._model) + code
 
     if root is not None:
-        result = m2ts(root, model._model)
-        last = len(result) - 1
-        result = [line if i in (0, last) else "\t" + line
-                for i, line in enumerate(result)]
-        code = code + [""] + result
+        code = code + [""] + m2ts(root, model._model)
 
     return code
