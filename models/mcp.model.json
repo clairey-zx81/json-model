@@ -57,7 +57,7 @@
         },
         "Notification": {
             "jsonrpc": "_2.0",
-            "method": "_notifications/initialized"
+            "method": "/^notifications.*/"
         },
         "ToolsListRequest": {
             "jsonrpc": "_2.0",
