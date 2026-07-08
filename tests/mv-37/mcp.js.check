@@ -1,9 +1,0 @@
-mcp.values.json[0]: PASS
-mcp.values.json[1]: PASS (.: tag prop <method> is missing [.'|'])
-mcp.values.json[2]: PASS
-mcp.values.json[3]: PASS
-mcp.values.json[4]: PASS (.result: unexpected value for mandatory prop <result> [.'$InitializeResponse']; .result: unexpected element [.'$InitializeResponse'.result]; .result: bad property count [.'$InitializeResponse'.result]; .: tag prop <method> is missing [.'|'])
-mcp.values.json[5]: PASS
-mcp.values.json[6]: PASS (.result: unexpected value for mandatory prop <result> [.'$ToolsListResponse']; .result: unexpected element [.'$ToolsListResponse'.result]; .result: missing mandatory prop <tools> [.'$ToolsListResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$InitializeResponse']; .result: unexpected element [.'$InitializeResponse'.result]; .result: bad property count [.'$InitializeResponse'.result]; .: tag prop <method> is missing [.'|'])
-mcp.values.json[7]: ERROR unexpected FAIL (.: bad property count [.'$ToolCallResponse']; .: bad property count [.'$ToolsListResponse']; .: bad property count [.'$InitializeResponse']; .: tag <method> value not found [.'|'])
-mcp.values.json[8]: PASS

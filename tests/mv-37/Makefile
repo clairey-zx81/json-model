@@ -1,1 +1,0 @@
-../json-model-tests.mk
