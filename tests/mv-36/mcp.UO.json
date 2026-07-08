@@ -1,0 +1,222 @@
+[
+  {
+    "|": [
+      "$InitializeRequest",
+      "$InitializeResponse",
+      "$Notification",
+      "$ToolsListRequest",
+      "$ToolsListResponse",
+      "$ToolCallRequest",
+      "$ToolCallResponse"
+    ],
+    "#": "JsonModel 1",
+    "$": {
+      "Object": {
+        "": "$ANY",
+        "#": "JsonModel 2"
+      },
+      "ProtocolVersion": {
+        "|": [
+          "_2025-11-25",
+          "_2025-06-18",
+          "_2025-03-26",
+          "_2024-11-05"
+        ],
+        "#": "JsonModel 3"
+      },
+      "Tool": {
+        "name": "",
+        "?title": "",
+        "?description": "",
+        "inputSchema": "$Object",
+        "": "$ANY",
+        "#": "JsonModel 4"
+      },
+      "InitializeRequest": {
+        "jsonrpc": "_2.0",
+        "id": -1,
+        "method": "_initialize",
+        "params": {
+          "protocolVersion": "$ProtocolVersion",
+          "capabilities": {
+            "elicitation": "$Object",
+            "": "$ANY"
+          },
+          "clientInfo": {
+            "name": "",
+            "version": "",
+            "": "$ANY"
+          }
+        },
+        "#": "JsonModel 5"
+      },
+      "InitializeResponse": {
+        "jsonrpc": "_2.0",
+        "id": -1,
+        "result": {
+          "protocolVersion": "$ProtocolVersion",
+          "capabilities": {
+            "tools": {
+              "listChanged": true
+            },
+            "resources": "$Object",
+            "": "$ANY"
+          },
+          "serverInfo": {
+            "name": "",
+            "version": "",
+            "": "$ANY"
+          }
+        },
+        "#": "JsonModel 6"
+      },
+      "Notification": {
+        "jsonrpc": "_2.0",
+        "method": "/^notifications/",
+        "#": "JsonModel 7"
+      },
+      "ToolsListRequest": {
+        "jsonrpc": "_2.0",
+        "id": -1,
+        "method": "_tools/list",
+        "": "$ANY",
+        "#": "JsonModel 8"
+      },
+      "ToolsListResponse": {
+        "jsonrpc": "_2.0",
+        "id": -1,
+        "result": {
+          "tools": {
+            "@": [
+              "$Tool"
+            ],
+            "!": true
+          }
+        },
+        "#": "JsonModel 9"
+      },
+      "ToolCallRequest": {
+        "jsonrpc": "_2.0",
+        "id": -1,
+        "method": "_tools/call",
+        "params": "$Object",
+        "#": "JsonModel 10"
+      },
+      "ToolCallResponse": {
+        "jsonrpc": "_2.0",
+        "id": -1,
+        "result": {
+          "content": [
+            "$ANY"
+          ],
+          "": "$ANY"
+        },
+        "#": "JsonModel 11"
+      },
+      "#": "Symbol 1",
+      "": "./mcp.model.json"
+    }
+  },
+  {
+    "": "$ANY",
+    "#": "JsonModel 2"
+  },
+  {
+    "|": [
+      "_2025-11-25",
+      "_2025-06-18",
+      "_2025-03-26",
+      "_2024-11-05"
+    ],
+    "#": "JsonModel 3"
+  },
+  {
+    "name": "",
+    "?title": "",
+    "?description": "",
+    "inputSchema": "$Object",
+    "": "$ANY",
+    "#": "JsonModel 4"
+  },
+  {
+    "jsonrpc": "_2.0",
+    "id": -1,
+    "method": "_initialize",
+    "params": {
+      "protocolVersion": "$ProtocolVersion",
+      "capabilities": {
+        "elicitation": "$Object",
+        "": "$ANY"
+      },
+      "clientInfo": {
+        "name": "",
+        "version": "",
+        "": "$ANY"
+      }
+    },
+    "#": "JsonModel 5"
+  },
+  {
+    "jsonrpc": "_2.0",
+    "id": -1,
+    "result": {
+      "protocolVersion": "$ProtocolVersion",
+      "capabilities": {
+        "tools": {
+          "listChanged": true
+        },
+        "resources": "$Object",
+        "": "$ANY"
+      },
+      "serverInfo": {
+        "name": "",
+        "version": "",
+        "": "$ANY"
+      }
+    },
+    "#": "JsonModel 6"
+  },
+  {
+    "jsonrpc": "_2.0",
+    "method": "/^notifications/",
+    "#": "JsonModel 7"
+  },
+  {
+    "jsonrpc": "_2.0",
+    "id": -1,
+    "method": "_tools/list",
+    "": "$ANY",
+    "#": "JsonModel 8"
+  },
+  {
+    "jsonrpc": "_2.0",
+    "id": -1,
+    "result": {
+      "tools": {
+        "@": [
+          "$Tool"
+        ],
+        "!": true
+      }
+    },
+    "#": "JsonModel 9"
+  },
+  {
+    "jsonrpc": "_2.0",
+    "id": -1,
+    "method": "_tools/call",
+    "params": "$Object",
+    "#": "JsonModel 10"
+  },
+  {
+    "jsonrpc": "_2.0",
+    "id": -1,
+    "result": {
+      "content": [
+        "$ANY"
+      ],
+      "": "$ANY"
+    },
+    "#": "JsonModel 11"
+  }
+]
