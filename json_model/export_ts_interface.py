@@ -10,7 +10,7 @@ def m2type(model: ModelType) -> str | None:
     global def_keys
 
     if model is None:
-        return "Null"
+        return "null"
     if isinstance(model, bool):
         return "boolean"
     if isinstance(model, (int, float)):
@@ -23,11 +23,15 @@ def m2type(model: ModelType) -> str | None:
     return None
 
 def m2ts(name: str, model: ModelType) -> Block:
+    while isinstance(model, dict) and "@" in model:
+        model = model["@"]
     code: Block = []
     if isinstance(model, dict):
         code += [f"interface {name} {{"]
-        for name, jm in model.items():
-            code += m2ts(name, jm)
+        for key, jm in model.items():
+            optional = key.startswith("?")
+            field = key[1:] if optional else key
+            code += m2ts(field + ("?" if optional else ""), jm)
         code += ["}"]
     elif isinstance(model, list):
         pass
