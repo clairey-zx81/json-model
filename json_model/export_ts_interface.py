@@ -4,30 +4,55 @@
 
 from .model import JsonModel
 from .language import Block
-from .mtypes import ModelType, JsonScalar, JsonArray, JsonObject, Number
+from .mtypes import ModelType
 
 def m2type(model: ModelType) -> str | None:
+    global def_keys
+
     if model is None:
         return "Null"
     if isinstance(model, bool):
         return "boolean"
-    if isinstance(model, Number):
+    if isinstance(model, (int, float)):
         return "number"
     if isinstance(model, str):
+        if len(model) > 0 and model[0] == "$":
+            if model[1:] in def_keys:
+                return model[1:]
         return "string"
     return None
 
 def m2ts(name: str, model: ModelType) -> Block:
-    while isinstance(model, dict) and "@" in model:
-        model = model["@"]
+    code: Block = []
+    if isinstance(model, dict):
+        code += [f"interface {name} {{"]
+        for name, jm in model.items():
+            code += m2ts(name, jm)
+        code += ["}"]
+    elif isinstance(model, list):
+        pass
+    else:
+        mtype = m2type(model)
+        code.append(f"{name}: {mtype}")
     
+    return code
 
 def model2tsinterface(model: JsonModel, root: str|None = "RootModel") -> Block:
-    code: Block = [
-        "console.log('Interface')"
-    ]
-    #for name, jm in model._defs.items():
-    #    code += [""] + m2py(name, jm._model)
-    #if root is not None:
-    #    code += [""] + m2py(root, model._model)
+    code: Block = []
+    global def_keys
+    def_keys = model._defs.keys()
+    for name, jm in model._defs.items():
+        result = m2ts(name, jm._model)
+        last = len(result) - 1
+        result = [line if i in (0, last) else "\t" + line
+                for i, line in enumerate(result)]
+        code = result + code
+
+    if root is not None:
+        result = m2ts(root, model._model)
+        last = len(result) - 1
+        result = [line if i in (0, last) else "\t" + line
+                for i, line in enumerate(result)]
+        code = code + [""] + result
+
     return code
