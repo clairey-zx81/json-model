@@ -247,6 +247,8 @@ def clang_compile(c_code: str, args):
     if args.url_parser == "curl":
         cppflags += " -DURL_PARSER_CURL"
         ldflags  += " -lcurl"
+    else:
+        cppflags += " -DURL_PARSER_NONE"
     if args.static:
         ldflags += " --static"
 
