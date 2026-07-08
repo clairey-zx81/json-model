@@ -5,6 +5,7 @@
 from .model import JsonModel
 from .language import Block
 from .mtypes import ModelType
+from .predefs import INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, BOOL_MODEL_PREDEFS
 
 def m2type(model: ModelType) -> str | None:
     global def_keys
@@ -17,6 +18,10 @@ def m2type(model: ModelType) -> str | None:
         return "number"
     if isinstance(model, str):
         if len(model) > 0 and model[0] == "$":
+            if model in BOOL_MODEL_PREDEFS:
+                return "boolean"
+            if model in INT_MODEL_PREDEFS | FLOAT_MODEL_PREDEFS:
+                return "number"
             if model[1:] in def_keys:
                 return model[1:]
         return "string"
