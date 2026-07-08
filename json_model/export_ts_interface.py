@@ -25,6 +25,9 @@ def m2type(model: ModelType) -> str | None:
             if model[1:] in def_keys:
                 return model[1:]
         return "string"
+    if isinstance(model, list):
+        inner = m2type(model[0]) if model else None
+        return f"{inner or 'any'}[]"
     return None
 
 def m2ts(name: str, model: ModelType) -> Block:
