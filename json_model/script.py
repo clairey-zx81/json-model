@@ -725,6 +725,17 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         resolver.clear()
         return 0
 
+    # debug helper shortcut to compile/link modified c/java code
+    if args.model.endswith(".c") or args.model.endswith(".java"):
+        assert args.gen in ("exec", "module")
+        with open(args.model) as f:
+            source = f.read()
+        if args.model.endswith(".c"):
+            clang_compile(source, args)
+        elif args.model.endswith("java"):
+            java_compile(source, args)
+        sys.exit(0)
+
     log.info(f"processing {args.model}")
 
     # CREATE FROM FILE OR URL

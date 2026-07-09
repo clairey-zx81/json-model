@@ -18,6 +18,7 @@
 - [x] tests: add jsonrpc tests
 - [x] container: add perl URI dependency
 - [x] container: add libcurl and build with it
+- [x] front: add ability to recompile a modified C or Java source file
 - [ ] perf: run benchmark for formats/predefs enabled
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
