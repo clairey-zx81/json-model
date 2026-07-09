@@ -189,12 +189,8 @@ def model2python(model: JsonModel, root: str|None = "RootModel") -> Block:
         "import datetime",
         "import pydantic",
     ]
-    print("start")
-    print(model._model)
-    print("end!!")
     for name, jm in model._defs.items():
         code += [""] + m2py(name, jm._model)
     if root is not None:
         code += [""] + m2py(root, model._model)
-    print("///////")
     return code
