@@ -1,7 +1,6 @@
 {
     "#": "MCP - Model Context Protocol",
-    "#.url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
-
+    "#.url": "https://modelcontextprotocol.io/specification",
     "$": {
         "Object": { "": "$ANY" },
         "ProtocolVersion": {
