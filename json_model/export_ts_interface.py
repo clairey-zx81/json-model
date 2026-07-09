@@ -3,6 +3,8 @@
 #
 
 import re
+from collections.abc import Collection
+
 from .model import JsonModel
 from .language import Block
 from .mtypes import ModelType
@@ -16,27 +18,24 @@ def _unwrap(model: ModelType) -> ModelType:
     return model
 
 def _is_operator(model: ModelType) -> bool:
-    # union (|, ^) or intersection (&, +) combinator
     return isinstance(model, dict) and any(op in model for op in ("|", "^", "&", "+"))
 
-def _combine(name: str, members: list, sep: str, empty: str) -> tuple[str, Block]:
-    """Join member models with `sep` (| or &); `empty` is the type for an empty list."""
+def _combine(name: str, members: list, sep: str, empty: str,
+             def_keys: Collection[str]) -> tuple[str, Block]:
     parts: list[str] = []
     hoisted: Block = []
     for i, alt in enumerate(members):
-        t, extra = field_type(f"{name}_{i}", alt)
+        t, extra = field_type(f"{name}_{i}", alt, def_keys)
         parts.append(t)
         hoisted += extra
     uniq = list(dict.fromkeys(parts))
     if not uniq:
-        return empty, hoisted            # {"|": []} → never ; {"&": []} → any
+        return empty, hoisted
     if len(uniq) == 1:
         return uniq[0], hoisted
-    return "(" + f" {sep} ".join(uniq) + ")", hoisted   # parens keep [] precedence safe
+    return "(" + f" {sep} ".join(uniq) + ")", hoisted
 
-def m2type(model: ModelType) -> str | None:
-    global def_keys
-
+def m2type(model: ModelType, def_keys: Collection[str]) -> str | None:
     if model is None:
         return "null"
     if isinstance(model, bool):
@@ -58,42 +57,41 @@ def m2type(model: ModelType) -> str | None:
             if model[1:] in def_keys:
                 return model[1:]
             return "string"
-        if model.startswith("="):        # constant: =42 → 42, =true → true, =null → null
+        if model.startswith("="):
             return model[1:]
-        if model.startswith("_"):        # escaped constant string: _Point → "Point"
+        if model.startswith("_"):
             s = model[1:].replace("\\", "\\\\").replace('"', '\\"')
             return '"' + s + '"'
         return "string"
     return None
 
-def field_type(name: str, model: ModelType) -> tuple[str, Block]:
+def field_type(name: str, model: ModelType, def_keys: Collection[str]) -> tuple[str, Block]:
     """Return (typescript type, hoisted interface blocks) for one field value."""
     model = _unwrap(model)
     if isinstance(model, dict):
-        if "|" in model or "^" in model:                    # any-of / one-of → TS union
-            return _combine(name, model.get("|", model.get("^")), "|", "never")
-        if "&" in model or "+" in model:                    # all-of / merge → TS intersection
-            return _combine(name, model.get("&", model.get("+")), "&", "any")
-        # plain object → hoist its own interface, reference it by name
-        return name, m2ts(name, model) + [""]
+        if "|" in model or "^" in model:
+            return _combine(name, model.get("|", model.get("^")), "|", "never", def_keys)
+        if "&" in model or "+" in model:
+            return _combine(name, model.get("&", model.get("+")), "&", "any", def_keys)
+
+        return name, m2ts(name, model, def_keys) + [""]
     if isinstance(model, list):
-        # strings starting with "#" are comments and are ignored
         cells = [c for c in model if not (isinstance(c, str) and c.startswith("#"))]
         if len(cells) == 1:
-            # [X] → homogeneous array of any length
-            t, extra = field_type(name, cells[0])
+
+            t, extra = field_type(name, cells[0], def_keys)
             return f"{t}[]", extra
-        # [X, Y, ...] → tuple of fixed positional types (each cell named X_i)
+
         parts: list[str] = []
         hoisted: Block = []
         for i, cell in enumerate(cells):
-            t, extra = field_type(f"{name}_{i}", cell)
+            t, extra = field_type(f"{name}_{i}", cell, def_keys)
             parts.append(t)
             hoisted += extra
         return "[" + ", ".join(parts) + "]", hoisted
-    return m2type(model) or "any", []
+    return m2type(model, def_keys) or "any", []
 
-def m2ts(name: str, model: ModelType) -> Block:
+def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
     model = _unwrap(model)
     code: Block = []
     if isinstance(model, dict) and not _is_operator(model):
@@ -103,7 +101,7 @@ def m2ts(name: str, model: ModelType) -> Block:
             optional = key.startswith("?")
             field = key[1:] if key[:1] in "?!_" else key
             safe = re.sub(r"\W", "_", field)
-            ftype, extra = field_type(f"{name}_{safe}", jm)
+            ftype, extra = field_type(f"{name}_{safe}", jm, def_keys)
             hoisted += extra
             prop = field if _IDENT.match(field) else '"' + field + '"'
             code += [f"\t{prop}{'?' if optional else ''}: {ftype}"]
@@ -111,19 +109,18 @@ def m2ts(name: str, model: ModelType) -> Block:
         code = hoisted + code
     else:
         base = f"{name}_item" if isinstance(model, list) else name
-        ftype, extra = field_type(base, model)
+        ftype, extra = field_type(base, model, def_keys)
         code = extra + [f"type {name} = {ftype}"]
 
     return code
 
 def model2tsinterface(model: JsonModel, root: str|None = "RootModel") -> Block:
     code: Block = []
-    global def_keys
     def_keys = model._defs.keys()
     for name, jm in model._defs.items():
-        code = m2ts(name, jm._model) + code
+        code = m2ts(name, jm._model, def_keys) + code
 
     if root is not None:
-        code = code + [""] + m2ts(root, model._model)
+        code = code + [""] + m2ts(root, model._model, def_keys)
 
     return code
