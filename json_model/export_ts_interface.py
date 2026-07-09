@@ -42,6 +42,12 @@ def m2type(model: ModelType) -> str | None:
         return "number"
     if isinstance(model, str):
         if len(model) > 0 and model[0] == "$":
+            if model == "$NULL":
+                return "null"
+            if model == "$ANY":
+                return "any"
+            if model == "$NONE":
+                return "never"
             if model in BOOL_MODEL_PREDEFS:
                 return "boolean"
             if model in INT_MODEL_PREDEFS | FLOAT_MODEL_PREDEFS:
@@ -86,7 +92,7 @@ def m2ts(name: str, model: ModelType) -> Block:
         code += [f"interface {name} {{"]
         for key, jm in model.items():
             optional = key.startswith("?")
-            field = key[1:] if optional else key
+            field = key[1:] if key[:1] in "?!_" else key
             ftype, extra = field_type(f"{name}_{field}", jm)
             hoisted += extra
             code += [f"\t{field}{'?' if optional else ''}: {ftype}"]
