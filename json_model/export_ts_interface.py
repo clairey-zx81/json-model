@@ -12,6 +12,25 @@ def _unwrap(model: ModelType) -> ModelType:
         model = model["@"]
     return model
 
+def _is_operator(model: ModelType) -> bool:
+    # union (|, ^) or intersection (&, +) combinator
+    return isinstance(model, dict) and any(op in model for op in ("|", "^", "&", "+"))
+
+def _combine(name: str, members: list, sep: str, empty: str) -> tuple[str, Block]:
+    """Join member models with `sep` (| or &); `empty` is the type for an empty list."""
+    parts: list[str] = []
+    hoisted: Block = []
+    for i, alt in enumerate(members):
+        t, extra = field_type(f"{name}_{i}", alt)
+        parts.append(t)
+        hoisted += extra
+    uniq = list(dict.fromkeys(parts))
+    if not uniq:
+        return empty, hoisted            # {"|": []} → never ; {"&": []} → any
+    if len(uniq) == 1:
+        return uniq[0], hoisted
+    return "(" + f" {sep} ".join(uniq) + ")", hoisted   # parens keep [] precedence safe
+
 def m2type(model: ModelType) -> str | None:
     global def_keys
 
@@ -36,7 +55,11 @@ def field_type(name: str, model: ModelType) -> tuple[str, Block]:
     """Return (typescript type, hoisted interface blocks) for one field value."""
     model = _unwrap(model)
     if isinstance(model, dict):
-        # object → hoist its own interface, reference it by name
+        if "|" in model or "^" in model:                    # any-of / one-of → TS union
+            return _combine(name, model.get("|", model.get("^")), "|", "never")
+        if "&" in model or "+" in model:                    # all-of / merge → TS intersection
+            return _combine(name, model.get("&", model.get("+")), "&", "any")
+        # plain object → hoist its own interface, reference it by name
         return name, m2ts(name, model) + [""]
     if isinstance(model, list):
         # strings starting with "#" are comments and are ignored
@@ -58,7 +81,7 @@ def field_type(name: str, model: ModelType) -> tuple[str, Block]:
 def m2ts(name: str, model: ModelType) -> Block:
     model = _unwrap(model)
     code: Block = []
-    if isinstance(model, dict):
+    if isinstance(model, dict) and not _is_operator(model):
         hoisted: Block = []
         code += [f"interface {name} {{"]
         for key, jm in model.items():
@@ -70,8 +93,11 @@ def m2ts(name: str, model: ModelType) -> Block:
         code += ["}"]
         code = hoisted + code
     else:
-        mtype = m2type(model) or "any"
-        code.append(f"type {name} = {mtype}")
+        # non-object def/root: scalar, ref, array or tuple → type alias
+        # a list element interface must not reuse `name` (would clash with the alias)
+        base = f"{name}_item" if isinstance(model, list) else name
+        ftype, extra = field_type(base, model)
+        code = extra + [f"type {name} = {ftype}"]
 
     return code
 
