@@ -66,7 +66,6 @@ def m2type(model: ModelType, def_keys: Collection[str]) -> str | None:
     return None
 
 def field_type(name: str, model: ModelType, def_keys: Collection[str]) -> tuple[str, Block]:
-    """Return (typescript type, hoisted interface blocks) for one field value."""
     model = _unwrap(model)
     if isinstance(model, dict):
         if "|" in model or "^" in model:
