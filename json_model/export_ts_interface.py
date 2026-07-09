@@ -54,6 +54,11 @@ def m2type(model: ModelType) -> str | None:
                 return "number"
             if model[1:] in def_keys:
                 return model[1:]
+            return "string"
+        if model.startswith("="):        # constant: =42 → 42, =true → true, =null → null
+            return model[1:]
+        if model.startswith("_"):        # escaped constant string: _Point → "Point"
+            return '"' + model[1:] + '"'
         return "string"
     return None
 
