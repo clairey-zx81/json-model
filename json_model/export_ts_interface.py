@@ -2,10 +2,13 @@
 # Generate typescript interface from model definitions
 #
 
+import re
 from .model import JsonModel
 from .language import Block
 from .mtypes import ModelType
 from .predefs import INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, BOOL_MODEL_PREDEFS
+
+_IDENT = re.compile(r"[A-Za-z_$][\w$]*$")
 
 def _unwrap(model: ModelType) -> ModelType:
     while isinstance(model, dict) and "@" in model:
@@ -58,7 +61,8 @@ def m2type(model: ModelType) -> str | None:
         if model.startswith("="):        # constant: =42 → 42, =true → true, =null → null
             return model[1:]
         if model.startswith("_"):        # escaped constant string: _Point → "Point"
-            return '"' + model[1:] + '"'
+            s = model[1:].replace("\\", "\\\\").replace('"', '\\"')
+            return '"' + s + '"'
         return "string"
     return None
 
@@ -98,14 +102,14 @@ def m2ts(name: str, model: ModelType) -> Block:
         for key, jm in model.items():
             optional = key.startswith("?")
             field = key[1:] if key[:1] in "?!_" else key
-            ftype, extra = field_type(f"{name}_{field}", jm)
+            safe = re.sub(r"\W", "_", field)
+            ftype, extra = field_type(f"{name}_{safe}", jm)
             hoisted += extra
-            code += [f"\t{field}{'?' if optional else ''}: {ftype}"]
+            prop = field if _IDENT.match(field) else '"' + field + '"'
+            code += [f"\t{prop}{'?' if optional else ''}: {ftype}"]
         code += ["}"]
         code = hoisted + code
     else:
-        # non-object def/root: scalar, ref, array or tuple → type alias
-        # a list element interface must not reuse `name` (would clash with the alias)
         base = f"{name}_item" if isinstance(model, list) else name
         ftype, extra = field_type(base, model)
         code = extra + [f"type {name} = {ftype}"]
