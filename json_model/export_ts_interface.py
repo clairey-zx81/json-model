@@ -7,6 +7,11 @@ from .language import Block
 from .mtypes import ModelType
 from .predefs import INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, BOOL_MODEL_PREDEFS
 
+def _unwrap(model: ModelType) -> ModelType:
+    while isinstance(model, dict) and "@" in model:
+        model = model["@"]
+    return model
+
 def m2type(model: ModelType) -> str | None:
     global def_keys
 
@@ -25,14 +30,33 @@ def m2type(model: ModelType) -> str | None:
             if model[1:] in def_keys:
                 return model[1:]
         return "string"
-    if isinstance(model, list):
-        inner = m2type(model[0]) if model else None
-        return f"{inner or 'any'}[]"
     return None
 
+def field_type(name: str, model: ModelType) -> tuple[str, Block]:
+    """Return (typescript type, hoisted interface blocks) for one field value."""
+    model = _unwrap(model)
+    if isinstance(model, dict):
+        # object → hoist its own interface, reference it by name
+        return name, m2ts(name, model) + [""]
+    if isinstance(model, list):
+        # strings starting with "#" are comments and are ignored
+        cells = [c for c in model if not (isinstance(c, str) and c.startswith("#"))]
+        if len(cells) == 1:
+            # [X] → homogeneous array of any length
+            t, extra = field_type(name, cells[0])
+            return f"{t}[]", extra
+        # [X, Y, ...] → tuple of fixed positional types (each cell named X_i)
+        parts: list[str] = []
+        hoisted: Block = []
+        for i, cell in enumerate(cells):
+            t, extra = field_type(f"{name}_{i}", cell)
+            parts.append(t)
+            hoisted += extra
+        return "[" + ", ".join(parts) + "]", hoisted
+    return m2type(model) or "any", []
+
 def m2ts(name: str, model: ModelType) -> Block:
-    while isinstance(model, dict) and "@" in model:
-        model = model["@"]
+    model = _unwrap(model)
     code: Block = []
     if isinstance(model, dict):
         hoisted: Block = []
@@ -40,21 +64,11 @@ def m2ts(name: str, model: ModelType) -> Block:
         for key, jm in model.items():
             optional = key.startswith("?")
             field = key[1:] if optional else key
-
-            child = jm
-            while isinstance(child, dict) and "@" in child:
-                child = child["@"]
-            if isinstance(child, dict):
-                nested = f"{name}_{field}"
-                hoisted += m2ts(nested, child) + [""]
-                ftype = nested
-            else:
-                ftype = m2type(child) or "any"
+            ftype, extra = field_type(f"{name}_{field}", jm)
+            hoisted += extra
             code += [f"\t{field}{'?' if optional else ''}: {ftype}"]
         code += ["}"]
         code = hoisted + code
-    elif isinstance(model, list):
-        pass
     else:
         mtype = m2type(model) or "any"
         code.append(f"type {name} = {mtype}")
