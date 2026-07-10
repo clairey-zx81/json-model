@@ -1216,7 +1216,7 @@ curl_url_parser(const char *url, bool authority)
 // something that looks like an email or ssh address
 // TODO extend to make first part optional?
 static bool
-jmc_dest_address(const char *stuff)
+jm_dest_address(const char *stuff)
 {
     char * c = (char *) stuff;
     if (!isalnum(*c++))
@@ -1302,9 +1302,9 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
     else if (jm_str_eq_5(url, s_file))
         return curl_url_parser(url, false);
     else if (jm_str_eq_4(url, s_ssh))
-        return jmc_dest_address(url + 4);
+        return jm_dest_address(url + 4);
     else if (jm_str_eq_8(url, s_telnet) || jm_str_eq_8(url, s_mailto))
-        return jmc_dest_address(url + 7);
+        return jm_dest_address(url + 7);
     else
         // TODO other protocols?
         return false;
