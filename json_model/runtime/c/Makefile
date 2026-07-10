@@ -8,8 +8,8 @@ clean:
 .PHONY: compile
 compile: $(F.o)
 
-REGEX       = RE2   # RE2 or PCRE2
-URLIB       = NONE  # NONE or CURL
+REGEX       = RE2    # RE2 or PCRE2
+URLIB       = CCA    # NONE, CCA or CURL
 
 CC.inc      = -I/usr/local/include -I.
 

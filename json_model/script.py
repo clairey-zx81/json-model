@@ -246,6 +246,8 @@ def clang_compile(c_code: str, args):
     if args.url_parser == "curl":
         cppflags += " -DURL_PARSER_CURL"
         ldflags  += " -lcurl"
+    elif args.url_parser == "cca":
+        cppflags += " -DURL_PARSER_CCA"
     else:
         cppflags += " -DURL_PARSER_NONE"
     if args.static:
@@ -400,8 +402,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--no-inline", dest="inline", action="store_false", help="disable function inlining")
     arg("--precompiled", action="store_true", default=False, help="use precompiled C runtime")
     arg("--no-precompiled", dest="precompiled", action="store_false", help="do not use precompiled C runtime")
-    arg("--url-parser", "-up", default="none", choices=["none", "curl"],
-        help="select C url parser library (defaults to none)")
+    arg("--url-parser", "-up", default="cca", choices=["cca", "none", "curl"],
+        help="select C url parser library (defaults to cca)")
 
     # TODO java-specific options
     arg("--javac", type=str, help="override default Java language compiler")

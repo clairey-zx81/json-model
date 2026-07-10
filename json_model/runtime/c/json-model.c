@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <time.h>
+#include <string.h>
 
 char *jm_version_string = "<unknown>";
 
@@ -1239,6 +1240,7 @@ jm_dest_address(const char *stuff)
     return false;
 }
 
+
 // known url schemes
 static const uint64_t
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__  // reversed
@@ -1270,19 +1272,506 @@ static const uint64_t
 
 static const uint32_t
 #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__  // reversed
-    s_ftp = 0x3a707466,
-    s_oci = 0x3a69636f,
-    s_ssh = 0x3a687373
+    s_ftp  = 0x3a707466,
+    s_oci  = 0x3a69636f,
+    s_ssh  = 0x3a687373,
+    s_slsl = 0x00002f2f
     // s_irc = 0x3a637269
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__   // ordered
-    s_ftp = 0x6674703a,
-    s_oci = 0x6f63693a,
-    s_ssh = 0x7373683a
+    s_ftp  = 0x6674703a,
+    s_oci  = 0x6f63693a,
+    s_ssh  = 0x7373683a
+    s_slsl = 0x2f2f0000
     // s_irc = 0x6972633a
 #else
 #  error FIXME unhandled byte order
 #endif
 ;
+
+#if defined(URL_PARSER_CCA)
+/*
+ * RFC3986 Claude Sonnet 5 generated functions with minor changes
+ *
+ * Although it is linear, the same sections may be scanned several times,
+ * eg to look for some delimiter char and then to validate the section.
+ * Maybe some of these could be done on the fly. Some functions are very similar.
+ */
+/*
+ * validate a string as an RFC 3986 URI or relative-ref.
+ *
+ * Grammar implemented (RFC 3986 Appendix A), in full:
+ *
+ *   URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+ *   relative-ref  = relative-part [ "?" query ] [ "#" fragment ]
+ *   hier-part     = "//" authority path-abempty
+ *                 / path-absolute / path-rootless / path-empty
+ *   relative-part = "//" authority path-abempty
+ *                 / path-absolute / path-noscheme / path-empty
+ *
+ * Design notes:
+ *   - Every jm_rfc3986_match_* function takes a `const char **pp` cursor. On success
+ *     it advances *pp past what it consumed and returns 1. On failure it
+ *     returns 0 and leaves *pp untouched, so callers can freely try
+ *     alternatives (the grammar's alternation is resolved with O(1)
+ *     lookahead per branch — no exponential backtracking is possible).
+ *   - The string must be NUL-terminated; no length parameter is needed
+ *     because every char-class check treats '\0' as "not a member of
+ *     this class", so scans stop naturally at the terminator.
+ *   - `host` collapses IPv4address and reg-name into one reg-name scan,
+ *     which is safe: reg-name's character set (unreserved) already
+ *     accepts digits and '.', so any valid IPv4 literal also satisfies
+ *     reg-name syntactically — the ABNF is an OR, not an exclusive OR.
+ *   - IP-literal (`[...]`) is validated properly, including IPv6 with
+ *     "::" compression and an embedded trailing IPv4 address, and
+ *     IPvFuture.
+ */
+
+/* ---------------------------------------------------------------- *
+ *  Character classes (RFC 3986 §2)
+ * ---------------------------------------------------------------- */
+
+static inline bool jm_rfc3986_is_unreserved(unsigned char c)
+{
+    return isalnum(c) || c == '-' || c == '.' || c == '_' || c == '~';
+}
+
+static inline bool jm_rfc3986_is_subdelim(unsigned char c)
+{
+    return
+        c == '!' || c == '$' || c == '&' || c == '\'' || c == '(' ||
+        c == ')' || c == '*' || c == '+' || c == ',' || c == ';' || c == '='
+    ;
+}
+
+/* "%" HEXDIG HEXDIG — safe against short strings because isxdigit('\0')
+ * is false, so the && chain short-circuits before reading past the NUL. */
+static inline bool jm_rfc3986_match_pct_encoded(const char **pp)
+{
+    const char *p = *pp;
+    if (p[0] != '%')                      return false;
+    if (!isxdigit((unsigned char)p[1]))   return false;
+    if (!isxdigit((unsigned char)p[2]))   return false;
+    *pp = p + 3;
+    return true;
+}
+
+/* pchar = unreserved / pct-encoded / sub-delims / ":" / "@" */
+static inline bool jm_rfc3986_match_pchar(const char **pp)
+{
+    const char *p = *pp;
+    unsigned char c = (unsigned char)*p;
+    if (c == '%')
+        return jm_rfc3986_match_pct_encoded(pp);
+    if (jm_rfc3986_is_unreserved(c) || jm_rfc3986_is_subdelim(c) || c == ':' || c == '@')
+    {
+        *pp = p + 1;
+        return true;
+    }
+    return false;
+}
+
+/* ---------------------------------------------------------------- *
+ *  IPv4 / IPv6 / IPvFuture
+ * ---------------------------------------------------------------- */
+
+static bool is_valid_octet_token(const char *s, size_t len)
+{
+    if (len == 0 || len > 3)
+        return false;
+    for (size_t i = 0; i < len; i++)
+        if (!isdigit((unsigned char)s[i]))
+            return false;
+    if (len > 1 && s[0] == '0')
+        return false;      /* no meaningless leading zero */
+    int val = 0;
+    for (size_t i = 0; i < len; i++)
+        val = val * 10 + (s[i] - '0');
+    return val <= 255;
+}
+
+/* Validate that [s, e) is exactly "d.d.d.d" with valid dec-octets. */
+static bool jm_rfc3986_match_ipv4address(const char *s, const char *e)
+{
+    const char *p = s;
+    int parts = 0;
+    for (;;) {
+        const char *tok = p;
+        while (p < e && *p != '.') p++;
+        if (!is_valid_octet_token(tok, (size_t)(p - tok)))
+            return false;
+        parts++;
+        if (p == e)
+            break;
+        p++;                       /* skip '.' */
+        if (p == e)
+            return false;      /* trailing dot */
+    }
+    return parts == 4;
+}
+
+/* Validate [s, e) as an IPv6address, per RFC 4291 textual form, including
+ * a single "::" compression and an optional trailing embedded IPv4. */
+static bool jm_rfc3986_match_ipv6address(const char *s, const char *e)
+{
+    if (s == e) return 0;
+
+    int double_colon = 0;
+    int groups = 0;             /* 16-bit groups; embedded IPv4 counts as 2 */
+    const char *p = s;
+
+    if (p[0] == ':' && !(p + 1 < e && p[1] == ':'))
+        return false;               /* lone leading ':' is invalid */
+
+    while (p < e) {
+        if (*p == ':') {
+            if (p + 1 < e && p[1] == ':') {
+                if (double_colon) return 0;   /* only one "::" allowed */
+                double_colon = 1;
+                p += 2;
+                if (p == e) break;            /* trailing "::" */
+                continue;
+            }
+            p++;                             /* single separator */
+            if (p == e) return 0;             /* trailing lone ':' */
+            continue;
+        }
+
+        const char *tok = p;
+        while (p < e && *p != ':') p++;
+        size_t tlen = (size_t)(p - tok);
+        if (tlen == 0)
+            return false;
+
+        // FIXME memchr?
+        if (memchr(tok, '.', tlen)) {
+            if (p != e) return false;             /* IPv4 part must be last */
+            if (!jm_rfc3986_match_ipv4address(tok, tok + tlen))
+                return false;
+            groups += 2;
+        } else {
+            if (tlen > 4)
+                return false;
+            for (size_t i = 0; i < tlen; i++)
+                if (!isxdigit((unsigned char)tok[i]))
+                    return false;
+            groups += 1;
+        }
+    }
+
+    return double_colon ? groups <= 7 : groups == 8;
+}
+
+/* IPvFuture = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" ) */
+static bool jm_rfc3986_match_ipvfuture(const char *s, const char *e) {
+    const char *p = s;
+    if (p >= e || (*p != 'v' && *p != 'V'))
+        return false;
+    p++;
+    const char *hstart = p;
+    while (p < e && isxdigit((unsigned char)*p)) p++;
+    if (p == hstart)
+        return false;
+    if (p >= e || *p != '.')
+        return false;
+    p++;
+    if (p == e)
+        return false;
+    while (p < e) {
+        unsigned char c = (unsigned char)*p;
+        if (!(jm_rfc3986_is_unreserved(c) || jm_rfc3986_is_subdelim(c) || c == ':'))
+            return false;
+        p++;
+    }
+    return true;
+}
+
+/* IP-literal = "[" ( IPv6address / IPvFuture ) "]" */
+static bool jm_rfc3986_match_ip_literal(const char **pp) {
+    const char *p = *pp;
+    if (*p != '[')
+        return false;
+    const char *q = p + 1;
+    while (*q && *q != ']') q++;
+    if (*q != ']')
+        return false;
+
+    if (jm_rfc3986_match_ipv6address(p + 1, q) || jm_rfc3986_match_ipvfuture(p + 1, q)) {
+        *pp = q + 1;
+        return true;
+    }
+    return false;
+}
+
+/* ---------------------------------------------------------------- *
+ *  authority = [ userinfo "@" ] host [ ":" port ]
+ * ---------------------------------------------------------------- */
+
+/* reg-name = *( unreserved / pct-encoded / sub-delims )  (may be empty) */
+static bool jm_rfc3986_match_reg_name(const char **pp) {
+    const char *p = *pp;
+    for (;;) {
+        unsigned char c = (unsigned char)*p;
+        if (c == '%') { if (!jm_rfc3986_match_pct_encoded(&p)) break; continue; }
+        if (jm_rfc3986_is_unreserved(c) || jm_rfc3986_is_subdelim(c)) { p++; continue; }
+        break;
+    }
+    *pp = p;
+    return true;
+}
+
+/* host = IP-literal / IPv4address / reg-name
+ * (IPv4address is subsumed by reg-name's character set — see file header.) */
+static bool jm_rfc3986_match_host(const char **pp)
+{
+    if (**pp == '[')
+        return jm_rfc3986_match_ip_literal(pp);
+    else
+        return jm_rfc3986_match_reg_name(pp);
+}
+
+static bool jm_rfc3986_match_port(const char **pp)
+{
+    const char *p = *pp;
+    while (isdigit((unsigned char)*p)) p++;
+    *pp = p;
+    return true;
+}
+
+static bool jm_rfc3986_match_authority(const char **pp)
+{
+    const char *p = *pp;
+
+    /* Bound the authority component. */
+    const char *aend = p;
+    while (*aend && *aend != '/' && *aend != '?' && *aend != '#') aend++;
+
+    /* A literal '@' can only ever appear as the userinfo delimiter —
+     * it never appears inside a %XX triplet — so a plain scan is safe. */
+    const char *at = NULL;
+    for (const char *s = p; s < aend; s++)
+        if (*s == '@') { at = s; break; }
+
+    if (at) {
+        const char *u = p;
+        while (u < at)
+            if (!jm_rfc3986_match_pchar(&u))
+                return false;   /* invalid userinfo char */
+        if (u != at)
+            return false;
+        p = at + 1;
+    }
+
+    if (!jm_rfc3986_match_host(&p))
+        return false;
+    if (p > aend)
+        return false;
+
+    if (p < aend && *p == ':') {
+        p++;
+        jm_rfc3986_match_port(&p);
+    }
+
+    if (p != aend)
+        return false;                  /* leftover junk in authority */
+    *pp = aend;
+    return true;
+}
+
+/* ---------------------------------------------------------------- *
+ *  Path components
+ * ---------------------------------------------------------------- */
+
+static bool jm_rfc3986_match_segment(const char **pp)
+{
+    const char *p = *pp;
+    while (jm_rfc3986_match_pchar(&p)) {}
+    *pp = p;
+    return true;                                  /* may be empty */
+}
+
+static bool jm_rfc3986_match_segment_nz(const char **pp)
+{
+    const char *p = *pp;
+    if (!jm_rfc3986_match_pchar(&p))
+        return false;
+    while (jm_rfc3986_match_pchar(&p)) {}
+    *pp = p;
+    return true;
+}
+
+/* segment-nz-nc: like segment-nz but no ':' (avoids scheme ambiguity) */
+static bool jm_rfc3986_match_segment_nz_nc(const char **pp)
+{
+    const char *p = *pp;
+    bool got = false;
+    for (;;) {
+        unsigned char c = (unsigned char)*p;
+        if (c == '%') {
+            if (!jm_rfc3986_match_pct_encoded(&p)) break;
+            got = true; continue;
+        }
+        if (jm_rfc3986_is_unreserved(c) || jm_rfc3986_is_subdelim(c) || c == '@') {
+            p++; got = true; continue;
+        }
+        break;
+    }
+    if (!got) return false;
+    *pp = p;
+    return true;
+}
+
+static bool jm_rfc3986_match_path_abempty(const char **pp)
+{
+    const char *p = *pp;
+    while (*p == '/') { p++; jm_rfc3986_match_segment(&p); }
+    *pp = p;
+    return true;
+}
+
+static bool jm_rfc3986_match_path_absolute(const char **pp)
+{
+    const char *p = *pp;
+    if (*p != '/')
+        return false;
+    p++;
+    const char *save = p;
+    if (jm_rfc3986_match_segment_nz(&p)) {
+        while (*p == '/') { p++; jm_rfc3986_match_segment(&p); }
+    } else {
+        p = save;                              /* segment-nz part is optional */
+    }
+    *pp = p;
+    return true;
+}
+
+static bool jm_rfc3986_match_path_noscheme(const char **pp)
+{
+    const char *p = *pp;
+    if (!jm_rfc3986_match_segment_nz_nc(&p))
+        return false;
+    while (*p == '/') { p++; jm_rfc3986_match_segment(&p); }
+    *pp = p;
+    return true;
+}
+
+static bool jm_rfc3986_match_path_rootless(const char **pp)
+{
+    const char *p = *pp;
+    if (!jm_rfc3986_match_segment_nz(&p))
+        return false;
+    while (*p == '/') { p++; jm_rfc3986_match_segment(&p); }
+    *pp = p;
+    return true;
+}
+
+/* ---------------------------------------------------------------- *
+ *  scheme, query, fragment, hier-part, relative-part
+ * ---------------------------------------------------------------- */
+
+static bool jm_rfc3986_match_scheme(const char **pp)
+{
+    const char *p = *pp;
+    if (!isalpha((unsigned char)*p))
+        return false;
+    p++;
+    while (isalnum((unsigned char)*p) || *p == '+' || *p == '-' || *p == '.')
+        p++;
+    *pp = p;
+    return true;
+}
+
+/* query / fragment = *( pchar / "/" / "?" )  (may be empty) */
+static bool jm_rfc3986_match_query_or_fragment(const char **pp)
+{
+    const char *p = *pp;
+    for (;;) {
+        if (*p == '/' || *p == '?') { p++; continue; }
+        if (!jm_rfc3986_match_pchar(&p)) break;
+    }
+    *pp = p;
+    return true;
+}
+
+static bool jm_rfc3986_match_hier_part(const char **pp)
+{
+    const char *p = *pp;
+
+    if (jm_str_eq_2(p, s_slsl))
+    {
+        p += 2;
+        if (!jm_rfc3986_match_authority(&p))
+            return false;
+        jm_rfc3986_match_path_abempty(&p);
+        *pp = p;
+        return true;
+    }
+
+    const char *save = p;
+    if (jm_rfc3986_match_path_absolute(&p)) { *pp = p; return true; }
+    p = save;
+    if (jm_rfc3986_match_path_rootless(&p)) { *pp = p; return true; }
+    p = save;
+    *pp = p;                                    /* path-empty */
+    return true;
+}
+
+// NOTE very similar to previous
+static bool jm_rfc3986_match_relative_part(const char **pp)
+{
+    const char *p = *pp;
+
+    if (jm_str_eq_2(p, s_slsl))
+    {
+        p += 2;
+        if (!jm_rfc3986_match_authority(&p))
+            return false;
+        jm_rfc3986_match_path_abempty(&p);
+        *pp = p;
+        return true;
+    }
+
+    const char *save = p;
+    if (jm_rfc3986_match_path_absolute(&p)) { *pp = p; return true; }
+    p = save;
+    if (jm_rfc3986_match_path_noscheme(&p)) { *pp = p; return true; }
+    p = save;
+    *pp = p;                                    /* path-empty */
+    return true;
+}
+
+/*
+ * Returns if `str` is a syntactically valid RFC 3986 URI or
+ * relative-ref. `str` must be a NUL-terminated string.
+ */
+static bool jm_rfc3986_is_uri(const char *str, bool absolute)
+{
+    if (!str) return false;
+
+    const char *p = str;
+    const char *save = p;
+
+    if (jm_rfc3986_match_scheme(&p) && *p == ':')
+    {
+        p++;
+        if (!jm_rfc3986_match_hier_part(&p))
+            return false;
+    }
+    else
+    {
+        if (absolute)
+            return false;
+        p = save;
+        if (!jm_rfc3986_match_relative_part(&p))
+            return false;
+    }
+
+    if (*p == '?') { p++; jm_rfc3986_match_query_or_fragment(&p); }
+    if (*p == '#') { p++; jm_rfc3986_match_query_or_fragment(&p); }
+
+    return *p == '\0';
+}
+/* end of Claude Sonnet generated code */
+#endif  // URL_PARSER_CCA
 
 // this is utf-8 compatible because multi-byte encoding uses chars over 128.
 // TODO improve validator! eg special handling of hierarchical urls
@@ -1309,12 +1798,18 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
         // TODO other protocols?
         return false;
 
-/*
-      jm_str_eq_4(url, s_irc)
-      jm_str_eq_5(url, s_imap)  || jm_str_eq_6(url, s_imaps)
-*/
+#elif defined(URL_PARSER_CCA)
 
-#else
+    return (
+        jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
+        jm_str_eq_4(url, s_ftp)   || jm_str_eq_5(url, s_sftp)   ||
+        jm_str_eq_5(url, s_rtsp)  || jm_str_eq_6(url, s_rtsps)  ||
+        jm_str_eq_4(url, s_oci)   || jm_str_eq_5(url, s_file)   ||
+        jm_str_eq_4(url, s_ssh)   || jm_str_eq_8(url, s_telnet) ||
+        jm_str_eq_8(url, s_mailto)
+    ) && jm_rfc3986_is_uri(url, true);
+
+#elif defined(URL_PARSER_NONE)
 
     char *c = (char *) url;
     bool has_colon = false;
@@ -1338,9 +1833,12 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
         }
         c++;
     }
+
     return has_colon;
 
-#endif // URL_PARSER_CURL
+#else
+#  error unexpected URL_PARSER_...
+#endif  // URL_PARSER_...
 }
 
 /*
@@ -1530,7 +2028,7 @@ jm_is_valid_json(const char *json, jm_path_t *path, jm_report_t *rep)
     return *s == '\0';
 }
 
-// /./ match first non newline char
+// /./ first non newline char
 bool jm_re_dot(const char *s)
 {
     while (*s == '\n')

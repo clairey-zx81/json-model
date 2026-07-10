@@ -168,7 +168,7 @@ clean.schema:
 .PHONY: c
 c: $(F.c)
 
-URLIB   = curl
+URLIB   = cca
 RELIB   = re2
 
 %.c: %.model.json
@@ -191,10 +191,14 @@ LDFLAGS   = -L/usr/local/lib json-model.o -ljansson -lcre2 -lpthread -lre2 main.
 endif
 
 ifeq ($(URLIB), curl)
-CPPFLAGS  += -DURL_PARSER_CURL
-LDFLAGS   += -lcurl
+  CPPFLAGS  += -DURL_PARSER_CURL
+  LDFLAGS   += -lcurl
 else
-CPPFLAGS  += -DURL_PARSER_NONE
+  ifeq ($(URLIB), cca)
+    CPPFLAGS  += -DURL_PARSER_CCA
+  else
+    CPPFLAGS  += -DURL_PARSER_NONE
+  endif
 endif
 
 # local makefile

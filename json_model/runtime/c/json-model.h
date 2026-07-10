@@ -27,6 +27,8 @@
 // url parser
 #if defined(URL_PARSER_CURL)
 #  include <curl/curl.h>
+#elif defined(URL_PARSER_CCA)
+   // silent pass
 #elif defined(URL_PARSER_NONE)
 #  warning using weak internal url parser
 #else
