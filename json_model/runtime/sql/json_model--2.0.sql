@@ -197,7 +197,7 @@ CREATE OR REPLACE FUNCTION
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN val IS NOT NULL
-     AND val ~ '^((https?|file|oci|ftps?|irc|rtmps?|rtsp|sftp)://\S*$|(ssh|telnet|mailto):\w[-\w.]*@\w[-\w]*(\.\w[-\w]*)*$|\.\S$)';
+     AND val ~ '^((https?|file|oci|ftps?|irc|rtmps?|rtsp|sftp|cm|s3)://\S*$|(ssh|telnet|mailto):\w[-\w.]*@\w[-\w]*(\.\w[-\w]*)*$|\.\S$)';
 END;
 $$ LANGUAGE plpgsql;
 

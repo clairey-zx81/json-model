@@ -74,7 +74,7 @@ _ETH = "([0-9a-f]{2}:){5}[0-9a-f]{2}"  # i
 _AUTH = r"[\w.-]+(:[^@\s]*@)?([-\w.]*|\[[a-fA-F0-9:.]+\])(:\d+)?"
 _REL_URL = r"((\.|\.\.)(/\.\.)*|[^/?#\s]+)?(/[^/?#\s]*)*(\?[^#\s]*)?(#\S*)?"
 # hierarchical urls
-_HIE_URL = f"(https?|oci|s?ftp|rtsps?)://({_AUTH})?{_REL_URL}"
+_HIE_URL = f"(https?|s?ftp|rtsps?|s3|cm|oci)://({_AUTH})?{_REL_URL}"
 # file does not have a auth?
 _FILE_URL = f"file:{_REL_URL}"
 # other urls

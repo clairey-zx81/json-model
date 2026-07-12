@@ -151,6 +151,8 @@ my %WITH_AUTH = (
     "rtmp" => 1,
     "rtmps" => 1,
     "oci" => 1,
+    "cm" => 1,
+    "s3" => 1,
 );
 
 my %WITH_ADDR = (

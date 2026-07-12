@@ -89,6 +89,7 @@ const HOST_RX = /^[-\w.]*(:\d+)?$/
 const URL_SCHEMES = new Set([
     "http:", "https:", "sftp:", "ftp:", "telnet:", "ssh:", "file:",
     "irc:", "oci:", "rtsp:", "rtsps:", "mailto:", "imap:", "imaps:",
+    "s3:", "cm:",
 ])
 
 // return whether url is a valid url ($URL)
