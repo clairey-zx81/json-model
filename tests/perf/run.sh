@@ -220,11 +220,11 @@ for dir ; do
     [ "$do_cmp" -a "$trg" = "jmc-c" ] && {
       echo "## $dir jmc-c compile"
       ctime "$name,jmc-c-src,$now," "$prefix" jmc-c \
-        $jsu_compile $jsu_opts --no-format $dir/schema.json \
+        $jsu_compile $jsu_opts $dir/schema.json \
           -- $jmc_c_opts -o ${prefix}.c
       jmc_c_ko=$?
       ctime "$name,jmc-c-out,$now," "$prefix" jmc-c \
-        $jsu_compile $jsu_opts --no-format $dir/schema.json \
+        $jsu_compile $jsu_opts $dir/schema.json \
           -- $jmc_c_opts -o ${prefix}.out
       jmc_out_ko=$?
       echo "## jmc out ko: $jmc_out_ko"
@@ -236,7 +236,7 @@ for dir ; do
     [ "$do_cmp" -a "$trg" = "jmc-js" ] && {
       echo "## $dir jmc-js compile"
       ctime "$name,jmc-js,$now," "$prefix" jmc-js \
-        $jsu_compile $jsu_opts --no-format $dir/schema.json \
+        $jsu_compile $jsu_opts $dir/schema.json \
           -- $jmc_x_opts -o ${prefix}.js
       jmc_js_ko=$?
     }
@@ -245,7 +245,7 @@ for dir ; do
     [ "$do_cmp" -a "$trg" = "jmc-py" ] && {
       echo "## $dir jmc-py compile"
       ctime "$name,jmc-py,$now," "$prefix" jmc-py \
-        $jsu_compile $jsu_opts --no-format $dir/schema.json \
+        $jsu_compile $jsu_opts $dir/schema.json \
           -- $jmc_x_opts -o ${prefix}.py
       jmc_py_ko=$?
     }
@@ -254,11 +254,11 @@ for dir ; do
     [ "$do_cmp" -a "$trg" = "jmc-java" ] && {
       echo "## $dir jmc-java compile"
       ctime "$name,jmc-java-src,$now," "$prefix" jmc-java \
-        $jsu_compile $jsu_opts --no-format $dir/schema.json \
+        $jsu_compile $jsu_opts $dir/schema.json \
           -- $jmc_x_opts -o ${sprefix}.java
       jmc_java_ko=$?
       ctime "$name,jmc-java-class,$now," "$prefix" jmc-java \
-        $jsu_compile $jsu_opts --no-format $dir/schema.json \
+        $jsu_compile $jsu_opts $dir/schema.json \
           -- $jmc_x_opts -o ${sprefix}.class
       jmc_class_ko=$?
     }
@@ -267,7 +267,7 @@ for dir ; do
     [ "$do_cmp" -a "$trg" = "jmc-pl" ] && {
       echo "## $dir jmc-pl compile"
       ctime "$dir,jmc-pl,$now," "$prefix" jmc-pl \
-        $jsu_compile $jsu_opts --no-format $dir/schema.json \
+        $jsu_compile $jsu_opts $dir/schema.json \
           -- $jmc_x_opts -o ${prefix}.pl
       jmc_pl_ko=$?
     }
