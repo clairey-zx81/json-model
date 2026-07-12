@@ -53,7 +53,7 @@ arg("--aggregate", "-g", default="median", choices=["min", "mean", "median"],
     help="choose aggregate function for summarizing performance, default is \"median\"")
 arg("--content", action="store_true", default=False,
     help="content checks are included")
-arg("--no-content", target="content", action="store_false",
+arg("--no-content", dest="content", action="store_false",
     help="content checks are not included")
 args = ap.parse_args()
 
