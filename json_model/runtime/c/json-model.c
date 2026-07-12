@@ -1193,27 +1193,6 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
 // default version
 bool (*jm_is_valid_regex)(const char *, bool, jm_path_t *, jm_report_t *) = jm_is_valid_regex_fast;
 
-/*
- * URL PARSING
- */
-#if defined(URL_PARSER_CURL)
-static bool
-curl_url_parser(const char *url, bool authority)
-{
-    static CURLU *cu = NULL;
-    if (cu == NULL)
-        cu = curl_url();
-
-    unsigned int flag = CURLU_NON_SUPPORT_SCHEME;
-    if (!authority)
-        flag |= CURLU_NO_AUTHORITY;
-
-    CURLUcode rc = curl_url_set(cu, CURLUPART_URL, url, flag);
-
-    return rc == CURLUE_OK;
-}
-#endif  // CURL_URL_PARSER
-
 // something that looks like an email or ssh address
 // TODO extend to make first part optional?
 static bool
@@ -1288,13 +1267,13 @@ static const uint32_t
 #endif
 ;
 
-#if defined(URL_PARSER_CCA)
 /*
  * RFC3986 Claude Sonnet 5 generated functions with minor changes
  *
  * Although it is linear, the same sections may be scanned several times,
  * eg to look for some delimiter char and then to validate the section.
- * Maybe some of these could be done on the fly. Some functions are very similar.
+ * Some of these can be done on the fly: done for ipv6 and ipv4 octets.
+ * Some functions are very similar. ipv6 future seems overkill.
  */
 /*
  * validate a string as an RFC 3986 URI or relative-ref.
@@ -1344,11 +1323,13 @@ static inline bool jm_rfc3986_is_subdelim(unsigned char c)
 }
 
 /* "%" HEXDIG HEXDIG — safe against short strings because isxdigit('\0')
- * is false, so the && chain short-circuits before reading past the NUL. */
+ * is false, so the && chain short-circuits before reading past the NUL.
+ * Skip leading "%" check because it is tested before calling this function.
+ */
 static inline bool jm_rfc3986_match_pct_encoded(const char **pp)
 {
     const char *p = *pp;
-    if (p[0] != '%')                      return false;
+    // if (p[0] != '%')                      return false;
     if (!isxdigit((unsigned char)p[1]))   return false;
     if (!isxdigit((unsigned char)p[2]))   return false;
     *pp = p + 3;
@@ -1362,6 +1343,7 @@ static inline bool jm_rfc3986_match_pchar(const char **pp)
     unsigned char c = (unsigned char)*p;
     if (c == '%')
         return jm_rfc3986_match_pct_encoded(pp);
+    // NOTE could be tabulated
     if (jm_rfc3986_is_unreserved(c) || jm_rfc3986_is_subdelim(c) || c == ':' || c == '@')
     {
         *pp = p + 1;
@@ -1374,86 +1356,95 @@ static inline bool jm_rfc3986_match_pchar(const char **pp)
  *  IPv4 / IPv6 / IPvFuture
  * ---------------------------------------------------------------- */
 
-static bool is_valid_octet_token(const char *s, size_t len)
-{
-    if (len == 0 || len > 3)
-        return false;
-    for (size_t i = 0; i < len; i++)
-        if (!isdigit((unsigned char)s[i]))
-            return false;
-    if (len > 1 && s[0] == '0')
-        return false;      /* no meaningless leading zero */
-    int val = 0;
-    for (size_t i = 0; i < len; i++)
-        val = val * 10 + (s[i] - '0');
-    return val <= 255;
-}
-
-/* Validate that [s, e) is exactly "d.d.d.d" with valid dec-octets. */
+/* Validate that [s, e) is exactly "d.d.d.d" with valid dec-octets.
+ * This as been simplified and improved from Claude generated stuff.
+ */
 static bool jm_rfc3986_match_ipv4address(const char *s, const char *e)
 {
     const char *p = s;
     int parts = 0;
-    for (;;) {
-        const char *tok = p;
-        while (p < e && *p != '.') p++;
-        if (!is_valid_octet_token(tok, (size_t)(p - tok)))
-            return false;
+    for (;;)
+    {
+        bool zero = false;
+        int val = 0;
+        while (p < e)
+        {
+            const char c = *p++;
+            if (c == '.')
+                break;
+            if (!isdigit(c) || zero)  // leading 0
+                return false;
+            if (c == '0' && val == 0)  // maybe leading 0
+                if (zero)  // second '0' forbidden
+                    return false;
+                else  // first '0' is ok
+                    zero = true;
+            val = val * 10 + (c - '0');
+            if (val > 255)  // check early to guard against overflow
+                return false;
+        }
         parts++;
         if (p == e)
             break;
-        p++;                       /* skip '.' */
+        p++;                   // skip '.'
         if (p == e)
-            return false;      /* trailing dot */
+            return false;      // trailing dot
     }
     return parts == 4;
 }
 
 /* Validate [s, e) as an IPv6address, per RFC 4291 textual form, including
  * a single "::" compression and an optional trailing embedded IPv4. */
+// TODO on the fly and return ending ']'?
 static bool jm_rfc3986_match_ipv6address(const char *s, const char *e)
 {
-    if (s == e) return 0;
+    if (s == e) return false;
 
-    int double_colon = 0;
+    bool double_colon = false;
     int groups = 0;             /* 16-bit groups; embedded IPv4 counts as 2 */
     const char *p = s;
 
-    if (p[0] == ':' && !(p + 1 < e && p[1] == ':'))
-        return false;               /* lone leading ':' is invalid */
+    if (p[0] == ':' && p[1] != ':')
+        return false;               /* lone leading ':' is invalid, but "::" is ok */
 
-    while (p < e) {
+    while (p < e)
+    {
         if (*p == ':') {
-            if (p + 1 < e && p[1] == ':') {
-                if (double_colon) return 0;   /* only one "::" allowed */
-                double_colon = 1;
+            if (p[1] == ':') {
+                if (double_colon) return false;   // only one "::" allowed
+                double_colon = true;
                 p += 2;
-                if (p == e) break;            /* trailing "::" */
+                if (p == e) break;           // trailing "::"
                 continue;
             }
-            p++;                             /* single separator */
-            if (p == e) return 0;             /* trailing lone ':' */
+            p++;                             // single separator
+            if (p == e) return false;        // trailing lone ':'
             continue;
         }
 
+        bool has_dot = false;
         const char *tok = p;
-        while (p < e && *p != ':') p++;
+        while (p < e && *p != ':')
+        {
+            if (*p == '.')
+                has_dot = true;
+            else if (!isxdigit(*p))  // also ok for decimal
+                return false;
+            p++;
+        }
         size_t tlen = (size_t)(p - tok);
         if (tlen == 0)
             return false;
 
-        // FIXME memchr?
-        if (memchr(tok, '.', tlen)) {
-            if (p != e) return false;             /* IPv4 part must be last */
+        if (has_dot) {
+            if (p != e) return false;             // IPv4 part must be last
+            // rescan to check for well-formed ipv4
             if (!jm_rfc3986_match_ipv4address(tok, tok + tlen))
                 return false;
             groups += 2;
         } else {
             if (tlen > 4)
                 return false;
-            for (size_t i = 0; i < tlen; i++)
-                if (!isxdigit((unsigned char)tok[i]))
-                    return false;
             groups += 1;
         }
     }
@@ -1464,9 +1455,7 @@ static bool jm_rfc3986_match_ipv6address(const char *s, const char *e)
 /* IPvFuture = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" ) */
 static bool jm_rfc3986_match_ipvfuture(const char *s, const char *e) {
     const char *p = s;
-    if (p >= e || (*p != 'v' && *p != 'V'))
-        return false;
-    p++;
+    // if (p >= e || (*p != 'v' && *p != 'V')) return false; p++;
     const char *hstart = p;
     while (p < e && isxdigit((unsigned char)*p)) p++;
     if (p == hstart)
@@ -1491,11 +1480,14 @@ static bool jm_rfc3986_match_ip_literal(const char **pp) {
     if (*p != '[')
         return false;
     const char *q = p + 1;
+    bool future = *q == 'v' || *q == 'V';
     while (*q && *q != ']') q++;
     if (*q != ']')
         return false;
 
-    if (jm_rfc3986_match_ipv6address(p + 1, q) || jm_rfc3986_match_ipvfuture(p + 1, q)) {
+    if (!future && jm_rfc3986_match_ipv6address(p + 1, q) ||
+        future && jm_rfc3986_match_ipvfuture(p + 2, q))
+    {
         *pp = q + 1;
         return true;
     }
@@ -1743,7 +1735,7 @@ static bool jm_rfc3986_match_relative_part(const char **pp)
  * Returns if `str` is a syntactically valid RFC 3986 URI or
  * relative-ref. `str` must be a NUL-terminated string.
  */
-static bool jm_rfc3986_is_uri(const char *str, bool absolute)
+static bool jm_rfc3986_is_uri(const char *str, bool absolute, bool relative)
 {
     if (!str) return false;
 
@@ -1752,6 +1744,8 @@ static bool jm_rfc3986_is_uri(const char *str, bool absolute)
 
     if (jm_rfc3986_match_scheme(&p) && *p == ':')
     {
+        if (relative)
+            return false;
         p++;
         if (!jm_rfc3986_match_hier_part(&p))
             return false;
@@ -1771,34 +1765,27 @@ static bool jm_rfc3986_is_uri(const char *str, bool absolute)
     return *p == '\0';
 }
 /* end of Claude Sonnet generated code */
-#endif  // URL_PARSER_CCA
 
-// this is utf-8 compatible because multi-byte encoding uses chars over 128.
-// TODO improve validator! eg special handling of hierarchical urls
+/* basic rfc3986 urls */
+// TODO IRI?
 bool
 jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
 {
-    if (!url)
-        return false;
-
-#if defined(URL_PARSER_CURL)
-
-    if (jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
+    return url && (
+        jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
         jm_str_eq_4(url, s_ftp)   || jm_str_eq_5(url, s_sftp)   ||
         jm_str_eq_5(url, s_rtsp)  || jm_str_eq_6(url, s_rtsps)  ||
-        jm_str_eq_4(url, s_oci))
-        return curl_url_parser(url, true);
-    else if (jm_str_eq_5(url, s_file))
-        return curl_url_parser(url, false);
-    else if (jm_str_eq_4(url, s_ssh))
-        return jm_dest_address(url + 4);
-    else if (jm_str_eq_8(url, s_telnet) || jm_str_eq_8(url, s_mailto))
-        return jm_dest_address(url + 7);
-    else
-        // TODO other protocols?
-        return false;
+        jm_str_eq_4(url, s_oci)   || jm_str_eq_5(url, s_file)   ||
+        jm_str_eq_4(url, s_ssh)   || jm_str_eq_8(url, s_telnet) ||
+        jm_str_eq_8(url, s_mailto)
+    ) && jm_rfc3986_is_uri(url, true, false);
+}
 
-#elif defined(URL_PARSER_CCA)
+bool
+jm_is_valid_url_rel(const char *url, jm_path_t *path, jm_report_t *rep)
+{
+    if (!url)
+        return false;
 
     return (
         jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
@@ -1807,48 +1794,8 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
         jm_str_eq_4(url, s_oci)   || jm_str_eq_5(url, s_file)   ||
         jm_str_eq_4(url, s_ssh)   || jm_str_eq_8(url, s_telnet) ||
         jm_str_eq_8(url, s_mailto)
-    ) && jm_rfc3986_is_uri(url, true);
-
-#elif defined(URL_PARSER_NONE)
-
-    char *c = (char *) url;
-    bool has_colon = false;
-    while (*c) {
-        // check url validity (hmmm, just check for strange characters)
-        if (!(*c >= 33 && *c < 126 && *c != '"' && *c != '<' && *c != '>'))
-            return false;
-        if (!has_colon && *c == ':')
-        {
-            has_colon = true;
-            // check for known schemes
-            if (!(jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
-                  jm_str_eq_4(url, s_ftp)   || jm_str_eq_5(url, s_sftp)   ||
-                  jm_str_eq_5(url, s_file)  || jm_str_eq_4(url, s_oci)    ||
-                  jm_str_eq_5(url, s_rtsp)  || jm_str_eq_6(url, s_rtsps)  ||
-                  jm_str_eq_4(url, s_ssh)   || jm_str_eq_8(url, s_telnet) ||
-                  jm_str_eq_8(url, s_mailto)))
-                  // jm_str_eq_4(url, s_irc)   ||
-                  // jm_str_eq_5(url, s_imap)  || jm_str_eq_6(url, s_imaps)
-                return false;
-        }
-        c++;
-    }
-
-    return has_colon;
-
-#else
-#  error unexpected URL_PARSER_...
-#endif  // URL_PARSER_...
+    ) && jm_rfc3986_is_uri(url, true, false) || jm_rfc3986_is_uri(url, false, true);
 }
-
-/*
-bool
-jm_is_valid_host(const char *host, jm_path_t *path, jm_report_t *rep)
-{
-    if (!host)
-        return false;
-}
-*/
 
 // FIXME no .., more chars
 static INLINE bool is_email_char(int c)

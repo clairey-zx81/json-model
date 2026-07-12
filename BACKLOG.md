@@ -17,11 +17,10 @@
 - [x] pr: improve dev setup documentation
 - [x] tests: add jsonrpc tests
 - [x] container: add perl URI dependency
-- [x] container: add libcurl and build with it
 - [x] front: add ability to recompile a modified C or Java source file
 - [x] c-runtime: add fast [RFC3986](https://www.rfc-editor.org/info/rfc3986/) URI parser
+- [x] predef: add `$URI_REL` for openapi, with non perfect cross-language support
 - [ ] tests: check more bad urls (eg bad %-escape)
-- [ ] predef: add `$URI_REF`?! this is needed for openapi
 - [ ] perf: run benchmark for formats/predefs enabled
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used

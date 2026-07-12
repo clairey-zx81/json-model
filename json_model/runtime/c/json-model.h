@@ -24,17 +24,6 @@
 #  error missing regex engine definition
 #endif
 
-// url parser
-#if defined(URL_PARSER_CURL)
-#  include <curl/curl.h>
-#elif defined(URL_PARSER_CCA)
-   // silent pass
-#elif defined(URL_PARSER_NONE)
-#  warning using weak internal url parser
-#else
-#  error missing url parser definition
-#endif
-
 /*
  * build generated API names
  */
@@ -238,6 +227,7 @@ extern bool jm_is_valid_regex_slow(const char *, bool, jm_path_t *, jm_report_t 
 extern bool jm_is_valid_regex_fast(const char *, bool, jm_path_t *, jm_report_t *);
 extern bool (*jm_is_valid_regex)(const char *, bool, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_url(const char *, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_url_rel(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_email(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_json(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_card(const char *, jm_path_t *, jm_report_t *);

@@ -10,7 +10,7 @@ STR_MODEL_PREDEFS = {
     "$REGEX", "$EXREG",
     "$UUID", "$CARD",
     "$IP4", "$IP6", "$HOST", "$ETH",
-    "$URL", "$URI", "$EMAIL",
+    "$URL", "$URI", "$EMAIL", "$URL_REL",
     "$JSON", "$JSONPT",
     "$SEMVER",
     "$__EXTENSION_COLOR",
@@ -68,10 +68,18 @@ _IP6 = (
 # ethernet/mac address
 _ETH = "([0-9a-f]{2}:){5}[0-9a-f]{2}"  # i
 
+# various approximate regex for RFC3986 https://datatracker.ietf.org/doc/html/rfc3986
 # FIXME TODO improve!
-_URL = r"((https?|file)://.*|\..*)"
-# RFC3986 https://datatracker.ietf.org/doc/html/rfc3986
-_URI = f"({_URL}|(urn|oci):.*)"
+# relative urls from path to query to anchor
+_AUTH = r"[\w.-]+(:[^@\s]*@)?([-\w.]*|\[[a-fA-F0-9:.]+\])(:\d+)?"
+_REL_URL = r"((\.|\.\.)(/\.\.)*|[^/?#\s]+)?(/[^/?#\s]*)*(\?[^#\s]*)?(#\S*)?"
+# hierarchical urls
+_HIE_URL = f"(https?|oci|s?ftp|rtsps?)://({_AUTH})?{_REL_URL}"
+# file does not have a auth?
+_FILE_URL = f"file:{_REL_URL}"
+# other urls
+_URL = f"({_HIE_URL}|{_FILE_URL}|(ssh|telnet|mailto):{_EMAIL}|urn:[\\w.:-]+)"
+_URI = _URL
 
 #
 # date time and duration
@@ -138,7 +146,9 @@ PREDEF_RE: dict[str, tuple[str, str, str]] = {
     "$EMAIL": ("jm_is_email", f"^{_EMAIL}$", "i"),
     "$ETH": ("jm_is_eth", f"^{_ETH}$", "i"),
     "$URL": ("jm_is_url", f"^{_URL}$", ""),
+    "$URL_REL": ("jm_is_url_rel", f"^({_URL}|{_REL_URL})$", ""),
     "$URI": ("jm_is_uri", f"^{_URI}$", ""),
+    # $URI_REL?
     "$DATE": ("jm_is_date", f"^{_DATE}$", ""),
     # time with optional or mandatory timezone
     "$TIME": ("jm_is_time", f"^{_TIME}{_TZ}?$", "i"),

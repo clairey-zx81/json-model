@@ -38,6 +38,7 @@ PREDEF_FORMATS = {
     "$UUID": "uuid",
     "$URL": "uri",
     "$URI": "uri",
+    "$URL_REL": "uri-reference",  # ???
     "$IP4": "ipv4",
     "$IP6": "ipv6",
     "$HOST": "hostname",

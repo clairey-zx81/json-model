@@ -9,12 +9,11 @@ clean:
 compile: $(F.o)
 
 REGEX       = RE2    # RE2 or PCRE2
-URLIB       = CCA    # NONE, CCA or CURL
 
 CC.inc      = -I/usr/local/include -I.
 
 CFLAGS      = -Wall -O3 -ffast-math -mtune=native -Wno-unused-function
-CPPFLAGS    = -DREGEX_ENGINE_$(REGEX) -DURL_PARSER_$(URLIB) -DCHECK_FUNCTION_NAME=check_model $(CC.inc)
+CPPFLAGS    = -DREGEX_ENGINE_$(REGEX) -DCHECK_FUNCTION_NAME=check_model $(CC.inc)
 
 %.o: %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $<

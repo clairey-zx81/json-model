@@ -17,6 +17,7 @@ _ESC_TABLE = {
 # must be consistent with "predef"
 CLANG_RUNTIME_PREDEFS: dict[str, str] = {
     "$URL": "jm_is_valid_url",
+    "$URL_REL": "jm_is_valid_url_rel",
     "$URI": "jm_is_valid_url",
     "$DATE": "jm_is_valid_date",
     "$TIME": "jm_is_valid_time",
