@@ -136,6 +136,8 @@ public class Runtime
                 return SSH_RE.matcher(s).find();
             if (s.startsWith("oci:"))
                 return is_valid_url("http:" + s.substring(4));
+            if (s.startsWith("s3:") || s.startsWith("cm:"))
+                return is_valid_url("http:" + s.substring(3));
             return false;
         }
     }
