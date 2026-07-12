@@ -32,8 +32,8 @@ arg("--sort", "-s", default="ga", choices=["ab", "bs", "ls", "ga"],
 arg("--iterations", "-i", type=int, default=0,
     help="expected number of measures for each test case")
 # verbosity control
-arg("--debug", "-d", dest="level", action="store_const", const=logging.DEBUG,
-    default=logging.INFO, help="run in debug mode")
+arg("--debug", "-d", dest="level", action="store_const", const=logging.DEBUG, default=logging.INFO,
+    help="run in debug mode")
 arg("--quiet", "-q", dest="level", action="store_const", const=logging.WARNING,
     help="be quiet")
 arg("--progress", "-p", default=False, action="store_true",
@@ -51,6 +51,10 @@ arg("--compact", "-c", action="store_true", default=False,
     help="compact but less precise comparison display, default is not")
 arg("--aggregate", "-g", default="median", choices=["min", "mean", "median"],
     help="choose aggregate function for summarizing performance, default is \"median\"")
+arg("--content", action="store_true", default=False,
+    help="content checks are included")
+arg("--no-content", target="content", action="store_false",
+    help="content checks are not included")
 args = ap.parse_args()
 
 if args.hide and not args.ref:
@@ -111,6 +115,7 @@ RESULT_SUCCESS: str = """
 For each tool and cases with a partial success rate, percent of test cases validated.
 """
 
+# yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969}
 RESULT_COMMENT: str = """
 As of May 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
 are not 100.0% because validation checks are stricter and some
@@ -121,9 +126,15 @@ are rightfully rejected.
 - ansible-meta:{201,312} - `.argument_spec` unexpected prop (idem)
 - cspell:75 - `.languageSettings[2].languageId[0]` is `yaml.ansible`, unexpected `.` in fixed regex
 - cypress:8 - `.reporter` stricter check, file should end with `.js`
-- yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969} - unrelated raw strings
+- yamllint:* - 18 unrelated raw strings
+"""
 
-More values are rejected if formats are also checked, eg urls with are not urls.
+RESULT_CONTENT_COMMENT: str = """
+When running with content validation (JSON Schema format, JSON Model predefs),
+more cases are expected to fail:
+
+- helm: 128 rejected values, mostly because of empty .dependencies.*.repository urls
+- openapi:{12,26} 2 bad urls are rejected
 """
 
 COMP_CASES: str = """
@@ -377,6 +388,7 @@ if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
             )
 
     if args.standard: print(RESULT_COMMENT, end="")
+    if args.standard and args.content: print(RESULT_CONTENT_COMMENT, end="")
 
 
 if args.standard:

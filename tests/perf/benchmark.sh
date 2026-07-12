@@ -53,7 +53,7 @@ script_dir=$(dirname $0)
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy"
-cap=1 debug= show_opt=--standard unshift= load= content= run_opts=
+cap=1 debug= show_opts=--standard unshift= load= content= run_opts=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -103,8 +103,8 @@ while [[ "$1" == -* ]] ; do
     -T|--task) TASK=$1 ; shift ;;
     -u|--unshift) unshift="--unshift" ;;
     -L|--load) load=1 ;;
-    -c|--content) run_opts+=" --content" ; content=1 ;;
-    -nc|--no-content) run_opts+=" --no-content" ; content= ;;
+    -c|--content) run_opts+=" --content" ; show_opts+=" --content" ; content=1 ;;
+    -nc|--no-content) run_opts+=" --no-content" ; show_opts+=" --no-content" ; content= ;;
     --) break ;;
     *) err 1 "unexpected option: $opt" ;;
   esac
@@ -118,7 +118,7 @@ done
 [ $RUNS -ge 1 ] || err 1 "unexpected runs value, must be >= 1: $RUNS"
 
 # non standard run
-[ "$TASK" != "bcsvy" ] && show_opt=
+[ "$TASK" != "bcsvy" ] && show_opts=
 
 echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=$JMC_ENV task=$TASK"
 
@@ -375,6 +375,12 @@ overhead="removed"
 debug_status="no"
 [ "$debug" ] && debug_status="yes"
 
+if [ "$content" ] ; then
+  content_display="yes (JSON Schema formats, JSON Model predefs)"
+else
+  content_display="no"
+fi
+
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
 
@@ -422,7 +428,7 @@ or deselect tools for easier comparisons.
 - **overhead:** $overhead (measure overhead estimations may be removed from execution times)
 - **debug:** $debug_status
 - **tasks:** $tasks
-- **content:** $content
+- **content:** $content_display
 - **exported environment variables:** \`$JMC_ENV\`
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
@@ -431,7 +437,7 @@ echo "## report head $(( $SECONDS - $REPORT_START ))"
 
 # generate markdown tables
 START=$SECONDS
-report.py $show_opt $unshift >> "$ID.md"
+report.py $show_opts $unshift >> "$ID.md"
 echo "## report tables $(( $SECONDS - $START ))"
 echo "## report generation $(( $SECONDS - $REPORT_START ))"
 
