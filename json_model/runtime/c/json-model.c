@@ -1254,13 +1254,17 @@ static const uint32_t
     s_ftp  = 0x3a707466,
     s_oci  = 0x3a69636f,
     s_ssh  = 0x3a687373,
-    s_slsl = 0x00002f2f
+    s_slsl = 0x00002f2f,
+    s_cm   = 0x003a6d63,
+    s_s3   = 0x003a3373
     // s_irc = 0x3a637269
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__   // ordered
     s_ftp  = 0x6674703a,
     s_oci  = 0x6f63693a,
-    s_ssh  = 0x7373683a
-    s_slsl = 0x2f2f0000
+    s_ssh  = 0x7373683a,
+    s_slsl = 0x2f2f0000,
+    s_cm   = 0x636d3a00,
+    s_s3   = 0x73333a00
     // s_irc = 0x6972633a
 #else
 #  error FIXME unhandled byte order
@@ -1772,12 +1776,13 @@ bool
 jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
 {
     return url && (
-        jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
-        jm_str_eq_4(url, s_ftp)   || jm_str_eq_5(url, s_sftp)   ||
-        jm_str_eq_5(url, s_rtsp)  || jm_str_eq_6(url, s_rtsps)  ||
-        jm_str_eq_4(url, s_oci)   || jm_str_eq_5(url, s_file)   ||
-        jm_str_eq_4(url, s_ssh)   || jm_str_eq_8(url, s_telnet) ||
-        jm_str_eq_8(url, s_mailto)
+        jm_str_eq_6(url, s_https)  || jm_str_eq_5(url, s_http)   ||
+        jm_str_eq_4(url, s_ftp)    || jm_str_eq_5(url, s_sftp)   ||
+        jm_str_eq_5(url, s_rtsp)   || jm_str_eq_6(url, s_rtsps)  ||
+        jm_str_eq_4(url, s_oci)    || jm_str_eq_5(url, s_file)   ||
+        jm_str_eq_4(url, s_ssh)    || jm_str_eq_8(url, s_telnet) ||
+        jm_str_eq_8(url, s_mailto) || jm_str_eq_3(url, s_cm)     ||
+        jm_str_eq_3(url, s_s3)
     ) && jm_rfc3986_is_uri(url, true, false);
 }
 
@@ -1788,12 +1793,13 @@ jm_is_valid_url_rel(const char *url, jm_path_t *path, jm_report_t *rep)
         return false;
 
     return (
-        jm_str_eq_6(url, s_https) || jm_str_eq_5(url, s_http)   ||
-        jm_str_eq_4(url, s_ftp)   || jm_str_eq_5(url, s_sftp)   ||
-        jm_str_eq_5(url, s_rtsp)  || jm_str_eq_6(url, s_rtsps)  ||
-        jm_str_eq_4(url, s_oci)   || jm_str_eq_5(url, s_file)   ||
-        jm_str_eq_4(url, s_ssh)   || jm_str_eq_8(url, s_telnet) ||
-        jm_str_eq_8(url, s_mailto)
+        jm_str_eq_6(url, s_https)  || jm_str_eq_5(url, s_http)   ||
+        jm_str_eq_4(url, s_ftp)    || jm_str_eq_5(url, s_sftp)   ||
+        jm_str_eq_5(url, s_rtsp)   || jm_str_eq_6(url, s_rtsps)  ||
+        jm_str_eq_4(url, s_oci)    || jm_str_eq_5(url, s_file)   ||
+        jm_str_eq_4(url, s_ssh)    || jm_str_eq_8(url, s_telnet) ||
+        jm_str_eq_8(url, s_mailto) || jm_str_eq_3(url, s_cm)     ||
+        jm_str_eq_3(url, s_s3)
     ) && jm_rfc3986_is_uri(url, true, false) || jm_rfc3986_is_uri(url, false, true);
 }
 
