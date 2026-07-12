@@ -87,7 +87,7 @@ the following caveats, and others:
   for faster parsing, a library may use linked-list for properties, which means
   that retrieving a given property value will cost more than a library which uses
   a hash table which is more costly to build.
-- blaze does _not_ implement checking string values (eg dates, url…),
+- before version _16.0_, blaze does _not_ implement checking string values (eg dates, url…),
   so these checks may be disactivated (see `JMC_OPTS`) for fairness,
   reducing the results significance.
 - blaze uses its own special-purpose JSON representation which include a precomputed
