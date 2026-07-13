@@ -1379,10 +1379,12 @@ static bool jm_rfc3986_match_ipv4address(const char *s, const char *e)
             if (!isdigit(c) || zero)  // leading 0
                 return false;
             if (c == '0' && val == 0)  // maybe leading 0
+            {
                 if (zero)  // second '0' forbidden
                     return false;
                 else  // first '0' is ok
                     zero = true;
+            }
             val = val * 10 + (c - '0');
             if (val > 255)  // check early to guard against overflow
                 return false;
@@ -1489,8 +1491,8 @@ static bool jm_rfc3986_match_ip_literal(const char **pp) {
     if (*q != ']')
         return false;
 
-    if (!future && jm_rfc3986_match_ipv6address(p + 1, q) ||
-        future && jm_rfc3986_match_ipvfuture(p + 2, q))
+    if ((!future && jm_rfc3986_match_ipv6address(p + 1, q)) ||
+        (future && jm_rfc3986_match_ipvfuture(p + 2, q)))
     {
         *pp = q + 1;
         return true;
@@ -1792,7 +1794,7 @@ jm_is_valid_url_rel(const char *url, jm_path_t *path, jm_report_t *rep)
     if (!url)
         return false;
 
-    return (
+    return ((
         jm_str_eq_6(url, s_https)  || jm_str_eq_5(url, s_http)   ||
         jm_str_eq_4(url, s_ftp)    || jm_str_eq_5(url, s_sftp)   ||
         jm_str_eq_5(url, s_rtsp)   || jm_str_eq_6(url, s_rtsps)  ||
@@ -1800,7 +1802,7 @@ jm_is_valid_url_rel(const char *url, jm_path_t *path, jm_report_t *rep)
         jm_str_eq_4(url, s_ssh)    || jm_str_eq_8(url, s_telnet) ||
         jm_str_eq_8(url, s_mailto) || jm_str_eq_3(url, s_cm)     ||
         jm_str_eq_3(url, s_s3)
-    ) && jm_rfc3986_is_uri(url, true, false) || jm_rfc3986_is_uri(url, false, true);
+    ) && jm_rfc3986_is_uri(url, true, false)) || jm_rfc3986_is_uri(url, false, true);
 }
 
 // FIXME no .., more chars
