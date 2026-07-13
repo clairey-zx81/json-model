@@ -4,6 +4,7 @@
 
 import re
 from collections.abc import Collection
+import json
 
 from .model import JsonModel
 from .language import Block
@@ -80,8 +81,7 @@ def m2type(model: ModelType, def_keys: Collection[str]) -> str | None:
         if model.startswith("="):
             return model[1:]
         if model.startswith("_"):
-            s = model[1:].replace("\\", "\\\\").replace('"', '\\"')
-            return '"' + s + '"'
+            return json.dumps(model[1:])
         return "string"
     return None
 
