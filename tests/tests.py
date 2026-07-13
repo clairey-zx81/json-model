@@ -1,3 +1,4 @@
+import tempfile
 import typing
 import os
 import pathlib
@@ -10,6 +11,7 @@ import pytest
 from json_model.script import model_from_url, model_checker_from_url
 from json_model.resolver import Resolver
 from json_model.xstatic import xstatic_compile
+from json_model.export_ts_interface import model2tsinterface
 
 logging.basicConfig()
 log = logging.getLogger("test")
@@ -338,6 +340,7 @@ EXPECT: dict[str, int] = {
     "draft-next:jsts": 369,
 }
 
+TSC = os.path.join(os.path.dirname(__file__), "..", "node_modules", ".bin", "tsc")
 
 #
 # LOCAL TEST UTILS
@@ -357,6 +360,9 @@ def file_is_newer(f1: str, f2: str) -> bool:
 
 def has_exec(program: str) -> bool:
     return os.system(f"type {program}") == 0
+
+def has_tsc() -> bool:
+    return os.path.isfile(TSC)
 
 #
 # LOCAL FIXTURES
@@ -675,6 +681,16 @@ def test_sta_c(directory, clibjm):
 def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
     check_values(directory, "sta-py", ".py", ".py.check", lambda f: f, "-r")
+
+def test_sta_ts(directory):
+    """Check that every model's exported TypeScript compiles (tsc --noEmit)."""
+    reslover = Resolver(None, dirmap(directory))
+    options = EXPECT.get(f"{directory}:mod-opts", {})
+    tmp = pathlib.Path(tempfile.mkdtemp())
+    files = []
+    print(reslover, options, tmp, files)
+    #for fpath in sorted(directory.glob("*.model.json")):
+    #    base = fpath.name[:-len]
 
 @pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_sta_js(directory):
