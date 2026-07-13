@@ -30,6 +30,9 @@ mvn.jar:
 	mvn install
 	# see generated jar under ./target/
 
+.PHONY: dev
+dev: mvn.deps mvn.jar
+
 #
 # 2nd stage
 #
