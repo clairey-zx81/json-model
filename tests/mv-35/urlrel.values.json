@@ -15,6 +15,7 @@
   [ false, " " ],
   [ false, "http://hello world/" ],
   [ false, "http://{default-host}" ],
+  [ false, "<some-stuff>" ],
   [ false, "foo:unknown-foo-scheme" ],
   [ false, null ],
   [ false, true ],

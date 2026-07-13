@@ -74,8 +74,8 @@ _AUTH = r"[\w.-]+(:[^@\s]*@)?([-\w.]*|\[[a-fA-F0-9:.]+\])(:\d+)?"
 # path, query, anchor
 _PQA = r"(/[^/?#\s]*)*(\?[^#\s]*)?(#\S*)?"
 # relative urls from path to query to anchor
-# NOTE first segment cannot look like "scheme:"
-_REL_URL = r"([^?#\s:/]+)?(/[^?#\s/]*)*(\?[^#\s]*)?(#\S*)?"
+# NOTE first segment cannot look like "scheme:" and contain strange chars
+_REL_URL = r"([^?#\s:/<>{}()!=*]+)?(/[^?#\s/]*)*(\?[^#\s]*)?(#\S*)?"
 # hierarchical urls
 _HIE_URL = f"(https?|s?ftp|rtsps?|s3|cm|oci)://({_AUTH})?{_PQA}"
 # file does not have a auth?
