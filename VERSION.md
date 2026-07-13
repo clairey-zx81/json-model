@@ -1,6 +1,28 @@
 # JSON Model Compiler Versions
 
-## 2.0.51 2026-06-22
+## 2.0.52 on 2027-07-13
+
+- js-backend: remove useless semi-colons
+- js-backend: remove useless braces by filtering output
+- pl-backend: use `unless` where appropriate by filtering output
+- pl-backend: use short post-if/unless where possible by filtering output
+- java-backend: remove useless braces by filtering output
+- doc: improve developer documentation
+- clang: fix clang loose int extraction (`json_integer_value` returns 0 on floats)
+- tests: add `schema.check` for most test models
+- runtimes: accept "oci:..." as valid urls in java, python, perl, plpgsql…
+- runtimes: improve homogeneity for `$URL` across languages (js, c, py, pl, java)
+- container: add missing `Algorithm::LUHN` Perl module installation
+- java-runtime: use maven to get dependencies and compile
+- pr: improve dev setup documentation
+- tests: add jsonrpc tests
+- container: add perl `URI` dependency
+- front: add ability to recompile a modified C or Java source file
+- c-runtime: add fast [RFC3986](https://www.rfc-editor.org/info/rfc3986/) URI parser
+- predef: add `$URI_REL` for openapi, with non perfect cross-language support
+- perf: run benchmark for formats/predefs enabled (ok, add artifact after release)
+
+## 2.0.51 on 2026-06-22
 
 - perf: rename `show.py` as `report.py`
 - front: allow to add a comment in generated source files
@@ -24,7 +46,7 @@
 - optim: do not flatten `^`!
 - optim: fix wrong removal of min props constraint when not an object
 
-## 2.0.50 2026-05-21
+## 2.0.50 on 2026-05-21
 
 - c-runtime: remove some warnings on build
 - front: reduce version display verbosity
@@ -76,7 +98,7 @@
 - perf: also add jsb sharing when using js-cli
 - java-runtime: fix GSON null when used in value sets
 
-## 2.0.49 2026-05-09
+## 2.0.49 on 2026-05-09
 
 - front: cleanup obsolete versioning stuff
 - front: show dynamic version when under dev
@@ -85,7 +107,7 @@
 - front: workaround, allow to skip dynamic version recomputation
 - front: use semver
 
-## 2.0b48 2026-05-07
+## 2.0b48 on 2026-05-07
 
 - static: unroll small array scans for simple type checks
 - test: cover more array unrolling cases
@@ -96,7 +118,7 @@
 - front: show git hash on `--version`?
 - front: switch to dynamic versioning
 
-## 2.0b46 2026-05-03
+## 2.0b46 on 2026-05-03
 
 - c-backend: test real then int when checking for a number
 - static: provide type of array elements for unique
@@ -113,20 +135,20 @@
 - pr: cleanup backlog and create version markdown
 - docker: use ubuntu 26.04  base
 
-## 2.0b45 2026-04-25
+## 2.0b45 on 2026-04-25
 
 - ~perl-backend: improve resilience to missing dependencies, eg `Algorithm::LUHN`~
 - c-backend: allow to reuse pre-compiled runtime
 
-## 2.0b44 2026-04-24
+## 2.0b44 on 2026-04-24
 
 - front: allow to call script as a function
 
-## 2.0b43 2026-04-23
+## 2.0b43 on 2026-04-23
 
 - optim: override simpler regex props if stricter
 
-## 2.0b42 2026-04-20
+## 2.0b42 on 2026-04-20
 
 - \*-backend: remove `--jsonschema-benchmark` handling as it is moved to this repo
 - command: add `--no-comment` option not to generate comments in source code
@@ -192,7 +214,7 @@
 - model: add option to `s` on regex? else `.` is any but `\n` and sometimes `\r`
 - optim: `/^.{1,256}$/`? only under `/s` though…
 
-## 2.0b41 2026-03-14
+## 2.0b41 on 2026-03-14
 
 - optim: do not recheck object if not necessary
 - command: show runtime directory with `--runtime`
@@ -200,19 +222,19 @@
 - js-backend: export model map
 - pl-backend: add and export `mapper` function
 
-## 2.0b40 2026-03-12
+## 2.0b40 on 2026-03-12
 
 - c-backend: use monotonic instead of realtime clock which has a better precision
 - java-backend: fix previously untested `--jsonschema-benchmark` implementation
 
-## 2.0b39 2026-03-10
+## 2.0b39 on 2026-03-10
 
 - optim: implement any type but one constrained optimization (jsu)
 - ir: fix bad elimination when bool var was used
 - ir: add bool var assign elimination on return with only one use
 - c-backend: fix long option parsing
 
-## 2.0b38 2026-03-08
+## 2.0b38 on 2026-03-08
 
 - pr: publish python jmc package
 - static: add support for `.in` with constraints
@@ -221,7 +243,7 @@
 - perf: add missing warmup to C runtime for jsonschema benchmark
 - perl-backend: be resilient on missing RE2 module
 
-## 2.0b37 2026-02-27
+## 2.0b37 on 2026-02-27
 
 - test: improve output determinism
 - container: allow to use `podman` instead of `docker`
@@ -247,7 +269,7 @@
 - ir: fix stupid bug in ir opts
 - tests: rerun with updated JSTS before release
 
-## 2.0b36 2025-11-12
+## 2.0b36 on 2025-11-12
 
 - tests: check how clang compares to gcc (maybe a few pc better)
 - static: partition long lists of properties based on first bytes
@@ -263,7 +285,7 @@
 - model: simplify `{"": "$NONE"}`
 - ~model: avoid dead code in `mv-0f/dedup-002`~ (simple pair ok, multiple seldom useful)
 
-## 2.0b35 2025-10-30
+## 2.0b35 on 2025-10-30
 
 - static: order must/may props by increasing size
 - command: fix bad mmo threshold initializations
@@ -277,7 +299,7 @@
 - pr: move out schema-to-model conversion
 - pr: adjust radar display to visible datasets
 
-## 2.0b34 2025-10-27
+## 2.0b34 on 2025-10-27
 
 - static: improve likely hints depending on expectations
 - backend: fix `TRUE AND` in `mv-07/json-schema-draft-tight.sql` (late)
@@ -287,18 +309,18 @@
 - command: rename `--unroll-may-…` options for `--may-must-open-threshold`
 - command: set optimization parameters depending on target language
 
-## 2.0b33 2025-10-24
+## 2.0b33 on 2025-10-24
 
 - c-backend: try with `clang` instead of `gcc`
 
-## 2.0b32 2025-10-22
+## 2.0b32 on 2025-10-22
 
 - backend: optimize length-based non-empty string check
 - backend: remove reporting expressions under no reporting
 - backend: nullify reporting parameters under no reporting
 - command: silent more cc warnings
 
-## 2.0b31 2025-10-22
+## 2.0b31 on 2025-10-22
 
 - pr: improve radar chart responsiveness and sorting
 - backend: remove intermediate variable on return
@@ -323,7 +345,7 @@
 - c-backend: cleanup duplicated `json_is_boolean` calls
 - c-backend: fix bad constant string expression syntax
 
-## 2.0b30 2025-10-18
+## 2.0b30 on 2025-10-18
 
 - pr: improve bench page
 - command: set default to compile on `-F language` instead of model preprocessing
@@ -333,14 +355,14 @@
 - static: remove unexpected `$ANY` messages (irep dead code elimination)
 - pr: add new artifact (2025101808)
 
-## 2.0b29 2025-10-17
+## 2.0b29 on 2025-10-17
 
 - pr: add a benchmarking performance artifact page
 - backend: shamefully ignore bad json due to strange prop names
 - static: fix disjunct analysis issue
 - optim: fix infinite loop between xor-to-or and partial eval
 
-## 2.0b28 2025-10-11
+## 2.0b28 on 2025-10-11
 
 - static: skip map target functions for objects
 - static: skip map target functions for references
@@ -351,7 +373,7 @@
 - optim: more xor/not/or simplifications
 - optim: xor-to-or model difference based on not exclusion, possibly behind refs
 
-## 2.0b27 2025-10-07
+## 2.0b27 on 2025-10-07
 
 - perf: ensure properly aligned data in box report
 - perf: allow to collect data over several runs
@@ -364,7 +386,7 @@
 - optim: get rid of double object with C, Python and Java
 - backend: ~do not generate intermediate empty functions for direct objects? (skip)~
 
-## 2.0b26 2025-10-04
+## 2.0b26 on 2025-10-04
 
 - perf: add jsb version to final summary
 - command: add `--no-predef` option for testing
@@ -373,13 +395,13 @@
 - docker: environment control for perf tests
 - command: `jmc -C -o foo.json` generates python instead of json
 
-## 2.0b25 2025-10-02
+## 2.0b25 on 2025-10-02
 
 - models: write model for json IR
 - static: fix value path in some object variants
 - static: add a max threshold/ratio for may property unrolling
 
-## 2.0b24 2025-09-27
+## 2.0b24 on 2025-09-27
 
 - backend: intermediate represention json code generation
 - backend: optimize some output patterns on IR
@@ -392,7 +414,7 @@
 - backend: apply skip functions also for all pmap/cmap/cc through IR
 - optim: direct mandatory-only attributes objects with expected count checked ahead
 
-## 2.0b23 2025-09-21
+## 2.0b23 on 2025-09-21
 
 - artifact: add test case stats
 - static: detect discriminators from references
@@ -401,7 +423,7 @@
 - docker: generate image for current branch
 - artifact: improve docker image tagging
 
-## 2.0b22 2025-09-19
+## 2.0b22 on 2025-09-19
 
 - static: detect discriminator on object part of or/xor
 - static: accept discriminator with a list of constants
@@ -414,57 +436,57 @@
 - tests: cleanup current status, back to 100\%
 - pr: update tuto scripts to match current status
 
-## 2.0b20 2025-09-14
+## 2.0b20 on 2025-09-14
 
 - artifact: reduce task granularity
 - artifact: add bench docker image base on docker-cli
 - java-backend: update dependency versions
 
-## 2.0b19 2025-09-13
+## 2.0b19 on 2025-09-13
 
 - docker: add subdirs to java classpath
 
-## 2.0b18 2025-09-11
+## 2.0b18 on 2025-09-11
 
 - static: optimize function mapping by skipping intermediate functions if possible
 
-## 2.0b16 2025-09-09
+## 2.0b16 on 2025-09-09
 
 - model: filter out all comments from transformations
 - c-backend: improve overhead estimation accuracy
 
-## 2.0b15 2025-09-08
+## 2.0b15 on 2025-09-08
 
 - pl-backend: work around reference issues
 - command: add `--schema-version` to force schema version output
 - pr: remove _wip_ cover page from web site
 
-## 2.0b13 2025-09-06
+## 2.0b13 on 2025-09-06
 
 - pr: improve tuto docker launch
 - pl-backend: add function declarations, needed for some recursions
 
-## 2.0b12 2025-09-02
+## 2.0b12 on 2025-09-02
 
 - js-frontend: do several iterations to measure the loop overhead
 - python: fix venv installation issue with `pl/JSON` directory
 
-## 2.0b11 2025-08-30
+## 2.0b11 on 2025-08-30
 
 - py-frontend: fix line numbering for jsonl
 
-## 2.0b10 2025-08-30
+## 2.0b10 on 2025-08-30
 
 - java-frontend: improve check interface and calls
 - js-frontend: fix line numbering for jsonl
 
-## 2.0b9 2025-08-29
+## 2.0b9 on 2025-08-29
 
 - c-backend: add inlining and branch hints
 - c-frontend: fix --version display
 - py-frontend: fix line display for jsonl and test vectors
 
-## 2.0b7 2025-08-28
+## 2.0b7 on 2025-08-28
 
 - pl-backend: fix utf8 JSON handling `mv-21/pJSON`
 - pr: docker tuto script fix pull
