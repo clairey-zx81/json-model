@@ -11,17 +11,17 @@
 - [x] clang: fix clang loose int extraction (`json_integer_value` returns 0 on floats)
 - [x] tests: add `schema.check` for most test models
 - [x] runtimes: accept "oci:..." as valid urls in java, python, perl, plpgsql…
-- [x] runtimes: improve homogeneity for `$URL` across languages (js, c, py, pl)
+- [x] runtimes: improve homogeneity for `$URL` across languages (js, c, py, pl, java)
 - [x] container: add missing `Algorithm::LUHN` Perl module installation
 - [x] java-runtime: use maven to get dependencies and compile
 - [x] pr: improve dev setup documentation
 - [x] tests: add jsonrpc tests
-- [x] container: add perl URI dependency
+- [x] container: add perl `URI` dependency
 - [x] front: add ability to recompile a modified C or Java source file
 - [x] c-runtime: add fast [RFC3986](https://www.rfc-editor.org/info/rfc3986/) URI parser
 - [x] predef: add `$URI_REL` for openapi, with non perfect cross-language support
+- [x] perf: run benchmark for formats/predefs enabled (ok, add artifact after release)
 - [ ] tests: check more bad urls (eg bad %-escape)
-- [ ] perf: run benchmark for formats/predefs enabled
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
 - [ ] c-backend: factor out str extraction in or-list in more cases
