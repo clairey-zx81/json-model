@@ -60,7 +60,7 @@ FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
 F.gen   = \
     $(F.json) $(F.UO) $(F.PO) $(F.ts) \
     $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) $(F.EO) \
-    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc) $(F.schc) $(F.tsc)
+    $(F.tsc) $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc) $(F.schc)
 
 .PHONY: all
 all: $(F.gen)
@@ -85,6 +85,8 @@ clean.gen:
 
 .PHONY: gen
 gen: $(F.gen)
+
+ts: $(F.ts) $(F.tsc)
 
 clean.ts:
 	$(RM) $(F.ts) $(F.tsc)
@@ -146,9 +148,11 @@ PO: $(F.PO)
 	$(JMC.cmd) -E --format=ts ./$* > $@
 
 %.ts.check: %.ts
-	set -o pipefail
-	../../node_modules/.bin/tsc --noEmit --strict --skipLibCheck ./$< > $@ 2>&1
+	../../node_modules/.bin/tsc --noEmit --strict --skipLibCheck --lib es2020 ./$< > $@ 2>&1
 	status=$$?
+	if [ $$status -eq 0 ] ; then
+		echo "$<: Typescript compiled successfully" > $@
+	fi
 	exit $$status
 
 # check for schema (partial) reintrance: model -> schema -> model -> check

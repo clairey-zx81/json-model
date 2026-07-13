@@ -17,6 +17,7 @@ D.clean.pl = $(D.subs:%=%.clean.pl)
 D.schema = $(D.subs:%=%.schema)
 D.clean.schema = $(D.subs:%=%.clean.schema)
 D.genone = $(D.subs:%=%.genone)
+D.ts = $(D.subs:%=%.ts)
 
 .PHONY: clean
 clean:
@@ -84,6 +85,10 @@ schema:
 .PHONY: clean.schema
 clean.schema:
 	$(MAKE) TARGET=clean.schema $(D.clean.schema)
+
+.PHONY: ts
+ts:
+	$(MAKE) TARGET=ts $(D.ts)
 
 # show statistics about tests
 .PHONY: stats
