@@ -69,12 +69,15 @@ _IP6 = (
 _ETH = "([0-9a-f]{2}:){5}[0-9a-f]{2}"  # i
 
 # various approximate regex for RFC3986 https://datatracker.ietf.org/doc/html/rfc3986
-# FIXME TODO improve!
-# relative urls from path to query to anchor
+# TODO improve! should restrict to ASCII
 _AUTH = r"[\w.-]+(:[^@\s]*@)?([-\w.]*|\[[a-fA-F0-9:.]+\])(:\d+)?"
-_REL_URL = r"((\.|\.\.)(/\.\.)*|[^/?#\s]+)?(/[^/?#\s]*)*(\?[^#\s]*)?(#\S*)?"
+# path, query, anchor
+_PQA = r"(/[^/?#\s]*)*(\?[^#\s]*)?(#\S*)?"
+# relative urls from path to query to anchor
+# NOTE first segment cannot look like "scheme:"
+_REL_URL = r"([^?#\s:/]+)?(/[^?#\s/]*)*(\?[^#\s]*)?(#\S*)?"
 # hierarchical urls
-_HIE_URL = f"(https?|s?ftp|rtsps?|s3|cm|oci)://({_AUTH})?{_REL_URL}"
+_HIE_URL = f"(https?|s?ftp|rtsps?|s3|cm|oci)://({_AUTH})?{_PQA}"
 # file does not have a auth?
 _FILE_URL = f"file:{_REL_URL}"
 # other urls
