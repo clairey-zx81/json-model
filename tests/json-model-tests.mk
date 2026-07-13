@@ -29,6 +29,8 @@ F.UO    = $(F.root:%=%.UO.json)
 F.JO    = $(F.root:%=%.JO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
+.PHONY: ts clean.ts
+F.ts    = $(F.root:%=%.ts)
 
 # code generation
 F.c     = $(F.root:%=%.c)
@@ -48,6 +50,7 @@ F.sqlc  = $(F.root:%=%.sql.check)
 F.plc   = $(F.root:%=%.pl.check)
 F.jvc   = $(F.root:%=%.java.check)
 F.schc  = $(F.root:%=%.schema.check)
+F.tsc   = $(F.root:%=%.ts.check)
 
 DASHED  = $(wildcard *-*.model.json)
 FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
@@ -55,9 +58,9 @@ FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
 # all generated
 # TODO F.ir
 F.gen   = \
-    $(F.json) $(F.UO) $(F.PO) \
+    $(F.json) $(F.UO) $(F.PO) $(F.ts) \
     $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) $(F.EO) \
-    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc) $(F.schc)
+    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc) $(F.schc) $(F.tsc)
 
 .PHONY: all
 all: $(F.gen)
@@ -82,6 +85,9 @@ clean.gen:
 
 .PHONY: gen
 gen: $(F.gen)
+
+clean.ts:
+	$(RM) $(F.ts) $(F.tsc)
 
 .PHONY: genone
 genone:
@@ -134,6 +140,16 @@ PO: $(F.PO)
 # dump internal JSON IR
 %.JO.json: %.model.json
 	$(JMC.cmd) -JO ./$* > $@
+
+# XXX
+%.ts: %.model.json
+	$(JMC.cmd) -E --format=ts ./$* > $@
+
+%.ts.check: %.ts
+	set -o pipefail
+	../../node_modules/.bin/tsc --noEmit --strict --skipLibCheck ./$< > $@ 2>&1
+	status=$$?
+	exit $$status
 
 # check for schema (partial) reintrance: model -> schema -> model -> check
 # NOTE regex extension features are not supported

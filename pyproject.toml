@@ -18,8 +18,8 @@ enabled = true
 version_file = "json_model/data/VERSION"
 count_commits_from_version_file = true
 # other tags: sha full_sha
-dev_template = "{tag}.{branch}{ccount}"
-dirty_template = "{tag}.{branch}{ccount}+dirty"
+dev_template = "{tag}.dev{ccount}"
+dirty_template = "{tag}.dev{ccount}+dirty"
 
 [project]
 dynamic = ["version"]
