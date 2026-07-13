@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] models: add compatible models for some JSB buggy schemas
+- [ ] pr: check/improve `json-model.org` SEO
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
