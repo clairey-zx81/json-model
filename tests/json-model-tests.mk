@@ -50,7 +50,9 @@ F.sqlc  = $(F.root:%=%.sql.check)
 F.plc   = $(F.root:%=%.pl.check)
 F.jvc   = $(F.root:%=%.java.check)
 F.schc  = $(F.root:%=%.schema.check)
-F.tsc   = $(F.root:%=%.ts.check)
+# NOTE .valid, not .check: this only tells whether the generated TypeScript
+# typechecks, it does not run the model against test values as *.check do
+F.tsv   = $(F.root:%=%.ts.valid)
 
 DASHED  = $(wildcard *-*.model.json)
 FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
@@ -60,7 +62,7 @@ FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
 F.gen   = \
     $(F.json) $(F.UO) $(F.PO) $(F.ts) \
     $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) $(F.EO) \
-    $(F.tsc) $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc) $(F.schc)
+    $(F.tsv) $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc) $(F.schc)
 
 .PHONY: all
 all: $(F.gen)
@@ -86,10 +88,10 @@ clean.gen:
 .PHONY: gen
 gen: $(F.gen)
 
-ts: $(F.ts) $(F.tsc)
+ts: $(F.ts) $(F.tsv)
 
 clean.ts:
-	$(RM) $(F.ts) $(F.tsc)
+	$(RM) $(F.ts) $(F.tsv)
 
 .PHONY: genone
 genone:
@@ -147,7 +149,7 @@ PO: $(F.PO)
 %.ts: %.model.json
 	$(JMC.cmd) -E --format=ts ./$* > $@
 
-%.ts.check: %.ts
+%.ts.valid: %.ts
 	../../node_modules/.bin/tsc --noEmit --strict --skipLibCheck --lib es2020 ./$< > $@ 2>&1
 	status=$$?
 	if [ $$status -eq 0 ] ; then
