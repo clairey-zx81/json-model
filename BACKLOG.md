@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] perf: improve generated reports
+- [x] model: add example model for JMC benchmark radar data
 - [ ] pr: check/improve `json-model.org` SEO
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] static: use combined type test and value extraction when available?
