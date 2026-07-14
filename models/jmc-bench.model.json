@@ -1,0 +1,19 @@
+{
+  "#": "JMC Benchmark generated radar data",
+  "#.url": "https://json-model.org/BENCH",
+  "$": {
+    "": "https://json-model.org/models/jmc-bench",
+    "Perf": {
+      "#": "relative speed, fastest is 1.0, 0.0 for run failure",
+      "@": 0.0,
+      "<=": 1.0
+    },
+    "Bench": {
+      "#.label": "tool name",
+      "label": "",
+      "#.data": "per-case relative speed",
+      "data": [ "$Perf" ]
+    }
+  },
+  "@": [ "$Bench" ]
+}
