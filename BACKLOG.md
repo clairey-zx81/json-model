@@ -4,7 +4,7 @@
 
 - [x] perf: improve generated reports
 - [x] model: add example model for JMC benchmark radar data
-- [ ] pr: check/improve `json-model.org` SEO
+- [x] pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
