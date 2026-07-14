@@ -81,7 +81,7 @@ build: .$(POD)-$(VARIANT)-build.$(BRANCH)
 POD.opts    = --no-cache
 
 .$(POD)-$(VARIANT)-build.$(BRANCH): perf.$(VARIANT)
-	jmc --version > .version
+	jmc --version > .version || exit 1
 	$(POD) build $(POD.opts) -t jmc-bench-$(VARIANT) -f perf.$(VARIANT) . && date -Iseconds > $@
 
 .PHONY: docker.build
