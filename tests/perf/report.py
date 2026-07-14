@@ -139,8 +139,8 @@ more cases are expected to fail:
 
 COMP_CASES: str = """
 For the 3 first lines, max/average/min compilation times in seconds,
-then for each tool and case, compilation time (including both schema to model
-conversion and model compilation) in second.
+then for each tool and case, compilation time (schema to model
+conversion and language-specific model compilation) in seconds.
 """
 
 CASE_DATA: str = """
