@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] perf: improve generated reports
 - [ ] pr: check/improve `json-model.org` SEO
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] static: use combined type test and value extraction when available?
