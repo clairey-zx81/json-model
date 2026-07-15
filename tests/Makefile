@@ -7,6 +7,7 @@ D.tsubs = $(wildcard mv-*) ref
 
 # forwarding
 D.check = $(D.subs:%=%.check)
+D.valid = $(D.tsubs:%=%.ts.valid)
 D.clean = $(D.subs:%=%.clean)
 D.gen = $(D.subs:%=%.gen)
 D.java = $(D.subs:%=%.java)
@@ -19,11 +20,12 @@ D.schema = $(D.subs:%=%.schema)
 D.clean.schema = $(D.subs:%=%.clean.schema)
 D.genone = $(D.subs:%=%.genone)
 D.ts = $(D.tsubs:%=%.ts)
-D.clean.ts = $(D.tsubs:%=%.clean.ts)
+D.clean.ts = $(D.valid:%.ts.valid=%.clean.ts)
 
 .PHONY: clean
 clean:
 	$(MAKE) TARGET=clean $(D.clean)
+	$(MAKE) TARGET=clean.ts $(D.clean.ts)
 	$(RM) -r __pycache__ .pytest_cache
 
 LOGLEVEL = info
