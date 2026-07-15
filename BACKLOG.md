@@ -5,6 +5,7 @@
 - [x] perf: improve generated reports
 - [x] model: add example model for JMC benchmark radar data
 - [x] pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
+- [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
@@ -113,7 +114,6 @@
 - [ ] service: minimal website with editor
 - [ ] tests: fix test with generated json model meta schema
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
-- [ ] tests: test generated JSON schema with test vectors.
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
@@ -123,7 +123,7 @@
 - [ ] predefs: implement `$I32 $I64 $U32 $U64`
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
-- [ ] test: some pydantic exports? imports?
+- [ ] tests: some pydantic exports? imports?
 - [ ] pr: submit jsonschema-benchmark java PR
 - [ ] frontends: reject json with duplicated props
 - [ ] c-backend: header file for generated code?
@@ -132,7 +132,7 @@
 - [ ] tests: parallelize per-case instead of per-dir?
 - [ ] static: shorten xor exit?
 - [ ] c-backend: use vector instructions for larger strcmp?
-- [ ] export: sqlalchemy
+- [ ] export: sqlalchemy?
 - [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
 - [ ] spec: be precise about predefs standard references, eg `$DATE` and co.
 
