@@ -122,7 +122,7 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
             safe = ts_name(field)            
             ftype, extra = field_type(f"{name}_{safe}", jm, def_keys)
             hoisted += extra
-            prop = field if _IDENT.match(field) else '"' + field + '"'
+            prop = field if _IDENT.match(field) else json.dumps(field)
             code += [f"\t{prop}{'?' if optional else ''}: {ftype}"]
         code += ["}"]
         code = hoisted + code
