@@ -1,0 +1,2 @@
+json-model.ts(5,13): error TS2300: Duplicate identifier 'RootModel'.
+json-model.ts(299,13): error TS2300: Duplicate identifier 'RootModel'.
