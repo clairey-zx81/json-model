@@ -3,11 +3,10 @@ SHELL   = /bin/bash
 
 # relevant validation sub directories
 D.subs  = $(wildcard mv-*) bads ref
-D.tsubs = $(wildcard mv-*) ref
 
 # forwarding
 D.check = $(D.subs:%=%.check)
-D.valid = $(D.tsubs:%=%.ts.valid)
+D.valid = $(D.subs:%=%.ts.valid)
 D.clean = $(D.subs:%=%.clean)
 D.gen = $(D.subs:%=%.gen)
 D.java = $(D.subs:%=%.java)
@@ -19,7 +18,7 @@ D.clean.pl = $(D.subs:%=%.clean.pl)
 D.schema = $(D.subs:%=%.schema)
 D.clean.schema = $(D.subs:%=%.clean.schema)
 D.genone = $(D.subs:%=%.genone)
-D.ts = $(D.tsubs:%=%.ts)
+D.ts = $(D.subs:%=%.ts)
 D.clean.ts = $(D.valid:%.ts.valid=%.clean.ts)
 
 .PHONY: clean
