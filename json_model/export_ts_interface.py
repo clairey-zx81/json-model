@@ -8,7 +8,7 @@ import json
 
 from .model import JsonModel
 from .language import Block
-from .mtypes import ModelType
+from .mtypes import ModelType, ModelError
 from .predefs import INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, BOOL_MODEL_PREDEFS
 
 _IDENT = re.compile(r"[A-Za-z_$][\w$]*$")
@@ -26,6 +26,17 @@ _TS_RESERVED = [
       "any", "bigint", "boolean", "never", "number", "object",
       "string", "symbol", "undefined", "unknown",
  ]
+
+def _check_name_collisions(names: Collection[str], context: str) -> None:
+    seen: dict[str, str] = {}
+    for name in names:
+        safe = ts_name(name)
+        if safe in seen and seen[safe] != name:
+            raise ModelError(
+                f"Typescript name collision in {context}: "
+                f"{seen[safe]!r} and {name!r} both map to indentifier {safe!r}"
+            )
+        seen[safe] = name
 
 def ts_name(name: str) -> str:
     safe = re.sub(r"\W", "_", name)
@@ -114,6 +125,8 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
     model = _unwrap(model)
     code: Block = []
     if isinstance(model, dict) and not _is_operator(model):
+        fields = [key[1:] if key[:1] in "?!_" else key for key in model]
+        _check_name_collisions(fields, f"object {name!r}")
         hoisted: Block = []
         code += [f"export interface {ts_name(name)} {{"]
         for key, jm in model.items():
@@ -136,6 +149,7 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
 def model2tsinterface(model: JsonModel, root: str|None = "RootModel") -> Block:
     code: Block = []
     def_keys = model._defs.keys()
+    _check_name_collisions(def_keys, "definitions ($)")
     for name, jm in model._defs.items():
         code = m2ts(name, jm._model, def_keys) + code
 
