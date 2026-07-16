@@ -3,6 +3,7 @@ import os
 import pathlib
 import re
 import json
+import subprocess
 import logging
 import filelock
 import pytest
@@ -25,6 +26,7 @@ EXPECT: dict[str, int] = {
     "ref:values": 111,
     "ref:verrors:schema": 56,
     "ref:models:errors-jsm": 2,
+    "ref:errors.ts": 2,
     # chunk 00
     "mv-00:cmp-opts": {"report": False, "comment": False, "relib": "re"},
     "mv-00:models": 10,
@@ -100,6 +102,7 @@ EXPECT: dict[str, int] = {
     # chunk 0E
     "mv-0e:models": 9,
     "mv-0e:values": 121,
+    "mv-0e:errors.ts": 1,
     # chunk 0F
     "mv-0f:models": 9,
     "mv-0f:values": 107,
@@ -273,6 +276,7 @@ EXPECT: dict[str, int] = {
     "mv-2e:errors.sql": 2,
     "mv-2e:models": 10,
     "mv-2e:values": 179,
+    "mv-2e:errors.ts": 1,
     # mv-2f
     "mv-2f:cmp-opts": {"report": False, "comment": False},
     "mv-2f:models": 11,
@@ -302,6 +306,7 @@ EXPECT: dict[str, int] = {
     "mv-33:values": 163,
     "mv-33:verrors:schema": 1,
     "mv-33:errors.java": 2,
+    "mv-33:errors.ts": 1,
     # mv-34
     "mv-34:cmp-opts": {"report": False, "comment": False},
     "mv-34:mod-opts": {"single_line": True},
@@ -572,10 +577,44 @@ def test_lang(directory, language):
 
     check_generated(directory, f"lang-{language}", f".{language}", generate_language)
 
-
+TSC = "../node_modules/.bin/tsc"
 #
 # STATIC CHECK MODELS AGAINST VALUES
 #
+
+@pytest.mark.skipif(not os.path.exists(TSC), reason="missing tsc (npm install)")
+def test_ts(directory, tmp_dir):
+    from json_model.export_ts_interface import model2tsinterface
+
+    resolver = Resolver(None, dirmap(directory))
+    mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
+    ntests, nerrors = 0, 0
+
+    for fpath in sorted(directory.glob("*.model.json")):
+        fname = "./" + str(fpath)
+        fin = fname.replace(".model.json", "").replace(f"./{directory}/", "./")
+        ntests += 1
+        try:
+            jm = model_from_url(fin, resolver=resolver, auto=True, follow=True, **mod_opts)
+            lines = model2tsinterface(jm, root="RootModel")
+        except Exception as e:
+            log.error(f"ts generation error on {fname}: {e}")
+            nerrors += 1
+            continue
+        
+        tsfile = f"{tmp_dir}/{path2file(fname)}.ts"
+        with open(tsfile, "w") as f:
+            f.write("\n".join(lines) + "\n")
+
+        proc = subprocess.run(
+            [TSC, "--noEmit", "--strict", "--skipLibCheck", "--lib", "es2020", tsfile],
+            capture_output=True, text=True
+        )
+        if proc.returncode != 0:
+            log.error(f"tsc failed on {fname}:\n{proc.stdout}{proc.stderr}")
+            nerrors += 1
+    assert ntests == EXPECT.get(f"{directory}:models", 0)
+    assert nerrors == EXPECT.get(f"{directory}:errors.ts", 0)
 
 def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                  generate: typing.Callable[[str], str], opts: str = ""):
