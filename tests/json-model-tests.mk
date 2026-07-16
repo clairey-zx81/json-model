@@ -50,8 +50,7 @@ F.sqlc  = $(F.root:%=%.sql.check)
 F.plc   = $(F.root:%=%.pl.check)
 F.jvc   = $(F.root:%=%.java.check)
 F.schc  = $(F.root:%=%.schema.check)
-# NOTE .valid, not .check: this only tells whether the generated TypeScript
-# typechecks, it does not run the model against test values as *.check do
+
 F.tsv   = $(F.root:%=%.ts.valid)
 
 DASHED  = $(wildcard *-*.model.json)

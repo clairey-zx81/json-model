@@ -77,6 +77,14 @@ schema:
 clean.schema:
 	# skip
 
+.PHONY: ts
+ts:
+	# skip
+
+.PHONY: clean.ts
+clean.ts:	
+	# skip
+
 # test that --check rejects **all** bads
 bads.check.out:
 	shopt -s nullglob
