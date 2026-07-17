@@ -145,10 +145,20 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
         doc = _comment(model)
         code += _comment_block(doc) if doc else []
         code += [f"export interface {ts_name(name)} {{"]
+        catch_all_solo = list(props) == [""]
         for key, jm in props.items():
             optional = key.startswith("?")
             field = key[1:] if key[:1] in "?!_" else key
-            safe = ts_name(field)            
+            safe = ts_name(field)
+            if key == "":
+                if catch_all_solo:
+                    ftype, extra = field_type(f"{name}_{safe}", jm, def_keys)
+                    hoisted += extra
+                else:
+                    ftype = "any"
+                code += [f"\t[key: string]: {ftype}"]
+                continue
+
             ftype, extra = field_type(f"{name}_{safe}", jm, def_keys)
             hoisted += extra
             prop = field if _IDENT.match(field) else json.dumps(field)
