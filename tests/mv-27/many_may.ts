@@ -2,7 +2,6 @@
 // for ./many_may
 // see https://json-model.org/
 
-
 export interface RootModel {
 	a?: string
 	aaa?: string

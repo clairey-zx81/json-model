@@ -2,7 +2,6 @@
 // for ./one_mm
 // see https://json-model.org/
 
-
 export interface RootModel {
 	must: number
 	may?: boolean

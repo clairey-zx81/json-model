@@ -2,7 +2,6 @@
 // for ./obj_02
 // see https://json-model.org/
 
-
 /* minimal regex prop */
 export interface RootModel {
 	"/^[A-Z]$/": boolean

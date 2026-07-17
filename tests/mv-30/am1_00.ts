@@ -2,7 +2,6 @@
 // for ./am1_00
 // see https://json-model.org/
 
-
 /* all basics but one */
 export interface RootModel_5 {
 	"": any

@@ -2,5 +2,4 @@
 // for ./and_or_00
 // see https://json-model.org/
 
-
 export type RootModel = (number | string)

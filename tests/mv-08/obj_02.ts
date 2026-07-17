@@ -3,8 +3,11 @@
 // see https://json-model.org/
 
 export type lf0 = number[]
+
 export type lb0 = boolean[]
+
 export type ls0 = string[]
+
 export type li0 = number[]
 
 export type RootModel = (li0 | ls0 | lb0 | lf0)

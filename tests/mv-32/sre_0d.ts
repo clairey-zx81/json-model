@@ -2,7 +2,6 @@
 // for ./sre_0d
 // see https://json-model.org/
 
-
 export interface RootModel {
 	eq4?: string
 	le4?: string

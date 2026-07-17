@@ -3,7 +3,9 @@
 // see https://json-model.org/
 
 export type ServerMessage = (Response | Error | BatchResponse)
+
 export type BatchResponse = (Response | Error)[]
+
 export interface Error_error {
 	code: number
 	message: string
@@ -15,13 +17,17 @@ export interface Error {
 	id: Id
 	error: Error_error
 }
+
 export interface Response {
 	jsonrpc: "2.0"
 	id: Id
 	result: any
 }
+
 export type ClientMessage = (Notification | Request | BatchRequest)
+
 export type BatchRequest = (Request | Notification)[]
+
 export interface Request_params_1 {
 	"": any
 }
@@ -32,6 +38,7 @@ export interface Request {
 	id: Id
 	params?: (any[] | Request_params_1)
 }
+
 export interface Notification_params_1 {
 	"": any
 }
@@ -41,6 +48,7 @@ export interface Notification {
 	method: string
 	params?: (any[] | Notification_params_1)
 }
+
 /* Request/response identifier: null, integer, or string */
 export type Id = (null | number | string)
 

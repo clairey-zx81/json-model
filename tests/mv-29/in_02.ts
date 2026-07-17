@@ -2,5 +2,4 @@
 // for ./in_02
 // see https://json-model.org/
 
-
 export type RootModel = any[]

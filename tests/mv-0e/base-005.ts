@@ -2,7 +2,6 @@
 // for ./base-005
 // see https://json-model.org/
 
-
 export interface RootModel {
 	b: number
 	a?: number

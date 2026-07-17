@@ -2,7 +2,6 @@
 // for ./mrg_03
 // see https://json-model.org/
 
-
 export interface RootModel {
 	a: number
 	b: string

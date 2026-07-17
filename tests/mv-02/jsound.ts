@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type type_or_ref = (string | Type)
+
 /* jsound.jsound.json does not say that it is a type… */
 export interface Union {
 	name: string
@@ -10,6 +11,7 @@ export interface Union {
 	baseType?: string
 	content: type_or_ref[]
 }
+
 /* WTF about 'content'? */
 export interface Array {
 	name?: string
@@ -19,6 +21,7 @@ export interface Array {
 	minLength?: number
 	maxLength?: number
 }
+
 export interface Fields {
 	name: string
 	type: type_or_ref
@@ -26,6 +29,7 @@ export interface Fields {
 	default?: any
 	unique?: boolean
 }
+
 export interface Object {
 	name?: string
 	kind: string
@@ -33,6 +37,7 @@ export interface Object {
 	content?: Fields[]
 	closed?: boolean
 }
+
 /* could there be derived atomics as well? */
 export interface Atomic {
 	name?: string
@@ -51,9 +56,13 @@ export interface Atomic {
 	enumeration?: atomic[]
 	explicitTypeZone?: ("required" | "prohibited" | "optional")
 }
+
 export type atomic = (null | boolean | number | string)
+
 export type atomic_types = ("string" | "decimal" | "integer" | "double" | "boolean" | "anyURI" | "base64Binary" | "hexBinary" | "date" | "dateTime" | "time" | "dateTimeStamp" | "duration" | "null")
+
 export type Type = (Atomic | Object | Array | Union)
+
 export interface Schema_metadata {
 	name?: string
 	previous?: string

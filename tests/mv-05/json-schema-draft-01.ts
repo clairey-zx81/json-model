@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Schema = string
+
 export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object" | "any")
 
 export interface RootModel_properties {

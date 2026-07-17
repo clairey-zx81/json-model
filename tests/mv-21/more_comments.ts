@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Qq = Pp[]
+
 export type Pp = number
 
 /* an object */

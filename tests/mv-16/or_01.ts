@@ -2,5 +2,4 @@
 // for ./or_01
 // see https://json-model.org/
 
-
 export type RootModel = ("Susie" | "Calvin" | string)

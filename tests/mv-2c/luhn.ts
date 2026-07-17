@@ -2,5 +2,4 @@
 // for ./luhn
 // see https://json-model.org/
 
-
 export type RootModel = string

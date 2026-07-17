@@ -2,7 +2,6 @@
 // for ./utf8_len
 // see https://json-model.org/
 
-
 /* char vs byte length */
 export interface RootModel {
 	"0"?: ""

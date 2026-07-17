@@ -2,6 +2,5 @@
 // for ./xor_04
 // see https://json-model.org/
 
-
 /* xor to or simplification, float vs string */
 export type RootModel = (number | string)

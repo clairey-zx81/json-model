@@ -2,5 +2,4 @@
 // for ./dedup-001
 // see https://json-model.org/
 
-
 export type RootModel = never

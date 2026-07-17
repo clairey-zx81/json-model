@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Aa = string
+
 export type a = "a"
 
 export interface RootModel {

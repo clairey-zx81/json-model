@@ -2,7 +2,6 @@
 // for ./props_01
 // see https://json-model.org/
 
-
 export interface RootModel {
 	x: number
 	y: number

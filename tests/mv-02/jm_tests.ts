@@ -2,5 +2,4 @@
 // for ./jm_tests
 // see https://json-model.org/
 
-
 export type RootModel = (string | [boolean, any] | [boolean, string, any])[]

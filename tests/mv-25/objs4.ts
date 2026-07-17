@@ -2,7 +2,6 @@
 // for ./objs4
 // see https://json-model.org/
 
-
 export interface RootModel_f0 {
 }
 

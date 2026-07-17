@@ -2,5 +2,4 @@
 // for ./timetz
 // see https://json-model.org/
 
-
 export type RootModel = string

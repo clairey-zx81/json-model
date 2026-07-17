@@ -2,7 +2,6 @@
 // for ./and_inc_01
 // see https://json-model.org/
 
-
 export interface RootModel {
 	a: string
 }

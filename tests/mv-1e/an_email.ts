@@ -2,5 +2,4 @@
 // for ./an_email
 // see https://json-model.org/
 
-
 export type RootModel = string

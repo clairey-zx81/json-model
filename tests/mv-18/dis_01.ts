@@ -2,7 +2,6 @@
 // for ./dis_01
 // see https://json-model.org/
 
-
 /* disjunction on an integer */
 export interface RootModel_0 {
 	tag: 18

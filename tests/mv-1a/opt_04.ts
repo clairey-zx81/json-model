@@ -2,7 +2,6 @@
 // for ./opt_04
 // see https://json-model.org/
 
-
 export interface RootModel {
 	a: number
 	b: number

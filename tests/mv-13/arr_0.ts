@@ -2,5 +2,4 @@
 // for ./arr_0
 // see https://json-model.org/
 
-
 export type RootModel = boolean[]

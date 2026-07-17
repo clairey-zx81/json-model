@@ -5,7 +5,9 @@
 export interface Rr {
 	a?: string
 }
+
 export type Bb = string
+
 export type b = "b"
 
 export interface RootModel {

@@ -2,7 +2,6 @@
 // for ./nprops
 // see https://json-model.org/
 
-
 export interface RootModel {
 	"/^a/s": string
 }

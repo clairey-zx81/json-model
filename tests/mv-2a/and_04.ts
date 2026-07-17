@@ -7,6 +7,7 @@ export interface bla {
 	"/^xb/": boolean
 	"": any
 }
+
 export interface foo {
 	s?: string
 	"/^xs/": string

@@ -13,6 +13,7 @@ export interface cd_1 {
 }
 
 export type cd = (cd_0 | cd_1 | ab)
+
 export interface ab_0 {
 	t: string
 	a: number

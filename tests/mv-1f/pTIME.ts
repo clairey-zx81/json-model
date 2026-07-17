@@ -2,5 +2,4 @@
 // for ./pTIME
 // see https://json-model.org/
 
-
 export type RootModel = string

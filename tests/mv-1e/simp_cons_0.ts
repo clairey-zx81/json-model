@@ -2,5 +2,4 @@
 // for ./simp_cons_0
 // see https://json-model.org/
 
-
 export type RootModel = number

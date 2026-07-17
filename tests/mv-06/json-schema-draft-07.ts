@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Schema = (boolean | ObjectSchema)
+
 export interface ObjectSchema_definitions {
 	"": Schema
 }
@@ -67,9 +68,13 @@ export interface ObjectSchema {
 	not?: Schema
 	$ref?: URI_REFERENCE
 }
+
 export type arrayTypes = simpleTypes[]
+
 export type simpleTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object")
+
 export type schemaArray = Schema[]
+
 export type URI_REFERENCE = string
 
 export type RootModel = Schema

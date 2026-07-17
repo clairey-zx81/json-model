@@ -2,6 +2,5 @@
 // for ./xor_00
 // see https://json-model.org/
 
-
 /* equivalent to =0 */
 export type RootModel = number

@@ -2,7 +2,6 @@
 // for ./xoropt-010
 // see https://json-model.org/
 
-
 /* ^ to | */
 export interface RootModel_0 {
 	b: number

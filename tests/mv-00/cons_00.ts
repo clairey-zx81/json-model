@@ -2,5 +2,4 @@
 // for ./cons_00
 // see https://json-model.org/
 
-
 export type RootModel = never

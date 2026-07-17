@@ -2,5 +2,4 @@
 // for ./props_02
 // see https://json-model.org/
 
-
 export type RootModel = never

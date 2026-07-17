@@ -6,12 +6,14 @@ export interface z {
 	e: "cst_02"
 	f: "cst_02"
 }
+
 export interface r {
 	a: "cst_01"
 	b: "cst_01"
 	c: "cst_01"
 	d: "cst_01"
 }
+
 export type t = "cst_02"
 
 export interface RootModel {

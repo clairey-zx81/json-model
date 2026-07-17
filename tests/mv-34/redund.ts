@@ -2,5 +2,4 @@
 // for ./redund
 // see https://json-model.org/
 
-
 export type RootModel = number

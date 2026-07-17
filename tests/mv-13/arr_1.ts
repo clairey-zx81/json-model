@@ -2,5 +2,4 @@
 // for ./arr_1
 // see https://json-model.org/
 
-
 export type RootModel = []

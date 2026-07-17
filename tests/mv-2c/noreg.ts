@@ -2,6 +2,5 @@
 // for ./noreg
 // see https://json-model.org/
 
-
 /* not some regex */
 export type RootModel = string

@@ -2,5 +2,4 @@
 // for ./or_0a
 // see https://json-model.org/
 
-
 export type RootModel = (200 | 300 | 400 | 500)

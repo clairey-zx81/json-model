@@ -2,7 +2,6 @@
 // for ./or_10
 // see https://json-model.org/
 
-
 export interface RootModel_0 {
 }
 

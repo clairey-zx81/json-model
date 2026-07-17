@@ -2,5 +2,4 @@
 // for ./float_m1
 // see https://json-model.org/
 
-
 export type RootModel = number

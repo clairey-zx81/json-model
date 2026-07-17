@@ -2,7 +2,6 @@
 // for ./opt_ss
 // see https://json-model.org/
 
-
 /* JSON_MODEL_STRICT_INT, JSON_MODEL_STRICT_FLOAT */
 export interface RootModel {
 	i: number

@@ -2,6 +2,5 @@
 // for ./reo_01
 // see https://json-model.org/
 
-
 /* mixed sw eq le optimization with longer strings */
 export type RootModel = string

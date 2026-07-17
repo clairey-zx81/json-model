@@ -3,8 +3,11 @@
 // see https://json-model.org/
 
 export type __external_0 = "Susie"
+
 export type x3 = "Susie"
+
 export type x2 = "Susie"
+
 export type x1 = "Susie"
 
 export type RootModel = ["Susie", "Susie", "Susie", "Susie"]

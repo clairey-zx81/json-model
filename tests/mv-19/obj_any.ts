@@ -2,7 +2,6 @@
 // for ./obj_any
 // see https://json-model.org/
 
-
 export interface RootModel {
 	"": any
 }

@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type u2 = string
+
 export type u1 = string
 
 /* trigger a warning on url-looking definitions */

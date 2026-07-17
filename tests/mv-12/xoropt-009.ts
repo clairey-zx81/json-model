@@ -2,7 +2,6 @@
 // for ./xoropt-009
 // see https://json-model.org/
 
-
 /* NOT ^ to | because both empty objects are ok */
 export interface RootModel_0 {
 	"/a/": string

@@ -2,7 +2,6 @@
 // for ./comments
 // see https://json-model.org/
 
-
 /*
  * This is a
  * multiline

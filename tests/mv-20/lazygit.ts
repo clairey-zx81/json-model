@@ -49,13 +49,21 @@ export interface Prompts_3 {
 }
 
 export type Prompts = (Prompts_0 | Prompts_1 | Prompts_2 | Prompts_3)
+
 export type stringArray = neString[]
+
 export type neString = string
+
 export type custom_commands_prompts_key_property = string
+
 export type custom_commands_prompts_title_property = string
+
 export type custom_commands_prompts_type_property = ("input" | "confirm" | "menu" | "menuFromCommand")
+
 export type keybinding = (null | string)
+
 export type colorArray = color[]
+
 export type color = ("black" | "red" | "green" | "yellow" | "blue" | "magenta" | "cyan" | "white" | "bold" | "default" | "reverse" | "underline" | "strikethrough" | string)
 
 export interface RootModel_gui_theme {

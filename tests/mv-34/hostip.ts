@@ -2,6 +2,5 @@
 // for ./hostip
 // see https://json-model.org/
 
-
 /* fix missing json 2 str extraction */
 export type RootModel = string

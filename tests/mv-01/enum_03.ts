@@ -2,5 +2,4 @@
 // for ./enum_03
 // see https://json-model.org/
 
-
 export type RootModel = ("Calvin" | "Susie" | "Hobbes")

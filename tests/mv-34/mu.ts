@@ -2,5 +2,4 @@
 // for ./mu
 // see https://json-model.org/
 
-
 export type RootModel = "\u03bc"

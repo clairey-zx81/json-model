@@ -6,11 +6,14 @@ export interface cd {
 	c: number
 	d: number
 }
+
 export interface ab {
 	a: number
 	b: number
 }
+
 export type b = "A"
+
 export type a = "A"
 
 /* predefined models */

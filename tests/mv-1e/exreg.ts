@@ -2,5 +2,4 @@
 // for ./exreg
 // see https://json-model.org/
 
-
 export type RootModel = string

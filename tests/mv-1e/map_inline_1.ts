@@ -2,7 +2,6 @@
 // for ./map_inline_1
 // see https://json-model.org/
 
-
 /* inline up to 3 must/may properties */
 export interface RootModel {
 	mu1: null

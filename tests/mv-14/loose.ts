@@ -2,7 +2,6 @@
 // for ./loose
 // see https://json-model.org/
 
-
 /* JSON_MODEL_LOOSE_INT */
 export interface RootModel {
 	li: number

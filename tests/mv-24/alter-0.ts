@@ -14,10 +14,12 @@ export interface alternative_1 {
 }
 
 export type alternative = (alternative_0 | alternative_1 | d | ef)
+
 export interface ef {
 	t: ("e" | "f")
 	ef: string
 }
+
 export interface d {
 	t: "d"
 	d: string

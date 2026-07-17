@@ -2,7 +2,6 @@
 // for ./base-028
 // see https://json-model.org/
 
-
 /* ZA */
 export interface RootModel {
 	country?: "South Africa"

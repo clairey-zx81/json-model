@@ -2,7 +2,6 @@
 // for ./ma_prop_00
 // see https://json-model.org/
 
-
 /* prop order check is preserved */
 export interface RootModel {
 	pretty_long_property_name?: number

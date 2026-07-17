@@ -2,7 +2,6 @@
 // for ./name_age
 // see https://json-model.org/
 
-
 export interface RootModel {
 	name: string
 	age: number

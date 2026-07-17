@@ -2,5 +2,4 @@
 // for ./ex_04
 // see https://json-model.org/
 
-
 export type RootModel = "Susie"

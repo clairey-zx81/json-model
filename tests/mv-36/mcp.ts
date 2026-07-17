@@ -12,12 +12,14 @@ export interface ToolCallResponse {
 	id: number
 	result: ToolCallResponse_result
 }
+
 export interface ToolCallRequest {
 	jsonrpc: "2.0"
 	id: number
 	method: "tools/call"
 	params: Object
 }
+
 export interface ToolsListResponse_result {
 	tools: Tool[]
 }
@@ -27,16 +29,19 @@ export interface ToolsListResponse {
 	id: number
 	result: ToolsListResponse_result
 }
+
 export interface ToolsListRequest {
 	jsonrpc: "2.0"
 	id: number
 	method: "tools/list"
 	"": any
 }
+
 export interface Notification {
 	jsonrpc: "2.0"
 	method: string
 }
+
 export interface InitializeResponse_result_capabilities_tools {
 	listChanged: boolean
 }
@@ -64,6 +69,7 @@ export interface InitializeResponse {
 	id: number
 	result: InitializeResponse_result
 }
+
 export interface InitializeRequest_params_capabilities {
 	elicitation: Object
 	"": any
@@ -87,6 +93,7 @@ export interface InitializeRequest {
 	method: "initialize"
 	params: InitializeRequest_params
 }
+
 export interface Tool {
 	name: string
 	title?: string
@@ -94,7 +101,9 @@ export interface Tool {
 	inputSchema: Object
 	"": any
 }
+
 export type ProtocolVersion = ("2025-11-25" | "2025-06-18" | "2025-03-26" | "2024-11-05")
+
 export interface Object {
 	"": any
 }

@@ -2,7 +2,6 @@
 // for ./and_01
 // see https://json-model.org/
 
-
 /* merge object stuff if possible, cannot have ss */
 export interface RootModel_0 {
 	ss?: string

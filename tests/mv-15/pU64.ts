@@ -2,5 +2,4 @@
 // for ./pU64
 // see https://json-model.org/
 
-
 export type RootModel = number

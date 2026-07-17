@@ -2,7 +2,6 @@
 // for ./optnull
 // see https://json-model.org/
 
-
 /* optional prop which may be null */
 export interface RootModel {
 	null?: (null | "NULL" | "NOPE")

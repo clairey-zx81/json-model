@@ -9,6 +9,7 @@ export interface Oo2 {
 	d: number
 	y?: boolean
 }
+
 export interface Oo1 {
 	z: boolean
 	a?: boolean
@@ -16,6 +17,7 @@ export interface Oo1 {
 	c?: null
 	d?: number
 }
+
 export interface Oo0 {
 	a: boolean
 	b: number

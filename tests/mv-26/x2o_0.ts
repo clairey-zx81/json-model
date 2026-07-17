@@ -2,7 +2,6 @@
 // for ./x2o_0
 // see https://json-model.org/
 
-
 /* xor-to-or with not constant exclusion */
 export interface RootModel_0 {
 	t: string

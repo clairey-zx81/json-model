@@ -2,7 +2,6 @@
 // for ./orob_00
 // see https://json-model.org/
 
-
 /* no discriminant or */
 export interface RootModel_0 {
 	a: number

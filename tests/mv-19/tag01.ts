@@ -6,6 +6,7 @@ export interface Bb {
 	t: false
 	b: number
 }
+
 export interface Aa {
 	t: true
 	a: number

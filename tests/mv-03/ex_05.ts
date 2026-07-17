@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Ex05b = string
+
 export type Ex05a = number
 
 export type RootModel = (Ex05a | Ex05b)

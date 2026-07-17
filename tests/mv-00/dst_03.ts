@@ -2,7 +2,6 @@
 // for ./dst_03
 // see https://json-model.org/
 
-
 export interface RootModel_0 {
 	a: number
 }

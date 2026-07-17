@@ -2,7 +2,6 @@
 // for ./and_03
 // see https://json-model.org/
 
-
 export interface RootModel {
 	s: string
 	"/^xs/": string

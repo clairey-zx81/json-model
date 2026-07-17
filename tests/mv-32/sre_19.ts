@@ -2,7 +2,6 @@
 // for ./sre_19
 // see https://json-model.org/
 
-
 /* overwrite any on regex simplification */
 export interface RootModel {
 	"": string

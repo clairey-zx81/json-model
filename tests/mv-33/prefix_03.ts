@@ -2,5 +2,4 @@
 // for ./prefix_03
 // see https://json-model.org/
 
-
 export type RootModel = string[]

@@ -5,9 +5,11 @@
 export interface Extension {
 	"/^x-/": any
 }
+
 export interface SecurityRequirement {
 	"": string[]
 }
+
 export interface OAuthFlow_scopes {
 	"": string
 }
@@ -19,6 +21,7 @@ export interface OAuthFlow {
 	scopes: OAuthFlow_scopes
 	"/^x-/": any
 }
+
 export interface OAuthFlows {
 	implicit?: OAuthFlow
 	password?: OAuthFlow
@@ -26,6 +29,7 @@ export interface OAuthFlows {
 	authorizationCode?: OAuthFlow
 	"/^x-/": any
 }
+
 export interface SecurityScheme_0 {
 	type: "apiKey"
 	name: string
@@ -64,28 +68,34 @@ export interface SecurityScheme_5 {
 }
 
 export type SecurityScheme = (SecurityScheme_0 | SecurityScheme_1 | SecurityScheme_2 | SecurityScheme_3 | SecurityScheme_4 | SecurityScheme_5)
+
 export interface SS_oic {
 	type: "openIdConnect"
 	openIdConnectUrl: string
 }
+
 export interface SS_oauth2 {
 	type: "oauth2"
 	flows: OAuthFlows
 }
+
 export interface SS_http_bearer {
 	type: "http"
 	scheme: string
 	bearerFormat?: string
 }
+
 export interface SS_http {
 	type: "http"
 	scheme: string
 }
+
 export interface SS_apikey {
 	type: "apiKey"
 	name: string
 	in: ("query" | "header" | "cookie")
 }
+
 export interface xml {
 	name?: string
 	namespace?: string
@@ -94,6 +104,7 @@ export interface xml {
 	wrapped?: boolean
 	"/^x-/": any
 }
+
 export interface Discriminator_mapping {
 	"": string
 }
@@ -103,6 +114,7 @@ export interface Discriminator {
 	mapping?: Discriminator_mapping
 	"/^x-/": any
 }
+
 export interface Schema__vocabulary {
 	$URI: boolean
 }
@@ -190,18 +202,22 @@ export interface Schema {
 	xml?: xml
 	example?: any
 }
+
 export type schema = Schema
+
 export interface Reference {
 	$ref: string
 	summary?: string
 	description?: string
 }
+
 export interface Tag {
 	name: string
 	description?: string
 	externalDocs?: ExternalDocumentation
 	"/^x-/": any
 }
+
 /* more or less a parameter but without name and in */
 export interface Header_0_examples {
 	"": (Example | Reference)
@@ -235,6 +251,7 @@ export interface Header_1 {
 }
 
 export type Header = (Header_0 | Header_1)
+
 export interface Link_0_parameters {
 	"": any
 }
@@ -262,7 +279,9 @@ export interface Link_1 {
 }
 
 export type Link = (Link_0 | Link_1)
+
 export type Expression = string
+
 export interface Example {
 	summary?: string
 	description?: string
@@ -270,10 +289,12 @@ export interface Example {
 	externalValue?: string
 	"/^x-/": any
 }
+
 export interface Callback {
 	$Expression: (PathItem | Reference)
 	"/^x-/": any
 }
+
 export interface Response_headers {
 	"": (Header | Reference)
 }
@@ -293,11 +314,13 @@ export interface Response {
 	links?: Response_links
 	"/^x-/": any
 }
+
 export interface Responses {
 	"/^[1-5](\\d\\d|XX)$/": (Response | Reference)
 	default?: (Response | Reference)
 	"/^x-/": any
 }
+
 export interface Encoding_headers {
 	"": (Header | Reference)
 }
@@ -310,6 +333,7 @@ export interface Encoding {
 	allowReserved?: boolean
 	"/^x-/": any
 }
+
 export interface MediaType_examples {
 	"": (Example | Reference)
 }
@@ -325,6 +349,7 @@ export interface MediaType {
 	encoding?: MediaType_encoding
 	"/^x-/": any
 }
+
 export interface RequestBody_content {
 	"": MediaType
 }
@@ -335,6 +360,7 @@ export interface RequestBody {
 	required?: boolean
 	"/^x-/": any
 }
+
 export interface Parameter_0_examples {
 	"": (Example | Reference)
 }
@@ -371,6 +397,7 @@ export interface Parameter_1 {
 }
 
 export type Parameter = (Parameter_0 | Parameter_1)
+
 export interface parameterContentOnly_content {
 	"": MediaType
 }
@@ -378,6 +405,7 @@ export interface parameterContentOnly_content {
 export interface parameterContentOnly {
 	content?: parameterContentOnly_content
 }
+
 export interface parameterSchemaOnly_examples {
 	"": (Example | Reference)
 }
@@ -390,8 +418,10 @@ export interface parameterSchemaOnly {
 	example?: any
 	examples?: parameterSchemaOnly_examples
 }
+
 /* serialization styles */
 export type Style = ("matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject")
+
 export interface commonParameter {
 	name: string
 	in: ("query" | "header" | "path" | "cookie")
@@ -401,6 +431,7 @@ export interface commonParameter {
 	allowEmptyValue?: boolean
 	"/^x-/": any
 }
+
 export interface parameterShare {
 	description?: string
 	required?: boolean
@@ -408,11 +439,13 @@ export interface parameterShare {
 	allowEmptyValue?: boolean
 	"/^x-/": any
 }
+
 export interface ExternalDocumentation {
 	description?: string
 	url: string
 	"/^x-/": any
 }
+
 export interface Operation_callbacks {
 	"": (Callback | Reference)
 }
@@ -432,6 +465,7 @@ export interface Operation {
 	servers?: Server[]
 	"/^x-/": any
 }
+
 export interface PathItem {
 	$ref?: string
 	summary?: string
@@ -448,10 +482,12 @@ export interface PathItem {
 	parameters?: (Parameter | Reference)[]
 	"/^x-/": any
 }
+
 export interface Paths {
 	"/^//": PathItem
 	"/^x-/": any
 }
+
 export interface Components_schemas {
 	"": Schema
 }
@@ -505,12 +541,14 @@ export interface Components {
 	pathItems?: Components_pathItems
 	"/^x-/": any
 }
+
 export interface ServerVariable {
 	enum?: string[]
 	default: string
 	description?: string
 	"/^x-/": any
 }
+
 export interface Server_variables {
 	"": ServerVariable
 }
@@ -521,6 +559,7 @@ export interface Server {
 	variables?: Server_variables
 	"/^x-/": any
 }
+
 export interface License_0 {
 	name: string
 	identifier: string
@@ -534,12 +573,14 @@ export interface License_1 {
 }
 
 export type License = (License_0 | License_1)
+
 export interface Contact {
 	name?: string
 	url?: string
 	email?: string
 	"/^x-/": any
 }
+
 export interface Info {
 	title: string
 	summary?: string
@@ -550,6 +591,7 @@ export interface Info {
 	version: string
 	"/^x-/": any
 }
+
 export interface OpenAPI_webhooks {
 	"": PathItem
 }

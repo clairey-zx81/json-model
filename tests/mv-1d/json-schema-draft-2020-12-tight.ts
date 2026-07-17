@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Schema = (boolean | TightSchema)
+
 export interface TightSchema_0__vocabulary {
 	$URI: boolean
 }
@@ -288,6 +289,7 @@ export interface TightSchema_7 {
 }
 
 export type TightSchema = (TightSchema_0 | TightSchema_1 | TightSchema_2 | TightSchema_3 | TightSchema_4 | TightSchema_5 | TightSchema_6 | TightSchema_7)
+
 export interface Misc {
 	const?: any
 	enum?: any[]
@@ -299,6 +301,7 @@ export interface Misc {
 	anyOf?: schemaArray
 	oneOf?: schemaArray
 }
+
 export interface Object_properties {
 	"": Schema
 }
@@ -328,6 +331,7 @@ export interface Object {
 	propertyNames?: Schema
 	dependentSchemas?: Object_dependentSchemas
 }
+
 export interface Array {
 	type: "array"
 	maxItems?: number
@@ -340,8 +344,11 @@ export interface Array {
 	items?: Schema
 	unevaluatedItems?: Schema
 }
+
 export type schemaArray = Schema[]
+
 export type stringArray = string[]
+
 export interface String {
 	type: "string"
 	contentEncoding?: string
@@ -352,6 +359,7 @@ export interface String {
 	minLength?: number
 	pattern?: string
 }
+
 export interface Integer {
 	type: "integer"
 	multipleOf?: number
@@ -360,6 +368,7 @@ export interface Integer {
 	minimum?: number
 	exclusiveMinimum?: number
 }
+
 export interface Number {
 	type: "number"
 	multipleOf?: number
@@ -368,12 +377,15 @@ export interface Number {
 	minimum?: number
 	exclusiveMinimum?: number
 }
+
 export interface Boolean {
 	type: "boolean"
 }
+
 export interface Null {
 	type: "null"
 }
+
 export interface meta {
 	title?: string
 	description?: string
@@ -383,6 +395,7 @@ export interface meta {
 	writeOnly?: boolean
 	examples?: any[]
 }
+
 export interface core__vocabulary {
 	$URI: boolean
 }
@@ -402,6 +415,7 @@ export interface core {
 	$comment?: string
 	$defs?: core__defs
 }
+
 export type URI_REFERENCE = string
 
 export type RootModel = Schema

@@ -2,7 +2,6 @@
 // for ./mandanull
 // see https://json-model.org/
 
-
 /* mandatory property with a null value */
 export interface RootModel {
 	null: null

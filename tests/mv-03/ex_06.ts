@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Ex06 = boolean
+
 export type ex5 = string
 
 export type RootModel = [string, string, Ex06]

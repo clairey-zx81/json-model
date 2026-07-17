@@ -2,7 +2,6 @@
 // for ./many_must
 // see https://json-model.org/
 
-
 export interface RootModel {
 	"": string
 	aaa: string

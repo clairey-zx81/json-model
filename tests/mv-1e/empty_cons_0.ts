@@ -3,7 +3,9 @@
 // see https://json-model.org/
 
 export type n2 = never
+
 export type n1 = never
+
 export type n0 = never
 
 export type RootModel = never

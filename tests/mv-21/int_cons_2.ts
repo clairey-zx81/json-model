@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type positif = number
+
 export type forty_two = 42
 
 export interface RootModel {

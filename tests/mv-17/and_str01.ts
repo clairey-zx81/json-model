@@ -2,5 +2,4 @@
 // for ./and_str01
 // see https://json-model.org/
 
-
 export type RootModel = never

@@ -3,7 +3,9 @@
 // see https://json-model.org/
 
 export type ob = foo
+
 export type foo = bla
+
 export interface bla {
 	x: number
 	y: number

@@ -2,5 +2,4 @@
 // for ./base-013
 // see https://json-model.org/
 
-
 export type RootModel = boolean

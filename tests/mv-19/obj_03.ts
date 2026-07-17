@@ -2,7 +2,6 @@
 // for ./obj_03
 // see https://json-model.org/
 
-
 /* regex property… beware that \d character class does not seem to be supported by re2 */
 export interface RootModel {
 	"/^[0-9]+$/": number

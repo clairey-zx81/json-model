@@ -2,7 +2,6 @@
 // for ./must-0
 // see https://json-model.org/
 
-
 /* open with only some mandatory properties */
 export interface RootModel {
 	name: string

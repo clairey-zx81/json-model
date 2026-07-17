@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Root = string
+
 export type root = Root
 
 export type RootModel = Root

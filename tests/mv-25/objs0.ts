@@ -3,10 +3,12 @@
 // see https://json-model.org/
 
 export type furniture = (table | chair)
+
 export interface chair {
 	t: "chair"
 	color: string
 }
+
 export interface table {
 	t: "table"
 	legs: number

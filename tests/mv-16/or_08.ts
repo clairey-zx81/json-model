@@ -2,5 +2,4 @@
 // for ./or_08
 // see https://json-model.org/
 
-
 export type RootModel = number
