@@ -67,6 +67,19 @@ def _combine(name: str, members: list, sep: str, empty: str,
         return uniq[0], hoisted
     return "(" + f" {sep} ".join(uniq) + ")", hoisted
 
+def _comment(model: ModelType) -> str | None:
+    if isinstance(model, dict):
+        meta = model.get("#")
+        if isinstance(meta, str) and meta:
+            return meta
+    return None
+
+def _comment_block(text: str, indent: str = "") -> Block:
+    lines = text.split("\n")
+    if len(lines) == 1:
+        return [f"{indent}/* {lines[0]} */"]
+    return [f"{indent}/*"] + [f"{indent} * {ln}" for ln in lines] + [f"{indent} */"]
+
 def m2type(model: ModelType, def_keys: Collection[str]) -> str | None:
     if model is None:
         return "null"
@@ -125,9 +138,12 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
     model = _unwrap(model)
     code: Block = []
     if isinstance(model, dict) and not _is_operator(model):
-        fields = [key[1:] if key[:1] in "?!_" else key for key in model]
+        props = {k: v for k, v in model.items() if k != "#"}
+        fields = [key[1:] if key[:1] in "?!_" else key for key in props]
         _check_name_collisions(fields, f"object {name!r}")
         hoisted: Block = []
+        doc = _comment(model)
+        code += _comment_block(doc) if doc else []
         code += [f"export interface {ts_name(name)} {{"]
         for key, jm in model.items():
             optional = key.startswith("?")
@@ -143,6 +159,9 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
         base = f"{name}_item" if isinstance(model, list) else name
         ftype, extra = field_type(base, model, def_keys)
         code = extra + [f"export type {ts_name(name)} = {ftype}"]
+        doc = _comment(model)
+        if doc:
+            code = _comment_block(doc) + code
 
     return code
 
