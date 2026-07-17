@@ -5,7 +5,6 @@
 
 /* open with only some mandatory properties */
 export interface RootModel {
-	"#": string
 	name: string
 	born: string
 	"": any

@@ -5,7 +5,6 @@
 
 /* predefs about network-related predefs */
 export interface RootModel {
-	"#": string
 	ipv4?: string
 	ipv6?: string
 	host?: string

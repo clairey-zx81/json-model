@@ -5,7 +5,6 @@
 
 /* inline up to 3 must/may properties */
 export interface RootModel {
-	"#": string
 	mu1: null
 	mu2: boolean
 	mu3: number

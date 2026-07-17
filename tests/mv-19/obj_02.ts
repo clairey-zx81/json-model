@@ -5,6 +5,5 @@
 
 /* minimal regex prop */
 export interface RootModel {
-	"#": string
 	"/^[A-Z]$/": boolean
 }

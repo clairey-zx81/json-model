@@ -5,6 +5,5 @@
 
 /* ZA */
 export interface RootModel {
-	"#": string
 	country?: "South Africa"
 }

@@ -5,6 +5,5 @@
 
 /* regex property… beware that \d character class does not seem to be supported by re2 */
 export interface RootModel {
-	"#": string
 	"/^[0-9]+$/": number
 }

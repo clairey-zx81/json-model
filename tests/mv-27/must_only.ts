@@ -5,25 +5,21 @@
 
 /* empty object */
 export interface RootModel_mo0 {
-	"#": string
 }
 
 /* one mandatory prop */
 export interface RootModel_mo1 {
-	"#": string
 	p10: number
 }
 
 /* two mandatory props */
 export interface RootModel_mo2 {
-	"#": string
 	p20: number
 	p21: number
 }
 
 /* three mandatory props */
 export interface RootModel_mo3 {
-	"#": string
 	p30: number
 	p31: number
 	p32: number

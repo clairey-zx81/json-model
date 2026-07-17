@@ -5,7 +5,6 @@
 
 /* JSON_MODEL_STRICT_NUMBER */
 export interface RootModel {
-	"#": string
 	i: number
 	f: number
 }

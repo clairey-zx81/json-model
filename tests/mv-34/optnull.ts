@@ -5,6 +5,5 @@
 
 /* optional prop which may be null */
 export interface RootModel {
-	"#": string
 	null?: (null | "NULL" | "NOPE")
 }

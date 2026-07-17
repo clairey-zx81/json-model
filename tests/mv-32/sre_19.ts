@@ -5,6 +5,5 @@
 
 /* overwrite any on regex simplification */
 export interface RootModel {
-	"#": string
 	"": string
 }

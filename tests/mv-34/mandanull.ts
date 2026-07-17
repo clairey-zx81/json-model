@@ -5,6 +5,5 @@
 
 /* mandatory property with a null value */
 export interface RootModel {
-	"#": string
 	null: null
 }

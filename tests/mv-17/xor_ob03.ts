@@ -20,6 +20,5 @@ export interface RootModel_movie_2 {
 
 /* exemple d'un rapport */
 export interface RootModel {
-	"#": string
 	movie: (RootModel_movie_0 | RootModel_movie_1 | RootModel_movie_2)
 }

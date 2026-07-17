@@ -5,7 +5,6 @@
 export type type_or_ref = (string | Type)
 /* jsound.jsound.json does not say that it is a type… */
 export interface Union {
-	"#": string
 	name: string
 	kind: string
 	baseType?: string
@@ -16,7 +15,6 @@ export interface Array {
 	name?: string
 	kind: string
 	baseType?: string
-	"#": string
 	content?: type_or_ref
 	minLength?: number
 	maxLength?: number
@@ -39,7 +37,6 @@ export interface Object {
 export interface Atomic {
 	name?: string
 	kind: string
-	"#": string
 	baseType: atomic_types
 	pattern?: string
 	length?: number

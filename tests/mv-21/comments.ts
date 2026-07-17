@@ -9,7 +9,6 @@
  * comment.
  */
 export interface RootModel {
-	"#": string
 	hello: string
 	world: string
 }
