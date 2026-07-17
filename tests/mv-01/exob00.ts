@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* exclusive properties: a ^ b */
 export interface RootModel_0 {
 	a: number
 	b?: never

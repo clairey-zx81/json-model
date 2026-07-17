@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* equivalent to =0 */
 export type RootModel = number

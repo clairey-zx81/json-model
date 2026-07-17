@@ -5,4 +5,5 @@
 export type p2 = ("Castafiore" | "Haddock" | "Milou" | "Tintin" | "Bad")
 export type p1 = ("Susie" | "Calvin" | "Hobbes" | "Moe" | "Bad")
 
+/* p1 optimized to | and root xor should rejects 'Bad' */
 export type RootModel = (p1 | p2)

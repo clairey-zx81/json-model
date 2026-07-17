@@ -12,4 +12,5 @@ export interface a {
 	t: string
 }
 
+/* xor-to-or with not constant exclusion behind references */
 export type RootModel = (a | bc | Nabc)

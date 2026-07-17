@@ -67,4 +67,5 @@ export type linear_ring = position[]
 export type coord_array = position[]
 export type position = number[]
 
+/* Easy Geo JSON Model JSON_MODEL_LOOSE_FLOAT */
 export type RootModel = (GeometryCollection | Feature | FeatureCollection | geometry)

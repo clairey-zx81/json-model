@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* flatten and xor to or test */
 export type RootModel = (1 | 2 | 3)

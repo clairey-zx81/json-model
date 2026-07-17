@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* string discriminator relies on dict */
 export interface RootModel_0 {
 	d: string
 	v: null

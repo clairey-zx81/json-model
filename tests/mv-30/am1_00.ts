@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* all basics but one */
 export interface RootModel_5 {
 	"": any
 }

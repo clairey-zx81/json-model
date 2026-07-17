@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* ZA */
 export interface RootModel {
 	"#": string
 	country?: "South Africa"

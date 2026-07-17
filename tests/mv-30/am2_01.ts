@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* a scalar */
 export type RootModel = (null | boolean | number | string)

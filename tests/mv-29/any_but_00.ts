@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* typical jsu output for undertyped schemas, whatever but */
 export interface RootModel_6 {
 	a: string
 	b?: string

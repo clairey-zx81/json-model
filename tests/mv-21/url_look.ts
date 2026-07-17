@@ -5,4 +5,5 @@
 export type u2 = string
 export type u1 = string
 
+/* trigger a warning on url-looking definitions */
 export type RootModel = ("https://json-model.org/models/json-model" | "file://./url_looking.model.json")

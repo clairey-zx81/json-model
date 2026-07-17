@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* JSON_MODEL_STRICT_NUMBER */
 export interface RootModel {
 	"#": string
 	i: number

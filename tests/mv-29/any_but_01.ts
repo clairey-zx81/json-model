@@ -7,4 +7,5 @@ export interface Obj {
 	b?: string
 }
 
+/* with a reference */
 export type RootModel = (null | boolean | number | string | any[] | Obj)

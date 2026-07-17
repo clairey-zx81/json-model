@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* multi-type discriminator */
 export interface RootModel_0 {
 	t: null
 	v: null

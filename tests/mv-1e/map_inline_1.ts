@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* inline up to 3 must/may properties */
 export interface RootModel {
 	"#": string
 	mu1: null

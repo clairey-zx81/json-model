@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* and-combine on array of strings */
 export type RootModel = string[]

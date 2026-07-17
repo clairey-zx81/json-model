@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* regex filtering on a property name */
 export interface RootModel {
 	"#": string
 	"/^.{2,4}$/s": number

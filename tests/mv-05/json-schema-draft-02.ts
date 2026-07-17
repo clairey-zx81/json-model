@@ -10,6 +10,7 @@ export interface RootModel_properties {
 	"": Schema
 }
 
+/* JSON Model for JSON Schema Draft 02 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
 export interface RootModel {
 	"#": string
 	type?: (allTypes | (string | Schema)[])

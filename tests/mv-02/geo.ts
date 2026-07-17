@@ -103,4 +103,5 @@ export type linear_ring = position[]
 export type coord_array = position[]
 export type position = number[]
 
+/* Geo JSON Model JSON_MODEL_LOOSE_FLOAT */
 export type RootModel = (geometry | GeometryCollection | Feature | FeatureCollection)

@@ -41,6 +41,8 @@ export interface Notification {
 	method: string
 	params?: (any[] | Notification_params_1)
 }
+/* Request/response identifier: null, integer, or string */
 export type Id = (null | number | string)
 
+/* JSON-RPC 2.0 Protocol */
 export type RootModel = (ClientMessage | ServerMessage)

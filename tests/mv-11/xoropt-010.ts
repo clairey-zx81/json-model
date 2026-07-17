@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* ^ to | */
 export interface RootModel_0 {
 	b: number
 	a: string

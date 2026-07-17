@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* mixed sw eq ew regex optim */
 export type RootModel = string

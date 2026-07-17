@@ -18,6 +18,7 @@ export interface schema_dependencies {
 	"": string
 }
 
+/* JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
 export interface schema {
 	"#": string
 	id?: string

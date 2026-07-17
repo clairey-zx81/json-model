@@ -99,4 +99,5 @@ export interface Object {
 	"": any
 }
 
+/* MCP - Model Context Protocol */
 export type RootModel = (InitializeRequest | InitializeResponse | Notification | ToolsListRequest | ToolsListResponse | ToolCallRequest | ToolCallResponse)

@@ -14,6 +14,7 @@ export interface schema_dependencies {
 	"": (string | string[])
 }
 
+/* JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
 export interface schema {
 	"#": string
 	type?: (string | string[])

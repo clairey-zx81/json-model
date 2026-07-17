@@ -30,6 +30,7 @@ export interface Aa_1 {
 
 export type Aa = (Aa_0 | Aa_1)
 
+/* props: a/b a/c b/c */
 export interface RootModel_0 {
 	a: number
 	b: number

@@ -2,6 +2,7 @@
 // for ./json-schema-draft-tight
 // see https://json-model.org/
 
+/* keyword $schema is mandatory at the root, and optional elsewhere */
 export interface RootSchema_0 {
 	$schema: string
 	"": any
@@ -9,6 +10,7 @@ export interface RootSchema_0 {
 
 export type RootSchema = (RootSchema_0 & ObjectSchema)
 export type Schema = (boolean | ObjectSchema)
+/* we could use ^ instead of | below */
 export type ObjectSchema = (Null | Bool | Const | Enum | Integer | Number | String | Array | Object | AllOf | AnyOf | OneOf | Ref | DynRef | metas)
 export interface DynRef__vocabulary {
 	$URI: boolean
@@ -487,6 +489,7 @@ export interface metas_definitions {
 	"": Schema
 }
 
+/* there is a trick with $schema… in RootSchema below */
 export interface metas {
 	"#": string
 	$schema?: string
@@ -506,6 +509,7 @@ export interface metas {
 	id?: string
 	definitions?: metas_definitions
 }
+/* not included: exclusive*, multipleOf… */
 export interface numberKeywords {
 	"#": string
 	minimum?: number
@@ -519,6 +523,7 @@ export interface objectKeywords_patternProperties {
 	$REGEX: Schema
 }
 
+/* not included: dependentRequired… */
 export interface objectKeywords {
 	"#": string
 	properties?: objectKeywords_properties
@@ -530,6 +535,7 @@ export interface objectKeywords {
 	patternProperties?: objectKeywords_patternProperties
 	propertyNames?: ObjectSchema
 }
+/* not included: contains… */
 export interface arrayKeywords {
 	"#": string
 	prefixItems?: schemaArray

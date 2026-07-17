@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* not world or !, hello is kept */
 export type RootModel = ((string | "hello" | "world" | "!") | "hello")
