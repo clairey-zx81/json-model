@@ -7,7 +7,6 @@ export type Pp = number
 
 /* an object */
 export interface RootModel_o {
-	"#": string
 	p?: Pp
 	q?: Qq
 	t?: [boolean, number]
@@ -15,6 +14,5 @@ export interface RootModel_o {
 
 /* trivial and non trivial comments */
 export interface RootModel {
-	"#": string
 	o?: RootModel_o
 }

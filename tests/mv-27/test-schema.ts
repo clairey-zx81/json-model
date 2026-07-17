@@ -20,7 +20,6 @@ export interface Specification {
 }
 /* A single test */
 export interface Test {
-	"#": string
 	description: string
 	comment?: string
 	data: any

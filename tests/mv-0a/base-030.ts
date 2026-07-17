@@ -5,6 +5,5 @@
 
 /* simple regex props */
 export interface RootModel {
-	"#": string
 	"/^(foo|bla)$/": number
 }

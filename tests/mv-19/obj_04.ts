@@ -6,6 +6,5 @@ export type Xxx = ("X" | "XX" | "XXX")
 
 /* prop ref to enum */
 export interface RootModel {
-	"#": string
 	$Xxx: number
 }

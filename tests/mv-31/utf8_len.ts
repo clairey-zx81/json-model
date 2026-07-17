@@ -5,7 +5,6 @@
 
 /* char vs byte length */
 export interface RootModel {
-	"#": string
 	"0"?: ""
 	"1"?: "\u00c0"
 	"2"?: "\u00c0\u00df"

@@ -6,7 +6,6 @@ export type Xxx = ("X" | "XX" | "XXX")
 
 /* object with must/may/regex/ref/others */
 export interface RootModel {
-	"#": string
 	foo: string
 	bla?: boolean
 	$Xxx: number

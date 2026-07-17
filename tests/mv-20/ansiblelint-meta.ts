@@ -37,7 +37,6 @@ export interface DependencyModelLoose_vars {
  * Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
  */
 export interface DependencyModelLoose {
-	"#": string
 	become?: boolean
 	name?: string
 	role?: string
@@ -107,7 +106,6 @@ export interface GalaxyInfoModelStandalone {
 }
 /* some $URL should be added? */
 export interface GalaxyInfoModelLoose {
-	"#": string
 	description: string
 	author?: string
 	company?: string

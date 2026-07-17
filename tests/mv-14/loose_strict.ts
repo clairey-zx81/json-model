@@ -8,12 +8,10 @@ export interface combined {
 }
 /* JSON_MODEL_STRICT_INT */
 export interface strict {
-	"#": string
 	si: number
 }
 /* JSON_MODEL_LOOSE_INT */
 export interface loose {
-	"#": string
 	li: number
 }
 

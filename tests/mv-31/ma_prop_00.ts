@@ -5,7 +5,6 @@
 
 /* prop order check is preserved */
 export interface RootModel {
-	"#": string
 	pretty_long_property_name?: number
 	zulu?: number
 	XXX?: number

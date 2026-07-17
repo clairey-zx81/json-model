@@ -334,7 +334,6 @@ export interface metas_definitions {
 
 /* there is a trick with $schema… in RootSchema below */
 export interface metas {
-	"#": string
 	$schema?: string
 	$id?: string
 	id?: string
@@ -349,7 +348,6 @@ export interface metas {
 }
 /* not included: exclusive*, multipleOf… */
 export interface numberKeywords {
-	"#": string
 	minimum?: number
 	maximum?: number
 }
@@ -363,7 +361,6 @@ export interface objectKeywords_patternProperties {
 
 /* not included: dependentRequired, min/maxProps… */
 export interface objectKeywords {
-	"#": string
 	properties?: objectKeywords_properties
 	required?: string[]
 	additionalProperties?: Schema
@@ -371,7 +368,6 @@ export interface objectKeywords {
 }
 /* not included: contains… */
 export interface arrayKeywords {
-	"#": string
 	prefixItems?: schemaArray
 	items?: (Schema | schemaArray)
 	additionalItems?: Schema

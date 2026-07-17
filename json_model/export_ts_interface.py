@@ -145,7 +145,7 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
         doc = _comment(model)
         code += _comment_block(doc) if doc else []
         code += [f"export interface {ts_name(name)} {{"]
-        for key, jm in model.items():
+        for key, jm in props.items():
             optional = key.startswith("?")
             field = key[1:] if key[:1] in "?!_" else key
             safe = ts_name(field)            

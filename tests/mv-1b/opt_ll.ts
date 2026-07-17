@@ -5,7 +5,6 @@
 
 /* JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT */
 export interface RootModel {
-	"#": string
 	i: number
 	f: number
 }
