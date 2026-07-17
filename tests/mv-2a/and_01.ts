@@ -7,13 +7,13 @@ export interface RootModel_0 {
 	ss?: string
 	i: number
 	b: boolean
-	"": any
+	[key: string]: any
 }
 
 export interface RootModel_1 {
 	"/^s/": boolean
 	"/^i/": number
-	"": any
+	[key: string]: any
 }
 
 export type RootModel = (RootModel_0 & RootModel_1)

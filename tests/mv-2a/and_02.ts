@@ -10,12 +10,12 @@ export interface RootModel_0 {
 	b: boolean
 	f: number
 	"/^d[a-z]/": string
-	"": any
+	[key: string]: any
 }
 
 export interface RootModel_1 {
 	"/^d[0-9]/": number
-	"": any
+	[key: string]: any
 }
 
 export type RootModel = (RootModel_0 & RootModel_1)

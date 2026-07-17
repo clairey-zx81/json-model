@@ -7,11 +7,11 @@ export interface Extension {
 }
 
 export interface SecurityRequirement {
-	"": string[]
+	[key: string]: string[]
 }
 
 export interface OAuthFlow_scopes {
-	"": string
+	[key: string]: string
 }
 
 export interface OAuthFlow {
@@ -106,7 +106,7 @@ export interface xml {
 }
 
 export interface Discriminator_mapping {
-	"": string
+	[key: string]: string
 }
 
 export interface Discriminator {
@@ -120,11 +120,11 @@ export interface Schema__vocabulary {
 }
 
 export interface Schema__defs {
-	"": string
+	[key: string]: string
 }
 
 export interface Schema_properties {
-	"": string
+	[key: string]: string
 }
 
 export interface Schema_patternProperties {
@@ -132,11 +132,11 @@ export interface Schema_patternProperties {
 }
 
 export interface Schema_dependentSchemas {
-	"": string
+	[key: string]: string
 }
 
 export interface Schema_dependentRequired {
-	"": string
+	[key: string]: string
 }
 
 export interface Schema {
@@ -220,7 +220,7 @@ export interface Tag {
 
 /* more or less a parameter but without name and in */
 export interface Header_0_examples {
-	"": (Example | Reference)
+	[key: string]: (Example | Reference)
 }
 
 export interface Header_0 {
@@ -238,7 +238,7 @@ export interface Header_0 {
 }
 
 export interface Header_1_content {
-	"": MediaType
+	[key: string]: MediaType
 }
 
 export interface Header_1 {
@@ -253,7 +253,7 @@ export interface Header_1 {
 export type Header = (Header_0 | Header_1)
 
 export interface Link_0_parameters {
-	"": any
+	[key: string]: any
 }
 
 export interface Link_0 {
@@ -266,7 +266,7 @@ export interface Link_0 {
 }
 
 export interface Link_1_parameters {
-	"": any
+	[key: string]: any
 }
 
 export interface Link_1 {
@@ -296,15 +296,15 @@ export interface Callback {
 }
 
 export interface Response_headers {
-	"": (Header | Reference)
+	[key: string]: (Header | Reference)
 }
 
 export interface Response_content {
-	"": MediaType
+	[key: string]: MediaType
 }
 
 export interface Response_links {
-	"": (Link | Reference)
+	[key: string]: (Link | Reference)
 }
 
 export interface Response {
@@ -322,7 +322,7 @@ export interface Responses {
 }
 
 export interface Encoding_headers {
-	"": (Header | Reference)
+	[key: string]: (Header | Reference)
 }
 
 export interface Encoding {
@@ -335,11 +335,11 @@ export interface Encoding {
 }
 
 export interface MediaType_examples {
-	"": (Example | Reference)
+	[key: string]: (Example | Reference)
 }
 
 export interface MediaType_encoding {
-	"": Encoding
+	[key: string]: Encoding
 }
 
 export interface MediaType {
@@ -351,7 +351,7 @@ export interface MediaType {
 }
 
 export interface RequestBody_content {
-	"": MediaType
+	[key: string]: MediaType
 }
 
 export interface RequestBody {
@@ -362,7 +362,7 @@ export interface RequestBody {
 }
 
 export interface Parameter_0_examples {
-	"": (Example | Reference)
+	[key: string]: (Example | Reference)
 }
 
 export interface Parameter_0 {
@@ -382,7 +382,7 @@ export interface Parameter_0 {
 }
 
 export interface Parameter_1_content {
-	"": MediaType
+	[key: string]: MediaType
 }
 
 export interface Parameter_1 {
@@ -399,7 +399,7 @@ export interface Parameter_1 {
 export type Parameter = (Parameter_0 | Parameter_1)
 
 export interface parameterContentOnly_content {
-	"": MediaType
+	[key: string]: MediaType
 }
 
 export interface parameterContentOnly {
@@ -407,7 +407,7 @@ export interface parameterContentOnly {
 }
 
 export interface parameterSchemaOnly_examples {
-	"": (Example | Reference)
+	[key: string]: (Example | Reference)
 }
 
 export interface parameterSchemaOnly {
@@ -447,7 +447,7 @@ export interface ExternalDocumentation {
 }
 
 export interface Operation_callbacks {
-	"": (Callback | Reference)
+	[key: string]: (Callback | Reference)
 }
 
 export interface Operation {
@@ -489,43 +489,43 @@ export interface Paths {
 }
 
 export interface Components_schemas {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Components_responses {
-	"": (Response | Reference)
+	[key: string]: (Response | Reference)
 }
 
 export interface Components_parameters {
-	"": (Parameter | Reference)
+	[key: string]: (Parameter | Reference)
 }
 
 export interface Components_examples {
-	"": (Example | Reference)
+	[key: string]: (Example | Reference)
 }
 
 export interface Components_requestBodies {
-	"": (RequestBody | Reference)
+	[key: string]: (RequestBody | Reference)
 }
 
 export interface Components_headers {
-	"": (Header | Reference)
+	[key: string]: (Header | Reference)
 }
 
 export interface Components_securitySchemes {
-	"": (SecurityScheme | Reference)
+	[key: string]: (SecurityScheme | Reference)
 }
 
 export interface Components_links {
-	"": (Link | Reference)
+	[key: string]: (Link | Reference)
 }
 
 export interface Components_callbacks {
-	"": (Callback | Reference)
+	[key: string]: (Callback | Reference)
 }
 
 export interface Components_pathItems {
-	"": (PathItem | Reference)
+	[key: string]: (PathItem | Reference)
 }
 
 export interface Components {
@@ -550,7 +550,7 @@ export interface ServerVariable {
 }
 
 export interface Server_variables {
-	"": ServerVariable
+	[key: string]: ServerVariable
 }
 
 export interface Server {
@@ -593,7 +593,7 @@ export interface Info {
 }
 
 export interface OpenAPI_webhooks {
-	"": PathItem
+	[key: string]: PathItem
 }
 
 export interface OpenAPI {

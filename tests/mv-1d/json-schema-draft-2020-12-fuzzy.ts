@@ -3,15 +3,15 @@
 // see https://json-model.org/
 
 export interface fuzzy {
-	"": any
+	[key: string]: any
 }
 
 export interface deprecated_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface deprecated_dependencies {
-	"": (Schema | stringArray)
+	[key: string]: (Schema | stringArray)
 }
 
 export interface deprecated {
@@ -28,31 +28,31 @@ export interface ObjectSchema__vocabulary {
 }
 
 export interface ObjectSchema__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_patternProperties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_dependentSchemas {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_dependentRequired {
-	"": stringArray
+	[key: string]: stringArray
 }
 
 export interface ObjectSchema_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_dependencies {
-	"": (Schema | stringArray)
+	[key: string]: (Schema | stringArray)
 }
 
 export interface ObjectSchema {
@@ -117,19 +117,19 @@ export interface ObjectSchema {
 	dependencies?: ObjectSchema_dependencies
 	$recursiveAnchor?: string
 	$recursiveRef?: string
-	"": any
+	[key: string]: any
 }
 
 export interface applicator_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface applicator_patternProperties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface applicator_dependentSchemas {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface applicator {
@@ -153,7 +153,7 @@ export interface applicator {
 export type schemaArray = Schema[]
 
 export interface validation_dependentRequired {
-	"": stringArray
+	[key: string]: stringArray
 }
 
 export interface validation {
@@ -217,7 +217,7 @@ export interface core__vocabulary {
 }
 
 export interface core__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface core {

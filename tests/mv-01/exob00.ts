@@ -6,13 +6,13 @@
 export interface RootModel_0 {
 	a: number
 	b?: never
-	"": number
+	[key: string]: any
 }
 
 export interface RootModel_1 {
 	a?: never
 	b: number
-	"": number
+	[key: string]: any
 }
 
 export type RootModel = (RootModel_0 | RootModel_1)

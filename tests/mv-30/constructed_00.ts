@@ -4,7 +4,7 @@
 
 /* any constructed stuff */
 export interface RootModel_0 {
-	"": any
+	[key: string]: any
 }
 
 export type RootModel = (RootModel_0 | any[])

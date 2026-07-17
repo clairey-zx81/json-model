@@ -9,7 +9,7 @@ export interface TightSchema_0__vocabulary {
 }
 
 export interface TightSchema_0__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_0 {
@@ -37,7 +37,7 @@ export interface TightSchema_1__vocabulary {
 }
 
 export interface TightSchema_1__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_1 {
@@ -65,7 +65,7 @@ export interface TightSchema_2__vocabulary {
 }
 
 export interface TightSchema_2__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_2 {
@@ -98,7 +98,7 @@ export interface TightSchema_3__vocabulary {
 }
 
 export interface TightSchema_3__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_3 {
@@ -131,7 +131,7 @@ export interface TightSchema_4__vocabulary {
 }
 
 export interface TightSchema_4__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_4 {
@@ -166,7 +166,7 @@ export interface TightSchema_5__vocabulary {
 }
 
 export interface TightSchema_5__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_5 {
@@ -203,15 +203,15 @@ export interface TightSchema_6__vocabulary {
 }
 
 export interface TightSchema_6__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_6_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_6_dependentRequired {
-	"": stringArray
+	[key: string]: stringArray
 }
 
 export interface TightSchema_6_patternProperties {
@@ -219,7 +219,7 @@ export interface TightSchema_6_patternProperties {
 }
 
 export interface TightSchema_6_dependentSchemas {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_6 {
@@ -257,7 +257,7 @@ export interface TightSchema_7__vocabulary {
 }
 
 export interface TightSchema_7__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface TightSchema_7 {
@@ -303,11 +303,11 @@ export interface Misc {
 }
 
 export interface Object_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Object_dependentRequired {
-	"": stringArray
+	[key: string]: stringArray
 }
 
 export interface Object_patternProperties {
@@ -315,7 +315,7 @@ export interface Object_patternProperties {
 }
 
 export interface Object_dependentSchemas {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Object {
@@ -401,7 +401,7 @@ export interface core__vocabulary {
 }
 
 export interface core__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface core {

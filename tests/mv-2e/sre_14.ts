@@ -4,5 +4,5 @@
 
 export interface RootModel {
 	"/^a/": boolean
-	"": number
+	[key: string]: any
 }

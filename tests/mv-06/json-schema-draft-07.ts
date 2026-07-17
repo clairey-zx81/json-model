@@ -5,11 +5,11 @@
 export type Schema = (boolean | ObjectSchema)
 
 export interface ObjectSchema_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_patternProperties {
@@ -17,7 +17,7 @@ export interface ObjectSchema_patternProperties {
 }
 
 export interface ObjectSchema_dependencies {
-	"": (Schema | string[])
+	[key: string]: (Schema | string[])
 }
 
 export interface ObjectSchema {

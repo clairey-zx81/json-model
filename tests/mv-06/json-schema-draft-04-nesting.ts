@@ -3,19 +3,19 @@
 // see https://json-model.org/
 
 export interface schema_definitions {
-	"": string
+	[key: string]: string
 }
 
 export interface schema_properties {
-	"": string
+	[key: string]: string
 }
 
 export interface schema_patternProperties {
-	"": string
+	[key: string]: string
 }
 
 export interface schema_dependencies {
-	"": string
+	[key: string]: string
 }
 
 /* JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
@@ -54,7 +54,7 @@ export interface schema {
 	oneOf?: string
 	not?: string
 	$ref?: string
-	"": string
+	[key: string]: any
 }
 
 export type RootModel = schema

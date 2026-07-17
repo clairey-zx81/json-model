@@ -8,5 +8,5 @@ export interface RootModel {
 	b?: boolean
 	"/^d/": string
 	"/^e/": number
-	"": any
+	[key: string]: any
 }

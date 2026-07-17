@@ -29,7 +29,7 @@ export type ClientMessage = (Notification | Request | BatchRequest)
 export type BatchRequest = (Request | Notification)[]
 
 export interface Request_params_1 {
-	"": any
+	[key: string]: any
 }
 
 export interface Request {
@@ -40,7 +40,7 @@ export interface Request {
 }
 
 export interface Notification_params_1 {
-	"": any
+	[key: string]: any
 }
 
 export interface Notification {

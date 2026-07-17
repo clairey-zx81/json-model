@@ -9,11 +9,11 @@ export interface ObjectSchema__vocabulary {
 }
 
 export interface ObjectSchema__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_patternProperties {
@@ -21,19 +21,19 @@ export interface ObjectSchema_patternProperties {
 }
 
 export interface ObjectSchema_dependentSchemas {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_propertyDependencies_JM_ {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface ObjectSchema_propertyDependencies {
-	"": ObjectSchema_propertyDependencies_JM_
+	[key: string]: ObjectSchema_propertyDependencies_JM_
 }
 
 export interface ObjectSchema_dependentRequired {
-	"": stringArray
+	[key: string]: stringArray
 }
 
 export interface ObjectSchema {
@@ -98,7 +98,7 @@ export interface ObjectSchema {
 }
 
 export interface applicator_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface applicator_patternProperties {
@@ -106,15 +106,15 @@ export interface applicator_patternProperties {
 }
 
 export interface applicator_dependentSchemas {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface applicator_propertyDependencies_JM_ {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface applicator_propertyDependencies {
-	"": applicator_propertyDependencies_JM_
+	[key: string]: applicator_propertyDependencies_JM_
 }
 
 export interface applicator {
@@ -139,7 +139,7 @@ export interface applicator {
 export type schemaArray = Schema[]
 
 export interface validation_dependentRequired {
-	"": stringArray
+	[key: string]: stringArray
 }
 
 export interface validation {
@@ -203,7 +203,7 @@ export interface core__vocabulary {
 }
 
 export interface core__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface core {

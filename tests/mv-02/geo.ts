@@ -6,11 +6,11 @@ export interface FeatureCollection {
 	type: string
 	features: Feature[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface Feature_properties_1 {
-	"": any
+	[key: string]: any
 }
 
 export interface Feature {
@@ -19,56 +19,56 @@ export interface Feature {
 	properties: (null | Feature_properties_1)
 	id?: (string | number)
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface GeometryCollection {
 	type: string
 	geometries: geometry[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface geometry_0 {
 	type: string
 	coordinates: position
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface geometry_1 {
 	type: string
 	coordinates: position[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface geometry_2 {
 	type: string
 	coordinates: coord_array
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface geometry_3 {
 	type: string
 	coordinates: coord_array[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface geometry_4 {
 	type: string
 	coordinates: linear_ring[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface geometry_5 {
 	type: string
 	coordinates: linear_ring[][]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export type geometry = (geometry_0 | geometry_1 | geometry_2 | geometry_3 | geometry_4 | geometry_5)

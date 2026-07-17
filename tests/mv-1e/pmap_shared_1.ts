@@ -23,7 +23,7 @@ export interface Oo0 {
 	b: number
 	c: null
 	d: number
-	"": string
+	[key: string]: any
 }
 
 export type RootModel = (Oo0 | Oo1 | Oo2)

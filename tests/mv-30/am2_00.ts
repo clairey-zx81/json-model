@@ -4,7 +4,7 @@
 
 /* JSON_MODEL_LOOSE_FLOAT: any but number or bool */
 export interface RootModel_3 {
-	"": any
+	[key: string]: any
 }
 
 export type RootModel = (null | any[] | string | RootModel_3)

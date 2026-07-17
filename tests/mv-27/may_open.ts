@@ -4,5 +4,5 @@
 
 export interface RootModel {
 	hello?: string
-	"": any
+	[key: string]: any
 }

@@ -5,12 +5,12 @@
 /* NOT ^ to | */
 export interface RootModel_0 {
 	a: string
-	"": string
+	[key: string]: any
 }
 
 export interface RootModel_1 {
 	b: string
-	"": string
+	[key: string]: any
 }
 
 export type RootModel = (RootModel_0 | RootModel_1)

@@ -8,7 +8,7 @@ export interface RootModel_0 {
 }
 
 export interface RootModel_1 {
-	"": number
+	[key: string]: any
 	"/a/": never
 }
 

@@ -6,11 +6,11 @@ export interface FeatureCollection {
 	type: string
 	features: Feature[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface Feature_properties_1 {
-	"": any
+	[key: string]: any
 }
 
 export interface Feature {
@@ -19,14 +19,14 @@ export interface Feature {
 	properties: (null | Feature_properties_1)
 	id?: (string | number)
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface GeometryCollection {
 	type: string
 	geometries: geometry[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export type geometry = (Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon)
@@ -35,42 +35,42 @@ export interface MultiPolygon {
 	type: string
 	coordinates: linear_ring[][]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface Polygon {
 	type: string
 	coordinates: linear_ring[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface MultiLineString {
 	type: string
 	coordinates: coord_array[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface LineString {
 	type: string
 	coordinates: coord_array
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface MultiPoint {
 	type: string
 	coordinates: position[]
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export interface Point {
 	type: string
 	coordinates: position
 	bbox?: number[]
-	"": any
+	[key: string]: any
 }
 
 export type linear_ring = position[]

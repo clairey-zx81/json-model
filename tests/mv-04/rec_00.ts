@@ -5,7 +5,7 @@
 export type rec = (boolean | obj)
 
 export interface obj {
-	"": rec
+	[key: string]: rec
 }
 
 export type RootModel = rec

@@ -3,5 +3,5 @@
 // see https://json-model.org/
 
 export interface RootModel {
-	"": number
+	[key: string]: number
 }

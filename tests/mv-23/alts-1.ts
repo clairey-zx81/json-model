@@ -3,13 +3,13 @@
 // see https://json-model.org/
 
 export interface oX {
-	"": any
+	[key: string]: any
 	v: number
 	t: ("e" | "f")
 }
 
 export interface oL {
-	"": any
+	[key: string]: any
 	v: number
 	t: "d"
 }
@@ -17,13 +17,13 @@ export interface oL {
 export type oC = (oX | oL)
 
 export interface oB {
-	"": any
+	[key: string]: any
 	v: number
 	t: ("b" | "c")
 }
 
 export interface oA {
-	"": any
+	[key: string]: any
 	v: number
 	t: "a"
 }

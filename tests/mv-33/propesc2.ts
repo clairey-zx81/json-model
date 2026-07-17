@@ -5,5 +5,5 @@
 /* one mandatory prop with an escaped character */
 export interface RootModel {
 	"foo\nbar": any
-	"": any
+	[key: string]: any
 }

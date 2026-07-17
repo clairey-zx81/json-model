@@ -4,7 +4,7 @@
 
 /* all basics but one */
 export interface RootModel_5 {
-	"": any
+	[key: string]: any
 }
 
 export type RootModel = (null | boolean | number | string | RootModel_5)

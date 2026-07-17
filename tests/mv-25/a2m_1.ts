@@ -9,17 +9,17 @@ export interface nomerge {
 export interface merge {
 	a?: number
 	b?: number
-	"": any
+	[key: string]: any
 }
 
 export interface Ob {
 	b?: number
-	"": any
+	[key: string]: any
 }
 
 export interface Oa {
 	a?: number
-	"": any
+	[key: string]: any
 }
 
 export type RootModel = (merge | nomerge)
