@@ -2,5 +2,4 @@
 // for ./esc_eq
 // see https://json-model.org/
 
-
 export type RootModel = string

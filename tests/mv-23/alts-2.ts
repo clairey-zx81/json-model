@@ -6,6 +6,7 @@ export interface r_1 {
 }
 
 export type r = (a | r_1)
+
 export interface a_JM__1 {
 }
 

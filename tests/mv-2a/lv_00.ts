@@ -2,5 +2,4 @@
 // for ./lv_00
 // see https://json-model.org/
 
-
 export type RootModel = [string, string][]

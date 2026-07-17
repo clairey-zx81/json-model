@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Mm = (Vv | Ee)
+
 export interface Ee_0 {
 	X: string
 	Z?: string
@@ -14,12 +15,15 @@ export interface Ee_1 {
 }
 
 export type Ee = (Ee_0 | Ee_1)
+
 export interface Yy {
 	Y: string
 }
+
 export interface Xx {
 	X: string
 }
+
 export type Vv = (number | string)
 
 export type RootModel = Mm

@@ -2,7 +2,6 @@
 // for ./ac_08
 // see https://json-model.org/
 
-
 export interface RootModel {
 	"/^.+$/": string
 }

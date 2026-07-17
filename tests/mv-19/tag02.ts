@@ -2,7 +2,6 @@
 // for ./tag02
 // see https://json-model.org/
 
-
 export interface RootModel_0 {
 	t: 1
 	a: number

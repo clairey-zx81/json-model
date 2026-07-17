@@ -2,7 +2,6 @@
 // for ./xoropt-011
 // see https://json-model.org/
 
-
 /* ^ to | on constants */
 export interface RootModel_0 {
 	a: 10

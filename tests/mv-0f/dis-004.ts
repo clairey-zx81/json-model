@@ -7,6 +7,7 @@ export interface Bb_0 {
 }
 
 export type Bb = (Bb_0 | Aa)
+
 export interface Aa_0 {
 	a: number
 }

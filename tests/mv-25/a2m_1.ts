@@ -5,15 +5,18 @@
 export interface nomerge {
 	c: number
 }
+
 export interface merge {
 	a?: number
 	b?: number
 	"": any
 }
+
 export interface Ob {
 	b?: number
 	"": any
 }
+
 export interface Oa {
 	a?: number
 	"": any

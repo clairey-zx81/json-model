@@ -2,7 +2,6 @@
 // for ./muma-0
 // see https://json-model.org/
 
-
 export interface RootModel {
 	name: string
 	born?: string

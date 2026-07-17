@@ -3,7 +3,9 @@
 // see https://json-model.org/
 
 export type f = false
+
 export type x = 10.0
+
 export type n = null
 
 /* ^ to | on constants */

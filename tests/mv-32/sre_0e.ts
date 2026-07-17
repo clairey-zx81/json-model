@@ -2,7 +2,6 @@
 // for ./sre_0e
 // see https://json-model.org/
 
-
 /* regex filtering on a property name */
 export interface RootModel {
 	"/^.{2,4}$/s": number

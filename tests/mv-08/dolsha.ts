@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type self = string
+
 export type array = self[]
 
 export interface RootModel {

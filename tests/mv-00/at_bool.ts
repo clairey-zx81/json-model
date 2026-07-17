@@ -2,5 +2,4 @@
 // for ./at_bool
 // see https://json-model.org/
 
-
 export type RootModel = boolean

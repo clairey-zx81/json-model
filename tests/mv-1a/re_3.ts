@@ -2,7 +2,6 @@
 // for ./re_3
 // see https://json-model.org/
 
-
 export interface RootModel {
 	all?: string
 	nz?: string

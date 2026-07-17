@@ -2,7 +2,6 @@
 // for ./strict
 // see https://json-model.org/
 
-
 /* JSON_MODEL_STRICT_INT */
 export interface RootModel {
 	si: number

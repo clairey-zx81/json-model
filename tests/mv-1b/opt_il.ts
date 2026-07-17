@@ -2,5 +2,4 @@
 // for ./opt_il
 // see https://json-model.org/
 
-
 export type RootModel = number

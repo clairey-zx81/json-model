@@ -2,7 +2,6 @@
 // for ./re_prop_00
 // see https://json-model.org/
 
-
 export interface RootModel {
 	"/^s/": string
 	"/^i/": number

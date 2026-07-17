@@ -2,7 +2,6 @@
 // for ./rec_01
 // see https://json-model.org/
 
-
 export interface RootModel {
 	"": string
 }

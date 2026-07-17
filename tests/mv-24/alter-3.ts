@@ -14,6 +14,7 @@ export interface alternative_1 {
 }
 
 export type alternative = (alternative_0 | alternative_1 | d)
+
 export interface d {
 	t: "d"
 	d: string

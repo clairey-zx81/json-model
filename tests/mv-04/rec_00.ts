@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type rec = (boolean | obj)
+
 export interface obj {
 	"": rec
 }

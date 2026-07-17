@@ -2,6 +2,5 @@
 // for ./or_04
 // see https://json-model.org/
 
-
 /* deux chaînes constantes et deux re, séparation possible ; constantes matchent re… */
 export type RootModel = ("Susie" | "Calvin" | string)

@@ -2,5 +2,4 @@
 // for ./starts_with_array
 // see https://json-model.org/
 
-
 export type RootModel = string[]

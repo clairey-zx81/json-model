@@ -2,5 +2,4 @@
 // for ./int_cons
 // see https://json-model.org/
 
-
 export type RootModel = string

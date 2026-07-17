@@ -3,10 +3,13 @@
 // see https://json-model.org/
 
 export type Ex08 = (map | string | Val)
+
 export interface map {
 	$URL: Val
 }
+
 export type Key = string
+
 export type Val = boolean
 
 export type RootModel = Ex08

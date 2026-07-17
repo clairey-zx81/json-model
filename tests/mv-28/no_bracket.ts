@@ -2,5 +2,4 @@
 // for ./no_bracket
 // see https://json-model.org/
 
-
 export type RootModel = string

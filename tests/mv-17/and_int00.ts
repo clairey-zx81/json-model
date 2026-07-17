@@ -2,5 +2,4 @@
 // for ./and_int00
 // see https://json-model.org/
 
-
 export type RootModel = number

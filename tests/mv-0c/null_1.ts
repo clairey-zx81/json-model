@@ -2,5 +2,4 @@
 // for ./null_1
 // see https://json-model.org/
 
-
 export type RootModel = null

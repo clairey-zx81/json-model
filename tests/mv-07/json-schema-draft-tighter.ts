@@ -9,9 +9,12 @@ export interface RootSchema_0 {
 }
 
 export type RootSchema = (RootSchema_0 & ObjectSchema)
+
 export type Schema = (boolean | ObjectSchema)
+
 /* we could use ^ instead of | below */
 export type ObjectSchema = (Null | Bool | Const | Enum | Integer | Number | String | Array | Object | AllOf | AnyOf | OneOf | Ref | metas)
+
 export interface Ref__defs {
 	"": Schema
 }
@@ -33,6 +36,7 @@ export interface Ref {
 	$defs?: Ref__defs
 	definitions?: Ref_definitions
 }
+
 export interface Const__defs {
 	"": Schema
 }
@@ -54,6 +58,7 @@ export interface Const {
 	$defs?: Const__defs
 	definitions?: Const_definitions
 }
+
 export interface Enum__defs {
 	"": Schema
 }
@@ -75,6 +80,7 @@ export interface Enum {
 	$defs?: Enum__defs
 	definitions?: Enum_definitions
 }
+
 export interface OneOf__defs {
 	"": Schema
 }
@@ -96,6 +102,7 @@ export interface OneOf {
 	$defs?: OneOf__defs
 	definitions?: OneOf_definitions
 }
+
 export interface AnyOf__defs {
 	"": Schema
 }
@@ -117,6 +124,7 @@ export interface AnyOf {
 	$defs?: AnyOf__defs
 	definitions?: AnyOf_definitions
 }
+
 export interface AllOf__defs {
 	"": Schema
 }
@@ -138,6 +146,7 @@ export interface AllOf {
 	$defs?: AllOf__defs
 	definitions?: AllOf_definitions
 }
+
 export interface Null__defs {
 	"": Schema
 }
@@ -159,6 +168,7 @@ export interface Null {
 	$defs?: Null__defs
 	definitions?: Null_definitions
 }
+
 export interface Bool__defs {
 	"": Schema
 }
@@ -180,6 +190,7 @@ export interface Bool {
 	$defs?: Bool__defs
 	definitions?: Bool_definitions
 }
+
 export interface Number__defs {
 	"": Schema
 }
@@ -203,6 +214,7 @@ export interface Number {
 	minimum?: number
 	maximum?: number
 }
+
 export interface Integer__defs {
 	"": Schema
 }
@@ -226,6 +238,7 @@ export interface Integer {
 	minimum?: number
 	maximum?: number
 }
+
 export interface Object__defs {
 	"": Schema
 }
@@ -259,6 +272,7 @@ export interface Object {
 	additionalProperties?: Schema
 	patternProperties?: Object_patternProperties
 }
+
 export interface Array__defs {
 	"": Schema
 }
@@ -286,6 +300,7 @@ export interface Array {
 	maxItems?: number
 	uniqueItems?: boolean
 }
+
 export interface String__defs {
 	"": Schema
 }
@@ -311,6 +326,7 @@ export interface String {
 	maxLength?: number
 	format?: ("uri" | "uri-reference" | "iri" | "iri-reference" | "date" | "time" | "date-time" | "ipv4" | "ipv6" | "regex" | "uuid" | "hostname" | "email" | "idn-hostname" | "idn-email" | "duration" | "int32" | "int64" | "uint" | "uint32" | "uint64" | "json-pointer" | "relative-json-pointer" | "byte" | "double" | "int" | "mime-type")
 }
+
 export interface metas__defs {
 	"": Schema
 }
@@ -332,11 +348,13 @@ export interface metas {
 	$defs?: metas__defs
 	definitions?: metas_definitions
 }
+
 /* not included: exclusive*, multipleOf… */
 export interface numberKeywords {
 	minimum?: number
 	maximum?: number
 }
+
 export interface objectKeywords_properties {
 	"": Schema
 }
@@ -352,6 +370,7 @@ export interface objectKeywords {
 	additionalProperties?: Schema
 	patternProperties?: objectKeywords_patternProperties
 }
+
 /* not included: contains… */
 export interface arrayKeywords {
 	prefixItems?: schemaArray
@@ -361,14 +380,18 @@ export interface arrayKeywords {
 	maxItems?: number
 	uniqueItems?: boolean
 }
+
 export interface stringKeywords {
 	pattern?: string
 	minLength?: number
 	maxLength?: number
 	format?: ("uri" | "uri-reference" | "iri" | "iri-reference" | "date" | "time" | "date-time" | "ipv4" | "ipv6" | "regex" | "uuid" | "hostname" | "email" | "idn-hostname" | "idn-email" | "duration" | "int32" | "int64" | "uint" | "uint32" | "uint64" | "json-pointer" | "relative-json-pointer" | "byte" | "double" | "int" | "mime-type")
 }
+
 export type schemaArray = Schema[]
+
 export type JM_enum = (string[] | number[] | boolean[])
+
 export type JM_const = (null | boolean | number | string)
 
 export type RootModel = RootSchema

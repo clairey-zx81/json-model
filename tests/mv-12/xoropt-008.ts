@@ -2,7 +2,6 @@
 // for ./xoropt-008
 // see https://json-model.org/
 
-
 /* ^ to | based on distinct types on same property */
 export interface RootModel_0 {
 	a: boolean

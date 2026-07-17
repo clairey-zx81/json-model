@@ -2,7 +2,6 @@
 // for ./must_only
 // see https://json-model.org/
 
-
 /* empty object */
 export interface RootModel_mo0 {
 }

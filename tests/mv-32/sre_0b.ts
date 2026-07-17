@@ -2,7 +2,6 @@
 // for ./sre_0b
 // see https://json-model.org/
 
-
 export interface RootModel {
 	l?: string
 	u?: string

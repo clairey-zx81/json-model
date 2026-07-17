@@ -2,5 +2,4 @@
 // for ./arr_2
 // see https://json-model.org/
 
-
 export type RootModel = [boolean, number]

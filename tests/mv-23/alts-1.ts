@@ -7,17 +7,21 @@ export interface oX {
 	v: number
 	t: ("e" | "f")
 }
+
 export interface oL {
 	"": any
 	v: number
 	t: "d"
 }
+
 export type oC = (oX | oL)
+
 export interface oB {
 	"": any
 	v: number
 	t: ("b" | "c")
 }
+
 export interface oA {
 	"": any
 	v: number

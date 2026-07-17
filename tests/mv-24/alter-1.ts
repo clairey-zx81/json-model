@@ -24,15 +24,19 @@ export interface alternative_3 {
 }
 
 export type alternative = (alternative_0 | alternative_1 | alternative_2 | alternative_3 | d | ef)
+
 export interface ef {
 	t: ("e" | "f")
 	ef: string
 }
+
 export interface d {
 	t: "d"
 	d: string
 }
+
 export type h_ou_i = ("h" | "i")
+
 export type g = "g"
 
 export type RootModel = alternative

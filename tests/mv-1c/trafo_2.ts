@@ -3,7 +3,9 @@
 // see https://json-model.org/
 
 export type l = z[]
+
 export type z = string
+
 export type Zz = string
 
 export type RootModel = l

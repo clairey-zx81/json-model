@@ -2,7 +2,6 @@
 // for ./op_list_int
 // see https://json-model.org/
 
-
 export interface RootModel_0 {
 	t: 0
 	z: number

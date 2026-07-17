@@ -11,15 +11,23 @@ export interface Prereqs {
 	$Phase: Prereqs__Phase
 	"/^[Xx]_/": any
 }
+
 export interface Prereq {
 	"": (Version | VersionRange)
 }
+
 export type Relation = ("requires" | "recommends" | "suggests" | "conflicts")
+
 export type Phase = ("configure" | "build" | "test" | "runtime" | "develop")
+
 export type VersionRange = string
+
 export type Ops = string
+
 export type Version = (SemVer | 0)
+
 export type SemVer = string
+
 export interface Resources_bugtracker {
 	web?: string
 	mailto?: string
@@ -37,7 +45,9 @@ export interface Resources {
 	bugtracker?: Resources_bugtracker
 	repository?: Resources_repository
 }
+
 export type Status = ("stable" | "testing" | "unstable")
+
 export interface Provide {
 	file: string
 	version: Version
@@ -45,9 +55,13 @@ export interface Provide {
 	docfile?: string
 	"/^[Xx]_/": any
 }
+
 export type LicenseList = License[]
+
 export type License = ("agpl_3" | "apache_1_1" | "apache_2_0" | "artistic_1" | "artistic_2" | "bsd" | "freebsd" | "gfdl_1_2" | "gfdl_1_3" | "gpl_1" | "gpl_2" | "gpl_3" | "lgpl_2_1" | "lgpl_3_0" | "mit" | "mozilla_1_0" | "mozilla_1_1" | "openssl" | "perl_5" | "postgresql" | "qpl_1_0" | "ssleay" | "sun" | "zlib" | "open_source" | "restricted" | "unrestricted" | "unknown")
+
 export type neStrList = neStr[]
+
 export type neStr = string
 
 export interface RootModel_license_2 {

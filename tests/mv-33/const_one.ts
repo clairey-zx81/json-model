@@ -2,5 +2,4 @@
 // for ./const_one
 // see https://json-model.org/
 
-
 export type RootModel = 1

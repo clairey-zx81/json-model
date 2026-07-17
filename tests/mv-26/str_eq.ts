@@ -2,7 +2,6 @@
 // for ./str_eq
 // see https://json-model.org/
 
-
 export interface RootModel {
 	""?: any
 	hello?: any

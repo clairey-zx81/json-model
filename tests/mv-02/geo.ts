@@ -8,6 +8,7 @@ export interface FeatureCollection {
 	bbox?: number[]
 	"": any
 }
+
 export interface Feature_properties_1 {
 	"": any
 }
@@ -20,12 +21,14 @@ export interface Feature {
 	bbox?: number[]
 	"": any
 }
+
 export interface GeometryCollection {
 	type: string
 	geometries: geometry[]
 	bbox?: number[]
 	"": any
 }
+
 export interface geometry_0 {
 	type: string
 	coordinates: position
@@ -69,38 +72,47 @@ export interface geometry_5 {
 }
 
 export type geometry = (geometry_0 | geometry_1 | geometry_2 | geometry_3 | geometry_4 | geometry_5)
+
 export interface MultiPolygon {
 	type: string
 	coordinates: linear_ring[][]
 	bbox?: number[]
 }
+
 export interface Polygon {
 	type: string
 	coordinates: linear_ring[]
 	bbox?: number[]
 }
+
 export interface MultiLineString {
 	type: string
 	coordinates: coord_array[]
 	bbox?: number[]
 }
+
 export interface LineString {
 	type: string
 	coordinates: coord_array
 	bbox?: number[]
 }
+
 export interface MultiPoint {
 	type: string
 	coordinates: position[]
 	bbox?: number[]
 }
+
 export interface Point {
 	type: string
 	coordinates: position
 	bbox?: number[]
 }
+
 export type linear_ring = position[]
+
 export type coord_array = position[]
+
 export type position = number[]
 
 /* Geo JSON Model JSON_MODEL_LOOSE_FLOAT */

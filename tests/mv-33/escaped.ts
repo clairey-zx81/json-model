@@ -2,6 +2,5 @@
 // for ./escaped
 // see https://json-model.org/
 
-
 /* escaped values */
 export type RootModel = ("\n" | "\t" | "\\" | "'" | "\f" | "\"" | "\r")

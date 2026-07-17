@@ -2,6 +2,5 @@
 // for ./compl00
 // see https://json-model.org/
 
-
 /* not a word */
 export type RootModel = (any | string)

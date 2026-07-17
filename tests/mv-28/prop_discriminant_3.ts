@@ -2,7 +2,6 @@
 // for ./prop_discriminant_3
 // see https://json-model.org/
 
-
 /* objects with full (b, d) and partial (c, e) incompatible mandatory properties */
 export interface RootModel_0 {
 	a: number

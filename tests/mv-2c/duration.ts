@@ -2,5 +2,4 @@
 // for ./duration
 // see https://json-model.org/
 
-
 export type RootModel = string

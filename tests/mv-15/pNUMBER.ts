@@ -2,5 +2,4 @@
 // for ./pNUMBER
 // see https://json-model.org/
 
-
 export type RootModel = number

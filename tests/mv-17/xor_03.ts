@@ -2,6 +2,5 @@
 // for ./xor_03
 // see https://json-model.org/
 
-
 /* (any xor m) is (not m) */
 export type RootModel = (any | number)

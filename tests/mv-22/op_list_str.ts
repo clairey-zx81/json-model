@@ -2,7 +2,6 @@
 // for ./op_list_str
 // see https://json-model.org/
 
-
 export interface RootModel_0 {
 	t: "a"
 	foo: number

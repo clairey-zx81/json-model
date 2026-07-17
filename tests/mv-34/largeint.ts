@@ -2,5 +2,4 @@
 // for ./largeint
 // see https://json-model.org/
 
-
 export type RootModel = 9876543210

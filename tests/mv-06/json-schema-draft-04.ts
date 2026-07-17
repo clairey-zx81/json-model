@@ -3,9 +3,13 @@
 // see https://json-model.org/
 
 export type Schema = string
+
 export type typeArray = simpleTypes[]
+
 export type stringArray = string[]
+
 export type simpleTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object")
+
 export type schemaArray = Schema[]
 
 export interface RootModel_definitions {

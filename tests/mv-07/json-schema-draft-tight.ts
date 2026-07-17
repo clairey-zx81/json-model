@@ -9,9 +9,12 @@ export interface RootSchema_0 {
 }
 
 export type RootSchema = (RootSchema_0 & ObjectSchema)
+
 export type Schema = (boolean | ObjectSchema)
+
 /* we could use ^ instead of | below */
 export type ObjectSchema = (Null | Bool | Const | Enum | Integer | Number | String | Array | Object | AllOf | AnyOf | OneOf | Ref | DynRef | metas)
+
 export interface DynRef__vocabulary {
 	$URI: boolean
 }
@@ -43,6 +46,7 @@ export interface DynRef {
 	id?: string
 	definitions?: DynRef_definitions
 }
+
 export interface Ref__vocabulary {
 	$URI: boolean
 }
@@ -74,6 +78,7 @@ export interface Ref {
 	id?: string
 	definitions?: Ref_definitions
 }
+
 export interface Const__vocabulary {
 	$URI: boolean
 }
@@ -105,6 +110,7 @@ export interface Const {
 	id?: string
 	definitions?: Const_definitions
 }
+
 export interface Enum__vocabulary {
 	$URI: boolean
 }
@@ -136,6 +142,7 @@ export interface Enum {
 	id?: string
 	definitions?: Enum_definitions
 }
+
 export interface OneOf__vocabulary {
 	$URI: boolean
 }
@@ -167,6 +174,7 @@ export interface OneOf {
 	id?: string
 	definitions?: OneOf_definitions
 }
+
 export interface AnyOf__vocabulary {
 	$URI: boolean
 }
@@ -198,6 +206,7 @@ export interface AnyOf {
 	id?: string
 	definitions?: AnyOf_definitions
 }
+
 export interface AllOf__vocabulary {
 	$URI: boolean
 }
@@ -229,6 +238,7 @@ export interface AllOf {
 	id?: string
 	definitions?: AllOf_definitions
 }
+
 export interface Null__vocabulary {
 	$URI: boolean
 }
@@ -260,6 +270,7 @@ export interface Null {
 	id?: string
 	definitions?: Null_definitions
 }
+
 export interface Bool__vocabulary {
 	$URI: boolean
 }
@@ -291,6 +302,7 @@ export interface Bool {
 	id?: string
 	definitions?: Bool_definitions
 }
+
 export interface Number__vocabulary {
 	$URI: boolean
 }
@@ -324,6 +336,7 @@ export interface Number {
 	minimum?: number
 	maximum?: number
 }
+
 export interface Integer__vocabulary {
 	$URI: boolean
 }
@@ -357,6 +370,7 @@ export interface Integer {
 	minimum?: number
 	maximum?: number
 }
+
 export interface Object__vocabulary {
 	$URI: boolean
 }
@@ -404,6 +418,7 @@ export interface Object {
 	patternProperties?: Object_patternProperties
 	propertyNames?: ObjectSchema
 }
+
 export interface Array__vocabulary {
 	$URI: boolean
 }
@@ -442,6 +457,7 @@ export interface Array {
 	maxItems?: number
 	uniqueItems?: boolean
 }
+
 export interface String__vocabulary {
 	$URI: boolean
 }
@@ -477,6 +493,7 @@ export interface String {
 	maxLength?: number
 	format?: ("uri" | "uri-reference" | "iri" | "iri-reference" | "date" | "time" | "date-time" | "ipv4" | "ipv6" | "regex" | "uuid" | "hostname" | "email" | "idn-hostname" | "idn-email" | "duration" | "int32" | "int64" | "uint" | "uint32" | "uint64" | "json-pointer" | "relative-json-pointer" | "byte" | "double" | "int" | "mime-type")
 }
+
 export interface metas__vocabulary {
 	$URI: boolean
 }
@@ -508,11 +525,13 @@ export interface metas {
 	id?: string
 	definitions?: metas_definitions
 }
+
 /* not included: exclusive*, multipleOf… */
 export interface numberKeywords {
 	minimum?: number
 	maximum?: number
 }
+
 export interface objectKeywords_properties {
 	"": Schema
 }
@@ -532,6 +551,7 @@ export interface objectKeywords {
 	patternProperties?: objectKeywords_patternProperties
 	propertyNames?: ObjectSchema
 }
+
 /* not included: contains… */
 export interface arrayKeywords {
 	prefixItems?: schemaArray
@@ -542,14 +562,18 @@ export interface arrayKeywords {
 	maxItems?: number
 	uniqueItems?: boolean
 }
+
 export interface stringKeywords {
 	pattern?: string
 	minLength?: number
 	maxLength?: number
 	format?: ("uri" | "uri-reference" | "iri" | "iri-reference" | "date" | "time" | "date-time" | "ipv4" | "ipv6" | "regex" | "uuid" | "hostname" | "email" | "idn-hostname" | "idn-email" | "duration" | "int32" | "int64" | "uint" | "uint32" | "uint64" | "json-pointer" | "relative-json-pointer" | "byte" | "double" | "int" | "mime-type")
 }
+
 export type schemaArray = Schema[]
+
 export type JM_enum = (string[] | number[] | boolean[])
+
 export type JM_const = (null | boolean | number | string)
 
 export type RootModel = RootSchema

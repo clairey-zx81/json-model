@@ -2,7 +2,6 @@
 // for ./opt_nl
 // see https://json-model.org/
 
-
 /* JSON_MODEL_LOOSE_NUMBER */
 export interface RootModel {
 	i: number

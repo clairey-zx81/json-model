@@ -2,5 +2,4 @@
 // for ./uniq_2
 // see https://json-model.org/
 
-
 export type RootModel = any[]

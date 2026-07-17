@@ -2,7 +2,6 @@
 // for ./may_open
 // see https://json-model.org/
 
-
 export interface RootModel {
 	hello?: string
 	"": any

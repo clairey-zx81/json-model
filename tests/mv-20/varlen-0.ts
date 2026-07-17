@@ -2,5 +2,4 @@
 // for ./varlen-0
 // see https://json-model.org/
 
-
 export type RootModel = [number, string, boolean]

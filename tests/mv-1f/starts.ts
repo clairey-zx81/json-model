@@ -2,5 +2,4 @@
 // for ./starts
 // see https://json-model.org/
 
-
 export type RootModel = string

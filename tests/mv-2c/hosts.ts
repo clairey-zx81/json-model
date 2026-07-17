@@ -2,7 +2,6 @@
 // for ./hosts
 // see https://json-model.org/
 
-
 /* predefs about network-related predefs */
 export interface RootModel {
 	ipv4?: string

@@ -2,5 +2,4 @@
 // for ./date
 // see https://json-model.org/
 
-
 export type RootModel = string

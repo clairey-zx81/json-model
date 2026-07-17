@@ -2,5 +2,4 @@
 // for ./fourty-two
 // see https://json-model.org/
 
-
 export type RootModel = 42

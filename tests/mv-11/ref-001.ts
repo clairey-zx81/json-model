@@ -7,6 +7,7 @@ export interface b {
 	b: number
 	c: number
 }
+
 export interface a {
 	a: number
 	b: number

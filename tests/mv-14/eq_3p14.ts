@@ -2,5 +2,4 @@
 // for ./eq_3p14
 // see https://json-model.org/
 
-
 export type RootModel = 3.14

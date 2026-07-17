@@ -2,7 +2,6 @@
 // for ./notag
 // see https://json-model.org/
 
-
 export interface RootModel_0 {
 	t: string
 	foo: string

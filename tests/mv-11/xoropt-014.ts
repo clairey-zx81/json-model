@@ -2,7 +2,6 @@
 // for ./xoropt-014
 // see https://json-model.org/
 
-
 export interface RootModel_movie_0 {
 	t: string
 	titre: string

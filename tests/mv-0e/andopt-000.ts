@@ -2,5 +2,4 @@
 // for ./andopt-000
 // see https://json-model.org/
 
-
 export type RootModel = number

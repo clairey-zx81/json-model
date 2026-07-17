@@ -11,6 +11,7 @@ export interface Cc_1 {
 }
 
 export type Cc = (Cc_0 | Cc_1)
+
 export interface Bb_0 {
 	a: number
 }

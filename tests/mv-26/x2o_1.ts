@@ -5,9 +5,11 @@
 export interface Nabc {
 	t: (string | "a" | "b" | "c")
 }
+
 export interface bc {
 	t: ("b" | "c")
 }
+
 export interface a {
 	t: string
 }

@@ -6,10 +6,12 @@ export interface combined {
 	li: number
 	si: number
 }
+
 /* JSON_MODEL_STRICT_INT */
 export interface strict {
 	si: number
 }
+
 /* JSON_MODEL_LOOSE_INT */
 export interface loose {
 	li: number

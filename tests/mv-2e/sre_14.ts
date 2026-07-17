@@ -2,7 +2,6 @@
 // for ./sre_14
 // see https://json-model.org/
 
-
 export interface RootModel {
 	"/^a/": boolean
 	"": number

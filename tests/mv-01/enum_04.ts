@@ -2,5 +2,4 @@
 // for ./enum_04
 // see https://json-model.org/
 
-
 export type RootModel = (200 | 201 | 204)

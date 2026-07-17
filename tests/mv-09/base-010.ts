@@ -2,5 +2,4 @@
 // for ./base-010
 // see https://json-model.org/
 
-
 export type RootModel = ("Lundi" | "Mardi" | "Mercredi")

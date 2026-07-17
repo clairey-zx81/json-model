@@ -2,6 +2,5 @@
 // for ./opt_02
 // see https://json-model.org/
 
-
 /* flatten and xor to or test */
 export type RootModel = (number | null | boolean)

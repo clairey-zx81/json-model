@@ -2,7 +2,6 @@
 // for ./and_00
 // see https://json-model.org/
 
-
 export interface RootModel {
 	s?: string
 	i?: number

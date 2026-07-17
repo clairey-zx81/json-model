@@ -2,7 +2,6 @@
 // for ./propesc2
 // see https://json-model.org/
 
-
 /* one mandatory prop with an escaped character */
 export interface RootModel {
 	"foo\nbar": any

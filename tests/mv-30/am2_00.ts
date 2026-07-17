@@ -2,7 +2,6 @@
 // for ./am2_00
 // see https://json-model.org/
 
-
 /* JSON_MODEL_LOOSE_FLOAT: any but number or bool */
 export interface RootModel_3 {
 	"": any

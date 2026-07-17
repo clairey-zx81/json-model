@@ -9,6 +9,7 @@ export interface TestCase {
 	tests: Test[]
 	specification?: Specification[]
 }
+
 export interface Specification {
 	core?: Version
 	validation?: Version
@@ -18,6 +19,7 @@ export interface Specification {
 	"/^rfc\\d+$/": Version
 	"/^iso\\d+$/": Version
 }
+
 /* A single test */
 export interface Test {
 	description: string
@@ -25,6 +27,7 @@ export interface Test {
 	data: any
 	valid: boolean
 }
+
 export type Version = string
 
 export type RootModel = TestCase[]

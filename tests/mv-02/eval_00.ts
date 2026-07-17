@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type JM_true = any
+
 export type JM_false = never
 
 export type RootModel = any

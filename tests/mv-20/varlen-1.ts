@@ -2,5 +2,4 @@
 // for ./varlen-1
 // see https://json-model.org/
 
-
 export type RootModel = [string, any]

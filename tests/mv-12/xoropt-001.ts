@@ -3,14 +3,21 @@
 // see https://json-model.org/
 
 export type Any = (null | Bb | Ii | Ff | Ss | Aa | Oo)
+
 export interface Oo {
 	"": Any
 }
+
 export type Aa = Any[]
+
 export type Ss = string
+
 export type Ff = number
+
 export type Ii = number
+
 export type Bb = boolean
+
 export type Nn = null
 
 export type RootModel = Any

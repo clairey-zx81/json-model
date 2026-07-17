@@ -2,5 +2,4 @@
 // for ./eq_false
 // see https://json-model.org/
 
-
 export type RootModel = false

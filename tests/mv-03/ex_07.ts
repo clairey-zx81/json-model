@@ -3,7 +3,9 @@
 // see https://json-model.org/
 
 export type __external_0 = string
+
 export type Ex07 = string
+
 export type ex5 = string
 
 export type RootModel = [string, string, Ex07]

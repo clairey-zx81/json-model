@@ -2,5 +2,4 @@
 // for ./base-005
 // see https://json-model.org/
 
-
 export type RootModel = number[]

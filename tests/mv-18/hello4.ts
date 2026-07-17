@@ -2,7 +2,6 @@
 // for ./hello4
 // see https://json-model.org/
 
-
 export interface RootModel {
 	hello: number
 	world: boolean

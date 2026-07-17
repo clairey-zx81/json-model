@@ -2,5 +2,4 @@
 // for ./orpred
 // see https://json-model.org/
 
-
 export type RootModel = string

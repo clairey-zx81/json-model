@@ -2,7 +2,6 @@
 // for ./dis_02
 // see https://json-model.org/
 
-
 /* disjunction on float */
 export interface RootModel_0 {
 	t: 3.1415927

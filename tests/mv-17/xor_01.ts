@@ -2,7 +2,6 @@
 // for ./xor_01
 // see https://json-model.org/
 
-
 export interface RootModel_0 {
 	a: number
 }

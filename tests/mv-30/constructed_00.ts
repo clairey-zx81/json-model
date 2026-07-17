@@ -2,7 +2,6 @@
 // for ./constructed_00
 // see https://json-model.org/
 
-
 /* any constructed stuff */
 export interface RootModel_0 {
 	"": any

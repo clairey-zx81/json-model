@@ -2,5 +2,4 @@
 // for ./dedup-002
 // see https://json-model.org/
 
-
 export type RootModel = (number | string)

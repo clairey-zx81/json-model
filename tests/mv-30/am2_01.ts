@@ -2,6 +2,5 @@
 // for ./am2_01
 // see https://json-model.org/
 
-
 /* a scalar */
 export type RootModel = (null | boolean | number | string)

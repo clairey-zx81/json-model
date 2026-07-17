@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type x2 = "Susie"
+
 export type x1 = "Susie"
 
 export interface RootModel {

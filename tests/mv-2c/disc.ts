@@ -2,7 +2,6 @@
 // for ./disc
 // see https://json-model.org/
 
-
 /* discriminant simplification */
 export interface RootModel_0 {
 	d: 0

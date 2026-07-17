@@ -2,5 +2,4 @@
 // for ./urlrel
 // see https://json-model.org/
 
-
 export type RootModel = string

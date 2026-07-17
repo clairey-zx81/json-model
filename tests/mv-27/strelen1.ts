@@ -2,5 +2,4 @@
 // for ./strelen1
 // see https://json-model.org/
 
-
 export type RootModel = string

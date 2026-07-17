@@ -2,5 +2,4 @@
 // for ./eq_42
 // see https://json-model.org/
 
-
 export type RootModel = 42

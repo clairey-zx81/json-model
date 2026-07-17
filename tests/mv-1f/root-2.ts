@@ -5,6 +5,7 @@
 export interface Foo {
 	rt: string
 }
+
 export type root = string
 
 export type RootModel = Foo

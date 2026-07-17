@@ -2,5 +2,4 @@
 // for ./sre_01
 // see https://json-model.org/
 
-
 export type RootModel = string

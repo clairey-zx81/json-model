@@ -2,5 +2,4 @@
 // for ./string_const_2
 // see https://json-model.org/
 
-
 export type RootModel = "#"

@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 export type Schema = (boolean | ObjectSchema)
+
 export interface ObjectSchema__vocabulary {
 	$URI: boolean
 }
@@ -95,6 +96,7 @@ export interface ObjectSchema {
 	contentMediaType?: string
 	contentSchema?: Schema
 }
+
 export interface applicator_properties {
 	"": Schema
 }
@@ -133,7 +135,9 @@ export interface applicator {
 	anyOf?: schemaArray
 	oneOf?: schemaArray
 }
+
 export type schemaArray = Schema[]
+
 export interface validation_dependentRequired {
 	"": stringArray
 }
@@ -160,22 +164,30 @@ export interface validation {
 	required?: stringArray
 	dependentRequired?: validation_dependentRequired
 }
+
 export type nonNegativeInteger = number
+
 export type stringArray = string[]
+
 export type simpleTypesArray = simpleTypes[]
+
 export type simpleTypes = ("array" | "boolean" | "integer" | "null" | "number" | "object" | "string")
+
 export interface format {
 	format?: string
 }
+
 export interface unevaluated {
 	unevaluatedItems?: Schema
 	unevaluatedProperties?: Schema
 }
+
 export interface content {
 	contentEncoding?: string
 	contentMediaType?: string
 	contentSchema?: Schema
 }
+
 export interface meta {
 	title?: string
 	description?: string
@@ -185,6 +197,7 @@ export interface meta {
 	writeOnly?: boolean
 	examples?: any[]
 }
+
 export interface core__vocabulary {
 	$URI: boolean
 }
@@ -204,6 +217,7 @@ export interface core {
 	$comment?: string
 	$defs?: core__defs
 }
+
 export type URI_REFERENCE = string
 
 export type RootModel = Schema
