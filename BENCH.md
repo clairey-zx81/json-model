@@ -12,7 +12,8 @@ schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon)
 Overall, depending on the chosen metrics, the JSU converter and JMC C backend are 50 to 90%
 faster than Blaze in these artifacts.
 
-- [2026071302](benchmarks/2026071302.md) clang, predefs, jsu 0.9.12/jmc 2.0.52 vs sbc 16.1.0, 11 runs, 1000 iterations.
+- [2026071700](benchmarks/2026071700.md) clang, predefs, jsu 0.9.13/jmc 2.0.52 vs sbc 16.2.0, 11 runs, 1000 iterations.
+- [2026071302](benchmarks/2026071302.md) clang, predefs, jsu 0.9.13/jmc 2.0.52 vs sbc 16.1.0, 11 runs, 1000 iterations.
 - [2026071000](benchmarks/2026071000.md) clang, no predefs, jsu 0.9.12/jmc 2.0.51 vs sbc 16.1.0, 11 runs, 1000 iterations.
 - [2026070900](benchmarks/2026070900.md) clang, no predefs, jsu 0.9.11/jmc 2.0.51 vs sbc 16.1.0, 11 runs, 1000 iterations.
 - [2026062200](benchmarks/2026062200.md) clang, no predefs, jsu 0.9.11/jmc 2.0.51 vs sbc 16.0.0, 11 runs, 1000 iterations.
