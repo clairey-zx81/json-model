@@ -13,6 +13,7 @@ export interface ab {
 export type b = "A"
 export type a = "A"
 
+/* predefined models */
 export interface RootModel_predefs {
 	"#": string
 	DATE?: string
@@ -49,6 +50,7 @@ export interface RootModel_predefs {
 	NONE?: never
 }
 
+/* null: inference, predefs, constants */
 export interface RootModel_JM_null {
 	"#": string
 	n0?: null
@@ -56,6 +58,7 @@ export interface RootModel_JM_null {
 	n2?: null
 }
 
+/* booleans: inference, predefs, constants, enum */
 export interface RootModel_bool {
 	"#": string
 	b0?: boolean
@@ -66,6 +69,7 @@ export interface RootModel_bool {
 	b5?: (false | true)
 }
 
+/* integers: inference, predefs, constants */
 export interface RootModel_int {
 	"#": string
 	i0?: number
@@ -81,6 +85,7 @@ export interface RootModel_int {
 	ia?: -42
 }
 
+/* floats: inference, predefs, constants */
 export interface RootModel_float {
 	"#": string
 	f0?: number
@@ -94,6 +99,7 @@ export interface RootModel_float {
 	f8?: -42.1
 }
 
+/* strings: inference, predef, constants, regex */
 export interface RootModel_JM_string {
 	"#": string
 	s0?: string
@@ -103,6 +109,7 @@ export interface RootModel_JM_string {
 	s4?: string
 }
 
+/* example arrays */
 export interface RootModel_array {
 	"#": string
 	a0?: number[]
@@ -112,6 +119,7 @@ export interface RootModel_array {
 	a4?: any[]
 }
 
+/* tuple items have a type */
 export interface RootModel_tuple {
 	"#": string
 	t0?: []
@@ -150,6 +158,7 @@ export interface RootModel_JM_object_o6 {
 	"": any
 }
 
+/* object map property names to values */
 export interface RootModel_JM_object {
 	"#": string
 	o0?: RootModel_JM_object_o0
@@ -161,6 +170,7 @@ export interface RootModel_JM_object {
 	o6?: RootModel_JM_object_o6
 }
 
+/* an enumeration only contains constants */
 export interface RootModel_JM_enum {
 	"#": string
 	e0?: (true | false)
@@ -173,6 +183,7 @@ export interface RootModel_or_o2_3 {
 	"": any
 }
 
+/* soft alternative, first match */
 export interface RootModel_or {
 	"#": string
 	o0?: (boolean | number)
@@ -180,6 +191,7 @@ export interface RootModel_or {
 	o2?: (number | string | any[] | RootModel_or_o2_3)
 }
 
+/* hard alternative, only one must match */
 export interface RootModel_xor {
 	"#": string
 	x0?: (boolean | number)
@@ -188,6 +200,7 @@ export interface RootModel_xor {
 	x3?: (any | number)
 }
 
+/* conjunction, all must match */
 export interface RootModel_and {
 	"#": string
 	a0?: string
@@ -245,6 +258,7 @@ export interface RootModel_merge_m4 {
 	d: number
 }
 
+/* merge object properties */
 export interface RootModel_merge {
 	"#": string
 	m0?: RootModel_merge_m0
@@ -294,6 +308,7 @@ export interface RootModel_constraints {
 	cua0?: any[]
 }
 
+/* A model to illustrate most design features */
 export interface RootModel {
 	"#": string
 	predefs?: RootModel_predefs

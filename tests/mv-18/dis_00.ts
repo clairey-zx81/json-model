@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* string discriminant */
 export interface RootModel_0 {
 	tag: string
 	a: string

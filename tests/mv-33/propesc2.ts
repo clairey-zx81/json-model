@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* one mandatory prop with an escaped character */
 export interface RootModel {
 	"#": string
 	"foo\nbar": any

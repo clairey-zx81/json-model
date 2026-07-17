@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* ^ to | on discriminant property */
 export interface RootModel_0 {
 	d: 1
 	val: number

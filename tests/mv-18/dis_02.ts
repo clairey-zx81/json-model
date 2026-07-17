@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* disjunction on float */
 export interface RootModel_0 {
 	t: 3.1415927
 	pi: string

@@ -4,6 +4,7 @@
 
 export type root = string
 
+/* Recursion test 03 */
 export interface RootModel {
 	"#": string
 	foo?: (root | root[])

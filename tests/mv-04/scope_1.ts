@@ -5,4 +5,5 @@
 export type s = string
 export type r = [s, s]
 
+/* a string with a lower case later or a digit */
 export type RootModel = (s | string)

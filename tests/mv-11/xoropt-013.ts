@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* NOT ^ to | */
 export interface RootModel_0 {
 	a: string
 	"": string

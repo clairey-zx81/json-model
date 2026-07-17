@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* JsonModel 1 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT) */
 export type RootModel = number

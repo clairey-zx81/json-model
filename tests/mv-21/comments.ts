@@ -3,6 +3,11 @@
 // see https://json-model.org/
 
 
+/*
+ * This is a
+ * multiline
+ * comment.
+ */
 export interface RootModel {
 	"#": string
 	hello: string

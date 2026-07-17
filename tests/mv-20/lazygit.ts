@@ -362,6 +362,7 @@ export interface RootModel_customCommands {
 	after?: RootModel_customCommands_after
 }
 
+/* JSON Model for Lazy Git */
 export interface RootModel {
 	"#": string
 	gui?: RootModel_gui

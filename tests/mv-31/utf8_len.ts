@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* char vs byte length */
 export interface RootModel {
 	"#": string
 	"0"?: ""

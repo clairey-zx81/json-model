@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* simple regex props */
 export interface RootModel {
 	"#": string
 	"/^(foo|bla)$/": number

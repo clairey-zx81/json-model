@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* not a word */
 export type RootModel = (any | string)

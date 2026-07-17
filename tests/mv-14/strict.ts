@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* JSON_MODEL_STRICT_INT */
 export interface RootModel {
 	"#": string
 	si: number

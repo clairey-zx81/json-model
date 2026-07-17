@@ -18,6 +18,7 @@ export interface RootModel_dependencies {
 	"": (string | string[] | Schema)
 }
 
+/* JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
 export interface RootModel {
 	"#": string
 	type?: (allTypes | (string | Schema)[])

@@ -202,6 +202,7 @@ export interface Tag {
 	externalDocs?: ExternalDocumentation
 	"/^x-/": any
 }
+/* more or less a parameter but without name and in */
 export interface Header_0_examples {
 	"": (Example | Reference)
 }
@@ -389,6 +390,7 @@ export interface parameterSchemaOnly {
 	example?: any
 	examples?: parameterSchemaOnly_examples
 }
+/* serialization styles */
 export type Style = ("matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject")
 export interface commonParameter {
 	name: string

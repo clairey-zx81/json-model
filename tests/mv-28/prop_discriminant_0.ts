@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* objects with incompatible mandatory properties */
 export interface RootModel_0 {
 	a: number
 	b: number

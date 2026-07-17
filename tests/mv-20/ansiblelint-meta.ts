@@ -2,6 +2,7 @@
 // for ./ansiblelint-meta
 // see https://json-model.org/
 
+/* why null? */
 export type AnsibleMeta = (null | AnsibleMetaObj)
 export interface AnsibleMetaObj {
 	allow_duplicates?: boolean
@@ -9,6 +10,7 @@ export interface AnsibleMetaObj {
 	dependencies?: (string | DependencyModel)[]
 	galaxy_info?: GalaxyInfoModel
 }
+/* add non-exclusive mandatory role, src or name props */
 export interface DependencyModel_1_0 {
 	role: string
 	"": any
@@ -29,6 +31,11 @@ export interface DependencyModelLoose_vars {
 	"": any
 }
 
+/*
+ * See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79
+ * 
+ * Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
+ */
 export interface DependencyModelLoose {
 	"#": string
 	become?: boolean
@@ -44,6 +51,7 @@ export interface DependencyModelLoose {
 }
 export type complex_conditional = (boolean | string | string[])
 export type collections = string[]
+/* hmmmm, property standalone should probably be required… */
 export interface GalaxyInfoModel_1 {
 	standalone: false
 	description: string
@@ -97,6 +105,7 @@ export interface GalaxyInfoModelStandalone {
 	role_name?: string
 	video_links?: any[]
 }
+/* some $URL should be added? */
 export interface GalaxyInfoModelLoose {
 	"#": string
 	description: string
@@ -399,6 +408,7 @@ export interface platforms_item_46 {
 }
 
 export type platforms = (platforms_item_0 | platforms_item_1 | platforms_item_2 | platforms_item_3 | platforms_item_4 | platforms_item_5 | platforms_item_6 | platforms_item_7 | platforms_item_8 | platforms_item_9 | platforms_item_10 | platforms_item_11 | platforms_item_12 | platforms_item_13 | platforms_item_14 | platforms_item_15 | platforms_item_16 | platforms_item_17 | platforms_item_18 | platforms_item_19 | platforms_item_20 | platforms_item_21 | platforms_item_22 | platforms_item_23 | platforms_item_24 | platforms_item_25 | platforms_item_26 | platforms_item_27 | platforms_item_28 | platforms_item_29 | platforms_item_30 | platforms_item_31 | platforms_item_32 | platforms_item_33 | platforms_item_34 | platforms_item_35 | platforms_item_36 | platforms_item_37 | platforms_item_38 | platforms_item_39 | platforms_item_40 | platforms_item_41 | platforms_item_42 | platforms_item_43 | platforms_item_44 | platforms_item_45 | platforms_item_46)[]
+/* FIXME: name is not mandatory, not sure it makes much sense… versions should be unique? */
 export type any_platform = (AIXPlatformModel | AlpinePlatformModel | AmazonPlatformModel | AmazonLinuxPlatformModel | aosPlatformModel | ArchLinuxPlatformModel | AstraLinuxPlatformModel | ClearLinuxPlatformModel | CumulusPlatformModel | NetBSDPlatformModel | DebianPlatformModel | DellOSPlatformModel | DevuanPlatformModel | DragonFlyBSDPlatformModel | ELPlatformModel | eosPlatformModel | FedoraPlatformModel | FreeBSDPlatformModel | GenericBSDPlatformModel | GenericLinuxPlatformModel | GenericUNIXPlatformModel | GentooPlatformModel | HardenedBSDPlatformModel | IOSPlatformModel | JunosPlatformModel | KaliPlatformModel | macOSPlatformModel | MacOSXPlatformModel | MageiaPlatformModel | NXOSPlatformModel | OpenBSDPlatformModel | opensusePlatformModel | OpenWrtPlatformModel | OracleLinuxPlatformModel | os10PlatformModel | PAN_OSPlatformModel | RockyLinuxPlatformModel | SLESPlatformModel | SmartOSPlatformModel | SolarisPlatformModel | SynologyPlatformModel | TMOSPlatformModel | UbuntuPlatformModel | vCenterPlatformModel | Void_LinuxPlatformModel | vSpherePlatformModel | WindowsPlatformModel)
 export interface vSpherePlatformModel {
 	name?: "vSphere"

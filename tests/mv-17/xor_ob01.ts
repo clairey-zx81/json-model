@@ -21,6 +21,7 @@ export interface Bb_1 {
 
 export type Bb = (Bb_0 | Bb_1)
 
+/* CAUTION ba is currently valid… */
 export interface RootModel_0 {
 	a: number
 }

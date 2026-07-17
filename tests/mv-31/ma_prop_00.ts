@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* prop order check is preserved */
 export interface RootModel {
 	"#": string
 	pretty_long_property_name?: number

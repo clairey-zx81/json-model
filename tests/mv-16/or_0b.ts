@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* mixed type constants */
 export type RootModel = (null | false | 42 | 3.14159 | 10E100 | "Susie" | "Calvin")

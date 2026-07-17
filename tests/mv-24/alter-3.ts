@@ -2,6 +2,7 @@
 // for ./alter-3
 // see https://json-model.org/
 
+/* expecting xor-to-or and tag detection, but not for u */
 export interface alternative_0 {
 	u: "a"
 	a: string

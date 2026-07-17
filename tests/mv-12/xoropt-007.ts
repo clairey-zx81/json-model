@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* ^ cannot be | */
 export interface RootModel_0 {
 	a: number
 	b?: number

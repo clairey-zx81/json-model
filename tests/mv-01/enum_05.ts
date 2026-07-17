@@ -3,4 +3,5 @@
 // see https://json-model.org/
 
 
+/* Heterogeneous enum */
 export type RootModel = (200 | "Susie" | null | 3.1415927)

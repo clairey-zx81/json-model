@@ -21,6 +21,7 @@ export interface Aa_1 {
 
 export type Aa = (Aa_0 | Aa_1)
 
+/* 4 property combinations: ac ad bc bd */
 export interface RootModel_0 {
 	a: number
 	c: number

@@ -6,6 +6,7 @@ export type f = false
 export type x = 10.0
 export type n = null
 
+/* ^ to | on constants */
 export interface RootModel_0 {
 	a: null
 }

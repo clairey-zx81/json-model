@@ -3,6 +3,7 @@
 // see https://json-model.org/
 
 
+/* boolean tag */
 export interface RootModel_0 {
 	discriminator: true
 	x: string

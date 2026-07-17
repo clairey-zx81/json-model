@@ -18,6 +18,7 @@ export interface Specification {
 	"/^rfc\\d+$/": Version
 	"/^iso\\d+$/": Version
 }
+/* A single test */
 export interface Test {
 	"#": string
 	description: string
