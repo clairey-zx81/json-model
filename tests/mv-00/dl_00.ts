@@ -3,7 +3,7 @@
 // see https://json-model.org/
 
 export interface rec_1 {
-	"": rec
+	[key: string]: rec
 }
 
 export type rec = (boolean | rec_1)

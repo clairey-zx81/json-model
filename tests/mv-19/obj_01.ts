@@ -10,5 +10,5 @@ export interface RootModel {
 	bla?: boolean
 	$Xxx: number
 	"/^[0-9]+$/": number
-	"": null
+	[key: string]: any
 }

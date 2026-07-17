@@ -11,5 +11,5 @@ export interface RootModel {
 	"/^xi/": number
 	f?: number
 	"/^xf/": number
-	"": any
+	[key: string]: any
 }

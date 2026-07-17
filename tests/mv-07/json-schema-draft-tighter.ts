@@ -5,7 +5,7 @@
 /* keyword $schema is mandatory at the root, and optional elsewhere */
 export interface RootSchema_0 {
 	$schema: string
-	"": any
+	[key: string]: any
 }
 
 export type RootSchema = (RootSchema_0 & ObjectSchema)
@@ -16,11 +16,11 @@ export type Schema = (boolean | ObjectSchema)
 export type ObjectSchema = (Null | Bool | Const | Enum | Integer | Number | String | Array | Object | AllOf | AnyOf | OneOf | Ref | metas)
 
 export interface Ref__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Ref_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Ref {
@@ -38,11 +38,11 @@ export interface Ref {
 }
 
 export interface Const__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Const_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Const {
@@ -60,11 +60,11 @@ export interface Const {
 }
 
 export interface Enum__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Enum_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Enum {
@@ -82,11 +82,11 @@ export interface Enum {
 }
 
 export interface OneOf__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface OneOf_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface OneOf {
@@ -104,11 +104,11 @@ export interface OneOf {
 }
 
 export interface AnyOf__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface AnyOf_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface AnyOf {
@@ -126,11 +126,11 @@ export interface AnyOf {
 }
 
 export interface AllOf__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface AllOf_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface AllOf {
@@ -148,11 +148,11 @@ export interface AllOf {
 }
 
 export interface Null__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Null_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Null {
@@ -170,11 +170,11 @@ export interface Null {
 }
 
 export interface Bool__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Bool_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Bool {
@@ -192,11 +192,11 @@ export interface Bool {
 }
 
 export interface Number__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Number_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Number {
@@ -216,11 +216,11 @@ export interface Number {
 }
 
 export interface Integer__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Integer_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Integer {
@@ -240,15 +240,15 @@ export interface Integer {
 }
 
 export interface Object__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Object_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Object_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Object_patternProperties {
@@ -274,11 +274,11 @@ export interface Object {
 }
 
 export interface Array__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Array_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface Array {
@@ -302,11 +302,11 @@ export interface Array {
 }
 
 export interface String__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface String_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface String {
@@ -328,11 +328,11 @@ export interface String {
 }
 
 export interface metas__defs {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface metas_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 /* there is a trick with $schema… in RootSchema below */
@@ -356,7 +356,7 @@ export interface numberKeywords {
 }
 
 export interface objectKeywords_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface objectKeywords_patternProperties {

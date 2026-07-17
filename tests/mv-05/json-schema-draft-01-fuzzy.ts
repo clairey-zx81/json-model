@@ -3,7 +3,7 @@
 // see https://json-model.org/
 
 export interface schema_properties {
-	"": string
+	[key: string]: string
 }
 
 /* JSON Model for JSON Schema Draft 01 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */
@@ -34,7 +34,7 @@ export interface schema {
 	extends?: (string | string[])
 	id?: string
 	$schema?: string
-	"": any
+	[key: string]: any
 }
 
 export type RootModel = schema

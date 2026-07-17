@@ -5,7 +5,7 @@
 export type Any = (null | Bb | Ii | Ff | Ss | Aa | Oo)
 
 export interface Oo {
-	"": Any
+	[key: string]: Any
 }
 
 export type Aa = Any[]

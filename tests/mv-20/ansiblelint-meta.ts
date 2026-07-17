@@ -15,23 +15,23 @@ export interface AnsibleMetaObj {
 /* add non-exclusive mandatory role, src or name props */
 export interface DependencyModel_1_0 {
 	role: string
-	"": any
+	[key: string]: any
 }
 
 export interface DependencyModel_1_1 {
 	src: string
-	"": any
+	[key: string]: any
 }
 
 export interface DependencyModel_1_2 {
 	name: string
-	"": any
+	[key: string]: any
 }
 
 export type DependencyModel = (DependencyModelLoose & (DependencyModel_1_0 | DependencyModel_1_1 | DependencyModel_1_2))
 
 export interface DependencyModelLoose_vars {
-	"": any
+	[key: string]: any
 }
 
 /*
@@ -49,7 +49,7 @@ export interface DependencyModelLoose {
 	vars?: DependencyModelLoose_vars
 	version?: string
 	when?: complex_conditional
-	"": any
+	[key: string]: any
 }
 
 export type complex_conditional = (boolean | string | string[])
@@ -136,283 +136,283 @@ export interface GalaxyInfoModelCollection {
 export interface platforms_item_0 {
 	name?: "AIX"
 	versions?: ("6.1" | "7.1" | "7.2" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_1 {
 	name?: "Alpine"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_2 {
 	name?: "Amazon"
 	versions?: ("2013.03" | "2013.09" | "2014.03" | "2014.09" | "2015.03" | "2015.09" | "2016.03" | "2016.09" | "2017.03" | "2017.09" | "2017.12" | "2018.03" | "Candidate" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_3 {
 	name?: "Amazon Linux"
 	versions?: ("all" | "1" | "2" | "2023")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_4 {
 	name?: "aos"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_5 {
 	name?: "ArchLinux"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_6 {
 	name?: "Astra Linux"
 	versions?: ("1.8" | "1.7" | "1.6" | "2.12" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_7 {
 	name?: "ClearLinux"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_8 {
 	name?: "Cumulus"
 	versions?: ("2.5" | "3.0" | "3.1" | "3.2" | "3.3" | "3.4" | "3.5" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_9 {
 	name?: "NetBSD"
 	versions?: ("8.0" | "8.1" | "8.2" | "9.0" | "9.1" | "9.2" | "9.3" | "10.0" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_10 {
 	name?: "Debian"
 	versions?: ("bookworm" | "bullseye" | "buster" | "etch" | "jessie" | "lenny" | "sid" | "squeeze" | "stretch" | "trixie" | "wheezy" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_11 {
 	name?: "DellOS"
 	versions?: ("10" | "6" | "9" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_12 {
 	name?: "Devuan"
 	versions?: ("ascii" | "beowulf" | "chimaera" | "daedalus" | "jessie" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_13 {
 	name?: "DragonFlyBSD"
 	versions?: ("5.2" | "5.4" | "5.6" | "5.8" | "6.0" | "6.2" | "6.4" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_14 {
 	name?: "EL"
 	versions?: ("5" | "6" | "7" | "8" | "9" | "10" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_15 {
 	name?: "eos"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_16 {
 	name?: "Fedora"
 	versions?: ("16" | "17" | "18" | "19" | "20" | "21" | "22" | "23" | "24" | "25" | "26" | "27" | "28" | "29" | "30" | "31" | "32" | "33" | "34" | "35" | "36" | "37" | "38" | "39" | "40" | "41" | "42" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_17 {
 	name?: "FreeBSD"
 	versions?: ("8.0" | "8.1" | "8.2" | "8.3" | "8.4" | "9.0" | "9.1" | "9.2" | "9.3" | "10.0" | "10.1" | "10.2" | "10.3" | "10.4" | "11.0" | "11.1" | "11.2" | "11.3" | "11.4" | "12.0" | "12.1" | "12.2" | "13.0" | "13.1" | "13.2" | "14.0" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_18 {
 	name?: "GenericBSD"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_19 {
 	name?: "GenericLinux"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_20 {
 	name?: "GenericUNIX"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_21 {
 	name?: "Gentoo"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_22 {
 	name?: "HardenedBSD"
 	versions?: ("10" | "11" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_23 {
 	name?: "IOS"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_24 {
 	name?: "Junos"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_25 {
 	name?: "Kali"
 	versions?: ("2.0" | "2016" | "2017" | "2018" | "2019" | "2020" | "2021" | "2022" | "2023" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_26 {
 	name?: "macOS"
 	versions?: ("Big-Sur" | "Catalina" | "High-Sierra" | "Mojave" | "Monterey" | "Sierra" | "Sonoma" | "Ventura" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_27 {
 	name?: "Kali"
 	versions?: ("10.7" | "10.8" | "10.9" | "10.10" | "10.11" | "10.12" | "10.13" | "10.14" | "10.15" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_28 {
 	name?: "Megeia"
 	versions?: ("7" | "8" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_29 {
 	name?: "NXOS"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_30 {
 	name?: "OpenBSD"
 	versions?: ("5.6" | "5.7" | "5.8" | "5.9" | "6.0" | "6.1" | "6.2" | "6.3" | "6.4" | "6.5" | "6.6" | "6.7" | "6.8" | "6.9" | "7.0" | "7.1" | "7.2" | "7.3" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_31 {
 	name?: "opensuse"
 	versions?: ("12.1" | "12.2" | "12.3" | "13.1" | "13.2" | "15.0" | "15.1" | "15.2" | "15.3" | "15.4" | "15.5" | "42.1" | "42.2" | "42.3" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_32 {
 	name?: "OpenWrt"
 	versions?: ("17.01" | "18.06" | "19.07" | "21.02" | "22.03" | "23.05" | "24.10" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_33 {
 	name?: "OracleLinux"
 	versions?: ("7.0" | "7.1" | "7.2" | "7.3" | "7.4" | "7.5" | "7.6" | "7.7" | "7.8" | "7.9" | "8.0" | "8.1" | "8.2" | "8.3" | "8.4" | "8.5" | "8.6" | "8.7" | "8.8" | "8.9" | "8.10" | "9.0" | "9.1" | "9.2" | "9.3" | "9.4" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_34 {
 	name?: "os10"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_35 {
 	name?: "PAN-OS"
 	versions?: ("7.1" | "8.0" | "8.1" | "9.0" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_36 {
 	name?: "Rocky"
 	versions?: ("8.0" | "8.1" | "8.2" | "8.3" | "8.4" | "8.5" | "8.6" | "8.7" | "8.8" | "9.0" | "9.1" | "9.2" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_37 {
 	name?: "SLES"
 	versions?: ("10SP3" | "10SP4" | "11" | "11SP1" | "11SP2" | "11SP3" | "11SP4" | "12" | "12SP1" | "12SP2" | "12SP3" | "12SP4" | "12SP5" | "15" | "15SP1" | "15SP2" | "15SP3" | "15SP4" | "15SP5" | "15SP6" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_38 {
 	name?: "SmartOS"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_39 {
 	name?: "Solaris"
 	versions?: ("10" | "11.0" | "11.1" | "11.2" | "11.3" | "11.4" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_40 {
 	name?: "Synology"
 	versions?: ("6.0" | "6.1" | "6.2" | "7.0" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_41 {
 	name?: "TMOS"
 	versions?: ("12.1" | "13.0" | "13.1" | "14.0" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_42 {
 	name?: "Ubuntu"
 	versions?: ("artful" | "bionic" | "cosmic" | "disco" | "eoan" | "focal" | "groovy" | "hirsute" | "impish" | "jammy" | "kinetic" | "lucid" | "lunar" | "mantic" | "noble" | "maverick" | "natty" | "oneiric" | "oracular" | "plucky" | "precise" | "quantal" | "raring" | "saucy" | "trusty" | "utopic" | "vivid" | "wily" | "xenial" | "yakkety" | "zesty" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_43 {
 	name?: "vCenter"
 	versions?: ("5.5" | "6.0" | "6.5" | "6.7" | "7.0" | "8.0" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_44 {
 	name?: "Void Linux"
 	versions?: "all"[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_45 {
 	name?: "vSphere"
 	versions?: ("5.5" | "6.0" | "6.5" | "6.7" | "7.0" | "8.0" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export interface platforms_item_46 {
 	name?: "Windows"
 	versions?: ("2008R2" | "2008x64" | "2008x86" | "2012" | "2012R2" | "2016" | "2019" | "2022" | "2025" | "all")[]
-	"": any
+	[key: string]: any
 }
 
 export type platforms = (platforms_item_0 | platforms_item_1 | platforms_item_2 | platforms_item_3 | platforms_item_4 | platforms_item_5 | platforms_item_6 | platforms_item_7 | platforms_item_8 | platforms_item_9 | platforms_item_10 | platforms_item_11 | platforms_item_12 | platforms_item_13 | platforms_item_14 | platforms_item_15 | platforms_item_16 | platforms_item_17 | platforms_item_18 | platforms_item_19 | platforms_item_20 | platforms_item_21 | platforms_item_22 | platforms_item_23 | platforms_item_24 | platforms_item_25 | platforms_item_26 | platforms_item_27 | platforms_item_28 | platforms_item_29 | platforms_item_30 | platforms_item_31 | platforms_item_32 | platforms_item_33 | platforms_item_34 | platforms_item_35 | platforms_item_36 | platforms_item_37 | platforms_item_38 | platforms_item_39 | platforms_item_40 | platforms_item_41 | platforms_item_42 | platforms_item_43 | platforms_item_44 | platforms_item_45 | platforms_item_46)[]

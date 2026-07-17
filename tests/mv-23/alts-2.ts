@@ -11,7 +11,7 @@ export interface a_JM__1 {
 }
 
 export interface a {
-	"": (r | a_JM__1)
+	[key: string]: (r | a_JM__1)
 }
 
 export type RootModel = r

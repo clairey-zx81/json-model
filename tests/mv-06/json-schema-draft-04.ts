@@ -13,19 +13,19 @@ export type simpleTypes = ("null" | "boolean" | "integer" | "number" | "string" 
 export type schemaArray = Schema[]
 
 export interface RootModel_definitions {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface RootModel_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface RootModel_patternProperties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface RootModel_dependencies {
-	"": (Schema | stringArray)
+	[key: string]: (Schema | stringArray)
 }
 
 /* JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */

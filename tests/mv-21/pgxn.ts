@@ -13,7 +13,7 @@ export interface Prereqs {
 }
 
 export interface Prereq {
-	"": (Version | VersionRange)
+	[key: string]: (Version | VersionRange)
 }
 
 export type Relation = ("requires" | "recommends" | "suggests" | "conflicts")
@@ -65,11 +65,11 @@ export type neStrList = neStr[]
 export type neStr = string
 
 export interface RootModel_license_2 {
-	"": string
+	[key: string]: string
 }
 
 export interface RootModel_provides {
-	"": Provide
+	[key: string]: Provide
 }
 
 export interface RootModel_meta_spec {

@@ -5,13 +5,13 @@
 export interface bla {
 	b?: boolean
 	"/^xb/": boolean
-	"": any
+	[key: string]: any
 }
 
 export interface foo {
 	s?: string
 	"/^xs/": string
-	"": any
+	[key: string]: any
 }
 
 export interface RootModel {
@@ -23,5 +23,5 @@ export interface RootModel {
 	"/^xa/": any[]
 	b?: boolean
 	"/^xb/": boolean
-	"": any
+	[key: string]: any
 }

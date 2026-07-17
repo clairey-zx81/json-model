@@ -39,7 +39,7 @@ export interface RootModel_6 {
 }
 
 export interface RootModel_7_v {
-	"": any
+	[key: string]: any
 }
 
 export interface RootModel_7 {

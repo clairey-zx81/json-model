@@ -9,15 +9,15 @@ export type distinctSchemaArray = (string | Schema)[]
 export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object" | "any")
 
 export interface RootModel_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface RootModel_patternProperties {
-	"": Schema
+	[key: string]: Schema
 }
 
 export interface RootModel_dependencies {
-	"": (string | string[] | Schema)
+	[key: string]: (string | string[] | Schema)
 }
 
 /* JSON Model for JSON Schema Draft 03 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */

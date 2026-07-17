@@ -4,7 +4,7 @@
 
 export interface ToolCallResponse_result {
 	content: any[]
-	"": any
+	[key: string]: any
 }
 
 export interface ToolCallResponse {
@@ -34,7 +34,7 @@ export interface ToolsListRequest {
 	jsonrpc: "2.0"
 	id: number
 	method: "tools/list"
-	"": any
+	[key: string]: any
 }
 
 export interface Notification {
@@ -49,13 +49,13 @@ export interface InitializeResponse_result_capabilities_tools {
 export interface InitializeResponse_result_capabilities {
 	tools: InitializeResponse_result_capabilities_tools
 	resources: Object
-	"": any
+	[key: string]: any
 }
 
 export interface InitializeResponse_result_serverInfo {
 	name: string
 	version: string
-	"": any
+	[key: string]: any
 }
 
 export interface InitializeResponse_result {
@@ -72,13 +72,13 @@ export interface InitializeResponse {
 
 export interface InitializeRequest_params_capabilities {
 	elicitation: Object
-	"": any
+	[key: string]: any
 }
 
 export interface InitializeRequest_params_clientInfo {
 	name: string
 	version: string
-	"": any
+	[key: string]: any
 }
 
 export interface InitializeRequest_params {
@@ -99,13 +99,13 @@ export interface Tool {
 	title?: string
 	description?: string
 	inputSchema: Object
-	"": any
+	[key: string]: any
 }
 
 export type ProtocolVersion = ("2025-11-25" | "2025-06-18" | "2025-03-26" | "2024-11-05")
 
 export interface Object {
-	"": any
+	[key: string]: any
 }
 
 /* MCP - Model Context Protocol */

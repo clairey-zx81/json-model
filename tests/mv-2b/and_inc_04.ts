@@ -3,7 +3,7 @@
 // see https://json-model.org/
 
 export interface foo {
-	"": any
+	[key: string]: any
 	"/^foo/": string
 }
 

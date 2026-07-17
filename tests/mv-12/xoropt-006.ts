@@ -14,7 +14,7 @@ export interface RootModel_1 {
 
 export interface RootModel_2 {
 	"/^[ab]$/": never
-	"": number
+	[key: string]: any
 }
 
 export type RootModel = (RootModel_0 | RootModel_1 | RootModel_2)

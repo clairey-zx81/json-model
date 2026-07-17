@@ -6,5 +6,5 @@ export interface RootModel {
 	a: string
 	b: string
 	c: string
-	"": any
+	[key: string]: any
 }

@@ -9,7 +9,7 @@ export type distinctStringArray = string[]
 export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object" | "any")
 
 export interface RootModel_properties {
-	"": Schema
+	[key: string]: Schema
 }
 
 /* JSON Model for JSON Schema Draft 02 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT] */

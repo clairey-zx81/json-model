@@ -146,11 +146,11 @@ export interface RootModel_JM_object_o4 {
 }
 
 export interface RootModel_JM_object_o5 {
-	"": number
+	[key: string]: number
 }
 
 export interface RootModel_JM_object_o6 {
-	"": any
+	[key: string]: any
 }
 
 /* object map property names to values */
@@ -173,7 +173,7 @@ export interface RootModel_JM_enum {
 }
 
 export interface RootModel_or_o2_3 {
-	"": any
+	[key: string]: any
 }
 
 /* soft alternative, first match */
@@ -258,15 +258,15 @@ export interface RootModel_merge {
 }
 
 export interface RootModel_constraints_cio0 {
-	"": any
+	[key: string]: any
 }
 
 export interface RootModel_constraints_cio1 {
-	"": any
+	[key: string]: any
 }
 
 export interface RootModel_constraints_cio2 {
-	"": any
+	[key: string]: any
 }
 
 export interface RootModel_constraints {

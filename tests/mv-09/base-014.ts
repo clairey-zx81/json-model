@@ -5,5 +5,5 @@
 export interface RootModel {
 	nom: string
 	age?: number
-	"": string
+	[key: string]: any
 }
