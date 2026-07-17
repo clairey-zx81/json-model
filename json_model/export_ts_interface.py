@@ -166,13 +166,16 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
     return code
 
 def model2tsinterface(model: JsonModel, root: str|None = "RootModel") -> Block:
-    code: Block = []
     def_keys = model._defs.keys()
     _check_name_collisions(def_keys, "definitions ($)")
+    blocks: list[Block] = []
     for name, jm in model._defs.items():
-        code = m2ts(name, jm._model, def_keys) + code
-
+        blocks.insert(0, m2ts(name, jm._model, def_keys))
     if root is not None:
-        code = code + [""] + m2ts(root, model._model, def_keys)
-
+        blocks.append(m2ts(root, model._model, def_keys))
+    code: Block = []
+    for b in blocks:
+        if code and b:
+            code += [""]
+        code += b
     return code
