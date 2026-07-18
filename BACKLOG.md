@@ -17,6 +17,7 @@
 - [ ] ts-export: manage or error on regex properties
 - [ ] ts-export: manage or error on regex and defs properties
 - [ ] ts-export: keep definition order, do not reverse it!
+- [ ] pr: add ts-export howto section
 - [ ] models: add model for `*.errors.json` files
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)
