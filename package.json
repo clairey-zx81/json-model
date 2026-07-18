@@ -11,6 +11,6 @@
   "dependencies": {
     "json_model_runtime": "file:json_model/runtime/js",
     "re2": "^1.22.1",
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   }
 }
