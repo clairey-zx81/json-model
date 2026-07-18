@@ -15,6 +15,7 @@
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
 - [ ] tests: use `.errors.json` file to manage errors, instead of rough counts
 - [ ] ts-export: manage or error on regex properties
+- [ ] ts-export: manage or error on regex and defs properties
 - [ ] ts-export: keep definition order, do not reverse it!
 - [ ] models: add model for `*.errors.json` files
 - [ ] tests: run tests inside docker image
