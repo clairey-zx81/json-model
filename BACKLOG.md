@@ -8,7 +8,9 @@
 - [x] export: generate ts interfaces
 - [ ] ts-export: manage or error on regex and defs properties
 - [ ] ts-export: keep definition order, do not reverse it!
-- [ ] pr: add ts-export howto section
+- [ ] pr: add ts export howto section
+- [ ] pr: add ts format to jmc pod documentation
+- [ ] pr: add ts export to reference documentation (?)
 - [ ] models: add model for `*.errors.json` files
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)
