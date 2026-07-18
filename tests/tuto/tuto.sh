@@ -93,6 +93,10 @@ type psql > /dev/null 2>&1 && {
     done | psql -f test_values.sql
 }
 
+echo "# exporting to Pydantic, TS"
+jmc -E -F py Person-2
+jmc -E -F ts Person-2
+
 echo "# exporting to, importing from JSON Schema"
 jmc --loose -E -F yaml Person-2
 jmc -E Person-2 | jsu-model

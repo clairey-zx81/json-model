@@ -723,7 +723,7 @@ classes very simply using type hints.
 Let us export a model to pydantic with the `-E` export task:
 
 ```sh
-jmc -E -F PersonModels.py -n Root Person-2
+jmc -E -F py -n Root Person-2
 ```
 
 The generated file provide predeclared classes and types based on all named
@@ -746,6 +746,30 @@ type Root = Person
 ```
 
 Note that not all constraints and types are implemented.
+
+## Exporting as TypeScript interfaces
+
+Let us export a model as a typescript interface:
+
+```sh
+jmc -E -F ts Person-2
+```
+
+This results in:
+
+```ts
+export type Pi = 3.141592653589793238462643
+
+export interface Person {
+        name: Name
+        birth: string
+        friends?: Name[]
+}
+
+export type Name = string
+
+export type Root = Person
+```
 
 ## Exporting to and Importing from JSON Schema
 
