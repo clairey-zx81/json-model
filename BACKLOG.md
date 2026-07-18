@@ -5,6 +5,7 @@
 - [x] perf: improve generated reports
 - [x] model: add example model for JMC benchmark radar data
 - [x] pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
+- [x] export: generate ts interfaces
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] static: use combined type test and value extraction when available?
@@ -138,15 +139,8 @@
 
 ## Internship
 
-- [ ] pr: read www, papers, spec… setup dev env, report issues
-- [ ] pr: try tutorial, report issues and suggest improvements
-- [ ] tests: add a few tests for jsonrpc model
-- [ ] model: write a model for MCP
-- [ ] tests: add a few tests for MCP model
 - [ ] model: add a clean model for SAP UI5 tools?
 - [ ] model: update and test `ri.model.json`
-- [ ] export: generate ts interfaces
-- [ ] tests: improve predef validators cross-language consistency
 - [ ] tests: generate invalid minimal, maximal, random values
 - [ ] tests: generate invalid values on each constraint
 - [ ] backend: C and runtime with json-c
