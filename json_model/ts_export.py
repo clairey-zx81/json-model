@@ -34,7 +34,7 @@ def _check_name_collisions(names: Collection[str], context: str) -> None:
         if safe in seen and seen[safe] != name:
             raise ModelError(
                 f"Typescript name collision in {context}: "
-                f"{seen[safe]!r} and {name!r} both map to indentifier {safe!r}"
+                f"{seen[safe]!r} and {name!r} both map to identifier {safe!r}"
             )
         seen[safe] = name
 
