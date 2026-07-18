@@ -29,7 +29,6 @@ F.UO    = $(F.root:%=%.UO.json)
 F.JO    = $(F.root:%=%.JO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
-.PHONY: ts clean.ts
 F.ts    = $(F.root:%=%.ts)
 
 # code generation
@@ -87,8 +86,10 @@ clean.gen:
 .PHONY: gen
 gen: $(F.gen)
 
+.PHONY: ts
 ts: $(F.ts) $(F.tsv)
 
+.PHONY: clean.ts
 clean.ts:
 	$(RM) $(F.ts) $(F.tsv)
 
