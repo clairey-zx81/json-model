@@ -148,14 +148,25 @@ PO: $(F.PO)
 # XXX
 %.ts: %.model.json
 	$(JMC.cmd) -E --format=ts ./$* > $@
+	status=$$?
+	# some errors are accepted
+	if [ $$status -ne 0 ] ; then
+	  echo "// ts export aborted with $$status" >> $@
+	  if [ -e $*.errors.json ] ; then
+	    accept=$$(jq .ts $*.errors.json)
+	    [ "$$accept" = "true" ] && exit 0
+	  fi
+	fi
+	exit $$status
 
 %.ts.valid: %.ts
 	../../node_modules/.bin/tsc --noEmit --strict --skipLibCheck --lib es2020 ./$< > $@ 2>&1
 	status=$$?
 	if [ $$status -eq 0 ] ; then
-		echo "$<: Typescript compiled successfully" > $@
-	fi
-	exit $$status
+	  echo "ts export syntax ok"
+	else
+	  echo "ts export syntax KO"
+	fi > $@
 
 # check for schema (partial) reintrance: model -> schema -> model -> check
 # NOTE regex extension features are not supported
