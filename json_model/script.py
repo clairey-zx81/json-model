@@ -20,7 +20,7 @@ from . import optim, analyze, objops
 from .runtime.types import EntryCheckFun, Report
 from .runtime.support import _path as json_path
 from .export import model2python
-from .export_ts_interface import model2tsinterface
+from .ts_export import model2tsinterface
 
 # language short name to display name
 LANG = {
