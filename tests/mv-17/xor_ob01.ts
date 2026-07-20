@@ -2,16 +2,6 @@
 // for ./xor_ob01
 // see https://json-model.org/
 
-export interface Cc_0 {
-	a: number
-}
-
-export interface Cc_1 {
-	c: number
-}
-
-export type Cc = (Cc_0 | Cc_1)
-
 export interface Bb_0 {
 	a: number
 }
@@ -21,6 +11,16 @@ export interface Bb_1 {
 }
 
 export type Bb = (Bb_0 | Bb_1)
+
+export interface Cc_0 {
+	a: number
+}
+
+export interface Cc_1 {
+	c: number
+}
+
+export type Cc = (Cc_0 | Cc_1)
 
 /* CAUTION ba is currently valid… */
 export interface RootModel_0 {

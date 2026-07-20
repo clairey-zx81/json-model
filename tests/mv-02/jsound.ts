@@ -2,41 +2,23 @@
 // for ./jsound
 // see https://json-model.org/
 
-export type type_or_ref = (string | Type)
-
-/* jsound.jsound.json does not say that it is a type… */
-export interface Union {
-	name: string
-	kind: string
-	baseType?: string
-	content: type_or_ref[]
-}
-
-/* WTF about 'content'? */
-export interface Array {
+export interface Schema_metadata {
 	name?: string
-	kind: string
-	baseType?: string
-	content?: type_or_ref
-	minLength?: number
-	maxLength?: number
+	previous?: string
+	date?: string
+	authors?: string[]
 }
 
-export interface Fields {
-	name: string
-	type: type_or_ref
-	required?: boolean
-	default?: any
-	unique?: boolean
+export interface Schema {
+	metadata?: Schema_metadata
+	types: Type[]
 }
 
-export interface Object {
-	name?: string
-	kind: string
-	baseType?: string
-	content?: Fields[]
-	closed?: boolean
-}
+export type Type = (Atomic | Object | Array | Union)
+
+export type atomic_types = ("string" | "decimal" | "integer" | "double" | "boolean" | "anyURI" | "base64Binary" | "hexBinary" | "date" | "dateTime" | "time" | "dateTimeStamp" | "duration" | "null")
+
+export type atomic = (null | boolean | number | string)
 
 /* could there be derived atomics as well? */
 export interface Atomic {
@@ -57,22 +39,40 @@ export interface Atomic {
 	explicitTypeZone?: ("required" | "prohibited" | "optional")
 }
 
-export type atomic = (null | boolean | number | string)
-
-export type atomic_types = ("string" | "decimal" | "integer" | "double" | "boolean" | "anyURI" | "base64Binary" | "hexBinary" | "date" | "dateTime" | "time" | "dateTimeStamp" | "duration" | "null")
-
-export type Type = (Atomic | Object | Array | Union)
-
-export interface Schema_metadata {
+export interface Object {
 	name?: string
-	previous?: string
-	date?: string
-	authors?: string[]
+	kind: string
+	baseType?: string
+	content?: Fields[]
+	closed?: boolean
 }
 
-export interface Schema {
-	metadata?: Schema_metadata
-	types: Type[]
+export interface Fields {
+	name: string
+	type: type_or_ref
+	required?: boolean
+	default?: any
+	unique?: boolean
 }
+
+/* WTF about 'content'? */
+export interface Array {
+	name?: string
+	kind: string
+	baseType?: string
+	content?: type_or_ref
+	minLength?: number
+	maxLength?: number
+}
+
+/* jsound.jsound.json does not say that it is a type… */
+export interface Union {
+	name: string
+	kind: string
+	baseType?: string
+	content: type_or_ref[]
+}
+
+export type type_or_ref = (string | Type)
 
 export type RootModel = Schema

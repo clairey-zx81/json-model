@@ -2,12 +2,6 @@
 // for ./dis-004
 // see https://json-model.org/
 
-export interface Bb_0 {
-	c: number
-}
-
-export type Bb = (Bb_0 | Aa)
-
 export interface Aa_0 {
 	a: number
 }
@@ -17,5 +11,11 @@ export interface Aa_1 {
 }
 
 export type Aa = (Aa_0 | Aa_1)
+
+export interface Bb_0 {
+	c: number
+}
+
+export type Bb = (Bb_0 | Aa)
 
 export type RootModel = Bb

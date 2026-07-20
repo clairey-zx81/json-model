@@ -2,9 +2,39 @@
 // for ./jsonrpc2
 // see https://json-model.org/
 
-export type ServerMessage = (Response | Error | BatchResponse)
+/* Request/response identifier: null, integer, or string */
+export type Id = (null | number | string)
 
-export type BatchResponse = (Response | Error)[]
+export interface Notification_params_1 {
+	[key: string]: any
+}
+
+export interface Notification {
+	jsonrpc: "2.0"
+	method: string
+	params?: (any[] | Notification_params_1)
+}
+
+export interface Request_params_1 {
+	[key: string]: any
+}
+
+export interface Request {
+	jsonrpc: "2.0"
+	method: string
+	id: Id
+	params?: (any[] | Request_params_1)
+}
+
+export type BatchRequest = (Request | Notification)[]
+
+export type ClientMessage = (Notification | Request | BatchRequest)
+
+export interface Response {
+	jsonrpc: "2.0"
+	id: Id
+	result: any
+}
 
 export interface Error_error {
 	code: number
@@ -18,39 +48,9 @@ export interface Error {
 	error: Error_error
 }
 
-export interface Response {
-	jsonrpc: "2.0"
-	id: Id
-	result: any
-}
+export type BatchResponse = (Response | Error)[]
 
-export type ClientMessage = (Notification | Request | BatchRequest)
-
-export type BatchRequest = (Request | Notification)[]
-
-export interface Request_params_1 {
-	[key: string]: any
-}
-
-export interface Request {
-	jsonrpc: "2.0"
-	method: string
-	id: Id
-	params?: (any[] | Request_params_1)
-}
-
-export interface Notification_params_1 {
-	[key: string]: any
-}
-
-export interface Notification {
-	jsonrpc: "2.0"
-	method: string
-	params?: (any[] | Notification_params_1)
-}
-
-/* Request/response identifier: null, integer, or string */
-export type Id = (null | number | string)
+export type ServerMessage = (Response | Error | BatchResponse)
 
 /* JSON-RPC 2.0 Protocol */
 export type RootModel = (ClientMessage | ServerMessage)

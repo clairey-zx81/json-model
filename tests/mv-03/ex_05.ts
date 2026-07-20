@@ -2,8 +2,8 @@
 // for ./ex_05
 // see https://json-model.org/
 
-export type Ex05b = string
-
 export type Ex05a = number
+
+export type Ex05b = string
 
 export type RootModel = (Ex05a | Ex05b)

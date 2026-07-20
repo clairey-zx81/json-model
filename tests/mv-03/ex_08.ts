@@ -2,14 +2,14 @@
 // for ./ex_08
 // see https://json-model.org/
 
-export type Ex08 = (map | string | Val)
+export type Val = boolean
+
+export type Key = string
 
 export interface map {
 	$URL: Val
 }
 
-export type Key = string
-
-export type Val = boolean
+export type Ex08 = (map | string | Val)
 
 export type RootModel = Ex08

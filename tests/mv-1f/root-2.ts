@@ -2,10 +2,10 @@
 // for ./root-2
 // see https://json-model.org/
 
+export type root = string
+
 export interface Foo {
 	rt: string
 }
-
-export type root = string
 
 export type RootModel = Foo

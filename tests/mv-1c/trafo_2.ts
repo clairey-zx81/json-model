@@ -2,10 +2,10 @@
 // for ./trafo_2
 // see https://json-model.org/
 
-export type l = z[]
+export type Zz = string
 
 export type z = string
 
-export type Zz = string
+export type l = z[]
 
 export type RootModel = l

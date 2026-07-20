@@ -2,118 +2,412 @@
 // for ./openapi-311
 // see https://json-model.org/
 
-export interface Extension {
+export interface OpenAPI_webhooks {
+	[key: string]: PathItem
+}
+
+export interface OpenAPI {
+	openapi: string
+	info: Info
+	jsonSchemaDialect?: string
+	servers?: Server[]
+	paths?: Paths
+	webhooks?: OpenAPI_webhooks
+	components?: Components
+	security?: SecurityRequirement[]
+	tags?: Tag[]
+	externalDocs?: ExternalDocumentation
 	"/^x-/": any
 }
 
-export interface SecurityRequirement {
-	[key: string]: string[]
-}
-
-export interface OAuthFlow_scopes {
-	[key: string]: string
-}
-
-export interface OAuthFlow {
-	authorizationUrl: string
-	tokenUrl: string
-	refreshUrl?: string
-	scopes: OAuthFlow_scopes
+export interface Info {
+	title: string
+	summary?: string
+	description?: string
+	termsOfService?: string
+	contact?: Contact
+	license?: License
+	version: string
 	"/^x-/": any
 }
 
-export interface OAuthFlows {
-	implicit?: OAuthFlow
-	password?: OAuthFlow
-	clientCredentials?: OAuthFlow
-	authorizationCode?: OAuthFlow
-	"/^x-/": any
-}
-
-export interface SecurityScheme_0 {
-	type: "apiKey"
-	name: string
-	in: ("query" | "header" | "cookie")
-	description?: string
-}
-
-export interface SecurityScheme_1 {
-	type: "http"
-	scheme: string
-	bearerFormat?: string
-	description?: string
-}
-
-export interface SecurityScheme_2 {
-	type: "http"
-	scheme: string
-	description?: string
-}
-
-export interface SecurityScheme_3 {
-	type: "oauth2"
-	flows: OAuthFlows
-	description?: string
-}
-
-export interface SecurityScheme_4 {
-	type: "openIdConnect"
-	openIdConnectUrl: string
-	description?: string
-}
-
-export interface SecurityScheme_5 {
-	description?: string
-	"/^x-/": any
-}
-
-export type SecurityScheme = (SecurityScheme_0 | SecurityScheme_1 | SecurityScheme_2 | SecurityScheme_3 | SecurityScheme_4 | SecurityScheme_5)
-
-export interface SS_oic {
-	type: "openIdConnect"
-	openIdConnectUrl: string
-}
-
-export interface SS_oauth2 {
-	type: "oauth2"
-	flows: OAuthFlows
-}
-
-export interface SS_http_bearer {
-	type: "http"
-	scheme: string
-	bearerFormat?: string
-}
-
-export interface SS_http {
-	type: "http"
-	scheme: string
-}
-
-export interface SS_apikey {
-	type: "apiKey"
-	name: string
-	in: ("query" | "header" | "cookie")
-}
-
-export interface xml {
+export interface Contact {
 	name?: string
-	namespace?: string
-	prefix?: string
-	attribute?: boolean
-	wrapped?: boolean
+	url?: string
+	email?: string
 	"/^x-/": any
 }
 
-export interface Discriminator_mapping {
-	[key: string]: string
+export interface License_0 {
+	name: string
+	identifier: string
+	"/^x\\-.*$/": any
 }
 
-export interface Discriminator {
-	propertyName: string
-	mapping?: Discriminator_mapping
+export interface License_1 {
+	name: string
+	url: string
+	"/^x\\-.*$/": any
+}
+
+export type License = (License_0 | License_1)
+
+export interface Server_variables {
+	[key: string]: ServerVariable
+}
+
+export interface Server {
+	url: string
+	description?: string
+	variables?: Server_variables
 	"/^x-/": any
 }
+
+export interface ServerVariable {
+	enum?: string[]
+	default: string
+	description?: string
+	"/^x-/": any
+}
+
+export interface Components_schemas {
+	[key: string]: Schema
+}
+
+export interface Components_responses {
+	[key: string]: (Response | Reference)
+}
+
+export interface Components_parameters {
+	[key: string]: (Parameter | Reference)
+}
+
+export interface Components_examples {
+	[key: string]: (Example | Reference)
+}
+
+export interface Components_requestBodies {
+	[key: string]: (RequestBody | Reference)
+}
+
+export interface Components_headers {
+	[key: string]: (Header | Reference)
+}
+
+export interface Components_securitySchemes {
+	[key: string]: (SecurityScheme | Reference)
+}
+
+export interface Components_links {
+	[key: string]: (Link | Reference)
+}
+
+export interface Components_callbacks {
+	[key: string]: (Callback | Reference)
+}
+
+export interface Components_pathItems {
+	[key: string]: (PathItem | Reference)
+}
+
+export interface Components {
+	schemas?: Components_schemas
+	responses?: Components_responses
+	parameters?: Components_parameters
+	examples?: Components_examples
+	requestBodies?: Components_requestBodies
+	headers?: Components_headers
+	securitySchemes?: Components_securitySchemes
+	links?: Components_links
+	callbacks?: Components_callbacks
+	pathItems?: Components_pathItems
+	"/^x-/": any
+}
+
+export interface Paths {
+	"/^//": PathItem
+	"/^x-/": any
+}
+
+export interface PathItem {
+	$ref?: string
+	summary?: string
+	description?: string
+	get?: Operation
+	put?: Operation
+	post?: Operation
+	delete?: Operation
+	options?: Operation
+	head?: Operation
+	patch?: Operation
+	trace?: Operation
+	servers?: Operation[]
+	parameters?: (Parameter | Reference)[]
+	"/^x-/": any
+}
+
+export interface Operation_callbacks {
+	[key: string]: (Callback | Reference)
+}
+
+export interface Operation {
+	tags?: string[]
+	summary?: string
+	description?: string
+	externalDocs?: ExternalDocumentation
+	operationId?: string
+	parameters?: (Parameter | Reference)[]
+	requestBody?: (RequestBody | Reference)
+	responses?: Responses
+	callbacks?: Operation_callbacks
+	deprecated?: boolean
+	security?: SecurityRequirement[]
+	servers?: Server[]
+	"/^x-/": any
+}
+
+export interface ExternalDocumentation {
+	description?: string
+	url: string
+	"/^x-/": any
+}
+
+export interface parameterShare {
+	description?: string
+	required?: boolean
+	deprecated?: boolean
+	allowEmptyValue?: boolean
+	"/^x-/": any
+}
+
+export interface commonParameter {
+	name: string
+	in: ("query" | "header" | "path" | "cookie")
+	description?: string
+	required?: boolean
+	deprecated?: boolean
+	allowEmptyValue?: boolean
+	"/^x-/": any
+}
+
+/* serialization styles */
+export type Style = ("matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject")
+
+export interface parameterSchemaOnly_examples {
+	[key: string]: (Example | Reference)
+}
+
+export interface parameterSchemaOnly {
+	style?: Style
+	explode?: boolean
+	allowReserved?: boolean
+	schema?: Schema
+	example?: any
+	examples?: parameterSchemaOnly_examples
+}
+
+export interface parameterContentOnly_content {
+	[key: string]: MediaType
+}
+
+export interface parameterContentOnly {
+	content?: parameterContentOnly_content
+}
+
+export interface Parameter_0_examples {
+	[key: string]: (Example | Reference)
+}
+
+export interface Parameter_0 {
+	name: string
+	in: ("query" | "header" | "path" | "cookie")
+	description?: string
+	required?: boolean
+	deprecated?: boolean
+	allowEmptyValue?: boolean
+	style?: Style
+	explode?: boolean
+	allowReserved?: boolean
+	schema?: Schema
+	example?: any
+	examples?: Parameter_0_examples
+	"/^x-/": any
+}
+
+export interface Parameter_1_content {
+	[key: string]: MediaType
+}
+
+export interface Parameter_1 {
+	name: string
+	in: ("query" | "header" | "path" | "cookie")
+	description?: string
+	required?: boolean
+	deprecated?: boolean
+	allowEmptyValue?: boolean
+	content?: Parameter_1_content
+	"/^x-/": any
+}
+
+export type Parameter = (Parameter_0 | Parameter_1)
+
+export interface RequestBody_content {
+	[key: string]: MediaType
+}
+
+export interface RequestBody {
+	description?: string
+	content?: RequestBody_content
+	required?: boolean
+	"/^x-/": any
+}
+
+export interface MediaType_examples {
+	[key: string]: (Example | Reference)
+}
+
+export interface MediaType_encoding {
+	[key: string]: Encoding
+}
+
+export interface MediaType {
+	schema?: Schema
+	example?: any
+	examples?: MediaType_examples
+	encoding?: MediaType_encoding
+	"/^x-/": any
+}
+
+export interface Encoding_headers {
+	[key: string]: (Header | Reference)
+}
+
+export interface Encoding {
+	contentType?: string
+	headers?: Encoding_headers
+	style?: Style
+	explode?: boolean
+	allowReserved?: boolean
+	"/^x-/": any
+}
+
+export interface Responses {
+	"/^[1-5](\\d\\d|XX)$/": (Response | Reference)
+	default?: (Response | Reference)
+	"/^x-/": any
+}
+
+export interface Response_headers {
+	[key: string]: (Header | Reference)
+}
+
+export interface Response_content {
+	[key: string]: MediaType
+}
+
+export interface Response_links {
+	[key: string]: (Link | Reference)
+}
+
+export interface Response {
+	description?: string
+	headers?: Response_headers
+	content?: Response_content
+	links?: Response_links
+	"/^x-/": any
+}
+
+export interface Callback {
+	$Expression: (PathItem | Reference)
+	"/^x-/": any
+}
+
+export interface Example {
+	summary?: string
+	description?: string
+	value?: any
+	externalValue?: string
+	"/^x-/": any
+}
+
+export type Expression = string
+
+export interface Link_0_parameters {
+	[key: string]: any
+}
+
+export interface Link_0 {
+	operationRef: string
+	parameters?: Link_0_parameters
+	requestBody?: any
+	description?: string
+	server?: Server
+	"/^x-/": any
+}
+
+export interface Link_1_parameters {
+	[key: string]: any
+}
+
+export interface Link_1 {
+	operationId: string
+	parameters?: Link_1_parameters
+	requestBody?: any
+	description?: string
+	server?: Server
+	"/^x-/": any
+}
+
+export type Link = (Link_0 | Link_1)
+
+/* more or less a parameter but without name and in */
+export interface Header_0_examples {
+	[key: string]: (Example | Reference)
+}
+
+export interface Header_0 {
+	description?: string
+	required?: boolean
+	deprecated?: boolean
+	allowEmptyValue?: boolean
+	style?: Style
+	explode?: boolean
+	allowReserved?: boolean
+	schema?: Schema
+	example?: any
+	examples?: Header_0_examples
+	"/^x-/": any
+}
+
+export interface Header_1_content {
+	[key: string]: MediaType
+}
+
+export interface Header_1 {
+	description?: string
+	required?: boolean
+	deprecated?: boolean
+	allowEmptyValue?: boolean
+	content?: Header_1_content
+	"/^x-/": any
+}
+
+export type Header = (Header_0 | Header_1)
+
+export interface Tag {
+	name: string
+	description?: string
+	externalDocs?: ExternalDocumentation
+	"/^x-/": any
+}
+
+export interface Reference {
+	$ref: string
+	summary?: string
+	description?: string
+}
+
+export type schema = Schema
 
 export interface Schema__vocabulary {
 	$URI: boolean
@@ -203,410 +497,116 @@ export interface Schema {
 	example?: any
 }
 
-export type schema = Schema
-
-export interface Reference {
-	$ref: string
-	summary?: string
-	description?: string
+export interface Discriminator_mapping {
+	[key: string]: string
 }
 
-export interface Tag {
-	name: string
-	description?: string
-	externalDocs?: ExternalDocumentation
+export interface Discriminator {
+	propertyName: string
+	mapping?: Discriminator_mapping
 	"/^x-/": any
 }
 
-/* more or less a parameter but without name and in */
-export interface Header_0_examples {
-	[key: string]: (Example | Reference)
-}
-
-export interface Header_0 {
-	description?: string
-	required?: boolean
-	deprecated?: boolean
-	allowEmptyValue?: boolean
-	style?: Style
-	explode?: boolean
-	allowReserved?: boolean
-	schema?: Schema
-	example?: any
-	examples?: Header_0_examples
-	"/^x-/": any
-}
-
-export interface Header_1_content {
-	[key: string]: MediaType
-}
-
-export interface Header_1 {
-	description?: string
-	required?: boolean
-	deprecated?: boolean
-	allowEmptyValue?: boolean
-	content?: Header_1_content
-	"/^x-/": any
-}
-
-export type Header = (Header_0 | Header_1)
-
-export interface Link_0_parameters {
-	[key: string]: any
-}
-
-export interface Link_0 {
-	operationRef: string
-	parameters?: Link_0_parameters
-	requestBody?: any
-	description?: string
-	server?: Server
-	"/^x-/": any
-}
-
-export interface Link_1_parameters {
-	[key: string]: any
-}
-
-export interface Link_1 {
-	operationId: string
-	parameters?: Link_1_parameters
-	requestBody?: any
-	description?: string
-	server?: Server
-	"/^x-/": any
-}
-
-export type Link = (Link_0 | Link_1)
-
-export type Expression = string
-
-export interface Example {
-	summary?: string
-	description?: string
-	value?: any
-	externalValue?: string
-	"/^x-/": any
-}
-
-export interface Callback {
-	$Expression: (PathItem | Reference)
-	"/^x-/": any
-}
-
-export interface Response_headers {
-	[key: string]: (Header | Reference)
-}
-
-export interface Response_content {
-	[key: string]: MediaType
-}
-
-export interface Response_links {
-	[key: string]: (Link | Reference)
-}
-
-export interface Response {
-	description?: string
-	headers?: Response_headers
-	content?: Response_content
-	links?: Response_links
-	"/^x-/": any
-}
-
-export interface Responses {
-	"/^[1-5](\\d\\d|XX)$/": (Response | Reference)
-	default?: (Response | Reference)
-	"/^x-/": any
-}
-
-export interface Encoding_headers {
-	[key: string]: (Header | Reference)
-}
-
-export interface Encoding {
-	contentType?: string
-	headers?: Encoding_headers
-	style?: Style
-	explode?: boolean
-	allowReserved?: boolean
-	"/^x-/": any
-}
-
-export interface MediaType_examples {
-	[key: string]: (Example | Reference)
-}
-
-export interface MediaType_encoding {
-	[key: string]: Encoding
-}
-
-export interface MediaType {
-	schema?: Schema
-	example?: any
-	examples?: MediaType_examples
-	encoding?: MediaType_encoding
-	"/^x-/": any
-}
-
-export interface RequestBody_content {
-	[key: string]: MediaType
-}
-
-export interface RequestBody {
-	description?: string
-	content?: RequestBody_content
-	required?: boolean
-	"/^x-/": any
-}
-
-export interface Parameter_0_examples {
-	[key: string]: (Example | Reference)
-}
-
-export interface Parameter_0 {
-	name: string
-	in: ("query" | "header" | "path" | "cookie")
-	description?: string
-	required?: boolean
-	deprecated?: boolean
-	allowEmptyValue?: boolean
-	style?: Style
-	explode?: boolean
-	allowReserved?: boolean
-	schema?: Schema
-	example?: any
-	examples?: Parameter_0_examples
-	"/^x-/": any
-}
-
-export interface Parameter_1_content {
-	[key: string]: MediaType
-}
-
-export interface Parameter_1 {
-	name: string
-	in: ("query" | "header" | "path" | "cookie")
-	description?: string
-	required?: boolean
-	deprecated?: boolean
-	allowEmptyValue?: boolean
-	content?: Parameter_1_content
-	"/^x-/": any
-}
-
-export type Parameter = (Parameter_0 | Parameter_1)
-
-export interface parameterContentOnly_content {
-	[key: string]: MediaType
-}
-
-export interface parameterContentOnly {
-	content?: parameterContentOnly_content
-}
-
-export interface parameterSchemaOnly_examples {
-	[key: string]: (Example | Reference)
-}
-
-export interface parameterSchemaOnly {
-	style?: Style
-	explode?: boolean
-	allowReserved?: boolean
-	schema?: Schema
-	example?: any
-	examples?: parameterSchemaOnly_examples
-}
-
-/* serialization styles */
-export type Style = ("matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject")
-
-export interface commonParameter {
-	name: string
-	in: ("query" | "header" | "path" | "cookie")
-	description?: string
-	required?: boolean
-	deprecated?: boolean
-	allowEmptyValue?: boolean
-	"/^x-/": any
-}
-
-export interface parameterShare {
-	description?: string
-	required?: boolean
-	deprecated?: boolean
-	allowEmptyValue?: boolean
-	"/^x-/": any
-}
-
-export interface ExternalDocumentation {
-	description?: string
-	url: string
-	"/^x-/": any
-}
-
-export interface Operation_callbacks {
-	[key: string]: (Callback | Reference)
-}
-
-export interface Operation {
-	tags?: string[]
-	summary?: string
-	description?: string
-	externalDocs?: ExternalDocumentation
-	operationId?: string
-	parameters?: (Parameter | Reference)[]
-	requestBody?: (RequestBody | Reference)
-	responses?: Responses
-	callbacks?: Operation_callbacks
-	deprecated?: boolean
-	security?: SecurityRequirement[]
-	servers?: Server[]
-	"/^x-/": any
-}
-
-export interface PathItem {
-	$ref?: string
-	summary?: string
-	description?: string
-	get?: Operation
-	put?: Operation
-	post?: Operation
-	delete?: Operation
-	options?: Operation
-	head?: Operation
-	patch?: Operation
-	trace?: Operation
-	servers?: Operation[]
-	parameters?: (Parameter | Reference)[]
-	"/^x-/": any
-}
-
-export interface Paths {
-	"/^//": PathItem
-	"/^x-/": any
-}
-
-export interface Components_schemas {
-	[key: string]: Schema
-}
-
-export interface Components_responses {
-	[key: string]: (Response | Reference)
-}
-
-export interface Components_parameters {
-	[key: string]: (Parameter | Reference)
-}
-
-export interface Components_examples {
-	[key: string]: (Example | Reference)
-}
-
-export interface Components_requestBodies {
-	[key: string]: (RequestBody | Reference)
-}
-
-export interface Components_headers {
-	[key: string]: (Header | Reference)
-}
-
-export interface Components_securitySchemes {
-	[key: string]: (SecurityScheme | Reference)
-}
-
-export interface Components_links {
-	[key: string]: (Link | Reference)
-}
-
-export interface Components_callbacks {
-	[key: string]: (Callback | Reference)
-}
-
-export interface Components_pathItems {
-	[key: string]: (PathItem | Reference)
-}
-
-export interface Components {
-	schemas?: Components_schemas
-	responses?: Components_responses
-	parameters?: Components_parameters
-	examples?: Components_examples
-	requestBodies?: Components_requestBodies
-	headers?: Components_headers
-	securitySchemes?: Components_securitySchemes
-	links?: Components_links
-	callbacks?: Components_callbacks
-	pathItems?: Components_pathItems
-	"/^x-/": any
-}
-
-export interface ServerVariable {
-	enum?: string[]
-	default: string
-	description?: string
-	"/^x-/": any
-}
-
-export interface Server_variables {
-	[key: string]: ServerVariable
-}
-
-export interface Server {
-	url: string
-	description?: string
-	variables?: Server_variables
-	"/^x-/": any
-}
-
-export interface License_0 {
-	name: string
-	identifier: string
-	"/^x\\-.*$/": any
-}
-
-export interface License_1 {
-	name: string
-	url: string
-	"/^x\\-.*$/": any
-}
-
-export type License = (License_0 | License_1)
-
-export interface Contact {
+export interface xml {
 	name?: string
-	url?: string
-	email?: string
+	namespace?: string
+	prefix?: string
+	attribute?: boolean
+	wrapped?: boolean
 	"/^x-/": any
 }
 
-export interface Info {
-	title: string
-	summary?: string
+export interface SS_apikey {
+	type: "apiKey"
+	name: string
+	in: ("query" | "header" | "cookie")
+}
+
+export interface SS_http {
+	type: "http"
+	scheme: string
+}
+
+export interface SS_http_bearer {
+	type: "http"
+	scheme: string
+	bearerFormat?: string
+}
+
+export interface SS_oauth2 {
+	type: "oauth2"
+	flows: OAuthFlows
+}
+
+export interface SS_oic {
+	type: "openIdConnect"
+	openIdConnectUrl: string
+}
+
+export interface SecurityScheme_0 {
+	type: "apiKey"
+	name: string
+	in: ("query" | "header" | "cookie")
 	description?: string
-	termsOfService?: string
-	contact?: Contact
-	license?: License
-	version: string
+}
+
+export interface SecurityScheme_1 {
+	type: "http"
+	scheme: string
+	bearerFormat?: string
+	description?: string
+}
+
+export interface SecurityScheme_2 {
+	type: "http"
+	scheme: string
+	description?: string
+}
+
+export interface SecurityScheme_3 {
+	type: "oauth2"
+	flows: OAuthFlows
+	description?: string
+}
+
+export interface SecurityScheme_4 {
+	type: "openIdConnect"
+	openIdConnectUrl: string
+	description?: string
+}
+
+export interface SecurityScheme_5 {
+	description?: string
 	"/^x-/": any
 }
 
-export interface OpenAPI_webhooks {
-	[key: string]: PathItem
+export type SecurityScheme = (SecurityScheme_0 | SecurityScheme_1 | SecurityScheme_2 | SecurityScheme_3 | SecurityScheme_4 | SecurityScheme_5)
+
+export interface OAuthFlows {
+	implicit?: OAuthFlow
+	password?: OAuthFlow
+	clientCredentials?: OAuthFlow
+	authorizationCode?: OAuthFlow
+	"/^x-/": any
 }
 
-export interface OpenAPI {
-	openapi: string
-	info: Info
-	jsonSchemaDialect?: string
-	servers?: Server[]
-	paths?: Paths
-	webhooks?: OpenAPI_webhooks
-	components?: Components
-	security?: SecurityRequirement[]
-	tags?: Tag[]
-	externalDocs?: ExternalDocumentation
+export interface OAuthFlow_scopes {
+	[key: string]: string
+}
+
+export interface OAuthFlow {
+	authorizationUrl: string
+	tokenUrl: string
+	refreshUrl?: string
+	scopes: OAuthFlow_scopes
+	"/^x-/": any
+}
+
+export interface SecurityRequirement {
+	[key: string]: string[]
+}
+
+export interface Extension {
 	"/^x-/": any
 }
 

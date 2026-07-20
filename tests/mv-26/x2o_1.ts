@@ -2,16 +2,16 @@
 // for ./x2o_1
 // see https://json-model.org/
 
-export interface Nabc {
-	t: (string | "a" | "b" | "c")
+export interface a {
+	t: string
 }
 
 export interface bc {
 	t: ("b" | "c")
 }
 
-export interface a {
-	t: string
+export interface Nabc {
+	t: (string | "a" | "b" | "c")
 }
 
 /* xor-to-or with not constant exclusion behind references */

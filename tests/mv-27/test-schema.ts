@@ -2,12 +2,14 @@
 // for ./test-schema
 // see https://json-model.org/
 
-export interface TestCase {
+export type Version = string
+
+/* A single test */
+export interface Test {
 	description: string
 	comment?: string
-	schema: any
-	tests: Test[]
-	specification?: Specification[]
+	data: any
+	valid: boolean
 }
 
 export interface Specification {
@@ -20,14 +22,12 @@ export interface Specification {
 	"/^iso\\d+$/": Version
 }
 
-/* A single test */
-export interface Test {
+export interface TestCase {
 	description: string
 	comment?: string
-	data: any
-	valid: boolean
+	schema: any
+	tests: Test[]
+	specification?: Specification[]
 }
-
-export type Version = string
 
 export type RootModel = TestCase[]
