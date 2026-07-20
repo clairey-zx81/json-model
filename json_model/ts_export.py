@@ -147,6 +147,13 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
         code += [f"export interface {ts_name(name)} {{"]
         catch_all_solo = list(props) == [""]
         for key, jm in props.items():
+            if key[:1] in ("/", "$"):
+                kind = "regex" if key[:1] == "/" else "reference"
+                raise ModelError(
+                    f"cannot export {kind} property name {key!r} in object {name!r} "
+                    f"as a TypeScript interface: it matches a dynamic set of keys, "
+                    f"which a TypeScript interface cannot represent"
+                )
             optional = key.startswith("?")
             field = key[1:] if key[:1] in "?!_" else key
             safe = ts_name(field)
