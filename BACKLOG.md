@@ -6,9 +6,9 @@
 - [x] model: add example model for JMC benchmark radar data
 - [x] pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
 - [x] export: generate ts interfaces
-- [ ] ts-export: manage or error on regex and defs properties
-- [ ] ts-export: keep definition order, do not reverse it!
-- [ ] pr: add ts export howto section
+- [x] ts-export: manage or error on regex and defs properties
+- [x] ts-export: keep definition order, do not reverse it!
+- [x] pr: add ts export howto section
 - [ ] pr: add ts format to jmc pod documentation
 - [ ] pr: add ts export to reference documentation (?)
 - [ ] models: add model for `*.errors.json` files
