@@ -2,44 +2,42 @@
 // for ./mcp
 // see https://json-model.org/
 
-export interface ToolCallResponse_result {
-	content: any[]
+export interface Object {
 	[key: string]: any
 }
 
-export interface ToolCallResponse {
-	jsonrpc: "2.0"
-	id: number
-	result: ToolCallResponse_result
-}
+export type ProtocolVersion = ("2025-11-25" | "2025-06-18" | "2025-03-26" | "2024-11-05")
 
-export interface ToolCallRequest {
-	jsonrpc: "2.0"
-	id: number
-	method: "tools/call"
-	params: Object
-}
-
-export interface ToolsListResponse_result {
-	tools: Tool[]
-}
-
-export interface ToolsListResponse {
-	jsonrpc: "2.0"
-	id: number
-	result: ToolsListResponse_result
-}
-
-export interface ToolsListRequest {
-	jsonrpc: "2.0"
-	id: number
-	method: "tools/list"
+export interface Tool {
+	name: string
+	title?: string
+	description?: string
+	inputSchema: Object
 	[key: string]: any
 }
 
-export interface Notification {
+export interface InitializeRequest_params_capabilities {
+	elicitation: Object
+	[key: string]: any
+}
+
+export interface InitializeRequest_params_clientInfo {
+	name: string
+	version: string
+	[key: string]: any
+}
+
+export interface InitializeRequest_params {
+	protocolVersion: ProtocolVersion
+	capabilities: InitializeRequest_params_capabilities
+	clientInfo: InitializeRequest_params_clientInfo
+}
+
+export interface InitializeRequest {
 	jsonrpc: "2.0"
-	method: string
+	id: number
+	method: "initialize"
+	params: InitializeRequest_params
 }
 
 export interface InitializeResponse_result_capabilities_tools {
@@ -70,42 +68,44 @@ export interface InitializeResponse {
 	result: InitializeResponse_result
 }
 
-export interface InitializeRequest_params_capabilities {
-	elicitation: Object
-	[key: string]: any
+export interface Notification {
+	jsonrpc: "2.0"
+	method: string
 }
 
-export interface InitializeRequest_params_clientInfo {
-	name: string
-	version: string
-	[key: string]: any
-}
-
-export interface InitializeRequest_params {
-	protocolVersion: ProtocolVersion
-	capabilities: InitializeRequest_params_capabilities
-	clientInfo: InitializeRequest_params_clientInfo
-}
-
-export interface InitializeRequest {
+export interface ToolsListRequest {
 	jsonrpc: "2.0"
 	id: number
-	method: "initialize"
-	params: InitializeRequest_params
-}
-
-export interface Tool {
-	name: string
-	title?: string
-	description?: string
-	inputSchema: Object
+	method: "tools/list"
 	[key: string]: any
 }
 
-export type ProtocolVersion = ("2025-11-25" | "2025-06-18" | "2025-03-26" | "2024-11-05")
+export interface ToolsListResponse_result {
+	tools: Tool[]
+}
 
-export interface Object {
+export interface ToolsListResponse {
+	jsonrpc: "2.0"
+	id: number
+	result: ToolsListResponse_result
+}
+
+export interface ToolCallRequest {
+	jsonrpc: "2.0"
+	id: number
+	method: "tools/call"
+	params: Object
+}
+
+export interface ToolCallResponse_result {
+	content: any[]
 	[key: string]: any
+}
+
+export interface ToolCallResponse {
+	jsonrpc: "2.0"
+	id: number
+	result: ToolCallResponse_result
 }
 
 /* MCP - Model Context Protocol */

@@ -2,14 +2,14 @@
 // for ./tag01
 // see https://json-model.org/
 
-export interface Bb {
-	t: false
-	b: number
-}
-
 export interface Aa {
 	t: true
 	a: number
+}
+
+export interface Bb {
+	t: false
+	b: number
 }
 
 export type RootModel = (Aa | Bb)

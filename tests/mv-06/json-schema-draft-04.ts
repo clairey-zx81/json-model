@@ -2,15 +2,15 @@
 // for ./json-schema-draft-04
 // see https://json-model.org/
 
-export type Schema = string
-
-export type typeArray = simpleTypes[]
-
-export type stringArray = string[]
+export type schemaArray = Schema[]
 
 export type simpleTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object")
 
-export type schemaArray = Schema[]
+export type stringArray = string[]
+
+export type typeArray = simpleTypes[]
+
+export type Schema = string
 
 export interface RootModel_definitions {
 	[key: string]: Schema

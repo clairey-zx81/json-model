@@ -2,7 +2,15 @@
 // for ./xoropt-015
 // see https://json-model.org/
 
-export type Mm = (Vv | Ee)
+export type Vv = (number | string)
+
+export interface Xx {
+	X: string
+}
+
+export interface Yy {
+	Y: string
+}
 
 export interface Ee_0 {
 	X: string
@@ -16,14 +24,6 @@ export interface Ee_1 {
 
 export type Ee = (Ee_0 | Ee_1)
 
-export interface Yy {
-	Y: string
-}
-
-export interface Xx {
-	X: string
-}
-
-export type Vv = (number | string)
+export type Mm = (Vv | Ee)
 
 export type RootModel = Mm

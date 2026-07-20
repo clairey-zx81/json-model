@@ -2,15 +2,15 @@
 // for ./xor_ob02
 // see https://json-model.org/
 
-export interface Cc_0 {
+export interface Aa_0 {
+	a: number
+}
+
+export interface Aa_1 {
 	b: number
 }
 
-export interface Cc_1 {
-	c: number
-}
-
-export type Cc = (Cc_0 | Cc_1)
+export type Aa = (Aa_0 | Aa_1)
 
 export interface Bb_0 {
 	a: number
@@ -22,15 +22,15 @@ export interface Bb_1 {
 
 export type Bb = (Bb_0 | Bb_1)
 
-export interface Aa_0 {
-	a: number
-}
-
-export interface Aa_1 {
+export interface Cc_0 {
 	b: number
 }
 
-export type Aa = (Aa_0 | Aa_1)
+export interface Cc_1 {
+	c: number
+}
+
+export type Cc = (Cc_0 | Cc_1)
 
 /* props: a/b a/c b/c */
 export interface RootModel_0 {

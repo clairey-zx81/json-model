@@ -2,12 +2,12 @@
 // for ./pmap_shared_1
 // see https://json-model.org/
 
-export interface Oo2 {
+export interface Oo0 {
 	a: boolean
 	b: number
 	c: null
 	d: number
-	y?: boolean
+	[key: string]: any
 }
 
 export interface Oo1 {
@@ -18,12 +18,12 @@ export interface Oo1 {
 	d?: number
 }
 
-export interface Oo0 {
+export interface Oo2 {
 	a: boolean
 	b: number
 	c: null
 	d: number
-	[key: string]: any
+	y?: boolean
 }
 
 export type RootModel = (Oo0 | Oo1 | Oo2)

@@ -2,11 +2,11 @@
 // for ./json-schema-draft-02
 // see https://json-model.org/
 
-export type Schema = string
+export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object" | "any")
 
 export type distinctStringArray = string[]
 
-export type allTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object" | "any")
+export type Schema = string
 
 export interface RootModel_properties {
 	[key: string]: Schema

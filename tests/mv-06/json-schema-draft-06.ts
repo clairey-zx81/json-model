@@ -2,7 +2,15 @@
 // for ./json-schema-draft-06
 // see https://json-model.org/
 
-export type Schema = (boolean | ObjectSchema)
+export type URI_REFERENCE = string
+
+export type schemaArray = Schema[]
+
+export type simpleTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object")
+
+export type typeArray = simpleTypes[]
+
+export type stringArray = string[]
 
 export interface ObjectSchema_definitions {
 	[key: string]: Schema
@@ -61,14 +69,6 @@ export interface ObjectSchema {
 	$ref?: URI_REFERENCE
 }
 
-export type stringArray = string[]
-
-export type typeArray = simpleTypes[]
-
-export type simpleTypes = ("null" | "boolean" | "integer" | "number" | "string" | "array" | "object")
-
-export type schemaArray = Schema[]
-
-export type URI_REFERENCE = string
+export type Schema = (boolean | ObjectSchema)
 
 export type RootModel = Schema

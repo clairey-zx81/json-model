@@ -2,13 +2,13 @@
 // for ./ex_09
 // see https://json-model.org/
 
+export type ex08 = Ex08
+
+export type Ex08 = string
+
 export interface Ex09 {
 	"#"?: string
 	$URL: string
 }
-
-export type Ex08 = string
-
-export type ex08 = Ex08
 
 export type RootModel = Ex09
