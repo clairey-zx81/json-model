@@ -180,7 +180,7 @@ def model2tsinterface(model: JsonModel, root: str|None = "RootModel") -> Block:
     _check_name_collisions(def_keys, "definitions ($)")
     blocks: list[Block] = []
     for name, jm in model._defs.items():
-        blocks.insert(0, m2ts(name, jm._model, def_keys))
+        blocks.append(m2ts(name, jm._model, def_keys))
     if root is not None:
         blocks.append(m2ts(root, model._model, def_keys))
     code: Block = []
