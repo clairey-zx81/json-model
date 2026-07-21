@@ -1,1 +1,1 @@
-// ts export aborted with 127
+// ts export aborted with 1

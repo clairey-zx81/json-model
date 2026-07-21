@@ -4,5 +4,6 @@
 
 /* ZA */
 export interface RootModel {
-	country?: "South Africa"
+	/* constant value: "South Africa" */
+	country?: string
 }

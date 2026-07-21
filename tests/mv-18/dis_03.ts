@@ -4,12 +4,14 @@
 
 /* boolean tag */
 export interface RootModel_0 {
-	discriminator: true
+	/* constant value: true */
+	discriminator: boolean
 	x: string
 }
 
 export interface RootModel_1 {
-	discriminator: false
+	/* constant value: false */
+	discriminator: boolean
 	y: string
 }
 

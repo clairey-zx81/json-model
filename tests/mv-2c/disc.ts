@@ -4,22 +4,26 @@
 
 /* discriminant simplification */
 export interface RootModel_0 {
-	d: 0
+	/* constant value: 0 */
+	d: number
 	a: string
 }
 
 export interface RootModel_1 {
-	d: 1
+	/* constant value: 1 */
+	d: number
 	a: number
 }
 
 export interface RootModel_2 {
-	d: 2
+	/* constant value: 2 */
+	d: number
 	a: null
 }
 
 export interface RootModel_3 {
-	d: 3
+	/* constant value: 3 */
+	d: number
 	a: boolean
 }
 

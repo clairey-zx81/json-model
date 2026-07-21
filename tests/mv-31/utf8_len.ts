@@ -4,14 +4,24 @@
 
 /* char vs byte length */
 export interface RootModel {
-	"0"?: ""
-	"1"?: "\u00c0"
-	"2"?: "\u00c0\u00df"
-	"3"?: "\u00c0\u00df\u00e7"
-	"4"?: "\u00c0\u00df\u00e7\u0394"
-	"5"?: "\u00c0\u00df\u00e7\u0394\u20ac"
-	"6"?: "\u00c0\u00df\u00e7\u0394\u20ac\u1d73"
-	"7"?: "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7"
-	"8"?: "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7\u210f"
-	"9"?: "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7\u210f\u0131"
+	/* constant value: "" */
+	"0"?: string
+	/* constant value: "\u00c0" */
+	"1"?: string
+	/* constant value: "\u00c0\u00df" */
+	"2"?: string
+	/* constant value: "\u00c0\u00df\u00e7" */
+	"3"?: string
+	/* constant value: "\u00c0\u00df\u00e7\u0394" */
+	"4"?: string
+	/* constant value: "\u00c0\u00df\u00e7\u0394\u20ac" */
+	"5"?: string
+	/* constant value: "\u00c0\u00df\u00e7\u0394\u20ac\u1d73" */
+	"6"?: string
+	/* constant value: "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7" */
+	"7"?: string
+	/* constant value: "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7\u210f" */
+	"8"?: string
+	/* constant value: "\u00c0\u00df\u00e7\u0394\u20ac\u1d73\u01e7\u210f\u0131" */
+	"9"?: string
 }
