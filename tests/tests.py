@@ -586,7 +586,7 @@ TSC = "../node_modules/.bin/tsc"
 
 @pytest.mark.skipif(not os.path.exists(TSC), reason="missing tsc (npm install)")
 def test_ts(directory, tmp_dir):
-    from json_model.export_ts_interface import model2tsinterface
+    from json_model.ts_export import model2tsinterface
 
     resolver = Resolver(None, dirmap(directory))
     mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
