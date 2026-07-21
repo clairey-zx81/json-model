@@ -3,7 +3,8 @@
 // see https://json-model.org/
 
 export interface Foo {
-	foo?: "initial foo"
+	/* constant value: "initial foo" */
+	foo?: string
 }
 
 export type RootModel = Foo

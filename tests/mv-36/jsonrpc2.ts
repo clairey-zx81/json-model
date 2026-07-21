@@ -10,7 +10,8 @@ export interface Notification_params_1 {
 }
 
 export interface Notification {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	method: string
 	params?: (any[] | Notification_params_1)
 }
@@ -20,7 +21,8 @@ export interface Request_params_1 {
 }
 
 export interface Request {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	method: string
 	id: Id
 	params?: (any[] | Request_params_1)
@@ -31,7 +33,8 @@ export type BatchRequest = (Request | Notification)[]
 export type ClientMessage = (Notification | Request | BatchRequest)
 
 export interface Response {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	id: Id
 	result: any
 }
@@ -43,7 +46,8 @@ export interface Error_error {
 }
 
 export interface Error {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	id: Id
 	error: Error_error
 }

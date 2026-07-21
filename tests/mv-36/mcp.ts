@@ -34,9 +34,11 @@ export interface InitializeRequest_params {
 }
 
 export interface InitializeRequest {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	id: number
-	method: "initialize"
+	/* constant value: "initialize" */
+	method: string
 	params: InitializeRequest_params
 }
 
@@ -63,20 +65,24 @@ export interface InitializeResponse_result {
 }
 
 export interface InitializeResponse {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	id: number
 	result: InitializeResponse_result
 }
 
 export interface Notification {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	method: string
 }
 
 export interface ToolsListRequest {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	id: number
-	method: "tools/list"
+	/* constant value: "tools/list" */
+	method: string
 	[key: string]: any
 }
 
@@ -85,15 +91,18 @@ export interface ToolsListResponse_result {
 }
 
 export interface ToolsListResponse {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	id: number
 	result: ToolsListResponse_result
 }
 
 export interface ToolCallRequest {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	id: number
-	method: "tools/call"
+	/* constant value: "tools/call" */
+	method: string
 	params: Object
 }
 
@@ -103,7 +112,8 @@ export interface ToolCallResponse_result {
 }
 
 export interface ToolCallResponse {
-	jsonrpc: "2.0"
+	/* constant value: "2.0" */
+	jsonrpc: string
 	id: number
 	result: ToolCallResponse_result
 }

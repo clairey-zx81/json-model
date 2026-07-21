@@ -2,6 +2,6 @@
 // for ./opt_08
 // see https://json-model.org/
 
-export type one = 1
+export const one = 1
 
 export type RootModel = 1

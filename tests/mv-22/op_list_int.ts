@@ -3,7 +3,8 @@
 // see https://json-model.org/
 
 export interface RootModel_0 {
-	t: 0
+	/* constant value: 0 */
+	t: number
 	z: number
 }
 
@@ -18,7 +19,8 @@ export interface RootModel_2 {
 }
 
 export interface RootModel_3 {
-	t: 10
+	/* constant value: 10 */
+	t: number
 	d: number
 }
 

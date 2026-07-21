@@ -3,12 +3,14 @@
 // see https://json-model.org/
 
 export interface RootModel_0 {
-	t: 1
+	/* constant value: 1 */
+	t: number
 	a: number
 }
 
 export interface RootModel_1 {
-	t: 2
+	/* constant value: 2 */
+	t: number
 	b: number
 }
 

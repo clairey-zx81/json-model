@@ -3,7 +3,8 @@
 // see https://json-model.org/
 
 export interface RootModel_0 {
-	t: "a"
+	/* constant value: "a" */
+	t: string
 	foo: number
 }
 

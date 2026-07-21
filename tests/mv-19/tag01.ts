@@ -3,12 +3,14 @@
 // see https://json-model.org/
 
 export interface Aa {
-	t: true
+	/* constant value: true */
+	t: boolean
 	a: number
 }
 
 export interface Bb {
-	t: false
+	/* constant value: false */
+	t: boolean
 	b: number
 }
 

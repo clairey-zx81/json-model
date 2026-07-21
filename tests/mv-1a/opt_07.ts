@@ -4,17 +4,20 @@
 
 /* ^ to | on discriminant property */
 export interface RootModel_0 {
-	d: 1
+	/* constant value: 1 */
+	d: number
 	val: number
 }
 
 export interface RootModel_1 {
-	d: 2
+	/* constant value: 2 */
+	d: number
 	val: string
 }
 
 export interface RootModel_2 {
-	d: 3
+	/* constant value: 3 */
+	d: number
 	val: boolean
 }
 

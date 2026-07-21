@@ -4,22 +4,26 @@
 
 /* multi-type discriminator */
 export interface RootModel_0 {
+	/* constant value: null */
 	t: null
 	v: null
 }
 
 export interface RootModel_1 {
-	t: true
+	/* constant value: true */
+	t: boolean
 	v: boolean
 }
 
 export interface RootModel_2 {
-	t: 0
+	/* constant value: 0 */
+	t: number
 	v: number
 }
 
 export interface RootModel_3 {
-	t: 0.0
+	/* constant value: 0.0 */
+	t: number
 	v: number
 }
 
