@@ -6,9 +6,10 @@ import re
 from collections.abc import Collection
 import json
 
+from .utils import constant_value
 from .model import JsonModel
 from .language import Block
-from .mtypes import ModelType, ModelError
+from .mtypes import ModelType, ModelError, ModelPath
 from .predefs import INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, BOOL_MODEL_PREDEFS
 
 _IDENT = re.compile(r"[A-Za-z_$][\w$]*$")
@@ -26,6 +27,17 @@ _TS_RESERVED = [
       "any", "bigint", "boolean", "never", "number", "object",
       "string", "symbol", "undefined", "unknown",
  ]
+_CONST_BASE = {
+    type(None): "null",
+    bool: "boolean",
+    int: "number",
+    float: "number",
+    str: "string"
+}
+
+def _const_base_type(model: ModelType, mpath: ModelPath) -> str:
+    _, val = constant_value(_unwrap(model), mpath)
+    return _CONST_BASE[type(val)]
 
 def _check_name_collisions(names: Collection[str], context: str) -> None:
     seen: dict[str, str] = {}
@@ -48,6 +60,10 @@ def _unwrap(model: ModelType) -> ModelType:
     while isinstance(model, dict) and "@" in model:
         model = model["@"]
     return model
+
+def _is_const(m):
+    m = _unwrap(m)
+    return isinstance(m, str) and (m.startswith("=") or m.startswith("_"))
 
 def _is_operator(model: ModelType) -> bool:
     return isinstance(model, dict) and any(op in model for op in ("|", "^", "&", "+"))
@@ -75,6 +91,7 @@ def _comment(model: ModelType) -> str | None:
     return None
 
 def _comment_block(text: str, indent: str = "") -> Block:
+    text = text.replace("*/", "*\\/")
     lines = text.split("\n")
     if len(lines) == 1:
         return [f"{indent}/* {lines[0]} */"]
@@ -134,7 +151,7 @@ def field_type(name: str, model: ModelType, def_keys: Collection[str]) -> tuple[
         return "[" + ", ".join(parts) + "]", hoisted
     return m2type(model, def_keys) or "any", []
 
-def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
+def m2ts(name: str, model: ModelType, def_keys: Collection[str], is_def: bool = True) -> Block:
     model = _unwrap(model)
     code: Block = []
     if isinstance(model, dict) and not _is_operator(model):
@@ -168,6 +185,9 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
 
             ftype, extra = field_type(f"{name}_{safe}", jm, def_keys)
             hoisted += extra
+            if _is_const(jm):
+                code += _comment_block(f"constant value: {ftype}", "\t")
+                ftype = _const_base_type(jm, [name, key])
             prop = field if _IDENT.match(field) else json.dumps(field)
             code += [f"\t{prop}{'?' if optional else ''}: {ftype}"]
         code += ["}"]
@@ -175,7 +195,10 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
     else:
         base = f"{name}_item" if isinstance(model, list) else name
         ftype, extra = field_type(base, model, def_keys)
-        code = extra + [f"export type {ts_name(name)} = {ftype}"]
+        if is_def and _is_const(model):
+            code = extra + [f"export const {ts_name(name)} = {ftype}"]
+        else:
+            code = extra + [f"export type {ts_name(name)} = {ftype}"]
         doc = _comment(model)
         if doc:
             code = _comment_block(doc) + code
@@ -184,12 +207,20 @@ def m2ts(name: str, model: ModelType, def_keys: Collection[str]) -> Block:
 
 def model2tsinterface(model: JsonModel, root: str|None = "RootModel") -> Block:
     def_keys = model._defs.keys()
-    _check_name_collisions(def_keys, "definitions ($)")
+    consts = [n for n in def_keys if _is_const(model._defs[n]._model)]
+    _check_name_collisions([n for n in def_keys if n not in consts], "definitions ($)")
+    winner = {}
+    for n in consts:
+        ident = ts_name(n)
+        if ident in winner:
+            raise ModelError(f"const name collision: {winner[ident]!r} and {n!r} both map to {ident!r}")
+        winner[ident] = n
+
     blocks: list[Block] = []
     for name, jm in model._defs.items():
         blocks.append(m2ts(name, jm._model, def_keys))
     if root is not None:
-        blocks.append(m2ts(root, model._model, def_keys))
+        blocks.append(m2ts(root, model._model, def_keys, is_def=False))
     code: Block = []
     for b in blocks:
         if code and b:
