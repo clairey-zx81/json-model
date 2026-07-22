@@ -69,7 +69,7 @@ EOF
 # defaults
 LOOP=1000 TASK="all"
 # command options
-jsu_opts_2="$JSU_OPTS" jmc_opts_2= blaze_cmp_opts= blaze_val_opts=
+jsu_opts_2=" $JSU_OPTS" jmc_opts_2= blaze_cmp_opts= blaze_val_opts=
 
 # handle options
 while [[ "$1" == -* ]] ; do
