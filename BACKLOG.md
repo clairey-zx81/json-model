@@ -21,9 +21,6 @@
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
 - [ ] tests: use `.errors.json` file to manage errors, instead of rough counts
-- [ ] pr: add ts export howto section
-- [ ] pr: add ts format to jmc pod documentation
-- [ ] pr: add ts export to reference documentation (?)
 - [ ] models: add model for `*.errors.json` files
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)
