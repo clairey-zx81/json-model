@@ -13,7 +13,7 @@ B<jmc> - JSON Model Compiler
      [--allow-duplicates] [-[-no]-extend] [--loose-int] [--strict-int] [--loose-float]
      [--strict-float] [--loose-number] [--strict-number] [--loose] [--check]
      [-[-no]-single-line-regex] [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
-     [--format {json,yaml,py,c,js,plpgsql,pl,java}] [-[-no]-sort] [--indent INDENT]
+     [--format {json,yaml,py,c,js,plpgsql,pl,java,ts}] [-[-no]-sort] [--indent INDENT]
      [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
      [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS] [-[-no]-precompiled]
      [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
@@ -31,7 +31,7 @@ B<jmc> - JSON Model Compiler
 
 The JSON Model Compiler command processes a L<JSON Model|https://json-model.org/> to
 generate modules or scripts in C, JS, Python, PL/pgSQL, Perl, or a more-or-less equivalent
-JSON Schema or pydantic type declarations.
+JSON Schema, pydantic, or TypeScript type declarations.
 
 =head1 ARGUMENTS
 
@@ -419,6 +419,10 @@ Formatted in JSON (C<-E -o schema.json>) or yaml (C<-E -o schema.yaml>).
 =item B<Python Pydantic>
 
 Generate classes and types with C<-E -o Models.py>).
+
+=item B<TypeScript>
+
+Generate TypeScript C<interface>/C<type> declarations with C<-E -F ts -o Model.ts>.
 
 =back
 

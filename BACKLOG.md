@@ -11,6 +11,12 @@
 - [x] models: add compatible models for some JSB buggy schemas
 - [x] tests: validate test vectors
 - [x] front: always try to recompute the version
+- [x] export: generate ts interfaces
+- [x] ts-export: manage or error on regex and defs properties
+- [x] ts-export: keep definition order, do not reverse it!
+- [x] pr: add ts export howto section
+- [x] pr: add ts format to jmc pod documentation
+- [ ] pr: add ts export to reference documentation (?)
 - [ ] bench: use local models instead of fetching urls
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
