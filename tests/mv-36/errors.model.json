@@ -1,0 +1,16 @@
+{
+    "$": {
+        "lang": {
+            "|": [ [0], null ]
+        }
+    },
+    "?schema": "$lang",
+    "?js": "$lang",
+    "?sql": "$lang",
+    "?pl": "$lang",
+    "?java": "$lang",
+    "?c": "$lang",
+    "?py": "$lang",
+    "?ts": true,
+    "/^#/": ""
+}
