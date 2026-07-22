@@ -26,6 +26,7 @@ Environment:
 - JMC: docker.io/zx80/jmc container tag, default is "latest" ($JMC)
 - JSC: ghcr.io/sourcemeta/jsonschema container tag, default is "latest" ($JSC)
 - JMC_OPTS: options for jmc ($JMC_OPTS)
+- JSU_OPTS: options for jsu-model ($JSU_OPTS)
 - JSB_DIR: JSON Schema Benchmark directory, default is to clone ($JSB_DIR)
 
 Example:
@@ -82,6 +83,11 @@ bench_opts=()
 if [ "$JMC_OPTS" ] ; then
   container_opts+=(-e "JMC_OPTS=$JMC_OPTS")
   bench_opts+=(--env JMC_OPTS)
+fi
+
+if [ "$JSU_OPTS" ] ; then
+  container_opts+=(-e "JSU_OPTS=$JSU_OPTS")
+  bench_opts+=(--env JSU_OPTS)
 fi
 
 if [ "$JSB_DIR" ] ; then
