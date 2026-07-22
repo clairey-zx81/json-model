@@ -51,8 +51,9 @@ Environment:
 - JMC: json-model container tag
 - JMC_ENV: names of environment variables to export
 - JMC_POD_OPTS: additional pod options
-- JMC_OPTS: jmc options
+- JMC_OPTS: jmc options (managed from jmc)
 - JMC_JAVA_LIBS: java JSON libraries, in GSON Jackson JSONP, default is all
+- JSU_OPTS: jsu compiler options override
 - JSC: jsonschema blaze cli container tag
 - PATH: where to find "jmc" and "js-cli" wrappers
 - WORKDIR: working directory to use
@@ -68,7 +69,7 @@ EOF
 # defaults
 LOOP=1000 TASK="all"
 # command options
-jsu_opts_2= jmc_opts_2= blaze_cmp_opts= blaze_val_opts=
+jsu_opts_2="$JSU_OPTS" jmc_opts_2= blaze_cmp_opts= blaze_val_opts=
 
 # handle options
 while [[ "$1" == -* ]] ; do
@@ -159,7 +160,7 @@ for dir ; do
   prefix="$PREFIX${name}"
   sprefix="$PREFIX${safe}"
 
-  # JSU compiler options:
+  # JSU compiler default options:
   #
   # - `--quiet`: reduce compiler verbosity
   # - `--id`: use custom models when available
