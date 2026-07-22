@@ -403,6 +403,7 @@ or deselect tools for easier comparisons.
 - **cpu model:** $cpu_model
 - **cpu count:** $cpu_count ($core_count cores)
 - **cpu freq:** $frequency
+- **docker version:** $(docker --version | cut -d' ' -f 3-)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
 - **jsonschema-cli version:** $(js-cli --version)
