@@ -320,6 +320,41 @@ javac api_java.java
 java api_java  # yes!
 ```
 
+## TypeScript Types
+
+Model compilation to TypeScript generates a `.ts` file (`-F ts`) containing
+`interface`/`type` declarations only - there is no generated runtime check
+function, as TypeScript types are erased at compile time.
+
+- each object model becomes an `export interface`, with optional properties (`?prefix`)
+  mapped to `?` and constant/reference definitions inlined as needed.
+- each named definition becomes an `export type` alias (or `export const` for constants).
+- the root model is exported as `export type Root = …`.
+
+Since no runtime checking is generated, TypeScript export is meant to provide static
+typing over data already validated by another means, e.g. a value checked at runtime
+by the JS backend (see [JavaScript API](#javascript-api)) can be safely cast to the
+corresponding generated TS type.
+
+For instance, generate TypeScript declarations:
+
+```sh
+jmc -E -F ts -o Person.ts Person
+```
+
+This results in, e.g.:
+```ts
+export interface Person {
+    name: Name
+    birth: string
+    friends?: Name[]
+}
+
+export type Name = string
+
+export type Root = Person
+```
+
 ## Web API
 
 :warning: :construction_worker: :construction:
