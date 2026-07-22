@@ -9,7 +9,7 @@
 - [x] ts-export: manage or error on regex and defs properties
 - [x] ts-export: keep definition order, do not reverse it!
 - [x] pr: add ts export howto section
-- [ ] pr: add ts format to jmc pod documentation
+- [x] pr: add ts format to jmc pod documentation
 - [ ] pr: add ts export to reference documentation (?)
 - [ ] models: add model for `*.errors.json` files
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
