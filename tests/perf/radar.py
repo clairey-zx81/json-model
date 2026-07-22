@@ -9,7 +9,7 @@ import pandas as pd
 
 perf = pd.read_csv(
     sys.argv[1] if len(sys.argv) > 1 else "perf.csv",
-    names=["case", "tool", "iter", "line", "runavg", "runstd", "empty"],
+    names=["case", "tool", "iter", "line", "runavg", "runstd", "empty", "pass"],
     index_col=["case", "tool", "iter", "line"]
 )
 

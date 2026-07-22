@@ -233,7 +233,7 @@ vals_df = pd.read_csv(
 # very large
 perf_df = pd.read_csv(
     "perf.csv",
-    names=["case", "tool", "iter", "line", "runavg", "runstd", "empty"],
+    names=["case", "tool", "iter", "line", "runavg", "runstd", "empty", "pass"],
     index_col=["case", "tool", "iter", "line"]
 )
 
