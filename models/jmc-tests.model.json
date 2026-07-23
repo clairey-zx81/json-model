@@ -1,0 +1,14 @@
+{
+  "#": "JSON Model for JMC Test Vectors",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/jmc-tests",
+    "Comment": "/./",
+    "Test2": [ true, "$ANY" ],
+    "Test3": [ true, "/^[-\\w]*$/", "$ANY" ],
+    "Test": {
+      "|": [ "$Comment", "$Test2", "$Test3" ]
+    }
+  },
+  "@": [ "$Test" ]
+}

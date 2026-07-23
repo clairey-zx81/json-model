@@ -7,6 +7,8 @@
 - [x] model: add example model for JMC benchmark radar data
 - [x] pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
 - [x] perf: keep track of failed tests
+- [x] models: add model for test vectors
+- [ ] tests: validate test vectors
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
 - [ ] tests: use `.errors.json` file to manage errors, instead of rough counts
 - [ ] tests: run tests inside docker image
