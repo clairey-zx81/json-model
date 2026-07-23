@@ -598,6 +598,13 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
         # run on all validations
         bname = fname.replace(suffix, "").split("/", -1)[-1]
 
+        efile = directory.joinpath(bname + ".errors.json")
+        expected_errors: dict[str, list[int]] = {}
+        if efile.exists():
+            with open(efile) as ef:
+                expected_errors = {k: v for k, v in json.load(ef).items()
+                                   if not k.startswith("#")}
+
         # true/false value files
         values = list(directory.glob(f"{bname}.*.true.json")) + \
                  list(directory.glob(f"{bname}.*.false.json"))
@@ -633,23 +640,35 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                 result = p.read()
             out += result
 
+            lang = suffix[1:]
+            observed: set[int] = set()
+
             for line in result.split("\n")[:-1]:
                 nvalues += 1
-                if ": ERROR" not in line and (": PASS" in line or ": FAIL" in line):
-                    assert True, "PASS/FAIL expectation ok"
-                else:
+                m = re.search(r"\.values\.json\[(\d+)\]: (\w+)", line)
+                if m is None:
                     log.error(f"error in {directory}: {line}")
                     nerrors += 1
+                    continue
+                idx, verdict = int(m.group(1)), m.group(2)
+                if verdict == "ERROR":
+                    observed.add(idx)
 
             assert out == ref
 
+            expected = set(expected_errors.get(lang) or [])
+            missing = expected - observed
+            extra = observed - expected
+            assert not missing and not extra, (
+                f"{directory}/{bname} [{lang}]: "
+                f"missing={sorted(missing)} extra={sorted(extra)}"
+            )
         # cleanup
         if suffix.endswith(".c"):
             os.remove(fexec)
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nvalues == EXPECT.get(f"{directory}:values", 0)
-    assert nerrors == EXPECT.get(f"{directory}:errors{suffix}", 0)
 
 
 def test_sta_c(directory, clibjm):
