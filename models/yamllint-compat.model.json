@@ -2,7 +2,10 @@
   "#": "JSON Model YamlLint Configuration (compatible with JSB tweaked schema and tests)",
   "#.url": "https://json.schemastore.org/yamllint.json",
   "#.note": "checks are indigent",
-  "~": "https://json-model.org/models/yamllint-compat",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/yamllint-compat"
+  },
   "|": [
     {
       "?ignore": "",

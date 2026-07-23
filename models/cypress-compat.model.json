@@ -2,6 +2,7 @@
   "#": "JSON model for https://cypress.io Test Runner's configuration file (official schema compatible)",
   "#.ref": "https://docs.cypress.io/app/references/configuration",
   "#.note": "JSON configuration format, which seems now to be .js or .ts",
+  "#.todo": "switch to a transformation of the root schema",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "cypressConfig": {

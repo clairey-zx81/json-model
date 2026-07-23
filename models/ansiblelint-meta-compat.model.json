@@ -2,6 +2,7 @@
   "#": "JSON Model for Ansible Meta v1/v2 (bug compatible with official schema)",
   "#.doc": " manually derived from schema (2025-06-22)",
   "#.note": "the root object is open because of a misplace additionalProperties",
+  "#.todo": "swith to a transformation of the initial schema",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "AIXPlatformModel": {
