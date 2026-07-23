@@ -5,12 +5,14 @@
   "~": "https://json-model.org/models/json-model",
   "$": {
     "cypressConfig": {
-      "?baseUrl": "$URL",
+      "#.baseUrl": "this should be a $URL",
+      "?baseUrl": "",
       "#.env": "should the value be restricted to strings?",
       "?env": { "": "$ANY" },
       "?ignoreTestFiles": { "|": [ "", [""] ] },
       "?numTestsKeptInMemory": 0,
       "?port": 1,
+      "#.reporter": "predefined list of js file",
       "?reporter": "",
       "?reporterOptions": { "": "$ANY" },
       "?slowTestThreshold": 1,
