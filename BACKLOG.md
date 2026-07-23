@@ -9,6 +9,7 @@
 - [x] perf: keep track of failed tests
 - [x] models: add model for test vectors
 - [x] models: add compatible models for some JSB buggy schemas
+- [ ] bench: use local models instead of fetching urls
 - [ ] tests: validate test vectors
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
 - [ ] tests: use `.errors.json` file to manage errors, instead of rough counts
