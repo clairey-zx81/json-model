@@ -318,8 +318,8 @@ EXPECT: dict[str, int] = {
     # mv-35
     "mv-35:cmp-opts": {"report": False, "comment": False},
     "mv-35:mod-opts": {"single_line": True},
-    "mv-35:models": 4,
-    "mv-35:values": 108,
+    "mv-35:models": 5,
+    "mv-35:values": 124,
     "mv-35:verrors:schema": 1,
     # mv-36
     "mv-36:models": 2,
@@ -348,7 +348,9 @@ def path2file(fname: str) -> str:
 
 def dirmap(dname) -> dict[str, str]:
     return {
+        # map JM canonical url to local directory
         "https://json-model.org/models/": "../models/",
+        # map current to tested directory
         "./": f"./{dname}/",
     }
 
@@ -904,6 +906,28 @@ def test_models_dpy(directory):
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nerrors == EXPECT.get(f"{directory}:models:errors", 0)
+
+def test_values_json(directory):
+    """Check *.values.json files in directory."""
+    resolver = Resolver(None, dirmap(directory))
+    checker = model_checker_from_url("https://json-model.org/models/jmc-tests", resolver=resolver)
+    ntests, nerrors = 0, 0
+    nmodels = len(list(directory.glob(f"*.models.json")))
+
+    for fpath in sorted(directory.glob(f"*.values.json")):
+        fname = "./" + str(fpath)
+        with open(fname) as f:
+            values = json.load(f)
+        ntests += 1
+        valid = checker(values)
+        if not valid:
+            nerrors += 1
+        report = []
+        assert valid == checker(values, "", report)
+
+    # all models have values.json files?
+    assert ntests == EXPECT.get(f"{directory}:models", 0)
+    assert nerrors == EXPECT.get(f"{directory}:values:errors", 0)
 
 #
 # BAD MODELS
