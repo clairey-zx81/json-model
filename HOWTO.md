@@ -301,13 +301,13 @@ Assuming that the jmc command is available:
 
 1. Export the model as a .ts file containing interface/type declarations
 
-```sh 
+```sh
 jmc -E -F ts Person-0
 ```
 
 2. for a model such as:
 
-```json 
+```json
 { "name": "/^\\w+$/", "born": "$DATE" }
 ```
 
