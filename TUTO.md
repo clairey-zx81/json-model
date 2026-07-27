@@ -752,21 +752,21 @@ Note that not all constraints and types are implemented.
 Let us export a model as a typescript interface:
 
 ```sh
-jmc -E -F ts Person-2
+jmc -E -F ts -n Root Person-2
 ```
 
 This results in:
 
 ```ts
-export type Pi = 3.141592653589793238462643
+export type Name = string
 
 export interface Person {
-        name: Name
-        birth: string
-        friends?: Name[]
+	name: Name
+	birth: string
+	friends?: Name[]
 }
 
-export type Name = string
+export const Pi = 3.141592653589793238462643
 
 export type Root = Person
 ```
