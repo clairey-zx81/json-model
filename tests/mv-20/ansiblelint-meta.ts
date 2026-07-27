@@ -707,7 +707,7 @@ export interface DependencyModelLoose_vars {
 
 /*
  * See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79
- * 
+ *
  * Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
  */
 export interface DependencyModelLoose {

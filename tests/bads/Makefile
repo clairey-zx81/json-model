@@ -82,7 +82,7 @@ ts:
 	# skip
 
 .PHONY: clean.ts
-clean.ts:	
+clean.ts:
 	# skip
 
 # test that --check rejects **all** bads

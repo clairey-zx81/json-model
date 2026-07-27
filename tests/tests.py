@@ -629,7 +629,7 @@ def test_ts(directory, tmp_dir):
         tsref = fname.replace(".model.json", ".ts")
         with open(tsref) as f:
             assert generated == f.read(), f"generated TS differs from committed {tsref}"
-        
+
         tsfile = f"{tmp_dir}/{path2file(fname)}.ts"
         with open(tsfile, "w") as f:
             f.write(generated)
