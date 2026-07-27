@@ -117,7 +117,7 @@ For each tool and cases with a partial success rate, percent of test cases valid
 
 # yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969}
 RESULT_COMMENT: str = """
-As of May 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
+As of July 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
 are not 100.0% because validation checks are stricter and some
 [values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
 are rightfully rejected.
@@ -130,11 +130,11 @@ are rightfully rejected.
 """
 
 RESULT_CONTENT_COMMENT: str = """
-When running with content validation (JSON Schema format, JSON Model predefs),
+When running with content validation (aka JSON Schema format or JSON Model predefs),
 more cases are expected to fail:
 
-- helm: 128 rejected values, mostly because of empty .dependencies.*.repository urls
-- openapi:{12,26} 2 bad urls are rejected
+- helm: - 128 rejected values, mostly because of empty `.dependencies.*.repository` urls
+- openapi:{12,26} - 2 bad urls are rejected
 """
 
 COMP_CASES: str = """
