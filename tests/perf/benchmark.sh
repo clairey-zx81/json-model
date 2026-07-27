@@ -94,8 +94,8 @@ while [[ "$1" == -* ]] ; do
     --jmc=*) JMC=${opt#*=} ;;
     --jsc) JSC=$1 ; shift ;;
     --jsc=*) JSC=${opt#*=} ;;
-    --env=*) JMC_ENV=${opt#*=} ;;
-    -e|--env) JMC_ENV=$1 ; shift ;;
+    --env=*) JMC_ENV+=" ${opt#*=}" ;;
+    -e|--env) JMC_ENV+=" $1" ; shift ;;
     --cap) cap=1 ;;
     --no-cap) cap= ;;
     -d|--debug) debug=1 ;;
@@ -120,7 +120,7 @@ done
 # non standard run
 [ "$TASK" != "bcsvy" ] && show_opts=
 
-echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=$JMC_ENV task=$TASK"
+echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=<$JMC_ENV> task=$TASK"
 
 #
 # PARA RUNS
