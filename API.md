@@ -329,7 +329,7 @@ function, as TypeScript types are erased at compile time.
 - each object model becomes an `export interface`, with optional properties (`?prefix`)
   mapped to `?` and constant/reference definitions inlined as needed.
 - each named definition becomes an `export type` alias (or `export const` for constants).
-- the root model is exported as `export type Root = …`.
+- the root model is exported as `export type RootModel = …`.
 
 Since no runtime checking is generated, TypeScript export is meant to provide static
 typing over data already validated by another means, e.g. a value checked at runtime
@@ -344,15 +344,15 @@ jmc -E -F ts -o Person.ts Person
 
 This results in, e.g.:
 ```ts
-export interface Person {
-    name: Name
-    birth: string
-    friends?: Name[]
-}
-
 export type Name = string
 
-export type Root = Person
+export interface Person {
+	name: Name
+	birth: string
+	friends?: Name[]
+}
+
+export type RootModel = Person
 ```
 
 ## Web API
