@@ -55,6 +55,7 @@ The main script options are:
 - `-p PARA` parallelism (a little less that the number of available cores, default is _8_)
 - `-l LOOP` loop iterations for performance average (at least _1000_, the default)
 - `-r RUNS` number of runs (odd number, default is _3_)
+-  -c` also validate contents (default is _not_)
 
 ## Benchmarking Conditions
 
@@ -116,7 +117,7 @@ the following caveats, and others:
 also provides
 [benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
 which includes 16 JSON Schema validation tools including our compiler with
-C, JS and Python backends, using the `jsu-compile` command.
+C, JS and Python backends, using the `jsu-compile` command only.
 
 It should be noted that benchmarking conditions are quite different compared to our own:
 
