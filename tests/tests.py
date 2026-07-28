@@ -683,6 +683,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                 if verdict == "ERROR":
                     observed.add(idx)
 
+            assert result, f"no output from {fexec} on {vfile}"
             check_errors(directory, bname, lang, observed)
             assert out == ref
         # cleanup
