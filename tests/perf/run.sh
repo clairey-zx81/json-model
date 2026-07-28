@@ -146,6 +146,7 @@ function ctime()
   shift 3
   local compile_csv="${prefix}_${tool}_compile.csv"
   echo -n "$case" >> "$compile_csv"
+  echo "### command: $@" >&2
   # echo /usr/bin/time -f "%e" -a -o "$compile_csv" "$@" >&2
   /usr/bin/time -f "%e" -a -o "$compile_csv" "$@"
 }
@@ -164,18 +165,19 @@ for dir ; do
   #
   # - `--quiet`: reduce compiler verbosity
   # - `--id`: use custom models (more precise, stricter) when available
-  # - `--no-strict`: just warn about some ill-defined schemas
   # - `--fix`: fix common schema issues (missing types, misplaced keywords)
   #            improving accuracy and possibly performance (unclear ?)
   #            under `--id` this selects fuzzy or schema-compatible version
+  # - `--no-strict`: just warn about some ill-defined schemas
   # - `--loose`: allow loose numbers (42.0 is an int, 42 is a float)
   #
-  jsu_opts="--quiet --id --no-strict --fix --no-reporting --loose"
+  jsu_opts="--quiet --id --fix --no-strict --no-reporting --loose"
 
   # skip custom OpenAPI model as the schema does not check sub-schemas, for fairer comparison
-  # this means that a large chunk of the schema is not really checked…
+  # this means that a large chunk of the schema is not really checked (or 80% rejections)
   [ $name = "openapi" ] && jsu_opts+=" --no-id --no-fix"
-  # always take the fuzzy version for JSON Schema Draft-04 meta schema
+
+  # always take the fuzzy version for JSON Schema Draft-04 meta schema (or 87% rejections)
   [ $name = "draft-04" ] && jsu_opts+=" --no-fix"
 
   # JMC compiler forwarded options:
