@@ -809,11 +809,11 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
                 except NotSupportedError as e:
                     log.error(f"{name} not supported error on {model}.values.json[{index}]")
                     observed.add(index)
-                except AssertionError as e:
+                except AssertionError:
                     log.error(f"{name} assert error on {model}.values.json[{index}]")
                     observed.add(index)
-                except Exception:
-                    log.error(f"{name} internal checker error on {model}.values.json[{index}]")
+                except Exception as e:
+                    log.error(f"{name} internal checker error on {model}.values.json[{index}] ({e})")
                     observed.add(index)
             
             if checker is not None:
