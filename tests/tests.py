@@ -578,8 +578,6 @@ def test_lang(directory, language):
 # STATIC CHECK MODELS AGAINST VALUES
 #
 
-GEN_ERRORS = os.environ.get("GEN_ERRORS", "") not in ("", "0", "no")
-
 def expected_errors(directory: pathlib.Path, model: str) -> dict[str, list[int]]:
     """Expected errors for a model"""
     efile = directory.joinpath(f"{model}.errors.json")
@@ -592,29 +590,10 @@ def check_errors(directory: pathlib.Path, model: str, key: str, observed: set[in
     """Compare observed checker errors to expectations"""
     expected = set(expected_errors(directory, model).get(key) or [])
 
-    if GEN_ERRORS:
-        if expected != observed:
-            _record_errors(directory, model, key, observed)
-        return
-    
     missing, extra = expected - observed, observed - expected
     assert not missing and not extra, \
         f"{directory}/{model}.values.json [{key}]: " \
         f"missing={sorted(missing)} extra={sorted(extra)}"
-
-def _record_errors(directory: pathlib.Path, model: str, key: str, observed: set[int]):
-    """Update one key of <model>.errors.json, preserving the others."""
-    efile = directory.joinpath(f"{model}.errors.json")
-    data = json.loads(efile.read_text()) if efile.exists() else {}
-    if observed:
-        data[key] = sorted(observed)   # keeps position if the key is already there
-    else:
-        data.pop(key, None)
-    if data:
-        efile.write_text(json.dumps(data, indent=2) + "\n")
-    elif efile.exists():
-        efile.unlink()
-    log.warning(f"recorded {key} errors in {efile}")
 
 def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                  generate: typing.Callable[[str], str], opts: str = ""):
