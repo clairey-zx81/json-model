@@ -1,0 +1,23 @@
+[
+  "# test vectors for the jmc .errors.json file format",
+  [ true,  {} ],
+  [ true,  {"js": [0]} ],
+  [ true,  {"js": [0, 1, 2, 17]} ],
+  [ true,  {"js": [4294967295]} ],
+  [ true,  {"schema": [1], "dynpy": [2], "js": [3], "sql": [4], "pl": [5], "java": [6], "c": [7], "py": [8]} ],
+  "# comment keys start with a hash",
+  [ true,  {"#": "a note about this model", "js": [0]} ],
+  [ true,  {"#.sql": "\\0 not supported by Postgres", "sql": [4]} ],
+  [ true,  {"#": ""} ],
+  "# an error index list must be a non empty list of unique unsigned integers",
+  [ false, {"js": []} ],
+  [ false, {"js": [0, 0]} ],
+  [ false, {"js": [-1]} ],
+  [ false, {"js": [1.5]} ],
+  [ false, {"js": ["0"]} ],
+  [ false, {"js": null} ],
+  "# unknown keys are rejected, the object is closed",
+  [ false, {"nope": [0]} ],
+  [ false, {"#": 42} ],
+  [ false, [] ]
+]
