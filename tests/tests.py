@@ -584,7 +584,7 @@ def expected_errors(directory: pathlib.Path, model: str) -> dict[str, list[int]]
     if not efile.exists():
         return {}
     with open(efile) as ef:
-        return { k: v or [] for k, v in json.load(ef).items() if not k.startswith("#") }
+        return { k: v for k, v in json.load(ef).items() if not k.startswith("#") }
 
 def check_errors(directory: pathlib.Path, model: str, key: str, observed: set[int]):
     """Compare observed checker errors to expectations"""
