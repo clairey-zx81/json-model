@@ -751,7 +751,7 @@ type GenChecker = typing.Callable[[str], typing.Callable[[typing.Any, str], bool
 def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
     """Check dynamic checker with test values."""
 
-    nfiles, ntests, nmerrors = 0, 0, 0
+    nfiles, ntests, nmerrors, nverrors = 0, 0, 0, 0
 
     for fpath in sorted(directory.glob("*.model.json")):
         nfiles += 1
@@ -771,6 +771,7 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
             assert spath.endswith(".true.json") or spath.endswith(".false.json")
             ntests += 1
             if checker is None:
+                nverrors += 1
                 continue
             value = json.loads(vpath.read_text())
             if spath.endswith(".true.json"):
@@ -784,13 +785,13 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
             values = json.loads(vfile.read_text())
             assert isinstance(values, list)
 
-            tvects = [t for t in values if not isinstance(t, str)]
-            observed: set[int] = set()
-
-            for index, tvect in enumerate(tvects):
+            for index, tvect in enumerate(values):
+                if isinstance(tvect, str):
+                    continue  # skip comments
                 assert isinstance(tvect, list)
                 ntests += 1
                 if checker is None:
+                    nverrors += 1
                     continue
 
                 log.debug(f"{model}.values.json[{index}]")
@@ -809,20 +810,18 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
                         assert not checker(value, case)
                 except NotSupportedError as e:
                     log.error(f"{name} not supported error on {model}.values.json[{index}]")
-                    observed.add(index)
-                except AssertionError:
+                    nverrors += 1
+                except AssertionError as e:
                     log.error(f"{name} assert error on {model}.values.json[{index}]")
-                    observed.add(index)
+                    nverrors += 1
                 except Exception as e:
-                    log.error(f"{name} internal checker error on {model}.values.json[{index}] ({e})")
-                    observed.add(index)
-            
-            if checker is not None:
-                check_errors(directory, model, name, observed)
+                    log.error(f"{name} internal checker error on {model}.values.json[{index}]")
+                    nverrors += 1
 
     assert nfiles == EXPECT.get(f"{directory}:models", 0)
     assert ntests == EXPECT.get(f"{directory}:values", 0)
     assert nmerrors == EXPECT.get(f"{directory}:merrors:{name}", 0)
+    assert nverrors == EXPECT.get(f"{directory}:verrors:{name}", 0)
 
 
 def test_dyn_py(directory: pathlib.Path):
