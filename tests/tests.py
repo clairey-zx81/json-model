@@ -563,6 +563,7 @@ def test_ts(directory, tmp_dir):
         fin = fname.replace(".model.json", "").replace(f"./{directory}/", "./")
         bname = fpath.name.replace(".model.json", "")
         ntests += 1
+        declared = expected_errors(directory, bname).get("ts", False)
 
         try:
             jm = model_from_url(fin, resolver=resolver, auto=True, follow=True, **mod_opts)
@@ -590,7 +591,6 @@ def test_ts(directory, tmp_dir):
         )
 
         failed = proc.returncode != 0
-        declared = expected_errors(directory, bname).get("ts", False)
         
         assert failed == declared, \
             f"{directory}/{bname}.errors.json [ts]: " + (
