@@ -24,7 +24,6 @@ D.clean.ts = $(D.valid:%.ts.valid=%.clean.ts)
 .PHONY: clean
 clean:
 	$(MAKE) TARGET=clean $(D.clean)
-	$(MAKE) TARGET=clean.ts $(D.clean.ts)
 	$(RM) -r __pycache__ .pytest_cache
 
 LOGLEVEL = info

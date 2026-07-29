@@ -1,5 +1,23 @@
 # JSON Model Compiler Versions
 
+## 2.0.53 on 2027-07-29
+
+- models: add compatible models for some JSB buggy schemas
+- perf: improve generated reports
+- models: add example model for JMC benchmark radar data
+- pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
+- perf: keep track of failed tests
+- models: add model for test vectors
+- models: add compatible models for some JSB buggy schemas
+- tests: validate test vectors
+- front: always try to recompute the version
+- export: generate ts interfaces
+- ts-export: manage or error on regex and defs properties
+- ts-export: keep definition order, do not reverse it!
+- pr: add ts export howto section
+- pr: add ts format to jmc pod documentation
+- pr: add ts export to reference documentation
+
 ## 2.0.52 on 2027-07-13
 
 - js-backend: remove useless semi-colons
