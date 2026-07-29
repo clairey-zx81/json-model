@@ -10,5 +10,7 @@
     "?java": "$ErrorIndex",
     "?c": "$ErrorIndex",
     "?py": "$ErrorIndex",
+    "#.ts": "Whether the jmc command can fail when generating the interface",
+    "?ts": true,
     "/^#/": ""
 }
