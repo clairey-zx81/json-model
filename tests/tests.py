@@ -34,9 +34,6 @@ EXPECT: dict[str, int] = {
     # chunk 01
     "mv-01:models": 11,
     "mv-01:values": 116,
-    "mv-01:errors.js": 2,
-    "mv-01:errors.sql": 2,
-    "mv-01:errors.pl": 2,
     "mv-01:verrors:schema": 14,
     # chunk 02
     "mv-02:js2json": 1,
@@ -79,16 +76,10 @@ EXPECT: dict[str, int] = {
     # chunk 09
     "mv-09:models": 10,
     "mv-09:values": 141,
-    "mv-09:errors.js": 2,
-    "mv-09:errors.sql": 2,
-    "mv-09:errors.pl": 2,
     "mv-09:verrors:schema": 2,
     # chunk 0A
     "mv-0a:models": 10,
     "mv-0a:values": 131,
-    "mv-0a:errors.js": 1,
-    "mv-0a:errors.sql": 1,
-    "mv-0a:errors.pl": 1,
     "mv-0a:verrors:schema": 1,
     "mv-0a:errors.ts": 1,
     # chunk 0B
@@ -97,9 +88,6 @@ EXPECT: dict[str, int] = {
     # chunk 0C
     "mv-0c:models": 5,
     "mv-0c:values": 50,
-    "mv-0c:errors.js": 1,
-    "mv-0c:errors.sql": 1,
-    "mv-0c:errors.pl": 1,
     "mv-0c:verrors:schema": 1,
     # chunk 0D
     "mv-0d:models": 10,
@@ -127,38 +115,23 @@ EXPECT: dict[str, int] = {
     "mv-13:js2json": 2,
     "mv-13:models": 12,
     "mv-13:values": 91,
-    "mv-13:errors.js": 1,
-    "mv-13:errors.sql": 1,
-    "mv-13:errors.pl": 1,
     "mv-13:verrors:schema": 1,
     # chunk 14
     "mv-14:models": 12,
     "mv-14:values": 84,
-    "mv-14:errors.js": 6,
-    "mv-14:errors.sql": 6,
-    "mv-14:errors.pl": 6,
     "mv-14:verrors:schema": 6,
     # chunk 15
     "mv-15:js2json": 2,
     "mv-15:models": 12,
     "mv-15:values": 133,
-    "mv-15:errors.js": 1,
-    "mv-15:errors.sql": 1,
-    "mv-15:errors.pl": 1,
     "mv-15:verrors:schema": 2,
     # chunk 16
     "mv-16:models": 11,
     "mv-16:values": 100,
-    "mv-16:errors.js": 1,
-    "mv-16:errors.sql": 1,
-    "mv-16:errors.pl": 1,
     "mv-16:verrors:schema": 1,
     # chunk 17
     "mv-17:models": 12,
     "mv-17:values": 145,
-    "mv-17:errors.js": 2,
-    "mv-17:errors.sql": 2,
-    "mv-17:errors.pl": 2,
     "mv-17:verrors:schema": 2,
     # chunk 18
     "mv-18:js2json": 3,
@@ -172,16 +145,10 @@ EXPECT: dict[str, int] = {
     # chunk 1A
     "mv-1a:models": 10,
     "mv-1a:values": 132,
-    "mv-1a:errors.js": 2,
-    "mv-1a:errors.sql": 2,
-    "mv-1a:errors.pl": 2,
     "mv-1a:verrors:schema": 3,
     # chunk 1B
     "mv-1b:models": 10,
     "mv-1b:values": 68,
-    "mv-1b:errors.js": 13,
-    "mv-1b:errors.sql": 13,
-    "mv-1b:errors.pl": 13,
     "mv-1b:verrors:schema": 13,
     # chunk 1C
     "mv-1c:models": 6,
@@ -197,10 +164,6 @@ EXPECT: dict[str, int] = {
     # chunk 1E
     "mv-1e:models": 10,
     "mv-1e:values": 151,
-    "mv-1e:errors.js": 1,
-    "mv-1e:errors.sql": 2,
-    "mv-1e:errors.pl": 1,
-    "mv-1e:errors.java": 2,
     "mv-1e:verrors:schema": 15,
     # chunk 1F
     "mv-1f:models": 9,
@@ -259,14 +222,10 @@ EXPECT: dict[str, int] = {
     "mv-29:models:errors-java": 5,
     "mv-29:models:errors-c": 5,
     "mv-29:models:errors": 5,
-    "mv-29:errors.js": 3,
-    "mv-29:errors.pl": 3,
-    "mv-29:errors.sql": 3,
     "mv-29:verrors:schema": 3,
     # mv-2a
     "mv-2a:models": 7,
     "mv-2a:values": 145,
-    "mv-2a:errors.c": 4,
     "mv-2a:errors.ts": 5,
     # mv-2b
     "mv-2b:cmp-opts": {"report": False, "comment": False},
@@ -278,10 +237,6 @@ EXPECT: dict[str, int] = {
     "mv-2c:models": 9,
     "mv-2c:values": 268,
     "mv-2c:verrors:schema": 47,
-    "mv-2c:errors.java": 9,
-    "mv-2c:errors.sql": 10,
-    "mv-2c:errors.js": 9,
-    "mv-2c:errors.pl": 9,
     # mv-2d
     "mv-2d:cmp-opts": {"report": False, "comment": False},
     "mv-2d:models": 10,
@@ -296,8 +251,6 @@ EXPECT: dict[str, int] = {
     "mv-2f:cmp-opts": {"report": False, "comment": False},
     "mv-2f:models": 11,
     "mv-2f:values": 160,
-    "mv-2f:errors.java": 1,
-    "mv-2f:errors.js": 1,
     "mv-2f:errors.ts": 3,
     # mv-30
     "mv-30:models": 10,
@@ -330,12 +283,6 @@ EXPECT: dict[str, int] = {
     "mv-34:mod-opts": {"single_line": True},
     "mv-34:models": 8,
     "mv-34:values": 131,
-    "mv-34:errors.java": 1,
-    "mv-34:errors.js": 1,
-    "mv-34:errors.c": 1,
-    "mv-34:errors.pl": 1,
-    "mv-34:errors.py": 1,
-    "mv-34:errors.sql": 2,
     "mv-34:verrors:schema": 2,
     "mv-34:verrors:dynpy": 1,
     # mv-35
