@@ -1,0 +1,14 @@
+{
+    "$": {
+        "ErrorIndex": { "@": [ "$U32" ], "!": true, ">=": 1 }
+    },
+    "?schema": "$ErrorIndex",
+    "?dynpy": "$ErrorIndex",
+    "?js": "$ErrorIndex",
+    "?sql": "$ErrorIndex",
+    "?pl": "$ErrorIndex",
+    "?java": "$ErrorIndex",
+    "?c": "$ErrorIndex",
+    "?py": "$ErrorIndex",
+    "/^#/": ""
+}

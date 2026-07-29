@@ -646,10 +646,27 @@ def test_ts(directory, tmp_dir):
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nerrors == EXPECT.get(f"{directory}:errors.ts", 0)
 
+def expected_errors(directory: pathlib.Path, model: str) -> dict[str, list[int]]:
+    """Expected errors for a model"""
+    efile = directory.joinpath(f"{model}.errors.json")
+    if not efile.exists():
+        return {}
+    with open(efile) as ef:
+        return { k: v for k, v in json.load(ef).items() if not k.startswith("#") }
+
+def check_errors(directory: pathlib.Path, model: str, key: str, observed: set[int]):
+    """Compare observed checker errors to expectations"""
+    expected = set(expected_errors(directory, model).get(key) or [])
+
+    missing, extra = expected - observed, observed - expected
+    assert not missing and not extra, \
+        f"{directory}/{model}.values.json [{key}]: " \
+        f"missing={sorted(missing)} extra={sorted(extra)}"
+
 def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                  generate: typing.Callable[[str], str], opts: str = ""):
     """Generic value testing."""
-    ntests, nvalues, nerrors = 0, 0, 0
+    ntests, nvalues = 0, 0
 
     # try all sources
     for fpath in sorted(directory.glob(f"*{suffix}")):
@@ -701,23 +718,27 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                 result = p.read()
             out += result
 
+            lang = suffix[1:]
+            observed: set[int] = set()
+
             for line in result.split("\n")[:-1]:
                 nvalues += 1
-                if ": ERROR" not in line and (": PASS" in line or ": FAIL" in line):
-                    assert True, "PASS/FAIL expectation ok"
-                else:
-                    log.error(f"error in {directory}: {line}")
-                    nerrors += 1
+                m = re.search(r"\.values\.json\[(\d+)\]: (\w+)", line)
+                assert m is not None, f"unexpected output in {directory}/{bname}:{line}"
+                
+                idx, verdict = int(m.group(1)), m.group(2)
+                if verdict == "ERROR":
+                    observed.add(idx)
 
+            assert result, f"no output from {fexec} on {vfile}"
+            check_errors(directory, bname, lang, observed)
             assert out == ref
-
         # cleanup
         if suffix.endswith(".c"):
             os.remove(fexec)
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nvalues == EXPECT.get(f"{directory}:values", 0)
-    assert nerrors == EXPECT.get(f"{directory}:errors{suffix}", 0)
 
 
 def test_sta_c(directory, clibjm):
