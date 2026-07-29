@@ -6,13 +6,12 @@
 - [x] perf: improve generated reports
 - [x] model: add example model for JMC benchmark radar data
 - [x] pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
+- [x] models: add model for `*.errors.json` files
+- [x] tests: use `.errors.json` file to manage value errors, instead of rough counts
+- [ ] tests: use `.errors.json` file to manage ts export errors
 - [ ] bench: use local models instead of fetching urls
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
-- [ ] tests: use `.errors.json` file to manage errors, instead of rough counts
-- [ ] models: add model for `*.errors.json` files
-- [ ] front: allow to load `.errors.json` file to filter out expected errors
-- [ ] tests: use `.errors.json` file to manage errors, instead of rough counts
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
