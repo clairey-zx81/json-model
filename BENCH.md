@@ -25,14 +25,6 @@ faster than Blaze in these artifacts.
 - [2026070900](benchmarks/2026070900.md) clang, no predefs, jsu 0.9.11/jmc 2.0.51 vs sbc 16.1.0, 11 runs, 1000 iterations.
 - [2026062200](benchmarks/2026062200.md) clang, no predefs, jsu 0.9.11/jmc 2.0.51 vs sbc 16.0.0, 11 runs, 1000 iterations.
 - [2026062102](benchmarks/2026062102.md) clang, no predefs, jsu 0.9.10/jmc 2.0.50 vs sbc 16.0.0, 11 runs, 1000 iterations.
-- [2026061700](benchmarks/2026061700.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 16.0.0, 11 runs, 1000 iterations.
-- [2026061300](benchmarks/2026061300.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 15.11.0, 11 runs, 1000 iterations.
-- [2026061000](benchmarks/2026061000.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 15.10.1, 11 runs, 1000 iterations.
-- [2026061001](benchmarks/2026061001.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 15.10.0, 11 runs, 1000 iterations.
-- [2026060900](benchmarks/2026060900.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 15.9.0, 11 runs, 1000 iterations.
-- [2026060300](benchmarks/2026060300.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 15.8.0, 11 runs, 1000 iterations.
-- [2026060200](benchmarks/2026060200.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 15.7.0, 11 runs, 1000 iterations.
-- [2026052105](benchmarks/2026052105.md) clang, no predefs, jsu 0.9.9/jmc 2.0.50 vs sbc 15.6.3, 11 runs, 1000 iterations.
 
 ## Benchmarking Script
 
