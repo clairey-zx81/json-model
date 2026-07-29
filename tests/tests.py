@@ -26,7 +26,6 @@ EXPECT: dict[str, int] = {
     "ref:values": 111,
     "ref:verrors:schema": 56,
     "ref:models:errors-jsm": 2,
-    "ref:errors.ts": 2,
     # chunk 00
     "mv-00:cmp-opts": {"report": False, "comment": False, "relib": "re"},
     "mv-00:models": 10,
@@ -46,7 +45,6 @@ EXPECT: dict[str, int] = {
     "mv-03:models:errors-jsg": 2,
     "mv-03:values": 78,
     "mv-03:verrors:schema": 26,
-    "mv-03:errors.ts": 2,
     # chunk 04
     "mv-04:js2json": 2,
     "mv-04:models": 8,
@@ -60,19 +58,16 @@ EXPECT: dict[str, int] = {
     "mv-06:models": 9,
     "mv-06:values": 89,
     "mv-06:verrors:schema": 24,
-    "mv-06:errors.ts": 3,
     # chunk 07
     # FIXME schema missing Schema
     "mv-07:models": 5,
     "mv-07:values": 45,
     "mv-07:verrors:schema": 18,
-    "mv-07:errors.ts": 3,
     # chunk 08
     "mv-08:models": 9,
     "mv-08:values": 129,
     "mv-08:verrors:schema": 43,
     "mv-08:models:errors-jsg": 2,
-    "mv-08:errors.ts": 1,
     # chunk 09
     "mv-09:models": 10,
     "mv-09:values": 141,
@@ -81,7 +76,6 @@ EXPECT: dict[str, int] = {
     "mv-0a:models": 10,
     "mv-0a:values": 131,
     "mv-0a:verrors:schema": 1,
-    "mv-0a:errors.ts": 1,
     # chunk 0B
     "mv-0b:models": 7,
     "mv-0b:values": 82,
@@ -95,7 +89,6 @@ EXPECT: dict[str, int] = {
     # chunk 0E
     "mv-0e:models": 9,
     "mv-0e:values": 121,
-    "mv-0e:errors.ts": 1,
     # chunk 0F
     "mv-0f:models": 9,
     "mv-0f:values": 107,
@@ -110,7 +103,6 @@ EXPECT: dict[str, int] = {
     # chunk 12
     "mv-12:models": 10,
     "mv-12:values": 124,
-    "mv-12:errors.ts": 3,
     # chunk 13
     "mv-13:js2json": 2,
     "mv-13:models": 12,
@@ -141,7 +133,6 @@ EXPECT: dict[str, int] = {
     # chunk 19
     "mv-19:models": 9,
     "mv-19:values": 110,
-    "mv-19:errors.ts": 4,
     # chunk 1A
     "mv-1a:models": 10,
     "mv-1a:values": 132,
@@ -160,7 +151,6 @@ EXPECT: dict[str, int] = {
     "mv-1d:models": 5,
     "mv-1d:values": 45,
     "mv-1d:verrors:schema": 9,
-    "mv-1d:errors.ts": 4,
     # chunk 1E
     "mv-1e:models": 10,
     "mv-1e:values": 151,
@@ -169,22 +159,18 @@ EXPECT: dict[str, int] = {
     "mv-1f:models": 9,
     "mv-1f:values": 137,
     "mv-1f:verrors:schema": 43,
-    "mv-1f:errors.ts": 1,
     # chunk 20
     "mv-20:models": 9,
     "mv-20:values": 112,
     "mv-20:verrors:schema": 17,
-    "mv-20:errors.ts": 1,
     # check 21
     "mv-21:models": 8,
     "mv-21:values": 192,
     "mv-21:verrors:schema": 88,
-    "mv-21:errors.ts": 1,
     # mv-22
     "mv-22:models": 6,
     "mv-22:values": 725,
     "mv-22:verrors:schema": 27,
-    "mv-22:errors.ts": 1,
     # mv-23
     "mv-23:models": 4,
     "mv-23:values": 83,
@@ -205,7 +191,6 @@ EXPECT: dict[str, int] = {
     "mv-27:cmp-opts": {"strcmp": True, "report": False, "must_only_threshold": 2},
     "mv-27:models": 7,
     "mv-27:values": 105,
-    "mv-27:errors.ts": 1,
     # mv-28
     "mv-28:cmp-opts": {"strcmp": True, "report": False, "strcmp_cset_partition_threshold": 32},
     "mv-28:models": 7,
@@ -226,12 +211,10 @@ EXPECT: dict[str, int] = {
     # mv-2a
     "mv-2a:models": 7,
     "mv-2a:values": 145,
-    "mv-2a:errors.ts": 5,
     # mv-2b
     "mv-2b:cmp-opts": {"report": False, "comment": False},
     "mv-2b:models": 8,
     "mv-2b:values": 108,
-    "mv-2b:errors.ts": 2,
     # mv-2c
     "mv-2c:cmp-opts": {"report": False, "comment": False},
     "mv-2c:models": 9,
@@ -246,19 +229,16 @@ EXPECT: dict[str, int] = {
     "mv-2e:errors.sql": 2,
     "mv-2e:models": 10,
     "mv-2e:values": 179,
-    "mv-2e:errors.ts": 2,
     # mv-2f
     "mv-2f:cmp-opts": {"report": False, "comment": False},
     "mv-2f:models": 11,
     "mv-2f:values": 160,
-    "mv-2f:errors.ts": 3,
     # mv-30
     "mv-30:models": 10,
     "mv-30:values": 134,
     # mv-31
     "mv-31:models": 8,
     "mv-31:values": 237,
-    "mv-31:errors.ts": 1,
     # mv-32
     "mv-32:verrors:schema": 1,  # sre_0d.values [16]
     "mv-32:cmp-opts": {"report": False, "comment": False, "mark": "hello world"},
@@ -271,13 +251,11 @@ EXPECT: dict[str, int] = {
     "mv-32:models:errors-pl": 1,
     "mv-32:models:errors-java": 1,
     "mv-32:values": 194,
-    "mv-32:errors.ts": 1,
     # mv-33
     "mv-33:models": 10,
     "mv-33:values": 163,
     "mv-33:verrors:schema": 1,
     "mv-33:errors.java": 2,
-    "mv-33:errors.ts": 1,
     # mv-34
     "mv-34:cmp-opts": {"report": False, "comment": False},
     "mv-34:mod-opts": {"single_line": True},
@@ -291,7 +269,6 @@ EXPECT: dict[str, int] = {
     "mv-35:models": 5,
     "mv-35:values": 134,
     "mv-35:verrors:schema": 1,
-    "mv-35:errors.ts": 1,
     # mv-36
     "mv-36:models": 2,
     "mv-36:values": 39,
