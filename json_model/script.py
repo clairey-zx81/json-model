@@ -548,6 +548,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     # set debug as early as possible
     log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
 
+    # shortcut executions
     if args.version:
         print(jmc_version())
         return 0

@@ -10,6 +10,7 @@
 - [x] models: add model for test vectors
 - [x] models: add compatible models for some JSB buggy schemas
 - [x] tests: validate test vectors
+- [x] front: always try to recompute the version
 - [ ] bench: use local models instead of fetching urls
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
