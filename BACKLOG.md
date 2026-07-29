@@ -24,6 +24,7 @@
 - [ ] models: add model for `*.errors.json` files
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)
+- [ ] tests: check pydantic generated classes
 - [ ] static: use combined type test and value extraction when available?
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
 - [ ] c-backend: factor out str extraction in or-list in more cases
