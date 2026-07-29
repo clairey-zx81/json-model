@@ -556,12 +556,14 @@ def test_ts(directory, tmp_dir):
 
     resolver = Resolver(None, dirmap(directory))
     mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
-    ntests, nerrors = 0, 0
+    ntests = 0
 
     for fpath in sorted(directory.glob("*.model.json")):
         fname = "./" + str(fpath)
         fin = fname.replace(".model.json", "").replace(f"./{directory}/", "./")
+        bname = fpath.name.replace(".model.json", "")
         ntests += 1
+
         try:
             jm = model_from_url(fin, resolver=resolver, auto=True, follow=True, **mod_opts)
             generated = "\n".join([
@@ -571,8 +573,7 @@ def test_ts(directory, tmp_dir):
                 "",
             ] + model2tsinterface(jm, root="RootModel")) + "\n"
         except Exception as e:
-            log.error(f"ts generation error on {fname}: {e}")
-            nerrors += 1
+            assert declared, f"{directory}/{bname}: undeclared ts generation error: {e}"
             continue
 
         tsref = fname.replace(".model.json", ".ts")
@@ -587,11 +588,17 @@ def test_ts(directory, tmp_dir):
             [TSC, "--noEmit", "--strict", "--skipLibCheck", "--lib", "es2020", tsfile],
             capture_output=True, text=True
         )
-        if proc.returncode != 0:
-            log.error(f"tsc failed on {fname}:\n{proc.stdout}{proc.stderr}")
-            nerrors += 1
+
+        failed = proc.returncode != 0
+        declared = expected_errors(directory, bname).get("ts", False)
+        
+        assert failed == declared, \
+            f"{directory}/{bname}.errors.json [ts]: " + (
+                f"undeclared tsc failure:\n{proc.stdout}{proc.stderr}" if failed else
+                "declared as failing, but tsc accepts it"
+            )
+
     assert ntests == EXPECT.get(f"{directory}:models", 0)
-    assert nerrors == EXPECT.get(f"{directory}:errors.ts", 0)
 
 def expected_errors(directory: pathlib.Path, model: str) -> dict[str, list[int]]:
     """Expected errors for a model"""
