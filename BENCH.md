@@ -1,11 +1,15 @@
 # JSON Model Compiler Benchmark Artifacts
 
+The purpose of this benchmark is to compare JSON value validation performance for
+the exactly/roughly (see discussion below) the same constraints, independently
+of the syntax used to express these constraints.
+
 These artifacts compare
 [JSON Model Compiler (jmc)](https://github.com/clairey-zx81/json-model) generated code using the
 [JSON Schema Utils (jsu)](https://hub.docker.com/repository/docker/zx80/json-schema-utils)
 schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
-[Sourcemeta Blaze CLI (sbc)](https://github.com/sourcemeta/jsonschema) using test cases from
-[JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark).
+[Sourcemeta Blaze CLI (sbc)](https://github.com/sourcemeta/jsonschema) using test cases and values
+from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark).
 
 ## Recent Artifacts
 
@@ -35,7 +39,7 @@ faster than Blaze in these artifacts.
 The [benchmarking script](https://github.com/clairey-zx81/json-model/blob/main/tests/perf/benchmark.sh)
 is provided as docker [docker.io/zx80/jmc-bench-docker](https://hub.docker.com/repository/docker/zx80/jmc-bench-docker)
 or podman [docker.io/zx80/jmc-bench-podman](https://hub.docker.com/repository/docker/zx80/jmc-bench-podman) image.
-It downloads the benchmark schemas and test values, and runs through docker-in-docker or podman-in-podman
+It downloads the benchmark, and runs through docker-in-docker or podman-in-podman
 [docker.io/zx80/jmc](https://hub.docker.com/repository/docker/zx80/jmc) for JMC runs and
 [ghcr.io/sourcemeta/jsonschema](https://github.com/sourcemeta/jsonschema/pkgs/container/jsonschema)
 for comparison using the Blaze CLI.
@@ -46,7 +50,7 @@ which will spawn the necessary containers:
 
 ```sh
 JMC=latest JMC_OPTS="--no-predef --cc=clang" \
-  nohup ./start_bench.sh latest -p 16 -l 1000 -r 5 &
+  nohup ./start_bench.sh latest -p 16 -l 1000 -r 5 -c &
 # in the generated directory, look for the summary markdown and radar json files.
 ```
 
@@ -55,7 +59,7 @@ The main script options are:
 - `-p PARA` parallelism (a little less that the number of available cores, default is _8_)
 - `-l LOOP` loop iterations for performance average (at least _1000_, the default)
 - `-r RUNS` number of runs (odd number, default is _3_)
--  -c` also validate contents (default is _not_)
+-  -c` validate contents (default is _not_)
 
 ## Benchmarking Conditions
 
@@ -63,6 +67,11 @@ JSON schemas for the benchmark are translated to models based on `jsu-compile`
 from [JSON Schema Utils](https://github.com/zx80/json-schema-utils).
 This is mostly an automatic conversion of the test schema to a model, but
 for a few cases have a _native_ model which is used instead.
+Depending on the selected options, the model may be stricter/more accurate than
+the corresponding schema (eg automatic schema fixes such as missing types,
+misplaced keywords or bad regex, or better native models), and induce small
+differences in the validated results, in which case they are manually
+validated and discussed.
 
 Runs are performed in _fast_ mode: the rejection reasons are not collected, and
 the run stops as soon as possible.
@@ -91,7 +100,7 @@ the following caveats, and others:
   that retrieving a given property value will cost more than a library which uses
   a hash table which is more costly to build.
 - before version _16.0_, blaze does _not_ implement checking string values (eg dates, url…),
-  so these checks may be disactivated (see `JMC_OPTS`) for fairness,
+  so these checks may be disactivated (see _Contents_ in _Parameters_) for fairness,
   reducing the results significance.
 - blaze uses its own special-purpose JSON representation which include a precomputed
   custom hash for string comparisons, aleviating the need to actually compare strings
@@ -127,10 +136,10 @@ It should be noted that benchmarking conditions are quite different compared to 
 2. The benchmark focuses on schema conformance, including (buggy) schemas which
    are mostly dead code: It rejects tools which do not validate all strictly conformant
    values, even if these values would be rejected by the target application.
+   The model used are strictly converted from schemas, native models are not used
+   even if available and schemas are not fixed for typical errors (eg misplaced keywords).
 3. Three schemas (`krakend`, `stale` and `yamllint`) in the test suites have been
    [edited](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/ad109eb210c0939bd8393da28d8212f75c1c2d92),
    especially to deal corner cases issues with `$ref` under version 7 and prior,
    thus do not conform to the initial official schemas.
-4. The benchmark  _removes_ format assertions before testing schemas.
-5. The model used are strictly converted from schemas, native models are not used
-   even if available and schemas are not fixed for typical errors (eg misplaced keywords).
+4. The benchmark _removes_ format assertions before testing schemas.
