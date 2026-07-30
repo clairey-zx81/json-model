@@ -1,5 +1,11 @@
 # JSON Model Compiler Versions
 
+## 2.0.54 on 2027-07-30
+
+- models: add SAP UI5 native model example
+- front: allow to also use '=' as a map separator
+- perf: use native models internal copy
+
 ## 2.0.53 on 2027-07-29
 
 - models: add compatible models for some JSB buggy schemas
