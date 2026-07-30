@@ -260,8 +260,8 @@
       ]
     },
     "ProAppCore": {
-      "?kind": "project",
       "type": "application",
+      "?kind": "project",
       "?framework": "$Framework",
       "?resources": "$AppResources",
       "?server": "$Server"
@@ -347,8 +347,8 @@
       ]
     },
     "ProLibCore": {
-      "?kind": "project",
       "type": "library",
+      "?kind": "project",
       "?framework": "$Framework",
       "?resources": "$ProResources",
       "?server": "$Server"
@@ -407,8 +407,8 @@
     },
     "TLibBuilder25": { "+": [ "$TLibBuilder", "$BldSettings" ] },
     "ProTLibCore": {
-      "?kind": "project",
       "type": "theme-library",
+      "?kind": "project",
       "?framework": "$Framework",
       "?resources": "$ProResources",
       "?server": "$Server"
@@ -454,8 +454,8 @@
       "?resources": "$ProResources"
     },
     "ProModCore": {
-      "?kind": "project",
       "type": "module",
+      "?kind": "project",
       "?resources": "$ProModResources",
       "?server": "$Server"
     },
@@ -494,6 +494,7 @@
     }
   },
   "|": [
+    "# cases sorted by likelyhood",
     "$ProApp",
     "$UI5v10",
     "$ProLib",
