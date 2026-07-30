@@ -662,6 +662,7 @@ JSON Model meta-model is available [here](https://json-model.org/models/json-mod
 
   - discuss other transformations? mv/cp?
     eg promote an optional prop to mandatory, or the reverse?
+  - import override operator for objects? `<`
   - expand constrained models?
   - what predefs should be relevant to typical use cases?
 
