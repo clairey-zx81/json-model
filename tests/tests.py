@@ -947,6 +947,22 @@ def test_values_json(directory):
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nerrors == EXPECT.get(f"{directory}:values:errors", 0)
 
+def test_errors_json(directory):
+    """Check *.errors.json files in directory against the jmc-errors meta model."""
+    resolver = Resolver(None, dirmap(directory))
+    checker = model_checker_from_url("https://json-model.org/models/jmc-errors", resolver=resolver)
+
+    for fpath in sorted(directory.glob("*.errors.json")):
+        fname = "./" + str(fpath)
+        with open(fname) as f:
+            errors = json.load(f)
+
+        report = []
+        assert checker(errors, "", report), f"{fname}: invalid errors file: {report}"
+
+        model = fname.replace(".errors.json", ".model.json")
+        assert os.path.exists(model), f"{fname}: no corresponding {model}"
+
 #
 # BAD MODELS
 #
