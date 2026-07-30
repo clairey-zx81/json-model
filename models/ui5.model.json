@@ -179,7 +179,7 @@
             "$CustomMWCore",
             { "|": [ { "beforeMiddleware": "" }, { "afterMiddleware": "" } ] }
           ]
-        } 
+        }
       ]
     },
     "Lib": {
@@ -207,7 +207,7 @@
            "|": [ { "beforeTask": "" }, { "afterTask": "" } ]
          }
        ]
-    }, 
+    },
     "BldSettings": {
       "?settings": {
         "?includeDependency": [ "" ],
