@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] front: try again to display a relevant version under dev
 - [ ] bench: use local models instead of fetching urls
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors

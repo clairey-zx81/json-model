@@ -932,10 +932,12 @@ def jmc_version(dynamic: bool = True) -> str:
     version = __version__
     if dynamic:
         # try to recompute the version dynamically
-        log.debug(f"recomputing version {version}...")
+        version_ref = (pathlib.Path(__file__).parent / "data" / "VERSION").read_text().strip()
         try:
             from setuptools_git_versioning import get_version
             version = str(get_version(root=pathlib.Path(__file__).parent.parent))
+            if not version.startswith(version_ref):
+                version = __version__
         except Exception as e:
             log.debug(f"error while computing version: {e}")
     return version
