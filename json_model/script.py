@@ -710,8 +710,13 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     # resolver
     maps: dict[str, str] = {}
     for m in args.maps:
-        assert " " in m, f"valid map require a space: {m}"
-        k, v = m.split(" ", 1)
+        if " " in m:
+            k, v = m.split(" ", 1)
+        elif "=" in m:
+            k, v = m.split("=", 1)
+        else:
+            log.error(f"valid map requires a space or '=' separator: {m}")
+            return 1
         maps[k] = v
     resolver = Resolver(args.cache_dir, maps, allow_duplicates=args.allow_duplicates,
                         cache_ignore=args.cache_ignore)
