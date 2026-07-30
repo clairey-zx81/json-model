@@ -101,7 +101,7 @@ Provide the mode with an option instead of a parameter.
 
 =item B<--maps "URL PATH">/B<-m …>
 
-Map remote urls to a local path.
+Map remote urls to a local path. Can also use C<=> as a separator.
 
 =item B<--auto>/B<-a>
 
