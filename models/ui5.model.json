@@ -1,0 +1,506 @@
+{
+  "#": "Model for UI5 Tooling Configuration File (ui5.yaml)",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/ui5",
+    "#.v0/1": "older versions are not checked",
+    "UI5v01": {
+      "specVersion": "0.1",
+      "": "$ANY"
+    },
+    "UI5v10": {
+      "specVersion": "1.0",
+      "": "$ANY"
+    },
+    "UI5v11": {
+      "specVersion": "1.1",
+      "": "$ANY"
+    },
+    "Name3": {
+      "#": "extension metadata name for v3",
+      "@": "/^(@[0-9a-z-_.]+/)?[a-z][0-9a-z-_.]*$/",
+      ">=": 3,
+      "<=": 80
+    },
+    "ExtMetadata": {
+      "#": "extension medatadata up to 2.6",
+      "name": "",
+      "?copyright": ""
+    },
+    "ExtMetadata3": {
+      "#": "extension medatadata from 3.0",
+      "name": "$Name3",
+      "?copyright": ""
+    },
+    "#.ext": "extension version bases",
+    "v3": { "|": [ "3.0", "3.1" ] },
+    "UI5Ext3": {
+      "specVersion": "$v3",
+      "kind": "extension",
+      "metadata": "$ExtMetadata3",
+      "?customConfiguration": { "": "$ANY" }
+    },
+    "v2p": { "|": [ "2.1", "2.2", "2.3", "2.4", "2.5", "2.6" ] },
+    "UI5Ext2p": {
+      "specVersion": "$v2p",
+      "kind": "extension",
+      "metadata": "$ExtMetadata",
+      "?customConfiguration": { "": "$ANY" }
+    },
+    "UI5Ext20": {
+      "specVersion": "2.0",
+      "kind": "extension",
+      "metadata": "$ExtMetadata"
+    },
+    "#.ec": "extension cores per type",
+    "ExtTaskCore": {
+      "type": "task",
+      "task": { "?path": "" }
+    },
+    "ExtSMWCore": {
+      "type": "server-middleware",
+      "middleware": { "?path": "" }
+    },
+    "ExtShimsCore": {
+      "type": "project-shim",
+      "shims": {
+        "?configuration": {
+          "/./": { "": "$ANY" }
+        },
+        "?dependencies": {
+          "/./": [ "" ]
+        },
+        "?collections": {
+          "/./": { "modules": { "/./": "" } }
+        }
+      }
+    },
+    "UI5Ext": {
+      "+": [
+        { "|": [ "$UI5Ext3", "$UI5Ext2p", "$UI5Ext20" ] },
+        { "|": [ "$ExtTaskCore", "$ExtSMWCore", "$ExtShimsCore" ] }
+      ]
+    },
+    "#.pro": "projects",
+    "ProMetadata": {
+      "name": "",
+      "?copyright": "",
+      "?deprecated": true,
+      "?sapInternal": true,
+      "?allowSapInternal": true
+    },
+    "ProMetadata3": {
+      "name": "$Name3",
+      "?copyright": "",
+      "?deprecated": true,
+      "?sapInternal": true,
+      "?allowSapInternal": true
+    },
+    "ProResources": {
+      "?configuration": {
+        "?propertiesFileSourceEncoding": "$Encoding",
+        "?paths": { "?src": "", "?test": "" }
+      }
+    },
+    "Encoding": { "|": [ "UTF-8", "ISO-8859-1" ] },
+    "BldResources": { "?excludes": [ "" ] },
+    "SectionCore": {
+      "?name": "",
+      "filters": [ "" ],
+      "?resolve": true,
+      "?resolveConditional": true,
+      "?renderer": true,
+      "?sort": true,
+      "?declareRawModules": true
+    },
+    "BldBunDef": {
+      "name": "",
+      "?defaultFileTypes": [ "" ],
+      "?sections": [
+        {
+          "+": [
+            "$SectionCore",
+            { "mode": { "|": [ "raw", "preload", "require", "provided" ] } }
+          ]
+        }
+      ]
+    },
+    "BldBunDef24": {
+      "name": "",
+      "?defaultFileTypes": [ "" ],
+      "?sections": [
+        {
+          "+": [
+            "$SectionCore",
+            { "mode": { "|": [ "raw", "preload", "require", "provided", "bundleInfo" ] } }
+          ]
+        }
+      ]
+    },
+    "BldBunOpts": {
+      "?optimize": true,
+      "?decorateBootstrapModule": true,
+      "?addTryCatchRestartWrapper": true,
+      "?usePredefineCalls": true,
+      "?numberOfParts": 1
+    },
+    "BldBunOpts30": { "+": [ "$BldBunOpts", { "?sourceMap": true } ] },
+    "BldBun": {
+      "?bundleDefinition": "$BldBunDef",
+      "?bundleOptions": "$BldBunOpts"
+    },
+    "BldBun24": {
+      "?bundleDefinition": "$BldBunDef24",
+      "?bundleOptions": "$BldBunOpts"
+    },
+    "BldBun30": {
+      "?bundleDefinition": "$BldBunDef24",
+      "?bundleOptions": "$BldBunOpts30"
+    },
+    "BldComPreload": {
+      "?paths": [ "" ],
+      "?namespaces": [ "" ]
+    },
+    "BldLibPreload": { "?excludes": [ "" ] },
+    "BldComPreload23": { "+": [ "$BldComPreload", "$BldLibPreload" ] },
+    "CustomMWCore": {
+      "name": "",
+      "?mountPath": "",
+      "?configuration": "$ANY"
+    },
+    "Server": {
+      "?settings": {
+        "?httpPort": 1,
+        "?httpsPort": 1
+      },
+      "?customMiddleware": [
+        {
+          "+": [
+            "$CustomMWCore",
+            { "|": [ { "beforeMiddleware": "" }, { "afterMiddleware": "" } ] }
+          ]
+        } 
+      ]
+    },
+    "Lib": {
+      "+": [
+        { "name": "" },
+        {
+          "#": "boolean props cannot be true at the same time",
+          "|": [
+            { "?optional": true, "?development": "=false" },
+            { "?optional": "=false", "?development": true }
+          ]
+        }
+      ]
+    },
+    "Framework": {
+      "name": "",
+      "?version": "$SEMVER",
+      "?libraries": [ "$Lib" ]
+    },
+    "CustomTask": {
+       "+": [
+         { "name": "", "?configuration": "$ANY" },
+         {
+           "#": "one or the other after/before",
+           "|": [ { "beforeTask": "" }, { "afterTask": "" } ]
+         }
+       ]
+    }, 
+    "BldSettings": {
+      "?settings": {
+        "?includeDependency": [ "" ],
+        "?includeDependencyRegExp": [ "" ],
+        "?includeDependencyTree": [ "" ]
+      }
+    },
+    "BldMinification": {
+      "?minification": { "?excludes": [ "" ] }
+    },
+    "AppResources": {
+      "?configuration": {
+        "?propertiesFileSourceEncoding": "$Encoding",
+        "?paths": { "?webapp": "" }
+      }
+    },
+    "AppCacheBuster": {
+      "?signatureType": { "|": [ "time", "hash" ] }
+    },
+    "#.bld": "builder versions share a core and add or updates parts",
+    "AppBuilderCore": {
+      "?resources": "$BldResources",
+      "?cachebuster": "$AppCacheBuster",
+      "?customTasks": [ "$CustomTask" ]
+    },
+    "AppBuilder": {
+      "+": [
+        "$AppBuilderCore",
+        { "?bundles": [ "$BldBun" ], "?componentPreload": "$BldComPreload" }
+      ]
+    },
+    "AppBuilder23": {
+      "+": [
+        "$AppBuilderCore",
+        { "?bundles": [ "$BldBun" ], "?componentPreload": "$BldComPreload23" }
+      ]
+    },
+    "AppBuilder24": {
+      "+": [
+        "$AppBuilderCore",
+        { "?bundles": [ "$BldBun24" ], "?componentPreload": "$BldComPreload23" }
+      ]
+    },
+    "AppBuilder25": { "+": [ "$AppBuilder24", "$BldSettings" ] },
+    "AppBuilder26": { "+": [ "$AppBuilder25", "$BldMinification" ] },
+    "AppBuilder30": {
+      "+": [
+        "$AppBuilderCore", "$BldSettings", "$BldMinification",
+        { "?bundles": [ "$BldBun30" ], "?componentPreload": "$BldComPreload23" }
+      ]
+    },
+    "ProAppCore": {
+      "?kind": "project",
+      "type": "application",
+      "?framework": "$Framework",
+      "?resources": "$AppResources",
+      "?server": "$Server"
+    },
+    "ProApp3": {
+      "specVersion": "$v3",
+      "metadata": "$ProMetadata3",
+      "?builder": "$AppBuilder30",
+      "?customConfiguration": "$ANY"
+    },
+    "ProApp26": {
+      "specVersion": "2.6",
+      "metadata": "$ProMetadata",
+      "?builder": "$AppBuilder26",
+      "?customConfiguration": "$ANY"
+    },
+    "ProApp25": {
+      "specVersion": "2.5",
+      "metadata": "$ProMetadata",
+      "?builder": "$AppBuilder25",
+      "?customConfiguration": "$ANY"
+    },
+    "ProApp24": {
+      "specVersion": "2.4",
+      "metadata": "$ProMetadata",
+      "?builder": "$AppBuilder24",
+      "?customConfiguration": "$ANY"
+    },
+    "ProApp23": {
+      "specVersion": "2.3",
+      "metadata": "$ProMetadata",
+      "?builder": "$AppBuilder23",
+      "?customConfiguration": "$ANY"
+    },
+    "ProApp21": {
+      "specVersion": { "|": [ "2.1", "2.2" ] },
+      "metadata": "$ProMetadata",
+      "?builder": "$AppBuilder",
+      "?customConfiguration": "$ANY"
+    },
+    "ProApp20": {
+      "specVersion": "2.0",
+      "metadata": "$ProMetadata",
+      "?builder": "$AppBuilder"
+    },
+    "ProApp": {
+      "+": [
+        "$ProAppCore",
+        { "|": [ "$ProApp20", "$ProApp21", "$ProApp23", "$ProApp24", "$ProApp25", "$ProApp26", "$ProApp3" ] }
+      ]
+    },
+    "#.prolib": "library project",
+    "LibBuilderJsDoc": { "?excludes": [ "" ] },
+    "LibBuilderCore": {
+      "?resources": "$BldResources",
+      "?jsdoc": "$LibBuilderJsDoc",
+      "?customTasks": [ "$CustomTask" ]
+    },
+    "LibBuilder20": {
+      "+": [
+        "$LibBuilderCore",
+        { "?bundles": [ "$BldBun" ], "?componentPreload": "$BldComPreload" }
+      ]
+    },
+    "LibBuilder23": {
+      "+": [
+        "$LibBuilderCore",
+        { "?bundles": [ "$BldBun" ], "?componentPreload": "$BldComPreload23", "?libraryPreload": "$BldLibPreload" }
+      ]
+    },
+    "LibBuilder24": {
+      "+": [
+        "$LibBuilderCore",
+        { "?bundles": [ "$BldBun24" ], "?componentPreload": "$BldComPreload23", "?libraryPreload": "$BldLibPreload" }
+      ]
+    },
+    "LibBuilder25": { "+": [ "$LibBuilder24", "$BldSettings" ] },
+    "LibBuilder26": { "+": [ "$LibBuilder25", "$BldMinification" ] },
+    "LibBuilder30": {
+      "+": [
+        "$LibBuilderCore", "$BldSettings", "$BldMinification",
+        { "?bundles": [ "$BldBun30" ], "?componentPreload": "$BldComPreload23", "?libraryPreload": "$BldLibPreload" }
+      ]
+    },
+    "ProLibCore": {
+      "?kind": "project",
+      "type": "library",
+      "?framework": "$Framework",
+      "?resources": "$ProResources",
+      "?server": "$Server"
+    },
+    "ProLib3": {
+      "specVersion": "$v3",
+      "metadata": "$ProMetadata3",
+      "?builder": "$LibBuilder30",
+      "?customConfiguration": "$ANY"
+    },
+    "ProLib26": {
+      "specVersion": "2.6",
+      "metadata": "$ProMetadata",
+      "?builder": "$LibBuilder26",
+      "?customConfiguration": "$ANY"
+    },
+    "ProLib25": {
+      "specVersion": "2.5",
+      "metadata": "$ProMetadata",
+      "?builder": "$LibBuilder25",
+      "?customConfiguration": "$ANY"
+    },
+    "ProLib24": {
+      "specVersion": "2.4",
+      "metadata": "$ProMetadata",
+      "?builder": "$LibBuilder24",
+      "?customConfiguration": "$ANY"
+    },
+    "ProLib23": {
+      "specVersion": "2.3",
+      "metadata": "$ProMetadata",
+      "?builder": "$LibBuilder23",
+      "?customConfiguration": "$ANY"
+    },
+    "ProLib21": {
+      "specVersion": { "|": [ "2.1", "2.2" ] },
+      "metadata": "$ProMetadata",
+      "?builder": "$LibBuilder20",
+      "?customConfiguration": "$ANY"
+    },
+    "ProLib20": {
+      "specVersion": "2.0",
+      "metadata": "$ProMetadata",
+      "?builder": "$LibBuilder20"
+    },
+    "ProLib": {
+      "+": [
+        "$ProLibCore",
+        { "|": [ "$ProLib20", "$ProLib21", "$ProLib23", "$ProLib24", "$ProLib25", "$ProLib26", "$ProLib3" ] }
+      ]
+    },
+    "#.pro-thlib": "Theme library project",
+    "TLibBuilder": {
+      "?resources": "$ProResources",
+      "?customTasks": [ "$CustomTask" ]
+    },
+    "TLibBuilder25": { "+": [ "$TLibBuilder", "$BldSettings" ] },
+    "ProTLibCore": {
+      "?kind": "project",
+      "type": "theme-library",
+      "?framework": "$Framework",
+      "?resources": "$ProResources",
+      "?server": "$Server"
+    },
+    "ProTLib3": {
+      "specVersion": "$v3",
+      "metadata": "$ProMetadata3",
+      "?builder": "$TLibBuilder25",
+      "?customConfiguration": "$ANY"
+    },
+    "ProTLib25": {
+      "specVersion": { "|": [ "2.5", "2.6" ] },
+      "metadata": "$ProMetadata",
+      "?builder": "$TLibBuilder25",
+      "?customConfiguration": "$ANY"
+    },
+    "ProTLib21": {
+      "specVersion": { "|": [ "2.1", "2.2", "2.3", "2.4" ] },
+      "metadata": "$ProMetadata",
+      "?builder": "$TLibBuilder",
+      "?customConfiguration": "$ANY"
+    },
+    "ProTLib20": {
+      "specVersion": "2.0",
+      "metadata": "$ProMetadata",
+      "?builder": "$TLibBuilder"
+    },
+    "ProTLib": {
+      "+": [
+        "$ProTLibCore",
+        { "|": [ "$ProTLib20", "$ProTLib21", "$ProTLib25", "$ProTLib3" ] }
+      ]
+    },
+    "#.pro-module": "Module project",
+    "ProModResources": {
+      "?configuration": { "?paths": { "/./": "" } }
+    },
+    "ModBuilder25": {
+      "?settings": "$BldSettings"
+    },
+    "ModBuilder31": {
+      "?settings": "$BldSettings",
+      "?resources": "$ProResources"
+    },
+    "ProModCore": {
+      "?kind": "project",
+      "type": "module",
+      "?resources": "$ProModResources",
+      "?server": "$Server"
+    },
+    "ProMod31": {
+      "specVersion": "3.1",
+      "metadata": "$ProMetadata3",
+      "?builder": "$ModBuilder31",
+      "?customConfiguration": "$ANY"
+    },
+    "ProMod30": {
+      "specVersion": "3.0",
+      "metadata": "$ProMetadata3",
+      "?builder": "$ModBuilder25",
+      "?customConfiguration": "$ANY"
+    },
+    "ProMod25": {
+      "specVersion": { "|": [ "2.5", "2.6" ] },
+      "metadata": "$ProMetadata",
+      "?builder": "$ModBuilder25",
+      "?customConfiguration": "$ANY"
+    },
+    "ProMod21": {
+      "specVersion": { "|": [ "2.1", "2.2", "2.3", "2.4" ] },
+      "metadata": "$ProMetadata",
+      "?customConfiguration": "$ANY"
+    },
+    "ProMod20": {
+      "specVersion": "2.0",
+      "metadata": "$ProMetadata"
+    },
+    "ProMod": {
+      "+": [
+        "$ProModCore",
+        { "|": [ "$ProMod20", "$ProMod21", "$ProMod25", "$ProMod30", "$ProMod31" ] }
+      ]
+    }
+  },
+  "|": [
+    "$ProMod",
+    "$ProTLib",
+    "$ProLib",
+    "$ProApp",
+    "$UI5Ext",
+    "$UI5v01",
+    "$UI5v10",
+    "$UI5v11"
+  ]
+}

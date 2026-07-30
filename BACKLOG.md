@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] models: add SAP UI5 native model example
 - [ ] bench: use local models instead of fetching urls
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
@@ -147,7 +148,6 @@
 - [ ] tests: add a few tests for jsonrpc model
 - [ ] model: write a model for MCP
 - [ ] tests: add a few tests for MCP model
-- [ ] model: add a clean model for SAP UI5 tools?
 - [ ] model: update and test `ri.model.json`
 - [ ] export: generate ts interfaces
 - [ ] tests: improve predef validators cross-language consistency
