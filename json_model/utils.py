@@ -929,14 +929,13 @@ def simple_object(
 
 def jmc_version(dynamic: bool = True) -> str:
     """Get JMC version."""
-    version = load_data_file("VERSION").strip()
-    # try to recompute the version dynamically
+    version = __version__
     if dynamic:
+        # try to recompute the version dynamically
         log.debug(f"recomputing version {version}...")
         try:
             from setuptools_git_versioning import get_version
             version = str(get_version(root=pathlib.Path(__file__).parent.parent))
         except Exception as e:
             log.debug(f"error while computing version: {e}")
-            version = __version__
     return version
