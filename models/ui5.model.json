@@ -494,13 +494,13 @@
     }
   },
   "|": [
-    "$ProMod",
-    "$ProTLib",
-    "$ProLib",
     "$ProApp",
-    "$UI5Ext",
-    "$UI5v01",
     "$UI5v10",
-    "$UI5v11"
+    "$ProLib",
+    "$ProTLib",
+    "$UI5v01",
+    "$ProMod",
+    "$UI5v11",
+    "$UI5Ext"
   ]
 }
