@@ -14,6 +14,7 @@
 - [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
+- [ ] static: recursive multi-discriminator hierarchisation? See UI5.
 - [ ] static: factor out common checks on `&` with shared constraints?
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
