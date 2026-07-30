@@ -4,6 +4,7 @@
 
 - [x] models: add SAP UI5 native model example
 - [x] front: allow to also use '=' as a map separator
+- [x] perf: use native models internal copy
 - [ ] bench: use local models instead of fetching urls
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
