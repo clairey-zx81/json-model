@@ -461,7 +461,7 @@ def check_generated(directory: pathlib.Path, name: str, suffix: str,
         assert out == ref
 
     expected = expect if expect is not None else EXPECT.get(f"{directory}:models", 0)
-    assert ntests == expected 
+    assert ntests == expected
 
 
 def test_2json(directory):
@@ -568,7 +568,7 @@ def test_ts(directory, tmp_dir):
         )
 
         failed = proc.returncode != 0
-        
+
         assert failed == declared, \
             f"{directory}/{bname}.errors.json [ts]: " + (
                 f"undeclared tsc failure:\n{proc.stdout}{proc.stderr}" if failed else
@@ -656,7 +656,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
                 nvalues += 1
                 m = re.search(r"\.values\.json\[(\d+)\]: (\w+)", line)
                 assert m is not None, f"unexpected output in {directory}/{bname}:{line}"
-                
+
                 idx, verdict = int(m.group(1)), m.group(2)
                 if verdict == "ERROR":
                     observed.add(idx)
