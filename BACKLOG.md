@@ -8,7 +8,7 @@
 - [x] pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
 - [x] models: add model for `*.errors.json` files
 - [x] tests: use `.errors.json` file to manage value errors, instead of rough counts
-- [ ] tests: use `.errors.json` file to manage ts export errors
+- [x] tests: use `.errors.json` file to manage ts export errors
 - [ ] tests: validate `*.errors.json` files according to `jmc-errors.model.json`
 - [ ] bench: use local models instead of fetching urls
 - [ ] bench: case failures handling needs some fixing
