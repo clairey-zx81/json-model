@@ -2,7 +2,9 @@
 
 ## Current Tasks
 
-- [ ] bench: use local models instead of fetching urls
+- [x] bench: use local models instead of fetching urls
+- [ ] bench: add option to change the bench reference
+- [ ] bench: only keep java with GSON lib
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
 - [ ] tests: run tests inside docker image
@@ -35,7 +37,7 @@
 - [ ] perf: keep only one java run?
 - [ ] perf: check median hack for run times
 - [ ] perf: show schema to model conversion times
-- [ ] pr: better document optimizations, eg add compilier optimization page
+- [ ] pr: better document optimizations, eg add compiler optimization page
 - [ ] optim: collect and display stats about what works
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
