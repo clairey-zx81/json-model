@@ -148,14 +148,13 @@
 
 ## Internship
 
-- [ ] pr: read www, papers, spec… setup dev env, report issues
-- [ ] pr: try tutorial, report issues and suggest improvements
-- [ ] tests: add a few tests for jsonrpc model
-- [ ] model: write a model for MCP
-- [ ] tests: add a few tests for MCP model
+- [x] pr: read www, papers, spec… setup dev env, report issues
+- [x] pr: try tutorial, report issues and suggest improvements
+- [x] tests: add a few tests for jsonrpc model
+- [x] model: write a model for MCP
+- [x] tests: add a few tests for MCP model
+- [x] export: generate ts interfaces
 - [ ] model: update and test `ri.model.json`
-- [ ] export: generate ts interfaces
-- [ ] tests: improve predef validators cross-language consistency
 - [ ] tests: generate invalid minimal, maximal, random values
 - [ ] tests: generate invalid values on each constraint
 - [ ] backend: C and runtime with json-c
@@ -166,7 +165,6 @@
 - [ ] backend: rust
 - [ ] backend: test and fix existing dart backend MR
 - [ ] export: generate annotated java interfaces/classes?
-- [ ] tool: jmc api in flask
 - [ ] front: allow IR re-entrance?
 - [ ] export: katydid?
 - [ ] api: json model as a service backend with flask
