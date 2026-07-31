@@ -1,12 +1,23 @@
 # JSON Model Compiler Versions
 
-## 2.0.54 on 2027-07-30
+## 2.0.55 on 2026-07-31
+
+- front: try again to display a relevant version under dev
+- perf: improve generated reports
+- model: add example model for JMC benchmark radar data
+- pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
+- models: add model for `*.errors.json` files
+- tests: use `.errors.json` file to manage value errors, instead of rough counts
+- tests: use `.errors.json` file to manage ts export errors
+- tests: validate `*.errors.json` files according to `jmc-errors.model.json`
+
+## 2.0.54 on 2026-07-30
 
 - models: add SAP UI5 native model example
 - front: allow to also use '=' as a map separator
 - perf: use native models internal copy
 
-## 2.0.53 on 2027-07-29
+## 2.0.53 on 2026-07-29
 
 - models: add compatible models for some JSB buggy schemas
 - perf: improve generated reports
@@ -24,7 +35,7 @@
 - pr: add ts format to jmc pod documentation
 - pr: add ts export to reference documentation
 
-## 2.0.52 on 2027-07-13
+## 2.0.52 on 2026-07-13
 
 - js-backend: remove useless semi-colons
 - js-backend: remove useless braces by filtering output

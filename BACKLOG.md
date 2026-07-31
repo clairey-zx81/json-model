@@ -2,14 +2,6 @@
 
 ## Current Tasks
 
-- [x] front: try again to display a relevant version under dev
-- [x] perf: improve generated reports
-- [x] model: add example model for JMC benchmark radar data
-- [x] pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
-- [x] models: add model for `*.errors.json` files
-- [x] tests: use `.errors.json` file to manage value errors, instead of rough counts
-- [x] tests: use `.errors.json` file to manage ts export errors
-- [x] tests: validate `*.errors.json` files according to `jmc-errors.model.json`
 - [ ] bench: use local models instead of fetching urls
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
