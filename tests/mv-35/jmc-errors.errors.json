@@ -1,0 +1,4 @@
+{
+  "#.ts": "comment properties use a regex",
+  "ts": true
+}

@@ -1,0 +1,24 @@
+{
+  "?schema": "$ErrorIndex",
+  "?dynpy": "$ErrorIndex",
+  "?js": "$ErrorIndex",
+  "?sql": "$ErrorIndex",
+  "?pl": "$ErrorIndex",
+  "?java": "$ErrorIndex",
+  "?c": "$ErrorIndex",
+  "?py": "$ErrorIndex",
+  "?ts": true,
+  "/^#/s": "",
+  "#": "JsonModel 1",
+  "$": {
+    "ErrorIndex": {
+      "@": [
+        0
+      ],
+      "!": true,
+      "#": "JsonModel 2"
+    },
+    "#": "Symbol 1",
+    "": "./jmc-errors"
+  }
+}
