@@ -16,7 +16,7 @@ VARIANT = docker
 ZX80    = docker.io/zx80
 
 BRANCH  = $(shell git branch --show-current)
-VERSION = $(shell grep '^version' ../../pyproject.toml | tr -cd '[0-9.ab]')
+VERSION = $(shell jmc --version)
 GITREV  = $(shell git rev-parse --short HEAD)
 
 ifeq ($(BRANCH), main)
