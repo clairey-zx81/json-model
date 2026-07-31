@@ -154,18 +154,23 @@
 - [x] model: write a model for MCP
 - [x] tests: add a few tests for MCP model
 - [x] export: generate ts interfaces
-- [ ] model: update and test `ri.model.json`
-- [ ] tests: generate invalid minimal, maximal, random values
+- [ ] model: update and test `jmc-ir.model.json`
+- [ ] front: allow IR re-entrance?
+- [ ] tests: generate valid (pseudo-random) values
+- [ ] tests: generate invalid minimal, maximal, pseudo-random values
 - [ ] tests: generate invalid values on each constraint
-- [ ] backend: C and runtime with json-c
-- [ ] backend: C++
-- [ ] backend: go
+- [ ] backend: C and runtime with json-c (\*, but beware of runtime integration)
+- [ ] backend: C# (\*\*)
+- [ ] backend: go (\*\*\*)
+- [ ] backend: kotlin (\*\*)
+- [ ] backend: C++ (\*\*\*\* see existing fork)
+- [ ] backend: scala
 - [ ] backend: php
 - [ ] backend: ruby
-- [ ] backend: rust
+- [ ] backend: lua
+- [ ] backend: rust (\*\*\*\*\*)
 - [ ] backend: test and fix existing dart backend MR
 - [ ] export: generate annotated java interfaces/classes?
-- [ ] front: allow IR re-entrance?
 - [ ] export: katydid?
 - [ ] api: json model as a service backend with flask
 
