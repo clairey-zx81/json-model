@@ -1479,9 +1479,9 @@ class IRep(Language):
         return [ _j("gc", code=_u(code), entry=entry, package=package, indent=indent) ]
 
     def gen_full_code(self, defs: Block, inis: Block, dels: Block, subs: Block,
-                      entry: str, package: str|None, exe: bool) -> Block:
+                      entry: str, package: str|None, exe: bool, mark: bool) -> Block:
         return [ _j("gfc", defs=_u(defs), inis=_u(inis), dels=_u(dels), subs=_u(subs),
-                    entry=entry, package=package, exe=exe) ]
+                    entry=entry, package=package, exe=exe, mark=mark) ]
 
 #
 # target language reconstruction
@@ -1657,7 +1657,7 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
             )
             case "gfc": return gen.gen_full_code(
                 defs=ev("defs"), inis=ev("inis"), dels=ev("dels"), subs=ev("subs"),
-                entry=jv["entry"], package=jv["package"], exe=jv["exe"]
+                entry=jv["entry"], package=jv["package"], exe=jv["exe"], mark=jv["mark"],
             )
             case _: raise Exception(f"unexpected op code: {op}")
     elif isinstance(jv, list):

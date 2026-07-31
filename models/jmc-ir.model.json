@@ -55,7 +55,7 @@
     "CoSk": {
       "#": "Comment or skip",
       "|": [
-        {"o": "co", "text": ""},
+        {"o": "co", "text": "", "force": true},
         {"o": "skip"}
       ]
     },
@@ -131,7 +131,7 @@
     "Root": {
       "o": "gfc",
       "defs": [ "$Decl" ], "inis": [ "$Inis" ], "dels": [ "$Dels" ], "subs": [ "$Subs" ],
-      "entry": "$Ident", "package": "$optIdent", "exe": true
+      "entry": "$Ident", "package": "$optIdent", "exe": true, "mark": true
     }
   },
   "@": "$Root"
