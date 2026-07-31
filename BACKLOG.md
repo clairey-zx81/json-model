@@ -148,7 +148,7 @@
 - [x] model: write a model for MCP
 - [x] tests: add a few tests for MCP model
 - [x] export: generate ts interfaces
-- [ ] model: update and test `jmc-ir.model.json`
+- [x] model: update and test `jmc-ir.model.json`
 - [ ] front: allow IR re-entrance?
 - [ ] tests: generate valid (pseudo-random) values
 - [ ] tests: generate invalid minimal, maximal, pseudo-random values
