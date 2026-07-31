@@ -3,9 +3,6 @@
 ## 2.0.55 on 2026-07-31
 
 - front: try again to display a relevant version under dev
-- perf: improve generated reports
-- model: add example model for JMC benchmark radar data
-- pr: check `json-model.org` SEO - listed on Google console but some pages are not indexed
 - models: add model for `*.errors.json` files
 - tests: use `.errors.json` file to manage value errors, instead of rough counts
 - tests: use `.errors.json` file to manage ts export errors
