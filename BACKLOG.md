@@ -3,7 +3,7 @@
 ## Current Tasks
 
 - [x] bench: use local models instead of fetching urls
-- [ ] bench: add option to change the bench reference
+- [x] bench: add option to change the bench reference
 - [ ] bench: only keep java with GSON lib
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors

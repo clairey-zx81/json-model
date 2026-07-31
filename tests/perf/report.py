@@ -255,20 +255,19 @@ if args.unshift:
 log.info("analyzing data")
 
 # aggregate performance for each case/tool/line
-perf_median = perf_df.groupby(["case", "tool", "line"])["runavg"].aggregate(args.aggregate)
+perf_aggreg = perf_df.groupby(["case", "tool", "line"])["runavg"].aggregate(args.aggregate)
 
 # total processing time for each case/tool
-perf_total = perf_median.groupby(["case", "tool"]).sum()
+perf_total = perf_aggreg.groupby(["case", "tool"]).sum()
 
 # best performance for each case
 perf_best = perf_total.groupby("case").min()
 
 # reference performance
 if args.performance == "best":
-    # best performance for each case
     perf_ref = perf_best
 else:
-    perf_ref = perf_total.groupby("case")[perf_total["tool"] == args.performance]
+    perf_ref = perf_total.xs(args.performance, level=1)
 
 # relative time for each case/tool over all tests compare to reference
 perf_rela = perf_total / perf_ref
