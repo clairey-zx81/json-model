@@ -1,16 +1,16 @@
 {
-    "$": {
-        "ErrorIndex": { "@": [ "$U32" ], "!": true, ">=": 1 }
-    },
-    "?schema": "$ErrorIndex",
-    "?dynpy": "$ErrorIndex",
-    "?js": "$ErrorIndex",
-    "?sql": "$ErrorIndex",
-    "?pl": "$ErrorIndex",
-    "?java": "$ErrorIndex",
-    "?c": "$ErrorIndex",
-    "?py": "$ErrorIndex",
-    "#.ts": "Whether the jmc command can fail when generating the interface",
-    "?ts": true,
-    "/^#/": ""
+  "$": {
+    "ErrorIndex": { "@": [ 0 ], "!": true }
+  },
+  "?schema": "$ErrorIndex",
+  "?dynpy": "$ErrorIndex",
+  "?js": "$ErrorIndex",
+  "?sql": "$ErrorIndex",
+  "?pl": "$ErrorIndex",
+  "?java": "$ErrorIndex",
+  "?c": "$ErrorIndex",
+  "?py": "$ErrorIndex",
+  "#.ts": "Whether the jmc command can fail when generating the interface",
+  "?ts": true,
+  "/^#/": ""
 }
