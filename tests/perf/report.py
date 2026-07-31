@@ -45,6 +45,8 @@ arg("--hide", default=False, action="store_true",
     help="hide uneffective options from report, default is not")
 arg("--tools", "-t", nargs="*",
     help="restrict analysis to these tools, default is all available tools")
+arg("--few-tools", default=False, action="store_true",
+    help="select fewer tools")
 arg("--unshift", "-u", action="store_true", default=False,
     help="unshift measure overhead estimation from reported measures, default is not")
 arg("--compact", "-c", action="store_true", default=False,
@@ -71,17 +73,39 @@ else:
     def progress(iterator, *args, **kwargs):
         return iterator
 
+# ordered list for presentations
+STANDARD_ALL_TOOLS: list[str] = [
+    "blaze", "jmc-c",
+    "jmc-java-gson", "jmc-java-jackson", "jmc-java-jsonp",
+    "jmc-js", "jmc-py"
+]
+
+STANDARD_FEW_TOOLS: list[str] = [
+    "blaze", "jmc-c", "jmc-java-gson", "jmc-js", "jmc-py"
+]
+
+STANDARD_TOOLS = STANDARD_FEW_TOOLS if args.few_tools else STANDARD_ALL_TOOLS
+
+if args.few_tools:
+    args.tools = STANDARD_TOOLS
+
 # short column names
-TOOL: dict[str, str] = {
+TOOL_FEW: dict[str, str] = {
     "blaze": "blaze",
     "jmc-c": "c",
+    "jmc-java-gson": "java",
     "jmc-js": "js",
-    "jmc-java-gson": "jv1",
-    "jmc-java-jackson": "jv2",
-    "jmc-java-jsonp": "jv3",
     "jmc-py": "py",
     "jmc-pl": "pl",
 }
+
+TOOL_ALL: dict[str, str] = TOOL_FEW | {
+    "jmc-java-gson": "jv1",
+    "jmc-java-jackson": "jv2",
+    "jmc-java-jsonp": "jv3",
+}
+
+TOOL = TOOL_FEW if args.few_tools else TOOL_ALL
 
 # others are kept as-is
 CASE: dict[str, str] = {
@@ -101,17 +125,28 @@ CASE: dict[str, str] = {
 # standard section descriptions
 #
 TOOL_SUMMARY: str = """
-For each tool: number of best performance, number of case failures (if any),
+For each tool: maximum/geometrical average/minimum performance ratio,
 overall validation speed in bytes per µs and lines per µs,
-maximum/geometrical average/minimum performance ratio.
+number of best performance, number of case failures (if any).
+
+The most interesting figure, in bold, is the geometrical average of the tool performance.
+Speed measures are biased toward the performance of cases with large values (_geojson_ and _openapi_).
+The best count emphasizes how uniformly better is a tool.
 """
 
 TOOL_CASES: str = f"""
 For each case: number and name, number of test cases, best cumulated {args.aggregate} performance (µs),
-best tool, performance slowdown ratio for blaze and jmc variants
-(java 1 is gson, 2 is jackson, 3 is jsonp/johnzon),
-the lower the better, **1.00** is best, empty denotes a tool failure.
+best tool, performance slowdown ratio for blaze and jmc variants,
+the lower the better, empty denotes a tool failure.
 """
+
+if args.performance == "best":
+    TOOL_CASES += "**1.0** is best.\n"
+
+if args.few_tools:
+    TOOL_CASES += "Java uses the GSON library.\n"
+else:
+    TOOL_CASES += "Java 1 is GSON, 2 is Jackson, 3 is JSONP/Johnzon)\n"
 
 RESULT_SUCCESS: str = """
 For each tool and cases with a partial success rate, percent of test cases validated.
@@ -129,11 +164,14 @@ are rightfully rejected.
 - cspell:75 - `.languageSettings[2].languageId[0]` is `yaml.ansible`, unexpected `.` in fixed regex
 - cypress:8 - `.reporter` stricter check, file should end with `.js`
 - yamllint:* - 18 unrelated raw strings
+
+Although these different results slightly shorten the checks for the rejected values,
+the overall performance measure is not significantly impacted because of the very few values involved.
 """
 
 RESULT_CONTENT_COMMENT: str = """
 When running with content validation (aka JSON Schema format or JSON Model predefs),
-more cases are expected to fail:
+more cases are expected to fail, both for Blaze and JMC:
 
 - helm: - 128 rejected values, mostly because of empty `.dependencies.*.repository` urls
 - openapi:{12,26} - 2 bad urls are rejected
@@ -181,8 +219,8 @@ resu_df = pd.read_csv(
 
 # derive list of tools in "standard" order
 tools: list[str] = sorted(
-    resu_df.index.get_level_values("tool").unique(),
-    key=lambda n: "jmc-jas" if n == "jmc-js" else n
+    resu_df.index.get_level_values("tool").unique()
+    # key=lambda n: "jmc-jas" if n == "jmc-js" else n
 )
 
 loaded_tools = tools
@@ -197,19 +235,12 @@ for t in tools:
     if t not in TOOL:
         TOOL[t] = t
 
-STANDARD_TOOLS: list[str] = [
-    "blaze", "jmc-c", "jmc-js",
-    "jmc-java-gson", "jmc-java-jackson", "jmc-java-jsonp",
-    "jmc-py"
-]
-
 if args.standard:
     assert tools == STANDARD_TOOLS, f"expect ordered standard benchmark tools ({tools})"
 
 # and list of cases
 cases: list[str] = sorted(
-    resu_df.index.get_level_values("case").unique(),
-    key=lambda n: "jmc-jas" if n == "jmc-js" else n
+    resu_df.index.get_level_values("case").unique()
 )
 
 for c in cases:
@@ -235,17 +266,19 @@ vals_df = pd.read_csv(
     names=["case", "line", "size", "lines"],
     index_col=[0, 1]
 )
-# very large
+
+# quite large: 37 cases * 7 tools * 11 iter * 1000 lines on average
 perf_df = pd.read_csv(
     "perf.csv",
     names=["case", "tool", "iter", "line", "runavg", "runstd", "empty", "pass"],
     index_col=["case", "tool", "iter", "line"]
 )
 
-# remove unused values
+# remove unused values (not very efficient)
 if loaded_tools != tools:
-    log.info("removing unneeded data before analysis")
-    for t in set(loaded_tools) - set(tools):
+    remove = set(loaded_tools) - set(tools)
+    log.info(f"removing unneeded data before analysis: {' '.join(sorted(remove))}")
+    for t in remove:
         for c in cases:
             perf_df.drop(index=(c, t), inplace=True)
 
@@ -365,14 +398,14 @@ if args.standard: print(TOOL_SUMMARY, end="")
 print()
 print("|Summary|" + "|".join(TOOL[t] for t in tools) + "|")
 print("|:------|" + "".join("---:|" for t in tools))
+print("|ratio max|" + "".join(f"{perf_max[t]:.02f}|" for t in tools))
+print("|ratio **avg**|" + "".join(f"**{perf_geo[t]:.02f}**|" for t in tools))
+print("|ratio min|" + "".join(f"{perf_min[t]:.02f}|" for t in tools))
+print("|speed B/µs|" + "".join(f"{speed_size[t]:.0f}|" for t in tools))
+print("|speed l/µs|" + "".join(f"{speed_lines[t]:.01f}|" for t in tools))
 print("|best count|" + "".join(f"{nbest_tool[t]}|" for t in tools))
 if any(nerror_tool[t] != 0 for t in tools):
     print("|bad count|" + "".join(f"{nfailed_tool[t]}|" for t in tools))
-print("|speed B/µs|" + "".join(f"{speed_size[t]:.0f}|" for t in tools))
-print("|speed l/µs|" + "".join(f"{speed_lines[t]:.01f}|" for t in tools))
-print("|ratio max|" + "".join(f"{perf_max[t]:.02f}|" for t in tools))
-print("|ratio avg|" + "".join(f"{perf_geo[t]:.02f}|" for t in tools))
-print("|ratio min|" + "".join(f"{perf_min[t]:.02f}|" for t in tools))
 
 print()
 print("## Tool Performance Per Case")

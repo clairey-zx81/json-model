@@ -4,7 +4,8 @@
 
 - [x] bench: use local models instead of fetching urls
 - [x] bench: add option to change the bench reference
-- [ ] bench: only keep java with GSON lib
+- [x] bench: rework presentation and comments
+- [x] bench: allow to only keep Java with GSON lib
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
 - [ ] tests: run tests inside docker image
