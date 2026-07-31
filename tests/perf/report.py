@@ -49,6 +49,8 @@ arg("--unshift", "-u", action="store_true", default=False,
     help="unshift measure overhead estimation from reported measures, default is not")
 arg("--compact", "-c", action="store_true", default=False,
     help="compact but less precise comparison display, default is not")
+arg("--performance", "--perf", "-P", default="best", choices=["best", "blaze", "jmc-c"],
+    help="which tool get the 1.0 performance reference")
 arg("--aggregate", "-g", default="median", choices=["min", "mean", "median"],
     help="choose aggregate function for summarizing performance, default is \"median\"")
 arg("--content", action="store_true", default=False,
@@ -195,11 +197,14 @@ for t in tools:
     if t not in TOOL:
         TOOL[t] = t
 
+STANDARD_TOOLS: list[str] = [
+    "blaze", "jmc-c", "jmc-js",
+    "jmc-java-gson", "jmc-java-jackson", "jmc-java-jsonp",
+    "jmc-py"
+]
+
 if args.standard:
-    assert tools == [
-        "blaze", "jmc-c", "jmc-js",
-        "jmc-java-gson", "jmc-java-jackson", "jmc-java-jsonp", "jmc-py"
-    ], f"expect ordered standard benchmark tools ({tools})"
+    assert tools == STANDARD_TOOLS, f"expect ordered standard benchmark tools ({tools})"
 
 # and list of cases
 cases: list[str] = sorted(
@@ -249,14 +254,25 @@ if args.unshift:
 
 log.info("analyzing data")
 
-# median performance for each case/tool/line
+# aggregate performance for each case/tool/line
 perf_median = perf_df.groupby(["case", "tool", "line"])["runavg"].aggregate(args.aggregate)
+
 # total processing time for each case/tool
 perf_total = perf_median.groupby(["case", "tool"]).sum()
+
 # best performance for each case
 perf_best = perf_total.groupby("case").min()
-# relative time for each case/tool over all tests
-perf_rela = perf_total / perf_best
+
+# reference performance
+if args.performance == "best":
+    # best performance for each case
+    perf_ref = perf_best
+else:
+    perf_ref = perf_total.groupby("case")[perf_total["tool"] == args.performance]
+
+# relative time for each case/tool over all tests compare to reference
+perf_rela = perf_total / perf_ref
+
 # overall time for each tool over call cases and tests
 tool_perf = perf_total.groupby("tool").sum()
 
