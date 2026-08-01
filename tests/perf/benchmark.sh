@@ -53,7 +53,7 @@ script_dir=$(dirname $0)
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy"
-cap=1 debug= show_opts=--standard unshift= load= content= run_opts=
+cap=1 debug= show_opts=--standard load= content= run_opts=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -82,27 +82,31 @@ while [[ "$1" == -* ]] ; do
       ;;
     --id=*) ID=${opt#*=} ;;
     --id) ID=$1 ; shift ;;
+    -d|--debug) debug=1 ;;
+    # containers
     --container=*) POD=${opt#*=} ;;
     -C|--container) POD=$1 ; shift ;;
-    -p|--para|--par|--parallel) PARA=$1 ; shift ;;
-    --par=*|--para=*|--parallel=*) PARA=${opt#*=} ;;
-    -l|--loop) LOOP=$1 ; shift ;;
-    --loop=*) LOOP=${opt#*=} ;;
-    -r|--runs) RUNS=$1 ; shift ;;
-    --runs=*) RUNS=${opt#*=} ;;
     --jmc) JMC=$1 ; shift ;;
     --jmc=*) JMC=${opt#*=} ;;
     --jsc) JSC=$1 ; shift ;;
     --jsc=*) JSC=${opt#*=} ;;
     --env=*) JMC_ENV+=" ${opt#*=}" ;;
     -e|--env) JMC_ENV+=" $1" ; shift ;;
-    --cap) cap=1 ;;
-    --no-cap) cap= ;;
-    -d|--debug) debug=1 ;;
+    # parallelism management
+    -L|--load) load=1 ;;
+    -p|--para|--par|--parallel) PARA=$1 ; shift ;;
+    --par=*|--para=*|--parallel=*) PARA=${opt#*=} ;;
+    # benchmark scope
     --task=*) TASK=${opt#*=} ;;
     -T|--task) TASK=$1 ; shift ;;
-    -u|--unshift) unshift="--unshift" ;;
-    -L|--load) load=1 ;;
+    -l|--loop) LOOP=$1 ; shift ;;
+    --loop=*) LOOP=${opt#*=} ;;
+    -r|--runs) RUNS=$1 ; shift ;;
+    --runs=*) RUNS=${opt#*=} ;;
+    --cap) cap=1 ;;
+    --no-cap) cap= ;;
+    # output
+    -u|--unshift) show_opts+=" --unshift" ;;
     -c|--content) run_opts+=" --content" ; show_opts+=" --content" ; content=1 ;;
     -nc|--no-content) run_opts+=" --no-content" ; show_opts+=" --no-content" ; content= ;;
     --) break ;;
@@ -370,7 +374,7 @@ else
 fi
 
 overhead="removed"
-[ "$unshift" ] && overhead="kept"
+[[ "$show_opts" == "*--unshift*" ]] && overhead="kept"
 
 debug_status="no"
 [ "$debug" ] && debug_status="yes"
@@ -380,6 +384,10 @@ if [ "$content" ] ; then
 else
   content_display="no"
 fi
+
+fix_display="models may fix schema deficiencies"
+[[ "$JSU_OPTS" == '*--no-fix*' ]] && \
+    let show_opts+=" --no-fix" fix_display="models are compatible with (buggy) schemas"
 
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
@@ -430,6 +438,7 @@ or deselect tools for easier comparisons.
 - **debug:** $debug_status
 - **tasks:** $tasks
 - **content:** $content_display
+- **fix:** $fix_display
 - **exported environment variables:** \`$JMC_ENV\`
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
@@ -438,7 +447,7 @@ echo "## report head $(( $SECONDS - $REPORT_START ))"
 
 # generate markdown tables
 START=$SECONDS
-report.py $show_opts $unshift >> "$ID.md"
+report.py $show_opts >> "$ID.md"
 echo "## report tables $(( $SECONDS - $START ))"
 echo "## report generation $(( $SECONDS - $REPORT_START ))"
 
