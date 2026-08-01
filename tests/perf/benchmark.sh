@@ -380,14 +380,14 @@ debug_status="no"
 [ "$debug" ] && debug_status="yes"
 
 if [ "$content" ] ; then
-  content_display="yes (JSON Schema formats, JSON Model predefs)"
+  content_status="yes (JSON Schema formats, JSON Model predefs)"
 else
-  content_display="no"
+  content_status="no"
 fi
 
-fix_display="models may fix schema deficiencies"
+fix_status="yes, models may correct some schema deficiencies"
 [[ "$JSU_OPTS" == '*--no-fix*' ]] && \
-    let show_opts+=" --no-fix" fix_display="models are compatible with (buggy) schemas"
+    let show_opts+=" --no-fix" fix_status="no, models are compatible with (buggy) schemas"
 
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
@@ -437,8 +437,8 @@ or deselect tools for easier comparisons.
 - **overhead:** $overhead (measure overhead estimations may be removed from execution times)
 - **debug:** $debug_status
 - **tasks:** $tasks
-- **content:** $content_display
-- **fix:** $fix_display
+- **content:** $content_status
+- **fix:** $fix_status
 - **exported environment variables:** \`$JMC_ENV\`
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
