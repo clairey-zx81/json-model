@@ -6,6 +6,7 @@
 - [x] bench: add option to change the bench reference
 - [x] bench: rework presentation and comments
 - [x] bench: allow to only keep Java with GSON lib
+- [x] bench: add option to change standard comments depending on test conditions
 - [ ] bench: case failures handling needs some fixing
 - [ ] front: allow to load `.errors.json` file to filter out expected errors
 - [ ] tests: run tests inside docker image

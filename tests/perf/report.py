@@ -39,8 +39,6 @@ arg("--quiet", "-q", dest="level", action="store_const", const=logging.WARNING,
 arg("--progress", "-p", default=False, action="store_true",
     help="show progress bars when performing (slow) statistical tests")
 # output
-arg("--standard", action="store_true",
-    help="generate standard comparison report for \"json-model.org\" web site")
 arg("--hide", default=False, action="store_true",
     help="hide uneffective options from report, default is not")
 arg("--tools", "-t", nargs="*",
@@ -55,10 +53,17 @@ arg("--performance", "--perf", "-P", default="best", choices=["best", "blaze", "
     help="which tool get the 1.0 performance reference")
 arg("--aggregate", "-g", default="median", choices=["min", "mean", "median"],
     help="choose aggregate function for summarizing performance, default is \"median\"")
+
+arg("--standard", action="store_true",
+    help="generate standard comparison report for \"json-model.org\" web site")
 arg("--content", action="store_true", default=False,
     help="content checks are included")
 arg("--no-content", dest="content", action="store_false",
     help="content checks are not included")
+arg("--fix", action="store_true", default=True,
+    help="models are fixed wrt schema thus may show differing results")
+arg("--no-fix", dest="fix", action="store_false",
+    help="models are faithful to reference schemas, however buggy")
 args = ap.parse_args()
 
 if args.hide and not args.ref:
@@ -153,7 +158,7 @@ For each tool and cases with a partial success rate, percent of test cases valid
 """
 
 # yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969}
-RESULT_COMMENT: str = """
+RESULT_FIX_COMMENT: str = """
 As of July 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
 are not 100.0% because validation checks are stricter and some
 [values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
@@ -435,8 +440,10 @@ if any(success_ratio[n, t] != 1.0 for t in tools for n in cases):
                 "".join(f"{100.0 * success_ratio[c, t]:.01f}|" for t in tools)
             )
 
-    if args.standard: print(RESULT_COMMENT, end="")
-    if args.standard and args.content: print(RESULT_CONTENT_COMMENT, end="")
+    if args.standard and args.fix:
+        print(RESULT_FIX_COMMENT, end="")
+    if args.standard and args.content:
+        print(RESULT_CONTENT_COMMENT, end="")
 
 
 if args.standard:
