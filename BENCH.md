@@ -55,7 +55,7 @@ The main script options are:
 - `-p PARA` parallelism (a little less that the number of available cores, default is _8_)
 - `-l LOOP` loop iterations for performance average (at least _1000_, the default)
 - `-r RUNS` number of runs (odd number, default is _3_)
--  -c` validate contents (default is _not_)
+- `-c` validate contents (default is _not_)
 
 ## Benchmarking Conditions
 
