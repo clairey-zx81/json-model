@@ -78,6 +78,8 @@ else:
     def progress(iterator, *args, **kwargs):
         return iterator
 
+dobetter = args.performance != "best"
+
 # ordered list for presentations
 STANDARD_ALL_TOOLS: list[str] = [
     "blaze", "jmc-c",
@@ -132,7 +134,12 @@ CASE: dict[str, str] = {
 TOOL_SUMMARY: str = """
 For each tool: maximum/geometrical average/minimum performance ratio,
 overall validation speed in bytes per µs and lines per µs,
-number of best performance, number of case failures (if any).
+number of best performance"""
+
+if dobetter:
+    TOOL_SUMMARY += ", number of better-than-reference performance"
+
+TOOL_SUMMARY += """, number of case failures (if any).
 
 The most interesting figure, in bold, is the geometrical average of the tool performance.
 Speed measures are biased toward the performance of cases with large values (_geojson_ and _openapi_).
@@ -315,13 +322,19 @@ tool_perf = perf_total.groupby("tool").sum()
 
 # for each case, the best tool, and a count
 best_tool: dict[str, str] = {}
+# count how many times tool t is the overall best
 nbest_tool: dict[str, int] = { t: 0 for t in tools }
+# count how many times tool t is better than the reference
+nbetter_tool: dict[str, int] = { t: 0 for t in tools }
 for c in cases:
     for t in tools:
         if perf_best[c] == perf_total[c, t]:
             best_tool[c] = t
             nbest_tool[t] += 1
-            break
+            if dobetter and t == args.performance:
+                nbetter_tool[t] += 1
+        if dobetter and perf_total[c, t] < perf_total[c, args.performance]:
+            nbetter_tool[t] += 1
 
 perf_max = perf_rela.groupby("tool").max()
 # geometrical average over all cases
@@ -409,6 +422,8 @@ print("|ratio min|" + "".join(f"{perf_min[t]:.02f}|" for t in tools))
 print("|speed B/µs|" + "".join(f"{speed_size[t]:.0f}|" for t in tools))
 print("|speed l/µs|" + "".join(f"{speed_lines[t]:.01f}|" for t in tools))
 print("|best count|" + "".join(f"{nbest_tool[t]}|" for t in tools))
+if dobetter:
+    print("|better count|" + "".join(f"{nbetter_tool[t]}|" for t in tools))
 if any(nerror_tool[t] != 0 for t in tools):
     print("|bad count|" + "".join(f"{nfailed_tool[t]}|" for t in tools))
 
