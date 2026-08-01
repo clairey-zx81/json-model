@@ -137,7 +137,7 @@ overall validation speed in bytes per µs and lines per µs,
 number of best performance"""
 
 if dobetter:
-    TOOL_SUMMARY += ", number of better-than-reference performance"
+    TOOL_SUMMARY += f", number of better-than-reference (_{TOOL[args.performance]}_) performance"
 
 TOOL_SUMMARY += """, number of case failures (if any).
 
