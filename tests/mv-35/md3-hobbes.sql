@@ -1,0 +1,93 @@
+-- JSON_MODEL_VERSION is 2
+CREATE EXTENSION IF NOT EXISTS json_model;
+
+-- regex=^\w+$ opts=s
+CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^\w+$', 's');
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
+  arr_0_idx INT8;
+  arr_0_item JSONB;
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'name' THEN
+      must_count := must_count + 1;
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'birth' THEN
+      must_count := must_count + 1;
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_date(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    END IF;
+    IF prop = 'friends' THEN
+      res := JSONB_TYPEOF(pval) = 'array';
+      IF res THEN
+        FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_0_item := pval -> arr_0_idx;
+          res := JSONB_TYPEOF(arr_0_item) = 'string' AND _jm_re_0(JSON_VALUE(arr_0_item, '$' RETURNING TEXT), NULL, NULL);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    END IF;
+    RETURN FALSE;
+  END LOOP;
+  RETURN must_count = 2;
+END;
+$$ LANGUAGE PLpgSQL;
+
+CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
+RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  map JSONB := JSONB '{"":"json_model_1"}';
+BEGIN
+  RETURN map->>name;
+END;
+$$ LANGUAGE plpgsql;
+
+--
+-- constant maps initialization
+--
+TRUNCATE jm_constant_maps;
+
+--
+-- JSON Model checking entry point
+--
+-- TODO INOUT rep?
+CREATE OR REPLACE FUNCTION check_model(val JSONB, name TEXT, rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  fun TEXT;
+BEGIN
+  fun := check_model_map(name);
+  IF fun IS NULL THEN
+    RAISE EXCEPTION 'model for % not found', name;
+  END IF;
+  RETURN jm_call(fun, val, NULL, rep);
+END;
+$$ LANGUAGE plpgsql;

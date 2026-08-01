@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "(?s)^\\w+$"
+    },
+    "birth": {
+      "type": "string",
+      "format": "date"
+    },
+    "friends": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "(?s)^\\w+$"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "birth"
+  ],
+  "additionalProperties": false
+}

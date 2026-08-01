@@ -1,0 +1,8 @@
+{
+  "name": "/^\\w+$/s",
+  "birth": "$DATE",
+  "?friends": [
+    "/^\\w+$/s"
+  ],
+  "#": "JsonModel 1"
+}

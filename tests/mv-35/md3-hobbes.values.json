@@ -1,0 +1,21 @@
+[
+  [ true,  {"name": "Hobbes", "birth": "2020-07-29", "friends": ["Calvin", "Susie"]} ],
+  [ true,  {"name": "Susie", "birth": "1970-10-14"} ],
+  [ true,  {"name": "Calvin", "birth": "1970-03-20", "friends": []} ],
+  [ false, {"name": "Foo"} ],
+  [ false, {"birth": "2026-08-01"} ],
+  [ false, {"name": "Bla", "birth": "2000-06-31"} ],
+  [ false, {"name": "", "birth": "2000-06-31"} ],
+  [ false, {"name": 42, "birth": "2000-06-31"} ],
+  [ false, {"name": "Foo", "birth": "2026-08-01", "friends": null} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]
