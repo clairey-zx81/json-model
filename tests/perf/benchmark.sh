@@ -439,6 +439,7 @@ or deselect tools for easier comparisons.
 - **tasks:** $tasks
 - **content:** $content_status
 - **fix:** $fix_status
+- **report:** $show_opts
 - **exported environment variables:** \`$JMC_ENV\`
 $(for var in $JMC_ENV ; do echo "  - \`$var\`: \`${!var}\`" ; done)
 EOF
