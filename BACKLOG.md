@@ -10,6 +10,7 @@
 - [x] bench: when comparing to a reference, count betters
 - [x] front: ~allow to load `.errors.json` file to filter out expected errors~
 - [x] pr: improved pages and descriptions
+- [x] pr: improve demonstration models comments and indentation
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)

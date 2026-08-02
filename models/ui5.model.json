@@ -1,5 +1,5 @@
 {
-  "#": "Model for UI5 Tooling Configuration File (ui5.yaml)",
+  "#": "JSON Model for UI5 Tooling Configuration File (ui5.yaml)",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/ui5",

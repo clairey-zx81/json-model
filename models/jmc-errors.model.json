@@ -1,7 +1,9 @@
 {
+  "#": "JMC Expected Test Errors",
   "$": {
     "ErrorIndex": { "@": [ 0 ], "!": true }
   },
+  "#.*": "Value indexes of expected errors for the test",
   "?schema": "$ErrorIndex",
   "?dynpy": "$ErrorIndex",
   "?js": "$ErrorIndex",
@@ -12,5 +14,6 @@
   "?py": "$ErrorIndex",
   "#.ts": "Whether the jmc command can fail when generating the interface",
   "?ts": true,
+  "#.#": "Embedded comment strings",
   "/^#/": ""
 }

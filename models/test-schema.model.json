@@ -1,5 +1,5 @@
 {
-  "#": "Model for the JSON Schema Test Suite tests",
+  "#": "JSON Model for the JSON Schema Test Suite tests",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/test-schema",

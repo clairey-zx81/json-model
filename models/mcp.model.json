@@ -1,97 +1,97 @@
 {
-    "#": "MCP - Model Context Protocol",
-    "#.url": "https://modelcontextprotocol.io/specification",
-    "$": {
-        "Object": { "": "$ANY" },
-        "ProtocolVersion": {
-            "|": [
-                "_2025-11-25",
-                "_2025-06-18",
-                "_2025-03-26",
-                "_2024-11-05"
-            ]
-        },
-        "Tool": {
-            "name": "",
-            "?title": "",
-            "?description": "",
-            "inputSchema": "$Object",
-            "": "$ANY"
-        },
-        "InitializeRequest": {
-            "jsonrpc": "_2.0",
-            "id": -1,
-            "method": "_initialize",
-            "params": {
-                "protocolVersion": "$ProtocolVersion",
-                "capabilities": {
-                    "elicitation": "$Object",
-                    "": "$ANY"
-                },
-                "clientInfo": {
-                    "name": "",
-                    "version": "",
-                    "": "$ANY"
-                }
-            }
-        },
-        "InitializeResponse": {
-            "jsonrpc": "_2.0",
-            "id": -1,
-            "result": {
-                "protocolVersion": "$ProtocolVersion",
-                "capabilities": {
-                    "tools": {
-                        "listChanged": true
-                    },
-                    "resources": "$Object",
-                    "": "$ANY"
-                },
-                "serverInfo": {
-                    "name": "",
-                    "version": "",
-                    "": "$ANY"
-                }
-            }
-        },
-        "Notification": {
-            "jsonrpc": "_2.0",
-            "method": "/^notifications.*/"
-        },
-        "ToolsListRequest": {
-            "jsonrpc": "_2.0",
-            "id": -1,
-            "method": "_tools/list",
-            "": "$ANY"
-        },
-        "ToolsListResponse": {
-            "jsonrpc": "_2.0",
-            "id": -1,
-            "result": {
-                "tools": {
-                    "@": [ "$Tool" ],
-                    "!": true
-                }
-            }
-        },
-        "ToolCallRequest": {
-            "jsonrpc": "_2.0",
-            "id": -1,
-            "method": "_tools/call",
-            "params": "$Object"
-        },
-        "ToolCallResponse": {
-            "jsonrpc": "_2.0",
-            "id": -1,
-            "result": {
-                "content": ["$ANY"],
-                "": "$ANY"
-            }
-        }
+  "#": "MCP - Model Context Protocol",
+  "#.url": "https://modelcontextprotocol.io/specification",
+  "$": {
+    "Object": { "": "$ANY" },
+    "ProtocolVersion": {
+      "|": [
+        "_2025-11-25",
+        "_2025-06-18",
+        "_2025-03-26",
+        "_2024-11-05"
+      ]
     },
-    "|": [ 
-        "$InitializeRequest", "$InitializeResponse", "$Notification", 
-        "$ToolsListRequest", "$ToolsListResponse",
-        "$ToolCallRequest", "$ToolCallResponse"
-    ]
+    "Tool": {
+      "name": "",
+      "?title": "",
+      "?description": "",
+      "inputSchema": "$Object",
+      "": "$ANY"
+    },
+    "InitializeRequest": {
+      "jsonrpc": "_2.0",
+      "id": -1,
+      "method": "_initialize",
+      "params": {
+        "protocolVersion": "$ProtocolVersion",
+        "capabilities": {
+          "elicitation": "$Object",
+          "": "$ANY"
+        },
+        "clientInfo": {
+          "name": "",
+          "version": "",
+          "": "$ANY"
+        }
+      }
+    },
+    "InitializeResponse": {
+      "jsonrpc": "_2.0",
+      "id": -1,
+      "result": {
+        "protocolVersion": "$ProtocolVersion",
+        "capabilities": {
+          "tools": {
+            "listChanged": true
+          },
+          "resources": "$Object",
+          "": "$ANY"
+        },
+        "serverInfo": {
+          "name": "",
+          "version": "",
+          "": "$ANY"
+        }
+      }
+    },
+    "Notification": {
+      "jsonrpc": "_2.0",
+      "method": "/^notifications.*/"
+    },
+    "ToolsListRequest": {
+      "jsonrpc": "_2.0",
+      "id": -1,
+      "method": "_tools/list",
+      "": "$ANY"
+    },
+    "ToolsListResponse": {
+      "jsonrpc": "_2.0",
+      "id": -1,
+      "result": {
+        "tools": {
+          "@": [ "$Tool" ],
+          "!": true
+        }
+      }
+    },
+    "ToolCallRequest": {
+      "jsonrpc": "_2.0",
+      "id": -1,
+      "method": "_tools/call",
+      "params": "$Object"
+    },
+    "ToolCallResponse": {
+      "jsonrpc": "_2.0",
+      "id": -1,
+      "result": {
+        "content": ["$ANY"],
+        "": "$ANY"
+      }
+    }
+  },
+  "|": [
+    "$InitializeRequest", "$InitializeResponse", "$Notification",
+    "$ToolsListRequest", "$ToolsListResponse",
+    "$ToolCallRequest", "$ToolCallResponse"
+  ]
 }
