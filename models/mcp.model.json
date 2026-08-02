@@ -1,7 +1,9 @@
 {
   "#": "MCP - Model Context Protocol",
+  "~": "https://json-model.org/models/json-model",
   "#.url": "https://modelcontextprotocol.io/specification",
   "$": {
+    "": "https://json-model.org/models/mcp",
     "Object": { "": "$ANY" },
     "ProtocolVersion": {
       "|": [
