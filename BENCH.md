@@ -120,6 +120,8 @@ the following caveats, and others:
   for the garbage collector and JIT), which may or may not be a blessing: it can reduce
   the apparent latency (eg the gc runs in another thread) but have a detrimental overall
   effect on throughput and costs as more cpu ressources are spent on the same task.
+- test values are mostly valid, which is representative of a typical use case, but
+  the tool accuracy should be asserted elsewhere with failing cases.
 
 ## Other Artifacts
 
