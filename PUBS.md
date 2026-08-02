@@ -40,27 +40,21 @@ JSON Model design and implementation are discussed in research papers and report
 JSON Model compiler and runtimes are distributed through the packages published for
 each language ecosystem:
 
-- [JSON Model Compiler Python Package](https://pypi.org/project/json-model-compiler/)
-
+- [JSON Model Compiler Python Package](https://pypi.org/project/json-model-compiler/)  
   Ready to use JSON Model compiler and runtime for a Python environment, from _PyPI_.
 
-- [JSON Model Compiler Container Image `docker.io/zx80/jmc`](https://hub.docker.com/r/zx80/jmc)
-
+- [JSON Model Compiler Container Image `docker.io/zx80/jmc`](https://hub.docker.com/r/zx80/jmc)  
   Ready to use JSON Model compiler and runtimes (Python, C, JavaScript, Perl, Java)
   as a Docker image, from _Docker Hub_.
 
-- [JSON Model JavaScript Runtime](https://www.npmjs.com/package/json_model_runtime)
-
+- [JSON Model JavaScript Runtime](https://www.npmjs.com/package/json_model_runtime)  
   JS runtime for generated code, from _npm Registry_.
 
-- [JSON Model PL/pgSQL Runtime](https://pgxn.org/dist/json_model/)
-
+- [JSON Model PL/pgSQL Runtime](https://pgxn.org/dist/json_model/)  
   PL/pgSQL runtime for generated code, from _PGXN_.
 
-- [JSON Model Perl Runtime](https://metacpan.org/pod/JSON::JsonModel)
-
+- [JSON Model Perl Runtime](https://metacpan.org/pod/JSON::JsonModel)  
   Perl runtime for generated code, from _CPAN_.
 
-- [JSON Model Java Runtime](https://central.sonatype.com/artifact/org.json-model/json-model)
-
+- [JSON Model Java Runtime](https://central.sonatype.com/artifact/org.json-model/json-model)  
   Java runtime for generated code, from _Maven Central_.
