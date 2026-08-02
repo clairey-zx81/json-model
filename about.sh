@@ -151,7 +151,8 @@ on a set of test vectors.
 - number of test vector JSON values: _${n_values}_
 - all tested JSON values (including models, generated schemas and test suite schemas): _${all_values}_
 
-Example models cover typical use cases and demonstrate JSON Model power and ease of expression.
+[Example models](https://json-model.org/MODELS) cover typical use cases and demonstrate
+JSON Model power and ease of expression.
 
 - number of example models: _${n_eg_models}_
 - total example model locs: _${eg_models_locs}_
