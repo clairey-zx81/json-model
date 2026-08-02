@@ -1230,7 +1230,8 @@ static const uint64_t
     s_rtsp   = 0x0000003a70737472LL,
     s_rtsps  = 0x00003a7370737472LL,
     s_telnet = 0x003a74656e6c6574LL,
-    s_mailto = 0x003a6f746c69616dLL
+    s_mailto = 0x003a6f746c69616dLL,
+    s_amqp   = 0x0000000070715d61LL
     // s_imap   = 0x0000003a70616d69LL,
     // s_imaps  = 0x00003a7370616d69LL,
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__   // ordered
@@ -1241,7 +1242,8 @@ static const uint64_t
     s_rtsp   = 0x727473703a000000LL,
     s_rtsps  = 0x72747370733a0000LL,
     s_telnet = 0x74656c6e65743a00LL,
-    s_mailto = 0x6d61696c746f3a00LL
+    s_mailto = 0x6d61696c746f3a00LL,
+    s_amqp   = 0x616d717000000000LL
     // s_imap   = 0x696d61703a000000LL,
     // s_imaps  = 0x696d6170733a0000LL,
 #else
@@ -1784,7 +1786,7 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
         jm_str_eq_4(url, s_oci)    || jm_str_eq_5(url, s_file)   ||
         jm_str_eq_4(url, s_ssh)    || jm_str_eq_8(url, s_telnet) ||
         jm_str_eq_8(url, s_mailto) || jm_str_eq_3(url, s_cm)     ||
-        jm_str_eq_3(url, s_s3)
+        jm_str_eq_3(url, s_s3)     || jm_str_eq_5(url, s_amqp)
     ) && jm_rfc3986_is_uri(url, true, false);
 }
 
@@ -1801,7 +1803,7 @@ jm_is_valid_url_rel(const char *url, jm_path_t *path, jm_report_t *rep)
         jm_str_eq_4(url, s_oci)    || jm_str_eq_5(url, s_file)   ||
         jm_str_eq_4(url, s_ssh)    || jm_str_eq_8(url, s_telnet) ||
         jm_str_eq_8(url, s_mailto) || jm_str_eq_3(url, s_cm)     ||
-        jm_str_eq_3(url, s_s3)
+        jm_str_eq_3(url, s_s3)     || jm_str_eq_5(url, s_amqp)
     ) && jm_rfc3986_is_uri(url, true, false)) || jm_rfc3986_is_uri(url, false, true);
 }
 

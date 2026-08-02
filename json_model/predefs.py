@@ -77,7 +77,7 @@ _PQA = r"(/[^/?#\s]*)*(\?[^#\s]*)?(#\S*)?"
 # NOTE first segment cannot look like "scheme:" and contain strange chars
 _REL_URL = r"([^?#\s:/<>{}()!=*]+)?(/[^?#\s/]*)*(\?[^#\s]*)?(#\S*)?"
 # hierarchical urls
-_HIE_URL = f"(https?|s?ftp|rtsps?|s3|cm|oci)://({_AUTH})?{_PQA}"
+_HIE_URL = f"(https?|s?ftp|rtsps?|s3|cm|oci|amqp)://({_AUTH})?{_PQA}"
 # file does not have a auth?
 _FILE_URL = f"file:{_REL_URL}"
 # other urls
