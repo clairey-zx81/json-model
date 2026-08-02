@@ -183,7 +183,7 @@ the overall performance measure is not significantly impacted because of the ver
 
 RESULT_CONTENT_COMMENT: str = """
 When running with content validation (aka JSON Schema format or JSON Model predefs),
-more cases are expected to fail, both for Blaze and JMC:
+a few cases are expected to fail, both for Blaze and JMC:
 
 - helm: - 128 rejected values, mostly because of empty `.dependencies.*.repository` urls
 - openapi:{12,26} - 2 bad urls are rejected
