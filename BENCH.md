@@ -1,8 +1,7 @@
 # JSON Model Compiler Benchmark Artifacts
 
 The purpose of this benchmark is to compare JSON value validation performance for
-the exactly/roughly (see discussion below) the same constraints, independently
-of the syntax used to express these constraints.
+the same constraints, independently of the syntax used to express these constraints.
 
 These artifacts compare
 [JSON Model Compiler (jmc)](https://github.com/clairey-zx81/json-model) generated code using the
@@ -13,27 +12,29 @@ from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-b
 
 ## Recent Artifacts
 
-Overall, depending on the chosen metrics, JMC with the C backend is 50 to 100% faster
+Overall, depending on the chosen metrics, JMC with the C backend is 50-100% faster
 than Blaze on average to validate JSON values in these artifacts.
 
-- [2026080600](benchmarks/2026080600.md) clang, predefs, jsu 0.9.17/jmc 2.0.55 vs sbc 16.7.0, 11 runs, 1000 iterations.
-- [2026080501](benchmarks/2026080501.md) clang, predefs, jsu 0.9.17/jmc 2.0.55 vs sbc 16.6.0, 11 runs, 1000 iterations.
-- [2026080500](benchmarks/2026080500.md) clang, predefs, jsu 0.9.17/jmc 2.0.55 vs sbc 16.5.0, 11 runs, 1000 iterations.
-- [2026080400](benchmarks/2026080400.md) clang, predefs, jsu 0.9.16/jmc 2.0.55 vs sbc 16.5.0, 11 runs, 1000 iterations.
-- [2026080300](benchmarks/2026080300.md) clang, predefs, jsu 0.9.16/jmc 2.0.55 vs sbc 16.4.0, 11 runs, 1000 iterations.
-- [2026080100](benchmarks/2026080100.md) clang, predefs, nofix, jsu 0.9.16/jmc 2.0.55 vs sbc 16.3.0, 11 runs, 1000 iterations.
-- [2026073100](benchmarks/2026073100.md) clang, predefs, jsu 0.9.16/jmc 2.0.55 vs sbc 16.3.0, 11 runs, 1000 iterations.
-- [2026073003](benchmarks/2026073003.md) clang, predefs, jsu 0.9.16/jmc 2.0.54 vs sbc 16.3.0, 11 runs, 1000 iterations.
-- [2026072902](benchmarks/2026072902.md) clang, predefs, jsu 0.9.15/jmc 2.0.53 vs sbc 16.3.0, 11 runs, 1000 iterations.
-- [2026072900](benchmarks/2026072900.md) clang, predefs, jsu 0.9.15/jmc 2.0.52 vs sbc 16.3.0, 11 runs, 1000 iterations.
-- [2026072600](benchmarks/2026072600.md) clang, predefs, jsu 0.9.13/jmc 2.0.52 vs sbc 16.3.0, 11 runs, 1000 iterations.
-- [2026072200](benchmarks/2026072200.md) clang, predefs, jsu 0.9.13/jmc 2.0.52 vs sbc 16.2.1, 11 runs, 1000 iterations.
-- [2026071700](benchmarks/2026071700.md) clang, predefs, jsu 0.9.13/jmc 2.0.52 vs sbc 16.2.0, 11 runs, 1000 iterations.
-- [2026071302](benchmarks/2026071302.md) clang, predefs, jsu 0.9.13/jmc 2.0.52 vs sbc 16.1.0, 11 runs, 1000 iterations.
-- [2026071000](benchmarks/2026071000.md) clang, no predefs, jsu 0.9.12/jmc 2.0.51 vs sbc 16.1.0, 11 runs, 1000 iterations.
-- [2026070900](benchmarks/2026070900.md) clang, no predefs, jsu 0.9.11/jmc 2.0.51 vs sbc 16.1.0, 11 runs, 1000 iterations.
-- [2026062200](benchmarks/2026062200.md) clang, no predefs, jsu 0.9.11/jmc 2.0.51 vs sbc 16.0.0, 11 runs, 1000 iterations.
-- [2026062102](benchmarks/2026062102.md) clang, no predefs, jsu 0.9.10/jmc 2.0.50 vs sbc 16.0.0, 11 runs, 1000 iterations.
+- [2026080600](benchmarks/2026080600.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.7.0, content, fix.
+- [2026080501](benchmarks/2026080501.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.6.0, content, fix.
+- [2026080500](benchmarks/2026080500.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.5.0, content, fix.
+- [2026080400](benchmarks/2026080400.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.5.0, content, fix.
+- [2026080300](benchmarks/2026080300.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.4.0, content, fix.
+- [2026080100](benchmarks/2026080100.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.3.0, content, no fix.
+- [2026073100](benchmarks/2026073100.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.3.0, content, fix.
+- [2026073003](benchmarks/2026073003.md) jsu 0.9.16/jmc 2.0.54 vs sbc 16.3.0, content, fix.
+- [2026072902](benchmarks/2026072902.md) jsu 0.9.15/jmc 2.0.53 vs sbc 16.3.0, content, fix.
+- [2026072900](benchmarks/2026072900.md) jsu 0.9.15/jmc 2.0.52 vs sbc 16.3.0, content, fix.
+- [2026072600](benchmarks/2026072600.md) jsu 0.9.13/jmc 2.0.52 vs sbc 16.3.0, content, fix.
+- [2026072200](benchmarks/2026072200.md) jsu 0.9.13/jmc 2.0.52 vs sbc 16.2.1, content, fix.
+- [2026071700](benchmarks/2026071700.md) jsu 0.9.13/jmc 2.0.52 vs sbc 16.2.0, content, fix.
+- [2026071302](benchmarks/2026071302.md) jsu 0.9.13/jmc 2.0.52 vs sbc 16.1.0, content, fix.
+- [2026071000](benchmarks/2026071000.md) jsu 0.9.12/jmc 2.0.51 vs sbc 16.1.0, no content, fix.
+- [2026070900](benchmarks/2026070900.md) jsu 0.9.11/jmc 2.0.51 vs sbc 16.1.0, no content, fix.
+- [2026062200](benchmarks/2026062200.md) jsu 0.9.11/jmc 2.0.51 vs sbc 16.0.0, no content, fix.
+- [2026062102](benchmarks/2026062102.md) jsu 0.9.10/jmc 2.0.50 vs sbc 16.0.0, no content, fix.
+
+Options: _content_ validate string contents (format/predef), _fix_ improved models (bug fixes) or strictly schema compatible models.
 
 ## Benchmarking Script
 
@@ -50,14 +51,14 @@ It is typically started on a large host with the
 which will spawn the necessary containers:
 
 ```sh
-JMC=latest JMC_OPTS="--no-predef --cc=clang" \
-  nohup ./start_bench.sh latest -p 16 -l 1000 -r 5 -c &
+JMC=latest JMC_OPTS="--predef --cc=clang" JSU_OPTS="--id --fix --no-strict" \
+  nohup ./start_bench.sh latest -p 12 -l 1000 -r 5 -c &
 # in the generated directory, look for the summary markdown and radar json files.
 ```
 
 The main script options are:
 
-- `-p PARA` parallelism (a little less that the number of available cores, default is _8_)
+- `-p PARA` parallelism (less that the number of available cores, default is _8_)
 - `-l LOOP` loop iterations for performance average (at least _1000_, the default)
 - `-r RUNS` number of runs (odd number, default is _3_)
 - `-c` validate contents (default is _not_)
