@@ -132,6 +132,17 @@ CASE: dict[str, str] = {
 # standard section descriptions
 #
 TOOL_SUMMARY: str = """
+Tools:
+_blaze_ is JSON Schema Blaze CLI (external reference);
+_c_ _js_ _py_ are JMC for C, JavaScript and Python;
+"""
+
+if args.few_tools:
+    TOOL_SUMMARY += "_java_ is JMC for Java with GSON.\n"
+else:
+    TOOL_SUMMARY += "_jv1_, _jv2_, _jv3_ are JMC for Java with GSON, Jackson and JSONP/Johnzon.\n"
+
+TOOL_SUMMARY += """
 For each tool: maximum/geometrical average/minimum performance ratio,
 overall validation speed in bytes per µs and lines per µs,
 number of best performance"""
@@ -154,11 +165,6 @@ the lower the better, empty denotes a tool failure.
 
 if args.performance == "best":
     TOOL_CASES += "**1.0** is best.\n"
-
-if args.few_tools:
-    TOOL_CASES += "Java uses the GSON library.\n"
-else:
-    TOOL_CASES += "Java 1 is GSON, 2 is Jackson, 3 is JSONP/Johnzon)\n"
 
 RESULT_SUCCESS: str = """
 For each tool and cases with a partial success rate, percent of test cases validated.
