@@ -389,6 +389,9 @@ fix_status="yes, models may correct some schema deficiencies"
 [[ "$JSU_OPTS" == '*--no-fix*' ]] && \
     let show_opts+=" --no-fix" fix_status="no, models are compatible with (buggy) schemas"
 
+cap_status="no"
+[ "$cap" ] && cap_status="yes"
+
 cat <<EOF > "$ID.md"
 # JSON Model Compiler Benchmark Run
 
@@ -433,7 +436,7 @@ or deselect tools for easier comparisons.
 - **benchmark parallelism:** $PARA
 - **number of runs:** $RUNS
 - **number of test iterations:** $LOOP
-- **cap:** $cap (whether to reduce iterations for slow script runs)
+- **cap:** $cap_status (whether to reduce iterations for slow script runs)
 - **overhead:** $overhead (measure overhead estimations may be removed from execution times)
 - **debug:** $debug_status
 - **tasks:** $tasks
