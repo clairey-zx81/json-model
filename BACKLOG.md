@@ -157,7 +157,6 @@
 - [x] model: write a model for MCP
 - [x] tests: add a few tests for MCP model
 - [x] export: generate ts interfaces
-- [ ] front: allow IR re-entrance?
 - [ ] tests: generate valid (pseudo-random) values
 - [ ] tests: generate invalid minimal, maximal, pseudo-random values
 - [ ] tests: generate invalid values on each constraint

@@ -119,6 +119,16 @@ Accept JSON with objects containing duplicated properties.
 
 Allow some extensions to help with JSU back-end implementation.
 
+=item B<--from-ir>/B<-fir>
+
+Read a JSON intermediate representation, as generated with C<-C -F json>, instead of a
+JSON model, so that only code generation (C<-C>) is available.
+
+The entry name and package are taken from the IR, and reporting must have been enabled
+when it was generated. An IR generated with C<-F json> targets a generic back-end: the
+regenerated code may differ from a direct compilation, and PL/pgSQL is not supported.
+Pass the tuning options when generating the IR for a closer match.
+
 =back
 
 =head2 Processing

@@ -8,6 +8,7 @@ from .script import (
     jmc_script, jmc_version,
     model_from_json, model_from_url, model_from_str,
     model_checker, model_checker_from_url, model_checker_from_json,
+    ir_checker_from_file,
 )
 
 __ALL__ = [
@@ -15,4 +16,5 @@ __ALL__ = [
     jmc_script, jmc_version,
     model_from_json, model_from_url, model_from_str,
     model_checker, model_checker_from_url, model_checker_from_json,
+    ir_checker_from_file,
 ]

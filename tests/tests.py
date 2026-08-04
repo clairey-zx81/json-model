@@ -10,7 +10,7 @@ import pytest
 
 from json_model.script import model_from_url, model_checker_from_url
 from json_model.resolver import Resolver
-from json_model.xstatic import xstatic_compile
+from json_model.xstatic import xstatic_compile, ir_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
@@ -263,6 +263,7 @@ EXPECT: dict[str, int] = {
     "mv-34:values": 131,
     "mv-34:verrors:schema": 2,
     "mv-34:verrors:dynpy": 1,
+    "mv-34:verrors:ir": 1,
     # mv-35
     "mv-35:cmp-opts": {"report": False, "comment": False},
     "mv-35:mod-opts": {"single_line": True},
@@ -841,6 +842,24 @@ def test_dyn_py(directory: pathlib.Path):
         return model_checker_from_url(model, resolver=resolver, follow=True, debug=False, **options)
 
     run_dyn(directory, gen_py_checker, "dynpy")
+
+def test_dyn_ir(directory: pathlib.Path):
+    """Test IR re-entrance: compile to the JSON IR, then back to Python."""
+
+    resolver = Resolver(None, dirmap(directory))
+    options = EXPECT.get(f"{directory}:mod-opts", {})
+
+    def gen_ir_checker(fmodel: str):
+        assert fmodel.endswith(".model.json")
+        model = fmodel.replace(".model.json", "").replace(f"{directory}/", "")
+        jm = model_from_url(model, resolver=resolver, follow=True, debug=False, **options)
+        ir = json.loads(str(xstatic_compile(jm, lang="json")))
+        env = {}
+        exec(ir_compile(ir, lang="py"), env)
+        env[ir["entry"] + "_init"]()
+        return env[ir["entry"]]
+
+    run_dyn(directory, gen_ir_checker, "ir")
 
 def test_dyn_json_schema(directory: pathlib.Path):
     """Test generated JSON Schema with test value files."""

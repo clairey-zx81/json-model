@@ -14,7 +14,7 @@ from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse, distinct_prop_objects, ultimate_model
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr, PathExpr, PropMap, JsonExpr, StrExpr, Var
-from .irep import IRep, optimizeIR, evaluate
+from .irep import IRep, optimizeIR, evaluate, ir_evaluate
 
 # probability of named optional props in an object
 MAY_P = 0.5
@@ -2003,7 +2003,7 @@ class CodeGenerator:
                     expr = gen.and_op(expr, compare) if expr else compare
                     code += gen.bool_var(res, expr)
                 if self._report:
-                    smodel = gen._lang.esc(model)
+                    smodel = gen._lang.esc_msg(model)
                     code += self._gen_report(
                         res, f"unexpected value for model {smodel} [{smpath}]", vpath
                     )
@@ -2338,6 +2338,74 @@ class CodeGenerator:
         return self._code
 
 
+def make_language(
+        lang: str,
+        *,
+        package: str|None = None,
+        debug: bool = False,
+        report: bool = True,
+        comment: bool = True,
+        predef: bool = True,
+        relib: str|None = None,
+        inline: bool = True,
+        strcmp: bool = True,
+        byte_order: str = "le",
+        max_strcmp_cset: int = 64,
+        regex_opt: bool = True,
+        unique_opt: bool = True,
+        strcmp_cset_partition_threshold: int = 32,
+    ) -> tuple[Language|None, str|None]:
+    """Build the back-end for a target language, and its default package."""
+
+    if lang == "py":
+        from .python import Python
+        language = Python(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re2"
+        )
+    elif lang == "c":
+        from .clang import CLangJansson
+        language = CLangJansson(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re2",
+            inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
+            max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt, unique_opt=unique_opt,
+            partition_threshold=strcmp_cset_partition_threshold,
+        )
+    elif lang == "js":
+        from .javascript import JavaScript
+        language = JavaScript(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re"
+        )
+    elif lang in ("plpgsql", "sql"):
+        from .plpgsql import PLpgSQL
+        language = PLpgSQL(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re", with_package=package is not None
+        )
+        package = package or "public"
+    elif lang == "pl":
+        from .perl import Perl
+        language = Perl(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re2", with_package=package is not None
+        )
+        package = package or "Model"
+    elif lang == "java":
+        from .java import Java
+        language = Java(
+            debug=debug, with_report=report, with_path=report, with_comment=comment,
+            with_predef=predef, relib=relib or "re", with_package=package is not None
+        )
+    elif lang == "json":
+        language = None
+    else:
+        raise NotImplementedError(f"no support yet for language: {lang}")
+
+    return language, package
+
+
 def xstatic_compile(
         model: JsonModel,
         fname: str = "check_model",
@@ -2508,51 +2576,13 @@ def xstatic_compile(
              f"aus={array_unrolling_size}")
 
     # target language
-    if lang == "py":
-        from .python import Python
-        language = Python(
-            debug=debug, with_report=report, with_path=report, with_comment=comment,
-            with_predef=predef, relib=relib or "re2"
-        )
-    elif lang == "c":
-        from .clang import CLangJansson
-        language = CLangJansson(
-            debug=debug, with_report=report, with_path=report, with_comment=comment,
-            with_predef=predef, relib=relib or "re2",
-            inline=inline, strcmp_opt=strcmp, byte_order=byte_order,
-            max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt, unique_opt=unique_opt,
-            partition_threshold=strcmp_cset_partition_threshold,
-        )
-    elif lang == "js":
-        from .javascript import JavaScript
-        language = JavaScript(
-            debug=debug, with_report=report, with_path=report, with_comment=comment,
-            with_predef=predef, relib=relib or "re"
-        )
-    elif lang in ("plpgsql", "sql"):
-        from .plpgsql import PLpgSQL
-        language = PLpgSQL(
-            debug=debug, with_report=report, with_path=report, with_comment=comment,
-            with_predef=predef, relib=relib or "re", with_package=package is not None
-        )
-        package = package or "public"
-    elif lang == "pl":
-        from .perl import Perl
-        language = Perl(
-            debug=debug, with_report=report, with_path=report, with_comment=comment,
-            with_predef=predef, relib=relib or "re2", with_package=package is not None
-        )
-        package = package or "Model"
-    elif lang == "java":
-        from .java import Java
-        language = Java(
-            debug=debug, with_report=report, with_path=report, with_comment=comment,
-            with_predef=predef, relib=relib or "re", with_package=package is not None
-        )
-    elif lang == "json":
-        language = None
-    else:
-        raise NotImplementedError(f"no support yet for language: {lang}")
+    language, package = make_language(
+        lang, package=package,
+        debug=debug, report=report, comment=comment, predef=predef, relib=relib,
+        inline=inline, strcmp=strcmp, byte_order=byte_order,
+        max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt, unique_opt=unique_opt,
+        strcmp_cset_partition_threshold=strcmp_cset_partition_threshold,
+    )
 
     # intermediate representation if needed
     if ir_optimize or language is None:
@@ -2594,3 +2624,57 @@ def xstatic_compile(
             code = evaluate(code, language)
 
     return code
+
+
+def ir_compile(
+        ir: Jsonable,
+        *,
+        lang: str = "py",
+        package: str|None = None,
+        execute: bool|None = None,
+        mark: str|None = None,
+        short_version: bool = False,
+        debug: bool = False,
+        report: bool = True,
+        comment: bool = True,
+        predef: bool = True,
+        relib: str|None = None,
+        inline: bool = True,
+        strcmp: bool = True,
+        byte_order: str = "le",
+        max_strcmp_cset: int = 64,
+        regex_opt: bool = True,
+        unique_opt: bool = True,
+        strcmp_cset_partition_threshold: int = 32,
+    ) -> str:
+    """Generate the check source code from a JSON intermediate representation."""
+
+    if not isinstance(ir, dict) or ir.get("o") != "gfc":
+        raise ModelError(f"not a full code JSON IR: {tname(ir)}")
+
+    # unlike the entry, the package is substituted on evaluation, thus it can be overriden
+    if package is None:
+        package = ir["package"]
+    if not (package is None or isinstance(package, str)):
+        raise ModelError(f"unexpected JSON IR package name: {tname(package)}")
+
+    language, package = make_language(
+        lang, package=package,
+        debug=debug, report=report, comment=comment, predef=predef, relib=relib,
+        inline=inline, strcmp=strcmp, byte_order=byte_order,
+        max_strcmp_cset=max_strcmp_cset, regex_opt=regex_opt, unique_opt=unique_opt,
+        strcmp_cset_partition_threshold=strcmp_cset_partition_threshold,
+    )
+
+    target = language or IRep(debug=debug, lang=None, with_comment=comment, with_report=report)
+    target._short_version = short_version
+
+    if execute is not None or mark is not None or package != ir["package"]:
+        ir = dict(ir)
+        ir["package"] = package
+        if execute is not None:
+            ir["exe"] = execute
+        if mark is not None:
+            ir["mark"] = mark
+
+    return ir_evaluate(ir, target)
