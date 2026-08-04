@@ -571,6 +571,10 @@ class Language:
             '"'
         )
 
+    def esc_msg(self, s: str) -> StrExpr:
+        """Escape string for inclusion in a report message."""
+        return self.esc(s)
+
     def skip(self) -> Block:
         """Skip one line."""
         return [ "" ]

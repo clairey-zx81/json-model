@@ -1209,8 +1209,11 @@ class IRep(Language):
     def esc(self, s: str) -> StrExpr:
         return _j("esc", s=s)
 
+    def esc_msg(self, s: str) -> StrExpr:
+        return Language.esc(self, s)
+
     def json_cst(self, j: Jsonable) -> JsonExpr:
-        return _j("jc", json=j)
+        return _j("jc", j=j)
 
     def const(self, c: Jsonable) -> Expr:
         return _j("cst", c=c)
@@ -1668,6 +1671,13 @@ def _eval(jv: Jsonable, gen: Language) -> Block|Expr:
     else:
         # probably a string, eg a variable name
         return jv
+
+def ir_evaluate(ir: Jsonable, lang: Language) -> str:
+    """Generate the target language source code from a full code JSON IR."""
+    code = _eval(ir, lang)
+    assert isinstance(code, list), "full code JSON IR"
+
+    return lang.code_to_str(lang.filter_code(code))
 
 def evaluate(ir: Code, lang: Language) -> Code:
     code = Code(lang, ir._entry, ir._executable, ir._package, ir._mark)

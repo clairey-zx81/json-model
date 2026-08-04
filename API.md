@@ -74,7 +74,7 @@ person.check_model_free()
 As the JSON Model compiler is written in Python, it can be invoked directly for generating
 a validation function.
 
-Currently, two functions are available:
+Currently, three functions are available:
 
 - `model_checker_from_json`: generate a model from a JSON value which must be a valid model.
 
@@ -83,8 +83,12 @@ Currently, two functions are available:
 
   This function expects a URL as a first parameter, which should dowload a JSON model possibly
   as JSON or YAML.
+- `ir_checker_from_file`: generate a model checker from a JSON intermediate representation.
 
-The following named parameters are available to both functions:
+  This function expects a file path as a first parameter, or `-` for standard input, holding
+  an IR as generated with `jmc -C -F json`. See compiler option `--from-ir` about its limitations.
+
+The following named parameters are available to both model functions:
 
 - `auto`: boolean, whether to automatically map url to local path, default is _False_;
   this feature is mostly for testing.
@@ -108,6 +112,15 @@ For instance, with the `json-model-compiler` Python package installed:
 import json_model as jm
 
 is_person = jm.model_checker_from_url("./Person.model.json")
+print("hobbes is a person:", is_person({"name": "Hobbes", "birth": "2020-07-29"}))
+```
+
+Or, starting from a previously generated IR, eg with `jmc -C -F json -o Person.ir.json Person.model.json`:
+
+```python
+import json_model as jm
+
+is_person = jm.ir_checker_from_file("./Person.ir.json")
 print("hobbes is a person:", is_person({"name": "Hobbes", "birth": "2020-07-29"}))
 ```
 

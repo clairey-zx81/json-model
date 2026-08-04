@@ -15,7 +15,7 @@ from .mtypes import Jsonable, JsonSchema, ModelError
 from .utils import log, tname, json_loads, load_data_file, jmc_version
 from .resolver import Resolver
 from .model import JsonModel
-from .xstatic import xstatic_compile
+from .xstatic import xstatic_compile, ir_compile
 from . import optim, analyze, objops
 from .runtime.types import EntryCheckFun, Report
 from .runtime.support import _path as json_path
@@ -205,6 +205,43 @@ def create_model(
         check=check, merge=merge, optimize=optimize, extend=extend
     )
 
+
+def load_ir(path: str, *, allow_duplicates: bool = False) -> dict[str, Jsonable]:
+    """Load a JSON intermediate representation from a file or standard input."""
+
+    if path == "-":
+        contents = sys.stdin.read()
+    else:
+        with open(path) as fh:
+            contents = fh.read()
+
+    ir = json_loads(contents, allow_duplicates=allow_duplicates)
+
+    if not isinstance(ir, dict) or ir.get("o") != "gfc":
+        raise ModelError(f"not a JSON Model IR: {path}")
+
+    for key in ("defs", "inis", "dels", "subs", "entry", "package", "exe", "mark"):
+        if key not in ir:
+            raise ModelError(f"missing \"{key}\" in JSON Model IR: {path}")
+
+    return ir
+
+
+def ir_checker_from_file(
+        path: str, *, debug: bool = False, allow_duplicates: bool = False, **options
+    ) -> EntryCheckFun:
+    """Return an executable model checker from a JSON IR file."""
+
+    ir = load_ir(path, allow_duplicates=allow_duplicates)
+    entry = str(ir["entry"])
+
+    env = {}
+    exec(ir_compile(ir, lang="py", debug=debug, **options), env)
+    env[entry + "_init"]()
+
+    return env[entry]
+
+
 #
 # C runtime
 #
@@ -330,6 +367,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--auto", "-a", action="store_true", help="automatic URL mapping")
     arg("--extend", default=False, action="store_true", help="allow some extensions")
     arg("--no-extend", dest="extend", action="store_false", help="do not allow some extensions")
+    arg("--from-ir", "-fir", action="store_true", default=False,
+        help="input is a JSON IR file instead of a JSON model")
 
     arg("--loose-int", "-li", action="store_true", default=None,
         help="use loose integers")
@@ -579,6 +618,9 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             args.values.insert(0, args.model)
         args.model = args.model_option
 
+    if args.from_ir:
+        args.op = args.op or "C"
+
     # format/operation/gen guessing
     if args.output != "-":
         if args.output.endswith(".c"):
@@ -649,6 +691,9 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             args.format = args.format or "json"
             args.op = args.op or "U"
 
+    if args.from_ir:
+        args.format = args.format or "py"
+
     args.entry = args.entry or "check_model"
 
     if args.values:
@@ -665,6 +710,10 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     # update op-dependent default
     if args.gen is None:
         args.gen = "source" if args.op in "C" and not args.values else "module"
+
+    if args.from_ir and args.op != "C":
+        log.error(f"reading a JSON IR requires code generation (-C): {args.op}")
+        return 1
 
     # option/parameter consistency and defaults
     if args.op in "PUJN":
@@ -738,20 +787,45 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     log.info(f"processing {args.model}")
 
     # CREATE FROM FILE OR URL
-    try:
-        model = create_model(
-            args.model, resolver, auto=args.auto, debug=args.debug,
-            loose_int=args.loose_int, loose_float=args.loose_float,
-            check=args.check, merge=args.op != "N", single_line=args.single_line_regex,
-            optimize=args.optimize, extend=args.extend, follow=False
-        )
-    except Exception as e:
-        log.error(e)
-        if args.debug:
-            raise
-        else:
-            log.error(f"invalid model {args.model}")
-            return 2
+    model, ir = None, None
+    if args.from_ir:
+        try:
+            ir = load_ir(args.model, allow_duplicates=args.allow_duplicates)
+        except Exception as e:
+            log.error(e)
+            if args.debug:
+                raise
+            else:
+                log.error(f"invalid JSON IR {args.model}")
+                return 2
+
+        if args.entry != ir["entry"]:
+            if args.format == "java" and args.output != "-":
+                log.error(f"IR entry {ir['entry']} requires output {ir['entry']}.java")
+                return 1
+            log.log(
+                logging.WARNING if args.entry != "check_model" else logging.INFO,
+                f"keeping entry from IR: {ir['entry']}"
+            )
+            args.entry = str(ir["entry"])
+
+        if not args.reporting:
+            log.warning("keeping reporting from IR")
+    else:
+        try:
+            model = create_model(
+                args.model, resolver, auto=args.auto, debug=args.debug,
+                loose_int=args.loose_int, loose_float=args.loose_float,
+                check=args.check, merge=args.op != "N", single_line=args.single_line_regex,
+                optimize=args.optimize, extend=args.extend, follow=False
+            )
+        except Exception as e:
+            log.error(e)
+            if args.debug:
+                raise
+            else:
+                log.error(f"invalid model {args.model}")
+                return 2
 
     # NOTE preprocessing already done in create_model
     # TODO check why iterating changes things (eg ref to predefs substitions)
@@ -795,52 +869,73 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         assert args.format in LANG, f"valid output language {args.format}"
 
         # FIXME PL/pgSQL?
-        if args.format in ("plpgsql", "js", "pl") and \
+        if model is not None and args.format in ("plpgsql", "js", "pl") and \
                 (not model._loose_int or not model._loose_float):
             log.warning(
                 f"{args.model}: {LANG[args.format]} backend does not support strict numbers"
             )
 
         # compile to source
-        code = xstatic_compile(
-            model, args.entry,
-            lang=args.format,
-            debug=args.debug,
-            execute=with_main,
-            report=args.reporting,
-            comment=args.comment,
-            package=args.package,
-            # optimizations
-            map_threshold=args.map_threshold,
-            map_share=args.map_share,
-            relib=args.regex_engine,
-            short_version=args.short_version,
-            predef=args.predef,
-            inline=args.inline,
-            ir_optimize=args.ir_optimize,
-            strcmp=args.strcmp_opt,
-            byte_order=args.byte_order,
-            regex_opt=args.regex_opt,
-            unique_opt=args.unique_opt,
-            regex_pattern=args.regex_pattern,
-            may_must_open_threshold=args.may_must_open_threshold,
-            must_only_threshold=args.must_only_threshold,
-            partition_threshold=args.partition_threshold,
-            or_must_prop=args.or_must_prop,
-            sort_must=args.sort_must,
-            sort_may=args.sort_may,
-            call_shortcut=args.call_shortcut,
-            disjunction=args.disjunction,
-            all_but_one=args.all_but_one,
-            missing_basics=args.missing_basics,
-            xor_repeats=args.xor_repeats,
-            xor_is_not=args.xor_is_not,
-            homogeneous_list=args.homogeneous_list,
-            max_strcmp_cset=args.max_strcmp_cset,
-            array_unrolling_size=args.array_unrolling_size,
-            mark=args.mark,
-        )
-        source = str(code)
+        if ir is not None:
+            source = ir_compile(
+                ir,
+                lang=args.format,
+                package=args.package,
+                debug=args.debug,
+                execute=with_main,
+                report=True,
+                comment=args.comment,
+                relib=args.regex_engine,
+                short_version=args.short_version,
+                predef=args.predef,
+                inline=args.inline,
+                strcmp=args.strcmp_opt,
+                byte_order=args.byte_order,
+                regex_opt=args.regex_opt,
+                unique_opt=args.unique_opt,
+                max_strcmp_cset=args.max_strcmp_cset,
+                mark=args.mark,
+            )
+        else:
+            assert model is not None
+            code = xstatic_compile(
+                model, args.entry,
+                lang=args.format,
+                debug=args.debug,
+                execute=with_main,
+                report=args.reporting,
+                comment=args.comment,
+                package=args.package,
+                map_threshold=args.map_threshold,
+                map_share=args.map_share,
+                relib=args.regex_engine,
+                short_version=args.short_version,
+                predef=args.predef,
+                inline=args.inline,
+                ir_optimize=args.ir_optimize,
+                strcmp=args.strcmp_opt,
+                byte_order=args.byte_order,
+                regex_opt=args.regex_opt,
+                unique_opt=args.unique_opt,
+                regex_pattern=args.regex_pattern,
+                may_must_open_threshold=args.may_must_open_threshold,
+                must_only_threshold=args.must_only_threshold,
+                partition_threshold=args.partition_threshold,
+                or_must_prop=args.or_must_prop,
+                sort_must=args.sort_must,
+                sort_may=args.sort_may,
+                call_shortcut=args.call_shortcut,
+                disjunction=args.disjunction,
+                all_but_one=args.all_but_one,
+                missing_basics=args.missing_basics,
+                xor_repeats=args.xor_repeats,
+                xor_is_not=args.xor_is_not,
+                homogeneous_list=args.homogeneous_list,
+                max_strcmp_cset=args.max_strcmp_cset,
+                array_unrolling_size=args.array_unrolling_size,
+                mark=args.mark,
+            )
+            source = str(code)
 
         # source to executable for C and java
         if args.format == "c" and args.gen in ("exec", "module"):
