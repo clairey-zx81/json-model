@@ -1119,11 +1119,11 @@ def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool
 
 
 def _t2s(tvar: type|None) -> str:
-    """Type to JSON type name conversion."""
+    """Type to IR type name conversion."""
     if tvar is None or tvar is type(None):
         return "null"
     elif tvar is bool:
-        return "boolean"
+        return "bool"
     elif tvar is int:
         return "integer"
     elif tvar is float:

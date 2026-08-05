@@ -3,8 +3,7 @@
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/jmc-ir",
-    "#.bool": "irep.py emits tvar \"bool\" in one place, elsewhere _t2s gives \"boolean\"",
-    "Type": {"|": [null, "null", "boolean", "bool", "integer", "number", "string", "array", "object", "Number", "Path", "Report"]},
+    "Type": {"|": [null, "null", "bool", "integer", "number", "string", "array", "object", "Number", "Path", "Report"]},
     "Op": {"|": ["_=", "_<", "_>", "_<=", "_!=", "_>="]},
     "SIFCst": {"|": ["", -1, -1.0]},
     "Ident": "/^\\w+$/",
