@@ -7,6 +7,7 @@
 - [x] bench: rework presentation and comments
 - [x] bench: allow to only keep Java with GSON lib
 - [x] bench: add option to change standard comments depending on test conditions
+- [x] bench: add option to skip showing _best_ row in performance summary
 - [x] bench: when comparing to a reference, count betters
 - [x] front: ~allow to load `.errors.json` file to filter out expected errors~
 - [x] pr: improved pages and descriptions

@@ -64,6 +64,10 @@ arg("--fix", action="store_true", default=True,
     help="models are fixed wrt schema thus may show differing results")
 arg("--no-fix", dest="fix", action="store_false",
     help="models are faithful to reference schemas, however buggy")
+arg("--best", default=True, action="store_true",
+    help="show best line in summary")
+arg("--no-best", dest="best", action="store_false",
+    help="no not show best line in summary")
 args = ap.parse_args()
 
 if args.hide and not args.ref:
@@ -144,18 +148,23 @@ else:
 
 TOOL_SUMMARY += """
 For each tool: maximum/geometrical average/minimum performance ratio,
-overall validation speed in bytes per µs and lines per µs,
-number of best performance"""
+overall validation speed in bytes per µs and lines per µs"""
+
+if args.best:
+    TOOL_SUMMARY += ", number of best performance"
 
 if dobetter:
     TOOL_SUMMARY += f", number of better-than-reference (_{TOOL[args.performance]}_) performance"
 
+# TODO do not show unless necessary
 TOOL_SUMMARY += """, number of case failures (if any).
 
-The most interesting figure, in bold, is the geometrical average of the tool performance.
+The most interesting figure, second row in bold, is the geometrical average of the tool performance.
 Speed measures are biased toward the performance of cases with large values (_geojson_ and _openapi_).
-The best count emphasizes how uniformly better is a tool.
 """
+
+if args.best:
+    TOOL_SUMMARY += "The best count emphasizes how uniformly better is a tool.\n"
 
 TOOL_CASES: str = f"""
 For each case: number and name, number of test cases, best cumulated {args.aggregate} performance (µs),
@@ -427,7 +436,8 @@ print("|ratio **avg**|" + "".join(f"**{perf_geo[t]:.02f}**|" for t in tools))
 print("|ratio min|" + "".join(f"{perf_min[t]:.02f}|" for t in tools))
 print("|speed B/µs|" + "".join(f"{speed_size[t]:.0f}|" for t in tools))
 print("|speed l/µs|" + "".join(f"{speed_lines[t]:.01f}|" for t in tools))
-print("|best count|" + "".join(f"{nbest_tool[t]}|" for t in tools))
+if args.best:
+    print("|best count|" + "".join(f"{nbest_tool[t]}|" for t in tools))
 if dobetter:
     print("|better count|" + "".join(f"{nbetter_tool[t]}|" for t in tools))
 if any(nerror_tool[t] != 0 for t in tools):
