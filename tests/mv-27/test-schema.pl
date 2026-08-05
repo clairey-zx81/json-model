@@ -281,7 +281,7 @@ sub json_model_5($$$)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    # Model for the JSON Schema Test Suite tests
+    # JSON Model for the JSON Schema Test Suite tests
     # .
     # .'@'
     my $res = jm_is_array($val);

@@ -306,7 +306,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 // check $ (.)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    // Model for the JSON Schema Test Suite tests
+    // JSON Model for the JSON Schema Test Suite tests
     // .
     // .'@'
     bool res = json_is_array(val);

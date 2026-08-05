@@ -3,7 +3,7 @@ md3-hobbes.values.json[1]: PASS
 md3-hobbes.values.json[2]: PASS
 md3-hobbes.values.json[3]: FAIL
 md3-hobbes.values.json[4]: FAIL
-md3-hobbes.values.json[5]: FAIL (: invalid date 2000-06-31 (day is out of range for month))
+md3-hobbes.values.json[5]: FAIL (: invalid date 2000-06-31 (day 31 must be in range 1..30 for month 6 in year 2000))
 md3-hobbes.values.json[6]: FAIL
 md3-hobbes.values.json[7]: FAIL
 md3-hobbes.values.json[8]: FAIL

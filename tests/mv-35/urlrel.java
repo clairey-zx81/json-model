@@ -34,7 +34,7 @@ public class urlrel extends ModelChecker
             try {
             urlrel_map_pmap = new HashMap<String, Checker>();
             urlrel_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            jm_is_url_rel_pat = Pattern.compile("^(((https?|s?ftp|rtsps?|s3|cm|oci)://([\\w.-]+(:[^@\\s]*@)?([-\\w.]*|\\[[a-fA-F0-9:.]+\\])(:\\d+)?)?(/[^/?#\\s]*)*(\\?[^#\\s]*)?(#\\S*)?|file:([^?#\\s:/<>{}()!=*]+)?(/[^?#\\s/]*)*(\\?[^#\\s]*)?(#\\S*)?|(ssh|telnet|mailto):([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*|urn:[\\w.:-]+)|([^?#\\s:/<>{}()!=*]+)?(/[^?#\\s/]*)*(\\?[^#\\s]*)?(#\\S*)?)$");
+            jm_is_url_rel_pat = Pattern.compile("^(((https?|s?ftp|rtsps?|s3|cm|oci|amqp)://([\\w.-]+(:[^@\\s]*@)?([-\\w.]*|\\[[a-fA-F0-9:.]+\\])(:\\d+)?)?(/[^/?#\\s]*)*(\\?[^#\\s]*)?(#\\S*)?|file:([^?#\\s:/<>{}()!=*]+)?(/[^?#\\s/]*)*(\\?[^#\\s]*)?(#\\S*)?|(ssh|telnet|mailto):([-+!#$%&'`*/=?^{}|~_a-z0-9]+)(\\.([-+!#$%&'`*/=?^{}|~_a-z0-9]+))*@([a-z0-9][-a-z0-9]{0,62})(\\.([a-z0-9][-a-z0-9]{0,62}))*|urn:[\\w.:-]+)|([^?#\\s:/<>{}()!=*]+)?(/[^?#\\s/]*)*(\\?[^#\\s]*)?(#\\S*)?)$");
                 super.init(json);
             }
             catch (Exception e) {

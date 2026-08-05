@@ -268,7 +268,7 @@ function json_model_5(val, path, rep)
 // check $ (.)
 function json_model_1(val, path, rep)
 {
-    // Model for the JSON Schema Test Suite tests
+    // JSON Model for the JSON Schema Test Suite tests
     // .
     // .'@'
     let res = Array.isArray(val)

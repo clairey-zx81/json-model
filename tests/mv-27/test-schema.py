@@ -215,7 +215,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    # Model for the JSON Schema Test Suite tests
+    # JSON Model for the JSON Schema Test Suite tests
     # .
     # .'@'
     res: bool = isinstance(val, list)

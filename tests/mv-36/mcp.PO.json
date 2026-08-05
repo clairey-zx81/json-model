@@ -113,6 +113,7 @@
       "#": "JsonModel 11"
     },
     "#": "Symbol 1",
-    "": "./mcp"
-  }
+    "": "https://json-model.org/models/mcp"
+  },
+  "~": "https://json-model.org/models/json-model"
 }

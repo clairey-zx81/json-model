@@ -300,7 +300,7 @@ public class test_schema extends ModelChecker
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        // Model for the JSON Schema Test Suite tests
+        // JSON Model for the JSON Schema Test Suite tests
         // .
         // .'@'
         boolean res = json.isArray(val);

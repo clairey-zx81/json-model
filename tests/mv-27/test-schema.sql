@@ -296,7 +296,7 @@ DECLARE
   arr_2_item JSONB;
   ival_3 int;
 BEGIN
-  -- Model for the JSON Schema Test Suite tests
+  -- JSON Model for the JSON Schema Test Suite tests
   -- .
   -- .'@'
   res := JSONB_TYPEOF(val) = 'array';
