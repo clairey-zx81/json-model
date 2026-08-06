@@ -431,7 +431,6 @@ def jmchecker(clibjm):
 #
 def check_generated(directory: pathlib.Path, name: str, suffix: str,
                     generate, srcsuff: str = ".model.json", expect: int|None = None):
-
     """Generic test against generated stuff."""
 
     assert callable(generate)
@@ -465,8 +464,8 @@ def check_generated(directory: pathlib.Path, name: str, suffix: str,
 
 
 def test_2json(directory):
-
     """JavaScript and YaML conversion to JSON."""
+
     resolver = Resolver(None, dirmap(directory))
 
     def generate_json(fmodel: str):
@@ -503,6 +502,35 @@ def test_schema(directory):
 
     check_generated(directory, "schema", ".schema.json", generate_schema)
 
+# FIXME 03 08 1c (includes)
+def test_ir(directory):
+    """Model IR conformity to IR model."""
+    resolver = Resolver(None, dirmap(directory))
+    ircheck = model_checker_from_url("https://json-model.org/models/jmc-ir", resolver=resolver, follow=True)
+    options = EXPECT.get(f"{directory}:mod-opts", {})
+
+    def generate_ir(fmodel: str):
+        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
+        code = xstatic_compile(jm, "check_model", lang="json", short_version=True)
+        return code
+
+    ntests = 0
+    for fpath in sorted(directory.glob(f"*.model.json")):
+        # ensure consistent relative path as if inside directory
+        fname = ("./" + str(fpath)).replace(f"./{str(directory)}/", "./")
+        log.debug(f"considering model {fname}")
+        ntests += 1
+        ir_code = generate_ir(fname)
+        ir_str = str(ir_code)
+        ir_json = json.loads(ir_str)
+        report = []
+        ir_valid = ircheck(ir_json, "", report)
+        if not ir_valid:
+            log.error(f"{fpath}: {report} ## {ir_str[:100]}")
+            # log.warning(f"{fpath} IR: {ir_str}")
+        assert ir_valid
+
+    assert ntests == EXPECT.get(f"{directory}:models")
 
 def test_lang(directory, language):
     """Check compiled sources."""
