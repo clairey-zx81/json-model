@@ -1490,7 +1490,7 @@ def _s2t(tname: str|None) -> type:
     """String to type reconversion."""
     match tname:
         case None|"null": return None
-        case "bool"|"boolean": return bool
+        case "bool": return bool
         case "int"|"integer": return int
         case "float"|"number": return float
         case "Number": return Number
