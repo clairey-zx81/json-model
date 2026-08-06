@@ -16,6 +16,7 @@ from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-b
 Overall, depending on the chosen metrics, the JSU converter and JMC C backend are 50 to 90%
 faster than Blaze in these artifacts.
 
+- [2026080600](benchmarks/2026080600.md) clang, predefs, jsu 0.9.17/jmc 2.0.55 vs sbc 16.7.0, 11 runs, 1000 iterations.
 - [2026080501](benchmarks/2026080501.md) clang, predefs, jsu 0.9.17/jmc 2.0.55 vs sbc 16.6.0, 11 runs, 1000 iterations.
 - [2026080500](benchmarks/2026080500.md) clang, predefs, jsu 0.9.17/jmc 2.0.55 vs sbc 16.5.0, 11 runs, 1000 iterations.
 - [2026080400](benchmarks/2026080400.md) clang, predefs, jsu 0.9.16/jmc 2.0.55 vs sbc 16.5.0, 11 runs, 1000 iterations.
