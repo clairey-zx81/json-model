@@ -53,7 +53,7 @@ script_dir=$(dirname $0)
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy"
-cap=1 debug= show_opts="--standard --performance=blaze" load= content= run_opts=
+cap=1 debug= show_opts="--standard --performance=blaze --no-best" load= content= run_opts=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options

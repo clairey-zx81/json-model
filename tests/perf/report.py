@@ -67,7 +67,7 @@ arg("--no-fix", dest="fix", action="store_false",
 arg("--best", default=True, action="store_true",
     help="show best line in summary")
 arg("--no-best", dest="best", action="store_false",
-    help="no not show best line in summary")
+    help="do not show best line in summary")
 args = ap.parse_args()
 
 if args.hide and not args.ref:
@@ -137,7 +137,7 @@ CASE: dict[str, str] = {
 #
 TOOL_SUMMARY: str = """
 Tools:
-_blaze_ is JSON Schema Blaze CLI (external reference);
+_blaze_ is Sourcemeta Blaze CLI (external reference);
 _c_ _js_ _py_ are JMC for C, JavaScript and Python;
 """
 
@@ -147,7 +147,7 @@ else:
     TOOL_SUMMARY += "_jv1_, _jv2_, _jv3_ are JMC for Java with GSON, Jackson and JSONP/Johnzon.\n"
 
 TOOL_SUMMARY += """
-For each tool: maximum/geometrical average/minimum performance ratio,
+For each tool: maximum/geometrical average/minimum time performance ratio,
 overall validation speed in bytes per µs and lines per µs"""
 
 if args.best:
@@ -168,12 +168,14 @@ if args.best:
 
 TOOL_CASES: str = f"""
 For each case: number and name, number of test cases, best cumulated {args.aggregate} performance (µs),
-best tool, performance slowdown ratio for blaze and jmc variants,
+best tool, time performance ratio (slowdown) for Blaze and JMC variants,
 the lower the better, empty denotes a tool failure.
 """
 
 if args.performance == "best":
     TOOL_CASES += "**1.0** is best.\n"
+else:
+    TOOL_CASES += f"Reference is **1.0** for tool _{TOOL[args.performance]}_."
 
 RESULT_SUCCESS: str = """
 For each tool and cases with a partial success rate, percent of test cases validated.
