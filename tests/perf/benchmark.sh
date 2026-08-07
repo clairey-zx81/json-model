@@ -64,14 +64,16 @@ while [[ "$1" == -* ]] ; do
     -h|--help) usage ;;
     -v|--version)
       # NOTE expects "jmc" wrapper, depends on docker.io/zx80/jmc container image
-      jmc --version
-      jmc exec jsu-compile --version
-      jmc exec cc --version | head -1
-      jmc exec clang --version | head -1
-      jmc exec python --version | head -1
-      jmc exec node --version | head -1
-      jmc exec javac --version | head -1
-      jmc exec perl -e 'print "Perl $^V\n"' | head -1
+      {
+        jmc --version
+        jmc exec jsu-compile --version
+        jmc exec cc --version | head -1
+        jmc exec clang --version | head -1
+        jmc exec python --version | head -1
+        jmc exec node --version | head -1
+        jmc exec javac --version | head -1
+        jmc exec perl -e 'print "Perl $^V\n"' | head -1
+      } 2> /dev/null
       version=$(dirname $0)/.version
       if [ -f "$version" ] ; then
         echo "$0 version: $(cat "$version")"
