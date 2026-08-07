@@ -502,31 +502,31 @@ def test_schema(directory):
 
     check_generated(directory, "schema", ".schema.json", generate_schema)
 
-# FIXME 03 08 1c (includes)
 def test_ir(directory):
     """Model IR conformity to IR model."""
     resolver = Resolver(None, dirmap(directory))
     ircheck = model_checker_from_url("https://json-model.org/models/jmc-ir", resolver=resolver, follow=True)
-    options = EXPECT.get(f"{directory}:mod-opts", {})
+    mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
+    cmp_opts = dict(EXPECT.get(f"{directory}:cmp-opts", {}))
 
     def generate_ir(fmodel: str):
-        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **options)
-        code = xstatic_compile(jm, "check_model", lang="json", short_version=True)
-        return code
+        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **mod_opts)
+        code = xstatic_compile(jm, "check_model", lang="json", short_version=True, **cmp_opts)
+        return str(code)
 
     ntests = 0
+
     for fpath in sorted(directory.glob(f"*.model.json")):
+        log.debug(f"considering model {fpath}")
         # ensure consistent relative path as if inside directory
-        fname = ("./" + str(fpath)).replace(f"./{str(directory)}/", "./")
-        log.debug(f"considering model {fname}")
+        fname = str(fpath).replace(f"{str(directory)}/", "./")
         ntests += 1
         ir_code = generate_ir(fname)
-        ir_str = str(ir_code)
-        ir_json = json.loads(ir_str)
+        ir_json = json.loads(ir_code)
         report = []
         ir_valid = ircheck(ir_json, "", report)
         if not ir_valid:
-            log.error(f"{fpath}: {report} ## {ir_str[:100]}")
+            log.error(f"{fpath}: {report} ## {ir_code[:100]}")
             # log.warning(f"{fpath} IR: {ir_str}")
         assert ir_valid
 
