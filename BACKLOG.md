@@ -2,19 +2,6 @@
 
 ## Current Tasks
 
-- [x] bench: use local models instead of fetching urls
-- [x] bench: add option to change the bench reference
-- [x] bench: rework presentation and comments
-- [x] bench: allow to only keep Java with GSON lib
-- [x] bench: add option to change standard comments depending on test conditions
-- [x] bench: add option to skip showing _best_ row in performance summary
-- [x] bench: when comparing to a reference, count betters
-- [x] front: ~allow to load `.errors.json` file to filter out expected errors~
-- [x] pr: improved pages and descriptions
-- [x] pr: improve demonstration models comments and indentation
-- [x] predef: allow amqp URLs
-- [x] model: update and test `jmc-ir.model.json`
-- [x] front: allow IR re-entrance, including tests
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)
@@ -157,6 +144,8 @@
 - [x] model: write a model for MCP
 - [x] tests: add a few tests for MCP model
 - [x] export: generate ts interfaces
+- [x] model: fix IR model and tests
+- [x] front: IR re-entrance
 - [ ] tests: generate valid (pseudo-random) values
 - [ ] tests: generate invalid minimal, maximal, pseudo-random values
 - [ ] tests: generate invalid values on each constraint

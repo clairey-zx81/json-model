@@ -1,5 +1,21 @@
 # JSON Model Compiler Versions
 
+## 2.0.56 on 2026-08-07
+
+- bench: use local models instead of fetching urls
+- bench: add option to change the bench reference
+- bench: rework presentation and comments
+- bench: allow to only keep Java with GSON lib
+- bench: add option to change standard comments depending on test conditions
+- bench: add option to skip showing _best_ row in performance summary
+- bench: when comparing to a reference, count betters
+- front: ~allow to load `.errors.json` file to filter out expected errors~
+- pr: improved pages and descriptions
+- pr: improve demonstration models comments and indentation
+- predef: allow amqp URLs
+- model: update and test `jmc-ir.model.json`
+- front: allow IR re-entrance, including tests
+
 ## 2.0.55 on 2026-07-31
 
 - front: try again to display a relevant version under dev
