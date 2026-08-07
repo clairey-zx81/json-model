@@ -124,9 +124,13 @@ cloc --md \
     json_model/runtime \
     | sed -n -e '/SUM/s/\([0-9][0-9]*\)/**\1**/g;s/SUM:/**Total**/;/^$/,$p' | grep -v '^-[-|]*$'
 
-n_models=$(ls tests/[mrb]*/*.model.json | wc -l)
+n_valid_models=$(ls tests/[mr]*/*.model.json | wc -l)
+n_invalid_models=$(ls tests/bads/*.model.json | wc -l)
+n_models=$(( $n_valid_models + $n_invalid_models ))
 n_values=$(cat tests/[mrb]*/*.values.json | egrep '(true|false)' | wc -l)
 n_value_files=$(ls tests/[mrb]*/*.values.json | wc -l)
+n_error_files=$(ls tests/[mrb]*/*.errors.json | wc -l)
+# == $n_valid_models?
 n_schemas=$(echo tests/[mrb]*/*.schema.json | wc -w)
 n_test_schemas=$(grep '^        "schema": {' tests/JSON-Schema-Test-Suite/tests/*/*.json | wc -l)
 n_test_files=$(ls tests/JSON-Schema-Test-Suite/tests/*/*.json | wc -l)
@@ -134,7 +138,8 @@ model_locs=$(cat tests/[mrb]*/*.model.json | wc -l)
 n_eg_models=$(ls models/*.model.json | wc -l)
 eg_models_locs=$(cat models/*.model.json | wc -l)
 
-all_values=$(( $n_values + $n_models + $n_value_files + $n_schemas + $n_test_schemas + $n_test_files ))
+# valid models are re-counted for IR checks
+all_values=$(( $n_values + $n_models + $n_valid_models + $n_value_files + $n_error_files + $n_schemas + $n_test_schemas + $n_test_files ))
 
 cat <<EOF
 
