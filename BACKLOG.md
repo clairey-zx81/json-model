@@ -3,7 +3,7 @@
 ## Current Tasks
 
 - [x] bench: improve reporting text
-- [ ] bench: add tests on HT and Hz when starting bench
+- [x] bench: add tests on HT and Hz when starting bench
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: run tests inside docker image
 - [ ] tests: check more bad urls (eg bad %-escape)

@@ -28,6 +28,7 @@ Environment:
 - JMC_OPTS: options for jmc ($JMC_OPTS)
 - JSU_OPTS: options for jsu-model ($JSU_OPTS)
 - JSB_DIR: JSON Schema Benchmark directory, default is to clone ($JSB_DIR)
+- NO_HARD_CHECKS: set to skip checks for stable Hz and disabled HT ($NO_HARD_CHECK).
 
 Example:
 
@@ -70,6 +71,17 @@ else
     let count+=1
     [ $count -eq 256 ] && err 2 "cannot find bench directory name"
   done
+fi
+
+# may be skipped by setting env NO_HARD_CHECKS
+if [ ! "$NO_HARD_CHECKS" ] ; then
+  cpu=/sys/devices/system/cpu
+  # read cur_freq < $cpu/cpu0/cpufreq/scaling_cur_freq
+  read min_freq < $cpu/cpu0/cpufreq/scaling_min_freq
+  read max_freq < $cpu/cpu0/cpufreq/scaling_max_freq
+  read hyper_threading < $cpu/smt/active
+  [ "$hyper_threading" = "1" ] && err 7 "no bench if HT is enabled"
+  [ "$min_freq" != "$max_freq" ] && err 7 "no bench if Hz is not stable"
 fi
 
 mkdir $bench_id || err 3 "cannot create directory: $bench_id"
