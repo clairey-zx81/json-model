@@ -825,8 +825,8 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
                     log.error(f"{name} internal checker error on {model}.values.json[{index}]")
                     nverrors += 1
 
-    assert nfiles == EXPECT.get(f"{directory}:models", 0)
-    assert ntests == EXPECT.get(f"{directory}:values", 0)
+    assert nfiles == EXPECT.get(f"{directory}:models")
+    assert ntests == EXPECT.get(f"{directory}:values")
     assert nmerrors == EXPECT.get(f"{directory}:merrors:{name}", 0)
     assert nverrors == EXPECT.get(f"{directory}:verrors:{name}", 0)
 
