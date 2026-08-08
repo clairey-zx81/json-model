@@ -930,19 +930,6 @@ public class json_model_moschin extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo(".mo") == 0)
-            {
-                // handle may .mo property
-                // .'$Model#Element'.'|'.0.'.mo'
-                res = json.isInteger(pval) && json.asLong(pval) >= 1;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Element'.'|'.0.'.mo']", (path != null ? lpath_5 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'.mo']", (path != null ? lpath_5 : null));
-                    return false;
-                }
-                continue;
-            }
             else if (prop.compareTo(".in") == 0)
             {
                 // handle may .in property
@@ -952,6 +939,19 @@ public class json_model_moschin extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Element'.'|'.0.'.in']", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'.in']", (path != null ? lpath_5 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo(".mo") == 0)
+            {
+                // handle may .mo property
+                // .'$Model#Element'.'|'.0.'.mo'
+                res = json.isInteger(pval) && json.asLong(pval) >= 1;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Element'.'|'.0.'.mo']", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'.mo']", (path != null ? lpath_5 : null));
                     return false;
                 }
                 continue;
@@ -3136,19 +3136,6 @@ public class json_model_moschin extends ModelChecker
                 }
                 continue;
             }
-            else if (prop.compareTo(".mo") == 0)
-            {
-                // handle may .mo property
-                // .'$Model#Root'.'|'.0.'.mo'
-                res = json.isInteger(pval) && json.asLong(pval) >= 1;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_21 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_21 : null));
-                    return false;
-                }
-                continue;
-            }
             else if (prop.compareTo(".in") == 0)
             {
                 // handle may .in property
@@ -3158,6 +3145,19 @@ public class json_model_moschin extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'.in']", (path != null ? lpath_21 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.in']", (path != null ? lpath_21 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo(".mo") == 0)
+            {
+                // handle may .mo property
+                // .'$Model#Root'.'|'.0.'.mo'
+                res = json.isInteger(pval) && json.asLong(pval) >= 1;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_21 : null));
                     return false;
                 }
                 continue;

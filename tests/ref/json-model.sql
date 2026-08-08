@@ -395,6 +395,7 @@ DECLARE
   prop TEXT;
   pval JSONB;
 BEGIN
+  -- model extensions for jmc as a backend
   -- .'$Constraint'
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -415,6 +416,24 @@ BEGIN
       -- handle may ! property
       -- .'$Constraint'.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.in' THEN
+      -- handle may .in property
+      -- .'$Constraint'.'.in'
+      res := json_model_33(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.mo' THEN
+      -- handle may .mo property
+      -- .'$Constraint'.'.mo'
+      -- .'$Constraint'.'.mo'.'|'.0
+      -- .'$Constraint'.'.mo'.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -973,6 +992,24 @@ BEGIN
       -- handle may ! property
       -- .'$Element'.'|'.0.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.in' THEN
+      -- handle may .in property
+      -- .'$Element'.'|'.0.'.in'
+      res := json_model_33(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.mo' THEN
+      -- handle may .mo property
+      -- .'$Element'.'|'.0.'.mo'
+      -- .'$Element'.'|'.0.'.mo'.'|'.0
+      -- .'$Element'.'|'.0.'.mo'.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2682,6 +2719,24 @@ BEGIN
       -- handle may ! property
       -- .'$Root'.'|'.0.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.in' THEN
+      -- handle may .in property
+      -- .'$Root'.'|'.0.'.in'
+      res := json_model_33(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.mo' THEN
+      -- handle may .mo property
+      -- .'$Root'.'|'.0.'.mo'
+      -- .'$Root'.'|'.0.'.mo'.'|'.0
+      -- .'$Root'.'|'.0.'.mo'.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

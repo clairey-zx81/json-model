@@ -3371,6 +3371,33 @@ def _jm_obj_43(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#model#Element'.'|'.0.'!']", lpath_66 if path is not None else None))
                 return False
             continue
+        elif prop == ".in":
+            # handle may .in property
+            # .'$openapi#model#Element'.'|'.0.'.in'
+            res = json_model_97(pval, lpath_66 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.0.'.in']", lpath_66 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#model#Element'.'|'.0.'.in']", lpath_66 if path is not None else None))
+                return False
+            continue
+        elif prop == ".mo":
+            # handle may .mo property
+            # .'$openapi#model#Element'.'|'.0.'.mo'
+            # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.0
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+            if not res:
+                rep is None or rep.append(("not a 1 strict int [.'$openapi#model#Element'.'|'.0.'.mo'.'|'.0]", lpath_66 if path is not None else None))
+                # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
+                res = isinstance(pval, float) and pval > 0.0
+                if not res:
+                    rep is None or rep.append(("not a 1.0 strict float [.'$openapi#model#Element'.'|'.0.'.mo'.'|'.1]", lpath_66 if path is not None else None))
+            if res:
+                rep is None or rep.clear()
+            else:
+                rep is None or rep.append(("no model matched [.'$openapi#model#Element'.'|'.0.'.mo'.'|']", lpath_66 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$openapi#model#Element'.'|'.0.'.mo']", lpath_66 if path is not None else None))
+                return False
+            continue
         if prop.startswith("#"):
             # handle 3 re props
             # .'$openapi#model#Element'.'|'.0.'/^#/'

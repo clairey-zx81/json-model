@@ -816,19 +816,6 @@ function _jm_obj_5(val, path, rep)
             }
             continue
         }
-        else if (prop == ".mo")
-        {
-            // handle may .mo property
-            // .'$Model#Element'.'|'.0.'.mo'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1 strict int [.'$Model#Element'.'|'.0.'.mo']", (path ? lpath_5 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.0.'.mo']", (path ? lpath_5 : null)])
-                return false
-            }
-            continue
-        }
         else if (prop == ".in")
         {
             // handle may .in property
@@ -838,6 +825,19 @@ function _jm_obj_5(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$Model#Element'.'|'.0.'.in']", (path ? lpath_5 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.0.'.in']", (path ? lpath_5 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".mo")
+        {
+            // handle may .mo property
+            // .'$Model#Element'.'|'.0.'.mo'
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1 strict int [.'$Model#Element'.'|'.0.'.mo']", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Element'.'|'.0.'.mo']", (path ? lpath_5 : null)])
                 return false
             }
             continue
@@ -2884,19 +2884,6 @@ function _jm_obj_21(val, path, rep)
             }
             continue
         }
-        else if (prop == ".mo")
-        {
-            // handle may .mo property
-            // .'$Model#Root'.'|'.0.'.mo'
-            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
-            if (! res)
-            {
-                rep !== null && rep.push(["not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", (path ? lpath_21 : null)])
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'.mo']", (path ? lpath_21 : null)])
-                return false
-            }
-            continue
-        }
         else if (prop == ".in")
         {
             // handle may .in property
@@ -2906,6 +2893,19 @@ function _jm_obj_21(val, path, rep)
             {
                 rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'.in']", (path ? lpath_21 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'.in']", (path ? lpath_21 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".mo")
+        {
+            // handle may .mo property
+            // .'$Model#Root'.'|'.0.'.mo'
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'.mo']", (path ? lpath_21 : null)])
                 return false
             }
             continue

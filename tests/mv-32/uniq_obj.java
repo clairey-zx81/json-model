@@ -62,7 +62,7 @@ public class uniq_obj extends ModelChecker
             try {
             uniq_obj_map_pmap = new HashMap<String, Checker>();
             uniq_obj_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            uniq_obj_map_pmap.put("XY", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            uniq_obj_map_pmap.put("xy", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {

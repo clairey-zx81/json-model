@@ -390,6 +390,7 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # check $Constraint (.'$Constraint')
 def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
+    # model extensions for jmc as a backend
     # .'$Constraint'
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Constraint']", path))
@@ -415,6 +416,33 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$Constraint'.'!']", lpath_1 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Constraint'.'!']", lpath_1 if path is not None else None))
+                return False
+            continue
+        elif prop == ".in":
+            # handle may .in property
+            # .'$Constraint'.'.in'
+            res = json_model_33(pval, lpath_1 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"$Model\" [.'$Constraint'.'.in']", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Constraint'.'.in']", lpath_1 if path is not None else None))
+                return False
+            continue
+        elif prop == ".mo":
+            # handle may .mo property
+            # .'$Constraint'.'.mo'
+            # .'$Constraint'.'.mo'.'|'.0
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+            if not res:
+                rep is None or rep.append(("not a 1 strict int [.'$Constraint'.'.mo'.'|'.0]", lpath_1 if path is not None else None))
+                # .'$Constraint'.'.mo'.'|'.1
+                res = isinstance(pval, float) and pval > 0.0
+                if not res:
+                    rep is None or rep.append(("not a 1.0 strict float [.'$Constraint'.'.mo'.'|'.1]", lpath_1 if path is not None else None))
+            if res:
+                rep is None or rep.clear()
+            else:
+                rep is None or rep.append(("no model matched [.'$Constraint'.'.mo'.'|']", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Constraint'.'.mo']", lpath_1 if path is not None else None))
                 return False
             continue
         if _jm_re_7(prop, path, rep):
@@ -914,6 +942,33 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$Element'.'|'.0.'!']", lpath_8 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Element'.'|'.0.'!']", lpath_8 if path is not None else None))
+                return False
+            continue
+        elif prop == ".in":
+            # handle may .in property
+            # .'$Element'.'|'.0.'.in'
+            res = json_model_33(pval, lpath_8 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"$Model\" [.'$Element'.'|'.0.'.in']", lpath_8 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Element'.'|'.0.'.in']", lpath_8 if path is not None else None))
+                return False
+            continue
+        elif prop == ".mo":
+            # handle may .mo property
+            # .'$Element'.'|'.0.'.mo'
+            # .'$Element'.'|'.0.'.mo'.'|'.0
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+            if not res:
+                rep is None or rep.append(("not a 1 strict int [.'$Element'.'|'.0.'.mo'.'|'.0]", lpath_8 if path is not None else None))
+                # .'$Element'.'|'.0.'.mo'.'|'.1
+                res = isinstance(pval, float) and pval > 0.0
+                if not res:
+                    rep is None or rep.append(("not a 1.0 strict float [.'$Element'.'|'.0.'.mo'.'|'.1]", lpath_8 if path is not None else None))
+            if res:
+                rep is None or rep.clear()
+            else:
+                rep is None or rep.append(("no model matched [.'$Element'.'|'.0.'.mo'.'|']", lpath_8 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Element'.'|'.0.'.mo']", lpath_8 if path is not None else None))
                 return False
             continue
         if prop.startswith("#"):
@@ -2508,6 +2563,33 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$Root'.'|'.0.'!']", lpath_35 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'$Root'.'|'.0.'!']", lpath_35 if path is not None else None))
+                return False
+            continue
+        elif prop == ".in":
+            # handle may .in property
+            # .'$Root'.'|'.0.'.in'
+            res = json_model_33(pval, lpath_35 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected value for model \"$Model\" [.'$Root'.'|'.0.'.in']", lpath_35 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Root'.'|'.0.'.in']", lpath_35 if path is not None else None))
+                return False
+            continue
+        elif prop == ".mo":
+            # handle may .mo property
+            # .'$Root'.'|'.0.'.mo'
+            # .'$Root'.'|'.0.'.mo'.'|'.0
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 1
+            if not res:
+                rep is None or rep.append(("not a 1 strict int [.'$Root'.'|'.0.'.mo'.'|'.0]", lpath_35 if path is not None else None))
+                # .'$Root'.'|'.0.'.mo'.'|'.1
+                res = isinstance(pval, float) and pval > 0.0
+                if not res:
+                    rep is None or rep.append(("not a 1.0 strict float [.'$Root'.'|'.0.'.mo'.'|'.1]", lpath_35 if path is not None else None))
+            if res:
+                rep is None or rep.clear()
+            else:
+                rep is None or rep.append(("no model matched [.'$Root'.'|'.0.'.mo'.'|']", lpath_35 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Root'.'|'.0.'.mo']", lpath_35 if path is not None else None))
                 return False
             continue
         if prop.startswith("#"):

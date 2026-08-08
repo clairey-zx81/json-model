@@ -579,6 +579,24 @@ sub _jm_obj_5($$$)
             return 0 unless $res;
             next;
         }
+        elsif ($prop eq ".in")
+        {
+            # handle may .in property
+            # .'$Model#Element'.'|'.0.'.in'
+            $res = json_model_35($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".mo")
+        {
+            # handle may .mo property
+            # .'$Model#Element'.'|'.0.'.mo'
+            # .'$Model#Element'.'|'.0.'.mo'.'|'.0
+            # .'$Model#Element'.'|'.0.'.mo'.'|'.1
+            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
+            return 0 unless $res;
+            next;
+        }
         if (jm_starts_with($prop, "#"))
         {
             # handle 3 re props
@@ -1809,6 +1827,24 @@ sub _jm_obj_21($$$)
             # handle may ! property
             # .'$Model#Root'.'|'.0.'!'
             $res = jm_is_boolean($pval);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".in")
+        {
+            # handle may .in property
+            # .'$Model#Root'.'|'.0.'.in'
+            $res = json_model_35($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".mo")
+        {
+            # handle may .mo property
+            # .'$Model#Root'.'|'.0.'.mo'
+            # .'$Model#Root'.'|'.0.'.mo'.'|'.0
+            # .'$Model#Root'.'|'.0.'.mo'.'|'.1
+            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
             return 0 unless $res;
             next;
         }

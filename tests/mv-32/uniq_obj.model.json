@@ -1,8 +1,8 @@
 {
   "#": "unique optimization on an array of objects",
   "$": {
-    "XY": {"x": "", "y": ""}
+    "xy": {"x": "", "y": ""}
   },
-  "@": [ "$XY" ],
+  "@": [ "$xy" ],
   "!": true
 }

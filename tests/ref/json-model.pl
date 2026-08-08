@@ -413,6 +413,7 @@ sub _jm_re_8($$$)
 sub json_model_21($$$)
 {
     my ($val, $path, $rep) = @_;
+    # model extensions for jmc as a backend
     # .'$Constraint'
     return 0 unless jm_is_object($val);
     my $res;
@@ -434,6 +435,24 @@ sub json_model_21($$$)
             # handle may ! property
             # .'$Constraint'.'!'
             $res = jm_is_boolean($pval);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".in")
+        {
+            # handle may .in property
+            # .'$Constraint'.'.in'
+            $res = json_model_33($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".mo")
+        {
+            # handle may .mo property
+            # .'$Constraint'.'.mo'
+            # .'$Constraint'.'.mo'.'|'.0
+            # .'$Constraint'.'.mo'.'|'.1
+            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
             return 0 unless $res;
             next;
         }
@@ -898,6 +917,24 @@ sub _jm_obj_5($$$)
             # handle may ! property
             # .'$Element'.'|'.0.'!'
             $res = jm_is_boolean($pval);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".in")
+        {
+            # handle may .in property
+            # .'$Element'.'|'.0.'.in'
+            $res = json_model_33($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".mo")
+        {
+            # handle may .mo property
+            # .'$Element'.'|'.0.'.mo'
+            # .'$Element'.'|'.0.'.mo'.'|'.0
+            # .'$Element'.'|'.0.'.mo'.'|'.1
+            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
             return 0 unless $res;
             next;
         }
@@ -2512,6 +2549,24 @@ sub _jm_obj_26($$$)
             # handle may ! property
             # .'$Root'.'|'.0.'!'
             $res = jm_is_boolean($pval);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".in")
+        {
+            # handle may .in property
+            # .'$Root'.'|'.0.'.in'
+            $res = json_model_33($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".mo")
+        {
+            # handle may .mo property
+            # .'$Root'.'|'.0.'.mo'
+            # .'$Root'.'|'.0.'.mo'.'|'.0
+            # .'$Root'.'|'.0.'.mo'.'|'.1
+            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
             return 0 unless $res;
             next;
         }

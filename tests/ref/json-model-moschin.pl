@@ -627,19 +627,19 @@ sub _jm_obj_5($$$)
             return 0 unless $res;
             next;
         }
-        elsif ($prop eq ".mo")
-        {
-            # handle may .mo property
-            # .'$Model#Element'.'|'.0.'.mo'
-            $res = jm_is_integer($pval) && $pval >= 1;
-            return 0 unless $res;
-            next;
-        }
         elsif ($prop eq ".in")
         {
             # handle may .in property
             # .'$Model#Element'.'|'.0.'.in'
             $res = json_model_35($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".mo")
+        {
+            # handle may .mo property
+            # .'$Model#Element'.'|'.0.'.mo'
+            $res = jm_is_integer($pval) && $pval >= 1;
             return 0 unless $res;
             next;
         }
@@ -2020,19 +2020,19 @@ sub _jm_obj_21($$$)
             return 0 unless $res;
             next;
         }
-        elsif ($prop eq ".mo")
-        {
-            # handle may .mo property
-            # .'$Model#Root'.'|'.0.'.mo'
-            $res = jm_is_integer($pval) && $pval >= 1;
-            return 0 unless $res;
-            next;
-        }
         elsif ($prop eq ".in")
         {
             # handle may .in property
             # .'$Model#Root'.'|'.0.'.in'
             $res = json_model_35($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".mo")
+        {
+            # handle may .mo property
+            # .'$Model#Root'.'|'.0.'.mo'
+            $res = jm_is_integer($pval) && $pval >= 1;
             return 0 unless $res;
             next;
         }

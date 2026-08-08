@@ -5011,6 +5011,45 @@ function _jm_obj_44(val, path, rep)
             }
             continue
         }
+        else if (prop == ".in")
+        {
+            // handle may .in property
+            // .'$openapi#model#Element'.'|'.0.'.in'
+            res = json_model_97(pval, (path ? lpath_66 : null), rep)
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.0.'.in']", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.0.'.in']", (path ? lpath_66 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".mo")
+        {
+            // handle may .mo property
+            // .'$openapi#model#Element'.'|'.0.'.mo'
+            // .'$openapi#model#Element'.'|'.0.'.mo'.'|'.0
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1 strict int [.'$openapi#model#Element'.'|'.0.'.mo'.'|'.0]", (path ? lpath_66 : null)])
+                // .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
+                res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
+                if (! res)
+                    rep !== null && rep.push(["not a 1.0 strict float [.'$openapi#model#Element'.'|'.0.'.mo'.'|'.1]", (path ? lpath_66 : null)])
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$openapi#model#Element'.'|'.0.'.mo'.'|']", (path ? lpath_66 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$openapi#model#Element'.'|'.0.'.mo']", (path ? lpath_66 : null)])
+                return false
+            }
+            continue
+        }
         if (prop.startsWith("#"))
             // handle 3 re props
             // .'$openapi#model#Element'.'|'.0.'/^#/'

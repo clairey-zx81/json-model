@@ -5358,6 +5358,47 @@ public class openapi_311_models extends ModelChecker
                 }
                 continue;
             }
+            else if (prop.compareTo(".in") == 0)
+            {
+                // handle may .in property
+                // .'$openapi#model#Element'.'|'.0.'.in'
+                res = json_model_97(pval, (path != null ? lpath_66 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.0.'.in']", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$openapi#model#Element'.'|'.0.'.in']", (path != null ? lpath_66 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo(".mo") == 0)
+            {
+                // handle may .mo property
+                // .'$openapi#model#Element'.'|'.0.'.mo'
+                // .'$openapi#model#Element'.'|'.0.'.mo'.'|'.0
+                res = json.isInteger(pval) && json.asLong(pval) >= 1;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$openapi#model#Element'.'|'.0.'.mo'.'|'.0]", (path != null ? lpath_66 : null));
+                    // .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
+                    res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$openapi#model#Element'.'|'.0.'.mo'.'|'.1]", (path != null ? lpath_66 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$openapi#model#Element'.'|'.0.'.mo'.'|']", (path != null ? lpath_66 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$openapi#model#Element'.'|'.0.'.mo']", (path != null ? lpath_66 : null));
+                    return false;
+                }
+                continue;
+            }
             if (prop.startsWith("#"))
                 // handle 3 re props
                 // .'$openapi#model#Element'.'|'.0.'/^#/'

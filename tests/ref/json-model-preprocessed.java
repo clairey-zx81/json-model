@@ -776,6 +776,47 @@ public class json_model_preprocessed extends ModelChecker
                 }
                 continue;
             }
+            else if (prop.compareTo(".in") == 0)
+            {
+                // handle may .in property
+                // .'$Model#Element'.'|'.0.'.in'
+                res = json_model_35(pval, (path != null ? lpath_4 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Element'.'|'.0.'.in']", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'.in']", (path != null ? lpath_4 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo(".mo") == 0)
+            {
+                // handle may .mo property
+                // .'$Model#Element'.'|'.0.'.mo'
+                // .'$Model#Element'.'|'.0.'.mo'.'|'.0
+                res = json.isInteger(pval) && json.asLong(pval) >= 1;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Element'.'|'.0.'.mo'.'|'.0]", (path != null ? lpath_4 : null));
+                    // .'$Model#Element'.'|'.0.'.mo'.'|'.1
+                    res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Model#Element'.'|'.0.'.mo'.'|'.1]", (path != null ? lpath_4 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Element'.'|'.0.'.mo'.'|']", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'.mo']", (path != null ? lpath_4 : null));
+                    return false;
+                }
+                continue;
+            }
             if (prop.startsWith("#"))
                 // handle 3 re props
                 // .'$Model#Element'.'|'.0.'/^#/'
@@ -2375,6 +2416,47 @@ public class json_model_preprocessed extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Model#Root'.'|'.0.'!']", (path != null ? lpath_17 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'!']", (path != null ? lpath_17 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo(".in") == 0)
+            {
+                // handle may .in property
+                // .'$Model#Root'.'|'.0.'.in'
+                res = json_model_35(pval, (path != null ? lpath_17 : null), rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'.in']", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.in']", (path != null ? lpath_17 : null));
+                    return false;
+                }
+                continue;
+            }
+            else if (prop.compareTo(".mo") == 0)
+            {
+                // handle may .mo property
+                // .'$Model#Root'.'|'.0.'.mo'
+                // .'$Model#Root'.'|'.0.'.mo'.'|'.0
+                res = json.isInteger(pval) && json.asLong(pval) >= 1;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Root'.'|'.0.'.mo'.'|'.0]", (path != null ? lpath_17 : null));
+                    // .'$Model#Root'.'|'.0.'.mo'.'|'.1
+                    res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Model#Root'.'|'.0.'.mo'.'|'.1]", (path != null ? lpath_17 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Root'.'|'.0.'.mo'.'|']", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_17 : null));
                     return false;
                 }
                 continue;

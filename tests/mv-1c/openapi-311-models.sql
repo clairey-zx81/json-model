@@ -3515,6 +3515,24 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
+    ELSEIF prop = '.in' THEN
+      -- handle may .in property
+      -- .'$openapi#model#Element'.'|'.0.'.in'
+      res := json_model_97(pval, NULL, NULL);
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.mo' THEN
+      -- handle may .mo property
+      -- .'$openapi#model#Element'.'|'.0.'.mo'
+      -- .'$openapi#model#Element'.'|'.0.'.mo'.'|'.0
+      -- .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
     END IF;
     IF STARTS_WITH(prop, '#') THEN
       -- handle 3 re props

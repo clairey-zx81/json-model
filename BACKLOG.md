@@ -6,8 +6,8 @@
 - [x] bench: add tests on HT and Hz when starting bench
 - [x] pr: improve bench and about pages
 - [x] models: improve jmc-related models
-- [ ] tests: merge testing files against a model in a directory
-- [ ] tests: add jmc-bench model test
+- [x] tests: merge testing files against a model in a directory
+- [x] tests: add jmc-bench model test
 - [ ] bench: ensure fix/no-fix consistency
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: run tests inside docker image

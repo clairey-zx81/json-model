@@ -3223,6 +3223,24 @@ sub _jm_obj_31($$$)
             return 0 unless $res;
             next;
         }
+        elsif ($prop eq ".in")
+        {
+            # handle may .in property
+            # .'$openapi#model#Element'.'|'.0.'.in'
+            $res = json_model_97($pval, undef, undef);
+            return 0 unless $res;
+            next;
+        }
+        elsif ($prop eq ".mo")
+        {
+            # handle may .mo property
+            # .'$openapi#model#Element'.'|'.0.'.mo'
+            # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.0
+            # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
+            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
+            return 0 unless $res;
+            next;
+        }
         if (jm_starts_with($prop, "#"))
         {
             # handle 3 re props

@@ -2,9 +2,9 @@
 // for ./uniq_obj
 // see https://json-model.org/
 
-export interface XY {
+export interface xy {
 	x: string
 	y: string
 }
 
-export type RootModel = XY[]
+export type RootModel = xy[]

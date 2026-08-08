@@ -5,7 +5,7 @@
 ./jmc-tests.values.json[4]: PASS
 ./jmc-tests.values.json[5]: PASS
 ./jmc-tests.values.json[6]: PASS
-./jmc-tests.values.json[7]: FAIL
+./jmc-tests.values.json[7]: PASS
 ./jmc-tests.values.json[8]: FAIL
 ./jmc-tests.values.json[9]: FAIL
 ./jmc-tests.values.json[10]: FAIL

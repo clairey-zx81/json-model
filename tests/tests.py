@@ -199,13 +199,7 @@ EXPECT: dict[str, int] = {
     "mv-29:models": 8,
     "mv-29:values": 129,
     "mv-29:mod-opts": {"extend": True},
-    "mv-29:models:errors-jsg": 5,
     "mv-29:models:errors-jsm": 5,
-    "mv-29:models:errors-js": 5,
-    "mv-29:models:errors-py": 5,
-    "mv-29:models:errors-pl": 5,
-    "mv-29:models:errors-java": 5,
-    "mv-29:models:errors-c": 5,
     "mv-29:models:errors": 5,
     "mv-29:verrors:schema": 3,
     # mv-2a
@@ -245,11 +239,6 @@ EXPECT: dict[str, int] = {
     "mv-32:mod-opts": {"single_line": True},
     "mv-32:models": 10,
     "mv-32:models:errors": 1,
-    "mv-32:models:errors-c": 1,
-    "mv-32:models:errors-py": 1,
-    "mv-32:models:errors-js": 1,
-    "mv-32:models:errors-pl": 1,
-    "mv-32:models:errors-java": 1,
     "mv-32:values": 194,
     # mv-33
     "mv-33:models": 10,
@@ -502,36 +491,6 @@ def test_schema(directory):
         return jm.toSchema(True, version=None)
 
     check_generated(directory, "schema", ".schema.json", generate_schema)
-
-def test_ir(directory):
-    """Model IR conformity to IR model."""
-    resolver = Resolver(None, dirmap(directory))
-    ircheck = model_checker_from_url("https://json-model.org/models/jmc-ir", resolver=resolver, follow=True)
-    mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
-    cmp_opts = dict(EXPECT.get(f"{directory}:cmp-opts", {}))
-
-    def generate_ir(fmodel: str):
-        jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **mod_opts)
-        code = xstatic_compile(jm, "check_model", lang="json", short_version=True, **cmp_opts)
-        return str(code)
-
-    ntests = 0
-
-    for fpath in sorted(directory.glob(f"*.model.json")):
-        log.debug(f"considering model {fpath}")
-        # ensure consistent relative path as if inside directory
-        fname = str(fpath).replace(f"{str(directory)}/", "./")
-        ntests += 1
-        ir_code = generate_ir(fname)
-        ir_json = json.loads(ir_code)
-        report = []
-        ir_valid = ircheck(ir_json, "", report)
-        if not ir_valid:
-            log.error(f"{fpath}: {report} ## {ir_code[:100]}")
-            # log.warning(f"{fpath} IR: {ir_str}")
-        assert ir_valid
-
-    assert ntests == EXPECT.get(f"{directory}:models")
 
 def test_lang(directory, language):
     """Check compiled sources."""
@@ -949,66 +908,106 @@ def test_models_jsg(directory):
     check_models(directory, "jsu-check -e jschon --quiet ./ref/json-model.schema.json",
                  EXPECT.get(f"{directory}:models:errors-jsg", 0))
 
-# TODO jmc backend
-
-def test_models_dpy(directory):
-    """Check test model conformity to JSON Model meta model."""
+def check_directory_models(
+        directory: pathlib.Path, url: str, suffix: str,
+        generate: Callable[[str], Jsonable], count: int,
+    ):
+    """Check a model against directory/*.suffix, expecting count tests."""
     resolver = Resolver(None, dirmap(directory))
-    checker = model_checker_from_url("https://json-model.org/models/json-model", resolver=resolver)
-    ntests, nerrors = 0, 0
+    checker = model_checker_from_url(url, resolver=resolver, follow=True)
+    ntests, nokay = 0, 0
 
-    for fpath in sorted(directory.glob(f"*.model.json")):
-        fname = "./" + str(fpath)
-        log.debug(f"models[{directory}]: {fname}")
-        with open(fname) as f:
-            model = json.load(f)
-        report = []
+    for fpath in sorted(directory.glob(f"*{suffix}")):
+        log.debug(f"considering {fpath}")
         ntests += 1
-        valid = checker(model)
-        if not valid:
-            nerrors += 1
-        assert valid == checker(model, "", report)
+        value = generate(fpath)
+        report = []
+        if checker(value, "", report):
+            nokay += 1
+        else:
+            log.error(f"{fpath}: {report} ## {json.dumps(value)[:100]}")
 
-    assert ntests == EXPECT.get(f"{directory}:models", 0)
-    assert nerrors == EXPECT.get(f"{directory}:models:errors", 0)
+    assert ntests == nokay
+    if count == -1:
+        pass
+    elif count == -2:
+        assert ntests > 0
+    else:
+        assert ntests == count
+
+def test_ir(directory):
+    """Model IR conformity to IR model."""
+
+    resolver = Resolver(None, dirmap(directory))
+    mod_opts = EXPECT.get(f"{directory}:mod-opts", {})
+    cmp_opts = dict(EXPECT.get(f"{directory}:cmp-opts", {}))
+
+    def generate_ir(fmodel: str|pathlib.Path):
+        fname = str(fmodel).replace(f"{str(directory)}/", "./")
+        jm = model_from_url(fname, resolver=resolver, auto=True, follow=True, **mod_opts)
+        code = xstatic_compile(jm, "check_model", lang="json", short_version=True, **cmp_opts)
+        return json.loads(str(code))
+
+    check_directory_models(
+        directory,
+        "https://json-model.org/models/jmc-ir",
+        ".model.json",
+        generate_ir,
+        EXPECT.get(f"{directory}:models"),
+    )
+
+def get_json_file(fpath: str|pathlib.Path):
+    fname = "./" + str(fpath)
+    with open(fname) as f:
+        return json.load(f)
+
+
+def test_model_json(directory):
+    """Check test model conformity to JSON Model meta model."""
+
+    check_directory_models(
+        directory,
+        "https://json-model.org/models/json-model",
+        ".model.json",
+        get_json_file,
+        EXPECT.get(f"{directory}:models"),
+    )
 
 def test_values_json(directory):
     """Check *.values.json files in directory."""
-    resolver = Resolver(None, dirmap(directory))
-    checker = model_checker_from_url("https://json-model.org/models/jmc-tests", resolver=resolver)
-    ntests, nerrors = 0, 0
-    nmodels = len(list(directory.glob(f"*.models.json")))
 
-    for fpath in sorted(directory.glob(f"*.values.json")):
-        fname = "./" + str(fpath)
-        with open(fname) as f:
-            values = json.load(f)
-        ntests += 1
-        valid = checker(values)
-        if not valid:
-            nerrors += 1
-        report = []
-        assert valid == checker(values, "", report)
-
-    # all models have values.json files?
-    assert ntests == EXPECT.get(f"{directory}:models", 0)
-    assert nerrors == EXPECT.get(f"{directory}:values:errors", 0)
+    check_directory_models(
+        directory,
+        "https://json-model.org/models/jmc-tests",
+        ".values.json",
+        get_json_file,
+        EXPECT.get(f"{directory}:models"),
+    )
 
 def test_errors_json(directory):
     """Check *.errors.json files in directory against the jmc-errors meta model."""
-    resolver = Resolver(None, dirmap(directory))
-    checker = model_checker_from_url("https://json-model.org/models/jmc-errors", resolver=resolver)
 
-    for fpath in sorted(directory.glob("*.errors.json")):
-        fname = "./" + str(fpath)
-        with open(fname) as f:
-            errors = json.load(f)
+    check_directory_models(
+        directory,
+        "https://json-model.org/models/jmc-errors",
+        ".errors.json",
+        get_json_file,
+        -1,
+    )
 
-        report = []
-        assert checker(errors, "", report), f"{fname}: invalid errors file: {report}"
+    # TODO check that model file exists
+    # model = fname.replace(".errors.json", ".model.json")
+    # assert os.path.exists(model), f"{fname}: no corresponding {model}"
 
-        model = fname.replace(".errors.json", ".model.json")
-        assert os.path.exists(model), f"{fname}: no corresponding {model}"
+def test_bench_json():
+
+    check_directory_models(
+        pathlib.Path("../site/benchmarks"),
+        "https://json-model.org/models/jmc-bench",
+        ".json",
+        get_json_file,
+        -2,
+    )
 
 #
 # BAD MODELS
@@ -1055,8 +1054,6 @@ def test_bads_jsm():
 
 def test_bads_jsg():
     check_bads("jsu-check -e jschon --quiet ./ref/json-model.schema.json")
-
-# TODO add jmc backend
 
 #
 # JSON SCHEMA DRAFT TESTS

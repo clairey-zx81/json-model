@@ -442,6 +442,7 @@ const _jm_re_8 = (s) => _jm_re_8_re.exec(s) !== null
 // check $Constraint (.'$Constraint')
 function json_model_21(val, path, rep)
 {
+    // model extensions for jmc as a backend
     // .'$Constraint'
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
@@ -476,6 +477,45 @@ function json_model_21(val, path, rep)
             {
                 rep !== null && rep.push(["not a bool [.'$Constraint'.'!']", (path ? lpath_1 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Constraint'.'!']", (path ? lpath_1 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".in")
+        {
+            // handle may .in property
+            // .'$Constraint'.'.in'
+            res = json_model_33(pval, (path ? lpath_1 : null), rep)
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$Constraint'.'.in']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Constraint'.'.in']", (path ? lpath_1 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".mo")
+        {
+            // handle may .mo property
+            // .'$Constraint'.'.mo'
+            // .'$Constraint'.'.mo'.'|'.0
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1 strict int [.'$Constraint'.'.mo'.'|'.0]", (path ? lpath_1 : null)])
+                // .'$Constraint'.'.mo'.'|'.1
+                res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
+                if (! res)
+                    rep !== null && rep.push(["not a 1.0 strict float [.'$Constraint'.'.mo'.'|'.1]", (path ? lpath_1 : null)])
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$Constraint'.'.mo'.'|']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Constraint'.'.mo']", (path ? lpath_1 : null)])
                 return false
             }
             continue
@@ -1232,6 +1272,45 @@ function _jm_obj_5(val, path, rep)
             {
                 rep !== null && rep.push(["not a bool [.'$Element'.'|'.0.'!']", (path ? lpath_8 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Element'.'|'.0.'!']", (path ? lpath_8 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".in")
+        {
+            // handle may .in property
+            // .'$Element'.'|'.0.'.in'
+            res = json_model_33(pval, (path ? lpath_8 : null), rep)
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$Element'.'|'.0.'.in']", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Element'.'|'.0.'.in']", (path ? lpath_8 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".mo")
+        {
+            // handle may .mo property
+            // .'$Element'.'|'.0.'.mo'
+            // .'$Element'.'|'.0.'.mo'.'|'.0
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1 strict int [.'$Element'.'|'.0.'.mo'.'|'.0]", (path ? lpath_8 : null)])
+                // .'$Element'.'|'.0.'.mo'.'|'.1
+                res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
+                if (! res)
+                    rep !== null && rep.push(["not a 1.0 strict float [.'$Element'.'|'.0.'.mo'.'|'.1]", (path ? lpath_8 : null)])
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$Element'.'|'.0.'.mo'.'|']", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Element'.'|'.0.'.mo']", (path ? lpath_8 : null)])
                 return false
             }
             continue
@@ -3606,6 +3685,45 @@ function _jm_obj_26(val, path, rep)
             {
                 rep !== null && rep.push(["not a bool [.'$Root'.'|'.0.'!']", (path ? lpath_35 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'!']", (path ? lpath_35 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".in")
+        {
+            // handle may .in property
+            // .'$Root'.'|'.0.'.in'
+            res = json_model_33(pval, (path ? lpath_35 : null), rep)
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected value for model \"$Model\" [.'$Root'.'|'.0.'.in']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'.in']", (path ? lpath_35 : null)])
+                return false
+            }
+            continue
+        }
+        else if (prop == ".mo")
+        {
+            // handle may .mo property
+            // .'$Root'.'|'.0.'.mo'
+            // .'$Root'.'|'.0.'.mo'.'|'.0
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 1 strict int [.'$Root'.'|'.0.'.mo'.'|'.0]", (path ? lpath_35 : null)])
+                // .'$Root'.'|'.0.'.mo'.'|'.1
+                res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0
+                if (! res)
+                    rep !== null && rep.push(["not a 1.0 strict float [.'$Root'.'|'.0.'.mo'.'|'.1]", (path ? lpath_35 : null)])
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$Root'.'|'.0.'.mo'.'|']", (path ? lpath_35 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$Root'.'|'.0.'.mo']", (path ? lpath_35 : null)])
                 return false
             }
             continue
