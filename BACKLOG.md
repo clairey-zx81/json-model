@@ -6,6 +6,8 @@
 - [x] bench: add tests on HT and Hz when starting bench
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: run tests inside docker image
+- [ ] tests: allow to skip some tests with make, depending on available runtimes
+- [ ] tests: automate bench launch with a cron job?
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
 - [ ] static: use combined type test and value extraction when available?
