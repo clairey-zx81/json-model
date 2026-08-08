@@ -4,10 +4,10 @@ The purpose of this benchmark is to compare JSON value validation performance fo
 the same constraints, independently of the syntax used to express these constraints.
 
 These artifacts compare
-[JSON Model Compiler (jmc)](https://github.com/clairey-zx81/json-model) generated code using the
-[JSON Schema Utils (jsu)](https://hub.docker.com/repository/docker/zx80/json-schema-utils)
+[JSON Model Compiler (JMC)](https://github.com/clairey-zx81/json-model) generated code using the
+[JSON Schema Utils (JSU)](https://hub.docker.com/repository/docker/zx80/json-schema-utils)
 schema to model converter in C, JS, Java (GSON, Jackson and JSONP using Johnzon) and Python with
-[Sourcemeta Blaze CLI (sbc)](https://github.com/sourcemeta/jsonschema) using test cases and values
+[Sourcemeta Blaze CLI (SBC)](https://github.com/sourcemeta/jsonschema) using test cases and values
 from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark).
 
 ## Recent Artifacts
@@ -15,17 +15,18 @@ from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-b
 Overall, depending on the chosen metrics, JMC with the C backend is 50-100% faster
 than Blaze on average to validate JSON values in these artifacts.
 
-- [2026080700](benchmarks/2026080700.md) jsu 0.9.17/jmc 2.0.56 vs sbc 16.7.0, content, fix.
-- [2026080800](benchmarks/2026080800.md) jsu 0.9.17/jmc 2.0.56 vs sbc 16.7.0, content, no fix.
-- [2026080900](benchmarks/2026080900.md) jsu 0.9.17/jmc 2.0.56 vs sbc 16.7.0, content, no id, no fix.
-- [2026080600](benchmarks/2026080600.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.7.0, content, fix.
-- [2026080501](benchmarks/2026080501.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.6.0, content, fix.
-- [2026080500](benchmarks/2026080500.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.5.0, content, fix.
-- [2026080400](benchmarks/2026080400.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.5.0, content, fix.
-- [2026080300](benchmarks/2026080300.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.4.0, content, fix.
-- [2026080100](benchmarks/2026080100.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.3.0, content, no fix.
+- [2026080700](benchmarks/2026080700.md) JSU 0.9.17/JMC 2.0.56 vs SBC 16.7.0, content, fix.
+- [2026080800](benchmarks/2026080800.md) JSU 0.9.17/JMC 2.0.56 vs SBC 16.7.0, content, no fix.
+- [2026080900](benchmarks/2026080900.md) JSU 0.9.17/JMC 2.0.56 vs SBC 16.7.0, content, no id, no fix.
+- [2026080600](benchmarks/2026080600.md) JSU 0.9.17/JMC 2.0.55 vs SBC 16.7.0, content, fix.
+- [2026080501](benchmarks/2026080501.md) JSU 0.9.17/JMC 2.0.55 vs SBC 16.6.0, content, fix.
+- [2026080500](benchmarks/2026080500.md) JSU 0.9.17/JMC 2.0.55 vs SBC 16.5.0, content, fix.
+- [2026080400](benchmarks/2026080400.md) JSU 0.9.16/JMC 2.0.55 vs SBC 16.5.0, content, fix.
+- [2026080300](benchmarks/2026080300.md) JSU 0.9.16/JMC 2.0.55 vs SBC 16.4.0, content, fix.
+- [2026080100](benchmarks/2026080100.md) JSU 0.9.16/JMC 2.0.55 vs SBC 16.3.0, content, no fix.
 
-Options: _content_ validate string contents (format/predef), _fix_ improved models (bug fixes) or strictly schema compatible native models.
+Options: _content_ validate string contents (format/predef), _fix_ improved models (bug fixes)
+or _no_ for strictly schema compatible models.
 
 ## Benchmarking Script
 
@@ -128,13 +129,16 @@ It should be noted that benchmarking conditions are quite different compared to 
 1. There is no loop to compute an average performance, but an initial _cold_ one-shot measure,
    a warming phase loop (up to 1000 rounds, kept under 10 seconds) and a _hot_ one-shot measure:
    This may tend to mask effects from occasional GC runs.
-2. The benchmark focuses on schema conformance, including (buggy) schemas which
+2. Performance data are collected on all tests taken together: this is less favorable to cache
+   effects, and makes it impossible to investigate individual test figures.
+3. The benchmark focuses on schema conformance, including (buggy) schemas which
    are mostly dead code: It rejects tools which do not validate all strictly conformant
    values, even if these values would be rejected by the target application.
    The model used are strictly converted from schemas, native models are not used
    even if available and schemas are not fixed for typical errors (eg misplaced keywords).
-3. Three schemas (`krakend`, `stale` and `yamllint`) in the test suites have been
-   [edited](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/ad109eb210c0939bd8393da28d8212f75c1c2d92),
-   especially to deal corner cases issues with `$ref` under version 7 and prior,
-   thus do not conform to the initial official schemas.
 4. The benchmark _removes_ format assertions before testing schemas.
+
+Notably, three schemas (`krakend`, `stale` and `yamllint`) in the test suites have been
+[edited](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/ad109eb210c0939bd8393da28d8212f75c1c2d92),
+as a work around corner cases issues with `$ref` under version 7 and prior,
+thus do not conform to the initial official schemas.
