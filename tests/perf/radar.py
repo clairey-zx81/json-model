@@ -33,7 +33,7 @@ LABEL = {
 }
 
 radar = []
-for t in sorted(tools, key=lambda t: "jmc-jas" if t == "jmc-js" else t):
+for t in sorted(tools):
     radar.append({
         "label": LABEL[t],
         "data": [ float(v) for v in perf_speed.groupby("tool").get_group(t).values ]
