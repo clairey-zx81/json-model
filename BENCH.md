@@ -24,18 +24,6 @@ than Blaze on average to validate JSON values in these artifacts.
 - [2026080400](benchmarks/2026080400.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.5.0, content, fix.
 - [2026080300](benchmarks/2026080300.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.4.0, content, fix.
 - [2026080100](benchmarks/2026080100.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.3.0, content, no fix.
-- [2026073100](benchmarks/2026073100.md) jsu 0.9.16/jmc 2.0.55 vs sbc 16.3.0, content, fix.
-- [2026073003](benchmarks/2026073003.md) jsu 0.9.16/jmc 2.0.54 vs sbc 16.3.0, content, fix.
-- [2026072902](benchmarks/2026072902.md) jsu 0.9.15/jmc 2.0.53 vs sbc 16.3.0, content, fix.
-- [2026072900](benchmarks/2026072900.md) jsu 0.9.15/jmc 2.0.52 vs sbc 16.3.0, content, fix.
-- [2026072600](benchmarks/2026072600.md) jsu 0.9.13/jmc 2.0.52 vs sbc 16.3.0, content, fix.
-- [2026072200](benchmarks/2026072200.md) jsu 0.9.13/jmc 2.0.52 vs sbc 16.2.1, content, fix.
-- [2026071700](benchmarks/2026071700.md) jsu 0.9.13/jmc 2.0.52 vs sbc 16.2.0, content, fix.
-- [2026071302](benchmarks/2026071302.md) jsu 0.9.13/jmc 2.0.52 vs sbc 16.1.0, content, fix.
-- [2026071000](benchmarks/2026071000.md) jsu 0.9.12/jmc 2.0.51 vs sbc 16.1.0, no content, fix.
-- [2026070900](benchmarks/2026070900.md) jsu 0.9.11/jmc 2.0.51 vs sbc 16.1.0, no content, fix.
-- [2026062200](benchmarks/2026062200.md) jsu 0.9.11/jmc 2.0.51 vs sbc 16.0.0, no content, fix.
-- [2026062102](benchmarks/2026062102.md) jsu 0.9.10/jmc 2.0.50 vs sbc 16.0.0, no content, fix.
 
 Options: _content_ validate string contents (format/predef), _fix_ improved models (bug fixes) or strictly schema compatible native models.
 
