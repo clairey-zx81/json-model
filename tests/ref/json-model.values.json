@@ -1,5 +1,5 @@
 [
-  "quick sample local test",
+  "# quick sample local test",
   [ true,  null ],
   [ true,  true ],
   [ true,  0 ],
@@ -27,6 +27,6 @@
   [ false, {"a": 42} ],
   [ false, "=unexpected" ],
   [ false, "/^[a- unexpected/" ],
-  "FIXME should be rejected by improving the meta model",
+  "# FIXME should be rejected by improving the meta model",
   [ true, "$UNEXPECTED" ]
 ]

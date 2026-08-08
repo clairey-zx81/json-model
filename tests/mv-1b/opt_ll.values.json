@@ -1,5 +1,5 @@
 [
-  "loose ints, loose floats",
+  "# loose ints, loose floats",
   [ true, {"i": 42, "f": 42.5} ],
   [ true, {"i": 42.0, "f": 42.5} ],
   [ true, {"i": 42.0, "f": 42} ],

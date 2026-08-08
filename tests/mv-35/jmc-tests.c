@@ -2,20 +2,18 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2"
 
-#define _jm_re_0(s, p, r) jm_re_dots(s)
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
 
-
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    return json_is_string(val) && _jm_re_0(json_string_value(val), NULL, NULL);
+    return json_is_string(val) && jm_str_eq_1(json_string_value(val), 0x23);
 }
 
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
@@ -30,7 +28,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static INLINE bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     while (likely(jm_ident_dash(*s)))
         s++;
@@ -45,7 +43,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = json_is_boolean(json_array_get(val, 0));
         if (likely(res))
         {
-            res = json_is_string(json_array_get(val, 1)) && _jm_re_1(json_string_value(json_array_get(val, 1)), NULL, NULL);
+            res = json_is_string(json_array_get(val, 1)) && _jm_re_0(json_string_value(json_array_get(val, 1)), NULL, NULL);
             if (likely(res))
                 res = true;
         }

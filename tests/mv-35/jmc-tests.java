@@ -18,7 +18,7 @@ public class jmc_tests extends ModelChecker
 
     public boolean json_model_2(Object val, Path path, Report rep)
     {
-        return json.isString(val) && json.asString(val).length() > 0;
+        return json.isString(val) && json.asString(val).startsWith("#");
     }
 
     public boolean json_model_3(Object val, Path path, Report rep)

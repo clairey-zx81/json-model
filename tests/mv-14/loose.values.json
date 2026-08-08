@@ -1,5 +1,5 @@
 [
-  "loose integers",
+  "# loose integers",
   [ true, {"li": 42} ],
   [ true, {"li": 42.0} ],
   [ false, {"li": 42.5} ],

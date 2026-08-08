@@ -5,7 +5,7 @@
       "some": "\nx\n"
     }
   ],
-  "removed bs u 0000",
+  "# removed bs u 0000",
   [ true,  {
       "all": "",
       "nz": " ",

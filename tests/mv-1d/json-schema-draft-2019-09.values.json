@@ -1,5 +1,5 @@
 [
-  "sanity check with simplistic schemas and non schemas",
+  "# sanity check with simplistic schemas and non schemas",
   [ true,  {} ],
   [ true,  true ],
   [ true,  false ],

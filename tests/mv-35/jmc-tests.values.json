@@ -6,7 +6,7 @@
   [ true,  [ [ false, null ] ] ],
   [ true,  [ [ false, "", null ] ] ],
   [ true,  [ [ false, "bla", null ] ] ],
-  [ true,  [ "embedded comment" ] ],
+  [ true,  [ "# embedded comment" ] ],
   [ false, [ null ] ],
   [ false, [ true ] ],
   [ false, [ false ] ],

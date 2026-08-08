@@ -1,5 +1,5 @@
 [
-  "simple 2-tuple expectation/value tests",
+  "# simple 2-tuple expectation/value tests",
   [ true, [] ],
   [ true, [[ true, "$ANY" ]] ],
   [ true, [[ true, "$ANY" ], [ false, "$NONE" ]] ],
@@ -10,7 +10,7 @@
   [ false, "Hello World!" ],
   [ false, {} ],
 
-  "same with 3-tuple expectation/name/value tests",
+  "# same with 3-tuple expectation/name/value tests",
   [ true, "", [] ],
   [ true, "", [[ true, "$ANY" ]] ],
   [ true, "", [[ true, "$ANY" ], [ false, "$NONE" ]] ],

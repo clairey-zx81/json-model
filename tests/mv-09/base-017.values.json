@@ -1,5 +1,5 @@
 [
-  "string of length 2 or 3",
+  "# string of length 2 or 3",
   [ true,  "12" ],
   [ true,  "123" ],
   [ false, "" ],

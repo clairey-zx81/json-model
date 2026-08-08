@@ -1,5 +1,5 @@
 [
-  "strict ints",
+  "# strict ints",
   [ true, 42 ],
   [ true, -1515 ],
   [ false, 42.0 ],

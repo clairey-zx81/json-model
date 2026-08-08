@@ -10,7 +10,7 @@ export var check_model_map = new Map()
 
 function json_model_2(val, path, rep)
 {
-    return ((typeof val === 'string' || val instanceof String)) && runtime.jm_char_length(val) > 0
+    return ((typeof val === 'string' || val instanceof String)) && val.startsWith("#")
 }
 
 function json_model_3(val, path, rep)

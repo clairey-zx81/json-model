@@ -4,7 +4,7 @@
   "$defs": {
     "Comment": {
       "type": "string",
-      "pattern": "(?s)."
+      "pattern": "(?s)^#"
     },
     "Test2": {
       "type": "array",

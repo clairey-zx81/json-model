@@ -1,5 +1,5 @@
 [
-  "model: [\"\", 0, true, 0.0]",
+  "# model: [\"\", 0, true, 0.0]",
   [ true,  ["", 0, false, 0.0] ],
   [ true,  ["Susie", 42, true, 3.1415927] ],
   [ false, ["Susie", 42, true] ],

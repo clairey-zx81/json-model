@@ -18,7 +18,7 @@ my %check_model_map;
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_string($val) && length $val > 0;
+    return jm_is_string($val) && jm_starts_with($val, "#");
 }
 
 sub json_model_3($$$)

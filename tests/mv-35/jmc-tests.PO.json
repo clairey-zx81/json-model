@@ -1,7 +1,7 @@
 {
   "#": "JsonModel 1 with defs",
   "$": {
-    "Comment": "/./s",
+    "Comment": "/^#/s",
     "Test2": [
       true,
       "$ANY"

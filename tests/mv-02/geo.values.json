@@ -1,5 +1,5 @@
 [
-  "position: array of 2 or 3 loose floats",
+  "# position: array of 2 or 3 loose floats",
   [ false, "position", [] ],
   [ false, "position", [1.0] ],
   [ false, "position", [2] ],
@@ -15,7 +15,7 @@
   [ false, "position", "not a position" ],
   [ false, "position", {} ],
 
-  "coord_array: array of at least 2 positions",
+  "# coord_array: array of at least 2 positions",
   [ false, "coord_array", [] ],
   [ false, "coord_array", [[0, 1]] ],
   [ true,  "coord_array", [[0, 1], [3, 4]] ],
@@ -25,7 +25,7 @@
   [ false, "coord_array", 42 ],
   [ false, "coord_array", "not a coordinate array" ],
 
-  "linear_ring: array of at least 4 positions",
+  "# linear_ring: array of at least 4 positions",
   [ false, "linear_ring", [] ],
   [ false, "linear_ring", [[0, 1]] ],
   [ false, "linear_ring", [[0, 1], [3, 4]] ],
@@ -36,7 +36,7 @@
   [ false, "linear_ring", 42 ],
   [ false, "linear_ring", "not a coordinate array" ],
 
-  "Point: object with type and one coordinates",
+  "# Point: object with type and one coordinates",
   [ true,  "Point", {"type": "Point", "coordinates": [1.0, 2.0]} ],
   [ true,  "Point", {"type": "Point", "coordinates": [1.1, 2.2, 3.3]} ],
   [ true,  "Point", {"type": "Point", "coordinates": [1, 2], "bbox": []} ],
@@ -47,12 +47,12 @@
   [ false, "Point", null ],
   [ false, "Point", "not a point" ],
 
-  "MultiPoint: with an array or positions",
+  "# MultiPoint: with an array or positions",
   [ true,  "MultiPoint", {"type": "MultiPoint", "coordinates": [[0.1, 2.3], [4.5, 6.7]]} ],
   [ false, "MultiPoint", {"type": "WhatEver", "coordinates": [[0.1, 2.3], [4.5, 6.7]]} ],
   [ false, "MultiPoint", {"type": "Point", "coordinates": [1.0, 2.0]} ],
 
-  "LineString: with a coord_array",
+  "# LineString: with a coord_array",
   [ true,  "LineString", {"type": "LineString", "coordinates": [[0.1, 2.3], [4.5, 6.7]]} ],
   [ false, "LineString", {"type": "LineString", "coordinates": [[0.1, 2.3]]} ],
   [ false, "LineString", {"type": "MultiPoint", "coordinates": [[0.1, 2.3], [4.5, 6.7]]} ]

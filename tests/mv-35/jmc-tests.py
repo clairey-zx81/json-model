@@ -22,7 +22,7 @@ _jm_re_0: RegexFun
 check_model_map: PropMap
 
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    return isinstance(val, str) and len(val) > 0
+    return isinstance(val, str) and val.startswith("#")
 
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = isinstance(val, list) and len(val) == 2

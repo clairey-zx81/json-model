@@ -1,5 +1,5 @@
 [
-  "loose floats",
+  "# loose floats",
   [ true, -3.14 ],
   [ true, -42 ],
   [ false, null ],

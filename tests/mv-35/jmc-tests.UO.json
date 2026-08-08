@@ -2,7 +2,7 @@
   {
     "#": "JsonModel 1 with defs",
     "$": {
-      "Comment": "/./s",
+      "Comment": "/^#/s",
       "Test2": [
         true,
         "$ANY"
@@ -28,7 +28,7 @@
     ],
     "~": "https://json-model.org/models/json-model"
   },
-  "/./s",
+  "/^#/s",
   [
     true,
     "$ANY"
