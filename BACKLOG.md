@@ -9,6 +9,7 @@
 - [x] tests: merge testing files against a model in a directory
 - [x] tests: add jmc-bench model test
 - [x] bench: ensure fix/no-fix consistency
+- [x] dev: improve dev environment init
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: run tests inside docker image
 - [ ] tests: allow to skip some tests with make, depending on available runtimes

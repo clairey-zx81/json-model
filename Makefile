@@ -23,6 +23,7 @@ venv/.init:
 
 venv/.dev: venv/.init
 	pip install -e .[dev]
+	[ -d ../json-schema-utils ] && pip intall -e ../json-schema-utils
 	touch $@
 
 venv/.dist: venv/.dev
