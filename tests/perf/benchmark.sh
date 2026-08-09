@@ -376,7 +376,7 @@ else
 fi
 
 overhead="removed"
-[[ "$show_opts" == "*--unshift*" ]] && overhead="kept"
+[[ "$show_opts" == *--unshift* ]] && overhead="kept"
 
 debug_status="no"
 [ "$debug" ] && debug_status="yes"
@@ -388,7 +388,7 @@ else
 fi
 
 fix_status="yes, models may correct some schema deficiencies"
-[[ "$JSU_OPTS" == '*--no-fix*' ]] && \
+[[ "$JSU_OPTS" == *--no-fix* ]] && \
     let show_opts+=" --no-fix" fix_status="no, models are compatible with (buggy) schemas"
 
 cap_status="no"
