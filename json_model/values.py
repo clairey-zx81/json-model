@@ -4,7 +4,7 @@
 import re
 import re._parser as _parser
 
-from .mtypes import ModelType, Jsonable
+from .mtypes import ModelType, ModelArray, Jsonable
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
 _CONSTANTS = {"=null": None, "=true": True, "=false": False}
@@ -120,6 +120,13 @@ def _simplest_predef(model: str) -> Jsonable:
         raise UnsupportedValue("no value exists for model: $NONE")
     raise UnsupportedValue(f"unsupported predef or reference model: {model}")
 
+def _simplest_array(model: ModelArray) -> Jsonable:
+    """Simplest value for an array or tuple model."""
+    items = [i for i in model if not (isinstance(i, str) and i.startswith("#"))]
+    if len(items) <= 1:
+        return []
+    return [simplest(i) for i in items]
+
 def _simplest_string(model: str) -> Jsonable:
     """Simplest value for a string model."""
     if model == "":
@@ -142,7 +149,7 @@ def simplest(model: ModelType) -> Jsonable:
         case str():
             return _simplest_string(model)
         case list():
-            raise UnsupportedValue(f"unsupported array model: {model}")
+            return _simplest_array(model)
         case dict():
             raise UnsupportedValue(f"unsupported object model: {model}")
         case _:
