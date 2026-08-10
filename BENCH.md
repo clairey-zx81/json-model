@@ -17,6 +17,7 @@ than Blaze on average to validate JSON values in these artifacts.
 
 - [2026080700](benchmarks/2026080700.md) jsu 0.9.17/jmc 2.0.56 vs sbc 16.7.0, content, fix.
 - [2026080800](benchmarks/2026080800.md) jsu 0.9.17/jmc 2.0.56 vs sbc 16.7.0, content, no fix.
+- [2026080900](benchmarks/2026080900.md) jsu 0.9.17/jmc 2.0.56 vs sbc 16.7.0, content, no id, no fix.
 - [2026080600](benchmarks/2026080600.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.7.0, content, fix.
 - [2026080501](benchmarks/2026080501.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.6.0, content, fix.
 - [2026080500](benchmarks/2026080500.md) jsu 0.9.17/jmc 2.0.55 vs sbc 16.5.0, content, fix.
@@ -36,7 +37,7 @@ than Blaze on average to validate JSON values in these artifacts.
 - [2026062200](benchmarks/2026062200.md) jsu 0.9.11/jmc 2.0.51 vs sbc 16.0.0, no content, fix.
 - [2026062102](benchmarks/2026062102.md) jsu 0.9.10/jmc 2.0.50 vs sbc 16.0.0, no content, fix.
 
-Options: _content_ validate string contents (format/predef), _fix_ improved models (bug fixes) or strictly schema compatible models.
+Options: _content_ validate string contents (format/predef), _fix_ improved models (bug fixes) or strictly schema compatible native models.
 
 ## Benchmarking Script
 
