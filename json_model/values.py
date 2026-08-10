@@ -1,7 +1,12 @@
 #
 # Generate values from model
 #
+import re
+
 from .mtypes import ModelType, Jsonable
+
+_NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
+_CONSTANTS = {"=null": None, "=true": True, "=false": False}
 
 class UnsupportedValue(Exception):
     """No value could be generated for this model."""
@@ -27,10 +32,25 @@ def _simplest_scalar(model: ModelType) -> Jsonable:
         case _:
             raise UnsupportedValue(f"not a scalar model: {model}")
 
+def _simplest_constant(model: str) -> Jsonable:
+    """Simplest value for a scalar constant model."""
+    if model in _CONSTANTS:
+        return _CONSTANTS[model]
+    if _NUMBER_RE.match(model) is None:
+        raise UnsupportedValue(f"invalid scalar constant model: {model}")
+    number = model[1:]
+    return float(number) if any(c in number for c in ".eE") else int(number)
+
 def _simplest_string(model: str) -> Jsonable:
     """Simplest value for a string model."""
     if model == "":
         return ""
+    if model.startswith("_"):
+        return model[1:]
+    if model.startswith("="):
+        return _simplest_constant(model)
+    if not model.startswith(("$", "/")):
+        return model
     raise UnsupportedValue(f"unsupported string model: {model}")
 
 def simplest(model: ModelType) -> Jsonable:
