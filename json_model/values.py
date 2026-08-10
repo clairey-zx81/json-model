@@ -14,6 +14,19 @@ _CATEGORIES = {
     _parser.CATEGORY_SPACE: " ",
 }
 _ANY_CHAR = "a"
+_PREDEFS = {
+    "$ANY": None, "$NULL": None,
+    "$BOOL": False, "$BOOLEAN": False,
+    "$INT": 0, "$INTEGER": 0, "$I32": 0, "$I64": 0, "$U32": 0, "$U64": 0,
+    "$FLOAT": 0.0, "$F32": 0.0, "$F64": 0.0, "$NUMBER": 0,
+    "$STRING": "", "$REGEX": "", "$EXREG": "", "$JSONPT": "",
+    "$DATE": "1970-01-01", "$TIME": "00:00:00", "$TIMETZ": "00:00:00+00:00",
+    "$DATETIME": "1970-01-01T00:00:00", "$DURATION": "PT0S",
+    "$UUID": "00000000-0000-0000-0000-000000000000", "$CARD": "4111111111111111",
+    "$IP4": "0.0.0.0", "$IP6": "::", "$HOST": "a", "$ETH": "00:00:00:00:00:00",
+    "$URL": "http://a/", "$URI": "http://a/", "$URL_REL": "/", "$EMAIL": "a@b",
+    "$JSON": "null", "$SEMVER": "0.0.0",
+}
 
 class UnsupportedValue(Exception):
     """No value could be generated for this model."""
@@ -99,6 +112,14 @@ def _simplest_regex(model: str) -> str:
         raise UnsupportedValue(f"no value generated for regex model: {model}")
     return value
 
+def _simplest_predef(model: str) -> Jsonable:
+    """Simplest value for a predefined model."""
+    if model in _PREDEFS:
+        return _PREDEFS[model]
+    if model == "$NONE":
+        raise UnsupportedValue("no value exists for model: $NONE")
+    raise UnsupportedValue(f"unsupported predef or reference model: {model}")
+
 def _simplest_string(model: str) -> Jsonable:
     """Simplest value for a string model."""
     if model == "":
@@ -109,9 +130,9 @@ def _simplest_string(model: str) -> Jsonable:
         return _simplest_constant(model)
     if model.startswith("/"):
         return _simplest_regex(model)
-    if not model.startswith("$"):
-        return model
-    raise UnsupportedValue(f"unsupported string model: {model}")
+    if model.startswith("$"):
+        return _simplest_predef(model)
+    return model
 
 def simplest(model: ModelType) -> Jsonable:
     """Generate the simplest value matching a model."""
