@@ -4,7 +4,7 @@
 import re
 import re._parser as _parser
 
-from .mtypes import ModelType, ModelArray, Jsonable
+from .mtypes import ModelType, ModelArray, ModelObject, Jsonable
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
 _CONSTANTS = {"=null": None, "=true": True, "=false": False}
@@ -14,6 +14,8 @@ _CATEGORIES = {
     _parser.CATEGORY_SPACE: " ",
 }
 _ANY_CHAR = "a"
+_OPERATORS = {"@", "|", "&", "^", "+", "!", "=", "!=", "<", "<=", ">", ">="}
+_ROOT_KEYS = {"$", "%", "~"}
 _PREDEFS = {
     "$ANY": None, "$NULL": None,
     "$BOOL": False, "$BOOLEAN": False,
@@ -127,6 +129,22 @@ def _simplest_array(model: ModelArray) -> Jsonable:
         return []
     return [simplest(i) for i in items]
 
+def _simplest_object(model: ModelObject) -> Jsonable:
+    """Simplest value for a simple object model, with mandatory properties only."""
+    value: dict[str, Jsonable] = {}
+    for prop, submodel in model.items():
+        if prop.startswith("#"):
+            continue
+        if prop in _OPERATORS:
+            raise UnsupportedValue(f"unsupported object operator: {prop}")
+        if prop in _ROOT_KEYS:
+            raise UnsupportedValue(f"unsupported definitions or imports: {prop}")
+        if prop == "" or prop.startswith(("?", "/", "$")):
+            continue
+        name = prop[1:] if prop.startswith(("!", "_")) else prop
+        value[name] = simplest(submodel)
+    return value
+
 def _simplest_string(model: str) -> Jsonable:
     """Simplest value for a string model."""
     if model == "":
@@ -151,6 +169,6 @@ def simplest(model: ModelType) -> Jsonable:
         case list():
             return _simplest_array(model)
         case dict():
-            raise UnsupportedValue(f"unsupported object model: {model}")
+            return _simplest_object(model)
         case _:
             raise UnsupportedValue(f"unexpected model: {model}")
