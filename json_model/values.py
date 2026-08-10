@@ -2,11 +2,18 @@
 # Generate values from model
 #
 import re
+import re._parser as _parser
 
 from .mtypes import ModelType, Jsonable
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
 _CONSTANTS = {"=null": None, "=true": True, "=false": False}
+_CATEGORIES = {
+    _parser.CATEGORY_DIGIT: "0",
+    _parser.CATEGORY_WORD: "a",
+    _parser.CATEGORY_SPACE: " ",
+}
+_ANY_CHAR = "a"
 
 class UnsupportedValue(Exception):
     """No value could be generated for this model."""
@@ -41,6 +48,57 @@ def _simplest_constant(model: str) -> Jsonable:
     number = model[1:]
     return float(number) if any(c in number for c in ".eE") else int(number)
 
+def _regex_char(item) -> str:
+    """Simplest character for a regex character class item."""
+    op, av = item
+    if op is _parser.LITERAL:
+        return chr(av)
+    if op is _parser.RANGE:
+        return chr(av[0])
+    if op is _parser.CATEGORY and av in _CATEGORIES:
+        return _CATEGORIES[av]
+    raise UnsupportedValue(f"unsupported regex character class item: {op}")
+
+def _regex_walk(pattern) -> str:
+    """Simplest string matching a parsed regex."""
+    value = ""
+    for op, av in pattern:
+        if op is _parser.LITERAL:
+            value += chr(av)
+        elif op is _parser.AT:
+            pass
+        elif op is _parser.ANY:
+            value += _ANY_CHAR
+        elif op is _parser.IN:
+            value += _regex_char(av[0])
+        elif op is _parser.MAX_REPEAT or op is _parser.MIN_REPEAT:
+            repeat, _, body = av
+            value += _regex_walk(body) * repeat
+        elif op is _parser.BRANCH:
+            value += _regex_walk(av[1][0])
+        elif op is _parser.SUBPATTERN:
+            value += _regex_walk(av[3])
+        else:
+            raise UnsupportedValue(f"unsupported regex construct: {op}")
+    return value
+
+def _simplest_regex(model: str) -> str:
+    """Simplest value for a regex model."""
+    if "/" not in model[1:]:
+        raise UnsupportedValue(f"invalid regex model: {model}")
+    pattern, opts = model[1:].rsplit("/", 1)
+    if "X" in opts:
+        raise UnsupportedValue(f"unsupported extended regex model: {model}")
+    source = f"(?{opts}){pattern}" if opts else pattern
+    try:
+        parsed, compiled = _parser.parse(source), re.compile(source)
+    except re.error as e:
+        raise UnsupportedValue(f"invalid regex model {model}: {e}")
+    value = _regex_walk(parsed)
+    if compiled.search(value) is None:
+        raise UnsupportedValue(f"no value generated for regex model: {model}")
+    return value
+
 def _simplest_string(model: str) -> Jsonable:
     """Simplest value for a string model."""
     if model == "":
@@ -49,7 +107,9 @@ def _simplest_string(model: str) -> Jsonable:
         return model[1:]
     if model.startswith("="):
         return _simplest_constant(model)
-    if not model.startswith(("$", "/")):
+    if model.startswith("/"):
+        return _simplest_regex(model)
+    if not model.startswith("$"):
         return model
     raise UnsupportedValue(f"unsupported string model: {model}")
 
