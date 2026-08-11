@@ -358,9 +358,9 @@ def clibjm(tmp_dir):
     # compilation settings with re2
     cc = os.environ.get("CC", DEFAULT_CC)
     cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
-    cppflags += " -DREGEX_ENGINE_RE2 -DURL_PARSER_CURL"
+    cppflags += " -DREGEX_ENGINE_RE2 -DURL_PARSER_CCA"
     cflags = os.environ.get("CFLAGS", DEFAULT_CFLAGS)
-    ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} -lcurl " + DEFAULT_LDFLAGS)
+    ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} " + DEFAULT_LDFLAGS)
 
 
     # compile library once
