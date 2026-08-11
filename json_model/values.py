@@ -4,7 +4,10 @@
 import re
 import re._parser as _parser
 
-from .mtypes import ModelType, ModelArray, ModelObject, Jsonable
+from .mtypes import ModelType, ModelArray, ModelObject, Jsonable, ModelError
+from .model import JsonModel
+from .resolver import Resolver
+from .predefs import MODEL_PREDEFS
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
 _CONSTANTS = {"=null": None, "=true": True, "=false": False}
@@ -114,27 +117,36 @@ def _simplest_regex(model: str) -> str:
         raise UnsupportedValue(f"no value generated for regex model: {model}")
     return value
 
-def _simplest_predef(model: str) -> Jsonable:
-    """Simplest value for a predefined model."""
+def _simplest_predef(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Simplest value for a predefined model or a reference."""
     if model in _PREDEFS:
         return _PREDEFS[model]
     if model == "$NONE":
         raise UnsupportedValue("no value exists for model: $NONE")
-    raise UnsupportedValue(f"unsupported predef or reference model: {model}")
+    if model in MODEL_PREDEFS:
+        raise UnsupportedValue(f"unsupported predefined model: {model}")
+    try:
+        ja = jm.resolveRef(model, [])
+    except (ModelError, AssertionError) as e:
+        raise UnsupportedValue(f"cannot resolve {model}: {e}")
+    if ja._url in seen:
+        raise UnsupportedValue(f"no finite value for recursive model: {model}")
+    return simplest(ja._model, ja, seen | {ja._url})
 
-def _simplest_array(model: ModelArray) -> Jsonable:
+def _simplest_array(model: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for an array or tuple model."""
     items = [i for i in model if not (isinstance(i, str) and i.startswith("#"))]
     if len(items) <= 1:
         return []
-    return [simplest(i) for i in items]
+    return [simplest(i, jm, seen) for i in items]
 
-def _simplest_object(model: ModelObject) -> Jsonable:
-    """Simplest value for a simple object model, with mandatory properties only."""
+def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Simplest value for a simple object model or a bare target model."""
+    props = {p: m for p, m in model.items() if not p.startswith("#")}
+    if set(props) == {"@"}:
+        return simplest(props["@"], jm, seen)
     value: dict[str, Jsonable] = {}
-    for prop, submodel in model.items():
-        if prop.startswith("#"):
-            continue
+    for prop, submodel in props.items():
         if prop in _OPERATORS:
             raise UnsupportedValue(f"unsupported object operator: {prop}")
         if prop in _ROOT_KEYS:
@@ -142,10 +154,10 @@ def _simplest_object(model: ModelObject) -> Jsonable:
         if prop == "" or prop.startswith(("?", "/", "$")):
             continue
         name = prop[1:] if prop.startswith(("!", "_")) else prop
-        value[name] = simplest(submodel)
+        value[name] = simplest(submodel, jm, seen)
     return value
 
-def _simplest_string(model: str) -> Jsonable:
+def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a string model."""
     if model == "":
         return ""
@@ -156,19 +168,26 @@ def _simplest_string(model: str) -> Jsonable:
     if model.startswith("/"):
         return _simplest_regex(model)
     if model.startswith("$"):
-        return _simplest_predef(model)
+        return _simplest_predef(model, jm, seen)
     return model
 
-def simplest(model: ModelType) -> Jsonable:
+def simplest(model: ModelType, jm: JsonModel|None = None,
+             seen: frozenset[str] = frozenset()) -> Jsonable:
     """Generate the simplest value matching a model."""
+    if jm is None:
+        try:
+            jm = JsonModel(model, Resolver())
+        except (ModelError, AssertionError) as e:
+            raise UnsupportedValue(f"invalid model: {e}")
+        model = jm._model
     match model:
         case None | bool() | int() | float():
             return _simplest_scalar(model)
         case str():
-            return _simplest_string(model)
+            return _simplest_string(model, jm, seen)
         case list():
-            return _simplest_array(model)
+            return _simplest_array(model, jm, seen)
         case dict():
-            return _simplest_object(model)
+            return _simplest_object(model, jm, seen)
         case _:
             raise UnsupportedValue(f"unexpected model: {model}")
