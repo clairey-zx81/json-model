@@ -91,9 +91,12 @@ pod.tag: .build.jmc
 .PHONY: pod.push
 pod.push: pod.tag
 	# if needed: docker login
+	$(POD) push -a $(ZX80)/jmc
+
+.PHONY: base.push
+base.push: .build.base
 	$(POD) push $(ZX80)/jmc-base:latest
 	$(POD) push $(ZX80)/jmc-base:26.04
-	$(POD) push -a $(ZX80)/jmc
 
 .PHONY: quick-pod.push
 quick-pod.push: pod.tag
