@@ -222,9 +222,22 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
         raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
     return [simplest(items[0], jm, seen)] * length
 
+def _simplest_union(alts: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Simplest value for the first alternative which yields one."""
+    for alt in alts:
+        if isinstance(alt, str) and alt.startswith("#"):
+            continue
+        try:
+            return simplest(alt, jm, seen)
+        except UnsupportedValue:
+            pass
+    raise UnsupportedValue(f"no alternative yields a value: {alts}")
+
 def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a simple object model or a bare target model."""
     props = {p: m for p, m in model.items() if not p.startswith("#")}
+    if set(props) == {"|"}:
+        return _simplest_union(props["|"], jm, seen)
     if "@" in props:
         others = set(props) - {"@"}
         if not others:
