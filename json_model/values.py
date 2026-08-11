@@ -19,6 +19,9 @@ _CATEGORIES = {
 _ANY_CHAR = "a"
 _OPERATORS = {"@", "|", "&", "^", "+", "!", "=", "!=", "<", "<=", ">", ">="}
 _ROOT_KEYS = {"$", "%", "~"}
+_COMPARISONS = {"=", "!=", "<", "<=", ">", ">="}
+_CONSTRAINTS = _COMPARISONS | {"!"}
+_UINT_PREDEFS = {"$U32", "$U64"}
 _PREDEFS = {
     "$ANY": None, "$NULL": None,
     "$BOOL": False, "$BOOLEAN": False,
@@ -140,11 +143,94 @@ def _simplest_array(model: ModelArray, jm: JsonModel, seen: frozenset[str]) -> J
         return []
     return [simplest(i, jm, seen) for i in items]
 
+def _numeric_low(model: ModelType) -> int|float|None:
+    """Smallest value allowed by a numeric model, None if unbounded below."""
+    if isinstance(model, bool):
+        return None
+    if isinstance(model, (int, float)):
+        return None if model in (-1, -1.0) else model
+    if isinstance(model, str) and model in _UINT_PREDEFS:
+        return 0
+    return None
+
+def _bounds(ops: ModelObject, step: int|float,
+            low: int|float|None) -> tuple[int|float|None, int|float|None]:
+    """Lower and upper bounds implied by comparison constraints."""
+    lo, hi = low, None
+    if "=" in ops:
+        lo = hi = ops["="]
+    if ">=" in ops:
+        lo = ops[">="] if lo is None else max(lo, ops[">="])
+    if ">" in ops:
+        bound = ops[">"] + step
+        lo = bound if lo is None else max(lo, bound)
+    if "<=" in ops:
+        hi = ops["<="] if hi is None else min(hi, ops["<="])
+    if "<" in ops:
+        bound = ops["<"] - step
+        hi = bound if hi is None else min(hi, bound)
+    return lo, hi
+
+def _pick(lo: int|float|None, hi: int|float|None, ops: ModelObject,
+          step: int|float, zero: int|float) -> int|float:
+    """Simplest number within bounds, avoiding an excluded value."""
+    value = zero
+    if lo is not None and value < lo:
+        value = lo
+    if hi is not None and value > hi:
+        value = hi
+    if lo is not None and value < lo:
+        raise UnsupportedValue(f"empty constraint range: {ops}")
+    if "!=" in ops and value == ops["!="]:
+        value += step
+        if hi is not None and value > hi:
+            value -= 2 * step
+        if (lo is not None and value < lo) or (hi is not None and value > hi):
+            raise UnsupportedValue(f"empty constraint range: {ops}")
+    return value
+
+def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Simplest value for a constraint model."""
+    target = props["@"]
+    ops = {p: c for p, c in props.items() if p != "@"}
+    if any(isinstance(c, str) for p, c in ops.items() if p in _COMPARISONS):
+        raise UnsupportedValue(f"unsupported string comparison constraint: {ops}")
+    unique = ops.get("!") is True
+    base = simplest(target, jm, seen)
+    if base is None or isinstance(base, bool) or isinstance(base, dict):
+        raise UnsupportedValue(f"unsupported constrained model: {target}")
+    if isinstance(base, (int, float)):
+        if unique:
+            raise UnsupportedValue(f"unique constraint on a number: {target}")
+        is_float = isinstance(base, float)
+        step: int|float = 1.0 if is_float else 1
+        lo, hi = _bounds(ops, step, _numeric_low(target))
+        value = _pick(lo, hi, ops, step, 0.0 if is_float else 0)
+        return float(value) if is_float else int(value)
+    lo, hi = _bounds(ops, 1, 0)
+    if (lo is None or len(base) >= lo) and (hi is None or len(base) <= hi):
+        return base
+    length = int(_pick(lo, hi, ops, 1, 0))
+    if isinstance(base, str):
+        if target != "":
+            raise UnsupportedValue(f"cannot resize string model: {target}")
+        return _ANY_CHAR * length
+    items = [i for i in target if not (isinstance(i, str) and i.startswith("#"))]
+    if len(items) != 1:
+        raise UnsupportedValue(f"cannot resize array model: {target}")
+    if unique and length > 1:
+        raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
+    return [simplest(items[0], jm, seen)] * length
+
 def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a simple object model or a bare target model."""
     props = {p: m for p, m in model.items() if not p.startswith("#")}
-    if set(props) == {"@"}:
-        return simplest(props["@"], jm, seen)
+    if "@" in props:
+        others = set(props) - {"@"}
+        if not others:
+            return simplest(props["@"], jm, seen)
+        if others <= _CONSTRAINTS:
+            return _simplest_constrained(props, jm, seen)
     value: dict[str, Jsonable] = {}
     for prop, submodel in props.items():
         if prop in _OPERATORS:
