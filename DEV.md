@@ -132,6 +132,15 @@ make clean.js js        # regenerate js stuff (and other languages)
 make foo.CLEAN foo.ALL  # clean/regenerate all stuff for case "foo"
 ```
 
+### Tests in Docker Image
+
+C, Java, JS, Perl and Python tests can run inside the docker image.
+Some tests are skip, especially PL/pgSQL and JSON Schema Test Suite tests.
+
+```bash
+jmc exec make -C /app/json-model/tests check
+```
+
 ## Code Doc
 
 Read sources…

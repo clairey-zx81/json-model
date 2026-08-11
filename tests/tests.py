@@ -1058,6 +1058,23 @@ def test_bads_jsg():
 #
 # JSON SCHEMA DRAFT TESTS
 #
+
+def test_schema_suite_tests():
+    ntests = 0
+    checker = model_checker_from_url("../models/test-schema.model.json")
+    path = pathlib.Path("./JSON-Schema-Test-Suite/tests/")
+    if not path.is_dir():
+        pytest.skip(f"missing test suite directory: {path}")
+    for tfile in path.glob("*/*.json"):
+        with open(tfile) as f:
+            value = json.load(f)
+            assert isinstance(value, list)
+            ntests += 1
+            reasons = []
+            okay = checker(value, "", reasons)
+            assert okay, f"{tfile} matches its model"
+    assert ntests == EXPECT.get("jsts-files", 0)
+
 def json_schema_test_suite(version, fmodel):
     ntests = 0
     # load model
@@ -1065,7 +1082,7 @@ def json_schema_test_suite(version, fmodel):
     # run all tests
     path = pathlib.Path(f"./JSON-Schema-Test-Suite/tests/{version}")
     if not path.is_dir():
-        pytest.skip("missing test suite directory")
+        pytest.skip(f"missing test suite directory: {path}")
     for jstest in path.glob("*.json"):
         log.info(f"considering file {jstest}")
         with open(jstest) as f:
@@ -1079,20 +1096,6 @@ def json_schema_test_suite(version, fmodel):
                 okay = checker(schema, "", reasons)
                 assert okay, f"{jstest}[{idx}] is valid for {fmodel} ({reasons})"
     assert ntests == EXPECT.get(f"{version}:jsts", 0)
-
-def test_schema_suite_tests():
-    ntests = 0
-    checker = model_checker_from_url("../models/test-schema.model.json")
-    path = pathlib.Path("./JSON-Schema-Test-Suite/tests/")
-    for tfile in path.glob("*/*.json"):
-        with open(tfile) as f:
-            value = json.load(f)
-            assert isinstance(value, list)
-            ntests += 1
-            reasons = []
-            okay = checker(value, "", reasons)
-            assert okay, f"{tfile} matches its model"
-    assert ntests == EXPECT.get("jsts-files", 0)
 
 def test_draft3():
     # strict: fails on infinite-loop-detection.json[0]

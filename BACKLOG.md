@@ -10,9 +10,9 @@
 - [x] tests: add jmc-bench model test
 - [x] bench: ensure fix/no-fix consistency
 - [x] dev: improve dev environment init
-- [ ] docker: install missing `Algorithm::LUHN` for perl, also for jsb
+- [x] tests: run tests inside docker image
 - [ ] perl: fix bad double post condition
-- [ ] tests: run tests inside docker image
+- [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes
 - [ ] tests: automate bench launch with a cron job?
