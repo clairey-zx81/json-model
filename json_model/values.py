@@ -1,6 +1,7 @@
 #
 # Generate values from model
 #
+import copy
 import re
 import re._parser as _parser
 
@@ -24,7 +25,7 @@ _COMPARISONS = {"=", "!=", "<", "<=", ">", ">="}
 _CONSTRAINTS = _COMPARISONS | {"!"}
 _UINT_PREDEFS = {"$U32", "$U64"}
 _PREDEFS = {
-    "$ANY": None, "$NULL": None,
+    "$ANY": {}, "$NULL": None,
     "$BOOL": False, "$BOOLEAN": False,
     "$INT": 0, "$INTEGER": 0, "$I32": 0, "$I64": 0, "$U32": 0, "$U64": 0,
     "$FLOAT": 0.0, "$F32": 0.0, "$F64": 0.0, "$NUMBER": 0,
@@ -32,8 +33,10 @@ _PREDEFS = {
     "$DATE": "1970-01-01", "$TIME": "00:00:00", "$TIMETZ": "00:00:00+00:00",
     "$DATETIME": "1970-01-01T00:00:00", "$DURATION": "PT0S",
     "$UUID": "00000000-0000-0000-0000-000000000000", "$CARD": "4111111111111111",
-    "$IP4": "0.0.0.0", "$IP6": "::", "$HOST": "a", "$ETH": "00:00:00:00:00:00",
-    "$URL": "http://a/", "$URI": "http://a/", "$URL_REL": "/", "$EMAIL": "a@b",
+    "$IP4": "0.0.0.0", "$IP6": "::", "$HOST": "json-model.org",
+    "$ETH": "00:00:00:00:00:00",
+    "$URL": "https://json-model.org/", "$URI": "https://json-model.org/",
+    "$URL_REL": "/", "$EMAIL": "susie@json-model.org",
     "$JSON": "null", "$SEMVER": "0.0.0",
 }
 
@@ -124,7 +127,8 @@ def _simplest_regex(model: str) -> str:
 def _simplest_predef(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a predefined model or a reference."""
     if model in _PREDEFS:
-        return _PREDEFS[model]
+        value = _PREDEFS[model]
+        return copy.copy(value) if isinstance(value, (dict, list)) else value
     if model == "$NONE":
         raise UnsupportedValue("no value exists for model: $NONE")
     if model in MODEL_PREDEFS:
