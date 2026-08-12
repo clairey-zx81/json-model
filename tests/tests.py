@@ -698,7 +698,7 @@ def test_sta_sql(directory):
 @pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_sta_pl(directory):
     """Check generated Perl scripts with test value files."""
-    check_values(directory, "sta-pl", ".pl", ".pl.check", lambda f: f)
+    check_values(directory, "sta-pl", ".pl", ".pl.check", lambda f: f, "-r")
 
 @pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_sta_java(directory, tmp_dir):
