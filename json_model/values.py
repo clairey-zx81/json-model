@@ -277,7 +277,8 @@ def simplest(model: ModelType, jm: JsonModel|None = None,
     if jm is None:
         try:
             jm = JsonModel(model, Resolver())
-            merge(jm)
+            for node in {id(n): n for n in jm._globs.values()}.values():
+                merge(node)
         except (ModelError, AssertionError) as e:
             raise UnsupportedValue(f"invalid model: {e}")
         model = jm._model
