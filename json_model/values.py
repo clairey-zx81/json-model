@@ -52,15 +52,18 @@ def _simplest_scalar(model: ModelType) -> Jsonable:
         case bool():
             if model is not True:
                 raise UnsupportedValue(f"not a boolean scalar model: {model}")
-            return False
+            else:
+                return False
         case int():
             if model not in (0, 1, -1):
                 raise UnsupportedValue(f"not an integer scalar model: {model}")
-            return 1 if model == 1 else 0
+            else:
+                return 1 if model == 1 else 0
         case float():
             if model not in (0.0, 1.0, -1.0):
                 raise UnsupportedValue(f"not a float scalar model: {model}")
-            return 1.0 if model == 1.0 else 0.0
+            else:
+                return 1.0 if model == 1.0 else 0.0
         case _:
             raise UnsupportedValue(f"not a scalar model: {model}")
 
@@ -68,21 +71,23 @@ def _simplest_constant(model: str) -> Jsonable:
     """Simplest value for a scalar constant model."""
     if model in _CONSTANTS:
         return _CONSTANTS[model]
-    if _NUMBER_RE.match(model) is None:
+    elif _NUMBER_RE.match(model) is None:
         raise UnsupportedValue(f"invalid scalar constant model: {model}")
-    number = model[1:]
-    return float(number) if any(c in number for c in ".eE") else int(number)
+    else:
+        number = model[1:]
+        return float(number) if any(c in number for c in ".eE") else int(number)
 
 def _regex_char(item) -> str:
     """Simplest character for a regex character class item."""
     op, av = item
     if op is _parser.LITERAL:
         return chr(av)
-    if op is _parser.RANGE:
+    elif op is _parser.RANGE:
         return chr(av[0])
-    if op is _parser.CATEGORY and av in _CATEGORIES:
+    elif op is _parser.CATEGORY and av in _CATEGORIES:
         return _CATEGORIES[av]
-    raise UnsupportedValue(f"unsupported regex character class item: {op}")
+    else:
+        raise UnsupportedValue(f"unsupported regex character class item: {op}")
 
 def _regex_walk(pattern) -> str:
     """Simplest string matching a parsed regex."""
@@ -122,41 +127,46 @@ def _simplest_regex(model: str) -> str:
     value = _regex_walk(parsed)
     if compiled.search(value) is None:
         raise UnsupportedValue(f"no value generated for regex model: {model}")
-    return value
+    else:
+        return value
 
 def _simplest_predef(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a predefined model or a reference."""
     if model in _PREDEFS:
         value = _PREDEFS[model]
         return copy.copy(value) if isinstance(value, (dict, list)) else value
-    if model == "$NONE":
+    elif model == "$NONE":
         raise UnsupportedValue("no value exists for model: $NONE")
-    if model in MODEL_PREDEFS:
+    elif model in MODEL_PREDEFS:
         raise UnsupportedValue(f"unsupported predefined model: {model}")
-    try:
-        ja = jm.resolveRef(model, [])
-    except (ModelError, AssertionError) as e:
-        raise UnsupportedValue(f"cannot resolve {model}: {e}")
-    if ja._url in seen:
-        raise UnsupportedValue(f"no finite value for recursive model: {model}")
-    return simplest(ja._model, ja, seen | {ja._url})
+    else:
+        try:
+            ja = jm.resolveRef(model, [])
+        except (ModelError, AssertionError) as e:
+            raise UnsupportedValue(f"cannot resolve {model}: {e}")
+        if ja._url in seen:
+            raise UnsupportedValue(f"no finite value for recursive model: {model}")
+        else:
+            return simplest(ja._model, ja, seen | {ja._url})
 
 def _simplest_array(model: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for an array or tuple model."""
     items = [i for i in model if not (isinstance(i, str) and i.startswith("#"))]
     if len(items) <= 1:
         return []
-    return [simplest(i, jm, seen) for i in items]
+    else:
+        return [simplest(i, jm, seen) for i in items]
 
 def _numeric_low(model: ModelType) -> int|float|None:
     """Smallest value allowed by a numeric model, None if unbounded below."""
     if isinstance(model, bool):
         return None
-    if isinstance(model, (int, float)):
+    elif isinstance(model, (int, float)):
         return None if model in (-1, -1.0) else model
-    if isinstance(model, str) and model in _UINT_PREDEFS:
+    elif isinstance(model, str) and model in _UINT_PREDEFS:
         return 0
-    return None
+    else:
+        return None
 
 def _bounds(ops: ModelObject, step: int|float,
             low: int|float|None) -> tuple[int|float|None, int|float|None]:
@@ -204,7 +214,7 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
     base = simplest(target, jm, seen)
     if base is None or isinstance(base, bool) or isinstance(base, dict):
         raise UnsupportedValue(f"unsupported constrained model: {target}")
-    if isinstance(base, (int, float)):
+    elif isinstance(base, (int, float)):
         if unique:
             raise UnsupportedValue(f"unique constraint on a number: {target}")
         is_float = isinstance(base, float)
@@ -219,23 +229,26 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
     if isinstance(base, str):
         if target != "":
             raise UnsupportedValue(f"cannot resize string model: {target}")
-        return _ANY_CHAR * length
+        else:
+            return _ANY_CHAR * length
     items = [i for i in target if not (isinstance(i, str) and i.startswith("#"))]
     if len(items) != 1:
         raise UnsupportedValue(f"cannot resize array model: {target}")
-    if unique and length > 1:
+    elif unique and length > 1:
         raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
-    return [simplest(items[0], jm, seen)] * length
+    else:
+        return [simplest(items[0], jm, seen)] * length
 
 def _simplest_union(alts: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for the first alternative which yields one."""
     for alt in alts:
         if isinstance(alt, str) and alt.startswith("#"):
             continue
-        try:
-            return simplest(alt, jm, seen)
-        except UnsupportedValue:
-            pass
+        else:
+            try:
+                return simplest(alt, jm, seen)
+            except UnsupportedValue:
+                pass
     raise UnsupportedValue(f"no alternative yields a value: {alts}")
 
 def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
@@ -243,37 +256,39 @@ def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) ->
     props = {p: m for p, m in model.items() if not p.startswith("#")}
     if set(props) == {"|"}:
         return _simplest_union(props["|"], jm, seen)
-    if "@" in props:
+    elif "@" in props:
         others = set(props) - {"@"}
         if not others:
             return simplest(props["@"], jm, seen)
-        if others <= _CONSTRAINTS:
+        elif others <= _CONSTRAINTS:
             return _simplest_constrained(props, jm, seen)
     value: dict[str, Jsonable] = {}
     for prop, submodel in props.items():
         if prop in _OPERATORS:
             raise UnsupportedValue(f"unsupported object operator: {prop}")
-        if prop in _ROOT_KEYS:
+        elif prop in _ROOT_KEYS:
             raise UnsupportedValue(f"unsupported definitions or imports: {prop}")
-        if prop == "" or prop.startswith(("?", "/", "$")):
+        elif prop == "" or prop.startswith(("?", "/", "$")):
             continue
-        name = prop[1:] if prop.startswith(("!", "_")) else prop
-        value[name] = simplest(submodel, jm, seen)
+        else:
+            name = prop[1:] if prop.startswith(("!", "_")) else prop
+            value[name] = simplest(submodel, jm, seen)
     return value
 
 def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a string model."""
     if model == "":
         return ""
-    if model.startswith("_"):
+    elif model.startswith("_"):
         return model[1:]
-    if model.startswith("="):
+    elif model.startswith("="):
         return _simplest_constant(model)
-    if model.startswith("/"):
+    elif model.startswith("/"):
         return _simplest_regex(model)
-    if model.startswith("$"):
+    elif model.startswith("$"):
         return _simplest_predef(model, jm, seen)
-    return model
+    else:
+        return model
 
 def simplest(model: ModelType, jm: JsonModel|None = None,
              seen: frozenset[str] = frozenset()) -> Jsonable:
