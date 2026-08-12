@@ -455,7 +455,7 @@ class Perl(Language):
                 code[i] = line.replace("if (! ", "unless (")
             # simplify if no else one liners
             # FIXME overflow?
-            if (ifm := re.match(r"^( +)(if|unless) \((.*)\)", code[i])) and re.match(r"^ *\{$", code[i+1]):
+            if (ifm := re.match(r"^( +)(if|unless) \((.*)\)$", code[i])) and re.match(r"^ *\{$", code[i+1]):
                 j = i + 2
                 # skip comments and blanks
                 while code[j] is None or re.match(r"^ *#", code[j]) or re.match(r"^ *$", code[j]):
@@ -465,7 +465,13 @@ class Perl(Language):
                     # go!
                     indent, cond, expr = ifm.group(1), ifm.group(2), ifm.group(3)
                     ins = insm.group(1)
-                    code[i] = f"{indent}{ins} {cond} {expr};"
+                    if " if " in ins:
+                        if cond == "unless":
+                            code[i] = f"{indent}{ins} and not {expr};";
+                        else:
+                            code[i] = f"{indent}{ins} and {expr};";
+                    else:
+                        code[i] = f"{indent}{ins} {cond} {expr};"
                     code[i+1] = None
                     for k in range(i+2, j):
                         if code[k] is not None and code[k].startswith("    "):
