@@ -9,6 +9,7 @@ from .mtypes import ModelType, ModelArray, ModelObject, Jsonable, ModelError
 from .model import JsonModel
 from .resolver import Resolver
 from .objops import merge
+from . import analyze
 from .predefs import MODEL_PREDEFS
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
@@ -50,20 +51,11 @@ def _simplest_scalar(model: ModelType) -> Jsonable:
         case None:
             return None
         case bool():
-            if model is not True:
-                raise UnsupportedValue(f"not a boolean scalar model: {model}")
-            else:
-                return False
+            return False
         case int():
-            if model not in (0, 1, -1):
-                raise UnsupportedValue(f"not an integer scalar model: {model}")
-            else:
-                return 1 if model == 1 else 0
+            return 1 if model == 1 else 0
         case float():
-            if model not in (0.0, 1.0, -1.0):
-                raise UnsupportedValue(f"not a float scalar model: {model}")
-            else:
-                return 1.0 if model == 1.0 else 0.0
+            return 1.0 if model == 1.0 else 0.0
         case _:
             raise UnsupportedValue(f"not a scalar model: {model}")
 
@@ -296,6 +288,9 @@ def simplest(model: ModelType, jm: JsonModel|None = None,
     if jm is None:
         try:
             jm = JsonModel(model, Resolver())
+            for node in sorted(jm._models.values(), key=lambda m: m._id):
+                if not analyze.valid(node):
+                    raise UnsupportedValue(f"invalid model {node._url}:{node._id}")
             for node in {id(n): n for n in jm._globs.values()}.values():
                 merge(node)
         except (ModelError, AssertionError) as e:
