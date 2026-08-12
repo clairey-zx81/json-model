@@ -470,19 +470,31 @@ sub jm_process($$$$$$$$$)
     my $rep = $report ? [] : undef;
     my $valid = &$checker($json, $name, $rep) ? 1 : 0;
 
+    my $rep_txt = "";
+    if ($rep and @$rep) {
+        $rep_txt = " (";
+        my $count = 0;
+        for my $ri (@$rep) {
+            $rep_txt .= "; " if $count++;
+            my $jpath = "." . join(".", @{$$ri[1]});
+            $rep_txt .= "$jpath: $$ri[0]";
+        }
+        $rep_txt .= ")";
+    }
+
     my $ok;
     if (defined $expect) {
         if ($valid == $expect) {
-            print "$display: ", $valid? "PASS": "FAIL", "\n";
+            print "$display: ", $valid? "PASS": "FAIL", "$rep_txt\n";
             $ok = 1;
         }
         else {
-            print "$display: ERROR, unexpected ", $valid? "PASS": "FAIL", "\n";
+            print "$display: ERROR, unexpected ", $valid? "PASS": "FAIL", "$rep_txt\n";
             $ok = 0;
         }
     }
     else {
-        print "$display: ", $valid? "PASS": "FAIL", "\n";
+        print "$display: ", $valid? "PASS": "FAIL", "$rep_txt\n";
         $ok = 1;
     }
 
@@ -694,9 +706,6 @@ sub jm_main($$$)
         "jsonl|L" => \$jsonl,
         "parse" => \$parse,
     );
-
-    # option fix and warnings
-    warn "$0: option --report is not implemented yet\n" if $report;
 
     # empty loop measure overhead
     my $v = $time / 13.0 % 1.0;

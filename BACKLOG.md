@@ -12,7 +12,7 @@
 - [x] dev: improve dev environment init
 - [x] tests: run tests inside docker image
 - [x] perl: fix bad double post condition
-- [ ] perl: report error location
+- [x] perl: report error location
 - [ ] tests: enable reporting with perl
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
