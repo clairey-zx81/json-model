@@ -7,6 +7,7 @@ import re._parser as _parser
 from .mtypes import ModelType, ModelArray, ModelObject, Jsonable, ModelError
 from .model import JsonModel
 from .resolver import Resolver
+from .objops import merge
 from .predefs import MODEL_PREDEFS
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
@@ -17,7 +18,7 @@ _CATEGORIES = {
     _parser.CATEGORY_SPACE: " ",
 }
 _ANY_CHAR = "a"
-_OPERATORS = {"@", "|", "&", "^", "+", "!", "=", "!=", "<", "<=", ">", ">="}
+_OPERATORS = {"@", "|", "&", "^", "!", "=", "!=", "<", "<=", ">", ">="}
 _ROOT_KEYS = {"$", "%", "~"}
 _COMPARISONS = {"=", "!=", "<", "<=", ">", ">="}
 _CONSTRAINTS = _COMPARISONS | {"!"}
@@ -276,6 +277,7 @@ def simplest(model: ModelType, jm: JsonModel|None = None,
     if jm is None:
         try:
             jm = JsonModel(model, Resolver())
+            merge(jm)
         except (ModelError, AssertionError) as e:
             raise UnsupportedValue(f"invalid model: {e}")
         model = jm._model
