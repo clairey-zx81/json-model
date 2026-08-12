@@ -23,12 +23,27 @@ sub json_model_1($$$)
     # equivalent to =0
     # .
     # remove duplicate xor list
-    my $is_0;
     $res = 1;
     # .'^'.2
-    # singleton xor list
-    # .'^'.0
-    return ! (jm_is_integer($val) && $val >= 1) && jm_is_integer($val) && $val >= 0;
+    my $is_0 = jm_is_integer($val) && $val >= 1;
+    push @$rep, ["not a 1 strict int [.'^'.2]", $path] if defined $rep and not $is_0;
+    $res = ! $is_0;
+    if ($res)
+    {
+        # singleton xor list
+        # .'^'.0
+        $res = jm_is_integer($val) && $val >= 0;
+        push @$rep, ["not a 0 strict int [.'^'.0]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'^']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

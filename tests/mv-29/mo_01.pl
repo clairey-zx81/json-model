@@ -27,6 +27,11 @@ sub json_model_1($$$)
     {
         my $fval_0 = $val;
         $res = jm_float_modulo($fval_0, 0.25) == 0.0;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 0.0 strict float [.'\@']", $path] if defined $rep;
     }
     return $res;
 }

@@ -21,18 +21,40 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # world or !
     # .
     # generic xor list
     my $xc_0 = 0;
     # .'^'.0
     my $xr_0 = jm_is_string($val) && exists $_jm_cst_0{$val};
-    $xc_0++ if $xr_0;
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["value not in enum [.'^'.0.'|']", $path] if defined $rep;
+    }
     # .'^'.1
     $xr_0 = jm_is_string($val) && $val eq "hello";
-    $xc_0++ if $xr_0;
-    return $xc_0 == 1;
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"_hello\" [.'^'.1]", $path] if defined $rep;
+    }
+    my $res = $xc_0 == 1;
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'^']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

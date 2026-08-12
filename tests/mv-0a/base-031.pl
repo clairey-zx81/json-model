@@ -22,10 +22,24 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$bibi'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$bibi']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.'\$bibi']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"bibi"};
+    unless (exists $$val{"bibi"})
+    {
+        push @$rep, ["missing mandatory prop <bibi> [.'\$bibi']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "bibi"] : undef;
     $pval = $$val{"bibi"};
     # .'$bibi'.bibi
     my $res = jm_is_array($pval);
@@ -34,12 +48,23 @@ sub json_model_2($$$)
         for my $arr_0_idx (0 .. $#$pval)
         {
             my $arr_0_item = $$pval[$arr_0_idx];
+            my $arr_0_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_0_idx] : undef;
             # .'$bibi'.bibi.0
-            $res = json_model_2($arr_0_item, undef, undef);
-            last unless $res;
+            $res = json_model_2($arr_0_item, defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$bibi\" [.'\$bibi'.bibi.0]", defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    return $res;
+    unless ($res)
+    {
+        push @$rep, ["not array or unexpected array [.'\$bibi'.bibi]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <bibi> [.'\$bibi']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ (.)
@@ -47,7 +72,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, undef, undef);
+    my $res = json_model_2($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$bibi\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

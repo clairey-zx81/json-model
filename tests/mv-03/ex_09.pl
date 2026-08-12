@@ -26,7 +26,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ex08'
-    return json_model_9($val, undef, undef);
+    my $res = json_model_9($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$Ex08\" [.'\$ex08']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Ex08 (.'$Ex08')
@@ -34,7 +36,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ex08'
-    return json_model_9($val, undef, undef);
+    my $res = json_model_9($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$ex08#Ex08\" [.'\$Ex08']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Ex09 (.'$Ex09')
@@ -42,28 +46,43 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ex09'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Ex09']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "#")
         {
             # handle may # property
             # .'$Ex09'.'#'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Ex09'.'#']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Ex09'.'#']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
-        if (jm_is_valid_url($prop, undef, undef))
+        if (jm_is_valid_url($prop, defined $path ? $lpath_0 : undef, $rep))
         {
             # handle 1 key props
             # .'$Ex09'.'$URL'
-            $res = json_model_6($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_6($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$ex08#Val\" [.'\$Ex09'.'\$URL']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$Ex09']", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }
@@ -75,7 +94,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_4($val, undef, undef);
+    my $res = json_model_4($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$Ex09\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ex08#Val (.'$ex08#Val')
@@ -83,7 +104,9 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ex08#Val'
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$ex08#Val']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ex08#Ex08 (.'$ex08#Ex08')
@@ -92,9 +115,29 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # .'$ex08#Ex08'
     # .'$ex08#Ex08'.'|'.0
-    # .'$ex08#Ex08'.'|'.1
-    # .'$ex08#Ex08'.'|'.2
-    return json_model_8($val, undef, undef) || jm_is_string($val) && jm_is_valid_url($val, undef, undef) || json_model_6($val, undef, undef);
+    my $res = json_model_8($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$map\" [.'\$ex08#Ex08'.'|'.0]", $path] if defined $rep;
+        # .'$ex08#Ex08'.'|'.1
+        $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$ex08#Ex08'.'|'.1]", $path] if defined $rep;
+            # .'$ex08#Ex08'.'|'.2
+            $res = json_model_6($val, $path, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Val\" [.'\$ex08#Ex08'.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$ex08#Ex08'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $ex08#map (.'$ex08#map')
@@ -102,20 +145,30 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ex08#map'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$ex08#map']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_valid_url($prop, undef, undef))
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
+        if (jm_is_valid_url($prop, defined $path ? $lpath_1 : undef, $rep))
         {
             # handle 1 key props
             # .'$ex08#map'.'$URL'
-            $res = json_model_6($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_6($pval, defined $path ? $lpath_1 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Val\" [.'\$ex08#map'.'\$URL']", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$ex08#map']", defined $path ? $lpath_1 : undef] if defined $rep;
             return 0;
         }
     }

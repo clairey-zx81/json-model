@@ -23,7 +23,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$t'
-    return jm_is_string($val) && $val eq "cst_01";
+    my $res = jm_is_string($val) && $val eq "cst_01";
+    push @$rep, ["unexpected value for model \"_cst_01\" [.'\$t']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $x (.'$x')
@@ -32,18 +34,49 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$x'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$x']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$x']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.'\$x']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .'$x'.a
     my $res = jm_is_string($pval) && $pval eq "cst_01";
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_cst_01\" [.'\$x'.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.'\$x']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.'\$x']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .'$x'.b
-    return jm_is_string($pval) && $pval eq "cst_01";
+    $res = jm_is_string($pval) && $pval eq "cst_01";
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_cst_01\" [.'\$x'.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.'\$x']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $y (.'$y')
@@ -52,18 +85,49 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$y'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$y']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$y']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"c"};
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.'\$y']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .'$y'.c
     my $res = jm_is_string($pval) && $pval eq "cst_01";
-    return 0 unless $res;
-    return 0 unless exists $$val{"d"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_cst_01\" [.'\$y'.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.'\$y']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"d"})
+    {
+        push @$rep, ["missing mandatory prop <d> [.'\$y']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "d"] : undef;
     $pval = $$val{"d"};
     # .'$y'.d
-    return jm_is_string($pval) && $pval eq "cst_01";
+    $res = jm_is_string($pval) && $pval eq "cst_01";
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_cst_01\" [.'\$y'.d]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <d> [.'\$y']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ (.)
@@ -72,28 +136,79 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 4;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 4)
+    {
+        push @$rep, ["bad property count [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .a
     my $res = jm_is_string($pval) && $pval eq "cst_01";
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_cst_01\" [.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .b
     $res = jm_is_string($pval) && $pval eq "cst_01";
-    return 0 unless $res;
-    return 0 unless exists $$val{"c"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_cst_01\" [.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .c
     $res = jm_is_string($pval) && $pval eq "cst_01";
-    return 0 unless $res;
-    return 0 unless exists $$val{"d"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_cst_01\" [.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"d"})
+    {
+        push @$rep, ["missing mandatory prop <d> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "d"] : undef;
     $pval = $$val{"d"};
     # .d
-    return jm_is_string($pval) && $pval eq "cst_01";
+    $res = jm_is_string($pval) && $pval eq "cst_01";
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_cst_01\" [.d]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <d> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

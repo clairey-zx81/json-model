@@ -22,7 +22,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$forty-two'
-    return jm_is_integer($val) && $val == 42;
+    my $res = jm_is_integer($val) && $val == 42;
+    push @$rep, ["unexpected value for model \"=42\" [.'\$forty-two']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $positif (.'$positif')
@@ -30,7 +32,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$positif'
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$positif']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -38,7 +42,20 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_object($val) && jm_obj_size($val) == 0;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        push @$rep, ["expecting empty object [.]", $path] if defined $rep;
+        return 0;
+    }
 }
 
 

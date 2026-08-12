@@ -23,7 +23,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$c'
-    return jm_is_string($val) && $val eq "c";
+    my $res = jm_is_string($val) && $val eq "c";
+    push @$rep, ["unexpected value for model \"_c\" [.'\$c']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $a (.'$a')
@@ -31,7 +33,9 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$a'
-    return jm_is_string($val) && $val eq "a";
+    my $res = jm_is_string($val) && $val eq "a";
+    push @$rep, ["unexpected value for model \"_a\" [.'\$a']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $b (.'$b')
@@ -39,7 +43,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$b'
-    return jm_is_string($val) && $val eq "b";
+    my $res = jm_is_string($val) && $val eq "b";
+    push @$rep, ["unexpected value for model \"_b\" [.'\$b']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -47,7 +53,20 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_object($val) && jm_obj_size($val) == 0;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        push @$rep, ["expecting empty object [.]", $path] if defined $rep;
+        return 0;
+    }
 }
 
 

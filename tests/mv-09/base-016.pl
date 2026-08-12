@@ -21,9 +21,29 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    return !defined($val) || jm_is_string($val) || jm_is_boolean($val);
+    my $res = !defined($val);
+    unless ($res)
+    {
+        push @$rep, ["not null [.'|'.0]", $path] if defined $rep;
+        # .'|'.1
+        $res = jm_is_string($val);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\" [.'|'.1]", $path] if defined $rep;
+            # .'|'.2
+            $res = jm_is_boolean($val);
+            push @$rep, ["not a bool [.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

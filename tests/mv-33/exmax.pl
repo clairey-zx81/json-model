@@ -28,6 +28,11 @@ sub json_model_1($$$)
     {
         my $ival_0 = $val;
         $res = $ival_0 <= 2;
+        push @$rep, ["constraints failed [.'|'.0]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a -1 loose int [.'|'.0.'\@']", $path] if defined $rep;
     }
     unless ($res)
     {
@@ -38,7 +43,20 @@ sub json_model_1($$$)
         {
             my $fval_0 = $val;
             $res = $fval_0 < 3.0;
+            push @$rep, ["constraints failed [.'|'.1]", $path] if defined $rep and not $res;
         }
+        else
+        {
+            push @$rep, ["not a -1.0 loose float [.'|'.1.'\@']", $path] if defined $rep;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
     }
     return $res;
 }

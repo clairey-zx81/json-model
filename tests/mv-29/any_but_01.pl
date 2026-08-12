@@ -21,19 +21,29 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Obj'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Obj']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
             # .'$Obj'.a
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Obj'.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Obj'.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "b")
@@ -41,12 +51,26 @@ sub json_model_2($$$)
             # handle may b property
             # .'$Obj'.b
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Obj'.b]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Obj'.b]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Obj']", defined $path ? $lpath_0 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <a> [.'\$Obj']", $path] if defined $rep and not exists $$val{"a"};
         }
         return 0;
     }
-    return $must_count == 1;
+    return 1;
 }
 
 # check $ (.)
@@ -55,7 +79,18 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # with a reference
     # .
-    return ! jm_is_object($val) || json_model_2($val, undef, undef);
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'|'.6
+        $res = json_model_2($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$Obj\" [.'|'.6]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        $res = 1;
+    }
+    return $res;
 }
 
 

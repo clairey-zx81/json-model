@@ -21,8 +21,23 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'|'.0
-    # .'|'.1
-    return jm_is_integer($val) && $val >= 0 || jm_is_numeric($val) && $val >= 0.0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'|'.0]", $path] if defined $rep;
+        # .'|'.1
+        $res = jm_is_numeric($val) && $val >= 0.0;
+        push @$rep, ["not a 0.0 strict float [.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

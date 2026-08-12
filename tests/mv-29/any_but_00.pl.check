@@ -8,7 +8,7 @@ any_but_00.values.json[6]: PASS
 any_but_00.values.json[7]: PASS
 any_but_00.values.json[8]: PASS
 any_but_00.values.json[9]: PASS
-any_but_00.values.json[10]: FAIL
-any_but_00.values.json[11]: FAIL
-any_but_00.values.json[12]: FAIL
-any_but_00.values.json[13]: FAIL
+any_but_00.values.json[10]: FAIL (.: missing mandatory prop <a> [.'|'.6]; .: unexpected element [.'|'.6])
+any_but_00.values.json[11]: FAIL (.a: unexpected value for model "" [.'|'.6.a]; .a: invalid mandatory prop value [.'|'.6.a]; .: unexpected element [.'|'.6])
+any_but_00.values.json[12]: FAIL (.world: unexpected prop [.'|'.6]; .: unexpected element [.'|'.6])
+any_but_00.values.json[13]: FAIL (.x: unexpected prop [.'|'.6]; .: unexpected element [.'|'.6])

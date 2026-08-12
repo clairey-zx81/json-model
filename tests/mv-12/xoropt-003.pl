@@ -29,11 +29,36 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$Aa'
     # .'$Aa'.'|'.0
-    # .'$Aa'.'|'.1
-    # .'$Aa'.'|'.2
-    # .'$Aa'.'|'.3
-    # "/[a-z]/"
-    return jm_is_boolean($val) || jm_is_integer($val) && $val >= 1 || jm_is_numeric($val) && $val > 0.0 || jm_is_string($val) && _jm_re_0($val, undef, undef);
+    my $res = jm_is_boolean($val);
+    unless ($res)
+    {
+        push @$rep, ["not a bool [.'\$Aa'.'|'.0]", $path] if defined $rep;
+        # .'$Aa'.'|'.1
+        $res = jm_is_integer($val) && $val >= 1;
+        unless ($res)
+        {
+            push @$rep, ["not a 1 strict int [.'\$Aa'.'|'.1]", $path] if defined $rep;
+            # .'$Aa'.'|'.2
+            $res = jm_is_numeric($val) && $val > 0.0;
+            unless ($res)
+            {
+                push @$rep, ["not a 1.0 strict float [.'\$Aa'.'|'.2]", $path] if defined $rep;
+                # .'$Aa'.'|'.3
+                # "/[a-z]/"
+                $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+                push @$rep, ["unexpected value for model \"/[a-z]/\" [.'\$Aa'.'|'.3]", $path] if defined $rep and not $res;
+            }
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$Aa'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $ (.)
@@ -41,7 +66,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, undef, undef);
+    my $res = json_model_2($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$Aa\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

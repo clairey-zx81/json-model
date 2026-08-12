@@ -22,8 +22,17 @@ sub json_model_1($$$)
     # one mandatory prop with an escaped character
     # .
     # check open must/may only props
-    return 0 unless jm_is_object($val);
-    return exists $$val{"foo\nbar"};
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"foo\nbar"})
+    {
+        push @$rep, ["missing mandatory prop <foo\\nbar> [.]", $path] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

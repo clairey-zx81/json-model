@@ -26,14 +26,34 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$a'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$a']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.'\$a']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"t"};
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.'\$a']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .'$a'.t
-    return jm_is_string($pval) && $pval eq "a";
+    my $res = jm_is_string($pval) && $pval eq "a";
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"a\" [.'\$a'.t]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.'\$a']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -43,14 +63,34 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$bc'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$bc']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.'\$bc']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"t"};
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.'\$bc']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .'$bc'.t
-    return jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    my $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    unless ($res)
+    {
+        push @$rep, ["value not in enum [.'\$bc'.t.'|']", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.'\$bc']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $Nabc (.'$Nabc')
@@ -59,34 +99,86 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$Nabc'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Nabc']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.'\$Nabc']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"t"};
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.'\$Nabc']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .'$Nabc'.t
     # generic xor list
     my $xc_0 = 0;
     # .'$Nabc'.t.'^'.0
     my $xr_0 = jm_is_string($pval);
-    $xc_0++ if $xr_0;
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\$Nabc'.t.'^'.0]", defined $path ? $lpath : undef] if defined $rep;
+    }
     # .'$Nabc'.t.'^'.1
     $xr_0 = jm_is_string($pval) && $pval eq "a";
-    $xc_0++ if $xr_0;
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"_a\" [.'\$Nabc'.t.'^'.1]", defined $path ? $lpath : undef] if defined $rep;
+    }
     if ($xc_0 <= 1)
     {
         # .'$Nabc'.t.'^'.2
         $xr_0 = jm_is_string($pval) && $pval eq "b";
-        $xc_0++ if $xr_0;
+        if ($xr_0)
+        {
+            $xc_0++;
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"_b\" [.'\$Nabc'.t.'^'.2]", defined $path ? $lpath : undef] if defined $rep;
+        }
     }
     if ($xc_0 <= 1)
     {
         # .'$Nabc'.t.'^'.3
         $xr_0 = jm_is_string($pval) && $pval eq "c";
-        $xc_0++ if $xr_0;
+        if ($xr_0)
+        {
+            $xc_0++;
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"_c\" [.'\$Nabc'.t.'^'.3]", defined $path ? $lpath : undef] if defined $rep;
+        }
     }
-    return $xc_0 == 1;
+    my $res = $xc_0 == 1;
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'\$Nabc'.t.'^']", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.'\$Nabc']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -103,14 +195,27 @@ sub json_model_1($$$)
         if (defined($tag_0 = $$val{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, undef, undef);
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <t> value not found [.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <t> is missing [.'|']", $path] if defined $rep;
         }
     }
-    return $res || json_model_4($val, undef, undef);
+    else
+    {
+        push @$rep, ["value is not an object [.'|']", $path] if defined $rep;
+    }
+    return $res || json_model_4($val, $path, $rep);
 }
 
 

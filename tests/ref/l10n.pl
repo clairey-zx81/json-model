@@ -21,32 +21,56 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "Model")
         {
             # handle must Model property
             $must_count++;
             # .'$'.Model
             $res = jm_is_string($pval) && $pval eq "\$https://json-model.org/models/json-model";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_\\\$https://json-model.org/models/json-model\" [.'\$'.Model]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$'.Model]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "")
         {
             # handle may  property
             # .'$'.''
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_1 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$'.'']", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$'.'']", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$']", defined $path ? $lpath_1 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <Model> [.'\$']", $path] if defined $rep and not exists $$val{"Model"};
         }
         return 0;
     }
-    return $must_count == 1;
+    return 1;
 }
 
 sub _jm_re_0($$$)
@@ -67,28 +91,42 @@ sub _jm_re_1($$$)
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'%']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_starts_with($prop, "#"))
         {
             # handle 2 re props
             # .'%'.'/^#/'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'%'.'/^#/']", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
         }
-        elsif (_jm_re_0($prop, undef, undef))
+        elsif (_jm_re_0($prop, $path, $rep))
         {
             # handle 2 re props
             # .'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_1($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && _jm_re_1($pval, defined $path ? $lpath_2 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/^([#~\\\$%\\\@|&+^/*=]|[<>!]=?)\\\$/\" [.'%'.'/^\\\\..+\$/']", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.'%']", defined $path ? $lpath_2 : undef] if defined $rep;
             return 0;
         }
     }
@@ -101,19 +139,29 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # JSON Model Subset for Localization Renames
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "\$")
         {
             # handle must $ property
             $must_count++;
             # .'$'
-            $res = _jm_obj_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_0($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "~")
@@ -122,7 +170,12 @@ sub json_model_1($$$)
             $must_count++;
             # .'~'
             $res = jm_is_string($pval) && $pval eq "https://json-model.org/models/l10n";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_https://json-model.org/models/l10n\" [.'~']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'~']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "%")
@@ -131,8 +184,13 @@ sub json_model_1($$$)
             $must_count++;
             # dot-prefixed arbitrary key, one or two char keyword values
             # .'%'
-            $res = _jm_obj_1($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_1($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'%']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'%']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "\@")
@@ -141,7 +199,12 @@ sub json_model_1($$$)
             $must_count++;
             # .'@'
             $res = jm_is_string($pval) && $pval eq "\$Model";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_\\\$Model\" [.'\@']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\@']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -149,14 +212,30 @@ sub json_model_1($$$)
             # handle 1 re props
             # .'/^#/'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'/^#/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 4;
+    if ($must_count != 4)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <\$> [.]", $path] if defined $rep and not exists $$val{"\$"};
+            push @$rep, ["missing mandatory prop <%> [.]", $path] if defined $rep and not exists $$val{"%"};
+            push @$rep, ["missing mandatory prop <\@> [.]", $path] if defined $rep and not exists $$val{"\@"};
+            push @$rep, ["missing mandatory prop <~> [.]", $path] if defined $rep and not exists $$val{"~"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 

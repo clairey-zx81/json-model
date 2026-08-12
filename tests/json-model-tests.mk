@@ -339,7 +339,7 @@ ir: $(F.ir)
 # Perl Backend
 #
 %.pl: %.model.json
-	$(JMC.cmd) --no-reporting -o $@ $<
+	$(JMC.cmd) -o $@ $<
 
 # NOTE no -r for now
 # TODO check for specific pl error
@@ -347,7 +347,7 @@ ir: $(F.ir)
 	shopt -s nullglob
 	set -o pipefail
 	./$< $*.*.{true,false}.json | sort > $@
-	./$< -t $*.values.json >> $@
+	./$< -t -r $*.values.json >> $@
 	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0

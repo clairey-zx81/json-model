@@ -23,7 +23,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$u1'
-    return jm_is_string($val) && $val eq "https://json-model.org/models/json-model";
+    my $res = jm_is_string($val) && $val eq "https://json-model.org/models/json-model";
+    push @$rep, ["unexpected value for model \"https://json-model.org/models/json-model\" [.'\$u1']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $u2 (.'$u2')
@@ -31,7 +33,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$u2'
-    return jm_is_string($val) && $val eq "file://./url_looking.model.json";
+    my $res = jm_is_string($val) && $val eq "file://./url_looking.model.json";
+    push @$rep, ["unexpected value for model \"file://./url_looking.model.json\" [.'\$u2']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -41,7 +45,9 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # trigger a warning on url-looking definitions
     # .
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

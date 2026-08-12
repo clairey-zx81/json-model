@@ -21,14 +21,34 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .a
-    return jm_is_string($pval);
+    my $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

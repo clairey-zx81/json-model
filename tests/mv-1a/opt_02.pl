@@ -22,10 +22,35 @@ sub json_model_1($$$)
     # flatten and xor to or test
     # .
     # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    # .'|'.3
-    return jm_is_integer($val) && $val >= 0 || jm_is_numeric($val) && $val >= 0.0 || !defined($val) || jm_is_boolean($val);
+    my $res = jm_is_integer($val) && $val >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'|'.0]", $path] if defined $rep;
+        # .'|'.1
+        $res = jm_is_numeric($val) && $val >= 0.0;
+        unless ($res)
+        {
+            push @$rep, ["not a 0.0 strict float [.'|'.1]", $path] if defined $rep;
+            # .'|'.2
+            $res = !defined($val);
+            unless ($res)
+            {
+                push @$rep, ["not null [.'|'.2]", $path] if defined $rep;
+                # .'|'.3
+                $res = jm_is_boolean($val);
+                push @$rep, ["not a bool [.'|'.3]", $path] if defined $rep and not $res;
+            }
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

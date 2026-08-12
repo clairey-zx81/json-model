@@ -23,18 +23,49 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"discriminator"};
+    unless (exists $$val{"discriminator"})
+    {
+        push @$rep, ["missing mandatory prop <discriminator> [.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "discriminator"] : undef;
     $pval = $$val{"discriminator"};
     # .'|'.0.discriminator
     my $res = jm_is_boolean($pval) && $pval == 1;
-    return 0 unless $res;
-    return 0 unless exists $$val{"x"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"=true\" [.'|'.0.discriminator]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <discriminator> [.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"x"})
+    {
+        push @$rep, ["missing mandatory prop <x> [.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "x"] : undef;
     $pval = $$val{"x"};
     # .'|'.0.x
-    return jm_is_string($pval);
+    $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'|'.0.x]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <x> [.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'|'.1
@@ -42,18 +73,49 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"discriminator"};
+    unless (exists $$val{"discriminator"})
+    {
+        push @$rep, ["missing mandatory prop <discriminator> [.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "discriminator"] : undef;
     $pval = $$val{"discriminator"};
     # .'|'.1.discriminator
     my $res = jm_is_boolean($pval) && $pval == 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"y"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"=false\" [.'|'.1.discriminator]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <discriminator> [.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"y"})
+    {
+        push @$rep, ["missing mandatory prop <y> [.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "y"] : undef;
     $pval = $$val{"y"};
     # .'|'.1.y
-    return jm_is_string($pval);
+    $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'|'.1.y]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <y> [.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -70,12 +132,25 @@ sub json_model_1($$$)
         if (defined($tag_0 = $$val{"discriminator"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, undef, undef);
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <discriminator> value not found [.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <discriminator> is missing [.'|']", $path] if defined $rep;
         }
+    }
+    else
+    {
+        push @$rep, ["value is not an object [.'|']", $path] if defined $rep;
     }
     return $res;
 }

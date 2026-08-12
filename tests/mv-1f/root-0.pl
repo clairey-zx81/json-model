@@ -22,18 +22,49 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$Root'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Root']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$Root']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"id"};
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$Root']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$Root'.id
     my $res = jm_is_integer($pval) && $pval == 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"name"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"=0\" [.'\$Root'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$Root']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"name"})
+    {
+        push @$rep, ["missing mandatory prop <name> [.'\$Root']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "name"] : undef;
     $pval = $$val{"name"};
     # .'$Root'.name
-    return jm_is_string($pval);
+    $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\$Root'.name]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <name> [.'\$Root']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ (.)
@@ -41,7 +72,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, undef, undef);
+    my $res = json_model_2($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$Root\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

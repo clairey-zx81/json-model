@@ -23,7 +23,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Xxx'
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'\$Xxx'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -32,20 +34,30 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # prop ref to enum
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (json_model_2($prop, undef, undef))
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
+        if (json_model_2($prop, defined $path ? $lpath_0 : undef, $rep))
         {
             # handle 1 key props
             # .'$Xxx'
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0.0 strict float [.'\$Xxx']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }

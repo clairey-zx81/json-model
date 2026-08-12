@@ -29,28 +29,80 @@ sub json_model_1($$$)
     my $xc_1 = 0;
     # .'^'.0.'^'.0
     my $xr_1 = jm_is_string($val);
-    $xc_1++ if $xr_1;
+    if ($xr_1)
+    {
+        $xc_1++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.'^'.0.'^'.0]", $path] if defined $rep;
+    }
     # .'^'.0.'^'.1
     $xr_1 = jm_is_string($val) && $val eq "hello";
-    $xc_1++ if $xr_1;
+    if ($xr_1)
+    {
+        $xc_1++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"_hello\" [.'^'.0.'^'.1]", $path] if defined $rep;
+    }
     if ($xc_1 <= 1)
     {
         # .'^'.0.'^'.2
         $xr_1 = jm_is_string($val) && $val eq "world";
-        $xc_1++ if $xr_1;
+        if ($xr_1)
+        {
+            $xc_1++;
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"_world\" [.'^'.0.'^'.2]", $path] if defined $rep;
+        }
     }
     if ($xc_1 <= 1)
     {
         # .'^'.0.'^'.3
         $xr_1 = jm_is_string($val) && $val eq "!";
-        $xc_1++ if $xr_1;
+        if ($xr_1)
+        {
+            $xc_1++;
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"_!\" [.'^'.0.'^'.3]", $path] if defined $rep;
+        }
     }
     my $xr_0 = $xc_1 == 1;
-    $xc_0++ if $xr_0;
+    if ($xr_0)
+    {
+        @$rep = () if defined $rep;
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'^'.0.'^']", $path] if defined $rep;
+    }
     # .'^'.1
     $xr_0 = jm_is_string($val) && $val eq "hello";
-    $xc_0++ if $xr_0;
-    return $xc_0 == 1;
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"_hello\" [.'^'.1]", $path] if defined $rep;
+    }
+    $res = $xc_0 == 1;
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'^']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

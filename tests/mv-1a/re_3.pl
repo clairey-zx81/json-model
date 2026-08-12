@@ -27,17 +27,27 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "all")
         {
             # handle may all property
             # .all
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.all]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.all]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "nz")
@@ -46,7 +56,12 @@ sub json_model_1($$$)
             # .nz
             # "/./s"
             $res = jm_is_string($pval) && length $pval > 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/./s\" [.nz]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.nz]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "some")
@@ -54,10 +69,16 @@ sub json_model_1($$$)
             # handle may some property
             # .some
             # "/./"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/./\" [.some]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.some]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
         return 0;
     }
     return 1;

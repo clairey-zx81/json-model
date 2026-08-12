@@ -23,6 +23,7 @@ sub json_model_1($$$)
     # .
     # .'@'
     my $res = jm_is_array($val);
+    push @$rep, ["not array or unexpected array [.'\@']", $path] if defined $rep and not $res;
     # .in len at .
     my $arr_0_inlen = 0;
     if ($res)
@@ -30,11 +31,20 @@ sub json_model_1($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'.in'
             my $arr_0_inres = jm_is_integer($arr_0_item) && $arr_0_item == 1;
-            $arr_0_inlen++ if $arr_0_inres;
+            if ($arr_0_inres)
+            {
+                $arr_0_inlen++;
+            }
+            else
+            {
+                push @$rep, ["unexpected value for model \"=1\" [.'.in']", defined $path ? $arr_0_lpath : undef] if defined $rep;
+            }
         }
         $res = $arr_0_inlen == 1;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
     }
     return $res;
 }

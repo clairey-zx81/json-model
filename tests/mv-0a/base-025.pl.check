@@ -1,8 +1,8 @@
 base-025.values.json[0]: PASS
 base-025.values.json[1]: PASS
-base-025.values.json[2]: FAIL
-base-025.values.json[3]: FAIL
-base-025.values.json[4]: FAIL
+base-025.values.json[2]: FAIL (.: constraints failed [.])
+base-025.values.json[3]: FAIL (.: constraints failed [.])
+base-025.values.json[4]: FAIL (.: constraints failed [.])
 base-025.values.json[5]: FAIL
 base-025.values.json[6]: FAIL
 base-025.values.json[7]: FAIL

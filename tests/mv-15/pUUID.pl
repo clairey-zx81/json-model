@@ -20,7 +20,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_string($val) && jm_is_uuid($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_uuid($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$UUID\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

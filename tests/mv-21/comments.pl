@@ -24,19 +24,50 @@ sub json_model_1($$$)
     # comment.
     # .
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"hello"};
+    unless (exists $$val{"hello"})
+    {
+        push @$rep, ["missing mandatory prop <hello> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "hello"] : undef;
     $pval = $$val{"hello"};
     # .hello
     my $res = jm_is_string($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"world"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.hello]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <hello> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"world"})
+    {
+        push @$rep, ["missing mandatory prop <world> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "world"] : undef;
     $pval = $$val{"world"};
     # .world
     # "/^!/"
-    return jm_is_string($pval) && jm_starts_with($pval, "!");
+    $res = jm_is_string($pval) && jm_starts_with($pval, "!");
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"/^!/\" [.world]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <world> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

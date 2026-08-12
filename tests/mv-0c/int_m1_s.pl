@@ -20,7 +20,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["not a -1 strict int [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

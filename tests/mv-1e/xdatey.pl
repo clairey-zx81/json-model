@@ -30,7 +30,7 @@ sub _jm_xre_0($$$)
     my $match = $val =~ /^X-(?<s1>.*)-Y$/;
     return 0 unless $match;
     $extract = $+{"s1"};
-    return 0 unless jm_is_valid_date($extract, undef, undef);
+    return 0 unless jm_is_valid_date($extract, $path, $rep);
     return 1;
 }
 
@@ -40,7 +40,9 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/^X-($DATE)-Y$/X"
-    return jm_is_string($val) && _jm_xre_0($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_xre_0($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/^X-(\\\$DATE)-Y\\\$/X\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

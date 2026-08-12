@@ -21,10 +21,38 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # flatten and xor to or test
     # .
-    # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    return jm_is_integer($val) && (jm_is_integer($val) && ($val == 1 || $val == 2 || $val == 3));
+    my $res = jm_is_integer($val);
+    if ($res)
+    {
+        # .'|'.0
+        $res = jm_is_integer($val) && $val == 1;
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"=1\" [.'|'.0]", $path] if defined $rep;
+            # .'|'.1
+            $res = jm_is_integer($val) && $val == 2;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"=2\" [.'|'.1]", $path] if defined $rep;
+                # .'|'.2
+                $res = jm_is_integer($val) && $val == 3;
+                push @$rep, ["unexpected value for model \"=3\" [.'|'.2]", $path] if defined $rep and not $res;
+            }
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

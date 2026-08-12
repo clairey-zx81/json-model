@@ -26,6 +26,11 @@ sub json_model_1($$$)
     {
         my $fval_0 = $val;
         $res = $fval_0 == 42;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 1.0 strict float [.'\@']", $path] if defined $rep;
     }
     return $res;
 }

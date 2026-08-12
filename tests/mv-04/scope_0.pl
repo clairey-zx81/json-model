@@ -29,7 +29,9 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$s'
     # "/[0-9]/"
-    return jm_is_string($val) && _jm_re_0($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/[0-9]/\" [.'\$s']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -40,11 +42,22 @@ sub json_model_1($$$)
     my $res = jm_is_array($val) && scalar @$val == 2;
     if ($res)
     {
+        my $lpath_0 = defined $path ? [@{$path}, 0] : undef;
         # .0
-        $res = json_model_2($$val[0], undef, undef);
-        $res = json_model_2($$val[1], undef, undef) if $res;
-        # .1
+        $res = json_model_2($$val[0], defined $path ? $lpath_0 : undef, $rep);
+        if ($res)
+        {
+            $lpath_0 = defined $path ? [@{$path}, 1] : undef;
+            # .1
+            $res = json_model_2($$val[1], defined $path ? $lpath_0 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$s\" [.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"\\\$s\" [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+        }
     }
+    push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

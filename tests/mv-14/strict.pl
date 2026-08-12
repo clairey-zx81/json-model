@@ -22,14 +22,34 @@ sub json_model_1($$$)
     # JSON_MODEL_STRICT_INT
     # .
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"si"};
+    unless (exists $$val{"si"})
+    {
+        push @$rep, ["missing mandatory prop <si> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "si"] : undef;
     $pval = $$val{"si"};
     # .si
-    return jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.si]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <si> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

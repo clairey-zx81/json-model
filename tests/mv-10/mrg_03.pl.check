@@ -1,16 +1,16 @@
 mrg_03.values.json[0]: PASS
-mrg_03.values.json[1]: FAIL
-mrg_03.values.json[2]: FAIL
-mrg_03.values.json[3]: FAIL
-mrg_03.values.json[4]: FAIL
-mrg_03.values.json[5]: FAIL
-mrg_03.values.json[6]: FAIL
-mrg_03.values.json[7]: FAIL
-mrg_03.values.json[8]: FAIL
-mrg_03.values.json[9]: FAIL
-mrg_03.values.json[10]: FAIL
-mrg_03.values.json[11]: FAIL
-mrg_03.values.json[12]: FAIL
-mrg_03.values.json[13]: FAIL
-mrg_03.values.json[14]: FAIL
-mrg_03.values.json[15]: FAIL
+mrg_03.values.json[1]: FAIL (.c: not a 1.0 strict float [.c]; .c: unexpected value for mandatory prop <c> [.])
+mrg_03.values.json[2]: FAIL (.a: not a 1 strict int [.a]; .a: unexpected value for mandatory prop <a> [.])
+mrg_03.values.json[3]: FAIL (.b: unexpected value for model "" [.b]; .b: unexpected value for mandatory prop <b> [.])
+mrg_03.values.json[4]: FAIL (.: bad property count [.])
+mrg_03.values.json[5]: FAIL (.: bad property count [.])
+mrg_03.values.json[6]: FAIL (.: bad property count [.])
+mrg_03.values.json[7]: FAIL (.: bad property count [.])
+mrg_03.values.json[8]: FAIL (.: bad property count [.])
+mrg_03.values.json[9]: FAIL (.: not an object [.])
+mrg_03.values.json[10]: FAIL (.: not an object [.])
+mrg_03.values.json[11]: FAIL (.: not an object [.])
+mrg_03.values.json[12]: FAIL (.: not an object [.])
+mrg_03.values.json[13]: FAIL (.: not an object [.])
+mrg_03.values.json[14]: FAIL (.: not an object [.])
+mrg_03.values.json[15]: FAIL (.: not an object [.])

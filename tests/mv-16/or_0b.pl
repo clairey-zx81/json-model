@@ -23,12 +23,47 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # mixed type constants
     # .
-    # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    # .'|'.3
-    # .'|'.4
-    return jm_is_string($val) && exists $_jm_cst_0{$val} || !defined($val) || jm_is_boolean($val) && $val == 0 || jm_is_integer($val) && $val == 42 || jm_is_numeric($val) && $val == 3.14159 || jm_is_numeric($val) && $val == 1e+101;
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    unless ($res)
+    {
+        push @$rep, ["value not in enum [.'|']", $path] if defined $rep;
+        # .'|'.0
+        $res = !defined($val);
+        unless ($res)
+        {
+            push @$rep, ["not null [.'|'.0]", $path] if defined $rep;
+            # .'|'.1
+            $res = jm_is_boolean($val) && $val == 0;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"=false\" [.'|'.1]", $path] if defined $rep;
+                # .'|'.2
+                $res = jm_is_integer($val) && $val == 42;
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"=42\" [.'|'.2]", $path] if defined $rep;
+                    # .'|'.3
+                    $res = jm_is_numeric($val) && $val == 3.14159;
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"=3.14159\" [.'|'.3]", $path] if defined $rep;
+                        # .'|'.4
+                        $res = jm_is_numeric($val) && $val == 1e+101;
+                        push @$rep, ["unexpected value for model \"=10E100\" [.'|'.4]", $path] if defined $rep and not $res;
+                    }
+                }
+            }
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+        }
+    }
+    return $res;
 }
 
 

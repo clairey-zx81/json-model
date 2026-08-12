@@ -24,18 +24,49 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.movie.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.movie.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"t"};
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.movie.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .movie.'|'.0.t
     my $res = jm_is_string($pval) && $pval eq "fr";
-    return 0 unless $res;
-    return 0 unless exists $$val{"titre"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"fr\" [.movie.'|'.0.t]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.movie.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"titre"})
+    {
+        push @$rep, ["missing mandatory prop <titre> [.movie.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "titre"] : undef;
     $pval = $$val{"titre"};
     # .movie.'|'.0.titre
-    return jm_is_string($pval);
+    $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.movie.'|'.0.titre]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <titre> [.movie.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .movie.'|'.1
@@ -43,18 +74,49 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.movie.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.movie.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"t"};
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.movie.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .movie.'|'.1.t
     my $res = jm_is_string($pval) && $pval eq "en";
-    return 0 unless $res;
-    return 0 unless exists $$val{"title"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"en\" [.movie.'|'.1.t]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.movie.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"title"})
+    {
+        push @$rep, ["missing mandatory prop <title> [.movie.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "title"] : undef;
     $pval = $$val{"title"};
     # .movie.'|'.1.title
-    return jm_is_string($pval);
+    $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.movie.'|'.1.title]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <title> [.movie.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .movie.'|'.2
@@ -62,18 +124,49 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.movie.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.movie.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"t"};
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.movie.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .movie.'|'.2.t
     my $res = jm_is_string($pval) && $pval eq "ru";
-    return 0 unless $res;
-    return 0 unless exists $$val{"suti"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"ru\" [.movie.'|'.2.t]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.movie.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"suti"})
+    {
+        push @$rep, ["missing mandatory prop <suti> [.movie.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "suti"] : undef;
     $pval = $$val{"suti"};
     # .movie.'|'.2.suti
-    return jm_is_string($pval);
+    $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.movie.'|'.2.suti]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <suti> [.movie.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -84,10 +177,24 @@ sub json_model_1($$$)
     # exemple d'un rapport
     # .
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"movie"};
+    unless (exists $$val{"movie"})
+    {
+        push @$rep, ["missing mandatory prop <movie> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "movie"] : undef;
     $pval = $$val{"movie"};
     # .movie
     my $res = jm_is_object($pval);
@@ -97,14 +204,32 @@ sub json_model_1($$$)
         if (defined($tag_0 = $$pval{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($pval, undef, undef);
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($pval, defined $path ? $lpath : undef, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <t> value not found [.movie.'|']", defined $path ? $lpath : undef] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <t> is missing [.movie.'|']", defined $path ? $lpath : undef] if defined $rep;
         }
     }
-    return $res;
+    else
+    {
+        push @$rep, ["value is not an object [.movie.'|']", defined $path ? $lpath : undef] if defined $rep;
+    }
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for mandatory prop <movie> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

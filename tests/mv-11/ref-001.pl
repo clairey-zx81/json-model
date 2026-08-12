@@ -23,18 +23,49 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$a'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$a']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$a']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.'\$a']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .'$a'.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$a'.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.'\$a']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.'\$a']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .'$a'.b
-    return jm_is_integer($pval) && $pval >= 0;
+    $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$a'.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.'\$a']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $b (.'$b')
@@ -43,23 +74,64 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$b'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$b']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.'\$b']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.'\$b']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .'$b'.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$b'.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.'\$b']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.'\$b']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .'$b'.b
     $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"c"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$b'.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.'\$b']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.'\$b']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .'$b'.c
-    return jm_is_integer($pval) && $pval >= 0;
+    $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$b'.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.'\$b']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ (.)
@@ -67,7 +139,20 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_object($val) && jm_obj_size($val) == 0;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        push @$rep, ["expecting empty object [.]", $path] if defined $rep;
+        return 0;
+    }
 }
 
 

@@ -1,14 +1,14 @@
 xoropt-010.values.json[0]: PASS
 xoropt-010.values.json[1]: PASS
 xoropt-010.values.json[2]: PASS
-xoropt-010.values.json[3]: FAIL
-xoropt-010.values.json[4]: FAIL
-xoropt-010.values.json[5]: FAIL
-xoropt-010.values.json[6]: FAIL
-xoropt-010.values.json[7]: FAIL
-xoropt-010.values.json[8]: FAIL
-xoropt-010.values.json[9]: FAIL
-xoropt-010.values.json[10]: FAIL
-xoropt-010.values.json[11]: FAIL
-xoropt-010.values.json[12]: FAIL
-xoropt-010.values.json[13]: FAIL
+xoropt-010.values.json[3]: FAIL (.a: unexpected value for model "" [.'|'.0.a]; .a: unexpected value for mandatory prop <a> [.'|'.0]; .: unexpected element [.'|'.0]; .a: not an object [.'|'.1.a]; .a: unexpected element [.'|'.1.a]; .a: invalid optional prop value [.'|'.1.a]; .: unexpected element [.'|'.1]; .: no model matched [.'|'])
+xoropt-010.values.json[4]: FAIL (.: bad property count [.'|'.0]; .: unexpected element [.'|'.0]; .: missing mandatory prop <b> [.'|'.1]; .: unexpected element [.'|'.1]; .: no model matched [.'|'])
+xoropt-010.values.json[5]: FAIL (.: unexpected type [.'|'])
+xoropt-010.values.json[6]: FAIL (.: unexpected type [.'|'])
+xoropt-010.values.json[7]: FAIL (.: unexpected type [.'|'])
+xoropt-010.values.json[8]: FAIL (.: unexpected type [.'|'])
+xoropt-010.values.json[9]: FAIL (.: unexpected type [.'|'])
+xoropt-010.values.json[10]: FAIL (.: unexpected type [.'|'])
+xoropt-010.values.json[11]: FAIL (.: unexpected type [.'|'])
+xoropt-010.values.json[12]: FAIL (.: unexpected type [.'|'])
+xoropt-010.values.json[13]: FAIL (.: unexpected type [.'|'])

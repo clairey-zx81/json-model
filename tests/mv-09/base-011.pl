@@ -26,6 +26,11 @@ sub json_model_1($$$)
     {
         my $ival_0 = $val;
         $res = $ival_0 <= 10;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 1 strict int [.'\@']", $path] if defined $rep;
     }
     return $res;
 }

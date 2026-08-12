@@ -26,13 +26,19 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
             # .'|'.6.a
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'|'.6.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'|'.6.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "b")
@@ -40,12 +46,26 @@ sub _jm_obj_0($$$)
             # handle may b property
             # .'|'.6.b
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'|'.6.b]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'|'.6.b]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'|'.6]", defined $path ? $lpath_0 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <a> [.'|'.6]", $path] if defined $rep and not exists $$val{"a"};
         }
         return 0;
     }
-    return $must_count == 1;
+    return 1;
 }
 
 # check $ (.)
@@ -54,7 +74,18 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # typical jsu output for undertyped schemas, whatever but
     # .
-    return ! jm_is_object($val) || _jm_obj_0($val, undef, undef);
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'|'.6
+        $res = _jm_obj_0($val, $path, $rep);
+        push @$rep, ["unexpected element [.'|'.6]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        $res = 1;
+    }
+    return $res;
 }
 
 

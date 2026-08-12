@@ -22,17 +22,44 @@ sub json_model_1($$$)
     # open with only some mandatory properties
     # .
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"name"};
+    unless (exists $$val{"name"})
+    {
+        push @$rep, ["missing mandatory prop <name> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "name"] : undef;
     $pval = $$val{"name"};
     # .name
     my $res = jm_is_string($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"born"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.name]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <name> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"born"})
+    {
+        push @$rep, ["missing mandatory prop <born> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "born"] : undef;
     $pval = $$val{"born"};
     # .born
-    return jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
+    $res = jm_is_string($pval) && jm_is_valid_date($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$DATE\" [.born]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <born> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

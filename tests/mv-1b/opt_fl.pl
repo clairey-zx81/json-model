@@ -22,7 +22,9 @@ sub json_model_1($$$)
     # JSON_MODEL_LOOSE_FLOAT
     # .
     # .'@'
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["not a -1.0 loose float [.'\@']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

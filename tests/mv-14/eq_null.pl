@@ -20,7 +20,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return !defined($val);
+    my $res = !defined($val);
+    push @$rep, ["unexpected value for model \"=null\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

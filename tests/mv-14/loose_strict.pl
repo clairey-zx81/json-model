@@ -25,14 +25,34 @@ sub json_model_5($$$)
     # JSON_MODEL_LOOSE_INT
     # .'$loose'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$loose']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.'\$loose']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"li"};
+    unless (exists $$val{"li"})
+    {
+        push @$rep, ["missing mandatory prop <li> [.'\$loose']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "li"] : undef;
     $pval = $$val{"li"};
     # .'$loose'.li
-    return jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 loose int [.'\$loose'.li]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <li> [.'\$loose']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $strict (.'$strict')
@@ -42,14 +62,34 @@ sub json_model_6($$$)
     # JSON_MODEL_STRICT_INT
     # .'$strict'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$strict']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.'\$strict']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"si"};
+    unless (exists $$val{"si"})
+    {
+        push @$rep, ["missing mandatory prop <si> [.'\$strict']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "si"] : undef;
     $pval = $$val{"si"};
     # .'$strict'.si
-    return jm_is_integer($pval) && $pval >= 0;
+    my $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$strict'.si]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <si> [.'\$strict']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $combined (.'$combined')
@@ -58,18 +98,49 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$combined'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$combined']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$combined']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"li"};
+    unless (exists $$val{"li"})
+    {
+        push @$rep, ["missing mandatory prop <li> [.'\$combined']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "li"] : undef;
     $pval = $$val{"li"};
     # .'$combined'.li
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"si"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$combined'.li]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <li> [.'\$combined']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"si"})
+    {
+        push @$rep, ["missing mandatory prop <si> [.'\$combined']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "si"] : undef;
     $pval = $$val{"si"};
     # .'$combined'.si
-    return jm_is_integer($pval) && $pval >= 0;
+    $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$combined'.si]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <si> [.'\$combined']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ (.)
@@ -77,7 +148,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_4($val, undef, undef);
+    my $res = json_model_4($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$combined\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

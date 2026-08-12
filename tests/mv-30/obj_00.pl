@@ -20,8 +20,13 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     # accept any object
-    return jm_is_object($val);
+    return 1;
 }
 
 

@@ -21,7 +21,9 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # a scalar
     # .
-    return ! jm_is_object($val) && ! jm_is_array($val);
+    my $res = ! jm_is_object($val) && ! jm_is_array($val);
+    push @$rep, ["unexpected type [.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

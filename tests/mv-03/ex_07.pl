@@ -28,8 +28,23 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$ex5'
     # .'$ex5'.'|'.0
-    # .'$ex5'.'|'.1
-    return json_model_5($val, undef, undef) || json_model_6($val, undef, undef);
+    my $res = json_model_5($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Ex05a\" [.'\$ex5'.'|'.0]", $path] if defined $rep;
+        # .'$ex5'.'|'.1
+        $res = json_model_6($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$Ex05b\" [.'\$ex5'.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$ex5'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 sub _jm_re_0($$$)
@@ -45,7 +60,9 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$Ex07'
     # "/[a-z]/"
-    return jm_is_string($val) && _jm_re_0($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/[a-z]/\" [.'\$Ex07']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $__external_0 (.'$__external_0')
@@ -54,8 +71,23 @@ sub json_model_7($$$)
     my ($val, $path, $rep) = @_;
     # .'$__external_0'
     # .'$__external_0'.'|'.0
-    # .'$__external_0'.'|'.1
-    return json_model_8($val, undef, undef) || json_model_9($val, undef, undef);
+    my $res = json_model_8($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Ex05a\" [.'\$__external_0'.'|'.0]", $path] if defined $rep;
+        # .'$__external_0'.'|'.1
+        $res = json_model_9($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$Ex05b\" [.'\$__external_0'.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$__external_0'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $ (.)
@@ -66,16 +98,32 @@ sub json_model_1($$$)
     my $res = jm_is_array($val) && scalar @$val == 3;
     if ($res)
     {
+        my $lpath_0 = defined $path ? [@{$path}, 0] : undef;
         # .0
-        $res = json_model_5($$val[0], undef, undef);
+        $res = json_model_5($$val[0], defined $path ? $lpath_0 : undef, $rep);
         if ($res)
         {
+            $lpath_0 = defined $path ? [@{$path}, 1] : undef;
             # .1
-            $res = json_model_9($$val[1], undef, undef);
-            $res = json_model_3($$val[2], undef, undef) if $res;
-            # .2
+            $res = json_model_9($$val[1], defined $path ? $lpath_0 : undef, $rep);
+            if ($res)
+            {
+                $lpath_0 = defined $path ? [@{$path}, 2] : undef;
+                # .2
+                $res = json_model_3($$val[2], defined $path ? $lpath_0 : undef, $rep);
+                push @$rep, ["unexpected value for model \"\\\$Ex07\" [.2]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+            }
+            else
+            {
+                push @$rep, ["unexpected value for model \"\\\$__external_0#Ex05b\" [.1]", defined $path ? $lpath_0 : undef] if defined $rep;
+            }
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"\\\$ex5#Ex05a\" [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
         }
     }
+    push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -84,7 +132,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ex5#Ex05a'
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$ex5#Ex05a']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ex5#Ex05b (.'$ex5#Ex05b')
@@ -92,7 +142,9 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ex5#Ex05b'
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$ex5#Ex05b']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $__external_0#Ex05a (.'$__external_0#Ex05a')
@@ -100,7 +152,9 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$__external_0#Ex05a'
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$__external_0#Ex05a']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $__external_0#Ex05b (.'$__external_0#Ex05b')
@@ -108,7 +162,9 @@ sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$__external_0#Ex05b'
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$__external_0#Ex05b']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

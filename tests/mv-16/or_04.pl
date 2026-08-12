@@ -37,11 +37,39 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # deux chaînes constantes et deux re, séparation possible ; constantes matchent re…
     # .
-    # .'|'.0
-    # "/[0-9]/"
-    # .'|'.1
-    # "/[a-z]/"
-    return jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_string($val) && (_jm_re_1($val, undef, undef) || _jm_re_0($val, undef, undef));
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    unless ($res)
+    {
+        push @$rep, ["value not in enum [.'|']", $path] if defined $rep;
+        $res = jm_is_string($val);
+        if ($res)
+        {
+            # .'|'.0
+            # "/[0-9]/"
+            $res = _jm_re_1($val, $path, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/[0-9]/\" [.'|'.0]", $path] if defined $rep;
+                # .'|'.1
+                # "/[a-z]/"
+                $res = _jm_re_0($val, $path, $rep);
+                push @$rep, ["unexpected value for model \"/[a-z]/\" [.'|'.1]", $path] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+            }
+        }
+        else
+        {
+            push @$rep, ["unexpected type [.'|']", $path] if defined $rep;
+        }
+    }
+    return $res;
 }
 
 

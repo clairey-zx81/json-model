@@ -21,23 +21,39 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'@'
+    my $lpath_0;
     my $res = jm_is_array($val);
     if ($res)
     {
         my $len_0 = scalar @$val;
-        $res = jm_is_integer($$val[0]) if $len_0 > 0;
-        # .'@'.0
+        if ($len_0 > 0)
+        {
+            $lpath_0 = defined $path ? [@{$path}, 0] : undef;
+            # .'@'.0
+            $res = jm_is_integer($$val[0]);
+            push @$rep, ["not a -1 strict int [.'\@'.0]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+        }
         if ($res)
         {
-            $res = jm_is_string($$val[1]) if $len_0 > 1;
-            # .'@'.1
+            if ($len_0 > 1)
+            {
+                $lpath_0 = defined $path ? [@{$path}, 1] : undef;
+                # .'@'.1
+                $res = jm_is_string($$val[1]);
+                push @$rep, ["unexpected value for model \"\" [.'\@'.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+            }
             if ($res)
             {
                 for my $idx_0 (2 .. $len_0 - 1)
                 {
+                    $lpath_0 = defined $path ? [@{$path}, $idx_0] : undef;
                     # .'@'.2
                     $res = jm_is_boolean($$val[$idx_0]);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a bool [.'\@'.2]", defined $path ? $lpath_0 : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
         }
@@ -46,6 +62,11 @@ sub json_model_1($$$)
     {
         my $ival_0 = scalar @$val;
         $res = $ival_0 >= 5;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\@']", $path] if defined $rep;
     }
     return $res;
 }

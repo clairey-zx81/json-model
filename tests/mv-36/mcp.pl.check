@@ -1,18 +1,18 @@
 mcp.values.json[0]: PASS
-mcp.values.json[1]: FAIL
+mcp.values.json[1]: FAIL (.: tag <method> value not found [.'|']; .: bad property count [.'$InitializeResponse']; .: bad property count [.'$Notification']; .: bad property count [.'$ToolsListResponse']; .: bad property count [.'$ToolCallResponse'])
 mcp.values.json[2]: PASS
-mcp.values.json[3]: FAIL
+mcp.values.json[3]: FAIL (.: tag prop <method> is missing [.'|']; .result.protocolVersion: value not in enum [.'$ProtocolVersion'.'|']; .result.protocolVersion: unexpected value for model "\$ProtocolVersion" [.'$InitializeResponse'.result.protocolVersion]; .result.protocolVersion: unexpected value for mandatory prop <protocolVersion> [.'$InitializeResponse'.result]; .result: unexpected element [.'$InitializeResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$InitializeResponse']; .: bad property count [.'$Notification']; .result: bad property count [.'$ToolsListResponse'.result]; .result: unexpected element [.'$ToolsListResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$ToolsListResponse']; .result: missing mandatory prop <content> [.'$ToolCallResponse'.result]; .result: unexpected element [.'$ToolCallResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$ToolCallResponse'])
 mcp.values.json[4]: PASS
-mcp.values.json[5]: FAIL
+mcp.values.json[5]: FAIL (.: tag <method> value not found [.'|']; .: bad property count [.'$InitializeResponse']; .method: unexpected value for model "/^notifications/" [.'$Notification'.method]; .method: unexpected value for mandatory prop <method> [.'$Notification']; .: bad property count [.'$ToolsListResponse']; .: bad property count [.'$ToolCallResponse'])
 mcp.values.json[6]: PASS
-mcp.values.json[7]: FAIL
+mcp.values.json[7]: FAIL (.: tag <method> value not found [.'|']; .: missing mandatory prop <result> [.'$InitializeResponse']; .: bad property count [.'$Notification']; .: missing mandatory prop <result> [.'$ToolsListResponse']; .: missing mandatory prop <result> [.'$ToolCallResponse'])
 mcp.values.json[8]: PASS
-mcp.values.json[9]: FAIL
+mcp.values.json[9]: FAIL (.: tag prop <method> is missing [.'|']; .result: bad property count [.'$InitializeResponse'.result]; .result: unexpected element [.'$InitializeResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$InitializeResponse']; .: bad property count [.'$Notification']; .result.tools.2: not an object [.'$Tool']; .result.tools.2: unexpected value for model "\$Tool" [.'$ToolsListResponse'.result.tools.'@'.0]; .result.tools: not array or unexpected array [.'$ToolsListResponse'.result.tools.'@']; .result.tools: unexpected value for mandatory prop <tools> [.'$ToolsListResponse'.result]; .result: unexpected element [.'$ToolsListResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$ToolsListResponse']; .result: missing mandatory prop <content> [.'$ToolCallResponse'.result]; .result: unexpected element [.'$ToolCallResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$ToolCallResponse'])
 mcp.values.json[10]: PASS
-mcp.values.json[11]: FAIL
+mcp.values.json[11]: FAIL (.id: not a -1 strict int [.'$ToolCallRequest'.id]; .id: unexpected value for mandatory prop <id> [.'$ToolCallRequest']; .: bad property count [.'$InitializeResponse']; .: bad property count [.'$Notification']; .: bad property count [.'$ToolsListResponse']; .: bad property count [.'$ToolCallResponse'])
 mcp.values.json[12]: PASS
-mcp.values.json[13]: FAIL
+mcp.values.json[13]: FAIL (.: tag prop <method> is missing [.'|']; .result: bad property count [.'$InitializeResponse'.result]; .result: unexpected element [.'$InitializeResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$InitializeResponse']; .: bad property count [.'$Notification']; .result: missing mandatory prop <tools> [.'$ToolsListResponse'.result]; .result: unexpected element [.'$ToolsListResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$ToolsListResponse']; .result.content: not array or unexpected array [.'$ToolCallResponse'.result.content]; .result.content: unexpected value for mandatory prop <content> [.'$ToolCallResponse'.result]; .result: unexpected element [.'$ToolCallResponse'.result]; .result: unexpected value for mandatory prop <result> [.'$ToolCallResponse'])
 mcp.values.json[14]: PASS
-mcp.values.json[15]: FAIL
+mcp.values.json[15]: FAIL (.: tag prop <method> is missing [.'|']; .: bad property count [.'$InitializeResponse']; .: bad property count [.'$Notification']; .: bad property count [.'$ToolsListResponse']; .: bad property count [.'$ToolCallResponse'])
 mcp.values.json[16]: PASS
-mcp.values.json[17]: FAIL
+mcp.values.json[17]: FAIL (.: tag <method> value not found [.'|']; .: missing mandatory prop <result> [.'$InitializeResponse']; .: bad property count [.'$Notification']; .: missing mandatory prop <result> [.'$ToolsListResponse']; .: missing mandatory prop <result> [.'$ToolCallResponse'])

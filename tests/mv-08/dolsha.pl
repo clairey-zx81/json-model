@@ -27,11 +27,17 @@ sub json_model_2($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'$array'.0
-            $res = json_model_1($arr_0_item, undef, undef);
-            last unless $res;
+            $res = json_model_1($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$self\" [.'\$array'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$array']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -40,19 +46,30 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "prop")
         {
             # handle may prop property
             # .prop
-            $res = json_model_1($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_1($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$self\" [.prop]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.prop]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
         return 0;
     }
     return 1;

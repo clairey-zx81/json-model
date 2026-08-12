@@ -13,7 +13,9 @@
 - [x] tests: run tests inside docker image
 - [x] perl: fix bad double post condition
 - [x] perl: report error location
-- [ ] tests: enable reporting with perl
+- [x] tests: enable reporting with perl
+- [x] perl: fix uncleaned reports on pass
+- [ ] perl: fix model escaping in error messages
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes

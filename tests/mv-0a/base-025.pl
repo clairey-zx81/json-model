@@ -26,6 +26,7 @@ sub json_model_1($$$)
     {
         my $ival_0 = jm_obj_size($val);
         $res = $ival_0 <= 3 && $ival_0 >= 2;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
     }
     return $res;
 }

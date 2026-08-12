@@ -27,19 +27,29 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
             # .a
             $res = jm_is_integer($pval) && $pval >= 1;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 1 strict int [.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "b")
@@ -48,7 +58,12 @@ sub json_model_1($$$)
             $must_count++;
             # .b
             $res = jm_is_integer($pval) && $pval >= 1;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 1 strict int [.b]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.b]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "c")
@@ -56,29 +71,52 @@ sub json_model_1($$$)
             # handle may c property
             # .c
             $res = jm_is_integer($pval) && $pval >= 1;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 1 strict int [.c]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.c]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
-        if (jm_is_valid_date($prop, undef, undef))
+        if (jm_is_valid_date($prop, defined $path ? $lpath_0 : undef, $rep))
         {
             # handle 1 key props
             # .'$DATE'
             $res = jm_is_integer($pval) && $pval >= 1;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 1 strict int [.'\$DATE']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
-        elsif (_jm_re_0($prop, undef, undef))
+        elsif (_jm_re_0($prop, $path, $rep))
         {
             # handle 1 re props
             # .'/foo/'
             $res = jm_is_integer($pval) && $pval >= 1;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 1 strict int [.'/foo/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 2;
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <a> [.]", $path] if defined $rep and not exists $$val{"a"};
+            push @$rep, ["missing mandatory prop <b> [.]", $path] if defined $rep and not exists $$val{"b"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 

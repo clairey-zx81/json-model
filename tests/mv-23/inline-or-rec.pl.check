@@ -1,16 +1,16 @@
 inline-or-rec.values.json[0]: PASS
 inline-or-rec.values.json[1]: PASS
-inline-or-rec.values.json[2]: FAIL
-inline-or-rec.values.json[3]: FAIL
-inline-or-rec.values.json[4]: FAIL
-inline-or-rec.values.json[5]: FAIL
-inline-or-rec.values.json[6]: FAIL
-inline-or-rec.values.json[7]: FAIL
-inline-or-rec.values.json[8]: FAIL
-inline-or-rec.values.json[9]: FAIL
-inline-or-rec.values.json[10]: FAIL
-inline-or-rec.values.json[11]: FAIL
-inline-or-rec.values.json[12]: FAIL
-inline-or-rec.values.json[13]: FAIL
-inline-or-rec.values.json[14]: FAIL
-inline-or-rec.values.json[15]: FAIL
+inline-or-rec.values.json[2]: FAIL (.: bad property count [.'$ab'.'|'.0])
+inline-or-rec.values.json[3]: FAIL (.: tag prop <t> is missing [.'$ab'.'|'])
+inline-or-rec.values.json[4]: FAIL (.: tag prop <t> is missing [.'$ab'.'|'])
+inline-or-rec.values.json[5]: FAIL (.: bad property count [.'$ab'.'|'.0])
+inline-or-rec.values.json[6]: FAIL (.: tag prop <t> is missing [.'$ab'.'|'])
+inline-or-rec.values.json[7]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[8]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[9]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[10]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[11]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[12]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[13]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[14]: FAIL (.: value is not an object [.'$ab'.'|'])
+inline-or-rec.values.json[15]: FAIL (.: value is not an object [.'$ab'.'|'])

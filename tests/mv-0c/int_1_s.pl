@@ -22,7 +22,9 @@ sub json_model_1($$$)
     # JSON_MODEL_SIGNED_INT
     # .
     # .'@'
-    return jm_is_integer($val) && $val >= 1;
+    my $res = jm_is_integer($val) && $val >= 1;
+    push @$rep, ["not a 1 strict int [.'\@']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

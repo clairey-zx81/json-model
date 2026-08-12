@@ -154,7 +154,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi'
-    return json_model_4($val, undef, undef);
+    my $res = json_model_4($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$OpenAPI\" [.'\$openapi']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -162,7 +164,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_4($val, undef, undef);
+    my $res = json_model_4($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$openapi\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 sub _jm_re_0($$$)
@@ -176,15 +180,24 @@ sub _jm_re_0($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#OpenAPI'.webhooks]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#OpenAPI'.webhooks.''
-        $res = json_model_12($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_12($pval, defined $path ? $lpath_1 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$PathItem\" [.'\$openapi#OpenAPI'.webhooks.'']", defined $path ? $lpath_1 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -194,20 +207,30 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#OpenAPI'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#OpenAPI']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "openapi")
         {
             # handle must openapi property
             $must_count++;
             # .'$openapi#OpenAPI'.openapi
             # "/^3\\.1\\.\\d+(-.+)?$/"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/^3\\\\.1\\\\.\\\\d+(-.+)?\\\$/\" [.'\$openapi#OpenAPI'.openapi]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#OpenAPI'.openapi]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "info")
@@ -215,8 +238,13 @@ sub json_model_4($$$)
             # handle must info property
             $must_count++;
             # .'$openapi#OpenAPI'.info
-            $res = json_model_5($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_5($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Info\" [.'\$openapi#OpenAPI'.info]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#OpenAPI'.info]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "servers")
@@ -229,36 +257,61 @@ sub json_model_4($$$)
                 for my $arr_0_idx (0 .. $#$pval)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
+                    my $arr_0_lpath = defined (defined $path ? $lpath_0 : undef) ? [@{(defined $path ? $lpath_0 : undef)}, $arr_0_idx] : undef;
                     # .'$openapi#OpenAPI'.servers.0
-                    $res = json_model_8($arr_0_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_8($arr_0_item, defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$Server\" [.'\$openapi#OpenAPI'.servers.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$openapi#OpenAPI'.servers]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.servers]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "paths")
         {
             # handle may paths property
             # .'$openapi#OpenAPI'.paths
-            $res = json_model_11($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_11($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Paths\" [.'\$openapi#OpenAPI'.paths]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.paths]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "webhooks")
         {
             # handle may webhooks property
             # .'$openapi#OpenAPI'.webhooks
-            $res = _jm_obj_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_0($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#OpenAPI'.webhooks]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.webhooks]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "components")
         {
             # handle may components property
             # .'$openapi#OpenAPI'.components
-            $res = json_model_10($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_10($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Components\" [.'\$openapi#OpenAPI'.components]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.components]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "security")
@@ -271,12 +324,22 @@ sub json_model_4($$$)
                 for my $arr_1_idx (0 .. $#$pval)
                 {
                     my $arr_1_item = $$pval[$arr_1_idx];
+                    my $arr_1_lpath = defined (defined $path ? $lpath_0 : undef) ? [@{(defined $path ? $lpath_0 : undef)}, $arr_1_idx] : undef;
                     # .'$openapi#OpenAPI'.security.0
-                    $res = json_model_45($arr_1_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_45($arr_1_item, defined (defined $path ? $lpath_0 : undef) ? $arr_1_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$SecurityRequirement\" [.'\$openapi#OpenAPI'.security.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_1_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$openapi#OpenAPI'.security]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.security]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "tags")
@@ -289,28 +352,48 @@ sub json_model_4($$$)
                 for my $arr_2_idx (0 .. $#$pval)
                 {
                     my $arr_2_item = $$pval[$arr_2_idx];
+                    my $arr_2_lpath = defined (defined $path ? $lpath_0 : undef) ? [@{(defined $path ? $lpath_0 : undef)}, $arr_2_idx] : undef;
                     # .'$openapi#OpenAPI'.tags.0
-                    $res = json_model_31($arr_2_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_31($arr_2_item, defined (defined $path ? $lpath_0 : undef) ? $arr_2_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$Tag\" [.'\$openapi#OpenAPI'.tags.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_2_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$openapi#OpenAPI'.tags]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.tags]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "externalDocs")
         {
             # handle may externalDocs property
             # .'$openapi#OpenAPI'.externalDocs
-            $res = json_model_14($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_14($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$ExternalDocumentation\" [.'\$openapi#OpenAPI'.externalDocs]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.externalDocs]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "jsonModelVersion")
         {
             # handle may jsonModelVersion property
             # .'$openapi#OpenAPI'.jsonModelVersion
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#OpenAPI'.jsonModelVersion]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.jsonModelVersion]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -321,10 +404,20 @@ sub json_model_4($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#OpenAPI']", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 2;
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <info> [.'\$openapi#OpenAPI']", $path] if defined $rep and not exists $$val{"info"};
+            push @$rep, ["missing mandatory prop <openapi> [.'\$openapi#OpenAPI']", $path] if defined $rep and not exists $$val{"openapi"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#Info (.'$openapi#Info')
@@ -332,19 +425,29 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Info'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Info']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "title")
         {
             # handle must title property
             $must_count++;
             # .'$openapi#Info'.title
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Info'.title]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Info'.title]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "version")
@@ -353,7 +456,12 @@ sub json_model_5($$$)
             $must_count++;
             # .'$openapi#Info'.version
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Info'.version]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Info'.version]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "summary")
@@ -361,7 +469,12 @@ sub json_model_5($$$)
             # handle may summary property
             # .'$openapi#Info'.summary
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Info'.summary]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Info'.summary]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "description")
@@ -369,7 +482,12 @@ sub json_model_5($$$)
             # handle may description property
             # .'$openapi#Info'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Info'.description]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Info'.description]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "termsOfService")
@@ -377,23 +495,38 @@ sub json_model_5($$$)
             # handle may termsOfService property
             # .'$openapi#Info'.termsOfService
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Info'.termsOfService]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Info'.termsOfService]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "contact")
         {
             # handle may contact property
             # .'$openapi#Info'.contact
-            $res = json_model_6($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_6($pval, defined $path ? $lpath_2 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Contact\" [.'\$openapi#Info'.contact]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Info'.contact]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "license")
         {
             # handle may license property
             # .'$openapi#Info'.license
-            $res = json_model_7($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_7($pval, defined $path ? $lpath_2 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$License\" [.'\$openapi#Info'.license]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Info'.license]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -404,10 +537,20 @@ sub json_model_5($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Info']", defined $path ? $lpath_2 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 2;
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <title> [.'\$openapi#Info']", $path] if defined $rep and not exists $$val{"title"};
+            push @$rep, ["missing mandatory prop <version> [.'\$openapi#Info']", $path] if defined $rep and not exists $$val{"version"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#Contact (.'$openapi#Contact')
@@ -415,25 +558,40 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Contact'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Contact']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle may name property
             # .'$openapi#Contact'.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Contact'.name]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Contact'.name]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "url")
         {
             # handle may url property
             # .'$openapi#Contact'.url
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_3 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#Contact'.url]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Contact'.url]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "email")
@@ -441,7 +599,12 @@ sub json_model_6($$$)
             # handle may email property
             # .'$openapi#Contact'.email
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Contact'.email]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Contact'.email]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -452,6 +615,7 @@ sub json_model_6($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Contact']", defined $path ? $lpath_3 : undef] if defined $rep;
             return 0;
         }
     }
@@ -475,13 +639,19 @@ sub _jm_obj_1($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
             # .'$openapi#License'.'|'.1.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#License'.'|'.1.name]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#License'.'|'.1.name]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "url")
@@ -489,11 +659,16 @@ sub _jm_obj_1($$$)
             # handle must url property
             $must_count++;
             # .'$openapi#License'.'|'.1.url
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_4 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#License'.'|'.1.url]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#License'.'|'.1.url]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
-        if (_jm_re_1($prop, undef, undef))
+        if (_jm_re_1($prop, $path, $rep))
         {
             # handle 1 re props
             # .'$openapi#License'.'|'.1.'/^x\\-.*$/'
@@ -501,10 +676,20 @@ sub _jm_obj_1($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#License'.'|'.1]", defined $path ? $lpath_4 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 2;
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <name> [.'\$openapi#License'.'|'.1]", $path] if defined $rep and not exists $$val{"name"};
+            push @$rep, ["missing mandatory prop <url> [.'\$openapi#License'.'|'.1]", $path] if defined $rep and not exists $$val{"url"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$openapi#License'.'|'.0
@@ -517,13 +702,19 @@ sub _jm_obj_2($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
             # .'$openapi#License'.'|'.0.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#License'.'|'.0.name]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#License'.'|'.0.name]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "identifier")
@@ -532,10 +723,15 @@ sub _jm_obj_2($$$)
             $must_count++;
             # .'$openapi#License'.'|'.0.identifier
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#License'.'|'.0.identifier]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#License'.'|'.0.identifier]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
-        if (_jm_re_1($prop, undef, undef))
+        if (_jm_re_1($prop, $path, $rep))
         {
             # handle 1 re props
             # .'$openapi#License'.'|'.0.'/^x\\-.*$/'
@@ -543,10 +739,20 @@ sub _jm_obj_2($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#License'.'|'.0]", defined $path ? $lpath_5 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 2;
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <identifier> [.'\$openapi#License'.'|'.0]", $path] if defined $rep and not exists $$val{"identifier"};
+            push @$rep, ["missing mandatory prop <name> [.'\$openapi#License'.'|'.0]", $path] if defined $rep and not exists $$val{"name"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#License (.'$openapi#License')
@@ -554,24 +760,56 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#License'
-    # .'$openapi#License'.'|'.0
-    # .'$openapi#License'.'|'.1
-    return jm_is_object($val) && (_jm_obj_2($val, undef, undef) || _jm_obj_1($val, undef, undef));
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'$openapi#License'.'|'.0
+        $res = _jm_obj_2($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected element [.'\$openapi#License'.'|'.0]", $path] if defined $rep;
+            # .'$openapi#License'.'|'.1
+            $res = _jm_obj_1($val, $path, $rep);
+            push @$rep, ["unexpected element [.'\$openapi#License'.'|'.1]", $path] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#License'.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'\$openapi#License'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # object .'$openapi#Server'.variables
 sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Server'.variables]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_7 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Server'.variables.''
-        $res = json_model_9($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_9($pval, defined $path ? $lpath_7 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$ServerVariable\" [.'\$openapi#Server'.variables.'']", defined $path ? $lpath_7 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -581,19 +819,29 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Server'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Server']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_6 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "url")
         {
             # handle must url property
             $must_count++;
             # .'$openapi#Server'.url
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_6 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#Server'.url]", defined $path ? $lpath_6 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Server'.url]", defined $path ? $lpath_6 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "description")
@@ -601,15 +849,25 @@ sub json_model_8($$$)
             # handle may description property
             # .'$openapi#Server'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Server'.description]", defined $path ? $lpath_6 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Server'.description]", defined $path ? $lpath_6 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "variables")
         {
             # handle may variables property
             # .'$openapi#Server'.variables
-            $res = _jm_obj_3($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_3($pval, defined $path ? $lpath_6 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#Server'.variables]", defined $path ? $lpath_6 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Server'.variables]", defined $path ? $lpath_6 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -620,10 +878,19 @@ sub json_model_8($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Server']", defined $path ? $lpath_6 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <url> [.'\$openapi#Server']", $path] if defined $rep and not exists $$val{"url"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#ServerVariable (.'$openapi#ServerVariable')
@@ -631,19 +898,29 @@ sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#ServerVariable'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#ServerVariable']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_8 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "default")
         {
             # handle must default property
             $must_count++;
             # .'$openapi#ServerVariable'.default
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#ServerVariable'.default]", defined $path ? $lpath_8 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#ServerVariable'.default]", defined $path ? $lpath_8 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "enum")
@@ -656,12 +933,22 @@ sub json_model_9($$$)
                 for my $arr_3_idx (0 .. $#$pval)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
+                    my $arr_3_lpath = defined (defined $path ? $lpath_8 : undef) ? [@{(defined $path ? $lpath_8 : undef)}, $arr_3_idx] : undef;
                     # .'$openapi#ServerVariable'.enum.0
                     $res = jm_is_string($arr_3_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\" [.'\$openapi#ServerVariable'.enum.0]", defined (defined $path ? $lpath_8 : undef) ? $arr_3_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$openapi#ServerVariable'.enum]", defined $path ? $lpath_8 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#ServerVariable'.enum]", defined $path ? $lpath_8 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "description")
@@ -669,7 +956,12 @@ sub json_model_9($$$)
             # handle may description property
             # .'$openapi#ServerVariable'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#ServerVariable'.description]", defined $path ? $lpath_8 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#ServerVariable'.description]", defined $path ? $lpath_8 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -680,10 +972,19 @@ sub json_model_9($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#ServerVariable']", defined $path ? $lpath_8 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <default> [.'\$openapi#ServerVariable']", $path] if defined $rep and not exists $$val{"default"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check json_model_10_map_callbacks (.'$openapi#Components'.callbacks)
@@ -691,17 +992,36 @@ sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.callbacks
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.callbacks]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_10 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.callbacks.''
         # .'$openapi#Components'.callbacks.''.'|'.0
-        # .'$openapi#Components'.callbacks.''.'|'.1
-        $res = json_model_26($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_26($pval, defined $path ? $lpath_10 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Callback\" [.'\$openapi#Components'.callbacks.''.'|'.0]", defined $path ? $lpath_10 : undef] if defined $rep;
+            # .'$openapi#Components'.callbacks.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_10 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.callbacks.''.'|'.1]", defined $path ? $lpath_10 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.callbacks.''.'|']", defined $path ? $lpath_10 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -711,17 +1031,36 @@ sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.examples
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.examples]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_11 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.examples.''
         # .'$openapi#Components'.examples.''.'|'.0
-        # .'$openapi#Components'.examples.''.'|'.1
-        $res = json_model_27($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_27($pval, defined $path ? $lpath_11 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Example\" [.'\$openapi#Components'.examples.''.'|'.0]", defined $path ? $lpath_11 : undef] if defined $rep;
+            # .'$openapi#Components'.examples.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_11 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.examples.''.'|'.1]", defined $path ? $lpath_11 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.examples.''.'|']", defined $path ? $lpath_11 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -731,17 +1070,36 @@ sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.headers
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.headers]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_12 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.headers.''
         # .'$openapi#Components'.headers.''.'|'.0
-        # .'$openapi#Components'.headers.''.'|'.1
-        $res = json_model_30($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_30($pval, defined $path ? $lpath_12 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Header\" [.'\$openapi#Components'.headers.''.'|'.0]", defined $path ? $lpath_12 : undef] if defined $rep;
+            # .'$openapi#Components'.headers.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_12 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.headers.''.'|'.1]", defined $path ? $lpath_12 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.headers.''.'|']", defined $path ? $lpath_12 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -751,17 +1109,36 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.links
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.links]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_13 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.links.''
         # .'$openapi#Components'.links.''.'|'.0
-        # .'$openapi#Components'.links.''.'|'.1
-        $res = json_model_29($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_29($pval, defined $path ? $lpath_13 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Link\" [.'\$openapi#Components'.links.''.'|'.0]", defined $path ? $lpath_13 : undef] if defined $rep;
+            # .'$openapi#Components'.links.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_13 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.links.''.'|'.1]", defined $path ? $lpath_13 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.links.''.'|']", defined $path ? $lpath_13 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -771,15 +1148,24 @@ sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.models
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.models]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_14 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.models.''
-        $res = json_model_97($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_97($pval, defined $path ? $lpath_14 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#Components'.models.'']", defined $path ? $lpath_14 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -789,17 +1175,36 @@ sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.parameters
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.parameters]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_15 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.parameters.''
         # .'$openapi#Components'.parameters.''.'|'.0
-        # .'$openapi#Components'.parameters.''.'|'.1
-        $res = json_model_20($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_20($pval, defined $path ? $lpath_15 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Parameter\" [.'\$openapi#Components'.parameters.''.'|'.0]", defined $path ? $lpath_15 : undef] if defined $rep;
+            # .'$openapi#Components'.parameters.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_15 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.parameters.''.'|'.1]", defined $path ? $lpath_15 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.parameters.''.'|']", defined $path ? $lpath_15 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -809,17 +1214,36 @@ sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.pathItems
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.pathItems]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_16 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.pathItems.''
         # .'$openapi#Components'.pathItems.''.'|'.0
-        # .'$openapi#Components'.pathItems.''.'|'.1
-        $res = json_model_12($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_12($pval, defined $path ? $lpath_16 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$PathItem\" [.'\$openapi#Components'.pathItems.''.'|'.0]", defined $path ? $lpath_16 : undef] if defined $rep;
+            # .'$openapi#Components'.pathItems.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_16 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.pathItems.''.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.pathItems.''.'|']", defined $path ? $lpath_16 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -829,17 +1253,36 @@ sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.requestBodies
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.requestBodies]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_17 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.requestBodies.''
         # .'$openapi#Components'.requestBodies.''.'|'.0
-        # .'$openapi#Components'.requestBodies.''.'|'.1
-        $res = json_model_21($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_21($pval, defined $path ? $lpath_17 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$RequestBody\" [.'\$openapi#Components'.requestBodies.''.'|'.0]", defined $path ? $lpath_17 : undef] if defined $rep;
+            # .'$openapi#Components'.requestBodies.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_17 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.requestBodies.''.'|'.1]", defined $path ? $lpath_17 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.requestBodies.''.'|']", defined $path ? $lpath_17 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -849,17 +1292,36 @@ sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.responses
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.responses]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_18 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.responses.''
         # .'$openapi#Components'.responses.''.'|'.0
-        # .'$openapi#Components'.responses.''.'|'.1
-        $res = json_model_25($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_25($pval, defined $path ? $lpath_18 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$openapi#Components'.responses.''.'|'.0]", defined $path ? $lpath_18 : undef] if defined $rep;
+            # .'$openapi#Components'.responses.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_18 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.responses.''.'|'.1]", defined $path ? $lpath_18 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.responses.''.'|']", defined $path ? $lpath_18 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -869,17 +1331,36 @@ sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'.securitySchemes
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components'.securitySchemes]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_19 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Components'.securitySchemes.''
         # .'$openapi#Components'.securitySchemes.''.'|'.0
-        # .'$openapi#Components'.securitySchemes.''.'|'.1
-        $res = json_model_42($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_42($pval, defined $path ? $lpath_19 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$SecurityScheme\" [.'\$openapi#Components'.securitySchemes.''.'|'.0]", defined $path ? $lpath_19 : undef] if defined $rep;
+            # .'$openapi#Components'.securitySchemes.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_19 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.securitySchemes.''.'|'.1]", defined $path ? $lpath_19 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Components'.securitySchemes.''.'|']", defined $path ? $lpath_19 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -890,16 +1371,25 @@ sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Components'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Components']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_9 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_10_map{$prop}))
         {
             # handle 10 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_9 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.'\$openapi#Components']", defined $path ? $lpath_9 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -910,6 +1400,7 @@ sub json_model_10($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Components']", defined $path ? $lpath_9 : undef] if defined $rep;
             return 0;
         }
     }
@@ -921,17 +1412,26 @@ sub json_model_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Paths'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Paths']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_20 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_starts_with($prop, "/"))
         {
             # handle 2 re props
             # .'$openapi#Paths'.'/^//'
-            $res = json_model_12($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_12($pval, defined $path ? $lpath_20 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$PathItem\" [.'\$openapi#Paths'.'/^//']", defined $path ? $lpath_20 : undef] if defined $rep;
+                return 0;
+            }
         }
         elsif (jm_starts_with($prop, "x-"))
         {
@@ -941,6 +1441,7 @@ sub json_model_11($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Paths']", defined $path ? $lpath_20 : undef] if defined $rep;
             return 0;
         }
     }
@@ -952,7 +1453,9 @@ sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#PathItem'.'$ref'
-    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$URI\" [.'\$openapi#PathItem'.'\$ref']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_12_map_description (.'$openapi#PathItem'.description)
@@ -960,7 +1463,9 @@ sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#PathItem'.description
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$openapi#PathItem'.description]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_12_map_parameters (.'$openapi#PathItem'.parameters)
@@ -974,13 +1479,29 @@ sub _jm_f_12($$$)
         for my $arr_4_idx (0 .. $#$val)
         {
             my $arr_4_item = $$val[$arr_4_idx];
+            my $arr_4_lpath = defined $path ? [@{$path}, $arr_4_idx] : undef;
             # .'$openapi#PathItem'.parameters.0
             # .'$openapi#PathItem'.parameters.0.'|'.0
-            # .'$openapi#PathItem'.parameters.0.'|'.1
-            $res = json_model_20($arr_4_item, undef, undef) || json_model_32($arr_4_item, undef, undef);
-            last unless $res;
+            $res = json_model_20($arr_4_item, defined $path ? $arr_4_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Parameter\" [.'\$openapi#PathItem'.parameters.0.'|'.0]", defined $path ? $arr_4_lpath : undef] if defined $rep;
+                # .'$openapi#PathItem'.parameters.0.'|'.1
+                $res = json_model_32($arr_4_item, defined $path ? $arr_4_lpath : undef, $rep);
+                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#PathItem'.parameters.0.'|'.1]", defined $path ? $arr_4_lpath : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$openapi#PathItem'.parameters.0.'|']", defined $path ? $arr_4_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$openapi#PathItem'.parameters]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -995,11 +1516,17 @@ sub _jm_f_13($$$)
         for my $arr_5_idx (0 .. $#$val)
         {
             my $arr_5_item = $$val[$arr_5_idx];
+            my $arr_5_lpath = defined $path ? [@{$path}, $arr_5_idx] : undef;
             # .'$openapi#PathItem'.servers.0
-            $res = json_model_13($arr_5_item, undef, undef);
-            last unless $res;
+            $res = json_model_13($arr_5_item, defined $path ? $arr_5_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Operation\" [.'\$openapi#PathItem'.servers.0]", defined $path ? $arr_5_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$openapi#PathItem'.servers]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1008,7 +1535,9 @@ sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#PathItem'.summary
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$openapi#PathItem'.summary]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -1017,16 +1546,25 @@ sub json_model_12($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#PathItem'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#PathItem']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_21 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_12_map{$prop}))
         {
             # handle 13 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_21 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.'\$openapi#PathItem']", defined $path ? $lpath_21 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1037,6 +1575,7 @@ sub json_model_12($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#PathItem']", defined $path ? $lpath_21 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1048,17 +1587,36 @@ sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Operation'.callbacks
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Operation'.callbacks]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_23 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Operation'.callbacks.''
         # .'$openapi#Operation'.callbacks.''.'|'.0
-        # .'$openapi#Operation'.callbacks.''.'|'.1
-        $res = json_model_26($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_26($pval, defined $path ? $lpath_23 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Callback\" [.'\$openapi#Operation'.callbacks.''.'|'.0]", defined $path ? $lpath_23 : undef] if defined $rep;
+            # .'$openapi#Operation'.callbacks.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_23 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Operation'.callbacks.''.'|'.1]", defined $path ? $lpath_23 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Operation'.callbacks.''.'|']", defined $path ? $lpath_23 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1068,7 +1626,9 @@ sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Operation'.deprecated
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Operation'.deprecated]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_13_map_description (.'$openapi#Operation'.description)
@@ -1076,7 +1636,9 @@ sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Operation'.description
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$openapi#Operation'.description]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_13_map_operationId (.'$openapi#Operation'.operationId)
@@ -1084,7 +1646,9 @@ sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Operation'.operationId
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$openapi#Operation'.operationId]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_13_map_parameters (.'$openapi#Operation'.parameters)
@@ -1098,13 +1662,29 @@ sub _jm_f_19($$$)
         for my $arr_6_idx (0 .. $#$val)
         {
             my $arr_6_item = $$val[$arr_6_idx];
+            my $arr_6_lpath = defined $path ? [@{$path}, $arr_6_idx] : undef;
             # .'$openapi#Operation'.parameters.0
             # .'$openapi#Operation'.parameters.0.'|'.0
-            # .'$openapi#Operation'.parameters.0.'|'.1
-            $res = json_model_20($arr_6_item, undef, undef) || json_model_32($arr_6_item, undef, undef);
-            last unless $res;
+            $res = json_model_20($arr_6_item, defined $path ? $arr_6_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Parameter\" [.'\$openapi#Operation'.parameters.0.'|'.0]", defined $path ? $arr_6_lpath : undef] if defined $rep;
+                # .'$openapi#Operation'.parameters.0.'|'.1
+                $res = json_model_32($arr_6_item, defined $path ? $arr_6_lpath : undef, $rep);
+                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Operation'.parameters.0.'|'.1]", defined $path ? $arr_6_lpath : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$openapi#Operation'.parameters.0.'|']", defined $path ? $arr_6_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$openapi#Operation'.parameters]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1114,8 +1694,23 @@ sub _jm_f_20($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#Operation'.requestBody
     # .'$openapi#Operation'.requestBody.'|'.0
-    # .'$openapi#Operation'.requestBody.'|'.1
-    return json_model_21($val, undef, undef) || json_model_32($val, undef, undef);
+    my $res = json_model_21($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$RequestBody\" [.'\$openapi#Operation'.requestBody.'|'.0]", $path] if defined $rep;
+        # .'$openapi#Operation'.requestBody.'|'.1
+        $res = json_model_32($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Operation'.requestBody.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#Operation'.requestBody.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check json_model_13_map_security (.'$openapi#Operation'.security)
@@ -1129,11 +1724,17 @@ sub _jm_f_21($$$)
         for my $arr_7_idx (0 .. $#$val)
         {
             my $arr_7_item = $$val[$arr_7_idx];
+            my $arr_7_lpath = defined $path ? [@{$path}, $arr_7_idx] : undef;
             # .'$openapi#Operation'.security.0
-            $res = json_model_45($arr_7_item, undef, undef);
-            last unless $res;
+            $res = json_model_45($arr_7_item, defined $path ? $arr_7_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$SecurityRequirement\" [.'\$openapi#Operation'.security.0]", defined $path ? $arr_7_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$openapi#Operation'.security]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1148,11 +1749,17 @@ sub _jm_f_22($$$)
         for my $arr_8_idx (0 .. $#$val)
         {
             my $arr_8_item = $$val[$arr_8_idx];
+            my $arr_8_lpath = defined $path ? [@{$path}, $arr_8_idx] : undef;
             # .'$openapi#Operation'.servers.0
-            $res = json_model_8($arr_8_item, undef, undef);
-            last unless $res;
+            $res = json_model_8($arr_8_item, defined $path ? $arr_8_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Server\" [.'\$openapi#Operation'.servers.0]", defined $path ? $arr_8_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$openapi#Operation'.servers]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1161,7 +1768,9 @@ sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Operation'.summary
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$openapi#Operation'.summary]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_13_map_tags (.'$openapi#Operation'.tags)
@@ -1175,11 +1784,17 @@ sub _jm_f_24($$$)
         for my $arr_9_idx (0 .. $#$val)
         {
             my $arr_9_item = $$val[$arr_9_idx];
+            my $arr_9_lpath = defined $path ? [@{$path}, $arr_9_idx] : undef;
             # .'$openapi#Operation'.tags.0
             $res = jm_is_string($arr_9_item);
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Operation'.tags.0]", defined $path ? $arr_9_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$openapi#Operation'.tags]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1189,16 +1804,25 @@ sub json_model_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Operation'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Operation']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_22 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_13_map{$prop}))
         {
             # handle 12 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_22 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.'\$openapi#Operation']", defined $path ? $lpath_22 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1209,6 +1833,7 @@ sub json_model_13($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Operation']", defined $path ? $lpath_22 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1220,19 +1845,29 @@ sub json_model_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#ExternalDocumentation'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#ExternalDocumentation']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_24 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "url")
         {
             # handle must url property
             $must_count++;
             # .'$openapi#ExternalDocumentation'.url
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_24 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#ExternalDocumentation'.url]", defined $path ? $lpath_24 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#ExternalDocumentation'.url]", defined $path ? $lpath_24 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "description")
@@ -1240,7 +1875,12 @@ sub json_model_14($$$)
             # handle may description property
             # .'$openapi#ExternalDocumentation'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#ExternalDocumentation'.description]", defined $path ? $lpath_24 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#ExternalDocumentation'.description]", defined $path ? $lpath_24 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1251,10 +1891,19 @@ sub json_model_14($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#ExternalDocumentation']", defined $path ? $lpath_24 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <url> [.'\$openapi#ExternalDocumentation']", $path] if defined $rep and not exists $$val{"url"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -1262,15 +1911,24 @@ sub json_model_14($$$)
 sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Parameter'.'|'.1.content]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_26 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Parameter'.'|'.1.content.''
-        $res = json_model_22($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_22($pval, defined $path ? $lpath_26 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$MediaType\" [.'\$openapi#Parameter'.'|'.1.content.'']", defined $path ? $lpath_26 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1285,13 +1943,19 @@ sub _jm_obj_4($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_25 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
             # .'$openapi#Parameter'.'|'.1.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Parameter'.'|'.1.name]", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Parameter'.'|'.1.name]", defined $path ? $lpath_25 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "in")
@@ -1300,7 +1964,12 @@ sub _jm_obj_4($$$)
             $must_count++;
             # .'$openapi#Parameter'.'|'.1.in
             $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["value not in enum [.'\$openapi#Parameter'.'|'.1.in.'|']", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Parameter'.'|'.1.in]", defined $path ? $lpath_25 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "description")
@@ -1308,7 +1977,12 @@ sub _jm_obj_4($$$)
             # handle may description property
             # .'$openapi#Parameter'.'|'.1.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Parameter'.'|'.1.description]", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Parameter'.'|'.1.description]", defined $path ? $lpath_25 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "required")
@@ -1316,7 +1990,12 @@ sub _jm_obj_4($$$)
             # handle may required property
             # .'$openapi#Parameter'.'|'.1.required
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#Parameter'.'|'.1.required]", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Parameter'.'|'.1.required]", defined $path ? $lpath_25 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "deprecated")
@@ -1324,7 +2003,12 @@ sub _jm_obj_4($$$)
             # handle may deprecated property
             # .'$openapi#Parameter'.'|'.1.deprecated
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#Parameter'.'|'.1.deprecated]", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Parameter'.'|'.1.deprecated]", defined $path ? $lpath_25 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "allowEmptyValue")
@@ -1332,15 +2016,25 @@ sub _jm_obj_4($$$)
             # handle may allowEmptyValue property
             # .'$openapi#Parameter'.'|'.1.allowEmptyValue
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#Parameter'.'|'.1.allowEmptyValue]", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Parameter'.'|'.1.allowEmptyValue]", defined $path ? $lpath_25 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "content")
         {
             # handle may content property
             # .'$openapi#Parameter'.'|'.1.content
-            $res = _jm_obj_5($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_5($pval, defined $path ? $lpath_25 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#Parameter'.'|'.1.content]", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Parameter'.'|'.1.content]", defined $path ? $lpath_25 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1351,10 +2045,20 @@ sub _jm_obj_4($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Parameter'.'|'.1]", defined $path ? $lpath_25 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 2;
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <in> [.'\$openapi#Parameter'.'|'.1]", $path] if defined $rep and not exists $$val{"in"};
+            push @$rep, ["missing mandatory prop <name> [.'\$openapi#Parameter'.'|'.1]", $path] if defined $rep and not exists $$val{"name"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -1363,7 +2067,9 @@ sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'.'|'.0.allowEmptyValue
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Parameter'.'|'.0.allowEmptyValue]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_6_map_allowReserved (.'$openapi#Parameter'.'|'.0.allowReserved)
@@ -1371,7 +2077,9 @@ sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'.'|'.0.allowReserved
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Parameter'.'|'.0.allowReserved]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_6_map_deprecated (.'$openapi#Parameter'.'|'.0.deprecated)
@@ -1379,7 +2087,9 @@ sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'.'|'.0.deprecated
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Parameter'.'|'.0.deprecated]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_6_map_description (.'$openapi#Parameter'.'|'.0.description)
@@ -1387,7 +2097,9 @@ sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'.'|'.0.description
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$openapi#Parameter'.'|'.0.description]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_6_map_example (.'$openapi#Parameter'.'|'.0.example)
@@ -1403,17 +2115,36 @@ sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'.'|'.0.examples
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Parameter'.'|'.0.examples]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_28 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Parameter'.'|'.0.examples.''
         # .'$openapi#Parameter'.'|'.0.examples.''.'|'.0
-        # .'$openapi#Parameter'.'|'.0.examples.''.'|'.1
-        $res = json_model_27($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_27($pval, defined $path ? $lpath_28 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Example\" [.'\$openapi#Parameter'.'|'.0.examples.''.'|'.0]", defined $path ? $lpath_28 : undef] if defined $rep;
+            # .'$openapi#Parameter'.'|'.0.examples.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_28 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Parameter'.'|'.0.examples.''.'|'.1]", defined $path ? $lpath_28 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Parameter'.'|'.0.examples.''.'|']", defined $path ? $lpath_28 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1423,7 +2154,9 @@ sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'.'|'.0.explode
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Parameter'.'|'.0.explode]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_6_map_required (.'$openapi#Parameter'.'|'.0.required)
@@ -1431,7 +2164,9 @@ sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'.'|'.0.required
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Parameter'.'|'.0.required]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -1446,13 +2181,19 @@ sub _jm_obj_6($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_27 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
             # .'$openapi#Parameter'.'|'.0.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Parameter'.'|'.0.name]", defined $path ? $lpath_27 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Parameter'.'|'.0.name]", defined $path ? $lpath_27 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "in")
@@ -1461,13 +2202,22 @@ sub _jm_obj_6($$$)
             $must_count++;
             # .'$openapi#Parameter'.'|'.0.in
             $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["value not in enum [.'\$openapi#Parameter'.'|'.0.in.'|']", defined $path ? $lpath_27 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Parameter'.'|'.0.in]", defined $path ? $lpath_27 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (($pfun = $_jm_obj_6_map{$prop}))
         {
             # handle 10 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_27 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.'\$openapi#Parameter'.'|'.0]", defined $path ? $lpath_27 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1478,10 +2228,20 @@ sub _jm_obj_6($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Parameter'.'|'.0]", defined $path ? $lpath_27 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 2;
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <in> [.'\$openapi#Parameter'.'|'.0]", $path] if defined $rep and not exists $$val{"in"};
+            push @$rep, ["missing mandatory prop <name> [.'\$openapi#Parameter'.'|'.0]", $path] if defined $rep and not exists $$val{"name"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#Parameter (.'$openapi#Parameter')
@@ -1489,9 +2249,32 @@ sub json_model_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Parameter'
-    # .'$openapi#Parameter'.'|'.0
-    # .'$openapi#Parameter'.'|'.1
-    return jm_is_object($val) && (_jm_obj_6($val, undef, undef) || _jm_obj_4($val, undef, undef));
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'$openapi#Parameter'.'|'.0
+        $res = _jm_obj_6($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected element [.'\$openapi#Parameter'.'|'.0]", $path] if defined $rep;
+            # .'$openapi#Parameter'.'|'.1
+            $res = _jm_obj_4($val, $path, $rep);
+            push @$rep, ["unexpected element [.'\$openapi#Parameter'.'|'.1]", $path] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Parameter'.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'\$openapi#Parameter'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 
@@ -1501,22 +2284,33 @@ sub json_model_17($$$)
     my ($val, $path, $rep) = @_;
     # serialization styles
     # .'$openapi#Style'
-    return jm_is_string($val) && exists $_jm_cst_2{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_2{$val};
+    push @$rep, ["value not in enum [.'\$openapi#Style'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # object .'$openapi#RequestBody'.content
 sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#RequestBody'.content]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_30 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#RequestBody'.content.''
-        $res = json_model_22($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_22($pval, defined $path ? $lpath_30 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$MediaType\" [.'\$openapi#RequestBody'.content.'']", defined $path ? $lpath_30 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1526,25 +2320,40 @@ sub json_model_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#RequestBody'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#RequestBody']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_29 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#RequestBody'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#RequestBody'.description]", defined $path ? $lpath_29 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#RequestBody'.description]", defined $path ? $lpath_29 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "content")
         {
             # handle may content property
             # .'$openapi#RequestBody'.content
-            $res = _jm_obj_7($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_7($pval, defined $path ? $lpath_29 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#RequestBody'.content]", defined $path ? $lpath_29 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#RequestBody'.content]", defined $path ? $lpath_29 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "required")
@@ -1552,7 +2361,12 @@ sub json_model_21($$$)
             # handle may required property
             # .'$openapi#RequestBody'.required
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#RequestBody'.required]", defined $path ? $lpath_29 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#RequestBody'.required]", defined $path ? $lpath_29 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1563,6 +2377,7 @@ sub json_model_21($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#RequestBody']", defined $path ? $lpath_29 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1573,17 +2388,36 @@ sub json_model_21($$$)
 sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#MediaType'.examples]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_32 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#MediaType'.examples.''
         # .'$openapi#MediaType'.examples.''.'|'.0
-        # .'$openapi#MediaType'.examples.''.'|'.1
-        $res = json_model_27($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_27($pval, defined $path ? $lpath_32 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Example\" [.'\$openapi#MediaType'.examples.''.'|'.0]", defined $path ? $lpath_32 : undef] if defined $rep;
+            # .'$openapi#MediaType'.examples.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_32 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#MediaType'.examples.''.'|'.1]", defined $path ? $lpath_32 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#MediaType'.examples.''.'|']", defined $path ? $lpath_32 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1592,15 +2426,24 @@ sub _jm_obj_8($$$)
 sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#MediaType'.encoding]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_33 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#MediaType'.encoding.''
-        $res = json_model_23($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_23($pval, defined $path ? $lpath_33 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Encoding\" [.'\$openapi#MediaType'.encoding.'']", defined $path ? $lpath_33 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1610,11 +2453,16 @@ sub json_model_22($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#MediaType'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#MediaType']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_31 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "example")
         {
             # handle may example property
@@ -1626,24 +2474,39 @@ sub json_model_22($$$)
         {
             # handle may examples property
             # .'$openapi#MediaType'.examples
-            $res = _jm_obj_8($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_8($pval, defined $path ? $lpath_31 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#MediaType'.examples]", defined $path ? $lpath_31 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#MediaType'.examples]", defined $path ? $lpath_31 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "encoding")
         {
             # handle may encoding property
             # .'$openapi#MediaType'.encoding
-            $res = _jm_obj_9($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_9($pval, defined $path ? $lpath_31 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#MediaType'.encoding]", defined $path ? $lpath_31 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#MediaType'.encoding]", defined $path ? $lpath_31 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "model")
         {
             # handle may model property
             # .'$openapi#MediaType'.model
-            $res = json_model_97($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_97($pval, defined $path ? $lpath_31 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#MediaType'.model]", defined $path ? $lpath_31 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#MediaType'.model]", defined $path ? $lpath_31 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1654,6 +2517,7 @@ sub json_model_22($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#MediaType']", defined $path ? $lpath_31 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1664,17 +2528,36 @@ sub json_model_22($$$)
 sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Encoding'.headers]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_35 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Encoding'.headers.''
         # .'$openapi#Encoding'.headers.''.'|'.0
-        # .'$openapi#Encoding'.headers.''.'|'.1
-        $res = json_model_30($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_30($pval, defined $path ? $lpath_35 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Header\" [.'\$openapi#Encoding'.headers.''.'|'.0]", defined $path ? $lpath_35 : undef] if defined $rep;
+            # .'$openapi#Encoding'.headers.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_35 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Encoding'.headers.''.'|'.1]", defined $path ? $lpath_35 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Encoding'.headers.''.'|']", defined $path ? $lpath_35 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1684,33 +2567,53 @@ sub json_model_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Encoding'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Encoding']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_34 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "contentType")
         {
             # handle may contentType property
             # .'$openapi#Encoding'.contentType
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Encoding'.contentType]", defined $path ? $lpath_34 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Encoding'.contentType]", defined $path ? $lpath_34 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "headers")
         {
             # handle may headers property
             # .'$openapi#Encoding'.headers
-            $res = _jm_obj_10($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_10($pval, defined $path ? $lpath_34 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#Encoding'.headers]", defined $path ? $lpath_34 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Encoding'.headers]", defined $path ? $lpath_34 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "style")
         {
             # handle may style property
             # .'$openapi#Encoding'.style
-            $res = json_model_17($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_17($pval, defined $path ? $lpath_34 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Style\" [.'\$openapi#Encoding'.style]", defined $path ? $lpath_34 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Encoding'.style]", defined $path ? $lpath_34 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "explode")
@@ -1718,7 +2621,12 @@ sub json_model_23($$$)
             # handle may explode property
             # .'$openapi#Encoding'.explode
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#Encoding'.explode]", defined $path ? $lpath_34 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Encoding'.explode]", defined $path ? $lpath_34 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "allowReserved")
@@ -1726,7 +2634,12 @@ sub json_model_23($$$)
             # handle may allowReserved property
             # .'$openapi#Encoding'.allowReserved
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#Encoding'.allowReserved]", defined $path ? $lpath_34 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Encoding'.allowReserved]", defined $path ? $lpath_34 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1737,6 +2650,7 @@ sub json_model_23($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Encoding']", defined $path ? $lpath_34 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1755,29 +2669,63 @@ sub json_model_24($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Responses'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Responses']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_36 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "default")
         {
             # handle may default property
             # .'$openapi#Responses'.default
             # .'$openapi#Responses'.default.'|'.0
-            # .'$openapi#Responses'.default.'|'.1
-            $res = json_model_25($pval, undef, undef) || json_model_32($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_25($pval, defined $path ? $lpath_36 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$openapi#Responses'.default.'|'.0]", defined $path ? $lpath_36 : undef] if defined $rep;
+                # .'$openapi#Responses'.default.'|'.1
+                $res = json_model_32($pval, defined $path ? $lpath_36 : undef, $rep);
+                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Responses'.default.'|'.1]", defined $path ? $lpath_36 : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$openapi#Responses'.default.'|']", defined $path ? $lpath_36 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Responses'.default]", defined $path ? $lpath_36 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
-        if (_jm_re_2($prop, undef, undef))
+        if (_jm_re_2($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
             # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
-            # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
-            $res = json_model_25($pval, undef, undef) || json_model_32($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_25($pval, defined $path ? $lpath_36 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$openapi#Responses'.'/^[1-5](\\\\d\\\\d|XX)\$/'.'|'.0]", defined $path ? $lpath_36 : undef] if defined $rep;
+                # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
+                $res = json_model_32($pval, defined $path ? $lpath_36 : undef, $rep);
+                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Responses'.'/^[1-5](\\\\d\\\\d|XX)\$/'.'|'.1]", defined $path ? $lpath_36 : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$openapi#Responses'.'/^[1-5](\\\\d\\\\d|XX)\$/'.'|']", defined $path ? $lpath_36 : undef] if defined $rep;
+                return 0;
+            }
         }
         elsif (jm_starts_with($prop, "x-"))
         {
@@ -1787,6 +2735,7 @@ sub json_model_24($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Responses']", defined $path ? $lpath_36 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1797,17 +2746,36 @@ sub json_model_24($$$)
 sub _jm_obj_11($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Response'.headers]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_38 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Response'.headers.''
         # .'$openapi#Response'.headers.''.'|'.0
-        # .'$openapi#Response'.headers.''.'|'.1
-        $res = json_model_30($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_30($pval, defined $path ? $lpath_38 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Header\" [.'\$openapi#Response'.headers.''.'|'.0]", defined $path ? $lpath_38 : undef] if defined $rep;
+            # .'$openapi#Response'.headers.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_38 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Response'.headers.''.'|'.1]", defined $path ? $lpath_38 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Response'.headers.''.'|']", defined $path ? $lpath_38 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1816,15 +2784,24 @@ sub _jm_obj_11($$$)
 sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Response'.content]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_39 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Response'.content.''
-        $res = json_model_22($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_22($pval, defined $path ? $lpath_39 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$MediaType\" [.'\$openapi#Response'.content.'']", defined $path ? $lpath_39 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1833,17 +2810,36 @@ sub _jm_obj_12($$$)
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Response'.links]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_40 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Response'.links.''
         # .'$openapi#Response'.links.''.'|'.0
-        # .'$openapi#Response'.links.''.'|'.1
-        $res = json_model_29($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_29($pval, defined $path ? $lpath_40 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Link\" [.'\$openapi#Response'.links.''.'|'.0]", defined $path ? $lpath_40 : undef] if defined $rep;
+            # .'$openapi#Response'.links.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_40 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Response'.links.''.'|'.1]", defined $path ? $lpath_40 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Response'.links.''.'|']", defined $path ? $lpath_40 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1853,41 +2849,66 @@ sub json_model_25($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Response'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Response']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_37 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Response'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Response'.description]", defined $path ? $lpath_37 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Response'.description]", defined $path ? $lpath_37 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "headers")
         {
             # handle may headers property
             # .'$openapi#Response'.headers
-            $res = _jm_obj_11($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_11($pval, defined $path ? $lpath_37 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#Response'.headers]", defined $path ? $lpath_37 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Response'.headers]", defined $path ? $lpath_37 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "content")
         {
             # handle may content property
             # .'$openapi#Response'.content
-            $res = _jm_obj_12($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_12($pval, defined $path ? $lpath_37 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#Response'.content]", defined $path ? $lpath_37 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Response'.content]", defined $path ? $lpath_37 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "links")
         {
             # handle may links property
             # .'$openapi#Response'.links
-            $res = _jm_obj_13($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_13($pval, defined $path ? $lpath_37 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#Response'.links]", defined $path ? $lpath_37 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Response'.links]", defined $path ? $lpath_37 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1898,6 +2919,7 @@ sub json_model_25($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Response']", defined $path ? $lpath_37 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1909,19 +2931,38 @@ sub json_model_26($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Callback'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Callback']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (json_model_28($prop, undef, undef))
+        my $lpath_41 = defined $path ? [@{$path}, $prop] : undef;
+        if (json_model_28($prop, defined $path ? $lpath_41 : undef, $rep))
         {
             # handle 1 key props
             # .'$openapi#Callback'.'$Expression'
             # .'$openapi#Callback'.'$Expression'.'|'.0
-            # .'$openapi#Callback'.'$Expression'.'|'.1
-            $res = json_model_12($pval, undef, undef) || json_model_32($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_12($pval, defined $path ? $lpath_41 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$PathItem\" [.'\$openapi#Callback'.'\$Expression'.'|'.0]", defined $path ? $lpath_41 : undef] if defined $rep;
+                # .'$openapi#Callback'.'$Expression'.'|'.1
+                $res = json_model_32($pval, defined $path ? $lpath_41 : undef, $rep);
+                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Callback'.'\$Expression'.'|'.1]", defined $path ? $lpath_41 : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$openapi#Callback'.'\$Expression'.'|']", defined $path ? $lpath_41 : undef] if defined $rep;
+                return 0;
+            }
         }
         elsif (jm_starts_with($prop, "x-"))
         {
@@ -1931,6 +2972,7 @@ sub json_model_26($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Callback']", defined $path ? $lpath_41 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1942,17 +2984,27 @@ sub json_model_27($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Example'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Example']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_42 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "summary")
         {
             # handle may summary property
             # .'$openapi#Example'.summary
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Example'.summary]", defined $path ? $lpath_42 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Example'.summary]", defined $path ? $lpath_42 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "description")
@@ -1960,7 +3012,12 @@ sub json_model_27($$$)
             # handle may description property
             # .'$openapi#Example'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Example'.description]", defined $path ? $lpath_42 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Example'.description]", defined $path ? $lpath_42 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "value")
@@ -1975,7 +3032,12 @@ sub json_model_27($$$)
             # handle may externalValue property
             # .'$openapi#Example'.externalValue
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Example'.externalValue]", defined $path ? $lpath_42 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Example'.externalValue]", defined $path ? $lpath_42 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -1986,6 +3048,7 @@ sub json_model_27($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Example']", defined $path ? $lpath_42 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1997,7 +3060,9 @@ sub json_model_28($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Expression'
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$openapi#Expression']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # object .'$openapi#Link'.'|'.1
@@ -2010,13 +3075,19 @@ sub _jm_obj_14($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_43 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "operationId")
         {
             # handle must operationId property
             $must_count++;
             # .'$openapi#Link'.'|'.1.operationId
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Link'.'|'.1.operationId]", defined $path ? $lpath_43 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Link'.'|'.1.operationId]", defined $path ? $lpath_43 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "parameters")
@@ -2024,7 +3095,11 @@ sub _jm_obj_14($$$)
             # handle may parameters property
             # .'$openapi#Link'.'|'.1.parameters
             $res = jm_is_object($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.'\$openapi#Link'.'|'.1.parameters]", defined $path ? $lpath_43 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "requestBody")
@@ -2039,15 +3114,25 @@ sub _jm_obj_14($$$)
             # handle may description property
             # .'$openapi#Link'.'|'.1.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Link'.'|'.1.description]", defined $path ? $lpath_43 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Link'.'|'.1.description]", defined $path ? $lpath_43 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "server")
         {
             # handle may server property
             # .'$openapi#Link'.'|'.1.server
-            $res = json_model_8($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_8($pval, defined $path ? $lpath_43 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Server\" [.'\$openapi#Link'.'|'.1.server]", defined $path ? $lpath_43 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Link'.'|'.1.server]", defined $path ? $lpath_43 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -2058,10 +3143,19 @@ sub _jm_obj_14($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Link'.'|'.1]", defined $path ? $lpath_43 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <operationId> [.'\$openapi#Link'.'|'.1]", $path] if defined $rep and not exists $$val{"operationId"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$openapi#Link'.'|'.0
@@ -2074,13 +3168,19 @@ sub _jm_obj_15($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_44 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "operationRef")
         {
             # handle must operationRef property
             $must_count++;
             # .'$openapi#Link'.'|'.0.operationRef
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Link'.'|'.0.operationRef]", defined $path ? $lpath_44 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Link'.'|'.0.operationRef]", defined $path ? $lpath_44 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "parameters")
@@ -2088,7 +3188,11 @@ sub _jm_obj_15($$$)
             # handle may parameters property
             # .'$openapi#Link'.'|'.0.parameters
             $res = jm_is_object($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.'\$openapi#Link'.'|'.0.parameters]", defined $path ? $lpath_44 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "requestBody")
@@ -2103,15 +3207,25 @@ sub _jm_obj_15($$$)
             # handle may description property
             # .'$openapi#Link'.'|'.0.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Link'.'|'.0.description]", defined $path ? $lpath_44 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Link'.'|'.0.description]", defined $path ? $lpath_44 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "server")
         {
             # handle may server property
             # .'$openapi#Link'.'|'.0.server
-            $res = json_model_8($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_8($pval, defined $path ? $lpath_44 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Server\" [.'\$openapi#Link'.'|'.0.server]", defined $path ? $lpath_44 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Link'.'|'.0.server]", defined $path ? $lpath_44 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -2122,10 +3236,19 @@ sub _jm_obj_15($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Link'.'|'.0]", defined $path ? $lpath_44 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <operationRef> [.'\$openapi#Link'.'|'.0]", $path] if defined $rep and not exists $$val{"operationRef"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#Link (.'$openapi#Link')
@@ -2133,24 +3256,56 @@ sub json_model_29($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Link'
-    # .'$openapi#Link'.'|'.0
-    # .'$openapi#Link'.'|'.1
-    return jm_is_object($val) && (_jm_obj_15($val, undef, undef) || _jm_obj_14($val, undef, undef));
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'$openapi#Link'.'|'.0
+        $res = _jm_obj_15($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected element [.'\$openapi#Link'.'|'.0]", $path] if defined $rep;
+            # .'$openapi#Link'.'|'.1
+            $res = _jm_obj_14($val, $path, $rep);
+            push @$rep, ["unexpected element [.'\$openapi#Link'.'|'.1]", $path] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Link'.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'\$openapi#Link'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # object .'$openapi#Header'.'|'.1.content
 sub _jm_obj_17($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Header'.'|'.1.content]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_46 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Header'.'|'.1.content.''
-        $res = json_model_22($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_22($pval, defined $path ? $lpath_46 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$MediaType\" [.'\$openapi#Header'.'|'.1.content.'']", defined $path ? $lpath_46 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -2164,12 +3319,18 @@ sub _jm_obj_16($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_45 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#Header'.'|'.1.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Header'.'|'.1.description]", defined $path ? $lpath_45 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Header'.'|'.1.description]", defined $path ? $lpath_45 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "required")
@@ -2177,7 +3338,12 @@ sub _jm_obj_16($$$)
             # handle may required property
             # .'$openapi#Header'.'|'.1.required
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#Header'.'|'.1.required]", defined $path ? $lpath_45 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Header'.'|'.1.required]", defined $path ? $lpath_45 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "deprecated")
@@ -2185,7 +3351,12 @@ sub _jm_obj_16($$$)
             # handle may deprecated property
             # .'$openapi#Header'.'|'.1.deprecated
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#Header'.'|'.1.deprecated]", defined $path ? $lpath_45 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Header'.'|'.1.deprecated]", defined $path ? $lpath_45 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "allowEmptyValue")
@@ -2193,15 +3364,25 @@ sub _jm_obj_16($$$)
             # handle may allowEmptyValue property
             # .'$openapi#Header'.'|'.1.allowEmptyValue
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#Header'.'|'.1.allowEmptyValue]", defined $path ? $lpath_45 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Header'.'|'.1.allowEmptyValue]", defined $path ? $lpath_45 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "content")
         {
             # handle may content property
             # .'$openapi#Header'.'|'.1.content
-            $res = _jm_obj_17($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_17($pval, defined $path ? $lpath_45 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#Header'.'|'.1.content]", defined $path ? $lpath_45 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Header'.'|'.1.content]", defined $path ? $lpath_45 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -2212,6 +3393,7 @@ sub _jm_obj_16($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Header'.'|'.1]", defined $path ? $lpath_45 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2223,7 +3405,9 @@ sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Header'.'|'.0.allowEmptyValue
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Header'.'|'.0.allowEmptyValue]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_18_map_allowReserved (.'$openapi#Header'.'|'.0.allowReserved)
@@ -2231,7 +3415,9 @@ sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Header'.'|'.0.allowReserved
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Header'.'|'.0.allowReserved]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_18_map_deprecated (.'$openapi#Header'.'|'.0.deprecated)
@@ -2239,7 +3425,9 @@ sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Header'.'|'.0.deprecated
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Header'.'|'.0.deprecated]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_18_map_description (.'$openapi#Header'.'|'.0.description)
@@ -2247,7 +3435,9 @@ sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Header'.'|'.0.description
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$openapi#Header'.'|'.0.description]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_18_map_example (.'$openapi#Header'.'|'.0.example)
@@ -2263,17 +3453,36 @@ sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Header'.'|'.0.examples
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Header'.'|'.0.examples]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_48 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#Header'.'|'.0.examples.''
         # .'$openapi#Header'.'|'.0.examples.''.'|'.0
-        # .'$openapi#Header'.'|'.0.examples.''.'|'.1
-        $res = json_model_27($pval, undef, undef) || json_model_32($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_27($pval, defined $path ? $lpath_48 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Example\" [.'\$openapi#Header'.'|'.0.examples.''.'|'.0]", defined $path ? $lpath_48 : undef] if defined $rep;
+            # .'$openapi#Header'.'|'.0.examples.''.'|'.1
+            $res = json_model_32($pval, defined $path ? $lpath_48 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Header'.'|'.0.examples.''.'|'.1]", defined $path ? $lpath_48 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Header'.'|'.0.examples.''.'|']", defined $path ? $lpath_48 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -2283,7 +3492,9 @@ sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Header'.'|'.0.explode
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Header'.'|'.0.explode]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_obj_18_map_required (.'$openapi#Header'.'|'.0.required)
@@ -2291,7 +3502,9 @@ sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Header'.'|'.0.required
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$openapi#Header'.'|'.0.required]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -2305,10 +3518,15 @@ sub _jm_obj_18($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_47 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_obj_18_map{$prop}))
         {
             # handle 10 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_47 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.'\$openapi#Header'.'|'.0]", defined $path ? $lpath_47 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -2319,6 +3537,7 @@ sub _jm_obj_18($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Header'.'|'.0]", defined $path ? $lpath_47 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2331,9 +3550,32 @@ sub json_model_30($$$)
     my ($val, $path, $rep) = @_;
     # more or less a parameter but without name and in
     # .'$openapi#Header'
-    # .'$openapi#Header'.'|'.0
-    # .'$openapi#Header'.'|'.1
-    return jm_is_object($val) && (_jm_obj_18($val, undef, undef) || _jm_obj_16($val, undef, undef));
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'$openapi#Header'.'|'.0
+        $res = _jm_obj_18($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected element [.'\$openapi#Header'.'|'.0]", $path] if defined $rep;
+            # .'$openapi#Header'.'|'.1
+            $res = _jm_obj_16($val, $path, $rep);
+            push @$rep, ["unexpected element [.'\$openapi#Header'.'|'.1]", $path] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#Header'.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'\$openapi#Header'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $openapi#Tag (.'$openapi#Tag')
@@ -2341,19 +3583,29 @@ sub json_model_31($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Tag'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Tag']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_49 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
             # .'$openapi#Tag'.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Tag'.name]", defined $path ? $lpath_49 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Tag'.name]", defined $path ? $lpath_49 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "description")
@@ -2361,15 +3613,25 @@ sub json_model_31($$$)
             # handle may description property
             # .'$openapi#Tag'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Tag'.description]", defined $path ? $lpath_49 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Tag'.description]", defined $path ? $lpath_49 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "externalDocs")
         {
             # handle may externalDocs property
             # .'$openapi#Tag'.externalDocs
-            $res = json_model_14($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_14($pval, defined $path ? $lpath_49 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$ExternalDocumentation\" [.'\$openapi#Tag'.externalDocs]", defined $path ? $lpath_49 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Tag'.externalDocs]", defined $path ? $lpath_49 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -2380,10 +3642,19 @@ sub json_model_31($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#Tag']", defined $path ? $lpath_49 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <name> [.'\$openapi#Tag']", $path] if defined $rep and not exists $$val{"name"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#Reference (.'$openapi#Reference')
@@ -2391,19 +3662,29 @@ sub json_model_32($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Reference'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#Reference']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_50 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "\$ref")
         {
             # handle must $ref property
             $must_count++;
             # .'$openapi#Reference'.'$ref'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Reference'.'\$ref']", defined $path ? $lpath_50 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#Reference'.'\$ref']", defined $path ? $lpath_50 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "summary")
@@ -2411,7 +3692,12 @@ sub json_model_32($$$)
             # handle may summary property
             # .'$openapi#Reference'.summary
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Reference'.summary]", defined $path ? $lpath_50 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Reference'.summary]", defined $path ? $lpath_50 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "description")
@@ -2419,12 +3705,26 @@ sub json_model_32($$$)
             # handle may description property
             # .'$openapi#Reference'.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#Reference'.description]", defined $path ? $lpath_50 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#Reference'.description]", defined $path ? $lpath_50 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$openapi#Reference']", defined $path ? $lpath_50 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <\$ref> [.'\$openapi#Reference']", $path] if defined $rep and not exists $$val{"\$ref"};
         }
         return 0;
     }
-    return $must_count == 1;
+    return 1;
 }
 
 
@@ -2432,19 +3732,29 @@ sub json_model_32($$$)
 sub _jm_obj_19($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#SecurityScheme'.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_51 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.0.type
             $res = jm_is_string($pval) && $pval eq "apiKey";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_apiKey\" [.'\$openapi#SecurityScheme'.'|'.0.type]", defined $path ? $lpath_51 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.0.type]", defined $path ? $lpath_51 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "name")
@@ -2453,7 +3763,12 @@ sub _jm_obj_19($$$)
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.0.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.0.name]", defined $path ? $lpath_51 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.0.name]", defined $path ? $lpath_51 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "in")
@@ -2462,7 +3777,12 @@ sub _jm_obj_19($$$)
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.0.in
             $res = jm_is_string($pval) && exists $_jm_cst_3{$pval};
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["value not in enum [.'\$openapi#SecurityScheme'.'|'.0.in.'|']", defined $path ? $lpath_51 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.0.in]", defined $path ? $lpath_51 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "description")
@@ -2470,12 +3790,28 @@ sub _jm_obj_19($$$)
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.0.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.0.description]", defined $path ? $lpath_51 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#SecurityScheme'.'|'.0.description]", defined $path ? $lpath_51 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$openapi#SecurityScheme'.'|'.0]", defined $path ? $lpath_51 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 3)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <in> [.'\$openapi#SecurityScheme'.'|'.0]", $path] if defined $rep and not exists $$val{"in"};
+            push @$rep, ["missing mandatory prop <name> [.'\$openapi#SecurityScheme'.'|'.0]", $path] if defined $rep and not exists $$val{"name"};
+            push @$rep, ["missing mandatory prop <type> [.'\$openapi#SecurityScheme'.'|'.0]", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 3;
+    return 1;
 }
 
 sub _jm_re_3($$$)
@@ -2489,19 +3825,29 @@ sub _jm_re_3($$$)
 sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#SecurityScheme'.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_52 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.1.type
             $res = jm_is_string($pval) && $pval eq "http";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_http\" [.'\$openapi#SecurityScheme'.'|'.1.type]", defined $path ? $lpath_52 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.1.type]", defined $path ? $lpath_52 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "scheme")
@@ -2510,8 +3856,13 @@ sub _jm_obj_20($$$)
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.1.scheme
             # "/bearer/i"
-            $res = jm_is_string($pval) && _jm_re_3($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && _jm_re_3($pval, defined $path ? $lpath_52 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/bearer/i\" [.'\$openapi#SecurityScheme'.'|'.1.scheme]", defined $path ? $lpath_52 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.1.scheme]", defined $path ? $lpath_52 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "bearerFormat")
@@ -2519,7 +3870,12 @@ sub _jm_obj_20($$$)
             # handle may bearerFormat property
             # .'$openapi#SecurityScheme'.'|'.1.bearerFormat
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.1.bearerFormat]", defined $path ? $lpath_52 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#SecurityScheme'.'|'.1.bearerFormat]", defined $path ? $lpath_52 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "description")
@@ -2527,31 +3883,56 @@ sub _jm_obj_20($$$)
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.1.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.1.description]", defined $path ? $lpath_52 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#SecurityScheme'.'|'.1.description]", defined $path ? $lpath_52 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$openapi#SecurityScheme'.'|'.1]", defined $path ? $lpath_52 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <scheme> [.'\$openapi#SecurityScheme'.'|'.1]", $path] if defined $rep and not exists $$val{"scheme"};
+            push @$rep, ["missing mandatory prop <type> [.'\$openapi#SecurityScheme'.'|'.1]", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # object .'$openapi#SecurityScheme'.'|'.2
 sub _jm_obj_21($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#SecurityScheme'.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_53 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.2.type
             $res = jm_is_string($pval) && $pval eq "http";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_http\" [.'\$openapi#SecurityScheme'.'|'.2.type]", defined $path ? $lpath_53 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.2.type]", defined $path ? $lpath_53 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "scheme")
@@ -2560,7 +3941,12 @@ sub _jm_obj_21($$$)
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.2.scheme
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.2.scheme]", defined $path ? $lpath_53 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.2.scheme]", defined $path ? $lpath_53 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "description")
@@ -2568,31 +3954,56 @@ sub _jm_obj_21($$$)
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.2.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.2.description]", defined $path ? $lpath_53 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#SecurityScheme'.'|'.2.description]", defined $path ? $lpath_53 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$openapi#SecurityScheme'.'|'.2]", defined $path ? $lpath_53 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <scheme> [.'\$openapi#SecurityScheme'.'|'.2]", $path] if defined $rep and not exists $$val{"scheme"};
+            push @$rep, ["missing mandatory prop <type> [.'\$openapi#SecurityScheme'.'|'.2]", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # object .'$openapi#SecurityScheme'.'|'.3
 sub _jm_obj_22($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#SecurityScheme'.'|'.3]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_54 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.3.type
             $res = jm_is_string($pval) && $pval eq "oauth2";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_oauth2\" [.'\$openapi#SecurityScheme'.'|'.3.type]", defined $path ? $lpath_54 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.3.type]", defined $path ? $lpath_54 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "flows")
@@ -2600,8 +4011,13 @@ sub _jm_obj_22($$$)
             # handle must flows property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.3.flows
-            $res = json_model_43($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_43($pval, defined $path ? $lpath_54 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$OAuthFlows\" [.'\$openapi#SecurityScheme'.'|'.3.flows]", defined $path ? $lpath_54 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.3.flows]", defined $path ? $lpath_54 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "description")
@@ -2609,31 +4025,56 @@ sub _jm_obj_22($$$)
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.3.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.3.description]", defined $path ? $lpath_54 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#SecurityScheme'.'|'.3.description]", defined $path ? $lpath_54 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$openapi#SecurityScheme'.'|'.3]", defined $path ? $lpath_54 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <flows> [.'\$openapi#SecurityScheme'.'|'.3]", $path] if defined $rep and not exists $$val{"flows"};
+            push @$rep, ["missing mandatory prop <type> [.'\$openapi#SecurityScheme'.'|'.3]", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # object .'$openapi#SecurityScheme'.'|'.4
 sub _jm_obj_23($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#SecurityScheme'.'|'.4]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_55 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.4.type
             $res = jm_is_string($pval) && $pval eq "openIdConnect";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_openIdConnect\" [.'\$openapi#SecurityScheme'.'|'.4.type]", defined $path ? $lpath_55 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.4.type]", defined $path ? $lpath_55 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "openIdConnectUrl")
@@ -2641,8 +4082,13 @@ sub _jm_obj_23($$$)
             # handle must openIdConnectUrl property
             $must_count++;
             # .'$openapi#SecurityScheme'.'|'.4.openIdConnectUrl
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_55 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#SecurityScheme'.'|'.4.openIdConnectUrl]", defined $path ? $lpath_55 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.4.openIdConnectUrl]", defined $path ? $lpath_55 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "description")
@@ -2650,29 +4096,54 @@ sub _jm_obj_23($$$)
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.4.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.4.description]", defined $path ? $lpath_55 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#SecurityScheme'.'|'.4.description]", defined $path ? $lpath_55 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$openapi#SecurityScheme'.'|'.4]", defined $path ? $lpath_55 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <openIdConnectUrl> [.'\$openapi#SecurityScheme'.'|'.4]", $path] if defined $rep and not exists $$val{"openIdConnectUrl"};
+            push @$rep, ["missing mandatory prop <type> [.'\$openapi#SecurityScheme'.'|'.4]", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # object .'$openapi#SecurityScheme'.'|'.5
 sub _jm_obj_24($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#SecurityScheme'.'|'.5]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_56 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "description")
         {
             # handle may description property
             # .'$openapi#SecurityScheme'.'|'.5.description
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityScheme'.'|'.5.description]", defined $path ? $lpath_56 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#SecurityScheme'.'|'.5.description]", defined $path ? $lpath_56 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -2683,6 +4154,7 @@ sub _jm_obj_24($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#SecurityScheme'.'|'.5]", defined $path ? $lpath_56 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2702,16 +4174,39 @@ sub json_model_42($$$)
         if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, undef, undef);
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <type> value not found [.'\$openapi#SecurityScheme'.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <type> is missing [.'\$openapi#SecurityScheme'.'|']", $path] if defined $rep;
         }
     }
-    # .'$openapi#SecurityScheme'.'|'.5
-    # .'$openapi#SecurityScheme'.'|'.2
-    return $res || _jm_obj_24($val, undef, undef) || _jm_obj_21($val, undef, undef);
+    else
+    {
+        push @$rep, ["value is not an object [.'\$openapi#SecurityScheme'.'|']", $path] if defined $rep;
+    }
+    unless ($res)
+    {
+        # .'$openapi#SecurityScheme'.'|'.5
+        $res = _jm_obj_24($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected element [.'\$openapi#SecurityScheme'.'|'.5]", $path] if defined $rep;
+            # .'$openapi#SecurityScheme'.'|'.2
+            $res = _jm_obj_21($val, $path, $rep);
+            push @$rep, ["unexpected element [.'\$openapi#SecurityScheme'.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    return $res;
 }
 
 # check $openapi#OAuthFlows (.'$openapi#OAuthFlows')
@@ -2719,41 +4214,66 @@ sub json_model_43($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#OAuthFlows'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#OAuthFlows']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_57 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "implicit")
         {
             # handle may implicit property
             # .'$openapi#OAuthFlows'.implicit
-            $res = json_model_44($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_44($pval, defined $path ? $lpath_57 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$OAuthFlow\" [.'\$openapi#OAuthFlows'.implicit]", defined $path ? $lpath_57 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlows'.implicit]", defined $path ? $lpath_57 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "password")
         {
             # handle may password property
             # .'$openapi#OAuthFlows'.password
-            $res = json_model_44($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_44($pval, defined $path ? $lpath_57 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$OAuthFlow\" [.'\$openapi#OAuthFlows'.password]", defined $path ? $lpath_57 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlows'.password]", defined $path ? $lpath_57 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "clientCredentials")
         {
             # handle may clientCredentials property
             # .'$openapi#OAuthFlows'.clientCredentials
-            $res = json_model_44($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_44($pval, defined $path ? $lpath_57 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$OAuthFlow\" [.'\$openapi#OAuthFlows'.clientCredentials]", defined $path ? $lpath_57 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlows'.clientCredentials]", defined $path ? $lpath_57 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "authorizationCode")
         {
             # handle may authorizationCode property
             # .'$openapi#OAuthFlows'.authorizationCode
-            $res = json_model_44($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_44($pval, defined $path ? $lpath_57 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$OAuthFlow\" [.'\$openapi#OAuthFlows'.authorizationCode]", defined $path ? $lpath_57 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlows'.authorizationCode]", defined $path ? $lpath_57 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -2764,6 +4284,7 @@ sub json_model_43($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#OAuthFlows']", defined $path ? $lpath_57 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2774,15 +4295,24 @@ sub json_model_43($$$)
 sub _jm_obj_25($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#OAuthFlow'.scopes]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_59 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#OAuthFlow'.scopes.''
         $res = jm_is_string($pval);
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\" [.'\$openapi#OAuthFlow'.scopes.'']", defined $path ? $lpath_59 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -2792,19 +4322,29 @@ sub json_model_44($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#OAuthFlow'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#OAuthFlow']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_58 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "authorizationUrl")
         {
             # handle must authorizationUrl property
             $must_count++;
             # .'$openapi#OAuthFlow'.authorizationUrl
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_58 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#OAuthFlow'.authorizationUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#OAuthFlow'.authorizationUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "tokenUrl")
@@ -2812,8 +4352,13 @@ sub json_model_44($$$)
             # handle must tokenUrl property
             $must_count++;
             # .'$openapi#OAuthFlow'.tokenUrl
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_58 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#OAuthFlow'.tokenUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#OAuthFlow'.tokenUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "scopes")
@@ -2821,16 +4366,26 @@ sub json_model_44($$$)
             # handle must scopes property
             $must_count++;
             # .'$openapi#OAuthFlow'.scopes
-            $res = _jm_obj_25($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_25($pval, defined $path ? $lpath_58 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#OAuthFlow'.scopes]", defined $path ? $lpath_58 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#OAuthFlow'.scopes]", defined $path ? $lpath_58 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "refreshUrl")
         {
             # handle may refreshUrl property
             # .'$openapi#OAuthFlow'.refreshUrl
-            $res = jm_is_string($pval) && jm_is_valid_url($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_58 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#OAuthFlow'.refreshUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlow'.refreshUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "x-"))
@@ -2841,10 +4396,21 @@ sub json_model_44($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#OAuthFlow']", defined $path ? $lpath_58 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 3;
+    if ($must_count != 3)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <authorizationUrl> [.'\$openapi#OAuthFlow']", $path] if defined $rep and not exists $$val{"authorizationUrl"};
+            push @$rep, ["missing mandatory prop <scopes> [.'\$openapi#OAuthFlow']", $path] if defined $rep and not exists $$val{"scopes"};
+            push @$rep, ["missing mandatory prop <tokenUrl> [.'\$openapi#OAuthFlow']", $path] if defined $rep and not exists $$val{"tokenUrl"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#SecurityRequirement (.'$openapi#SecurityRequirement')
@@ -2852,11 +4418,16 @@ sub json_model_45($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#SecurityRequirement'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$openapi#SecurityRequirement']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_60 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$openapi#SecurityRequirement'.''
         $res = jm_is_array($pval);
@@ -2865,12 +4436,21 @@ sub json_model_45($$$)
             for my $arr_10_idx (0 .. $#$pval)
             {
                 my $arr_10_item = $$pval[$arr_10_idx];
+                my $arr_10_lpath = defined (defined $path ? $lpath_60 : undef) ? [@{(defined $path ? $lpath_60 : undef)}, $arr_10_idx] : undef;
                 # .'$openapi#SecurityRequirement'.''.0
                 $res = jm_is_string($arr_10_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"\" [.'\$openapi#SecurityRequirement'.''.0]", defined (defined $path ? $lpath_60 : undef) ? $arr_10_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$openapi#SecurityRequirement'.'']", defined $path ? $lpath_60 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -2880,7 +4460,9 @@ sub json_model_64($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#Model'
-    return json_model_97($val, undef, undef);
+    my $res = json_model_97($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$model#Model\" [.'\$openapi#Model']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $openapi#model#Model (.'$openapi#model#Model')
@@ -2889,9 +4471,29 @@ sub json_model_97($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#Model'
     # .'$openapi#model#Model'.'|'.0
-    # .'$openapi#model#Model'.'|'.1
-    # .'$openapi#model#Model'.'|'.2
-    return json_model_96($val, undef, undef) || json_model_83($val, undef, undef) || json_model_93($val, undef, undef);
+    my $res = json_model_96($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$ScalarModel\" [.'\$openapi#model#Model'.'|'.0]", $path] if defined $rep;
+        # .'$openapi#model#Model'.'|'.1
+        $res = json_model_83($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Array\" [.'\$openapi#model#Model'.'|'.1]", $path] if defined $rep;
+            # .'$openapi#model#Model'.'|'.2
+            $res = json_model_93($val, $path, $rep);
+            push @$rep, ["unexpected value for model \"\\\$Element\" [.'\$openapi#model#Model'.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#model#Model'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $openapi#model#Array (.'$openapi#model#Array')
@@ -2905,11 +4507,17 @@ sub json_model_83($$$)
         for my $arr_11_idx (0 .. $#$val)
         {
             my $arr_11_item = $$val[$arr_11_idx];
+            my $arr_11_lpath = defined $path ? [@{$path}, $arr_11_idx] : undef;
             # .'$openapi#model#Array'.0
-            $res = json_model_82($arr_11_item, undef, undef);
-            last unless $res;
+            $res = json_model_82($arr_11_item, defined $path ? $arr_11_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Array'.0]", defined $path ? $arr_11_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$openapi#model#Array']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2919,8 +4527,23 @@ sub json_model_82($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#CModel'
     # .'$openapi#model#CModel'.'|'.0
-    # .'$openapi#model#CModel'.'|'.1
-    return json_model_97($val, undef, undef) || json_model_69($val, undef, undef);
+    my $res = json_model_97($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#model#CModel'.'|'.0]", $path] if defined $rep;
+        # .'$openapi#model#CModel'.'|'.1
+        $res = json_model_69($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$ArrayComment\" [.'\$openapi#model#CModel'.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#model#CModel'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $openapi#model#ArrayComment (.'$openapi#model#ArrayComment')
@@ -2929,7 +4552,9 @@ sub json_model_69($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#ArrayComment'
     # "/^#/"
-    return jm_is_string($val) && jm_starts_with($val, "#");
+    my $res = jm_is_string($val) && jm_starts_with($val, "#");
+    push @$rep, ["unexpected value for model \"/^#/\" [.'\$openapi#model#ArrayComment']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # object .'$openapi#model#Element'.'|'.5
@@ -2941,20 +4566,30 @@ sub _jm_obj_26($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_61 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "#")
         {
             # handle may # property
             # .'$openapi#model#Element'.'|'.5.'#'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#model#Element'.'|'.5.'#']", defined $path ? $lpath_61 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.5.'#']", defined $path ? $lpath_61 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
-        if (json_model_90($prop, undef, undef))
+        if (json_model_90($prop, defined $path ? $lpath_61 : undef, $rep))
         {
             # handle 1 key props
             # .'$openapi#model#Element'.'|'.5.'$Prop'
-            $res = json_model_97($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_97($pval, defined $path ? $lpath_61 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#model#Element'.'|'.5.'\$Prop']", defined $path ? $lpath_61 : undef] if defined $rep;
+                return 0;
+            }
         }
         elsif (jm_starts_with($prop, "#"))
         {
@@ -2964,6 +4599,7 @@ sub _jm_obj_26($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#model#Element'.'|'.5]", defined $path ? $lpath_61 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2980,6 +4616,7 @@ sub _jm_obj_27($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_62 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "+")
         {
             # handle must + property
@@ -2991,12 +4628,22 @@ sub _jm_obj_27($$$)
                 for my $arr_12_idx (0 .. $#$pval)
                 {
                     my $arr_12_item = $$pval[$arr_12_idx];
+                    my $arr_12_lpath = defined (defined $path ? $lpath_62 : undef) ? [@{(defined $path ? $lpath_62 : undef)}, $arr_12_idx] : undef;
                     # .'$openapi#model#Element'.'|'.4.'+'.0
-                    $res = json_model_82($arr_12_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_82($arr_12_item, defined (defined $path ? $lpath_62 : undef) ? $arr_12_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Element'.'|'.4.'+'.0]", defined (defined $path ? $lpath_62 : undef) ? $arr_12_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$openapi#model#Element'.'|'.4.'+']", defined $path ? $lpath_62 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#model#Element'.'|'.4.'+']", defined $path ? $lpath_62 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "#")
@@ -3004,7 +4651,12 @@ sub _jm_obj_27($$$)
             # handle may # property
             # .'$openapi#model#Element'.'|'.4.'#'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#model#Element'.'|'.4.'#']", defined $path ? $lpath_62 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.4.'#']", defined $path ? $lpath_62 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -3015,10 +4667,19 @@ sub _jm_obj_27($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#model#Element'.'|'.4]", defined $path ? $lpath_62 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <+> [.'\$openapi#model#Element'.'|'.4]", $path] if defined $rep and not exists $$val{"+"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$openapi#model#Element'.'|'.3
@@ -3031,6 +4692,7 @@ sub _jm_obj_28($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_63 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "^")
         {
             # handle must ^ property
@@ -3042,12 +4704,22 @@ sub _jm_obj_28($$$)
                 for my $arr_13_idx (0 .. $#$pval)
                 {
                     my $arr_13_item = $$pval[$arr_13_idx];
+                    my $arr_13_lpath = defined (defined $path ? $lpath_63 : undef) ? [@{(defined $path ? $lpath_63 : undef)}, $arr_13_idx] : undef;
                     # .'$openapi#model#Element'.'|'.3.'^'.0
-                    $res = json_model_82($arr_13_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_82($arr_13_item, defined (defined $path ? $lpath_63 : undef) ? $arr_13_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Element'.'|'.3.'^'.0]", defined (defined $path ? $lpath_63 : undef) ? $arr_13_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$openapi#model#Element'.'|'.3.'^']", defined $path ? $lpath_63 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#model#Element'.'|'.3.'^']", defined $path ? $lpath_63 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "#")
@@ -3055,7 +4727,12 @@ sub _jm_obj_28($$$)
             # handle may # property
             # .'$openapi#model#Element'.'|'.3.'#'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#model#Element'.'|'.3.'#']", defined $path ? $lpath_63 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.3.'#']", defined $path ? $lpath_63 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -3066,10 +4743,19 @@ sub _jm_obj_28($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#model#Element'.'|'.3]", defined $path ? $lpath_63 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <^> [.'\$openapi#model#Element'.'|'.3]", $path] if defined $rep and not exists $$val{"^"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$openapi#model#Element'.'|'.2
@@ -3082,6 +4768,7 @@ sub _jm_obj_29($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_64 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "&")
         {
             # handle must & property
@@ -3093,12 +4780,22 @@ sub _jm_obj_29($$$)
                 for my $arr_14_idx (0 .. $#$pval)
                 {
                     my $arr_14_item = $$pval[$arr_14_idx];
+                    my $arr_14_lpath = defined (defined $path ? $lpath_64 : undef) ? [@{(defined $path ? $lpath_64 : undef)}, $arr_14_idx] : undef;
                     # .'$openapi#model#Element'.'|'.2.'&'.0
-                    $res = json_model_82($arr_14_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_82($arr_14_item, defined (defined $path ? $lpath_64 : undef) ? $arr_14_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Element'.'|'.2.'&'.0]", defined (defined $path ? $lpath_64 : undef) ? $arr_14_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$openapi#model#Element'.'|'.2.'&']", defined $path ? $lpath_64 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#model#Element'.'|'.2.'&']", defined $path ? $lpath_64 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "#")
@@ -3106,7 +4803,12 @@ sub _jm_obj_29($$$)
             # handle may # property
             # .'$openapi#model#Element'.'|'.2.'#'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#model#Element'.'|'.2.'#']", defined $path ? $lpath_64 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.2.'#']", defined $path ? $lpath_64 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -3117,10 +4819,19 @@ sub _jm_obj_29($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#model#Element'.'|'.2]", defined $path ? $lpath_64 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <&> [.'\$openapi#model#Element'.'|'.2]", $path] if defined $rep and not exists $$val{"&"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$openapi#model#Element'.'|'.1
@@ -3133,6 +4844,7 @@ sub _jm_obj_30($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_65 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "|")
         {
             # handle must | property
@@ -3144,12 +4856,22 @@ sub _jm_obj_30($$$)
                 for my $arr_15_idx (0 .. $#$pval)
                 {
                     my $arr_15_item = $$pval[$arr_15_idx];
+                    my $arr_15_lpath = defined (defined $path ? $lpath_65 : undef) ? [@{(defined $path ? $lpath_65 : undef)}, $arr_15_idx] : undef;
                     # .'$openapi#model#Element'.'|'.1.'|'.0
-                    $res = json_model_82($arr_15_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_82($arr_15_item, defined (defined $path ? $lpath_65 : undef) ? $arr_15_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Element'.'|'.1.'|'.0]", defined (defined $path ? $lpath_65 : undef) ? $arr_15_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$openapi#model#Element'.'|'.1.'|']", defined $path ? $lpath_65 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#model#Element'.'|'.1.'|']", defined $path ? $lpath_65 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "#")
@@ -3157,7 +4879,12 @@ sub _jm_obj_30($$$)
             # handle may # property
             # .'$openapi#model#Element'.'|'.1.'#'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#model#Element'.'|'.1.'#']", defined $path ? $lpath_65 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.1.'#']", defined $path ? $lpath_65 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -3168,10 +4895,19 @@ sub _jm_obj_30($$$)
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#model#Element'.'|'.1]", defined $path ? $lpath_65 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <|> [.'\$openapi#model#Element'.'|'.1]", $path] if defined $rep and not exists $$val{"|"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 sub _jm_re_4($$$)
@@ -3198,13 +4934,19 @@ sub _jm_obj_31($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_66 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "\@")
         {
             # handle must @ property
             $must_count++;
             # .'$openapi#model#Element'.'|'.0.'@'
-            $res = json_model_97($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_97($pval, defined $path ? $lpath_66 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#model#Element'.'|'.0.'\@']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$openapi#model#Element'.'|'.0.'\@']", defined $path ? $lpath_66 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "#")
@@ -3212,7 +4954,12 @@ sub _jm_obj_31($$$)
             # handle may # property
             # .'$openapi#model#Element'.'|'.0.'#'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$openapi#model#Element'.'|'.0.'#']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.0.'#']", defined $path ? $lpath_66 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "!")
@@ -3220,15 +4967,25 @@ sub _jm_obj_31($$$)
             # handle may ! property
             # .'$openapi#model#Element'.'|'.0.'!'
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$openapi#model#Element'.'|'.0.'!']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.0.'!']", defined $path ? $lpath_66 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq ".in")
         {
             # handle may .in property
             # .'$openapi#model#Element'.'|'.0.'.in'
-            $res = json_model_97($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_97($pval, defined $path ? $lpath_66 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#model#Element'.'|'.0.'.in']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.0.'.in']", defined $path ? $lpath_66 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq ".mo")
@@ -3236,9 +4993,24 @@ sub _jm_obj_31($$$)
             # handle may .mo property
             # .'$openapi#model#Element'.'|'.0.'.mo'
             # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.0
-            # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
-            $res = jm_is_integer($pval) && $pval >= 1 || jm_is_numeric($pval) && $pval > 0.0;
-            return 0 unless $res;
+            $res = jm_is_integer($pval) && $pval >= 1;
+            unless ($res)
+            {
+                push @$rep, ["not a 1 strict int [.'\$openapi#model#Element'.'|'.0.'.mo'.'|'.0]", defined $path ? $lpath_66 : undef] if defined $rep;
+                # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
+                $res = jm_is_numeric($pval) && $pval > 0.0;
+                push @$rep, ["not a 1.0 strict float [.'\$openapi#model#Element'.'|'.0.'.mo'.'|'.1]", defined $path ? $lpath_66 : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$openapi#model#Element'.'|'.0.'.mo'.'|']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.0.'.mo']", defined $path ? $lpath_66 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (jm_starts_with($prop, "#"))
@@ -3247,26 +5019,43 @@ sub _jm_obj_31($$$)
             # .'$openapi#model#Element'.'|'.0.'/^#/'
             $res = 1;
         }
-        elsif (_jm_re_4($prop, undef, undef))
+        elsif (_jm_re_4($prop, $path, $rep))
         {
             # handle 3 re props
             # .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
-            $res = json_model_76($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_76($pval, defined $path ? $lpath_66 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$CmpValue\" [.'\$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)\$/']", defined $path ? $lpath_66 : undef] if defined $rep;
+                return 0;
+            }
         }
-        elsif (_jm_re_5($prop, undef, undef))
+        elsif (_jm_re_5($prop, $path, $rep))
         {
             # handle 3 re props
             # .'$openapi#model#Element'.'|'.0.'/^(=|!=)$/'
-            $res = json_model_77($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_77($pval, defined $path ? $lpath_66 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$EqValue\" [.'\$openapi#model#Element'.'|'.0.'/^(=|!=)\$/']", defined $path ? $lpath_66 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.'\$openapi#model#Element'.'|'.0]", defined $path ? $lpath_66 : undef] if defined $rep;
             return 0;
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <\@> [.'\$openapi#model#Element'.'|'.0]", $path] if defined $rep and not exists $$val{"\@"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $openapi#model#Element (.'$openapi#model#Element')
@@ -3274,13 +5063,56 @@ sub json_model_93($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#Element'
-    # .'$openapi#model#Element'.'|'.0
-    # .'$openapi#model#Element'.'|'.1
-    # .'$openapi#model#Element'.'|'.2
-    # .'$openapi#model#Element'.'|'.3
-    # .'$openapi#model#Element'.'|'.4
-    # .'$openapi#model#Element'.'|'.5
-    return jm_is_object($val) && (_jm_obj_31($val, undef, undef) || _jm_obj_30($val, undef, undef) || _jm_obj_29($val, undef, undef) || _jm_obj_28($val, undef, undef) || _jm_obj_27($val, undef, undef) || _jm_obj_26($val, undef, undef));
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'$openapi#model#Element'.'|'.0
+        $res = _jm_obj_31($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected element [.'\$openapi#model#Element'.'|'.0]", $path] if defined $rep;
+            # .'$openapi#model#Element'.'|'.1
+            $res = _jm_obj_30($val, $path, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$openapi#model#Element'.'|'.1]", $path] if defined $rep;
+                # .'$openapi#model#Element'.'|'.2
+                $res = _jm_obj_29($val, $path, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected element [.'\$openapi#model#Element'.'|'.2]", $path] if defined $rep;
+                    # .'$openapi#model#Element'.'|'.3
+                    $res = _jm_obj_28($val, $path, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected element [.'\$openapi#model#Element'.'|'.3]", $path] if defined $rep;
+                        # .'$openapi#model#Element'.'|'.4
+                        $res = _jm_obj_27($val, $path, $rep);
+                        unless ($res)
+                        {
+                            push @$rep, ["unexpected element [.'\$openapi#model#Element'.'|'.4]", $path] if defined $rep;
+                            # .'$openapi#model#Element'.'|'.5
+                            $res = _jm_obj_26($val, $path, $rep);
+                            push @$rep, ["unexpected element [.'\$openapi#model#Element'.'|'.5]", $path] if defined $rep and not $res;
+                        }
+                    }
+                }
+            }
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#model#Element'.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'\$openapi#model#Element'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $openapi#model#CmpValue (.'$openapi#model#CmpValue')
@@ -3289,9 +5121,29 @@ sub json_model_76($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#CmpValue'
     # .'$openapi#model#CmpValue'.'|'.0
-    # .'$openapi#model#CmpValue'.'|'.1
-    # .'$openapi#model#CmpValue'.'|'.2
-    return jm_is_integer($val) || jm_is_numeric($val) || jm_is_string($val);
+    my $res = jm_is_integer($val);
+    unless ($res)
+    {
+        push @$rep, ["not a -1 strict int [.'\$openapi#model#CmpValue'.'|'.0]", $path] if defined $rep;
+        # .'$openapi#model#CmpValue'.'|'.1
+        $res = jm_is_numeric($val);
+        unless ($res)
+        {
+            push @$rep, ["not a -1.0 strict float [.'\$openapi#model#CmpValue'.'|'.1]", $path] if defined $rep;
+            # .'$openapi#model#CmpValue'.'|'.2
+            $res = jm_is_string($val);
+            push @$rep, ["unexpected value for model \"\" [.'\$openapi#model#CmpValue'.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#model#CmpValue'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $openapi#model#EqValue (.'$openapi#model#EqValue')
@@ -3300,9 +5152,29 @@ sub json_model_77($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#EqValue'
     # .'$openapi#model#EqValue'.'|'.0
-    # .'$openapi#model#EqValue'.'|'.1
-    # .'$openapi#model#EqValue'.'|'.2
-    return !defined($val) || jm_is_boolean($val) || json_model_76($val, undef, undef);
+    my $res = !defined($val);
+    unless ($res)
+    {
+        push @$rep, ["not null [.'\$openapi#model#EqValue'.'|'.0]", $path] if defined $rep;
+        # .'$openapi#model#EqValue'.'|'.1
+        $res = jm_is_boolean($val);
+        unless ($res)
+        {
+            push @$rep, ["not a bool [.'\$openapi#model#EqValue'.'|'.1]", $path] if defined $rep;
+            # .'$openapi#model#EqValue'.'|'.2
+            $res = json_model_76($val, $path, $rep);
+            push @$rep, ["unexpected value for model \"\\\$CmpValue\" [.'\$openapi#model#EqValue'.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#model#EqValue'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 sub _jm_re_6($$$)
@@ -3319,12 +5191,47 @@ sub json_model_90($$$)
     # .'$openapi#model#Prop'
     # .'$openapi#model#Prop'.'|'.0
     # "/^[?!]/"
-    # .'$openapi#model#Prop'.'|'.1
-    # .'$openapi#model#Prop'.'|'.2
-    # .'$openapi#model#Prop'.'|'.3
-    # .'$openapi#model#Prop'.'|'.4
-    # .'$openapi#model#Prop'.'|'.5
-    return jm_is_string($val) && _jm_re_6($val, undef, undef) || json_model_73($val, undef, undef) || json_model_74($val, undef, undef) || json_model_71($val, undef, undef) || json_model_75($val, undef, undef) || jm_is_string($val) && $val eq "";
+    my $res = jm_is_string($val) && _jm_re_6($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"/^[?!]/\" [.'\$openapi#model#Prop'.'|'.0]", $path] if defined $rep;
+        # .'$openapi#model#Prop'.'|'.1
+        $res = json_model_73($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$StrConst\" [.'\$openapi#model#Prop'.'|'.1]", $path] if defined $rep;
+            # .'$openapi#model#Prop'.'|'.2
+            $res = json_model_74($val, $path, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Regex\" [.'\$openapi#model#Prop'.'|'.2]", $path] if defined $rep;
+                # .'$openapi#model#Prop'.'|'.3
+                $res = json_model_71($val, $path, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"\\\$Ref\" [.'\$openapi#model#Prop'.'|'.3]", $path] if defined $rep;
+                    # .'$openapi#model#Prop'.'|'.4
+                    $res = json_model_75($val, $path, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$Name\" [.'\$openapi#model#Prop'.'|'.4]", $path] if defined $rep;
+                        # .'$openapi#model#Prop'.'|'.5
+                        $res = jm_is_string($val) && $val eq "";
+                        push @$rep, ["unexpected value for model \"_\" [.'\$openapi#model#Prop'.'|'.5]", $path] if defined $rep and not $res;
+                    }
+                }
+            }
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#model#Prop'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 sub _jm_re_7($$$)
@@ -3340,7 +5247,9 @@ sub json_model_71($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#Ref'
     # "/^\\$./"
-    return jm_is_string($val) && _jm_re_7($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_7($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/^\\\\\\\$./\" [.'\$openapi#model#Ref']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 sub _jm_re_8($$$)
@@ -3356,7 +5265,9 @@ sub json_model_73($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#StrConst'
     # "/^[A-Za-z0-9_]/"
-    return jm_is_string($val) && _jm_re_8($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_8($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/^[A-Za-z0-9_]/\" [.'\$openapi#model#StrConst']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 sub _jm_xre_0_re($$$)
@@ -3373,7 +5284,7 @@ sub _jm_xre_0($$$)
     my $match = $val =~ /^\/(?<s1>.*)\/[a-z]*$/;
     return 0 unless $match;
     $extract = $+{"s1"};
-    return 0 unless jm_is_valid_regex($extract, undef, undef);
+    return 0 unless jm_is_valid_regex($extract, $path, $rep);
     return 1;
 }
 
@@ -3391,7 +5302,7 @@ sub _jm_xre_1($$$)
     my $match = $val =~ /^\/(?<s1>.*)\/[a-z]*X[a-z]*$/;
     return 0 unless $match;
     $extract = $+{"s1"};
-    return 0 unless jm_is_valid_exreg($extract, undef, undef);
+    return 0 unless jm_is_valid_exreg($extract, $path, $rep);
     return 1;
 }
 
@@ -3400,11 +5311,34 @@ sub json_model_74($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#Regex'
-    # .'$openapi#model#Regex'.'|'.0
-    # "/^/($EXREG)/[a-z]*X[a-z]*$/X"
-    # .'$openapi#model#Regex'.'|'.1
-    # "/^/($REGEX)/[a-z]*$/X"
-    return jm_is_string($val) && (_jm_xre_1($val, undef, undef) || _jm_xre_0($val, undef, undef));
+    my $res = jm_is_string($val);
+    if ($res)
+    {
+        # .'$openapi#model#Regex'.'|'.0
+        # "/^/($EXREG)/[a-z]*X[a-z]*$/X"
+        $res = _jm_xre_1($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"/^/(\\\$EXREG)/[a-z]*X[a-z]*\\\$/X\" [.'\$openapi#model#Regex'.'|'.0]", $path] if defined $rep;
+            # .'$openapi#model#Regex'.'|'.1
+            # "/^/($REGEX)/[a-z]*$/X"
+            $res = _jm_xre_0($val, $path, $rep);
+            push @$rep, ["unexpected value for model \"/^/(\\\$REGEX)/[a-z]*\\\$/X\" [.'\$openapi#model#Regex'.'|'.1]", $path] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$openapi#model#Regex'.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'\$openapi#model#Regex'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 sub _jm_re_9($$$)
@@ -3420,7 +5354,9 @@ sub json_model_75($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#Name'
     # "/^\\..+$/"
-    return jm_is_string($val) && _jm_re_9($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_9($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/^\\\\..+\\\$/\" [.'\$openapi#model#Name']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
@@ -3429,8 +5365,23 @@ sub json_model_96($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#ScalarModel'
     # .'$openapi#model#ScalarModel'.'|'.0
-    # .'$openapi#model#ScalarModel'.'|'.1
-    return json_model_78($val, undef, undef) || json_model_79($val, undef, undef);
+    my $res = json_model_78($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$ValModel\" [.'\$openapi#model#ScalarModel'.'|'.0]", $path] if defined $rep;
+        # .'$openapi#model#ScalarModel'.'|'.1
+        $res = json_model_79($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$StrModel\" [.'\$openapi#model#ScalarModel'.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#model#ScalarModel'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $openapi#model#ValModel (.'$openapi#model#ValModel')
@@ -3439,14 +5390,59 @@ sub json_model_78($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#ValModel'
     # .'$openapi#model#ValModel'.'|'.0
-    # .'$openapi#model#ValModel'.'|'.1
-    # .'$openapi#model#ValModel'.'|'.2
-    # .'$openapi#model#ValModel'.'|'.3
-    # .'$openapi#model#ValModel'.'|'.4
-    # .'$openapi#model#ValModel'.'|'.5
-    # .'$openapi#model#ValModel'.'|'.6
-    # .'$openapi#model#ValModel'.'|'.7
-    return !defined($val) || jm_is_boolean($val) && $val == 1 || jm_is_integer($val) && $val == 0 || jm_is_integer($val) && $val == 1 || jm_is_integer($val) && $val == -1 || jm_is_numeric($val) && $val == 0.0 || jm_is_numeric($val) && $val == 1.0 || jm_is_numeric($val) && $val == -1.0;
+    my $res = !defined($val);
+    unless ($res)
+    {
+        push @$rep, ["not null [.'\$openapi#model#ValModel'.'|'.0]", $path] if defined $rep;
+        # .'$openapi#model#ValModel'.'|'.1
+        $res = jm_is_boolean($val) && $val == 1;
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"=true\" [.'\$openapi#model#ValModel'.'|'.1]", $path] if defined $rep;
+            # .'$openapi#model#ValModel'.'|'.2
+            $res = jm_is_integer($val) && $val == 0;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"=0\" [.'\$openapi#model#ValModel'.'|'.2]", $path] if defined $rep;
+                # .'$openapi#model#ValModel'.'|'.3
+                $res = jm_is_integer($val) && $val == 1;
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"=1\" [.'\$openapi#model#ValModel'.'|'.3]", $path] if defined $rep;
+                    # .'$openapi#model#ValModel'.'|'.4
+                    $res = jm_is_integer($val) && $val == -1;
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"=-1\" [.'\$openapi#model#ValModel'.'|'.4]", $path] if defined $rep;
+                        # .'$openapi#model#ValModel'.'|'.5
+                        $res = jm_is_numeric($val) && $val == 0.0;
+                        unless ($res)
+                        {
+                            push @$rep, ["unexpected value for model \"=0.0\" [.'\$openapi#model#ValModel'.'|'.5]", $path] if defined $rep;
+                            # .'$openapi#model#ValModel'.'|'.6
+                            $res = jm_is_numeric($val) && $val == 1.0;
+                            unless ($res)
+                            {
+                                push @$rep, ["unexpected value for model \"=1.0\" [.'\$openapi#model#ValModel'.'|'.6]", $path] if defined $rep;
+                                # .'$openapi#model#ValModel'.'|'.7
+                                $res = jm_is_numeric($val) && $val == -1.0;
+                                push @$rep, ["unexpected value for model \"=-1.0\" [.'\$openapi#model#ValModel'.'|'.7]", $path] if defined $rep and not $res;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#model#ValModel'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $openapi#model#StrModel (.'$openapi#model#StrModel')
@@ -3455,12 +5451,47 @@ sub json_model_79($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#StrModel'
     # .'$openapi#model#StrModel'.'|'.0
-    # .'$openapi#model#StrModel'.'|'.1
-    # .'$openapi#model#StrModel'.'|'.2
-    # .'$openapi#model#StrModel'.'|'.3
-    # .'$openapi#model#StrModel'.'|'.4
-    # .'$openapi#model#StrModel'.'|'.5
-    return json_model_73($val, undef, undef) || json_model_72($val, undef, undef) || json_model_74($val, undef, undef) || json_model_67($val, undef, undef) || json_model_71($val, undef, undef) || jm_is_string($val) && $val eq "";
+    my $res = json_model_73($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$StrConst\" [.'\$openapi#model#StrModel'.'|'.0]", $path] if defined $rep;
+        # .'$openapi#model#StrModel'.'|'.1
+        $res = json_model_72($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$ValConst\" [.'\$openapi#model#StrModel'.'|'.1]", $path] if defined $rep;
+            # .'$openapi#model#StrModel'.'|'.2
+            $res = json_model_74($val, $path, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Regex\" [.'\$openapi#model#StrModel'.'|'.2]", $path] if defined $rep;
+                # .'$openapi#model#StrModel'.'|'.3
+                $res = json_model_67($val, $path, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"\\\$PreDef\" [.'\$openapi#model#StrModel'.'|'.3]", $path] if defined $rep;
+                    # .'$openapi#model#StrModel'.'|'.4
+                    $res = json_model_71($val, $path, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$Ref\" [.'\$openapi#model#StrModel'.'|'.4]", $path] if defined $rep;
+                        # .'$openapi#model#StrModel'.'|'.5
+                        $res = jm_is_string($val) && $val eq "";
+                        push @$rep, ["unexpected value for model \"_\" [.'\$openapi#model#StrModel'.'|'.5]", $path] if defined $rep and not $res;
+                    }
+                }
+            }
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$openapi#model#StrModel'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 
@@ -3469,7 +5500,9 @@ sub json_model_67($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#PreDef'
-    return jm_is_string($val) && exists $_jm_cst_4{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_4{$val};
+    push @$rep, ["value not in enum [.'\$openapi#model#PreDef'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 sub _jm_re_10($$$)
@@ -3485,7 +5518,9 @@ sub json_model_72($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#model#ValConst'
     # "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-    return jm_is_string($val) && _jm_re_10($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_10($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/^=(null|true|false|[-+]?\\\\d+(\\\\.\\\\d+)?([Ee][-+]?\\\\d+)?)\\\$/\" [.'\$openapi#model#ValConst']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

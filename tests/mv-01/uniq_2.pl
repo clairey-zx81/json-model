@@ -22,9 +22,19 @@ sub json_model_1($$$)
     # require generic unique implementation
     # .
     # .'@'
-    # accept any array
-    ;
-    return jm_is_array($val) && jm_is_unique_array($val, undef, undef);
+    my $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+        $res = jm_is_unique_array($val, $path, $rep);
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\@']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

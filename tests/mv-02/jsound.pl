@@ -43,17 +43,27 @@ my %check_model_map;
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Schema'.metadata]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle may name property
             # .'$Schema'.metadata.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Schema'.metadata.name]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Schema'.metadata.name]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "previous")
@@ -61,7 +71,12 @@ sub _jm_obj_0($$$)
             # handle may previous property
             # .'$Schema'.metadata.previous
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Schema'.metadata.previous]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Schema'.metadata.previous]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "date")
@@ -69,7 +84,12 @@ sub _jm_obj_0($$$)
             # handle may date property
             # .'$Schema'.metadata.date
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Schema'.metadata.date]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Schema'.metadata.date]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "authors")
@@ -82,14 +102,25 @@ sub _jm_obj_0($$$)
                 for my $arr_1_idx (0 .. $#$pval)
                 {
                     my $arr_1_item = $$pval[$arr_1_idx];
+                    my $arr_1_lpath = defined (defined $path ? $lpath_1 : undef) ? [@{(defined $path ? $lpath_1 : undef)}, $arr_1_idx] : undef;
                     # .'$Schema'.metadata.authors.0
                     $res = jm_is_string($arr_1_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\" [.'\$Schema'.metadata.authors.0]", defined (defined $path ? $lpath_1 : undef) ? $arr_1_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Schema'.metadata.authors]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Schema'.metadata.authors]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.'\$Schema'.metadata]", defined $path ? $lpath_1 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -100,12 +131,17 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Schema'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Schema']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "types")
         {
             # handle must types property
@@ -117,25 +153,49 @@ sub json_model_2($$$)
                 for my $arr_0_idx (0 .. $#$pval)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
+                    my $arr_0_lpath = defined (defined $path ? $lpath_0 : undef) ? [@{(defined $path ? $lpath_0 : undef)}, $arr_0_idx] : undef;
                     # .'$Schema'.types.0
-                    $res = json_model_3($arr_0_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_3($arr_0_item, defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$Type\" [.'\$Schema'.types.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Schema'.types]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Schema'.types]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "metadata")
         {
             # handle may metadata property
             # .'$Schema'.metadata
-            $res = _jm_obj_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_0($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.'\$Schema'.metadata]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Schema'.metadata]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Schema']", defined $path ? $lpath_0 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <types> [.'\$Schema']", $path] if defined $rep and not exists $$val{"types"};
         }
         return 0;
     }
-    return $must_count == 1;
+    return 1;
 }
 
 
@@ -151,12 +211,25 @@ sub json_model_3($$$)
         if (defined($tag_0 = $$val{"kind"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, undef, undef);
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <kind> value not found [.'\$Type'.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <kind> is missing [.'\$Type'.'|']", $path] if defined $rep;
         }
+    }
+    else
+    {
+        push @$rep, ["value is not an object [.'\$Type'.'|']", $path] if defined $rep;
     }
     return $res;
 }
@@ -167,7 +240,9 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$atomic-types'
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'\$atomic-types'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $atomic (.'$atomic')
@@ -175,7 +250,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$atomic'
-    return ! jm_is_object($val) && ! jm_is_array($val);
+    my $res = ! jm_is_object($val) && ! jm_is_array($val);
+    push @$rep, ["unexpected type [.'\$atomic'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_6_map_enumeration (.'$Atomic'.enumeration)
@@ -189,11 +266,17 @@ sub _jm_f_0($$$)
         for my $arr_2_idx (0 .. $#$val)
         {
             my $arr_2_item = $$val[$arr_2_idx];
+            my $arr_2_lpath = defined $path ? [@{$path}, $arr_2_idx] : undef;
             # .'$Atomic'.enumeration.0
-            $res = json_model_5($arr_2_item, undef, undef);
-            last unless $res;
+            $res = json_model_5($arr_2_item, defined $path ? $arr_2_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$atomic\" [.'\$Atomic'.enumeration.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$Atomic'.enumeration]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -203,7 +286,9 @@ sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.explicitTypeZone
-    return jm_is_string($val) && exists $_jm_cst_1{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_1{$val};
+    push @$rep, ["value not in enum [.'\$Atomic'.explicitTypeZone.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_6_map_fractionDigits (.'$Atomic'.fractionDigits)
@@ -211,7 +296,9 @@ sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.fractionDigits
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$Atomic'.fractionDigits]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_6_map_length (.'$Atomic'.length)
@@ -219,7 +306,9 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.length
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$Atomic'.length]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_6_map_maxLength (.'$Atomic'.maxLength)
@@ -227,7 +316,9 @@ sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.maxLength
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$Atomic'.maxLength]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_6_map_minLength (.'$Atomic'.minLength)
@@ -235,7 +326,9 @@ sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.minLength
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$Atomic'.minLength]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_6_map_name (.'$Atomic'.name)
@@ -243,7 +336,9 @@ sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.name
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$Atomic'.name]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_6_map_pattern (.'$Atomic'.pattern)
@@ -251,7 +346,9 @@ sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.pattern
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$Atomic'.pattern]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_6_map_totalDigits (.'$Atomic'.totalDigits)
@@ -259,7 +356,9 @@ sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Atomic'.totalDigits
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$Atomic'.totalDigits]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -269,20 +368,30 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # could there be derived atomics as well?
     # .'$Atomic'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Atomic']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "kind")
         {
             # handle must kind property
             $must_count++;
             # .'$Atomic'.kind
             $res = jm_is_string($pval) && $pval eq "atomic";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"atomic\" [.'\$Atomic'.kind]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Atomic'.kind]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "baseType")
@@ -290,19 +399,38 @@ sub json_model_6($$$)
             # handle must baseType property
             $must_count++;
             # .'$Atomic'.baseType
-            $res = json_model_4($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_4($pval, defined $path ? $lpath_2 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$atomic-types\" [.'\$Atomic'.baseType]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Atomic'.baseType]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if (($pfun = $json_model_6_map{$prop}))
         {
             # handle 13 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_2 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.'\$Atomic']", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Atomic']", defined $path ? $lpath_2 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <baseType> [.'\$Atomic']", $path] if defined $rep and not exists $$val{"baseType"};
+            push @$rep, ["missing mandatory prop <kind> [.'\$Atomic']", $path] if defined $rep and not exists $$val{"kind"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # check $Object (.'$Object')
@@ -310,19 +438,29 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Object'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Object']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "kind")
         {
             # handle must kind property
             $must_count++;
             # .'$Object'.kind
             $res = jm_is_string($pval) && $pval eq "object";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"object\" [.'\$Object'.kind]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Object'.kind]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "name")
@@ -330,7 +468,12 @@ sub json_model_7($$$)
             # handle may name property
             # .'$Object'.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Object'.name]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Object'.name]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "baseType")
@@ -338,7 +481,12 @@ sub json_model_7($$$)
             # handle may baseType property
             # .'$Object'.baseType
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Object'.baseType]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Object'.baseType]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "content")
@@ -351,12 +499,22 @@ sub json_model_7($$$)
                 for my $arr_3_idx (0 .. $#$pval)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
+                    my $arr_3_lpath = defined (defined $path ? $lpath_3 : undef) ? [@{(defined $path ? $lpath_3 : undef)}, $arr_3_idx] : undef;
                     # .'$Object'.content.0
-                    $res = json_model_8($arr_3_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_8($arr_3_item, defined (defined $path ? $lpath_3 : undef) ? $arr_3_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$Fields\" [.'\$Object'.content.0]", defined (defined $path ? $lpath_3 : undef) ? $arr_3_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Object'.content]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Object'.content]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "closed")
@@ -364,12 +522,26 @@ sub json_model_7($$$)
             # handle may closed property
             # .'$Object'.closed
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$Object'.closed]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Object'.closed]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Object']", defined $path ? $lpath_3 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <kind> [.'\$Object']", $path] if defined $rep and not exists $$val{"kind"};
         }
         return 0;
     }
-    return $must_count == 1;
+    return 1;
 }
 
 # check $Fields (.'$Fields')
@@ -377,19 +549,29 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Fields'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Fields']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
             # .'$Fields'.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Fields'.name]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Fields'.name]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "type")
@@ -397,8 +579,13 @@ sub json_model_8($$$)
             # handle must type property
             $must_count++;
             # .'$Fields'.type
-            $res = json_model_11($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_11($pval, defined $path ? $lpath_4 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$type-or-ref\" [.'\$Fields'.type]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Fields'.type]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "required")
@@ -406,7 +593,12 @@ sub json_model_8($$$)
             # handle may required property
             # .'$Fields'.required
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$Fields'.required]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Fields'.required]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "default")
@@ -421,12 +613,27 @@ sub json_model_8($$$)
             # handle may unique property
             # .'$Fields'.unique
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'\$Fields'.unique]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Fields'.unique]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Fields']", defined $path ? $lpath_4 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <name> [.'\$Fields']", $path] if defined $rep and not exists $$val{"name"};
+            push @$rep, ["missing mandatory prop <type> [.'\$Fields']", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # check $Array (.'$Array')
@@ -435,19 +642,29 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # WTF about 'content'?
     # .'$Array'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Array']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "kind")
         {
             # handle must kind property
             $must_count++;
             # .'$Array'.kind
             $res = jm_is_string($pval) && $pval eq "array";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"array\" [.'\$Array'.kind]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Array'.kind]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "name")
@@ -455,7 +672,12 @@ sub json_model_9($$$)
             # handle may name property
             # .'$Array'.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Array'.name]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Array'.name]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "baseType")
@@ -463,15 +685,25 @@ sub json_model_9($$$)
             # handle may baseType property
             # .'$Array'.baseType
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Array'.baseType]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Array'.baseType]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "content")
         {
             # handle may content property
             # .'$Array'.content
-            $res = json_model_11($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_11($pval, defined $path ? $lpath_5 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$type-or-ref\" [.'\$Array'.content]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Array'.content]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "minLength")
@@ -479,7 +711,12 @@ sub json_model_9($$$)
             # handle may minLength property
             # .'$Array'.minLength
             $res = jm_is_integer($pval) && $pval >= 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.'\$Array'.minLength]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Array'.minLength]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "maxLength")
@@ -487,12 +724,26 @@ sub json_model_9($$$)
             # handle may maxLength property
             # .'$Array'.maxLength
             $res = jm_is_integer($pval) && $pval >= 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.'\$Array'.maxLength]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Array'.maxLength]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Array']", defined $path ? $lpath_5 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <kind> [.'\$Array']", $path] if defined $rep and not exists $$val{"kind"};
         }
         return 0;
     }
-    return $must_count == 1;
+    return 1;
 }
 
 # check $Union (.'$Union')
@@ -501,19 +752,29 @@ sub json_model_10($$$)
     my ($val, $path, $rep) = @_;
     # jsound.jsound.json does not say that it is a type…
     # .'$Union'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Union']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_6 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
             # handle must name property
             $must_count++;
             # .'$Union'.name
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Union'.name]", defined $path ? $lpath_6 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Union'.name]", defined $path ? $lpath_6 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "kind")
@@ -522,7 +783,12 @@ sub json_model_10($$$)
             $must_count++;
             # .'$Union'.kind
             $res = jm_is_string($pval) && $pval eq "union";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"union\" [.'\$Union'.kind]", defined $path ? $lpath_6 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Union'.kind]", defined $path ? $lpath_6 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "content")
@@ -536,12 +802,22 @@ sub json_model_10($$$)
                 for my $arr_4_idx (0 .. $#$pval)
                 {
                     my $arr_4_item = $$pval[$arr_4_idx];
+                    my $arr_4_lpath = defined (defined $path ? $lpath_6 : undef) ? [@{(defined $path ? $lpath_6 : undef)}, $arr_4_idx] : undef;
                     # .'$Union'.content.0
-                    $res = json_model_11($arr_4_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_11($arr_4_item, defined (defined $path ? $lpath_6 : undef) ? $arr_4_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$type-or-ref\" [.'\$Union'.content.0]", defined (defined $path ? $lpath_6 : undef) ? $arr_4_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Union'.content]", defined $path ? $lpath_6 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Union'.content]", defined $path ? $lpath_6 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "baseType")
@@ -549,12 +825,28 @@ sub json_model_10($$$)
             # handle may baseType property
             # .'$Union'.baseType
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Union'.baseType]", defined $path ? $lpath_6 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Union'.baseType]", defined $path ? $lpath_6 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Union']", defined $path ? $lpath_6 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 3)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <content> [.'\$Union']", $path] if defined $rep and not exists $$val{"content"};
+            push @$rep, ["missing mandatory prop <kind> [.'\$Union']", $path] if defined $rep and not exists $$val{"kind"};
+            push @$rep, ["missing mandatory prop <name> [.'\$Union']", $path] if defined $rep and not exists $$val{"name"};
         }
         return 0;
     }
-    return $must_count == 3;
+    return 1;
 }
 
 # check $type-or-ref (.'$type-or-ref')
@@ -563,8 +855,23 @@ sub json_model_11($$$)
     my ($val, $path, $rep) = @_;
     # .'$type-or-ref'
     # .'$type-or-ref'.'|'.0
-    # .'$type-or-ref'.'|'.1
-    return jm_is_string($val) || json_model_3($val, undef, undef);
+    my $res = jm_is_string($val);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\$type-or-ref'.'|'.0]", $path] if defined $rep;
+        # .'$type-or-ref'.'|'.1
+        $res = json_model_3($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$Type\" [.'\$type-or-ref'.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$type-or-ref'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $ (.)
@@ -572,7 +879,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, undef, undef);
+    my $res = json_model_2($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$Schema\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

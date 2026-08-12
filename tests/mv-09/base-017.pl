@@ -26,6 +26,11 @@ sub json_model_1($$$)
     {
         my $ival_0 = length $val;
         $res = $ival_0 <= 3 && $ival_0 >= 2;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\@']", $path] if defined $rep;
     }
     return $res;
 }

@@ -21,7 +21,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$an_int'
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$an_int']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -29,7 +31,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_2($val, undef, undef);
+    my $res = json_model_2($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$an_int\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

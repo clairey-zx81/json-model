@@ -22,8 +22,22 @@ sub json_model_1($$$)
     # any constructed stuff
     # .
     # .'|'.0
-    # .'|'.1
-    return jm_is_object($val) || jm_is_array($val);
+    my $res = jm_is_object($val);
+    unless ($res)
+    {
+        # .'|'.1
+        $res = jm_is_array($val);
+        push @$rep, ["not array or unexpected array [.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

@@ -20,7 +20,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_boolean($val) && $val == 1;
+    my $res = jm_is_boolean($val) && $val == 1;
+    push @$rep, ["unexpected value for model \"=true\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

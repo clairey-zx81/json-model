@@ -28,7 +28,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Nn'
-    return !defined($val);
+    my $res = !defined($val);
+    push @$rep, ["not null [.'\$Nn']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Bb (.'$Bb')
@@ -36,7 +38,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Bb'
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$Bb']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Ii (.'$Ii')
@@ -44,7 +48,9 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ii'
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["not a -1 strict int [.'\$Ii']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Ff (.'$Ff')
@@ -52,7 +58,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ff'
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["not a -1.0 strict float [.'\$Ff']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Ss (.'$Ss')
@@ -60,7 +68,9 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ss'
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$Ss']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Aa (.'$Aa')
@@ -74,11 +84,17 @@ sub json_model_7($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'$Aa'.0
-            $res = json_model_9($arr_0_item, undef, undef);
-            last unless $res;
+            $res = json_model_9($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Any\" [.'\$Aa'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$Aa']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -87,15 +103,24 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Oo'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Oo']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Oo'.''
-        $res = json_model_9($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_9($pval, defined $path ? $lpath_0 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Any\" [.'\$Oo'.'']", defined $path ? $lpath_0 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -106,13 +131,53 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # .'$Any'
     # .'$Any'.'|'.0
-    # .'$Any'.'|'.1
-    # .'$Any'.'|'.2
-    # .'$Any'.'|'.3
-    # .'$Any'.'|'.4
-    # .'$Any'.'|'.5
-    # .'$Any'.'|'.6
-    return !defined($val) || json_model_3($val, undef, undef) || json_model_4($val, undef, undef) || json_model_5($val, undef, undef) || json_model_6($val, undef, undef) || json_model_7($val, undef, undef) || json_model_8($val, undef, undef);
+    my $res = !defined($val);
+    unless ($res)
+    {
+        push @$rep, ["not null [.'\$Any'.'|'.0]", $path] if defined $rep;
+        # .'$Any'.'|'.1
+        $res = json_model_3($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Bb\" [.'\$Any'.'|'.1]", $path] if defined $rep;
+            # .'$Any'.'|'.2
+            $res = json_model_4($val, $path, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Ii\" [.'\$Any'.'|'.2]", $path] if defined $rep;
+                # .'$Any'.'|'.3
+                $res = json_model_5($val, $path, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"\\\$Ff\" [.'\$Any'.'|'.3]", $path] if defined $rep;
+                    # .'$Any'.'|'.4
+                    $res = json_model_6($val, $path, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$Ss\" [.'\$Any'.'|'.4]", $path] if defined $rep;
+                        # .'$Any'.'|'.5
+                        $res = json_model_7($val, $path, $rep);
+                        unless ($res)
+                        {
+                            push @$rep, ["unexpected value for model \"\\\$Aa\" [.'\$Any'.'|'.5]", $path] if defined $rep;
+                            # .'$Any'.'|'.6
+                            $res = json_model_8($val, $path, $rep);
+                            push @$rep, ["unexpected value for model \"\\\$Oo\" [.'\$Any'.'|'.6]", $path] if defined $rep and not $res;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$Any'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $ (.)
@@ -120,7 +185,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_9($val, undef, undef);
+    my $res = json_model_9($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$Any\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

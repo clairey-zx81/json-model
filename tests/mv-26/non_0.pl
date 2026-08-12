@@ -19,23 +19,52 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # .
     # generic xor list
     my $xc_0 = 0;
     # .'^'.0
     my $xr_0 = jm_is_string($val);
-    $xc_0++ if $xr_0;
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.'^'.0]", $path] if defined $rep;
+    }
     # .'^'.1
     $xr_0 = jm_is_string($val) && $val eq "!";
-    $xc_0++ if $xr_0;
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"_!\" [.'^'.1]", $path] if defined $rep;
+    }
     if ($xc_0 <= 1)
     {
         # .'^'.2
         $xr_0 = jm_is_string($val) && $val eq "world";
-        $xc_0++ if $xr_0;
+        if ($xr_0)
+        {
+            $xc_0++;
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"_world\" [.'^'.2]", $path] if defined $rep;
+        }
     }
-    return $xc_0 == 1;
+    my $res = $xc_0 == 1;
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'^']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

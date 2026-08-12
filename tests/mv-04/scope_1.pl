@@ -26,11 +26,22 @@ sub json_model_4($$$)
     my $res = jm_is_array($val) && scalar @$val == 2;
     if ($res)
     {
+        my $lpath_0 = defined $path ? [@{$path}, 0] : undef;
         # .'$r'.0
-        $res = json_model_5($$val[0], undef, undef);
-        $res = json_model_5($$val[1], undef, undef) if $res;
-        # .'$r'.1
+        $res = json_model_5($$val[0], defined $path ? $lpath_0 : undef, $rep);
+        if ($res)
+        {
+            $lpath_0 = defined $path ? [@{$path}, 1] : undef;
+            # .'$r'.1
+            $res = json_model_5($$val[1], defined $path ? $lpath_0 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$s\" [.'\$r'.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"\\\$s\" [.'\$r'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+        }
     }
+    push @$rep, ["not array or unexpected array [.'\$r']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -47,7 +58,9 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$s'
     # "/[a-z]/"
-    return jm_is_string($val) && _jm_re_0($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/[a-z]/\" [.'\$s']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -57,8 +70,23 @@ sub json_model_1($$$)
     # a string with a lower case later or a digit
     # .
     # .'|'.0
-    # .'|'.1
-    return json_model_3($val, undef, undef) || json_model_5($val, undef, undef);
+    my $res = json_model_3($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$s\" [.'|'.0]", $path] if defined $rep;
+        # .'|'.1
+        $res = json_model_5($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$r#s\" [.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 sub _jm_re_1($$$)
@@ -74,7 +102,9 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$r#s'
     # "/[0-9]/"
-    return jm_is_string($val) && _jm_re_1($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/[0-9]/\" [.'\$r#s']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

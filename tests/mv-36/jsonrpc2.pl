@@ -32,9 +32,29 @@ sub json_model_2($$$)
     # Request/response identifier: null, integer, or string
     # .'$Id'
     # .'$Id'.'|'.0
-    # .'$Id'.'|'.1
-    # .'$Id'.'|'.2
-    return !defined($val) || jm_is_integer($val) || jm_is_string($val);
+    my $res = !defined($val);
+    unless ($res)
+    {
+        push @$rep, ["not null [.'\$Id'.'|'.0]", $path] if defined $rep;
+        # .'$Id'.'|'.1
+        $res = jm_is_integer($val);
+        unless ($res)
+        {
+            push @$rep, ["not a -1 strict int [.'\$Id'.'|'.1]", $path] if defined $rep;
+            # .'$Id'.'|'.2
+            $res = jm_is_string($val);
+            push @$rep, ["unexpected value for model \"\" [.'\$Id'.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$Id'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 sub _jm_re_0($$$)
@@ -49,19 +69,29 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Notification'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Notification']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "jsonrpc")
         {
             # handle must jsonrpc property
             $must_count++;
             # .'$Notification'.jsonrpc
             $res = jm_is_string($pval) && $pval eq "2.0";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_2.0\" [.'\$Notification'.jsonrpc]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Notification'.jsonrpc]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "method")
@@ -70,8 +100,13 @@ sub json_model_3($$$)
             $must_count++;
             # .'$Notification'.method
             # "/./"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/./\" [.'\$Notification'.method]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Notification'.method]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "params")
@@ -79,14 +114,38 @@ sub json_model_3($$$)
             # handle may params property
             # .'$Notification'.params
             # .'$Notification'.params.'|'.0
-            # .'$Notification'.params.'|'.1
-            $res = jm_is_array($pval) || jm_is_object($pval);
-            return 0 unless $res;
+            $res = jm_is_array($pval);
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Notification'.params.'|'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+                # .'$Notification'.params.'|'.1
+                $res = jm_is_object($pval);
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$Notification'.params.'|']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Notification'.params]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Notification']", defined $path ? $lpath_0 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <jsonrpc> [.'\$Notification']", $path] if defined $rep and not exists $$val{"jsonrpc"};
+            push @$rep, ["missing mandatory prop <method> [.'\$Notification']", $path] if defined $rep and not exists $$val{"method"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # check $Request (.'$Request')
@@ -94,19 +153,29 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Request'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Request']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "jsonrpc")
         {
             # handle must jsonrpc property
             $must_count++;
             # .'$Request'.jsonrpc
             $res = jm_is_string($pval) && $pval eq "2.0";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_2.0\" [.'\$Request'.jsonrpc]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Request'.jsonrpc]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "method")
@@ -115,8 +184,13 @@ sub json_model_4($$$)
             $must_count++;
             # .'$Request'.method
             # "/./"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_1 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/./\" [.'\$Request'.method]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Request'.method]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "id")
@@ -124,8 +198,13 @@ sub json_model_4($$$)
             # handle must id property
             $must_count++;
             # .'$Request'.id
-            $res = json_model_2($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_2($pval, defined $path ? $lpath_1 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Id\" [.'\$Request'.id]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Request'.id]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "params")
@@ -133,14 +212,39 @@ sub json_model_4($$$)
             # handle may params property
             # .'$Request'.params
             # .'$Request'.params.'|'.0
-            # .'$Request'.params.'|'.1
-            $res = jm_is_array($pval) || jm_is_object($pval);
-            return 0 unless $res;
+            $res = jm_is_array($pval);
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Request'.params.'|'.0]", defined $path ? $lpath_1 : undef] if defined $rep;
+                # .'$Request'.params.'|'.1
+                $res = jm_is_object($pval);
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$Request'.params.'|']", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Request'.params]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Request']", defined $path ? $lpath_1 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 3)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <id> [.'\$Request']", $path] if defined $rep and not exists $$val{"id"};
+            push @$rep, ["missing mandatory prop <jsonrpc> [.'\$Request']", $path] if defined $rep and not exists $$val{"jsonrpc"};
+            push @$rep, ["missing mandatory prop <method> [.'\$Request']", $path] if defined $rep and not exists $$val{"method"};
         }
         return 0;
     }
-    return $must_count == 3;
+    return 1;
 }
 
 # check $BatchRequest (.'$BatchRequest')
@@ -156,17 +260,37 @@ sub json_model_5($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'$BatchRequest'.'@'.0
             # .'$BatchRequest'.'@'.0.'|'.0
-            # .'$BatchRequest'.'@'.0.'|'.1
-            $res = json_model_4($arr_0_item, undef, undef) || json_model_3($arr_0_item, undef, undef);
-            last unless $res;
+            $res = json_model_4($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Request\" [.'\$BatchRequest'.'\@'.0.'|'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                # .'$BatchRequest'.'@'.0.'|'.1
+                $res = json_model_3($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
+                push @$rep, ["unexpected value for model \"\\\$Notification\" [.'\$BatchRequest'.'\@'.0.'|'.1]", defined $path ? $arr_0_lpath : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$BatchRequest'.'\@'.0.'|']", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_0 = scalar @$val;
         $res = $ival_0 >= 1;
+        push @$rep, ["constraints failed [.'\$BatchRequest']", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$BatchRequest'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -177,9 +301,29 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # .'$ClientMessage'
     # .'$ClientMessage'.'|'.0
-    # .'$ClientMessage'.'|'.1
-    # .'$ClientMessage'.'|'.2
-    return json_model_3($val, undef, undef) || json_model_4($val, undef, undef) || json_model_5($val, undef, undef);
+    my $res = json_model_3($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Notification\" [.'\$ClientMessage'.'|'.0]", $path] if defined $rep;
+        # .'$ClientMessage'.'|'.1
+        $res = json_model_4($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Request\" [.'\$ClientMessage'.'|'.1]", $path] if defined $rep;
+            # .'$ClientMessage'.'|'.2
+            $res = json_model_5($val, $path, $rep);
+            push @$rep, ["unexpected value for model \"\\\$BatchRequest\" [.'\$ClientMessage'.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$ClientMessage'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $Response (.'$Response')
@@ -188,39 +332,83 @@ sub json_model_7($$$)
     my ($val, $path, $rep) = @_;
     # .'$Response'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Response']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.'\$Response']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$Response']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$Response'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"id"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$Response'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$Response']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$Response']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$Response'.id
-    $res = json_model_2($pval, undef, undef);
-    return 0 unless $res;
-    return exists $$val{"result"};
+    $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Id\" [.'\$Response'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$Response']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"result"})
+    {
+        push @$rep, ["missing mandatory prop <result> [.'\$Response']", $path] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$Error'.error
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Error'.error]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "code")
         {
             # handle must code property
             $must_count++;
             # .'$Error'.error.code
             $res = jm_is_integer($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a -1 strict int [.'\$Error'.error.code]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Error'.error.code]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "message")
@@ -229,7 +417,12 @@ sub _jm_obj_0($$$)
             $must_count++;
             # .'$Error'.error.message
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$Error'.error.message]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Error'.error.message]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "data")
@@ -239,9 +432,19 @@ sub _jm_obj_0($$$)
             $res = 1;
             next;
         }
+        push @$rep, ["unexpected prop [.'\$Error'.error]", defined $path ? $lpath_2 : undef] if defined $rep;
         return 0;
     }
-    return $must_count == 2;
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <code> [.'\$Error'.error]", $path] if defined $rep and not exists $$val{"code"};
+            push @$rep, ["missing mandatory prop <message> [.'\$Error'.error]", $path] if defined $rep and not exists $$val{"message"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $Error (.'$Error')
@@ -250,23 +453,64 @@ sub json_model_8($$$)
     my ($val, $path, $rep) = @_;
     # .'$Error'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Error']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.'\$Error']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$Error']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$Error'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"id"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$Error'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$Error']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$Error']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$Error'.id
-    $res = json_model_2($pval, undef, undef);
-    return 0 unless $res;
-    return 0 unless exists $$val{"error"};
+    $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Id\" [.'\$Error'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$Error']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"error"})
+    {
+        push @$rep, ["missing mandatory prop <error> [.'\$Error']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "error"] : undef;
     $pval = $$val{"error"};
     # .'$Error'.error
-    return _jm_obj_0($pval, undef, undef);
+    $res = _jm_obj_0($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$Error'.error]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <error> [.'\$Error']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $BatchResponse (.'$BatchResponse')
@@ -282,17 +526,37 @@ sub json_model_9($$$)
         for my $arr_1_idx (0 .. $#$val)
         {
             my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_1_lpath = defined $path ? [@{$path}, $arr_1_idx] : undef;
             # .'$BatchResponse'.'@'.0
             # .'$BatchResponse'.'@'.0.'|'.0
-            # .'$BatchResponse'.'@'.0.'|'.1
-            $res = json_model_7($arr_1_item, undef, undef) || json_model_8($arr_1_item, undef, undef);
-            last unless $res;
+            $res = json_model_7($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$BatchResponse'.'\@'.0.'|'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                # .'$BatchResponse'.'@'.0.'|'.1
+                $res = json_model_8($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
+                push @$rep, ["unexpected value for model \"\\\$Error\" [.'\$BatchResponse'.'\@'.0.'|'.1]", defined $path ? $arr_1_lpath : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.'\$BatchResponse'.'\@'.0.'|']", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_1 = scalar @$val;
         $res = $ival_1 >= 1;
+        push @$rep, ["constraints failed [.'\$BatchResponse']", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$BatchResponse'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -303,9 +567,29 @@ sub json_model_10($$$)
     my ($val, $path, $rep) = @_;
     # .'$ServerMessage'
     # .'$ServerMessage'.'|'.0
-    # .'$ServerMessage'.'|'.1
-    # .'$ServerMessage'.'|'.2
-    return json_model_7($val, undef, undef) || json_model_8($val, undef, undef) || json_model_9($val, undef, undef);
+    my $res = json_model_7($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$ServerMessage'.'|'.0]", $path] if defined $rep;
+        # .'$ServerMessage'.'|'.1
+        $res = json_model_8($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Error\" [.'\$ServerMessage'.'|'.1]", $path] if defined $rep;
+            # .'$ServerMessage'.'|'.2
+            $res = json_model_9($val, $path, $rep);
+            push @$rep, ["unexpected value for model \"\\\$BatchResponse\" [.'\$ServerMessage'.'|'.2]", $path] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$ServerMessage'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check $ (.)
@@ -315,8 +599,23 @@ sub json_model_1($$$)
     # JSON-RPC 2.0 Protocol
     # .
     # .'|'.0
-    # .'|'.1
-    return json_model_6($val, undef, undef) || json_model_10($val, undef, undef);
+    my $res = json_model_6($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$ClientMessage\" [.'|'.0]", $path] if defined $rep;
+        # .'|'.1
+        $res = json_model_10($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$ServerMessage\" [.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

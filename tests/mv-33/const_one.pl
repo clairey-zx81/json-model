@@ -22,7 +22,9 @@ sub json_model_1($$$)
     # JSON_MODEL_LOOSE_NUMBER
     # .
     # .'@'
-    return jm_is_integer($val) && $val == 1;
+    my $res = jm_is_integer($val) && $val == 1;
+    push @$rep, ["unexpected value for model \"=1\" [.'\@']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

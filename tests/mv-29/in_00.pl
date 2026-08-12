@@ -28,24 +28,41 @@ sub json_model_1($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'@'.0
             $res = jm_is_string($arr_0_item);
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\@'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    # .in test at .
     if ($res)
     {
         $res = 0;
         for my $arr_1_idx (0 .. $#$val)
         {
             my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_1_lpath = defined $path ? [@{$path}, $arr_1_idx] : undef;
             # .'.in'
             # "/^a/"
             $res = jm_is_string($arr_1_item) && jm_starts_with($arr_1_item, "a");
-            last if $res;
+            if ($res)
+            {
+                last;
+            }
+            else
+            {
+                push @$rep, ["unexpected value for model \"/^a/\" [.'.in']", defined $path ? $arr_1_lpath : undef] if defined $rep;
+            }
         }
     }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\@']", $path] if defined $rep;
+    }
+    # .in test at .
     return $res;
 }
 

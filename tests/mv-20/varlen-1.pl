@@ -21,18 +21,29 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'@'
+    my $lpath_0;
     my $res = jm_is_array($val);
     if ($res)
     {
         my $len_0 = scalar @$val;
-        $res = jm_is_string($$val[0]) if $len_0 > 0;
-        # .'@'.0
+        if ($len_0 > 0)
+        {
+            $lpath_0 = defined $path ? [@{$path}, 0] : undef;
+            # .'@'.0
+            $res = jm_is_string($$val[0]);
+            push @$rep, ["unexpected value for model \"\" [.'\@'.0]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+        }
         # no array tail value checks needed
     }
     if ($res)
     {
         my $ival_0 = scalar @$val;
         $res = $ival_0 >= 3;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\@']", $path] if defined $rep;
     }
     return $res;
 }

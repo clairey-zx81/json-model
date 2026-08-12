@@ -25,7 +25,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$p1'
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'\$p1'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -34,25 +36,49 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$p2'
-    return jm_is_string($val) && exists $_jm_cst_1{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_1{$val};
+    push @$rep, ["value not in enum [.'\$p2'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # p1 optimized to | and root xor should rejects 'Bad'
     # .
     # generic xor list
     my $xc_0 = 0;
     # .'^'.0
-    my $xr_0 = json_model_2($val, undef, undef);
-    $xc_0++ if $xr_0;
+    my $xr_0 = json_model_2($val, $path, $rep);
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\\\$p1\" [.'^'.0]", $path] if defined $rep;
+    }
     # .'^'.1
-    $xr_0 = json_model_3($val, undef, undef);
-    $xc_0++ if $xr_0;
-    return $xc_0 == 1;
+    $xr_0 = json_model_3($val, $path, $rep);
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\\\$p2\" [.'^'.1]", $path] if defined $rep;
+    }
+    my $res = $xc_0 == 1;
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'^']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

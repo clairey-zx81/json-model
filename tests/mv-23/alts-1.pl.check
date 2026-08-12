@@ -10,26 +10,26 @@ alts-1.values.json[8]: PASS
 alts-1.values.json[9]: PASS
 alts-1.values.json[10]: PASS
 alts-1.values.json[11]: PASS
-alts-1.values.json[12]: FAIL
-alts-1.values.json[13]: FAIL
-alts-1.values.json[14]: FAIL
-alts-1.values.json[15]: FAIL
-alts-1.values.json[16]: FAIL
-alts-1.values.json[17]: FAIL
-alts-1.values.json[18]: FAIL
-alts-1.values.json[19]: FAIL
-alts-1.values.json[20]: FAIL
-alts-1.values.json[21]: FAIL
-alts-1.values.json[22]: FAIL
-alts-1.values.json[23]: FAIL
-alts-1.values.json[24]: FAIL
-alts-1.values.json[25]: FAIL
-alts-1.values.json[26]: FAIL
-alts-1.values.json[27]: FAIL
-alts-1.values.json[28]: FAIL
-alts-1.values.json[29]: FAIL
-alts-1.values.json[30]: FAIL
-alts-1.values.json[31]: FAIL
-alts-1.values.json[32]: FAIL
-alts-1.values.json[33]: FAIL
-alts-1.values.json[34]: FAIL
+alts-1.values.json[12]: FAIL (.: missing mandatory prop <v> [.'$oA']; .: tag <t> value not found [.'$oC'.'|'])
+alts-1.values.json[13]: FAIL (.: missing mandatory prop <v> [.'$oA']; .: tag <t> value not found [.'$oC'.'|'])
+alts-1.values.json[14]: FAIL (.: missing mandatory prop <v> [.'$oB']; .: tag <t> value not found [.'$oC'.'|'])
+alts-1.values.json[15]: FAIL (.: missing mandatory prop <v> [.'$oB']; .: tag <t> value not found [.'$oC'.'|'])
+alts-1.values.json[16]: FAIL (.: missing mandatory prop <v> [.'$oB']; .: tag <t> value not found [.'$oC'.'|'])
+alts-1.values.json[17]: FAIL (.: missing mandatory prop <v> [.'$oB']; .: tag <t> value not found [.'$oC'.'|'])
+alts-1.values.json[18]: FAIL (.: tag <t> value not found [.'|']; .: missing mandatory prop <v> [.'$oL'])
+alts-1.values.json[19]: FAIL (.: tag <t> value not found [.'|']; .: missing mandatory prop <v> [.'$oL'])
+alts-1.values.json[20]: FAIL (.: tag <t> value not found [.'|']; .: missing mandatory prop <v> [.'$oX'])
+alts-1.values.json[21]: FAIL (.: tag <t> value not found [.'|']; .: missing mandatory prop <v> [.'$oX'])
+alts-1.values.json[22]: FAIL (.: tag <t> value not found [.'|']; .: missing mandatory prop <v> [.'$oX'])
+alts-1.values.json[23]: FAIL (.: tag <t> value not found [.'|']; .: missing mandatory prop <v> [.'$oX'])
+alts-1.values.json[24]: FAIL (.: tag prop <t> is missing [.'|']; .: tag prop <t> is missing [.'$oC'.'|'])
+alts-1.values.json[25]: FAIL (.: tag prop <t> is missing [.'|']; .: tag prop <t> is missing [.'$oC'.'|'])
+alts-1.values.json[26]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])
+alts-1.values.json[27]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])
+alts-1.values.json[28]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])
+alts-1.values.json[29]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])
+alts-1.values.json[30]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])
+alts-1.values.json[31]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])
+alts-1.values.json[32]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])
+alts-1.values.json[33]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])
+alts-1.values.json[34]: FAIL (.: value is not an object [.'|']; .: value is not an object [.'$oC'.'|'])

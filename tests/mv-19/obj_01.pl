@@ -23,7 +23,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Xxx'
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'\$Xxx'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 sub _jm_re_0($$$)
@@ -39,19 +41,29 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # object with must/may/regex/ref/others
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "foo")
         {
             # handle must foo property
             $must_count++;
             # .foo
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_date($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$DATE\" [.foo]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.foo]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "bla")
@@ -59,32 +71,57 @@ sub json_model_1($$$)
             # handle may bla property
             # .bla
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.bla]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.bla]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
-        if (json_model_2($prop, undef, undef))
+        if (json_model_2($prop, defined $path ? $lpath_0 : undef, $rep))
         {
             # handle 1 key props
             # .'$Xxx'
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0.0 strict float [.'\$Xxx']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
-        elsif (_jm_re_0($prop, undef, undef))
+        elsif (_jm_re_0($prop, $path, $rep))
         {
             # handle 1 re props
             # .'/^[0-9]+$/'
             $res = jm_is_integer($pval) && $pval >= 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.'/^[0-9]+\$/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
             # handle other props
             # .''
             $res = !defined($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not null [.'']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <foo> [.'']", $path] if defined $rep and not exists $$val{"foo"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 

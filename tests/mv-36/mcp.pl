@@ -41,8 +41,13 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Object'
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Object']", $path] if defined $rep;
+        return 0;
+    }
     # accept any object
-    return jm_is_object($val);
+    return 1;
 }
 
 
@@ -51,7 +56,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$ProtocolVersion'
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'\$ProtocolVersion'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Tool (.'$Tool')
@@ -60,31 +67,68 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$Tool'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Tool']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"name"};
+    unless (exists $$val{"name"})
+    {
+        push @$rep, ["missing mandatory prop <name> [.'\$Tool']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "name"] : undef;
     $pval = $$val{"name"};
     # .'$Tool'.name
     my $res = jm_is_string($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"inputSchema"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\$Tool'.name]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <name> [.'\$Tool']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"inputSchema"})
+    {
+        push @$rep, ["missing mandatory prop <inputSchema> [.'\$Tool']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "inputSchema"] : undef;
     $pval = $$val{"inputSchema"};
     # .'$Tool'.inputSchema
-    $res = json_model_2($pval, undef, undef);
-    return 0 unless $res;
+    $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Object\" [.'\$Tool'.inputSchema]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <inputSchema> [.'\$Tool']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"title"})
     {
+        $lpath = defined $path ? [@{$path}, "title"] : undef;
         $pval = $$val{"title"};
         # .'$Tool'.title
         $res = jm_is_string($pval);
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\" [.'\$Tool'.title]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <title> [.'\$Tool']", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     if (exists $$val{"description"})
     {
+        $lpath = defined $path ? [@{$path}, "description"] : undef;
         $pval = $$val{"description"};
         # .'$Tool'.description
         $res = jm_is_string($pval);
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\" [.'\$Tool'.description]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <description> [.'\$Tool']", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -94,13 +138,29 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeRequest'.params.capabilities]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"elicitation"};
+    unless (exists $$val{"elicitation"})
+    {
+        push @$rep, ["missing mandatory prop <elicitation> [.'\$InitializeRequest'.params.capabilities]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "elicitation"] : undef;
     $pval = $$val{"elicitation"};
     # .'$InitializeRequest'.params.capabilities.elicitation
-    return json_model_2($pval, undef, undef);
+    my $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Object\" [.'\$InitializeRequest'.params.capabilities.elicitation]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <elicitation> [.'\$InitializeRequest'.params.capabilities]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$InitializeRequest'.params.clientInfo
@@ -108,17 +168,44 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeRequest'.params.clientInfo]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"name"};
+    unless (exists $$val{"name"})
+    {
+        push @$rep, ["missing mandatory prop <name> [.'\$InitializeRequest'.params.clientInfo]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "name"] : undef;
     $pval = $$val{"name"};
     # .'$InitializeRequest'.params.clientInfo.name
     my $res = jm_is_string($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"version"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\$InitializeRequest'.params.clientInfo.name]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <name> [.'\$InitializeRequest'.params.clientInfo]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"version"})
+    {
+        push @$rep, ["missing mandatory prop <version> [.'\$InitializeRequest'.params.clientInfo]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "version"] : undef;
     $pval = $$val{"version"};
     # .'$InitializeRequest'.params.clientInfo.version
-    return jm_is_string($pval);
+    $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\$InitializeRequest'.params.clientInfo.version]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <version> [.'\$InitializeRequest'.params.clientInfo]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$InitializeRequest'.params
@@ -126,23 +213,64 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeRequest'.params]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.'\$InitializeRequest'.params]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"protocolVersion"};
+    unless (exists $$val{"protocolVersion"})
+    {
+        push @$rep, ["missing mandatory prop <protocolVersion> [.'\$InitializeRequest'.params]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "protocolVersion"] : undef;
     $pval = $$val{"protocolVersion"};
     # .'$InitializeRequest'.params.protocolVersion
-    my $res = json_model_3($pval, undef, undef);
-    return 0 unless $res;
-    return 0 unless exists $$val{"capabilities"};
+    my $res = json_model_3($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$ProtocolVersion\" [.'\$InitializeRequest'.params.protocolVersion]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <protocolVersion> [.'\$InitializeRequest'.params]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"capabilities"})
+    {
+        push @$rep, ["missing mandatory prop <capabilities> [.'\$InitializeRequest'.params]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "capabilities"] : undef;
     $pval = $$val{"capabilities"};
     # .'$InitializeRequest'.params.capabilities
-    $res = _jm_obj_1($pval, undef, undef);
-    return 0 unless $res;
-    return 0 unless exists $$val{"clientInfo"};
+    $res = _jm_obj_1($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$InitializeRequest'.params.capabilities]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <capabilities> [.'\$InitializeRequest'.params]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"clientInfo"})
+    {
+        push @$rep, ["missing mandatory prop <clientInfo> [.'\$InitializeRequest'.params]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "clientInfo"] : undef;
     $pval = $$val{"clientInfo"};
     # .'$InitializeRequest'.params.clientInfo
-    return _jm_obj_2($pval, undef, undef);
+    $res = _jm_obj_2($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$InitializeRequest'.params.clientInfo]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <clientInfo> [.'\$InitializeRequest'.params]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $InitializeRequest (.'$InitializeRequest')
@@ -151,28 +279,79 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$InitializeRequest'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 4;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeRequest']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 4)
+    {
+        push @$rep, ["bad property count [.'\$InitializeRequest']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$InitializeRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$InitializeRequest'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"id"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$InitializeRequest'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$InitializeRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$InitializeRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$InitializeRequest'.id
     $res = jm_is_integer($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"method"};
+    unless ($res)
+    {
+        push @$rep, ["not a -1 strict int [.'\$InitializeRequest'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$InitializeRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"method"})
+    {
+        push @$rep, ["missing mandatory prop <method> [.'\$InitializeRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "method"] : undef;
     $pval = $$val{"method"};
     # .'$InitializeRequest'.method
     $res = jm_is_string($pval) && $pval eq "initialize";
-    return 0 unless $res;
-    return 0 unless exists $$val{"params"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_initialize\" [.'\$InitializeRequest'.method]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <method> [.'\$InitializeRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"params"})
+    {
+        push @$rep, ["missing mandatory prop <params> [.'\$InitializeRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "params"] : undef;
     $pval = $$val{"params"};
     # .'$InitializeRequest'.params
-    return _jm_obj_0($pval, undef, undef);
+    $res = _jm_obj_0($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$InitializeRequest'.params]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <params> [.'\$InitializeRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$InitializeResponse'.result.capabilities.tools
@@ -180,14 +359,34 @@ sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeResponse'.result.capabilities.tools]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.'\$InitializeResponse'.result.capabilities.tools]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"listChanged"};
+    unless (exists $$val{"listChanged"})
+    {
+        push @$rep, ["missing mandatory prop <listChanged> [.'\$InitializeResponse'.result.capabilities.tools]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "listChanged"] : undef;
     $pval = $$val{"listChanged"};
     # .'$InitializeResponse'.result.capabilities.tools.listChanged
-    return jm_is_boolean($pval);
+    my $res = jm_is_boolean($pval);
+    unless ($res)
+    {
+        push @$rep, ["not a bool [.'\$InitializeResponse'.result.capabilities.tools.listChanged]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <listChanged> [.'\$InitializeResponse'.result.capabilities.tools]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$InitializeResponse'.result.capabilities
@@ -195,17 +394,44 @@ sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeResponse'.result.capabilities]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"tools"};
+    unless (exists $$val{"tools"})
+    {
+        push @$rep, ["missing mandatory prop <tools> [.'\$InitializeResponse'.result.capabilities]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "tools"] : undef;
     $pval = $$val{"tools"};
     # .'$InitializeResponse'.result.capabilities.tools
-    my $res = _jm_obj_5($pval, undef, undef);
-    return 0 unless $res;
-    return 0 unless exists $$val{"resources"};
+    my $res = _jm_obj_5($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$InitializeResponse'.result.capabilities.tools]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <tools> [.'\$InitializeResponse'.result.capabilities]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"resources"})
+    {
+        push @$rep, ["missing mandatory prop <resources> [.'\$InitializeResponse'.result.capabilities]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "resources"] : undef;
     $pval = $$val{"resources"};
     # .'$InitializeResponse'.result.capabilities.resources
-    return json_model_2($pval, undef, undef);
+    $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Object\" [.'\$InitializeResponse'.result.capabilities.resources]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <resources> [.'\$InitializeResponse'.result.capabilities]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$InitializeResponse'.result.serverInfo
@@ -213,17 +439,44 @@ sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeResponse'.result.serverInfo]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"name"};
+    unless (exists $$val{"name"})
+    {
+        push @$rep, ["missing mandatory prop <name> [.'\$InitializeResponse'.result.serverInfo]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "name"] : undef;
     $pval = $$val{"name"};
     # .'$InitializeResponse'.result.serverInfo.name
     my $res = jm_is_string($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"version"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\$InitializeResponse'.result.serverInfo.name]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <name> [.'\$InitializeResponse'.result.serverInfo]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"version"})
+    {
+        push @$rep, ["missing mandatory prop <version> [.'\$InitializeResponse'.result.serverInfo]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "version"] : undef;
     $pval = $$val{"version"};
     # .'$InitializeResponse'.result.serverInfo.version
-    return jm_is_string($pval);
+    $res = jm_is_string($pval);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\" [.'\$InitializeResponse'.result.serverInfo.version]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <version> [.'\$InitializeResponse'.result.serverInfo]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$InitializeResponse'.result
@@ -231,23 +484,64 @@ sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.'\$InitializeResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"protocolVersion"};
+    unless (exists $$val{"protocolVersion"})
+    {
+        push @$rep, ["missing mandatory prop <protocolVersion> [.'\$InitializeResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "protocolVersion"] : undef;
     $pval = $$val{"protocolVersion"};
     # .'$InitializeResponse'.result.protocolVersion
-    my $res = json_model_3($pval, undef, undef);
-    return 0 unless $res;
-    return 0 unless exists $$val{"capabilities"};
+    my $res = json_model_3($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$ProtocolVersion\" [.'\$InitializeResponse'.result.protocolVersion]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <protocolVersion> [.'\$InitializeResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"capabilities"})
+    {
+        push @$rep, ["missing mandatory prop <capabilities> [.'\$InitializeResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "capabilities"] : undef;
     $pval = $$val{"capabilities"};
     # .'$InitializeResponse'.result.capabilities
-    $res = _jm_obj_4($pval, undef, undef);
-    return 0 unless $res;
-    return 0 unless exists $$val{"serverInfo"};
+    $res = _jm_obj_4($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$InitializeResponse'.result.capabilities]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <capabilities> [.'\$InitializeResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"serverInfo"})
+    {
+        push @$rep, ["missing mandatory prop <serverInfo> [.'\$InitializeResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "serverInfo"] : undef;
     $pval = $$val{"serverInfo"};
     # .'$InitializeResponse'.result.serverInfo
-    return _jm_obj_6($pval, undef, undef);
+    $res = _jm_obj_6($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$InitializeResponse'.result.serverInfo]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <serverInfo> [.'\$InitializeResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $InitializeResponse (.'$InitializeResponse')
@@ -256,23 +550,64 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # .'$InitializeResponse'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$InitializeResponse']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.'\$InitializeResponse']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$InitializeResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$InitializeResponse'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"id"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$InitializeResponse'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$InitializeResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$InitializeResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$InitializeResponse'.id
     $res = jm_is_integer($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"result"};
+    unless ($res)
+    {
+        push @$rep, ["not a -1 strict int [.'\$InitializeResponse'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$InitializeResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"result"})
+    {
+        push @$rep, ["missing mandatory prop <result> [.'\$InitializeResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "result"] : undef;
     $pval = $$val{"result"};
     # .'$InitializeResponse'.result
-    return _jm_obj_3($pval, undef, undef);
+    $res = _jm_obj_3($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$InitializeResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <result> [.'\$InitializeResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $Notification (.'$Notification')
@@ -281,19 +616,50 @@ sub json_model_7($$$)
     my ($val, $path, $rep) = @_;
     # .'$Notification'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Notification']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$Notification']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$Notification']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$Notification'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"method"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$Notification'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$Notification']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"method"})
+    {
+        push @$rep, ["missing mandatory prop <method> [.'\$Notification']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "method"] : undef;
     $pval = $$val{"method"};
     # .'$Notification'.method
     # "/^notifications/"
-    return jm_is_string($pval) && jm_starts_with($pval, "notifications");
+    $res = jm_is_string($pval) && jm_starts_with($pval, "notifications");
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"/^notifications/\" [.'\$Notification'.method]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <method> [.'\$Notification']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ToolsListRequest (.'$ToolsListRequest')
@@ -302,22 +668,59 @@ sub json_model_8($$$)
     my ($val, $path, $rep) = @_;
     # .'$ToolsListRequest'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$ToolsListRequest']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$ToolsListRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$ToolsListRequest'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"id"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$ToolsListRequest'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$ToolsListRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$ToolsListRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$ToolsListRequest'.id
     $res = jm_is_integer($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"method"};
+    unless ($res)
+    {
+        push @$rep, ["not a -1 strict int [.'\$ToolsListRequest'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$ToolsListRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"method"})
+    {
+        push @$rep, ["missing mandatory prop <method> [.'\$ToolsListRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "method"] : undef;
     $pval = $$val{"method"};
     # .'$ToolsListRequest'.method
-    return jm_is_string($pval) && $pval eq "tools/list";
+    $res = jm_is_string($pval) && $pval eq "tools/list";
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_tools/list\" [.'\$ToolsListRequest'.method]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <method> [.'\$ToolsListRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$ToolsListResponse'.result
@@ -325,10 +728,24 @@ sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 1;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$ToolsListResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 1)
+    {
+        push @$rep, ["bad property count [.'\$ToolsListResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"tools"};
+    unless (exists $$val{"tools"})
+    {
+        push @$rep, ["missing mandatory prop <tools> [.'\$ToolsListResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "tools"] : undef;
     $pval = $$val{"tools"};
     # .'$ToolsListResponse'.result.tools
     # .'$ToolsListResponse'.result.tools.'@'
@@ -338,13 +755,31 @@ sub _jm_obj_7($$$)
         for my $arr_0_idx (0 .. $#$pval)
         {
             my $arr_0_item = $$pval[$arr_0_idx];
+            my $arr_0_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_0_idx] : undef;
             # .'$ToolsListResponse'.result.tools.'@'.0
-            $res = json_model_4($arr_0_item, undef, undef);
-            last unless $res;
+            $res = json_model_4($arr_0_item, defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Tool\" [.'\$ToolsListResponse'.result.tools.'\@'.0]", defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    $res = jm_is_unique_array($pval, undef, undef) if $res;
-    return $res;
+    if ($res)
+    {
+        $res = jm_is_unique_array($pval, defined $path ? $lpath : undef, $rep);
+        push @$rep, ["constraints failed [.'\$ToolsListResponse'.result.tools]", defined $path ? $lpath : undef] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$ToolsListResponse'.result.tools.'\@']", defined $path ? $lpath : undef] if defined $rep;
+    }
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for mandatory prop <tools> [.'\$ToolsListResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ToolsListResponse (.'$ToolsListResponse')
@@ -353,23 +788,64 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # .'$ToolsListResponse'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$ToolsListResponse']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.'\$ToolsListResponse']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$ToolsListResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$ToolsListResponse'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"id"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$ToolsListResponse'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$ToolsListResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$ToolsListResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$ToolsListResponse'.id
     $res = jm_is_integer($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"result"};
+    unless ($res)
+    {
+        push @$rep, ["not a -1 strict int [.'\$ToolsListResponse'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$ToolsListResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"result"})
+    {
+        push @$rep, ["missing mandatory prop <result> [.'\$ToolsListResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "result"] : undef;
     $pval = $$val{"result"};
     # .'$ToolsListResponse'.result
-    return _jm_obj_7($pval, undef, undef);
+    $res = _jm_obj_7($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$ToolsListResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <result> [.'\$ToolsListResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ToolCallRequest (.'$ToolCallRequest')
@@ -378,28 +854,79 @@ sub json_model_10($$$)
     my ($val, $path, $rep) = @_;
     # .'$ToolCallRequest'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 4;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$ToolCallRequest']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 4)
+    {
+        push @$rep, ["bad property count [.'\$ToolCallRequest']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$ToolCallRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$ToolCallRequest'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"id"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$ToolCallRequest'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$ToolCallRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$ToolCallRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$ToolCallRequest'.id
     $res = jm_is_integer($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"method"};
+    unless ($res)
+    {
+        push @$rep, ["not a -1 strict int [.'\$ToolCallRequest'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$ToolCallRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"method"})
+    {
+        push @$rep, ["missing mandatory prop <method> [.'\$ToolCallRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "method"] : undef;
     $pval = $$val{"method"};
     # .'$ToolCallRequest'.method
     $res = jm_is_string($pval) && $pval eq "tools/call";
-    return 0 unless $res;
-    return 0 unless exists $$val{"params"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_tools/call\" [.'\$ToolCallRequest'.method]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <method> [.'\$ToolCallRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"params"})
+    {
+        push @$rep, ["missing mandatory prop <params> [.'\$ToolCallRequest']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "params"] : undef;
     $pval = $$val{"params"};
     # .'$ToolCallRequest'.params
-    return json_model_2($pval, undef, undef);
+    $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Object\" [.'\$ToolCallRequest'.params]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <params> [.'\$ToolCallRequest']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .'$ToolCallResponse'.result
@@ -407,13 +934,29 @@ sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$ToolCallResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    my $res;
-    return 0 unless exists $$val{"content"};
+    unless (exists $$val{"content"})
+    {
+        push @$rep, ["missing mandatory prop <content> [.'\$ToolCallResponse'.result]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "content"] : undef;
     $pval = $$val{"content"};
     # .'$ToolCallResponse'.result.content
-    return jm_is_array($pval);
+    my $res = jm_is_array($pval);
+    unless ($res)
+    {
+        push @$rep, ["not array or unexpected array [.'\$ToolCallResponse'.result.content]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <content> [.'\$ToolCallResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $ToolCallResponse (.'$ToolCallResponse')
@@ -422,23 +965,64 @@ sub json_model_11($$$)
     my ($val, $path, $rep) = @_;
     # .'$ToolCallResponse'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$ToolCallResponse']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.'\$ToolCallResponse']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"jsonrpc"};
+    unless (exists $$val{"jsonrpc"})
+    {
+        push @$rep, ["missing mandatory prop <jsonrpc> [.'\$ToolCallResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "jsonrpc"] : undef;
     $pval = $$val{"jsonrpc"};
     # .'$ToolCallResponse'.jsonrpc
     my $res = jm_is_string($pval) && $pval eq "2.0";
-    return 0 unless $res;
-    return 0 unless exists $$val{"id"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_2.0\" [.'\$ToolCallResponse'.jsonrpc]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <jsonrpc> [.'\$ToolCallResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"id"})
+    {
+        push @$rep, ["missing mandatory prop <id> [.'\$ToolCallResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "id"] : undef;
     $pval = $$val{"id"};
     # .'$ToolCallResponse'.id
     $res = jm_is_integer($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"result"};
+    unless ($res)
+    {
+        push @$rep, ["not a -1 strict int [.'\$ToolCallResponse'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <id> [.'\$ToolCallResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"result"})
+    {
+        push @$rep, ["missing mandatory prop <result> [.'\$ToolCallResponse']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "result"] : undef;
     $pval = $$val{"result"};
     # .'$ToolCallResponse'.result
-    return _jm_obj_8($pval, undef, undef);
+    $res = _jm_obj_8($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected element [.'\$ToolCallResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <result> [.'\$ToolCallResponse']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -455,14 +1039,27 @@ sub json_model_1($$$)
         if (defined($tag_0 = $$val{"method"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, undef, undef);
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <method> value not found [.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <method> is missing [.'|']", $path] if defined $rep;
         }
     }
-    return $res || json_model_6($val, undef, undef) || json_model_7($val, undef, undef) || json_model_9($val, undef, undef) || json_model_11($val, undef, undef);
+    else
+    {
+        push @$rep, ["value is not an object [.'|']", $path] if defined $rep;
+    }
+    return $res || json_model_6($val, $path, $rep) || json_model_7($val, $path, $rep) || json_model_9($val, $path, $rep) || json_model_11($val, $path, $rep);
 }
 
 

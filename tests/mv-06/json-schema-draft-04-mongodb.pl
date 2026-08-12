@@ -54,8 +54,23 @@ sub _jm_f_0($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.additionalItems
     # .'$schema'.additionalItems.'|'.0
-    # .'$schema'.additionalItems.'|'.1
-    return jm_is_boolean($val) || json_model_3($val, undef, undef);
+    my $res = jm_is_boolean($val);
+    unless ($res)
+    {
+        push @$rep, ["not a bool [.'\$schema'.additionalItems.'|'.0]", $path] if defined $rep;
+        # .'$schema'.additionalItems.'|'.1
+        $res = json_model_3($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$schema'.additionalItems.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$schema'.additionalItems.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check json_model_3_map_additionalProperties (.'$schema'.additionalProperties)
@@ -64,8 +79,23 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.additionalProperties
     # .'$schema'.additionalProperties.'|'.0
-    # .'$schema'.additionalProperties.'|'.1
-    return jm_is_boolean($val) || json_model_3($val, undef, undef);
+    my $res = jm_is_boolean($val);
+    unless ($res)
+    {
+        push @$rep, ["not a bool [.'\$schema'.additionalProperties.'|'.0]", $path] if defined $rep;
+        # .'$schema'.additionalProperties.'|'.1
+        $res = json_model_3($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$schema'.additionalProperties.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$schema'.additionalProperties.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check json_model_3_map_bsonType (.'$schema'.bsonType)
@@ -74,9 +104,10 @@ sub _jm_f_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.bsonType
     # .'$schema'.bsonType.'|'.0
-    my $res = json_model_9($val, undef, undef);
+    my $res = json_model_9($val, $path, $rep);
     unless ($res)
     {
+        push @$rep, ["unexpected value for model \"\\\$bsonType\" [.'\$schema'.bsonType.'|'.0]", $path] if defined $rep;
         # .'$schema'.bsonType.'|'.1
         $res = jm_is_array($val);
         if ($res)
@@ -84,11 +115,25 @@ sub _jm_f_2($$$)
             for my $arr_0_idx (0 .. $#$val)
             {
                 my $arr_0_item = $$val[$arr_0_idx];
+                my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
                 # .'$schema'.bsonType.'|'.1.0
-                $res = json_model_9($arr_0_item, undef, undef);
-                last unless $res;
+                $res = json_model_9($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"\\\$bsonType\" [.'\$schema'.bsonType.'|'.1.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
+        push @$rep, ["not array or unexpected array [.'\$schema'.bsonType.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$schema'.bsonType.'|']", $path] if defined $rep;
     }
     return $res;
 }
@@ -98,17 +143,36 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.dependencies
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$schema'.dependencies]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema'.dependencies.''
         # .'$schema'.dependencies.''.'|'.0
-        # .'$schema'.dependencies.''.'|'.1
-        $res = json_model_3($pval, undef, undef) || json_model_6($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_3($pval, defined $path ? $lpath_1 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$schema'.dependencies.''.'|'.0]", defined $path ? $lpath_1 : undef] if defined $rep;
+            # .'$schema'.dependencies.''.'|'.1
+            $res = json_model_6($pval, defined $path ? $lpath_1 : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$stringArray\" [.'\$schema'.dependencies.''.'|'.1]", defined $path ? $lpath_1 : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$schema'.dependencies.''.'|']", defined $path ? $lpath_1 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -118,7 +182,9 @@ sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.description
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$schema'.description]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_enum (.'$schema'.enum)
@@ -133,7 +199,12 @@ sub _jm_f_5($$$)
         # accept any array
         ;
         my $ival_0 = scalar @$val;
-        $res = jm_is_unique_array($val, undef, undef) && $ival_0 >= 1;
+        $res = jm_is_unique_array($val, $path, $rep) && $ival_0 >= 1;
+        push @$rep, ["constraints failed [.'\$schema'.enum]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$schema'.enum.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -143,7 +214,9 @@ sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.exclusiveMaximum
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$schema'.exclusiveMaximum]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
@@ -151,7 +224,9 @@ sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.exclusiveMinimum
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$schema'.exclusiveMinimum]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_items (.'$schema'.items)
@@ -160,8 +235,23 @@ sub _jm_f_8($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.items
     # .'$schema'.items.'|'.0
-    # .'$schema'.items.'|'.1
-    return json_model_3($val, undef, undef) || json_model_4($val, undef, undef);
+    my $res = json_model_3($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$schema'.items.'|'.0]", $path] if defined $rep;
+        # .'$schema'.items.'|'.1
+        $res = json_model_4($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$schemaArray\" [.'\$schema'.items.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$schema'.items.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check json_model_3_map_maxItems (.'$schema'.maxItems)
@@ -169,7 +259,9 @@ sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.maxItems
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$schema'.maxItems]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_maxLength (.'$schema'.maxLength)
@@ -177,7 +269,9 @@ sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.maxLength
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$schema'.maxLength]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_maxProperties (.'$schema'.maxProperties)
@@ -185,7 +279,9 @@ sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.maxProperties
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$schema'.maxProperties]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_maximum (.'$schema'.maximum)
@@ -193,7 +289,9 @@ sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.maximum
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["not a -1.0 loose float [.'\$schema'.maximum]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_minItems (.'$schema'.minItems)
@@ -201,7 +299,9 @@ sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.minItems
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$schema'.minItems]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_minLength (.'$schema'.minLength)
@@ -209,7 +309,9 @@ sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.minLength
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$schema'.minLength]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_minProperties (.'$schema'.minProperties)
@@ -217,7 +319,9 @@ sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.minProperties
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$schema'.minProperties]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_minimum (.'$schema'.minimum)
@@ -225,7 +329,9 @@ sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.minimum
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["not a -1.0 loose float [.'\$schema'.minimum]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_multipleOf (.'$schema'.multipleOf)
@@ -233,7 +339,9 @@ sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.multipleOf
-    return jm_is_numeric($val) && $val > 0.0;
+    my $res = jm_is_numeric($val) && $val > 0.0;
+    push @$rep, ["not a 1.0 loose float [.'\$schema'.multipleOf]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_pattern (.'$schema'.pattern)
@@ -241,7 +349,9 @@ sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.pattern
-    return jm_is_string($val) && jm_is_valid_regex($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$REGEX\" [.'\$schema'.pattern]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_patternProperties (.'$schema'.patternProperties)
@@ -249,15 +359,24 @@ sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.patternProperties
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$schema'.patternProperties]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema'.patternProperties.''
-        $res = json_model_3($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_3($pval, defined $path ? $lpath_2 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$schema'.patternProperties.'']", defined $path ? $lpath_2 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -267,15 +386,24 @@ sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.properties
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$schema'.properties]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema'.properties.''
-        $res = json_model_3($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_3($pval, defined $path ? $lpath_3 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$schema'.properties.'']", defined $path ? $lpath_3 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -285,7 +413,9 @@ sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.title
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$schema'.title]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_3_map_type (.'$schema'.type)
@@ -294,8 +424,23 @@ sub _jm_f_22($$$)
     my ($val, $path, $rep) = @_;
     # .'$schema'.type
     # .'$schema'.type.'|'.0
-    # .'$schema'.type.'|'.1
-    return json_model_5($val, undef, undef) || json_model_7($val, undef, undef);
+    my $res = json_model_5($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$simpleTypes\" [.'\$schema'.type.'|'.0]", $path] if defined $rep;
+        # .'$schema'.type.'|'.1
+        $res = json_model_7($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$typeArray\" [.'\$schema'.type.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$schema'.type.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 # check json_model_3_map_uniqueItems (.'$schema'.uniqueItems)
@@ -303,7 +448,9 @@ sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.uniqueItems
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["not a bool [.'\$schema'.uniqueItems]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -313,17 +460,27 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
     # .'$schema'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$schema']", $path] if defined $rep;
+        return 0;
+    }
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_3_map{$prop}))
         {
             # handle 29 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_0 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.'\$schema']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.'\$schema']", defined $path ? $lpath_0 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -334,7 +491,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_3($val, undef, undef);
+    my $res = json_model_3($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$schema\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $schema#schemaArray (.'$schema#schemaArray')
@@ -349,15 +508,25 @@ sub json_model_4($$$)
         for my $arr_1_idx (0 .. $#$val)
         {
             my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_1_lpath = defined $path ? [@{$path}, $arr_1_idx] : undef;
             # .'$schema#schemaArray'.'@'.0
-            $res = json_model_3($arr_1_item, undef, undef);
-            last unless $res;
+            $res = json_model_3($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$schema#schemaArray'.'\@'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_1 = scalar @$val;
         $res = $ival_1 >= 1;
+        push @$rep, ["constraints failed [.'\$schema#schemaArray']", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$schema#schemaArray'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -368,7 +537,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema#simpleTypes'
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'\$schema#simpleTypes'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $schema#stringArray (.'$schema#stringArray')
@@ -383,15 +554,25 @@ sub json_model_6($$$)
         for my $arr_2_idx (0 .. $#$val)
         {
             my $arr_2_item = $$val[$arr_2_idx];
+            my $arr_2_lpath = defined $path ? [@{$path}, $arr_2_idx] : undef;
             # .'$schema#stringArray'.'@'.0
             $res = jm_is_string($arr_2_item);
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\$schema#stringArray'.'\@'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_2 = scalar @$val;
-        $res = jm_is_unique_array($val, undef, undef) && $ival_2 >= 1;
+        $res = jm_is_unique_array($val, $path, $rep) && $ival_2 >= 1;
+        push @$rep, ["constraints failed [.'\$schema#stringArray']", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$schema#stringArray'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -408,15 +589,25 @@ sub json_model_7($$$)
         for my $arr_3_idx (0 .. $#$val)
         {
             my $arr_3_item = $$val[$arr_3_idx];
+            my $arr_3_lpath = defined $path ? [@{$path}, $arr_3_idx] : undef;
             # .'$schema#typeArray'.'@'.0
-            $res = json_model_5($arr_3_item, undef, undef);
-            last unless $res;
+            $res = json_model_5($arr_3_item, defined $path ? $arr_3_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$simpleTypes\" [.'\$schema#typeArray'.'\@'.0]", defined $path ? $arr_3_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_3 = scalar @$val;
-        $res = jm_is_unique_array($val, undef, undef) && $ival_3 >= 1;
+        $res = jm_is_unique_array($val, $path, $rep) && $ival_3 >= 1;
+        push @$rep, ["constraints failed [.'\$schema#typeArray']", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$schema#typeArray'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -428,7 +619,9 @@ sub json_model_9($$$)
     my ($val, $path, $rep) = @_;
     # add a definition for BSON types
     # .'$schema#bsonType'
-    return jm_is_string($val) && exists $_jm_cst_1{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_1{$val};
+    push @$rep, ["value not in enum [.'\$schema#bsonType'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

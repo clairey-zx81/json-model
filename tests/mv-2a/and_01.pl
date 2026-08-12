@@ -26,19 +26,28 @@ sub _jm_obj_0($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_starts_with($prop, "s"))
         {
             # handle 2 re props
             # .'&'.1.'/^s/'
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'&'.1.'/^s/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         elsif (jm_starts_with($prop, "i"))
         {
             # handle 2 re props
             # .'&'.1.'/^i/'
             $res = jm_is_integer($pval) && $pval >= 1;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 1 strict int [.'&'.1.'/^i/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
@@ -55,23 +64,50 @@ sub _jm_obj_1($$$)
     my ($val, $path, $rep) = @_;
     # check open must/may only props
     # value known to be an object
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"i"};
+    unless (exists $$val{"i"})
+    {
+        push @$rep, ["missing mandatory prop <i> [.'&'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "i"] : undef;
     $pval = $$val{"i"};
     # .'&'.0.i
     my $res = jm_is_integer($pval) && $pval >= 1;
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.'&'.0.i]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <i> [.'&'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.'&'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .'&'.0.b
     $res = jm_is_boolean($pval);
-    return 0 unless $res;
+    unless ($res)
+    {
+        push @$rep, ["not a bool [.'&'.0.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.'&'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"ss"})
     {
+        $lpath = defined $path ? [@{$path}, "ss"] : undef;
         $pval = $$val{"ss"};
         # .'&'.0.ss
         $res = jm_is_string($pval);
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\" [.'&'.0.ss]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <ss> [.'&'.0]", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -82,9 +118,31 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # merge object stuff if possible, cannot have ss
     # .
-    # .'&'.0
-    # .'&'.1
-    return jm_is_object($val) && _jm_obj_1($val, undef, undef) && _jm_obj_0($val, undef, undef);
+    my $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'&'.0
+        $res = _jm_obj_1($val, $path, $rep);
+        if ($res)
+        {
+            # .'&'.1
+            $res = _jm_obj_0($val, $path, $rep);
+            push @$rep, ["unexpected element [.'&'.1]", $path] if defined $rep and not $res;
+        }
+        else
+        {
+            push @$rep, ["unexpected element [.'&'.0]", $path] if defined $rep;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not all model match [.'&']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

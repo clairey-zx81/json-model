@@ -10,15 +10,15 @@ ma_prop_00.values.json[8]: PASS
 ma_prop_00.values.json[9]: PASS
 ma_prop_00.values.json[10]: PASS
 ma_prop_00.values.json[11]: PASS
-ma_prop_00.values.json[12]: FAIL
-ma_prop_00.values.json[13]: FAIL
-ma_prop_00.values.json[14]: FAIL
-ma_prop_00.values.json[15]: FAIL
-ma_prop_00.values.json[16]: FAIL
-ma_prop_00.values.json[17]: FAIL
-ma_prop_00.values.json[18]: FAIL
-ma_prop_00.values.json[19]: FAIL
-ma_prop_00.values.json[20]: FAIL
-ma_prop_00.values.json[21]: FAIL
-ma_prop_00.values.json[22]: FAIL
-ma_prop_00.values.json[23]: FAIL
+ma_prop_00.values.json[12]: FAIL (.un: unexpected prop [.])
+ma_prop_00.values.json[13]: FAIL (.zulu: not a 0 strict int [.zulu]; .zulu: invalid optional prop value [.zulu])
+ma_prop_00.values.json[14]: FAIL (.last: not a 0 strict int [.last]; .last: invalid optional prop value [.last])
+ma_prop_00.values.json[15]: FAIL (.: not an object [.])
+ma_prop_00.values.json[16]: FAIL (.: not an object [.])
+ma_prop_00.values.json[17]: FAIL (.: not an object [.])
+ma_prop_00.values.json[18]: FAIL (.: not an object [.])
+ma_prop_00.values.json[19]: FAIL (.: not an object [.])
+ma_prop_00.values.json[20]: FAIL (.: not an object [.])
+ma_prop_00.values.json[21]: FAIL (.: not an object [.])
+ma_prop_00.values.json[22]: FAIL (.: not an object [.])
+ma_prop_00.values.json[23]: FAIL (.: not an object [.])

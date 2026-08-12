@@ -21,13 +21,41 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # mixed sw eq le optimization with longer strings
     # .
-    # .'|'.0
-    # "/^abcdefghij/"
-    # .'|'.1
-    # "/^klmnopqrst$/"
-    # .'|'.2
-    # "/qrstuvwxyz$/"
-    return jm_is_string($val) && (jm_starts_with($val, "abcdefghij") || $val eq "klmnopqrst" || jm_ends_with($val, "qrstuvwxyz"));
+    my $res = jm_is_string($val);
+    if ($res)
+    {
+        # .'|'.0
+        # "/^abcdefghij/"
+        $res = jm_starts_with($val, "abcdefghij");
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"/^abcdefghij/\" [.'|'.0]", $path] if defined $rep;
+            # .'|'.1
+            # "/^klmnopqrst$/"
+            $res = $val eq "klmnopqrst";
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/^klmnopqrst\\\$/\" [.'|'.1]", $path] if defined $rep;
+                # .'|'.2
+                # "/qrstuvwxyz$/"
+                $res = jm_ends_with($val, "qrstuvwxyz");
+                push @$rep, ["unexpected value for model \"/qrstuvwxyz\\\$/\" [.'|'.2]", $path] if defined $rep and not $res;
+            }
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

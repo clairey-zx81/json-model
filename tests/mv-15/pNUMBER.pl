@@ -20,7 +20,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["unexpected value for model \"\\\$NUMBER\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

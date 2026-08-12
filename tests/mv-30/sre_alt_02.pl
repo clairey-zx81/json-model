@@ -28,7 +28,9 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/^(Il|a|devale|la|colline|Ses|pieds|faisaient|rouler|des|pierres|La_haut|entre|les|quatre|murs|La|sirene|chantait|sans|joie|Il|respirait|l_odeur|des|arbres|De|tout|son|corps|comme|une|forge|La|lumiere|l_accompagnait|Et|lui|faisait|danser|son|ombre|Pourvu|qu_ils|me|laissent|le|temps|Il|sautait|a|travers|les|herbes|Il|a|cueilli|deux|feuilles|jaunes|Gorgees|de|seve|et|de|soleil)$/i"
-    return jm_is_string($val) && _jm_re_0($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/^(Il|a|devale|la|colline|Ses|pieds|faisaient|rouler|des|pierres|La_haut|entre|les|quatre|murs|La|sirene|chantait|sans|joie|Il|respirait|l_odeur|des|arbres|De|tout|son|corps|comme|une|forge|La|lumiere|l_accompagnait|Et|lui|faisait|danser|son|ombre|Pourvu|qu_ils|me|laissent|le|temps|Il|sautait|a|travers|les|herbes|Il|a|cueilli|deux|feuilles|jaunes|Gorgees|de|seve|et|de|soleil)\\\$/i\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

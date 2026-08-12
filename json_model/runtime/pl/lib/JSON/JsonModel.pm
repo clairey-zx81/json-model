@@ -471,7 +471,7 @@ sub jm_process($$$$$$$$$)
     my $valid = &$checker($json, $name, $rep) ? 1 : 0;
 
     my $rep_txt = "";
-    if ($rep and @$rep) {
+    if (not $valid and $rep and @$rep) {
         $rep_txt = " (";
         my $count = 0;
         for my $ri (@$rep) {

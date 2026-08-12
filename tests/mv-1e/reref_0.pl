@@ -24,7 +24,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$character'
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'\$character'.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 sub _jm_xre_0_re($$$)
@@ -41,9 +43,9 @@ sub _jm_xre_0($$$)
     my $match = $val =~ /'(?<s1>\w+)'.*'(?<s2>\w+)'/;
     return 0 unless $match;
     $extract = $+{"s1"};
-    return 0 unless json_model_2($extract, undef, undef);
+    return 0 unless json_model_2($extract, $path, $rep);
     $extract = $+{"s2"};
-    return 0 unless json_model_2($extract, undef, undef);
+    return 0 unless json_model_2($extract, $path, $rep);
     return 1;
 }
 
@@ -53,7 +55,9 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/'($character:\\w+)'.*'($character:\\w+)'/X"
-    return jm_is_string($val) && _jm_xre_0($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_xre_0($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/'(\\\$character:\\\\w+)'.*'(\\\$character:\\\\w+)'/X\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

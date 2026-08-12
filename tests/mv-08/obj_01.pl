@@ -21,7 +21,9 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$bla'
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["unexpected value for model \"\\\$BOOLEAN\" [.'\$bla']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -29,7 +31,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["unexpected value for model \"\\\$BOOLEAN\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

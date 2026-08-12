@@ -3,17 +3,17 @@ str_eq.values.json[1]: PASS
 str_eq.values.json[2]: PASS
 str_eq.values.json[3]: PASS
 str_eq.values.json[4]: PASS
-str_eq.values.json[5]: FAIL
-str_eq.values.json[6]: FAIL
-str_eq.values.json[7]: FAIL
-str_eq.values.json[8]: FAIL
-str_eq.values.json[9]: FAIL
-str_eq.values.json[10]: FAIL
-str_eq.values.json[11]: FAIL
-str_eq.values.json[12]: FAIL
-str_eq.values.json[13]: FAIL
-str_eq.values.json[14]: FAIL
-str_eq.values.json[15]: FAIL
-str_eq.values.json[16]: FAIL
-str_eq.values.json[17]: FAIL
-str_eq.values.json[18]: FAIL
+str_eq.values.json[5]: FAIL (.whatever: unexpected prop [.])
+str_eq.values.json[6]: FAIL (.whatever: unexpected prop [.])
+str_eq.values.json[7]: FAIL (.quite-a-long-property-name!: unexpected prop [.])
+str_eq.values.json[8]: FAIL (.quite-a-long-property-namE: unexpected prop [.])
+str_eq.values.json[9]: FAIL (.quite-a-long-property-nam: unexpected prop [.])
+str_eq.values.json[10]: FAIL (.: not an object [.])
+str_eq.values.json[11]: FAIL (.: not an object [.])
+str_eq.values.json[12]: FAIL (.: not an object [.])
+str_eq.values.json[13]: FAIL (.: not an object [.])
+str_eq.values.json[14]: FAIL (.: not an object [.])
+str_eq.values.json[15]: FAIL (.: not an object [.])
+str_eq.values.json[16]: FAIL (.: not an object [.])
+str_eq.values.json[17]: FAIL (.: not an object [.])
+str_eq.values.json[18]: FAIL (.: not an object [.])

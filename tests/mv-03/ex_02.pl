@@ -24,7 +24,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$x1'
-    return jm_is_string($val) && $val eq "Susie";
+    my $res = jm_is_string($val) && $val eq "Susie";
+    push @$rep, ["unexpected value for model \"_Susie\" [.'\$x1']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $x2 (.'$x2')
@@ -32,7 +34,9 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$x2'
-    return jm_is_string($val) && $val eq "Susie";
+    my $res = jm_is_string($val) && $val eq "Susie";
+    push @$rep, ["unexpected value for model \"_Susie\" [.'\$x2']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $x3 (.'$x3')
@@ -40,7 +44,9 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$x3'
-    return jm_is_string($val) && $val eq "Susie";
+    my $res = jm_is_string($val) && $val eq "Susie";
+    push @$rep, ["unexpected value for model \"_Susie\" [.'\$x3']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $__external_0 (.'$__external_0')
@@ -48,7 +54,9 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$__external_0'
-    return jm_is_string($val) && $val eq "Susie";
+    my $res = jm_is_string($val) && $val eq "Susie";
+    push @$rep, ["unexpected value for model \"_Susie\" [.'\$__external_0']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -59,21 +67,42 @@ sub json_model_1($$$)
     my $res = jm_is_array($val) && scalar @$val == 4;
     if ($res)
     {
+        my $lpath_0 = defined $path ? [@{$path}, 0] : undef;
         # .0
         $res = jm_is_string($$val[0]) && $$val[0] eq "Susie";
         if ($res)
         {
+            $lpath_0 = defined $path ? [@{$path}, 1] : undef;
             # .1
             $res = jm_is_string($$val[1]) && $$val[1] eq "Susie";
             if ($res)
             {
+                $lpath_0 = defined $path ? [@{$path}, 2] : undef;
                 # .2
                 $res = jm_is_string($$val[2]) && $$val[2] eq "Susie";
-                $res = jm_is_string($$val[3]) && $$val[3] eq "Susie" if $res;
-                # .3
+                if ($res)
+                {
+                    $lpath_0 = defined $path ? [@{$path}, 3] : undef;
+                    # .3
+                    $res = jm_is_string($$val[3]) && $$val[3] eq "Susie";
+                    push @$rep, ["unexpected value for model \"_Susie\" [.3]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+                }
+                else
+                {
+                    push @$rep, ["unexpected value for model \"_Susie\" [.2]", defined $path ? $lpath_0 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["unexpected value for model \"_Susie\" [.1]", defined $path ? $lpath_0 : undef] if defined $rep;
             }
         }
+        else
+        {
+            push @$rep, ["unexpected value for model \"_Susie\" [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+        }
     }
+    push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

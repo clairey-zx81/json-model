@@ -21,13 +21,41 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # mixed sw eq ew regex optim
     # .
-    # .'|'.0
-    # "/^hello/"
-    # .'|'.1
-    # "/^world$/"
-    # .'|'.2
-    # "/!$/"
-    return jm_is_string($val) && (jm_starts_with($val, "hello") || $val eq "world" || jm_ends_with($val, "!"));
+    my $res = jm_is_string($val);
+    if ($res)
+    {
+        # .'|'.0
+        # "/^hello/"
+        $res = jm_starts_with($val, "hello");
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"/^hello/\" [.'|'.0]", $path] if defined $rep;
+            # .'|'.1
+            # "/^world$/"
+            $res = $val eq "world";
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/^world\\\$/\" [.'|'.1]", $path] if defined $rep;
+                # .'|'.2
+                # "/!$/"
+                $res = jm_ends_with($val, "!");
+                push @$rep, ["unexpected value for model \"/!\\\$/\" [.'|'.2]", $path] if defined $rep and not $res;
+            }
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

@@ -48,15 +48,25 @@ sub json_model_2($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'$position'.'@'.0
             $res = jm_is_numeric($arr_0_item);
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a -1.0 loose float [.'\$position'.'\@'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_0 = scalar @$val;
         $res = $ival_0 <= 3 && $ival_0 >= 2;
+        push @$rep, ["constraints failed [.'\$position']", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$position'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -73,15 +83,25 @@ sub json_model_3($$$)
         for my $arr_1_idx (0 .. $#$val)
         {
             my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_1_lpath = defined $path ? [@{$path}, $arr_1_idx] : undef;
             # .'$coord_array'.'@'.0
-            $res = json_model_2($arr_1_item, undef, undef);
-            last unless $res;
+            $res = json_model_2($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$position\" [.'\$coord_array'.'\@'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_1 = scalar @$val;
         $res = $ival_1 >= 2;
+        push @$rep, ["constraints failed [.'\$coord_array']", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$coord_array'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -98,15 +118,25 @@ sub json_model_4($$$)
         for my $arr_2_idx (0 .. $#$val)
         {
             my $arr_2_item = $$val[$arr_2_idx];
+            my $arr_2_lpath = defined $path ? [@{$path}, $arr_2_idx] : undef;
             # .'$linear_ring'.'@'.0
-            $res = json_model_2($arr_2_item, undef, undef);
-            last unless $res;
+            $res = json_model_2($arr_2_item, defined $path ? $arr_2_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$position\" [.'\$linear_ring'.'\@'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_2 = scalar @$val;
         $res = $ival_2 >= 4;
+        push @$rep, ["constraints failed [.'\$linear_ring']", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.'\$linear_ring'.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -116,19 +146,29 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Point'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Point']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Point'.type
             $res = jm_is_string($pval) && $pval eq "Point";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"Point\" [.'\$Point'.type]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Point'.type]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "coordinates")
@@ -136,8 +176,13 @@ sub json_model_5($$$)
             # handle must coordinates property
             $must_count++;
             # .'$Point'.coordinates
-            $res = json_model_2($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_2($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$position\" [.'\$Point'.coordinates]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Point'.coordinates]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "bbox")
@@ -150,17 +195,37 @@ sub json_model_5($$$)
                 for my $arr_3_idx (0 .. $#$pval)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
+                    my $arr_3_lpath = defined (defined $path ? $lpath_0 : undef) ? [@{(defined $path ? $lpath_0 : undef)}, $arr_3_idx] : undef;
                     # .'$Point'.bbox.0
                     $res = jm_is_numeric($arr_3_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a -1.0 loose float [.'\$Point'.bbox.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_3_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Point'.bbox]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Point'.bbox]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Point']", defined $path ? $lpath_0 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <coordinates> [.'\$Point']", $path] if defined $rep and not exists $$val{"coordinates"};
+            push @$rep, ["missing mandatory prop <type> [.'\$Point']", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # check $MultiPoint (.'$MultiPoint')
@@ -168,19 +233,29 @@ sub json_model_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$MultiPoint'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$MultiPoint']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$MultiPoint'.type
             $res = jm_is_string($pval) && $pval eq "MultiPoint";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"MultiPoint\" [.'\$MultiPoint'.type]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$MultiPoint'.type]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "coordinates")
@@ -194,12 +269,22 @@ sub json_model_6($$$)
                 for my $arr_4_idx (0 .. $#$pval)
                 {
                     my $arr_4_item = $$pval[$arr_4_idx];
+                    my $arr_4_lpath = defined (defined $path ? $lpath_1 : undef) ? [@{(defined $path ? $lpath_1 : undef)}, $arr_4_idx] : undef;
                     # .'$MultiPoint'.coordinates.0
-                    $res = json_model_2($arr_4_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_2($arr_4_item, defined (defined $path ? $lpath_1 : undef) ? $arr_4_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$position\" [.'\$MultiPoint'.coordinates.0]", defined (defined $path ? $lpath_1 : undef) ? $arr_4_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$MultiPoint'.coordinates]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$MultiPoint'.coordinates]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "bbox")
@@ -212,17 +297,37 @@ sub json_model_6($$$)
                 for my $arr_5_idx (0 .. $#$pval)
                 {
                     my $arr_5_item = $$pval[$arr_5_idx];
+                    my $arr_5_lpath = defined (defined $path ? $lpath_1 : undef) ? [@{(defined $path ? $lpath_1 : undef)}, $arr_5_idx] : undef;
                     # .'$MultiPoint'.bbox.0
                     $res = jm_is_numeric($arr_5_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a -1.0 loose float [.'\$MultiPoint'.bbox.0]", defined (defined $path ? $lpath_1 : undef) ? $arr_5_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$MultiPoint'.bbox]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$MultiPoint'.bbox]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$MultiPoint']", defined $path ? $lpath_1 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <coordinates> [.'\$MultiPoint']", $path] if defined $rep and not exists $$val{"coordinates"};
+            push @$rep, ["missing mandatory prop <type> [.'\$MultiPoint']", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # check $LineString (.'$LineString')
@@ -230,19 +335,29 @@ sub json_model_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$LineString'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$LineString']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$LineString'.type
             $res = jm_is_string($pval) && $pval eq "LineString";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"LineString\" [.'\$LineString'.type]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$LineString'.type]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "coordinates")
@@ -250,8 +365,13 @@ sub json_model_7($$$)
             # handle must coordinates property
             $must_count++;
             # .'$LineString'.coordinates
-            $res = json_model_3($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_3($pval, defined $path ? $lpath_2 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$coord_array\" [.'\$LineString'.coordinates]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$LineString'.coordinates]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "bbox")
@@ -264,17 +384,37 @@ sub json_model_7($$$)
                 for my $arr_6_idx (0 .. $#$pval)
                 {
                     my $arr_6_item = $$pval[$arr_6_idx];
+                    my $arr_6_lpath = defined (defined $path ? $lpath_2 : undef) ? [@{(defined $path ? $lpath_2 : undef)}, $arr_6_idx] : undef;
                     # .'$LineString'.bbox.0
                     $res = jm_is_numeric($arr_6_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a -1.0 loose float [.'\$LineString'.bbox.0]", defined (defined $path ? $lpath_2 : undef) ? $arr_6_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$LineString'.bbox]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$LineString'.bbox]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$LineString']", defined $path ? $lpath_2 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <coordinates> [.'\$LineString']", $path] if defined $rep and not exists $$val{"coordinates"};
+            push @$rep, ["missing mandatory prop <type> [.'\$LineString']", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # check $MultiLineString (.'$MultiLineString')
@@ -282,19 +422,29 @@ sub json_model_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$MultiLineString'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$MultiLineString']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$MultiLineString'.type
             $res = jm_is_string($pval) && $pval eq "MultiLineString";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"MultiLineString\" [.'\$MultiLineString'.type]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$MultiLineString'.type]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "coordinates")
@@ -308,12 +458,22 @@ sub json_model_8($$$)
                 for my $arr_7_idx (0 .. $#$pval)
                 {
                     my $arr_7_item = $$pval[$arr_7_idx];
+                    my $arr_7_lpath = defined (defined $path ? $lpath_3 : undef) ? [@{(defined $path ? $lpath_3 : undef)}, $arr_7_idx] : undef;
                     # .'$MultiLineString'.coordinates.0
-                    $res = json_model_3($arr_7_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_3($arr_7_item, defined (defined $path ? $lpath_3 : undef) ? $arr_7_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$coord_array\" [.'\$MultiLineString'.coordinates.0]", defined (defined $path ? $lpath_3 : undef) ? $arr_7_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$MultiLineString'.coordinates]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$MultiLineString'.coordinates]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "bbox")
@@ -326,17 +486,37 @@ sub json_model_8($$$)
                 for my $arr_8_idx (0 .. $#$pval)
                 {
                     my $arr_8_item = $$pval[$arr_8_idx];
+                    my $arr_8_lpath = defined (defined $path ? $lpath_3 : undef) ? [@{(defined $path ? $lpath_3 : undef)}, $arr_8_idx] : undef;
                     # .'$MultiLineString'.bbox.0
                     $res = jm_is_numeric($arr_8_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a -1.0 loose float [.'\$MultiLineString'.bbox.0]", defined (defined $path ? $lpath_3 : undef) ? $arr_8_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$MultiLineString'.bbox]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$MultiLineString'.bbox]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$MultiLineString']", defined $path ? $lpath_3 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <coordinates> [.'\$MultiLineString']", $path] if defined $rep and not exists $$val{"coordinates"};
+            push @$rep, ["missing mandatory prop <type> [.'\$MultiLineString']", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # check $Polygon (.'$Polygon')
@@ -344,19 +524,29 @@ sub json_model_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Polygon'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Polygon']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$Polygon'.type
             $res = jm_is_string($pval) && $pval eq "Polygon";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"Polygon\" [.'\$Polygon'.type]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Polygon'.type]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "coordinates")
@@ -370,12 +560,22 @@ sub json_model_9($$$)
                 for my $arr_9_idx (0 .. $#$pval)
                 {
                     my $arr_9_item = $$pval[$arr_9_idx];
+                    my $arr_9_lpath = defined (defined $path ? $lpath_4 : undef) ? [@{(defined $path ? $lpath_4 : undef)}, $arr_9_idx] : undef;
                     # .'$Polygon'.coordinates.0
-                    $res = json_model_4($arr_9_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_4($arr_9_item, defined (defined $path ? $lpath_4 : undef) ? $arr_9_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$linear_ring\" [.'\$Polygon'.coordinates.0]", defined (defined $path ? $lpath_4 : undef) ? $arr_9_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Polygon'.coordinates]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$Polygon'.coordinates]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "bbox")
@@ -388,17 +588,37 @@ sub json_model_9($$$)
                 for my $arr_10_idx (0 .. $#$pval)
                 {
                     my $arr_10_item = $$pval[$arr_10_idx];
+                    my $arr_10_lpath = defined (defined $path ? $lpath_4 : undef) ? [@{(defined $path ? $lpath_4 : undef)}, $arr_10_idx] : undef;
                     # .'$Polygon'.bbox.0
                     $res = jm_is_numeric($arr_10_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a -1.0 loose float [.'\$Polygon'.bbox.0]", defined (defined $path ? $lpath_4 : undef) ? $arr_10_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$Polygon'.bbox]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$Polygon'.bbox]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$Polygon']", defined $path ? $lpath_4 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <coordinates> [.'\$Polygon']", $path] if defined $rep and not exists $$val{"coordinates"};
+            push @$rep, ["missing mandatory prop <type> [.'\$Polygon']", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # check $MultiPolygon (.'$MultiPolygon')
@@ -406,19 +626,29 @@ sub json_model_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$MultiPolygon'
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$MultiPolygon']", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
             # handle must type property
             $must_count++;
             # .'$MultiPolygon'.type
             $res = jm_is_string($pval) && $pval eq "MultiPolygon";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"MultiPolygon\" [.'\$MultiPolygon'.type]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$MultiPolygon'.type]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "coordinates")
@@ -432,6 +662,7 @@ sub json_model_10($$$)
                 for my $arr_11_idx (0 .. $#$pval)
                 {
                     my $arr_11_item = $$pval[$arr_11_idx];
+                    my $arr_11_lpath = defined (defined $path ? $lpath_5 : undef) ? [@{(defined $path ? $lpath_5 : undef)}, $arr_11_idx] : undef;
                     # .'$MultiPolygon'.coordinates.0
                     $res = jm_is_array($arr_11_item);
                     if ($res)
@@ -439,15 +670,29 @@ sub json_model_10($$$)
                         for my $arr_12_idx (0 .. $#$arr_11_item)
                         {
                             my $arr_12_item = $$arr_11_item[$arr_12_idx];
+                            my $arr_12_lpath = defined (defined (defined $path ? $lpath_5 : undef) ? $arr_11_lpath : undef) ? [@{(defined (defined $path ? $lpath_5 : undef) ? $arr_11_lpath : undef)}, $arr_12_idx] : undef;
                             # .'$MultiPolygon'.coordinates.0.0
-                            $res = json_model_4($arr_12_item, undef, undef);
-                            last unless $res;
+                            $res = json_model_4($arr_12_item, defined (defined (defined $path ? $lpath_5 : undef) ? $arr_11_lpath : undef) ? $arr_12_lpath : undef, $rep);
+                            unless ($res)
+                            {
+                                push @$rep, ["unexpected value for model \"\\\$linear_ring\" [.'\$MultiPolygon'.coordinates.0.0]", defined (defined (defined $path ? $lpath_5 : undef) ? $arr_11_lpath : undef) ? $arr_12_lpath : undef] if defined $rep;
+                                last;
+                            }
                         }
                     }
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not array or unexpected array [.'\$MultiPolygon'.coordinates.0]", defined (defined $path ? $lpath_5 : undef) ? $arr_11_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$MultiPolygon'.coordinates]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'\$MultiPolygon'.coordinates]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "bbox")
@@ -460,17 +705,37 @@ sub json_model_10($$$)
                 for my $arr_13_idx (0 .. $#$pval)
                 {
                     my $arr_13_item = $$pval[$arr_13_idx];
+                    my $arr_13_lpath = defined (defined $path ? $lpath_5 : undef) ? [@{(defined $path ? $lpath_5 : undef)}, $arr_13_idx] : undef;
                     # .'$MultiPolygon'.bbox.0
                     $res = jm_is_numeric($arr_13_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a -1.0 loose float [.'\$MultiPolygon'.bbox.0]", defined (defined $path ? $lpath_5 : undef) ? $arr_13_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$MultiPolygon'.bbox]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.'\$MultiPolygon'.bbox]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.'\$MultiPolygon']", defined $path ? $lpath_5 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 2)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <coordinates> [.'\$MultiPolygon']", $path] if defined $rep and not exists $$val{"coordinates"};
+            push @$rep, ["missing mandatory prop <type> [.'\$MultiPolygon']", $path] if defined $rep and not exists $$val{"type"};
         }
         return 0;
     }
-    return $must_count == 2;
+    return 1;
 }
 
 # object .'$geometry'.'|'.0
@@ -478,20 +743,46 @@ sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$geometry'.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$geometry'.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$geometry'.'|'.0.type
     my $res = jm_is_string($pval) && $pval eq "Point";
-    return 0 unless $res;
-    return 0 unless exists $$val{"coordinates"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"Point\" [.'\$geometry'.'|'.0.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$geometry'.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"coordinates"})
+    {
+        push @$rep, ["missing mandatory prop <coordinates> [.'\$geometry'.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "coordinates"] : undef;
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.0.coordinates
-    $res = json_model_2($pval, undef, undef);
-    return 0 unless $res;
+    $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$position\" [.'\$geometry'.'|'.0.coordinates]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <coordinates> [.'\$geometry'.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$geometry'.'|'.0.bbox
         $res = jm_is_array($pval);
@@ -500,12 +791,22 @@ sub _jm_obj_0($$$)
             for my $arr_14_idx (0 .. $#$pval)
             {
                 my $arr_14_item = $$pval[$arr_14_idx];
+                my $arr_14_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_14_idx] : undef;
                 # .'$geometry'.'|'.0.bbox.0
                 $res = jm_is_numeric($arr_14_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$geometry'.'|'.0.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_14_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.0.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$geometry'.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -515,14 +816,34 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$geometry'.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$geometry'.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$geometry'.'|'.1.type
     my $res = jm_is_string($pval) && $pval eq "MultiPoint";
-    return 0 unless $res;
-    return 0 unless exists $$val{"coordinates"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"MultiPoint\" [.'\$geometry'.'|'.1.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$geometry'.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"coordinates"})
+    {
+        push @$rep, ["missing mandatory prop <coordinates> [.'\$geometry'.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "coordinates"] : undef;
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.1.coordinates
     $res = jm_is_array($pval);
@@ -531,14 +852,25 @@ sub _jm_obj_1($$$)
         for my $arr_15_idx (0 .. $#$pval)
         {
             my $arr_15_item = $$pval[$arr_15_idx];
+            my $arr_15_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_15_idx] : undef;
             # .'$geometry'.'|'.1.coordinates.0
-            $res = json_model_2($arr_15_item, undef, undef);
-            last unless $res;
+            $res = json_model_2($arr_15_item, defined (defined $path ? $lpath : undef) ? $arr_15_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$position\" [.'\$geometry'.'|'.1.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_15_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    return 0 unless $res;
+    unless ($res)
+    {
+        push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.1.coordinates]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <coordinates> [.'\$geometry'.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$geometry'.'|'.1.bbox
         $res = jm_is_array($pval);
@@ -547,12 +879,22 @@ sub _jm_obj_1($$$)
             for my $arr_16_idx (0 .. $#$pval)
             {
                 my $arr_16_item = $$pval[$arr_16_idx];
+                my $arr_16_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_16_idx] : undef;
                 # .'$geometry'.'|'.1.bbox.0
                 $res = jm_is_numeric($arr_16_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$geometry'.'|'.1.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_16_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.1.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$geometry'.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -562,20 +904,46 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$geometry'.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$geometry'.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$geometry'.'|'.2.type
     my $res = jm_is_string($pval) && $pval eq "LineString";
-    return 0 unless $res;
-    return 0 unless exists $$val{"coordinates"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"LineString\" [.'\$geometry'.'|'.2.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$geometry'.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"coordinates"})
+    {
+        push @$rep, ["missing mandatory prop <coordinates> [.'\$geometry'.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "coordinates"] : undef;
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.2.coordinates
-    $res = json_model_3($pval, undef, undef);
-    return 0 unless $res;
+    $res = json_model_3($pval, defined $path ? $lpath : undef, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$coord_array\" [.'\$geometry'.'|'.2.coordinates]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <coordinates> [.'\$geometry'.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$geometry'.'|'.2.bbox
         $res = jm_is_array($pval);
@@ -584,12 +952,22 @@ sub _jm_obj_2($$$)
             for my $arr_17_idx (0 .. $#$pval)
             {
                 my $arr_17_item = $$pval[$arr_17_idx];
+                my $arr_17_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_17_idx] : undef;
                 # .'$geometry'.'|'.2.bbox.0
                 $res = jm_is_numeric($arr_17_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$geometry'.'|'.2.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_17_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.2.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$geometry'.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -599,14 +977,34 @@ sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$geometry'.'|'.3]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$geometry'.'|'.3]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$geometry'.'|'.3.type
     my $res = jm_is_string($pval) && $pval eq "MultiLineString";
-    return 0 unless $res;
-    return 0 unless exists $$val{"coordinates"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"MultiLineString\" [.'\$geometry'.'|'.3.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$geometry'.'|'.3]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"coordinates"})
+    {
+        push @$rep, ["missing mandatory prop <coordinates> [.'\$geometry'.'|'.3]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "coordinates"] : undef;
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.3.coordinates
     $res = jm_is_array($pval);
@@ -615,14 +1013,25 @@ sub _jm_obj_3($$$)
         for my $arr_18_idx (0 .. $#$pval)
         {
             my $arr_18_item = $$pval[$arr_18_idx];
+            my $arr_18_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_18_idx] : undef;
             # .'$geometry'.'|'.3.coordinates.0
-            $res = json_model_3($arr_18_item, undef, undef);
-            last unless $res;
+            $res = json_model_3($arr_18_item, defined (defined $path ? $lpath : undef) ? $arr_18_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$coord_array\" [.'\$geometry'.'|'.3.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_18_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    return 0 unless $res;
+    unless ($res)
+    {
+        push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.3.coordinates]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <coordinates> [.'\$geometry'.'|'.3]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$geometry'.'|'.3.bbox
         $res = jm_is_array($pval);
@@ -631,12 +1040,22 @@ sub _jm_obj_3($$$)
             for my $arr_19_idx (0 .. $#$pval)
             {
                 my $arr_19_item = $$pval[$arr_19_idx];
+                my $arr_19_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_19_idx] : undef;
                 # .'$geometry'.'|'.3.bbox.0
                 $res = jm_is_numeric($arr_19_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$geometry'.'|'.3.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_19_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.3.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$geometry'.'|'.3]", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -646,14 +1065,34 @@ sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$geometry'.'|'.4]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$geometry'.'|'.4]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$geometry'.'|'.4.type
     my $res = jm_is_string($pval) && $pval eq "Polygon";
-    return 0 unless $res;
-    return 0 unless exists $$val{"coordinates"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"Polygon\" [.'\$geometry'.'|'.4.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$geometry'.'|'.4]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"coordinates"})
+    {
+        push @$rep, ["missing mandatory prop <coordinates> [.'\$geometry'.'|'.4]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "coordinates"] : undef;
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.4.coordinates
     $res = jm_is_array($pval);
@@ -662,14 +1101,25 @@ sub _jm_obj_4($$$)
         for my $arr_20_idx (0 .. $#$pval)
         {
             my $arr_20_item = $$pval[$arr_20_idx];
+            my $arr_20_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_20_idx] : undef;
             # .'$geometry'.'|'.4.coordinates.0
-            $res = json_model_4($arr_20_item, undef, undef);
-            last unless $res;
+            $res = json_model_4($arr_20_item, defined (defined $path ? $lpath : undef) ? $arr_20_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$linear_ring\" [.'\$geometry'.'|'.4.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_20_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    return 0 unless $res;
+    unless ($res)
+    {
+        push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.4.coordinates]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <coordinates> [.'\$geometry'.'|'.4]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$geometry'.'|'.4.bbox
         $res = jm_is_array($pval);
@@ -678,12 +1128,22 @@ sub _jm_obj_4($$$)
             for my $arr_21_idx (0 .. $#$pval)
             {
                 my $arr_21_item = $$pval[$arr_21_idx];
+                my $arr_21_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_21_idx] : undef;
                 # .'$geometry'.'|'.4.bbox.0
                 $res = jm_is_numeric($arr_21_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$geometry'.'|'.4.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_21_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.4.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$geometry'.'|'.4]", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -693,14 +1153,34 @@ sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$geometry'.'|'.5]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$geometry'.'|'.5]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$geometry'.'|'.5.type
     my $res = jm_is_string($pval) && $pval eq "MultiPolygon";
-    return 0 unless $res;
-    return 0 unless exists $$val{"coordinates"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"MultiPolygon\" [.'\$geometry'.'|'.5.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$geometry'.'|'.5]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"coordinates"})
+    {
+        push @$rep, ["missing mandatory prop <coordinates> [.'\$geometry'.'|'.5]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "coordinates"] : undef;
     $pval = $$val{"coordinates"};
     # .'$geometry'.'|'.5.coordinates
     $res = jm_is_array($pval);
@@ -709,6 +1189,7 @@ sub _jm_obj_5($$$)
         for my $arr_22_idx (0 .. $#$pval)
         {
             my $arr_22_item = $$pval[$arr_22_idx];
+            my $arr_22_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_22_idx] : undef;
             # .'$geometry'.'|'.5.coordinates.0
             $res = jm_is_array($arr_22_item);
             if ($res)
@@ -716,17 +1197,32 @@ sub _jm_obj_5($$$)
                 for my $arr_23_idx (0 .. $#$arr_22_item)
                 {
                     my $arr_23_item = $$arr_22_item[$arr_23_idx];
+                    my $arr_23_lpath = defined (defined (defined $path ? $lpath : undef) ? $arr_22_lpath : undef) ? [@{(defined (defined $path ? $lpath : undef) ? $arr_22_lpath : undef)}, $arr_23_idx] : undef;
                     # .'$geometry'.'|'.5.coordinates.0.0
-                    $res = json_model_4($arr_23_item, undef, undef);
-                    last unless $res;
+                    $res = json_model_4($arr_23_item, defined (defined (defined $path ? $lpath : undef) ? $arr_22_lpath : undef) ? $arr_23_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$linear_ring\" [.'\$geometry'.'|'.5.coordinates.0.0]", defined (defined (defined $path ? $lpath : undef) ? $arr_22_lpath : undef) ? $arr_23_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.5.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_22_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    return 0 unless $res;
+    unless ($res)
+    {
+        push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.5.coordinates]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <coordinates> [.'\$geometry'.'|'.5]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$geometry'.'|'.5.bbox
         $res = jm_is_array($pval);
@@ -735,12 +1231,22 @@ sub _jm_obj_5($$$)
             for my $arr_24_idx (0 .. $#$pval)
             {
                 my $arr_24_item = $$pval[$arr_24_idx];
+                my $arr_24_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_24_idx] : undef;
                 # .'$geometry'.'|'.5.bbox.0
                 $res = jm_is_numeric($arr_24_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$geometry'.'|'.5.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_24_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$geometry'.'|'.5.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$geometry'.'|'.5]", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -758,12 +1264,25 @@ sub json_model_11($$$)
         if (defined($tag_0 = $$val{"type"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, undef, undef);
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <type> value not found [.'\$geometry'.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <type> is missing [.'\$geometry'.'|']", $path] if defined $rep;
         }
+    }
+    else
+    {
+        push @$rep, ["value is not an object [.'\$geometry'.'|']", $path] if defined $rep;
     }
     return $res;
 }
@@ -774,14 +1293,34 @@ sub json_model_12($$$)
     my ($val, $path, $rep) = @_;
     # .'$GeometryCollection'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$GeometryCollection']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$GeometryCollection']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$GeometryCollection'.type
     my $res = jm_is_string($pval) && $pval eq "GeometryCollection";
-    return 0 unless $res;
-    return 0 unless exists $$val{"geometries"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"GeometryCollection\" [.'\$GeometryCollection'.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$GeometryCollection']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"geometries"})
+    {
+        push @$rep, ["missing mandatory prop <geometries> [.'\$GeometryCollection']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "geometries"] : undef;
     $pval = $$val{"geometries"};
     # .'$GeometryCollection'.geometries
     $res = jm_is_array($pval);
@@ -790,14 +1329,25 @@ sub json_model_12($$$)
         for my $arr_25_idx (0 .. $#$pval)
         {
             my $arr_25_item = $$pval[$arr_25_idx];
+            my $arr_25_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_25_idx] : undef;
             # .'$GeometryCollection'.geometries.0
-            $res = json_model_11($arr_25_item, undef, undef);
-            last unless $res;
+            $res = json_model_11($arr_25_item, defined (defined $path ? $lpath : undef) ? $arr_25_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$geometry\" [.'\$GeometryCollection'.geometries.0]", defined (defined $path ? $lpath : undef) ? $arr_25_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    return 0 unless $res;
+    unless ($res)
+    {
+        push @$rep, ["not array or unexpected array [.'\$GeometryCollection'.geometries]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <geometries> [.'\$GeometryCollection']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$GeometryCollection'.bbox
         $res = jm_is_array($pval);
@@ -806,12 +1356,22 @@ sub json_model_12($$$)
             for my $arr_26_idx (0 .. $#$pval)
             {
                 my $arr_26_item = $$pval[$arr_26_idx];
+                my $arr_26_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_26_idx] : undef;
                 # .'$GeometryCollection'.bbox.0
                 $res = jm_is_numeric($arr_26_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$GeometryCollection'.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_26_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$GeometryCollection'.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$GeometryCollection']", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -822,39 +1382,115 @@ sub json_model_13($$$)
     my ($val, $path, $rep) = @_;
     # .'$Feature'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Feature']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$Feature']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$Feature'.type
     my $res = jm_is_string($pval) && $pval eq "Feature";
-    return 0 unless $res;
-    return 0 unless exists $$val{"geometry"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"Feature\" [.'\$Feature'.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$Feature']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"geometry"})
+    {
+        push @$rep, ["missing mandatory prop <geometry> [.'\$Feature']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "geometry"] : undef;
     $pval = $$val{"geometry"};
     # .'$Feature'.geometry
     # .'$Feature'.geometry.'|'.0
-    # .'$Feature'.geometry.'|'.1
-    # .'$Feature'.geometry.'|'.2
-    $res = !defined($pval) || json_model_11($pval, undef, undef) || json_model_12($pval, undef, undef);
-    return 0 unless $res;
-    return 0 unless exists $$val{"properties"};
+    $res = !defined($pval);
+    unless ($res)
+    {
+        push @$rep, ["not null [.'\$Feature'.geometry.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        # .'$Feature'.geometry.'|'.1
+        $res = json_model_11($pval, defined $path ? $lpath : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$geometry\" [.'\$Feature'.geometry.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+            # .'$Feature'.geometry.'|'.2
+            $res = json_model_12($pval, defined $path ? $lpath : undef, $rep);
+            push @$rep, ["unexpected value for model \"\\\$GeometryCollection\" [.'\$Feature'.geometry.'|'.2]", defined $path ? $lpath : undef] if defined $rep and not $res;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$Feature'.geometry.'|']", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <geometry> [.'\$Feature']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"properties"})
+    {
+        push @$rep, ["missing mandatory prop <properties> [.'\$Feature']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "properties"] : undef;
     $pval = $$val{"properties"};
     # .'$Feature'.properties
     # .'$Feature'.properties.'|'.0
-    # .'$Feature'.properties.'|'.1
-    $res = !defined($pval) || jm_is_object($pval);
-    return 0 unless $res;
+    $res = !defined($pval);
+    unless ($res)
+    {
+        push @$rep, ["not null [.'\$Feature'.properties.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        # .'$Feature'.properties.'|'.1
+        $res = jm_is_object($pval);
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\$Feature'.properties.'|']", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <properties> [.'\$Feature']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"id"})
     {
+        $lpath = defined $path ? [@{$path}, "id"] : undef;
         $pval = $$val{"id"};
         # .'$Feature'.id
         # .'$Feature'.id.'|'.0
-        # .'$Feature'.id.'|'.1
-        $res = jm_is_string($pval) || jm_is_numeric($pval);
-        return 0 unless $res;
+        $res = jm_is_string($pval);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\" [.'\$Feature'.id.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+            # .'$Feature'.id.'|'.1
+            $res = jm_is_numeric($pval);
+            push @$rep, ["not a -1.0 loose float [.'\$Feature'.id.'|'.1]", defined $path ? $lpath : undef] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'\$Feature'.id.'|']", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <id> [.'\$Feature']", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$Feature'.bbox
         $res = jm_is_array($pval);
@@ -863,12 +1499,22 @@ sub json_model_13($$$)
             for my $arr_27_idx (0 .. $#$pval)
             {
                 my $arr_27_item = $$pval[$arr_27_idx];
+                my $arr_27_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_27_idx] : undef;
                 # .'$Feature'.bbox.0
                 $res = jm_is_numeric($arr_27_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$Feature'.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_27_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$Feature'.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$Feature']", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -879,14 +1525,34 @@ sub json_model_14($$$)
     my ($val, $path, $rep) = @_;
     # .'$FeatureCollection'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$FeatureCollection']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"type"};
+    unless (exists $$val{"type"})
+    {
+        push @$rep, ["missing mandatory prop <type> [.'\$FeatureCollection']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "type"] : undef;
     $pval = $$val{"type"};
     # .'$FeatureCollection'.type
     my $res = jm_is_string($pval) && $pval eq "FeatureCollection";
-    return 0 unless $res;
-    return 0 unless exists $$val{"features"};
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"FeatureCollection\" [.'\$FeatureCollection'.type]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <type> [.'\$FeatureCollection']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"features"})
+    {
+        push @$rep, ["missing mandatory prop <features> [.'\$FeatureCollection']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "features"] : undef;
     $pval = $$val{"features"};
     # .'$FeatureCollection'.features
     $res = jm_is_array($pval);
@@ -895,14 +1561,25 @@ sub json_model_14($$$)
         for my $arr_28_idx (0 .. $#$pval)
         {
             my $arr_28_item = $$pval[$arr_28_idx];
+            my $arr_28_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_28_idx] : undef;
             # .'$FeatureCollection'.features.0
-            $res = json_model_13($arr_28_item, undef, undef);
-            last unless $res;
+            $res = json_model_13($arr_28_item, defined (defined $path ? $lpath : undef) ? $arr_28_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Feature\" [.'\$FeatureCollection'.features.0]", defined (defined $path ? $lpath : undef) ? $arr_28_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
-    return 0 unless $res;
+    unless ($res)
+    {
+        push @$rep, ["not array or unexpected array [.'\$FeatureCollection'.features]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <features> [.'\$FeatureCollection']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
     if (exists $$val{"bbox"})
     {
+        $lpath = defined $path ? [@{$path}, "bbox"] : undef;
         $pval = $$val{"bbox"};
         # .'$FeatureCollection'.bbox
         $res = jm_is_array($pval);
@@ -911,12 +1588,22 @@ sub json_model_14($$$)
             for my $arr_29_idx (0 .. $#$pval)
             {
                 my $arr_29_item = $$pval[$arr_29_idx];
+                my $arr_29_lpath = defined (defined $path ? $lpath : undef) ? [@{(defined $path ? $lpath : undef)}, $arr_29_idx] : undef;
                 # .'$FeatureCollection'.bbox.0
                 $res = jm_is_numeric($arr_29_item);
-                last unless $res;
+                unless ($res)
+                {
+                    push @$rep, ["not a -1.0 loose float [.'\$FeatureCollection'.bbox.0]", defined (defined $path ? $lpath : undef) ? $arr_29_lpath : undef] if defined $rep;
+                    last;
+                }
             }
         }
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not array or unexpected array [.'\$FeatureCollection'.bbox]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for optional prop <bbox> [.'\$FeatureCollection']", defined $path ? $lpath : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -935,14 +1622,27 @@ sub json_model_1($$$)
         if (defined($tag_1 = $$val{"type"}))
         {
             my $fun_1 = $_jm_map_1{$tag_1};
-            $res = defined($fun_1) && &$fun_1($val, undef, undef);
+            if (defined($fun_1))
+            {
+                $res = &$fun_1($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <type> value not found [.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <type> is missing [.'|']", $path] if defined $rep;
         }
     }
-    return $res || json_model_11($val, undef, undef);
+    else
+    {
+        push @$rep, ["value is not an object [.'|']", $path] if defined $rep;
+    }
+    return $res || json_model_11($val, $path, $rep);
 }
 
 

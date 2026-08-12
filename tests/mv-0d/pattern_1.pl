@@ -28,7 +28,9 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/^[a-z]+$/"
-    return jm_is_string($val) && _jm_re_0($val, undef, undef);
+    my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"/^[a-z]+\\\$/\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

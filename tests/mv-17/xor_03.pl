@@ -19,12 +19,22 @@ my %check_model_map;
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # (any xor m) is (not m)
     # .
     # not-case xor list
     # .'^'.1
-    return ! (jm_is_integer($val) && $val >= 0);
+    my $is_0 = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'^'.1]", $path] if defined $rep and not $is_0;
+    my $res = ! $is_0;
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'^']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

@@ -20,34 +20,52 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_starts_with($prop, "s"))
         {
             # handle 3 re props
             # .'/^s/'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'/^s/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         elsif (jm_starts_with($prop, "i"))
         {
             # handle 3 re props
             # .'/^i/'
             $res = jm_is_integer($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a -1 strict int [.'/^i/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         elsif (jm_starts_with($prop, "b"))
         {
             # handle 3 re props
             # .'/^b/'
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'/^b/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }

@@ -23,11 +23,22 @@ sub json_model_1($$$)
     my $res = jm_is_array($val) && scalar @$val == 2;
     if ($res)
     {
+        my $lpath_0 = defined $path ? [@{$path}, 0] : undef;
         # .0
         $res = jm_is_boolean($$val[0]);
-        $res = jm_is_integer($$val[1]) && $$val[1] >= 0 if $res;
-        # .1
+        if ($res)
+        {
+            $lpath_0 = defined $path ? [@{$path}, 1] : undef;
+            # .1
+            $res = jm_is_integer($$val[1]) && $$val[1] >= 0;
+            push @$rep, ["not a 0 strict int [.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+        }
+        else
+        {
+            push @$rep, ["not a bool [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+        }
     }
+    push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

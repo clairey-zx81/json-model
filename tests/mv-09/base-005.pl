@@ -26,11 +26,17 @@ sub json_model_1($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .0
             $res = jm_is_integer($arr_0_item) && $arr_0_item >= 0;
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

@@ -139,7 +139,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$a'
-    return jm_is_string($val) && $val eq "A";
+    my $res = jm_is_string($val) && $val eq "A";
+    push @$rep, ["unexpected value for model \"_A\" [.'\$a']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $b (.'$b')
@@ -147,7 +149,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$b'
-    return jm_is_string($val) && $val eq "A";
+    my $res = jm_is_string($val) && $val eq "A";
+    push @$rep, ["unexpected value for model \"_A\" [.'\$b']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ab (.'$ab')
@@ -156,18 +160,49 @@ sub json_model_4($$$)
     my ($val, $path, $rep) = @_;
     # .'$ab'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$ab']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$ab']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.'\$ab']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .'$ab'.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$ab'.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.'\$ab']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.'\$ab']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .'$ab'.b
-    return jm_is_integer($pval) && $pval >= 0;
+    $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$ab'.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.'\$ab']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check $cd (.'$cd')
@@ -176,18 +211,49 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$cd'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$cd']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$cd']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"c"};
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.'\$cd']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .'$cd'.c
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"d"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$cd'.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.'\$cd']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"d"})
+    {
+        push @$rep, ["missing mandatory prop <d> [.'\$cd']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "d"] : undef;
     $pval = $$val{"d"};
     # .'$cd'.d
-    return jm_is_integer($pval) && $pval >= 0;
+    $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$cd'.d]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <d> [.'\$cd']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check json_model_1_map_and (.and)
@@ -196,22 +262,50 @@ sub _jm_f_0($$$)
     my ($val, $path, $rep) = @_;
     # conjunction, all must match
     # .and
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.and]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a0")
         {
             # handle may a0 property
             # .and.a0
-            # .and.a0.'&'.0
-            # .and.a0.'&'.1
-            # "/^2020-/"
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef) && jm_starts_with($pval, "2020-");
-            return 0 unless $res;
+            $res = jm_is_string($pval);
+            if ($res)
+            {
+                # .and.a0.'&'.0
+                $res = jm_is_valid_date($pval, defined $path ? $lpath_1 : undef, $rep);
+                if ($res)
+                {
+                    # .and.a0.'&'.1
+                    # "/^2020-/"
+                    $res = jm_starts_with($pval, "2020-");
+                    push @$rep, ["unexpected value for model \"/^2020-/\" [.and.a0.'&'.1]", defined $path ? $lpath_1 : undef] if defined $rep and not $res;
+                }
+                else
+                {
+                    push @$rep, ["unexpected value for model \"\\\$DATE\" [.and.a0.'&'.0]", defined $path ? $lpath_1 : undef] if defined $rep;
+                }
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["not all model match [.and.a0.'&']", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.and.a0]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.and]", defined $path ? $lpath_1 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -223,11 +317,16 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     # example arrays
     # .array
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.array]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a0")
         {
             # handle may a0 property
@@ -238,12 +337,22 @@ sub _jm_f_1($$$)
                 for my $arr_0_idx (0 .. $#$pval)
                 {
                     my $arr_0_item = $$pval[$arr_0_idx];
+                    my $arr_0_lpath = defined (defined $path ? $lpath_2 : undef) ? [@{(defined $path ? $lpath_2 : undef)}, $arr_0_idx] : undef;
                     # .array.a0.0
                     $res = jm_is_integer($arr_0_item) && $arr_0_item >= 0;
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a 0 strict int [.array.a0.0]", defined (defined $path ? $lpath_2 : undef) ? $arr_0_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.array.a0]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.array.a0]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "a1")
@@ -256,12 +365,22 @@ sub _jm_f_1($$$)
                 for my $arr_1_idx (0 .. $#$pval)
                 {
                     my $arr_1_item = $$pval[$arr_1_idx];
+                    my $arr_1_lpath = defined (defined $path ? $lpath_2 : undef) ? [@{(defined $path ? $lpath_2 : undef)}, $arr_1_idx] : undef;
                     # .array.a1.0
                     $res = jm_is_string($arr_1_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\" [.array.a1.0]", defined (defined $path ? $lpath_2 : undef) ? $arr_1_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.array.a1]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.array.a1]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "a2")
@@ -274,12 +393,22 @@ sub _jm_f_1($$$)
                 for my $arr_2_idx (0 .. $#$pval)
                 {
                     my $arr_2_item = $$pval[$arr_2_idx];
+                    my $arr_2_lpath = defined (defined $path ? $lpath_2 : undef) ? [@{(defined $path ? $lpath_2 : undef)}, $arr_2_idx] : undef;
                     # .array.a2.0
-                    $res = jm_is_string($arr_2_item) && jm_is_valid_date($arr_2_item, undef, undef);
-                    last unless $res;
+                    $res = jm_is_string($arr_2_item) && jm_is_valid_date($arr_2_item, defined (defined $path ? $lpath_2 : undef) ? $arr_2_lpath : undef, $rep);
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"\\\$DATE\" [.array.a2.0]", defined (defined $path ? $lpath_2 : undef) ? $arr_2_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.array.a2]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.array.a2]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "a3")
@@ -292,12 +421,22 @@ sub _jm_f_1($$$)
                 for my $arr_3_idx (0 .. $#$pval)
                 {
                     my $arr_3_item = $$pval[$arr_3_idx];
+                    my $arr_3_lpath = defined (defined $path ? $lpath_2 : undef) ? [@{(defined $path ? $lpath_2 : undef)}, $arr_3_idx] : undef;
                     # .array.a3.0
                     $res = jm_is_boolean($arr_3_item);
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a bool [.array.a3.0]", defined (defined $path ? $lpath_2 : undef) ? $arr_3_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.array.a3]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.array.a3]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "a4")
@@ -305,9 +444,15 @@ sub _jm_f_1($$$)
             # handle may a4 property
             # .array.a4
             $res = jm_is_array($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.array.a4]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.array.a4]", defined $path ? $lpath_2 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.array]", defined $path ? $lpath_2 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -319,17 +464,27 @@ sub _jm_f_2($$$)
     my ($val, $path, $rep) = @_;
     # booleans: inference, predefs, constants, enum
     # .bool
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.bool]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "b0")
         {
             # handle may b0 property
             # .bool.b0
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.bool.b0]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.bool.b0]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "b1")
@@ -337,7 +492,12 @@ sub _jm_f_2($$$)
             # handle may b1 property
             # .bool.b1
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$BOOL\" [.bool.b1]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.bool.b1]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "b2")
@@ -345,7 +505,12 @@ sub _jm_f_2($$$)
             # handle may b2 property
             # .bool.b2
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$BOOLEAN\" [.bool.b2]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.bool.b2]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "b3")
@@ -353,7 +518,12 @@ sub _jm_f_2($$$)
             # handle may b3 property
             # .bool.b3
             $res = jm_is_boolean($pval) && $pval == 1;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"=true\" [.bool.b3]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.bool.b3]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "b4")
@@ -361,19 +531,51 @@ sub _jm_f_2($$$)
             # handle may b4 property
             # .bool.b4
             $res = jm_is_boolean($pval) && $pval == 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"=false\" [.bool.b4]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.bool.b4]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "b5")
         {
             # handle may b5 property
             # .bool.b5
-            # .bool.b5.'|'.0
-            # .bool.b5.'|'.1
-            $res = jm_is_boolean($pval) && ($pval == 0 || $pval == 1);
-            return 0 unless $res;
+            $res = jm_is_boolean($pval);
+            if ($res)
+            {
+                # .bool.b5.'|'.0
+                $res = $pval == 0;
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"=false\" [.bool.b5.'|'.0]", defined $path ? $lpath_3 : undef] if defined $rep;
+                    # .bool.b5.'|'.1
+                    $res = $pval == 1;
+                    push @$rep, ["unexpected value for model \"=true\" [.bool.b5.'|'.1]", defined $path ? $lpath_3 : undef] if defined $rep and not $res;
+                }
+                if ($res)
+                {
+                    @$rep = () if defined $rep;
+                }
+                else
+                {
+                    push @$rep, ["no model matched [.bool.b5.'|']", defined $path ? $lpath_3 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["unexpected type [.bool.b5.'|']", defined $path ? $lpath_3 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.bool.b5]", defined $path ? $lpath_3 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.bool]", defined $path ? $lpath_3 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -391,15 +593,25 @@ sub _jm_f_4($$$)
         for my $arr_4_idx (0 .. $#$val)
         {
             my $arr_4_item = $$val[$arr_4_idx];
+            my $arr_4_lpath = defined $path ? [@{$path}, $arr_4_idx] : undef;
             # .constraints.cia0.'@'.0
             $res = jm_is_integer($arr_4_item) && $arr_4_item >= 0;
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.constraints.cia0.'\@'.0]", defined $path ? $arr_4_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_0 = scalar @$val;
         $res = $ival_0 == 3;
+        push @$rep, ["constraints failed [.constraints.cia0]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.constraints.cia0.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -416,15 +628,25 @@ sub _jm_f_5($$$)
         for my $arr_5_idx (0 .. $#$val)
         {
             my $arr_5_item = $$val[$arr_5_idx];
+            my $arr_5_lpath = defined $path ? [@{$path}, $arr_5_idx] : undef;
             # .constraints.cia1.'@'.0
             $res = jm_is_integer($arr_5_item) && $arr_5_item >= 0;
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.constraints.cia1.'\@'.0]", defined $path ? $arr_5_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_1 = scalar @$val;
         $res = $ival_1 != 4 && $ival_1 <= 5 && $ival_1 >= 2;
+        push @$rep, ["constraints failed [.constraints.cia1]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.constraints.cia1.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -441,15 +663,25 @@ sub _jm_f_6($$$)
         for my $arr_6_idx (0 .. $#$val)
         {
             my $arr_6_item = $$val[$arr_6_idx];
+            my $arr_6_lpath = defined $path ? [@{$path}, $arr_6_idx] : undef;
             # .constraints.cia2.'@'.0
             $res = jm_is_integer($arr_6_item) && $arr_6_item >= 0;
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.constraints.cia2.'\@'.0]", defined $path ? $arr_6_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
     if ($res)
     {
         my $ival_2 = scalar @$val;
         $res = $ival_2 <= 4 && $ival_2 >= 3;
+        push @$rep, ["constraints failed [.constraints.cia2]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.constraints.cia2.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -459,7 +691,9 @@ sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .constraints.cii0
-    return jm_is_integer($val) && $val == 10;
+    my $res = jm_is_integer($val) && $val == 10;
+    push @$rep, ["unexpected value for model \"=10\" [.constraints.cii0]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_3_map_cii1 (.constraints.cii1)
@@ -473,6 +707,11 @@ sub _jm_f_8($$$)
     {
         my $ival_3 = $val;
         $res = $ival_3 != 10 && $ival_3 <= 12 && $ival_3 >= 8;
+        push @$rep, ["constraints failed [.constraints.cii1]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a -1 strict int [.constraints.cii1.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -488,6 +727,11 @@ sub _jm_f_9($$$)
     {
         my $ival_4 = $val;
         $res = $ival_4 <= 9 && $ival_4 >= 8;
+        push @$rep, ["constraints failed [.constraints.cii2]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a -1 strict int [.constraints.cii2.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -503,6 +747,11 @@ sub _jm_f_10($$$)
     {
         my $fval_0 = $val;
         $res = $fval_0 == 10;
+        push @$rep, ["constraints failed [.constraints.cin0]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 0.0 strict float [.constraints.cin0.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -518,6 +767,11 @@ sub _jm_f_11($$$)
     {
         my $fval_1 = $val;
         $res = $fval_1 != 10 && $fval_1 <= 12 && $fval_1 >= 8;
+        push @$rep, ["constraints failed [.constraints.cin1]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 0.0 strict float [.constraints.cin1.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -533,6 +787,11 @@ sub _jm_f_12($$$)
     {
         my $fval_2 = $val;
         $res = $fval_2 < 10 && $fval_2 > 7;
+        push @$rep, ["constraints failed [.constraints.cin2]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 0.0 strict float [.constraints.cin2.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -548,6 +807,7 @@ sub _jm_f_13($$$)
     {
         my $ival_5 = jm_obj_size($val);
         $res = $ival_5 == 2;
+        push @$rep, ["constraints failed [.constraints.cio0]", $path] if defined $rep and not $res;
     }
     return $res;
 }
@@ -563,6 +823,7 @@ sub _jm_f_14($$$)
     {
         my $ival_6 = jm_obj_size($val);
         $res = $ival_6 != 2 && $ival_6 <= 3 && $ival_6 >= 1;
+        push @$rep, ["constraints failed [.constraints.cio1]", $path] if defined $rep and not $res;
     }
     return $res;
 }
@@ -578,6 +839,7 @@ sub _jm_f_15($$$)
     {
         my $ival_7 = jm_obj_size($val);
         $res = $ival_7 <= 4 && $ival_7 >= 3;
+        push @$rep, ["constraints failed [.constraints.cio2]", $path] if defined $rep and not $res;
     }
     return $res;
 }
@@ -593,6 +855,11 @@ sub _jm_f_16($$$)
     {
         my $ival_8 = length $val;
         $res = $ival_8 == 10;
+        push @$rep, ["constraints failed [.constraints.cis0]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.constraints.cis0.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -608,6 +875,11 @@ sub _jm_f_17($$$)
     {
         my $ival_9 = length $val;
         $res = $ival_9 != 10 && $ival_9 <= 12 && $ival_9 >= 8;
+        push @$rep, ["constraints failed [.constraints.cis1]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.constraints.cis1.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -623,6 +895,11 @@ sub _jm_f_18($$$)
     {
         my $ival_10 = length $val;
         $res = $ival_10 <= 9 && $ival_10 >= 8;
+        push @$rep, ["constraints failed [.constraints.cis2]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.constraints.cis2.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -632,7 +909,9 @@ sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # .constraints.cni0
-    return jm_is_integer($val) && $val == 42;
+    my $res = jm_is_integer($val) && $val == 42;
+    push @$rep, ["unexpected value for model \"=42\" [.constraints.cni0]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_3_map_cni1 (.constraints.cni1)
@@ -647,6 +926,11 @@ sub _jm_f_20($$$)
         my $ival_11 = $val;
         my $fval_3 = $val;
         $res = $fval_3 != 42.0 && $ival_11 <= 99;
+        push @$rep, ["constraints failed [.constraints.cni1]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 1 strict int [.constraints.cni1.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -656,7 +940,9 @@ sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # .constraints.cni2
-    return jm_is_integer($val) && $val == 42;
+    my $res = jm_is_integer($val) && $val == 42;
+    push @$rep, ["unexpected value for model \"=42\" [.constraints.cni2]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_3_map_cnn0 (.constraints.cnn0)
@@ -670,6 +956,11 @@ sub _jm_f_22($$$)
     {
         my $fval_4 = $val;
         $res = $fval_4 == 42.1;
+        push @$rep, ["constraints failed [.constraints.cnn0]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 0.0 strict float [.constraints.cnn0.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -685,6 +976,11 @@ sub _jm_f_23($$$)
     {
         my $fval_5 = $val;
         $res = $fval_5 != 42.5 && $fval_5 <= 43.0 && $fval_5 >= 42.0;
+        push @$rep, ["constraints failed [.constraints.cnn1]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 0.0 strict float [.constraints.cnn1.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -700,6 +996,11 @@ sub _jm_f_24($$$)
     {
         my $fval_6 = $val;
         $res = $fval_6 < 43.0 && $fval_6 > 42.0;
+        push @$rep, ["constraints failed [.constraints.cnn2]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not a 0.0 strict float [.constraints.cnn2.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -715,6 +1016,11 @@ sub _jm_f_25($$$)
     {
         my $sval_0 = $val;
         $res = $sval_0 eq "Susie";
+        push @$rep, ["constraints failed [.constraints.css0]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.constraints.css0.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -730,6 +1036,11 @@ sub _jm_f_26($$$)
     {
         my $sval_1 = $val;
         $res = $sval_1 ne "Hobbes" && $sval_1 le "Z" && $sval_1 ge "A";
+        push @$rep, ["constraints failed [.constraints.css1]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.constraints.css1.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -745,6 +1056,11 @@ sub _jm_f_27($$$)
     {
         my $sval_2 = $val;
         $res = $sval_2 lt "Z" && $sval_2 gt "A";
+        push @$rep, ["constraints failed [.constraints.css2]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["unexpected value for model \"\" [.constraints.css2.'\@']", $path] if defined $rep;
     }
     return $res;
 }
@@ -755,9 +1071,19 @@ sub _jm_f_28($$$)
     my ($val, $path, $rep) = @_;
     # .constraints.cua0
     # .constraints.cua0.'@'
-    # accept any array
-    ;
-    return jm_is_array($val) && jm_is_unique_array($val, undef, undef);
+    my $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+        $res = jm_is_unique_array($val, $path, $rep);
+        push @$rep, ["constraints failed [.constraints.cua0]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["not array or unexpected array [.constraints.cua0.'\@']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 
@@ -766,17 +1092,27 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .constraints
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.constraints]", $path] if defined $rep;
+        return 0;
+    }
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_3_map{$prop}))
         {
             # handle 25 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_4 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.constraints]", defined $path ? $lpath_4 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.constraints]", defined $path ? $lpath_4 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -790,30 +1126,92 @@ sub _jm_f_29($$$)
     my ($val, $path, $rep) = @_;
     # an enumeration only contains constants
     # .enum
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.enum]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "e0")
         {
             # handle may e0 property
             # .enum.e0
-            # .enum.e0.'|'.0
-            # .enum.e0.'|'.1
-            $res = jm_is_boolean($pval) && ($pval == 1 || $pval == 0);
-            return 0 unless $res;
+            $res = jm_is_boolean($pval);
+            if ($res)
+            {
+                # .enum.e0.'|'.0
+                $res = $pval == 1;
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"=true\" [.enum.e0.'|'.0]", defined $path ? $lpath_5 : undef] if defined $rep;
+                    # .enum.e0.'|'.1
+                    $res = $pval == 0;
+                    push @$rep, ["unexpected value for model \"=false\" [.enum.e0.'|'.1]", defined $path ? $lpath_5 : undef] if defined $rep and not $res;
+                }
+                if ($res)
+                {
+                    @$rep = () if defined $rep;
+                }
+                else
+                {
+                    push @$rep, ["no model matched [.enum.e0.'|']", defined $path ? $lpath_5 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["unexpected type [.enum.e0.'|']", defined $path ? $lpath_5 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.enum.e0]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "e1")
         {
             # handle may e1 property
             # .enum.e1
-            # .enum.e1.'|'.0
-            # .enum.e1.'|'.1
-            # .enum.e1.'|'.2
-            $res = jm_is_integer($pval) && (jm_is_integer($pval) && ($pval == 200 || $pval == 201 || $pval == 204));
-            return 0 unless $res;
+            $res = jm_is_integer($pval);
+            if ($res)
+            {
+                # .enum.e1.'|'.0
+                $res = jm_is_integer($pval) && $pval == 200;
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"=200\" [.enum.e1.'|'.0]", defined $path ? $lpath_5 : undef] if defined $rep;
+                    # .enum.e1.'|'.1
+                    $res = jm_is_integer($pval) && $pval == 201;
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"=201\" [.enum.e1.'|'.1]", defined $path ? $lpath_5 : undef] if defined $rep;
+                        # .enum.e1.'|'.2
+                        $res = jm_is_integer($pval) && $pval == 204;
+                        push @$rep, ["unexpected value for model \"=204\" [.enum.e1.'|'.2]", defined $path ? $lpath_5 : undef] if defined $rep and not $res;
+                    }
+                }
+                if ($res)
+                {
+                    @$rep = () if defined $rep;
+                }
+                else
+                {
+                    push @$rep, ["no model matched [.enum.e1.'|']", defined $path ? $lpath_5 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["unexpected type [.enum.e1.'|']", defined $path ? $lpath_5 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.enum.e1]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "e2")
@@ -821,20 +1219,54 @@ sub _jm_f_29($$$)
             # handle may e2 property
             # .enum.e2
             $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["value not in enum [.enum.e2.'|']", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.enum.e2]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "e3")
         {
             # handle may e3 property
             # .enum.e3
-            # .enum.e3.'|'.0
-            # .enum.e3.'|'.1
-            # .enum.e3.'|'.2
-            $res = jm_is_string($pval) && exists $_jm_cst_1{$pval} || jm_is_integer($pval) && $pval == 42 || jm_is_boolean($pval) && $pval == 1 || !defined($pval);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
+            unless ($res)
+            {
+                push @$rep, ["value not in enum [.enum.e3.'|']", defined $path ? $lpath_5 : undef] if defined $rep;
+                # .enum.e3.'|'.0
+                $res = jm_is_integer($pval) && $pval == 42;
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"=42\" [.enum.e3.'|'.0]", defined $path ? $lpath_5 : undef] if defined $rep;
+                    # .enum.e3.'|'.1
+                    $res = jm_is_boolean($pval) && $pval == 1;
+                    unless ($res)
+                    {
+                        push @$rep, ["unexpected value for model \"=true\" [.enum.e3.'|'.1]", defined $path ? $lpath_5 : undef] if defined $rep;
+                        # .enum.e3.'|'.2
+                        $res = !defined($pval);
+                        push @$rep, ["not null [.enum.e3.'|'.2]", defined $path ? $lpath_5 : undef] if defined $rep and not $res;
+                    }
+                }
+                if ($res)
+                {
+                    @$rep = () if defined $rep;
+                }
+                else
+                {
+                    push @$rep, ["no model matched [.enum.e3.'|']", defined $path ? $lpath_5 : undef] if defined $rep;
+                }
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.enum.e3]", defined $path ? $lpath_5 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.enum]", defined $path ? $lpath_5 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -845,7 +1277,9 @@ sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f0
-    return jm_is_numeric($val) && $val >= 0.0;
+    my $res = jm_is_numeric($val) && $val >= 0.0;
+    push @$rep, ["not a 0.0 strict float [.float.f0]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_30_map_f1 (.float.f1)
@@ -853,7 +1287,9 @@ sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f1
-    return jm_is_numeric($val) && $val > 0.0;
+    my $res = jm_is_numeric($val) && $val > 0.0;
+    push @$rep, ["not a 1.0 strict float [.float.f1]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_30_map_f2 (.float.f2)
@@ -861,7 +1297,9 @@ sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f2
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["not a -1.0 strict float [.float.f2]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_30_map_f3 (.float.f3)
@@ -869,7 +1307,9 @@ sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f3
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["unexpected value for model \"\\\$FLOAT\" [.float.f3]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_30_map_f4 (.float.f4)
@@ -877,7 +1317,9 @@ sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f4
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["unexpected value for model \"\\\$F32\" [.float.f4]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_30_map_f5 (.float.f5)
@@ -885,7 +1327,9 @@ sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f5
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["unexpected value for model \"\\\$F64\" [.float.f5]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_30_map_f6 (.float.f6)
@@ -893,7 +1337,9 @@ sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f6
-    return jm_is_numeric($val) && $val == 3.1415927;
+    my $res = jm_is_numeric($val) && $val == 3.1415927;
+    push @$rep, ["unexpected value for model \"=3.1415927\" [.float.f6]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_30_map_f7 (.float.f7)
@@ -901,7 +1347,9 @@ sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f7
-    return jm_is_numeric($val) && $val == 1e+100;
+    my $res = jm_is_numeric($val) && $val == 1e+100;
+    push @$rep, ["unexpected value for model \"=1.0E100\" [.float.f7]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_30_map_f8 (.float.f8)
@@ -909,7 +1357,9 @@ sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
     # .float.f8
-    return jm_is_numeric($val) && $val == -42.1;
+    my $res = jm_is_numeric($val) && $val == -42.1;
+    push @$rep, ["unexpected value for model \"=-42.1\" [.float.f8]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -919,17 +1369,27 @@ sub _jm_f_30($$$)
     my ($val, $path, $rep) = @_;
     # floats: inference, predefs, constants
     # .float
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.float]", $path] if defined $rep;
+        return 0;
+    }
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_6 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_30_map{$prop}))
         {
             # handle 9 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_6 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.float]", defined $path ? $lpath_6 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.float]", defined $path ? $lpath_6 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -940,7 +1400,9 @@ sub _jm_f_41($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i0
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.int.i0]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i1 (.int.i1)
@@ -948,7 +1410,9 @@ sub _jm_f_42($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i1
-    return jm_is_integer($val) && $val >= 1;
+    my $res = jm_is_integer($val) && $val >= 1;
+    push @$rep, ["not a 1 strict int [.int.i1]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i2 (.int.i2)
@@ -956,7 +1420,9 @@ sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i2
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["not a -1 strict int [.int.i2]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i3 (.int.i3)
@@ -964,7 +1430,9 @@ sub _jm_f_44($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i3
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["unexpected value for model \"\\\$INT\" [.int.i3]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i4 (.int.i4)
@@ -972,7 +1440,9 @@ sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i4
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["unexpected value for model \"\\\$INTEGER\" [.int.i4]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i5 (.int.i5)
@@ -980,7 +1450,9 @@ sub _jm_f_46($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i5
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["unexpected value for model \"\\\$I32\" [.int.i5]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i6 (.int.i6)
@@ -988,7 +1460,9 @@ sub _jm_f_47($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i6
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["unexpected value for model \"\\\$I64\" [.int.i6]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i7 (.int.i7)
@@ -996,7 +1470,9 @@ sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i7
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["unexpected value for model \"\\\$U32\" [.int.i7]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i8 (.int.i8)
@@ -1004,7 +1480,9 @@ sub _jm_f_49($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i8
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["unexpected value for model \"\\\$U64\" [.int.i8]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_i9 (.int.i9)
@@ -1012,7 +1490,9 @@ sub _jm_f_50($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.i9
-    return jm_is_integer($val) && $val == 42;
+    my $res = jm_is_integer($val) && $val == 42;
+    push @$rep, ["unexpected value for model \"=42\" [.int.i9]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_40_map_ia (.int.ia)
@@ -1020,7 +1500,9 @@ sub _jm_f_51($$$)
 {
     my ($val, $path, $rep) = @_;
     # .int.ia
-    return jm_is_integer($val) && $val == -42;
+    my $res = jm_is_integer($val) && $val == -42;
+    push @$rep, ["unexpected value for model \"=-42\" [.int.ia]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -1030,17 +1512,27 @@ sub _jm_f_40($$$)
     my ($val, $path, $rep) = @_;
     # integers: inference, predefs, constants
     # .int
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.int]", $path] if defined $rep;
+        return 0;
+    }
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_7 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_40_map{$prop}))
         {
             # handle 11 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_7 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.int]", defined $path ? $lpath_7 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.int]", defined $path ? $lpath_7 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -1050,19 +1542,29 @@ sub _jm_f_40($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m0]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_9 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
             # .merge.m0.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.merge.m0.a]", defined $path ? $lpath_9 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.merge.m0.a]", defined $path ? $lpath_9 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "b")
@@ -1070,12 +1572,26 @@ sub _jm_obj_0($$$)
             # handle may b property
             # .merge.m0.b
             $res = jm_is_integer($pval) && $pval >= 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.merge.m0.b]", defined $path ? $lpath_9 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.merge.m0.b]", defined $path ? $lpath_9 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.merge.m0]", defined $path ? $lpath_9 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <a> [.merge.m0]", $path] if defined $rep and not exists $$val{"a"};
         }
         return 0;
     }
-    return $must_count == 1;
+    return 1;
 }
 
 # object .merge.m1.'|'.1
@@ -1083,18 +1599,49 @@ sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m1.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.merge.m1.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.merge.m1.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .merge.m1.'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"c"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m1.'|'.1.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.merge.m1.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.merge.m1.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .merge.m1.'|'.1.c
-    return jm_is_integer($pval) && $pval >= 1;
+    $res = jm_is_integer($pval) && $pval >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.merge.m1.'|'.1.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.merge.m1.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .merge.m1.'|'.0
@@ -1102,18 +1649,49 @@ sub _jm_obj_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m1.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.merge.m1.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.merge.m1.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .merge.m1.'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m1.'|'.0.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.merge.m1.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.merge.m1.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .merge.m1.'|'.0.b
-    return jm_is_integer($pval) && $pval >= 1;
+    $res = jm_is_integer($pval) && $pval >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.merge.m1.'|'.0.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.merge.m1.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .merge.m2.'|'.1
@@ -1121,18 +1699,49 @@ sub _jm_obj_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m2.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.merge.m2.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.merge.m2.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .merge.m2.'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"c"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m2.'|'.1.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.merge.m2.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.merge.m2.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .merge.m2.'|'.1.c
-    return jm_is_integer($pval) && $pval >= 1;
+    $res = jm_is_integer($pval) && $pval >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.merge.m2.'|'.1.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.merge.m2.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .merge.m2.'|'.0
@@ -1140,18 +1749,49 @@ sub _jm_obj_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m2.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.merge.m2.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.merge.m2.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .merge.m2.'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m2.'|'.0.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.merge.m2.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.merge.m2.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .merge.m2.'|'.0.b
-    return jm_is_integer($pval) && $pval >= 1;
+    $res = jm_is_integer($pval) && $pval >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.merge.m2.'|'.0.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.merge.m2.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .merge.m3.'|'.3
@@ -1159,18 +1799,49 @@ sub _jm_obj_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m3.'|'.3]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.merge.m3.'|'.3]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"b"};
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.merge.m3.'|'.3]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .merge.m3.'|'.3.b
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"d"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m3.'|'.3.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.merge.m3.'|'.3]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"d"})
+    {
+        push @$rep, ["missing mandatory prop <d> [.merge.m3.'|'.3]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "d"] : undef;
     $pval = $$val{"d"};
     # .merge.m3.'|'.3.d
-    return jm_is_integer($pval) && $pval >= 1;
+    $res = jm_is_integer($pval) && $pval >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.merge.m3.'|'.3.d]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <d> [.merge.m3.'|'.3]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .merge.m3.'|'.2
@@ -1178,18 +1849,49 @@ sub _jm_obj_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m3.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.merge.m3.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"b"};
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.merge.m3.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .merge.m3.'|'.2.b
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"c"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m3.'|'.2.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.merge.m3.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.merge.m3.'|'.2]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .merge.m3.'|'.2.c
-    return jm_is_integer($pval) && $pval >= 1;
+    $res = jm_is_integer($pval) && $pval >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.merge.m3.'|'.2.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.merge.m3.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .merge.m3.'|'.1
@@ -1197,18 +1899,49 @@ sub _jm_obj_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m3.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.merge.m3.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.merge.m3.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .merge.m3.'|'.1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"d"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m3.'|'.1.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.merge.m3.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"d"})
+    {
+        push @$rep, ["missing mandatory prop <d> [.merge.m3.'|'.1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "d"] : undef;
     $pval = $$val{"d"};
     # .merge.m3.'|'.1.d
-    return jm_is_integer($pval) && $pval >= 1;
+    $res = jm_is_integer($pval) && $pval >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.merge.m3.'|'.1.d]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <d> [.merge.m3.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .merge.m3.'|'.0
@@ -1216,18 +1949,49 @@ sub _jm_obj_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m3.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.merge.m3.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.merge.m3.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .merge.m3.'|'.0.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"c"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m3.'|'.0.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.merge.m3.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.merge.m3.'|'.0]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .merge.m3.'|'.0.c
-    return jm_is_integer($pval) && $pval >= 1;
+    $res = jm_is_integer($pval) && $pval >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.merge.m3.'|'.0.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.merge.m3.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .merge.m4
@@ -1235,28 +1999,79 @@ sub _jm_obj_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 4;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge.m4]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 4)
+    {
+        push @$rep, ["bad property count [.merge.m4]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.merge.m4]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .merge.m4.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m4.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.merge.m4]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.merge.m4]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .merge.m4.b
     $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"c"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m4.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.merge.m4]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.merge.m4]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .merge.m4.c
     $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"d"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m4.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.merge.m4]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"d"})
+    {
+        push @$rep, ["missing mandatory prop <d> [.merge.m4]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "d"] : undef;
     $pval = $$val{"d"};
     # .merge.m4.d
-    return jm_is_integer($pval) && $pval >= 0;
+    $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.merge.m4.d]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <d> [.merge.m4]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # check json_model_1_map_merge (.merge)
@@ -1265,55 +2080,191 @@ sub _jm_f_52($$$)
     my ($val, $path, $rep) = @_;
     # merge object properties
     # .merge
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.merge]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_8 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "m0")
         {
             # handle may m0 property
             # .merge.m0
-            $res = _jm_obj_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_0($pval, defined $path ? $lpath_8 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.merge.m0]", defined $path ? $lpath_8 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.merge.m0]", defined $path ? $lpath_8 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "m1")
         {
             # handle may m1 property
             # .merge.m1
-            # .merge.m1.'|'.0
-            # .merge.m1.'|'.1
-            $res = jm_is_object($pval) && (_jm_obj_2($pval, undef, undef) || _jm_obj_1($pval, undef, undef));
-            return 0 unless $res;
+            $res = jm_is_object($pval);
+            if ($res)
+            {
+                # .merge.m1.'|'.0
+                $res = _jm_obj_2($pval, defined $path ? $lpath_8 : undef, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected element [.merge.m1.'|'.0]", defined $path ? $lpath_8 : undef] if defined $rep;
+                    # .merge.m1.'|'.1
+                    $res = _jm_obj_1($pval, defined $path ? $lpath_8 : undef, $rep);
+                    push @$rep, ["unexpected element [.merge.m1.'|'.1]", defined $path ? $lpath_8 : undef] if defined $rep and not $res;
+                }
+                if ($res)
+                {
+                    @$rep = () if defined $rep;
+                }
+                else
+                {
+                    push @$rep, ["no model matched [.merge.m1.'|']", defined $path ? $lpath_8 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["unexpected type [.merge.m1.'|']", defined $path ? $lpath_8 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.merge.m1]", defined $path ? $lpath_8 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "m2")
         {
             # handle may m2 property
             # .merge.m2
-            # .merge.m2.'|'.0
-            # .merge.m2.'|'.1
-            $res = jm_is_object($pval) && (_jm_obj_4($pval, undef, undef) || _jm_obj_3($pval, undef, undef));
-            return 0 unless $res;
+            $res = jm_is_object($pval);
+            if ($res)
+            {
+                # .merge.m2.'|'.0
+                $res = _jm_obj_4($pval, defined $path ? $lpath_8 : undef, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected element [.merge.m2.'|'.0]", defined $path ? $lpath_8 : undef] if defined $rep;
+                    # .merge.m2.'|'.1
+                    $res = _jm_obj_3($pval, defined $path ? $lpath_8 : undef, $rep);
+                    push @$rep, ["unexpected element [.merge.m2.'|'.1]", defined $path ? $lpath_8 : undef] if defined $rep and not $res;
+                }
+                if ($res)
+                {
+                    @$rep = () if defined $rep;
+                }
+                else
+                {
+                    push @$rep, ["no model matched [.merge.m2.'|']", defined $path ? $lpath_8 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["unexpected type [.merge.m2.'|']", defined $path ? $lpath_8 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.merge.m2]", defined $path ? $lpath_8 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "m3")
         {
             # handle may m3 property
             # .merge.m3
-            $res = jm_is_object($pval) && (exists $$pval{"a"} && (_jm_obj_8($pval, undef, undef) || _jm_obj_7($pval, undef, undef)) || exists $$pval{"b"} && _jm_obj_6($pval, undef, undef) || exists $$pval{"b"} && _jm_obj_5($pval, undef, undef));
-            return 0 unless $res;
+            $res = jm_is_object($pval);
+            if ($res)
+            {
+                if (exists $$pval{"a"})
+                {
+                    # .merge.m3.'|'.0
+                    $res = _jm_obj_8($pval, defined $path ? $lpath_8 : undef, $rep);
+                    push @$rep, ["unexpected element [.merge.m3.'|'.0]", defined $path ? $lpath_8 : undef] if defined $rep and not $res;
+                }
+                else
+                {
+                    $res = 0;
+                }
+                unless ($res)
+                {
+                    if (exists $$pval{"a"})
+                    {
+                        # .merge.m3.'|'.1
+                        $res = _jm_obj_7($pval, defined $path ? $lpath_8 : undef, $rep);
+                        push @$rep, ["unexpected element [.merge.m3.'|'.1]", defined $path ? $lpath_8 : undef] if defined $rep and not $res;
+                    }
+                    else
+                    {
+                        $res = 0;
+                    }
+                    unless ($res)
+                    {
+                        if (exists $$pval{"b"})
+                        {
+                            # .merge.m3.'|'.2
+                            $res = _jm_obj_6($pval, defined $path ? $lpath_8 : undef, $rep);
+                            push @$rep, ["unexpected element [.merge.m3.'|'.2]", defined $path ? $lpath_8 : undef] if defined $rep and not $res;
+                        }
+                        else
+                        {
+                            $res = 0;
+                        }
+                        unless ($res)
+                        {
+                            if (exists $$pval{"b"})
+                            {
+                                # .merge.m3.'|'.3
+                                $res = _jm_obj_5($pval, defined $path ? $lpath_8 : undef, $rep);
+                                push @$rep, ["unexpected element [.merge.m3.'|'.3]", defined $path ? $lpath_8 : undef] if defined $rep and not $res;
+                            }
+                            else
+                            {
+                                $res = 0;
+                            }
+                        }
+                    }
+                }
+                if ($res)
+                {
+                    @$rep = () if defined $rep;
+                }
+                else
+                {
+                    push @$rep, ["no model matched [.merge.m3.'|']", defined $path ? $lpath_8 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["unexpected type [.merge.m3.'|']", defined $path ? $lpath_8 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.merge.m3]", defined $path ? $lpath_8 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "m4")
         {
             # handle may m4 property
             # .merge.m4
-            $res = _jm_obj_9($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_9($pval, defined $path ? $lpath_8 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.merge.m4]", defined $path ? $lpath_8 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.merge.m4]", defined $path ? $lpath_8 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.merge]", defined $path ? $lpath_8 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -1325,17 +2276,27 @@ sub _jm_f_53($$$)
     my ($val, $path, $rep) = @_;
     # null: inference, predefs, constants
     # .null
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.null]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_10 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "n0")
         {
             # handle may n0 property
             # .null.n0
             $res = !defined($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not null [.null.n0]", defined $path ? $lpath_10 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.null.n0]", defined $path ? $lpath_10 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "n1")
@@ -1343,7 +2304,12 @@ sub _jm_f_53($$$)
             # handle may n1 property
             # .null.n1
             $res = !defined($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$NULL\" [.null.n1]", defined $path ? $lpath_10 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.null.n1]", defined $path ? $lpath_10 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "n2")
@@ -1351,9 +2317,15 @@ sub _jm_f_53($$$)
             # handle may n2 property
             # .null.n2
             $res = !defined($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"=null\" [.null.n2]", defined $path ? $lpath_10 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.null.n2]", defined $path ? $lpath_10 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.null]", defined $path ? $lpath_10 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -1363,7 +2335,20 @@ sub _jm_f_53($$$)
 sub _jm_obj_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    return jm_is_object($val) && jm_obj_size($val) == 0;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.object.o0]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        push @$rep, ["expecting empty object [.object.o0]", $path] if defined $rep;
+        return 0;
+    }
 }
 
 # object .object.o1
@@ -1371,42 +2356,94 @@ sub _jm_obj_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 3;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.object.o1]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 3)
+    {
+        push @$rep, ["bad property count [.object.o1]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"a"};
+    unless (exists $$val{"a"})
+    {
+        push @$rep, ["missing mandatory prop <a> [.object.o1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "a"] : undef;
     $pval = $$val{"a"};
     # .object.o1.a
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"b"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.object.o1.a]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <a> [.object.o1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"b"})
+    {
+        push @$rep, ["missing mandatory prop <b> [.object.o1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "b"] : undef;
     $pval = $$val{"b"};
     # .object.o1.b
     $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"c"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.object.o1.b]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <b> [.object.o1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"c"})
+    {
+        push @$rep, ["missing mandatory prop <c> [.object.o1]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "c"] : undef;
     $pval = $$val{"c"};
     # .object.o1.c
-    return jm_is_integer($pval) && $pval >= 0;
+    $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.object.o1.c]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <c> [.object.o1]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 # object .object.o2
 sub _jm_obj_12($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.object.o2]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_12 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a")
         {
             # handle may a property
             # .object.o2.a
             $res = jm_is_integer($pval) && $pval >= 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.object.o2.a]", defined $path ? $lpath_12 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.object.o2.a]", defined $path ? $lpath_12 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.object.o2]", defined $path ? $lpath_12 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -1416,20 +2453,30 @@ sub _jm_obj_12($$$)
 sub _jm_obj_13($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.object.o3]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_13 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_starts_with($prop, "a"))
         {
             # handle 1 re props
             # .object.o3.'/^a/'
             $res = jm_is_integer($pval) && $pval >= 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.object.o3.'/^a/']", defined $path ? $lpath_13 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.object.o3]", defined $path ? $lpath_13 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1440,20 +2487,30 @@ sub _jm_obj_13($$$)
 sub _jm_obj_14($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.object.o4]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (jm_is_valid_date($prop, undef, undef))
+        my $lpath_14 = defined $path ? [@{$path}, $prop] : undef;
+        if (jm_is_valid_date($prop, defined $path ? $lpath_14 : undef, $rep))
         {
             # handle 1 key props
             # .object.o4.'$DATE'
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.object.o4.'\$DATE']", defined $path ? $lpath_14 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.object.o4]", defined $path ? $lpath_14 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1464,15 +2521,24 @@ sub _jm_obj_14($$$)
 sub _jm_obj_15($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.object.o5]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_15 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .object.o5.''
         $res = jm_is_integer($pval) && $pval >= 0;
-        return 0 unless $res;
+        unless ($res)
+        {
+            push @$rep, ["not a 0 strict int [.object.o5.'']", defined $path ? $lpath_15 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }
@@ -1483,57 +2549,92 @@ sub _jm_f_54($$$)
     my ($val, $path, $rep) = @_;
     # object map property names to values
     # .object
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.object]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_11 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "o0")
         {
             # handle may o0 property
             # .object.o0
-            $res = _jm_obj_10($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_10($pval, defined $path ? $lpath_11 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.object.o0]", defined $path ? $lpath_11 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.object.o0]", defined $path ? $lpath_11 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "o1")
         {
             # handle may o1 property
             # .object.o1
-            $res = _jm_obj_11($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_11($pval, defined $path ? $lpath_11 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.object.o1]", defined $path ? $lpath_11 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.object.o1]", defined $path ? $lpath_11 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "o2")
         {
             # handle may o2 property
             # .object.o2
-            $res = _jm_obj_12($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_12($pval, defined $path ? $lpath_11 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.object.o2]", defined $path ? $lpath_11 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.object.o2]", defined $path ? $lpath_11 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "o3")
         {
             # handle may o3 property
             # .object.o3
-            $res = _jm_obj_13($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_13($pval, defined $path ? $lpath_11 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.object.o3]", defined $path ? $lpath_11 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.object.o3]", defined $path ? $lpath_11 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "o4")
         {
             # handle may o4 property
             # .object.o4
-            $res = _jm_obj_14($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_14($pval, defined $path ? $lpath_11 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.object.o4]", defined $path ? $lpath_11 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.object.o4]", defined $path ? $lpath_11 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "o5")
         {
             # handle may o5 property
             # .object.o5
-            $res = _jm_obj_15($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_15($pval, defined $path ? $lpath_11 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.object.o5]", defined $path ? $lpath_11 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.object.o5]", defined $path ? $lpath_11 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "o6")
@@ -1541,9 +2642,14 @@ sub _jm_f_54($$$)
             # handle may o6 property
             # .object.o6
             $res = jm_is_object($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.object.o6]", defined $path ? $lpath_11 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.object]", defined $path ? $lpath_11 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -1555,29 +2661,75 @@ sub _jm_f_55($$$)
     my ($val, $path, $rep) = @_;
     # soft alternative, first match
     # .or
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.or]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_16 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "o0")
         {
             # handle may o0 property
             # .or.o0
             # .or.o0.'|'.0
-            # .or.o0.'|'.1
-            $res = jm_is_boolean($pval) || jm_is_integer($pval);
-            return 0 unless $res;
+            $res = jm_is_boolean($pval);
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.or.o0.'|'.0]", defined $path ? $lpath_16 : undef] if defined $rep;
+                # .or.o0.'|'.1
+                $res = jm_is_integer($pval);
+                push @$rep, ["not a -1 strict int [.or.o0.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.or.o0.'|']", defined $path ? $lpath_16 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.or.o0]", defined $path ? $lpath_16 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "o1")
         {
             # handle may o1 property
             # .or.o1
-            # .or.o1.'|'.0
-            # .or.o1.'|'.1
-            $res = jm_is_string($pval) && (jm_is_valid_date($pval, undef, undef) || jm_is_valid_time($pval, undef, undef));
-            return 0 unless $res;
+            $res = jm_is_string($pval);
+            if ($res)
+            {
+                # .or.o1.'|'.0
+                $res = jm_is_valid_date($pval, defined $path ? $lpath_16 : undef, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"\\\$DATE\" [.or.o1.'|'.0]", defined $path ? $lpath_16 : undef] if defined $rep;
+                    # .or.o1.'|'.1
+                    $res = jm_is_valid_time($pval, defined $path ? $lpath_16 : undef, $rep);
+                    push @$rep, ["unexpected value for model \"\\\$TIME\" [.or.o1.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep and not $res;
+                }
+                if ($res)
+                {
+                    @$rep = () if defined $rep;
+                }
+                else
+                {
+                    push @$rep, ["no model matched [.or.o1.'|']", defined $path ? $lpath_16 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["unexpected type [.or.o1.'|']", defined $path ? $lpath_16 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.or.o1]", defined $path ? $lpath_16 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "o2")
@@ -1585,13 +2737,38 @@ sub _jm_f_55($$$)
             # handle may o2 property
             # .or.o2
             # .or.o2.'|'.0
-            # .or.o2.'|'.1
-            # .or.o2.'|'.2
-            # .or.o2.'|'.3
-            $res = jm_is_integer($pval) && $pval >= 0 || jm_is_string($pval) && jm_is_uuid($pval, undef, undef) || jm_is_array($pval) || jm_is_object($pval);
-            return 0 unless $res;
+            $res = jm_is_integer($pval) && $pval >= 0;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.or.o2.'|'.0]", defined $path ? $lpath_16 : undef] if defined $rep;
+                # .or.o2.'|'.1
+                $res = jm_is_string($pval) && jm_is_uuid($pval, defined $path ? $lpath_16 : undef, $rep);
+                unless ($res)
+                {
+                    push @$rep, ["unexpected value for model \"\\\$UUID\" [.or.o2.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep;
+                    # .or.o2.'|'.2
+                    $res = jm_is_array($pval);
+                    unless ($res)
+                    {
+                        push @$rep, ["not array or unexpected array [.or.o2.'|'.2]", defined $path ? $lpath_16 : undef] if defined $rep;
+                        # .or.o2.'|'.3
+                        $res = jm_is_object($pval);
+                    }
+                }
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.or.o2.'|']", defined $path ? $lpath_16 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.or.o2]", defined $path ? $lpath_16 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.or]", defined $path ? $lpath_16 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -1610,7 +2787,9 @@ sub _jm_f_58($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.BOOL
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["unexpected value for model \"\\\$BOOL\" [.predefs.BOOL]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_BOOLEAN (.predefs.BOOLEAN)
@@ -1618,7 +2797,9 @@ sub _jm_f_59($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.BOOLEAN
-    return jm_is_boolean($val);
+    my $res = jm_is_boolean($val);
+    push @$rep, ["unexpected value for model \"\\\$BOOLEAN\" [.predefs.BOOLEAN]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_DATE (.predefs.DATE)
@@ -1626,7 +2807,9 @@ sub _jm_f_60($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.DATE
-    return jm_is_string($val) && jm_is_valid_date($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_date($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$DATE\" [.predefs.DATE]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_DATETIME (.predefs.DATETIME)
@@ -1634,7 +2817,9 @@ sub _jm_f_61($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.DATETIME
-    return jm_is_string($val) && jm_is_valid_datetime($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_datetime($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$DATETIME\" [.predefs.DATETIME]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_DURATION (.predefs.DURATION)
@@ -1642,7 +2827,9 @@ sub _jm_f_62($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.DURATION
-    return jm_is_string($val) && jm_is_duration($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_duration($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$DURATION\" [.predefs.DURATION]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_EMAIL (.predefs.EMAIL)
@@ -1650,7 +2837,9 @@ sub _jm_f_63($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.EMAIL
-    return jm_is_string($val) && jm_is_email($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_email($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$EMAIL\" [.predefs.EMAIL]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_ETH (.predefs.ETH)
@@ -1658,7 +2847,9 @@ sub _jm_f_64($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.ETH
-    return jm_is_string($val) && jm_is_eth($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_eth($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$ETH\" [.predefs.ETH]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_EXREG (.predefs.EXREG)
@@ -1666,7 +2857,9 @@ sub _jm_f_65($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.EXREG
-    return jm_is_string($val) && jm_is_valid_exreg($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_exreg($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$EXREG\" [.predefs.EXREG]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_F32 (.predefs.F32)
@@ -1674,7 +2867,9 @@ sub _jm_f_66($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.F32
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["unexpected value for model \"\\\$F32\" [.predefs.F32]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_F64 (.predefs.F64)
@@ -1682,7 +2877,9 @@ sub _jm_f_67($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.F64
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["unexpected value for model \"\\\$F64\" [.predefs.F64]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_FLOAT (.predefs.FLOAT)
@@ -1690,7 +2887,9 @@ sub _jm_f_68($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.FLOAT
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["unexpected value for model \"\\\$FLOAT\" [.predefs.FLOAT]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_HOST (.predefs.HOST)
@@ -1698,7 +2897,9 @@ sub _jm_f_69($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.HOST
-    return jm_is_string($val) && jm_is_host($val, undef, undef) && length $val <= 255;
+    my $res = jm_is_string($val) && jm_is_host($val, $path, $rep) && length $val <= 255;
+    push @$rep, ["unexpected value for model \"\\\$HOST\" [.predefs.HOST]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_I32 (.predefs.I32)
@@ -1706,7 +2907,9 @@ sub _jm_f_70($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.I32
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["unexpected value for model \"\\\$I32\" [.predefs.I32]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_I64 (.predefs.I64)
@@ -1714,7 +2917,9 @@ sub _jm_f_71($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.I64
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["unexpected value for model \"\\\$I64\" [.predefs.I64]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_INT (.predefs.INT)
@@ -1722,7 +2927,9 @@ sub _jm_f_72($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.INT
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["unexpected value for model \"\\\$INT\" [.predefs.INT]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_INTEGER (.predefs.INTEGER)
@@ -1730,7 +2937,9 @@ sub _jm_f_73($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.INTEGER
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["unexpected value for model \"\\\$INTEGER\" [.predefs.INTEGER]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_IP4 (.predefs.IP4)
@@ -1738,7 +2947,9 @@ sub _jm_f_74($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.IP4
-    return jm_is_string($val) && jm_is_ip4($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_ip4($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$IP4\" [.predefs.IP4]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_IP6 (.predefs.IP6)
@@ -1746,7 +2957,9 @@ sub _jm_f_75($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.IP6
-    return jm_is_string($val) && jm_is_ip6($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_ip6($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$IP6\" [.predefs.IP6]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_JSON (.predefs.JSON)
@@ -1754,7 +2967,9 @@ sub _jm_f_76($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.JSON
-    return jm_is_string($val) && jm_is_valid_json($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_json($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$JSON\" [.predefs.JSON]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_JSONPT (.predefs.JSONPT)
@@ -1762,7 +2977,9 @@ sub _jm_f_77($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.JSONPT
-    return jm_is_string($val) && jm_is_jsonpt($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_jsonpt($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$JSONPT\" [.predefs.JSONPT]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_NONE (.predefs.NONE)
@@ -1770,6 +2987,7 @@ sub _jm_f_78($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.NONE
+    push @$rep, ["unexpected value for model \"\\\$NONE\" [.predefs.NONE]", $path] if defined $rep;
     return 0;
 }
 
@@ -1778,7 +2996,9 @@ sub _jm_f_79($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.NULL
-    return !defined($val);
+    my $res = !defined($val);
+    push @$rep, ["unexpected value for model \"\\\$NULL\" [.predefs.NULL]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_NUMBER (.predefs.NUMBER)
@@ -1786,7 +3006,9 @@ sub _jm_f_80($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.NUMBER
-    return jm_is_numeric($val);
+    my $res = jm_is_numeric($val);
+    push @$rep, ["unexpected value for model \"\\\$NUMBER\" [.predefs.NUMBER]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_REGEX (.predefs.REGEX)
@@ -1794,7 +3016,9 @@ sub _jm_f_81($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.REGEX
-    return jm_is_string($val) && jm_is_valid_regex($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$REGEX\" [.predefs.REGEX]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_STRING (.predefs.STRING)
@@ -1802,7 +3026,9 @@ sub _jm_f_82($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.STRING
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\\\$STRING\" [.predefs.STRING]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_TIME (.predefs.TIME)
@@ -1810,7 +3036,9 @@ sub _jm_f_83($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.TIME
-    return jm_is_string($val) && jm_is_valid_time($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_time($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$TIME\" [.predefs.TIME]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_U32 (.predefs.U32)
@@ -1818,7 +3046,9 @@ sub _jm_f_84($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.U32
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["unexpected value for model \"\\\$U32\" [.predefs.U32]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_U64 (.predefs.U64)
@@ -1826,7 +3056,9 @@ sub _jm_f_85($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.U64
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["unexpected value for model \"\\\$U64\" [.predefs.U64]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_URI (.predefs.URI)
@@ -1834,7 +3066,9 @@ sub _jm_f_86($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.URI
-    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$URI\" [.predefs.URI]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_URL (.predefs.URL)
@@ -1842,7 +3076,9 @@ sub _jm_f_87($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.URL
-    return jm_is_string($val) && jm_is_valid_url($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$URL\" [.predefs.URL]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check _jm_f_56_map_UUID (.predefs.UUID)
@@ -1850,7 +3086,9 @@ sub _jm_f_88($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.UUID
-    return jm_is_string($val) && jm_is_uuid($val, undef, undef);
+    my $res = jm_is_string($val) && jm_is_uuid($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$UUID\" [.predefs.UUID]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -1860,17 +3098,27 @@ sub _jm_f_56($$$)
     my ($val, $path, $rep) = @_;
     # predefined models
     # .predefs
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.predefs]", $path] if defined $rep;
+        return 0;
+    }
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_17 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_56_map{$prop}))
         {
             # handle 32 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_17 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.predefs]", defined $path ? $lpath_17 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.predefs]", defined $path ? $lpath_17 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -1889,17 +3137,27 @@ sub _jm_f_89($$$)
     my ($val, $path, $rep) = @_;
     # strings: inference, predef, constants, regex
     # .string
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.string]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_18 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "s0")
         {
             # handle may s0 property
             # .string.s0
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.string.s0]", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.string.s0]", defined $path ? $lpath_18 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "s1")
@@ -1907,7 +3165,12 @@ sub _jm_f_89($$$)
             # handle may s1 property
             # .string.s1
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$STRING\" [.string.s1]", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.string.s1]", defined $path ? $lpath_18 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "s2")
@@ -1915,7 +3178,12 @@ sub _jm_f_89($$$)
             # handle may s2 property
             # .string.s2
             $res = jm_is_string($pval) && $pval eq "Susie";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"Susie\" [.string.s2]", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.string.s2]", defined $path ? $lpath_18 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "s3")
@@ -1923,7 +3191,12 @@ sub _jm_f_89($$$)
             # handle may s3 property
             # .string.s3
             $res = jm_is_string($pval) && $pval eq "Calvin";
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"_Calvin\" [.string.s3]", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.string.s3]", defined $path ? $lpath_18 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "s4")
@@ -1931,10 +3204,16 @@ sub _jm_f_89($$$)
             # handle may s4 property
             # .string.s4
             # "/^(Calvin|Susie)$/"
-            $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_18 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"/^(Calvin|Susie)\\\$/\" [.string.s4]", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.string.s4]", defined $path ? $lpath_18 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.string]", defined $path ? $lpath_18 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -1946,17 +3225,27 @@ sub _jm_f_90($$$)
     my ($val, $path, $rep) = @_;
     # tuple items have a type
     # .tuple
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.tuple]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_19 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "t0")
         {
             # handle may t0 property
             # .tuple.t0
             $res = jm_is_array($pval) && scalar @$pval == 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.tuple.t0]", defined $path ? $lpath_19 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.tuple.t0]", defined $path ? $lpath_19 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "t1")
@@ -1970,17 +3259,31 @@ sub _jm_f_90($$$)
                 for my $arr_7_idx (0 .. $#$pval)
                 {
                     my $arr_7_item = $$pval[$arr_7_idx];
+                    my $arr_7_lpath = defined (defined $path ? $lpath_19 : undef) ? [@{(defined $path ? $lpath_19 : undef)}, $arr_7_idx] : undef;
                     # .tuple.t1.'@'.0
                     $res = jm_is_integer($arr_7_item) && $arr_7_item >= 0;
-                    last unless $res;
+                    unless ($res)
+                    {
+                        push @$rep, ["not a 0 strict int [.tuple.t1.'\@'.0]", defined (defined $path ? $lpath_19 : undef) ? $arr_7_lpath : undef] if defined $rep;
+                        last;
+                    }
                 }
             }
             if ($res)
             {
                 my $ival_12 = scalar @$pval;
                 $res = $ival_12 == 1;
+                push @$rep, ["constraints failed [.tuple.t1]", defined $path ? $lpath_19 : undef] if defined $rep and not $res;
             }
-            return 0 unless $res;
+            else
+            {
+                push @$rep, ["not array or unexpected array [.tuple.t1.'\@']", defined $path ? $lpath_19 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.tuple.t1]", defined $path ? $lpath_19 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "t2")
@@ -1990,12 +3293,27 @@ sub _jm_f_90($$$)
             $res = jm_is_array($pval) && scalar @$pval == 2;
             if ($res)
             {
+                my $lpath_20 = defined (defined $path ? $lpath_19 : undef) ? [@{(defined $path ? $lpath_19 : undef)}, 0] : undef;
                 # .tuple.t2.0
                 $res = jm_is_integer($$pval[0]) && $$pval[0] >= 0;
-                $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0 if $res;
-                # .tuple.t2.1
+                if ($res)
+                {
+                    $lpath_20 = defined (defined $path ? $lpath_19 : undef) ? [@{(defined $path ? $lpath_19 : undef)}, 1] : undef;
+                    # .tuple.t2.1
+                    $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0;
+                    push @$rep, ["not a 0 strict int [.tuple.t2.1]", defined (defined $path ? $lpath_19 : undef) ? $lpath_20 : undef] if defined $rep and not $res;
+                }
+                else
+                {
+                    push @$rep, ["not a 0 strict int [.tuple.t2.0]", defined (defined $path ? $lpath_19 : undef) ? $lpath_20 : undef] if defined $rep;
+                }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.tuple.t2]", defined $path ? $lpath_19 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.tuple.t2]", defined $path ? $lpath_19 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "t3")
@@ -2005,17 +3323,37 @@ sub _jm_f_90($$$)
             $res = jm_is_array($pval) && scalar @$pval == 3;
             if ($res)
             {
+                my $lpath_21 = defined (defined $path ? $lpath_19 : undef) ? [@{(defined $path ? $lpath_19 : undef)}, 0] : undef;
                 # .tuple.t3.0
                 $res = jm_is_boolean($$pval[0]);
                 if ($res)
                 {
+                    $lpath_21 = defined (defined $path ? $lpath_19 : undef) ? [@{(defined $path ? $lpath_19 : undef)}, 1] : undef;
                     # .tuple.t3.1
                     $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0;
-                    $res = jm_is_string($$pval[2]) if $res;
-                    # .tuple.t3.2
+                    if ($res)
+                    {
+                        $lpath_21 = defined (defined $path ? $lpath_19 : undef) ? [@{(defined $path ? $lpath_19 : undef)}, 2] : undef;
+                        # .tuple.t3.2
+                        $res = jm_is_string($$pval[2]);
+                        push @$rep, ["unexpected value for model \"\" [.tuple.t3.2]", defined (defined $path ? $lpath_19 : undef) ? $lpath_21 : undef] if defined $rep and not $res;
+                    }
+                    else
+                    {
+                        push @$rep, ["not a 0 strict int [.tuple.t3.1]", defined (defined $path ? $lpath_19 : undef) ? $lpath_21 : undef] if defined $rep;
+                    }
+                }
+                else
+                {
+                    push @$rep, ["not a bool [.tuple.t3.0]", defined (defined $path ? $lpath_19 : undef) ? $lpath_21 : undef] if defined $rep;
                 }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.tuple.t3]", defined $path ? $lpath_19 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.tuple.t3]", defined $path ? $lpath_19 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "t4")
@@ -2023,19 +3361,30 @@ sub _jm_f_90($$$)
             # handle may t4 property
             # .tuple.t4
             # .tuple.t4.'@'
+            my $lpath_22;
             $res = jm_is_array($pval);
             if ($res)
             {
                 my $len_0 = scalar @$pval;
-                $res = jm_is_string($$pval[0]) if $len_0 > 0;
-                # .tuple.t4.'@'.0
+                if ($len_0 > 0)
+                {
+                    $lpath_22 = defined (defined $path ? $lpath_19 : undef) ? [@{(defined $path ? $lpath_19 : undef)}, 0] : undef;
+                    # .tuple.t4.'@'.0
+                    $res = jm_is_string($$pval[0]);
+                    push @$rep, ["unexpected value for model \"\" [.tuple.t4.'\@'.0]", defined (defined $path ? $lpath_19 : undef) ? $lpath_22 : undef] if defined $rep and not $res;
+                }
                 if ($res)
                 {
                     for my $idx_0 (1 .. $len_0 - 1)
                     {
+                        $lpath_22 = defined (defined $path ? $lpath_19 : undef) ? [@{(defined $path ? $lpath_19 : undef)}, $idx_0] : undef;
                         # .tuple.t4.'@'.1
                         $res = jm_is_integer($$pval[$idx_0]) && $$pval[$idx_0] >= 0;
-                        last unless $res;
+                        unless ($res)
+                        {
+                            push @$rep, ["not a 0 strict int [.tuple.t4.'\@'.1]", defined (defined $path ? $lpath_19 : undef) ? $lpath_22 : undef] if defined $rep;
+                            last;
+                        }
                     }
                 }
             }
@@ -2043,10 +3392,20 @@ sub _jm_f_90($$$)
             {
                 my $ival_13 = scalar @$pval;
                 $res = $ival_13 >= 2;
+                push @$rep, ["constraints failed [.tuple.t4]", defined $path ? $lpath_19 : undef] if defined $rep and not $res;
             }
-            return 0 unless $res;
+            else
+            {
+                push @$rep, ["not array or unexpected array [.tuple.t4.'\@']", defined $path ? $lpath_19 : undef] if defined $rep;
+            }
+            unless ($res)
+            {
+                push @$rep, ["invalid optional prop value [.tuple.t4]", defined $path ? $lpath_19 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.tuple]", defined $path ? $lpath_19 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -2058,19 +3417,39 @@ sub _jm_f_91($$$)
     my ($val, $path, $rep) = @_;
     # hard alternative, only one must match
     # .xor
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.xor]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_23 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "x0")
         {
             # handle may x0 property
             # .xor.x0
             # .xor.x0.'|'.0
-            # .xor.x0.'|'.1
-            $res = jm_is_boolean($pval) || jm_is_integer($pval);
-            return 0 unless $res;
+            $res = jm_is_boolean($pval);
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.xor.x0.'|'.0]", defined $path ? $lpath_23 : undef] if defined $rep;
+                # .xor.x0.'|'.1
+                $res = jm_is_integer($pval);
+                push @$rep, ["not a -1 strict int [.xor.x0.'|'.1]", defined $path ? $lpath_23 : undef] if defined $rep and not $res;
+            }
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.xor.x0.'|']", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.xor.x0]", defined $path ? $lpath_23 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "x1")
@@ -2082,13 +3461,36 @@ sub _jm_f_91($$$)
             # .xor.x1.'^'.0
             # "/^a/"
             my $xr_0 = jm_is_string($pval) && jm_starts_with($pval, "a");
-            $xc_0++ if $xr_0;
+            if ($xr_0)
+            {
+                $xc_0++;
+            }
+            else
+            {
+                push @$rep, ["unexpected value for model \"/^a/\" [.xor.x1.'^'.0]", defined $path ? $lpath_23 : undef] if defined $rep;
+            }
             # .xor.x1.'^'.1
             # "/z$/"
             $xr_0 = jm_is_string($pval) && jm_ends_with($pval, "z");
-            $xc_0++ if $xr_0;
+            if ($xr_0)
+            {
+                $xc_0++;
+            }
+            else
+            {
+                push @$rep, ["unexpected value for model \"/z\\\$/\" [.xor.x1.'^'.1]", defined $path ? $lpath_23 : undef] if defined $rep;
+            }
             $res = $xc_0 == 1;
-            return 0 unless $res;
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["not one model match [.xor.x1.'^']", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.xor.x1]", defined $path ? $lpath_23 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "x2")
@@ -2099,12 +3501,35 @@ sub _jm_f_91($$$)
             my $xc_1 = 0;
             # .xor.x2.'^'.0
             my $xr_1 = jm_is_integer($pval);
-            $xc_1++ if $xr_1;
+            if ($xr_1)
+            {
+                $xc_1++;
+            }
+            else
+            {
+                push @$rep, ["not a -1 strict int [.xor.x2.'^'.0]", defined $path ? $lpath_23 : undef] if defined $rep;
+            }
             # .xor.x2.'^'.1
             $xr_1 = jm_is_integer($pval) && $pval >= 0;
-            $xc_1++ if $xr_1;
+            if ($xr_1)
+            {
+                $xc_1++;
+            }
+            else
+            {
+                push @$rep, ["not a 0 strict int [.xor.x2.'^'.1]", defined $path ? $lpath_23 : undef] if defined $rep;
+            }
             $res = $xc_1 == 1;
-            return 0 unless $res;
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["not one model match [.xor.x2.'^']", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.xor.x2]", defined $path ? $lpath_23 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "x3")
@@ -2113,10 +3538,22 @@ sub _jm_f_91($$$)
             # .xor.x3
             # not-case xor list
             # .xor.x3.'^'.1
-            $res = ! (jm_is_integer($pval) && $pval >= 0);
-            return 0 unless $res;
+            my $is_0 = jm_is_integer($pval) && $pval >= 0;
+            push @$rep, ["not a 0 strict int [.xor.x3.'^'.1]", defined $path ? $lpath_23 : undef] if defined $rep and not $is_0;
+            $res = ! $is_0;
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["not one model match [.xor.x3.'^']", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.xor.x3]", defined $path ? $lpath_23 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.xor]", defined $path ? $lpath_23 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -2129,17 +3566,27 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # A model to illustrate most design features
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_1_map{$prop}))
         {
             # handle 15 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_0 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
         return 0;
     }
     return 1;

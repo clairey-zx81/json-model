@@ -34,11 +34,33 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    # .'&'.0
-    # "/[a-z]/"
-    # .'&'.1
-    # "/[0-9]/"
-    return jm_is_string($val) && _jm_re_1($val, undef, undef) && _jm_re_0($val, undef, undef);
+    my $res = jm_is_string($val);
+    if ($res)
+    {
+        # .'&'.0
+        # "/[a-z]/"
+        $res = _jm_re_1($val, $path, $rep);
+        if ($res)
+        {
+            # .'&'.1
+            # "/[0-9]/"
+            $res = _jm_re_0($val, $path, $rep);
+            push @$rep, ["unexpected value for model \"/[0-9]/\" [.'&'.1]", $path] if defined $rep and not $res;
+        }
+        else
+        {
+            push @$rep, ["unexpected value for model \"/[a-z]/\" [.'&'.0]", $path] if defined $rep;
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not all model match [.'&']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

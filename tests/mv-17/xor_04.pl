@@ -29,9 +29,24 @@ sub json_model_1($$$)
     # xor to or simplification, float vs string
     # .
     # .'|'.0
-    # .'|'.1
-    # "/^[a-z]+$/i"
-    return jm_is_numeric($val) && $val >= 0.0 || jm_is_string($val) && _jm_re_0($val, undef, undef);
+    my $res = jm_is_numeric($val) && $val >= 0.0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0.0 strict float [.'|'.0]", $path] if defined $rep;
+        # .'|'.1
+        # "/^[a-z]+$/i"
+        $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"/^[a-z]+\\\$/i\" [.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

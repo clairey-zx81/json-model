@@ -23,7 +23,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Pp'
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$Pp']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Qq (.'$Qq')
@@ -37,11 +39,17 @@ sub json_model_3($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'$Qq'.0
-            $res = json_model_2($arr_0_item, undef, undef);
-            last unless $res;
+            $res = json_model_2($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Pp\" [.'\$Qq'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$Qq']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -49,25 +57,40 @@ sub json_model_3($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.o]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "p")
         {
             # handle may p property
             # .o.p
-            $res = json_model_2($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_2($pval, defined $path ? $lpath_1 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Pp\" [.o.p]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.o.p]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "q")
         {
             # handle may q property
             # .o.q
-            $res = json_model_3($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_3($pval, defined $path ? $lpath_1 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Qq\" [.o.q]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.o.q]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "t")
@@ -77,14 +100,30 @@ sub _jm_obj_0($$$)
             $res = jm_is_array($pval) && scalar @$pval == 2;
             if ($res)
             {
+                my $lpath_2 = defined (defined $path ? $lpath_1 : undef) ? [@{(defined $path ? $lpath_1 : undef)}, 0] : undef;
                 # .o.t.0
                 $res = jm_is_boolean($$pval[0]);
-                $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0 if $res;
-                # .o.t.1
+                if ($res)
+                {
+                    $lpath_2 = defined (defined $path ? $lpath_1 : undef) ? [@{(defined $path ? $lpath_1 : undef)}, 1] : undef;
+                    # .o.t.1
+                    $res = jm_is_integer($$pval[1]) && $$pval[1] >= 0;
+                    push @$rep, ["not a 0 strict int [.o.t.1]", defined (defined $path ? $lpath_1 : undef) ? $lpath_2 : undef] if defined $rep and not $res;
+                }
+                else
+                {
+                    push @$rep, ["not a bool [.o.t.0]", defined (defined $path ? $lpath_1 : undef) ? $lpath_2 : undef] if defined $rep;
+                }
             }
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not array or unexpected array [.o.t]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.o.t]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.o]", defined $path ? $lpath_1 : undef] if defined $rep;
         return 0;
     }
     return 1;
@@ -96,20 +135,31 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # trivial and non trivial comments
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "o")
         {
             # handle may o property
             # an object
             # .o
-            $res = _jm_obj_0($pval, undef, undef);
-            return 0 unless $res;
+            $res = _jm_obj_0($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected element [.o]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.o]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
         return 0;
     }
     return 1;

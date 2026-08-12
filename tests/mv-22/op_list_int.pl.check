@@ -9,18 +9,18 @@ op_list_int.values.json[7]: PASS
 op_list_int.values.json[8]: PASS
 op_list_int.values.json[9]: PASS
 op_list_int.values.json[10]: PASS
-op_list_int.values.json[11]: FAIL
-op_list_int.values.json[12]: FAIL
-op_list_int.values.json[13]: FAIL
-op_list_int.values.json[14]: FAIL
-op_list_int.values.json[15]: FAIL
-op_list_int.values.json[16]: FAIL
-op_list_int.values.json[17]: FAIL
-op_list_int.values.json[18]: FAIL
-op_list_int.values.json[19]: FAIL
-op_list_int.values.json[20]: FAIL
-op_list_int.values.json[21]: FAIL
-op_list_int.values.json[22]: FAIL
-op_list_int.values.json[23]: FAIL
-op_list_int.values.json[24]: FAIL
-op_list_int.values.json[25]: FAIL
+op_list_int.values.json[11]: FAIL (.: tag prop <t> is missing [.'|'])
+op_list_int.values.json[12]: FAIL (.t: unexpected value for model "=0" [.'|'.0.t]; .t: unexpected value for mandatory prop <t> [.'|'.0])
+op_list_int.values.json[13]: FAIL (.: tag <t> value not found [.'|'])
+op_list_int.values.json[14]: FAIL (.: bad property count [.'|'.0])
+op_list_int.values.json[15]: FAIL (.: tag <t> value not found [.'|'])
+op_list_int.values.json[16]: FAIL (.: tag <t> value not found [.'|'])
+op_list_int.values.json[17]: FAIL (.: value is not an object [.'|'])
+op_list_int.values.json[18]: FAIL (.: value is not an object [.'|'])
+op_list_int.values.json[19]: FAIL (.: value is not an object [.'|'])
+op_list_int.values.json[20]: FAIL (.: value is not an object [.'|'])
+op_list_int.values.json[21]: FAIL (.: value is not an object [.'|'])
+op_list_int.values.json[22]: FAIL (.: value is not an object [.'|'])
+op_list_int.values.json[23]: FAIL (.: value is not an object [.'|'])
+op_list_int.values.json[24]: FAIL (.: value is not an object [.'|'])
+op_list_int.values.json[25]: FAIL (.: value is not an object [.'|'])

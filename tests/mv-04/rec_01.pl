@@ -20,15 +20,24 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .''
-        $res = json_model_1($pval, undef, undef);
-        return 0 unless $res;
+        $res = json_model_1($pval, defined $path ? $lpath_0 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$#\" [.'']", defined $path ? $lpath_0 : undef] if defined $rep;
+            return 0;
+        }
     }
     return 1;
 }

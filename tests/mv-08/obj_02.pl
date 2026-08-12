@@ -30,11 +30,17 @@ sub json_model_2($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'$li0'.0
             $res = jm_is_integer($arr_0_item) && $arr_0_item >= 0;
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.'\$li0'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$li0']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -49,11 +55,17 @@ sub json_model_3($$$)
         for my $arr_1_idx (0 .. $#$val)
         {
             my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_1_lpath = defined $path ? [@{$path}, $arr_1_idx] : undef;
             # .'$ls0'.0
-            $res = jm_is_string($arr_1_item) && jm_is_valid_url($arr_1_item, undef, undef);
-            last unless $res;
+            $res = jm_is_string($arr_1_item) && jm_is_valid_url($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$ls0'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$ls0']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -68,11 +80,17 @@ sub json_model_4($$$)
         for my $arr_2_idx (0 .. $#$val)
         {
             my $arr_2_item = $$val[$arr_2_idx];
+            my $arr_2_lpath = defined $path ? [@{$path}, $arr_2_idx] : undef;
             # .'$lb0'.0
             $res = jm_is_boolean($arr_2_item);
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$BOOL\" [.'\$lb0'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$lb0']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -87,11 +105,17 @@ sub json_model_5($$$)
         for my $arr_3_idx (0 .. $#$val)
         {
             my $arr_3_item = $$val[$arr_3_idx];
+            my $arr_3_lpath = defined $path ? [@{$path}, $arr_3_idx] : undef;
             # .'$lf0'.0
             $res = jm_is_numeric($arr_3_item) && $arr_3_item >= 0.0;
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0.0 strict float [.'\$lf0'.0]", defined $path ? $arr_3_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$lf0']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -101,10 +125,35 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    # .'|'.3
-    return json_model_2($val, undef, undef) || json_model_3($val, undef, undef) || json_model_4($val, undef, undef) || json_model_5($val, undef, undef);
+    my $res = json_model_2($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$li0\" [.'|'.0]", $path] if defined $rep;
+        # .'|'.1
+        $res = json_model_3($val, $path, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"\\\$ls0\" [.'|'.1]", $path] if defined $rep;
+            # .'|'.2
+            $res = json_model_4($val, $path, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$lb0\" [.'|'.2]", $path] if defined $rep;
+                # .'|'.3
+                $res = json_model_5($val, $path, $rep);
+                push @$rep, ["unexpected value for model \"\\\$lf0\" [.'|'.3]", $path] if defined $rep and not $res;
+            }
+        }
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

@@ -26,41 +26,77 @@ sub json_model_1($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .0
             # .0.'|'.0
             $res = jm_is_string($arr_0_item);
             unless ($res)
             {
+                push @$rep, ["unexpected value for model \"\" [.0.'|'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
                 # .0.'|'.1
                 $res = jm_is_array($arr_0_item) && scalar @$arr_0_item == 2;
                 if ($res)
                 {
+                    my $lpath_1 = defined (defined $path ? $arr_0_lpath : undef) ? [@{(defined $path ? $arr_0_lpath : undef)}, 0] : undef;
                     # .0.'|'.1.0
                     $res = jm_is_boolean($$arr_0_item[0]);
-                    $res = 1 if $res;
-                    # .0.'|'.1.1
+                    if ($res)
+                    {
+                        $lpath_1 = defined (defined $path ? $arr_0_lpath : undef) ? [@{(defined $path ? $arr_0_lpath : undef)}, 1] : undef;
+                        # .0.'|'.1.1
+                        $res = 1;
+                    }
+                    else
+                    {
+                        push @$rep, ["not a bool [.0.'|'.1.0]", defined (defined $path ? $arr_0_lpath : undef) ? $lpath_1 : undef] if defined $rep;
+                    }
                 }
                 unless ($res)
                 {
+                    push @$rep, ["not array or unexpected array [.0.'|'.1]", defined $path ? $arr_0_lpath : undef] if defined $rep;
                     # .0.'|'.2
                     $res = jm_is_array($arr_0_item) && scalar @$arr_0_item == 3;
                     if ($res)
                     {
+                        my $lpath_0 = defined (defined $path ? $arr_0_lpath : undef) ? [@{(defined $path ? $arr_0_lpath : undef)}, 0] : undef;
                         # .0.'|'.2.0
                         $res = jm_is_boolean($$arr_0_item[0]);
                         if ($res)
                         {
+                            $lpath_0 = defined (defined $path ? $arr_0_lpath : undef) ? [@{(defined $path ? $arr_0_lpath : undef)}, 1] : undef;
                             # .0.'|'.2.1
                             $res = jm_is_string($$arr_0_item[1]);
-                            $res = 1 if $res;
-                            # .0.'|'.2.2
+                            if ($res)
+                            {
+                                $lpath_0 = defined (defined $path ? $arr_0_lpath : undef) ? [@{(defined $path ? $arr_0_lpath : undef)}, 2] : undef;
+                                # .0.'|'.2.2
+                                $res = 1;
+                            }
+                            else
+                            {
+                                push @$rep, ["unexpected value for model \"\" [.0.'|'.2.1]", defined (defined $path ? $arr_0_lpath : undef) ? $lpath_0 : undef] if defined $rep;
+                            }
+                        }
+                        else
+                        {
+                            push @$rep, ["not a bool [.0.'|'.2.0]", defined (defined $path ? $arr_0_lpath : undef) ? $lpath_0 : undef] if defined $rep;
                         }
                     }
+                    push @$rep, ["not array or unexpected array [.0.'|'.2]", defined $path ? $arr_0_lpath : undef] if defined $rep and not $res;
                 }
             }
-            last unless $res;
+            if ($res)
+            {
+                @$rep = () if defined $rep;
+            }
+            else
+            {
+                push @$rep, ["no model matched [.0.'|']", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

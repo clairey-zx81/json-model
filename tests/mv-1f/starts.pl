@@ -21,7 +21,9 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # "/^Hello/"
-    return jm_is_string($val) && jm_starts_with($val, "Hello");
+    my $res = jm_is_string($val) && jm_starts_with($val, "Hello");
+    push @$rep, ["unexpected value for model \"/^Hello/\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

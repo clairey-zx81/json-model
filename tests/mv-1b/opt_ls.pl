@@ -22,18 +22,49 @@ sub json_model_1($$$)
     # JSON_MODEL_LOOSE_INT, JSON_MODEL_STRICT_FLOAT
     # .
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"i"};
+    unless (exists $$val{"i"})
+    {
+        push @$rep, ["missing mandatory prop <i> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "i"] : undef;
     $pval = $$val{"i"};
     # .i
     my $res = jm_is_integer($pval);
-    return 0 unless $res;
-    return 0 unless exists $$val{"f"};
+    unless ($res)
+    {
+        push @$rep, ["not a -1 loose int [.i]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <i> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"f"})
+    {
+        push @$rep, ["missing mandatory prop <f> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "f"] : undef;
     $pval = $$val{"f"};
     # .f
-    return jm_is_numeric($pval);
+    $res = jm_is_numeric($pval);
+    unless ($res)
+    {
+        push @$rep, ["not a -1.0 strict float [.f]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <f> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

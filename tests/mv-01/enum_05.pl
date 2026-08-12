@@ -23,10 +23,35 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # Heterogeneous enum
     # .
-    # .'|'.0
-    # .'|'.1
-    # .'|'.2
-    return jm_is_string($val) && exists $_jm_cst_0{$val} || jm_is_integer($val) && $val == 200 || !defined($val) || jm_is_numeric($val) && $val == 3.1415927;
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    unless ($res)
+    {
+        push @$rep, ["value not in enum [.'|']", $path] if defined $rep;
+        # .'|'.0
+        $res = jm_is_integer($val) && $val == 200;
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"=200\" [.'|'.0]", $path] if defined $rep;
+            # .'|'.1
+            $res = !defined($val);
+            unless ($res)
+            {
+                push @$rep, ["not null [.'|'.1]", $path] if defined $rep;
+                # .'|'.2
+                $res = jm_is_numeric($val) && $val == 3.1415927;
+                push @$rep, ["unexpected value for model \"=3.1415927\" [.'|'.2]", $path] if defined $rep and not $res;
+            }
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+        }
+    }
+    return $res;
 }
 
 

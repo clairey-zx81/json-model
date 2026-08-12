@@ -28,20 +28,30 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # minimal regex prop
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_0($prop, undef, undef))
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
+        if (_jm_re_0($prop, $path, $rep))
         {
             # handle 1 re props
             # .'/^[A-Z]$/'
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.'/^[A-Z]\$/']", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
         }
         else
         {
+            push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }

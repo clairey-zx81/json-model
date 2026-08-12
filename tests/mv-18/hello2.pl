@@ -21,18 +21,49 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.]", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"hello"};
+    unless (exists $$val{"hello"})
+    {
+        push @$rep, ["missing mandatory prop <hello> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "hello"] : undef;
     $pval = $$val{"hello"};
     # .hello
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"world"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.hello]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <hello> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"world"})
+    {
+        push @$rep, ["missing mandatory prop <world> [.]", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "world"] : undef;
     $pval = $$val{"world"};
     # .world
-    return jm_is_boolean($pval);
+    $res = jm_is_boolean($pval);
+    unless ($res)
+    {
+        push @$rep, ["not a bool [.world]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <world> [.]", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

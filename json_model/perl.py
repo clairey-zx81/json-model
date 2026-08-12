@@ -179,7 +179,7 @@ class Perl(Language):
         return code
 
     def clean_report(self) -> Block:
-        return [ "$rep = [] if defined $rep;" ] if self._with_report else []
+        return [ "@$rep = () if defined $rep;" ] if self._with_report else []
 
     def nope(self) -> Block:
         return [ ";" ]

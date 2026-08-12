@@ -24,7 +24,9 @@ sub json_model_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Zz'
-    return json_model_6($val, undef, undef);
+    my $res = json_model_6($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$zero\" [.'\$Zz']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $z (.'$z')
@@ -32,7 +34,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$z'
-    return json_model_6($val, undef, undef);
+    my $res = json_model_6($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$Zz#zero\" [.'\$z']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $l (.'$l')
@@ -46,11 +50,17 @@ sub json_model_4($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'$l'.0
-            $res = json_model_6($arr_0_item, undef, undef);
-            last unless $res;
+            $res = json_model_6($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$z\" [.'\$l'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\$l']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -59,7 +69,9 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return json_model_4($val, undef, undef);
+    my $res = json_model_4($val, $path, $rep);
+    push @$rep, ["unexpected value for model \"\\\$l\" [.]", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Zz#zero (.'$Zz#zero')
@@ -68,18 +80,49 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # .'$Zz#zero'
     # check close must only props
-    return 0 unless jm_is_object($val);
-    return 0 if jm_obj_size($val) != 2;
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$Zz#zero']", $path] if defined $rep;
+        return 0;
+    }
+    if (jm_obj_size($val) != 2)
+    {
+        push @$rep, ["bad property count [.'\$Zz#zero']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"za"};
+    unless (exists $$val{"za"})
+    {
+        push @$rep, ["missing mandatory prop <za> [.'\$Zz#zero']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "za"] : undef;
     $pval = $$val{"za"};
     # .'$Zz#zero'.za
     my $res = jm_is_integer($pval) && $pval >= 0;
-    return 0 unless $res;
-    return 0 unless exists $$val{"zb"};
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$Zz#zero'.za]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <za> [.'\$Zz#zero']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"zb"})
+    {
+        push @$rep, ["missing mandatory prop <zb> [.'\$Zz#zero']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "zb"] : undef;
     $pval = $$val{"zb"};
     # .'$Zz#zero'.zb
-    return jm_is_integer($pval) && $pval >= 0;
+    $res = jm_is_integer($pval) && $pval >= 0;
+    unless ($res)
+    {
+        push @$rep, ["not a 0 strict int [.'\$Zz#zero'.zb]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <zb> [.'\$Zz#zero']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 

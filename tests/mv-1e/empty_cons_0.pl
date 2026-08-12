@@ -23,6 +23,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$n0'
+    push @$rep, ["unexpected value for model \"\\\$NONE\" [.'\$n0']", $path] if defined $rep;
     return 0;
 }
 
@@ -31,6 +32,7 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$n1'
+    push @$rep, ["unexpected value for model \"\\\$NONE\" [.'\$n1']", $path] if defined $rep;
     return 0;
 }
 
@@ -39,6 +41,7 @@ sub json_model_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$n2'
+    push @$rep, ["unexpected value for model \"\\\$NONE\" [.'\$n2']", $path] if defined $rep;
     return 0;
 }
 
@@ -47,6 +50,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
+    push @$rep, ["unexpected value for model \"\\\$NONE\" [.]", $path] if defined $rep;
     return 0;
 }
 

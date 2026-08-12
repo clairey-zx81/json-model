@@ -30,17 +30,44 @@ sub json_model_2($$$)
     my ($val, $path, $rep) = @_;
     # .'$oA'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$oA']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"v"};
+    unless (exists $$val{"v"})
+    {
+        push @$rep, ["missing mandatory prop <v> [.'\$oA']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "v"] : undef;
     $pval = $$val{"v"};
     # .'$oA'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
-    return 0 unless $res;
-    return 0 unless exists $$val{"t"};
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.'\$oA'.v]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <v> [.'\$oA']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.'\$oA']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .'$oA'.t
-    return jm_is_string($pval) && $pval eq "a";
+    $res = jm_is_string($pval) && $pval eq "a";
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_a\" [.'\$oA'.t]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.'\$oA']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -50,17 +77,44 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$oB'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$oB']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"v"};
+    unless (exists $$val{"v"})
+    {
+        push @$rep, ["missing mandatory prop <v> [.'\$oB']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "v"] : undef;
     $pval = $$val{"v"};
     # .'$oB'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
-    return 0 unless $res;
-    return 0 unless exists $$val{"t"};
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.'\$oB'.v]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <v> [.'\$oB']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.'\$oB']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .'$oB'.t
-    return jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    $res = jm_is_string($pval) && exists $_jm_cst_0{$pval};
+    unless ($res)
+    {
+        push @$rep, ["value not in enum [.'\$oB'.t.'|']", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.'\$oB']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -76,12 +130,25 @@ sub json_model_4($$$)
         if (defined($tag_0 = $$val{"t"}))
         {
             my $fun_0 = $_jm_map_0{$tag_0};
-            $res = defined($fun_0) && &$fun_0($val, undef, undef);
+            if (defined($fun_0))
+            {
+                $res = &$fun_0($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <t> value not found [.'\$oC'.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <t> is missing [.'\$oC'.'|']", $path] if defined $rep;
         }
+    }
+    else
+    {
+        push @$rep, ["value is not an object [.'\$oC'.'|']", $path] if defined $rep;
     }
     return $res;
 }
@@ -92,17 +159,44 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$oL'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$oL']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"v"};
+    unless (exists $$val{"v"})
+    {
+        push @$rep, ["missing mandatory prop <v> [.'\$oL']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "v"] : undef;
     $pval = $$val{"v"};
     # .'$oL'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
-    return 0 unless $res;
-    return 0 unless exists $$val{"t"};
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.'\$oL'.v]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <v> [.'\$oL']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.'\$oL']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .'$oL'.t
-    return jm_is_string($pval) && $pval eq "d";
+    $res = jm_is_string($pval) && $pval eq "d";
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"_d\" [.'\$oL'.t]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.'\$oL']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -112,17 +206,44 @@ sub json_model_6($$$)
     my ($val, $path, $rep) = @_;
     # .'$oX'
     # check open must/may only props
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'\$oX']", $path] if defined $rep;
+        return 0;
+    }
+    my $lpath;
     my $pval;
-    return 0 unless exists $$val{"v"};
+    unless (exists $$val{"v"})
+    {
+        push @$rep, ["missing mandatory prop <v> [.'\$oX']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "v"] : undef;
     $pval = $$val{"v"};
     # .'$oX'.v
     my $res = jm_is_integer($pval) && $pval >= 1;
-    return 0 unless $res;
-    return 0 unless exists $$val{"t"};
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.'\$oX'.v]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <v> [.'\$oX']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    unless (exists $$val{"t"})
+    {
+        push @$rep, ["missing mandatory prop <t> [.'\$oX']", $path] if defined $rep;
+        return 0;
+    }
+    $lpath = defined $path ? [@{$path}, "t"] : undef;
     $pval = $$val{"t"};
     # .'$oX'.t
-    return jm_is_string($pval) && exists $_jm_cst_1{$pval};
+    $res = jm_is_string($pval) && exists $_jm_cst_1{$pval};
+    unless ($res)
+    {
+        push @$rep, ["value not in enum [.'\$oX'.t.'|']", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for mandatory prop <t> [.'\$oX']", defined $path ? $lpath : undef] if defined $rep;
+        return 0;
+    }
+    return 1;
 }
 
 
@@ -138,14 +259,27 @@ sub json_model_1($$$)
         if (defined($tag_1 = $$val{"t"}))
         {
             my $fun_1 = $_jm_map_1{$tag_1};
-            $res = defined($fun_1) && &$fun_1($val, undef, undef);
+            if (defined($fun_1))
+            {
+                $res = &$fun_1($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+                push @$rep, ["tag <t> value not found [.'|']", $path] if defined $rep;
+            }
         }
         else
         {
             $res = 0;
+            push @$rep, ["tag prop <t> is missing [.'|']", $path] if defined $rep;
         }
     }
-    return $res || json_model_4($val, undef, undef);
+    else
+    {
+        push @$rep, ["value is not an object [.'|']", $path] if defined $rep;
+    }
+    return $res || json_model_4($val, $path, $rep);
 }
 
 

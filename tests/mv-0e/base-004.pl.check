@@ -1,13 +1,13 @@
 base-004.values.json[0]: PASS
-base-004.values.json[1]: FAIL
-base-004.values.json[2]: FAIL
-base-004.values.json[3]: FAIL
-base-004.values.json[4]: FAIL
-base-004.values.json[5]: FAIL
-base-004.values.json[6]: FAIL
-base-004.values.json[7]: FAIL
-base-004.values.json[8]: FAIL
-base-004.values.json[9]: FAIL
-base-004.values.json[10]: FAIL
-base-004.values.json[11]: FAIL
-base-004.values.json[12]: FAIL
+base-004.values.json[1]: FAIL (.: bad property count [.])
+base-004.values.json[2]: FAIL (.a: unexpected value for model "" [.a]; .a: unexpected value for mandatory prop <a> [.])
+base-004.values.json[3]: FAIL (.: missing mandatory prop <a> [.])
+base-004.values.json[4]: FAIL (.: not an object [.])
+base-004.values.json[5]: FAIL (.: not an object [.])
+base-004.values.json[6]: FAIL (.: not an object [.])
+base-004.values.json[7]: FAIL (.: not an object [.])
+base-004.values.json[8]: FAIL (.: not an object [.])
+base-004.values.json[9]: FAIL (.: not an object [.])
+base-004.values.json[10]: FAIL (.: not an object [.])
+base-004.values.json[11]: FAIL (.: not an object [.])
+base-004.values.json[12]: FAIL (.: not an object [.])

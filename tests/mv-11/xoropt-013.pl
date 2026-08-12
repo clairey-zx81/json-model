@@ -28,74 +28,140 @@ sub _jm_re_0($$$)
 sub _jm_obj_0($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'^'.0]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a")
         {
             # handle must a property
             $must_count++;
             # .'^'.0.a
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'^'.0.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'^'.0.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         # handle other props
         # .'^'.0.''
         # "/.../"
-        $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-        return 0 unless $res;
+        $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_0 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"/.../\" [.'^'.0.'']", defined $path ? $lpath_0 : undef] if defined $rep;
+            return 0;
+        }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <a> [.'^'.0.'']", $path] if defined $rep and not exists $$val{"a"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # object .'^'.1
 sub _jm_obj_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.'^'.1]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "b")
         {
             # handle must b property
             $must_count++;
             # .'^'.1.b
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'^'.1.b]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.'^'.1.b]", defined $path ? $lpath_1 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         # handle other props
         # .'^'.1.''
         # "/.../"
-        $res = jm_is_string($pval) && _jm_re_0($pval, undef, undef);
-        return 0 unless $res;
+        $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_1 : undef, $rep);
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"/.../\" [.'^'.1.'']", defined $path ? $lpath_1 : undef] if defined $rep;
+            return 0;
+        }
     }
-    return $must_count == 1;
+    if ($must_count != 1)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <b> [.'^'.1.'']", $path] if defined $rep and not exists $$val{"b"};
+        }
+        return 0;
+    }
+    return 1;
 }
 
 # check $ (.)
 sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res;
     # NOT ^ to |
     # .
     # generic xor list
     my $xc_0 = 0;
     # .'^'.0
-    my $xr_0 = _jm_obj_0($val, undef, undef);
-    $xc_0++ if $xr_0;
+    my $xr_0 = _jm_obj_0($val, $path, $rep);
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected element [.'^'.0]", $path] if defined $rep;
+    }
     # .'^'.1
-    $xr_0 = _jm_obj_1($val, undef, undef);
-    $xc_0++ if $xr_0;
-    return $xc_0 == 1;
+    $xr_0 = _jm_obj_1($val, $path, $rep);
+    if ($xr_0)
+    {
+        $xc_0++;
+    }
+    else
+    {
+        push @$rep, ["unexpected element [.'^'.1]", $path] if defined $rep;
+    }
+    my $res = $xc_0 == 1;
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["not one model match [.'^']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

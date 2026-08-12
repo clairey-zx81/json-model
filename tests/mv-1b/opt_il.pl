@@ -22,7 +22,9 @@ sub json_model_1($$$)
     # JSON_MODEL_LOOSE_INT
     # .
     # .'@'
-    return jm_is_integer($val);
+    my $res = jm_is_integer($val);
+    push @$rep, ["not a -1 loose int [.'\@']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

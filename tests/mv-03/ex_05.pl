@@ -22,7 +22,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ex05a'
-    return jm_is_integer($val) && $val >= 0;
+    my $res = jm_is_integer($val) && $val >= 0;
+    push @$rep, ["not a 0 strict int [.'\$Ex05a']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Ex05b (.'$Ex05b')
@@ -30,7 +32,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Ex05b'
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$Ex05b']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -39,8 +43,23 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     # .'|'.0
-    # .'|'.1
-    return json_model_2($val, undef, undef) || json_model_3($val, undef, undef);
+    my $res = json_model_2($val, $path, $rep);
+    unless ($res)
+    {
+        push @$rep, ["unexpected value for model \"\\\$Ex05a\" [.'|'.0]", $path] if defined $rep;
+        # .'|'.1
+        $res = json_model_3($val, $path, $rep);
+        push @$rep, ["unexpected value for model \"\\\$Ex05b\" [.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

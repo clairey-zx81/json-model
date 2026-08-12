@@ -23,7 +23,9 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # flatten and xor to or test
     # .
-    return jm_is_string($val) && exists $_jm_cst_0{$val};
+    my $res = jm_is_string($val) && exists $_jm_cst_0{$val};
+    push @$rep, ["value not in enum [.'|']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

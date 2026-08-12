@@ -23,8 +23,25 @@ sub json_model_1($$$)
     # .
     # .'@'
     # .'@'.'|'.0
-    # .'@'.'|'.1
-    return (jm_is_integer($val) && $val >= 1 || jm_is_string($val)) && jm_check_constraint($val, ">=", 10, undef, undef);
+    my $res = jm_is_integer($val) && $val >= 1;
+    unless ($res)
+    {
+        push @$rep, ["not a 1 strict int [.'\@'.'|'.0]", $path] if defined $rep;
+        # .'@'.'|'.1
+        $res = jm_is_string($val);
+        push @$rep, ["unexpected value for model \"\" [.'\@'.'|'.1]", $path] if defined $rep and not $res;
+    }
+    if ($res)
+    {
+        @$rep = () if defined $rep;
+        $res = jm_check_constraint($val, ">=", 10, $path, $rep);
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
+    }
+    else
+    {
+        push @$rep, ["no model matched [.'\@'.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 

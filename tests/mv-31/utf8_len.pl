@@ -31,7 +31,9 @@ sub _jm_f_0($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'0'
-    return jm_is_string($val) && $val eq "";
+    my $res = jm_is_string($val) && $val eq "";
+    push @$rep, ["unexpected value for model \"_\" [.'0']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_1 (.'1')
@@ -39,7 +41,9 @@ sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'1'
-    return jm_is_string($val) && $val eq "À";
+    my $res = jm_is_string($val) && $val eq "À";
+    push @$rep, ["unexpected value for model \"_À\" [.'1']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_2 (.'2')
@@ -47,7 +51,9 @@ sub _jm_f_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'2'
-    return jm_is_string($val) && $val eq "Àß";
+    my $res = jm_is_string($val) && $val eq "Àß";
+    push @$rep, ["unexpected value for model \"_Àß\" [.'2']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_3 (.'3')
@@ -55,7 +61,9 @@ sub _jm_f_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'3'
-    return jm_is_string($val) && $val eq "Àßç";
+    my $res = jm_is_string($val) && $val eq "Àßç";
+    push @$rep, ["unexpected value for model \"_Àßç\" [.'3']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_4 (.'4')
@@ -63,7 +71,9 @@ sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'4'
-    return jm_is_string($val) && $val eq "ÀßçΔ";
+    my $res = jm_is_string($val) && $val eq "ÀßçΔ";
+    push @$rep, ["unexpected value for model \"_ÀßçΔ\" [.'4']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_5 (.'5')
@@ -71,7 +81,9 @@ sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'5'
-    return jm_is_string($val) && $val eq "ÀßçΔ€";
+    my $res = jm_is_string($val) && $val eq "ÀßçΔ€";
+    push @$rep, ["unexpected value for model \"_ÀßçΔ€\" [.'5']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_6 (.'6')
@@ -79,7 +91,9 @@ sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'6'
-    return jm_is_string($val) && $val eq "ÀßçΔ€ᵳ";
+    my $res = jm_is_string($val) && $val eq "ÀßçΔ€ᵳ";
+    push @$rep, ["unexpected value for model \"_ÀßçΔ€ᵳ\" [.'6']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_7 (.'7')
@@ -87,7 +101,9 @@ sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'7'
-    return jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧ";
+    my $res = jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧ";
+    push @$rep, ["unexpected value for model \"_ÀßçΔ€ᵳǧ\" [.'7']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_8 (.'8')
@@ -95,7 +111,9 @@ sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'8'
-    return jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧℏ";
+    my $res = jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧℏ";
+    push @$rep, ["unexpected value for model \"_ÀßçΔ€ᵳǧℏ\" [.'8']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check json_model_1_map_9 (.'9')
@@ -103,7 +121,9 @@ sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'9'
-    return jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧℏı";
+    my $res = jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧℏı";
+    push @$rep, ["unexpected value for model \"_ÀßçΔ€ᵳǧℏı\" [.'9']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 
@@ -113,17 +133,27 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # char vs byte length
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $pfun;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_1_map{$prop}))
         {
             # handle 10 may props
-            return 0 if defined($pfun) && ! &$pfun($pval, undef, undef);
+            if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_0 : undef, $rep))
+            {
+                push @$rep, ["invalid optional prop value [.]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
         return 0;
     }
     return 1;

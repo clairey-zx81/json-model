@@ -21,19 +21,29 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # inline up to 3 must/may properties
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     my $must_count = 0;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "mu1")
         {
             # handle must mu1 property
             $must_count++;
             # .mu1
             $res = !defined($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not null [.mu1]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.mu1]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "mu2")
@@ -42,7 +52,12 @@ sub json_model_1($$$)
             $must_count++;
             # .mu2
             $res = jm_is_boolean($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a bool [.mu2]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.mu2]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "mu3")
@@ -51,7 +66,12 @@ sub json_model_1($$$)
             $must_count++;
             # .mu3
             $res = jm_is_integer($pval) && $pval >= 0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0 strict int [.mu3]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid mandatory prop value [.mu3]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         if ($prop eq "ma1")
@@ -59,7 +79,12 @@ sub json_model_1($$$)
             # handle may ma1 property
             # .ma1
             $res = jm_is_numeric($pval) && $pval >= 0.0;
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["not a 0.0 strict float [.ma1]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.ma1]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "ma2")
@@ -67,20 +92,41 @@ sub json_model_1($$$)
             # handle may ma2 property
             # .ma2
             $res = jm_is_string($pval);
-            return 0 unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.ma2]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.ma2]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
         elsif ($prop eq "ma3")
         {
             # handle may ma3 property
             # .ma3
-            $res = jm_is_string($pval) && jm_is_valid_date($pval, undef, undef);
-            return 0 unless $res;
+            $res = jm_is_string($pval) && jm_is_valid_date($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$DATE\" [.ma3]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.ma3]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
+        }
+        push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
+        return 0;
+    }
+    if ($must_count != 3)
+    {
+        if (defined $rep)
+        {
+            push @$rep, ["missing mandatory prop <mu1> [.]", $path] if defined $rep and not exists $$val{"mu1"};
+            push @$rep, ["missing mandatory prop <mu2> [.]", $path] if defined $rep and not exists $$val{"mu2"};
+            push @$rep, ["missing mandatory prop <mu3> [.]", $path] if defined $rep and not exists $$val{"mu3"};
         }
         return 0;
     }
-    return $must_count == 3;
+    return 1;
 }
 
 

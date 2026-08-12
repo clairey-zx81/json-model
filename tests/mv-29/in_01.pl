@@ -28,11 +28,17 @@ sub json_model_1($$$)
         for my $arr_0_idx (0 .. $#$val)
         {
             my $arr_0_item = $$val[$arr_0_idx];
+            my $arr_0_lpath = defined $path ? [@{$path}, $arr_0_idx] : undef;
             # .'@'.0
             $res = jm_is_string($arr_0_item);
-            last unless $res;
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\" [.'\@'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                last;
+            }
         }
     }
+    push @$rep, ["not array or unexpected array [.'\@']", $path] if defined $rep and not $res;
     # .in len at .
     my $arr_1_inlen = 0;
     if ($res)
@@ -40,12 +46,21 @@ sub json_model_1($$$)
         for my $arr_1_idx (0 .. $#$val)
         {
             my $arr_1_item = $$val[$arr_1_idx];
+            my $arr_1_lpath = defined $path ? [@{$path}, $arr_1_idx] : undef;
             # .'.in'
             # "/^a/"
             my $arr_1_inres = jm_is_string($arr_1_item) && jm_starts_with($arr_1_item, "a");
-            $arr_1_inlen++ if $arr_1_inres;
+            if ($arr_1_inres)
+            {
+                $arr_1_inlen++;
+            }
+            else
+            {
+                push @$rep, ["unexpected value for model \"/^a/\" [.'.in']", defined $path ? $arr_1_lpath : undef] if defined $rep;
+            }
         }
         $res = $arr_1_inlen == 2;
+        push @$rep, ["constraints failed [.]", $path] if defined $rep and not $res;
     }
     return $res;
 }

@@ -22,7 +22,9 @@ sub json_model_2($$$)
     # to serve as an external reference
     # .
     # .'@'
-    return jm_is_string($val) && $val eq "Susie";
+    my $res = jm_is_string($val) && $val eq "Susie";
+    push @$rep, ["unexpected value for model \"_Susie\" [.'\@']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 

@@ -22,7 +22,9 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$a'
-    return jm_is_string($val) && $val eq "a";
+    my $res = jm_is_string($val) && $val eq "a";
+    push @$rep, ["unexpected value for model \"_a\" [.'\$a']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $Aa (.'$Aa')
@@ -30,7 +32,9 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$Aa'
-    return jm_is_string($val);
+    my $res = jm_is_string($val);
+    push @$rep, ["unexpected value for model \"\" [.'\$Aa']", $path] if defined $rep and not $res;
+    return $res;
 }
 
 # check $ (.)
@@ -38,19 +42,30 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    return 0 unless jm_is_object($val);
+    unless (jm_is_object($val))
+    {
+        push @$rep, ["not an object [.]", $path] if defined $rep;
+        return 0;
+    }
     my $res;
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
+        my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "a")
         {
             # handle may a property
             # .a
-            $res = json_model_3($pval, undef, undef);
-            return 0 unless $res;
+            $res = json_model_3($pval, defined $path ? $lpath_0 : undef, $rep);
+            unless ($res)
+            {
+                push @$rep, ["unexpected value for model \"\\\$Aa\" [.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["invalid optional prop value [.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                return 0;
+            }
             next;
         }
+        push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;
         return 0;
     }
     return 1;

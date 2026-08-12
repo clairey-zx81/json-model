@@ -23,21 +23,42 @@ sub json_model_1($$$)
     my $res = jm_is_array($val) && scalar @$val == 4;
     if ($res)
     {
+        my $lpath_0 = defined $path ? [@{$path}, 0] : undef;
         # .0
         $res = jm_is_string($$val[0]);
         if ($res)
         {
+            $lpath_0 = defined $path ? [@{$path}, 1] : undef;
             # .1
             $res = jm_is_integer($$val[1]) && $$val[1] >= 0;
             if ($res)
             {
+                $lpath_0 = defined $path ? [@{$path}, 2] : undef;
                 # .2
                 $res = jm_is_boolean($$val[2]);
-                $res = jm_is_numeric($$val[3]) && $$val[3] >= 0.0 if $res;
-                # .3
+                if ($res)
+                {
+                    $lpath_0 = defined $path ? [@{$path}, 3] : undef;
+                    # .3
+                    $res = jm_is_numeric($$val[3]) && $$val[3] >= 0.0;
+                    push @$rep, ["not a 0.0 strict float [.3]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+                }
+                else
+                {
+                    push @$rep, ["not a bool [.2]", defined $path ? $lpath_0 : undef] if defined $rep;
+                }
+            }
+            else
+            {
+                push @$rep, ["not a 0 strict int [.1]", defined $path ? $lpath_0 : undef] if defined $rep;
             }
         }
+        else
+        {
+            push @$rep, ["unexpected value for model \"\" [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+        }
     }
+    push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

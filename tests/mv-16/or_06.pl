@@ -27,10 +27,33 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    # .'|'.0
-    # .'|'.1
-    # "/^[a-z]+$/"
-    return jm_is_string($val) && ($val eq "Susie" || _jm_re_0($val, undef, undef));
+    my $res = jm_is_string($val);
+    if ($res)
+    {
+        # .'|'.0
+        $res = $val eq "Susie";
+        unless ($res)
+        {
+            push @$rep, ["unexpected value for model \"_Susie\" [.'|'.0]", $path] if defined $rep;
+            # .'|'.1
+            # "/^[a-z]+$/"
+            $res = _jm_re_0($val, $path, $rep);
+            push @$rep, ["unexpected value for model \"/^[a-z]+\\\$/\" [.'|'.1]", $path] if defined $rep and not $res;
+        }
+        if ($res)
+        {
+            @$rep = () if defined $rep;
+        }
+        else
+        {
+            push @$rep, ["no model matched [.'|']", $path] if defined $rep;
+        }
+    }
+    else
+    {
+        push @$rep, ["unexpected type [.'|']", $path] if defined $rep;
+    }
+    return $res;
 }
 
 
