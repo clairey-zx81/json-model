@@ -2,6 +2,7 @@
 # Generate values from model
 #
 import copy
+import json
 import re
 import re._parser as _parser
 
@@ -11,6 +12,8 @@ from .resolver import Resolver
 from .objops import merge
 from . import analyze
 from .predefs import MODEL_PREDEFS
+from .script import model_checker_from_json
+from .runtime.types import EntryCheckFun
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
 _CONSTANTS = {"=null": None, "=true": True, "=false": False}
@@ -243,11 +246,45 @@ def _simplest_union(alts: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Js
                 pass
     raise UnsupportedValue(f"no alternative yields a value: {alts}")
 
+_CHECKERS: dict[str, EntryCheckFun|None] = {}
+
+def _verify(value: Jsonable, model: ModelType, jm: JsonModel) -> bool|None:
+    """Whether a value matches a model, None when no checker can be built."""
+    try:
+        defs = {name: node._model for name, node in jm._defs._syms.items()}
+        key = json.dumps({"$": defs, "@": model}, sort_keys=True)
+    except (TypeError, ValueError):
+        return None
+    if key not in _CHECKERS:
+        try:
+            _CHECKERS[key] = model_checker_from_json(json.loads(key))
+        except Exception:
+            _CHECKERS[key] = None
+    check = _CHECKERS[key]
+    return None if check is None else check(value, "", None)
+
+def _simplest_operator(op: str, alts: ModelArray, jm: JsonModel,
+                       seen: frozenset[str]) -> Jsonable:
+    """Simplest value satisfying an operator, checked against the whole model."""
+    models = [a for a in alts if not (isinstance(a, str) and a.startswith("#"))]
+    for alt in models:
+        try:
+            value = simplest(alt, jm, seen)
+        except UnsupportedValue:
+            continue
+        if _verify(value, {op: models}, jm) is True:
+            return value
+    raise UnsupportedValue(f"no alternative satisfies {op}: {alts}")
+
 def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a simple object model or a bare target model."""
     props = {p: m for p, m in model.items() if not p.startswith("#")}
     if set(props) == {"|"}:
         return _simplest_union(props["|"], jm, seen)
+    elif set(props) == {"^"}:
+        return _simplest_operator("^", props["^"], jm, seen)
+    elif set(props) == {"&"}:
+        return _simplest_operator("&", props["&"], jm, seen)
     elif "@" in props:
         others = set(props) - {"@"}
         if not others:
