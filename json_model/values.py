@@ -11,7 +11,7 @@ from .model import JsonModel
 from .resolver import Resolver
 from .objops import merge
 from . import analyze
-from .predefs import MODEL_PREDEFS
+from .predefs import MODEL_PREDEFS, PREDEFS
 from .script import model_checker_from_json
 from .runtime.types import EntryCheckFun
 
@@ -199,6 +199,57 @@ def _pick(lo: int|float|None, hi: int|float|None, ops: ModelObject,
             raise UnsupportedValue(f"empty constraint range: {ops}")
     return value
 
+def _variants(model: ModelType, jm: JsonModel, seen: frozenset[str],
+              count: int) -> list[Jsonable]:
+    """Distinct values matching a model, simplest first, at most count of them."""
+    values: list[Jsonable]
+    if model is None:
+        values = [None]
+    elif isinstance(model, bool):
+        values = [False, True]
+    elif isinstance(model, (int, float)):
+        one: int|float = 1.0 if isinstance(model, float) else 1
+        if model in (1, 1.0):
+            values = [one * i for i in range(1, count + 1)]
+        elif model in (0, 0.0):
+            values = [one * i for i in range(count)]
+        else:
+            values = [one * 0]
+            step = one
+            while len(values) < count:
+                values.append(step)
+                values.append(-step)
+                step += one
+    elif model == "":
+        values = [_ANY_CHAR * i for i in range(count)]
+    elif isinstance(model, str) and not model.startswith(("/", "$")):
+        values = [_simplest_string(model, jm, seen)]
+    elif model == "$ANY":
+        values = [{}, None, False, True, 0, "", []]
+    elif isinstance(model, str) and model[1:] in PREDEFS:
+        values = _variants(PREDEFS[model[1:]], jm, seen, count)
+    elif isinstance(model, str) and model.startswith("$"):
+        try:
+            ja = jm.resolveRef(model, [])
+        except (ModelError, AssertionError):
+            values = []
+        else:
+            values = ([] if ja._url in seen
+                      else _variants(ja._model, ja, seen | {ja._url}, count))
+    elif isinstance(model, dict) and set(model) == {"|"}:
+        values, keys = [], set()
+        for alt in model["|"]:
+            if isinstance(alt, str) and alt.startswith("#"):
+                continue
+            for value in _variants(alt, jm, seen, count):
+                key = json.dumps(value, sort_keys=True)
+                if key not in keys:
+                    keys.add(key)
+                    values.append(value)
+    else:
+        values = []
+    return values[:count]
+
 def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a constraint model."""
     target = props["@"]
@@ -230,7 +281,13 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
     if len(items) != 1:
         raise UnsupportedValue(f"cannot resize array model: {target}")
     elif unique and length > 1:
-        raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
+        values = _variants(items[0], jm, seen, length)
+        if len(values) < length:
+            raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
+        elif _verify(values, props, jm) is not True:
+            raise UnsupportedValue(f"unique constraint is not satisfiable: {target}")
+        else:
+            return values
     else:
         return [simplest(items[0], jm, seen)] * length
 
