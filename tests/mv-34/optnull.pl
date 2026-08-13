@@ -19,8 +19,9 @@ sub json_model_1($$$)
     return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "null")
         {
             $res = jm_is_string($pval) && exists $_jm_cst_0{$pval} || !defined($pval) && !defined($pval);

@@ -154,8 +154,9 @@ sub json_model_5($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -241,8 +242,9 @@ sub json_model_6($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -343,8 +345,9 @@ sub json_model_7($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -430,8 +433,9 @@ sub json_model_8($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -532,8 +536,9 @@ sub json_model_9($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -634,8 +639,9 @@ sub json_model_10($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {

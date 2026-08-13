@@ -68,8 +68,9 @@ sub _jm_obj_3($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "p30")
         {
             # handle must p30 property
@@ -110,8 +111,9 @@ sub json_model_1($$$)
     return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "mo0")
         {
             # handle may mo0 property

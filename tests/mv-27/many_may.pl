@@ -223,8 +223,9 @@ sub json_model_1($$$)
     return 0 unless jm_is_object($val);
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if (($pfun = $json_model_1_map{$prop}))
         {
             # handle 22 may props

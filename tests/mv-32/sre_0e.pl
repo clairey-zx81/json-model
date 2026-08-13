@@ -18,8 +18,9 @@ sub json_model_1($$$)
     return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if (length $prop >= 2 && length $prop <= 4)
         {
             $res = jm_is_integer($pval) && $pval >= 0;

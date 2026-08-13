@@ -50,8 +50,9 @@ sub _jm_obj_0($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -139,8 +140,9 @@ sub json_model_2($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "types")
         {
@@ -377,8 +379,9 @@ sub json_model_6($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "kind")
         {
@@ -446,8 +449,9 @@ sub json_model_7($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "kind")
         {
@@ -557,8 +561,9 @@ sub json_model_8($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -650,8 +655,9 @@ sub json_model_9($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "kind")
         {
@@ -760,8 +766,9 @@ sub json_model_10($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_6 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {

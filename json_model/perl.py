@@ -296,8 +296,10 @@ class Perl(Language):
             self.indent([f"my ${val} = {aref}[${idx}];"] + body)
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
-        return [ f"scalar keys %${obj};", f"while (my (${key}, ${val}) = each %${obj})" ] + \
-            self.indent(body)
+        return [
+            f"scalar keys %${obj};",
+            f"for my ${key} (sort keys %${obj})"
+        ] + self.indent( [ f"my ${val} = $${obj}{{${key}}};" ] + body)
 
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
         if isinstance(end, int):

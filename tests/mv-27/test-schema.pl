@@ -46,8 +46,9 @@ sub json_model_3($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "description")
         {
             # handle must description property
@@ -108,8 +109,9 @@ sub _jm_obj_0($$$)
     return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "core")
         {
             # handle may core property
@@ -196,8 +198,9 @@ sub json_model_5($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "description")
         {
             # handle must description property

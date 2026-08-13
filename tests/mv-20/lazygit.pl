@@ -396,8 +396,9 @@ sub _jm_obj_0($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -518,8 +519,9 @@ sub _jm_obj_3($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -604,8 +606,9 @@ sub _jm_obj_5($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "value")
         {
@@ -777,8 +780,9 @@ sub _jm_obj_6($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -950,8 +954,9 @@ sub _jm_obj_8($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_6 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "checkForConflicts")
         {
@@ -984,8 +989,9 @@ sub _jm_obj_7($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "key")
         {
@@ -1247,8 +1253,9 @@ sub _jm_f_8($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_8 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "signOff")
         {
@@ -1338,8 +1345,9 @@ sub _jm_f_9($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_9 = defined $path ? [@{$path}, $prop] : undef;
         if (_jm_re_1($prop, $path, $rep))
         {
@@ -1405,8 +1413,9 @@ sub _jm_f_13($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_10 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "order")
         {
@@ -1465,8 +1474,9 @@ sub _jm_f_14($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_11 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "manualCommit")
         {
@@ -1523,8 +1533,9 @@ sub _jm_f_16($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_12 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "colorArg")
         {
@@ -1614,8 +1625,9 @@ sub _jm_f_3($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_7 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_3_map{$prop}))
         {
@@ -1655,8 +1667,9 @@ sub _jm_f_21($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_14 = defined $path ? [@{$path}, $prop] : undef;
         if (_jm_re_1($prop, $path, $rep))
         {
@@ -1701,8 +1714,9 @@ sub _jm_f_23($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_15 = defined $path ? [@{$path}, $prop] : undef;
         if (_jm_re_1($prop, $path, $rep))
         {
@@ -1746,8 +1760,9 @@ sub _jm_f_25($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_16 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "show")
         {
@@ -2007,8 +2022,9 @@ sub _jm_f_45($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_17 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_45_map{$prop}))
         {
@@ -2060,8 +2076,9 @@ sub _jm_f_19($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_13 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_19_map{$prop}))
         {
@@ -2092,8 +2109,9 @@ sub _jm_f_49($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_19 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_49_map{$prop}))
         {
@@ -2123,8 +2141,9 @@ sub _jm_f_50($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_20 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "checkoutCommitFile")
         {
@@ -2158,8 +2177,9 @@ sub _jm_f_51($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_21 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_51_map{$prop}))
         {
@@ -2190,8 +2210,9 @@ sub _jm_f_52($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_22 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_52_map{$prop}))
         {
@@ -2221,8 +2242,9 @@ sub _jm_f_53($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_23 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "toggleDragSelect")
         {
@@ -2294,8 +2316,9 @@ sub _jm_f_54($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_24 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "popStash")
         {
@@ -2341,8 +2364,9 @@ sub _jm_f_55($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_25 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "checkForUpdate")
         {
@@ -2388,8 +2412,9 @@ sub _jm_f_56($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_26 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "init")
         {
@@ -2469,8 +2494,9 @@ sub _jm_f_57($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_27 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_57_map{$prop}))
         {
@@ -2501,8 +2527,9 @@ sub _jm_f_48($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_18 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $_jm_f_48_map{$prop}))
         {
@@ -2544,8 +2571,9 @@ sub _jm_f_61($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_28 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "copyToClipboardCmd")
         {
@@ -2698,8 +2726,9 @@ sub _jm_f_64($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_29 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "refreshInterval")
         {
@@ -2752,8 +2781,9 @@ sub _jm_f_65($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_30 = defined $path ? [@{$path}, $prop] : undef;
         if (_jm_re_1($prop, $path, $rep))
         {
@@ -2789,8 +2819,9 @@ sub _jm_f_66($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_31 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "method")
         {
@@ -2838,8 +2869,9 @@ sub json_model_1($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_1_map{$prop}))
         {

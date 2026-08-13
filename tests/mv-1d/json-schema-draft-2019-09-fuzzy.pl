@@ -128,8 +128,9 @@ sub _jm_f_1($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema#ObjectSchema'.'$defs'.''
@@ -175,8 +176,9 @@ sub _jm_f_4($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_2 : undef, $rep))
         {
@@ -246,8 +248,9 @@ sub _jm_f_9($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema#ObjectSchema'.definitions.''
@@ -273,8 +276,9 @@ sub _jm_f_10($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema#ObjectSchema'.dependencies.''
@@ -312,8 +316,9 @@ sub _jm_f_11($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema#ObjectSchema'.dependentRequired.''
@@ -339,8 +344,9 @@ sub _jm_f_12($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_6 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema#ObjectSchema'.dependentSchemas.''
@@ -501,8 +507,9 @@ sub _jm_f_25($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_7 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema#ObjectSchema'.patternProperties.''
@@ -528,8 +535,9 @@ sub _jm_f_26($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_8 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$schema#ObjectSchema'.properties.''
@@ -621,8 +629,9 @@ sub json_model_17($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_17_map{$prop}))
         {

@@ -241,8 +241,9 @@ sub json_model_2($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -303,8 +304,9 @@ sub json_model_3($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -366,8 +368,9 @@ sub json_model_4($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -429,8 +432,9 @@ sub json_model_5($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -491,8 +495,9 @@ sub json_model_6($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -554,8 +559,9 @@ sub json_model_7($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -616,8 +622,9 @@ sub json_model_8($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_6 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -679,8 +686,9 @@ sub json_model_9($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_7 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -742,8 +750,9 @@ sub json_model_10($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_8 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -805,8 +814,9 @@ sub json_model_11($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_9 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -868,8 +878,9 @@ sub json_model_12($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_10 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -931,8 +942,9 @@ sub json_model_13($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_11 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -994,8 +1006,9 @@ sub json_model_14($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_12 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1057,8 +1070,9 @@ sub json_model_15($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_13 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1120,8 +1134,9 @@ sub json_model_16($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_14 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1182,8 +1197,9 @@ sub json_model_17($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_15 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1244,8 +1260,9 @@ sub json_model_18($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_16 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1306,8 +1323,9 @@ sub json_model_19($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_17 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1368,8 +1386,9 @@ sub json_model_20($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_18 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1431,8 +1450,9 @@ sub json_model_21($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_19 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1493,8 +1513,9 @@ sub json_model_22($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_20 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1555,8 +1576,9 @@ sub json_model_23($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_21 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1618,8 +1640,9 @@ sub json_model_24($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_22 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1681,8 +1704,9 @@ sub json_model_25($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_23 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1744,8 +1768,9 @@ sub json_model_26($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_24 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1806,8 +1831,9 @@ sub json_model_27($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_25 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1869,8 +1895,9 @@ sub json_model_28($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_26 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1932,8 +1959,9 @@ sub json_model_29($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_27 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -1995,8 +2023,9 @@ sub json_model_30($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_28 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2058,8 +2087,9 @@ sub json_model_31($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_29 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2121,8 +2151,9 @@ sub json_model_32($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_30 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2184,8 +2215,9 @@ sub json_model_33($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_31 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2247,8 +2279,9 @@ sub json_model_34($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_32 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2309,8 +2342,9 @@ sub json_model_35($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_33 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2372,8 +2406,9 @@ sub json_model_36($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_34 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2435,8 +2470,9 @@ sub json_model_37($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_35 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2498,8 +2534,9 @@ sub json_model_38($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_36 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2561,8 +2598,9 @@ sub json_model_39($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_37 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2623,8 +2661,9 @@ sub json_model_40($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_38 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2686,8 +2725,9 @@ sub json_model_41($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_39 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2748,8 +2788,9 @@ sub json_model_42($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_40 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2810,8 +2851,9 @@ sub json_model_43($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_41 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2873,8 +2915,9 @@ sub json_model_44($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_42 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2936,8 +2979,9 @@ sub json_model_45($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_43 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -2998,8 +3042,9 @@ sub json_model_46($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_44 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -3061,8 +3106,9 @@ sub json_model_47($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_45 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -3124,8 +3170,9 @@ sub json_model_48($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_46 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "name")
         {
@@ -6522,8 +6569,9 @@ sub json_model_51($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_47 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "cloud_platforms")
         {
@@ -6647,8 +6695,9 @@ sub json_model_52($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_48 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "description")
         {
@@ -6876,8 +6925,9 @@ sub json_model_53($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_49 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "standalone")
         {
@@ -7126,8 +7176,9 @@ sub _jm_obj_47($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_50 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "standalone")
         {
@@ -7331,8 +7382,9 @@ sub _jm_obj_48($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_51 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "description")
         {
@@ -7810,8 +7862,9 @@ sub json_model_59($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_52 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "allow_duplicates")
         {

@@ -42,8 +42,9 @@ sub _jm_obj_0($$$)
     # value known to be an object
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (_jm_re_0($prop, $path, $rep))
         {

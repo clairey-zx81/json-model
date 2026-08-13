@@ -455,8 +455,9 @@ sub json_model_5($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "pattern")
         {
@@ -529,8 +530,9 @@ sub json_model_6($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_1 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "prefixItems")
         {
@@ -652,8 +654,9 @@ sub _jm_obj_0($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_3 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$objectKeywords'.properties.''
@@ -678,8 +681,9 @@ sub _jm_obj_1($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_4 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_regex($prop, defined $path ? $lpath_4 : undef, $rep))
         {
@@ -714,8 +718,9 @@ sub json_model_7($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_2 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "properties")
         {
@@ -855,8 +860,9 @@ sub json_model_8($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_5 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "minimum")
         {
@@ -922,8 +928,9 @@ sub _jm_f_2($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_7 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$metas'.'$defs'.''
@@ -979,8 +986,9 @@ sub _jm_f_6($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_8 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_8 : undef, $rep))
         {
@@ -1022,8 +1030,9 @@ sub _jm_f_8($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_9 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$metas'.definitions.''
@@ -1121,8 +1130,9 @@ sub json_model_9($$$)
     }
     my $pfun;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_6 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_9_map{$prop}))
         {
@@ -1172,8 +1182,9 @@ sub _jm_f_18($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_11 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$String'.'$defs'.''
@@ -1229,8 +1240,9 @@ sub _jm_f_22($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_12 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_12 : undef, $rep))
         {
@@ -1272,8 +1284,9 @@ sub _jm_f_24($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_13 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$String'.definitions.''
@@ -1413,8 +1426,9 @@ sub json_model_10($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_10 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -1486,8 +1500,9 @@ sub _jm_f_38($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_15 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Array'.'$defs'.''
@@ -1543,8 +1558,9 @@ sub _jm_f_42($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_16 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_16 : undef, $rep))
         {
@@ -1586,8 +1602,9 @@ sub _jm_f_44($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_17 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Array'.definitions.''
@@ -1741,8 +1758,9 @@ sub json_model_11($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_14 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -1814,8 +1832,9 @@ sub _jm_f_58($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_19 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Object'.'$defs'.''
@@ -1871,8 +1890,9 @@ sub _jm_f_62($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_20 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_20 : undef, $rep))
         {
@@ -1914,8 +1934,9 @@ sub _jm_f_64($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_21 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Object'.definitions.''
@@ -2001,8 +2022,9 @@ sub _jm_f_71($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_22 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_regex($prop, defined $path ? $lpath_22 : undef, $rep))
         {
@@ -2036,8 +2058,9 @@ sub _jm_f_72($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_23 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Object'.properties.''
@@ -2121,8 +2144,9 @@ sub json_model_12($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_18 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -2194,8 +2218,9 @@ sub _jm_f_79($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_25 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Integer'.'$defs'.''
@@ -2251,8 +2276,9 @@ sub _jm_f_83($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_26 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_26 : undef, $rep))
         {
@@ -2294,8 +2320,9 @@ sub _jm_f_85($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_27 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Integer'.definitions.''
@@ -2414,8 +2441,9 @@ sub json_model_13($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_24 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -2487,8 +2515,9 @@ sub _jm_f_97($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_29 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Number'.'$defs'.''
@@ -2544,8 +2573,9 @@ sub _jm_f_101($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_30 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_30 : undef, $rep))
         {
@@ -2587,8 +2617,9 @@ sub _jm_f_103($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_31 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Number'.definitions.''
@@ -2707,8 +2738,9 @@ sub json_model_14($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_28 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -2780,8 +2812,9 @@ sub _jm_f_115($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_33 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Bool'.'$defs'.''
@@ -2837,8 +2870,9 @@ sub _jm_f_119($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_34 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_34 : undef, $rep))
         {
@@ -2880,8 +2914,9 @@ sub _jm_f_121($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_35 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Bool'.definitions.''
@@ -2980,8 +3015,9 @@ sub json_model_15($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_32 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -3053,8 +3089,9 @@ sub _jm_f_131($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_37 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Null'.'$defs'.''
@@ -3110,8 +3147,9 @@ sub _jm_f_135($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_38 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_38 : undef, $rep))
         {
@@ -3153,8 +3191,9 @@ sub _jm_f_137($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_39 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Null'.definitions.''
@@ -3253,8 +3292,9 @@ sub json_model_16($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_36 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "type")
         {
@@ -3326,8 +3366,9 @@ sub _jm_f_147($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_41 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$AllOf'.'$defs'.''
@@ -3383,8 +3424,9 @@ sub _jm_f_151($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_42 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_42 : undef, $rep))
         {
@@ -3426,8 +3468,9 @@ sub _jm_f_153($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_43 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$AllOf'.definitions.''
@@ -3526,8 +3569,9 @@ sub json_model_17($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_40 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "allOf")
         {
@@ -3599,8 +3643,9 @@ sub _jm_f_163($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_45 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$AnyOf'.'$defs'.''
@@ -3656,8 +3701,9 @@ sub _jm_f_167($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_46 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_46 : undef, $rep))
         {
@@ -3699,8 +3745,9 @@ sub _jm_f_169($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_47 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$AnyOf'.definitions.''
@@ -3799,8 +3846,9 @@ sub json_model_18($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_44 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "anyOf")
         {
@@ -3872,8 +3920,9 @@ sub _jm_f_179($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_49 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$OneOf'.'$defs'.''
@@ -3929,8 +3978,9 @@ sub _jm_f_183($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_50 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_50 : undef, $rep))
         {
@@ -3972,8 +4022,9 @@ sub _jm_f_185($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_51 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$OneOf'.definitions.''
@@ -4072,8 +4123,9 @@ sub json_model_19($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_48 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "oneOf")
         {
@@ -4145,8 +4197,9 @@ sub _jm_f_195($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_53 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Enum'.'$defs'.''
@@ -4202,8 +4255,9 @@ sub _jm_f_199($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_54 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_54 : undef, $rep))
         {
@@ -4245,8 +4299,9 @@ sub _jm_f_201($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_55 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Enum'.definitions.''
@@ -4345,8 +4400,9 @@ sub json_model_20($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_52 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "enum")
         {
@@ -4418,8 +4474,9 @@ sub _jm_f_211($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_57 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Const'.'$defs'.''
@@ -4475,8 +4532,9 @@ sub _jm_f_215($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_58 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_58 : undef, $rep))
         {
@@ -4518,8 +4576,9 @@ sub _jm_f_217($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_59 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Const'.definitions.''
@@ -4618,8 +4677,9 @@ sub json_model_21($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_56 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "const")
         {
@@ -4691,8 +4751,9 @@ sub _jm_f_227($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_61 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Ref'.'$defs'.''
@@ -4748,8 +4809,9 @@ sub _jm_f_231($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_62 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_62 : undef, $rep))
         {
@@ -4791,8 +4853,9 @@ sub _jm_f_233($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_63 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$Ref'.definitions.''
@@ -4891,8 +4954,9 @@ sub json_model_22($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_60 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "\$ref")
         {
@@ -4964,8 +5028,9 @@ sub _jm_f_243($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_65 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$DynRef'.'$defs'.''
@@ -5021,8 +5086,9 @@ sub _jm_f_247($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_66 = defined $path ? [@{$path}, $prop] : undef;
         if (jm_is_valid_url($prop, defined $path ? $lpath_66 : undef, $rep))
         {
@@ -5064,8 +5130,9 @@ sub _jm_f_249($$$)
     }
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_67 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$DynRef'.definitions.''
@@ -5164,8 +5231,9 @@ sub json_model_23($$$)
     my $pfun;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         my $lpath_64 = defined $path ? [@{$path}, $prop] : undef;
         if ($prop eq "\$dynamicRef")
         {

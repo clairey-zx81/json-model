@@ -26,8 +26,9 @@ sub _jm_obj_0($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "a")
         {
             # handle must a property
@@ -75,8 +76,9 @@ sub _jm_obj_1($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "a")
         {
             # handle must a property
@@ -124,8 +126,9 @@ sub _jm_obj_2($$$)
     my $res;
     my $must_count = 0;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if ($prop eq "a")
         {
             # handle must a property

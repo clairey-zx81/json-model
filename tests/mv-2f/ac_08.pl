@@ -24,8 +24,9 @@ sub json_model_1($$$)
     return 0 unless jm_is_object($val);
     my $res;
     scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
+    for my $prop (sort keys %$val)
     {
+        my $pval = $$val{$prop};
         if (_jm_re_0($prop, undef, undef))
         {
             $res = jm_is_string($pval);
