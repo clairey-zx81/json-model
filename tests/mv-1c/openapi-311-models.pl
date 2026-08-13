@@ -155,7 +155,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi'
     my $res = json_model_4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$OpenAPI\" [.'\$openapi']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$OpenAPI\" [.'\$openapi']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -165,7 +165,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$openapi\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$openapi\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -196,7 +196,7 @@ sub _jm_obj_0($$$)
         $res = json_model_12($pval, defined $path ? $lpath_1 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$PathItem\" [.'\$openapi#OpenAPI'.webhooks.'']", defined $path ? $lpath_1 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$PathItem\" [.'\$openapi#OpenAPI'.webhooks.'']", defined $path ? $lpath_1 : undef] if defined $rep;
             return 0;
         }
     }
@@ -229,7 +229,7 @@ sub json_model_4($$$)
             $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^3\\\\.1\\\\.\\\\d+(-.+)?\\\$/\" [.'\$openapi#OpenAPI'.openapi]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^3\\\\.1\\\\.\\\\d+(-.+)?\$/\" [.'\$openapi#OpenAPI'.openapi]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#OpenAPI'.openapi]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -243,7 +243,7 @@ sub json_model_4($$$)
             $res = json_model_5($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Info\" [.'\$openapi#OpenAPI'.info]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Info\" [.'\$openapi#OpenAPI'.info]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#OpenAPI'.info]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -264,7 +264,7 @@ sub json_model_4($$$)
                     $res = json_model_8($arr_0_item, defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$Server\" [.'\$openapi#OpenAPI'.servers.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$Server\" [.'\$openapi#OpenAPI'.servers.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -284,7 +284,7 @@ sub json_model_4($$$)
             $res = json_model_11($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Paths\" [.'\$openapi#OpenAPI'.paths]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Paths\" [.'\$openapi#OpenAPI'.paths]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.paths]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -310,7 +310,7 @@ sub json_model_4($$$)
             $res = json_model_10($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Components\" [.'\$openapi#OpenAPI'.components]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Components\" [.'\$openapi#OpenAPI'.components]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.components]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -331,7 +331,7 @@ sub json_model_4($$$)
                     $res = json_model_45($arr_1_item, defined (defined $path ? $lpath_0 : undef) ? $arr_1_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$SecurityRequirement\" [.'\$openapi#OpenAPI'.security.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_1_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$SecurityRequirement\" [.'\$openapi#OpenAPI'.security.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_1_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -359,7 +359,7 @@ sub json_model_4($$$)
                     $res = json_model_31($arr_2_item, defined (defined $path ? $lpath_0 : undef) ? $arr_2_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$Tag\" [.'\$openapi#OpenAPI'.tags.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_2_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$Tag\" [.'\$openapi#OpenAPI'.tags.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_2_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -379,7 +379,7 @@ sub json_model_4($$$)
             $res = json_model_14($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$ExternalDocumentation\" [.'\$openapi#OpenAPI'.externalDocs]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$ExternalDocumentation\" [.'\$openapi#OpenAPI'.externalDocs]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.externalDocs]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -392,7 +392,7 @@ sub json_model_4($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#OpenAPI'.jsonModelVersion]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#OpenAPI'.jsonModelVersion]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OpenAPI'.jsonModelVersion]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -513,7 +513,7 @@ sub json_model_5($$$)
             $res = json_model_6($pval, defined $path ? $lpath_2 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Contact\" [.'\$openapi#Info'.contact]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Contact\" [.'\$openapi#Info'.contact]", defined $path ? $lpath_2 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#Info'.contact]", defined $path ? $lpath_2 : undef] if defined $rep;
                 return 0;
             }
@@ -526,7 +526,7 @@ sub json_model_5($$$)
             $res = json_model_7($pval, defined $path ? $lpath_2 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$License\" [.'\$openapi#Info'.license]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$License\" [.'\$openapi#Info'.license]", defined $path ? $lpath_2 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#Info'.license]", defined $path ? $lpath_2 : undef] if defined $rep;
                 return 0;
             }
@@ -592,7 +592,7 @@ sub json_model_6($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_3 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#Contact'.url]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#Contact'.url]", defined $path ? $lpath_3 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#Contact'.url]", defined $path ? $lpath_3 : undef] if defined $rep;
                 return 0;
             }
@@ -667,7 +667,7 @@ sub _jm_obj_1($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_4 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#License'.'|'.1.url]", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#License'.'|'.1.url]", defined $path ? $lpath_4 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#License'.'|'.1.url]", defined $path ? $lpath_4 : undef] if defined $rep;
                 return 0;
             }
@@ -814,7 +814,7 @@ sub _jm_obj_3($$$)
         $res = json_model_9($pval, defined $path ? $lpath_7 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$ServerVariable\" [.'\$openapi#Server'.variables.'']", defined $path ? $lpath_7 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$ServerVariable\" [.'\$openapi#Server'.variables.'']", defined $path ? $lpath_7 : undef] if defined $rep;
             return 0;
         }
     }
@@ -846,7 +846,7 @@ sub json_model_8($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_6 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#Server'.url]", defined $path ? $lpath_6 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#Server'.url]", defined $path ? $lpath_6 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#Server'.url]", defined $path ? $lpath_6 : undef] if defined $rep;
                 return 0;
             }
@@ -1018,10 +1018,10 @@ sub _jm_f_0($$$)
         $res = json_model_26($pval, defined $path ? $lpath_10 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Callback\" [.'\$openapi#Components'.callbacks.''.'|'.0]", defined $path ? $lpath_10 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Callback\" [.'\$openapi#Components'.callbacks.''.'|'.0]", defined $path ? $lpath_10 : undef] if defined $rep;
             # .'$openapi#Components'.callbacks.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_10 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.callbacks.''.'|'.1]", defined $path ? $lpath_10 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.callbacks.''.'|'.1]", defined $path ? $lpath_10 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1058,10 +1058,10 @@ sub _jm_f_1($$$)
         $res = json_model_27($pval, defined $path ? $lpath_11 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Example\" [.'\$openapi#Components'.examples.''.'|'.0]", defined $path ? $lpath_11 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Example\" [.'\$openapi#Components'.examples.''.'|'.0]", defined $path ? $lpath_11 : undef] if defined $rep;
             # .'$openapi#Components'.examples.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_11 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.examples.''.'|'.1]", defined $path ? $lpath_11 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.examples.''.'|'.1]", defined $path ? $lpath_11 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1098,10 +1098,10 @@ sub _jm_f_2($$$)
         $res = json_model_30($pval, defined $path ? $lpath_12 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Header\" [.'\$openapi#Components'.headers.''.'|'.0]", defined $path ? $lpath_12 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Header\" [.'\$openapi#Components'.headers.''.'|'.0]", defined $path ? $lpath_12 : undef] if defined $rep;
             # .'$openapi#Components'.headers.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_12 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.headers.''.'|'.1]", defined $path ? $lpath_12 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.headers.''.'|'.1]", defined $path ? $lpath_12 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1138,10 +1138,10 @@ sub _jm_f_3($$$)
         $res = json_model_29($pval, defined $path ? $lpath_13 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Link\" [.'\$openapi#Components'.links.''.'|'.0]", defined $path ? $lpath_13 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Link\" [.'\$openapi#Components'.links.''.'|'.0]", defined $path ? $lpath_13 : undef] if defined $rep;
             # .'$openapi#Components'.links.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_13 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.links.''.'|'.1]", defined $path ? $lpath_13 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.links.''.'|'.1]", defined $path ? $lpath_13 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1177,7 +1177,7 @@ sub _jm_f_4($$$)
         $res = json_model_97($pval, defined $path ? $lpath_14 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#Components'.models.'']", defined $path ? $lpath_14 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Model\" [.'\$openapi#Components'.models.'']", defined $path ? $lpath_14 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1206,10 +1206,10 @@ sub _jm_f_5($$$)
         $res = json_model_20($pval, defined $path ? $lpath_15 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Parameter\" [.'\$openapi#Components'.parameters.''.'|'.0]", defined $path ? $lpath_15 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Parameter\" [.'\$openapi#Components'.parameters.''.'|'.0]", defined $path ? $lpath_15 : undef] if defined $rep;
             # .'$openapi#Components'.parameters.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_15 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.parameters.''.'|'.1]", defined $path ? $lpath_15 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.parameters.''.'|'.1]", defined $path ? $lpath_15 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1246,10 +1246,10 @@ sub _jm_f_6($$$)
         $res = json_model_12($pval, defined $path ? $lpath_16 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$PathItem\" [.'\$openapi#Components'.pathItems.''.'|'.0]", defined $path ? $lpath_16 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$PathItem\" [.'\$openapi#Components'.pathItems.''.'|'.0]", defined $path ? $lpath_16 : undef] if defined $rep;
             # .'$openapi#Components'.pathItems.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_16 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.pathItems.''.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.pathItems.''.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1286,10 +1286,10 @@ sub _jm_f_7($$$)
         $res = json_model_21($pval, defined $path ? $lpath_17 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$RequestBody\" [.'\$openapi#Components'.requestBodies.''.'|'.0]", defined $path ? $lpath_17 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$RequestBody\" [.'\$openapi#Components'.requestBodies.''.'|'.0]", defined $path ? $lpath_17 : undef] if defined $rep;
             # .'$openapi#Components'.requestBodies.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_17 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.requestBodies.''.'|'.1]", defined $path ? $lpath_17 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.requestBodies.''.'|'.1]", defined $path ? $lpath_17 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1326,10 +1326,10 @@ sub _jm_f_8($$$)
         $res = json_model_25($pval, defined $path ? $lpath_18 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$openapi#Components'.responses.''.'|'.0]", defined $path ? $lpath_18 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Response\" [.'\$openapi#Components'.responses.''.'|'.0]", defined $path ? $lpath_18 : undef] if defined $rep;
             # .'$openapi#Components'.responses.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_18 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.responses.''.'|'.1]", defined $path ? $lpath_18 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.responses.''.'|'.1]", defined $path ? $lpath_18 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1366,10 +1366,10 @@ sub _jm_f_9($$$)
         $res = json_model_42($pval, defined $path ? $lpath_19 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$SecurityScheme\" [.'\$openapi#Components'.securitySchemes.''.'|'.0]", defined $path ? $lpath_19 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$SecurityScheme\" [.'\$openapi#Components'.securitySchemes.''.'|'.0]", defined $path ? $lpath_19 : undef] if defined $rep;
             # .'$openapi#Components'.securitySchemes.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_19 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Components'.securitySchemes.''.'|'.1]", defined $path ? $lpath_19 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Components'.securitySchemes.''.'|'.1]", defined $path ? $lpath_19 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1450,7 +1450,7 @@ sub json_model_11($$$)
             $res = json_model_12($pval, defined $path ? $lpath_20 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$PathItem\" [.'\$openapi#Paths'.'/^//']", defined $path ? $lpath_20 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$PathItem\" [.'\$openapi#Paths'.'/^//']", defined $path ? $lpath_20 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -1475,7 +1475,7 @@ sub _jm_f_10($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#PathItem'.'$ref'
     my $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$URI\" [.'\$openapi#PathItem'.'\$ref']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$URI\" [.'\$openapi#PathItem'.'\$ref']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1506,10 +1506,10 @@ sub _jm_f_12($$$)
             $res = json_model_20($arr_4_item, defined $path ? $arr_4_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Parameter\" [.'\$openapi#PathItem'.parameters.0.'|'.0]", defined $path ? $arr_4_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Parameter\" [.'\$openapi#PathItem'.parameters.0.'|'.0]", defined $path ? $arr_4_lpath : undef] if defined $rep;
                 # .'$openapi#PathItem'.parameters.0.'|'.1
                 $res = json_model_32($arr_4_item, defined $path ? $arr_4_lpath : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#PathItem'.parameters.0.'|'.1]", defined $path ? $arr_4_lpath : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#PathItem'.parameters.0.'|'.1]", defined $path ? $arr_4_lpath : undef] if defined $rep and not $res;
             }
             if ($res)
             {
@@ -1542,7 +1542,7 @@ sub _jm_f_13($$$)
             $res = json_model_13($arr_5_item, defined $path ? $arr_5_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Operation\" [.'\$openapi#PathItem'.servers.0]", defined $path ? $arr_5_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Operation\" [.'\$openapi#PathItem'.servers.0]", defined $path ? $arr_5_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -1626,10 +1626,10 @@ sub _jm_f_15($$$)
         $res = json_model_26($pval, defined $path ? $lpath_23 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Callback\" [.'\$openapi#Operation'.callbacks.''.'|'.0]", defined $path ? $lpath_23 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Callback\" [.'\$openapi#Operation'.callbacks.''.'|'.0]", defined $path ? $lpath_23 : undef] if defined $rep;
             # .'$openapi#Operation'.callbacks.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_23 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Operation'.callbacks.''.'|'.1]", defined $path ? $lpath_23 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Operation'.callbacks.''.'|'.1]", defined $path ? $lpath_23 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -1691,10 +1691,10 @@ sub _jm_f_19($$$)
             $res = json_model_20($arr_6_item, defined $path ? $arr_6_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Parameter\" [.'\$openapi#Operation'.parameters.0.'|'.0]", defined $path ? $arr_6_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Parameter\" [.'\$openapi#Operation'.parameters.0.'|'.0]", defined $path ? $arr_6_lpath : undef] if defined $rep;
                 # .'$openapi#Operation'.parameters.0.'|'.1
                 $res = json_model_32($arr_6_item, defined $path ? $arr_6_lpath : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Operation'.parameters.0.'|'.1]", defined $path ? $arr_6_lpath : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Operation'.parameters.0.'|'.1]", defined $path ? $arr_6_lpath : undef] if defined $rep and not $res;
             }
             if ($res)
             {
@@ -1720,10 +1720,10 @@ sub _jm_f_20($$$)
     my $res = json_model_21($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$RequestBody\" [.'\$openapi#Operation'.requestBody.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$RequestBody\" [.'\$openapi#Operation'.requestBody.'|'.0]", $path] if defined $rep;
         # .'$openapi#Operation'.requestBody.'|'.1
         $res = json_model_32($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Operation'.requestBody.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Operation'.requestBody.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -1752,7 +1752,7 @@ sub _jm_f_21($$$)
             $res = json_model_45($arr_7_item, defined $path ? $arr_7_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$SecurityRequirement\" [.'\$openapi#Operation'.security.0]", defined $path ? $arr_7_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$SecurityRequirement\" [.'\$openapi#Operation'.security.0]", defined $path ? $arr_7_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -1777,7 +1777,7 @@ sub _jm_f_22($$$)
             $res = json_model_8($arr_8_item, defined $path ? $arr_8_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Server\" [.'\$openapi#Operation'.servers.0]", defined $path ? $arr_8_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Server\" [.'\$openapi#Operation'.servers.0]", defined $path ? $arr_8_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -1889,7 +1889,7 @@ sub json_model_14($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_24 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#ExternalDocumentation'.url]", defined $path ? $lpath_24 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#ExternalDocumentation'.url]", defined $path ? $lpath_24 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#ExternalDocumentation'.url]", defined $path ? $lpath_24 : undef] if defined $rep;
                 return 0;
             }
@@ -1952,7 +1952,7 @@ sub _jm_obj_5($$$)
         $res = json_model_22($pval, defined $path ? $lpath_26 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$MediaType\" [.'\$openapi#Parameter'.'|'.1.content.'']", defined $path ? $lpath_26 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$MediaType\" [.'\$openapi#Parameter'.'|'.1.content.'']", defined $path ? $lpath_26 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2159,10 +2159,10 @@ sub _jm_f_30($$$)
         $res = json_model_27($pval, defined $path ? $lpath_28 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Example\" [.'\$openapi#Parameter'.'|'.0.examples.''.'|'.0]", defined $path ? $lpath_28 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Example\" [.'\$openapi#Parameter'.'|'.0.examples.''.'|'.0]", defined $path ? $lpath_28 : undef] if defined $rep;
             # .'$openapi#Parameter'.'|'.0.examples.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_28 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Parameter'.'|'.0.examples.''.'|'.1]", defined $path ? $lpath_28 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Parameter'.'|'.0.examples.''.'|'.1]", defined $path ? $lpath_28 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -2338,7 +2338,7 @@ sub _jm_obj_7($$$)
         $res = json_model_22($pval, defined $path ? $lpath_30 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$MediaType\" [.'\$openapi#RequestBody'.content.'']", defined $path ? $lpath_30 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$MediaType\" [.'\$openapi#RequestBody'.content.'']", defined $path ? $lpath_30 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2436,10 +2436,10 @@ sub _jm_obj_8($$$)
         $res = json_model_27($pval, defined $path ? $lpath_32 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Example\" [.'\$openapi#MediaType'.examples.''.'|'.0]", defined $path ? $lpath_32 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Example\" [.'\$openapi#MediaType'.examples.''.'|'.0]", defined $path ? $lpath_32 : undef] if defined $rep;
             # .'$openapi#MediaType'.examples.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_32 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#MediaType'.examples.''.'|'.1]", defined $path ? $lpath_32 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#MediaType'.examples.''.'|'.1]", defined $path ? $lpath_32 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -2474,7 +2474,7 @@ sub _jm_obj_9($$$)
         $res = json_model_23($pval, defined $path ? $lpath_33 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Encoding\" [.'\$openapi#MediaType'.encoding.'']", defined $path ? $lpath_33 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Encoding\" [.'\$openapi#MediaType'.encoding.'']", defined $path ? $lpath_33 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2537,7 +2537,7 @@ sub json_model_22($$$)
             $res = json_model_97($pval, defined $path ? $lpath_31 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#MediaType'.model]", defined $path ? $lpath_31 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Model\" [.'\$openapi#MediaType'.model]", defined $path ? $lpath_31 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#MediaType'.model]", defined $path ? $lpath_31 : undef] if defined $rep;
                 return 0;
             }
@@ -2579,10 +2579,10 @@ sub _jm_obj_10($$$)
         $res = json_model_30($pval, defined $path ? $lpath_35 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Header\" [.'\$openapi#Encoding'.headers.''.'|'.0]", defined $path ? $lpath_35 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Header\" [.'\$openapi#Encoding'.headers.''.'|'.0]", defined $path ? $lpath_35 : undef] if defined $rep;
             # .'$openapi#Encoding'.headers.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_35 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Encoding'.headers.''.'|'.1]", defined $path ? $lpath_35 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Encoding'.headers.''.'|'.1]", defined $path ? $lpath_35 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -2646,7 +2646,7 @@ sub json_model_23($$$)
             $res = json_model_17($pval, defined $path ? $lpath_34 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Style\" [.'\$openapi#Encoding'.style]", defined $path ? $lpath_34 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Style\" [.'\$openapi#Encoding'.style]", defined $path ? $lpath_34 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#Encoding'.style]", defined $path ? $lpath_34 : undef] if defined $rep;
                 return 0;
             }
@@ -2724,10 +2724,10 @@ sub json_model_24($$$)
             $res = json_model_25($pval, defined $path ? $lpath_36 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$openapi#Responses'.default.'|'.0]", defined $path ? $lpath_36 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Response\" [.'\$openapi#Responses'.default.'|'.0]", defined $path ? $lpath_36 : undef] if defined $rep;
                 # .'$openapi#Responses'.default.'|'.1
                 $res = json_model_32($pval, defined $path ? $lpath_36 : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Responses'.default.'|'.1]", defined $path ? $lpath_36 : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Responses'.default.'|'.1]", defined $path ? $lpath_36 : undef] if defined $rep and not $res;
             }
             if ($res)
             {
@@ -2749,10 +2749,10 @@ sub json_model_24($$$)
             $res = json_model_25($pval, defined $path ? $lpath_36 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$openapi#Responses'.'/^[1-5](\\\\d\\\\d|XX)\$/'.'|'.0]", defined $path ? $lpath_36 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Response\" [.'\$openapi#Responses'.'/^[1-5](\\\\d\\\\d|XX)\$/'.'|'.0]", defined $path ? $lpath_36 : undef] if defined $rep;
                 # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.1
                 $res = json_model_32($pval, defined $path ? $lpath_36 : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Responses'.'/^[1-5](\\\\d\\\\d|XX)\$/'.'|'.1]", defined $path ? $lpath_36 : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Responses'.'/^[1-5](\\\\d\\\\d|XX)\$/'.'|'.1]", defined $path ? $lpath_36 : undef] if defined $rep and not $res;
             }
             if ($res)
             {
@@ -2800,10 +2800,10 @@ sub _jm_obj_11($$$)
         $res = json_model_30($pval, defined $path ? $lpath_38 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Header\" [.'\$openapi#Response'.headers.''.'|'.0]", defined $path ? $lpath_38 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Header\" [.'\$openapi#Response'.headers.''.'|'.0]", defined $path ? $lpath_38 : undef] if defined $rep;
             # .'$openapi#Response'.headers.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_38 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Response'.headers.''.'|'.1]", defined $path ? $lpath_38 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Response'.headers.''.'|'.1]", defined $path ? $lpath_38 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -2838,7 +2838,7 @@ sub _jm_obj_12($$$)
         $res = json_model_22($pval, defined $path ? $lpath_39 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$MediaType\" [.'\$openapi#Response'.content.'']", defined $path ? $lpath_39 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$MediaType\" [.'\$openapi#Response'.content.'']", defined $path ? $lpath_39 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2866,10 +2866,10 @@ sub _jm_obj_13($$$)
         $res = json_model_29($pval, defined $path ? $lpath_40 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Link\" [.'\$openapi#Response'.links.''.'|'.0]", defined $path ? $lpath_40 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Link\" [.'\$openapi#Response'.links.''.'|'.0]", defined $path ? $lpath_40 : undef] if defined $rep;
             # .'$openapi#Response'.links.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_40 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Response'.links.''.'|'.1]", defined $path ? $lpath_40 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Response'.links.''.'|'.1]", defined $path ? $lpath_40 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -2991,10 +2991,10 @@ sub json_model_26($$$)
             $res = json_model_12($pval, defined $path ? $lpath_41 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$PathItem\" [.'\$openapi#Callback'.'\$Expression'.'|'.0]", defined $path ? $lpath_41 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$PathItem\" [.'\$openapi#Callback'.'\$Expression'.'|'.0]", defined $path ? $lpath_41 : undef] if defined $rep;
                 # .'$openapi#Callback'.'$Expression'.'|'.1
                 $res = json_model_32($pval, defined $path ? $lpath_41 : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Callback'.'\$Expression'.'|'.1]", defined $path ? $lpath_41 : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Callback'.'\$Expression'.'|'.1]", defined $path ? $lpath_41 : undef] if defined $rep and not $res;
             }
             if ($res)
             {
@@ -3173,7 +3173,7 @@ sub _jm_obj_14($$$)
             $res = json_model_8($pval, defined $path ? $lpath_43 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Server\" [.'\$openapi#Link'.'|'.1.server]", defined $path ? $lpath_43 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Server\" [.'\$openapi#Link'.'|'.1.server]", defined $path ? $lpath_43 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#Link'.'|'.1.server]", defined $path ? $lpath_43 : undef] if defined $rep;
                 return 0;
             }
@@ -3267,7 +3267,7 @@ sub _jm_obj_15($$$)
             $res = json_model_8($pval, defined $path ? $lpath_44 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Server\" [.'\$openapi#Link'.'|'.0.server]", defined $path ? $lpath_44 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Server\" [.'\$openapi#Link'.'|'.0.server]", defined $path ? $lpath_44 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#Link'.'|'.0.server]", defined $path ? $lpath_44 : undef] if defined $rep;
                 return 0;
             }
@@ -3349,7 +3349,7 @@ sub _jm_obj_17($$$)
         $res = json_model_22($pval, defined $path ? $lpath_46 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$MediaType\" [.'\$openapi#Header'.'|'.1.content.'']", defined $path ? $lpath_46 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$MediaType\" [.'\$openapi#Header'.'|'.1.content.'']", defined $path ? $lpath_46 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3517,10 +3517,10 @@ sub _jm_f_38($$$)
         $res = json_model_27($pval, defined $path ? $lpath_48 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Example\" [.'\$openapi#Header'.'|'.0.examples.''.'|'.0]", defined $path ? $lpath_48 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Example\" [.'\$openapi#Header'.'|'.0.examples.''.'|'.0]", defined $path ? $lpath_48 : undef] if defined $rep;
             # .'$openapi#Header'.'|'.0.examples.''.'|'.1
             $res = json_model_32($pval, defined $path ? $lpath_48 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Reference\" [.'\$openapi#Header'.'|'.0.examples.''.'|'.1]", defined $path ? $lpath_48 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Reference\" [.'\$openapi#Header'.'|'.0.examples.''.'|'.1]", defined $path ? $lpath_48 : undef] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -3678,7 +3678,7 @@ sub json_model_31($$$)
             $res = json_model_14($pval, defined $path ? $lpath_49 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$ExternalDocumentation\" [.'\$openapi#Tag'.externalDocs]", defined $path ? $lpath_49 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$ExternalDocumentation\" [.'\$openapi#Tag'.externalDocs]", defined $path ? $lpath_49 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#Tag'.externalDocs]", defined $path ? $lpath_49 : undef] if defined $rep;
                 return 0;
             }
@@ -4069,7 +4069,7 @@ sub _jm_obj_22($$$)
             $res = json_model_43($pval, defined $path ? $lpath_54 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$OAuthFlows\" [.'\$openapi#SecurityScheme'.'|'.3.flows]", defined $path ? $lpath_54 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$OAuthFlows\" [.'\$openapi#SecurityScheme'.'|'.3.flows]", defined $path ? $lpath_54 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.3.flows]", defined $path ? $lpath_54 : undef] if defined $rep;
                 return 0;
             }
@@ -4141,7 +4141,7 @@ sub _jm_obj_23($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_55 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#SecurityScheme'.'|'.4.openIdConnectUrl]", defined $path ? $lpath_55 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#SecurityScheme'.'|'.4.openIdConnectUrl]", defined $path ? $lpath_55 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#SecurityScheme'.'|'.4.openIdConnectUrl]", defined $path ? $lpath_55 : undef] if defined $rep;
                 return 0;
             }
@@ -4289,7 +4289,7 @@ sub json_model_43($$$)
             $res = json_model_44($pval, defined $path ? $lpath_57 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$OAuthFlow\" [.'\$openapi#OAuthFlows'.implicit]", defined $path ? $lpath_57 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$OAuthFlow\" [.'\$openapi#OAuthFlows'.implicit]", defined $path ? $lpath_57 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlows'.implicit]", defined $path ? $lpath_57 : undef] if defined $rep;
                 return 0;
             }
@@ -4302,7 +4302,7 @@ sub json_model_43($$$)
             $res = json_model_44($pval, defined $path ? $lpath_57 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$OAuthFlow\" [.'\$openapi#OAuthFlows'.password]", defined $path ? $lpath_57 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$OAuthFlow\" [.'\$openapi#OAuthFlows'.password]", defined $path ? $lpath_57 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlows'.password]", defined $path ? $lpath_57 : undef] if defined $rep;
                 return 0;
             }
@@ -4315,7 +4315,7 @@ sub json_model_43($$$)
             $res = json_model_44($pval, defined $path ? $lpath_57 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$OAuthFlow\" [.'\$openapi#OAuthFlows'.clientCredentials]", defined $path ? $lpath_57 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$OAuthFlow\" [.'\$openapi#OAuthFlows'.clientCredentials]", defined $path ? $lpath_57 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlows'.clientCredentials]", defined $path ? $lpath_57 : undef] if defined $rep;
                 return 0;
             }
@@ -4328,7 +4328,7 @@ sub json_model_43($$$)
             $res = json_model_44($pval, defined $path ? $lpath_57 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$OAuthFlow\" [.'\$openapi#OAuthFlows'.authorizationCode]", defined $path ? $lpath_57 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$OAuthFlow\" [.'\$openapi#OAuthFlows'.authorizationCode]", defined $path ? $lpath_57 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlows'.authorizationCode]", defined $path ? $lpath_57 : undef] if defined $rep;
                 return 0;
             }
@@ -4401,7 +4401,7 @@ sub json_model_44($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_58 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#OAuthFlow'.authorizationUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#OAuthFlow'.authorizationUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#OAuthFlow'.authorizationUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
                 return 0;
             }
@@ -4415,7 +4415,7 @@ sub json_model_44($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_58 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#OAuthFlow'.tokenUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#OAuthFlow'.tokenUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#OAuthFlow'.tokenUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
                 return 0;
             }
@@ -4442,7 +4442,7 @@ sub json_model_44($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_58 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$openapi#OAuthFlow'.refreshUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$openapi#OAuthFlow'.refreshUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#OAuthFlow'.refreshUrl]", defined $path ? $lpath_58 : undef] if defined $rep;
                 return 0;
             }
@@ -4522,7 +4522,7 @@ sub json_model_64($$$)
     my ($val, $path, $rep) = @_;
     # .'$openapi#Model'
     my $res = json_model_97($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$model#Model\" [.'\$openapi#Model']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$model#Model\" [.'\$openapi#Model']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -4535,15 +4535,15 @@ sub json_model_97($$$)
     my $res = json_model_96($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$ScalarModel\" [.'\$openapi#model#Model'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$ScalarModel\" [.'\$openapi#model#Model'.'|'.0]", $path] if defined $rep;
         # .'$openapi#model#Model'.'|'.1
         $res = json_model_83($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Array\" [.'\$openapi#model#Model'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Array\" [.'\$openapi#model#Model'.'|'.1]", $path] if defined $rep;
             # .'$openapi#model#Model'.'|'.2
             $res = json_model_93($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Element\" [.'\$openapi#model#Model'.'|'.2]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Element\" [.'\$openapi#model#Model'.'|'.2]", $path] if defined $rep and not $res;
         }
     }
     if ($res)
@@ -4573,7 +4573,7 @@ sub json_model_83($$$)
             $res = json_model_82($arr_11_item, defined $path ? $arr_11_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Array'.0]", defined $path ? $arr_11_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$CModel\" [.'\$openapi#model#Array'.0]", defined $path ? $arr_11_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -4591,10 +4591,10 @@ sub json_model_82($$$)
     my $res = json_model_97($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#model#CModel'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Model\" [.'\$openapi#model#CModel'.'|'.0]", $path] if defined $rep;
         # .'$openapi#model#CModel'.'|'.1
         $res = json_model_69($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$ArrayComment\" [.'\$openapi#model#CModel'.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$ArrayComment\" [.'\$openapi#model#CModel'.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -4649,7 +4649,7 @@ sub _jm_obj_26($$$)
             $res = json_model_97($pval, defined $path ? $lpath_61 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#model#Element'.'|'.5.'\$Prop']", defined $path ? $lpath_61 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Model\" [.'\$openapi#model#Element'.'|'.5.'\$Prop']", defined $path ? $lpath_61 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -4696,7 +4696,7 @@ sub _jm_obj_27($$$)
                     $res = json_model_82($arr_12_item, defined (defined $path ? $lpath_62 : undef) ? $arr_12_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Element'.'|'.4.'+'.0]", defined (defined $path ? $lpath_62 : undef) ? $arr_12_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$CModel\" [.'\$openapi#model#Element'.'|'.4.'+'.0]", defined (defined $path ? $lpath_62 : undef) ? $arr_12_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -4773,7 +4773,7 @@ sub _jm_obj_28($$$)
                     $res = json_model_82($arr_13_item, defined (defined $path ? $lpath_63 : undef) ? $arr_13_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Element'.'|'.3.'^'.0]", defined (defined $path ? $lpath_63 : undef) ? $arr_13_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$CModel\" [.'\$openapi#model#Element'.'|'.3.'^'.0]", defined (defined $path ? $lpath_63 : undef) ? $arr_13_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -4850,7 +4850,7 @@ sub _jm_obj_29($$$)
                     $res = json_model_82($arr_14_item, defined (defined $path ? $lpath_64 : undef) ? $arr_14_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Element'.'|'.2.'&'.0]", defined (defined $path ? $lpath_64 : undef) ? $arr_14_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$CModel\" [.'\$openapi#model#Element'.'|'.2.'&'.0]", defined (defined $path ? $lpath_64 : undef) ? $arr_14_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -4927,7 +4927,7 @@ sub _jm_obj_30($$$)
                     $res = json_model_82($arr_15_item, defined (defined $path ? $lpath_65 : undef) ? $arr_15_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$CModel\" [.'\$openapi#model#Element'.'|'.1.'|'.0]", defined (defined $path ? $lpath_65 : undef) ? $arr_15_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$CModel\" [.'\$openapi#model#Element'.'|'.1.'|'.0]", defined (defined $path ? $lpath_65 : undef) ? $arr_15_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -5010,7 +5010,7 @@ sub _jm_obj_31($$$)
             $res = json_model_97($pval, defined $path ? $lpath_66 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#model#Element'.'|'.0.'\@']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Model\" [.'\$openapi#model#Element'.'|'.0.'\@']", defined $path ? $lpath_66 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$openapi#model#Element'.'|'.0.'\@']", defined $path ? $lpath_66 : undef] if defined $rep;
                 return 0;
             }
@@ -5049,7 +5049,7 @@ sub _jm_obj_31($$$)
             $res = json_model_97($pval, defined $path ? $lpath_66 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Model\" [.'\$openapi#model#Element'.'|'.0.'.in']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Model\" [.'\$openapi#model#Element'.'|'.0.'.in']", defined $path ? $lpath_66 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.0.'.in']", defined $path ? $lpath_66 : undef] if defined $rep;
                 return 0;
             }
@@ -5093,7 +5093,7 @@ sub _jm_obj_31($$$)
             $res = json_model_76($pval, defined $path ? $lpath_66 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$CmpValue\" [.'\$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)\$/']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$CmpValue\" [.'\$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)\$/']", defined $path ? $lpath_66 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -5104,7 +5104,7 @@ sub _jm_obj_31($$$)
             $res = json_model_77($pval, defined $path ? $lpath_66 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$EqValue\" [.'\$openapi#model#Element'.'|'.0.'/^(=|!=)\$/']", defined $path ? $lpath_66 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$EqValue\" [.'\$openapi#model#Element'.'|'.0.'/^(=|!=)\$/']", defined $path ? $lpath_66 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -5230,7 +5230,7 @@ sub json_model_77($$$)
             push @$rep, ["not a bool [.'\$openapi#model#EqValue'.'|'.1]", $path] if defined $rep;
             # .'$openapi#model#EqValue'.'|'.2
             $res = json_model_76($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"\\\$CmpValue\" [.'\$openapi#model#EqValue'.'|'.2]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$CmpValue\" [.'\$openapi#model#EqValue'.'|'.2]", $path] if defined $rep and not $res;
         }
     }
     if ($res)
@@ -5266,22 +5266,22 @@ sub json_model_90($$$)
         $res = json_model_73($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$StrConst\" [.'\$openapi#model#Prop'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$StrConst\" [.'\$openapi#model#Prop'.'|'.1]", $path] if defined $rep;
             # .'$openapi#model#Prop'.'|'.2
             $res = json_model_74($val, $path, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Regex\" [.'\$openapi#model#Prop'.'|'.2]", $path] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Regex\" [.'\$openapi#model#Prop'.'|'.2]", $path] if defined $rep;
                 # .'$openapi#model#Prop'.'|'.3
                 $res = json_model_71($val, $path, $rep);
                 unless ($res)
                 {
-                    push @$rep, ["unexpected value for model \"\\\$Ref\" [.'\$openapi#model#Prop'.'|'.3]", $path] if defined $rep;
+                    push @$rep, ["unexpected value for model \"\$Ref\" [.'\$openapi#model#Prop'.'|'.3]", $path] if defined $rep;
                     # .'$openapi#model#Prop'.'|'.4
                     $res = json_model_75($val, $path, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$Name\" [.'\$openapi#model#Prop'.'|'.4]", $path] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$Name\" [.'\$openapi#model#Prop'.'|'.4]", $path] if defined $rep;
                         # .'$openapi#model#Prop'.'|'.5
                         $res = jm_is_string($val) && $val eq "";
                         push @$rep, ["unexpected value for model \"_\" [.'\$openapi#model#Prop'.'|'.5]", $path] if defined $rep and not $res;
@@ -5315,7 +5315,7 @@ sub json_model_71($$$)
     # .'$openapi#model#Ref'
     # "/^\\$./"
     my $res = jm_is_string($val) && _jm_re_7($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^\\\\\\\$./\" [.'\$openapi#model#Ref']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^\\\\\$./\" [.'\$openapi#model#Ref']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -5386,11 +5386,11 @@ sub json_model_74($$$)
         $res = _jm_xre_1($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"/^/(\\\$EXREG)/[a-z]*X[a-z]*\\\$/X\" [.'\$openapi#model#Regex'.'|'.0]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"/^/(\$EXREG)/[a-z]*X[a-z]*\$/X\" [.'\$openapi#model#Regex'.'|'.0]", $path] if defined $rep;
             # .'$openapi#model#Regex'.'|'.1
             # "/^/($REGEX)/[a-z]*$/X"
             $res = _jm_xre_0($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"/^/(\\\$REGEX)/[a-z]*\\\$/X\" [.'\$openapi#model#Regex'.'|'.1]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"/^/(\$REGEX)/[a-z]*\$/X\" [.'\$openapi#model#Regex'.'|'.1]", $path] if defined $rep and not $res;
         }
         if ($res)
         {
@@ -5422,7 +5422,7 @@ sub json_model_75($$$)
     # .'$openapi#model#Name'
     # "/^\\..+$/"
     my $res = jm_is_string($val) && _jm_re_9($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^\\\\..+\\\$/\" [.'\$openapi#model#Name']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^\\\\..+\$/\" [.'\$openapi#model#Name']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -5435,10 +5435,10 @@ sub json_model_96($$$)
     my $res = json_model_78($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$ValModel\" [.'\$openapi#model#ScalarModel'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$ValModel\" [.'\$openapi#model#ScalarModel'.'|'.0]", $path] if defined $rep;
         # .'$openapi#model#ScalarModel'.'|'.1
         $res = json_model_79($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$StrModel\" [.'\$openapi#model#ScalarModel'.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$StrModel\" [.'\$openapi#model#ScalarModel'.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -5521,27 +5521,27 @@ sub json_model_79($$$)
     my $res = json_model_73($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$StrConst\" [.'\$openapi#model#StrModel'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$StrConst\" [.'\$openapi#model#StrModel'.'|'.0]", $path] if defined $rep;
         # .'$openapi#model#StrModel'.'|'.1
         $res = json_model_72($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$ValConst\" [.'\$openapi#model#StrModel'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$ValConst\" [.'\$openapi#model#StrModel'.'|'.1]", $path] if defined $rep;
             # .'$openapi#model#StrModel'.'|'.2
             $res = json_model_74($val, $path, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Regex\" [.'\$openapi#model#StrModel'.'|'.2]", $path] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Regex\" [.'\$openapi#model#StrModel'.'|'.2]", $path] if defined $rep;
                 # .'$openapi#model#StrModel'.'|'.3
                 $res = json_model_67($val, $path, $rep);
                 unless ($res)
                 {
-                    push @$rep, ["unexpected value for model \"\\\$PreDef\" [.'\$openapi#model#StrModel'.'|'.3]", $path] if defined $rep;
+                    push @$rep, ["unexpected value for model \"\$PreDef\" [.'\$openapi#model#StrModel'.'|'.3]", $path] if defined $rep;
                     # .'$openapi#model#StrModel'.'|'.4
                     $res = json_model_71($val, $path, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$Ref\" [.'\$openapi#model#StrModel'.'|'.4]", $path] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$Ref\" [.'\$openapi#model#StrModel'.'|'.4]", $path] if defined $rep;
                         # .'$openapi#model#StrModel'.'|'.5
                         $res = jm_is_string($val) && $val eq "";
                         push @$rep, ["unexpected value for model \"_\" [.'\$openapi#model#StrModel'.'|'.5]", $path] if defined $rep and not $res;
@@ -5586,7 +5586,7 @@ sub json_model_72($$$)
     # .'$openapi#model#ValConst'
     # "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
     my $res = jm_is_string($val) && _jm_re_10($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^=(null|true|false|[-+]?\\\\d+(\\\\.\\\\d+)?([Ee][-+]?\\\\d+)?)\\\$/\" [.'\$openapi#model#ValConst']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^=(null|true|false|[-+]?\\\\d+(\\\\.\\\\d+)?([Ee][-+]?\\\\d+)?)\$/\" [.'\$openapi#model#ValConst']", $path] if defined $rep and not $res;
     return $res;
 }
 

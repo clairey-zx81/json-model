@@ -27,7 +27,7 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$ex08'
     my $res = json_model_9($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$Ex08\" [.'\$ex08']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$Ex08\" [.'\$ex08']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -37,7 +37,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$Ex08'
     my $res = json_model_9($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$ex08#Ex08\" [.'\$Ex08']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$ex08#Ex08\" [.'\$Ex08']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -77,7 +77,7 @@ sub json_model_4($$$)
             $res = json_model_6($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$ex08#Val\" [.'\$Ex09'.'\$URL']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$ex08#Val\" [.'\$Ex09'.'\$URL']", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -96,7 +96,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$Ex09\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$Ex09\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -119,15 +119,15 @@ sub json_model_9($$$)
     my $res = json_model_8($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$map\" [.'\$ex08#Ex08'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$map\" [.'\$ex08#Ex08'.'|'.0]", $path] if defined $rep;
         # .'$ex08#Ex08'.'|'.1
         $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$ex08#Ex08'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$URL\" [.'\$ex08#Ex08'.'|'.1]", $path] if defined $rep;
             # .'$ex08#Ex08'.'|'.2
             $res = json_model_6($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Val\" [.'\$ex08#Ex08'.'|'.2]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Val\" [.'\$ex08#Ex08'.'|'.2]", $path] if defined $rep and not $res;
         }
     }
     if ($res)
@@ -164,7 +164,7 @@ sub json_model_8($$$)
             $res = json_model_6($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Val\" [.'\$ex08#map'.'\$URL']", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Val\" [.'\$ex08#map'.'\$URL']", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
         }

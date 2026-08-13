@@ -29,7 +29,7 @@ sub json_model_1($$$)
     # .
     # "/^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$/"
     my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^(\\\\([0-9]{3}\\\\))?[0-9]{3}-[0-9]{4}\\\$/\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^(\\\\([0-9]{3}\\\\))?[0-9]{3}-[0-9]{4}\$/\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

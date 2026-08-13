@@ -53,7 +53,7 @@ sub json_model_2($$$)
             $res = json_model_2($arr_0_item, defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$bibi\" [.'\$bibi'.bibi.0]", defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$bibi\" [.'\$bibi'.bibi.0]", defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -73,7 +73,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_2($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$bibi\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$bibi\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

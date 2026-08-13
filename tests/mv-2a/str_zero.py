@@ -28,7 +28,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res: bool = isinstance(val, str) and val == "hel\x00lo"
     if not res:
-        rep is None or rep.append(("unexpected value for model \"hel\\x00lo\" [.]", path))
+        rep is None or rep.append(("unexpected value for model \"hel\\u0000lo\" [.]", path))
     return res
 
 

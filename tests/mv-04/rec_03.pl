@@ -40,7 +40,7 @@ sub json_model_1($$$)
             $res = json_model_1($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$root\" [.foo.'|'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$root\" [.foo.'|'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
                 # .foo.'|'.1
                 $res = jm_is_array($pval);
                 if ($res)
@@ -53,7 +53,7 @@ sub json_model_1($$$)
                         $res = json_model_1($arr_0_item, defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef, $rep);
                         unless ($res)
                         {
-                            push @$rep, ["unexpected value for model \"\\\$root\" [.foo.'|'.1.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef] if defined $rep;
+                            push @$rep, ["unexpected value for model \"\$root\" [.foo.'|'.1.0]", defined (defined $path ? $lpath_0 : undef) ? $arr_0_lpath : undef] if defined $rep;
                             last;
                         }
                     }

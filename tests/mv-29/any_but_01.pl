@@ -85,7 +85,7 @@ sub json_model_1($$$)
     {
         # .'|'.6
         $res = json_model_2($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$Obj\" [.'|'.6]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$Obj\" [.'|'.6]", $path] if defined $rep and not $res;
     }
     else
     {

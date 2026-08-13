@@ -41,7 +41,7 @@ sub json_model_1($$$)
     # .
     # "/^X-($DATE)-Y$/X"
     my $res = jm_is_string($val) && _jm_xre_0($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^X-(\\\$DATE)-Y\\\$/X\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^X-(\$DATE)-Y\$/X\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

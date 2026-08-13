@@ -291,7 +291,7 @@ sub _jm_f_0($$$)
                 }
                 else
                 {
-                    push @$rep, ["unexpected value for model \"\\\$DATE\" [.and.a0.'&'.0]", defined $path ? $lpath_1 : undef] if defined $rep;
+                    push @$rep, ["unexpected value for model \"\$DATE\" [.and.a0.'&'.0]", defined $path ? $lpath_1 : undef] if defined $rep;
                 }
             }
             if ($res)
@@ -400,7 +400,7 @@ sub _jm_f_1($$$)
                     $res = jm_is_string($arr_2_item) && jm_is_valid_date($arr_2_item, defined (defined $path ? $lpath_2 : undef) ? $arr_2_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$DATE\" [.array.a2.0]", defined (defined $path ? $lpath_2 : undef) ? $arr_2_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$DATE\" [.array.a2.0]", defined (defined $path ? $lpath_2 : undef) ? $arr_2_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -497,7 +497,7 @@ sub _jm_f_2($$$)
             $res = jm_is_boolean($pval);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$BOOL\" [.bool.b1]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$BOOL\" [.bool.b1]", defined $path ? $lpath_3 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.bool.b1]", defined $path ? $lpath_3 : undef] if defined $rep;
                 return 0;
             }
@@ -510,7 +510,7 @@ sub _jm_f_2($$$)
             $res = jm_is_boolean($pval);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$BOOLEAN\" [.bool.b2]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$BOOLEAN\" [.bool.b2]", defined $path ? $lpath_3 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.bool.b2]", defined $path ? $lpath_3 : undef] if defined $rep;
                 return 0;
             }
@@ -1313,7 +1313,7 @@ sub _jm_f_34($$$)
     my ($val, $path, $rep) = @_;
     # .float.f3
     my $res = jm_is_numeric($val);
-    push @$rep, ["unexpected value for model \"\\\$FLOAT\" [.float.f3]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$FLOAT\" [.float.f3]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1323,7 +1323,7 @@ sub _jm_f_35($$$)
     my ($val, $path, $rep) = @_;
     # .float.f4
     my $res = jm_is_numeric($val);
-    push @$rep, ["unexpected value for model \"\\\$F32\" [.float.f4]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$F32\" [.float.f4]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1333,7 +1333,7 @@ sub _jm_f_36($$$)
     my ($val, $path, $rep) = @_;
     # .float.f5
     my $res = jm_is_numeric($val);
-    push @$rep, ["unexpected value for model \"\\\$F64\" [.float.f5]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$F64\" [.float.f5]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1437,7 +1437,7 @@ sub _jm_f_44($$$)
     my ($val, $path, $rep) = @_;
     # .int.i3
     my $res = jm_is_integer($val);
-    push @$rep, ["unexpected value for model \"\\\$INT\" [.int.i3]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$INT\" [.int.i3]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1447,7 +1447,7 @@ sub _jm_f_45($$$)
     my ($val, $path, $rep) = @_;
     # .int.i4
     my $res = jm_is_integer($val);
-    push @$rep, ["unexpected value for model \"\\\$INTEGER\" [.int.i4]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$INTEGER\" [.int.i4]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1457,7 +1457,7 @@ sub _jm_f_46($$$)
     my ($val, $path, $rep) = @_;
     # .int.i5
     my $res = jm_is_integer($val);
-    push @$rep, ["unexpected value for model \"\\\$I32\" [.int.i5]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$I32\" [.int.i5]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1467,7 +1467,7 @@ sub _jm_f_47($$$)
     my ($val, $path, $rep) = @_;
     # .int.i6
     my $res = jm_is_integer($val);
-    push @$rep, ["unexpected value for model \"\\\$I64\" [.int.i6]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$I64\" [.int.i6]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1477,7 +1477,7 @@ sub _jm_f_48($$$)
     my ($val, $path, $rep) = @_;
     # .int.i7
     my $res = jm_is_integer($val) && $val >= 0;
-    push @$rep, ["unexpected value for model \"\\\$U32\" [.int.i7]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$U32\" [.int.i7]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1487,7 +1487,7 @@ sub _jm_f_49($$$)
     my ($val, $path, $rep) = @_;
     # .int.i8
     my $res = jm_is_integer($val) && $val >= 0;
-    push @$rep, ["unexpected value for model \"\\\$U64\" [.int.i8]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$U64\" [.int.i8]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2316,7 +2316,7 @@ sub _jm_f_53($$$)
             $res = !defined($pval);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$NULL\" [.null.n1]", defined $path ? $lpath_10 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$NULL\" [.null.n1]", defined $path ? $lpath_10 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.null.n1]", defined $path ? $lpath_10 : undef] if defined $rep;
                 return 0;
             }
@@ -2723,10 +2723,10 @@ sub _jm_f_55($$$)
                 $res = jm_is_valid_date($pval, defined $path ? $lpath_16 : undef, $rep);
                 unless ($res)
                 {
-                    push @$rep, ["unexpected value for model \"\\\$DATE\" [.or.o1.'|'.0]", defined $path ? $lpath_16 : undef] if defined $rep;
+                    push @$rep, ["unexpected value for model \"\$DATE\" [.or.o1.'|'.0]", defined $path ? $lpath_16 : undef] if defined $rep;
                     # .or.o1.'|'.1
                     $res = jm_is_valid_time($pval, defined $path ? $lpath_16 : undef, $rep);
-                    push @$rep, ["unexpected value for model \"\\\$TIME\" [.or.o1.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep and not $res;
+                    push @$rep, ["unexpected value for model \"\$TIME\" [.or.o1.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep and not $res;
                 }
                 if ($res)
                 {
@@ -2761,7 +2761,7 @@ sub _jm_f_55($$$)
                 $res = jm_is_string($pval) && jm_is_uuid($pval, defined $path ? $lpath_16 : undef, $rep);
                 unless ($res)
                 {
-                    push @$rep, ["unexpected value for model \"\\\$UUID\" [.or.o2.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep;
+                    push @$rep, ["unexpected value for model \"\$UUID\" [.or.o2.'|'.1]", defined $path ? $lpath_16 : undef] if defined $rep;
                     # .or.o2.'|'.2
                     $res = jm_is_array($pval);
                     unless ($res)
@@ -2804,7 +2804,7 @@ sub _jm_f_58($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.BOOL
     my $res = jm_is_boolean($val);
-    push @$rep, ["unexpected value for model \"\\\$BOOL\" [.predefs.BOOL]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$BOOL\" [.predefs.BOOL]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2814,7 +2814,7 @@ sub _jm_f_59($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.BOOLEAN
     my $res = jm_is_boolean($val);
-    push @$rep, ["unexpected value for model \"\\\$BOOLEAN\" [.predefs.BOOLEAN]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$BOOLEAN\" [.predefs.BOOLEAN]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2824,7 +2824,7 @@ sub _jm_f_60($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.DATE
     my $res = jm_is_string($val) && jm_is_valid_date($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$DATE\" [.predefs.DATE]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$DATE\" [.predefs.DATE]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2834,7 +2834,7 @@ sub _jm_f_61($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.DATETIME
     my $res = jm_is_string($val) && jm_is_valid_datetime($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$DATETIME\" [.predefs.DATETIME]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$DATETIME\" [.predefs.DATETIME]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2844,7 +2844,7 @@ sub _jm_f_62($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.DURATION
     my $res = jm_is_string($val) && jm_is_duration($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$DURATION\" [.predefs.DURATION]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$DURATION\" [.predefs.DURATION]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2854,7 +2854,7 @@ sub _jm_f_63($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.EMAIL
     my $res = jm_is_string($val) && jm_is_email($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$EMAIL\" [.predefs.EMAIL]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$EMAIL\" [.predefs.EMAIL]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2864,7 +2864,7 @@ sub _jm_f_64($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.ETH
     my $res = jm_is_string($val) && jm_is_eth($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$ETH\" [.predefs.ETH]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$ETH\" [.predefs.ETH]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2874,7 +2874,7 @@ sub _jm_f_65($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.EXREG
     my $res = jm_is_string($val) && jm_is_valid_exreg($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$EXREG\" [.predefs.EXREG]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$EXREG\" [.predefs.EXREG]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2884,7 +2884,7 @@ sub _jm_f_66($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.F32
     my $res = jm_is_numeric($val);
-    push @$rep, ["unexpected value for model \"\\\$F32\" [.predefs.F32]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$F32\" [.predefs.F32]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2894,7 +2894,7 @@ sub _jm_f_67($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.F64
     my $res = jm_is_numeric($val);
-    push @$rep, ["unexpected value for model \"\\\$F64\" [.predefs.F64]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$F64\" [.predefs.F64]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2904,7 +2904,7 @@ sub _jm_f_68($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.FLOAT
     my $res = jm_is_numeric($val);
-    push @$rep, ["unexpected value for model \"\\\$FLOAT\" [.predefs.FLOAT]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$FLOAT\" [.predefs.FLOAT]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2914,7 +2914,7 @@ sub _jm_f_69($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.HOST
     my $res = jm_is_string($val) && jm_is_host($val, $path, $rep) && length $val <= 255;
-    push @$rep, ["unexpected value for model \"\\\$HOST\" [.predefs.HOST]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$HOST\" [.predefs.HOST]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2924,7 +2924,7 @@ sub _jm_f_70($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.I32
     my $res = jm_is_integer($val);
-    push @$rep, ["unexpected value for model \"\\\$I32\" [.predefs.I32]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$I32\" [.predefs.I32]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2934,7 +2934,7 @@ sub _jm_f_71($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.I64
     my $res = jm_is_integer($val);
-    push @$rep, ["unexpected value for model \"\\\$I64\" [.predefs.I64]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$I64\" [.predefs.I64]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2944,7 +2944,7 @@ sub _jm_f_72($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.INT
     my $res = jm_is_integer($val);
-    push @$rep, ["unexpected value for model \"\\\$INT\" [.predefs.INT]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$INT\" [.predefs.INT]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2954,7 +2954,7 @@ sub _jm_f_73($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.INTEGER
     my $res = jm_is_integer($val);
-    push @$rep, ["unexpected value for model \"\\\$INTEGER\" [.predefs.INTEGER]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$INTEGER\" [.predefs.INTEGER]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2964,7 +2964,7 @@ sub _jm_f_74($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.IP4
     my $res = jm_is_string($val) && jm_is_ip4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$IP4\" [.predefs.IP4]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$IP4\" [.predefs.IP4]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2974,7 +2974,7 @@ sub _jm_f_75($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.IP6
     my $res = jm_is_string($val) && jm_is_ip6($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$IP6\" [.predefs.IP6]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$IP6\" [.predefs.IP6]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2984,7 +2984,7 @@ sub _jm_f_76($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.JSON
     my $res = jm_is_string($val) && jm_is_valid_json($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$JSON\" [.predefs.JSON]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$JSON\" [.predefs.JSON]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2994,7 +2994,7 @@ sub _jm_f_77($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.JSONPT
     my $res = jm_is_string($val) && jm_is_jsonpt($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$JSONPT\" [.predefs.JSONPT]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$JSONPT\" [.predefs.JSONPT]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3003,7 +3003,7 @@ sub _jm_f_78($$$)
 {
     my ($val, $path, $rep) = @_;
     # .predefs.NONE
-    push @$rep, ["unexpected value for model \"\\\$NONE\" [.predefs.NONE]", $path] if defined $rep;
+    push @$rep, ["unexpected value for model \"\$NONE\" [.predefs.NONE]", $path] if defined $rep;
     return 0;
 }
 
@@ -3013,7 +3013,7 @@ sub _jm_f_79($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.NULL
     my $res = !defined($val);
-    push @$rep, ["unexpected value for model \"\\\$NULL\" [.predefs.NULL]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$NULL\" [.predefs.NULL]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3023,7 +3023,7 @@ sub _jm_f_80($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.NUMBER
     my $res = jm_is_numeric($val);
-    push @$rep, ["unexpected value for model \"\\\$NUMBER\" [.predefs.NUMBER]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$NUMBER\" [.predefs.NUMBER]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3033,7 +3033,7 @@ sub _jm_f_81($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.REGEX
     my $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$REGEX\" [.predefs.REGEX]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$REGEX\" [.predefs.REGEX]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3043,7 +3043,7 @@ sub _jm_f_82($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.STRING
     my $res = jm_is_string($val);
-    push @$rep, ["unexpected value for model \"\\\$STRING\" [.predefs.STRING]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$STRING\" [.predefs.STRING]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3053,7 +3053,7 @@ sub _jm_f_83($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.TIME
     my $res = jm_is_string($val) && jm_is_valid_time($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$TIME\" [.predefs.TIME]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$TIME\" [.predefs.TIME]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3063,7 +3063,7 @@ sub _jm_f_84($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.U32
     my $res = jm_is_integer($val) && $val >= 0;
-    push @$rep, ["unexpected value for model \"\\\$U32\" [.predefs.U32]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$U32\" [.predefs.U32]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3073,7 +3073,7 @@ sub _jm_f_85($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.U64
     my $res = jm_is_integer($val) && $val >= 0;
-    push @$rep, ["unexpected value for model \"\\\$U64\" [.predefs.U64]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$U64\" [.predefs.U64]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3083,7 +3083,7 @@ sub _jm_f_86($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.URI
     my $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$URI\" [.predefs.URI]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$URI\" [.predefs.URI]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3093,7 +3093,7 @@ sub _jm_f_87($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.URL
     my $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$URL\" [.predefs.URL]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$URL\" [.predefs.URL]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3103,7 +3103,7 @@ sub _jm_f_88($$$)
     my ($val, $path, $rep) = @_;
     # .predefs.UUID
     my $res = jm_is_string($val) && jm_is_uuid($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$UUID\" [.predefs.UUID]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$UUID\" [.predefs.UUID]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -3185,7 +3185,7 @@ sub _jm_f_89($$$)
             $res = jm_is_string($pval);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$STRING\" [.string.s1]", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$STRING\" [.string.s1]", defined $path ? $lpath_18 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.string.s1]", defined $path ? $lpath_18 : undef] if defined $rep;
                 return 0;
             }
@@ -3225,7 +3225,7 @@ sub _jm_f_89($$$)
             $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_18 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^(Calvin|Susie)\\\$/\" [.string.s4]", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^(Calvin|Susie)\$/\" [.string.s4]", defined $path ? $lpath_18 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.string.s4]", defined $path ? $lpath_18 : undef] if defined $rep;
                 return 0;
             }
@@ -3498,7 +3498,7 @@ sub _jm_f_91($$$)
             }
             else
             {
-                push @$rep, ["unexpected value for model \"/z\\\$/\" [.xor.x1.'^'.1]", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"/z\$/\" [.xor.x1.'^'.1]", defined $path ? $lpath_23 : undef] if defined $rep;
             }
             $res = $xc_0 == 1;
             if ($res)

@@ -35,7 +35,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$Key'
     my $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$Key']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$URL\" [.'\$Key']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -62,7 +62,7 @@ sub json_model_4($$$)
             $res = json_model_2($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Val\" [.'\$map'.'\$URL']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Val\" [.'\$map'.'\$URL']", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -84,15 +84,15 @@ sub json_model_5($$$)
     my $res = json_model_4($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$map\" [.'\$Ex08'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$map\" [.'\$Ex08'.'|'.0]", $path] if defined $rep;
         # .'$Ex08'.'|'.1
         $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$Ex08'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$URL\" [.'\$Ex08'.'|'.1]", $path] if defined $rep;
             # .'$Ex08'.'|'.2
             $res = json_model_2($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Val\" [.'\$Ex08'.'|'.2]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Val\" [.'\$Ex08'.'|'.2]", $path] if defined $rep and not $res;
         }
     }
     if ($res)
@@ -112,7 +112,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_5($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$Ex08\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$Ex08\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

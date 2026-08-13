@@ -96,7 +96,7 @@ sub json_model_2($$$)
         $res = jm_is_string($pval) && jm_is_valid_date($pval, defined $path ? $lpath_0 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$DATE\" [.'\$Oo0'.'']", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$DATE\" [.'\$Oo0'.'']", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }
@@ -323,15 +323,15 @@ sub json_model_1($$$)
     my $res = json_model_2($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Oo0\" [.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Oo0\" [.'|'.0]", $path] if defined $rep;
         # .'|'.1
         $res = json_model_3($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Oo1\" [.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Oo1\" [.'|'.1]", $path] if defined $rep;
             # .'|'.2
             $res = json_model_4($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"\\\$Oo2\" [.'|'.2]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$Oo2\" [.'|'.2]", $path] if defined $rep and not $res;
         }
     }
     if ($res)

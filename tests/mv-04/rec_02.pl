@@ -38,7 +38,7 @@ sub json_model_1($$$)
             $res = json_model_1($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$foo\" [.foo]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$foo\" [.foo]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.foo]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }

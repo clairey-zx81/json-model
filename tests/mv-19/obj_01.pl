@@ -61,7 +61,7 @@ sub json_model_1($$$)
             $res = jm_is_string($pval) && jm_is_valid_date($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$DATE\" [.foo]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$DATE\" [.foo]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.foo]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }

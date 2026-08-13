@@ -149,7 +149,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$combined\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$combined\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

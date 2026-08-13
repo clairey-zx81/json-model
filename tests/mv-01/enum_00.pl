@@ -57,7 +57,7 @@ sub json_model_1($$$)
     }
     else
     {
-        push @$rep, ["unexpected value for model \"\\\$p1\" [.'^'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$p1\" [.'^'.0]", $path] if defined $rep;
     }
     # .'^'.1
     $xr_0 = json_model_3($val, $path, $rep);
@@ -67,7 +67,7 @@ sub json_model_1($$$)
     }
     else
     {
-        push @$rep, ["unexpected value for model \"\\\$p2\" [.'^'.1]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$p2\" [.'^'.1]", $path] if defined $rep;
     }
     my $res = $xc_0 == 1;
     if ($res)

@@ -25,7 +25,7 @@ sub json_model_5($$$)
     my ($val, $path, $rep) = @_;
     # .'$Zz'
     my $res = json_model_6($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$zero\" [.'\$Zz']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$zero\" [.'\$Zz']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -35,7 +35,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$z'
     my $res = json_model_6($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$Zz#zero\" [.'\$z']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$Zz#zero\" [.'\$z']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -55,7 +55,7 @@ sub json_model_4($$$)
             $res = json_model_6($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$z\" [.'\$l'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$z\" [.'\$l'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -70,7 +70,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$l\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$l\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

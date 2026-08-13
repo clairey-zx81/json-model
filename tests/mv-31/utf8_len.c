@@ -49,7 +49,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && jm_str_eq_3(json_string_value(pval), 0x000080c3);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_À\" [.'1']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\" [.'1']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'1']", (path ? &lpath_0 : NULL));
                     return false;
                 }
@@ -62,7 +62,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && jm_str_eq_5(json_string_value(pval), 0x000000009fc380c3LL);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Àß\" [.'2']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\\u00df\" [.'2']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'2']", (path ? &lpath_0 : NULL));
                     return false;
                 }
@@ -75,7 +75,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && jm_str_eq_7(json_string_value(pval), 0x0000a7c39fc380c3LL);
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_Àßç\" [.'3']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\\u00df\\u00e7\" [.'3']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'3']", (path ? &lpath_0 : NULL));
                     return false;
                 }
@@ -89,7 +89,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && ((sval_0 = json_string_value(pval)), jm_str_eq_8(sval_0, 0x94cea7c39fc380c3LL) && jm_str_eq_0(sval_0 + 8));
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ÀßçΔ\" [.'4']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\" [.'4']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'4']", (path ? &lpath_0 : NULL));
                     return false;
                 }
@@ -106,7 +106,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && ((sval_1 = json_string_value(pval)), jm_str_eq_8(sval_1, 0x94cea7c39fc380c3LL) && jm_str_eq_4(sval_1 + 8, 0x00ac82e2));
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ÀßçΔ€\" [.'5']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\" [.'5']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'5']", (path ? &lpath_0 : NULL));
                     return false;
                 }
@@ -120,7 +120,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && ((sval_2 = json_string_value(pval)), jm_str_eq_8(sval_2, 0x94cea7c39fc380c3LL) && jm_str_eq_7(sval_2 + 8, 0x0000b3b5e1ac82e2LL));
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ÀßçΔ€ᵳ\" [.'6']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\" [.'6']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'6']", (path ? &lpath_0 : NULL));
                     return false;
                 }
@@ -134,7 +134,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && ((sval_3 = json_string_value(pval)), jm_str_eq_8(sval_3, 0x94cea7c39fc380c3LL) && jm_str_eq_8(sval_3 + 8, 0xa7c7b3b5e1ac82e2LL) && jm_str_eq_0(sval_3 + 16));
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ÀßçΔ€ᵳǧ\" [.'7']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\" [.'7']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'7']", (path ? &lpath_0 : NULL));
                     return false;
                 }
@@ -148,7 +148,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && ((sval_4 = json_string_value(pval)), jm_str_eq_8(sval_4, 0x94cea7c39fc380c3LL) && jm_str_eq_8(sval_4 + 8, 0xa7c7b3b5e1ac82e2LL) && jm_str_eq_4(sval_4 + 16, 0x008f84e2));
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ÀßçΔ€ᵳǧℏ\" [.'8']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\\u210f\" [.'8']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'8']", (path ? &lpath_0 : NULL));
                     return false;
                 }
@@ -162,7 +162,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = json_is_string(pval) && ((sval_5 = json_string_value(pval)), jm_str_eq_8(sval_5, 0x94cea7c39fc380c3LL) && jm_str_eq_8(sval_5 + 8, 0xa7c7b3b5e1ac82e2LL) && jm_str_eq_6(sval_5 + 16, 0x000000b1c48f84e2LL));
                 if (unlikely(! res))
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_ÀßçΔ€ᵳǧℏı\" [.'9']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\\u210f\\u0131\" [.'9']", (path ? &lpath_0 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'9']", (path ? &lpath_0 : NULL));
                     return false;
                 }

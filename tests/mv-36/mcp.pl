@@ -100,7 +100,7 @@ sub json_model_4($$$)
     $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Object\" [.'\$Tool'.inputSchema]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Object\" [.'\$Tool'.inputSchema]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <inputSchema> [.'\$Tool']", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -156,7 +156,7 @@ sub _jm_obj_1($$$)
     my $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Object\" [.'\$InitializeRequest'.params.capabilities.elicitation]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Object\" [.'\$InitializeRequest'.params.capabilities.elicitation]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <elicitation> [.'\$InitializeRequest'.params.capabilities]", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -236,7 +236,7 @@ sub _jm_obj_0($$$)
     my $res = json_model_3($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$ProtocolVersion\" [.'\$InitializeRequest'.params.protocolVersion]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$ProtocolVersion\" [.'\$InitializeRequest'.params.protocolVersion]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <protocolVersion> [.'\$InitializeRequest'.params]", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -427,7 +427,7 @@ sub _jm_obj_4($$$)
     $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Object\" [.'\$InitializeResponse'.result.capabilities.resources]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Object\" [.'\$InitializeResponse'.result.capabilities.resources]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <resources> [.'\$InitializeResponse'.result.capabilities]", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -507,7 +507,7 @@ sub _jm_obj_3($$$)
     my $res = json_model_3($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$ProtocolVersion\" [.'\$InitializeResponse'.result.protocolVersion]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$ProtocolVersion\" [.'\$InitializeResponse'.result.protocolVersion]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <protocolVersion> [.'\$InitializeResponse'.result]", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -760,7 +760,7 @@ sub _jm_obj_7($$$)
             $res = json_model_4($arr_0_item, defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Tool\" [.'\$ToolsListResponse'.result.tools.'\@'.0]", defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Tool\" [.'\$ToolsListResponse'.result.tools.'\@'.0]", defined (defined $path ? $lpath : undef) ? $arr_0_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -922,7 +922,7 @@ sub json_model_10($$$)
     $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Object\" [.'\$ToolCallRequest'.params]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Object\" [.'\$ToolCallRequest'.params]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <params> [.'\$ToolCallRequest']", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }

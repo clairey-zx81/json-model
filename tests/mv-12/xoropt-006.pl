@@ -24,7 +24,7 @@ sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$None'
-    push @$rep, ["unexpected value for model \"\\\$NONE\" [.'\$None']", $path] if defined $rep;
+    push @$rep, ["unexpected value for model \"\$NONE\" [.'\$None']", $path] if defined $rep;
     return 0;
 }
 
@@ -51,7 +51,7 @@ sub _jm_obj_0($$$)
             # handle 1 re props
             # .'|'.2.'/^[ab]$/'
             $res = 0;
-            push @$rep, ["unexpected value for model \"\\\$NONE\" [.'|'.2.'/^[ab]\$/']", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$NONE\" [.'|'.2.'/^[ab]\$/']", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
         else

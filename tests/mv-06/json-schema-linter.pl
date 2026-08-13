@@ -329,7 +329,7 @@ sub json_model_4($$$)
             $res = json_model_24($arr_4_item, defined $path ? $arr_4_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$schemaArray'.0]", defined $path ? $arr_4_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Schema\" [.'\$schemaArray'.0]", defined $path ? $arr_4_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -362,7 +362,7 @@ sub json_model_5($$$)
             $res = jm_is_string($pval) && jm_is_valid_regex($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$REGEX\" [.'\$stringKeywords'.pattern]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$REGEX\" [.'\$stringKeywords'.pattern]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$stringKeywords'.pattern]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -437,7 +437,7 @@ sub json_model_6($$$)
             $res = json_model_4($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$schemaArray\" [.'\$arrayKeywords'.prefixItems]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$schemaArray\" [.'\$arrayKeywords'.prefixItems]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$arrayKeywords'.prefixItems]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -451,10 +451,10 @@ sub json_model_6($$$)
             $res = json_model_24($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$arrayKeywords'.items.'|'.0]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Schema\" [.'\$arrayKeywords'.items.'|'.0]", defined $path ? $lpath_1 : undef] if defined $rep;
                 # .'$arrayKeywords'.items.'|'.1
                 $res = json_model_4($pval, defined $path ? $lpath_1 : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$schemaArray\" [.'\$arrayKeywords'.items.'|'.1]", defined $path ? $lpath_1 : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$schemaArray\" [.'\$arrayKeywords'.items.'|'.1]", defined $path ? $lpath_1 : undef] if defined $rep and not $res;
             }
             if ($res)
             {
@@ -475,7 +475,7 @@ sub json_model_6($$$)
             $res = json_model_24($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$arrayKeywords'.additionalItems]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Schema\" [.'\$arrayKeywords'.additionalItems]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$arrayKeywords'.additionalItems]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -546,7 +546,7 @@ sub _jm_obj_0($$$)
         $res = json_model_24($pval, defined $path ? $lpath_3 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$objectKeywords'.properties.'']", defined $path ? $lpath_3 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$objectKeywords'.properties.'']", defined $path ? $lpath_3 : undef] if defined $rep;
             return 0;
         }
     }
@@ -575,7 +575,7 @@ sub _jm_obj_1($$$)
             $res = json_model_24($pval, defined $path ? $lpath_4 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$objectKeywords'.patternProperties.'\$REGEX']", defined $path ? $lpath_4 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Schema\" [.'\$objectKeywords'.patternProperties.'\$REGEX']", defined $path ? $lpath_4 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -653,7 +653,7 @@ sub json_model_7($$$)
             $res = json_model_24($pval, defined $path ? $lpath_2 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$objectKeywords'.additionalProperties]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Schema\" [.'\$objectKeywords'.additionalProperties]", defined $path ? $lpath_2 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$objectKeywords'.additionalProperties]", defined $path ? $lpath_2 : undef] if defined $rep;
                 return 0;
             }
@@ -758,7 +758,7 @@ sub _jm_f_1($$$)
         $res = json_model_24($pval, defined $path ? $lpath_7 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$metas'.'\$defs'.'']", defined $path ? $lpath_7 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$metas'.'\$defs'.'']", defined $path ? $lpath_7 : undef] if defined $rep;
             return 0;
         }
     }
@@ -814,7 +814,7 @@ sub _jm_f_5($$$)
         $res = json_model_24($pval, defined $path ? $lpath_8 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$metas'.definitions.'']", defined $path ? $lpath_8 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$metas'.definitions.'']", defined $path ? $lpath_8 : undef] if defined $rep;
             return 0;
         }
     }
@@ -936,7 +936,7 @@ sub _jm_f_11($$$)
         $res = json_model_24($pval, defined $path ? $lpath_10 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$String'.'\$defs'.'']", defined $path ? $lpath_10 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$String'.'\$defs'.'']", defined $path ? $lpath_10 : undef] if defined $rep;
             return 0;
         }
     }
@@ -992,7 +992,7 @@ sub _jm_f_15($$$)
         $res = json_model_24($pval, defined $path ? $lpath_11 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$String'.definitions.'']", defined $path ? $lpath_11 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$String'.definitions.'']", defined $path ? $lpath_11 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1066,7 +1066,7 @@ sub _jm_f_22($$$)
     my ($val, $path, $rep) = @_;
     # .'$String'.pattern
     my $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$REGEX\" [.'\$String'.pattern]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$REGEX\" [.'\$String'.pattern]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -1177,7 +1177,7 @@ sub _jm_f_25($$$)
         $res = json_model_24($pval, defined $path ? $lpath_13 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Array'.'\$defs'.'']", defined $path ? $lpath_13 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Array'.'\$defs'.'']", defined $path ? $lpath_13 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1233,7 +1233,7 @@ sub _jm_f_29($$$)
         $res = json_model_24($pval, defined $path ? $lpath_14 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Array'.definitions.'']", defined $path ? $lpath_14 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Array'.definitions.'']", defined $path ? $lpath_14 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1279,10 +1279,10 @@ sub _jm_f_33($$$)
     my $res = json_model_24($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Array'.items.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Array'.items.'|'.0]", $path] if defined $rep;
         # .'$Array'.items.'|'.1
         $res = json_model_4($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$schemaArray\" [.'\$Array'.items.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$schemaArray\" [.'\$Array'.items.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -1432,7 +1432,7 @@ sub _jm_f_39($$$)
         $res = json_model_24($pval, defined $path ? $lpath_16 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Object'.'\$defs'.'']", defined $path ? $lpath_16 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Object'.'\$defs'.'']", defined $path ? $lpath_16 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1488,7 +1488,7 @@ sub _jm_f_43($$$)
         $res = json_model_24($pval, defined $path ? $lpath_17 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Object'.definitions.'']", defined $path ? $lpath_17 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Object'.definitions.'']", defined $path ? $lpath_17 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1548,7 +1548,7 @@ sub _jm_f_47($$$)
             $res = json_model_24($pval, defined $path ? $lpath_18 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Object'.patternProperties.'\$REGEX']", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Object'.patternProperties.'\$REGEX']", defined $path ? $lpath_18 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -1582,7 +1582,7 @@ sub _jm_f_48($$$)
         $res = json_model_24($pval, defined $path ? $lpath_19 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Object'.properties.'']", defined $path ? $lpath_19 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Object'.properties.'']", defined $path ? $lpath_19 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1721,7 +1721,7 @@ sub _jm_f_52($$$)
         $res = json_model_24($pval, defined $path ? $lpath_21 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Integer'.'\$defs'.'']", defined $path ? $lpath_21 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Integer'.'\$defs'.'']", defined $path ? $lpath_21 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1777,7 +1777,7 @@ sub _jm_f_56($$$)
         $res = json_model_24($pval, defined $path ? $lpath_22 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Integer'.definitions.'']", defined $path ? $lpath_22 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Integer'.definitions.'']", defined $path ? $lpath_22 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1941,7 +1941,7 @@ sub _jm_f_64($$$)
         $res = json_model_24($pval, defined $path ? $lpath_24 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Number'.'\$defs'.'']", defined $path ? $lpath_24 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Number'.'\$defs'.'']", defined $path ? $lpath_24 : undef] if defined $rep;
             return 0;
         }
     }
@@ -1997,7 +1997,7 @@ sub _jm_f_68($$$)
         $res = json_model_24($pval, defined $path ? $lpath_25 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Number'.definitions.'']", defined $path ? $lpath_25 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Number'.definitions.'']", defined $path ? $lpath_25 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2161,7 +2161,7 @@ sub _jm_f_76($$$)
         $res = json_model_24($pval, defined $path ? $lpath_27 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Bool'.'\$defs'.'']", defined $path ? $lpath_27 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Bool'.'\$defs'.'']", defined $path ? $lpath_27 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2217,7 +2217,7 @@ sub _jm_f_80($$$)
         $res = json_model_24($pval, defined $path ? $lpath_28 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Bool'.definitions.'']", defined $path ? $lpath_28 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Bool'.definitions.'']", defined $path ? $lpath_28 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2361,7 +2361,7 @@ sub _jm_f_86($$$)
         $res = json_model_24($pval, defined $path ? $lpath_30 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Null'.'\$defs'.'']", defined $path ? $lpath_30 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Null'.'\$defs'.'']", defined $path ? $lpath_30 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2417,7 +2417,7 @@ sub _jm_f_90($$$)
         $res = json_model_24($pval, defined $path ? $lpath_31 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Null'.definitions.'']", defined $path ? $lpath_31 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Null'.definitions.'']", defined $path ? $lpath_31 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2561,7 +2561,7 @@ sub _jm_f_96($$$)
         $res = json_model_24($pval, defined $path ? $lpath_33 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$AllOf'.'\$defs'.'']", defined $path ? $lpath_33 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$AllOf'.'\$defs'.'']", defined $path ? $lpath_33 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2617,7 +2617,7 @@ sub _jm_f_100($$$)
         $res = json_model_24($pval, defined $path ? $lpath_34 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$AllOf'.definitions.'']", defined $path ? $lpath_34 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$AllOf'.definitions.'']", defined $path ? $lpath_34 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2691,7 +2691,7 @@ sub json_model_17($$$)
             $res = json_model_4($pval, defined $path ? $lpath_32 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$schemaArray\" [.'\$AllOf'.allOf]", defined $path ? $lpath_32 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$schemaArray\" [.'\$AllOf'.allOf]", defined $path ? $lpath_32 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$AllOf'.allOf]", defined $path ? $lpath_32 : undef] if defined $rep;
                 return 0;
             }
@@ -2761,7 +2761,7 @@ sub _jm_f_106($$$)
         $res = json_model_24($pval, defined $path ? $lpath_36 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$AnyOf'.'\$defs'.'']", defined $path ? $lpath_36 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$AnyOf'.'\$defs'.'']", defined $path ? $lpath_36 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2817,7 +2817,7 @@ sub _jm_f_110($$$)
         $res = json_model_24($pval, defined $path ? $lpath_37 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$AnyOf'.definitions.'']", defined $path ? $lpath_37 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$AnyOf'.definitions.'']", defined $path ? $lpath_37 : undef] if defined $rep;
             return 0;
         }
     }
@@ -2891,7 +2891,7 @@ sub json_model_18($$$)
             $res = json_model_4($pval, defined $path ? $lpath_35 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$schemaArray\" [.'\$AnyOf'.anyOf]", defined $path ? $lpath_35 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$schemaArray\" [.'\$AnyOf'.anyOf]", defined $path ? $lpath_35 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$AnyOf'.anyOf]", defined $path ? $lpath_35 : undef] if defined $rep;
                 return 0;
             }
@@ -2961,7 +2961,7 @@ sub _jm_f_116($$$)
         $res = json_model_24($pval, defined $path ? $lpath_39 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$OneOf'.'\$defs'.'']", defined $path ? $lpath_39 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$OneOf'.'\$defs'.'']", defined $path ? $lpath_39 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3017,7 +3017,7 @@ sub _jm_f_120($$$)
         $res = json_model_24($pval, defined $path ? $lpath_40 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$OneOf'.definitions.'']", defined $path ? $lpath_40 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$OneOf'.definitions.'']", defined $path ? $lpath_40 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3091,7 +3091,7 @@ sub json_model_19($$$)
             $res = json_model_4($pval, defined $path ? $lpath_38 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$schemaArray\" [.'\$OneOf'.oneOf]", defined $path ? $lpath_38 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$schemaArray\" [.'\$OneOf'.oneOf]", defined $path ? $lpath_38 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$OneOf'.oneOf]", defined $path ? $lpath_38 : undef] if defined $rep;
                 return 0;
             }
@@ -3161,7 +3161,7 @@ sub _jm_f_126($$$)
         $res = json_model_24($pval, defined $path ? $lpath_42 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Enum'.'\$defs'.'']", defined $path ? $lpath_42 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Enum'.'\$defs'.'']", defined $path ? $lpath_42 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3217,7 +3217,7 @@ sub _jm_f_130($$$)
         $res = json_model_24($pval, defined $path ? $lpath_43 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Enum'.definitions.'']", defined $path ? $lpath_43 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Enum'.definitions.'']", defined $path ? $lpath_43 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3291,7 +3291,7 @@ sub json_model_20($$$)
             $res = json_model_3($pval, defined $path ? $lpath_41 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$enum\" [.'\$Enum'.enum]", defined $path ? $lpath_41 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$enum\" [.'\$Enum'.enum]", defined $path ? $lpath_41 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Enum'.enum]", defined $path ? $lpath_41 : undef] if defined $rep;
                 return 0;
             }
@@ -3361,7 +3361,7 @@ sub _jm_f_136($$$)
         $res = json_model_24($pval, defined $path ? $lpath_45 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Const'.'\$defs'.'']", defined $path ? $lpath_45 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Const'.'\$defs'.'']", defined $path ? $lpath_45 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3417,7 +3417,7 @@ sub _jm_f_140($$$)
         $res = json_model_24($pval, defined $path ? $lpath_46 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Const'.definitions.'']", defined $path ? $lpath_46 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Const'.definitions.'']", defined $path ? $lpath_46 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3491,7 +3491,7 @@ sub json_model_21($$$)
             $res = json_model_2($pval, defined $path ? $lpath_44 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$const\" [.'\$Const'.const]", defined $path ? $lpath_44 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$const\" [.'\$Const'.const]", defined $path ? $lpath_44 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Const'.const]", defined $path ? $lpath_44 : undef] if defined $rep;
                 return 0;
             }
@@ -3561,7 +3561,7 @@ sub _jm_f_146($$$)
         $res = json_model_24($pval, defined $path ? $lpath_48 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Ref'.'\$defs'.'']", defined $path ? $lpath_48 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Ref'.'\$defs'.'']", defined $path ? $lpath_48 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3617,7 +3617,7 @@ sub _jm_f_150($$$)
         $res = json_model_24($pval, defined $path ? $lpath_49 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Schema\" [.'\$Ref'.definitions.'']", defined $path ? $lpath_49 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Schema\" [.'\$Ref'.definitions.'']", defined $path ? $lpath_49 : undef] if defined $rep;
             return 0;
         }
     }
@@ -3691,7 +3691,7 @@ sub json_model_22($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_47 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$Ref'.'\$ref']", defined $path ? $lpath_47 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$Ref'.'\$ref']", defined $path ? $lpath_47 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Ref'.'\$ref']", defined $path ? $lpath_47 : undef] if defined $rep;
                 return 0;
             }
@@ -3779,7 +3779,7 @@ sub json_model_24($$$)
         push @$rep, ["not a bool [.'\$Schema'.'|'.0]", $path] if defined $rep;
         # .'$Schema'.'|'.1
         $res = json_model_23($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$ObjectSchema\" [.'\$Schema'.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$ObjectSchema\" [.'\$Schema'.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -3837,7 +3837,7 @@ sub json_model_25($$$)
         {
             # .'$RootSchema'.'&'.1
             $res = json_model_23($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"\\\$ObjectSchema\" [.'\$RootSchema'.'&'.1]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$ObjectSchema\" [.'\$RootSchema'.'&'.1]", $path] if defined $rep and not $res;
         }
         else
         {
@@ -3861,7 +3861,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_25($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$RootSchema\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$RootSchema\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

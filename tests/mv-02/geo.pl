@@ -88,7 +88,7 @@ sub json_model_3($$$)
             $res = json_model_2($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$position\" [.'\$coord_array'.'\@'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$position\" [.'\$coord_array'.'\@'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -123,7 +123,7 @@ sub json_model_4($$$)
             $res = json_model_2($arr_2_item, defined $path ? $arr_2_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$position\" [.'\$linear_ring'.'\@'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$position\" [.'\$linear_ring'.'\@'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -180,7 +180,7 @@ sub json_model_5($$$)
             $res = json_model_2($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$position\" [.'\$Point'.coordinates]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$position\" [.'\$Point'.coordinates]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Point'.coordinates]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -276,7 +276,7 @@ sub json_model_6($$$)
                     $res = json_model_2($arr_4_item, defined (defined $path ? $lpath_1 : undef) ? $arr_4_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$position\" [.'\$MultiPoint'.coordinates.0]", defined (defined $path ? $lpath_1 : undef) ? $arr_4_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$position\" [.'\$MultiPoint'.coordinates.0]", defined (defined $path ? $lpath_1 : undef) ? $arr_4_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -371,7 +371,7 @@ sub json_model_7($$$)
             $res = json_model_3($pval, defined $path ? $lpath_2 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$coord_array\" [.'\$LineString'.coordinates]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$coord_array\" [.'\$LineString'.coordinates]", defined $path ? $lpath_2 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$LineString'.coordinates]", defined $path ? $lpath_2 : undef] if defined $rep;
                 return 0;
             }
@@ -467,7 +467,7 @@ sub json_model_8($$$)
                     $res = json_model_3($arr_7_item, defined (defined $path ? $lpath_3 : undef) ? $arr_7_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$coord_array\" [.'\$MultiLineString'.coordinates.0]", defined (defined $path ? $lpath_3 : undef) ? $arr_7_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$coord_array\" [.'\$MultiLineString'.coordinates.0]", defined (defined $path ? $lpath_3 : undef) ? $arr_7_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -570,7 +570,7 @@ sub json_model_9($$$)
                     $res = json_model_4($arr_9_item, defined (defined $path ? $lpath_4 : undef) ? $arr_9_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$linear_ring\" [.'\$Polygon'.coordinates.0]", defined (defined $path ? $lpath_4 : undef) ? $arr_9_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$linear_ring\" [.'\$Polygon'.coordinates.0]", defined (defined $path ? $lpath_4 : undef) ? $arr_9_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -681,7 +681,7 @@ sub json_model_10($$$)
                             $res = json_model_4($arr_12_item, defined (defined (defined $path ? $lpath_5 : undef) ? $arr_11_lpath : undef) ? $arr_12_lpath : undef, $rep);
                             unless ($res)
                             {
-                                push @$rep, ["unexpected value for model \"\\\$linear_ring\" [.'\$MultiPolygon'.coordinates.0.0]", defined (defined (defined $path ? $lpath_5 : undef) ? $arr_11_lpath : undef) ? $arr_12_lpath : undef] if defined $rep;
+                                push @$rep, ["unexpected value for model \"\$linear_ring\" [.'\$MultiPolygon'.coordinates.0.0]", defined (defined (defined $path ? $lpath_5 : undef) ? $arr_11_lpath : undef) ? $arr_12_lpath : undef] if defined $rep;
                                 last;
                             }
                         }
@@ -782,7 +782,7 @@ sub _jm_obj_0($$$)
     $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$position\" [.'\$geometry'.'|'.0.coordinates]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$position\" [.'\$geometry'.'|'.0.coordinates]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <coordinates> [.'\$geometry'.'|'.0]", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -863,7 +863,7 @@ sub _jm_obj_1($$$)
             $res = json_model_2($arr_15_item, defined (defined $path ? $lpath : undef) ? $arr_15_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$position\" [.'\$geometry'.'|'.1.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_15_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$position\" [.'\$geometry'.'|'.1.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_15_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -943,7 +943,7 @@ sub _jm_obj_2($$$)
     $res = json_model_3($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$coord_array\" [.'\$geometry'.'|'.2.coordinates]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$coord_array\" [.'\$geometry'.'|'.2.coordinates]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <coordinates> [.'\$geometry'.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -1024,7 +1024,7 @@ sub _jm_obj_3($$$)
             $res = json_model_3($arr_18_item, defined (defined $path ? $lpath : undef) ? $arr_18_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$coord_array\" [.'\$geometry'.'|'.3.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_18_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$coord_array\" [.'\$geometry'.'|'.3.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_18_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -1112,7 +1112,7 @@ sub _jm_obj_4($$$)
             $res = json_model_4($arr_20_item, defined (defined $path ? $lpath : undef) ? $arr_20_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$linear_ring\" [.'\$geometry'.'|'.4.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_20_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$linear_ring\" [.'\$geometry'.'|'.4.coordinates.0]", defined (defined $path ? $lpath : undef) ? $arr_20_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -1208,7 +1208,7 @@ sub _jm_obj_5($$$)
                     $res = json_model_4($arr_23_item, defined (defined (defined $path ? $lpath : undef) ? $arr_22_lpath : undef) ? $arr_23_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$linear_ring\" [.'\$geometry'.'|'.5.coordinates.0.0]", defined (defined (defined $path ? $lpath : undef) ? $arr_22_lpath : undef) ? $arr_23_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$linear_ring\" [.'\$geometry'.'|'.5.coordinates.0.0]", defined (defined (defined $path ? $lpath : undef) ? $arr_22_lpath : undef) ? $arr_23_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -1340,7 +1340,7 @@ sub json_model_12($$$)
             $res = json_model_11($arr_25_item, defined (defined $path ? $lpath : undef) ? $arr_25_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$geometry\" [.'\$GeometryCollection'.geometries.0]", defined (defined $path ? $lpath : undef) ? $arr_25_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$geometry\" [.'\$GeometryCollection'.geometries.0]", defined (defined $path ? $lpath : undef) ? $arr_25_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -1427,10 +1427,10 @@ sub json_model_13($$$)
         $res = json_model_11($pval, defined $path ? $lpath : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$geometry\" [.'\$Feature'.geometry.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$geometry\" [.'\$Feature'.geometry.'|'.1]", defined $path ? $lpath : undef] if defined $rep;
             # .'$Feature'.geometry.'|'.2
             $res = json_model_12($pval, defined $path ? $lpath : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$GeometryCollection\" [.'\$Feature'.geometry.'|'.2]", defined $path ? $lpath : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$GeometryCollection\" [.'\$Feature'.geometry.'|'.2]", defined $path ? $lpath : undef] if defined $rep and not $res;
         }
     }
     if ($res)
@@ -1572,7 +1572,7 @@ sub json_model_14($$$)
             $res = json_model_13($arr_28_item, defined (defined $path ? $lpath : undef) ? $arr_28_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Feature\" [.'\$FeatureCollection'.features.0]", defined (defined $path ? $lpath : undef) ? $arr_28_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Feature\" [.'\$FeatureCollection'.features.0]", defined (defined $path ? $lpath : undef) ? $arr_28_lpath : undef] if defined $rep;
                 last;
             }
         }

@@ -22,7 +22,7 @@ sub json_model_1($$$)
     # .
     # "/hello\\.world\\?$/"
     my $res = jm_is_string($val) && jm_ends_with($val, "hello.world?");
-    push @$rep, ["unexpected value for model \"/hello\\\\.world\\\\?\\\$/\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/hello\\\\.world\\\\?\$/\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

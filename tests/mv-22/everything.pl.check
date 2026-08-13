@@ -1,74 +1,74 @@
 everything.values.json[0]: PASS
-everything.values.json[1]: FAIL (.predefs.DATE: unexpected value for model "\$DATE" [.predefs.DATE]; .predefs.DATE: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[1]: FAIL (.predefs.DATE: unexpected value for model "$DATE" [.predefs.DATE]; .predefs.DATE: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[2]: PASS
-everything.values.json[3]: FAIL (.predefs.DATETIME: unexpected value for model "\$DATETIME" [.predefs.DATETIME]; .predefs.DATETIME: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[3]: FAIL (.predefs.DATETIME: unexpected value for model "$DATETIME" [.predefs.DATETIME]; .predefs.DATETIME: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[4]: PASS
-everything.values.json[5]: FAIL (.predefs.TIME: unexpected value for model "\$TIME" [.predefs.TIME]; .predefs.TIME: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[5]: FAIL (.predefs.TIME: unexpected value for model "$TIME" [.predefs.TIME]; .predefs.TIME: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[6]: PASS
-everything.values.json[7]: FAIL (.predefs.DURATION: unexpected value for model "\$DURATION" [.predefs.DURATION]; .predefs.DURATION: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[7]: FAIL (.predefs.DURATION: unexpected value for model "$DURATION" [.predefs.DURATION]; .predefs.DURATION: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[8]: PASS
 everything.values.json[9]: PASS
-everything.values.json[10]: FAIL (.predefs.JSON: unexpected value for model "\$JSON" [.predefs.JSON]; .predefs.JSON: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
-everything.values.json[11]: FAIL (.predefs.JSON: unexpected value for model "\$JSON" [.predefs.JSON]; .predefs.JSON: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[10]: FAIL (.predefs.JSON: unexpected value for model "$JSON" [.predefs.JSON]; .predefs.JSON: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[11]: FAIL (.predefs.JSON: unexpected value for model "$JSON" [.predefs.JSON]; .predefs.JSON: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[12]: PASS
-everything.values.json[13]: FAIL (.predefs.JSONPT: unexpected value for model "\$JSONPT" [.predefs.JSONPT]; .predefs.JSONPT: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[13]: FAIL (.predefs.JSONPT: unexpected value for model "$JSONPT" [.predefs.JSONPT]; .predefs.JSONPT: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[14]: PASS
-everything.values.json[15]: FAIL (.predefs.REGEX: unexpected value for model "\$REGEX" [.predefs.REGEX]; .predefs.REGEX: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[15]: FAIL (.predefs.REGEX: unexpected value for model "$REGEX" [.predefs.REGEX]; .predefs.REGEX: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[16]: PASS
-everything.values.json[17]: FAIL (.predefs.EXREG: unexpected value for model "\$EXREG" [.predefs.EXREG]; .predefs.EXREG: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[17]: FAIL (.predefs.EXREG: unexpected value for model "$EXREG" [.predefs.EXREG]; .predefs.EXREG: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[18]: PASS
-everything.values.json[19]: FAIL (.predefs.NONE: unexpected value for model "\$NONE" [.predefs.NONE]; .predefs.NONE: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[19]: FAIL (.predefs.NONE: unexpected value for model "$NONE" [.predefs.NONE]; .predefs.NONE: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[20]: PASS
-everything.values.json[21]: FAIL (.predefs.UUID: unexpected value for model "\$UUID" [.predefs.UUID]; .predefs.UUID: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[21]: FAIL (.predefs.UUID: unexpected value for model "$UUID" [.predefs.UUID]; .predefs.UUID: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[22]: PASS
-everything.values.json[23]: FAIL (.predefs.URL: unexpected value for model "\$URL" [.predefs.URL]; .predefs.URL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
-everything.values.json[24]: FAIL (.predefs.URL: unexpected value for model "\$URL" [.predefs.URL]; .predefs.URL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[23]: FAIL (.predefs.URL: unexpected value for model "$URL" [.predefs.URL]; .predefs.URL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[24]: FAIL (.predefs.URL: unexpected value for model "$URL" [.predefs.URL]; .predefs.URL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[25]: PASS
-everything.values.json[26]: FAIL (.predefs.URI: unexpected value for model "\$URI" [.predefs.URI]; .predefs.URI: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
-everything.values.json[27]: FAIL (.predefs.URI: unexpected value for model "\$URI" [.predefs.URI]; .predefs.URI: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[26]: FAIL (.predefs.URI: unexpected value for model "$URI" [.predefs.URI]; .predefs.URI: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[27]: FAIL (.predefs.URI: unexpected value for model "$URI" [.predefs.URI]; .predefs.URI: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[28]: PASS
-everything.values.json[29]: FAIL (.predefs.HOST: unexpected value for model "\$HOST" [.predefs.HOST]; .predefs.HOST: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[29]: FAIL (.predefs.HOST: unexpected value for model "$HOST" [.predefs.HOST]; .predefs.HOST: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[30]: PASS
-everything.values.json[31]: FAIL (.predefs.IP4: unexpected value for model "\$IP4" [.predefs.IP4]; .predefs.IP4: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[31]: FAIL (.predefs.IP4: unexpected value for model "$IP4" [.predefs.IP4]; .predefs.IP4: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[32]: PASS
-everything.values.json[33]: FAIL (.predefs.IP6: unexpected value for model "\$IP6" [.predefs.IP6]; .predefs.IP6: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[33]: FAIL (.predefs.IP6: unexpected value for model "$IP6" [.predefs.IP6]; .predefs.IP6: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[34]: PASS
-everything.values.json[35]: FAIL (.predefs.EMAIL: unexpected value for model "\$EMAIL" [.predefs.EMAIL]; .predefs.EMAIL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[35]: FAIL (.predefs.EMAIL: unexpected value for model "$EMAIL" [.predefs.EMAIL]; .predefs.EMAIL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[36]: PASS
-everything.values.json[37]: FAIL (.predefs.ETH: unexpected value for model "\$ETH" [.predefs.ETH]; .predefs.ETH: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[37]: FAIL (.predefs.ETH: unexpected value for model "$ETH" [.predefs.ETH]; .predefs.ETH: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[38]: PASS
-everything.values.json[39]: FAIL (.predefs.NULL: unexpected value for model "\$NULL" [.predefs.NULL]; .predefs.NULL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[39]: FAIL (.predefs.NULL: unexpected value for model "$NULL" [.predefs.NULL]; .predefs.NULL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[40]: PASS
-everything.values.json[41]: FAIL (.predefs.BOOL: unexpected value for model "\$BOOL" [.predefs.BOOL]; .predefs.BOOL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[41]: FAIL (.predefs.BOOL: unexpected value for model "$BOOL" [.predefs.BOOL]; .predefs.BOOL: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[42]: PASS
-everything.values.json[43]: FAIL (.predefs.BOOLEAN: unexpected value for model "\$BOOLEAN" [.predefs.BOOLEAN]; .predefs.BOOLEAN: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[43]: FAIL (.predefs.BOOLEAN: unexpected value for model "$BOOLEAN" [.predefs.BOOLEAN]; .predefs.BOOLEAN: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[44]: PASS
-everything.values.json[45]: FAIL (.predefs.INT: unexpected value for model "\$INT" [.predefs.INT]; .predefs.INT: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[45]: FAIL (.predefs.INT: unexpected value for model "$INT" [.predefs.INT]; .predefs.INT: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[46]: PASS
-everything.values.json[47]: FAIL (.predefs.INTEGER: unexpected value for model "\$INTEGER" [.predefs.INTEGER]; .predefs.INTEGER: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[47]: FAIL (.predefs.INTEGER: unexpected value for model "$INTEGER" [.predefs.INTEGER]; .predefs.INTEGER: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[48]: PASS
-everything.values.json[49]: FAIL (.predefs.I32: unexpected value for model "\$I32" [.predefs.I32]; .predefs.I32: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[49]: FAIL (.predefs.I32: unexpected value for model "$I32" [.predefs.I32]; .predefs.I32: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[50]: PASS
-everything.values.json[51]: FAIL (.predefs.I64: unexpected value for model "\$I64" [.predefs.I64]; .predefs.I64: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[51]: FAIL (.predefs.I64: unexpected value for model "$I64" [.predefs.I64]; .predefs.I64: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[52]: PASS
-everything.values.json[53]: FAIL (.predefs.U32: unexpected value for model "\$U32" [.predefs.U32]; .predefs.U32: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[53]: FAIL (.predefs.U32: unexpected value for model "$U32" [.predefs.U32]; .predefs.U32: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[54]: PASS
-everything.values.json[55]: FAIL (.predefs.U64: unexpected value for model "\$U64" [.predefs.U64]; .predefs.U64: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[55]: FAIL (.predefs.U64: unexpected value for model "$U64" [.predefs.U64]; .predefs.U64: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[56]: PASS
-everything.values.json[57]: FAIL (.predefs.FLOAT: unexpected value for model "\$FLOAT" [.predefs.FLOAT]; .predefs.FLOAT: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[57]: FAIL (.predefs.FLOAT: unexpected value for model "$FLOAT" [.predefs.FLOAT]; .predefs.FLOAT: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[58]: PASS
-everything.values.json[59]: FAIL (.predefs.F32: unexpected value for model "\$F32" [.predefs.F32]; .predefs.F32: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[59]: FAIL (.predefs.F32: unexpected value for model "$F32" [.predefs.F32]; .predefs.F32: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[60]: PASS
-everything.values.json[61]: FAIL (.predefs.F64: unexpected value for model "\$F64" [.predefs.F64]; .predefs.F64: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[61]: FAIL (.predefs.F64: unexpected value for model "$F64" [.predefs.F64]; .predefs.F64: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[62]: PASS
-everything.values.json[63]: FAIL (.predefs.NUMBER: unexpected value for model "\$NUMBER" [.predefs.NUMBER]; .predefs.NUMBER: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[63]: FAIL (.predefs.NUMBER: unexpected value for model "$NUMBER" [.predefs.NUMBER]; .predefs.NUMBER: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[64]: PASS
-everything.values.json[65]: FAIL (.predefs.STRING: unexpected value for model "\$STRING" [.predefs.STRING]; .predefs.STRING: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
+everything.values.json[65]: FAIL (.predefs.STRING: unexpected value for model "$STRING" [.predefs.STRING]; .predefs.STRING: invalid optional prop value [.predefs]; .predefs: invalid optional prop value [.])
 everything.values.json[66]: PASS
 everything.values.json[67]: PASS
 everything.values.json[68]: PASS
 everything.values.json[69]: FAIL (.null.n0: not null [.null.n0]; .null.n0: invalid optional prop value [.null.n0]; .null: invalid optional prop value [.])
-everything.values.json[70]: FAIL (.null.n1: unexpected value for model "\$NULL" [.null.n1]; .null.n1: invalid optional prop value [.null.n1]; .null: invalid optional prop value [.])
+everything.values.json[70]: FAIL (.null.n1: unexpected value for model "$NULL" [.null.n1]; .null.n1: invalid optional prop value [.null.n1]; .null: invalid optional prop value [.])
 everything.values.json[71]: FAIL (.null.n2: unexpected value for model "=null" [.null.n2]; .null.n2: invalid optional prop value [.null.n2]; .null: invalid optional prop value [.])
 everything.values.json[72]: PASS
 everything.values.json[73]: PASS
@@ -79,8 +79,8 @@ everything.values.json[77]: PASS
 everything.values.json[78]: PASS
 everything.values.json[79]: PASS
 everything.values.json[80]: FAIL (.bool.b0: not a bool [.bool.b0]; .bool.b0: invalid optional prop value [.bool.b0]; .bool: invalid optional prop value [.])
-everything.values.json[81]: FAIL (.bool.b1: unexpected value for model "\$BOOL" [.bool.b1]; .bool.b1: invalid optional prop value [.bool.b1]; .bool: invalid optional prop value [.])
-everything.values.json[82]: FAIL (.bool.b2: unexpected value for model "\$BOOLEAN" [.bool.b2]; .bool.b2: invalid optional prop value [.bool.b2]; .bool: invalid optional prop value [.])
+everything.values.json[81]: FAIL (.bool.b1: unexpected value for model "$BOOL" [.bool.b1]; .bool.b1: invalid optional prop value [.bool.b1]; .bool: invalid optional prop value [.])
+everything.values.json[82]: FAIL (.bool.b2: unexpected value for model "$BOOLEAN" [.bool.b2]; .bool.b2: invalid optional prop value [.bool.b2]; .bool: invalid optional prop value [.])
 everything.values.json[83]: FAIL (.bool.b3: unexpected value for model "=true" [.bool.b3]; .bool.b3: invalid optional prop value [.bool.b3]; .bool: invalid optional prop value [.])
 everything.values.json[84]: FAIL (.bool.b4: unexpected value for model "=false" [.bool.b4]; .bool.b4: invalid optional prop value [.bool.b4]; .bool: invalid optional prop value [.])
 everything.values.json[85]: PASS
@@ -90,17 +90,17 @@ everything.values.json[88]: FAIL (.int.i1: not a 1 strict int [.int.i1]; .int.i1
 everything.values.json[89]: PASS
 everything.values.json[90]: FAIL (.int.i2: not a -1 strict int [.int.i2]; .int.i2: invalid optional prop value [.int]; .int: invalid optional prop value [.])
 everything.values.json[91]: PASS
-everything.values.json[92]: FAIL (.int.i3: unexpected value for model "\$INT" [.int.i3]; .int.i3: invalid optional prop value [.int]; .int: invalid optional prop value [.])
+everything.values.json[92]: FAIL (.int.i3: unexpected value for model "$INT" [.int.i3]; .int.i3: invalid optional prop value [.int]; .int: invalid optional prop value [.])
 everything.values.json[93]: PASS
-everything.values.json[94]: FAIL (.int.i4: unexpected value for model "\$INTEGER" [.int.i4]; .int.i4: invalid optional prop value [.int]; .int: invalid optional prop value [.])
+everything.values.json[94]: FAIL (.int.i4: unexpected value for model "$INTEGER" [.int.i4]; .int.i4: invalid optional prop value [.int]; .int: invalid optional prop value [.])
 everything.values.json[95]: PASS
-everything.values.json[96]: FAIL (.int.i5: unexpected value for model "\$I32" [.int.i5]; .int.i5: invalid optional prop value [.int]; .int: invalid optional prop value [.])
+everything.values.json[96]: FAIL (.int.i5: unexpected value for model "$I32" [.int.i5]; .int.i5: invalid optional prop value [.int]; .int: invalid optional prop value [.])
 everything.values.json[97]: PASS
-everything.values.json[98]: FAIL (.int.i6: unexpected value for model "\$I64" [.int.i6]; .int.i6: invalid optional prop value [.int]; .int: invalid optional prop value [.])
+everything.values.json[98]: FAIL (.int.i6: unexpected value for model "$I64" [.int.i6]; .int.i6: invalid optional prop value [.int]; .int: invalid optional prop value [.])
 everything.values.json[99]: PASS
-everything.values.json[100]: FAIL (.int.i7: unexpected value for model "\$U32" [.int.i7]; .int.i7: invalid optional prop value [.int]; .int: invalid optional prop value [.])
+everything.values.json[100]: FAIL (.int.i7: unexpected value for model "$U32" [.int.i7]; .int.i7: invalid optional prop value [.int]; .int: invalid optional prop value [.])
 everything.values.json[101]: PASS
-everything.values.json[102]: FAIL (.int.i8: unexpected value for model "\$U64" [.int.i8]; .int.i8: invalid optional prop value [.int]; .int: invalid optional prop value [.])
+everything.values.json[102]: FAIL (.int.i8: unexpected value for model "$U64" [.int.i8]; .int.i8: invalid optional prop value [.int]; .int: invalid optional prop value [.])
 everything.values.json[103]: PASS
 everything.values.json[104]: FAIL (.int.i9: unexpected value for model "=42" [.int.i9]; .int.i9: invalid optional prop value [.int]; .int: invalid optional prop value [.])
 everything.values.json[105]: PASS
@@ -112,11 +112,11 @@ everything.values.json[110]: FAIL (.float.f1: not a 1.0 strict float [.float.f1]
 everything.values.json[111]: PASS
 everything.values.json[112]: FAIL (.float.f2: not a -1.0 strict float [.float.f2]; .float.f2: invalid optional prop value [.float]; .float: invalid optional prop value [.])
 everything.values.json[113]: PASS
-everything.values.json[114]: FAIL (.float.f3: unexpected value for model "\$FLOAT" [.float.f3]; .float.f3: invalid optional prop value [.float]; .float: invalid optional prop value [.])
+everything.values.json[114]: FAIL (.float.f3: unexpected value for model "$FLOAT" [.float.f3]; .float.f3: invalid optional prop value [.float]; .float: invalid optional prop value [.])
 everything.values.json[115]: PASS
-everything.values.json[116]: FAIL (.float.f4: unexpected value for model "\$F32" [.float.f4]; .float.f4: invalid optional prop value [.float]; .float: invalid optional prop value [.])
+everything.values.json[116]: FAIL (.float.f4: unexpected value for model "$F32" [.float.f4]; .float.f4: invalid optional prop value [.float]; .float: invalid optional prop value [.])
 everything.values.json[117]: PASS
-everything.values.json[118]: FAIL (.float.f5: unexpected value for model "\$F64" [.float.f5]; .float.f5: invalid optional prop value [.float]; .float: invalid optional prop value [.])
+everything.values.json[118]: FAIL (.float.f5: unexpected value for model "$F64" [.float.f5]; .float.f5: invalid optional prop value [.float]; .float: invalid optional prop value [.])
 everything.values.json[119]: PASS
 everything.values.json[120]: FAIL (.float.f6: unexpected value for model "=3.1415927" [.float.f6]; .float.f6: invalid optional prop value [.float]; .float: invalid optional prop value [.])
 everything.values.json[121]: PASS
@@ -126,14 +126,14 @@ everything.values.json[124]: FAIL (.float.f8: unexpected value for model "=-42.1
 everything.values.json[125]: PASS
 everything.values.json[126]: FAIL (.string.s0: unexpected value for model "" [.string.s0]; .string.s0: invalid optional prop value [.string.s0]; .string: invalid optional prop value [.])
 everything.values.json[127]: PASS
-everything.values.json[128]: FAIL (.string.s1: unexpected value for model "\$STRING" [.string.s1]; .string.s1: invalid optional prop value [.string.s1]; .string: invalid optional prop value [.])
+everything.values.json[128]: FAIL (.string.s1: unexpected value for model "$STRING" [.string.s1]; .string.s1: invalid optional prop value [.string.s1]; .string: invalid optional prop value [.])
 everything.values.json[129]: PASS
 everything.values.json[130]: FAIL (.string.s2: unexpected value for model "Susie" [.string.s2]; .string.s2: invalid optional prop value [.string.s2]; .string: invalid optional prop value [.])
 everything.values.json[131]: PASS
 everything.values.json[132]: FAIL (.string.s3: unexpected value for model "_Calvin" [.string.s3]; .string.s3: invalid optional prop value [.string.s3]; .string: invalid optional prop value [.])
 everything.values.json[133]: PASS
 everything.values.json[134]: PASS
-everything.values.json[135]: FAIL (.string.s4: unexpected value for model "/^(Calvin|Susie)\$/" [.string.s4]; .string.s4: invalid optional prop value [.string.s4]; .string: invalid optional prop value [.])
+everything.values.json[135]: FAIL (.string.s4: unexpected value for model "/^(Calvin|Susie)$/" [.string.s4]; .string.s4: invalid optional prop value [.string.s4]; .string: invalid optional prop value [.])
 everything.values.json[136]: PASS
 everything.values.json[137]: PASS
 everything.values.json[138]: PASS
@@ -150,7 +150,7 @@ everything.values.json[148]: PASS
 everything.values.json[149]: PASS
 everything.values.json[150]: PASS
 everything.values.json[151]: PASS
-everything.values.json[152]: FAIL (.array.a2.0: unexpected value for model "\$DATE" [.array.a2.0]; .array.a2: not array or unexpected array [.array.a2]; .array.a2: invalid optional prop value [.array.a2]; .array: invalid optional prop value [.])
+everything.values.json[152]: FAIL (.array.a2.0: unexpected value for model "$DATE" [.array.a2.0]; .array.a2: not array or unexpected array [.array.a2]; .array.a2: invalid optional prop value [.array.a2]; .array: invalid optional prop value [.])
 everything.values.json[153]: FAIL (.array.a2: not array or unexpected array [.array.a2]; .array.a2: invalid optional prop value [.array.a2]; .array: invalid optional prop value [.])
 everything.values.json[154]: PASS
 everything.values.json[155]: PASS
@@ -297,9 +297,9 @@ everything.values.json[295]: FAIL (.or.o0: not a bool [.or.o0.'|'.0]; .or.o0: no
 everything.values.json[296]: FAIL (.or.o0: not a bool [.or.o0.'|'.0]; .or.o0: not a -1 strict int [.or.o0.'|'.1]; .or.o0: no model matched [.or.o0.'|']; .or.o0: invalid optional prop value [.or.o0]; .or: invalid optional prop value [.])
 everything.values.json[297]: PASS
 everything.values.json[298]: PASS
-everything.values.json[299]: FAIL (.or.o1: unexpected value for model "\$DATE" [.or.o1.'|'.0]; .or.o1: unexpected value for model "\$TIME" [.or.o1.'|'.1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: invalid optional prop value [.or.o1]; .or: invalid optional prop value [.])
-everything.values.json[300]: FAIL (.or.o1: unexpected value for model "\$DATE" [.or.o1.'|'.0]; .or.o1: unexpected value for model "\$TIME" [.or.o1.'|'.1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: invalid optional prop value [.or.o1]; .or: invalid optional prop value [.])
-everything.values.json[301]: FAIL (.or.o1: unexpected value for model "\$DATE" [.or.o1.'|'.0]; .or.o1: unexpected value for model "\$TIME" [.or.o1.'|'.1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: invalid optional prop value [.or.o1]; .or: invalid optional prop value [.])
+everything.values.json[299]: FAIL (.or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: invalid optional prop value [.or.o1]; .or: invalid optional prop value [.])
+everything.values.json[300]: FAIL (.or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: invalid optional prop value [.or.o1]; .or: invalid optional prop value [.])
+everything.values.json[301]: FAIL (.or.o1: unexpected value for model "$DATE" [.or.o1.'|'.0]; .or.o1: unexpected value for model "$TIME" [.or.o1.'|'.1]; .or.o1: no model matched [.or.o1.'|']; .or.o1: invalid optional prop value [.or.o1]; .or: invalid optional prop value [.])
 everything.values.json[302]: FAIL (.or.o1: unexpected type [.or.o1.'|']; .or.o1: invalid optional prop value [.or.o1]; .or: invalid optional prop value [.])
 everything.values.json[303]: FAIL (.or.o1: unexpected type [.or.o1.'|']; .or.o1: invalid optional prop value [.or.o1]; .or: invalid optional prop value [.])
 everything.values.json[304]: PASS
@@ -309,8 +309,8 @@ everything.values.json[307]: PASS
 everything.values.json[308]: PASS
 everything.values.json[309]: PASS
 everything.values.json[310]: PASS
-everything.values.json[311]: FAIL (.or.o2: not a 0 strict int [.or.o2.'|'.0]; .or.o2: unexpected value for model "\$UUID" [.or.o2.'|'.1]; .or.o2: not array or unexpected array [.or.o2.'|'.2]; .or.o2: no model matched [.or.o2.'|']; .or.o2: invalid optional prop value [.or.o2]; .or: invalid optional prop value [.])
-everything.values.json[312]: FAIL (.or.o2: not a 0 strict int [.or.o2.'|'.0]; .or.o2: unexpected value for model "\$UUID" [.or.o2.'|'.1]; .or.o2: not array or unexpected array [.or.o2.'|'.2]; .or.o2: no model matched [.or.o2.'|']; .or.o2: invalid optional prop value [.or.o2]; .or: invalid optional prop value [.])
+everything.values.json[311]: FAIL (.or.o2: not a 0 strict int [.or.o2.'|'.0]; .or.o2: unexpected value for model "$UUID" [.or.o2.'|'.1]; .or.o2: not array or unexpected array [.or.o2.'|'.2]; .or.o2: no model matched [.or.o2.'|']; .or.o2: invalid optional prop value [.or.o2]; .or: invalid optional prop value [.])
+everything.values.json[312]: FAIL (.or.o2: not a 0 strict int [.or.o2.'|'.0]; .or.o2: unexpected value for model "$UUID" [.or.o2.'|'.1]; .or.o2: not array or unexpected array [.or.o2.'|'.2]; .or.o2: no model matched [.or.o2.'|']; .or.o2: invalid optional prop value [.or.o2]; .or: invalid optional prop value [.])
 everything.values.json[313]: PASS
 everything.values.json[314]: PASS
 everything.values.json[315]: PASS
@@ -325,15 +325,15 @@ everything.values.json[323]: PASS
 everything.values.json[324]: PASS
 everything.values.json[325]: PASS
 everything.values.json[326]: PASS
-everything.values.json[327]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z\$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
+everything.values.json[327]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
 everything.values.json[328]: FAIL (.xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
-everything.values.json[329]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z\$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
-everything.values.json[330]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z\$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
-everything.values.json[331]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z\$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
-everything.values.json[332]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z\$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
-everything.values.json[333]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z\$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
-everything.values.json[334]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z\$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
-everything.values.json[335]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z\$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
+everything.values.json[329]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
+everything.values.json[330]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
+everything.values.json[331]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
+everything.values.json[332]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
+everything.values.json[333]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
+everything.values.json[334]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
+everything.values.json[335]: FAIL (.xor.x1: unexpected value for model "/^a/" [.xor.x1.'^'.0]; .xor.x1: unexpected value for model "/z$/" [.xor.x1.'^'.1]; .xor.x1: not one model match [.xor.x1.'^']; .xor.x1: invalid optional prop value [.xor.x1]; .xor: invalid optional prop value [.])
 everything.values.json[336]: PASS
 everything.values.json[337]: PASS
 everything.values.json[338]: FAIL (.xor.x2: not one model match [.xor.x2.'^']; .xor.x2: invalid optional prop value [.xor.x2]; .xor: invalid optional prop value [.])
@@ -362,8 +362,8 @@ everything.values.json[360]: FAIL (.xor.x3: not one model match [.xor.x3.'^']; .
 everything.values.json[361]: PASS
 everything.values.json[362]: PASS
 everything.values.json[363]: FAIL (.and.a0: unexpected value for model "/^2020-/" [.and.a0.'&'.1]; .and.a0: not all model match [.and.a0.'&']; .and.a0: invalid optional prop value [.and.a0]; .and: invalid optional prop value [.])
-everything.values.json[364]: FAIL (.and.a0: unexpected value for model "\$DATE" [.and.a0.'&'.0]; .and.a0: not all model match [.and.a0.'&']; .and.a0: invalid optional prop value [.and.a0]; .and: invalid optional prop value [.])
-everything.values.json[365]: FAIL (.and.a0: unexpected value for model "\$DATE" [.and.a0.'&'.0]; .and.a0: not all model match [.and.a0.'&']; .and.a0: invalid optional prop value [.and.a0]; .and: invalid optional prop value [.])
+everything.values.json[364]: FAIL (.and.a0: unexpected value for model "$DATE" [.and.a0.'&'.0]; .and.a0: not all model match [.and.a0.'&']; .and.a0: invalid optional prop value [.and.a0]; .and: invalid optional prop value [.])
+everything.values.json[365]: FAIL (.and.a0: unexpected value for model "$DATE" [.and.a0.'&'.0]; .and.a0: not all model match [.and.a0.'&']; .and.a0: invalid optional prop value [.and.a0]; .and: invalid optional prop value [.])
 everything.values.json[366]: FAIL (.and.a0: not all model match [.and.a0.'&']; .and.a0: invalid optional prop value [.and.a0]; .and: invalid optional prop value [.])
 everything.values.json[367]: FAIL (.and.a0: not all model match [.and.a0.'&']; .and.a0: invalid optional prop value [.and.a0]; .and: invalid optional prop value [.])
 everything.values.json[368]: PASS

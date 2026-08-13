@@ -31,10 +31,10 @@ sub json_model_4($$$)
     my $res = json_model_5($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Ex05a\" [.'\$ex5'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Ex05a\" [.'\$ex5'.'|'.0]", $path] if defined $rep;
         # .'$ex5'.'|'.1
         $res = json_model_6($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$Ex05b\" [.'\$ex5'.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$Ex05b\" [.'\$ex5'.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -74,10 +74,10 @@ sub json_model_7($$$)
     my $res = json_model_8($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Ex05a\" [.'\$__external_0'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Ex05a\" [.'\$__external_0'.'|'.0]", $path] if defined $rep;
         # .'$__external_0'.'|'.1
         $res = json_model_9($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$Ex05b\" [.'\$__external_0'.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$Ex05b\" [.'\$__external_0'.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -111,16 +111,16 @@ sub json_model_1($$$)
                 $lpath_0 = defined $path ? [@{$path}, 2] : undef;
                 # .2
                 $res = json_model_3($$val[2], defined $path ? $lpath_0 : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$Ex07\" [.2]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$Ex07\" [.2]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
             }
             else
             {
-                push @$rep, ["unexpected value for model \"\\\$__external_0#Ex05b\" [.1]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$__external_0#Ex05b\" [.1]", defined $path ? $lpath_0 : undef] if defined $rep;
             }
         }
         else
         {
-            push @$rep, ["unexpected value for model \"\\\$ex5#Ex05a\" [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$ex5#Ex05a\" [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
         }
     }
     push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;

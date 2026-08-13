@@ -42,7 +42,7 @@ sub _jm_f_1($$$)
     my ($val, $path, $rep) = @_;
     # .'1'
     my $res = jm_is_string($val) && $val eq "À";
-    push @$rep, ["unexpected value for model \"_À\" [.'1']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\" [.'1']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -52,7 +52,7 @@ sub _jm_f_2($$$)
     my ($val, $path, $rep) = @_;
     # .'2'
     my $res = jm_is_string($val) && $val eq "Àß";
-    push @$rep, ["unexpected value for model \"_Àß\" [.'2']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\\u00df\" [.'2']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -62,7 +62,7 @@ sub _jm_f_3($$$)
     my ($val, $path, $rep) = @_;
     # .'3'
     my $res = jm_is_string($val) && $val eq "Àßç";
-    push @$rep, ["unexpected value for model \"_Àßç\" [.'3']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\\u00df\\u00e7\" [.'3']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -72,7 +72,7 @@ sub _jm_f_4($$$)
     my ($val, $path, $rep) = @_;
     # .'4'
     my $res = jm_is_string($val) && $val eq "ÀßçΔ";
-    push @$rep, ["unexpected value for model \"_ÀßçΔ\" [.'4']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\" [.'4']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -82,7 +82,7 @@ sub _jm_f_5($$$)
     my ($val, $path, $rep) = @_;
     # .'5'
     my $res = jm_is_string($val) && $val eq "ÀßçΔ€";
-    push @$rep, ["unexpected value for model \"_ÀßçΔ€\" [.'5']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\" [.'5']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -92,7 +92,7 @@ sub _jm_f_6($$$)
     my ($val, $path, $rep) = @_;
     # .'6'
     my $res = jm_is_string($val) && $val eq "ÀßçΔ€ᵳ";
-    push @$rep, ["unexpected value for model \"_ÀßçΔ€ᵳ\" [.'6']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\" [.'6']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -102,7 +102,7 @@ sub _jm_f_7($$$)
     my ($val, $path, $rep) = @_;
     # .'7'
     my $res = jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧ";
-    push @$rep, ["unexpected value for model \"_ÀßçΔ€ᵳǧ\" [.'7']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\" [.'7']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -112,7 +112,7 @@ sub _jm_f_8($$$)
     my ($val, $path, $rep) = @_;
     # .'8'
     my $res = jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧℏ";
-    push @$rep, ["unexpected value for model \"_ÀßçΔ€ᵳǧℏ\" [.'8']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\\u210f\" [.'8']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -122,7 +122,7 @@ sub _jm_f_9($$$)
     my ($val, $path, $rep) = @_;
     # .'9'
     my $res = jm_is_string($val) && $val eq "ÀßçΔ€ᵳǧℏı";
-    push @$rep, ["unexpected value for model \"_ÀßçΔ€ᵳǧℏı\" [.'9']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\\u210f\\u0131\" [.'9']", $path] if defined $rep and not $res;
     return $res;
 }
 

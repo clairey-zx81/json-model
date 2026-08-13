@@ -44,7 +44,7 @@ sub json_model_3($$$)
             $res = json_model_2($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Pp\" [.'\$Qq'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Pp\" [.'\$Qq'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -75,7 +75,7 @@ sub _jm_obj_0($$$)
             $res = json_model_2($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Pp\" [.o.p]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Pp\" [.o.p]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.o.p]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -88,7 +88,7 @@ sub _jm_obj_0($$$)
             $res = json_model_3($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Qq\" [.o.q]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Qq\" [.o.q]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.o.q]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }

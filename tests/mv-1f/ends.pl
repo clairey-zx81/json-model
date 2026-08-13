@@ -22,7 +22,7 @@ sub json_model_1($$$)
     # .
     # "/Susie$/"
     my $res = jm_is_string($val) && jm_ends_with($val, "Susie");
-    push @$rep, ["unexpected value for model \"/Susie\\\$/\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/Susie\$/\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

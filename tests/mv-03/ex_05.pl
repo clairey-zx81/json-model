@@ -46,10 +46,10 @@ sub json_model_1($$$)
     my $res = json_model_2($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Ex05a\" [.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Ex05a\" [.'|'.0]", $path] if defined $rep;
         # .'|'.1
         $res = json_model_3($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$Ex05b\" [.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$Ex05b\" [.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {

@@ -61,7 +61,7 @@ sub json_model_2($$$)
         $res = json_model_3($pval, defined $path ? $lpath_0 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$r\" [.'\$a'.''.'|'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$r\" [.'\$a'.''.'|'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
             # .'$a'.''.'|'.1
             $res = _jm_obj_0($pval, defined $path ? $lpath_0 : undef, $rep);
             push @$rep, ["unexpected element [.'\$a'.''.'|'.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
@@ -108,7 +108,7 @@ sub json_model_3($$$)
     my $res = json_model_2($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$a\" [.'\$r'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$a\" [.'\$r'.'|'.0]", $path] if defined $rep;
         # .'$r'.'|'.1
         $res = _jm_obj_1($val, $path, $rep);
         push @$rep, ["unexpected element [.'\$r'.'|'.1]", $path] if defined $rep and not $res;
@@ -130,7 +130,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_3($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$r\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$r\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

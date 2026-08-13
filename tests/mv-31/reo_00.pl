@@ -35,11 +35,11 @@ sub json_model_1($$$)
             $res = $val eq "world";
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^world\\\$/\" [.'|'.1]", $path] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^world\$/\" [.'|'.1]", $path] if defined $rep;
                 # .'|'.2
                 # "/!$/"
                 $res = jm_ends_with($val, "!");
-                push @$rep, ["unexpected value for model \"/!\\\$/\" [.'|'.2]", $path] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"/!\$/\" [.'|'.2]", $path] if defined $rep and not $res;
             }
         }
         if ($res)

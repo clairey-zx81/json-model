@@ -50,11 +50,11 @@ sub json_model_1($$$)
             $lpath_0 = defined $path ? [@{$path}, 1] : undef;
             # .1
             $res = json_model_2($$val[1], defined $path ? $lpath_0 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$s\" [.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$s\" [.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
         }
         else
         {
-            push @$rep, ["unexpected value for model \"\\\$s\" [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$s\" [.0]", defined $path ? $lpath_0 : undef] if defined $rep;
         }
     }
     push @$rep, ["not array or unexpected array [.]", $path] if defined $rep and not $res;

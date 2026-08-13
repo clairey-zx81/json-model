@@ -3231,235 +3231,235 @@ sub json_model_49($$$)
     my $res = json_model_2($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$AIXPlatformModel\" [.'\$any_platform'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$AIXPlatformModel\" [.'\$any_platform'.'|'.0]", $path] if defined $rep;
         # .'$any_platform'.'|'.1
         $res = json_model_3($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$AlpinePlatformModel\" [.'\$any_platform'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$AlpinePlatformModel\" [.'\$any_platform'.'|'.1]", $path] if defined $rep;
             # .'$any_platform'.'|'.2
             $res = json_model_5($val, $path, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$AmazonPlatformModel\" [.'\$any_platform'.'|'.2]", $path] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$AmazonPlatformModel\" [.'\$any_platform'.'|'.2]", $path] if defined $rep;
                 # .'$any_platform'.'|'.3
                 $res = json_model_4($val, $path, $rep);
                 unless ($res)
                 {
-                    push @$rep, ["unexpected value for model \"\\\$AmazonLinuxPlatformModel\" [.'\$any_platform'.'|'.3]", $path] if defined $rep;
+                    push @$rep, ["unexpected value for model \"\$AmazonLinuxPlatformModel\" [.'\$any_platform'.'|'.3]", $path] if defined $rep;
                     # .'$any_platform'.'|'.4
                     $res = json_model_42($val, $path, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$aosPlatformModel\" [.'\$any_platform'.'|'.4]", $path] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$aosPlatformModel\" [.'\$any_platform'.'|'.4]", $path] if defined $rep;
                         # .'$any_platform'.'|'.5
                         $res = json_model_6($val, $path, $rep);
                         unless ($res)
                         {
-                            push @$rep, ["unexpected value for model \"\\\$ArchLinuxPlatformModel\" [.'\$any_platform'.'|'.5]", $path] if defined $rep;
+                            push @$rep, ["unexpected value for model \"\$ArchLinuxPlatformModel\" [.'\$any_platform'.'|'.5]", $path] if defined $rep;
                             # .'$any_platform'.'|'.6
                             $res = json_model_7($val, $path, $rep);
                             unless ($res)
                             {
-                                push @$rep, ["unexpected value for model \"\\\$AstraLinuxPlatformModel\" [.'\$any_platform'.'|'.6]", $path] if defined $rep;
+                                push @$rep, ["unexpected value for model \"\$AstraLinuxPlatformModel\" [.'\$any_platform'.'|'.6]", $path] if defined $rep;
                                 # .'$any_platform'.'|'.7
                                 $res = json_model_8($val, $path, $rep);
                                 unless ($res)
                                 {
-                                    push @$rep, ["unexpected value for model \"\\\$ClearLinuxPlatformModel\" [.'\$any_platform'.'|'.7]", $path] if defined $rep;
+                                    push @$rep, ["unexpected value for model \"\$ClearLinuxPlatformModel\" [.'\$any_platform'.'|'.7]", $path] if defined $rep;
                                     # .'$any_platform'.'|'.8
                                     $res = json_model_9($val, $path, $rep);
                                     unless ($res)
                                     {
-                                        push @$rep, ["unexpected value for model \"\\\$CumulusPlatformModel\" [.'\$any_platform'.'|'.8]", $path] if defined $rep;
+                                        push @$rep, ["unexpected value for model \"\$CumulusPlatformModel\" [.'\$any_platform'.'|'.8]", $path] if defined $rep;
                                         # .'$any_platform'.'|'.9
                                         $res = json_model_28($val, $path, $rep);
                                         unless ($res)
                                         {
-                                            push @$rep, ["unexpected value for model \"\\\$NetBSDPlatformModel\" [.'\$any_platform'.'|'.9]", $path] if defined $rep;
+                                            push @$rep, ["unexpected value for model \"\$NetBSDPlatformModel\" [.'\$any_platform'.'|'.9]", $path] if defined $rep;
                                             # .'$any_platform'.'|'.10
                                             $res = json_model_10($val, $path, $rep);
                                             unless ($res)
                                             {
-                                                push @$rep, ["unexpected value for model \"\\\$DebianPlatformModel\" [.'\$any_platform'.'|'.10]", $path] if defined $rep;
+                                                push @$rep, ["unexpected value for model \"\$DebianPlatformModel\" [.'\$any_platform'.'|'.10]", $path] if defined $rep;
                                                 # .'$any_platform'.'|'.11
                                                 $res = json_model_11($val, $path, $rep);
                                                 unless ($res)
                                                 {
-                                                    push @$rep, ["unexpected value for model \"\\\$DellOSPlatformModel\" [.'\$any_platform'.'|'.11]", $path] if defined $rep;
+                                                    push @$rep, ["unexpected value for model \"\$DellOSPlatformModel\" [.'\$any_platform'.'|'.11]", $path] if defined $rep;
                                                     # .'$any_platform'.'|'.12
                                                     $res = json_model_12($val, $path, $rep);
                                                     unless ($res)
                                                     {
-                                                        push @$rep, ["unexpected value for model \"\\\$DevuanPlatformModel\" [.'\$any_platform'.'|'.12]", $path] if defined $rep;
+                                                        push @$rep, ["unexpected value for model \"\$DevuanPlatformModel\" [.'\$any_platform'.'|'.12]", $path] if defined $rep;
                                                         # .'$any_platform'.'|'.13
                                                         $res = json_model_13($val, $path, $rep);
                                                         unless ($res)
                                                         {
-                                                            push @$rep, ["unexpected value for model \"\\\$DragonFlyBSDPlatformModel\" [.'\$any_platform'.'|'.13]", $path] if defined $rep;
+                                                            push @$rep, ["unexpected value for model \"\$DragonFlyBSDPlatformModel\" [.'\$any_platform'.'|'.13]", $path] if defined $rep;
                                                             # .'$any_platform'.'|'.14
                                                             $res = json_model_14($val, $path, $rep);
                                                             unless ($res)
                                                             {
-                                                                push @$rep, ["unexpected value for model \"\\\$ELPlatformModel\" [.'\$any_platform'.'|'.14]", $path] if defined $rep;
+                                                                push @$rep, ["unexpected value for model \"\$ELPlatformModel\" [.'\$any_platform'.'|'.14]", $path] if defined $rep;
                                                                 # .'$any_platform'.'|'.15
                                                                 $res = json_model_43($val, $path, $rep);
                                                                 unless ($res)
                                                                 {
-                                                                    push @$rep, ["unexpected value for model \"\\\$eosPlatformModel\" [.'\$any_platform'.'|'.15]", $path] if defined $rep;
+                                                                    push @$rep, ["unexpected value for model \"\$eosPlatformModel\" [.'\$any_platform'.'|'.15]", $path] if defined $rep;
                                                                     # .'$any_platform'.'|'.16
                                                                     $res = json_model_15($val, $path, $rep);
                                                                     unless ($res)
                                                                     {
-                                                                        push @$rep, ["unexpected value for model \"\\\$FedoraPlatformModel\" [.'\$any_platform'.'|'.16]", $path] if defined $rep;
+                                                                        push @$rep, ["unexpected value for model \"\$FedoraPlatformModel\" [.'\$any_platform'.'|'.16]", $path] if defined $rep;
                                                                         # .'$any_platform'.'|'.17
                                                                         $res = json_model_16($val, $path, $rep);
                                                                         unless ($res)
                                                                         {
-                                                                            push @$rep, ["unexpected value for model \"\\\$FreeBSDPlatformModel\" [.'\$any_platform'.'|'.17]", $path] if defined $rep;
+                                                                            push @$rep, ["unexpected value for model \"\$FreeBSDPlatformModel\" [.'\$any_platform'.'|'.17]", $path] if defined $rep;
                                                                             # .'$any_platform'.'|'.18
                                                                             $res = json_model_17($val, $path, $rep);
                                                                             unless ($res)
                                                                             {
-                                                                                push @$rep, ["unexpected value for model \"\\\$GenericBSDPlatformModel\" [.'\$any_platform'.'|'.18]", $path] if defined $rep;
+                                                                                push @$rep, ["unexpected value for model \"\$GenericBSDPlatformModel\" [.'\$any_platform'.'|'.18]", $path] if defined $rep;
                                                                                 # .'$any_platform'.'|'.19
                                                                                 $res = json_model_18($val, $path, $rep);
                                                                                 unless ($res)
                                                                                 {
-                                                                                    push @$rep, ["unexpected value for model \"\\\$GenericLinuxPlatformModel\" [.'\$any_platform'.'|'.19]", $path] if defined $rep;
+                                                                                    push @$rep, ["unexpected value for model \"\$GenericLinuxPlatformModel\" [.'\$any_platform'.'|'.19]", $path] if defined $rep;
                                                                                     # .'$any_platform'.'|'.20
                                                                                     $res = json_model_19($val, $path, $rep);
                                                                                     unless ($res)
                                                                                     {
-                                                                                        push @$rep, ["unexpected value for model \"\\\$GenericUNIXPlatformModel\" [.'\$any_platform'.'|'.20]", $path] if defined $rep;
+                                                                                        push @$rep, ["unexpected value for model \"\$GenericUNIXPlatformModel\" [.'\$any_platform'.'|'.20]", $path] if defined $rep;
                                                                                         # .'$any_platform'.'|'.21
                                                                                         $res = json_model_20($val, $path, $rep);
                                                                                         unless ($res)
                                                                                         {
-                                                                                            push @$rep, ["unexpected value for model \"\\\$GentooPlatformModel\" [.'\$any_platform'.'|'.21]", $path] if defined $rep;
+                                                                                            push @$rep, ["unexpected value for model \"\$GentooPlatformModel\" [.'\$any_platform'.'|'.21]", $path] if defined $rep;
                                                                                             # .'$any_platform'.'|'.22
                                                                                             $res = json_model_21($val, $path, $rep);
                                                                                             unless ($res)
                                                                                             {
-                                                                                                push @$rep, ["unexpected value for model \"\\\$HardenedBSDPlatformModel\" [.'\$any_platform'.'|'.22]", $path] if defined $rep;
+                                                                                                push @$rep, ["unexpected value for model \"\$HardenedBSDPlatformModel\" [.'\$any_platform'.'|'.22]", $path] if defined $rep;
                                                                                                 # .'$any_platform'.'|'.23
                                                                                                 $res = json_model_22($val, $path, $rep);
                                                                                                 unless ($res)
                                                                                                 {
-                                                                                                    push @$rep, ["unexpected value for model \"\\\$IOSPlatformModel\" [.'\$any_platform'.'|'.23]", $path] if defined $rep;
+                                                                                                    push @$rep, ["unexpected value for model \"\$IOSPlatformModel\" [.'\$any_platform'.'|'.23]", $path] if defined $rep;
                                                                                                     # .'$any_platform'.'|'.24
                                                                                                     $res = json_model_23($val, $path, $rep);
                                                                                                     unless ($res)
                                                                                                     {
-                                                                                                        push @$rep, ["unexpected value for model \"\\\$JunosPlatformModel\" [.'\$any_platform'.'|'.24]", $path] if defined $rep;
+                                                                                                        push @$rep, ["unexpected value for model \"\$JunosPlatformModel\" [.'\$any_platform'.'|'.24]", $path] if defined $rep;
                                                                                                         # .'$any_platform'.'|'.25
                                                                                                         $res = json_model_24($val, $path, $rep);
                                                                                                         unless ($res)
                                                                                                         {
-                                                                                                            push @$rep, ["unexpected value for model \"\\\$KaliPlatformModel\" [.'\$any_platform'.'|'.25]", $path] if defined $rep;
+                                                                                                            push @$rep, ["unexpected value for model \"\$KaliPlatformModel\" [.'\$any_platform'.'|'.25]", $path] if defined $rep;
                                                                                                             # .'$any_platform'.'|'.26
                                                                                                             $res = json_model_44($val, $path, $rep);
                                                                                                             unless ($res)
                                                                                                             {
-                                                                                                                push @$rep, ["unexpected value for model \"\\\$macOSPlatformModel\" [.'\$any_platform'.'|'.26]", $path] if defined $rep;
+                                                                                                                push @$rep, ["unexpected value for model \"\$macOSPlatformModel\" [.'\$any_platform'.'|'.26]", $path] if defined $rep;
                                                                                                                 # .'$any_platform'.'|'.27
                                                                                                                 $res = json_model_25($val, $path, $rep);
                                                                                                                 unless ($res)
                                                                                                                 {
-                                                                                                                    push @$rep, ["unexpected value for model \"\\\$MacOSXPlatformModel\" [.'\$any_platform'.'|'.27]", $path] if defined $rep;
+                                                                                                                    push @$rep, ["unexpected value for model \"\$MacOSXPlatformModel\" [.'\$any_platform'.'|'.27]", $path] if defined $rep;
                                                                                                                     # .'$any_platform'.'|'.28
                                                                                                                     $res = json_model_26($val, $path, $rep);
                                                                                                                     unless ($res)
                                                                                                                     {
-                                                                                                                        push @$rep, ["unexpected value for model \"\\\$MageiaPlatformModel\" [.'\$any_platform'.'|'.28]", $path] if defined $rep;
+                                                                                                                        push @$rep, ["unexpected value for model \"\$MageiaPlatformModel\" [.'\$any_platform'.'|'.28]", $path] if defined $rep;
                                                                                                                         # .'$any_platform'.'|'.29
                                                                                                                         $res = json_model_27($val, $path, $rep);
                                                                                                                         unless ($res)
                                                                                                                         {
-                                                                                                                            push @$rep, ["unexpected value for model \"\\\$NXOSPlatformModel\" [.'\$any_platform'.'|'.29]", $path] if defined $rep;
+                                                                                                                            push @$rep, ["unexpected value for model \"\$NXOSPlatformModel\" [.'\$any_platform'.'|'.29]", $path] if defined $rep;
                                                                                                                             # .'$any_platform'.'|'.30
                                                                                                                             $res = json_model_29($val, $path, $rep);
                                                                                                                             unless ($res)
                                                                                                                             {
-                                                                                                                                push @$rep, ["unexpected value for model \"\\\$OpenBSDPlatformModel\" [.'\$any_platform'.'|'.30]", $path] if defined $rep;
+                                                                                                                                push @$rep, ["unexpected value for model \"\$OpenBSDPlatformModel\" [.'\$any_platform'.'|'.30]", $path] if defined $rep;
                                                                                                                                 # .'$any_platform'.'|'.31
                                                                                                                                 $res = json_model_45($val, $path, $rep);
                                                                                                                                 unless ($res)
                                                                                                                                 {
-                                                                                                                                    push @$rep, ["unexpected value for model \"\\\$opensusePlatformModel\" [.'\$any_platform'.'|'.31]", $path] if defined $rep;
+                                                                                                                                    push @$rep, ["unexpected value for model \"\$opensusePlatformModel\" [.'\$any_platform'.'|'.31]", $path] if defined $rep;
                                                                                                                                     # .'$any_platform'.'|'.32
                                                                                                                                     $res = json_model_30($val, $path, $rep);
                                                                                                                                     unless ($res)
                                                                                                                                     {
-                                                                                                                                        push @$rep, ["unexpected value for model \"\\\$OpenWrtPlatformModel\" [.'\$any_platform'.'|'.32]", $path] if defined $rep;
+                                                                                                                                        push @$rep, ["unexpected value for model \"\$OpenWrtPlatformModel\" [.'\$any_platform'.'|'.32]", $path] if defined $rep;
                                                                                                                                         # .'$any_platform'.'|'.33
                                                                                                                                         $res = json_model_31($val, $path, $rep);
                                                                                                                                         unless ($res)
                                                                                                                                         {
-                                                                                                                                            push @$rep, ["unexpected value for model \"\\\$OracleLinuxPlatformModel\" [.'\$any_platform'.'|'.33]", $path] if defined $rep;
+                                                                                                                                            push @$rep, ["unexpected value for model \"\$OracleLinuxPlatformModel\" [.'\$any_platform'.'|'.33]", $path] if defined $rep;
                                                                                                                                             # .'$any_platform'.'|'.34
                                                                                                                                             $res = json_model_46($val, $path, $rep);
                                                                                                                                             unless ($res)
                                                                                                                                             {
-                                                                                                                                                push @$rep, ["unexpected value for model \"\\\$os10PlatformModel\" [.'\$any_platform'.'|'.34]", $path] if defined $rep;
+                                                                                                                                                push @$rep, ["unexpected value for model \"\$os10PlatformModel\" [.'\$any_platform'.'|'.34]", $path] if defined $rep;
                                                                                                                                                 # .'$any_platform'.'|'.35
                                                                                                                                                 $res = json_model_32($val, $path, $rep);
                                                                                                                                                 unless ($res)
                                                                                                                                                 {
-                                                                                                                                                    push @$rep, ["unexpected value for model \"\\\$PAN-OSPlatformModel\" [.'\$any_platform'.'|'.35]", $path] if defined $rep;
+                                                                                                                                                    push @$rep, ["unexpected value for model \"\$PAN-OSPlatformModel\" [.'\$any_platform'.'|'.35]", $path] if defined $rep;
                                                                                                                                                     # .'$any_platform'.'|'.36
                                                                                                                                                     $res = json_model_33($val, $path, $rep);
                                                                                                                                                     unless ($res)
                                                                                                                                                     {
-                                                                                                                                                        push @$rep, ["unexpected value for model \"\\\$RockyLinuxPlatformModel\" [.'\$any_platform'.'|'.36]", $path] if defined $rep;
+                                                                                                                                                        push @$rep, ["unexpected value for model \"\$RockyLinuxPlatformModel\" [.'\$any_platform'.'|'.36]", $path] if defined $rep;
                                                                                                                                                         # .'$any_platform'.'|'.37
                                                                                                                                                         $res = json_model_34($val, $path, $rep);
                                                                                                                                                         unless ($res)
                                                                                                                                                         {
-                                                                                                                                                            push @$rep, ["unexpected value for model \"\\\$SLESPlatformModel\" [.'\$any_platform'.'|'.37]", $path] if defined $rep;
+                                                                                                                                                            push @$rep, ["unexpected value for model \"\$SLESPlatformModel\" [.'\$any_platform'.'|'.37]", $path] if defined $rep;
                                                                                                                                                             # .'$any_platform'.'|'.38
                                                                                                                                                             $res = json_model_35($val, $path, $rep);
                                                                                                                                                             unless ($res)
                                                                                                                                                             {
-                                                                                                                                                                push @$rep, ["unexpected value for model \"\\\$SmartOSPlatformModel\" [.'\$any_platform'.'|'.38]", $path] if defined $rep;
+                                                                                                                                                                push @$rep, ["unexpected value for model \"\$SmartOSPlatformModel\" [.'\$any_platform'.'|'.38]", $path] if defined $rep;
                                                                                                                                                                 # .'$any_platform'.'|'.39
                                                                                                                                                                 $res = json_model_36($val, $path, $rep);
                                                                                                                                                                 unless ($res)
                                                                                                                                                                 {
-                                                                                                                                                                    push @$rep, ["unexpected value for model \"\\\$SolarisPlatformModel\" [.'\$any_platform'.'|'.39]", $path] if defined $rep;
+                                                                                                                                                                    push @$rep, ["unexpected value for model \"\$SolarisPlatformModel\" [.'\$any_platform'.'|'.39]", $path] if defined $rep;
                                                                                                                                                                     # .'$any_platform'.'|'.40
                                                                                                                                                                     $res = json_model_37($val, $path, $rep);
                                                                                                                                                                     unless ($res)
                                                                                                                                                                     {
-                                                                                                                                                                        push @$rep, ["unexpected value for model \"\\\$SynologyPlatformModel\" [.'\$any_platform'.'|'.40]", $path] if defined $rep;
+                                                                                                                                                                        push @$rep, ["unexpected value for model \"\$SynologyPlatformModel\" [.'\$any_platform'.'|'.40]", $path] if defined $rep;
                                                                                                                                                                         # .'$any_platform'.'|'.41
                                                                                                                                                                         $res = json_model_38($val, $path, $rep);
                                                                                                                                                                         unless ($res)
                                                                                                                                                                         {
-                                                                                                                                                                            push @$rep, ["unexpected value for model \"\\\$TMOSPlatformModel\" [.'\$any_platform'.'|'.41]", $path] if defined $rep;
+                                                                                                                                                                            push @$rep, ["unexpected value for model \"\$TMOSPlatformModel\" [.'\$any_platform'.'|'.41]", $path] if defined $rep;
                                                                                                                                                                             # .'$any_platform'.'|'.42
                                                                                                                                                                             $res = json_model_39($val, $path, $rep);
                                                                                                                                                                             unless ($res)
                                                                                                                                                                             {
-                                                                                                                                                                                push @$rep, ["unexpected value for model \"\\\$UbuntuPlatformModel\" [.'\$any_platform'.'|'.42]", $path] if defined $rep;
+                                                                                                                                                                                push @$rep, ["unexpected value for model \"\$UbuntuPlatformModel\" [.'\$any_platform'.'|'.42]", $path] if defined $rep;
                                                                                                                                                                                 # .'$any_platform'.'|'.43
                                                                                                                                                                                 $res = json_model_47($val, $path, $rep);
                                                                                                                                                                                 unless ($res)
                                                                                                                                                                                 {
-                                                                                                                                                                                    push @$rep, ["unexpected value for model \"\\\$vCenterPlatformModel\" [.'\$any_platform'.'|'.43]", $path] if defined $rep;
+                                                                                                                                                                                    push @$rep, ["unexpected value for model \"\$vCenterPlatformModel\" [.'\$any_platform'.'|'.43]", $path] if defined $rep;
                                                                                                                                                                                     # .'$any_platform'.'|'.44
                                                                                                                                                                                     $res = json_model_40($val, $path, $rep);
                                                                                                                                                                                     unless ($res)
                                                                                                                                                                                     {
-                                                                                                                                                                                        push @$rep, ["unexpected value for model \"\\\$Void_LinuxPlatformModel\" [.'\$any_platform'.'|'.44]", $path] if defined $rep;
+                                                                                                                                                                                        push @$rep, ["unexpected value for model \"\$Void_LinuxPlatformModel\" [.'\$any_platform'.'|'.44]", $path] if defined $rep;
                                                                                                                                                                                         # .'$any_platform'.'|'.45
                                                                                                                                                                                         $res = json_model_48($val, $path, $rep);
                                                                                                                                                                                         unless ($res)
                                                                                                                                                                                         {
-                                                                                                                                                                                            push @$rep, ["unexpected value for model \"\\\$vSpherePlatformModel\" [.'\$any_platform'.'|'.45]", $path] if defined $rep;
+                                                                                                                                                                                            push @$rep, ["unexpected value for model \"\$vSpherePlatformModel\" [.'\$any_platform'.'|'.45]", $path] if defined $rep;
                                                                                                                                                                                             # .'$any_platform'.'|'.46
                                                                                                                                                                                             $res = json_model_41($val, $path, $rep);
-                                                                                                                                                                                            push @$rep, ["unexpected value for model \"\\\$WindowsPlatformModel\" [.'\$any_platform'.'|'.46]", $path] if defined $rep and not $res;
+                                                                                                                                                                                            push @$rep, ["unexpected value for model \"\$WindowsPlatformModel\" [.'\$any_platform'.'|'.46]", $path] if defined $rep and not $res;
                                                                                                                                                                                         }
                                                                                                                                                                                     }
                                                                                                                                                                                 }
@@ -6629,7 +6629,7 @@ sub json_model_51($$$)
             $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_47 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^[a-z][-a-z0-9_]+\\\$/\" [.'\$GalaxyInfoModelCollection'.namespace]", defined $path ? $lpath_47 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^[a-z][-a-z0-9_]+\$/\" [.'\$GalaxyInfoModelCollection'.namespace]", defined $path ? $lpath_47 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$GalaxyInfoModelCollection'.namespace]", defined $path ? $lpath_47 : undef] if defined $rep;
                 return 0;
             }
@@ -6642,7 +6642,7 @@ sub json_model_51($$$)
             $res = json_model_50($pval, defined $path ? $lpath_47 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$platforms\" [.'\$GalaxyInfoModelCollection'.platforms]", defined $path ? $lpath_47 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$platforms\" [.'\$GalaxyInfoModelCollection'.platforms]", defined $path ? $lpath_47 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$GalaxyInfoModelCollection'.platforms]", defined $path ? $lpath_47 : undef] if defined $rep;
                 return 0;
             }
@@ -6656,7 +6656,7 @@ sub json_model_51($$$)
             $res = jm_is_string($pval) && _jm_re_1($pval, defined $path ? $lpath_47 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^[a-z][a-z0-9_]+\\\$/\" [.'\$GalaxyInfoModelCollection'.role_name]", defined $path ? $lpath_47 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^[a-z][a-z0-9_]+\$/\" [.'\$GalaxyInfoModelCollection'.role_name]", defined $path ? $lpath_47 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$GalaxyInfoModelCollection'.role_name]", defined $path ? $lpath_47 : undef] if defined $rep;
                 return 0;
             }
@@ -6885,7 +6885,7 @@ sub _jm_f_6($$$)
     # .'$GalaxyInfoModelStandalone'.namespace
     # "/^[a-z][-a-z0-9_]+$/"
     my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^[a-z][-a-z0-9_]+\\\$/\" [.'\$GalaxyInfoModelStandalone'.namespace]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^[a-z][-a-z0-9_]+\$/\" [.'\$GalaxyInfoModelStandalone'.namespace]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -6896,7 +6896,7 @@ sub _jm_f_7($$$)
     # .'$GalaxyInfoModelStandalone'.role_name
     # "/^[a-z][a-z0-9_]+$/"
     my $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^[a-z][a-z0-9_]+\\\$/\" [.'\$GalaxyInfoModelStandalone'.role_name]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^[a-z][a-z0-9_]+\$/\" [.'\$GalaxyInfoModelStandalone'.role_name]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -7137,7 +7137,7 @@ sub _jm_f_18($$$)
     # .'$GalaxyInfoModel'.'|'.1.namespace
     # "/^[a-z][-a-z0-9_]+$/"
     my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^[a-z][-a-z0-9_]+\\\$/\" [.'\$GalaxyInfoModel'.'|'.1.namespace]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^[a-z][-a-z0-9_]+\$/\" [.'\$GalaxyInfoModel'.'|'.1.namespace]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -7148,7 +7148,7 @@ sub _jm_f_19($$$)
     # .'$GalaxyInfoModel'.'|'.1.role_name
     # "/^[a-z][a-z0-9_]+$/"
     my $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^[a-z][a-z0-9_]+\\\$/\" [.'\$GalaxyInfoModel'.'|'.1.role_name]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^[a-z][a-z0-9_]+\$/\" [.'\$GalaxyInfoModel'.'|'.1.role_name]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -7343,7 +7343,7 @@ sub _jm_f_30($$$)
     # .'$GalaxyInfoModel'.'|'.2.namespace
     # "/^[a-z][-a-z0-9_]+$/"
     my $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^[a-z][-a-z0-9_]+\\\$/\" [.'\$GalaxyInfoModel'.'|'.2.namespace]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^[a-z][-a-z0-9_]+\$/\" [.'\$GalaxyInfoModel'.'|'.2.namespace]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -7354,7 +7354,7 @@ sub _jm_f_31($$$)
     # .'$GalaxyInfoModel'.'|'.2.role_name
     # "/^[a-z][a-z0-9_]+$/"
     my $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"/^[a-z][a-z0-9_]+\\\$/\" [.'\$GalaxyInfoModel'.'|'.2.role_name]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"/^[a-z][a-z0-9_]+\$/\" [.'\$GalaxyInfoModel'.'|'.2.role_name]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -7491,7 +7491,7 @@ sub json_model_55($$$)
             $res = jm_is_string($arr_99_item) && _jm_re_2($arr_99_item, defined $path ? $arr_99_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^[a-z_]+\\\\.[a-z_]+\\\$/\" [.'\$collections'.0]", defined $path ? $arr_99_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^[a-z_]+\\\\.[a-z_]+\$/\" [.'\$collections'.0]", defined $path ? $arr_99_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -7702,7 +7702,7 @@ sub json_model_57($$$)
         $res = json_model_56($pval, defined $path ? $lpath : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$complex_conditional\" [.'\$DependencyModelLoose'.when]", defined $path ? $lpath : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$complex_conditional\" [.'\$DependencyModelLoose'.when]", defined $path ? $lpath : undef] if defined $rep;
             push @$rep, ["unexpected value for optional prop <when> [.'\$DependencyModelLoose']", defined $path ? $lpath : undef] if defined $rep;
             return 0;
         }
@@ -7836,7 +7836,7 @@ sub json_model_58($$$)
         }
         else
         {
-            push @$rep, ["unexpected value for model \"\\\$DependencyModelLoose\" [.'\$DependencyModel'.'&'.0]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$DependencyModelLoose\" [.'\$DependencyModel'.'&'.0]", $path] if defined $rep;
         }
     }
     if ($res)
@@ -7886,7 +7886,7 @@ sub json_model_59($$$)
             $res = json_model_55($pval, defined $path ? $lpath_52 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$collections\" [.'\$AnsibleMetaObj'.collections]", defined $path ? $lpath_52 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$collections\" [.'\$AnsibleMetaObj'.collections]", defined $path ? $lpath_52 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$AnsibleMetaObj'.collections]", defined $path ? $lpath_52 : undef] if defined $rep;
                 return 0;
             }
@@ -7911,7 +7911,7 @@ sub json_model_59($$$)
                         push @$rep, ["unexpected value for model \"\" [.'\$AnsibleMetaObj'.dependencies.0.'|'.0]", defined (defined $path ? $lpath_52 : undef) ? $arr_102_lpath : undef] if defined $rep;
                         # .'$AnsibleMetaObj'.dependencies.0.'|'.1
                         $res = json_model_58($arr_102_item, defined (defined $path ? $lpath_52 : undef) ? $arr_102_lpath : undef, $rep);
-                        push @$rep, ["unexpected value for model \"\\\$DependencyModel\" [.'\$AnsibleMetaObj'.dependencies.0.'|'.1]", defined (defined $path ? $lpath_52 : undef) ? $arr_102_lpath : undef] if defined $rep and not $res;
+                        push @$rep, ["unexpected value for model \"\$DependencyModel\" [.'\$AnsibleMetaObj'.dependencies.0.'|'.1]", defined (defined $path ? $lpath_52 : undef) ? $arr_102_lpath : undef] if defined $rep and not $res;
                     }
                     if ($res)
                     {
@@ -7939,7 +7939,7 @@ sub json_model_59($$$)
             $res = json_model_54($pval, defined $path ? $lpath_52 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$GalaxyInfoModel\" [.'\$AnsibleMetaObj'.galaxy_info]", defined $path ? $lpath_52 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$GalaxyInfoModel\" [.'\$AnsibleMetaObj'.galaxy_info]", defined $path ? $lpath_52 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$AnsibleMetaObj'.galaxy_info]", defined $path ? $lpath_52 : undef] if defined $rep;
                 return 0;
             }
@@ -7964,7 +7964,7 @@ sub json_model_60($$$)
         push @$rep, ["not null [.'\$AnsibleMeta'.'|'.0]", $path] if defined $rep;
         # .'$AnsibleMeta'.'|'.1
         $res = json_model_59($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$AnsibleMetaObj\" [.'\$AnsibleMeta'.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$AnsibleMetaObj\" [.'\$AnsibleMeta'.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -7983,7 +7983,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_60($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$AnsibleMeta\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$AnsibleMeta\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

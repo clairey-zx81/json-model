@@ -62,7 +62,7 @@ sub json_model_1($$$)
     my $res = json_model_2($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Xx\" [.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Xx\" [.'|'.0]", $path] if defined $rep;
         # .'|'.1
         $res = jm_is_array($val);
         if ($res)
@@ -75,7 +75,7 @@ sub json_model_1($$$)
                 $res = json_model_2($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
                 unless ($res)
                 {
-                    push @$rep, ["unexpected value for model \"\\\$Xx\" [.'|'.1.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                    push @$rep, ["unexpected value for model \"\$Xx\" [.'|'.1.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
                     last;
                 }
             }

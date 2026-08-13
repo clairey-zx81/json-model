@@ -156,7 +156,7 @@ sub json_model_2($$$)
             }
             else
             {
-                push @$rep, ["unexpected value for model \"/^#[0-9a-fA-F]{6}\\\$/\" [.'\$color'.'|'.0]", $path] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^#[0-9a-fA-F]{6}\$/\" [.'\$color'.'|'.0]", $path] if defined $rep;
                 push @$rep, ["no model matched [.'\$color'.'|']", $path] if defined $rep;
             }
         }
@@ -185,7 +185,7 @@ sub json_model_3($$$)
             $res = json_model_2($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$color\" [.'\$colorArray'.'\@'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$color\" [.'\$colorArray'.'\@'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -296,7 +296,7 @@ sub json_model_9($$$)
             $res = json_model_8($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$neString\" [.'\$stringArray'.'\@'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$neString\" [.'\$stringArray'.'\@'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -422,7 +422,7 @@ sub _jm_obj_0($$$)
             $res = json_model_6($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$custom-commands-prompts-title-property\" [.'\$Prompts'.'|'.0.title]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$custom-commands-prompts-title-property\" [.'\$Prompts'.'|'.0.title]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Prompts'.'|'.0.title]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -436,7 +436,7 @@ sub _jm_obj_0($$$)
             $res = json_model_7($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$custom-commands-prompts-key-property\" [.'\$Prompts'.'|'.0.key]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$custom-commands-prompts-key-property\" [.'\$Prompts'.'|'.0.key]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Prompts'.'|'.0.key]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -545,7 +545,7 @@ sub _jm_obj_3($$$)
             $res = json_model_6($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$custom-commands-prompts-title-property\" [.'\$Prompts'.'|'.1.title]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$custom-commands-prompts-title-property\" [.'\$Prompts'.'|'.1.title]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Prompts'.'|'.1.title]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -559,7 +559,7 @@ sub _jm_obj_3($$$)
             $res = json_model_7($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$custom-commands-prompts-key-property\" [.'\$Prompts'.'|'.1.key]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$custom-commands-prompts-key-property\" [.'\$Prompts'.'|'.1.key]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Prompts'.'|'.1.key]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -618,7 +618,7 @@ sub _jm_obj_5($$$)
             $res = json_model_8($pval, defined $path ? $lpath_2 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$neString\" [.'\$Prompts'.'|'.2.options.'\@'.0.value]", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$neString\" [.'\$Prompts'.'|'.2.options.'\@'.0.value]", defined $path ? $lpath_2 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Prompts'.'|'.2.options.'\@'.0.value]", defined $path ? $lpath_2 : undef] if defined $rep;
                 return 0;
             }
@@ -707,7 +707,7 @@ sub _jm_obj_4($$$)
     $res = json_model_6($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$custom-commands-prompts-title-property\" [.'\$Prompts'.'|'.2.title]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$custom-commands-prompts-title-property\" [.'\$Prompts'.'|'.2.title]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <title> [.'\$Prompts'.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -722,7 +722,7 @@ sub _jm_obj_4($$$)
     $res = json_model_7($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$custom-commands-prompts-key-property\" [.'\$Prompts'.'|'.2.key]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$custom-commands-prompts-key-property\" [.'\$Prompts'.'|'.2.key]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <key> [.'\$Prompts'.'|'.2]", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -806,7 +806,7 @@ sub _jm_obj_6($$$)
             $res = json_model_6($pval, defined $path ? $lpath_3 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$custom-commands-prompts-title-property\" [.'\$Prompts'.'|'.3.title]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$custom-commands-prompts-title-property\" [.'\$Prompts'.'|'.3.title]", defined $path ? $lpath_3 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Prompts'.'|'.3.title]", defined $path ? $lpath_3 : undef] if defined $rep;
                 return 0;
             }
@@ -820,7 +820,7 @@ sub _jm_obj_6($$$)
             $res = json_model_7($pval, defined $path ? $lpath_3 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$custom-commands-prompts-key-property\" [.'\$Prompts'.'|'.3.key]", defined $path ? $lpath_3 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$custom-commands-prompts-key-property\" [.'\$Prompts'.'|'.3.key]", defined $path ? $lpath_3 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Prompts'.'|'.3.key]", defined $path ? $lpath_3 : undef] if defined $rep;
                 return 0;
             }
@@ -1001,7 +1001,7 @@ sub _jm_obj_7($$$)
             $res = json_model_4($pval, defined $path ? $lpath_5 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.customCommands.'\@'.0.key]", defined $path ? $lpath_5 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.customCommands.'\@'.0.key]", defined $path ? $lpath_5 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.customCommands.'\@'.0.key]", defined $path ? $lpath_5 : undef] if defined $rep;
                 return 0;
             }
@@ -1063,7 +1063,7 @@ sub _jm_obj_7($$$)
                     $res = json_model_10($arr_4_item, defined (defined $path ? $lpath_5 : undef) ? $arr_4_lpath : undef, $rep);
                     unless ($res)
                     {
-                        push @$rep, ["unexpected value for model \"\\\$Prompts\" [.customCommands.'\@'.0.prompts.0]", defined (defined $path ? $lpath_5 : undef) ? $arr_4_lpath : undef] if defined $rep;
+                        push @$rep, ["unexpected value for model \"\$Prompts\" [.customCommands.'\@'.0.prompts.0]", defined (defined $path ? $lpath_5 : undef) ? $arr_4_lpath : undef] if defined $rep;
                         last;
                     }
                 }
@@ -1311,7 +1311,7 @@ sub _jm_obj_9($$$)
     my $res = json_model_8($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$neString\" [.git.commitPrefixes.'/./'.pattern]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$neString\" [.git.commitPrefixes.'/./'.pattern]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <pattern> [.git.commitPrefixes.'/./']", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -1326,7 +1326,7 @@ sub _jm_obj_9($$$)
     $res = json_model_8($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$neString\" [.git.commitPrefixes.'/./'.replace]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$neString\" [.git.commitPrefixes.'/./'.replace]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <replace> [.git.commitPrefixes.'/./']", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -1678,7 +1678,7 @@ sub _jm_f_21($$$)
             $res = json_model_2($pval, defined $path ? $lpath_14 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$color\" [.gui.authorColors.'/./']", defined $path ? $lpath_14 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$color\" [.gui.authorColors.'/./']", defined $path ? $lpath_14 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -1725,7 +1725,7 @@ sub _jm_f_23($$$)
             $res = json_model_2($pval, defined $path ? $lpath_15 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$color\" [.gui.branchColors.'/./']", defined $path ? $lpath_15 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$color\" [.gui.branchColors.'/./']", defined $path ? $lpath_15 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -2152,7 +2152,7 @@ sub _jm_f_50($$$)
             $res = json_model_4($pval, defined $path ? $lpath_20 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.commitFiles.checkoutCommitFile]", defined $path ? $lpath_20 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.commitFiles.checkoutCommitFile]", defined $path ? $lpath_20 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.commitFiles.checkoutCommitFile]", defined $path ? $lpath_20 : undef] if defined $rep;
                 return 0;
             }
@@ -2253,7 +2253,7 @@ sub _jm_f_53($$$)
             $res = json_model_4($pval, defined $path ? $lpath_23 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.main.toggleDragSelect]", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.main.toggleDragSelect]", defined $path ? $lpath_23 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.main.toggleDragSelect]", defined $path ? $lpath_23 : undef] if defined $rep;
                 return 0;
             }
@@ -2266,7 +2266,7 @@ sub _jm_f_53($$$)
             $res = json_model_4($pval, defined $path ? $lpath_23 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.main.'toggleDragSelect-alt']", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.main.'toggleDragSelect-alt']", defined $path ? $lpath_23 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.main.'toggleDragSelect-alt']", defined $path ? $lpath_23 : undef] if defined $rep;
                 return 0;
             }
@@ -2279,7 +2279,7 @@ sub _jm_f_53($$$)
             $res = json_model_4($pval, defined $path ? $lpath_23 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.main.toggleSelectHunk]", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.main.toggleSelectHunk]", defined $path ? $lpath_23 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.main.toggleSelectHunk]", defined $path ? $lpath_23 : undef] if defined $rep;
                 return 0;
             }
@@ -2292,7 +2292,7 @@ sub _jm_f_53($$$)
             $res = json_model_4($pval, defined $path ? $lpath_23 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.main.pickBothHunks]", defined $path ? $lpath_23 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.main.pickBothHunks]", defined $path ? $lpath_23 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.main.pickBothHunks]", defined $path ? $lpath_23 : undef] if defined $rep;
                 return 0;
             }
@@ -2327,7 +2327,7 @@ sub _jm_f_54($$$)
             $res = json_model_4($pval, defined $path ? $lpath_24 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.stash.popStash]", defined $path ? $lpath_24 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.stash.popStash]", defined $path ? $lpath_24 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.stash.popStash]", defined $path ? $lpath_24 : undef] if defined $rep;
                 return 0;
             }
@@ -2340,7 +2340,7 @@ sub _jm_f_54($$$)
             $res = json_model_4($pval, defined $path ? $lpath_24 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.stash.renameStash]", defined $path ? $lpath_24 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.stash.renameStash]", defined $path ? $lpath_24 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.stash.renameStash]", defined $path ? $lpath_24 : undef] if defined $rep;
                 return 0;
             }
@@ -2375,7 +2375,7 @@ sub _jm_f_55($$$)
             $res = json_model_4($pval, defined $path ? $lpath_25 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.status.checkForUpdate]", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.status.checkForUpdate]", defined $path ? $lpath_25 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.status.checkForUpdate]", defined $path ? $lpath_25 : undef] if defined $rep;
                 return 0;
             }
@@ -2388,7 +2388,7 @@ sub _jm_f_55($$$)
             $res = json_model_4($pval, defined $path ? $lpath_25 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.status.recentRepos]", defined $path ? $lpath_25 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.status.recentRepos]", defined $path ? $lpath_25 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.status.recentRepos]", defined $path ? $lpath_25 : undef] if defined $rep;
                 return 0;
             }
@@ -2423,7 +2423,7 @@ sub _jm_f_56($$$)
             $res = json_model_4($pval, defined $path ? $lpath_26 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.submodules.init]", defined $path ? $lpath_26 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.submodules.init]", defined $path ? $lpath_26 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.submodules.init]", defined $path ? $lpath_26 : undef] if defined $rep;
                 return 0;
             }
@@ -2436,7 +2436,7 @@ sub _jm_f_56($$$)
             $res = json_model_4($pval, defined $path ? $lpath_26 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.submodules.update]", defined $path ? $lpath_26 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.submodules.update]", defined $path ? $lpath_26 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.submodules.update]", defined $path ? $lpath_26 : undef] if defined $rep;
                 return 0;
             }
@@ -2449,7 +2449,7 @@ sub _jm_f_56($$$)
             $res = json_model_4($pval, defined $path ? $lpath_26 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$keybinding\" [.keybinding.submodules.bulkMenu]", defined $path ? $lpath_26 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$keybinding\" [.keybinding.submodules.bulkMenu]", defined $path ? $lpath_26 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.keybinding.submodules.bulkMenu]", defined $path ? $lpath_26 : undef] if defined $rep;
                 return 0;
             }
@@ -2793,7 +2793,7 @@ sub _jm_f_65($$$)
             $res = jm_is_string($pval) && _jm_re_2($pval, defined $path ? $lpath_30 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^[^:]+:[^:]+\\\$/\" [.services.'/./']", defined $path ? $lpath_30 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^[^:]+:[^:]+\$/\" [.services.'/./']", defined $path ? $lpath_30 : undef] if defined $rep;
                 return 0;
             }
         }

@@ -40,7 +40,7 @@ sub _jm_obj_0($$$)
             # handle 1 re props
             # .'|'.1.'/a/'
             $res = 0;
-            push @$rep, ["unexpected value for model \"\\\$NONE\" [.'|'.1.'/a/']", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$NONE\" [.'|'.1.'/a/']", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
         else

@@ -62,7 +62,7 @@ sub json_model_5($$$)
             $res = json_model_7($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Aa\" [.'\$Rr'.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Aa\" [.'\$Rr'.a]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$Rr'.a]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }
@@ -99,7 +99,7 @@ sub json_model_1($$$)
             $res = json_model_5($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Rr\" [.RA]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Rr\" [.RA]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.RA]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -112,7 +112,7 @@ sub json_model_1($$$)
             $res = json_model_3($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Bb\" [.b]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Bb\" [.b]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.b]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -125,7 +125,7 @@ sub json_model_1($$$)
             $res = json_model_7($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Rr#Aa\" [.a]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Rr#Aa\" [.a]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.a]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }

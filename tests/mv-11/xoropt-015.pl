@@ -267,10 +267,10 @@ sub json_model_6($$$)
     my $res = json_model_2($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Vv\" [.'\$Mm'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Vv\" [.'\$Mm'.'|'.0]", $path] if defined $rep;
         # .'$Mm'.'|'.1
         $res = json_model_5($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$Ee\" [.'\$Mm'.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$Ee\" [.'\$Mm'.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -289,7 +289,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_6($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$Mm\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$Mm\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

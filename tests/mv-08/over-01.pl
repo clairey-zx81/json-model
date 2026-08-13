@@ -23,7 +23,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$over'
     my $res = json_model_4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$Foo\" [.'\$over']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$Foo\" [.'\$over']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -33,7 +33,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_4($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$over#Foo\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$over#Foo\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

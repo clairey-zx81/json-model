@@ -34,11 +34,11 @@ sub json_model_4($$$)
             $lpath_0 = defined $path ? [@{$path}, 1] : undef;
             # .'$r'.1
             $res = json_model_5($$val[1], defined $path ? $lpath_0 : undef, $rep);
-            push @$rep, ["unexpected value for model \"\\\$s\" [.'\$r'.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$s\" [.'\$r'.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
         }
         else
         {
-            push @$rep, ["unexpected value for model \"\\\$s\" [.'\$r'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$s\" [.'\$r'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
         }
     }
     push @$rep, ["not array or unexpected array [.'\$r']", $path] if defined $rep and not $res;
@@ -73,10 +73,10 @@ sub json_model_1($$$)
     my $res = json_model_3($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$s\" [.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$s\" [.'|'.0]", $path] if defined $rep;
         # .'|'.1
         $res = json_model_5($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$r#s\" [.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$r#s\" [.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {

@@ -35,11 +35,11 @@ sub json_model_1($$$)
             $res = $val eq "klmnopqrst";
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^klmnopqrst\\\$/\" [.'|'.1]", $path] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^klmnopqrst\$/\" [.'|'.1]", $path] if defined $rep;
                 # .'|'.2
                 # "/qrstuvwxyz$/"
                 $res = jm_ends_with($val, "qrstuvwxyz");
-                push @$rep, ["unexpected value for model \"/qrstuvwxyz\\\$/\" [.'|'.2]", $path] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"/qrstuvwxyz\$/\" [.'|'.2]", $path] if defined $rep and not $res;
             }
         }
         if ($res)

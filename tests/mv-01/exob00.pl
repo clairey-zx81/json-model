@@ -48,7 +48,7 @@ sub _jm_obj_0($$$)
             # handle may a property
             # .'|'.1.a
             $res = 0;
-            push @$rep, ["unexpected value for model \"\\\$NONE\" [.'|'.1.a]", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$NONE\" [.'|'.1.a]", defined $path ? $lpath_0 : undef] if defined $rep;
             push @$rep, ["invalid optional prop value [.'|'.1.a]", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
@@ -103,7 +103,7 @@ sub _jm_obj_1($$$)
             # handle may b property
             # .'|'.0.b
             $res = 0;
-            push @$rep, ["unexpected value for model \"\\\$NONE\" [.'|'.0.b]", defined $path ? $lpath_1 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$NONE\" [.'|'.0.b]", defined $path ? $lpath_1 : undef] if defined $rep;
             push @$rep, ["invalid optional prop value [.'|'.0.b]", defined $path ? $lpath_1 : undef] if defined $rep;
             return 0;
         }

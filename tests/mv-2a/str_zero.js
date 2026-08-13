@@ -17,7 +17,7 @@ function json_model_1(val, path, rep)
     // .
     let res = ((typeof val === 'string' || val instanceof String)) && val == "hel\x00lo"
     if (! res)
-        rep !== null && rep.push(["unexpected value for model \"hel\\x00lo\" [.]", path])
+        rep !== null && rep.push(["unexpected value for model \"hel\\u0000lo\" [.]", path])
     return res
 }
 

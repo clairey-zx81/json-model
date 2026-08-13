@@ -17,7 +17,7 @@
 - [x] perl: fix uncleaned reports on pass
 - [x] perl: fix encoding of error message to use utf8
 - [x] perl: fix non deterministic output linked to `each`
-- [ ] perl: fix model escaping in error messages
+- [x] perl: fix model escaping in error messages
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes

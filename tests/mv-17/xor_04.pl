@@ -36,7 +36,7 @@ sub json_model_1($$$)
         # .'|'.1
         # "/^[a-z]+$/i"
         $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"/^[a-z]+\\\$/i\" [.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"/^[a-z]+\$/i\" [.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {

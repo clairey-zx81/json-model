@@ -32,7 +32,7 @@ sub json_model_2($$$)
             $res = json_model_1($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$self\" [.'\$array'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$self\" [.'\$array'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -64,7 +64,7 @@ sub json_model_1($$$)
             $res = json_model_1($pval, defined $path ? $lpath_0 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$self\" [.prop]", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$self\" [.prop]", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.prop]", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }

@@ -47,7 +47,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'1'
             res = isinstance(pval, str) and pval == "À"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_À\" [.'1']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\" [.'1']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'1']", lpath_0 if path is not None else None))
                 return False
             continue
@@ -56,7 +56,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'2'
             res = isinstance(pval, str) and pval == "Àß"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_Àß\" [.'2']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\\u00df\" [.'2']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'2']", lpath_0 if path is not None else None))
                 return False
             continue
@@ -65,7 +65,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'3'
             res = isinstance(pval, str) and pval == "Àßç"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_Àßç\" [.'3']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\\u00df\\u00e7\" [.'3']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'3']", lpath_0 if path is not None else None))
                 return False
             continue
@@ -74,7 +74,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'4'
             res = isinstance(pval, str) and pval == "ÀßçΔ"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_ÀßçΔ\" [.'4']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\" [.'4']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'4']", lpath_0 if path is not None else None))
                 return False
             continue
@@ -83,7 +83,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'5'
             res = isinstance(pval, str) and pval == "ÀßçΔ€"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_ÀßçΔ€\" [.'5']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\" [.'5']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'5']", lpath_0 if path is not None else None))
                 return False
             continue
@@ -92,7 +92,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'6'
             res = isinstance(pval, str) and pval == "ÀßçΔ€ᵳ"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_ÀßçΔ€ᵳ\" [.'6']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\" [.'6']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'6']", lpath_0 if path is not None else None))
                 return False
             continue
@@ -101,7 +101,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'7'
             res = isinstance(pval, str) and pval == "ÀßçΔ€ᵳǧ"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_ÀßçΔ€ᵳǧ\" [.'7']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\" [.'7']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'7']", lpath_0 if path is not None else None))
                 return False
             continue
@@ -110,7 +110,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'8'
             res = isinstance(pval, str) and pval == "ÀßçΔ€ᵳǧℏ"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_ÀßçΔ€ᵳǧℏ\" [.'8']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\\u210f\" [.'8']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'8']", lpath_0 if path is not None else None))
                 return False
             continue
@@ -119,7 +119,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'9'
             res = isinstance(pval, str) and pval == "ÀßçΔ€ᵳǧℏı"
             if not res:
-                rep is None or rep.append(("unexpected value for model \"_ÀßçΔ€ᵳǧℏı\" [.'9']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected value for model \"_\\u00c0\\u00df\\u00e7\\u0394\\u20ac\\u1d73\\u01e7\\u210f\\u0131\" [.'9']", lpath_0 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.'9']", lpath_0 if path is not None else None))
                 return False
             continue

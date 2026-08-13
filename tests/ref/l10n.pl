@@ -41,7 +41,7 @@ sub _jm_obj_0($$$)
             $res = jm_is_string($pval) && $pval eq "\$https://json-model.org/models/json-model";
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"_\\\$https://json-model.org/models/json-model\" [.'\$'.Model]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"_\$https://json-model.org/models/json-model\" [.'\$'.Model]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$'.Model]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -54,7 +54,7 @@ sub _jm_obj_0($$$)
             $res = jm_is_string($pval) && jm_is_valid_url($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$'.'']", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$'.'']", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$'.'']", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -122,7 +122,7 @@ sub _jm_obj_1($$$)
             $res = jm_is_string($pval) && _jm_re_1($pval, defined $path ? $lpath_2 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^([#~\\\$%\\\@|&+^/*=]|[<>!]=?)\\\$/\" [.'%'.'/^\\\\..+\$/']", defined $path ? $lpath_2 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"/^([#~\$%\@|&+^/*=]|[<>!]=?)\$/\" [.'%'.'/^\\\\..+\$/']", defined $path ? $lpath_2 : undef] if defined $rep;
                 return 0;
             }
         }
@@ -204,7 +204,7 @@ sub json_model_1($$$)
             $res = jm_is_string($pval) && $pval eq "\$Model";
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"_\\\$Model\" [.'\@']", defined $path ? $lpath_0 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"_\$Model\" [.'\@']", defined $path ? $lpath_0 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\@']", defined $path ? $lpath_0 : undef] if defined $rep;
                 return 0;
             }

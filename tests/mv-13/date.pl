@@ -21,7 +21,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = jm_is_string($val) && jm_is_valid_date($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$DATE\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$DATE\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 

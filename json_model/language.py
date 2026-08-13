@@ -1,4 +1,5 @@
 import re
+import json
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals, Block
 from .mtypes import Var, JsonExpr, BoolExpr, IntExpr, NumExpr, StrExpr, PathExpr, Expr
 from .predefs import BOOL_MODEL_PREDEFS, INT_MODEL_PREDEFS, FLOAT_MODEL_PREDEFS, STR_MODEL_PREDEFS
@@ -573,7 +574,7 @@ class Language:
 
     def esc_msg(self, s: str) -> StrExpr:
         """Escape string for inclusion in a report message."""
-        return self.esc(s)
+        return json.dumps(s)
 
     def skip(self) -> Block:
         """Skip one line."""

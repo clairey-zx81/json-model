@@ -29,20 +29,20 @@ sub json_model_3($$$)
     my $res = json_model_4($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$li0\" [.'\$foo'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$li0\" [.'\$foo'.'|'.0]", $path] if defined $rep;
         # .'$foo'.'|'.1
         $res = json_model_5($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$ls0\" [.'\$foo'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$ls0\" [.'\$foo'.'|'.1]", $path] if defined $rep;
             # .'$foo'.'|'.2
             $res = json_model_6($val, $path, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$lb0\" [.'\$foo'.'|'.2]", $path] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$lb0\" [.'\$foo'.'|'.2]", $path] if defined $rep;
                 # .'$foo'.'|'.3
                 $res = json_model_7($val, $path, $rep);
-                push @$rep, ["unexpected value for model \"\\\$lf0\" [.'\$foo'.'|'.3]", $path] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$lf0\" [.'\$foo'.'|'.3]", $path] if defined $rep and not $res;
             }
         }
     }
@@ -63,7 +63,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_5($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$foo#ls0\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$foo#ls0\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -108,7 +108,7 @@ sub json_model_5($$$)
             $res = jm_is_string($arr_1_item) && jm_is_valid_date($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$DATE\" [.'\$foo#ls0'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$DATE\" [.'\$foo#ls0'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -133,7 +133,7 @@ sub json_model_6($$$)
             $res = jm_is_boolean($arr_2_item);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$BOOL\" [.'\$foo#lb0'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$BOOL\" [.'\$foo#lb0'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
                 last;
             }
         }

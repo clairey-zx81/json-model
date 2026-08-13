@@ -24,7 +24,7 @@ sub json_model_3($$$)
     my ($val, $path, $rep) = @_;
     # .'$foo'
     my $res = json_model_5($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$Foo\" [.'\$foo']", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$Foo\" [.'\$foo']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -34,7 +34,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_5($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$foo#Foo\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$foo#Foo\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -67,7 +67,7 @@ sub json_model_5($$$)
     my $res = json_model_12($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$root#Root\" [.'\$foo#Foo'.rt]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$root#Root\" [.'\$foo#Foo'.rt]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <rt> [.'\$foo#Foo']", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }

@@ -203,7 +203,7 @@ sub json_model_4($$$)
             $res = json_model_2($pval, defined $path ? $lpath_1 : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Id\" [.'\$Request'.id]", defined $path ? $lpath_1 : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Id\" [.'\$Request'.id]", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid mandatory prop value [.'\$Request'.id]", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
@@ -268,10 +268,10 @@ sub json_model_5($$$)
             $res = json_model_4($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Request\" [.'\$BatchRequest'.'\@'.0.'|'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Request\" [.'\$BatchRequest'.'\@'.0.'|'.0]", defined $path ? $arr_0_lpath : undef] if defined $rep;
                 # .'$BatchRequest'.'@'.0.'|'.1
                 $res = json_model_3($arr_0_item, defined $path ? $arr_0_lpath : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$Notification\" [.'\$BatchRequest'.'\@'.0.'|'.1]", defined $path ? $arr_0_lpath : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$Notification\" [.'\$BatchRequest'.'\@'.0.'|'.1]", defined $path ? $arr_0_lpath : undef] if defined $rep and not $res;
             }
             if ($res)
             {
@@ -306,15 +306,15 @@ sub json_model_6($$$)
     my $res = json_model_3($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Notification\" [.'\$ClientMessage'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Notification\" [.'\$ClientMessage'.'|'.0]", $path] if defined $rep;
         # .'$ClientMessage'.'|'.1
         $res = json_model_4($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Request\" [.'\$ClientMessage'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Request\" [.'\$ClientMessage'.'|'.1]", $path] if defined $rep;
             # .'$ClientMessage'.'|'.2
             $res = json_model_5($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"\\\$BatchRequest\" [.'\$ClientMessage'.'|'.2]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$BatchRequest\" [.'\$ClientMessage'.'|'.2]", $path] if defined $rep and not $res;
         }
     }
     if ($res)
@@ -372,7 +372,7 @@ sub json_model_7($$$)
     $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Id\" [.'\$Response'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Id\" [.'\$Response'.id]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <id> [.'\$Response']", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -494,7 +494,7 @@ sub json_model_8($$$)
     $res = json_model_2($pval, defined $path ? $lpath : undef, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Id\" [.'\$Error'.id]", defined $path ? $lpath : undef] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Id\" [.'\$Error'.id]", defined $path ? $lpath : undef] if defined $rep;
         push @$rep, ["unexpected value for mandatory prop <id> [.'\$Error']", defined $path ? $lpath : undef] if defined $rep;
         return 0;
     }
@@ -535,10 +535,10 @@ sub json_model_9($$$)
             $res = json_model_7($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$BatchResponse'.'\@'.0.'|'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$Response\" [.'\$BatchResponse'.'\@'.0.'|'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
                 # .'$BatchResponse'.'@'.0.'|'.1
                 $res = json_model_8($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
-                push @$rep, ["unexpected value for model \"\\\$Error\" [.'\$BatchResponse'.'\@'.0.'|'.1]", defined $path ? $arr_1_lpath : undef] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$Error\" [.'\$BatchResponse'.'\@'.0.'|'.1]", defined $path ? $arr_1_lpath : undef] if defined $rep and not $res;
             }
             if ($res)
             {
@@ -573,15 +573,15 @@ sub json_model_10($$$)
     my $res = json_model_7($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$Response\" [.'\$ServerMessage'.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$Response\" [.'\$ServerMessage'.'|'.0]", $path] if defined $rep;
         # .'$ServerMessage'.'|'.1
         $res = json_model_8($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$Error\" [.'\$ServerMessage'.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$Error\" [.'\$ServerMessage'.'|'.1]", $path] if defined $rep;
             # .'$ServerMessage'.'|'.2
             $res = json_model_9($val, $path, $rep);
-            push @$rep, ["unexpected value for model \"\\\$BatchResponse\" [.'\$ServerMessage'.'|'.2]", $path] if defined $rep and not $res;
+            push @$rep, ["unexpected value for model \"\$BatchResponse\" [.'\$ServerMessage'.'|'.2]", $path] if defined $rep and not $res;
         }
     }
     if ($res)
@@ -605,10 +605,10 @@ sub json_model_1($$$)
     my $res = json_model_6($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$ClientMessage\" [.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$ClientMessage\" [.'|'.0]", $path] if defined $rep;
         # .'|'.1
         $res = json_model_10($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$ServerMessage\" [.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$ServerMessage\" [.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {

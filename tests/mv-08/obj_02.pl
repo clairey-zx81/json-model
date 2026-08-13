@@ -60,7 +60,7 @@ sub json_model_3($$$)
             $res = jm_is_string($arr_1_item) && jm_is_valid_url($arr_1_item, defined $path ? $arr_1_lpath : undef, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$URL\" [.'\$ls0'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$URL\" [.'\$ls0'.0]", defined $path ? $arr_1_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -85,7 +85,7 @@ sub json_model_4($$$)
             $res = jm_is_boolean($arr_2_item);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$BOOL\" [.'\$lb0'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$BOOL\" [.'\$lb0'.0]", defined $path ? $arr_2_lpath : undef] if defined $rep;
                 last;
             }
         }
@@ -128,20 +128,20 @@ sub json_model_1($$$)
     my $res = json_model_2($val, $path, $rep);
     unless ($res)
     {
-        push @$rep, ["unexpected value for model \"\\\$li0\" [.'|'.0]", $path] if defined $rep;
+        push @$rep, ["unexpected value for model \"\$li0\" [.'|'.0]", $path] if defined $rep;
         # .'|'.1
         $res = json_model_3($val, $path, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$ls0\" [.'|'.1]", $path] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$ls0\" [.'|'.1]", $path] if defined $rep;
             # .'|'.2
             $res = json_model_4($val, $path, $rep);
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"\\\$lb0\" [.'|'.2]", $path] if defined $rep;
+                push @$rep, ["unexpected value for model \"\$lb0\" [.'|'.2]", $path] if defined $rep;
                 # .'|'.3
                 $res = json_model_5($val, $path, $rep);
-                push @$rep, ["unexpected value for model \"\\\$lf0\" [.'|'.3]", $path] if defined $rep and not $res;
+                push @$rep, ["unexpected value for model \"\$lf0\" [.'|'.3]", $path] if defined $rep and not $res;
             }
         }
     }

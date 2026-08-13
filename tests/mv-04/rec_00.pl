@@ -38,7 +38,7 @@ sub json_model_2($$$)
         $res = json_model_3($pval, defined $path ? $lpath_0 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\\\$rec\" [.'\$obj'.'']", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$rec\" [.'\$obj'.'']", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }
@@ -57,7 +57,7 @@ sub json_model_3($$$)
         push @$rep, ["not a bool [.'\$rec'.'|'.0]", $path] if defined $rep;
         # .'$rec'.'|'.1
         $res = json_model_2($val, $path, $rep);
-        push @$rep, ["unexpected value for model \"\\\$obj\" [.'\$rec'.'|'.1]", $path] if defined $rep and not $res;
+        push @$rep, ["unexpected value for model \"\$obj\" [.'\$rec'.'|'.1]", $path] if defined $rep and not $res;
     }
     if ($res)
     {
@@ -76,7 +76,7 @@ sub json_model_1($$$)
     my ($val, $path, $rep) = @_;
     # .
     my $res = json_model_3($val, $path, $rep);
-    push @$rep, ["unexpected value for model \"\\\$rec\" [.]", $path] if defined $rep and not $res;
+    push @$rep, ["unexpected value for model \"\$rec\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
 
