@@ -295,6 +295,7 @@ class Perl(Language):
         return [ f"for my ${idx} (0 .. {alen})" ] + \
             self.indent([f"my ${val} = {aref}[${idx}];"] + body)
 
+    # NOTE probably %each is faster, but lacks determinism; could be an option.
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
         return [
             f"scalar keys %${obj};",
