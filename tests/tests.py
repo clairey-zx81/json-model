@@ -910,7 +910,7 @@ def test_models_jsg(directory):
 
 def check_directory_models(
         directory: pathlib.Path, url: str, suffix: str,
-        generate: Callable[[str], Jsonable], count: int,
+        generate: typing.Callable[[str], typing.Any], count: int,
     ):
     """Check a model against directory/*.suffix, expecting count tests."""
     resolver = Resolver(None, dirmap(directory))
