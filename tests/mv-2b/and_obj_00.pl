@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /usr/bin/perl -CDSA
 use utf8;
 use strict;
 use warnings;

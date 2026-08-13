@@ -1,4 +1,4 @@
-#! /usr/bin/perl
+#! /usr/bin/perl -CDSA
 # hello world
 use utf8;
 use strict;

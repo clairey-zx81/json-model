@@ -15,8 +15,8 @@
 - [x] perl: report error location
 - [x] tests: enable reporting with perl
 - [x] perl: fix uncleaned reports on pass
+- [x] perl: fix encoding of error message to use utf8
 - [ ] perl: fix model escaping in error messages
-- [ ] perl: fix encoding of error message (`mv-03/ex_08`).
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes
