@@ -16,6 +16,7 @@
 - [x] tests: enable reporting with perl
 - [x] perl: fix uncleaned reports on pass
 - [x] perl: fix encoding of error message to use utf8
+- [ ] perl: fix non deterministic output linked to `each`
 - [ ] perl: fix model escaping in error messages
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
