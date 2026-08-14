@@ -200,6 +200,12 @@ EXPECT: dict[str, int] = {
     "mv-29:values": 129,
     "mv-29:mod-opts": {"extend": True},
     "mv-29:models:errors-jsm": 5,
+    # "mv-29:models:errors-c": 1,
+    # "mv-29:models:errors-js": 1,
+    # "mv-29:models:errors-java": 1,
+    # "mv-29:models:errors-sql": 1,
+    # "mv-29:models:errors-pl": 1,
+    # "mv-29:models:errors-py": 1,
     "mv-29:models:errors": 5,
     "mv-29:verrors:schema": 3,
     # mv-2a
@@ -296,6 +302,8 @@ def file_is_newer(f1: str, f2: str) -> bool:
 
 def has_exec(program: str) -> bool:
     return os.system(f"type {program}") == 0
+
+DIR_WITH_EXTENSIONS: set[str] = { "mv-29" }
 
 #
 # LOCAL FIXTURES
@@ -403,8 +411,9 @@ def jmchecker(clibjm):
     assert os.path.isfile(jm_lib), "available support lib"
     assert os.path.isfile(jm_main), "available support main"
 
-    model_c = "ref/json-model.c"
-    fexec = f"{tmp_dir}/json_model_check"
+    # use lax model
+    model_c = "ref/json-model-moschin.c"
+    fexec = f"{tmp_dir}/json_model_moschin_check"
 
     with filelock.FileLock(lock_file):
         if not os.path.exists(fexec) or file_is_newer(model_c, fexec):
@@ -885,26 +894,39 @@ def test_models_c(directory, jmchecker):
     check_models(directory, jmchecker, EXPECT.get(f"{directory}:models:errors-c", 0))
 
 def test_models_py(directory):
-    check_models(directory, "./ref/json-model.py", EXPECT.get(f"{directory}:models:errors-py", 0))
+    check_models(directory, "./ref/json-model-moschin.py", EXPECT.get(f"{directory}:models:errors-py", 0))
 
 @pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_models_js(directory):
-    check_models(directory, "./ref/json-model.js", EXPECT.get(f"{directory}:models:errors-js", 0))
+    check_models(directory, "./ref/json-model-moschin.js", EXPECT.get(f"{directory}:models:errors-js", 0))
 
 @pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_models_pl(directory):
-    check_models(directory, "./ref/json-model.pl", EXPECT.get(f"{directory}:models:errors-pl", 0))
+    check_models(directory, "./ref/json-model-moschin.pl", EXPECT.get(f"{directory}:models:errors-pl", 0))
 
 @pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_models_java(directory):
-    check_models(directory, "./test_java.sh ./ref/json-model.java",
+    check_models(directory, "./test_java.sh ./ref/json-model-moschin.java",
                  EXPECT.get(f"{directory}:models:errors-java", 0))
 
+@pytest.mark.skipif(not has_exec("psql"), reason="missing psql")
+def test_models_sql(directory):
+    # TODO add custom error
+    if str(directory) == "mv-2a":
+        pytest.skip("model with incompatible nul character")
+    check_models(directory, "./test_sql.sh ./ref/json-model-moschin.sql",
+                 EXPECT.get(f"{directory}:models:errors-sql", 0))
+
+# NOTE moschin schema does not work
 def test_models_jsm(directory):
+    if str(directory) in DIR_WITH_EXTENSIONS:
+        pytest.skip("model extensions not supported")
     check_models(directory, "jsu-check --quiet --engine jsonschema json-model.schema.json",
                  EXPECT.get(f"{directory}:models:errors-jsm", 0))
 
 def test_models_jsg(directory):
+    if str(directory) in DIR_WITH_EXTENSIONS:
+        pytest.skip("model extensions not supported")
     check_models(directory, "jsu-check -e jschon --quiet ./ref/json-model.schema.json",
                  EXPECT.get(f"{directory}:models:errors-jsg", 0))
 
@@ -965,9 +987,13 @@ def get_json_file(fpath: str|pathlib.Path):
 def test_model_json(directory):
     """Check test model conformity to JSON Model meta model."""
 
+    model_url = "https://json-model.org/models/json-model"
+    if str(directory) in DIR_WITH_EXTENSIONS:
+        model_url += "-moschin"
+
     check_directory_models(
         directory,
-        "https://json-model.org/models/json-model",
+        model_url,
         ".model.json",
         get_json_file,
         EXPECT.get(f"{directory}:models"),

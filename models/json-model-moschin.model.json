@@ -12,7 +12,7 @@
     },
     "$Model#Constraint": {
       "#": "new constraints: multiple-of an integer, contains…",
-      "*": {"?.mo": 1, "?.in": "$Model"}
+      "*": {"?.mo": { "|": [1, 1.0] }, "?.in": "$Model"}
     }
   },
   "@": "$Model"

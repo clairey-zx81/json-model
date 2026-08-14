@@ -934,10 +934,25 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .mo property
                 // .'$Model#Element'.'|'.0.'.mo'
+                // .'$Model#Element'.'|'.0.'.mo'.'|'.0
                 res = json.isInteger(pval) && json.asLong(pval) >= 1;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Element'.'|'.0.'.mo']", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Element'.'|'.0.'.mo'.'|'.0]", (path != null ? lpath_5 : null));
+                    // .'$Model#Element'.'|'.0.'.mo'.'|'.1
+                    res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Model#Element'.'|'.0.'.mo'.'|'.1]", (path != null ? lpath_5 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Element'.'|'.0.'.mo'.'|']", (path != null ? lpath_5 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Element'.'|'.0.'.mo']", (path != null ? lpath_5 : null));
                     return false;
                 }
@@ -3140,10 +3155,25 @@ public class json_model_moschin extends ModelChecker
             {
                 // handle may .mo property
                 // .'$Model#Root'.'|'.0.'.mo'
+                // .'$Model#Root'.'|'.0.'.mo'.'|'.0
                 res = json.isInteger(pval) && json.asLong(pval) >= 1;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Model#Root'.'|'.0.'.mo'.'|'.0]", (path != null ? lpath_21 : null));
+                    // .'$Model#Root'.'|'.0.'.mo'.'|'.1
+                    res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Model#Root'.'|'.0.'.mo'.'|'.1]", (path != null ? lpath_21 : null));
+                    }
+                }
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$Model#Root'.'|'.0.'.mo'.'|']", (path != null ? lpath_21 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Model#Root'.'|'.0.'.mo']", (path != null ? lpath_21 : null));
                     return false;
                 }

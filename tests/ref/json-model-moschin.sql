@@ -636,7 +636,9 @@ BEGIN
     ELSEIF prop = '.mo' THEN
       -- handle may .mo property
       -- .'$Model#Element'.'|'.0.'.mo'
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
+      -- .'$Model#Element'.'|'.0.'.mo'.'|'.0
+      -- .'$Model#Element'.'|'.0.'.mo'.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2086,7 +2088,9 @@ BEGIN
     ELSEIF prop = '.mo' THEN
       -- handle may .mo property
       -- .'$Model#Root'.'|'.0.'.mo'
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
+      -- .'$Model#Root'.'|'.0.'.mo'.'|'.0
+      -- .'$Model#Root'.'|'.0.'.mo'.'|'.1
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
