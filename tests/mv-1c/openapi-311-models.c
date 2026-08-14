@@ -5563,47 +5563,6 @@ static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *r
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x006e692e)))
-        {
-            // handle may .in property
-            // .'$openapi#model#Element'.'|'.0.'.in'
-            res = json_model_97(pval, (path ? &lpath_66 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$openapi#model#Element'.'|'.0.'.in']", (path ? &lpath_66 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.0.'.in']", (path ? &lpath_66 : NULL));
-                return false;
-            }
-            continue;
-        }
-        else if (unlikely(jm_str_eq_4(prop, 0x006f6d2e)))
-        {
-            // handle may .mo property
-            // .'$openapi#model#Element'.'|'.0.'.mo'
-            // .'$openapi#model#Element'.'|'.0.'.mo'.'|'.0
-            res = json_is_integer(pval) && json_integer_value(pval) >= 1;
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$openapi#model#Element'.'|'.0.'.mo'.'|'.0]", (path ? &lpath_66 : NULL));
-                // .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
-                res = json_is_real(pval) && json_real_value(pval) > 0.0;
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "not a 1.0 strict float [.'$openapi#model#Element'.'|'.0.'.mo'.'|'.1]", (path ? &lpath_66 : NULL));
-                }
-            }
-            if (likely(res))
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#Element'.'|'.0.'.mo'.'|']", (path ? &lpath_66 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$openapi#model#Element'.'|'.0.'.mo']", (path ? &lpath_66 : NULL));
-                return false;
-            }
-            continue;
-        }
         if (unlikely(jm_str_eq_1(prop, 0x23)))
             // handle 3 re props
             // .'$openapi#model#Element'.'|'.0.'/^#/'

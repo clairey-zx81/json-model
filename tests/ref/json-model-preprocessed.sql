@@ -530,24 +530,6 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '.in' THEN
-      -- handle may .in property
-      -- .'$Model#Element'.'|'.0.'.in'
-      res := json_model_35(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = '.mo' THEN
-      -- handle may .mo property
-      -- .'$Model#Element'.'|'.0.'.mo'
-      -- .'$Model#Element'.'|'.0.'.mo'.'|'.0
-      -- .'$Model#Element'.'|'.0.'.mo'.'|'.1
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     END IF;
     IF STARTS_WITH(prop, '#') THEN
       -- handle 3 re props
@@ -1590,24 +1572,6 @@ BEGIN
       -- handle may ! property
       -- .'$Model#Root'.'|'.0.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = '.in' THEN
-      -- handle may .in property
-      -- .'$Model#Root'.'|'.0.'.in'
-      res := json_model_35(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = '.mo' THEN
-      -- handle may .mo property
-      -- .'$Model#Root'.'|'.0.'.mo'
-      -- .'$Model#Root'.'|'.0.'.mo'.'|'.0
-      -- .'$Model#Root'.'|'.0.'.mo'.'|'.1
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1 OR JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

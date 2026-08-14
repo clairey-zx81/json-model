@@ -628,7 +628,6 @@ sub _jm_re_8($$$)
 sub json_model_21($$$)
 {
     my ($val, $path, $rep) = @_;
-    # model extensions for jmc as a backend
     # .'$Constraint'
     unless (jm_is_object($val))
     {
@@ -665,44 +664,6 @@ sub json_model_21($$$)
             {
                 push @$rep, ["not a bool [.'\$Constraint'.'!']", defined $path ? $lpath_1 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$Constraint'.'!']", defined $path ? $lpath_1 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".in")
-        {
-            # handle may .in property
-            # .'$Constraint'.'.in'
-            $res = json_model_33($pval, defined $path ? $lpath_1 : undef, $rep);
-            unless ($res)
-            {
-                push @$rep, ["unexpected value for model \"\$Model\" [.'\$Constraint'.'.in']", defined $path ? $lpath_1 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Constraint'.'.in']", defined $path ? $lpath_1 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".mo")
-        {
-            # handle may .mo property
-            # .'$Constraint'.'.mo'
-            # .'$Constraint'.'.mo'.'|'.0
-            $res = jm_is_integer($pval) && $pval >= 1;
-            unless ($res)
-            {
-                push @$rep, ["not a 1 strict int [.'\$Constraint'.'.mo'.'|'.0]", defined $path ? $lpath_1 : undef] if defined $rep;
-                # .'$Constraint'.'.mo'.'|'.1
-                $res = jm_is_numeric($pval) && $pval > 0.0;
-                push @$rep, ["not a 1.0 strict float [.'\$Constraint'.'.mo'.'|'.1]", defined $path ? $lpath_1 : undef] if defined $rep and not $res;
-            }
-            if ($res)
-            {
-                @$rep = () if defined $rep;
-            }
-            else
-            {
-                push @$rep, ["no model matched [.'\$Constraint'.'.mo'.'|']", defined $path ? $lpath_1 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Constraint'.'.mo']", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
             next;
@@ -1498,44 +1459,6 @@ sub _jm_obj_5($$$)
             {
                 push @$rep, ["not a bool [.'\$Element'.'|'.0.'!']", defined $path ? $lpath_8 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$Element'.'|'.0.'!']", defined $path ? $lpath_8 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".in")
-        {
-            # handle may .in property
-            # .'$Element'.'|'.0.'.in'
-            $res = json_model_33($pval, defined $path ? $lpath_8 : undef, $rep);
-            unless ($res)
-            {
-                push @$rep, ["unexpected value for model \"\$Model\" [.'\$Element'.'|'.0.'.in']", defined $path ? $lpath_8 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Element'.'|'.0.'.in']", defined $path ? $lpath_8 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".mo")
-        {
-            # handle may .mo property
-            # .'$Element'.'|'.0.'.mo'
-            # .'$Element'.'|'.0.'.mo'.'|'.0
-            $res = jm_is_integer($pval) && $pval >= 1;
-            unless ($res)
-            {
-                push @$rep, ["not a 1 strict int [.'\$Element'.'|'.0.'.mo'.'|'.0]", defined $path ? $lpath_8 : undef] if defined $rep;
-                # .'$Element'.'|'.0.'.mo'.'|'.1
-                $res = jm_is_numeric($pval) && $pval > 0.0;
-                push @$rep, ["not a 1.0 strict float [.'\$Element'.'|'.0.'.mo'.'|'.1]", defined $path ? $lpath_8 : undef] if defined $rep and not $res;
-            }
-            if ($res)
-            {
-                @$rep = () if defined $rep;
-            }
-            else
-            {
-                push @$rep, ["no model matched [.'\$Element'.'|'.0.'.mo'.'|']", defined $path ? $lpath_8 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Element'.'|'.0.'.mo']", defined $path ? $lpath_8 : undef] if defined $rep;
                 return 0;
             }
             next;
@@ -4044,44 +3967,6 @@ sub _jm_obj_26($$$)
             {
                 push @$rep, ["not a bool [.'\$Root'.'|'.0.'!']", defined $path ? $lpath_35 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$Root'.'|'.0.'!']", defined $path ? $lpath_35 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".in")
-        {
-            # handle may .in property
-            # .'$Root'.'|'.0.'.in'
-            $res = json_model_33($pval, defined $path ? $lpath_35 : undef, $rep);
-            unless ($res)
-            {
-                push @$rep, ["unexpected value for model \"\$Model\" [.'\$Root'.'|'.0.'.in']", defined $path ? $lpath_35 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Root'.'|'.0.'.in']", defined $path ? $lpath_35 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".mo")
-        {
-            # handle may .mo property
-            # .'$Root'.'|'.0.'.mo'
-            # .'$Root'.'|'.0.'.mo'.'|'.0
-            $res = jm_is_integer($pval) && $pval >= 1;
-            unless ($res)
-            {
-                push @$rep, ["not a 1 strict int [.'\$Root'.'|'.0.'.mo'.'|'.0]", defined $path ? $lpath_35 : undef] if defined $rep;
-                # .'$Root'.'|'.0.'.mo'.'|'.1
-                $res = jm_is_numeric($pval) && $pval > 0.0;
-                push @$rep, ["not a 1.0 strict float [.'\$Root'.'|'.0.'.mo'.'|'.1]", defined $path ? $lpath_35 : undef] if defined $rep and not $res;
-            }
-            if ($res)
-            {
-                @$rep = () if defined $rep;
-            }
-            else
-            {
-                push @$rep, ["no model matched [.'\$Root'.'|'.0.'.mo'.'|']", defined $path ? $lpath_35 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Root'.'|'.0.'.mo']", defined $path ? $lpath_35 : undef] if defined $rep;
                 return 0;
             }
             next;

@@ -905,44 +905,6 @@ sub _jm_obj_5($$$)
             }
             next;
         }
-        elsif ($prop eq ".in")
-        {
-            # handle may .in property
-            # .'$Model#Element'.'|'.0.'.in'
-            $res = json_model_35($pval, defined $path ? $lpath_5 : undef, $rep);
-            unless ($res)
-            {
-                push @$rep, ["unexpected value for model \"\$Model\" [.'\$Model#Element'.'|'.0.'.in']", defined $path ? $lpath_5 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Model#Element'.'|'.0.'.in']", defined $path ? $lpath_5 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".mo")
-        {
-            # handle may .mo property
-            # .'$Model#Element'.'|'.0.'.mo'
-            # .'$Model#Element'.'|'.0.'.mo'.'|'.0
-            $res = jm_is_integer($pval) && $pval >= 1;
-            unless ($res)
-            {
-                push @$rep, ["not a 1 strict int [.'\$Model#Element'.'|'.0.'.mo'.'|'.0]", defined $path ? $lpath_5 : undef] if defined $rep;
-                # .'$Model#Element'.'|'.0.'.mo'.'|'.1
-                $res = jm_is_numeric($pval) && $pval > 0.0;
-                push @$rep, ["not a 1.0 strict float [.'\$Model#Element'.'|'.0.'.mo'.'|'.1]", defined $path ? $lpath_5 : undef] if defined $rep and not $res;
-            }
-            if ($res)
-            {
-                @$rep = () if defined $rep;
-            }
-            else
-            {
-                push @$rep, ["no model matched [.'\$Model#Element'.'|'.0.'.mo'.'|']", defined $path ? $lpath_5 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Model#Element'.'|'.0.'.mo']", defined $path ? $lpath_5 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
         if (jm_starts_with($prop, "#"))
         {
             # handle 3 re props
@@ -2874,44 +2836,6 @@ sub _jm_obj_21($$$)
             {
                 push @$rep, ["not a bool [.'\$Model#Root'.'|'.0.'!']", defined $path ? $lpath_21 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.'\$Model#Root'.'|'.0.'!']", defined $path ? $lpath_21 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".in")
-        {
-            # handle may .in property
-            # .'$Model#Root'.'|'.0.'.in'
-            $res = json_model_35($pval, defined $path ? $lpath_21 : undef, $rep);
-            unless ($res)
-            {
-                push @$rep, ["unexpected value for model \"\$Model\" [.'\$Model#Root'.'|'.0.'.in']", defined $path ? $lpath_21 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Model#Root'.'|'.0.'.in']", defined $path ? $lpath_21 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".mo")
-        {
-            # handle may .mo property
-            # .'$Model#Root'.'|'.0.'.mo'
-            # .'$Model#Root'.'|'.0.'.mo'.'|'.0
-            $res = jm_is_integer($pval) && $pval >= 1;
-            unless ($res)
-            {
-                push @$rep, ["not a 1 strict int [.'\$Model#Root'.'|'.0.'.mo'.'|'.0]", defined $path ? $lpath_21 : undef] if defined $rep;
-                # .'$Model#Root'.'|'.0.'.mo'.'|'.1
-                $res = jm_is_numeric($pval) && $pval > 0.0;
-                push @$rep, ["not a 1.0 strict float [.'\$Model#Root'.'|'.0.'.mo'.'|'.1]", defined $path ? $lpath_21 : undef] if defined $rep and not $res;
-            }
-            if ($res)
-            {
-                @$rep = () if defined $rep;
-            }
-            else
-            {
-                push @$rep, ["no model matched [.'\$Model#Root'.'|'.0.'.mo'.'|']", defined $path ? $lpath_21 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$Model#Root'.'|'.0.'.mo']", defined $path ? $lpath_21 : undef] if defined $rep;
                 return 0;
             }
             next;

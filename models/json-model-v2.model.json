@@ -37,10 +37,7 @@
       "_@": "$Model",
       "/^(<=|>=|<|>)$/": "$CmpValue",
       "/^(=|!=)$/": "$EqValue",
-      "?!": true,
-      "#": "model extensions for jmc as a backend",
-      "?.in": "$Model",
-      "?.mo": { "|": [ 1, 1.0 ] }
+      "?!": true
     },
     "Or": { "_|": [ "$CModel" ] },
     "And": { "_&": [ "$CModel" ] },

@@ -177,7 +177,6 @@
       "$ref": "#/$defs/ObjectComment"
     },
     "Constraint": {
-      "description": "model extensions for jmc as a backend",
       "type": "object",
       "patternProperties": {
         "^(<=|>=|<|>)$": {
@@ -193,21 +192,6 @@
         },
         "!": {
           "type": "boolean"
-        },
-        ".in": {
-          "$ref": "#/$defs/Model"
-        },
-        ".mo": {
-          "anyOf": [
-            {
-              "type": "integer",
-              "minimum": 1
-            },
-            {
-              "type": "number",
-              "exclusiveMinimum": 0.0
-            }
-          ]
         }
       },
       "required": [
@@ -351,21 +335,6 @@
             },
             "!": {
               "type": "boolean"
-            },
-            ".in": {
-              "$ref": "#/$defs/Model"
-            },
-            ".mo": {
-              "anyOf": [
-                {
-                  "type": "integer",
-                  "minimum": 1
-                },
-                {
-                  "type": "number",
-                  "exclusiveMinimum": 0.0
-                }
-              ]
             }
           },
           "required": [
@@ -746,21 +715,6 @@
             },
             "!": {
               "type": "boolean"
-            },
-            ".in": {
-              "$ref": "#/$defs/Model"
-            },
-            ".mo": {
-              "anyOf": [
-                {
-                  "type": "integer",
-                  "minimum": 1
-                },
-                {
-                  "type": "number",
-                  "exclusiveMinimum": 0.0
-                }
-              ]
             }
           },
           "required": [

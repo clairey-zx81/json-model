@@ -537,7 +537,6 @@ public class json_model extends ModelChecker
     // check $Constraint (.'$Constraint')
     public boolean json_model_21(Object val, Path path, Report rep)
     {
-        // model extensions for jmc as a backend
         // .'$Constraint'
         if (! json.isObject(val))
         {
@@ -575,47 +574,6 @@ public class json_model extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Constraint'.'!']", (path != null ? lpath_1 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Constraint'.'!']", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo(".in") == 0)
-            {
-                // handle may .in property
-                // .'$Constraint'.'.in'
-                res = json_model_33(pval, (path != null ? lpath_1 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Constraint'.'.in']", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Constraint'.'.in']", (path != null ? lpath_1 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo(".mo") == 0)
-            {
-                // handle may .mo property
-                // .'$Constraint'.'.mo'
-                // .'$Constraint'.'.mo'.'|'.0
-                res = json.isInteger(pval) && json.asLong(pval) >= 1;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Constraint'.'.mo'.'|'.0]", (path != null ? lpath_1 : null));
-                    // .'$Constraint'.'.mo'.'|'.1
-                    res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Constraint'.'.mo'.'|'.1]", (path != null ? lpath_1 : null));
-                    }
-                }
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.'$Constraint'.'.mo'.'|']", (path != null ? lpath_1 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Constraint'.'.mo']", (path != null ? lpath_1 : null));
                     return false;
                 }
                 continue;
@@ -1434,47 +1392,6 @@ public class json_model extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Element'.'|'.0.'!']", (path != null ? lpath_8 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.0.'!']", (path != null ? lpath_8 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo(".in") == 0)
-            {
-                // handle may .in property
-                // .'$Element'.'|'.0.'.in'
-                res = json_model_33(pval, (path != null ? lpath_8 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Element'.'|'.0.'.in']", (path != null ? lpath_8 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.0.'.in']", (path != null ? lpath_8 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo(".mo") == 0)
-            {
-                // handle may .mo property
-                // .'$Element'.'|'.0.'.mo'
-                // .'$Element'.'|'.0.'.mo'.'|'.0
-                res = json.isInteger(pval) && json.asLong(pval) >= 1;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Element'.'|'.0.'.mo'.'|'.0]", (path != null ? lpath_8 : null));
-                    // .'$Element'.'|'.0.'.mo'.'|'.1
-                    res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Element'.'|'.0.'.mo'.'|'.1]", (path != null ? lpath_8 : null));
-                    }
-                }
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.'$Element'.'|'.0.'.mo'.'|']", (path != null ? lpath_8 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Element'.'|'.0.'.mo']", (path != null ? lpath_8 : null));
                     return false;
                 }
                 continue;
@@ -4026,47 +3943,6 @@ public class json_model extends ModelChecker
                 {
                     if (rep != null) rep.addEntry("not a bool [.'$Root'.'|'.0.'!']", (path != null ? lpath_35 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'!']", (path != null ? lpath_35 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo(".in") == 0)
-            {
-                // handle may .in property
-                // .'$Root'.'|'.0.'.in'
-                res = json_model_33(pval, (path != null ? lpath_35 : null), rep);
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"$Model\" [.'$Root'.'|'.0.'.in']", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'.in']", (path != null ? lpath_35 : null));
-                    return false;
-                }
-                continue;
-            }
-            else if (prop.compareTo(".mo") == 0)
-            {
-                // handle may .mo property
-                // .'$Root'.'|'.0.'.mo'
-                // .'$Root'.'|'.0.'.mo'.'|'.0
-                res = json.isInteger(pval) && json.asLong(pval) >= 1;
-                if (! res)
-                {
-                    if (rep != null) rep.addEntry("not a 1 strict int [.'$Root'.'|'.0.'.mo'.'|'.0]", (path != null ? lpath_35 : null));
-                    // .'$Root'.'|'.0.'.mo'.'|'.1
-                    res = json.isDouble(pval) && json.asDouble(pval) > 0.0;
-                    if (! res)
-                    {
-                        if (rep != null) rep.addEntry("not a 1.0 strict float [.'$Root'.'|'.0.'.mo'.'|'.1]", (path != null ? lpath_35 : null));
-                    }
-                }
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("no model matched [.'$Root'.'|'.0.'.mo'.'|']", (path != null ? lpath_35 : null));
-                    if (rep != null) rep.addEntry("invalid optional prop value [.'$Root'.'|'.0.'.mo']", (path != null ? lpath_35 : null));
                     return false;
                 }
                 continue;

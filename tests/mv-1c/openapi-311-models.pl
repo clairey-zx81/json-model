@@ -5042,44 +5042,6 @@ sub _jm_obj_31($$$)
             }
             next;
         }
-        elsif ($prop eq ".in")
-        {
-            # handle may .in property
-            # .'$openapi#model#Element'.'|'.0.'.in'
-            $res = json_model_97($pval, defined $path ? $lpath_66 : undef, $rep);
-            unless ($res)
-            {
-                push @$rep, ["unexpected value for model \"\$Model\" [.'\$openapi#model#Element'.'|'.0.'.in']", defined $path ? $lpath_66 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.0.'.in']", defined $path ? $lpath_66 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
-        elsif ($prop eq ".mo")
-        {
-            # handle may .mo property
-            # .'$openapi#model#Element'.'|'.0.'.mo'
-            # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.0
-            $res = jm_is_integer($pval) && $pval >= 1;
-            unless ($res)
-            {
-                push @$rep, ["not a 1 strict int [.'\$openapi#model#Element'.'|'.0.'.mo'.'|'.0]", defined $path ? $lpath_66 : undef] if defined $rep;
-                # .'$openapi#model#Element'.'|'.0.'.mo'.'|'.1
-                $res = jm_is_numeric($pval) && $pval > 0.0;
-                push @$rep, ["not a 1.0 strict float [.'\$openapi#model#Element'.'|'.0.'.mo'.'|'.1]", defined $path ? $lpath_66 : undef] if defined $rep and not $res;
-            }
-            if ($res)
-            {
-                @$rep = () if defined $rep;
-            }
-            else
-            {
-                push @$rep, ["no model matched [.'\$openapi#model#Element'.'|'.0.'.mo'.'|']", defined $path ? $lpath_66 : undef] if defined $rep;
-                push @$rep, ["invalid optional prop value [.'\$openapi#model#Element'.'|'.0.'.mo']", defined $path ? $lpath_66 : undef] if defined $rep;
-                return 0;
-            }
-            next;
-        }
         if (jm_starts_with($prop, "#"))
         {
             # handle 3 re props

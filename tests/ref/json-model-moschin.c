@@ -1042,19 +1042,6 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_4(prop, 0x006e692e)))
-        {
-            // handle may .in property
-            // .'$Model#Element'.'|'.0.'.in'
-            res = json_model_35(pval, (path ? &lpath_5 : NULL), rep);
-            if (unlikely(! res))
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$Model#Element'.'|'.0.'.in']", (path ? &lpath_5 : NULL));
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Element'.'|'.0.'.in']", (path ? &lpath_5 : NULL));
-                return false;
-            }
-            continue;
-        }
         else if (unlikely(jm_str_eq_4(prop, 0x006f6d2e)))
         {
             // handle may .mo property
@@ -1064,6 +1051,19 @@ static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *re
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$Model#Element'.'|'.0.'.mo']", (path ? &lpath_5 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Element'.'|'.0.'.mo']", (path ? &lpath_5 : NULL));
+                return false;
+            }
+            continue;
+        }
+        else if (unlikely(jm_str_eq_4(prop, 0x006e692e)))
+        {
+            // handle may .in property
+            // .'$Model#Element'.'|'.0.'.in'
+            res = json_model_35(pval, (path ? &lpath_5 : NULL), rep);
+            if (unlikely(! res))
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$Model#Element'.'|'.0.'.in']", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Element'.'|'.0.'.in']", (path ? &lpath_5 : NULL));
                 return false;
             }
             continue;
@@ -3220,19 +3220,6 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 }
                 continue;
             }
-            else if (jm_str_eq_4(prop, 0x006e692e))
-            {
-                // handle may .in property
-                // .'$Model#Root'.'|'.0.'.in'
-                res = json_model_35(pval, (path ? &lpath_21 : NULL), rep);
-                if (unlikely(! res))
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'.in']", (path ? &lpath_21 : NULL));
-                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'.in']", (path ? &lpath_21 : NULL));
-                    return false;
-                }
-                continue;
-            }
             else if (jm_str_eq_4(prop, 0x006f6d2e))
             {
                 // handle may .mo property
@@ -3242,6 +3229,19 @@ static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *r
                 {
                     if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'$Model#Root'.'|'.0.'.mo']", (path ? &lpath_21 : NULL));
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'.mo']", (path ? &lpath_21 : NULL));
+                    return false;
+                }
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x006e692e))
+            {
+                // handle may .in property
+                // .'$Model#Root'.'|'.0.'.in'
+                res = json_model_35(pval, (path ? &lpath_21 : NULL), rep);
+                if (unlikely(! res))
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Model\" [.'$Model#Root'.'|'.0.'.in']", (path ? &lpath_21 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'.in']", (path ? &lpath_21 : NULL));
                     return false;
                 }
                 continue;

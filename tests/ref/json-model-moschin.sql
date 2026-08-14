@@ -633,18 +633,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '.in' THEN
-      -- handle may .in property
-      -- .'$Model#Element'.'|'.0.'.in'
-      res := json_model_35(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = '.mo' THEN
       -- handle may .mo property
       -- .'$Model#Element'.'|'.0.'.mo'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.in' THEN
+      -- handle may .in property
+      -- .'$Model#Element'.'|'.0.'.in'
+      res := json_model_35(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2083,18 +2083,18 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = '.in' THEN
-      -- handle may .in property
-      -- .'$Model#Root'.'|'.0.'.in'
-      res := json_model_35(pval, NULL, NULL);
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
     ELSEIF prop = '.mo' THEN
       -- handle may .mo property
       -- .'$Model#Root'.'|'.0.'.mo'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = '.in' THEN
+      -- handle may .in property
+      -- .'$Model#Root'.'|'.0.'.in'
+      res := json_model_35(pval, NULL, NULL);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
