@@ -5,6 +5,7 @@
 
 import sys
 import json
+import numpy as np
 import pandas as pd
 
 perf = pd.read_csv(
@@ -16,7 +17,8 @@ perf = pd.read_csv(
 perf_median = perf.groupby(["case", "tool", "line"])["runavg"].median()
 perf_total = perf_median.groupby(["case", "tool"]).sum()
 perf_best = perf_total.groupby("case").min()
-perf_speed = perf_best / perf_total
+perf_speed = perf_best / perf_total  # relative speed
+perf_geo = np.exp(- np.log(perf_speed).groupby("tool").mean())
 
 tools = perf.index.get_level_values("tool").unique()
 # cases = perf.index.get_level_values("case").unique()
@@ -35,7 +37,7 @@ LABEL = {
 radar = []
 for t in sorted(tools):
     radar.append({
-        "label": LABEL[t],
+        "label": LABEL[t] + f" - {perf_geo["blaze"] / perf_geo[t]:.02f}",
         "data": [ float(v) for v in perf_speed.groupby("tool").get_group(t).values ]
     })
 

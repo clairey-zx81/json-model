@@ -19,6 +19,7 @@
 - [x] perl: fix non deterministic output linked to `each`
 - [x] perl: fix model escaping in error messages
 - [x] bench: add cron job performance script
+- [x] bench: report summary speedup in radar labels
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes

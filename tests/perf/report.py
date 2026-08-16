@@ -343,6 +343,7 @@ best_tool: dict[str, str] = {}
 nbest_tool: dict[str, int] = { t: 0 for t in tools }
 # count how many times tool t is better than the reference
 nbetter_tool: dict[str, int] = { t: 0 for t in tools }
+
 for c in cases:
     for t in tools:
         if perf_best[c] == perf_total[c, t]:
