@@ -45,7 +45,7 @@ done
 export JMC=main
 export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
 # these are the defaults
-export JSU_OPTS="--id --fix --no-strict"
+# export JSU_OPTS="--id --fix --no-strict"
 # export JSU_OPTS="--id --no-fix --no-strict"
 # export JSU_OPTS="--no-id --no-fix --no-strict"
 export JSB_DIR="$HOME/perf/jsb_dir"
