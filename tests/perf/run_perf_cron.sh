@@ -11,6 +11,19 @@ function err()
   exit $status
 }
 
+# option management
+force=
+
+while [[ $1 == -* ]] ; do
+  opt=$1
+  shift 1
+  case $opt in
+    --force|-f) force=1 ;;
+    --) break ;;
+    -*) err 1 "unexpected option: $opt" ;;
+  esac
+done
+
 # take scripts from jmc source
 PERF=$HOME/dev/json-model/tests/perf
 TARGET=$HOME/perf
@@ -39,7 +52,7 @@ for tool in sbc jmc ; do
   cmp -s $VERSION.$tool $VERSION.$tool.tmp || run=1
 done
 
-[ "$run" ] || exit 0
+[ "$run" -o "$force" ] || exit 0
 
 # setup standard run
 export JMC=main
