@@ -255,6 +255,9 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
     ops = {p: c for p, c in props.items() if p != "@"}
     if any(isinstance(c, str) for p, c in ops.items() if p in _COMPARISONS):
         raise UnsupportedValue(f"unsupported string comparison constraint: {ops}")
+    if any(isinstance(c, bool) or not isinstance(c, (int, float))
+           for p, c in ops.items() if p in _COMPARISONS):
+        raise UnsupportedValue(f"unsupported comparison constraint: {ops}")
     unique = ops.get("!") is True
     base = simplest(target, jm, seen)
     if base is None or isinstance(base, bool) or isinstance(base, dict):
