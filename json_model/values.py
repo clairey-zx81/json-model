@@ -3,6 +3,7 @@
 #
 import copy
 import json
+import math
 import re
 import re._parser as _parser
 
@@ -27,6 +28,16 @@ _OPERATORS = {"@", "|", "&", "^", "!", "=", "!=", "<", "<=", ">", ">="}
 _ROOT_KEYS = {"$", "%", "~"}
 _COMPARISONS = {"=", "!=", "<", "<=", ">", ">="}
 _CONSTRAINTS = _COMPARISONS | {"!"}
+_INT_VIOLATIONS = {
+    ">=": lambda n: math.ceil(n) - 1, ">": lambda n: math.floor(n),
+    "<=": lambda n: math.floor(n) + 1, "<": lambda n: math.ceil(n),
+    "=": lambda n: math.floor(n) + 1, "!=": lambda n: n,
+}
+_FLOAT_VIOLATIONS = {
+    ">=": lambda n: n - 1.0, ">": lambda n: float(n),
+    "<=": lambda n: n + 1.0, "<": lambda n: float(n),
+    "=": lambda n: n + 1.0, "!=": lambda n: float(n),
+}
 _UINT_PREDEFS = {"$U32", "$U64"}
 _PREDEFS = {
     "$ANY": {}, "$NULL": None,
@@ -146,11 +157,17 @@ def _simplest_predef(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
 
 def _simplest_array(model: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for an array or tuple model."""
-    items = [i for i in model if not (isinstance(i, str) and i.startswith("#"))]
+    items = [(i, m) for i, m in enumerate(model)
+             if not (isinstance(m, str) and m.startswith("#"))]
     if len(items) <= 1:
         return []
-    else:
-        return [simplest(i, jm, seen) for i in items]
+    values: list[Jsonable] = []
+    for index, item in items:
+        try:
+            values.append(simplest(item, jm, seen))
+        except UnsupportedValue as e:
+            raise UnsupportedValue(f"{index}: {e}")
+    return values
 
 def _numeric_low(model: ModelType) -> int|float|None:
     """Smallest value allowed by a numeric model, None if unbounded below."""
@@ -250,29 +267,10 @@ def _variants(model: ModelType, jm: JsonModel, seen: frozenset[str],
         values = []
     return values[:count]
 
-def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
-    """Simplest value for a constraint model."""
-    target = props["@"]
-    ops = {p: c for p, c in props.items() if p != "@"}
-    if any(isinstance(c, str) for p, c in ops.items() if p in _COMPARISONS):
-        raise UnsupportedValue(f"unsupported string comparison constraint: {ops}")
-    unique = ops.get("!") is True
-    base = simplest(target, jm, seen)
-    if base is None or isinstance(base, bool) or isinstance(base, dict):
-        raise UnsupportedValue(f"unsupported constrained model: {target}")
-    elif isinstance(base, (int, float)):
-        if unique:
-            raise UnsupportedValue(f"unique constraint on a number: {target}")
-        is_float = isinstance(base, float)
-        step: int|float = 1.0 if is_float else 1
-        lo, hi = _bounds(ops, step, _numeric_low(target))
-        value = _pick(lo, hi, ops, step, 0.0 if is_float else 0)
-        return float(value) if is_float else int(value)
-    lo, hi = _bounds(ops, 1, 0)
-    if (lo is None or len(base) >= lo) and (hi is None or len(base) <= hi):
-        return base
-    length = int(_pick(lo, hi, ops, 1, 0))
-    if isinstance(base, str):
+def _sized(target: ModelType, base: Jsonable, length: int, unique: bool,
+           jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Value of a given length for a resizable string or array model."""
+    if isinstance(base, str): # TODO resolve predefs and references before dispatching on the target, eg. $STRING
         if target != "":
             raise UnsupportedValue(f"cannot resize string model: {target}")
         else:
@@ -284,12 +282,38 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
         values = _variants(items[0], jm, seen, length)
         if len(values) < length:
             raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
-        elif _verify(values, props, jm) is not True:
-            raise UnsupportedValue(f"unique constraint is not satisfiable: {target}")
         else:
             return values
     else:
         return [simplest(items[0], jm, seen)] * length
+
+def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Simplest value for a constraint model."""
+    target = props["@"]
+    ops = {p: c for p, c in props.items() if p != "@"}
+    if any(isinstance(c, str) for p, c in ops.items() if p in _COMPARISONS):
+        raise UnsupportedValue(f"unsupported string comparison constraint: {ops}")
+    unique = ops.get("!") is True
+    base = simplest(target, jm, seen)
+    if base is None or isinstance(base, bool) or isinstance(base, dict):
+        raise UnsupportedValue(f"unsupported constrained model: {target}")
+    elif unique and not isinstance(base, list):
+        raise UnsupportedValue(f"unique constraint on a non-array: {target}")
+    elif isinstance(base, (int, float)):
+        is_float = isinstance(base, float)
+        step: int|float = 1.0 if is_float else 1
+        lo, hi = _bounds(ops, step, _numeric_low(target))
+        value = _pick(lo, hi, ops, step, 0.0 if is_float else 0)
+        return float(value) if is_float else int(value)
+    lo, hi = _bounds(ops, 1, 0)
+    if (lo is None or len(base) >= lo) and (hi is None or len(base) <= hi):
+        return base
+    length = int(_pick(lo, hi, ops, 1, 0))
+    value = _sized(target, base, length, unique, jm, seen)
+    if unique and length > 1 and _verify(value, props, jm) is not True:
+        raise UnsupportedValue(f"unique constraint is not satisfiable: {target}")
+    else:
+        return value
 
 def _simplest_union(alts: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for the first alternative which yields one."""
@@ -305,10 +329,16 @@ def _simplest_union(alts: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Js
 
 _CHECKERS: dict[str, EntryCheckFun|None] = {}
 
-def _verify(value: Jsonable, model: ModelType, jm: JsonModel) -> bool|None:
+def _defs(jm: JsonModel) -> ModelObject:
+    """Definitions of a model, by name."""
+    return {name: node._model for name, node in jm._defs._syms.items()}
+
+def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
+            defs: ModelObject|None = None) -> bool|None:
     """Whether a value matches a model, None when no checker can be built."""
     try:
-        defs = {name: node._model for name, node in jm._defs._syms.items()}
+        if defs is None:
+            defs = _defs(jm)
         key = json.dumps({"$": defs, "@": model}, sort_keys=True)
     except (TypeError, ValueError):
         return None
@@ -358,7 +388,10 @@ def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) ->
             continue
         else:
             name = prop[1:] if prop.startswith(("!", "_")) else prop
-            value[name] = simplest(submodel, jm, seen)
+            try:
+                value[name] = simplest(submodel, jm, seen)
+            except UnsupportedValue as e:
+                raise UnsupportedValue(f"{prop}: {e}")
     return value
 
 def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
@@ -376,20 +409,24 @@ def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
     else:
         return model
 
+def _compile(model: ModelType) -> tuple[JsonModel, ModelType]:
+    """Check and preprocess a model given as plain JSON."""
+    try:
+        jm = JsonModel(model, Resolver())
+        for node in sorted(jm._models.values(), key=lambda m: m._id):
+            if not analyze.valid(node):
+                raise UnsupportedValue(f"invalid model {node._url}:{node._id}")
+        for node in {id(n): n for n in jm._globs.values()}.values():
+            merge(node)
+    except (ModelError, AssertionError) as e:
+        raise UnsupportedValue(f"invalid model: {e}")
+    return jm, jm._model
+
 def simplest(model: ModelType, jm: JsonModel|None = None,
              seen: frozenset[str] = frozenset()) -> Jsonable:
     """Generate the simplest value matching a model."""
     if jm is None:
-        try:
-            jm = JsonModel(model, Resolver())
-            for node in sorted(jm._models.values(), key=lambda m: m._id):
-                if not analyze.valid(node):
-                    raise UnsupportedValue(f"invalid model {node._url}:{node._id}")
-            for node in {id(n): n for n in jm._globs.values()}.values():
-                merge(node)
-        except (ModelError, AssertionError) as e:
-            raise UnsupportedValue(f"invalid model: {e}")
-        model = jm._model
+        jm, model = _compile(model)
     match model:
         case None | bool() | int() | float():
             return _simplest_scalar(model)
@@ -401,3 +438,181 @@ def simplest(model: ModelType, jm: JsonModel|None = None,
             return _simplest_object(model, jm, seen)
         case _:
             raise UnsupportedValue(f"unexpected model: {model}")
+
+def _violation_value(op: str, bound: Jsonable, props: ModelObject, base: Jsonable,
+                     jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Candidate value just past a constraint, on its violating side."""
+    target, ops = props["@"], {p: c for p, c in props.items() if p != "@"}
+    if op == "!":
+        if bound is not True:
+            raise UnsupportedValue(f"unsupported unique constraint: {bound}")
+        lo, hi = _bounds(ops, 1, 0)
+        lo = 2 if lo is None else max(lo, 2)
+        return _sized(target, base, int(_pick(lo, hi, ops, 1, 0)), False, jm, seen)
+    is_float = isinstance(base, float)
+    table = _FLOAT_VIOLATIONS if is_float else _INT_VIOLATIONS
+    if op not in table:
+        raise UnsupportedValue(f"unsupported constraint: {op}")
+    elif isinstance(base, dict):
+        raise UnsupportedValue(f"cannot resize object model: {target}")
+    candidate = table[op](bound)
+    if not isinstance(candidate, float if is_float else int):
+        raise UnsupportedValue(f"no value of the target type violates {op} {bound}")
+    elif isinstance(base, (int, float)):
+        return candidate
+    elif candidate < 0:
+        raise UnsupportedValue(f"no length violates {op} {bound}")
+    else:
+        return _sized(target, base, candidate, ops.get("!") is True, jm, seen)
+
+def _candidates(op: str, bound: Jsonable, props: ModelObject, base: Jsonable,
+                jm: JsonModel, seen: frozenset[str]):
+    """Values which may break a constraint, best first."""
+    try:
+        yield _violation_value(op, bound, props, base, jm, seen)
+    except UnsupportedValue:
+        pass
+    yield base
+
+def _violations_constrained(props: ModelObject, jm: JsonModel,
+                            seen: frozenset[str]) -> dict[str, Jsonable]:
+    """One value per size constraint, each breaking only that constraint."""
+    target = props["@"]
+    ops = {p: c for p, c in props.items() if p != "@"}
+    if any(isinstance(c, str) for p, c in ops.items() if p in _COMPARISONS):
+        raise UnsupportedValue(f"unsupported string comparison constraint: {ops}")
+    base = simplest(target, jm, seen)
+    if isinstance(base, bool) or not isinstance(base, (int, float, str, list, dict)):
+        raise UnsupportedValue(f"unsupported constrained model: {target}")
+    elif ops.get("!") is True and not isinstance(base, list):
+        raise UnsupportedValue(f"unique constraint on a non-array: {target}")
+    values: dict[str, Jsonable] = {}
+    for op, bound in ops.items():
+        rest = {p: m for p, m in props.items() if p != op}
+        for value in _candidates(op, bound, props, base, jm, seen):
+            if _verify(value, props, jm) is False and _verify(value, rest, jm) is True:
+                values[op] = value
+                break
+    if not values:
+        raise UnsupportedValue(f"no constraint could be violated: {props}")
+    else:
+        return values
+
+def _pointer(path: list) -> str:
+    """JSON pointer for a path of object keys and array indexes."""
+    return "".join("/" + str(s).replace("~", "~0").replace("/", "~1") for s in path)
+
+def _replaced(doc: Jsonable, path: list, value: Jsonable) -> Jsonable:
+    """Copy of a document with one position set to a value."""
+    result = copy.deepcopy(doc)
+    node = result
+    for step in path[:-1]:
+        node = node[step]
+    node[path[-1]] = value
+    return result
+
+def _without(model: ModelType, path: list) -> ModelType:
+    """Copy of a model with one position removed."""
+    result = copy.deepcopy(model)
+    node = result
+    for step in path[:-1]:
+        node = node[step]
+    del node[path[-1]]
+    return result
+
+def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
+           jm: JsonModel, seen: frozenset[str]):
+    """Constraint sites, as model path, value path, branch frames and properties."""
+    if isinstance(model, str):
+        name = model[1:]
+        if model.startswith("$") and name in jm._defs._syms and name not in seen:
+            yield from _sites(jm._defs._syms[name]._model, ["$", name], vpath,
+                              frames, jm, seen | {name})
+    elif isinstance(model, list):
+        items = [(i, m) for i, m in enumerate(model)
+                 if not (isinstance(m, str) and m.startswith("#"))]
+        if len(items) > 1:
+            for n, (i, item) in enumerate(items):
+                yield from _sites(item, mpath + [i], vpath + [n], frames, jm, seen)
+    elif isinstance(model, dict):
+        props = {p: m for p, m in model.items() if not p.startswith("#")}
+        others = set(props) - {"@"}
+        if "@" in props and others <= _CONSTRAINTS:
+            if others:
+                yield mpath, vpath, frames, props
+            yield from _sites(props["@"], mpath + ["@"], vpath, frames, jm, seen)
+        elif set(props) in ({"|"}, {"^"}, {"&"}):
+            op = next(iter(props))
+            for index, alt in enumerate(props[op]):
+                if isinstance(alt, str) and alt.startswith("#"):
+                    continue
+                yield from _sites(alt, mpath + [op, index], vpath,
+                                  frames + [(vpath, alt)], jm, seen)
+        elif not set(props) & (_OPERATORS | _ROOT_KEYS):
+            for prop, sub in props.items():
+                if prop == "" or prop.startswith(("/", "$")):
+                    continue
+                name = prop[1:] if prop.startswith(("!", "?", "_")) else prop
+                inner = (frames + [(vpath + [name], sub)] if prop.startswith("?")
+                         else frames)
+                yield from _sites(sub, mpath + [prop], vpath + [name], inner, jm, seen)
+
+def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
+              jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Whole document holding a violating value at one position."""
+    value, path = sub, vpath
+    for vp, branch in reversed(frames):
+        if path != vp:
+            value = _replaced(simplest(branch, jm, seen), path[len(vp):], value)
+        path = vp
+    if not path:
+        return value
+    elif doc is None:
+        raise UnsupportedValue("no document to alter")
+    else:
+        return _replaced(doc, path, value)
+
+def violations(model: ModelType, jm: JsonModel|None = None,
+               seen: frozenset[str] = frozenset()) -> dict[str, Jsonable]:
+    """Generate a value breaking each constraint of a model, one at a time."""
+    if jm is None:
+        jm, model = _compile(model)
+    sites = list(_sites(model, [], [], [], jm, frozenset()))
+    if not sites:
+        raise UnsupportedValue(f"no constraint in model: {model}")
+    defs = _defs(jm)
+    values: dict[str, Jsonable] = {}
+    reasons: list[str] = []
+    doc, built = None, False
+    for mpath, vpath, frames, props in sites:
+        if all(_pointer(mpath + [op]) in values for op in set(props) - {"@"}):
+            continue
+        try:
+            subs = _violations_constrained(props, jm, seen)
+        except UnsupportedValue as e:
+            reasons.append(str(e))
+            continue
+        if (frames[0][0] if frames else vpath) and not built:
+            built = True
+            try:
+                doc = simplest(model, jm, seen)
+            except UnsupportedValue as e:
+                reasons.append(f"no document to alter: {e}")
+        for op, sub in subs.items():
+            try:
+                value = _document(sub, vpath, frames, doc, jm, seen)
+            except (UnsupportedValue, KeyError, IndexError, TypeError):
+                continue
+            key = _pointer(mpath + [op])
+            if key in values:
+                continue
+            elif mpath and mpath[0] == "$":
+                rest, rdefs = model, _without(defs, mpath[1:] + [op])
+            else:
+                rest, rdefs = _without(model, mpath + [op]), defs
+            if _verify(value, model, jm) is False and _verify(value, rest, jm, rdefs) is True:
+                values[key] = value
+    if not values:
+        raise UnsupportedValue(f"no constraint could be violated: {'; '.join(reasons)}")
+    else:
+        return values
