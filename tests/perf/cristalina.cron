@@ -1,5 +1,5 @@
 # check json-model web site deployment every hour
 # NOTE the script is trusted
-WORK=$HOME/dev/cron-json-model
+WORK=/mnt/data/homes/fabien/dev/cron-json-model
 BRANCH=dev
 @hourly	$WORK/tests/perf/deploy_docs_cron.sh > /tmp/deploy_docs_cron.out 2>&1
