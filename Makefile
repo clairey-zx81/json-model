@@ -68,6 +68,7 @@ clean.js:
 .PHONY: clean.site
 clean.site:
 	$(RM) site/MODELS.md site/JMC.md site/ABOUT.md site/BENCH.md .about.md
+	$(RM) -r _site
 
 .PHONY: clean.py
 clean.py:
@@ -169,6 +170,9 @@ jmc.1: json_model/data/jmc.pod dev
 	version=$$(jmc --version)
 	year=$$(date +%Y)
 	pod2man $< | sed "s/^\.TH JMC 1.*/.TH JMC 1 $$year \"v$$version\" \"User Documentation\"/" > $@
+
+_site: build.site
+	cp -rL site _site
 
 .PHONY: www
 www: build.site
