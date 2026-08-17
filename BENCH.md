@@ -43,7 +43,7 @@ It is typically started on a large host with the
 which will spawn the necessary containers:
 
 ```sh
-JMC=latest JMC_OPTS="--predef --cc=clang" JSU_OPTS="--id --fix --no-strict" \
+JMC=latest JMC_OPTS="--predef --cc=clang" \
   nohup ./start_bench.sh latest -p 12 -l 1000 -r 5 -c &
 # in the generated directory, look for the summary markdown and radar json files.
 ```
