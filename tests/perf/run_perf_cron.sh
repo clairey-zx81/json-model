@@ -53,7 +53,7 @@ for tool in sbc jmc ; do
   cmp -s $VERSION.$tool $VERSION.$tool.tmp || run=1
 done
 
-[ "$run" -o "$force" ] || exit 0
+[ "$run" -o "$force" ] || err 0 "no new version, no force: skipping benchmark run"
 
 # setup standard run
 export JMC=main
