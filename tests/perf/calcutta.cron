@@ -1,3 +1,3 @@
 # run cron job on calcutta
 PERF=$HOME/json-model/tests/perf
-42 7 * * *  $PERF/run_perf_cron.sh > /tmp/jmc_bench_cron.out 2>&1
+42 5 * * *  $PERF/run_perf_cron.sh > /tmp/jmc_bench_cron.out 2>&1
