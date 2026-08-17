@@ -96,5 +96,6 @@ cp $VERSION.jmc.tmp $VERSION.jmc
 rm -f $VERSION.sbc.tmp $VERSION.jmc.tmp
 
 # TODO
-# auto commit?
-# auto deploy?
+# auto commit? pat on https clone
+# auto deploy? cron public https clone on branch post on cristalina + rsync
+# add a copy on github.io through a deployment script + project conf
