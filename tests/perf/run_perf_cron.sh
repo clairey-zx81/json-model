@@ -11,6 +11,19 @@ function err()
   exit $status
 }
 
+function help()
+{
+  cat <<EOF
+Usage: $0 [ -c | -f ] [ -p ] [ -i id ]
+  -h: this help
+  -c: check for new versions and run if any (yes)
+  -f: force run (no)
+  -p: publish to git repository (no)
+  -i id: use existing benchmark id (auto)
+EOF
+  exit 0
+}
+
 # option management
 check=1 force= publish=
 
@@ -18,6 +31,7 @@ while [[ $1 == -* ]] ; do
   opt=$1
   shift
   case $opt in
+    --help|-h) help ;;
     --check|-c) check=1 ;;
     --no-check|-nc) check= ;;
     --force|-f) force=1 ;;
@@ -36,6 +50,7 @@ PERF=$HOME/dev/json-model/tests/perf
 WORK=$HOME/dev/cron-json-model
 TARGET=$HOME/perf
 
+# sanity checks
 test -d $PERF || err 2 "missing source directory: $PERF"
 test -x $PERF/start_bench.sh || err 3 "missing executable: $PERF/start_bench.sh"
 test -d $TARGET || err 2 "missing target directory: $TARGET"
