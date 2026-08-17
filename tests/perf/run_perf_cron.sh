@@ -18,14 +18,14 @@ Usage: $0 [ -c | -f ] [ -p ] [ -i id ]
   -h: this help
   -c: check for new versions and run if any (yes)
   -f: force run (no)
-  -p: publish to git repository (no)
+  -p: publish to git repos (yes)
   -i id: use existing benchmark id (auto)
 EOF
   exit 0
 }
 
 # option management
-check=1 force= publish=
+check=1 force= publish=1
 
 while [[ $1 == -* ]] ; do
   opt=$1
