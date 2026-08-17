@@ -14,6 +14,7 @@ jmc.1
 site/MODELS.md
 site/JMC.md
 site/ABOUT.md
+site/BENCH.md
 .about.md
 local.mk
 env.sh

@@ -15,15 +15,7 @@ from [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-b
 Overall, depending on the chosen metrics, JMC with the C backend is 50-100% faster
 than Blaze on average to validate JSON values in these artifacts.
 
-- [2026080700](benchmarks/2026080700.md) JSU 0.9.17/JMC 2.0.56 vs SBC 16.7.0, content, fix.
-- [2026080800](benchmarks/2026080800.md) JSU 0.9.17/JMC 2.0.56 vs SBC 16.7.0, content, no fix.
-- [2026080900](benchmarks/2026080900.md) JSU 0.9.17/JMC 2.0.56 vs SBC 16.7.0, content, no id, no fix.
-- [2026080600](benchmarks/2026080600.md) JSU 0.9.17/JMC 2.0.55 vs SBC 16.7.0, content, fix.
-- [2026080501](benchmarks/2026080501.md) JSU 0.9.17/JMC 2.0.55 vs SBC 16.6.0, content, fix.
-- [2026080500](benchmarks/2026080500.md) JSU 0.9.17/JMC 2.0.55 vs SBC 16.5.0, content, fix.
-- [2026080400](benchmarks/2026080400.md) JSU 0.9.16/JMC 2.0.55 vs SBC 16.5.0, content, fix.
-- [2026080300](benchmarks/2026080300.md) JSU 0.9.16/JMC 2.0.55 vs SBC 16.4.0, content, fix.
-- [2026080100](benchmarks/2026080100.md) JSU 0.9.16/JMC 2.0.55 vs SBC 16.3.0, content, no fix.
+BENCHES
 
 Options: _content_ validate string contents (format/predef), _fix_ improved models (bug fixes)
 or _no_ for strictly schema compatible models.
