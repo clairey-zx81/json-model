@@ -19,6 +19,7 @@ while [[ $1 == -* ]] ; do
   shift 1
   case $opt in
     --force|-f) force=1 ;;
+    --no-force|-nf) force= ;;
     --) break ;;
     -*) err 1 "unexpected option: $opt" ;;
   esac
@@ -37,7 +38,7 @@ cd $TARGET || err 5 "cannot cd to: $TARGET"
 
 VERSION=$TARGET/.bench_version
 
-# TODO check jmc-bench image?
+# TODO also check jmc-bench image?
 SBC=ghcr.io/sourcemeta/jsonschema:latest
 JMC=docker.io/zx80/jmc:latest
 
@@ -45,7 +46,7 @@ docker pull $SBC || err 6 "cannot docker pull: $SBC"
 docker pull $JMC || err 6 "cannot docker pull: $JMC"
 
 docker run --rm $SBC --version > $VERSION.sbc.tmp || err 7 "error getting version: $SBC"
-docker run --rm $JMC --version > $VERSION.jmc.tmp || err 7 "error getting version: $JMC"
+docker run --rm --entrypoint jsu-compile $JMC --version > $VERSION.jmc.tmp || err 7 "error getting version: $JMC"
 
 # run if versions differ
 for tool in sbc jmc ; do
@@ -57,7 +58,7 @@ done
 # setup standard run
 export JMC=main
 export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
-# these are the defaults
+# defaults are the next with 2 exceptions
 # export JSU_OPTS="--id --fix --no-strict"
 # export JSU_OPTS="--id --no-fix --no-strict"
 # export JSU_OPTS="--no-id --no-fix --no-strict"
@@ -75,9 +76,7 @@ while true ; do
   [ $count -eq 256 ] && err 8 "cannot find bench directory name"
 done
 
-PARA=12
-LOOP=1000
-RUNS=11
+PARA=12 LOOP=1000 RUNS=11
 
 $PERF/calcutta.sh on
 $PERF/start_bench.sh $jmc_bench $bench_id -p $PARA -l $LOOP -r $RUNS -L -c "$@"
