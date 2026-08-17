@@ -20,3 +20,4 @@ local.mk
 env.sh
 tmp/
 _site/
+.published.*

@@ -22,6 +22,7 @@
 - [x] bench: report summary speedup in radar labels
 - [x] pr: generate `BENCH.md` page links
 - [x] tests: test token push
+- [x] pr: create deployment script and cron
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes

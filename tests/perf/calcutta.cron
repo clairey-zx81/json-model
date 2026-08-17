@@ -1,3 +1,4 @@
 # run cron job on calcutta
+# NOTE the script is trusted
 PERF=$HOME/dev/json-model/tests/perf
-42 5 * * *  $PERF/run_perf_cron.sh > /tmp/jmc_bench_cron.out 2>&1
+42 5 * * *  $PERF/run_perf_cron.sh > /tmp/run_perf_cron.out 2>&1
