@@ -19,3 +19,4 @@ site/BENCH.md
 local.mk
 env.sh
 tmp/
+_site/

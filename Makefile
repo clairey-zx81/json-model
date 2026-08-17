@@ -173,6 +173,8 @@ jmc.1: json_model/data/jmc.pod dev
 
 _site: build.site
 	cp -rL site _site
+	find _site -type d -print | xargs chmod a+rx
+	find _site -type f -print | xargs chmod a+r
 
 .PHONY: www
 www: build.site
