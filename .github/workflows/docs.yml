@@ -15,7 +15,7 @@ jobs:
         with:
           submodules: true  # for JSTS sources
       - name: Install dependencies
-        run: apt install cloc make
+        run: sudo apt install cloc make
       - name: Build site
         run: make _site
       - name: Upload documentation artifact
