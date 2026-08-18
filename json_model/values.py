@@ -11,7 +11,7 @@ from .mtypes import ModelType, ModelArray, ModelObject, Jsonable, ModelError
 from .model import JsonModel
 from .resolver import Resolver
 from .objops import merge
-from . import analyze
+from . import analyze, optim
 from .predefs import MODEL_PREDEFS, PREDEFS
 from .script import model_checker_from_json
 from .runtime.types import EntryCheckFun
@@ -270,22 +270,87 @@ def _variants(model: ModelType, jm: JsonModel, seen: frozenset[str],
 def _sized(target: ModelType, base: Jsonable, length: int, unique: bool,
            jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Value of a given length for a resizable string or array model."""
-    if isinstance(base, str): # TODO resolve predefs and references before dispatching on the target, eg. $STRING
+    if isinstance(base, str):
         if target != "":
             raise UnsupportedValue(f"cannot resize string model: {target}")
         else:
             return _ANY_CHAR * length
     items = [i for i in target if not (isinstance(i, str) and i.startswith("#"))]
-    if len(items) != 1:
+    if not items:
         raise UnsupportedValue(f"cannot resize array model: {target}")
-    elif unique and length > 1:
-        values = _variants(items[0], jm, seen, length)
-        if len(values) < length:
-            raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
+    models = [items[min(i, len(items) - 1)] for i in range(length)]
+    if not unique or length <= 1:
+        return [simplest(m, jm, seen) for m in models]
+    values: list[Jsonable] = []
+    keys: set[str] = set()
+    for model in models:
+        for value in _variants(model, jm, seen, length):
+            key = json.dumps(value, sort_keys=True)
+            if key not in keys:
+                keys.add(key)
+                values.append(value)
+                break
         else:
-            return values
+            raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
+    return values
+
+def _names(prop: str, count: int, taken: set[str], jm: JsonModel) -> list[str]:
+    """Distinct property names matching a catch-all or pattern property model."""
+    try:
+        seed = _ANY_CHAR if prop == "" else _simplest_regex(prop)
+    except UnsupportedValue:
+        return []
+    names = []
+    for i in range(count + len(taken) + 1):
+        name = seed + _ANY_CHAR * i
+        if name not in taken and _verify(name, prop, jm) is True:
+            names.append(name)
+            if len(names) >= count:
+                break
+    return names
+
+def _grown(target: ModelType, base: ModelObject, length: int,
+           jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Object of a given size, extended with optional or free properties."""
+    if not isinstance(target, dict) or set(target) & (_OPERATORS | _ROOT_KEYS):
+        raise UnsupportedValue(f"cannot resize object model: {target}")
+    elif len(base) > length:
+        raise UnsupportedValue(f"cannot shrink object model: {target}")
+    props = {p: m for p, m in target.items() if not p.startswith("#")}
+    value = dict(base)
+    for prop, submodel in props.items():
+        if len(value) >= length:
+            break
+        elif prop.startswith("?") and prop[1:] not in value:
+            value[prop[1:]] = simplest(submodel, jm, seen)
+    for prop, submodel in props.items():
+        if len(value) >= length:
+            break
+        elif prop == "" or prop.startswith("/"):
+            for name in _names(prop, length - len(value), set(value), jm):
+                value[name] = simplest(submodel, jm, seen)
+    if len(value) != length:
+        raise UnsupportedValue(f"cannot reach {length} properties: {target}")
     else:
-        return [simplest(items[0], jm, seen)] * length
+        return value
+
+def _resolved(target: ModelType, jm: JsonModel,
+              seen: frozenset[str]) -> tuple[ModelType, JsonModel, frozenset[str]]:
+    """Model behind a predefined name or a reference, with its own scope."""
+    names: set[str] = set()
+    while isinstance(target, str) and target.startswith("$") and target not in names:
+        names.add(target)
+        if target[1:] in PREDEFS:
+            target = PREDEFS[target[1:]]
+        else:
+            try:
+                ja = jm.resolveRef(target, [])
+            except (ModelError, AssertionError):
+                break
+            if ja._url in seen:
+                break
+            target, jm, seen = ja._model, ja, seen | {ja._url}
+    return target, jm, seen
 
 def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a constraint model."""
@@ -293,9 +358,12 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
     ops = {p: c for p, c in props.items() if p != "@"}
     if any(isinstance(c, str) for p, c in ops.items() if p in _COMPARISONS):
         raise UnsupportedValue(f"unsupported string comparison constraint: {ops}")
+    if any(isinstance(c, bool) or not isinstance(c, (int, float))
+           for p, c in ops.items() if p in _COMPARISONS):
+        raise UnsupportedValue(f"unsupported comparison constraint: {ops}")
     unique = ops.get("!") is True
     base = simplest(target, jm, seen)
-    if base is None or isinstance(base, bool) or isinstance(base, dict):
+    if base is None or isinstance(base, bool):
         raise UnsupportedValue(f"unsupported constrained model: {target}")
     elif unique and not isinstance(base, list):
         raise UnsupportedValue(f"unique constraint on a non-array: {target}")
@@ -309,6 +377,9 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
     if (lo is None or len(base) >= lo) and (hi is None or len(base) <= hi):
         return base
     length = int(_pick(lo, hi, ops, 1, 0))
+    target, jm, seen = _resolved(target, jm, seen)
+    if isinstance(base, dict):
+        return _grown(target, base, length, jm, seen)
     value = _sized(target, base, length, unique, jm, seen)
     if unique and length > 1 and _verify(value, props, jm) is not True:
         raise UnsupportedValue(f"unique constraint is not satisfiable: {target}")
@@ -409,15 +480,26 @@ def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
     else:
         return model
 
-def _compile(model: ModelType) -> tuple[JsonModel, ModelType]:
-    """Check and preprocess a model given as plain JSON."""
+def _compile(model: ModelType, optimize: bool = True) -> tuple[JsonModel, ModelType]:
+    """Check and preprocess a model given as plain JSON.
+
+    Optimizing folds constraints into base models, which suits value
+    generation but hides the very constraints violations must target.
+    """
     try:
         jm = JsonModel(model, Resolver())
-        for node in sorted(jm._models.values(), key=lambda m: m._id):
+        nodes = sorted(jm._models.values(), key=lambda m: m._id)
+        for node in nodes:
             if not analyze.valid(node):
                 raise UnsupportedValue(f"invalid model {node._url}:{node._id}")
-        for node in {id(n): n for n in jm._globs.values()}.values():
+        if optimize:
+            for node in nodes:
+                optim.optimize(node)
+        for node in reversed(nodes):
             merge(node)
+        if optimize:
+            for node in nodes:
+                optim.optimize(node)
     except (ModelError, AssertionError) as e:
         raise UnsupportedValue(f"invalid model: {e}")
     return jm, jm._model
@@ -576,7 +658,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                seen: frozenset[str] = frozenset()) -> dict[str, Jsonable]:
     """Generate a value breaking each constraint of a model, one at a time."""
     if jm is None:
-        jm, model = _compile(model)
+        jm, model = _compile(model, optimize=False)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
     if not sites:
         raise UnsupportedValue(f"no constraint in model: {model}")
