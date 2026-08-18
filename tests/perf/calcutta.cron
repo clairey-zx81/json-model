@@ -1,2 +1,2 @@
 # run cron job on calcutta
-42 5 * * *  $HOME/bin/jmc_bench_cron.sh > /tmp/jmc_bench_cron.out 2>&1
+42 4 * * *  $HOME/bin/jmc_bench_cron.sh > /tmp/jmc_bench_cron.out 2>&1
