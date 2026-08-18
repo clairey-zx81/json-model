@@ -1,5 +1,29 @@
 # JSON Model Compiler Versions
 
+## 2.0.57 on 2026-08-18
+
+- bench: improve reporting text
+- bench: add tests on HT and Hz when starting bench
+- pr: improve bench and about pages
+- models: improve jmc-related models
+- tests: merge testing files against a model in a directory
+- tests: add jmc-bench model test
+- bench: ensure fix/no-fix consistency
+- dev: improve dev environment init
+- tests: run tests inside docker image
+- perl: fix bad double post condition
+- perl: report error location
+- tests: enable reporting with perl
+- perl: fix uncleaned reports on pass
+- perl: fix encoding of error message to use utf8
+- perl: fix non deterministic output linked to `each`
+- perl: fix model escaping in error messages
+- bench: add cron job performance script
+- bench: report summary speedup in radar labels
+- pr: generate `BENCH.md` page links
+- tests: test token push
+- pr: create deployment script and cron and test
+
 ## 2.0.56 on 2026-08-07
 
 - bench: use local models instead of fetching urls

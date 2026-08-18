@@ -2,27 +2,6 @@
 
 ## Current Tasks
 
-- [x] bench: improve reporting text
-- [x] bench: add tests on HT and Hz when starting bench
-- [x] pr: improve bench and about pages
-- [x] models: improve jmc-related models
-- [x] tests: merge testing files against a model in a directory
-- [x] tests: add jmc-bench model test
-- [x] bench: ensure fix/no-fix consistency
-- [x] dev: improve dev environment init
-- [x] tests: run tests inside docker image
-- [x] perl: fix bad double post condition
-- [x] perl: report error location
-- [x] tests: enable reporting with perl
-- [x] perl: fix uncleaned reports on pass
-- [x] perl: fix encoding of error message to use utf8
-- [x] perl: fix non deterministic output linked to `each`
-- [x] perl: fix model escaping in error messages
-- [x] bench: add cron job performance script
-- [x] bench: report summary speedup in radar labels
-- [x] pr: generate `BENCH.md` page links
-- [x] tests: test token push
-- [x] pr: create deployment script and cron and test
 - [ ] pr: switch cristalina to post after release
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
