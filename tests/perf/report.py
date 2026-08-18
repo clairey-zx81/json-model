@@ -175,7 +175,7 @@ the lower the better, empty denotes a tool failure.
 if args.performance == "best":
     TOOL_CASES += "**1.0** is best.\n"
 else:
-    TOOL_CASES += f"Reference is **1.0** for tool _{TOOL[args.performance]}_."
+    TOOL_CASES += f"Reference is **1.0** for tool _{TOOL[args.performance]}_.\n"
 
 RESULT_SUCCESS: str = """
 For each tool and cases with a partial success rate, percent of test cases validated.
