@@ -23,6 +23,7 @@
 - [x] pr: generate `BENCH.md` page links
 - [x] tests: test token push
 - [x] pr: create deployment script and cron and test
+- [ ] pr: switch cristalina to post after release
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes
