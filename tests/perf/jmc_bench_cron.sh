@@ -151,8 +151,8 @@ if [ "$publish" ] ; then
   cd $WORK || err 10 "cannot cd to: $WORK"
 
   # should be auth with a github PAT
-  git pull || err 11 "cannot git pull"
   git checkout post || err 11 "cannot git checkout post"
+  git pull || err 11 "cannot git pull"
   git submodule update || err 11 "cannot git submodule update"
 
   cp $TARGET/$bench_id/$bench_id.{json,md} $WORK/site/benchmarks/
