@@ -1,3 +1,2 @@
 # check json-model web site deployment every hour
-BRANCH=dev
 @hourly	$HOME/bin/jmc_docs_cron.sh > /tmp/jmc_docs_cron.out 2>&1
