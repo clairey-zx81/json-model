@@ -26,8 +26,8 @@ done
 
 # pull
 cd $WORK || err 2 "cannot cd to: $WORK"
-git pull || err 3 "cannot git pull: $?"
 git checkout $BRANCH || err 3 "cannot git checkout $BRANCH: $?"
+git pull || err 3 "cannot git pull: $?"
 git submodule update || err 3 "cannot git submodule update: $?"
 
 # check
