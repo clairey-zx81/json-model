@@ -4,7 +4,9 @@
 
 - [x] pr: improve bench script
 - [x] pr: test push post on github.io
-- [ ] pr: switch cristalina to post after release
+- [x] pr: switch cristalina to post after release
+- [ ] bench: only run java with GSON
+- [ ] pr: ensure accuracy of version on about page
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes
