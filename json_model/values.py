@@ -290,6 +290,24 @@ def _grown(target: ModelType, base: ModelObject, length: int,
     else:
         return value
 
+def _resolved(target: ModelType, jm: JsonModel,
+              seen: frozenset[str]) -> tuple[ModelType, JsonModel, frozenset[str]]:
+    """Model behind a predefined name or a reference, with its own scope."""
+    names: set[str] = set()
+    while isinstance(target, str) and target.startswith("$") and target not in names:
+        names.add(target)
+        if target[1:] in PREDEFS:
+            target = PREDEFS[target[1:]]
+        else:
+            try:
+                ja = jm.resolveRef(target, [])
+            except (ModelError, AssertionError):
+                break
+            if ja._url in seen:
+                break
+            target, jm, seen = ja._model, ja, seen | {ja._url}
+    return target, jm, seen
+
 def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a constraint model."""
     target = props["@"]
@@ -315,6 +333,7 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
     if (lo is None or len(base) >= lo) and (hi is None or len(base) <= hi):
         return base
     length = int(_pick(lo, hi, ops, 1, 0))
+    target, jm, seen = _resolved(target, jm, seen)
     if isinstance(base, str):
         if target != "":
             raise UnsupportedValue(f"cannot resize string model: {target}")
