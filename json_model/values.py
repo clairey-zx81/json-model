@@ -280,18 +280,26 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
         else:
             return _ANY_CHAR * length
     items = [i for i in target if not (isinstance(i, str) and i.startswith("#"))]
-    if len(items) != 1:
+    if not items:
         raise UnsupportedValue(f"cannot resize array model: {target}")
-    elif unique and length > 1:
-        values = _variants(items[0], jm, seen, length)
-        if len(values) < length:
-            raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
-        elif _verify(values, props, jm) is not True:
-            raise UnsupportedValue(f"unique constraint is not satisfiable: {target}")
+    models = [items[min(i, len(items) - 1)] for i in range(length)]
+    if not unique or length <= 1:
+        return [simplest(m, jm, seen) for m in models]
+    values: list[Jsonable] = []
+    keys: set[str] = set()
+    for model in models:
+        for value in _variants(model, jm, seen, length):
+            key = json.dumps(value, sort_keys=True)
+            if key not in keys:
+                keys.add(key)
+                values.append(value)
+                break
         else:
-            return values
+            raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
+    if _verify(values, props, jm) is not True:
+        raise UnsupportedValue(f"unique constraint is not satisfiable: {target}")
     else:
-        return [simplest(items[0], jm, seen)] * length
+        return values
 
 def _simplest_union(alts: ModelArray, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for the first alternative which yields one."""
