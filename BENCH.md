@@ -69,42 +69,42 @@ the run stops as soon as possible.
 Note that performance figures **must** be taken with a pinch of salt, please consider
 the following caveats, and others:
 
-- do you value latency or throuput or resource consumption? the answer is not so obvious,
+- Do you value latency or throuput or resource consumption? the answer is not so obvious,
   probably you should prefer a high throuput _if_ the latency is good enough, but these
   benchmark actually measure raw latency.
-- test cases may or may not be representative of specific use cases,
+- Test cases may or may not be representative of specific use cases,
   especially wrt schema/model and value sizes.
-- the overall load on the test host can impact measures, as well as power control
+- The overall load on the test host can impact measures, as well as power control
   features which adjust the cpu frequency in real time, thus the frequency may be set
   explicitely, and effort are made to cap the load to limit its impact on measures.
 - Relying on hyper-threading can reduce performance for simple one thread tasks,
   so it is often disabled.
-- the measure overhead is estimated and deduced from the performance figures by default,
+- The measure overhead is estimated and deduced from the performance figures by default,
   which leads to potentially fuzzy results when testing very small values.
-- compilers, libraries and other design and updates can have dramatic effects:
+- Compilers, libraries and other design and updates can have dramatic effects:
   for faster parsing, a library may use linked-list for properties, which means
   that retrieving a given property value will cost more than a library which uses
   a hash table which is more costly to build.
-- before version _16.0_, blaze does _not_ implement checking string values (eg dates, url…),
+- Before version _16.0_, blaze does _not_ implement checking string values (eg dates, url…),
   so these checks may be disactivated (see _Contents_ in _Parameters_) for fairness,
   reducing the results significance.
-- blaze uses its own special-purpose JSON representation which include a precomputed
+- Blaze uses its own special-purpose JSON representation which include a precomputed
   custom hash for string comparisons, aleviating the need to actually compare strings
   in most cases.
-- blaze is a C++ library, if interfaced from another language, the cost of translating
+- Blaze is a C++ library, if interfaced from another language, the cost of translating
   the JSON representation to this library should be taken into account;
   in contrast, jmc uses native JSON representations in the target ecosystem and generate
   validation code around it.
-- due to intrinsic limitations of the underlying libraries and the quality of models or schemas,
+- Due to intrinsic limitations of the underlying libraries and the quality of models or schemas,
   some results may differ, mostly for good reasons: regex incompatibilities, stricter
   model definitions compared to lax schemas…
-- it is unclear whether JIT optimizations (eg Java and JS) may work around the
+- It is unclear whether JIT optimizations (eg Java and JS) may work around the
   benchmarking loops and report undue very fast performances, eg on the GeoJSON case.
-- some execution environment (eg Java) take advantage of parallelism with threads (possibly
+- Some execution environment (eg Java) take advantage of parallelism with threads (possibly
   for the garbage collector and JIT), which may or may not be a blessing: it can reduce
   the apparent latency (eg the gc runs in another thread) but have a detrimental overall
   effect on throughput and costs as more cpu ressources are spent on the same task.
-- test values are mostly valid, which is representative of a typical use case, but
+- Test values are mostly valid, which is representative of a typical use case, but
   the tool accuracy should be asserted elsewhere with failing cases.
 
 ## Other Artifacts
