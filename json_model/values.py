@@ -10,7 +10,7 @@ from .mtypes import ModelType, ModelArray, ModelObject, Jsonable, ModelError
 from .model import JsonModel
 from .resolver import Resolver
 from .objops import merge
-from . import analyze
+from . import analyze, optim
 from .predefs import MODEL_PREDEFS, PREDEFS
 from .runtime.types import EntryCheckFun
 
@@ -435,11 +435,16 @@ def simplest(model: ModelType, jm: JsonModel|None = None,
     if jm is None:
         try:
             jm = JsonModel(model, Resolver())
-            for node in sorted(jm._models.values(), key=lambda m: m._id):
+            nodes = sorted(jm._models.values(), key=lambda m: m._id)
+            for node in nodes:
                 if not analyze.valid(node):
                     raise UnsupportedValue(f"invalid model {node._url}:{node._id}")
-            for node in {id(n): n for n in jm._globs.values()}.values():
+            for node in nodes:
+                optim.optimize(node)
+            for node in reversed(nodes):
                 merge(node)
+            for node in nodes:
+                optim.optimize(node)
         except (ModelError, AssertionError) as e:
             raise UnsupportedValue(f"invalid model: {e}")
         model = jm._model
