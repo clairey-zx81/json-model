@@ -3,6 +3,11 @@
 # run performance script from cron
 #
 
+# take scripts from jmc source?
+PERF=$HOME/dev/json-model/tests/perf
+WORK=$HOME/dev/cron-json-model
+TARGET=$HOME/perf
+
 function err()
 {
   local status=$1
@@ -11,17 +16,16 @@ function err()
   exit $status
 }
 
-function help()
+function usage()
 {
   cat <<EOF
-Usage: $0 [ -c | -f ] [ -p ] [ -i id ]
+Usage: $0 [ -c -f -p -i id ]
   -h: this help
   -c: check for new versions and run if any (yes)
   -f: force run (no)
   -p: publish to git repos (yes)
   -i id: use existing benchmark id (auto)
 EOF
-  exit 0
 }
 
 # option management
@@ -31,7 +35,7 @@ while [[ $1 == -* ]] ; do
   opt=$1
   shift
   case $opt in
-    --help|-h) help ;;
+    --help|-h) usage ; exit 0 ;;
     --check|-c) check=1 ;;
     --no-check|-nc) check= ;;
     --force|-f) force=1 ;;
@@ -41,16 +45,13 @@ while [[ $1 == -* ]] ; do
     --id|-i) bench_id=$1 ; shift ;;
     --id=*) bench_id=${opt#*=} ;;
     --) break ;;
-    -*) err 1 "unexpected option: $opt" ;;
+    -*) usage ; err 1 "unexpected option: $opt" ;;
   esac
 done
 
-# take scripts from jmc source
-PERF=$HOME/dev/json-model/tests/perf
-WORK=$HOME/dev/cron-json-model
-TARGET=$HOME/perf
-
+#
 # sanity checks
+#
 test -d $PERF || err 2 "missing source directory: $PERF"
 test -x $PERF/start_bench.sh || err 3 "missing executable: $PERF/start_bench.sh"
 test -d $TARGET || err 2 "missing target directory: $TARGET"
@@ -60,6 +61,13 @@ if [ "$publish" ] ; then
   test -d $WORK || err 2 "missing working directory: $WORK"
 fi
 
+for cmd in docker git ; do
+  type $cmd > /dev/null 2>&1 || err 3 "missing command: $cmd"
+done
+
+#
+# check for new versions
+#
 if [ "$check" ] ; then
   cd $TARGET || err 5 "cannot cd to: $TARGET"
 
@@ -81,6 +89,9 @@ if [ "$check" ] ; then
   done
 fi
 
+#
+# run bench if required
+#
 if [ "$run" -o "$force" ] ; then
   # setup standard run
 
@@ -130,8 +141,10 @@ if [ "$run" -o "$force" ] ; then
   fi
 fi
 
+#
+# publish (new) artifact
+#
 if [ "$publish" ] ; then
-  # publish (new) artifact
 
   [ "$bench_id" ] || err 12 "missing bench id for publish"
 
@@ -148,7 +161,3 @@ if [ "$publish" ] ; then
   git commit -m "add artifact $bench_id from cron job" || err 11 "cannot git commit artifacts"
   git push || err 11 "cannot git push"
 fi
-
-# TODO
-# auto deploy? cron public https clone on branch post on cristalina + rsync
-# add a copy on github.io through a deployment script + project conf
