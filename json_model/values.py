@@ -249,6 +249,46 @@ def _variants(model: ModelType, jm: JsonModel, seen: frozenset[str],
         values = []
     return values[:count]
 
+def _names(prop: str, count: int, taken: set[str], jm: JsonModel) -> list[str]:
+    """Distinct property names matching a catch-all or pattern property model."""
+    try:
+        seed = _ANY_CHAR if prop == "" else _simplest_regex(prop)
+    except UnsupportedValue:
+        return []
+    names = []
+    for i in range(count + len(taken) + 1):
+        name = seed + _ANY_CHAR * i
+        if name not in taken and _verify(name, prop, jm) is True:
+            names.append(name)
+            if len(names) >= count:
+                break
+    return names
+
+def _grown(target: ModelType, base: ModelObject, length: int,
+           jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Object of a given size, extended with optional or free properties."""
+    if not isinstance(target, dict) or set(target) & (_OPERATORS | _ROOT_KEYS):
+        raise UnsupportedValue(f"cannot resize object model: {target}")
+    elif len(base) > length:
+        raise UnsupportedValue(f"cannot shrink object model: {target}")
+    props = {p: m for p, m in target.items() if not p.startswith("#")}
+    value = dict(base)
+    for prop, submodel in props.items():
+        if len(value) >= length:
+            break
+        elif prop.startswith("?") and prop[1:] not in value:
+            value[prop[1:]] = simplest(submodel, jm, seen)
+    for prop, submodel in props.items():
+        if len(value) >= length:
+            break
+        elif prop == "" or prop.startswith("/"):
+            for name in _names(prop, length - len(value), set(value), jm):
+                value[name] = simplest(submodel, jm, seen)
+    if len(value) != length:
+        raise UnsupportedValue(f"cannot reach {length} properties: {target}")
+    else:
+        return value
+
 def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
     """Simplest value for a constraint model."""
     target = props["@"]
@@ -260,11 +300,11 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
         raise UnsupportedValue(f"unsupported comparison constraint: {ops}")
     unique = ops.get("!") is True
     base = simplest(target, jm, seen)
-    if base is None or isinstance(base, bool) or isinstance(base, dict):
+    if base is None or isinstance(base, bool):
         raise UnsupportedValue(f"unsupported constrained model: {target}")
+    elif unique and not isinstance(base, list):
+        raise UnsupportedValue(f"unique constraint on a non-array: {target}")
     elif isinstance(base, (int, float)):
-        if unique:
-            raise UnsupportedValue(f"unique constraint on a number: {target}")
         is_float = isinstance(base, float)
         step: int|float = 1.0 if is_float else 1
         lo, hi = _bounds(ops, step, _numeric_low(target))
@@ -279,6 +319,8 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
             raise UnsupportedValue(f"cannot resize string model: {target}")
         else:
             return _ANY_CHAR * length
+    elif isinstance(base, dict):
+        return _grown(target, base, length, jm, seen)
     items = [i for i in target if not (isinstance(i, str) and i.startswith("#"))]
     if not items:
         raise UnsupportedValue(f"cannot resize array model: {target}")
