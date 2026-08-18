@@ -481,11 +481,7 @@ def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
         return model
 
 def _compile(model: ModelType, optimize: bool = True) -> tuple[JsonModel, ModelType]:
-    """Check and preprocess a model given as plain JSON.
-
-    Optimizing folds constraints into base models, which suits value
-    generation but hides the very constraints violations must target.
-    """
+    """Check and preprocess a model given as plain JSON """
     try:
         jm = JsonModel(model, Resolver())
         nodes = sorted(jm._models.values(), key=lambda m: m._id)
