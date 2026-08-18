@@ -35,15 +35,18 @@ clean:
 #
 
 .PHONY: push
-push: docker.push
+push: docker-docker.push
 
-.PHONY: docker.push
-docker.push: docker.build
+.PHONY: docker-docker.push
+docker-docker.push: docker-docker.build
 	$(MAKE) POD=docker VARIANT=docker tag
 	# docker push -a $(ZX80)/jmc-bench-docker
 	docker push $(ZX80)/jmc-bench-docker:$(BRANCH)
 	docker push $(ZX80)/jmc-bench-docker:$(TAG)
 	[ "$(BRANCH)" = "main" ] && docker push $(ZX80)/jmc-bench-docker:$(VERSION)
+
+.PHONY: docker-podman.push
+docker-podman.push: docker-podman.build
 	$(MAKE) POD=docker VARIANT=podman tag
 	# docker push -a $(ZX80)/jmc-bench-podman
 	docker push $(ZX80)/jmc-bench-podman:$(BRANCH)
@@ -84,13 +87,16 @@ POD.opts    = --no-cache
 	jmc --version > .version || exit 1
 	$(POD) build $(POD.opts) -t jmc-bench-$(VARIANT) -f perf.$(VARIANT) . && date -Iseconds > $@
 
-.PHONY: docker.build
-docker.build:
+.PHONY: docker-docker.build
+docker-docker.build:
 	$(MAKE) POD=docker VARIANT=docker build
+
+.PHONY: docker-podman.build
+docker-podman.build:
 	$(MAKE) POD=docker VARIANT=podman build
 
-.PHONY: podman.build
-podman.build:
+.PHONY: podman-podman.build
+podman-podman.build:
 	$(MAKE) POD=podman VARIANT=podman build
 
 #
