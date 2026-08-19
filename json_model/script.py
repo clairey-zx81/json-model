@@ -17,7 +17,7 @@ from .resolver import Resolver
 from .model import JsonModel
 from .xstatic import xstatic_compile, ir_compile
 from . import optim, analyze, objops
-from .values import simplest, violations, UnsupportedValue
+from .values import simplest, violations, vectors, UnsupportedValue
 from .runtime.types import EntryCheckFun, Report
 from .runtime.support import _path as json_path
 from .export import model2python
@@ -554,7 +554,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
 
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
-    ope("--op", choices=["P", "U", "J", "N", "E", "C", "V", "I"], default=None,
+    ope("--op", choices=["P", "U", "J", "N", "E", "C", "V", "I", "A"], default=None,
         help="select operation")
     ope("--preproc", "-P", dest="op", action="store_const", const="P",
         help="preprocess model")
@@ -572,6 +572,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="generate a representative value")
     ope("--invalid", dest="op", action="store_const", const="I",
         help="generate values which break each constraint")
+    ope("--auto-values", dest="op", action="store_const", const="A",
+        help="generate a test vector file")
 
     # export control
     arg("--schema-version", "--sv", action="store_true", default=None,
@@ -721,7 +723,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         return 1
 
     # option/parameter consistency and defaults
-    if args.op in "PUJNVI":
+    if args.op in "PUJNVIA":
         args.format = args.format or "json"
         if args.format not in ("json", "yaml"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
@@ -884,6 +886,13 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             log.error(f"{args.model}: {e}")
             return 1
         print(json2str(values), file=output)
+    elif args.op == "A":  # generated test vectors
+        try:
+            tests = vectors(model._init_md, resolver=model._resolver, url=model._url)
+        except UnsupportedValue as e:
+            log.error(f"{args.model}: {e}")
+            return 1
+        print(json2str([f"generated from {args.model}"] + tests), file=output)
     elif args.op == "C":
         assert args.format in LANG, f"valid output language {args.format}"
 

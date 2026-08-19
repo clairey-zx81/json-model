@@ -509,10 +509,11 @@ def _compile(model: ModelType, optimize: bool = True, resolver: Resolver|None = 
     return jm, jm._model
 
 def simplest(model: ModelType, jm: JsonModel|None = None,
-             seen: frozenset[str] = frozenset()) -> Jsonable:
+             seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
+             url: str = "") -> Jsonable:
     """Generate the simplest value matching a model."""
     if jm is None:
-        jm, model = _compile(model)
+        jm, model = _compile(model, True, resolver, url)
     match model:
         case None | bool() | int() | float():
             return _simplest_scalar(model)
@@ -770,3 +771,21 @@ def violations(model: ModelType, jm: JsonModel|None = None,
         raise UnsupportedValue(f"no constraint could be violated: {'; '.join(reasons)}")
     else:
         return values
+
+def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "") -> list:
+    """Test vectors for a model, a valid value then one value per violation."""
+    tests: list = []
+    reasons: list[str] = []
+    try:
+        tests.append([True, simplest(model, resolver=resolver, url=url)])
+    except UnsupportedValue as e:
+        reasons.append(str(e))
+    try:
+        for key, value in violations(model, resolver=resolver, url=url).items():
+            tests.append(key or "root")
+            tests.append([False, value])
+    except UnsupportedValue as e:
+        reasons.append(str(e))
+    if not tests:
+        raise UnsupportedValue(f"no test vector: {'; '.join(reasons)}")
+    return tests

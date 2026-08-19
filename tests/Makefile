@@ -19,6 +19,8 @@ D.schema = $(D.subs:%=%.schema)
 D.clean.schema = $(D.subs:%=%.clean.schema)
 D.genone = $(D.subs:%=%.genone)
 D.ts = $(D.subs:%=%.ts)
+D.auto = $(D.subs:%=%.auto)
+D.clean.auto = $(D.subs:%=%.clean.auto)
 D.clean.ts = $(D.valid:%.ts.valid=%.clean.ts)
 
 .PHONY: clean
@@ -95,6 +97,14 @@ clean.schema:
 .PHONY: ts
 ts:
 	$(MAKE) TARGET=ts $(D.ts)
+
+.PHONY: auto
+auto:
+	$(MAKE) TARGET=auto $(D.auto)
+
+.PHONY: clean.auto
+clean.auto:
+	$(MAKE) TARGET=clean.auto $(D.clean.auto)
 
 # show statistics about tests
 .PHONY: stats

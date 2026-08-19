@@ -428,6 +428,45 @@ check.schema: $(F.sXc)
 
 # TODO JSON Schema checks on test values?
 
+# Automatically Generated Test Vectors
+
+F.auto   = $(F.root:%=%.auto.json)
+F.pyauto = $(F.root:%=%.py.auto.check)
+F.jsauto = $(F.root:%=%.js.auto.check)
+F.plauto = $(F.root:%=%.pl.auto.check)
+F.cauto  = $(F.root:%=%.c.auto.check)
+F.jvauto = $(F.root:%=%.java.auto.check)
+
+%.auto.json: %.model.json
+	$(JMC.cmd) --auto-values -o $@ $<
+
+%.py.auto.check: %.py %.auto.json
+	./$< -tr $*.auto.json > $@
+
+%.js.auto.check: %.js %.auto.json
+	./$< -tr $*.auto.json > $@
+
+%.pl.auto.check: %.pl %.auto.json
+	./$< -t $*.auto.json > $@
+
+%.c.auto.check: %.out %.auto.json
+	./$< -tr $*.auto.json > $@
+
+%.java.auto.check: %.class %.auto.json
+	java_name=$*
+	java_name=$${java_name//-/_}
+	[ $* != $$java_name ] && ln -s $*.class $$java_name.class
+	$(JAVA) $$java_name $(J.opt) -t $*.auto.json > $@
+	status=$$?
+	[ $* != $$java_name ] && $(RM) $$java_name.class
+	exit $$status
+
+.PHONY: auto clean.auto
+auto: $(F.pyauto) $(F.jsauto) $(F.plauto) $(F.cauto) $(F.jvauto)
+
+clean.auto:
+	$(RM) $(F.auto) $(F.pyauto) $(F.jsauto) $(F.plauto) $(F.cauto) $(F.jvauto)
+
 .PHONY: stats
 stats:
 	@echo "# models:" $$(ls *.model.json | wc -l)
