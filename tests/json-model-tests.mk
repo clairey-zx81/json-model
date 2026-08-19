@@ -437,6 +437,8 @@ F.plauto = $(F.root:%=%.pl.auto.check)
 F.cauto  = $(F.root:%=%.c.auto.check)
 F.jvauto = $(F.root:%=%.java.auto.check)
 
+.SECONDARY: $(F.auto)
+
 %.auto.json: %.model.json
 	$(JMC.cmd) --auto-values -o $@ $<
 
