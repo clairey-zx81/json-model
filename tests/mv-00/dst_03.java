@@ -35,7 +35,6 @@ public class dst_03 extends ModelChecker
         if (json.objectSize(val) != 1)
             return false;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
             return false;
         return json.isInteger(pval) && json.asLong(pval) >= 0;

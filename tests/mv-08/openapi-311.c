@@ -7009,17 +7009,12 @@ static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "not an object [.'$Extension']", path);
         return false;
     }
-    bool res;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_82 = (jm_path_t) { prop, 0, path, NULL };
-        if (likely(jm_str_eq_2(prop, 0x00002d78)))
-            // handle 1 re props
-            // .'$Extension'.'/^x-/'
-            res = true;
-        else
+        if (likely(! jm_str_eq_2(prop, 0x00002d78)))
         {
             if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Extension']", (path ? &lpath_82 : NULL));
             return false;

@@ -51,10 +51,6 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else
-        {
-            // accept any other props
-        }
     }
     return true;
 }
@@ -97,10 +93,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 if (rep) jm_report_add_entry(rep, "not a bool [.'$bla'.'/^xb/']", (path ? &lpath_1 : NULL));
                 return false;
             }
-        }
-        else
-        {
-            // accept any other props
         }
     }
     return true;

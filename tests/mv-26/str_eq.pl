@@ -25,7 +25,6 @@ sub json_model_1($$$)
         push @$rep, ["not an object [.]", $path] if defined $rep;
         return 0;
     }
-    my $res;
     scalar keys %$val;
     for my $prop (sort keys %$val)
     {
@@ -35,21 +34,18 @@ sub json_model_1($$$)
         {
             # handle may  property
             # .''
-            $res = 1;
             next;
         }
         elsif ($prop eq "hello")
         {
             # handle may hello property
             # .hello
-            $res = 1;
             next;
         }
         elsif ($prop eq "quite-a-long-property-name")
         {
             # handle may quite-a-long-property-name property
             # .'quite-a-long-property-name'
-            $res = 1;
             next;
         }
         push @$rep, ["unexpected prop [.]", defined $path ? $lpath_0 : undef] if defined $rep;

@@ -61,7 +61,6 @@ public class objs1 extends ModelChecker
         if (json.objectSize(val) != 1)
             return false;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "foo")) != null))
             return false;
         // .foo

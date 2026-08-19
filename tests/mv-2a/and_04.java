@@ -59,10 +59,6 @@ public class and_04 extends ModelChecker
                     return false;
                 }
             }
-            else
-            {
-                // accept any other props
-            }
         }
         return true;
     }
@@ -106,10 +102,6 @@ public class and_04 extends ModelChecker
                     if (rep != null) rep.addEntry("not a bool [.'$bla'.'/^xb/']", (path != null ? lpath_1 : null));
                     return false;
                 }
-            }
-            else
-            {
-                // accept any other props
             }
         }
         return true;

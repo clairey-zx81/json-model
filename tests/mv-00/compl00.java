@@ -23,7 +23,6 @@ public class compl00 extends ModelChecker
 
     public boolean json_model_1(Object val, Path path, Report rep)
     {
-        boolean res;
         return ! (json.isString(val) && _jm_re_0(json.asString(val), null, null));
     }
 

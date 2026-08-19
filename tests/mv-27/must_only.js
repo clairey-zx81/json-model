@@ -26,7 +26,6 @@ function _jm_obj_1(val, path, rep)
     if (Object.keys(val).length != 1)
         return false
     let pval
-    let res
     if (! val.hasOwnProperty("p10"))
         return false
     pval = val["p10"]

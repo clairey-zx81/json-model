@@ -35,7 +35,6 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("p10", UNDEFINED)) != UNDEFINED):
         return False
     # .mo1.p10

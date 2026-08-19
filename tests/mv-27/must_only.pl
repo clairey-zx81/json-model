@@ -34,7 +34,6 @@ sub _jm_obj_1($$$)
     return 0 unless jm_is_object($val);
     return 0 if jm_obj_size($val) != 1;
     my $pval;
-    my $res;
     return 0 unless exists $$val{"p10"};
     $pval = $$val{"p10"};
     # .mo1.p10

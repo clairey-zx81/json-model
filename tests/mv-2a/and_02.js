@@ -34,10 +34,6 @@ function _jm_obj_0(val, path, rep)
                 return false
             }
         }
-        else
-        {
-            // accept any other props
-        }
     }
     return true
 }

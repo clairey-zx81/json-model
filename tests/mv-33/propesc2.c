@@ -20,7 +20,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
-    bool res;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
@@ -34,7 +33,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'foo
             // bar'
-            res = true;
             continue;
         }
         // accept any other props

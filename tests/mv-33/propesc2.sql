@@ -9,7 +9,6 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   must_count int;
   prop TEXT;
   pval JSONB;
@@ -27,7 +26,6 @@ BEGIN
       must_count := must_count + 1;
       -- .'foo
       -- bar'
-      res := TRUE;
       CONTINUE;
     END IF;
     -- accept any other props

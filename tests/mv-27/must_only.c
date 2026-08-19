@@ -29,7 +29,6 @@ static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *re
     if (unlikely(json_object_size(val) != 1))
         return false;
     json_t * pval;
-    bool res;
     if (unlikely(! ((pval = json_object_get(val, "p10")) != NULL)))
         return false;
     // .mo1.p10

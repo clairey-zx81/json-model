@@ -29,23 +29,19 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.]", path))
         return False
-    res: bool
     for prop, pval in val.items():
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "":
             # handle may  property
             # .''
-            res = True
             continue
         elif prop == "hello":
             # handle may hello property
             # .hello
-            res = True
             continue
         elif prop == "quite-a-long-property-name":
             # handle may quite-a-long-property-name property
             # .'quite-a-long-property-name'
-            res = True
             continue
         rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))
         return False

@@ -7,15 +7,14 @@
 - [x] pr: switch cristalina to post after release
 - [x] bench: fix report nl before per-case performance table
 - [x] pr: ensure accuracy of version on about page
+- [x] irep: cleanup bool variable set but not used
 - [ ] bench: only run java with GSON
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes
-- [ ] tests: automate bench launch with a cron job?
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
 - [ ] static: use combined type test and value extraction when available?
-- [ ] irep: cleanup `propesc2.c` (and others) variable res set but not used
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] static: recursive multi-discriminator hierarchisation? See UI5.

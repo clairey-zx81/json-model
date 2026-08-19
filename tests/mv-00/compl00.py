@@ -23,7 +23,6 @@ check_model_map: PropMap
 
 
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
     return not (isinstance(val, str) and _jm_re_0(val, None, None))
 
 

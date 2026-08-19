@@ -46,11 +46,6 @@ sub _jm_obj_0($$$)
                 return 0;
             }
         }
-        else
-        {
-            # accept any other props
-            ;
-        }
     }
     return 1;
 }

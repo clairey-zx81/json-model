@@ -1395,7 +1395,6 @@ sub json_model_10($$$)
         push @$rep, ["not an object [.'\$openapi#Components']", $path] if defined $rep;
         return 0;
     }
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -1412,13 +1411,7 @@ sub json_model_10($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$openapi#Components'.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$openapi#Components']", defined $path ? $lpath_9 : undef] if defined $rep;
             return 0;
@@ -1572,7 +1565,6 @@ sub json_model_12($$$)
         push @$rep, ["not an object [.'\$openapi#PathItem']", $path] if defined $rep;
         return 0;
     }
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -1589,13 +1581,7 @@ sub json_model_12($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$openapi#PathItem'.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$openapi#PathItem']", defined $path ? $lpath_21 : undef] if defined $rep;
             return 0;
@@ -1832,7 +1818,6 @@ sub json_model_13($$$)
         push @$rep, ["not an object [.'\$openapi#Operation']", $path] if defined $rep;
         return 0;
     }
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -1849,13 +1834,7 @@ sub json_model_13($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$openapi#Operation'.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$openapi#Operation']", defined $path ? $lpath_22 : undef] if defined $rep;
             return 0;
@@ -3561,7 +3540,6 @@ sub _jm_obj_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -3578,13 +3556,7 @@ sub _jm_obj_18($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$openapi#Header'.'|'.0.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$openapi#Header'.'|'.0]", defined $path ? $lpath_47 : undef] if defined $rep;
             return 0;

@@ -20,31 +20,21 @@ function json_model_1(val, path, rep)
         rep !== null && rep.push(["not an object [.]", path])
         return false
     }
-    let res
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null
         if (prop == "")
-        {
             // handle may  property
             // .''
-            res = true
             continue
-        }
         else if (prop == "hello")
-        {
             // handle may hello property
             // .hello
-            res = true
             continue
-        }
         else if (prop == "quite-a-long-property-name")
-        {
             // handle may quite-a-long-property-name property
             // .'quite-a-long-property-name'
-            res = true
             continue
-        }
         rep !== null && rep.push(["unexpected prop [.]", (path ? lpath_0 : null)])
         return false
     }

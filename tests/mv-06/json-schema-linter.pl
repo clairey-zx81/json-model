@@ -873,7 +873,6 @@ sub json_model_9($$$)
         push @$rep, ["not an object [.'\$metas']", $path] if defined $rep;
         return 0;
     }
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -890,13 +889,7 @@ sub json_model_9($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$metas'.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$metas']", defined $path ? $lpath_6 : undef] if defined $rep;
             return 0;

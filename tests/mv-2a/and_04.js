@@ -48,10 +48,6 @@ function json_model_2(val, path, rep)
                 return false
             }
         }
-        else
-        {
-            // accept any other props
-        }
     }
     return true
 }
@@ -92,10 +88,6 @@ function json_model_3(val, path, rep)
                 rep !== null && rep.push(["not a bool [.'$bla'.'/^xb/']", (path ? lpath_1 : null)])
                 return false
             }
-        }
-        else
-        {
-            // accept any other props
         }
     }
     return true

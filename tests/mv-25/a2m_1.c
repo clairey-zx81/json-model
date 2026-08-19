@@ -20,7 +20,6 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$Oa'
     if (unlikely(! json_is_object(val)))
         return false;
-    bool res;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
@@ -40,7 +39,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // .'$Ob'
     if (unlikely(! json_is_object(val)))
         return false;
-    bool res;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)

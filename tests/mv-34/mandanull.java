@@ -22,7 +22,6 @@ public class mandanull extends ModelChecker
         if (json.objectSize(val) != 1)
             return false;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "null")) != null))
             return false;
         return json.isNull(pval);

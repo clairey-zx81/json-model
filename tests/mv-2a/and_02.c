@@ -45,10 +45,6 @@ static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *re
                 return false;
             }
         }
-        else
-        {
-            // accept any other props
-        }
     }
     return true;
 }

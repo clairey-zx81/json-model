@@ -271,7 +271,7 @@ def _simpleBoolAssign(op: Jsonable, reporting: bool = True) -> bool:
                 op["val"] = cond
             elif vt is False and vf is True:
                 # C ? F : T -> !C
-                op["val"] = invertBool(cond)
+                op["val"] = negate(cond)
             elif vf is False:
                 # C ? E : F -> C && E
                 op["val"] = {"o": "&", "exprs": [ cond, tbv["val"] ]}
@@ -280,11 +280,11 @@ def _simpleBoolAssign(op: Jsonable, reporting: bool = True) -> bool:
                 op["val"] = {"o": "|", "exprs": [ cond, fbv["val"] ]}
             elif vf is True:
                 # C ? E : T -> !C || E
-                op["val"] = {"o": "|", "exprs": [ invertBool(cond), tbv["val"] ]}
+                op["val"] = {"o": "|", "exprs": [ negate(cond), tbv["val"] ]}
             else:
                 assert vt is False
                 # C ? F : E -> !C && E
-                op["val"] = {"o": "&", "exprs": [ invertBool(cond), fbv["val"] ]}
+                op["val"] = {"o": "&", "exprs": [ negate(cond), fbv["val"] ]}
             return True
     return False
 
@@ -299,7 +299,7 @@ CMP_INV = {
     "<=": ">",
 }
 
-def invertBool(op: Jsonable) -> Jsonable:
+def negate(op: Jsonable) -> Jsonable:
     """Invert boolean expression."""
     if isinstance(op, dict) and "o" in op:
         if op["o"] in ("sc", "nc"):
@@ -348,7 +348,7 @@ def bvar_uses(op: Jsonable, var: str) -> int:
                     )) +
                     bvar_uses(op["false"], var)
                 )
-            case "aL"|"oL"|"iL":
+            case "aL"|"oL"|"iL"|"sfu":
                 return bvar_uses(op["body"], var)
             case "seq":
                 return bvar_uses(op["seq"], var)
@@ -379,6 +379,7 @@ def bvar_subs(op: Jsonable, var: str, val: Jsonable) -> Jsonable:
 
 def bvar_is_used(op: Jsonable, var: str) -> bool:
     """Whether boolean variable is used in boolean expression."""
+    # log.warning(f"used: var={var} op={op}")
     return bvar_uses(op, var) != 0
 
 # FIXME full simplification should require several passes
@@ -587,13 +588,13 @@ def _optimSeq(seq: Sequence, bool_vars: set[str], reporting: bool) -> Effect:
                 else:
                     if _isOp(op["res"], "cst"):
                         if op["res"]["c"]:
-                            newop = {"o": "ret", "res": invertBool(ifop["cond"])}
+                            newop = {"o": "ret", "res": negate(ifop["cond"])}
                         else:
                             newop = {"o": "ret", "res": {"o": "cst", "c": False}}
                     else:
                         newop = {
                             "o": "ret",
-                            "res": {"o": "&", "exprs": [invertBool(ifop["cond"]), op["res"]]}
+                            "res": {"o": "&", "exprs": [negate(ifop["cond"]), op["res"]]}
                         }
                 # set return on latter instruction
                 ifop.clear()
@@ -812,6 +813,9 @@ def _goIR(code: Jsonable, path: Path) -> bool:
 
 def _goStructIR(code: Jsonable, path: Path) -> bool:
     return isinstance(code, (dict, list))
+
+def _nopeIR(code: Jsonable, path: Path) -> Jsonable:
+    return code
 
 def _recIR(code: Jsonable, path: Path,
            flt: Callable[[Jsonable, Path], bool],
@@ -1080,8 +1084,87 @@ def elimUnreachableCode(code: Jsonable) -> int:
     recurseIR(code, _goStructIR, eucRwt)
     return changes
 
-def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool = True,
-               if_optim: bool = True, reporting: bool = True) -> Jsonable:
+def elimUnusedBoolVars(code: Jsonable) -> int:
+    """Bool variables may be set but unused."""
+
+    # collect existing boolean variables
+    bvars: dict[str, list[dict[str, Jsonable]]] = {}
+
+    def _bvarRwt(op: Jsonable, path: Path) -> Jsonable:
+        nonlocal bvars
+        if _isOp(op, "bv"):
+            var = op["var"]
+            if var not in bvars:
+                bvars[var] = []
+            bvars[var].append(op)
+        return op
+
+    recurseIR(code, _goStructIR, _bvarRwt)
+
+    # cleanup unused ones
+    changes: int = 0
+
+    for var, bops in bvars.items():
+        if not bvar_is_used(code, var):
+            for bop in bops:
+                assert bop["o"] == "bv"
+                changes += 1
+                bop.clear()
+                bop.update(o="ign")
+
+    return changes
+
+def mifToIf(code: Jsonable) -> int:
+    """Turn multi-if in a simple if is possible."""
+
+    changes: int = 0
+
+    def mif2ifRwt(op: Jsonable, _: Path) -> Jsonable:
+        nonlocal changes
+        if _isOp(op, "ifs") and len(op["cond_true"]) == 1:
+            cond, likely, btrue = op["cond_true"][0]
+            del op["cond_true"]
+            op.update(o="if", cond=cond, true=btrue, likely=likely)
+            changes += 1
+        return op
+
+    recurseIR(code, _goStructIR, mif2ifRwt)
+
+    return changes
+
+def simplifySimpleIf(code: Jsonable, reporting: bool) -> int:
+    """If with non effective or empty sequences."""
+
+    changes: int = 0
+
+    def sisifRwt(op: Jsonable, _: Path) -> op:
+        nonlocal changes
+        if _isOp(op, "if"):
+            empty_true =  _noOps(op["true"], reporting)
+            empty_false = _noOps(op["false"], reporting)
+            if empty_true:
+                changes += 1
+                if empty_false:
+                    op.clear()
+                    op.update(o="ign")
+                else:
+                    op["true"] = op["false"]
+                    op["false"] = []
+                    op["cond"] = negate(op["cond"])
+            elif empty_false and len(op["false"]) != 0:
+                op["false"] = []
+                changes += 1
+        return op
+
+    recurseIR(code, _goStructIR, sisifRwt)
+
+    return changes
+
+def optimizeIR(
+            code: list[Jsonable], *,
+            shortcuts: dict[str, str], partial: bool = True,
+            if_optim: bool = True, reporting: bool = True
+        ) -> Jsonable:
     """Optimize IR code."""
 
     if not if_optim and not shortcuts:
@@ -1098,7 +1181,7 @@ def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool
             if partial:
                 changes = partialEval(ins, reporting)
                 changed |= changes > 0
-            # if statement simplification
+            # large if statement simplification
             if if_optim:
                 optimized += 1
                 _optimSeq(ins["body"], set(), reporting=reporting)
@@ -1110,6 +1193,9 @@ def optimizeIR(code: list[Jsonable], *, shortcuts: dict[str, str], partial: bool
         changed |= elimCommonSub(ins) > 0
         changed |= elimDeadCode(ins, reporting) > 0
         changed |= elimUnreachableCode(ins) > 0
+        changed |= elimUnusedBoolVars(ins) > 0
+        changed |= mifToIf(ins) > 0
+        changed |= simplifySimpleIf(ins, reporting) > 0
         if changed:
             code[i] = json.dumps(ins)
 

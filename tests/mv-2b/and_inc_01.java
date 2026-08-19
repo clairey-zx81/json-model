@@ -22,7 +22,6 @@ public class and_inc_01 extends ModelChecker
         if (json.objectSize(val) != 1)
             return false;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "a")) != null))
             return false;
         return json.isString(pval);

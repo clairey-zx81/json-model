@@ -9,7 +9,6 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
@@ -21,17 +20,14 @@ BEGIN
     IF prop = '' THEN
       -- handle may  property
       -- .''
-      res := TRUE;
       CONTINUE;
     ELSEIF prop = 'hello' THEN
       -- handle may hello property
       -- .hello
-      res := TRUE;
       CONTINUE;
     ELSEIF prop = 'quite-a-long-property-name' THEN
       -- handle may quite-a-long-property-name property
       -- .'quite-a-long-property-name'
-      res := TRUE;
       CONTINUE;
     END IF;
     RETURN FALSE;

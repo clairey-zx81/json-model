@@ -17,8 +17,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      NULL;
     END IF;
   END LOOP;
   RETURN TRUE;

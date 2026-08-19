@@ -30,9 +30,6 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSE
-      -- accept any other props
-      NULL;
     END IF;
   END LOOP;
   RETURN TRUE;

@@ -8,14 +8,10 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 -- check $ (.)
 CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  is_0 bool;
 BEGIN
   -- equivalent to =0
   -- .
   -- remove duplicate xor list
-  res := TRUE;
   -- .'^'.2
   -- singleton xor list
   -- .'^'.0

@@ -28,8 +28,6 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             res = isinstance(pval, str)
             if not res:
                 return False
-        else:
-            pass
     return True
 
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:

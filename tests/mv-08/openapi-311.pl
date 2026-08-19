@@ -1434,7 +1434,6 @@ sub json_model_8($$$)
         push @$rep, ["not an object [.'\$Components']", $path] if defined $rep;
         return 0;
     }
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -1451,13 +1450,7 @@ sub json_model_8($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$Components'.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$Components']", defined $path ? $lpath_9 : undef] if defined $rep;
             return 0;
@@ -1611,7 +1604,6 @@ sub json_model_10($$$)
         push @$rep, ["not an object [.'\$PathItem']", $path] if defined $rep;
         return 0;
     }
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -1628,13 +1620,7 @@ sub json_model_10($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$PathItem'.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$PathItem']", defined $path ? $lpath_21 : undef] if defined $rep;
             return 0;
@@ -1871,7 +1857,6 @@ sub json_model_11($$$)
         push @$rep, ["not an object [.'\$Operation']", $path] if defined $rep;
         return 0;
     }
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -1888,13 +1873,7 @@ sub json_model_11($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$Operation'.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$Operation']", defined $path ? $lpath_22 : undef] if defined $rep;
             return 0;
@@ -4000,7 +3979,6 @@ sub _jm_obj_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # value known to be an object
-    my $res;
     my $pfun;
     scalar keys %$val;
     for my $prop (sort keys %$val)
@@ -4017,13 +3995,7 @@ sub _jm_obj_20($$$)
             }
             next;
         }
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$Header'.'|'.0.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$Header'.'|'.0]", defined $path ? $lpath_53 : undef] if defined $rep;
             return 0;
@@ -5917,19 +5889,12 @@ sub json_model_44($$$)
         push @$rep, ["not an object [.'\$Extension']", $path] if defined $rep;
         return 0;
     }
-    my $res;
     scalar keys %$val;
     for my $prop (sort keys %$val)
     {
         my $pval = $$val{$prop};
         my $lpath_78 = defined $path ? [@{$path}, $prop] : undef;
-        if (jm_starts_with($prop, "x-"))
-        {
-            # handle 1 re props
-            # .'$Extension'.'/^x-/'
-            $res = 1;
-        }
-        else
+        unless (jm_starts_with($prop, "x-"))
         {
             push @$rep, ["unexpected prop [.'\$Extension']", defined $path ? $lpath_78 : undef] if defined $rep;
             return 0;

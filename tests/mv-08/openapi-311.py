@@ -1021,7 +1021,6 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$PathItem']", path))
         return False
-    res: bool
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_21: Path = (path + [ prop ]) if path is not None else None
@@ -1031,11 +1030,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$PathItem']", lpath_21 if path is not None else None))
                 return False
             continue
-        if prop.startswith("x-"):
-            # handle 1 re props
-            # .'$PathItem'.'/^x-/'
-            res = True
-        else:
+        if not prop.startswith("x-"):
             rep is None or rep.append(("unexpected prop [.'$PathItem']", lpath_21 if path is not None else None))
             return False
     return True
@@ -1195,7 +1190,6 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Operation']", path))
         return False
-    res: bool
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_22: Path = (path + [ prop ]) if path is not None else None
@@ -1205,11 +1199,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$Operation']", lpath_22 if path is not None else None))
                 return False
             continue
-        if prop.startswith("x-"):
-            # handle 1 re props
-            # .'$Operation'.'/^x-/'
-            res = True
-        else:
+        if not prop.startswith("x-"):
             rep is None or rep.append(("unexpected prop [.'$Operation']", lpath_22 if path is not None else None))
             return False
     return True
@@ -3921,14 +3911,9 @@ def json_model_44(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Extension']", path))
         return False
-    res: bool
     for prop, pval in val.items():
         lpath_78: Path = (path + [ prop ]) if path is not None else None
-        if prop.startswith("x-"):
-            # handle 1 re props
-            # .'$Extension'.'/^x-/'
-            res = True
-        else:
+        if not prop.startswith("x-"):
             rep is None or rep.append(("unexpected prop [.'$Extension']", lpath_78 if path is not None else None))
             return False
     return True

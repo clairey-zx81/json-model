@@ -26,10 +26,6 @@ sub json_model_2($$$)
             $res = jm_is_string($pval);
             return 0 unless $res;
         }
-        else
-        {
-            ;
-        }
     }
     return 1;
 }

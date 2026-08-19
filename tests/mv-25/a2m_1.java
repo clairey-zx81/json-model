@@ -93,7 +93,6 @@ public class a2m_1 extends ModelChecker
         if (json.objectSize(val) != 1)
             return false;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "c")) != null))
             return false;
         // .'$nomerge'.c

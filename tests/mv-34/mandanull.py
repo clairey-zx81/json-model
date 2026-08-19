@@ -25,7 +25,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if len(val) != 1:
         return False
     pval: Jsonable
-    res: bool
     if not ((pval := val.get("null", UNDEFINED)) != UNDEFINED):
         return False
     return pval is None

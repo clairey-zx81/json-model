@@ -5796,15 +5796,10 @@ function json_model_44(val, path, rep)
         rep !== null && rep.push(["not an object [.'$Extension']", path])
         return false
     }
-    let res
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_78 = path ? path.concat([prop]) : null
-        if (prop.startsWith("x-"))
-            // handle 1 re props
-            // .'$Extension'.'/^x-/'
-            res = true
-        else
+        if (! prop.startsWith("x-"))
         {
             rep !== null && rep.push(["unexpected prop [.'$Extension']", (path ? lpath_78 : null)])
             return false

@@ -41,9 +41,6 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 1 strict int [.'&'.1.'/^d[0-9]/']", lpath_0 if path is not None else None))
                 return False
-        else:
-            # accept any other props
-            pass
     return True
 
 

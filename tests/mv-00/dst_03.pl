@@ -31,7 +31,6 @@ sub _jm_obj_1($$$)
     my ($val, $path, $rep) = @_;
     return 0 if jm_obj_size($val) != 1;
     my $pval;
-    my $res;
     return 0 unless exists $$val{"a"};
     $pval = $$val{"a"};
     return jm_is_integer($pval) && $pval >= 0;

@@ -1612,7 +1612,6 @@ public class openapi_311 extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$PathItem']", path);
             return false;
         }
-        boolean res;
         Checker pfun;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
@@ -1630,11 +1629,7 @@ public class openapi_311 extends ModelChecker
                 }
                 continue;
             }
-            if (prop.startsWith("x-"))
-                // handle 1 re props
-                // .'$PathItem'.'/^x-/'
-                res = true;
-            else
+            if (! prop.startsWith("x-"))
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$PathItem']", (path != null ? lpath_21 : null));
                 return false;
@@ -6176,18 +6171,13 @@ public class openapi_311 extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.'$Extension']", path);
             return false;
         }
-        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_78 = new Path(prop, path);
-            if (prop.startsWith("x-"))
-                // handle 1 re props
-                // .'$Extension'.'/^x-/'
-                res = true;
-            else
+            if (! prop.startsWith("x-"))
             {
                 if (rep != null) rep.addEntry("unexpected prop [.'$Extension']", (path != null ? lpath_78 : null));
                 return false;

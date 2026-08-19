@@ -28,7 +28,6 @@ public class str_eq extends ModelChecker
             if (rep != null) rep.addEntry("not an object [.]", path);
             return false;
         }
-        boolean res;
         Iterator<String> prop_loop = json.objectIterator(val);
         while (prop_loop.hasNext())
         {
@@ -36,26 +35,17 @@ public class str_eq extends ModelChecker
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
             if (prop.compareTo("") == 0)
-            {
                 // handle may  property
                 // .''
-                res = true;
                 continue;
-            }
             else if (prop.compareTo("hello") == 0)
-            {
                 // handle may hello property
                 // .hello
-                res = true;
                 continue;
-            }
             else if (prop.compareTo("quite-a-long-property-name") == 0)
-            {
                 // handle may quite-a-long-property-name property
                 // .'quite-a-long-property-name'
-                res = true;
                 continue;
-            }
             if (rep != null) rep.addEntry("unexpected prop [.]", (path != null ? lpath_0 : null));
             return false;
         }

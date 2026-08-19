@@ -48,9 +48,6 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected value for model \"\" [.'$foo'.'/^xs/']", lpath_0 if path is not None else None))
                 return False
-        else:
-            # accept any other props
-            pass
     return True
 
 # check $bla (.'$bla')
@@ -78,9 +75,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$bla'.'/^xb/']", lpath_1 if path is not None else None))
                 return False
-        else:
-            # accept any other props
-            pass
     return True
 
 # check $ (.)

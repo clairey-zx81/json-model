@@ -18,7 +18,6 @@ static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool res;
     return ! (json_is_string(val) && _jm_re_0(json_string_value(val), NULL, NULL));
 }
 

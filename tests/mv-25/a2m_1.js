@@ -89,7 +89,6 @@ function json_model_5(val, path, rep)
     if (Object.keys(val).length != 1)
         return false
     let pval
-    let res
     if (! val.hasOwnProperty("c"))
         return false
     pval = val["c"]

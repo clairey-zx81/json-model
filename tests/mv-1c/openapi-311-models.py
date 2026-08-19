@@ -1053,7 +1053,6 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#PathItem']", path))
         return False
-    res: bool
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_21: Path = (path + [ prop ]) if path is not None else None
@@ -1063,11 +1062,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#PathItem']", lpath_21 if path is not None else None))
                 return False
             continue
-        if prop.startswith("x-"):
-            # handle 1 re props
-            # .'$openapi#PathItem'.'/^x-/'
-            res = True
-        else:
+        if not prop.startswith("x-"):
             rep is None or rep.append(("unexpected prop [.'$openapi#PathItem']", lpath_21 if path is not None else None))
             return False
     return True
@@ -1227,7 +1222,6 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$openapi#Operation']", path))
         return False
-    res: bool
     pfun: CheckFun
     for prop, pval in val.items():
         lpath_22: Path = (path + [ prop ]) if path is not None else None
@@ -1237,11 +1231,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Operation']", lpath_22 if path is not None else None))
                 return False
             continue
-        if prop.startswith("x-"):
-            # handle 1 re props
-            # .'$openapi#Operation'.'/^x-/'
-            res = True
-        else:
+        if not prop.startswith("x-"):
             rep is None or rep.append(("unexpected prop [.'$openapi#Operation']", lpath_22 if path is not None else None))
             return False
     return True

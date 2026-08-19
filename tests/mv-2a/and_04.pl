@@ -57,11 +57,6 @@ sub json_model_2($$$)
                 return 0;
             }
         }
-        else
-        {
-            # accept any other props
-            ;
-        }
     }
     return 1;
 }
@@ -105,11 +100,6 @@ sub json_model_3($$$)
                 push @$rep, ["not a bool [.'\$bla'.'/^xb/']", defined $path ? $lpath_1 : undef] if defined $rep;
                 return 0;
             }
-        }
-        else
-        {
-            # accept any other props
-            ;
         }
     }
     return 1;

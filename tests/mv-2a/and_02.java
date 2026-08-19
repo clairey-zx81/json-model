@@ -48,10 +48,6 @@ public class and_02 extends ModelChecker
                     return false;
                 }
             }
-            else
-            {
-                // accept any other props
-            }
         }
         return true;
     }

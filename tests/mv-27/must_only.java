@@ -34,7 +34,6 @@ public class must_only extends ModelChecker
         if (json.objectSize(val) != 1)
             return false;
         Object pval;
-        boolean res;
         if (! ((pval = json.objectValue(val, "p10")) != null))
             return false;
         // .mo1.p10

@@ -55,7 +55,6 @@ sub json_model_1($$$)
     return 0 unless jm_is_object($val);
     return 0 if jm_obj_size($val) != 1;
     my $pval;
-    my $res;
     return 0 unless exists $$val{"foo"};
     $pval = $$val{"foo"};
     # .foo

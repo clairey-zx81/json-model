@@ -858,7 +858,6 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   pfun TEXT;
   prop TEXT;
   pval JSONB;
@@ -876,11 +875,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$openapi#Components'.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;
@@ -1010,7 +1005,6 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION json_model_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   pfun TEXT;
   prop TEXT;
   pval JSONB;
@@ -1028,11 +1022,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$openapi#PathItem'.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;
@@ -1224,7 +1214,6 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION json_model_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   pfun TEXT;
   prop TEXT;
   pval JSONB;
@@ -1242,11 +1231,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$openapi#Operation'.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;
@@ -2481,7 +2466,6 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   pfun TEXT;
   prop TEXT;
   pval JSONB;
@@ -2496,11 +2480,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$openapi#Header'.'|'.0.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;

@@ -18,7 +18,6 @@ CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
-  res bool;
 BEGIN
   -- check close must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN

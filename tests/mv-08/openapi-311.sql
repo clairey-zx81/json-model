@@ -840,7 +840,6 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION json_model_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   pfun TEXT;
   prop TEXT;
   pval JSONB;
@@ -858,11 +857,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$Components'.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;
@@ -992,7 +987,6 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   pfun TEXT;
   prop TEXT;
   pval JSONB;
@@ -1010,11 +1004,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$PathItem'.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;
@@ -1206,7 +1196,6 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION json_model_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   pfun TEXT;
   prop TEXT;
   pval JSONB;
@@ -1224,11 +1213,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$Operation'.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;
@@ -2750,7 +2735,6 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   pfun TEXT;
   prop TEXT;
   pval JSONB;
@@ -2765,11 +2749,7 @@ BEGIN
       END IF;
       CONTINUE;
     END IF;
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$Header'.'|'.0.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;
@@ -4181,7 +4161,6 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_44(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  res bool;
   prop TEXT;
   pval JSONB;
 BEGIN
@@ -4190,11 +4169,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF STARTS_WITH(prop, 'x-') THEN
-      -- handle 1 re props
-      -- .'$Extension'.'/^x-/'
-      res := TRUE;
-    ELSE
+    IF NOT STARTS_WITH(prop, 'x-') THEN
       RETURN FALSE;
     END IF;
   END LOOP;
