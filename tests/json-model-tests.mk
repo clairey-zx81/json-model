@@ -464,7 +464,7 @@ F.jvauto = $(F.root:%=%.java.auto.check)
 	exit $$status
 
 .PHONY: auto clean.auto
-auto: $(F.pyauto) $(F.jsauto) $(F.plauto) $(F.cauto) $(F.jvauto)
+auto: $(F.auto) $(F.pyauto) $(F.jsauto) $(F.plauto) $(F.cauto) $(F.jvauto)
 
 clean.auto:
 	$(RM) $(F.auto) $(F.pyauto) $(F.jsauto) $(F.plauto) $(F.cauto) $(F.jvauto)
