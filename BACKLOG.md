@@ -8,6 +8,7 @@
 - [x] bench: fix report nl before per-case performance table
 - [x] pr: ensure accuracy of version on about page
 - [x] irep: cleanup bool variable set but not used
+- [ ] irep: move mif2if earlier
 - [ ] bench: only run java with GSON
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
@@ -19,11 +20,11 @@
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] static: recursive multi-discriminator hierarchisation? See UI5.
 - [ ] static: factor out common checks on `&` with shared constraints?
+- [ ] static: check for common object part?
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
 - [ ] optim: simplify some '!=' cases
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
-- [ ] static: check for common object part
 - [ ] perf: add another loop over performance collection?
 - [ ] models: update ir model wrt recent changes
 - [ ] tests: add test with ir model? on the fly?
