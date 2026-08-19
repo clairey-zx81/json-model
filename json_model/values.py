@@ -504,7 +504,7 @@ def _compile(model: ModelType, optimize: bool = True, resolver: Resolver|None = 
         if optimize:
             for node in nodes:
                 optim.optimize(node)
-    except (ModelError, AssertionError) as e:
+    except (ModelError, AssertionError, KeyError) as e:
         raise UnsupportedValue(f"invalid model: {e}")
     return jm, jm._model
 
@@ -583,6 +583,19 @@ def _violations_constrained(props: ModelObject, jm: JsonModel,
         raise UnsupportedValue(f"no constraint could be violated: {props}")
     else:
         return values
+
+def _mandatory(node: ModelObject) -> list[tuple[str, str]]:
+    """Model key and value name of each mandatory property of an object model."""
+    props = []
+    for prop in node:
+        if prop == "" or prop.startswith(("#", "?", "/", "$")):
+            continue
+        props.append((prop, prop[1:] if prop.startswith(("!", "_")) else prop))
+    return props
+
+def _optional(node: ModelObject, prop: str, name: str) -> ModelObject:
+    """Copy of an object model with one mandatory property made optional."""
+    return {("?" + name if p == prop else p): m for p, m in node.items()}
 
 def _pointer(path: list) -> str:
     """JSON pointer for a path of object keys and array indexes."""
@@ -669,8 +682,10 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
                url: str = "") -> dict[str, Jsonable]:
     """Generate a value breaking each constraint or type of a model, one at a time."""
+    vjm, vmodel = jm, model
     if jm is None:
         jm, model = _compile(model, False, resolver, url)
+        vjm, vmodel = _compile(vmodel, True, resolver, url)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
     if not sites:
         raise UnsupportedValue(f"no constraint in model: {model}")
@@ -704,7 +719,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 rest, rdefs = model, _without(defs, mpath[1:] + [op])
             else:
                 rest, rdefs = _without(model, mpath + [op]), defs
-            if _verify(value, model, jm) is False and _verify(value, rest, jm, rdefs) is True:
+            if _verify(value, vmodel, vjm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
     for mpath, vpath, frames, props in sites:
@@ -720,10 +735,37 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 break
-            elif _verify(value, model, jm) is False:
+            elif _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
                 break
+    for mpath, vpath, frames, props in sites:
+        node = props["@"]
+        if (set(props) - {"@"} or not isinstance(node, dict)
+                or set(node) & (_OPERATORS | _ROOT_KEYS)):
+            continue
+        try:
+            built = simplest(node, jm, seen)
+        except UnsupportedValue:
+            continue
+        if not isinstance(built, dict):
+            continue
+        for prop, name in _mandatory(node):
+            key = f"{_pointer(mpath + [prop])} missing"
+            if key in values or name not in built:
+                continue
+            sub = {p: v for p, v in built.items() if p != name}
+            if _verify(sub, _optional(node, prop, name), jm, defs) is not True:
+                continue
+            try:
+                value = _document(sub, vpath, frames, doc, jm, seen)
+            except (UnsupportedValue, KeyError, IndexError, TypeError):
+                break
+            if json.dumps(value, sort_keys=True) in taken:
+                continue
+            elif _verify(value, vmodel, vjm) is False:
+                values[key] = value
+                taken.add(json.dumps(value, sort_keys=True))
     if not values:
         raise UnsupportedValue(f"no constraint could be violated: {'; '.join(reasons)}")
     else:
