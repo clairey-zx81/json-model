@@ -38,6 +38,7 @@ _FLOAT_VIOLATIONS = {
     "<=": lambda n: n + 1.0, "<": lambda n: float(n),
     "=": lambda n: n + 1.0, "!=": lambda n: float(n),
 }
+_TYPE_VIOLATIONS = [None, True, 0, "", [], {}]
 _UINT_PREDEFS = {"$U32", "$U64"}
 _PREDEFS = {
     "$ANY": {}, "$NULL": None,
@@ -419,7 +420,13 @@ def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
         except Exception:
             _CHECKERS[key] = None
     check = _CHECKERS[key]
-    return None if check is None else check(value, "", None)
+    if check is None:
+        return None
+    try:
+        return check(value, "", None)
+    except RecursionError:
+        _CHECKERS[key] = None
+        return None
 
 def _simplest_operator(op: str, alts: ModelArray, jm: JsonModel,
                        seen: frozenset[str]) -> Jsonable:
@@ -600,13 +607,16 @@ def _without(model: ModelType, path: list) -> ModelType:
 
 def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
            jm: JsonModel, seen: frozenset[str]):
-    """Constraint sites, as model path, value path, branch frames and properties."""
+    """Violation sites, as model path, value path, branch frames and properties."""
     if isinstance(model, str):
         name = model[1:]
         if model.startswith("$") and name in jm._defs._syms and name not in seen:
             yield from _sites(jm._defs._syms[name]._model, ["$", name], vpath,
                               frames, jm, seen | {name})
+        elif model != "$ANY" and (not model.startswith("$") or name in PREDEFS):
+            yield mpath, vpath, frames, {"@": model}
     elif isinstance(model, list):
+        yield mpath, vpath, frames, {"@": model}
         items = [(i, m) for i, m in enumerate(model)
                  if not (isinstance(m, str) and m.startswith("#"))]
         if len(items) > 1:
@@ -621,12 +631,14 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
             yield from _sites(props["@"], mpath + ["@"], vpath, frames, jm, seen)
         elif set(props) in ({"|"}, {"^"}, {"&"}):
             op = next(iter(props))
+            yield mpath, vpath, frames, {"@": model}
             for index, alt in enumerate(props[op]):
                 if isinstance(alt, str) and alt.startswith("#"):
                     continue
                 yield from _sites(alt, mpath + [op, index], vpath,
                                   frames + [(vpath, alt)], jm, seen)
         elif not set(props) & (_OPERATORS | _ROOT_KEYS):
+            yield mpath, vpath, frames, {"@": model}
             for prop, sub in props.items():
                 if prop == "" or prop.startswith(("/", "$")):
                     continue
@@ -634,6 +646,8 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
                 inner = (frames + [(vpath + [name], sub)] if prop.startswith("?")
                          else frames)
                 yield from _sites(sub, mpath + [prop], vpath + [name], inner, jm, seen)
+    else:
+        yield mpath, vpath, frames, {"@": model}
 
 def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
               jm: JsonModel, seen: frozenset[str]) -> Jsonable:
@@ -652,7 +666,7 @@ def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
 
 def violations(model: ModelType, jm: JsonModel|None = None,
                seen: frozenset[str] = frozenset()) -> dict[str, Jsonable]:
-    """Generate a value breaking each constraint of a model, one at a time."""
+    """Generate a value breaking each constraint or type of a model, one at a time."""
     if jm is None:
         jm, model = _compile(model, optimize=False)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
@@ -661,21 +675,21 @@ def violations(model: ModelType, jm: JsonModel|None = None,
     defs = _defs(jm)
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
-    doc, built = None, False
+    doc = None
+    if any(f[0][0] if f else v for _, v, f, _ in sites):
+        try:
+            doc = simplest(model, jm, seen)
+        except UnsupportedValue as e:
+            reasons.append(f"no document to alter: {e}")
     for mpath, vpath, frames, props in sites:
-        if all(_pointer(mpath + [op]) in values for op in set(props) - {"@"}):
+        ops = set(props) - {"@"}
+        if not ops or all(_pointer(mpath + [op]) in values for op in ops):
             continue
         try:
             subs = _violations_constrained(props, jm, seen)
         except UnsupportedValue as e:
             reasons.append(str(e))
             continue
-        if (frames[0][0] if frames else vpath) and not built:
-            built = True
-            try:
-                doc = simplest(model, jm, seen)
-            except UnsupportedValue as e:
-                reasons.append(f"no document to alter: {e}")
         for op, sub in subs.items():
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
@@ -690,6 +704,24 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 rest, rdefs = _without(model, mpath + [op]), defs
             if _verify(value, model, jm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
+    taken = {json.dumps(v, sort_keys=True) for v in values.values()}
+    for mpath, vpath, frames, props in sites:
+        key = _pointer(mpath)
+        if set(props) - {"@"} or key in values:
+            continue
+        for candidate in _TYPE_VIOLATIONS:
+            if _verify(candidate, props["@"], jm, defs) is not False:
+                continue
+            try:
+                value = _document(copy.deepcopy(candidate), vpath, frames, doc, jm, seen)
+            except (UnsupportedValue, KeyError, IndexError, TypeError):
+                break
+            if json.dumps(value, sort_keys=True) in taken:
+                break
+            elif _verify(value, model, jm) is False:
+                values[key] = value
+                taken.add(json.dumps(value, sort_keys=True))
+                break
     if not values:
         raise UnsupportedValue(f"no constraint could be violated: {'; '.join(reasons)}")
     else:
