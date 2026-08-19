@@ -9,6 +9,7 @@
 - [x] pr: ensure accuracy of version on about page
 - [x] irep: cleanup bool variable set but not used
 - [x] irep: move mif2if earlier, rework IR optimizations
+- [x] ci: tweak fetch depth to help docs version computation
 - [ ] bench: only run java with GSON
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
