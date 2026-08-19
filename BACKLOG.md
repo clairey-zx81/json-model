@@ -6,8 +6,8 @@
 - [x] pr: test push post on github.io
 - [x] pr: switch cristalina to post after release
 - [x] bench: fix report nl before per-case performance table
+- [x] pr: ensure accuracy of version on about page
 - [ ] bench: only run java with GSON
-- [ ] pr: ensure accuracy of version on about page
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes
