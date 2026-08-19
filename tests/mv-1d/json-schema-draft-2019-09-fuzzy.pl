@@ -808,7 +808,7 @@ sub check_model_init()
             "\$anchor" => \&json_model_4,
             "\$comment" => \&_jm_f_0,
             "\$defs" => \&_jm_f_1,
-            "\$id" => \&json_model_4,
+            "\$id" => \&json_model_5,
             "\$recursiveAnchor" => \&_jm_f_2,
             "\$recursiveRef" => \&json_model_4,
             "\$ref" => \&json_model_4,

@@ -1502,7 +1502,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_6_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"allowEmptyValue":"_jm_f_25","allowReserved":"_jm_f_26","deprecated":"_jm_f_27","description":"_jm_f_28","example":"_jm_f_29","examples":"_jm_f_30","explode":"_jm_f_31","model":"json_model_97","required":"_jm_f_32","style":"json_model_17"}';
+  map JSONB := JSONB '{"allowEmptyValue":"_jm_f_25","allowReserved":"_jm_f_26","deprecated":"_jm_f_27","description":"_jm_f_28","example":"_jm_f_29","examples":"_jm_f_30","explode":"_jm_f_31","model":"json_model_64","required":"_jm_f_32","style":"json_model_17"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -2456,7 +2456,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_obj_18_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"allowEmptyValue":"_jm_f_33","allowReserved":"_jm_f_34","deprecated":"_jm_f_35","description":"_jm_f_36","example":"_jm_f_37","examples":"_jm_f_38","explode":"_jm_f_39","model":"json_model_97","required":"_jm_f_40","style":"json_model_17"}';
+  map JSONB := JSONB '{"allowEmptyValue":"_jm_f_33","allowReserved":"_jm_f_34","deprecated":"_jm_f_35","description":"_jm_f_36","example":"_jm_f_37","examples":"_jm_f_38","explode":"_jm_f_39","model":"json_model_64","required":"_jm_f_40","style":"json_model_17"}';
 BEGIN
   RETURN map->>name;
 END;

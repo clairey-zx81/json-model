@@ -5595,7 +5595,7 @@ sub check_model_init()
             "example" => \&_jm_f_29,
             "examples" => \&_jm_f_30,
             "explode" => \&_jm_f_31,
-            "model" => \&json_model_97,
+            "model" => \&json_model_64,
             "required" => \&_jm_f_32,
             "style" => \&json_model_17,
         );
@@ -5616,7 +5616,7 @@ sub check_model_init()
             "example" => \&_jm_f_37,
             "examples" => \&_jm_f_38,
             "explode" => \&_jm_f_39,
-            "model" => \&json_model_97,
+            "model" => \&json_model_64,
             "required" => \&_jm_f_40,
             "style" => \&json_model_17,
         );

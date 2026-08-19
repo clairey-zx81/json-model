@@ -1024,7 +1024,7 @@ def check_model_init():
             "$anchor": json_model_2,
             "$comment": _jm_f_15,
             "$defs": _jm_f_16,
-            "$id": json_model_2,
+            "$id": json_model_3,
             "$recursiveAnchor": _jm_f_17,
             "$recursiveRef": json_model_2,
             "$ref": json_model_2,

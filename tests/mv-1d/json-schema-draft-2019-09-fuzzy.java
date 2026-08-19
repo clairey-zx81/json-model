@@ -839,7 +839,7 @@ public class json_schema_draft_2019_09_fuzzy extends ModelChecker
             json_model_17_map_pmap.put("$anchor", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             json_model_17_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
             json_model_17_map_pmap.put("$defs", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
-            json_model_17_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
+            json_model_17_map_pmap.put("$id", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             json_model_17_map_pmap.put("$recursiveAnchor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_2(o, p, r);} });
             json_model_17_map_pmap.put("$recursiveRef", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             json_model_17_map_pmap.put("$ref", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

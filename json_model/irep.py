@@ -12,42 +12,15 @@ from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, NumExpr, E
 from .mtypes import Jsonable, JsonScalar, Number, TestHint, Conditionals
 from .runtime import Path, Report
 
-def _j(o: str, **params) -> str:
-    """Generate a JSON operation."""
-    return json.dumps({"o": o, **params})
-
-def _l(s: str) -> Jsonable:
-    """Parse a JSON operation or something else."""
-    # FIXME true/false/null handling is adhoc and can be wrong
-    try:
-        if (isinstance(s, str) and s and
-                (s[0] in '{["0123456789-' or s in ("null", "true", "false"))):
-            return json.loads(s)
-        else:
-            return s
-    except Exception:
-        # FIXME triggered on strange property names, eg "[a-z]"
-        log.warning(f"shamefully ignoring json oops on {s}")
-        return s
-
-def _u(block: Block) -> list[Jsonable]:
-    """Parse a JSON code block."""
-    return [ _l(i) for i in filter(lambda s: s is not None and s != "", block) ]
-
-# constant map to json and reverse
-def _cmap2json(mapping: dict[JsonScalar, str]) -> list[tuple[JsonScalar, str]]:
-    return [ ( c, s ) for c, s in mapping.items() ]
-
-def _json2cmap(mapping: list[tuple[JsonScalar, str]]) -> dict[JsonScalar, str]:
-    return { c: s for c, s in mapping }
-
-
 # compute RW effects on boolean variables
 type Sequence = list[Jsonable]
 # read, write, true, false
 type Effect = tuple[set[str], set[str], dict[str, bool]]
 type Effects = list[Effect]
 
+#
+# IR analysis and optimizations
+#
 
 # NOTE there are quite a few implicit assumptions:
 # - variables names are used once, without aliases or shadowing
@@ -1137,7 +1110,7 @@ def simplifySimpleIf(code: Jsonable, reporting: bool) -> int:
 
     changes: int = 0
 
-    def sisifRwt(op: Jsonable, _: Path) -> op:
+    def sisifRwt(op: Jsonable, _: Path) -> Jsonable:
         nonlocal changes
         if _isOp(op, "if"):
             empty_true =  _noOps(op["true"], reporting)
@@ -1161,10 +1134,12 @@ def simplifySimpleIf(code: Jsonable, reporting: bool) -> int:
     return changes
 
 def optimizeIR(
-            code: list[Jsonable], *,
-            shortcuts: dict[str, str], partial: bool = True,
-            if_optim: bool = True, reporting: bool = True
-        ) -> Jsonable:
+            code: Block, *,
+            shortcuts: dict[str, str],
+            partial: bool = True,
+            if_optim: bool = True,
+            reporting: bool = True
+        ) -> Block:
     """Optimize IR code."""
 
     if not if_optim and not shortcuts:
@@ -1173,19 +1148,19 @@ def optimizeIR(
     optimized, calls = 0, 0
 
     for i, c in list(enumerate(code)):
-        if c == "":
+        if c is None or c == "":
+            continue
+        ins = json.loads(c)
+        if not _isOp(ins, "sfu"):
             continue
         changed: bool = False
-        ins = json.loads(c)
-        if isinstance(ins, dict) and "o" in ins and ins["o"] == "sfu":
-            if partial:
-                changes = partialEval(ins, reporting)
-                changed |= changes > 0
-            # large if statement simplification
-            if if_optim:
-                optimized += 1
-                _optimSeq(ins["body"], set(), reporting=reporting)
-                changed = True  # maybe
+        changed |= mifToIf(ins) > 0
+        if partial:
+            changed |= partialEval(ins, reporting) > 0
+        # sequence optimizations
+        if if_optim:
+            _optimSeq(ins["body"], set(), reporting=reporting)
+            changed = True  # FIXME
         if shortcuts:  # call shortcuts
             changes = callShortcuts(ins, shortcuts)
             calls += changes
@@ -1194,15 +1169,46 @@ def optimizeIR(
         changed |= elimDeadCode(ins, reporting) > 0
         changed |= elimUnreachableCode(ins) > 0
         changed |= elimUnusedBoolVars(ins) > 0
-        changed |= mifToIf(ins) > 0
         changed |= simplifySimpleIf(ins, reporting) > 0
         if changed:
             code[i] = json.dumps(ins)
 
-    log.info(f"optimize ir: {optimized} functions processed, {calls} call shortcuts")
+    log.info(f"optimize ir: {len(code)} functions processed, {calls} call shortcuts")
 
     return code
 
+#
+# build intermediate representation
+#
+
+def _j(o: str, **params) -> str:
+    """Generate a JSON operation."""
+    return json.dumps({"o": o, **params})
+
+def _l(s: str) -> Jsonable:
+    """Parse a JSON operation or something else."""
+    # FIXME true/false/null handling is adhoc and can be wrong
+    try:
+        if (isinstance(s, str) and s and
+                (s[0] in '{["0123456789-' or s in ("null", "true", "false"))):
+            return json.loads(s)
+        else:
+            return s
+    except Exception:
+        # FIXME triggered on strange property names, eg "[a-z]"
+        log.warning(f"shamefully ignoring json oops on {s}")
+        return s
+
+def _u(block: Block) -> list[Jsonable]:
+    """Parse a JSON code block."""
+    return [ _l(i) for i in filter(lambda s: s is not None and s != "", block) ]
+
+# constant map to json and reverse
+def _cmap2json(mapping: dict[JsonScalar, str]) -> list[tuple[JsonScalar, str]]:
+    return [ ( c, s ) for c, s in mapping.items() ]
+
+def _json2cmap(mapping: list[tuple[JsonScalar, str]]) -> dict[JsonScalar, str]:
+    return { c: s for c, s in mapping }
 
 def _t2s(tvar: type|None) -> str:
     """Type to IR type name conversion."""
@@ -1228,7 +1234,6 @@ def _t2s(tvar: type|None) -> str:
         return "Report"
     # any?
     raise Exception(f"unexpected type: {tvar}")
-
 
 class IRep(Language):
     """Generate JSON intermediate representation of backend code.
@@ -1575,6 +1580,7 @@ class IRep(Language):
 #
 # target language reconstruction
 #
+
 def _s2t(tname: str|None) -> type:
     """String to type reconversion."""
     match tname:
@@ -1762,7 +1768,6 @@ def ir_evaluate(ir: Jsonable, lang: Language) -> str:
     """Generate the target language source code from a full code JSON IR."""
     code = _eval(ir, lang)
     assert isinstance(code, list), "full code JSON IR"
-
     return lang.code_to_str(lang.filter_code(code))
 
 def evaluate(ir: Code, lang: Language) -> Code:

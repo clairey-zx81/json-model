@@ -8,7 +8,7 @@
 - [x] bench: fix report nl before per-case performance table
 - [x] pr: ensure accuracy of version on about page
 - [x] irep: cleanup bool variable set but not used
-- [ ] irep: move mif2if earlier
+- [x] irep: move mif2if earlier, rework IR optimizations
 - [ ] bench: only run java with GSON
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
