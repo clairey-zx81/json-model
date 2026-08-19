@@ -13,7 +13,6 @@ from .resolver import Resolver
 from .objops import merge
 from . import analyze, optim
 from .predefs import MODEL_PREDEFS, PREDEFS
-from .script import model_checker_from_json
 from .runtime.types import EntryCheckFun
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
@@ -415,6 +414,7 @@ def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
     except (TypeError, ValueError):
         return None
     if key not in _CHECKERS:
+        from .script import model_checker_from_json
         try:
             _CHECKERS[key] = model_checker_from_json(json.loads(key))
         except Exception:
