@@ -487,10 +487,11 @@ def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
     else:
         return model
 
-def _compile(model: ModelType, optimize: bool = True) -> tuple[JsonModel, ModelType]:
+def _compile(model: ModelType, optimize: bool = True, resolver: Resolver|None = None,
+             url: str = "") -> tuple[JsonModel, ModelType]:
     """Check and preprocess a model given as plain JSON """
     try:
-        jm = JsonModel(model, Resolver())
+        jm = JsonModel(model, resolver or Resolver(), url=url)
         nodes = sorted(jm._models.values(), key=lambda m: m._id)
         for node in nodes:
             if not analyze.valid(node):
@@ -665,10 +666,11 @@ def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
         return _replaced(doc, path, value)
 
 def violations(model: ModelType, jm: JsonModel|None = None,
-               seen: frozenset[str] = frozenset()) -> dict[str, Jsonable]:
+               seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
+               url: str = "") -> dict[str, Jsonable]:
     """Generate a value breaking each constraint or type of a model, one at a time."""
     if jm is None:
-        jm, model = _compile(model, optimize=False)
+        jm, model = _compile(model, False, resolver, url)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
     if not sites:
         raise UnsupportedValue(f"no constraint in model: {model}")
