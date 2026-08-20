@@ -881,18 +881,21 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         print(json2str(value), file=output)
     elif args.op == "I":  # generated invalid values
         try:
-            values = violations(model._init_md, resolver=model._resolver, url=model._url)
+            values = violations(model._init_md, resolver=model._resolver, url=model._url,
+                                extend=args.extend)
         except UnsupportedValue as e:
             log.error(f"{args.model}: {e}")
             return 1
         print(json2str(values), file=output)
     elif args.op == "A":  # generated test vectors
         try:
-            tests = vectors(model._init_md, resolver=model._resolver, url=model._url)
+            tests = vectors(model._init_md, resolver=model._resolver, url=model._url,
+                            extend=args.extend)
+            comment = f"generated from {args.model}"
         except UnsupportedValue as e:
-            log.error(f"{args.model}: {e}")
-            return 1
-        print(json2str([f"generated from {args.model}"] + tests), file=output)
+            log.warning(f"{args.model}: {e}")
+            tests, comment = [], f"generated from {args.model}: {e}"
+        print(json2str([comment] + tests), file=output)
     elif args.op == "C":
         assert args.format in LANG, f"valid output language {args.format}"
 

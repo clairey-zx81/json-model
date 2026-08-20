@@ -488,13 +488,13 @@ def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
         return model
 
 def _compile(model: ModelType, optimize: bool = True, resolver: Resolver|None = None,
-             url: str = "") -> tuple[JsonModel, ModelType]:
+             url: str = "", extend: bool = False) -> tuple[JsonModel, ModelType]:
     """Check and preprocess a model given as plain JSON """
     try:
         jm = JsonModel(model, resolver or Resolver(), url=url)
         nodes = sorted(jm._models.values(), key=lambda m: m._id)
         for node in nodes:
-            if not analyze.valid(node):
+            if not analyze.valid(node, extend=extend):
                 raise UnsupportedValue(f"invalid model {node._url}:{node._id}")
         if optimize:
             for node in nodes:
@@ -510,10 +510,10 @@ def _compile(model: ModelType, optimize: bool = True, resolver: Resolver|None = 
 
 def simplest(model: ModelType, jm: JsonModel|None = None,
              seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
-             url: str = "") -> Jsonable:
+             url: str = "", extend: bool = False) -> Jsonable:
     """Generate the simplest value matching a model."""
     if jm is None:
-        jm, model = _compile(model, True, resolver, url)
+        jm, model = _compile(model, True, resolver, url, extend)
     match model:
         case None | bool() | int() | float():
             return _simplest_scalar(model)
@@ -681,12 +681,12 @@ def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
 
 def violations(model: ModelType, jm: JsonModel|None = None,
                seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
-               url: str = "") -> dict[str, Jsonable]:
+               url: str = "", extend: bool = False) -> dict[str, Jsonable]:
     """Generate a value breaking each constraint or type of a model, one at a time."""
     vjm, vmodel = jm, model
     if jm is None:
-        jm, model = _compile(model, False, resolver, url)
-        vjm, vmodel = _compile(vmodel, True, resolver, url)
+        jm, model = _compile(model, False, resolver, url, extend)
+        vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
     if not sites:
         raise UnsupportedValue(f"no constraint in model: {model}")
@@ -772,16 +772,18 @@ def violations(model: ModelType, jm: JsonModel|None = None,
     else:
         return values
 
-def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "") -> list:
+def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
+            extend: bool = False) -> list:
     """Test vectors for a model, a valid value then one value per violation."""
     tests: list = []
     reasons: list[str] = []
     try:
-        tests.append([True, simplest(model, resolver=resolver, url=url)])
+        tests.append([True, simplest(model, resolver=resolver, url=url, extend=extend)])
     except UnsupportedValue as e:
         reasons.append(str(e))
     try:
-        for key, value in violations(model, resolver=resolver, url=url).items():
+        for key, value in violations(model, resolver=resolver, url=url,
+                                     extend=extend).items():
             tests.append(key or "root")
             tests.append([False, value])
     except UnsupportedValue as e:

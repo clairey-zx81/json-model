@@ -19,8 +19,9 @@ D.schema = $(D.subs:%=%.schema)
 D.clean.schema = $(D.subs:%=%.clean.schema)
 D.genone = $(D.subs:%=%.genone)
 D.ts = $(D.subs:%=%.ts)
-D.auto = $(D.subs:%=%.auto)
-D.clean.auto = $(D.subs:%=%.clean.auto)
+D.auto.subs = $(filter-out bads,$(D.subs))
+D.auto = $(D.auto.subs:%=%.auto)
+D.clean.auto = $(D.auto.subs:%=%.clean.auto)
 D.clean.ts = $(D.valid:%.ts.valid=%.clean.ts)
 
 .PHONY: clean
