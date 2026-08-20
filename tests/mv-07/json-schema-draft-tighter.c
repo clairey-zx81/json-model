@@ -4316,7 +4316,7 @@ static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // keyword $schema is mandatory at the root, and optional elsewhere
     // .'$RootSchema'
     bool res = true;
-    if (res)
+    if (likely(res))
     {
         // .'$RootSchema'.'&'.0
         res = _jm_obj_32(val, path, rep);

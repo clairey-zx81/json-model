@@ -3418,7 +3418,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Model#Identifier'
     bool res = json_is_string(val);
-    if (res)
+    if (likely(res))
     {
         // .'$Model#Identifier'.'&'.0
         // "/^\\w(\\w|-)*$/"

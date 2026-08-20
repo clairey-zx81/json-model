@@ -203,7 +203,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // .'$Identifier'
     bool res = json_is_string(val);
-    if (res)
+    if (likely(res))
     {
         // .'$Identifier'.'&'.0
         // "/^\\w(\\w|-)*$/"

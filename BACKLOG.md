@@ -10,6 +10,8 @@
 - [x] irep: cleanup bool variable set but not used
 - [x] irep: move mif2if earlier, rework IR optimizations
 - [x] ci: tweak fetch depth to help docs version computation
+- [x] tests: add c/clean.c targets
+- [x] static: and list checks should always be likely
 - [ ] bench: only run java with GSON
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing

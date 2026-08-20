@@ -1381,7 +1381,7 @@ static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *r
             // handle may a0 property
             // .and.a0
             res = json_is_string(pval);
-            if (res)
+            if (likely(res))
             {
                 // .and.a0.'&'.0
                 res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_13 : NULL), rep);

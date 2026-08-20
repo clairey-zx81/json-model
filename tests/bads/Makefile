@@ -45,6 +45,14 @@ json: $(F.json)
 %.model.json: %.model.yaml
 	$(JMC) -N ./$< > $@
 
+.PHONY: c
+c:
+	# skip
+
+.PHONY: clean.c
+clean.c:
+	# skip
+
 .PHONY: java
 java:
 	# skip

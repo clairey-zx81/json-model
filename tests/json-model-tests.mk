@@ -65,6 +65,12 @@ F.gen   = \
 .PHONY: all
 all: $(F.gen)
 
+.PHONY: c clean.c
+c: $(F.c) $(F.cc)
+
+clean.c:
+	$(RM) $(F.c) $(F.cc)
+
 .PHONY: js clean.js
 js: $(F.js) $(F.jsc)
 

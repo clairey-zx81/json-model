@@ -9,6 +9,8 @@ D.check = $(D.subs:%=%.check)
 D.valid = $(D.subs:%=%.ts.valid)
 D.clean = $(D.subs:%=%.clean)
 D.gen = $(D.subs:%=%.gen)
+D.c = $(D.subs:%=%.c)
+D.clean.c = $(D.subs:%=%.clean.c)
 D.java = $(D.subs:%=%.java)
 D.clean.java = $(D.subs:%=%.clean.java)
 D.js = $(D.subs:%=%.js)
@@ -55,6 +57,14 @@ gen:
 .PHONY: genone
 genone:
 	$(MAKE) TARGET=genone GENONE=$(GENONE) $(D.genone)
+
+.PHONY: c
+c:
+	$(MAKE) TARGET=c $(D.c)
+
+.PHONY: clean.c
+clean.c:
+	$(MAKE) TARGET=clean.c $(D.clean.c)
 
 .PHONY: java
 java:

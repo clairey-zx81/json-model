@@ -1848,7 +1848,8 @@ class CodeGenerator:
             acode = gen.if_stmt(
                 res,
                 self._compileModel(jm, m, mpath + [i], res, val, vpath, and_known) +
-                acode
+                acode,
+                likely=True
             )
         code += acode
 

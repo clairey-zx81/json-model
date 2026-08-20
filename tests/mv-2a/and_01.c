@@ -130,7 +130,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // merge object stuff if possible, cannot have ss
     // .
     bool res = json_is_object(val);
-    if (res)
+    if (likely(res))
     {
         // .'&'.0
         res = _jm_obj_1(val, path, rep);

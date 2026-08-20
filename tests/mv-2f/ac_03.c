@@ -27,7 +27,7 @@ static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res = json_is_array(val);
-    if (res)
+    if (likely(res))
     {
         size_t arr_1_idx;
         json_t *arr_1_item;
@@ -37,7 +37,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             if (unlikely(! res))
                 break;
         }
-        if (res)
+        if (likely(res))
         {
             size_t arr_0_idx;
             json_t *arr_0_item;

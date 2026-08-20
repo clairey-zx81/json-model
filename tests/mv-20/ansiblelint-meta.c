@@ -9320,7 +9320,7 @@ static bool json_model_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
     // add non-exclusive mandatory role, src or name props
     // .'$DependencyModel'
     bool res = true;
-    if (res)
+    if (likely(res))
     {
         // .'$DependencyModel'.'&'.0
         res = json_model_57(val, path, rep);
