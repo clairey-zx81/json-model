@@ -430,44 +430,52 @@ check.schema: $(F.sXc)
 
 # Automatically Generated Test Vectors
 
-F.auto   = $(F.root:%=%.auto.json)
-F.pyauto = $(F.root:%=%.py.auto.check)
-F.jsauto = $(F.root:%=%.js.auto.check)
-F.plauto = $(F.root:%=%.pl.auto.check)
-F.cauto  = $(F.root:%=%.c.auto.check)
-F.jvauto = $(F.root:%=%.java.auto.check)
+F.auto       = $(F.root:%=%.auto.json)
+F.auto.check = $(F.root:%=%.auto.check)
+BACKENDS     = py js pl c java
 
 .SECONDARY: $(F.auto)
 
 %.auto.json: %.model.json
 	$(JMC.cmd) --auto-values -o $@ $<
 
-%.py.auto.check: %.py %.auto.json
-	./$< -tr $*.auto.json > $@
-
-%.js.auto.check: %.js %.auto.json
-	./$< -tr $*.auto.json > $@
-
-%.pl.auto.check: %.pl %.auto.json
-	./$< -t $*.auto.json > $@
-
-%.c.auto.check: %.out %.auto.json
-	./$< -tr $*.auto.json > $@
-
-%.java.auto.check: %.class %.auto.json
-	java_name=$*
-	java_name=$${java_name//-/_}
-	[ $* != $$java_name ] && ln -s $*.class $$java_name.class
-	$(JAVA) $$java_name $(J.opt) -t $*.auto.json > $@
-	status=$$?
-	[ $* != $$java_name ] && $(RM) $$java_name.class
-	exit $$status
+%.auto.check: %.auto.json
+	exec > $@
+	echo "# $<"
+	for b in $(BACKENDS) ; do
+	  case $$b in
+	  py|js|pl) [ -x ./$*.$$b ] && ./$*.$$b -t $< ;;
+	  c)        [ -x ./$*.out ] && ./$*.out -t $< ;;
+	  java)     if [ -f $*.class ] ; then
+	              n=$$(echo $* | tr - _)
+	              [ $$n != $* ] && ln -sf $*.class $$n.class
+	              $(JAVA) $$n -t $<
+	              [ $$n != $* ] && $(RM) $$n.class
+	            fi ;;
+	  esac 2>/dev/null |
+	    sed -n "s/.*\[\([0-9]*\)\]: ERROR unexpected \([A-Z]*\).*/$$b \1 \2 !/p
+	            s/.*\[\([0-9]*\)\]: \([A-Z]*\).*/$$b \1 \2/p"
+	done | awk '
+	  { got[$$2] = got[$$2] " " $$1 "=" $$3
+	    if ($$4 == "!") bad[$$2] = bad[$$2] " " $$1
+	    if (!(($$2 "," $$3) in kind)) { kind[$$2 "," $$3] = 1 ; kinds[$$2]++ }
+	    if ($$2 + 1 > n) n = $$2 + 1 }
+	  END {
+	    for (i = 0 ; i < n ; i++)
+	      print "[" i "]" got[i] \
+	            (kinds[i] > 1 ? "  DISAGREEMENT" : "") \
+	            (i in bad ? "  MISMATCH:" bad[i] : "")
+	  }'
+	exit 0
 
 .PHONY: auto clean.auto
-auto: $(F.auto) $(F.pyauto) $(F.jsauto) $(F.plauto) $(F.cauto) $(F.jvauto)
+auto:
+	$(MAKE) $(F.out) $(F.class) || true
+	$(MAKE) $(F.auto.check)
+	grep -h "DISAGREEMENT\|MISMATCH" $(F.auto.check) || echo "# no finding"
 
 clean.auto:
-	$(RM) $(F.auto) $(F.pyauto) $(F.jsauto) $(F.plauto) $(F.cauto) $(F.jvauto)
+	$(RM) $(F.auto) $(F.auto.check)
 
 .PHONY: stats
 stats:
