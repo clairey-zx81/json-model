@@ -1,4 +1,4 @@
-# Backlog v2
+# Backlog
 
 ## Current Tasks
 
