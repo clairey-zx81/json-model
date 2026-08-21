@@ -19,7 +19,7 @@
 - [x] tests: provide convenient targets for all tasks
 - [x] tests: display number of assertions checked
 - [x] front: add argument groups
-- [ ] front: handle yaml values as well as json
+- [x] front: handle yaml values as well as json
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] bench: only run java with GSON

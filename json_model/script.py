@@ -467,6 +467,10 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="read values from a test vector file")
     arg("--jsonl", "-j", action="store_true", default=False,
         help="accept value file in JSONL format")
+    arg("--yaml", action="store_true", default=None,
+        help="accept value file in YAML format")
+    arg("--no-yaml", dest="yaml", action="store_false",
+        help="do not accept value file in YAML format")
     arg("--report", "-r", action="store_true", default=False, help="report reasons on fail")
     arg("--no-report", "-nr", dest="report", action="store_false",
         help="fast mode, do not give reasons")
@@ -1042,12 +1046,14 @@ def jmc_script(xargs: list[str]|None = None) -> int:
             try:
                 contents = fh.read()
                 # parse JSON
-                if args.jsonl:
+                if args.jsonl or fn.endswith(".jsonl"):
                     lines = contents.split("\n")[:-1]
                     value = [
                         [ None, json_loads(line, allow_duplicates=args.allow_duplicates) ]
                             for line in lines
                     ]
+                elif args.yaml or args.yaml is None and (fn.endswith(".yaml") or fn.endswith(".yml")):
+                    value = yaml.full_load(contents)
                 else:
                     value = json_loads(contents, allow_duplicates=args.allow_duplicates)
                 # process values
