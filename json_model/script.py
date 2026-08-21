@@ -851,6 +851,16 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         else:
             return yaml.dump(j, sort_keys=args.sort, indent=args.indent)
 
+    # convert a json list to a string with one item per line
+    def list2str(items: list) -> str:
+        if args.format != "json":
+            return json2str(items)
+        if not items:
+            return "[]"
+        pad = " " * args.indent
+        lines = ",\n".join(pad + json.dumps(i, sort_keys=args.sort) for i in items)
+        return f"[\n{lines}\n]"
+
     # actual output
     if args.op == "J":  # json dump
         verbose = True if args.verbose is None else args.verbose
@@ -895,7 +905,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         except UnsupportedValue as e:
             log.warning(f"{args.model}: {e}")
             tests, comment = [], f"generated from {args.model}: {e}"
-        print(json2str([comment] + tests), file=output)
+        print(list2str([comment] + tests), file=output)
     elif args.op == "C":
         assert args.format in LANG, f"valid output language {args.format}"
 
