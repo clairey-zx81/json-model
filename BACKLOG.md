@@ -13,8 +13,8 @@
 - [x] tests: add c/clean.c targets
 - [x] static: and list checks should always be likely
 - [x] tests: add missing java and pl language tests
+- [x] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: only run java with GSON
-- [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: allow to skip some tests with make, depending on available runtimes
 - [ ] tests: check more bad urls (eg bad %-escape)
