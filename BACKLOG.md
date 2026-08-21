@@ -22,7 +22,6 @@
 - [x] front: handle yaml values as well as json
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
-- [ ] bench: only run java with GSON
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
 - [ ] static: use combined type test and value extraction when available?
