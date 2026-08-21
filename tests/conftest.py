@@ -14,6 +14,7 @@ def pytest_sessionstart(session):
     global counter
 
 def pytest_assertion_pass(item, lineno, orig, expl):
+    # FIXME it is unclear whether data loss is possible
     counter.write("x")
     counter.flush()
 
