@@ -17,6 +17,7 @@ from .resolver import Resolver
 from .model import JsonModel
 from .xstatic import xstatic_compile, ir_compile
 from . import optim, analyze, objops
+from .values import simplest, violations, vectors, UnsupportedValue
 from .runtime.types import EntryCheckFun, Report
 from .runtime.support import _path as json_path
 from .export import model2python
@@ -553,7 +554,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
 
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
-    ope("--op", choices=["P", "U", "J", "N", "E", "C"], default=None,
+    ope("--op", choices=["P", "U", "J", "N", "E", "C", "V", "I", "A"], default=None,
         help="select operation")
     ope("--preproc", "-P", dest="op", action="store_const", const="P",
         help="preprocess model")
@@ -567,6 +568,12 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="export as JSON Schema")
     ope("--compile", "-C", dest="op", action="store_const", const="C",
         help="code generation")
+    ope("--value", "-V", dest="op", action="store_const", const="V",
+        help="generate a representative value")
+    ope("--invalid", dest="op", action="store_const", const="I",
+        help="generate values which break each constraint")
+    ope("--auto-values", dest="op", action="store_const", const="A",
+        help="generate a test vector file")
 
     # export control
     arg("--schema-version", "--sv", action="store_true", default=None,
@@ -716,7 +723,7 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         return 1
 
     # option/parameter consistency and defaults
-    if args.op in "PUJN":
+    if args.op in "PUJNVIA":
         args.format = args.format or "json"
         if args.format not in ("json", "yaml"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
@@ -844,6 +851,16 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         else:
             return yaml.dump(j, sort_keys=args.sort, indent=args.indent)
 
+    # convert a json list to a string with one item per line
+    def list2str(items: list) -> str:
+        if args.format != "json":
+            return json2str(items)
+        if not items:
+            return "[]"
+        pad = " " * args.indent
+        lines = ",\n".join(pad + json.dumps(i, sort_keys=args.sort) for i in items)
+        return f"[\n{lines}\n]"
+
     # actual output
     if args.op == "J":  # json dump
         verbose = True if args.verbose is None else args.verbose
@@ -865,6 +882,30 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     elif args.op == "P":  # preprocessed model
         show = model.toModel(True)
         print(json2str(show), file=output)
+    elif args.op == "V":  # generated value
+        try:
+            value = simplest(model._model, model)
+        except UnsupportedValue as e:
+            log.error(f"{args.model}: {e}")
+            return 1
+        print(json2str(value), file=output)
+    elif args.op == "I":  # generated invalid values
+        try:
+            values = violations(model._init_md, resolver=model._resolver, url=model._url,
+                                extend=args.extend)
+        except UnsupportedValue as e:
+            log.error(f"{args.model}: {e}")
+            return 1
+        print(json2str(values), file=output)
+    elif args.op == "A":  # generated test vectors
+        try:
+            tests = vectors(model._init_md, resolver=model._resolver, url=model._url,
+                            extend=args.extend)
+            comment = f"generated from {args.model}"
+        except UnsupportedValue as e:
+            log.warning(f"{args.model}: {e}")
+            tests, comment = [], f"generated from {args.model}: {e}"
+        print(list2str([comment] + tests), file=output)
     elif args.op == "C":
         assert args.format in LANG, f"valid output language {args.format}"
 
