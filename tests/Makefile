@@ -29,10 +29,13 @@ D.clean.ts = $(D.valid:%.ts.valid=%.clean.ts)
 D.schema = $(D.subs:%=%.schema)
 D.clean.schema = $(D.subs:%=%.clean.schema)
 
+COUNTER = .counter
+
 .PHONY: clean
 clean:
 	$(MAKE) TARGET=clean $(D.clean)
 	$(RM) -r __pycache__ .pytest_cache
+	$(RM) $(COUNTER)
 
 LOGLEVEL = info
 PYTEST  = pytest --log-level=$(LOGLEVEL) --capture=tee-sys --durations=10
@@ -40,7 +43,9 @@ PYTOPT	= -n logical
 
 .PHONY: check.pytest
 check.pytest:
+	$(RM) $(COUNTER)
 	$(PYTEST) $(PYTOPT) tests.py
+	$(RM) $(COUNTER)
 
 # parallel forward trick
 .PHONY: %.$(TARGET)

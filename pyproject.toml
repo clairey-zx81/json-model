@@ -72,3 +72,6 @@ exclude = [ "json_model/data/", "json_model/WIP/" ]
 
 [tool.mypy]
 exclude = [ "json_model/data/", "json_model/WIP/" ]
+
+[tool.pytest]
+enable_assertion_pass_hook = true

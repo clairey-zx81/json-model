@@ -17,6 +17,10 @@
 - [x] pr: better bench page
 - [x] tests: ~allow to skip some tests with make, depending on available runtimes~
 - [x] tests: provide convenient targets for all tasks
+- [x] tests: display number of assertions checked
+- [ ] front: add argument groups
+- [ ] front: handle yaml values as well as json
+- [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] bench: only run java with GSON
 - [ ] tests: check more bad urls (eg bad %-escape)
@@ -32,15 +36,10 @@
 - [ ] optim: simplify some '!=' cases
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
 - [ ] perf: add another loop over performance collection?
-- [ ] models: update ir model wrt recent changes
-- [ ] tests: add test with ir model? on the fly?
-- [ ] front: handle yaml values as well as json
 - [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
 - [ ] pr: improve JSTS test results alignment between all backends (wip)
-- [ ] front: add argument groups
-- [ ] front: merge many internal options to trigrams
 - [ ] perf: add stddev performance computation
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
@@ -66,9 +65,9 @@
 - [ ] optim: remove props which match the default, in some cases?
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
-- [ ] test: fast mode which does not execute if source has not changed
-- [ ] test: add test categories (mark?)
-- [ ] test: allow to skip some tests by category
+- [ ] tests: fast mode which does not execute if source has not changed
+- [ ] tests: add test categories (mark?)
+- [ ] tests: allow to skip some tests by category
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
 - [ ] predefs: improve `$URI` and `$URL`
