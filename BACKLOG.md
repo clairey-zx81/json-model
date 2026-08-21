@@ -18,7 +18,7 @@
 - [x] tests: ~allow to skip some tests with make, depending on available runtimes~
 - [x] tests: provide convenient targets for all tasks
 - [x] tests: display number of assertions checked
-- [ ] front: add argument groups
+- [x] front: add argument groups
 - [ ] front: handle yaml values as well as json
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing

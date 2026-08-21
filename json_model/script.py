@@ -349,18 +349,24 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg = ap.add_argument
 
     # documentation
+    grp = ap.add_argument_group("Documentation")
+    arg = grp.add_argument
     arg("--doc", choices=["pod", "syn", "help", "man"], default=None,
         help="show documentation and exit")
     arg("--man", dest="doc", action="store_const", const="man", help="show man page")
     arg("--runtime", default=False, action="store_true", help="show runtime source directory")
 
     # verbosity and checks
+    grp = ap.add_argument_group("Verbosity")
+    arg = grp.add_argument
     arg("--version", action="store_true", help="show current version and exit")
     arg("--debug", "-d", default=0, action="count", help="increase debugging verbosity")
     arg("--verbose", "-v", action="store_true", help="more verbose")
     arg("--quiet", "-q", dest="verbose", action="store_false", help="less verbose")
 
     # input options about JM
+    grp = ap.add_argument_group("Model input")
+    arg = grp.add_argument
     arg("--allow-duplicates", "-ad", action="store_true", default=False,
         help="allow duplicated properties in parsed model, probably a bad idea.""")
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
@@ -384,6 +390,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="use strict integer and float numbers (default)")
 
     # (code) output options
+    grp = ap.add_argument_group("Compiler output")
+    arg = grp.add_argument
     arg("--output", "-o", default="-", help="output file")
     arg("--package", "-p", default=None, help="generated module name, if appropriate")
     arg("--entry", "-e", help="name prefix of generated functions")
@@ -407,7 +415,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--mark", type=str,
         help="add comment to generated file")
 
-    generate = ap.add_mutually_exclusive_group()
+    grp = ap.add_argument_group("Mode of operation")
+    generate = grp.add_mutually_exclusive_group()
     gen = generate.add_argument
     gen("--generate", "--gen", "-g", dest="gen", choices=["exec", "module", "source", "none"],
         help="select what to generate")
@@ -423,6 +432,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         default=None, help="output language")
 
     # C-specific options
+    grp = ap.add_argument_group("C compiler options")
+    arg = grp.add_argument
     arg("--cc", type=str, help="override default C language compiler")
     arg("--cflags", type=str, help="override C compiler flags")
     arg("--cppflags", type=str, help="override C pre-processor flags")
@@ -437,10 +448,14 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--no-precompiled", dest="precompiled", action="store_false", help="do not use precompiled C runtime")
 
     # TODO java-specific options
+    grp = ap.add_argument_group("Java compiler options")
+    arg = grp.add_argument
     arg("--javac", type=str, help="override default Java language compiler")
     arg("--jflags", type=str, help="add Java compiler flags")
 
     # testing mode, expected results on values
+    grp = ap.add_argument_group("Testing")
+    arg = grp.add_argument
     arg("--name", "-n", default="", help="name of validation submodel, default is \"\" (root)")
     arg("--none", dest="expect", action="store_const", const=None, default=None,
         help="no test expectations")
@@ -456,7 +471,9 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--no-report", "-nr", dest="report", action="store_false",
         help="fast mode, do not give reasons")
 
-    # operations and optimizations on model (preprocessor)
+    # cheecks and optimizations on model (preprocessor)
+    grp = ap.add_argument_group("Optimizations")
+    arg = grp.add_argument
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
@@ -551,7 +568,8 @@ def jmc_script(xargs: list[str]|None = None) -> int:
     arg("--no-ir-optimize", "-nOir", dest="ir_optimize", action="store_false",
         help="disable IR optimizations")
 
-    operation = ap.add_mutually_exclusive_group()
+    grp = ap.add_argument_group("Operation")
+    operation = grp.add_mutually_exclusive_group()
     ope = operation.add_argument
     ope("--op", choices=["P", "U", "J", "N", "E", "C"], default=None,
         help="select operation")
@@ -569,17 +587,23 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         help="code generation")
 
     # export control
+    grp = ap.add_argument_group("Export")
+    arg = grp.add_argument
     arg("--schema-version", "--sv", action="store_true", default=None,
         help="force include JSON Schema version on export")
     arg("--no-schema-version", "--nsv", action="store_false",
         help="do not include JSON Schema version on export")
 
     # url cache management
+    grp = ap.add_argument_group("Caching")
+    arg = grp.add_argument
     arg("--cache-dir", default=None, help="set cache directory")
     arg("--cache-ignore", default=False, action="store_true", help="ignore cache contents")
     arg("--cache-clear", default=False, action="store_true", help="cleanup cache contents and exit")
 
     # parameters
+    grp = ap.add_argument_group("Parameters")
+    arg = grp.add_argument
     arg("--model", dest="model_option", type=str, help="JSON model as an option")
     arg("model", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
