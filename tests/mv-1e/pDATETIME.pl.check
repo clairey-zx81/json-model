@@ -22,3 +22,5 @@ pDATETIME.values.json[20]: FAIL (.: unexpected value for model "$DATETIME" [.])
 pDATETIME.values.json[21]: FAIL (.: unexpected value for model "$DATETIME" [.])
 pDATETIME.values.json[22]: FAIL (.: unexpected value for model "$DATETIME" [.])
 pDATETIME.values.json[23]: FAIL (.: unexpected value for model "$DATETIME" [.])
+pDATETIME.values.json[24]: PASS
+pDATETIME.values.json[25]: ERROR, unexpected PASS
