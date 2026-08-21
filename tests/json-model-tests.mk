@@ -71,6 +71,12 @@ c: $(F.c) $(F.cc)
 clean.c:
 	$(RM) $(F.c) $(F.cc)
 
+.PHONY: py clean.py
+py: $(F.py) $(F.pyc)
+
+clean.py:
+	$(RM) $(F.py) $(F.pyc)
+
 .PHONY: js clean.js
 js: $(F.js) $(F.jsc)
 
@@ -82,6 +88,12 @@ pl: $(F.pl) $(F.plc)
 
 clean.pl:
 	$(RM) $(F.pl) $(F.plc)
+
+.PHONY: sql clean.sql
+sql: $(F.sql) $(F.sqlc)
+
+clean.sql:
+	$(RM) $(F.sql) $(F.sqlc)
 
 -include local.mk
 

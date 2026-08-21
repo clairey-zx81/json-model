@@ -15,9 +15,10 @@
 - [x] tests: add missing java and pl language tests
 - [x] docker: install missing `Algorithm::LUHN` for perl JSB
 - [x] pr: better bench page
-- [ ] bench: only run java with GSON
+- [x] tests: ~allow to skip some tests with make, depending on available runtimes~
+- [x] tests: provide convenient targets for all tasks
 - [ ] bench: case failures handling needs some fixing
-- [ ] tests: allow to skip some tests with make, depending on available runtimes
+- [ ] bench: only run java with GSON
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
 - [ ] static: use combined type test and value extraction when available?

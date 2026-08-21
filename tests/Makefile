@@ -9,19 +9,25 @@ D.check = $(D.subs:%=%.check)
 D.valid = $(D.subs:%=%.ts.valid)
 D.clean = $(D.subs:%=%.clean)
 D.gen = $(D.subs:%=%.gen)
+D.genone = $(D.subs:%=%.genone)
+# per langage tasks
 D.c = $(D.subs:%=%.c)
 D.clean.c = $(D.subs:%=%.clean.c)
+D.py = $(D.subs:%=%.py)
+D.clean.py = $(D.subs:%=%.clean.py)
 D.java = $(D.subs:%=%.java)
 D.clean.java = $(D.subs:%=%.clean.java)
 D.js = $(D.subs:%=%.js)
 D.clean.js = $(D.subs:%=%.clean.js)
 D.pl = $(D.subs:%=%.pl)
 D.clean.pl = $(D.subs:%=%.clean.pl)
-D.schema = $(D.subs:%=%.schema)
-D.clean.schema = $(D.subs:%=%.clean.schema)
-D.genone = $(D.subs:%=%.genone)
+D.sql = $(D.subs:%=%.sql)
+D.clean.sql = $(D.subs:%=%.clean.sql)
 D.ts = $(D.subs:%=%.ts)
 D.clean.ts = $(D.valid:%.ts.valid=%.clean.ts)
+# schema
+D.schema = $(D.subs:%=%.schema)
+D.clean.schema = $(D.subs:%=%.clean.schema)
 
 .PHONY: clean
 clean:
@@ -66,6 +72,14 @@ c:
 clean.c:
 	$(MAKE) TARGET=clean.c $(D.clean.c)
 
+.PHONY: py
+py:
+	$(MAKE) TARGET=py $(D.py)
+
+.PHONY: clean.py
+clean.py:
+	$(MAKE) TARGET=clean.py $(D.clean.py)
+
 .PHONY: java
 java:
 	$(MAKE) TARGET=java $(D.java)
@@ -90,6 +104,18 @@ pl:
 clean.pl:
 	$(MAKE) TARGET=clean.pl $(D.clean.pl)
 
+.PHONY: sql
+sql:
+	$(MAKE) TARGET=sql $(D.sql)
+
+.PHONY: clean.sql
+clean.sql:
+	$(MAKE) TARGET=clean.sql $(D.clean.sql)
+
+.PHONY: ts
+ts:
+	$(MAKE) TARGET=ts $(D.ts)
+
 .PHONY: clean.ts
 clean.ts:
 	$(MAKE) TARGET=clean.ts $(D.clean.ts)
@@ -101,10 +127,6 @@ schema:
 .PHONY: clean.schema
 clean.schema:
 	$(MAKE) TARGET=clean.schema $(D.clean.schema)
-
-.PHONY: ts
-ts:
-	$(MAKE) TARGET=ts $(D.ts)
 
 # show statistics about tests
 .PHONY: stats

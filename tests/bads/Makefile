@@ -45,54 +45,6 @@ json: $(F.json)
 %.model.json: %.model.yaml
 	$(JMC) -N ./$< > $@
 
-.PHONY: c
-c:
-	# skip
-
-.PHONY: clean.c
-clean.c:
-	# skip
-
-.PHONY: java
-java:
-	# skip
-
-.PHONY: clean.java
-clean.java:
-	# skip
-
-.PHONY: js
-js:
-	# skip
-
-.PHONY: clean.js
-clean.js:
-	# skip
-
-.PHONY: pl
-pl:
-	# skip
-
-.PHONY: clean.pl
-clean.pl:
-	# skip
-
-.PHONY: schema
-schema:
-	# skip
-
-.PHONY: clean.schema
-clean.schema:
-	# skip
-
-.PHONY: ts
-ts:
-	# skip
-
-.PHONY: clean.ts
-clean.ts:
-	# skip
-
 # test that --check rejects **all** bads
 bads.check.out:
 	shopt -s nullglob
@@ -100,3 +52,7 @@ bads.check.out:
 	  $(JMC) --check -PO $$bad && exit 1
 	done 2> $@
 	exit 0
+
+# catchall to ignore anything else
+%:
+	# skip
