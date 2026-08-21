@@ -25,9 +25,12 @@ for artifact in $(ls site/benchmarks/*.md | sort -r) ; do
   sbc=$(get_version jsonschema-cli $artifact)
   message=""
   [ "$(grep 'content:.*yes' $artifact)" ] && message+="content" || message+="no content"
-  [ "$(grep 'JSU_OPT.*--no-id' $artifact)" ] && message+=", no id"
+  [ "$(grep 'JSU_OPT.*--no-id' $artifact)" ] && message+=", no id" || message+=", id"
   [ "$(grep 'fix:.*yes' $artifact)" ] && message+=", fix" || message+=", no fix"
-  echo "- Artifact [$name]($link) using [JMC $jmc]($PYPI/json-model-compiler/$jmc/), [JSU $jsu]($PYPI/json-schema-utils/$jsu/) and [SBC $sbc](https://github.com/sourcemeta/jsonschema/releases/tag/v$sbc), $message."
+  echo "- Artifact [$name]($link) using [JMC $jmc]($PYPI/json-model-compiler/$jmc/), "
+  echo "  [JSU $jsu]($PYPI/json-schema-utils/$jsu/) and "
+  echo "  [SBC $sbc](https://github.com/sourcemeta/jsonschema/releases/tag/v$sbc), "
+  echo "  $message."
 done
 
 sed -ne '/BENCHES/,$p' < BENCH.md | grep -v '^BENCHES$'

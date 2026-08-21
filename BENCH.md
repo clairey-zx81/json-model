@@ -17,8 +17,8 @@ than Blaze on average to validate JSON values in these artifacts.
 
 BENCHES
 
-Options: _content_ validate string contents (format/predef), _fix_ improved models (bug fixes)
-or _no_ for strictly schema compatible models.
+Options: _content_ validate string contents (format/predef), _id_ use native models when available,
+_fix_ use improved models (eg include some bug fixes, or more precise models).
 
 ## Benchmarking Script
 
