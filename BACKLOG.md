@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] pr: improve bench script
+- [x] pr: test push post on github.io
 - [ ] pr: switch cristalina to post after release
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing
