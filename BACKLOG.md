@@ -12,6 +12,7 @@
 - [x] ci: tweak fetch depth to help docs version computation
 - [x] tests: add c/clean.c targets
 - [x] static: and list checks should always be likely
+- [x] tests: add missing java and pl language tests
 - [ ] bench: only run java with GSON
 - [ ] docker: install missing `Algorithm::LUHN` for perl JSB
 - [ ] bench: case failures handling needs some fixing

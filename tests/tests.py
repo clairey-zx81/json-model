@@ -342,7 +342,7 @@ def tmp_dir():
 
 
 # TODO allow to restrict to a subset
-@pytest.fixture(params=["py", "c", "js", "sql"])
+@pytest.fixture(params=["py", "c", "js", "sql", "pl", "java"])
 def language(request):
     return request.param
 
@@ -513,8 +513,10 @@ def test_lang(directory, language):
         cmp_opts["report"] = language != "sql"
 
     def generate_language(fmodel: str):
+        assert fmodel.startswith("./")
+        entry = "check_model" if language != "java" else fmodel[2:].replace("-", "_")
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True, **mod_opts)
-        code = xstatic_compile(jm, "check_model", lang=language, short_version=True, **cmp_opts)
+        code = xstatic_compile(jm, entry, lang=language, short_version=True, **cmp_opts)
         return str(code)
 
     check_generated(directory, f"lang-{language}", f".{language}", generate_language)
