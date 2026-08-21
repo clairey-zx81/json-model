@@ -75,3 +75,14 @@ exclude = [ "json_model/data/", "json_model/WIP/" ]
 
 [tool.pytest]
 enable_assertion_pass_hook = true
+markers = [
+  "ir: intermediate representation",
+  "py: Python language",
+  "pl: Perl language",
+  "js: JavaScript language",
+  "ts: TypeScript language",
+  "java: Java language",
+  "c: C language",
+  "sql: PL/pgSQL language",
+  "schema: JSON Schema related tests",
+]

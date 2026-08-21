@@ -20,6 +20,8 @@
 - [x] tests: display number of assertions checked
 - [x] front: add argument groups
 - [x] front: handle yaml values as well as json
+- [x] tests: add test markers for C, Java, JS, TS, Python, Perl, IR, PL/pgSQL, Schemas
+- [x] tests: allow to skip some tests by category (`not some-mark`)
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
@@ -65,8 +67,6 @@
 - [ ] optim: regex list of words to enum?
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
 - [ ] tests: fast mode which does not execute if source has not changed
-- [ ] tests: add test categories (mark?)
-- [ ] tests: allow to skip some tests by category
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
 - [ ] predefs: improve `$URI` and `$URL`

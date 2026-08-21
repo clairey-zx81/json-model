@@ -463,7 +463,6 @@ def check_generated(directory: pathlib.Path, name: str, suffix: str,
     expected = expect if expect is not None else EXPECT.get(f"{directory}:models", 0)
     assert ntests == expected
 
-
 def test_2json(directory):
     """JavaScript and YaML conversion to JSON."""
 
@@ -528,6 +527,7 @@ TSC = "../node_modules/.bin/tsc"
 # STATIC CHECK MODELS AGAINST VALUES
 #
 
+@pytest.mark.ts
 @pytest.mark.skipif(not os.path.exists(TSC), reason="missing tsc (npm install)")
 def test_ts(directory, tmp_dir):
     from json_model.ts_export import model2tsinterface
@@ -672,7 +672,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nvalues == EXPECT.get(f"{directory}:values", 0)
 
-
+@pytest.mark.c
 def test_sta_c(directory, clibjm):
     """Check generated C code with test value files."""
 
@@ -693,26 +693,31 @@ def test_sta_c(directory, clibjm):
 
     check_values(directory, "sta-c", ".c", ".c.check", gen_exec, "-r")
 
+@pytest.mark.py
 def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
     check_values(directory, "sta-py", ".py", ".py.check", lambda f: f, "-r")
 
+@pytest.mark.js
 @pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_sta_js(directory):
     """Check generated JS scripts with test value files."""
     check_values(directory, "sta-js", ".js", ".js.check", lambda f: f, "-r")
 
+@pytest.mark.sql
 @pytest.mark.skipif(not has_exec("psql"), reason="missing psql")
 def test_sta_sql(directory):
     """Check generated SQL scripts with test value files."""
     check_values(directory, "sta-sql", ".sql", ".sql.check",
                  lambda f: f"./test_sql.sh {f}")
 
+@pytest.mark.pl
 @pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_sta_pl(directory):
     """Check generated Perl scripts with test value files."""
     check_values(directory, "sta-pl", ".pl", ".pl.check", lambda f: f, "-r")
 
+@pytest.mark.java
 @pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_sta_java(directory, tmp_dir):
     """Check generated Java programs with test value files."""
@@ -802,7 +807,7 @@ def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
     assert nmerrors == EXPECT.get(f"{directory}:merrors:{name}", 0)
     assert nverrors == EXPECT.get(f"{directory}:verrors:{name}", 0)
 
-
+@pytest.mark.py
 def test_dyn_py(directory: pathlib.Path):
 
     resolver = Resolver(None, dirmap(directory))
@@ -815,6 +820,8 @@ def test_dyn_py(directory: pathlib.Path):
 
     run_dyn(directory, gen_py_checker, "dynpy")
 
+@pytest.mark.py
+@pytest.mark.ir
 def test_dyn_ir(directory: pathlib.Path):
     """Test IR re-entrance: compile to the JSON IR, then back to Python."""
 
@@ -833,6 +840,7 @@ def test_dyn_ir(directory: pathlib.Path):
 
     run_dyn(directory, gen_ir_checker, "ir")
 
+@pytest.mark.schema
 def test_dyn_json_schema(directory: pathlib.Path):
     """Test generated JSON Schema with test value files."""
 
@@ -893,26 +901,32 @@ def check_models(directory, jmchecker: str, errors: int = 0):
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nerrors == errors
 
+@pytest.mark.c
 @pytest.mark.skipif(not has_exec("cc"), reason="missing cc")
 def test_models_c(directory, jmchecker):
     check_models(directory, jmchecker, EXPECT.get(f"{directory}:models:errors-c", 0))
 
+@pytest.mark.py
 def test_models_py(directory):
     check_models(directory, "./ref/json-model-moschin.py", EXPECT.get(f"{directory}:models:errors-py", 0))
 
+@pytest.mark.js
 @pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_models_js(directory):
     check_models(directory, "./ref/json-model-moschin.js", EXPECT.get(f"{directory}:models:errors-js", 0))
 
+@pytest.mark.pl
 @pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_models_pl(directory):
     check_models(directory, "./ref/json-model-moschin.pl", EXPECT.get(f"{directory}:models:errors-pl", 0))
 
+@pytest.mark.java
 @pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_models_java(directory):
     check_models(directory, "./test_java.sh ./ref/json-model-moschin.java",
                  EXPECT.get(f"{directory}:models:errors-java", 0))
 
+@pytest.mark.sql
 @pytest.mark.skipif(not has_exec("psql"), reason="missing psql")
 def test_models_sql(directory):
     # TODO add custom error
@@ -922,12 +936,14 @@ def test_models_sql(directory):
                  EXPECT.get(f"{directory}:models:errors-sql", 0))
 
 # NOTE moschin schema does not work
+@pytest.mark.schema
 def test_models_jsm(directory):
     if str(directory) in DIR_WITH_EXTENSIONS:
         pytest.skip("model extensions not supported")
     check_models(directory, "jsu-check --quiet --engine jsonschema json-model.schema.json",
                  EXPECT.get(f"{directory}:models:errors-jsm", 0))
 
+@pytest.mark.schema
 def test_models_jsg(directory):
     if str(directory) in DIR_WITH_EXTENSIONS:
         pytest.skip("model extensions not supported")
@@ -961,6 +977,7 @@ def check_directory_models(
     else:
         assert ntests == count
 
+@pytest.mark.ir
 def test_ir(directory):
     """Model IR conformity to IR model."""
 
@@ -1060,28 +1077,35 @@ def check_bads(jmchecker: str):
         assert ": ERROR" in line
     assert ntests == EXPECT.get(f"bads:models", 0)
 
+@pytest.mark.c
 @pytest.mark.skipif(not has_exec("cc"), reason="missing cc")
 def test_bads_c(jmchecker):
     check_bads(jmchecker)
 
+@pytest.mark.py
 def test_bads_py():
     check_bads("./ref/json-model.py")
 
+@pytest.mark.js
 @pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_bads_js():
     check_bads("./ref/json-model.js")
 
+@pytest.mark.pl
 @pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_bads_pl():
     check_bads("./ref/json-model.js")
 
+@pytest.mark.java
 @pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_bads_java():
     check_bads("./test_java.sh ./ref/json-model.java")
 
+@pytest.mark.schema
 def test_bads_jsm():
     check_bads("jsu-check -e jsonschema --quiet ./json-model.schema.json")
 
+@pytest.mark.schema
 def test_bads_jsg():
     check_bads("jsu-check -e jschon --quiet ./ref/json-model.schema.json")
 
@@ -1089,6 +1113,7 @@ def test_bads_jsg():
 # JSON SCHEMA DRAFT TESTS
 #
 
+@pytest.mark.schema
 def test_schema_suite_tests():
     ntests = 0
     checker = model_checker_from_url("../models/test-schema.model.json")
@@ -1127,29 +1152,36 @@ def json_schema_test_suite(version, fmodel):
                 assert okay, f"{jstest}[{idx}] is valid for {fmodel} ({reasons})"
     assert ntests == EXPECT.get(f"{version}:jsts", 0)
 
+@pytest.mark.schema
 def test_draft3():
     # strict: fails on infinite-loop-detection.json[0]
     # nesting: fails on ref.json[7]
     json_schema_test_suite("draft3", "../models/json-schema-draft-03-fuzzy.model.json")
 
+@pytest.mark.schema
 def test_draft4():
     # strict/nesting: fails on infinite-loop-detection.json[0]
     json_schema_test_suite("draft4", "../models/json-schema-draft-04-fuzzy.model.json")
 
+@pytest.mark.schema
 def test_draft6():
     # strict: fails on ref.json[6]
     json_schema_test_suite("draft6", "../models/json-schema-draft-06-fuzzy.model.json")
 
+@pytest.mark.schema
 def test_draft7():
     json_schema_test_suite("draft7", "../models/json-schema-draft-07.model.json")
 
+@pytest.mark.schema
 def test_draft8():
     # strict: fails on vocabulary.json[0] (meta schema url)
     json_schema_test_suite("draft2019-09", "../models/json-schema-draft-2019-09-fuzzy.model.json")
 
+@pytest.mark.schema
 def test_draft9():
     # strict: fails on vocabulary.json[0] (meta schema url)
     json_schema_test_suite("draft2020-12", "../models/json-schema-draft-2020-12-fuzzy.model.json")
 
+@pytest.mark.schema
 def test_draft_next():
     json_schema_test_suite("draft-next", "../models/json-schema-draft-next.model.json")
