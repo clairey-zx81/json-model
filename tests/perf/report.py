@@ -41,10 +41,8 @@ arg("--progress", "-p", default=False, action="store_true",
 # output
 arg("--hide", default=False, action="store_true",
     help="hide uneffective options from report, default is not")
-arg("--tools", "-t", nargs="*",
-    help="restrict analysis to these tools, default is all available tools")
-arg("--few-tools", default=False, action="store_true",
-    help="select fewer tools")
+arg("--tools", default="",
+    help="report about these tools, in . * / or [bc123vsyl]+")
 arg("--unshift", "-u", action="store_true", default=False,
     help="unshift measure overhead estimation from reported measures, default is not")
 arg("--compact", "-c", action="store_true", default=False,
@@ -84,67 +82,46 @@ else:
 
 dobetter = args.performance != "best"
 
-# ordered list for presentations
-STANDARD_ALL_TOOLS: list[str] = [
-    "blaze", "jmc-c",
-    "jmc-java-gson", "jmc-java-jackson", "jmc-java-jsonp",
-    "jmc-js", "jmc-py"
-]
-
-STANDARD_FEW_TOOLS: list[str] = [
-    "blaze", "jmc-c", "jmc-java-gson", "jmc-js", "jmc-py"
-]
-
-STANDARD_TOOLS = STANDARD_FEW_TOOLS if args.few_tools else STANDARD_ALL_TOOLS
-
-if args.few_tools:
-    args.tools = STANDARD_TOOLS
-
-# short column names
-TOOL_FEW: dict[str, str] = {
-    "blaze": "blaze",
-    "jmc-c": "c",
-    "jmc-java-gson": "java",
-    "jmc-js": "js",
-    "jmc-py": "py",
-    "jmc-pl": "pl",
-}
-
-TOOL_ALL: dict[str, str] = TOOL_FEW | {
-    "jmc-java-gson": "jv1",
-    "jmc-java-jackson": "jv2",
-    "jmc-java-jsonp": "jv3",
-}
-
-TOOL = TOOL_FEW if args.few_tools else TOOL_ALL
-
-# others are kept as-is
-CASE: dict[str, str] = {
-    "ansible-meta": "ansible",
-    "clang-format": "clang-fmt",
-    "cmake-presets": "cmake",
-    "code-climate": "code-clim",
-    "gitpod-configuration": "gitpod-cnf",
-    "helm-chart-lock": "helm-chart",
-    "pre-commit-hooks": "pre-ci",
-    "semantic-release": "sem-rel",
-    "ui5-manifest": "ui5-mfest",
-    "unreal-engine-uproject": "unreal-ng",
-}
-
 #
-# standard section descriptions
+# TOOLS
 #
-TOOL_SUMMARY: str = """
-Tools:
-_blaze_ is Sourcemeta Blaze CLI (external reference);
-_c_ _js_ _py_ are JMC for C, JavaScript and Python;
-"""
 
-if args.few_tools:
-    TOOL_SUMMARY += "_java_ is JMC for Java with GSON.\n"
-else:
-    TOOL_SUMMARY += "_jv1_, _jv2_, _jv3_ are JMC for Java with GSON, Jackson and JSONP/Johnzon.\n"
+TOOL_SHORTCUT: dict[str, str] = {
+    ".": "bcs123y",   # usual report
+    "*": "bcs123yl",  # everything
+    "/": "bcsvyl",    # every once
+}
+
+if args.tools in TOOL_SHORTCUT:
+    args.tools = TOOL_SHORTCUT[args.tools]
+
+# tools to report details
+TOOLS: dict[str, tuple[str, str, str]] = {
+    "b": ("blaze", "blaze", "_blaze_ is Sourcemeta Blaze CLI (external reference, in C++)"),
+    "c": ("jmc-c", "c", "_c_ is JMC for C"),
+    "v": ("jmc-java-gson", "java", "_java_ is JMC for Java with GSON"),
+    "1": ("jmc-java-gson", "jv1", "_jv1_ is JMC for Java with GSON"),
+    "2": ("jmc-java-jackson", "jv2", "_jv2_ is JMC for Java with Jackson"),
+    "3": ("jmc-java-jsonp", "jv3", "_jv3_ is JMC for Java with JSONP"),
+    "s": ("jmc-js", "js", "_js_ is JMC for JavaScript"),
+    "y": ("jmc-py", "py", "_py_ is JMC for Python"),
+    "l": ("jmc-pl", "pl", "_pl_ is JMC for Perl"),
+    "q": ("jmc-sql", "sql", "_sql_ is JMC for PL/pgSQL"),
+}
+
+TOOL_SUMMARY: str = "\n"
+TOOL: dict[str, str] = {}
+report_tools: list[str] = []
+
+if args.tools:
+    assert len(set(args.tools)) == len(args.tools), "no tool repetition"
+    TOOL_SUMMARY += "Tools:\n"
+    last_tool = len(args.tools) - 1
+    for i, t in enumerate(args.tools):
+        name, col, bla = TOOLS[t]
+        report_tools.append(name)
+        TOOL_SUMMARY += bla + (".\n" if i == last_tool else ",\n")
+        TOOL[name] = col
 
 TOOL_SUMMARY += """
 For each tool: maximum/geometrical average/minimum time performance ratio,
@@ -166,6 +143,24 @@ Speed measures are biased toward the performance of cases with large values (_ge
 if args.best:
     TOOL_SUMMARY += "The best count emphasizes how uniformly better is a tool.\n"
 
+#
+# cases
+#
+
+# others are kept as-is
+CASE: dict[str, str] = {
+    "ansible-meta": "ansible",
+    "clang-format": "clang-fmt",
+    "cmake-presets": "cmake",
+    "code-climate": "code-clim",
+    "gitpod-configuration": "gitpod-cnf",
+    "helm-chart-lock": "helm-chart",
+    "pre-commit-hooks": "pre-ci",
+    "semantic-release": "sem-rel",
+    "ui5-manifest": "ui5-mfest",
+    "unreal-engine-uproject": "unreal-ng",
+}
+
 TOOL_CASES: str = f"""
 For each case: number and name, number of test cases, best cumulated {args.aggregate} performance (µs),
 best tool, time performance ratio (slowdown) for Blaze and JMC variants,
@@ -183,7 +178,7 @@ For each tool and cases with a partial success rate, percent of test cases valid
 
 # yamllint:{40,58,77,198,238,264,267,458,459,591,680,748,904,905,906,924,953,969}
 RESULT_FIX_COMMENT: str = """
-As of July 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
+As of August 2026, the JMC results for `ansible-meta`, `cspell`, `cypress` and `yamllint`
 are not 100.0% because validation checks are stricter and some
 [values](https://github.com/sourcemeta-research/jsonschema-benchmark/pull/155)
 are rightfully rejected.
@@ -246,18 +241,18 @@ resu_df = pd.read_csv(
     index_col=[0, 1]
 )
 
-# derive list of tools in "standard" order
+# sort tools
 tools: list[str] = sorted(
-    resu_df.index.get_level_values("tool").unique()
-    # key=lambda n: "jmc-jas" if n == "jmc-js" else n
+    resu_df.index.get_level_values("tool").unique(),
+    key=lambda n: "jmc-zz" if n == "jmc-pl" else n
 )
 
 loaded_tools = tools
-if args.tools:
+if report_tools:
     # check availability and override, keeping the order
-    assert set(args.tools) <= set(tools), f"expected tools are available ({tools})"
-    assert len(set(args.tools)) == len(args.tools), "no tool repetition"
-    tools = args.tools
+    assert set(report_tools) <= set(tools), f"expected tools are available ({tools})"
+    tools = report_tools
+del report_tools
 
 # provide some names for non standard reports
 for t in tools:
@@ -265,7 +260,7 @@ for t in tools:
         TOOL[t] = t
 
 if args.standard:
-    assert tools == STANDARD_TOOLS, f"expect ordered standard benchmark tools ({tools})"
+    assert args.tools and "b" in args.tools and "c" in args.tools
 
 # and list of cases
 cases: list[str] = sorted(

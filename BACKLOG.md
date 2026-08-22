@@ -26,6 +26,9 @@
 - [x] pr: configure explicit docsify base path
 - [x] pr: switch to docsify@5
 - [x] pr: improve some pages
+- [x] bench: improve standard report to match available data
+- [ ] bench: run and report with java GSON only
+- [ ] bench: run and report with perl
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
