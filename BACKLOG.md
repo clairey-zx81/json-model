@@ -22,6 +22,7 @@
 - [x] front: handle yaml values as well as json
 - [x] tests: add test markers for C, Java, JS, TS, Python, Perl, IR, PL/pgSQL, Schemas
 - [x] tests: allow to skip some tests by category (`not some-mark`)
+- [x] front: shorten jmc pod synopsis
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)

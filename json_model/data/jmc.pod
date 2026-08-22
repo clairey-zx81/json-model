@@ -8,22 +8,7 @@ B<jmc> - JSON Model Compiler
 
 =head1 SYNOPSIS
 
- jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,syn,help,man}] [--man]
-     [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}] [--mark COMMENT]
-     [--allow-duplicates] [-[-no]-extend] [--loose-int] [--strict-int] [--loose-float]
-     [--strict-float] [--loose-number] [--strict-number] [--loose] [--check]
-     [-[-no]-single-line-regex] [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
-     [--format {json,yaml,py,c,js,plpgsql,pl,java,ts}] [-[-no]-sort] [--indent INDENT]
-     [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
-     [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS] [-[-no]-precompiled]
-     [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
-     [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version] [--short-version]
-     [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
-     [--map-threshold THRESHOLD] [--map-share] [-[-no]-strcmp-optimize] [--byte-order (le|be)]
-     [--max-strcmp-cset SIZE] [-[-no]-unique-optimize] [-[-no]-regex-optimize]
-     [--may-must-open-threshold THRESHOLD] [--must-only-threshold THRESHOLD] [-[-no]-call-shortcut]
-     [--partition-threshold THRESHOLD] [--or-must-prop THRESHOLD] [--array-unrolling-size=SIZE]
-     [-[-no]-sort-must] [-[-no]-sort-may] [-[-no]-predef] [--no-opt OPTIM] [-[-no]-regex-pattern]
+ jmc [--help] [--version] [--man] [--debug] [--verbose] [--quiet] [plenty other options]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
      [--output OUTPUT] (--model MODEL | MODEL) [VALUES ...]
 
