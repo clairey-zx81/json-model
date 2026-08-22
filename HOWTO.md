@@ -30,11 +30,10 @@ The `jmc` command can be install in a Python virtual environment from
    [convenient wrapper](https://github.com/clairey-zx81/json-model/blob/main/container/jmc):
 
    ```sh
-   # podman pull docker.io/zx80/jmc
-   docker pull docker.io/zx80/jmc
+   export POD="docker"  # or "podman"
+   $POD pull docker.io/zx80/jmc
    curl -o ./jmc https://raw.githubusercontent.com/clairey-zx81/json-model/refs/heads/main/container/jmc
    chmod a+rx ./jmc
-   export POD="docker"  # or "podman"
    ./jmc --version
    ./jmc --man
    ```

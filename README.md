@@ -136,7 +136,7 @@ than Blaze C++, which given the intrinsic language capabilities is quite honorab
 See the [JSON Model website](https://json-model.org),
 which among many resources,
 includes a [tutorial](TUTO.md) for a hands-on overview of JSON Model,
-and links to [research papers](PAPERS.md) for explanations about the design.
+and links to [research papers](PUBS.md) for explanations about the design.
 
 ## JSON Model Distribution
 
