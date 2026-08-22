@@ -24,7 +24,7 @@
 - [x] tests: allow to skip some tests by category (`not some-mark`)
 - [x] front: shorten jmc pod synopsis
 - [x] pr: configure explicit docsify base path
-- [ ] pr: switch to docsify@5
+- [x] pr: switch to docsify@5
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)

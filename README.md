@@ -6,7 +6,7 @@ This reference implementation allows to generate code in Python, C, JavaScript,
 PL/pgSQL, Perl and Java for checking a JSON value against a JSON model,
 and to export models to JSON Schema or Pydantic.
 
-It is dedicated to the _Public Domain_.
+It is dedicated to the [_Public Domain_](https://creativecommons.org/public-domain/).
 
 ## JMC Command
 
