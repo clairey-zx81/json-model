@@ -151,16 +151,19 @@ Test models cover the various features of JSON Model.
 Each model is tested for each target language (Python, C, JavaScript, PL/pgSQL, Perl, Java)
 on a set of test vectors.
 
-- number of test JSON models: _${n_models}_
-- total test JSON model locs: _${model_locs}_
-- number of test vector JSON values: _${n_values}_
-- all tested JSON values (including models, generated schemas and IR, and test suite schemas): _${all_values}_
+- Number of test JSON models: _${n_models}_
+- Total test JSON model locs: _${model_locs}_
+- Number of test vector JSON values: _${n_values}_
+- All tested JSON values (including models, generated schemas and IR, and test suite schemas): _${all_values}_
+
+Over _150,000_ checks are performed when running non-regression tests:
+generated files, values validated in various languages…
 
 [Example models](https://json-model.org/MODELS) cover typical use cases and demonstrate
 JSON Model power and ease of expression.
 
-- number of example models: _${n_eg_models}_
-- total example model locs: _${eg_models_locs}_
+- Number of example models: _${n_eg_models}_
+- Total example model locs: _${eg_models_locs}_
 
 ## Documentation
 
