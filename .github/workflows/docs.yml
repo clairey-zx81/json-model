@@ -18,6 +18,8 @@ jobs:
           fetch-tags: true
       - name: Install dependencies
         run: sudo apt install cloc make libpod-markdown-perl
+      - name: Update docsify base path for github.io
+        run: sed -i -e 's,https://json-model.org/,https://clairey-zx81.github.io/json-model/,' site/index.html
       - name: Build site
         run: make _site
       - name: Upload documentation artifact

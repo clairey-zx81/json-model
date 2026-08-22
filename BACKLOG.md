@@ -14,7 +14,7 @@
 - [x] static: and list checks should always be likely
 - [x] tests: add missing java and pl language tests
 - [x] docker: install missing `Algorithm::LUHN` for perl JSB
-- [x] pr: better bench page
+- [x] pr: better bench and about generated pages
 - [x] tests: ~allow to skip some tests with make, depending on available runtimes~
 - [x] tests: provide convenient targets for all tasks
 - [x] tests: display number of assertions checked
@@ -23,6 +23,8 @@
 - [x] tests: add test markers for C, Java, JS, TS, Python, Perl, IR, PL/pgSQL, Schemas
 - [x] tests: allow to skip some tests by category (`not some-mark`)
 - [x] front: shorten jmc pod synopsis
+- [x] pr: configure explicit docsify base path
+- [ ] pr: switch to docsify@5
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
