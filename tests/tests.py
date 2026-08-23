@@ -202,12 +202,6 @@ EXPECT: dict[str, int] = {
     "mv-29:values": 129,
     "mv-29:mod-opts": {"extend": True},
     "mv-29:models:errors-jsm": 5,
-    # "mv-29:models:errors-c": 1,
-    # "mv-29:models:errors-js": 1,
-    # "mv-29:models:errors-java": 1,
-    # "mv-29:models:errors-sql": 1,
-    # "mv-29:models:errors-pl": 1,
-    # "mv-29:models:errors-py": 1,
     "mv-29:models:errors": 5,
     "mv-29:verrors:schema": 3,
     # mv-2a
@@ -228,7 +222,6 @@ EXPECT: dict[str, int] = {
     "mv-2d:values": 164,
     # mv-2e
     "mv-2e:cmp-opts": {"report": False, "comment": False, "max_strcmp_cset": 64},
-    "mv-2e:errors.sql": 2,
     "mv-2e:models": 10,
     "mv-2e:values": 179,
     # mv-2f
@@ -252,7 +245,6 @@ EXPECT: dict[str, int] = {
     "mv-33:models": 10,
     "mv-33:values": 163,
     "mv-33:verrors:schema": 1,
-    "mv-33:errors.java": 2,
     # mv-34
     "mv-34:cmp-opts": {"report": False, "comment": False},
     "mv-34:mod-opts": {"single_line": True},
@@ -1185,3 +1177,31 @@ def test_draft9():
 @pytest.mark.schema
 def test_draft_next():
     json_schema_test_suite("draft-next", "../models/json-schema-draft-next.model.json")
+
+# file consistency
+SUFFIXES: list[str] = [
+    "model.json", "values.json", "PO.json", "UO.json", "schema.json", "schema.check"
+]
+
+for lang in [ "c", "py", "js", "sql", "pl", "java" ]:
+    SUFFIXES.extend([ lang, f"{lang}.check" ])
+
+def test_sanity(directory):
+    assert len(SUFFIXES) == 18
+    files: dict[str, list[pathlib.Path]] = {}
+    for suffix in SUFFIXES:
+        files[suffix] = sorted(str(fn) for fn in directory.glob(f"*.{suffix}"))
+    # avoid *.model.js
+    files["js"] = [ fn for fn in files["js"] if not fn.endswith(".model.js") ]
+    # number of mandatory files
+    nfiles = len(files["c"])
+    assert nfiles > 0, "no empty directory"
+    for suffix in SUFFIXES:
+        assert len(files[suffix]) == nfiles, f"expected number of {suffix} files"
+    # name of files
+    names = [ fn[:-2] for fn in files["c"] ]
+    for name in names:
+        for suffix in SUFFIXES:
+            fn = f"{name}.{suffix}"
+            assert pathlib.Path(fn).exists(), f"expecting file: {fn}"
+    # TODO values
