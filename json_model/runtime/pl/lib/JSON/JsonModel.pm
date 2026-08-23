@@ -507,7 +507,7 @@ sub jm_process($$$$$$$$$)
         my ($sum, $sum2) = (0.0, 0.0);
         while ($n--) {
             my $start = time;
-            $v = (3.141592653589793 * $v + 2.718281828459045) % 1.0;
+            # $v = (3.141592653589793 * $v + 2.718281828459045) % 1.0;
             $ok = &$checker($json, $name, $rep);
             my $stop = time;
             my $delay = 1_000_000 * ($stop - $start) - $empty;  # µs
@@ -518,7 +518,7 @@ sub jm_process($$$$$$$$$)
         # perforlance display
         my $avg = $sum / $time;
         my $stdev = sqrt( $sum2 / $time - $avg * $avg );
-        printf "$display: %.03f ± %.03f µs (%.03f)\n", $avg, $stdev, $empty;
+        printf STDERR "$display %s %.03f ± %.03f µs (%.03f)\n", $valid ? "PASS": "FAIL", $avg, $stdev, $empty;
     }
 
     return $ok;
@@ -794,7 +794,7 @@ sub jm_main($$$)
                 $n = $name;
                 ($e, $j) = @$item;
             }
-            my $display = $test ? "$file\[$index\]" : $file;
+            my $display = ($test || $jsonl) ? "$file\[$index\]" : $file;
 
             $errors++ unless jm_process($checker, $n, $j, $display, $report, $e, $time, $empty, $v);
             $index++;

@@ -16,3 +16,11 @@ Revision history for JSON::JsonModel
         Add missing new dependency declaration.
 2.0.50  2026-05-09
         Add "--parse" option to generated script.
+2.0.51  2026-06-22
+        Fix error reporting.
+2.0.52  2026-07-13
+        Improve $URL support.
+2.0.56  2026-08-07
+        Further improve $URL support.
+2.0.58  2026-08-23
+        Send performance results to stderr.

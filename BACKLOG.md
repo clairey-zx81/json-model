@@ -27,6 +27,7 @@
 - [x] pr: switch to docsify@5
 - [x] pr: improve some pages
 - [x] bench: improve standard report to match available data
+- [x] pl-backend: send perf to stderr as others
 - [ ] bench: run and report with java GSON only
 - [ ] bench: run and report with perl
 - [ ] front: merge many internal options to trigrams
