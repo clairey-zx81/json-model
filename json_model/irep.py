@@ -1022,6 +1022,8 @@ def elimDeadCode(code: Jsonable, reporting: bool) -> int:
                 # return comments and return
                 changes += 1
                 return list(filter(lambda o: _isOps(o, {"co", "ret", "seq"}), code))
+        elif _isOps(code, {"oL", "aL", "iL"}) and _noOps(code["body"], reporting):
+            return {"o": "ign", "#": "empty loop body"}
         return code
 
     recurseIR(code, _goIR, edcRwt)

@@ -173,13 +173,22 @@ class Python(Language):
             if self._with_report else []
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
-        return [ f"for {idx}, {val} in enumerate({arr}):" ] + self.indent(body)
+        if any(map(lambda i: i not in (None, ""), body)):
+            return [ f"for {idx}, {val} in enumerate({arr}):" ] + self.indent(body)
+        else:
+            return []
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
-        return [ f"for {key}, {val} in {obj}.items():" ] + self.indent(body)
+        if any(map(lambda i: i not in (None, ""), body)):
+            return [ f"for {key}, {val} in {obj}.items():" ] + self.indent(body)
+        else:
+            return []
 
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
-        return [ f"for {idx} in range({start}, {end}):" ] + self.indent(body)
+        if any(map(lambda i: i not in (None, ""), body)):
+            return [ f"for {idx} in range({start}, {end}):" ] + self.indent(body)
+        else:
+            return []
 
     def if_stmt(
             self, cond: BoolExpr, true: Block, false: Block = [], likely: TestHint = None

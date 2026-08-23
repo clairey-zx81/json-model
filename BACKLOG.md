@@ -29,8 +29,11 @@
 - [x] bench: improve standard report to match available data
 - [x] pl-backend: send perf to stderr as others
 - [x] pr: add typescript prettyprint
+- [x] irep: do not generate empty loops
+- [x] python: do not generate empty loops
+- [ ] bench: fix number of iterations for python and perl under cap
 - [ ] bench: run and report with java GSON only
-- [ ] bench: run and report with perl
+- [ ] bench: run and report with perl?
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
