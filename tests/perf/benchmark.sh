@@ -41,7 +41,7 @@ function usage()
      --cap: reduce loop iterations for slow scripts (default)
      --no-cap: do not reduce loop iterations for slow scripts
      --env|-e VARS: environment variables to export to jmc container
-     --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java y=Python l=Perl)
+     --task|-T TASK: comparisons to perform (b=blaze c=C s=JS v=Java/GSON y=Python l=Perl)
      --unshift|-u: unshift overhead estimation from measures
      --load|-L: reduce load by half for java tests
 EOF
@@ -52,7 +52,7 @@ EOF
 script_dir=$(dirname $0)
 
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcsvy"
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcvsy"
 cap=1 debug= show_opts="--standard --performance=blaze --no-best" load= content= run_opts=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
@@ -124,7 +124,7 @@ done
 [ $RUNS -ge 1 ] || err 1 "unexpected runs value, must be >= 1: $RUNS"
 
 # non standard run
-[ "$TASK" != "bcsvy" ] && show_opts=
+[ "$TASK" != "bcvsyl" ] && show_opts=
 
 echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=<$JMC_ENV> task=$TASK"
 
@@ -230,14 +230,19 @@ done
 #
 # slowest first
 # TODO add sql?
-# TODO control java json lib variants?
 tasks=""
 [[ $TASK =~ l ]] && tasks+=" jmc-pl"
 [[ $TASK =~ y ]] && tasks+=" jmc-py"
-[[ $TASK =~ v ]] && tasks+=" jmc-java"
+[[ $TASK =~ [v123] ]] && tasks+=" jmc-java"
 [[ $TASK =~ s ]] && tasks+=" jmc-js"
 [[ $TASK =~ b ]] && tasks+=" blaze"
 [[ $TASK =~ c ]] && tasks+=" jmc-c"
+
+# default is to try with all java json libs
+export JMC_JAVA_LIBS=""
+[[ $TASK =~ [v1] ]] && JMC_JAVA_LIBS=" GSON"
+[[ $TASK =~ 2 ]] && JMC_JAVA_LIBS+=" Jackson"
+[[ $TASK =~ 3 ]] && JMC_JAVA_LIBS+=" JSONP"
 
 echo "## setup done $(( $SECONDS - $START ))"
 START=$SECONDS
@@ -249,8 +254,10 @@ for trg in $tasks ; do
   while let run-- ; do
     for dir in jsb/schemas/* ; do
       # time adjustment for slow runs
-      if [[ "$cap" && $trg = jmc-p? ]] ; then
+      if [[ "$cap" && $trg = "jmc-py" ]] ; then
         loop=$(( $LOOP / 10 ))
+      elif [[ "$cap" && $trg = "jmc-pl" ]] ; then
+        loop=$(( $LOOP / 50 ))
       else
         loop=$LOOP
       fi

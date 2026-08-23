@@ -31,9 +31,9 @@
 - [x] pr: add typescript prettyprint
 - [x] irep: do not generate empty loops
 - [x] python: do not generate empty loops
-- [ ] bench: fix number of iterations for python and perl under cap
-- [ ] bench: run and report with java GSON only
-- [ ] bench: run and report with perl?
+- [x] bench: fix number of iterations for python and perl under cap
+- [x] bench: run and report with java GSON only
+- [x] bench: ~run and report with perl?~ not interesting for now (x 200.0)
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)

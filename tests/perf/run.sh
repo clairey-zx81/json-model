@@ -123,9 +123,9 @@ case $TASK in
 esac
 
 case $TARGET in
-  all) targets="blaze jsu jmc-c jmc-js jmc-java jmc-py" ;;
-  jmc) targets="jsu jmc-c jmc-js jmc-java jmc-py" ;;
-  jmc-c|jmc-js|jmc-java|jmc-py) targets="jsu $TARGET" ;;
+  all) targets="blaze jsu jmc-c jmc-js jmc-java jmc-py jmc-pl" ;;
+  jmc) targets="jsu jmc-c jmc-js jmc-java jmc-py jmc-pl" ;;
+  jmc-c|jmc-js|jmc-java|jmc-py|jmc-pl) targets="jsu $TARGET" ;;
   blaze) targets="blaze" ;;
   *) err 1 "unexpected target: $TARGET" ;;
 esac

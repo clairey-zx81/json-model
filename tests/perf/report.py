@@ -41,7 +41,7 @@ arg("--progress", "-p", default=False, action="store_true",
 # output
 arg("--hide", default=False, action="store_true",
     help="hide uneffective options from report, default is not")
-arg("--tools", default="",
+arg("--tools", default=".",
     help="report about these tools, in . * / or [bc123vsyl]+")
 arg("--unshift", "-u", action="store_true", default=False,
     help="unshift measure overhead estimation from reported measures, default is not")
@@ -51,7 +51,6 @@ arg("--performance", "--perf", "-P", default="best", choices=["best", "blaze", "
     help="which tool get the 1.0 performance reference")
 arg("--aggregate", "-g", default="median", choices=["min", "mean", "median"],
     help="choose aggregate function for summarizing performance, default is \"median\"")
-
 arg("--standard", action="store_true",
     help="generate standard comparison report for \"json-model.org\" web site")
 arg("--content", action="store_true", default=False,
@@ -123,18 +122,25 @@ if args.tools:
         TOOL_SUMMARY += bla + (".\n" if i == last_tool else ",\n")
         TOOL[name] = col
 
+    log.info(f"selected tools {args.tools}: {report_tools}")
+    log.debug(f"TOOL = {TOOL}")
+
 TOOL_SUMMARY += """
-For each tool: maximum/geometrical average/minimum time performance ratio,
-overall validation speed in bytes per µs and lines per µs"""
+For each tool:
+maximum/geometrical average/minimum time performance ratio;
+overall validation speed in bytes per µs and lines per µs;
+"""
 
 if args.best:
-    TOOL_SUMMARY += ", number of best performance"
+    TOOL_SUMMARY += "number of best performance;\n"
 
+# FIXME should exist!
 if dobetter:
-    TOOL_SUMMARY += f", number of better-than-reference (_{TOOL[args.performance]}_) performance"
+    assert args.performance in TOOL
+    TOOL_SUMMARY += f"number of better-than-reference (_{TOOL[args.performance]}_) performance;\n"
 
 # TODO do not show unless necessary
-TOOL_SUMMARY += """, number of case failures (if any).
+TOOL_SUMMARY += """number of case failures (if any).
 
 The most interesting figure, second row in bold, is the geometrical average of the tool performance.
 Speed measures are biased toward the performance of cases with large values (_geojson_ and _openapi_).
@@ -162,8 +168,12 @@ CASE: dict[str, str] = {
 }
 
 TOOL_CASES: str = f"""
-For each case: number and name, number of test cases, best cumulated {args.aggregate} performance (µs),
-best tool, time performance ratio (slowdown) for Blaze and JMC variants,
+For each case:
+number and name;
+number of test cases;
+best cumulated {args.aggregate} performance (µs);
+best tool;
+time performance ratio (slowdown) for Blaze and JMC variants,
 the lower the better, empty denotes a tool failure.
 """
 
