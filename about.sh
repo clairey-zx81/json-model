@@ -18,7 +18,8 @@ fi
 cat <<EOF
 # About JSON Model
 
-JSON Model is an on-going [research project](PUBS.md).
+JSON Model is an on-going [research project](PUBS.md)
+dedicated to the [Public Domain](https://creativecommons.org/public-domain/).
 
 The following line and file counts about version **$version** (\`$git_version\`) show
 that the compiler, code generator and runtimes are quite small, but still heavily tested
