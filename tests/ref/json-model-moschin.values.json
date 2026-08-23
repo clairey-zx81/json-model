@@ -6,5 +6,7 @@
         ".mo": 3,
         ".schema": { "$comment": "ajouter un commentaire…" }
       }
-  ]
+  ],
+  [ false, "=not a model" ],
+  [ false,  [ "=not a model" ] ]
 ]

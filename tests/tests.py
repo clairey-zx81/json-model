@@ -23,8 +23,8 @@ log.setLevel(logging.INFO)
 EXPECT: dict[str, int] = {
     # reference
     "ref:models": 9,
-    "ref:values": 111,
-    "ref:verrors:schema": 56,
+    "ref:values": 114,
+    "ref:verrors:schema": 59,
     "ref:models:errors-jsm": 2,
     # chunk 00
     "mv-00:cmp-opts": {"report": False, "comment": False, "relib": "re"},
@@ -123,7 +123,7 @@ EXPECT: dict[str, int] = {
     "mv-16:verrors:schema": 1,
     # chunk 17
     "mv-17:models": 12,
-    "mv-17:values": 145,
+    "mv-17:values": 146,
     "mv-17:verrors:schema": 2,
     # chunk 18
     "mv-18:js2json": 3,
@@ -1204,4 +1204,9 @@ def test_sanity(directory):
         for suffix in SUFFIXES:
             fn = f"{name}.{suffix}"
             assert pathlib.Path(fn).exists(), f"expecting file: {fn}"
-    # TODO values
+    # some values
+    for fn in files["values.json"]:
+        with open(fn) as f:
+            values = json.load(f)
+        assert isinstance(values, list)
+        assert len(list(filter(lambda i: isinstance(i, list), values))) > 2, f"enough values: {fn}"
