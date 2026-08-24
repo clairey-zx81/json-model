@@ -38,6 +38,7 @@ _FLOAT_VIOLATIONS = {
     "=": lambda n: n + 1.0, "!=": lambda n: float(n),
 }
 _TYPE_VIOLATIONS = [None, True, 0, "", [], {}]
+_EXTRA_NAMES = ["zzz", "extra", "_x9"]
 _UINT_PREDEFS = {"$U32", "$U64"}
 _PREDEFS = {
     "$ANY": {}, "$NULL": None,
@@ -598,6 +599,28 @@ def _optional(node: ModelObject, prop: str, name: str) -> ModelObject:
     """Copy of an object model with one mandatory property made optional."""
     return {("?" + name if p == prop else p): m for p, m in node.items()}
 
+def _opened(node: ModelObject) -> ModelObject:
+    """Copy of an object model which also accepts any other property."""
+    return {**node, "": "$ANY"}
+
+def _closed(node: ModelObject, jm: JsonModel) -> bool:
+    """Whether an object model rejects properties it does not describe."""
+    if "" not in node:
+        return True
+    try:
+        simplest(node[""], jm)
+        return False
+    except UnsupportedValue:
+        return True
+
+def _object_sites(sites: list):
+    """Sites which target a plain object model."""
+    for mpath, vpath, frames, props in sites:
+        node = props["@"]
+        if (not set(props) - {"@"} and isinstance(node, dict)
+                and not set(node) & (_OPERATORS | _ROOT_KEYS)):
+            yield mpath, vpath, frames, node
+
 def _pointer(path: list) -> str:
     """JSON pointer for a path of object keys and array indexes."""
     return "".join("/" + str(s).replace("~", "~0").replace("/", "~1") for s in path)
@@ -682,7 +705,7 @@ def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
 def violations(model: ModelType, jm: JsonModel|None = None,
                seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
                url: str = "", extend: bool = False) -> dict[str, Jsonable]:
-    """Generate a value breaking each constraint or type of a model, one at a time."""
+    """Generate a value breaking one constraint, type or property of a model."""
     vjm, vmodel = jm, model
     if jm is None:
         jm, model = _compile(model, False, resolver, url, extend)
@@ -740,11 +763,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
                 break
-    for mpath, vpath, frames, props in sites:
-        node = props["@"]
-        if (set(props) - {"@"} or not isinstance(node, dict)
-                or set(node) & (_OPERATORS | _ROOT_KEYS)):
-            continue
+    for mpath, vpath, frames, node in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue:
@@ -767,6 +786,33 @@ def violations(model: ModelType, jm: JsonModel|None = None,
             elif _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
+    for mpath, vpath, frames, node in _object_sites(sites):
+        if not _closed(node, jm):
+            continue
+        try:
+            built = simplest(node, jm, seen)
+        except UnsupportedValue:
+            continue
+        if not isinstance(built, dict):
+            continue
+        for name in _EXTRA_NAMES:
+            key = f"{_pointer(mpath + [name])} extra"
+            if name in built or key in values:
+                continue
+            sub = {**built, name: None}
+            if (_verify(sub, node, jm, defs) is not False
+                    or _verify(sub, _opened(node), jm, defs) is not True):
+                continue
+            try:
+                value = _document(sub, vpath, frames, doc, jm, seen)
+            except (UnsupportedValue, KeyError, IndexError, TypeError):
+                break
+            if json.dumps(value, sort_keys=True) in taken:
+                break
+            elif _verify(value, vmodel, vjm) is False:
+                values[key] = value
+                taken.add(json.dumps(value, sort_keys=True))
+                break
     if not values:
         raise UnsupportedValue(f"no constraint could be violated: {'; '.join(reasons)}")
     else:
