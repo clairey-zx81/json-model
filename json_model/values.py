@@ -407,12 +407,25 @@ def _defs(jm: JsonModel) -> ModelObject:
     return {name: ("$" + node._url if node._url.split("#")[0] != base else node._model)
             for name, node in jm._defs._syms.items()}
 
+def _needed(model: ModelType, defs: ModelObject) -> set[str]:
+    """Definition names a model may reference."""
+    keep: set[str] = set()
+    pending = [model]
+    while pending:
+        text = json.dumps(pending.pop())
+        for name in defs:
+            if name not in keep and "$" + name in text:
+                keep.add(name)
+                pending.append(defs[name])
+    return keep
+
 def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
             defs: ModelObject|None = None) -> bool|None:
     """Whether a value matches a model, None when no checker can be built."""
     try:
         if defs is None:
             defs = _defs(jm)
+        defs = {name: defs[name] for name in _needed(model, defs)}
         key = json.dumps([jm._url, {"$": defs, "@": model}], sort_keys=True)
     except (TypeError, ValueError):
         return None
