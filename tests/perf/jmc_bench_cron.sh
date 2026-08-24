@@ -80,8 +80,8 @@ if [ "$check" ] ; then
   docker pull $SBC || err 6 "cannot docker pull: $SBC"
   docker pull $JMC || err 6 "cannot docker pull: $JMC"
 
-  docker run --rm $SBC --version > $VERSION.sbc.tmp || err 7 "error getting version: $SBC"
-  docker run --rm --entrypoint jsu-compile $JMC --version > $VERSION.jmc.tmp || err 7 "error getting version: $JMC"
+  docker run --rm --name sbc_version_$$ $SBC --version > $VERSION.sbc.tmp || err 7 "error getting version: $SBC"
+  docker run --rm --name jmc_version_$$ --entrypoint jsu-compile $JMC --version > $VERSION.jmc.tmp || err 7 "error getting version: $JMC"
 
   # run if versions differ
   for tool in sbc jmc ; do
