@@ -491,6 +491,18 @@ def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
     else:
         return model
 
+def _property_name(prop: str, taken: set[str]) -> str:
+    """Property name matching a pattern property, avoiding named properties."""
+    name = _simplest_regex(prop)
+    if name not in taken:
+        return name
+    pattern, opts = prop[1:].rsplit("/", 1)
+    regex = re.compile(f"(?{opts}){pattern}" if opts else pattern)
+    for suffix in ("0", "00", "000"):
+        if name + suffix not in taken and regex.search(name + suffix):
+            return name + suffix
+    raise UnsupportedValue(f"no free property name for {prop}")
+
 def _compile(model: ModelType, optimize: bool = True, resolver: Resolver|None = None,
              url: str = "", extend: bool = False) -> tuple[JsonModel, ModelType]:
     """Check and preprocess a model given as plain JSON """
@@ -680,12 +692,21 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
                                   frames + [(vpath, alt)], jm, seen)
         elif not set(props) & (_OPERATORS | _ROOT_KEYS):
             yield mpath, vpath, frames, {"@": model}
+            named = {p[1:] if p.startswith(("!", "?", "_")) else p
+                     for p in props if p and not p.startswith(("/", "$"))}
             for prop, sub in props.items():
-                if prop == "" or prop.startswith(("/", "$")):
+                if prop == "" or prop.startswith("$"):
                     continue
-                name = prop[1:] if prop.startswith(("!", "?", "_")) else prop
-                inner = (frames + [(vpath + [name], sub)] if prop.startswith("?")
-                         else frames)
+                elif prop.startswith("/"):
+                    try:
+                        name = _property_name(prop, named)
+                    except UnsupportedValue:
+                        continue
+                    inner = frames + [(vpath + [name], sub)]
+                else:
+                    name = prop[1:] if prop.startswith(("!", "?", "_")) else prop
+                    inner = (frames + [(vpath + [name], sub)] if prop.startswith("?")
+                             else frames)
                 yield from _sites(sub, mpath + [prop], vpath + [name], inner, jm, seen)
     else:
         yield mpath, vpath, frames, {"@": model}
