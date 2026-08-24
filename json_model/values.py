@@ -37,6 +37,15 @@ _FLOAT_VIOLATIONS = {
     "<=": lambda n: n + 1.0, "<": lambda n: float(n),
     "=": lambda n: n + 1.0, "!=": lambda n: float(n),
 }
+_INT_BOUNDS = {
+    ">=": lambda n: math.ceil(n), ">": lambda n: math.floor(n) + 1,
+    "<=": lambda n: math.floor(n), "<": lambda n: math.ceil(n) - 1,
+    "=": lambda n: math.floor(n), "!=": lambda n: math.floor(n) + 1,
+}
+_INT_MIRRORS = {"!=": lambda n: math.floor(n) - 1}
+_FLOAT_BOUNDS = {
+    ">=": lambda n: float(n), "<=": lambda n: float(n), "=": lambda n: float(n),
+}
 _TYPE_VIOLATIONS = [None, True, 0, "", [], {}]
 _EXTRA_NAMES = ["zzz", "extra", "_x9"]
 _UINT_PREDEFS = {"$U32", "$U64"}
@@ -614,6 +623,62 @@ def _violations_constrained(props: ModelObject, jm: JsonModel,
     else:
         return values
 
+def _bound_value(table: dict, op: str, bound: Jsonable, props: ModelObject,
+                 base: Jsonable, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
+    """Candidate value on the last step a constraint still accepts."""
+    target, ops = props["@"], {p: c for p, c in props.items() if p != "@"}
+    is_float = isinstance(base, float)
+    if op not in table:
+        raise UnsupportedValue(f"no exact bound for constraint: {op}")
+    candidate = table[op](bound)
+    if not isinstance(candidate, float if is_float else int):
+        raise UnsupportedValue(f"no value of the target type reaches {op} {bound}")
+    elif isinstance(base, (int, float)):
+        return candidate
+    elif candidate < 0:
+        raise UnsupportedValue(f"no length reaches {op} {bound}")
+    node, njm, nseen = _resolved(target, jm, seen)
+    if isinstance(base, dict):
+        return _grown(node, base, candidate, njm, nseen)
+    else:
+        return _sized(node, base, candidate, ops.get("!") is True, njm, nseen)
+
+def _bound_candidates(op: str, bound: Jsonable, props: ModelObject, base: Jsonable,
+                      jm: JsonModel, seen: frozenset[str]):
+    """Values which may sit on a constraint bound, best first."""
+    tables = [_FLOAT_BOUNDS if isinstance(base, float) else _INT_BOUNDS]
+    if op == "!=" and not isinstance(base, float):
+        tables.append(_INT_MIRRORS)
+    for table in tables:
+        try:
+            yield _bound_value(table, op, bound, props, base, jm, seen)
+        except UnsupportedValue:
+            pass
+
+def _bounds_constrained(props: ModelObject, jm: JsonModel,
+                        seen: frozenset[str]) -> dict[str, Jsonable]:
+    """One value per constraint, each on the last step it still accepts."""
+    target = props["@"]
+    ops = {p: c for p, c in props.items() if p != "@"}
+    if any(isinstance(c, bool) or not isinstance(c, (int, float))
+           for p, c in ops.items() if p in _COMPARISONS):
+        raise UnsupportedValue(f"unsupported comparison constraint: {ops}")
+    base = simplest(target, jm, seen)
+    if isinstance(base, bool) or not isinstance(base, (int, float, str, list, dict)):
+        raise UnsupportedValue(f"unsupported constrained model: {target}")
+    elif ops.get("!") is True and not isinstance(base, list):
+        raise UnsupportedValue(f"unique constraint on a non-array: {target}")
+    values: dict[str, Jsonable] = {}
+    for op, bound in ops.items():
+        for value in _bound_candidates(op, bound, props, base, jm, seen):
+            if _verify(value, props, jm) is True:
+                values[op] = value
+                break
+    if not values:
+        raise UnsupportedValue(f"no constraint bound could be reached: {props}")
+    else:
+        return values
+
 def _mandatory(node: ModelObject) -> list[tuple[str, str]]:
     """Model key and value name of each mandatory property of an object model."""
     props = []
@@ -859,13 +924,69 @@ def violations(model: ModelType, jm: JsonModel|None = None,
     else:
         return values
 
+def bounds(model: ModelType, jm: JsonModel|None = None,
+           seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
+           url: str = "", extend: bool = False) -> dict[str, Jsonable]:
+    """Generate a value on the bound of each constraint of a model."""
+    vjm, vmodel = jm, model
+    if jm is None:
+        jm, model = _compile(model, False, resolver, url, extend)
+        vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
+    sites = list(_sites(model, [], [], [], jm, frozenset()))
+    values: dict[str, Jsonable] = {}
+    reasons: list[str] = []
+    doc = None
+    if any(f[0][0] if f else v for _, v, f, _ in sites):
+        try:
+            doc = simplest(model, jm, seen)
+        except UnsupportedValue as e:
+            reasons.append(f"no document to alter: {e}")
+    for mpath, vpath, frames, props in sites:
+        ops = set(props) - {"@"}
+        if not ops or all(_pointer(mpath + [op]) in values for op in ops):
+            continue
+        try:
+            subs = _bounds_constrained(props, jm, seen)
+        except UnsupportedValue as e:
+            reasons.append(str(e))
+            continue
+        for op, sub in subs.items():
+            key = _pointer(mpath + [op])
+            if key in values:
+                continue
+            try:
+                value = _document(sub, vpath, frames, doc, jm, seen)
+            except (UnsupportedValue, KeyError, IndexError, TypeError):
+                continue
+            if _verify(value, vmodel, vjm) is True:
+                values[key] = value
+    if not values:
+        raise UnsupportedValue(
+            f"no constraint bound: {'; '.join(reasons) or 'no constraint in model'}")
+    else:
+        return values
+
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False) -> list:
-    """Test vectors for a model, a valid value then one value per violation."""
+    """Test vectors for a model, valid values then one value per violation."""
     tests: list = []
     reasons: list[str] = []
+    taken: set[str] = set()
     try:
-        tests.append([True, simplest(model, resolver=resolver, url=url, extend=extend)])
+        valid = simplest(model, resolver=resolver, url=url, extend=extend)
+        tests.append([True, valid])
+        taken.add(json.dumps(valid, sort_keys=True))
+    except UnsupportedValue as e:
+        reasons.append(str(e))
+    try:
+        for key, value in bounds(model, resolver=resolver, url=url,
+                                 extend=extend).items():
+            dumped = json.dumps(value, sort_keys=True)
+            if dumped in taken:
+                continue
+            taken.add(dumped)
+            tests.append(f"{key} bound")
+            tests.append([True, value])
     except UnsupportedValue as e:
         reasons.append(str(e))
     try:
