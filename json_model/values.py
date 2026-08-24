@@ -788,7 +788,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
     for mpath, vpath, frames, props in sites:
-        key = _pointer(mpath)
+        key = f"{_pointer(mpath)} invalid" if mpath else ""
         if set(props) - {"@"} or key in values:
             continue
         for candidate in _TYPE_VIOLATIONS:
