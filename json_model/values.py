@@ -65,6 +65,19 @@ _PREDEFS = {
     "$JSON": "null", "$SEMVER": "0.0.0",
 }
 
+_PREDEF_VIOLATIONS = {
+    "$U32": -1, "$U64": -1,
+    "$REGEX": "[", "$EXREG": "[", "$JSONPT": "a",
+    "$DATE": "1970-13-45", "$TIME": "25:00:00", "$TIMETZ": "00:00:00",
+    "$DATETIME": "1970-01-01T25:00:00", "$DURATION": "P",
+    "$UUID": "00000000-0000-0000-0000-00000000000", "$CARD": "411111111111111",
+    "$IP4": "256.0.0.1", "$IP6": "xyz::", "$HOST": "json model.org",
+    "$ETH": "00:00:00:00:00",
+    "$URL": "https://json model.org/", "$URI": "https://json model.org/",
+    "$URL_REL": "http://[bad", "$EMAIL": "susie@@json-model.org",
+    "$JSON": "{", "$SEMVER": "0.0",
+}
+
 class UnsupportedValue(Exception):
     """No value could be generated for this model."""
     pass
@@ -869,6 +882,22 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
                 break
+    for mpath, vpath, frames, props in sites:
+        key = f"{_pointer(mpath)} bad" if mpath else "bad"
+        if set(props) - {"@"} or key in values:
+            continue
+        target = props["@"]
+        if not isinstance(target, str) or target not in _PREDEF_VIOLATIONS:
+            continue
+        try:
+            value = _document(_PREDEF_VIOLATIONS[target], vpath, frames, doc, jm, seen)
+        except (UnsupportedValue, KeyError, IndexError, TypeError):
+            continue
+        if json.dumps(value, sort_keys=True) in taken:
+            continue
+        elif _verify(value, vmodel, vjm) is False:
+            values[key] = value
+            taken.add(json.dumps(value, sort_keys=True))
     for mpath, vpath, frames, node in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
