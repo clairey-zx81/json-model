@@ -47,6 +47,7 @@ _FLOAT_BOUNDS = {
     ">=": lambda n: float(n), "<=": lambda n: float(n), "=": lambda n: float(n),
 }
 _TYPE_VIOLATIONS = [None, True, 0, "", [], {}]
+_ROOT_TYPES = [None, True, False, -42, 3.14, "", "abc", [], [1], {}]
 _EXTRA_NAMES = ["zzz", "extra", "_x9"]
 _UINT_PREDEFS = {"$U32", "$U64"}
 _PREDEFS = {
@@ -870,8 +871,8 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
     for mpath, vpath, frames, props in sites:
-        key = f"{_pointer(mpath)} invalid" if mpath else ""
-        if set(props) - {"@"} or key in values:
+        key = f"{_pointer(mpath)} invalid"
+        if not mpath or set(props) - {"@"} or key in values:
             continue
         for candidate in _TYPE_VIOLATIONS:
             if _verify(candidate, props["@"], jm, defs) is not False:
@@ -953,6 +954,12 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
                 break
+    for candidate in _ROOT_TYPES:
+        dumped = json.dumps(candidate, sort_keys=True)
+        if dumped in taken or _verify(candidate, vmodel, vjm) is not False:
+            continue
+        values[f"{dumped} root invalid"] = copy.deepcopy(candidate)
+        taken.add(dumped)
     if not values:
         raise UnsupportedValue(f"no constraint could be violated: {'; '.join(reasons)}")
     else:
@@ -1031,7 +1038,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     try:
         for key, value in violations(model, resolver=resolver, url=url,
                                      extend=extend).items():
-            tests.append(key or "root")
+            tests.append(key)
             tests.append([False, value])
     except UnsupportedValue as e:
         reasons.append(str(e))
