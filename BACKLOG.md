@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] bench: fix standard cron runs
+- [x] bench: minor report styling
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)

@@ -97,16 +97,16 @@ if args.tools in TOOL_SHORTCUT:
 
 # tools to report details
 TOOLS: dict[str, tuple[str, str, str]] = {
-    "b": ("blaze", "blaze", "_blaze_ is Sourcemeta Blaze CLI (external reference, in C++)"),
-    "c": ("jmc-c", "c", "_c_ is JMC for C"),
-    "v": ("jmc-java-gson", "java", "_java_ is JMC for Java with GSON"),
-    "1": ("jmc-java-gson", "jv1", "_jv1_ is JMC for Java with GSON"),
-    "2": ("jmc-java-jackson", "jv2", "_jv2_ is JMC for Java with Jackson"),
-    "3": ("jmc-java-jsonp", "jv3", "_jv3_ is JMC for Java with JSONP"),
-    "s": ("jmc-js", "js", "_js_ is JMC for JavaScript"),
-    "y": ("jmc-py", "py", "_py_ is JMC for Python"),
-    "l": ("jmc-pl", "pl", "_pl_ is JMC for Perl"),
-    "q": ("jmc-sql", "sql", "_sql_ is JMC for PL/pgSQL"),
+    "b": ("blaze", "blaze", "**blaze** is Sourcemeta Blaze CLI (external reference, in C++)"),
+    "c": ("jmc-c", "c", "**c** is JMC for C"),
+    "v": ("jmc-java-gson", "java", "**java** is JMC for Java with GSON"),
+    "1": ("jmc-java-gson", "jv1", "**jv1** is JMC for Java with GSON"),
+    "2": ("jmc-java-jackson", "jv2", "**jv2** is JMC for Java with Jackson"),
+    "3": ("jmc-java-jsonp", "jv3", "**jv3** is JMC for Java with JSONP"),
+    "s": ("jmc-js", "js", "**js** is JMC for JavaScript"),
+    "y": ("jmc-py", "py", "**py** is JMC for Python"),
+    "l": ("jmc-pl", "pl", "**pl** is JMC for Perl"),
+    "q": ("jmc-sql", "sql", "**sql** is JMC for PL/pgSQL"),
 }
 
 TOOL_SUMMARY: str = "\n"
