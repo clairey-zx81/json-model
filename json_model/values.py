@@ -82,6 +82,10 @@ class UnsupportedValue(Exception):
     """No value could be generated for this model."""
     pass
 
+class NoConstraint(UnsupportedValue):
+    """The model holds no constraint to generate a bound for."""
+    pass
+
 def _simplest_scalar(model: ModelType) -> Jsonable:
     """Simplest value for a scalar type inference model."""
     match model:
@@ -890,7 +894,8 @@ def violations(model: ModelType, jm: JsonModel|None = None,
         if not isinstance(target, str) or target not in _PREDEF_VIOLATIONS:
             continue
         try:
-            value = _document(_PREDEF_VIOLATIONS[target], vpath, frames, doc, jm, seen)
+            value = _document(copy.deepcopy(_PREDEF_VIOLATIONS[target]),
+                              vpath, frames, doc, jm, seen)
         except (UnsupportedValue, KeyError, IndexError, TypeError):
             continue
         if json.dumps(value, sort_keys=True) in taken:
@@ -990,8 +995,9 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
             if _verify(value, vmodel, vjm) is True:
                 values[key] = value
     if not values:
-        raise UnsupportedValue(
-            f"no constraint bound: {'; '.join(reasons) or 'no constraint in model'}")
+        if not reasons:
+            raise NoConstraint("no constraint bound: no constraint in model")
+        raise UnsupportedValue(f"no constraint bound: {'; '.join(reasons)}")
     else:
         return values
 
@@ -1007,6 +1013,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         taken.add(json.dumps(valid, sort_keys=True))
     except UnsupportedValue as e:
         reasons.append(str(e))
+        tests.append(f"FAILED valid value: {e}")
     try:
         for key, value in bounds(model, resolver=resolver, url=url,
                                  extend=extend).items():
@@ -1016,8 +1023,11 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             taken.add(dumped)
             tests.append(f"{key} bound")
             tests.append([True, value])
+    except NoConstraint as e:
+        reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
+        tests.append(f"FAILED bound values: {e}")
     try:
         for key, value in violations(model, resolver=resolver, url=url,
                                      extend=extend).items():
@@ -1025,6 +1035,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             tests.append([False, value])
     except UnsupportedValue as e:
         reasons.append(str(e))
-    if not tests:
+        tests.append(f"FAILED invalid values: {e}")
+    if not any(isinstance(t, list) for t in tests):
         raise UnsupportedValue(f"no test vector: {'; '.join(reasons)}")
     return tests
