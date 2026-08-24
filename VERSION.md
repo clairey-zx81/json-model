@@ -1,5 +1,42 @@
 # JSON Model Compiler Versions
 
+## 2.0.58 on 2026-08-24
+
+- pr: improve bench script
+- pr: test push post on github.io
+- pr: switch cristalina to post after release
+- bench: fix report nl before per-case performance table
+- pr: ensure accuracy of version on about page
+- irep: cleanup bool variable set but not used
+- irep: move mif2if earlier, rework IR optimizations
+- ci: tweak fetch depth to help docs version computation
+- tests: add c/clean.c targets
+- static: and list checks should always be likely
+- tests: add missing java and pl language tests
+- docker: install missing `Algorithm::LUHN` for perl JSB
+- pr: better bench and about generated pages
+- tests: ~allow to skip some tests with make, depending on available runtimes~
+- tests: provide convenient targets for all tasks
+- tests: display number of assertions checked
+- front: add argument groups
+- front: handle yaml values as well as json
+- tests: add test markers for C, Java, JS, TS, Python, Perl, IR, PL/pgSQL, Schemas
+- tests: allow to skip some tests by category (`not some-mark`)
+- front: shorten jmc pod synopsis
+- pr: configure explicit docsify base path
+- pr: switch to docsify@5
+- pr: improve some pages
+- bench: improve standard report to match available data
+- pl-backend: send perf to stderr as others
+- pr: add typescript prettyprint
+- irep: do not generate empty loops
+- python: do not generate empty loops
+- bench: fix number of iterations for python and perl under cap
+- bench: run and report with java GSON only
+- bench: ~run and report with perl?~ not interesting for now (x 200.0)
+- tests: ~split some directories?~ no, use per-model
+- tests: run values per model instead of per-dir
+
 ## 2.0.57 on 2026-08-18
 
 - bench: improve reporting text

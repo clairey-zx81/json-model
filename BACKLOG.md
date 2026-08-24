@@ -2,46 +2,12 @@
 
 ## Current Tasks
 
-- [x] pr: improve bench script
-- [x] pr: test push post on github.io
-- [x] pr: switch cristalina to post after release
-- [x] bench: fix report nl before per-case performance table
-- [x] pr: ensure accuracy of version on about page
-- [x] irep: cleanup bool variable set but not used
-- [x] irep: move mif2if earlier, rework IR optimizations
-- [x] ci: tweak fetch depth to help docs version computation
-- [x] tests: add c/clean.c targets
-- [x] static: and list checks should always be likely
-- [x] tests: add missing java and pl language tests
-- [x] docker: install missing `Algorithm::LUHN` for perl JSB
-- [x] pr: better bench and about generated pages
-- [x] tests: ~allow to skip some tests with make, depending on available runtimes~
-- [x] tests: provide convenient targets for all tasks
-- [x] tests: display number of assertions checked
-- [x] front: add argument groups
-- [x] front: handle yaml values as well as json
-- [x] tests: add test markers for C, Java, JS, TS, Python, Perl, IR, PL/pgSQL, Schemas
-- [x] tests: allow to skip some tests by category (`not some-mark`)
-- [x] front: shorten jmc pod synopsis
-- [x] pr: configure explicit docsify base path
-- [x] pr: switch to docsify@5
-- [x] pr: improve some pages
-- [x] bench: improve standard report to match available data
-- [x] pl-backend: send perf to stderr as others
-- [x] pr: add typescript prettyprint
-- [x] irep: do not generate empty loops
-- [x] python: do not generate empty loops
-- [x] bench: fix number of iterations for python and perl under cap
-- [x] bench: run and report with java GSON only
-- [x] bench: ~run and report with perl?~ not interesting for now (x 200.0)
-- [x] tests: ~split some directories?~ no, use per-model
-- [x] tests: run values per model instead of per-dir
-- [ ] tests: run dyn per model instead of per-dir
-- [ ] tests: run language per model instead of per-dir
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
+- [ ] tests: run dyn per model instead of per-dir
+- [ ] tests: run language per model instead of per-dir
 - [ ] static: use combined type test and value extraction when available?
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
