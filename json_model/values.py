@@ -83,8 +83,8 @@ class UnsupportedValue(Exception):
     """No value could be generated for this model."""
     pass
 
-class NoConstraint(UnsupportedValue):
-    """The model holds no constraint to generate a bound for."""
+class Vacuous(UnsupportedValue):
+    """The model is inherently empty or holds no constraint."""
     pass
 
 def _simplest_scalar(model: ModelType) -> Jsonable:
@@ -170,7 +170,7 @@ def _simplest_predef(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
         value = _PREDEFS[model]
         return copy.copy(value) if isinstance(value, (dict, list)) else value
     elif model == "$NONE":
-        raise UnsupportedValue("no value exists for model: $NONE")
+        raise Vacuous("no value exists for model: $NONE")
     elif model in MODEL_PREDEFS:
         raise UnsupportedValue(f"unsupported predefined model: {model}")
     else:
@@ -551,7 +551,7 @@ def _compile(model: ModelType, optimize: bool = True, resolver: Resolver|None = 
         nodes = sorted(jm._models.values(), key=lambda m: m._id)
         for node in nodes:
             if not analyze.valid(node, extend=extend):
-                raise UnsupportedValue(f"invalid model {node._url}:{node._id}")
+                raise UnsupportedValue(f"unsupported model {node._url}:{node._id}")
         if optimize:
             for node in nodes:
                 optim.optimize(node)
@@ -561,7 +561,11 @@ def _compile(model: ModelType, optimize: bool = True, resolver: Resolver|None = 
             for node in nodes:
                 optim.optimize(node)
     except (ModelError, AssertionError, KeyError) as e:
-        raise UnsupportedValue(f"invalid model: {e}")
+        msg = str(e)
+        if msg:
+            raise UnsupportedValue(f"unsupported model: {msg}")
+        else:
+            raise UnsupportedValue("unsupported model")
     return jm, jm._model
 
 def simplest(model: ModelType, jm: JsonModel|None = None,
@@ -836,7 +840,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
         vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
     if not sites:
-        raise UnsupportedValue(f"no constraint in model: {model}")
+        raise Vacuous(f"no constraint in model: {model}")
     defs = _defs(jm)
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
@@ -865,7 +869,10 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                     rest, rdefs = model, _without(defs, mpath[1:] + [op])
                 else:
                     rest, rdefs = _without(model, mpath + [op]), defs
-            except (UnsupportedValue, KeyError, IndexError, TypeError):
+            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+
+                reasons.append(str(e))
+
                 continue
             if _verify(value, vmodel, vjm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
@@ -879,7 +886,10 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(copy.deepcopy(candidate), vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError):
+            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+
+                reasons.append(str(e))
+
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 break
@@ -897,7 +907,10 @@ def violations(model: ModelType, jm: JsonModel|None = None,
         try:
             value = _document(copy.deepcopy(_PREDEF_VIOLATIONS[target]),
                               vpath, frames, doc, jm, seen)
-        except (UnsupportedValue, KeyError, IndexError, TypeError):
+        except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+
+            reasons.append(str(e))
+
             continue
         if json.dumps(value, sort_keys=True) in taken:
             continue
@@ -920,7 +933,10 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError):
+            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+
+                reasons.append(str(e))
+
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 continue
@@ -946,7 +962,10 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError):
+            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+
+                reasons.append(str(e))
+
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 break
@@ -961,7 +980,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
         values[f"{dumped} root invalid"] = copy.deepcopy(candidate)
         taken.add(dumped)
     if not values:
-        raise UnsupportedValue(f"no constraint could be violated: {'; '.join(reasons)}")
+        raise UnsupportedValue(f"no constraint could be violated: {'; '.join(dict.fromkeys(reasons))}")
     else:
         return values
 
@@ -997,14 +1016,17 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError):
+            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+
+                reasons.append(str(e))
+
                 continue
             if _verify(value, vmodel, vjm) is True:
                 values[key] = value
     if not values:
         if not reasons:
-            raise NoConstraint("no constraint bound: no constraint in model")
-        raise UnsupportedValue(f"no constraint bound: {'; '.join(reasons)}")
+            raise Vacuous("no constraint bound: no constraint in model")
+        raise UnsupportedValue(f"no constraint bound: {'; '.join(dict.fromkeys(reasons))}")
     else:
         return values
 
@@ -1018,6 +1040,8 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         valid = simplest(model, resolver=resolver, url=url, extend=extend)
         tests.append([True, valid])
         taken.add(json.dumps(valid, sort_keys=True))
+    except Vacuous as e:
+        reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
         tests.append(f"FAILED valid value: {e}")
@@ -1030,7 +1054,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             taken.add(dumped)
             tests.append(f"{key} bound")
             tests.append([True, value])
-    except NoConstraint as e:
+    except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
@@ -1040,9 +1064,11 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
                                      extend=extend).items():
             tests.append(key)
             tests.append([False, value])
+    except Vacuous as e:
+        reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
         tests.append(f"FAILED invalid values: {e}")
     if not any(isinstance(t, list) for t in tests):
-        raise UnsupportedValue(f"no test vector: {'; '.join(reasons)}")
+        raise UnsupportedValue(f"no test vector: {'; '.join(dict.fromkeys(reasons))}")
     return tests
