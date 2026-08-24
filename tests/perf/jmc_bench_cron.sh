@@ -2,8 +2,16 @@
 #
 # run performance script from cron
 #
+# Environment overrides:
+#
+# - JMC: docker tag for jmc image (main)
+# - JMC_BENCH: docker tag for jmc-bench image  (main)
+# - PARA: bench parallelism (12)
+# - LOOP: bench iterations (1000)
+# - RUNS: number of runs (11)
+#
 
-# take scripts from jmc source?
+# running script is a copy
 PERF=$HOME/dev/json-model/tests/perf
 WORK=$HOME/dev/cron-json-model
 TARGET=$HOME/perf
@@ -19,17 +27,17 @@ function err()
 function usage()
 {
   cat <<EOF
-Usage: $0 [ -c -f -p -i id ]
+Usage: $0 [ -c -f -p -i id ] [ -- benchmark options... ]
   -h: this help
-  -c: check for new versions and run if any (yes)
-  -f: force run (no)
-  -p: publish to git repos (yes)
-  -i id: use existing benchmark id (auto)
+  -c/-nc: check for new versions and run if any (yes)
+  -f/-nf: force run (no)
+  -p/-np: publish to git repos (yes)
+  -i id/-ni: use existing benchmark id (auto)
 EOF
 }
 
 # option management
-check=1 force= publish=1
+check=1 run= publish= no_publish=
 
 while [[ $1 == -* ]] ; do
   opt=$1
@@ -38,12 +46,13 @@ while [[ $1 == -* ]] ; do
     --help|-h) usage ; exit 0 ;;
     --check|-c) check=1 ;;
     --no-check|-nc) check= ;;
-    --force|-f) force=1 ;;
-    --no-force|-nf) force= ;;
-    --publish|-p) publish=1 ;;
-    --no-publish|-np) publish= ;;
+    --force|-f) run=1 ;;
+    --no-force|-nf) run= ;;
+    --publish|-p) publish=1 no_publish= ;;
+    --no-publish|-np) no_publish=1 ;;
     --id|-i) bench_id=$1 ; shift ;;
     --id=*) bench_id=${opt#*=} ;;
+    --no-id|-ni) bench_id= ;;
     --) break ;;
     -*) usage ; err 1 "unexpected option: $opt" ;;
   esac
@@ -73,15 +82,18 @@ if [ "$check" ] ; then
 
   VERSION=$TARGET/.bench_version
 
-  # TODO also check jmc-bench image?
-  SBC=ghcr.io/sourcemeta/jsonschema:latest
-  JMC=docker.io/zx80/jmc:latest
+  SBC_IMG=ghcr.io/sourcemeta/jsonschema:latest
+  JMC_IMG=docker.io/zx80/jmc:latest
+  BENCH_IMG=docker.io/zx80/jmc-bench-docker:latest
 
-  docker pull $SBC || err 6 "cannot docker pull: $SBC"
-  docker pull $JMC || err 6 "cannot docker pull: $JMC"
+  docker pull $SBC_IMG || err 6 "cannot docker pull: $SBC_IMG"
+  docker pull $JMC_IMG || err 6 "cannot docker pull: $JMC_IMG"
+  docker pull $BENCH_IMG || err 6 "cannot docker pull: $JMC_BENCH_IMG"
 
-  docker run --rm --name sbc_version_$$ $SBC --version > $VERSION.sbc.tmp || err 7 "error getting version: $SBC"
-  docker run --rm --name jmc_version_$$ --entrypoint jsu-compile $JMC --version > $VERSION.jmc.tmp || err 7 "error getting version: $JMC"
+  docker run --rm --name sbc_version_$$ $SBC_IMG --version > $VERSION.sbc.tmp || err 7 "error getting version: $SBC"
+  docker run --rm --name jmc_version_$$ --entrypoint jsu-compile $JMC_IMG --version > $VERSION.jmc.tmp || err 7 "error getting version: $JMC"
+  # bench docker version?
+  # jsb git version?
 
   # run if versions differ
   for tool in sbc jmc ; do
@@ -92,17 +104,17 @@ fi
 #
 # run bench if required
 #
-if [ "$run" -o "$force" ] ; then
-  # setup standard run
+if [ "$run" ] ; then
 
-  export JMC=main
+  # setup standard run
+  export JMC=${JMC:-main}
   export JMC_OPTS="--single-line-regex --cc=clang --precompiled --short-version"
-  # defaults are the next with 2 exceptions
+  # defaults are the next one with 2 exceptions
   # export JSU_OPTS="--id --fix --no-strict"
   # export JSU_OPTS="--id --no-fix --no-strict"
   # export JSU_OPTS="--no-id --no-fix --no-strict"
-  export JSB_DIR="$HOME/perf/jsb_dir"
-  export POD_PULL=0
+  export JSB_DIR="$TARGET/jsb_dir"
+  export POD_PULL=0  # do not pull images again!
   export JMC_BENCH=${JMC_BENCH:-main}
 
   if [ ! "$bench_id" ] ; then
@@ -118,7 +130,7 @@ if [ "$run" -o "$force" ] ; then
     echo "using bench_id: $bench_id"
   fi
 
-  PARA=12 LOOP=1000 RUNS=11
+  PARA=${PARA:-12} LOOP=${LOOP:-1000} RUNS=${RUNS:-11}
 
   $PERF/calcutta.sh on
   $PERF/start_bench.sh $JMC_BENCH $bench_id -p $PARA -l $LOOP -r $RUNS -L -c "$@"
@@ -138,6 +150,9 @@ if [ "$run" -o "$force" ] ; then
     cp $VERSION.jmc.tmp $VERSION.jmc
     rm -f $VERSION.sbc.tmp $VERSION.jmc.tmp
   fi
+
+  # switch publish unless disabled
+  [ "$no_publish" ] || publish=1
 fi
 
 #
@@ -154,9 +169,9 @@ if [ "$publish" ] ; then
   git pull || err 11 "cannot git pull"
   git submodule update || err 11 "cannot git submodule update"
 
-  cp $TARGET/$bench_id/$bench_id.{json,md} $WORK/site/benchmarks/
+  cp $TARGET/$bench_id/$bench_id.{json,md} $WORK/site/benchmarks/ || err 11 "cannot cp artifact files"
   git add site/benchmarks/$bench_id.* || err 11 "cannot git add artifacts"
 
-  git commit -m "add artifact $bench_id from cron job" || err 11 "cannot git commit artifacts"
+  git commit -m "add artifact $bench_id from cron job" || err 11 "cannot git commit artifact"
   git push || err 11 "cannot git push"
 fi
