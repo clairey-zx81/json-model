@@ -7,6 +7,7 @@ import subprocess
 import logging
 import filelock
 import pytest
+from functools import reduce
 
 from json_model.script import model_from_url, model_checker_from_url
 from json_model.resolver import Resolver
@@ -302,22 +303,24 @@ DIR_WITH_EXTENSIONS: set[str] = { "mv-29" }
 #
 # LOCAL FIXTURES
 #
-@pytest.fixture(
-    # all test directories
-    params=[
-        "./ref",
-        "./mv-00", "./mv-01", "./mv-02", "./mv-03", "./mv-04", "./mv-05", "./mv-06", "./mv-07",
-        "./mv-08", "./mv-09", "./mv-0a", "./mv-0b", "./mv-0c", "./mv-0d", "./mv-0e", "./mv-0f",
-        "./mv-10", "./mv-11", "./mv-12", "./mv-13", "./mv-14", "./mv-15", "./mv-16", "./mv-17",
-        "./mv-18", "./mv-19", "./mv-1a", "./mv-1b", "./mv-1c", "./mv-1d", "./mv-1e", "./mv-1f",
-        "./mv-20", "./mv-21", "./mv-22", "./mv-23", "./mv-24", "./mv-25", "./mv-26", "./mv-27",
-        "./mv-28", "./mv-29", "./mv-2a", "./mv-2b", "./mv-2c", "./mv-2d", "./mv-2e", "./mv-2f",
-        "./mv-30", "./mv-31", "./mv-32", "./mv-33", "./mv-34", "./mv-35", "./mv-36",
-    ]
-)
-def directory(request):
-    return pathlib.Path(request.param)
+# test sub directories
+MODEL_DIRS: list[pathlib.Path] = [ pathlib.Path("./ref") ] + sorted(pathlib.Path(".").glob("mv-*"))
 
+MODEL_FILES: list[pathlib.Path] = reduce(
+    lambda l1, l2: l1 + l2,
+    (sorted(d.glob("*.model.json")) for d in MODEL_DIRS),
+    []
+)
+
+MODEL_NAMES: list[str] = [ str(p)[:-11] for p in MODEL_FILES ]
+
+@pytest.fixture(params=MODEL_DIRS)
+def directory(request):
+    return request.param
+
+@pytest.fixture(params=MODEL_NAMES)
+def model_name(request):
+    return request.param
 
 @pytest.fixture(scope="session")
 def tmp_dir():
@@ -587,85 +590,86 @@ def check_errors(directory: pathlib.Path, model: str, key: str, observed: set[in
         f"{directory}/{model}.values.json [{key}]: " \
         f"missing={sorted(missing)} extra={sorted(extra)}"
 
-def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
-                 generate: typing.Callable[[str], str], opts: str = ""):
-    """Generic value testing."""
-    ntests, nvalues = 0, 0
+def check_values(
+            tname: str,    # test model, eg "./mv-00/foo"
+            name: str,     # test name, eg "sta-c"
+            suffix: str,   # source suffix, eg ".c"
+            refsuff: str,  # result suffix, eg ".c.check"
+            generate: typing.Callable[[str], str],
+            opts: str = ""
+        ):
+    """Generic value testing for one model."""
 
-    # try all sources
-    for fpath in sorted(directory.glob(f"*{suffix}")):
-        out = ""
-        fname = f"./{fpath}"
+    nvalues = 0
+    out = ""
 
-        # skip *.model.js
-        if fname.endswith(".model.js"):
-            continue
-        fexec = generate(fname)
-        log.debug(f"{name}[{directory}]: {fname} ({fexec})")
-        ntests += 1
+    fname = f"{tname}{suffix}"
+    fexec = generate(fname)
+    log.debug(f"{name}: {fname} ({fexec})")
 
-        # run on all validations
-        bname = fname.replace(suffix, "").split("/", -1)[-1]
+    bname = tname.split("/", -2)[-1]
+    dname = tname.split("/", -2)[-2]
 
-        # true/false value files
-        values = list(directory.glob(f"{bname}.*.true.json")) + \
-                 list(directory.glob(f"{bname}.*.false.json"))
-        vfiles = " ".join(sorted(str(f) for f in values))
+    directory = pathlib.Path(dname)
 
-        if values:
+    # run on all validations
+    # true/false value files
+    values = list(directory.glob(f"{bname}.*.true.json")) + \
+             list(directory.glob(f"{bname}.*.false.json"))
+    vfiles = " ".join(sorted(str(f) for f in values))
 
-            for line in os.popen(f"{fexec} {opts} --no-report {vfiles}"):
-                nvalues += 1
-                assert re.search(r"(\.true\.json(\[\d+])?: PASS|\.false\.json(\[\d+])?: FAIL)$", line) is not None, \
-                    f"result as expected: {line}"
+    if values:
 
-            with os.popen(f"{fexec} {opts} {vfiles} | cut -d/ -f2-") as p:
-                out = p.read()
+        for line in os.popen(f"{fexec} {opts} --no-report {vfiles}"):
+            nvalues += 1
+            assert re.search(r"(\.true\.json(\[\d+])?: PASS|\.false\.json(\[\d+])?: FAIL)$", line) is not None, \
+                f"result as expected: {line}"
 
-        # values file
-        vfile = directory.joinpath(bname + ".values.json")
+        with os.popen(f"{fexec} {opts} {vfiles} | cut -d/ -f2-") as p:
+            out = p.read()
 
-        if vfile.exists():
+    # values file
+    vfile = directory.joinpath(bname + ".values.json")
 
-            ref_file = fname.replace(suffix, refsuff)
-            with open(ref_file) as r:
-                ref = r.read()
+    if vfile.exists():
 
-            if ref.strip() == "skipped":
-                # just count and proceed to the next
-                with open(vfile) as vf:
-                    values = json.load(vf)
-                nvalues += len(list(filter(lambda t: isinstance(t, list), values)))
-                continue
+        ref_file = fname.replace(suffix, refsuff)
+        with open(ref_file) as r:
+            ref = r.read()
 
-            with os.popen(f"{fexec} {opts} -t {vfile} | cut -d/ -f2-") as p:
-                result = p.read()
-            out += result
+        if ref.strip() == "skipped":
+            # just count and proceed to the next
+            with open(vfile) as vf:
+                values = json.load(vf)
+            nvalues += len(list(filter(lambda t: isinstance(t, list), values)))
+            return
 
-            lang = suffix[1:]
-            observed: set[int] = set()
+        with os.popen(f"{fexec} {opts} -t {vfile} | cut -d/ -f2-") as p:
+            result = p.read()
+        out += result
 
-            for line in result.split("\n")[:-1]:
-                nvalues += 1
-                m = re.search(r"\.values\.json\[(\d+)\]: (\w+)", line)
-                assert m is not None, f"unexpected output in {directory}/{bname}:{line}"
+        lang = suffix[1:]
+        observed: set[int] = set()
 
-                idx, verdict = int(m.group(1)), m.group(2)
-                if verdict == "ERROR":
-                    observed.add(idx)
+        for line in result.split("\n")[:-1]:
+            nvalues += 1
+            m = re.search(r"\.values\.json\[(\d+)\]: (\w+)", line)
+            assert m is not None, f"unexpected output in {directory}/{bname}:{line}"
 
-            assert result, f"no output from {fexec} on {vfile}"
-            check_errors(directory, bname, lang, observed)
-            assert out == ref
-        # cleanup
-        if suffix.endswith(".c"):
-            os.remove(fexec)
+            idx, verdict = int(m.group(1)), m.group(2)
+            if verdict == "ERROR":
+                observed.add(idx)
 
-    assert ntests == EXPECT.get(f"{directory}:models", 0)
-    assert nvalues == EXPECT.get(f"{directory}:values", 0)
+        assert result, f"no output from {fexec} on {vfile}"
+        check_errors(directory, bname, lang, observed)
+        assert out == ref
+
+    # cleanup
+    if suffix.endswith(".c"):
+        os.remove(fexec)
 
 @pytest.mark.c
-def test_sta_c(directory, clibjm):
+def test_sta_c(model_name, clibjm):
     """Check generated C code with test value files."""
 
     # compilation settings
@@ -683,37 +687,37 @@ def test_sta_c(directory, clibjm):
         assert status == 0, f"{fname} compilation success"
         return fexec
 
-    check_values(directory, "sta-c", ".c", ".c.check", gen_exec, "-r")
+    check_values(model_name, "sta-c", ".c", ".c.check", gen_exec, "-r")
 
 @pytest.mark.py
-def test_sta_py(directory):
+def test_sta_py(model_name):
     """Check generated Python scripts with test value files."""
-    check_values(directory, "sta-py", ".py", ".py.check", lambda f: f, "-r")
+    check_values(model_name, "sta-py", ".py", ".py.check", lambda f: f, "-r")
 
 @pytest.mark.js
 @pytest.mark.skipif(not has_exec("node"), reason="missing node")
-def test_sta_js(directory):
+def test_sta_js(model_name):
     """Check generated JS scripts with test value files."""
-    check_values(directory, "sta-js", ".js", ".js.check", lambda f: f, "-r")
+    check_values(model_name, "sta-js", ".js", ".js.check", lambda f: f, "-r")
 
 @pytest.mark.sql
 @pytest.mark.skipif(not has_exec("psql"), reason="missing psql")
-def test_sta_sql(directory):
+def test_sta_sql(model_name):
     """Check generated SQL scripts with test value files."""
-    check_values(directory, "sta-sql", ".sql", ".sql.check",
+    check_values(model_name, "sta-sql", ".sql", ".sql.check",
                  lambda f: f"./test_sql.sh {f}")
 
 @pytest.mark.pl
 @pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
-def test_sta_pl(directory):
+def test_sta_pl(model_name):
     """Check generated Perl scripts with test value files."""
-    check_values(directory, "sta-pl", ".pl", ".pl.check", lambda f: f, "-r")
+    check_values(model_name, "sta-pl", ".pl", ".pl.check", lambda f: f, "-r")
 
 @pytest.mark.java
 @pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
-def test_sta_java(directory, tmp_dir):
+def test_sta_java(model_name, tmp_dir):
     """Check generated Java programs with test value files."""
-    check_values(directory, "sta-java", ".java", ".java.check",
+    check_values(model_name, "sta-java", ".java", ".java.check",
                  lambda f: f"./test_java.sh {f}", "-r")
 
 #

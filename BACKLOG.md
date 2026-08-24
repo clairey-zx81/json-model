@@ -34,11 +34,14 @@
 - [x] bench: fix number of iterations for python and perl under cap
 - [x] bench: run and report with java GSON only
 - [x] bench: ~run and report with perl?~ not interesting for now (x 200.0)
+- [x] tests: ~split some directories?~ no, use per-model
+- [x] tests: run values per model instead of per-dir
+- [ ] tests: run dyn per model instead of per-dir
+- [ ] tests: run language per model instead of per-dir
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
-- [ ] tests: split some directories?
 - [ ] static: use combined type test and value extraction when available?
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
