@@ -240,6 +240,9 @@ tasks=""
 # standard comparison: include both blaze and jmc
 [[ $TASK =~ b && $TASK =~ [cv123syl] ]] && show_opts+=" --standard"
 
+# tell report about tools to include
+show_opts+=" --tools=$TASK"
+
 # default is to try with all java json libs
 export JMC_JAVA_LIBS=""
 [[ $TASK =~ [v1] ]] && JMC_JAVA_LIBS=" GSON"

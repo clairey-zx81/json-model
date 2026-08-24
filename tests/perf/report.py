@@ -86,9 +86,10 @@ dobetter = args.performance != "best"
 #
 
 TOOL_SHORTCUT: dict[str, str] = {
-    ".": "bcs123y",   # usual report
-    "*": "bcs123yl",  # everything
-    "/": "bcsvyl",    # every once
+    ".": "bc123sy",   # old report
+    "%": "bcvsy",     # new report
+    "*": "bc123syl",  # everything
+    "/": "bcvsyl",    # every once
 }
 
 if args.tools in TOOL_SHORTCUT:
