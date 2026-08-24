@@ -688,6 +688,10 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
         if len(items) > 1:
             for n, (i, item) in enumerate(items):
                 yield from _sites(item, mpath + [i], vpath + [n], frames, jm, seen)
+        elif items:
+            i, item = items[0]
+            yield from _sites(item, mpath + [i], vpath + [0],
+                              frames + [(vpath, {"@": model, ">=": 1})], jm, seen)
     elif isinstance(model, dict):
         props = {p: m for p, m in model.items() if not p.startswith("#")}
         others = set(props) - {"@"}
