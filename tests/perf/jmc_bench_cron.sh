@@ -103,8 +103,7 @@ if [ "$run" -o "$force" ] ; then
   # export JSU_OPTS="--no-id --no-fix --no-strict"
   export JSB_DIR="$HOME/perf/jsb_dir"
   export POD_PULL=0
-
-  jmc_bench=main
+  export JMC_BENCH=${JMC_BENCH:-main}
 
   if [ ! "$bench_id" ] ; then
     # generate unique bench id
@@ -122,7 +121,7 @@ if [ "$run" -o "$force" ] ; then
   PARA=12 LOOP=1000 RUNS=11
 
   $PERF/calcutta.sh on
-  $PERF/start_bench.sh $jmc_bench $bench_id -p $PARA -l $LOOP -r $RUNS -L -c "$@"
+  $PERF/start_bench.sh $JMC_BENCH $bench_id -p $PARA -l $LOOP -r $RUNS -L -c "$@"
   $PERF/calcutta.sh off
 
   # test generated directory

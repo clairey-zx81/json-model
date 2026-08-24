@@ -51,9 +51,11 @@ EOF
 # script directory
 script_dir=$(dirname $0)
 
+DEFAULT_TASK="bcvsy"
+
 # defaults
-PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK="bcvsy"
-cap=1 debug= show_opts="--standard --performance=blaze --no-best" load= content= run_opts=
+PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK=$DEFAULT_TASK
+cap=1 debug= show_opts= load= content= run_opts=
 export JMC=latest JSC=latest JMC_ENV=$JMC_ENV
 
 # get options
@@ -122,9 +124,6 @@ done
 [ $PARA -ge 1 ] || err 1 "unexpected parallel value, must be >= 1: $PARA"
 [ $LOOP -ge 1 ] || err 1 "unexpected loop value, must be >= 1: $LOOP"
 [ $RUNS -ge 1 ] || err 1 "unexpected runs value, must be >= 1: $RUNS"
-
-# non standard run
-[ "$TASK" != "bcvsyl" ] && show_opts=
 
 echo "# $$ benchmarking pod=$POD parallel=$PARA loop=$LOOP runs=$RUNS jmc=$JMC jsc=$JSC env=<$JMC_ENV> task=$TASK"
 
@@ -233,10 +232,13 @@ done
 tasks=""
 [[ $TASK =~ l ]] && tasks+=" jmc-pl"
 [[ $TASK =~ y ]] && tasks+=" jmc-py"
-[[ $TASK =~ [v123] ]] && tasks+=" jmc-java"
 [[ $TASK =~ s ]] && tasks+=" jmc-js"
-[[ $TASK =~ b ]] && tasks+=" blaze"
+[[ $TASK =~ [v123] ]] && tasks+=" jmc-java"
+[[ $TASK =~ b ]] && tasks+=" blaze" show_opts+=" --performance=blaze --no-best"
 [[ $TASK =~ c ]] && tasks+=" jmc-c"
+
+# standard comparison: include both blaze and jmc
+[[ $TASK =~ b && $TASK =~ [cv123syl] ]] && show_opts+=" --standard"
 
 # default is to try with all java json libs
 export JMC_JAVA_LIBS=""
