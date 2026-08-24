@@ -403,7 +403,9 @@ _CHECKERS: dict[str, EntryCheckFun|None] = {}
 
 def _defs(jm: JsonModel) -> ModelObject:
     """Definitions of a model, by name."""
-    return {name: node._model for name, node in jm._defs._syms.items()}
+    base = jm._url.split("#")[0]
+    return {name: ("$" + node._url if node._url.split("#")[0] != base else node._model)
+            for name, node in jm._defs._syms.items()}
 
 def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
             defs: ModelObject|None = None) -> bool|None:
@@ -411,13 +413,14 @@ def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
     try:
         if defs is None:
             defs = _defs(jm)
-        key = json.dumps({"$": defs, "@": model}, sort_keys=True)
+        key = json.dumps([jm._url, {"$": defs, "@": model}], sort_keys=True)
     except (TypeError, ValueError):
         return None
     if key not in _CHECKERS:
         from .script import model_checker_from_json
         try:
-            _CHECKERS[key] = model_checker_from_json(json.loads(key))
+            _CHECKERS[key] = model_checker_from_json(json.loads(key)[1],
+                                                     resolver=jm._resolver)
         except Exception:
             _CHECKERS[key] = None
     check = _CHECKERS[key]
@@ -732,17 +735,17 @@ def violations(model: ModelType, jm: JsonModel|None = None,
             reasons.append(str(e))
             continue
         for op, sub in subs.items():
-            try:
-                value = _document(sub, vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError):
-                continue
             key = _pointer(mpath + [op])
             if key in values:
                 continue
-            elif mpath and mpath[0] == "$":
-                rest, rdefs = model, _without(defs, mpath[1:] + [op])
-            else:
-                rest, rdefs = _without(model, mpath + [op]), defs
+            try:
+                value = _document(sub, vpath, frames, doc, jm, seen)
+                if mpath and mpath[0] == "$":
+                    rest, rdefs = model, _without(defs, mpath[1:] + [op])
+                else:
+                    rest, rdefs = _without(model, mpath + [op]), defs
+            except (UnsupportedValue, KeyError, IndexError, TypeError):
+                continue
             if _verify(value, vmodel, vjm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
