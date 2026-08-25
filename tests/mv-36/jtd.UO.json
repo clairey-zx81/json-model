@@ -1,0 +1,491 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "Metadata": {
+        "": "$ANY",
+        "#": "JsonModel 2"
+      },
+      "Shared": {
+        "?metadata": "$Metadata",
+        "?nullable": true,
+        "#": "JsonModel 3"
+      },
+      "names": {
+        "": "$Schema",
+        "#": "JsonModel 4"
+      },
+      "Definitions": "$names",
+      "Type": {
+        "type": {
+          "|": [
+            "_boolean",
+            "_float32",
+            "_float64",
+            "_int8",
+            "_uint8",
+            "_int16",
+            "_uint16",
+            "_int32",
+            "_uint32",
+            "_string",
+            "_timestamp"
+          ]
+        },
+        "#": "JsonModel 6"
+      },
+      "Ref": {
+        "ref": "",
+        "#": "JsonModel 7"
+      },
+      "Enum": {
+        "enum": {
+          "@": [
+            ""
+          ],
+          "!": true,
+          ">=": 1
+        },
+        "#": "JsonModel 8"
+      },
+      "Elements": {
+        "elements": "$Schema",
+        "#": "JsonModel 9"
+      },
+      "Properties": {
+        "|": [
+          {
+            "properties": "$names",
+            "?optionalProperties": "$names",
+            "?additionalProperties": true
+          },
+          {
+            "?properties": "$names",
+            "optionalProperties": "$names",
+            "?additionalProperties": true
+          }
+        ],
+        "#": "JsonModel 10"
+      },
+      "Values": {
+        "values": "$Schema",
+        "#": "JsonModel 11"
+      },
+      "Discriminator": {
+        "discriminator": "",
+        "mapping": {
+          "": "$Properties"
+        },
+        "#": "JsonModel 12"
+      },
+      "Empty": {
+        "#": "JsonModel 13"
+      },
+      "Schema": {
+        "|": [
+          {
+            "type": {
+              "|": [
+                "_boolean",
+                "_float32",
+                "_float64",
+                "_int8",
+                "_uint8",
+                "_int16",
+                "_uint16",
+                "_int32",
+                "_uint32",
+                "_string",
+                "_timestamp"
+              ]
+            },
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "ref": "",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "enum": {
+              "@": [
+                ""
+              ],
+              "!": true,
+              ">=": 1
+            },
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "elements": "$Schema",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "properties": "$names",
+            "?metadata": "$Metadata",
+            "?nullable": true,
+            "?optionalProperties": "$names",
+            "?additionalProperties": true
+          },
+          {
+            "optionalProperties": "$names",
+            "?metadata": "$Metadata",
+            "?nullable": true,
+            "?properties": "$names",
+            "?additionalProperties": true
+          },
+          {
+            "values": "$Schema",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "discriminator": "",
+            "mapping": {
+              "": "$Properties"
+            },
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "?metadata": "$Metadata",
+            "?nullable": true
+          }
+        ],
+        "#": "JsonModel 14"
+      },
+      "RootSchema": {
+        "|": [
+          {
+            "type": {
+              "|": [
+                "_boolean",
+                "_float32",
+                "_float64",
+                "_int8",
+                "_uint8",
+                "_int16",
+                "_uint16",
+                "_int32",
+                "_uint32",
+                "_string",
+                "_timestamp"
+              ]
+            },
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "ref": "",
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "enum": {
+              "@": [
+                ""
+              ],
+              "!": true,
+              ">=": 1
+            },
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "elements": "$Schema",
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "properties": "$names",
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true,
+            "?optionalProperties": "$names",
+            "?additionalProperties": true
+          },
+          {
+            "optionalProperties": "$names",
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true,
+            "?properties": "$names",
+            "?additionalProperties": true
+          },
+          {
+            "values": "$Schema",
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "discriminator": "",
+            "mapping": {
+              "": "$Properties"
+            },
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          },
+          {
+            "?definitions": "$Definitions",
+            "?metadata": "$Metadata",
+            "?nullable": true
+          }
+        ],
+        "#": "JsonModel 15"
+      },
+      "#": "Symbol 1",
+      "": "https://json-model.org/models/json-type-definition"
+    },
+    "@": "$RootSchema",
+    "~": "https://json-model.org/models/json-model"
+  },
+  {
+    "": "$ANY",
+    "#": "JsonModel 2"
+  },
+  {
+    "?metadata": "$Metadata",
+    "?nullable": true,
+    "#": "JsonModel 3"
+  },
+  {
+    "": "$Schema",
+    "#": "JsonModel 4"
+  },
+  "$names",
+  {
+    "type": {
+      "|": [
+        "_boolean",
+        "_float32",
+        "_float64",
+        "_int8",
+        "_uint8",
+        "_int16",
+        "_uint16",
+        "_int32",
+        "_uint32",
+        "_string",
+        "_timestamp"
+      ]
+    },
+    "#": "JsonModel 6"
+  },
+  {
+    "ref": "",
+    "#": "JsonModel 7"
+  },
+  {
+    "enum": {
+      "@": [
+        ""
+      ],
+      "!": true,
+      ">=": 1
+    },
+    "#": "JsonModel 8"
+  },
+  {
+    "elements": "$Schema",
+    "#": "JsonModel 9"
+  },
+  {
+    "|": [
+      {
+        "properties": "$names",
+        "?optionalProperties": "$names",
+        "?additionalProperties": true
+      },
+      {
+        "?properties": "$names",
+        "optionalProperties": "$names",
+        "?additionalProperties": true
+      }
+    ],
+    "#": "JsonModel 10"
+  },
+  {
+    "values": "$Schema",
+    "#": "JsonModel 11"
+  },
+  {
+    "discriminator": "",
+    "mapping": {
+      "": "$Properties"
+    },
+    "#": "JsonModel 12"
+  },
+  {
+    "#": "JsonModel 13"
+  },
+  {
+    "|": [
+      {
+        "type": {
+          "|": [
+            "_boolean",
+            "_float32",
+            "_float64",
+            "_int8",
+            "_uint8",
+            "_int16",
+            "_uint16",
+            "_int32",
+            "_uint32",
+            "_string",
+            "_timestamp"
+          ]
+        },
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "ref": "",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "enum": {
+          "@": [
+            ""
+          ],
+          "!": true,
+          ">=": 1
+        },
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "elements": "$Schema",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "properties": "$names",
+        "?metadata": "$Metadata",
+        "?nullable": true,
+        "?optionalProperties": "$names",
+        "?additionalProperties": true
+      },
+      {
+        "optionalProperties": "$names",
+        "?metadata": "$Metadata",
+        "?nullable": true,
+        "?properties": "$names",
+        "?additionalProperties": true
+      },
+      {
+        "values": "$Schema",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "discriminator": "",
+        "mapping": {
+          "": "$Properties"
+        },
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "?metadata": "$Metadata",
+        "?nullable": true
+      }
+    ],
+    "#": "JsonModel 14"
+  },
+  {
+    "|": [
+      {
+        "type": {
+          "|": [
+            "_boolean",
+            "_float32",
+            "_float64",
+            "_int8",
+            "_uint8",
+            "_int16",
+            "_uint16",
+            "_int32",
+            "_uint32",
+            "_string",
+            "_timestamp"
+          ]
+        },
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "ref": "",
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "enum": {
+          "@": [
+            ""
+          ],
+          "!": true,
+          ">=": 1
+        },
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "elements": "$Schema",
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "properties": "$names",
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true,
+        "?optionalProperties": "$names",
+        "?additionalProperties": true
+      },
+      {
+        "optionalProperties": "$names",
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true,
+        "?properties": "$names",
+        "?additionalProperties": true
+      },
+      {
+        "values": "$Schema",
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "discriminator": "",
+        "mapping": {
+          "": "$Properties"
+        },
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      },
+      {
+        "?definitions": "$Definitions",
+        "?metadata": "$Metadata",
+        "?nullable": true
+      }
+    ],
+    "#": "JsonModel 15"
+  }
+]

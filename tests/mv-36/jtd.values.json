@@ -1,0 +1,23 @@
+[
+  [ true,  {} ],
+  [ true,  {"type": "uint32"} ],
+  [ true,  {"type": "string", "nullable": true, "metadata": {}} ],
+  [ true,  {"definitions": { "a": {} }, "ref": "a"} ],
+  [ true,  {"enum": [ "Susie", "Calvin", "Hobbes" ]} ],
+  [ true,  {"values": {"type": "timestamp"}} ],
+  [ true,  {"properties": {}} ],
+  [ true,  {"optionalProperties": {}} ],
+  [ true,  {"properties": {"a": {}}, "additionalProperties": true} ],
+  [ true,  {"discriminator": "t", "mapping": {"a": {"properties": {"a": {}}}, "b": {"properties": {"b": {}}}}} ],
+  [ true,  {"elements": {}} ],
+  [ false, {"un": "expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

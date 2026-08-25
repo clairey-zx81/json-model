@@ -1,0 +1,48 @@
+{
+  "#": "JSON Model for JSON Type Definition Language (RFC8927)",
+  "#.url": "https://datatracker.ietf.org/doc/rfc8927/",
+  "#.n1": "this is similar to a usual type (struct/union) declaration",
+  "#.n2": "the language is not self hosted",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-type-definition",
+    "Metadata": { "": "$ANY" },
+    "Shared": {
+       "?metadata": "$Metadata",
+       "?nullable": true
+    },
+    "names": { "": "$Schema" },
+    "Definitions": "$names",
+    "Type": {
+      "type": { "|": ["boolean", "float32", "float64", "int8", "uint8", "int16", "uint16", "int32", "uint32", "string", "timestamp"] }
+    },
+    "Ref": { "ref": "" },
+    "Enum": { "enum": { "@": [ "" ] , "!": true, ">": 0 } },
+    "Elements": { "elements": "$Schema" },
+    "Properties": {
+      "|": [
+        { "properties": "$names", "?optionalProperties": "$names", "?additionalProperties": true },
+        { "?properties": "$names", "optionalProperties": "$names", "?additionalProperties": true }
+      ]
+    },
+    "Values": { "values": "$Schema" },
+    "Discriminator": {
+      "discriminator": "",
+      "mapping": { "": "$Properties" }
+    },
+    "Empty": {},
+    "Schema": {
+      "+": [
+        "$Shared",
+        { "|": [ "$Type", "$Ref", "$Enum", "$Elements", "$Properties", "$Values", "$Discriminator", "$Empty" ] }
+      ]
+    },
+    "RootSchema": {
+      "+": [
+        { "?definitions": "$Definitions" },
+        "$Schema"
+      ]
+    }
+  },
+  "@": "$RootSchema"
+}
