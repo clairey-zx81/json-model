@@ -901,10 +901,10 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         try:
             tests = vectors(model._init_md, resolver=model._resolver, url=model._url,
                             extend=args.extend)
-            comment = f"generated from {args.model}"
+            comment = f"# generated from {args.model}"
         except UnsupportedValue as e:
             log.warning(f"{args.model}: {e}")
-            tests, comment = [], f"generated from {args.model}: {e}"
+            tests, comment = [], f"# generated from {args.model}: {e}"
         print(list2str([comment] + tests), file=output)
     elif args.op == "C":
         assert args.format in LANG, f"valid output language {args.format}"
