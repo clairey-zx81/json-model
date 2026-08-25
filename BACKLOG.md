@@ -10,52 +10,51 @@
 - [x] pr: improve JSTS test results alignment between all backends (minor diffs remain)
 - [x] optim: regex list of words to enum
 - [x] optim: remove props which match the default
+- [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] pr: add _known limitations_ stuff
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
 - [ ] static: use combined type test and value extraction when available?
-- [ ] c-backend: factor out str extraction in or-list in more cases
-- [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] static: recursive multi-discriminator hierarchisation? See UI5.
 - [ ] static: factor out common checks on `&` with shared constraints?
 - [ ] static: check for common object part?
 - [ ] front: generate valid minimal, maximal and random values from a model
 - [ ] front: generate invalid minimal values from a model
 - [ ] optim: simplify some '!=' cases
+- [ ] optim: collect and display stats about what works
 - [ ] spec: allow to _remove_ definitions, eg `{ "$stuff": {"/": "$foo"}}`
+- [ ] spec: restrict regex syntax to a smaller subset
 - [ ] perf: add another loop over performance collection?
 - [ ] perf: drop and/or merge identical results when comparing
-- [ ] backend: check `mv-34/mu` test case which may require some normalization
+- [ ] backend: check `mv-34/mu` test case which may require some utf normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
-- [ ] perf: add stddev performance computation
-- [ ] perf: improve resilience to bad overhead estimation
-- [ ] perf: collect JSON parse times for comparison with validation times
-- [ ] perf: check median hack for run times
+- [ ] bench: add stddev performance computation
+- [ ] bench: improve resilience to bad overhead estimation
+- [ ] bench: collect JSON parse times for comparison with validation times
 - [ ] pr: better document optimizations, eg add compiler optimization page
-- [ ] optim: collect and display stats about what works
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
+- [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
 - [ ] c-backend: use str cmp for ends with optimization as well
 - [ ] c-backend: improve partitioned cset prettyprinting
 - [ ] c-backend: use str set partitioning
 - [ ] c-backend: simplify parameters for accelerated functions
-- [ ] c-runtime: use own hash instead of qsort/bsearch stuff?
-- [ ] static: could sorted property name comparison be used for some scans??
 - [ ] c-backend: fast str comparison could take advantage of known strlen??
 - [ ] c-backend: property name length for jansson is stored at `(str_ptr - sizeof(size_t))`
 - [ ] c-backend: use knowledge of Jansson hash to improve property lookup??
 - [ ] c-backend: generate custom character class ascii tables?
 - [ ] c-backend: custom char classes: `[:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
 - [ ] c-backend: handle small char classes?
+- [ ] c-runtime: use own hash instead of qsort/bsearch stuff?
+- [ ] static: could sorted property name comparison be used for some scans??
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
 - [ ] predefs: improve `$URI` and `$URL`
-- [ ] spec: restrict regex syntax to a smaller subset
 - [ ] predefs: add `$SIMPLE_REGEX` for regex syntax subset?
 - [ ] docker: enable user remap
 - [ ] export: java classes
@@ -91,11 +90,6 @@
 - [ ] c-backend: more typed cset optimizations?
 - [ ] static: partial discriminator with else?
 - [ ] static: optimize not string cst test?
-- [ ] tests: add ir optimized output (too large?)
-- [ ] tests: drop language outputs for IR only?!
-- [ ] tests: add pytest ir tests
-- [ ] tests: add generated ir model check
-- [ ] tests: check generated IR with IR model
 - [ ] static: close may/must? merge with open?
 - [ ] static: add a dynamic test for different strategies in object checking
 - [ ] backend: refactor ir optimizations
@@ -112,21 +106,16 @@
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
-- [ ] design: review `$URI` and other predefs
 - [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
 - [ ] design: add predefs for `$UUIDx`…
 - [ ] predefs: implement `$I32 $I64 $U32 $U64`
-- [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] tests: some pydantic exports? imports?
-- [ ] pr: submit jsonschema-benchmark java PR
 - [ ] frontends: reject json with duplicated props
 - [ ] c-backend: header file for generated code?
 - [ ] backend: implement str comparison using some fast hash in some cases?
 - [ ] command: allow to pass some options from rc file?
-- [ ] tests: parallelize per-case instead of per-dir?
 - [ ] static: shorten xor exit?
-- [ ] c-backend: use vector instructions for larger strcmp?
 - [ ] export: sqlalchemy?
 - [ ] predefs: add country codes, eg `$COUNTRY $COUNTRY2 $COUNTRY3 $COUNTRYN`
 - [ ] spec: be precise about predefs standard references, eg `$DATE` and co.
