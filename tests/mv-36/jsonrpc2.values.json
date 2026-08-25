@@ -1,67 +1,58 @@
 [
   [ true,  
-  {
-    "jsonrpc":"2.0",
-    "method":"Simple request call",
-    "id":1
-  }
- ],
- [ true,  
-  {
-    "jsonrpc":"2.0",
-    "method":"Simple request call with params",
-    "params": [1, 2],
-    "id":1
-  }
- ],
+    {
+      "jsonrpc":"2.0",
+      "method":"Simple request call",
+      "id":1
+    }
+  ],
   [ true,  
     {
-    "jsonrpc":"2.0","method":"Request call with array params","params":[1,"2",null,false]
-  } 
+      "jsonrpc":"2.0",
+      "method":"Simple request call with params",
+      "params": [1, 2],
+      "id":1
+    }
   ],
-[ true,  
-  {
-    "jsonrpc":"2.0","method":"Request call with object params","params":{ "first": 1, "second": null, "third": true, "last": "okej"}
-  } 
-],
-[ true,  
-  [
+  [ true,  
     {
-    "jsonrpc":"2.0","method":"Request batch call","params":[1,"2",null,false]
-  },
-  {
-    "jsonrpc":"2.0","method":"add","params":[1,"2",null,false]
-  },
-  {
-    "jsonrpc":"2.0","method":"update","params":[1,"2",null,false]
-  }
-] 
-],
-  [ true,  
-  {"jsonrpc":"2.0","result":19,"id":1} 
+      "jsonrpc":"2.0","method":"Request call with array params","params":[1,"2",null,false]
+    } 
   ],
   [ true,  
-    {"jsonrpc":"2.0","result":null,"id":1} 
+    {
+      "jsonrpc":"2.0","method":"Request call with object params","params":{ "first": 1, "second": null, "third": true, "last": "okej"}
+    } 
   ],
-  [ true,  
-    {"jsonrpc":"2.0","result":false,"id":1} 
+  [ true, [
+      {
+        "jsonrpc":"2.0","method":"Request batch call","params":[1,"2",null,false]
+      },
+      {
+        "jsonrpc":"2.0","method":"add","params":[1,"2",null,false]
+      },
+      {
+        "jsonrpc":"2.0","method":"update","params":[1,"2",null,false]
+      }
+    ] 
   ],
-  [ true,  
-    {"jsonrpc":"2.0","result":"works","id":1} 
-  ],
-  [ true,  
-    {"jsonrpc":"2.0","result":[1, "ok", null, true],"id":1} 
-  ],
-  [ true,  
-    {"jsonrpc":"2.0","result":{"first": 1, "second": null, "third": true, "last": "okej"},"id":1} 
-  ],
+  [ true,  {"jsonrpc":"2.0","result":19,"id":1} ],
+  [ true,  {"jsonrpc":"2.0","result":null,"id":1} ],
+  [ true,  {"jsonrpc":"2.0","result":false,"id":1} ],
+  [ true,  {"jsonrpc":"2.0","result":"works","id":1} ],
+  [ true,  {"jsonrpc":"2.0","result":[1, "ok", null, true],"id":1} ],
+  [ true,  {"jsonrpc":"2.0","result":{"first": 1, "second": null, "third": true, "last": "okej"},"id":1} ],
   [
     true,
-    {"jsonrpc": "2.0", "error": {
+    {
+      "jsonrpc": "2.0",
+      "error": {
         "code": 1,
         "message": "Message",
         "data": "primitive"
-    }, "id": 1}
+      },
+      "id": 1
+    }
   ],
   [
     true,
@@ -71,8 +62,7 @@
         "data": {"value": true}
     }, "id": 1}
   ],
-    [
-    true,
+  [ true,
     {"jsonrpc": "2.0", "error": {
         "code": -1,
         "message": "Message"
@@ -83,8 +73,8 @@
   [
     false,
     {
-	"jsonrpc": "2.0", "error": { "code": -2.3, "message": "Message", "data": {"value": true} },
-	"id": 1
+      "jsonrpc": "2.0", "error": { "code": -2.3, "message": "Message", "data": {"value": true} },
+      "id": 1
     }
   ],
   [

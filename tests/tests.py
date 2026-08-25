@@ -262,7 +262,7 @@ EXPECT: dict[str, int] = {
     "mv-35:verrors:schema": 1,
     # mv-36
     "mv-36:models": 5,
-    "mv-36:values": 89,
+    "mv-36:values": 90,
     "mv-36:verrors:schema": 1,
     # miscellaneous tests
     "bads:models": 58,
@@ -304,19 +304,21 @@ DIR_WITH_EXTENSIONS: set[str] = { "mv-29" }
 # LOCAL FIXTURES
 #
 # test sub directories
-MODEL_DIRS: list[pathlib.Path] = [ pathlib.Path("./ref") ] + sorted(pathlib.Path(".").glob("mv-*"))
+MODEL_DIRS_PATH: list[pathlib.Path] = [ pathlib.Path("./ref") ] + sorted(pathlib.Path(".").glob("mv-*"))
 
-MODEL_FILES: list[pathlib.Path] = reduce(
+MODEL_DIRS: list[str] = [ str(d) for d in MODEL_DIRS_PATH ]
+
+MODEL_FILES_PATH: list[pathlib.Path] = reduce(
     lambda l1, l2: l1 + l2,
-    (sorted(d.glob("*.model.json")) for d in MODEL_DIRS),
+    (sorted(d.glob("*.model.json")) for d in MODEL_DIRS_PATH),
     []
 )
 
-MODEL_NAMES: list[str] = [ str(p)[:-11] for p in MODEL_FILES ]
+MODEL_NAMES: list[str] = [ str(p)[:-11] for p in MODEL_FILES_PATH ]
 
 @pytest.fixture(params=MODEL_DIRS)
 def directory(request):
-    return request.param
+    return pathlib.Path(request.param)
 
 @pytest.fixture(params=MODEL_NAMES)
 def model_name(request):
