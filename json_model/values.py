@@ -87,6 +87,17 @@ class Vacuous(UnsupportedValue):
     """The model is inherently empty or holds no constraint."""
     pass
 
+def _brief(model: ModelType, size: int = 60) -> str:
+    """Short readable rendering of a model, for failure messages."""
+    text = repr(model)
+    return text if len(text) <= size else text[:size] + "..."
+
+def _joined(reasons: list[str], limit: int = 8) -> str:
+    """Distinct failure reasons, capped for readability."""
+    kept = list(dict.fromkeys(reasons))
+    text = "; ".join(kept[:limit])
+    return text if len(kept) <= limit else f"{text}; and {len(kept) - limit} more"
+
 def _simplest_scalar(model: ModelType) -> Jsonable:
     """Simplest value for a scalar type inference model."""
     match model:
@@ -698,7 +709,7 @@ def _bounds_constrained(props: ModelObject, jm: JsonModel,
                 break
     if not values:
         raise UnsupportedValue(
-            f"no bound reached for {', '.join(ops)} in model: {target}")
+            f"no bound reached for {', '.join(ops)} in model: {_brief(target)}")
     else:
         return values
 
@@ -755,7 +766,12 @@ def _without(model: ModelType, path: list) -> ModelType:
     result = copy.deepcopy(model)
     node = result
     for step in path[:-1]:
+        if not isinstance(node, (dict, list)):
+            break
         node = node[step]
+    if not isinstance(node, (dict, list)):
+        raise UnsupportedValue(
+            f"cannot remove {_pointer(path)} from an imported definition")
     del node[path[-1]]
     return result
 
@@ -843,8 +859,8 @@ def violations(model: ModelType, jm: JsonModel|None = None,
     defs = _defs(jm)
     if not sites:
         if all(_verify(v, model, jm, defs) is True for v in _TYPE_VIOLATIONS):
-            raise Vacuous(f"every value matches the model: {model}")
-        raise UnsupportedValue(f"cannot enter model: {model}")
+            raise Vacuous(f"every value matches the model: {_brief(model)}")
+        raise UnsupportedValue(f"cannot enter model: {_brief(model)}")
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
     doc = None
@@ -903,7 +919,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 taken.add(json.dumps(value, sort_keys=True))
                 break
         else:
-            reasons.append(f"{key}: no type violates {props['@']}")
+            reasons.append(f"{key}: no type violates {_brief(props['@'])}")
     for mpath, vpath, frames, props in sites:
         key = f"{_pointer(mpath)} bad" if mpath else "bad"
         if set(props) - {"@"} or key in values:
@@ -998,8 +1014,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
     if not values:
         if not reasons:
             reasons.append("no violation site could be used")
-        raise UnsupportedValue(
-            f"no constraint could be violated: {'; '.join(dict.fromkeys(reasons))}")
+        raise UnsupportedValue(f"no constraint could be violated: {_joined(reasons)}")
     else:
         return values
 
@@ -1013,7 +1028,7 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
         vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
     if not sites and not all(_verify(v, model, jm) is True for v in _TYPE_VIOLATIONS):
-        raise UnsupportedValue(f"cannot enter model: {model}")
+        raise UnsupportedValue(f"cannot enter model: {_brief(model)}")
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
     doc = None
@@ -1047,7 +1062,7 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
     if not values:
         if not reasons:
             raise Vacuous("no constraint bound: no constraint in model")
-        raise UnsupportedValue(f"no constraint bound: {'; '.join(dict.fromkeys(reasons))}")
+        raise UnsupportedValue(f"no constraint bound: {_joined(reasons)}")
     else:
         return values
 
@@ -1091,5 +1106,5 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         reasons.append(str(e))
         tests.append(f"FAILED invalid values: {e}")
     if not any(isinstance(t, list) for t in tests):
-        raise UnsupportedValue(f"no test vector: {'; '.join(dict.fromkeys(reasons))}")
+        raise UnsupportedValue(f"no test vector: {_joined(reasons)}")
     return tests
