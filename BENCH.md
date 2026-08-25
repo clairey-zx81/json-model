@@ -113,24 +113,28 @@ the following caveats, and others:
 [JSON Schema Benchmark](https://github.com/sourcemeta-research/jsonschema-benchmark)
 also provides
 [benchmark artifacts](https://github.com/sourcemeta-research/jsonschema-benchmark/actions)
-which includes 16 JSON Schema validation tools including our compiler with
+which includes 15 JSON Schema validation tools including our compiler with
 C, JS and Python backends, using the `jsu-compile` command only.
 
 It should be noted that benchmarking conditions are quite different compared to our own:
 
-1. There is no loop to compute an average performance, but an initial _cold_ one-shot measure,
-   a warming phase loop (up to 1000 rounds, kept under 10 seconds) and a _hot_ one-shot measure:
-   This may tend to mask effects from occasional GC runs.
-2. Performance data are collected on all tests taken together: this is less favorable to cache
-   effects, and makes it impossible to investigate individual test figures.
-3. The benchmark focuses on schema conformance, including (buggy) schemas which
-   are mostly dead code: It rejects tools which do not validate all strictly conformant
-   values, even if these values would be rejected by the target application.
-   The model used are strictly converted from schemas, native models are not used
-   even if available and schemas are not fixed for typical errors (eg misplaced keywords).
-4. The benchmark _removes_ format assertions before testing schemas.
+1. The benchmark focusses on comparing JSON Schema implementations,
+   whereas we focus on comparing JSON validators:
+   For JSU/JMC, native models are ignored and only models converted from schemas are used.
+2. Format assertions are removed before testing schemas, whereas we include them.
+3. Three schemas (`krakend`, `stale` and `yamllint`) have been
+   [edited](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/ad109eb210c0939bd8393da28d8212f75c1c2d92),
+   as a work around corner cases issues with `$ref` under version 7 and prior,
+   thus do not conform to the initial official schemas:
+   These schemas perform very few checks on the JSON test values, making it less significant.
+4. Data collection is quite different:
+   - There is no loop to compute an average performance, but an initial _cold_ one-shot measure,
+     a warming phase loop (up to 1000 rounds, kept under 10 seconds) and a _hot_ one-shot measure:
+     This may tend to mask effects from occasional GC runs.
+   - All tests for one schema are measured together: this reduces measure overheads,
+     is less favorable to cache effects, and makes it impossible to investigate
+     individual test figures.
+5. Performance runs uses multiple dockers through github actions:
+   Runners assigned to the job are not always homogeneous, resulting in significant variations
+   from one run to the next.
 
-Notably, three schemas (`krakend`, `stale` and `yamllint`) in the test suites have been
-[edited](https://github.com/sourcemeta-research/jsonschema-benchmark/commit/ad109eb210c0939bd8393da28d8212f75c1c2d92),
-as a work around corner cases issues with `$ref` under version 7 and prior,
-thus do not conform to the initial official schemas.
