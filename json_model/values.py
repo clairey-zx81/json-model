@@ -729,6 +729,28 @@ def _optional(node: ModelObject, prop: str, name: str) -> ModelObject:
     """Copy of an object model with one mandatory property made optional."""
     return {("?" + name if p == prop else p): m for p, m in node.items()}
 
+def _optional_props(node: ModelObject, jm: JsonModel,
+                    seen: frozenset[str]) -> list[tuple[str, str, ModelType]]:
+    """Model key, value name and model of each optional property."""
+    named = {p[1:] if p.startswith(("!", "?", "_")) else p
+             for p in node if p and not p.startswith(("/", "$", "#"))}
+    props: list[tuple[str, str, ModelType]] = []
+    for prop, sub in node.items():
+        if prop.startswith("#"):
+            continue
+        elif prop.startswith("?"):
+            props.append((prop, prop[1:], sub))
+        elif prop == "" or prop.startswith("/"):
+            props.extend((prop, name, sub) for name in _names(prop, 1, named, jm))
+        elif prop.startswith("$"):
+            try:
+                name = simplest(prop, jm, seen)
+            except UnsupportedValue:
+                continue
+            if isinstance(name, str) and name not in named:
+                props.append((prop, name, sub))
+    return props
+
 def _opened(node: ModelObject) -> ModelObject:
     """Copy of an object model which also accepts any other property."""
     return {**node, "": "$ANY"}
@@ -750,6 +772,16 @@ def _object_sites(sites: list):
         if (not set(props) - {"@"} and isinstance(node, dict)
                 and not set(node) & (_OPERATORS | _ROOT_KEYS)):
             yield mpath, vpath, frames, node
+
+def _alternatives(sites: list):
+    """Sites which target a union model."""
+    for mpath, vpath, frames, props in sites:
+        node = props["@"]
+        if set(props) - {"@"} or not isinstance(node, dict):
+            continue
+        keys = {p for p in node if not p.startswith("#")}
+        if keys in ({"|"}, {"^"}):
+            yield mpath, vpath, frames, node, next(iter(keys))
 
 def _jqpath(path: list) -> str:
     """jq path expression for a path of object keys and array indexes."""
@@ -859,6 +891,37 @@ def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
         raise UnsupportedValue("no document to alter")
     else:
         return _replaced(doc, path, value)
+
+def _at(doc: Jsonable, path: list) -> Jsonable:
+    """Value held at a path in a document, None when there is none."""
+    node = doc
+    for step in path:
+        if isinstance(node, dict) and step in node:
+            node = node[step]
+        elif isinstance(node, list) and isinstance(step, int) and 0 <= step < len(node):
+            node = node[step]
+        else:
+            return None
+    return node
+
+def _validated(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
+               model: ModelType, jm: JsonModel, seen: frozenset[str],
+               taken: set[str]) -> list[Jsonable]:
+    """Valid whole document holding a value at one position, empty if there is none."""
+    here = _at(doc, vpath)
+    candidates = [sub]
+    if isinstance(sub, dict) and isinstance(here, dict) and {**here, **sub} != sub:
+        candidates.append({**here, **sub})
+    for candidate in candidates:
+        value = _document(candidate, vpath, frames, doc, jm, seen)
+        wholes = [value]
+        if isinstance(value, dict) and isinstance(doc, dict) and {**doc, **value} != value:
+            wholes.append({**doc, **value})
+        for whole in wholes:
+            if (json.dumps(whole, sort_keys=True) in taken
+                    or _verify(whole, model, jm) is True):
+                return [whole]
+    return []
 
 def violations(model: ModelType, jm: JsonModel|None = None,
                seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
@@ -1079,6 +1142,104 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
     else:
         return values
 
+def optionals(model: ModelType, jm: JsonModel|None = None,
+              seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
+              url: str = "", extend: bool = False) -> tuple[dict[str, Jsonable], list[str]]:
+    """Generate a valid value per optional property, and why the others were skipped."""
+    if jm is None:
+        jm, model = _compile(model, True, resolver, url, extend)
+    sites = list(_sites(model, [], [], [], jm, frozenset()))
+    values: dict[str, Jsonable] = {}
+    reasons: list[str] = []
+    doc = None
+    try:
+        doc = simplest(model, jm, seen)
+    except Vacuous:
+        raise
+    except UnsupportedValue as e:
+        reasons.append(f"no document to alter: {e}")
+    taken = set() if doc is None else {json.dumps(doc, sort_keys=True)}
+    for mpath, vpath, frames, node in _object_sites(sites):
+        props = _optional_props(node, jm, seen)
+        if not props:
+            continue
+        try:
+            built = simplest(node, jm, seen)
+        except UnsupportedValue as e:
+            reasons.append(f"{_jqpath(mpath)}: no object to extend: {e}")
+            continue
+        if not isinstance(built, dict):
+            continue
+        for prop, name, submodel in props:
+            key = f"{_jqpath(mpath + [prop])} present"
+            if key in values or name in built:
+                continue
+            try:
+                sub = {**built, name: simplest(submodel, jm, seen)}
+                found = _validated(sub, vpath, frames, doc, model, jm, seen, taken)
+            except Vacuous:
+                continue
+            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+                reasons.append(f"{key}: {e}")
+                continue
+            if not found:
+                reasons.append(f"{key}: adding {name} is not valid")
+                continue
+            value = found[0]
+            dumped = json.dumps(value, sort_keys=True)
+            if dumped in taken:
+                continue
+            values[key] = value
+            taken.add(dumped)
+    if not values and not reasons:
+        raise Vacuous(f"no optional property in model: {_brief(model)}")
+    return values, reasons
+
+def branches(model: ModelType, jm: JsonModel|None = None,
+             seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
+             url: str = "", extend: bool = False) -> tuple[dict[str, Jsonable], list[str]]:
+    """Generate a valid value per union alternative, and why the others were skipped."""
+    if jm is None:
+        jm, model = _compile(model, True, resolver, url, extend)
+    sites = list(_sites(model, [], [], [], jm, frozenset()))
+    values: dict[str, Jsonable] = {}
+    reasons: list[str] = []
+    doc = None
+    try:
+        doc = simplest(model, jm, seen)
+    except Vacuous:
+        raise
+    except UnsupportedValue as e:
+        reasons.append(f"no document to alter: {e}")
+    taken = set() if doc is None else {json.dumps(doc, sort_keys=True)}
+    for mpath, vpath, frames, node, op in _alternatives(sites):
+        for index, alt in enumerate(node[op]):
+            if isinstance(alt, str) and alt.startswith("#"):
+                continue
+            key = f"{_jqpath(mpath + [op, index])} branch"
+            if key in values:
+                continue
+            try:
+                sub = simplest(alt, jm, seen)
+                found = _validated(sub, vpath, frames, doc, model, jm, seen, taken)
+            except Vacuous:
+                continue
+            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+                reasons.append(f"{key}: {e}")
+                continue
+            if not found:
+                reasons.append(f"{key}: the alternative is not valid here")
+                continue
+            value = found[0]
+            dumped = json.dumps(value, sort_keys=True)
+            if dumped in taken:
+                continue
+            values[key] = value
+            taken.add(dumped)
+    if not values and not reasons:
+        raise Vacuous(f"no union alternative in model: {_brief(model)}")
+    return values, reasons
+
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False) -> list:
     """Test vectors for a model, valid values then one value per violation."""
@@ -1093,7 +1254,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        tests.append(f"# FAILED valid value: {e}")
+        tests.append("# FAILED invalid model")
     try:
         for key, value in bounds(model, resolver=resolver, url=url,
                                  extend=extend).items():
@@ -1108,6 +1269,23 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     except UnsupportedValue as e:
         reasons.append(str(e))
         tests.append(f"# FAILED bound values: {e}")
+    for step, generate in (("optional", optionals), ("branch", branches)):
+        try:
+            found, skipped = generate(model, resolver=resolver, url=url, extend=extend)
+            for key, value in found.items():
+                dumped = json.dumps(value, sort_keys=True)
+                if dumped in taken:
+                    continue
+                taken.add(dumped)
+                tests.append(f"# {key}")
+                tests.append([True, value])
+            for reason in skipped:
+                tests.append(f"# FAILED {step} value {reason}")
+        except Vacuous as e:
+            reasons.append(str(e))
+        except UnsupportedValue as e:
+            reasons.append(str(e))
+            tests.append(f"# FAILED {step} values: {e}")
     try:
         for key, value in violations(model, resolver=resolver, url=url,
                                      extend=extend).items():
@@ -1117,7 +1295,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        tests.append(f"# FAILED invalid values: {e}")
+        tests.append("# FAILED invalid model")
     if not any(isinstance(t, list) for t in tests):
         raise UnsupportedValue(f"no test vector: {_joined(reasons)}")
     return tests
