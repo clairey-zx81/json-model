@@ -1,15 +1,14 @@
 - [Intro](/README)
 - [Tuto](/TUTO)
-- Models
+- [Models](/SPEC)
   - [Spec](/SPEC)
   - [Examples](/MODELS)
-- Docs
-  - [Overview](/DOC)
+- [Docs](/DOC)
   - [HowTo](/HOWTO)
   - [Compiler](/JMC)
   - [APIs](/API)
 - [Bench](/BENCH)
-- More
+- [More](/ABOUT)
   - [Pubs](/PUBS)
   - [Versions](/VERSION)
   - [Backlog](/BACKLOG)
