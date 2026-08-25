@@ -14,10 +14,11 @@ const size_t check_model_map_size = 1;
 static INLINE bool _jm_cst_0_str_test(const char *s)
 {
     return
-           jm_str_eq_6(s, 0x0000006f6c6c6548LL)  // "Hello"
+           jm_str_eq_4(s, 0x00626f42)  // "Bob"
         || jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
-        || jm_str_eq_6(s, 0x000000646c726f57LL)  // "World"
         || jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
+        || jm_str_eq_7(s, 0x0000736562626f48LL)  // "Hobbes"
+        || jm_str_eq_8(s, 0x006e796c61736f52LL)  // "Rosalyn"
 
     ;
 }

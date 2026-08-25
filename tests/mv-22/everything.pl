@@ -127,6 +127,7 @@ sub _jm_f_87($$$);
 sub _jm_f_88($$$);
 my %_jm_f_56_map;
 sub _jm_f_56($$$);
+my %_jm_cst_2;
 sub _jm_f_89($$$);
 sub _jm_f_90($$$);
 sub _jm_f_91($$$);
@@ -3141,12 +3142,6 @@ sub _jm_f_56($$$)
     return 1;
 }
 
-sub _jm_re_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^(Calvin|Susie)$/;
-    return $res;
-}
 
 # check json_model_1_map_string (.string)
 sub _jm_f_89($$$)
@@ -3221,11 +3216,10 @@ sub _jm_f_89($$$)
         {
             # handle may s4 property
             # .string.s4
-            # "/^(Calvin|Susie)$/"
-            $res = jm_is_string($pval) && _jm_re_0($pval, defined $path ? $lpath_18 : undef, $rep);
+            $res = jm_is_string($pval) && exists $_jm_cst_2{$pval};
             unless ($res)
             {
-                push @$rep, ["unexpected value for model \"/^(Calvin|Susie)\$/\" [.string.s4]", defined $path ? $lpath_18 : undef] if defined $rep;
+                push @$rep, ["value not in enum [.string.s4.'|']", defined $path ? $lpath_18 : undef] if defined $rep;
                 push @$rep, ["invalid optional prop value [.string.s4]", defined $path ? $lpath_18 : undef] if defined $rep;
                 return 0;
             }
@@ -3772,6 +3766,10 @@ sub check_model_init()
             "URL" => \&_jm_f_87,
             "UUID" => \&_jm_f_88,
         );
+        %_jm_cst_2 = (
+            "Calvin" => 1,
+            "Susie" => 1,
+        );
         %json_model_1_map = (
             "and" => \&_jm_f_0,
             "array" => \&_jm_f_1,
@@ -3810,6 +3808,7 @@ sub check_model_free()
         %_jm_f_30_map = ();
         %_jm_f_40_map = ();
         %_jm_f_56_map = ();
+        %_jm_cst_2 = ();
         %json_model_1_map = ();
         %check_model_map = ();
     }

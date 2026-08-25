@@ -26,15 +26,15 @@ static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_0[2];
 static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
+static INLINE bool _jm_cst_1_str_test(const char *);
 static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_constant_t _jm_cst_1[2];
-static jm_constant_t _jm_cst_2[3];
-static INLINE bool _jm_cst_3_str_test(const char *);
-static bool _jm_cst_4_test(const json_t *);
-static jm_constant_t _jm_cst_4[4];
+static jm_constant_t _jm_cst_2[2];
+static jm_constant_t _jm_cst_3[3];
+static INLINE bool _jm_cst_4_str_test(const char *);
+static bool _jm_cst_5_test(const json_t *);
+static jm_constant_t _jm_cst_5[4];
 static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -2381,10 +2381,12 @@ static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *r
     return true;
 }
 
-static INLINE bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_cst_1_str_test(const char *s)
 {
-    return jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
-        || jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
+    return
+           jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
+        || jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
+
     ;
 }
 
@@ -2458,11 +2460,10 @@ static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may s4 property
             // .string.s4
-            // "/^(Calvin|Susie)$/"
-            res = json_is_string(pval) && _jm_re_0(json_string_value(pval), (path ? &lpath_17 : NULL), rep);
+            res = json_is_string(pval) && _jm_cst_1_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
-                if (rep) jm_report_add_entry(rep, "unexpected value for model \"/^(Calvin|Susie)$/\" [.string.s4]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "value not in enum [.string.s4.'|']", (path ? &lpath_17 : NULL));
                 if (rep) jm_report_add_entry(rep, "invalid optional prop value [.string.s4]", (path ? &lpath_17 : NULL));
                 return false;
             }
@@ -2831,7 +2832,7 @@ static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *r
 
 
 
-static INLINE bool _jm_cst_3_str_test(const char *s)
+static INLINE bool _jm_cst_4_str_test(const char *s)
 {
     return
            jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
@@ -2841,11 +2842,11 @@ static INLINE bool _jm_cst_3_str_test(const char *s)
     ;
 }
 
-static INLINE bool _jm_cst_4_test(const json_t *val)
+static INLINE bool _jm_cst_5_test(const json_t *val)
 {
   jm_constant_t cst;
   jm_set_cst(&cst, val);
-  return jm_search_cst(&cst, _jm_cst_4, 4);
+  return jm_search_cst(&cst, _jm_cst_5, 4);
 }
 
 // object .enum
@@ -2866,7 +2867,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may e0 property
             // .enum.e0
-            res = jm_json_is_scalar(pval) && json_is_boolean(pval) && jm_search_cst(&(jm_constant_t) { cst_is_bool, { .b = json_boolean_value(pval) } }, _jm_cst_1, 2);
+            res = jm_json_is_scalar(pval) && json_is_boolean(pval) && jm_search_cst(&(jm_constant_t) { cst_is_bool, { .b = json_boolean_value(pval) } }, _jm_cst_2, 2);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e0.'|']", (path ? &lpath_23 : NULL));
@@ -2879,7 +2880,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may e1 property
             // .enum.e1
-            res = jm_json_is_scalar(pval) && json_is_integer(pval) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(pval) } }, _jm_cst_2, 3);
+            res = jm_json_is_scalar(pval) && json_is_integer(pval) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(pval) } }, _jm_cst_3, 3);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e1.'|']", (path ? &lpath_23 : NULL));
@@ -2892,7 +2893,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may e2 property
             // .enum.e2
-            res = json_is_string(pval) && _jm_cst_3_str_test(json_string_value(pval));
+            res = json_is_string(pval) && _jm_cst_4_str_test(json_string_value(pval));
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e2.'|']", (path ? &lpath_23 : NULL));
@@ -2905,7 +2906,7 @@ static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *r
         {
             // handle may e3 property
             // .enum.e3
-            res = jm_json_is_scalar(pval) && _jm_cst_4_test(pval);
+            res = jm_json_is_scalar(pval) && _jm_cst_5_test(pval);
             if (unlikely(! res))
             {
                 if (rep) jm_report_add_entry(rep, "value not in enum [.enum.e3.'|']", (path ? &lpath_23 : NULL));
@@ -4230,21 +4231,21 @@ const char *check_model_init(void)
         _jm_cst_0[0] = (jm_constant_t) { cst_is_bool, { .b = false } };
         _jm_cst_0[1] = (jm_constant_t) { cst_is_bool, { .b = true } };
         jm_sort_cst(_jm_cst_0, 2);
-        // initialize sorted set _jm_cst_1
-        _jm_cst_1[0] = (jm_constant_t) { cst_is_bool, { .b = true } };
-        _jm_cst_1[1] = (jm_constant_t) { cst_is_bool, { .b = false } };
-        jm_sort_cst(_jm_cst_1, 2);
         // initialize sorted set _jm_cst_2
-        _jm_cst_2[0] = (jm_constant_t) { cst_is_integer, { .i = 200 } };
-        _jm_cst_2[1] = (jm_constant_t) { cst_is_integer, { .i = 201 } };
-        _jm_cst_2[2] = (jm_constant_t) { cst_is_integer, { .i = 204 } };
-        jm_sort_cst(_jm_cst_2, 3);
-        // initialize sorted set _jm_cst_4
-        _jm_cst_4[0] = (jm_constant_t) { 6, { .s = "Susie" } };
-        _jm_cst_4[1] = (jm_constant_t) { cst_is_integer, { .i = 42 } };
-        _jm_cst_4[2] = (jm_constant_t) { cst_is_bool, { .b = true } };
-        _jm_cst_4[3] = (jm_constant_t) { cst_is_null, { .s = NULL } };
-        jm_sort_cst(_jm_cst_4, 4);
+        _jm_cst_2[0] = (jm_constant_t) { cst_is_bool, { .b = true } };
+        _jm_cst_2[1] = (jm_constant_t) { cst_is_bool, { .b = false } };
+        jm_sort_cst(_jm_cst_2, 2);
+        // initialize sorted set _jm_cst_3
+        _jm_cst_3[0] = (jm_constant_t) { cst_is_integer, { .i = 200 } };
+        _jm_cst_3[1] = (jm_constant_t) { cst_is_integer, { .i = 201 } };
+        _jm_cst_3[2] = (jm_constant_t) { cst_is_integer, { .i = 204 } };
+        jm_sort_cst(_jm_cst_3, 3);
+        // initialize sorted set _jm_cst_5
+        _jm_cst_5[0] = (jm_constant_t) { 6, { .s = "Susie" } };
+        _jm_cst_5[1] = (jm_constant_t) { cst_is_integer, { .i = 42 } };
+        _jm_cst_5[2] = (jm_constant_t) { cst_is_bool, { .b = true } };
+        _jm_cst_5[3] = (jm_constant_t) { cst_is_null, { .s = NULL } };
+        jm_sort_cst(_jm_cst_5, 4);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "a", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "b", json_model_3 };

@@ -301,8 +301,10 @@
           "const": "Calvin"
         },
         "s4": {
-          "type": "string",
-          "pattern": "^(Calvin|Susie)$"
+          "enum": [
+            "Calvin",
+            "Susie"
+          ]
         }
       },
       "additionalProperties": false

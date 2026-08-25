@@ -24,7 +24,7 @@ public class everything extends ModelChecker
     Set<Object> _jm_cst_3_set;
     Set<Object> _jm_cst_4_set;
     Map<String, Checker> _jm_f_36_map_pmap;
-    public Pattern _jm_re_0_pat = null;
+    Set<Object> _jm_cst_5_set;
     Map<String, Checker> json_model_1_map_pmap;
     public Map<String, Checker> everything_map_pmap;
     public Pattern jm_is_duration_pat = null;
@@ -3117,10 +3117,6 @@ public class everything extends ModelChecker
         return true;
     }
 
-    public boolean _jm_re_0(String val, Path path, Report rep)
-    {
-        return _jm_re_0_pat.matcher(val).find();
-    }
 
     // check json_model_1_map_string (.string)
     public boolean _jm_f_69(Object val, Path path, Report rep)
@@ -3195,11 +3191,10 @@ public class everything extends ModelChecker
             {
                 // handle may s4 property
                 // .string.s4
-                // "/^(Calvin|Susie)$/"
-                res = json.isString(pval) && _jm_re_0(json.asString(pval), (path != null ? lpath_18 : null), rep);
+                res = json.isScalar(pval) && _jm_cst_5_set.contains(pval);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected value for model \"/^(Calvin|Susie)$/\" [.string.s4]", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("value not in enum [.string.s4.'|']", (path != null ? lpath_18 : null));
                     if (rep != null) rep.addEntry("invalid optional prop value [.string.s4]", (path != null ? lpath_18 : null));
                     return false;
                 }
@@ -3727,7 +3722,9 @@ public class everything extends ModelChecker
             _jm_f_36_map_pmap.put("URI", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_66(o, p, r);} });
             _jm_f_36_map_pmap.put("URL", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_67(o, p, r);} });
             _jm_f_36_map_pmap.put("UUID", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_68(o, p, r);} });
-            _jm_re_0_pat = Pattern.compile("^(Calvin|Susie)$");
+            _jm_cst_5_set = new HashSet<Object>();
+            _jm_cst_5_set.add(json.safeJSON("\"Calvin\""));
+            _jm_cst_5_set.add(json.safeJSON("\"Susie\""));
             json_model_1_map_pmap = new HashMap<String, Checker>();
             json_model_1_map_pmap.put("and", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
             json_model_1_map_pmap.put("array", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
@@ -3778,7 +3775,7 @@ public class everything extends ModelChecker
             _jm_cst_3_set = null;
             _jm_cst_4_set = null;
             _jm_f_36_map_pmap = null;
-            _jm_re_0_pat = null;
+            _jm_cst_5_set = null;
             json_model_1_map_pmap = null;
             everything_map_pmap = null;
             jm_is_duration_pat = null;

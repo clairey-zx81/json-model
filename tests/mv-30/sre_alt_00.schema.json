@@ -1,4 +1,8 @@
 {
-  "type": "string",
-  "pattern": "^(Hello|World|Susie|Calvin)$"
+  "enum": [
+    "Calvin",
+    "Hello",
+    "Susie",
+    "World"
+  ]
 }

@@ -86,7 +86,12 @@
     "?s1": "$STRING",
     "?s2": "Susie",
     "?s3": "_Calvin",
-    "?s4": "/^(Calvin|Susie)$/"
+    "?s4": {
+      "|": [
+        "_Calvin",
+        "_Susie"
+      ]
+    }
   },
   "?array": {
     "#": "example arrays",

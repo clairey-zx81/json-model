@@ -1,1 +1,9 @@
-"/^(Hello|World|Susie|Calvin)$/"
+{
+  "|": [
+    "_Calvin",
+    "_Hello",
+    "_Susie",
+    "_World"
+  ],
+  "#": "JsonModel 1"
+}

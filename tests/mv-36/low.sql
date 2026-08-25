@@ -8,7 +8,7 @@ CREATE EXTENSION IF NOT EXISTS json_model;
 CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  constants JSONB = JSONB '["Calvin","Hello","Susie","World"]';
+  constants JSONB = JSONB '["Bob","Calvin","Hobbes","Rosalyn","Susie"]';
 BEGIN
   RETURN constants @> value;
 END;

@@ -7,6 +7,9 @@
 - [x] pr: improve bench artifact discussion
 - [x] tests: ~run dyn per-model instead of per-dir~ not needed, load balancing is ok
 - [x] tests: ~run language per-model instead of per-dir~ idem
+- [x] pr: improve JSTS test results alignment between all backends (minor diffs remain)
+- [x] optim: regex list of words to enum
+- [ ] pr: add _known limitations_ stuff
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
@@ -25,15 +28,13 @@
 - [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
-- [ ] pr: improve JSTS test results alignment between all backends (wip)
 - [ ] perf: add stddev performance computation
 - [ ] perf: improve resilience to bad overhead estimation
 - [ ] perf: collect JSON parse times for comparison with validation times
-- [ ] perf: keep only one java run?
 - [ ] perf: check median hack for run times
-- [ ] perf: show schema to model conversion times
 - [ ] pr: better document optimizations, eg add compiler optimization page
 - [ ] optim: collect and display stats about what works
+- [ ] static: improve startswith pattern recognition `/^xyz.*/`
 - [ ] c-backend: improve unique with hash using int set?
 - [ ] c-backend: improve str hash?
 - [ ] c-backend: use str cmp for ends with optimization as well
@@ -49,14 +50,11 @@
 - [ ] c-backend: custom char classes: `[:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
 - [ ] c-backend: handle small char classes?
 - [ ] optim: remove props which match the default, in some cases?
-- [ ] optim: regex list of words to enum?
-- [ ] static: improve startswith pattern recognition `/^xyz.*/`
+- [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_
 - [ ] predefs: _url_ vs _uri_ vs _iri_
 - [ ] predefs: improve `$URI` and `$URL`
-- [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
-- [ ] doc: add _known limitations_ stuff
 - [ ] spec: restrict regex syntax to a smaller subset
 - [ ] predefs: add `$SIMPLE_REGEX` for regex syntax subset?
 - [ ] docker: enable user remap

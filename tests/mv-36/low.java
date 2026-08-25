@@ -13,12 +13,12 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 @SuppressWarnings("unchecked")
-public class sre_alt_00 extends ModelChecker
+public class low extends ModelChecker
 {
     static public final String VERSION = "2";
 
     Set<Object> _jm_cst_0_set;
-    public Map<String, Checker> sre_alt_00_map_pmap;
+    public Map<String, Checker> low_map_pmap;
 
 
     // check $ (.)
@@ -40,12 +40,13 @@ public class sre_alt_00 extends ModelChecker
         {
             try {
             _jm_cst_0_set = new HashSet<Object>();
+            _jm_cst_0_set.add(json.safeJSON("\"Bob\""));
             _jm_cst_0_set.add(json.safeJSON("\"Calvin\""));
-            _jm_cst_0_set.add(json.safeJSON("\"Hello\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Hobbes\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Rosalyn\""));
             _jm_cst_0_set.add(json.safeJSON("\"Susie\""));
-            _jm_cst_0_set.add(json.safeJSON("\"World\""));
-            sre_alt_00_map_pmap = new HashMap<String, Checker>();
-            sre_alt_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            low_map_pmap = new HashMap<String, Checker>();
+            low_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -60,23 +61,23 @@ public class sre_alt_00 extends ModelChecker
         {
             super.free();
             _jm_cst_0_set = null;
-            sre_alt_00_map_pmap = null;
+            low_map_pmap = null;
         }
     }
 
     public Checker get(String name)
     {
-        return sre_alt_00_map_pmap.get(name);
+        return low_map_pmap.get(name);
     }
 
     public Set<String> models()
     {
-        return sre_alt_00_map_pmap.keySet();
+        return low_map_pmap.keySet();
     }
 
     static public void main(String[] args) throws Exception
     {
-        ModelChecker checker = new sre_alt_00();
-        Main.main("sre_alt_00", checker, VERSION, args);
+        ModelChecker checker = new low();
+        Main.main("low", checker, VERSION, args);
     }
 }

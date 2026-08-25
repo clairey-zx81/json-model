@@ -38,10 +38,11 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
+            "Bob" => 1,
             "Calvin" => 1,
-            "Hello" => 1,
+            "Hobbes" => 1,
+            "Rosalyn" => 1,
             "Susie" => 1,
-            "World" => 1,
         );
         %check_model_map = (
             "" => \&json_model_1,

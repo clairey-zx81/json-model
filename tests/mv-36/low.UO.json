@@ -1,10 +1,11 @@
 [
   {
     "|": [
+      "_Bob",
       "_Calvin",
-      "_Hello",
-      "_Susie",
-      "_World"
+      "_Hobbes",
+      "_Rosalyn",
+      "_Susie"
     ],
     "#": "JsonModel 1"
   }

@@ -43,7 +43,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_cst_0
-        _jm_cst_0 = {'Calvin', 'Hello', 'Susie', 'World'}
+        _jm_cst_0 = {'Bob', 'Calvin', 'Hobbes', 'Rosalyn', 'Susie'}
         global check_model_map
         check_model_map = {
             "": json_model_1,

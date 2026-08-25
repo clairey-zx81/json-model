@@ -133,7 +133,7 @@ everything.values.json[131]: PASS
 everything.values.json[132]: FAIL (.string.s3: unexpected value for model "_Calvin" [.string.s3]; .string.s3: invalid optional prop value [.string.s3]; .string: invalid optional prop value [.])
 everything.values.json[133]: PASS
 everything.values.json[134]: PASS
-everything.values.json[135]: FAIL (.string.s4: unexpected value for model "/^(Calvin|Susie)$/" [.string.s4]; .string.s4: invalid optional prop value [.string.s4]; .string: invalid optional prop value [.])
+everything.values.json[135]: FAIL (.string.s4: value not in enum [.string.s4.'|']; .string.s4: invalid optional prop value [.string.s4]; .string: invalid optional prop value [.])
 everything.values.json[136]: PASS
 everything.values.json[137]: PASS
 everything.values.json[138]: PASS

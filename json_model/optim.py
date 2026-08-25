@@ -886,6 +886,7 @@ _SIMPLER_RE: dict[str, str] = {
 }
 
 def _simpler_regex(regex: str) -> str:
+    # TODO under slr we can handle more cases, eg ".*$/"
     if regex == "" or regex[0] != "/":
         return regex
     elif regex in _SIMPLER_RE:
@@ -898,6 +899,8 @@ def _simpler_regex(regex: str) -> str:
         return regex[:-5] + "/"
     elif regex.endswith("(.*)/s") and not regex.endswith("\\(.*)/s"):
         return regex[:-6] + "/s"
+    elif regex.endswith("(.*)\\$/s") and not regex.endswith("\\(.*)\\$/s"):
+        return regex[:-8] + "/s"
     elif regex.endswith(".+/"):
         return regex[:-2] + "/"
     elif regex.endswith(".+/s"):
@@ -909,6 +912,11 @@ def _simpler_regex(regex: str) -> str:
     elif re.match(r"^/\[[^\]]*]\*/$", regex):  # unanchored whatever chars repeated from zero
         # FIXME improve regex?
         return ""
+    elif re.match(r"^/\^\([-a-zA-Z0-9_]*(\|[-a-zA-Z0-9_]*)*\)\$/$", regex):
+        # re to list of words
+        # FIXME is this always a good idea?
+        words = sorted(set(regex[3:-3].split("|")))
+        return { "|": [ f"_{w}" for w in words ] }
     else:
         return regex
 
@@ -927,7 +935,9 @@ def simpler_regex(jm: JsonModel) -> bool:
             for p in list(model):
                 if p and p[0] == "/":
                     pp = _simpler_regex(p)
-                    if pp != p and (pp not in model or pp in model and model[pp] == "$ANY"):
+                    if not isinstance(pp, str):
+                        pass
+                    elif pp != p and (pp not in model or pp in model and model[pp] == "$ANY"):
                         changes += 1
                         model[pp] = model[p]
                         del model[p]

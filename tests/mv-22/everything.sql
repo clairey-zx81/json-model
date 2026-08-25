@@ -2293,11 +2293,12 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^(Calvin|Susie)$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_cst_5(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  constants JSONB = JSONB '["Calvin","Susie"]';
 BEGIN
-  RETURN regexp_like(val, '^(Calvin|Susie)$', 'n');
+  RETURN constants @> value;
 END;
 $$ LANGUAGE plpgsql;
 
@@ -2350,8 +2351,7 @@ BEGIN
     ELSEIF prop = 's4' THEN
       -- handle may s4 property
       -- .string.s4
-      -- "/^(Calvin|Susie)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_0(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, NULL);
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_5(pval);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

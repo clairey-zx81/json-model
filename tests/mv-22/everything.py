@@ -26,8 +26,7 @@ _jm_cst_0: set[str]
 _jm_cst_1: set[str]
 _jm_f_31_map: PropMap
 _jm_f_47_map: PropMap
-_jm_re_0_reco: object
-_jm_re_0: RegexFun
+_jm_cst_2: set[str]
 json_model_1_map: PropMap
 check_model_map: PropMap
 jm_is_duration_reco: object
@@ -2146,10 +2145,9 @@ def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "s4":
             # handle may s4 property
             # .string.s4
-            # "/^(Calvin|Susie)$/"
-            res = isinstance(pval, str) and _jm_re_0(pval, lpath_18 if path is not None else None, rep)
+            res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_2
             if not res:
-                rep is None or rep.append(("unexpected value for model \"/^(Calvin|Susie)$/\" [.string.s4]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("value not in enum [.string.s4.'|']", lpath_18 if path is not None else None))
                 rep is None or rep.append(("invalid optional prop value [.string.s4]", lpath_18 if path is not None else None))
                 return False
             continue
@@ -2500,9 +2498,8 @@ def check_model_init():
             "URL": _jm_f_78,
             "UUID": _jm_f_79,
         }
-        global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = re.compile("^(Calvin|Susie)$")
-        _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
+        global _jm_cst_2
+        _jm_cst_2 = {'Calvin', 'Susie'}
         global json_model_1_map
         json_model_1_map = {
             "and": _jm_f_0,
@@ -2547,9 +2544,6 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = None
-        _jm_re_0 = None
         global jm_is_duration_reco, jm_is_duration
         jm_is_duration_reco = None
         jm_is_duration = None

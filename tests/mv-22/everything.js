@@ -11,11 +11,11 @@ const JSON_MODEL_VERSION = "2";
 
 var _jm_obj_0_map = new Map()
 let _jm_cst_0 = new Set()
-const _jm_re_0_re = new runtime.RX("^(Calvin|Susie)$", "")
 let _jm_cst_1 = new Set()
 let _jm_cst_2 = new Set()
 let _jm_cst_3 = new Set()
 let _jm_cst_4 = new Set()
+let _jm_cst_5 = new Set()
 var _jm_obj_30_map = new Map()
 export var check_model_map = new Map()
 const jm_is_duration_re = new runtime.RX("^P(([0-9]+D|[0-9]+M([0-9]+D)?|[0-9]+Y([0-9]+M([0-9]+D)?)?)(T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S))?|T([0-9]+H([0-9]+M([0-9]+S)?)?|[0-9]+M([0-9]+S)?|[0-9]+S)|[0-9]+W)$", "")
@@ -941,7 +941,6 @@ function _jm_obj_4(val, path, rep)
     return true
 }
 
-const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 // object .string
 function _jm_obj_5(val, path, rep)
@@ -1011,11 +1010,10 @@ function _jm_obj_5(val, path, rep)
         {
             // handle may s4 property
             // .string.s4
-            // "/^(Calvin|Susie)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_6 : null), rep)
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
             if (! res)
             {
-                rep !== null && rep.push(["unexpected value for model \"/^(Calvin|Susie)$/\" [.string.s4]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["value not in enum [.string.s4.'|']", (path ? lpath_6 : null)])
                 rep !== null && rep.push(["invalid optional prop value [.string.s4]", (path ? lpath_6 : null)])
                 return false
             }
@@ -1681,7 +1679,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may e0 property
             // .enum.e0
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_1.has(pval)
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e0.'|']", (path ? lpath_17 : null)])
@@ -1694,7 +1692,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may e1 property
             // .enum.e1
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_2.has(pval)
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_3.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e1.'|']", (path ? lpath_17 : null)])
@@ -1707,7 +1705,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may e2 property
             // .enum.e2
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_3.has(pval)
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e2.'|']", (path ? lpath_17 : null)])
@@ -1720,7 +1718,7 @@ function _jm_obj_15(val, path, rep)
         {
             // handle may e3 property
             // .enum.e3
-            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_4.has(pval)
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_5.has(pval)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.enum.e3.'|']", (path ? lpath_17 : null)])
@@ -3534,18 +3532,20 @@ export function check_model_init()
         _jm_obj_0_map.set("UUID", _jm_f_31)
         _jm_cst_0.add(false)
         _jm_cst_0.add(true)
-        _jm_cst_1.add(true)
-        _jm_cst_1.add(false)
-        _jm_cst_2.add(200)
-        _jm_cst_2.add(201)
-        _jm_cst_2.add(204)
-        _jm_cst_3.add("Susie")
-        _jm_cst_3.add("Calvin")
-        _jm_cst_3.add("Hobbes")
+        _jm_cst_1.add("Calvin")
+        _jm_cst_1.add("Susie")
+        _jm_cst_2.add(true)
+        _jm_cst_2.add(false)
+        _jm_cst_3.add(200)
+        _jm_cst_3.add(201)
+        _jm_cst_3.add(204)
         _jm_cst_4.add("Susie")
-        _jm_cst_4.add(42)
-        _jm_cst_4.add(true)
-        _jm_cst_4.add(null)
+        _jm_cst_4.add("Calvin")
+        _jm_cst_4.add("Hobbes")
+        _jm_cst_5.add("Susie")
+        _jm_cst_5.add(42)
+        _jm_cst_5.add(true)
+        _jm_cst_5.add(null)
         _jm_obj_30_map.set("cia0", _jm_f_32)
         _jm_obj_30_map.set("cia1", _jm_f_33)
         _jm_obj_30_map.set("cia2", _jm_f_34)

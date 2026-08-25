@@ -33,10 +33,11 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        _jm_cst_0.add("Bob")
         _jm_cst_0.add("Calvin")
-        _jm_cst_0.add("Hello")
+        _jm_cst_0.add("Hobbes")
+        _jm_cst_0.add("Rosalyn")
         _jm_cst_0.add("Susie")
-        _jm_cst_0.add("World")
         check_model_map.set("", json_model_1)
     }
 }
