@@ -464,14 +464,16 @@ def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
         if defs is None:
             defs = _defs(jm)
         defs = {name: defs[name] for name in _needed(model, defs)}
-        key = json.dumps([jm._url, {"$": defs, "@": model}], sort_keys=True)
+        key = json.dumps([jm._url, {"$": defs, "@": model},
+                          jm._loose_int, jm._loose_float], sort_keys=True)
     except (TypeError, ValueError):
         return None
     if key not in _CHECKERS:
         from .script import model_checker_from_json
         try:
-            _CHECKERS[key] = model_checker_from_json(json.loads(key)[1],
-                                                     resolver=jm._resolver)
+            _CHECKERS[key] = model_checker_from_json(
+                json.loads(key)[1], resolver=jm._resolver,
+                loose_int=jm._loose_int, loose_float=jm._loose_float)
         except Exception:
             _CHECKERS[key] = None
     check = _CHECKERS[key]
