@@ -194,7 +194,7 @@ def _simplest_array(model: ModelArray, jm: JsonModel, seen: frozenset[str]) -> J
         try:
             values.append(simplest(item, jm, seen))
         except UnsupportedValue as e:
-            raise UnsupportedValue(f"{index}: {e}")
+            raise type(e)(f"{index}: {e}")
     return values
 
 def _numeric_low(model: ModelType) -> int|float|None:
@@ -513,7 +513,7 @@ def _simplest_object(model: ModelObject, jm: JsonModel, seen: frozenset[str]) ->
             try:
                 value[name] = simplest(submodel, jm, seen)
             except UnsupportedValue as e:
-                raise UnsupportedValue(f"{prop}: {e}")
+                raise type(e)(f"{prop}: {e}")
     return value
 
 def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonable:
@@ -697,7 +697,8 @@ def _bounds_constrained(props: ModelObject, jm: JsonModel,
                 values[op] = value
                 break
     if not values:
-        raise UnsupportedValue(f"no constraint bound could be reached: {props}")
+        raise UnsupportedValue(
+            f"no bound reached for {', '.join(ops)} in model: {target}")
     else:
         return values
 
@@ -839,9 +840,11 @@ def violations(model: ModelType, jm: JsonModel|None = None,
         jm, model = _compile(model, False, resolver, url, extend)
         vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
-    if not sites:
-        raise Vacuous(f"no constraint in model: {model}")
     defs = _defs(jm)
+    if not sites:
+        if all(_verify(v, model, jm, defs) is True for v in _TYPE_VIOLATIONS):
+            raise Vacuous(f"every value matches the model: {model}")
+        raise UnsupportedValue(f"cannot enter model: {model}")
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
     doc = None
@@ -876,6 +879,8 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             if _verify(value, vmodel, vjm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
+            else:
+                reasons.append(f"{key}: no value isolates the constraint")
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
     for mpath, vpath, frames, props in sites:
         key = f"{_pointer(mpath)} invalid"
@@ -897,6 +902,8 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
                 break
+        else:
+            reasons.append(f"{key}: no type violates {props['@']}")
     for mpath, vpath, frames, props in sites:
         key = f"{_pointer(mpath)} bad" if mpath else "bad"
         if set(props) - {"@"} or key in values:
@@ -917,10 +924,13 @@ def violations(model: ModelType, jm: JsonModel|None = None,
         elif _verify(value, vmodel, vjm) is False:
             values[key] = value
             taken.add(json.dumps(value, sort_keys=True))
+        else:
+            reasons.append(f"{key}: {target} violation is still valid")
     for mpath, vpath, frames, node in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
-        except UnsupportedValue:
+        except UnsupportedValue as e:
+            reasons.append(f"{_pointer(mpath)}: no object to shrink: {e}")
             continue
         if not isinstance(built, dict):
             continue
@@ -930,6 +940,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             sub = {p: v for p, v in built.items() if p != name}
             if _verify(sub, _optional(node, prop, name), jm, defs) is not True:
+                reasons.append(f"{key}: dropping {name} does not match the model")
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
@@ -943,12 +954,15 @@ def violations(model: ModelType, jm: JsonModel|None = None,
             elif _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
+            else:
+                reasons.append(f"{key}: dropping {name} is still valid")
     for mpath, vpath, frames, node in _object_sites(sites):
         if not _closed(node, jm):
             continue
         try:
             built = simplest(node, jm, seen)
-        except UnsupportedValue:
+        except UnsupportedValue as e:
+            reasons.append(f"{_pointer(mpath)}: no object to extend: {e}")
             continue
         if not isinstance(built, dict):
             continue
@@ -973,6 +987,8 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
                 break
+        else:
+            reasons.append(f"{_pointer(mpath)}: no extra property violates the model")
     for candidate in _ROOT_TYPES:
         dumped = json.dumps(candidate, sort_keys=True)
         if dumped in taken or _verify(candidate, vmodel, vjm) is not False:
@@ -980,7 +996,10 @@ def violations(model: ModelType, jm: JsonModel|None = None,
         values[f"{dumped} root invalid"] = copy.deepcopy(candidate)
         taken.add(dumped)
     if not values:
-        raise UnsupportedValue(f"no constraint could be violated: {'; '.join(dict.fromkeys(reasons))}")
+        if not reasons:
+            reasons.append("no violation site could be used")
+        raise UnsupportedValue(
+            f"no constraint could be violated: {'; '.join(dict.fromkeys(reasons))}")
     else:
         return values
 
@@ -993,6 +1012,8 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
         jm, model = _compile(model, False, resolver, url, extend)
         vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
     sites = list(_sites(model, [], [], [], jm, frozenset()))
+    if not sites and not all(_verify(v, model, jm) is True for v in _TYPE_VIOLATIONS):
+        raise UnsupportedValue(f"cannot enter model: {model}")
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
     doc = None
