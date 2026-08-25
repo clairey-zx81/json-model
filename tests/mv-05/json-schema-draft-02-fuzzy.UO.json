@@ -61,7 +61,6 @@
         "?description": "",
         "?format": "",
         "?contentEncoding": "",
-        "?default": "$ANY",
         "?divisibleBy": 1.0,
         "?disallow": {
           "|": [
@@ -170,7 +169,6 @@
     "?description": "",
     "?format": "",
     "?contentEncoding": "",
-    "?default": "$ANY",
     "?divisibleBy": 1.0,
     "?disallow": {
       "|": [

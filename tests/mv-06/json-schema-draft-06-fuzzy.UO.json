@@ -159,7 +159,6 @@
         "?$schema": "$URI",
         "?title": "",
         "?description": "",
-        "?default": "$ANY",
         "?examples": [
           "$ANY"
         ],
@@ -207,7 +206,6 @@
           ">=": 1,
           "!": true
         },
-        "?const": "$ANY",
         "?type": {
           "|": [
             "$simpleTypes",
@@ -274,7 +272,6 @@
     "?$schema": "$URI",
     "?title": "",
     "?description": "",
-    "?default": "$ANY",
     "?examples": [
       "$ANY"
     ],
@@ -322,7 +319,6 @@
       ">=": 1,
       "!": true
     },
-    "?const": "$ANY",
     "?type": {
       "|": [
         "$simpleTypes",

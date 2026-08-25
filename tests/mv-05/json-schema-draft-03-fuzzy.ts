@@ -36,7 +36,6 @@ export interface schema {
 	uniqueItems?: boolean
 	title?: string
 	description?: string
-	default?: any
 	divisibleBy?: number
 	disallow?: string
 	extends?: (string | string[])

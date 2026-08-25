@@ -4,7 +4,7 @@
 import re
 from .mtypes import ModelPath, ModelType, OperatorError
 from .utils import log, is_cst, _structurally_distinct_models, model_type, is_base_model
-from .utils import constant_values, same_model, model_eq, simple_object
+from .utils import constant_values, same_model, model_eq, simple_object, is_a_simple_object
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .submodel import normalizeModel, is_submodel
@@ -623,11 +623,26 @@ def simplify(jm: JsonModel):
     def simpRwt(model: ModelType, path: ModelPath) -> ModelType:
         nonlocal changes
         if isinstance(model, dict):
+            # simpler object props
             for old, new in [ ("//", ""), ("/^$/", "?")]:
                 # FIXME in some corner case the simplification may be wrong…
                 if old in model and new not in model:
                     model[new] = model[old]
                     del model[old]
+            # objects, remove useless optional properties
+            if is_a_simple_object(model):
+                # { "?a": 1, "": 1 } -> { "": 1 }
+                has_regprop = any(p.startswith("/") for p in model)
+                has_refprop = any(p.startswith("$") for p in model)
+                has_anyprop = "" in model
+                has_optprop = any(p.startswith("?") for p in model)
+                if has_optprop and not has_regprop and not has_refprop and has_anyprop:
+                    any_model = model[""]
+                    for prop, mod in list(model.items()):
+                        if prop.startswith("?") and same_model(mod, any_model):
+                            changes += 1
+                            del model[prop]
+            # simpler constraints
             if "@" in model:
                 # FIXME
                 ultimate = ultimate_type(jm, model)

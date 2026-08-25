@@ -5,6 +5,5 @@
 export interface RootModel {
 	name: string
 	born?: string
-	useless?: any
 	[key: string]: any
 }

@@ -9,6 +9,7 @@
 - [x] tests: ~run language per-model instead of per-dir~ idem
 - [x] pr: improve JSTS test results alignment between all backends (minor diffs remain)
 - [x] optim: regex list of words to enum
+- [x] optim: remove props which match the default
 - [ ] pr: add _known limitations_ stuff
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
@@ -49,7 +50,6 @@
 - [ ] c-backend: generate custom character class ascii tables?
 - [ ] c-backend: custom char classes: `[:-] [a-zA-Z0-9_\\.\\-\\|@#] [a-zA-Z_$] [a-zA-Z0-9_\\-] [a-zA-Z0-9_.:-]`
 - [ ] c-backend: handle small char classes?
-- [ ] optim: remove props which match the default, in some cases?
 - [ ] backend: check leap-second support on `$DATETIME` and `$TIME`
 - [ ] tests: fast mode which does not execute if source has not changed
 - [ ] predefs: extension for _uri reference_, _iri reference_, _uri template_

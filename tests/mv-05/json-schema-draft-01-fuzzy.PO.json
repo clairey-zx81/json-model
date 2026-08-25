@@ -58,7 +58,6 @@
       "?description": "",
       "?format": "",
       "?contentEncoding": "",
-      "?default": "$ANY",
       "?maxDecimal": 0,
       "?disallow": {
         "|": [

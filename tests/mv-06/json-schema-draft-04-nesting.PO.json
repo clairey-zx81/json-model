@@ -73,7 +73,6 @@
       "?allOf": "$schemaArray",
       "?anyOf": "$schemaArray",
       "?oneOf": "$schemaArray",
-      "?not": "$Schema",
       "?$ref": "$URI",
       "": "$Schema",
       "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",

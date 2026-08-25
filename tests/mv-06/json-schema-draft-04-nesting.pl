@@ -516,7 +516,7 @@ sub json_model_3($$$)
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_3_map{$prop}))
         {
-            # handle 34 may props
+            # handle 33 may props
             if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_0 : undef, $rep))
             {
                 push @$rep, ["invalid optional prop value [.'\$schema']", defined $path ? $lpath_0 : undef] if defined $rep;
@@ -698,7 +698,6 @@ sub check_model_init()
             "minProperties" => \&_jm_f_20,
             "minimum" => \&_jm_f_21,
             "multipleOf" => \&_jm_f_22,
-            "not" => \&json_model_3,
             "oneOf" => \&json_model_4,
             "pattern" => \&_jm_f_23,
             "patternProperties" => \&_jm_f_24,

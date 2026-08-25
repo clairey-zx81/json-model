@@ -58,13 +58,8 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected value for model \"\" [.'$schema'.contentEncoding]", path))
     return res
 
-# check json_model_3_map_default (.'$schema'.default)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    # .'$schema'.default
-    return True
-
 # check json_model_3_map_description (.'$schema'.description)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.description
     res: bool = isinstance(val, str)
     if not res:
@@ -72,7 +67,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_disallow (.'$schema'.disallow)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.disallow
     # .'$schema'.disallow.'|'.0
     res: bool = isinstance(val, str)
@@ -97,7 +92,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_enum (.'$schema'.enum)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.enum
     # .'$schema'.enum.'@'
     res: bool = isinstance(val, list)
@@ -113,7 +108,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_extends (.'$schema'.extends)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.extends
     # .'$schema'.extends.'|'.0
     res: bool = json_model_3(val, path, rep)
@@ -138,7 +133,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_format (.'$schema'.format)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.format
     res: bool = isinstance(val, str)
     if not res:
@@ -146,7 +141,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_id (.'$schema'.id)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.id
     res: bool = isinstance(val, str)
     if not res:
@@ -154,7 +149,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_items (.'$schema'.items)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.items
     # .'$schema'.items.'|'.0
     res: bool = json_model_3(val, path, rep)
@@ -179,7 +174,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_maxDecimal (.'$schema'.maxDecimal)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.maxDecimal
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
@@ -187,7 +182,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_maxItems (.'$schema'.maxItems)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.maxItems
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
@@ -195,7 +190,7 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_maxLength (.'$schema'.maxLength)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.maxLength
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
@@ -203,7 +198,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_maximum (.'$schema'.maximum)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.maximum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -211,7 +206,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_maximumCanEqual (.'$schema'.maximumCanEqual)
-def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.maximumCanEqual
     res: bool = isinstance(val, bool)
     if not res:
@@ -219,7 +214,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_minItems (.'$schema'.minItems)
-def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.minItems
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
@@ -227,7 +222,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_minLength (.'$schema'.minLength)
-def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.minLength
     res: bool = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
@@ -235,7 +230,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_minimum (.'$schema'.minimum)
-def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.minimum
     res: bool = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
@@ -243,7 +238,7 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_minimumCanEqual (.'$schema'.minimumCanEqual)
-def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.minimumCanEqual
     res: bool = isinstance(val, bool)
     if not res:
@@ -251,7 +246,7 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_optional (.'$schema'.optional)
-def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.optional
     res: bool = isinstance(val, bool)
     if not res:
@@ -259,7 +254,7 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_pattern (.'$schema'.pattern)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.pattern
     res: bool = is_valid_regex(val, path, rep)
     if not res:
@@ -267,7 +262,7 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_properties (.'$schema'.properties)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.properties
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$schema'.properties]", path))
@@ -284,7 +279,7 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check json_model_3_map_requires (.'$schema'.requires)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.requires
     # .'$schema'.requires.'|'.0
     res: bool = isinstance(val, str)
@@ -301,7 +296,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_title (.'$schema'.title)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.title
     res: bool = isinstance(val, str)
     if not res:
@@ -309,7 +304,7 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check json_model_3_map_type (.'$schema'.type)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.type
     # .'$schema'.type.'|'.0
     res: bool = json_model_4(val, path, rep)
@@ -354,7 +349,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if pfun := json_model_3_map.get(prop):
-            # handle 26 may props
+            # handle 25 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$schema']", lpath_0 if path is not None else None))
                 return False
@@ -394,29 +389,28 @@ def check_model_init():
             "$schema": _jm_f_0,
             "additionalProperties": _jm_f_1,
             "contentEncoding": _jm_f_2,
-            "default": _jm_f_3,
-            "description": _jm_f_4,
-            "disallow": _jm_f_5,
-            "enum": _jm_f_6,
-            "extends": _jm_f_7,
-            "format": _jm_f_8,
-            "id": _jm_f_9,
-            "items": _jm_f_10,
-            "maxDecimal": _jm_f_11,
-            "maxItems": _jm_f_12,
-            "maxLength": _jm_f_13,
-            "maximum": _jm_f_14,
-            "maximumCanEqual": _jm_f_15,
-            "minItems": _jm_f_16,
-            "minLength": _jm_f_17,
-            "minimum": _jm_f_18,
-            "minimumCanEqual": _jm_f_19,
-            "optional": _jm_f_20,
-            "pattern": _jm_f_21,
-            "properties": _jm_f_22,
-            "requires": _jm_f_23,
-            "title": _jm_f_24,
-            "type": _jm_f_25,
+            "description": _jm_f_3,
+            "disallow": _jm_f_4,
+            "enum": _jm_f_5,
+            "extends": _jm_f_6,
+            "format": _jm_f_7,
+            "id": _jm_f_8,
+            "items": _jm_f_9,
+            "maxDecimal": _jm_f_10,
+            "maxItems": _jm_f_11,
+            "maxLength": _jm_f_12,
+            "maximum": _jm_f_13,
+            "maximumCanEqual": _jm_f_14,
+            "minItems": _jm_f_15,
+            "minLength": _jm_f_16,
+            "minimum": _jm_f_17,
+            "minimumCanEqual": _jm_f_18,
+            "optional": _jm_f_19,
+            "pattern": _jm_f_20,
+            "properties": _jm_f_21,
+            "requires": _jm_f_22,
+            "title": _jm_f_23,
+            "type": _jm_f_24,
         }
         global _jm_cst_0
         _jm_cst_0 = {'any', 'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}

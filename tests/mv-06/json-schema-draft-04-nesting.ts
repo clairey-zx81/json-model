@@ -52,7 +52,6 @@ export interface schema {
 	allOf?: string
 	anyOf?: string
 	oneOf?: string
-	not?: string
 	$ref?: string
 	[key: string]: any
 }

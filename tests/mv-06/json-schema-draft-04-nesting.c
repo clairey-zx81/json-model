@@ -624,19 +624,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         }
                         continue;
                     }
-                    else if (jm_str_eq_4(prop, 0x00746f6e))
-                    {
-                        // handle may not property
-                        // .'$schema'.not
-                        res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
-                        if (unlikely(! res))
-                        {
-                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"$Schema\" [.'$schema'.not]", (path ? &lpath_0 : NULL));
-                            if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$schema'.not]", (path ? &lpath_0 : NULL));
-                            return false;
-                        }
-                        continue;
-                    }
                 }
                 else
                 {

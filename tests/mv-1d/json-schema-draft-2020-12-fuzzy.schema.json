@@ -393,7 +393,6 @@
             }
           ]
         },
-        "const": true,
         "enum": {
           "type": "array",
           "items": true
@@ -459,7 +458,6 @@
         "description": {
           "type": "string"
         },
-        "default": true,
         "deprecated": {
           "type": "boolean"
         },

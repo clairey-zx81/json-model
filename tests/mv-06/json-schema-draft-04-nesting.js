@@ -452,7 +452,7 @@ function json_model_3(val, path, rep)
         let lpath_0 = path ? path.concat([prop]) : null
         if ((pfun = json_model_3_map.get(prop)))
         {
-            // handle 34 may props
+            // handle 33 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_0 : null), rep))
             {
                 rep !== null && rep.push(["invalid optional prop value [.'$schema']", (path ? lpath_0 : null)])
@@ -627,7 +627,6 @@ export function check_model_init()
         json_model_3_map.set("minProperties", _jm_f_20)
         json_model_3_map.set("minimum", _jm_f_21)
         json_model_3_map.set("multipleOf", _jm_f_22)
-        json_model_3_map.set("not", json_model_3)
         json_model_3_map.set("oneOf", json_model_4)
         json_model_3_map.set("pattern", _jm_f_23)
         json_model_3_map.set("patternProperties", _jm_f_24)

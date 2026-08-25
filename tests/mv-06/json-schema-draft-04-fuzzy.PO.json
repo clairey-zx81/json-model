@@ -6,7 +6,6 @@
       "?$schema": "",
       "?title": "",
       "?description": "",
-      "?default": "$ANY",
       "?multipleOf": 1.0,
       "?maximum": -1.0,
       "?exclusiveMaximum": true,

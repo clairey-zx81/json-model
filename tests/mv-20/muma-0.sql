@@ -38,11 +38,6 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'useless' THEN
-      -- handle may useless property
-      -- .useless
-      res := TRUE;
-      CONTINUE;
     END IF;
     -- accept any other props
     NULL;

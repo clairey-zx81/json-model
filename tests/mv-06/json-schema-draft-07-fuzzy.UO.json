@@ -168,7 +168,6 @@
         "?$comment": "",
         "?title": "",
         "?description": "",
-        "?default": "$ANY",
         "?readOnly": true,
         "?writeOnly": true,
         "?examples": [
@@ -222,7 +221,6 @@
           ">=": 1,
           "!": true
         },
-        "?const": "$ANY",
         "?type": {
           "|": [
             "$simpleTypes",
@@ -293,7 +291,6 @@
     "?$comment": "",
     "?title": "",
     "?description": "",
-    "?default": "$ANY",
     "?readOnly": true,
     "?writeOnly": true,
     "?examples": [
@@ -347,7 +344,6 @@
       ">=": 1,
       "!": true
     },
-    "?const": "$ANY",
     "?type": {
       "|": [
         "$simpleTypes",

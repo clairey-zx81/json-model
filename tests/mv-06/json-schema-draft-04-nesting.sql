@@ -350,7 +350,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_3_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$ref":"_jm_f_0","$schema":"_jm_f_1","additionalItems":"_jm_f_2","additionalProperties":"_jm_f_3","allOf":"json_model_4","anyOf":"json_model_4","default":"_jm_f_4","definitions":"_jm_f_5","dependencies":"_jm_f_6","description":"_jm_f_7","enum":"_jm_f_8","exclusiveMaximum":"_jm_f_9","exclusiveMinimum":"_jm_f_10","format":"_jm_f_11","id":"_jm_f_12","items":"_jm_f_13","maxItems":"_jm_f_14","maxLength":"_jm_f_15","maxProperties":"_jm_f_16","maximum":"_jm_f_17","minItems":"_jm_f_18","minLength":"_jm_f_19","minProperties":"_jm_f_20","minimum":"_jm_f_21","multipleOf":"_jm_f_22","not":"json_model_3","oneOf":"json_model_4","pattern":"_jm_f_23","patternProperties":"_jm_f_24","properties":"_jm_f_25","required":"json_model_6","title":"_jm_f_26","type":"_jm_f_27","uniqueItems":"_jm_f_28"}';
+  map JSONB := JSONB '{"$ref":"_jm_f_0","$schema":"_jm_f_1","additionalItems":"_jm_f_2","additionalProperties":"_jm_f_3","allOf":"json_model_4","anyOf":"json_model_4","default":"_jm_f_4","definitions":"_jm_f_5","dependencies":"_jm_f_6","description":"_jm_f_7","enum":"_jm_f_8","exclusiveMaximum":"_jm_f_9","exclusiveMinimum":"_jm_f_10","format":"_jm_f_11","id":"_jm_f_12","items":"_jm_f_13","maxItems":"_jm_f_14","maxLength":"_jm_f_15","maxProperties":"_jm_f_16","maximum":"_jm_f_17","minItems":"_jm_f_18","minLength":"_jm_f_19","minProperties":"_jm_f_20","minimum":"_jm_f_21","multipleOf":"_jm_f_22","oneOf":"json_model_4","pattern":"_jm_f_23","patternProperties":"_jm_f_24","properties":"_jm_f_25","required":"json_model_6","title":"_jm_f_26","type":"_jm_f_27","uniqueItems":"_jm_f_28"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -372,7 +372,7 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF json_model_3_map(prop) IS NOT NULL THEN
-      -- handle 34 may props
+      -- handle 33 may props
       pfun := json_model_3_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;

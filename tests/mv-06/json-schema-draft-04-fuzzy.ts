@@ -24,7 +24,6 @@ export interface schema {
 	$schema?: string
 	title?: string
 	description?: string
-	default?: any
 	multipleOf?: number
 	maximum?: number
 	exclusiveMaximum?: boolean

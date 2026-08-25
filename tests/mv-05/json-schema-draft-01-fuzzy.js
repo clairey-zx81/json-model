@@ -56,15 +56,8 @@ function _jm_f_2(val, path, rep)
     return res
 }
 
-// check json_model_3_map_default (.'$schema'.default)
-function _jm_f_3(val, path, rep)
-{
-    // .'$schema'.default
-    return true
-}
-
 // check json_model_3_map_description (.'$schema'.description)
-function _jm_f_4(val, path, rep)
+function _jm_f_3(val, path, rep)
 {
     // .'$schema'.description
     let res = (typeof val === 'string' || val instanceof String)
@@ -74,7 +67,7 @@ function _jm_f_4(val, path, rep)
 }
 
 // check json_model_3_map_disallow (.'$schema'.disallow)
-function _jm_f_5(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     // .'$schema'.disallow
     // .'$schema'.disallow.'|'.0
@@ -112,7 +105,7 @@ function _jm_f_5(val, path, rep)
 }
 
 // check json_model_3_map_enum (.'$schema'.enum)
-function _jm_f_6(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     // .'$schema'.enum
     // .'$schema'.enum.'@'
@@ -131,7 +124,7 @@ function _jm_f_6(val, path, rep)
 }
 
 // check json_model_3_map_extends (.'$schema'.extends)
-function _jm_f_7(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     // .'$schema'.extends
     // .'$schema'.extends.'|'.0
@@ -169,7 +162,7 @@ function _jm_f_7(val, path, rep)
 }
 
 // check json_model_3_map_format (.'$schema'.format)
-function _jm_f_8(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     // .'$schema'.format
     let res = (typeof val === 'string' || val instanceof String)
@@ -179,7 +172,7 @@ function _jm_f_8(val, path, rep)
 }
 
 // check json_model_3_map_id (.'$schema'.id)
-function _jm_f_9(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     // .'$schema'.id
     let res = (typeof val === 'string' || val instanceof String)
@@ -189,7 +182,7 @@ function _jm_f_9(val, path, rep)
 }
 
 // check json_model_3_map_items (.'$schema'.items)
-function _jm_f_10(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     // .'$schema'.items
     // .'$schema'.items.'|'.0
@@ -227,7 +220,7 @@ function _jm_f_10(val, path, rep)
 }
 
 // check json_model_3_map_maxDecimal (.'$schema'.maxDecimal)
-function _jm_f_11(val, path, rep)
+function _jm_f_10(val, path, rep)
 {
     // .'$schema'.maxDecimal
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
@@ -237,7 +230,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check json_model_3_map_maxItems (.'$schema'.maxItems)
-function _jm_f_12(val, path, rep)
+function _jm_f_11(val, path, rep)
 {
     // .'$schema'.maxItems
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
@@ -247,7 +240,7 @@ function _jm_f_12(val, path, rep)
 }
 
 // check json_model_3_map_maxLength (.'$schema'.maxLength)
-function _jm_f_13(val, path, rep)
+function _jm_f_12(val, path, rep)
 {
     // .'$schema'.maxLength
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
@@ -257,7 +250,7 @@ function _jm_f_13(val, path, rep)
 }
 
 // check json_model_3_map_maximum (.'$schema'.maximum)
-function _jm_f_14(val, path, rep)
+function _jm_f_13(val, path, rep)
 {
     // .'$schema'.maximum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -267,7 +260,7 @@ function _jm_f_14(val, path, rep)
 }
 
 // check json_model_3_map_maximumCanEqual (.'$schema'.maximumCanEqual)
-function _jm_f_15(val, path, rep)
+function _jm_f_14(val, path, rep)
 {
     // .'$schema'.maximumCanEqual
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -277,7 +270,7 @@ function _jm_f_15(val, path, rep)
 }
 
 // check json_model_3_map_minItems (.'$schema'.minItems)
-function _jm_f_16(val, path, rep)
+function _jm_f_15(val, path, rep)
 {
     // .'$schema'.minItems
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
@@ -287,7 +280,7 @@ function _jm_f_16(val, path, rep)
 }
 
 // check json_model_3_map_minLength (.'$schema'.minLength)
-function _jm_f_17(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     // .'$schema'.minLength
     let res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0
@@ -297,7 +290,7 @@ function _jm_f_17(val, path, rep)
 }
 
 // check json_model_3_map_minimum (.'$schema'.minimum)
-function _jm_f_18(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     // .'$schema'.minimum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -307,7 +300,7 @@ function _jm_f_18(val, path, rep)
 }
 
 // check json_model_3_map_minimumCanEqual (.'$schema'.minimumCanEqual)
-function _jm_f_19(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     // .'$schema'.minimumCanEqual
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -317,7 +310,7 @@ function _jm_f_19(val, path, rep)
 }
 
 // check json_model_3_map_optional (.'$schema'.optional)
-function _jm_f_20(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     // .'$schema'.optional
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -327,7 +320,7 @@ function _jm_f_20(val, path, rep)
 }
 
 // check json_model_3_map_pattern (.'$schema'.pattern)
-function _jm_f_21(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     // .'$schema'.pattern
     let res = runtime.jm_is_valid_regex(val, false)
@@ -337,7 +330,7 @@ function _jm_f_21(val, path, rep)
 }
 
 // check json_model_3_map_properties (.'$schema'.properties)
-function _jm_f_22(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     // .'$schema'.properties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -362,7 +355,7 @@ function _jm_f_22(val, path, rep)
 }
 
 // check json_model_3_map_requires (.'$schema'.requires)
-function _jm_f_23(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     // .'$schema'.requires
     // .'$schema'.requires.'|'.0
@@ -385,7 +378,7 @@ function _jm_f_23(val, path, rep)
 }
 
 // check json_model_3_map_title (.'$schema'.title)
-function _jm_f_24(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     // .'$schema'.title
     let res = (typeof val === 'string' || val instanceof String)
@@ -395,7 +388,7 @@ function _jm_f_24(val, path, rep)
 }
 
 // check json_model_3_map_type (.'$schema'.type)
-function _jm_f_25(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     // .'$schema'.type
     // .'$schema'.type.'|'.0
@@ -462,7 +455,7 @@ function json_model_3(val, path, rep)
         let lpath_0 = path ? path.concat([prop]) : null
         if ((pfun = json_model_3_map.get(prop)))
         {
-            // handle 26 may props
+            // handle 25 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_0 : null), rep))
             {
                 rep !== null && rep.push(["invalid optional prop value [.'$schema']", (path ? lpath_0 : null)])
@@ -509,29 +502,28 @@ export function check_model_init()
         json_model_3_map.set("$schema", _jm_f_0)
         json_model_3_map.set("additionalProperties", _jm_f_1)
         json_model_3_map.set("contentEncoding", _jm_f_2)
-        json_model_3_map.set("default", _jm_f_3)
-        json_model_3_map.set("description", _jm_f_4)
-        json_model_3_map.set("disallow", _jm_f_5)
-        json_model_3_map.set("enum", _jm_f_6)
-        json_model_3_map.set("extends", _jm_f_7)
-        json_model_3_map.set("format", _jm_f_8)
-        json_model_3_map.set("id", _jm_f_9)
-        json_model_3_map.set("items", _jm_f_10)
-        json_model_3_map.set("maxDecimal", _jm_f_11)
-        json_model_3_map.set("maxItems", _jm_f_12)
-        json_model_3_map.set("maxLength", _jm_f_13)
-        json_model_3_map.set("maximum", _jm_f_14)
-        json_model_3_map.set("maximumCanEqual", _jm_f_15)
-        json_model_3_map.set("minItems", _jm_f_16)
-        json_model_3_map.set("minLength", _jm_f_17)
-        json_model_3_map.set("minimum", _jm_f_18)
-        json_model_3_map.set("minimumCanEqual", _jm_f_19)
-        json_model_3_map.set("optional", _jm_f_20)
-        json_model_3_map.set("pattern", _jm_f_21)
-        json_model_3_map.set("properties", _jm_f_22)
-        json_model_3_map.set("requires", _jm_f_23)
-        json_model_3_map.set("title", _jm_f_24)
-        json_model_3_map.set("type", _jm_f_25)
+        json_model_3_map.set("description", _jm_f_3)
+        json_model_3_map.set("disallow", _jm_f_4)
+        json_model_3_map.set("enum", _jm_f_5)
+        json_model_3_map.set("extends", _jm_f_6)
+        json_model_3_map.set("format", _jm_f_7)
+        json_model_3_map.set("id", _jm_f_8)
+        json_model_3_map.set("items", _jm_f_9)
+        json_model_3_map.set("maxDecimal", _jm_f_10)
+        json_model_3_map.set("maxItems", _jm_f_11)
+        json_model_3_map.set("maxLength", _jm_f_12)
+        json_model_3_map.set("maximum", _jm_f_13)
+        json_model_3_map.set("maximumCanEqual", _jm_f_14)
+        json_model_3_map.set("minItems", _jm_f_15)
+        json_model_3_map.set("minLength", _jm_f_16)
+        json_model_3_map.set("minimum", _jm_f_17)
+        json_model_3_map.set("minimumCanEqual", _jm_f_18)
+        json_model_3_map.set("optional", _jm_f_19)
+        json_model_3_map.set("pattern", _jm_f_20)
+        json_model_3_map.set("properties", _jm_f_21)
+        json_model_3_map.set("requires", _jm_f_22)
+        json_model_3_map.set("title", _jm_f_23)
+        json_model_3_map.set("type", _jm_f_24)
         _jm_cst_0.add("null")
         _jm_cst_0.add("boolean")
         _jm_cst_0.add("integer")

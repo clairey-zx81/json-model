@@ -40,7 +40,6 @@ sub _jm_f_24($$$);
 sub _jm_f_25($$$);
 sub _jm_f_26($$$);
 sub _jm_f_27($$$);
-sub _jm_f_28($$$);
 my %json_model_3_map;
 sub json_model_3($$$);
 sub json_model_1($$$);
@@ -119,16 +118,8 @@ sub _jm_f_3($$$)
     return $res;
 }
 
-# check json_model_3_map_default (.'$schema'.default)
-sub _jm_f_4($$$)
-{
-    my ($val, $path, $rep) = @_;
-    # .'$schema'.default
-    return 1;
-}
-
 # check json_model_3_map_dependencies (.'$schema'.dependencies)
-sub _jm_f_5($$$)
+sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.dependencies
@@ -189,7 +180,7 @@ sub _jm_f_5($$$)
 }
 
 # check json_model_3_map_description (.'$schema'.description)
-sub _jm_f_6($$$)
+sub _jm_f_5($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.description
@@ -199,7 +190,7 @@ sub _jm_f_6($$$)
 }
 
 # check json_model_3_map_disallow (.'$schema'.disallow)
-sub _jm_f_7($$$)
+sub _jm_f_6($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.disallow
@@ -224,7 +215,7 @@ sub _jm_f_7($$$)
 }
 
 # check json_model_3_map_divisibleBy (.'$schema'.divisibleBy)
-sub _jm_f_8($$$)
+sub _jm_f_7($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.divisibleBy
@@ -234,7 +225,7 @@ sub _jm_f_8($$$)
 }
 
 # check json_model_3_map_enum (.'$schema'.enum)
-sub _jm_f_9($$$)
+sub _jm_f_8($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.enum
@@ -256,7 +247,7 @@ sub _jm_f_9($$$)
 }
 
 # check json_model_3_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
-sub _jm_f_10($$$)
+sub _jm_f_9($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.exclusiveMaximum
@@ -266,7 +257,7 @@ sub _jm_f_10($$$)
 }
 
 # check json_model_3_map_exclusiveMinimum (.'$schema'.exclusiveMinimum)
-sub _jm_f_11($$$)
+sub _jm_f_10($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.exclusiveMinimum
@@ -276,7 +267,7 @@ sub _jm_f_11($$$)
 }
 
 # check json_model_3_map_extends (.'$schema'.extends)
-sub _jm_f_12($$$)
+sub _jm_f_11($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.extends
@@ -316,7 +307,7 @@ sub _jm_f_12($$$)
 }
 
 # check json_model_3_map_format (.'$schema'.format)
-sub _jm_f_13($$$)
+sub _jm_f_12($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.format
@@ -326,7 +317,7 @@ sub _jm_f_13($$$)
 }
 
 # check json_model_3_map_id (.'$schema'.id)
-sub _jm_f_14($$$)
+sub _jm_f_13($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.id
@@ -336,7 +327,7 @@ sub _jm_f_14($$$)
 }
 
 # check json_model_3_map_items (.'$schema'.items)
-sub _jm_f_15($$$)
+sub _jm_f_14($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.items
@@ -376,7 +367,7 @@ sub _jm_f_15($$$)
 }
 
 # check json_model_3_map_maxItems (.'$schema'.maxItems)
-sub _jm_f_16($$$)
+sub _jm_f_15($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.maxItems
@@ -386,7 +377,7 @@ sub _jm_f_16($$$)
 }
 
 # check json_model_3_map_maxLength (.'$schema'.maxLength)
-sub _jm_f_17($$$)
+sub _jm_f_16($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.maxLength
@@ -396,7 +387,7 @@ sub _jm_f_17($$$)
 }
 
 # check json_model_3_map_maximum (.'$schema'.maximum)
-sub _jm_f_18($$$)
+sub _jm_f_17($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.maximum
@@ -406,7 +397,7 @@ sub _jm_f_18($$$)
 }
 
 # check json_model_3_map_minItems (.'$schema'.minItems)
-sub _jm_f_19($$$)
+sub _jm_f_18($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.minItems
@@ -416,7 +407,7 @@ sub _jm_f_19($$$)
 }
 
 # check json_model_3_map_minLength (.'$schema'.minLength)
-sub _jm_f_20($$$)
+sub _jm_f_19($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.minLength
@@ -426,7 +417,7 @@ sub _jm_f_20($$$)
 }
 
 # check json_model_3_map_minimum (.'$schema'.minimum)
-sub _jm_f_21($$$)
+sub _jm_f_20($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.minimum
@@ -436,7 +427,7 @@ sub _jm_f_21($$$)
 }
 
 # check json_model_3_map_pattern (.'$schema'.pattern)
-sub _jm_f_22($$$)
+sub _jm_f_21($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.pattern
@@ -446,7 +437,7 @@ sub _jm_f_22($$$)
 }
 
 # check json_model_3_map_patternProperties (.'$schema'.patternProperties)
-sub _jm_f_23($$$)
+sub _jm_f_22($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.patternProperties
@@ -474,7 +465,7 @@ sub _jm_f_23($$$)
 }
 
 # check json_model_3_map_properties (.'$schema'.properties)
-sub _jm_f_24($$$)
+sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.properties
@@ -502,7 +493,7 @@ sub _jm_f_24($$$)
 }
 
 # check json_model_3_map_required (.'$schema'.required)
-sub _jm_f_25($$$)
+sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.required
@@ -512,7 +503,7 @@ sub _jm_f_25($$$)
 }
 
 # check json_model_3_map_title (.'$schema'.title)
-sub _jm_f_26($$$)
+sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.title
@@ -522,7 +513,7 @@ sub _jm_f_26($$$)
 }
 
 # check json_model_3_map_type (.'$schema'.type)
-sub _jm_f_27($$$)
+sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.type
@@ -574,7 +565,7 @@ sub _jm_f_27($$$)
 }
 
 # check json_model_3_map_uniqueItems (.'$schema'.uniqueItems)
-sub _jm_f_28($$$)
+sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$schema'.uniqueItems
@@ -603,7 +594,7 @@ sub json_model_3($$$)
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         if (($pfun = $json_model_3_map{$prop}))
         {
-            # handle 29 may props
+            # handle 28 may props
             if (defined($pfun) && ! &$pfun($pval, defined $path ? $lpath_0 : undef, $rep))
             {
                 push @$rep, ["invalid optional prop value [.'\$schema']", defined $path ? $lpath_0 : undef] if defined $rep;
@@ -699,31 +690,30 @@ sub check_model_init()
             "\$schema" => \&_jm_f_1,
             "additionalItems" => \&_jm_f_2,
             "additionalProperties" => \&_jm_f_3,
-            "default" => \&_jm_f_4,
-            "dependencies" => \&_jm_f_5,
-            "description" => \&_jm_f_6,
-            "disallow" => \&_jm_f_7,
-            "divisibleBy" => \&_jm_f_8,
-            "enum" => \&_jm_f_9,
-            "exclusiveMaximum" => \&_jm_f_10,
-            "exclusiveMinimum" => \&_jm_f_11,
-            "extends" => \&_jm_f_12,
-            "format" => \&_jm_f_13,
-            "id" => \&_jm_f_14,
-            "items" => \&_jm_f_15,
-            "maxItems" => \&_jm_f_16,
-            "maxLength" => \&_jm_f_17,
-            "maximum" => \&_jm_f_18,
-            "minItems" => \&_jm_f_19,
-            "minLength" => \&_jm_f_20,
-            "minimum" => \&_jm_f_21,
-            "pattern" => \&_jm_f_22,
-            "patternProperties" => \&_jm_f_23,
-            "properties" => \&_jm_f_24,
-            "required" => \&_jm_f_25,
-            "title" => \&_jm_f_26,
-            "type" => \&_jm_f_27,
-            "uniqueItems" => \&_jm_f_28,
+            "dependencies" => \&_jm_f_4,
+            "description" => \&_jm_f_5,
+            "disallow" => \&_jm_f_6,
+            "divisibleBy" => \&_jm_f_7,
+            "enum" => \&_jm_f_8,
+            "exclusiveMaximum" => \&_jm_f_9,
+            "exclusiveMinimum" => \&_jm_f_10,
+            "extends" => \&_jm_f_11,
+            "format" => \&_jm_f_12,
+            "id" => \&_jm_f_13,
+            "items" => \&_jm_f_14,
+            "maxItems" => \&_jm_f_15,
+            "maxLength" => \&_jm_f_16,
+            "maximum" => \&_jm_f_17,
+            "minItems" => \&_jm_f_18,
+            "minLength" => \&_jm_f_19,
+            "minimum" => \&_jm_f_20,
+            "pattern" => \&_jm_f_21,
+            "patternProperties" => \&_jm_f_22,
+            "properties" => \&_jm_f_23,
+            "required" => \&_jm_f_24,
+            "title" => \&_jm_f_25,
+            "type" => \&_jm_f_26,
+            "uniqueItems" => \&_jm_f_27,
         );
         %_jm_cst_0 = (
             "null" => 1,

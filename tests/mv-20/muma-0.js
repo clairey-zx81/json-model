@@ -51,7 +51,6 @@ function json_model_1(val, path, rep)
             return false
         }
     }
-    // ignored ..useless
     return true
 }
 

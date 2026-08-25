@@ -115,17 +115,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_17_map_const (.'$schema#ObjectSchema'.const)
-CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .'$schema#ObjectSchema'.const
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check json_model_17_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
-CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.contentEncoding
@@ -134,7 +125,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_contentMediaType (.'$schema#ObjectSchema'.contentMediaType)
-CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.contentMediaType
@@ -142,17 +133,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check json_model_17_map_default (.'$schema#ObjectSchema'.default)
-CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  -- .'$schema#ObjectSchema'.default
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check json_model_17_map_definitions (.'$schema#ObjectSchema'.definitions)
-CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -176,7 +158,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_dependencies (.'$schema#ObjectSchema'.dependencies)
-CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -202,7 +184,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)
-CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -226,7 +208,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_dependentSchemas (.'$schema#ObjectSchema'.dependentSchemas)
-CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -250,7 +232,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_deprecated (.'$schema#ObjectSchema'.deprecated)
-CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.deprecated
@@ -259,7 +241,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_description (.'$schema#ObjectSchema'.description)
-CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_12(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.description
@@ -268,7 +250,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_enum (.'$schema#ObjectSchema'.enum)
-CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_13(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.enum
@@ -277,7 +259,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_examples (.'$schema#ObjectSchema'.examples)
-CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_14(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.examples
@@ -286,7 +268,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_exclusiveMaximum (.'$schema#ObjectSchema'.exclusiveMaximum)
-CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_15(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.exclusiveMaximum
@@ -295,7 +277,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_exclusiveMinimum (.'$schema#ObjectSchema'.exclusiveMinimum)
-CREATE OR REPLACE FUNCTION _jm_f_18(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_16(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.exclusiveMinimum
@@ -304,7 +286,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_format (.'$schema#ObjectSchema'.format)
-CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_17(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.format
@@ -313,7 +295,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_items (.'$schema#ObjectSchema'.items)
-CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.items
@@ -324,7 +306,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_maximum (.'$schema#ObjectSchema'.maximum)
-CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.maximum
@@ -333,7 +315,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_minimum (.'$schema#ObjectSchema'.minimum)
-CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.minimum
@@ -342,7 +324,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_multipleOf (.'$schema#ObjectSchema'.multipleOf)
-CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.multipleOf
@@ -351,7 +333,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_pattern (.'$schema#ObjectSchema'.pattern)
-CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.pattern
@@ -360,7 +342,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_patternProperties (.'$schema#ObjectSchema'.patternProperties)
-CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -384,7 +366,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_properties (.'$schema#ObjectSchema'.properties)
-CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -408,7 +390,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_readOnly (.'$schema#ObjectSchema'.readOnly)
-CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.readOnly
@@ -417,7 +399,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_title (.'$schema#ObjectSchema'.title)
-CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_26(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.title
@@ -426,7 +408,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_type (.'$schema#ObjectSchema'.type)
-CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_27(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.type
@@ -437,7 +419,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)
-CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.uniqueItems
@@ -446,7 +428,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check json_model_17_map_writeOnly (.'$schema#ObjectSchema'.writeOnly)
-CREATE OR REPLACE FUNCTION _jm_f_31(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_f_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$schema#ObjectSchema'.writeOnly
@@ -457,7 +439,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION json_model_17_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"$anchor":"json_model_4","$comment":"_jm_f_0","$defs":"_jm_f_1","$id":"json_model_5","$recursiveAnchor":"_jm_f_2","$recursiveRef":"json_model_4","$ref":"json_model_4","$schema":"_jm_f_3","$vocabulary":"_jm_f_4","additionalItems":"json_model_18","additionalProperties":"json_model_18","allOf":"json_model_15","anyOf":"json_model_15","const":"_jm_f_5","contains":"json_model_18","contentEncoding":"_jm_f_6","contentMediaType":"_jm_f_7","contentSchema":"json_model_18","default":"_jm_f_8","definitions":"_jm_f_9","dependencies":"_jm_f_10","dependentRequired":"_jm_f_11","dependentSchemas":"_jm_f_12","deprecated":"_jm_f_13","description":"_jm_f_14","else":"json_model_18","enum":"_jm_f_15","examples":"_jm_f_16","exclusiveMaximum":"_jm_f_17","exclusiveMinimum":"_jm_f_18","format":"_jm_f_19","if":"json_model_18","items":"_jm_f_20","maxContains":"json_model_13","maxItems":"json_model_13","maxLength":"json_model_13","maxProperties":"json_model_13","maximum":"_jm_f_21","minContains":"json_model_13","minItems":"json_model_13","minLength":"json_model_13","minProperties":"json_model_13","minimum":"_jm_f_22","multipleOf":"_jm_f_23","not":"json_model_18","oneOf":"json_model_15","pattern":"_jm_f_24","patternProperties":"_jm_f_25","properties":"_jm_f_26","propertyNames":"json_model_18","readOnly":"_jm_f_27","required":"json_model_12","then":"json_model_18","title":"_jm_f_28","type":"_jm_f_29","unevaluatedItems":"json_model_18","unevaluatedProperties":"json_model_18","uniqueItems":"_jm_f_30","writeOnly":"_jm_f_31"}';
+  map JSONB := JSONB '{"$anchor":"json_model_4","$comment":"_jm_f_0","$defs":"_jm_f_1","$id":"json_model_5","$recursiveAnchor":"_jm_f_2","$recursiveRef":"json_model_4","$ref":"json_model_4","$schema":"_jm_f_3","$vocabulary":"_jm_f_4","additionalItems":"json_model_18","additionalProperties":"json_model_18","allOf":"json_model_15","anyOf":"json_model_15","contains":"json_model_18","contentEncoding":"_jm_f_5","contentMediaType":"_jm_f_6","contentSchema":"json_model_18","definitions":"_jm_f_7","dependencies":"_jm_f_8","dependentRequired":"_jm_f_9","dependentSchemas":"_jm_f_10","deprecated":"_jm_f_11","description":"_jm_f_12","else":"json_model_18","enum":"_jm_f_13","examples":"_jm_f_14","exclusiveMaximum":"_jm_f_15","exclusiveMinimum":"_jm_f_16","format":"_jm_f_17","if":"json_model_18","items":"_jm_f_18","maxContains":"json_model_13","maxItems":"json_model_13","maxLength":"json_model_13","maxProperties":"json_model_13","maximum":"_jm_f_19","minContains":"json_model_13","minItems":"json_model_13","minLength":"json_model_13","minProperties":"json_model_13","minimum":"_jm_f_20","multipleOf":"_jm_f_21","not":"json_model_18","oneOf":"json_model_15","pattern":"_jm_f_22","patternProperties":"_jm_f_23","properties":"_jm_f_24","propertyNames":"json_model_18","readOnly":"_jm_f_25","required":"json_model_12","then":"json_model_18","title":"_jm_f_26","type":"_jm_f_27","unevaluatedItems":"json_model_18","unevaluatedProperties":"json_model_18","uniqueItems":"_jm_f_28","writeOnly":"_jm_f_29"}';
 BEGIN
   RETURN map->>name;
 END;
@@ -477,7 +459,7 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF json_model_17_map(prop) IS NOT NULL THEN
-      -- handle 59 may props
+      -- handle 57 may props
       pfun := json_model_17_map(prop);
       IF NOT jm_call(pfun, pval, NULL, NULL) THEN
         RETURN FALSE;

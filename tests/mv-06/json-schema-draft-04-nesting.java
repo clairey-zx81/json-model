@@ -535,7 +535,7 @@ public class json_schema_draft_04_nesting extends ModelChecker
             Path lpath_0 = new Path(prop, path);
             if ((pfun = json_model_3_map_pmap.get(prop)) != null)
             {
-                // handle 34 may props
+                // handle 33 may props
                 if (pfun != null && ! (pfun.call(pval, (path != null ? lpath_0 : null), rep)))
                 {
                     if (rep != null) rep.addEntry("invalid optional prop value [.'$schema']", (path != null ? lpath_0 : null));
@@ -742,7 +742,6 @@ public class json_schema_draft_04_nesting extends ModelChecker
             json_model_3_map_pmap.put("minProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_20(o, p, r);} });
             json_model_3_map_pmap.put("minimum", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_21(o, p, r);} });
             json_model_3_map_pmap.put("multipleOf", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_22(o, p, r);} });
-            json_model_3_map_pmap.put("not", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_model_3_map_pmap.put("oneOf", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             json_model_3_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_23(o, p, r);} });
             json_model_3_map_pmap.put("patternProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_24(o, p, r);} });

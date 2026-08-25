@@ -179,7 +179,6 @@
           "$simpleTypesArray"
         ]
       },
-      "?const": "$ANY",
       "?enum": [
         "$ANY"
       ],
@@ -204,7 +203,6 @@
       },
       "?title": "",
       "?description": "",
-      "?default": "$ANY",
       "?deprecated": true,
       "?readOnly": true,
       "?writeOnly": true,

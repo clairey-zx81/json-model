@@ -121,7 +121,6 @@
         "contentEncoding": {
           "type": "string"
         },
-        "default": true,
         "divisibleBy": {
           "type": "number",
           "exclusiveMinimum": 0.0

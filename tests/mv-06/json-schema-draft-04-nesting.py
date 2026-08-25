@@ -356,7 +356,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if pfun := json_model_3_map.get(prop):
-            # handle 34 may props
+            # handle 33 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
                 rep is None or rep.append(("invalid optional prop value [.'$schema']", lpath_0 if path is not None else None))
                 return False
@@ -488,7 +488,6 @@ def check_model_init():
             "minProperties": _jm_f_20,
             "minimum": _jm_f_21,
             "multipleOf": _jm_f_22,
-            "not": json_model_3,
             "oneOf": json_model_4,
             "pattern": _jm_f_23,
             "patternProperties": _jm_f_24,

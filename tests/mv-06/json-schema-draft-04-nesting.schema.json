@@ -158,9 +158,6 @@
         "oneOf": {
           "$ref": "#/$defs/schemaArray"
         },
-        "not": {
-          "$ref": "#/$defs/Schema"
-        },
         "$ref": {
           "type": "string",
           "format": "uri"

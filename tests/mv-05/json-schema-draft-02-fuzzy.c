@@ -147,13 +147,6 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     }
                     continue;
                 }
-                else if (jm_str_eq_8(prop, 0x00746c7561666564LL))
-                {
-                    // handle may default property
-                    // .'$schema'.default
-                    res = true;
-                    continue;
-                }
                 else if (jm_str_eq_3(prop, 0x00006469))
                 {
                     // handle may id property

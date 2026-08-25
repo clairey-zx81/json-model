@@ -1267,15 +1267,8 @@ function _jm_f_5(val, path, rep)
     return true
 }
 
-// check json_model_16_map_const (.'$ObjectSchema'.const)
-function _jm_f_6(val, path, rep)
-{
-    // .'$ObjectSchema'.const
-    return true
-}
-
 // check json_model_16_map_contentEncoding (.'$ObjectSchema'.contentEncoding)
-function _jm_f_7(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     // .'$ObjectSchema'.contentEncoding
     let res = (typeof val === 'string' || val instanceof String)
@@ -1285,7 +1278,7 @@ function _jm_f_7(val, path, rep)
 }
 
 // check json_model_16_map_contentMediaType (.'$ObjectSchema'.contentMediaType)
-function _jm_f_8(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     // .'$ObjectSchema'.contentMediaType
     let res = (typeof val === 'string' || val instanceof String)
@@ -1294,15 +1287,8 @@ function _jm_f_8(val, path, rep)
     return res
 }
 
-// check json_model_16_map_default (.'$ObjectSchema'.default)
-function _jm_f_9(val, path, rep)
-{
-    // .'$ObjectSchema'.default
-    return true
-}
-
 // check json_model_16_map_definitions (.'$ObjectSchema'.definitions)
-function _jm_f_10(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     // .'$ObjectSchema'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1327,7 +1313,7 @@ function _jm_f_10(val, path, rep)
 }
 
 // check json_model_16_map_dependencies (.'$ObjectSchema'.dependencies)
-function _jm_f_11(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     // .'$ObjectSchema'.dependencies
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1365,7 +1351,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check json_model_16_map_dependentRequired (.'$ObjectSchema'.dependentRequired)
-function _jm_f_12(val, path, rep)
+function _jm_f_10(val, path, rep)
 {
     // .'$ObjectSchema'.dependentRequired
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1390,7 +1376,7 @@ function _jm_f_12(val, path, rep)
 }
 
 // check json_model_16_map_dependentSchemas (.'$ObjectSchema'.dependentSchemas)
-function _jm_f_13(val, path, rep)
+function _jm_f_11(val, path, rep)
 {
     // .'$ObjectSchema'.dependentSchemas
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1415,7 +1401,7 @@ function _jm_f_13(val, path, rep)
 }
 
 // check json_model_16_map_deprecated (.'$ObjectSchema'.deprecated)
-function _jm_f_14(val, path, rep)
+function _jm_f_12(val, path, rep)
 {
     // .'$ObjectSchema'.deprecated
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -1425,7 +1411,7 @@ function _jm_f_14(val, path, rep)
 }
 
 // check json_model_16_map_description (.'$ObjectSchema'.description)
-function _jm_f_15(val, path, rep)
+function _jm_f_13(val, path, rep)
 {
     // .'$ObjectSchema'.description
     let res = (typeof val === 'string' || val instanceof String)
@@ -1435,7 +1421,7 @@ function _jm_f_15(val, path, rep)
 }
 
 // check json_model_16_map_enum (.'$ObjectSchema'.enum)
-function _jm_f_16(val, path, rep)
+function _jm_f_14(val, path, rep)
 {
     // .'$ObjectSchema'.enum
     let res = Array.isArray(val)
@@ -1445,7 +1431,7 @@ function _jm_f_16(val, path, rep)
 }
 
 // check json_model_16_map_examples (.'$ObjectSchema'.examples)
-function _jm_f_17(val, path, rep)
+function _jm_f_15(val, path, rep)
 {
     // .'$ObjectSchema'.examples
     let res = Array.isArray(val)
@@ -1455,7 +1441,7 @@ function _jm_f_17(val, path, rep)
 }
 
 // check json_model_16_map_exclusiveMaximum (.'$ObjectSchema'.exclusiveMaximum)
-function _jm_f_18(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     // .'$ObjectSchema'.exclusiveMaximum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -1465,7 +1451,7 @@ function _jm_f_18(val, path, rep)
 }
 
 // check json_model_16_map_exclusiveMinimum (.'$ObjectSchema'.exclusiveMinimum)
-function _jm_f_19(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     // .'$ObjectSchema'.exclusiveMinimum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -1475,7 +1461,7 @@ function _jm_f_19(val, path, rep)
 }
 
 // check json_model_16_map_format (.'$ObjectSchema'.format)
-function _jm_f_20(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     // .'$ObjectSchema'.format
     let res = (typeof val === 'string' || val instanceof String)
@@ -1485,7 +1471,7 @@ function _jm_f_20(val, path, rep)
 }
 
 // check json_model_16_map_maximum (.'$ObjectSchema'.maximum)
-function _jm_f_21(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     // .'$ObjectSchema'.maximum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -1495,7 +1481,7 @@ function _jm_f_21(val, path, rep)
 }
 
 // check json_model_16_map_minimum (.'$ObjectSchema'.minimum)
-function _jm_f_22(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     // .'$ObjectSchema'.minimum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -1505,7 +1491,7 @@ function _jm_f_22(val, path, rep)
 }
 
 // check json_model_16_map_multipleOf (.'$ObjectSchema'.multipleOf)
-function _jm_f_23(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     // .'$ObjectSchema'.multipleOf
     let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
@@ -1515,7 +1501,7 @@ function _jm_f_23(val, path, rep)
 }
 
 // check json_model_16_map_pattern (.'$ObjectSchema'.pattern)
-function _jm_f_24(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     // .'$ObjectSchema'.pattern
     let res = (typeof val === 'string' || val instanceof String)
@@ -1525,7 +1511,7 @@ function _jm_f_24(val, path, rep)
 }
 
 // check json_model_16_map_patternProperties (.'$ObjectSchema'.patternProperties)
-function _jm_f_25(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     // .'$ObjectSchema'.patternProperties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1550,7 +1536,7 @@ function _jm_f_25(val, path, rep)
 }
 
 // check json_model_16_map_properties (.'$ObjectSchema'.properties)
-function _jm_f_26(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     // .'$ObjectSchema'.properties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -1575,7 +1561,7 @@ function _jm_f_26(val, path, rep)
 }
 
 // check json_model_16_map_readOnly (.'$ObjectSchema'.readOnly)
-function _jm_f_27(val, path, rep)
+function _jm_f_25(val, path, rep)
 {
     // .'$ObjectSchema'.readOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -1585,7 +1571,7 @@ function _jm_f_27(val, path, rep)
 }
 
 // check json_model_16_map_title (.'$ObjectSchema'.title)
-function _jm_f_28(val, path, rep)
+function _jm_f_26(val, path, rep)
 {
     // .'$ObjectSchema'.title
     let res = (typeof val === 'string' || val instanceof String)
@@ -1595,7 +1581,7 @@ function _jm_f_28(val, path, rep)
 }
 
 // check json_model_16_map_type (.'$ObjectSchema'.type)
-function _jm_f_29(val, path, rep)
+function _jm_f_27(val, path, rep)
 {
     // .'$ObjectSchema'.type
     // .'$ObjectSchema'.type.'|'.0
@@ -1618,7 +1604,7 @@ function _jm_f_29(val, path, rep)
 }
 
 // check json_model_16_map_uniqueItems (.'$ObjectSchema'.uniqueItems)
-function _jm_f_30(val, path, rep)
+function _jm_f_28(val, path, rep)
 {
     // .'$ObjectSchema'.uniqueItems
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -1628,7 +1614,7 @@ function _jm_f_30(val, path, rep)
 }
 
 // check json_model_16_map_writeOnly (.'$ObjectSchema'.writeOnly)
-function _jm_f_31(val, path, rep)
+function _jm_f_29(val, path, rep)
 {
     // .'$ObjectSchema'.writeOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -1653,7 +1639,7 @@ function json_model_16(val, path, rep)
         let lpath_13 = path ? path.concat([prop]) : null
         if ((pfun = json_model_16_map.get(prop)))
         {
-            // handle 61 may props
+            // handle 59 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_13 : null), rep))
             {
                 rep !== null && rep.push(["invalid optional prop value [.'$ObjectSchema']", (path ? lpath_13 : null)])
@@ -1875,53 +1861,51 @@ export function check_model_init()
         json_model_16_map.set("additionalProperties", json_model_17)
         json_model_16_map.set("allOf", json_model_14)
         json_model_16_map.set("anyOf", json_model_14)
-        json_model_16_map.set("const", _jm_f_6)
         json_model_16_map.set("contains", json_model_17)
-        json_model_16_map.set("contentEncoding", _jm_f_7)
-        json_model_16_map.set("contentMediaType", _jm_f_8)
+        json_model_16_map.set("contentEncoding", _jm_f_6)
+        json_model_16_map.set("contentMediaType", _jm_f_7)
         json_model_16_map.set("contentSchema", json_model_17)
-        json_model_16_map.set("default", _jm_f_9)
-        json_model_16_map.set("definitions", _jm_f_10)
-        json_model_16_map.set("dependencies", _jm_f_11)
-        json_model_16_map.set("dependentRequired", _jm_f_12)
-        json_model_16_map.set("dependentSchemas", _jm_f_13)
-        json_model_16_map.set("deprecated", _jm_f_14)
-        json_model_16_map.set("description", _jm_f_15)
+        json_model_16_map.set("definitions", _jm_f_8)
+        json_model_16_map.set("dependencies", _jm_f_9)
+        json_model_16_map.set("dependentRequired", _jm_f_10)
+        json_model_16_map.set("dependentSchemas", _jm_f_11)
+        json_model_16_map.set("deprecated", _jm_f_12)
+        json_model_16_map.set("description", _jm_f_13)
         json_model_16_map.set("else", json_model_17)
-        json_model_16_map.set("enum", _jm_f_16)
-        json_model_16_map.set("examples", _jm_f_17)
-        json_model_16_map.set("exclusiveMaximum", _jm_f_18)
-        json_model_16_map.set("exclusiveMinimum", _jm_f_19)
-        json_model_16_map.set("format", _jm_f_20)
+        json_model_16_map.set("enum", _jm_f_14)
+        json_model_16_map.set("examples", _jm_f_15)
+        json_model_16_map.set("exclusiveMaximum", _jm_f_16)
+        json_model_16_map.set("exclusiveMinimum", _jm_f_17)
+        json_model_16_map.set("format", _jm_f_18)
         json_model_16_map.set("if", json_model_17)
         json_model_16_map.set("items", json_model_17)
         json_model_16_map.set("maxContains", json_model_12)
         json_model_16_map.set("maxItems", json_model_12)
         json_model_16_map.set("maxLength", json_model_12)
         json_model_16_map.set("maxProperties", json_model_12)
-        json_model_16_map.set("maximum", _jm_f_21)
+        json_model_16_map.set("maximum", _jm_f_19)
         json_model_16_map.set("minContains", json_model_12)
         json_model_16_map.set("minItems", json_model_12)
         json_model_16_map.set("minLength", json_model_12)
         json_model_16_map.set("minProperties", json_model_12)
-        json_model_16_map.set("minimum", _jm_f_22)
-        json_model_16_map.set("multipleOf", _jm_f_23)
+        json_model_16_map.set("minimum", _jm_f_20)
+        json_model_16_map.set("multipleOf", _jm_f_21)
         json_model_16_map.set("not", json_model_17)
         json_model_16_map.set("oneOf", json_model_14)
-        json_model_16_map.set("pattern", _jm_f_24)
-        json_model_16_map.set("patternProperties", _jm_f_25)
+        json_model_16_map.set("pattern", _jm_f_22)
+        json_model_16_map.set("patternProperties", _jm_f_23)
         json_model_16_map.set("prefixItems", json_model_14)
-        json_model_16_map.set("properties", _jm_f_26)
+        json_model_16_map.set("properties", _jm_f_24)
         json_model_16_map.set("propertyNames", json_model_17)
-        json_model_16_map.set("readOnly", _jm_f_27)
+        json_model_16_map.set("readOnly", _jm_f_25)
         json_model_16_map.set("required", json_model_11)
         json_model_16_map.set("then", json_model_17)
-        json_model_16_map.set("title", _jm_f_28)
-        json_model_16_map.set("type", _jm_f_29)
+        json_model_16_map.set("title", _jm_f_26)
+        json_model_16_map.set("type", _jm_f_27)
         json_model_16_map.set("unevaluatedItems", json_model_17)
         json_model_16_map.set("unevaluatedProperties", json_model_17)
-        json_model_16_map.set("uniqueItems", _jm_f_30)
-        json_model_16_map.set("writeOnly", _jm_f_31)
+        json_model_16_map.set("uniqueItems", _jm_f_28)
+        json_model_16_map.set("writeOnly", _jm_f_29)
         check_model_map.set("", json_model_17)
         check_model_map.set("URI-REFERENCE", json_model_3)
         check_model_map.set("core", json_model_4)

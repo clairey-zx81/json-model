@@ -53,13 +53,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             continue;
         }
-        else if (unlikely(jm_str_eq_8(prop, 0x007373656c657375LL)))
-        {
-            // handle may useless property
-            // .useless
-            res = true;
-            continue;
-        }
         // accept any other props
     }
     if (unlikely(must_count != 1))

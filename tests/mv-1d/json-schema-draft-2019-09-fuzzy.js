@@ -146,15 +146,8 @@ function _jm_f_4(val, path, rep)
     return true
 }
 
-// check json_model_17_map_const (.'$schema#ObjectSchema'.const)
-function _jm_f_5(val, path, rep)
-{
-    // .'$schema#ObjectSchema'.const
-    return true
-}
-
 // check json_model_17_map_contentEncoding (.'$schema#ObjectSchema'.contentEncoding)
-function _jm_f_6(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     // .'$schema#ObjectSchema'.contentEncoding
     let res = (typeof val === 'string' || val instanceof String)
@@ -164,7 +157,7 @@ function _jm_f_6(val, path, rep)
 }
 
 // check json_model_17_map_contentMediaType (.'$schema#ObjectSchema'.contentMediaType)
-function _jm_f_7(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     // .'$schema#ObjectSchema'.contentMediaType
     let res = (typeof val === 'string' || val instanceof String)
@@ -173,15 +166,8 @@ function _jm_f_7(val, path, rep)
     return res
 }
 
-// check json_model_17_map_default (.'$schema#ObjectSchema'.default)
-function _jm_f_8(val, path, rep)
-{
-    // .'$schema#ObjectSchema'.default
-    return true
-}
-
 // check json_model_17_map_definitions (.'$schema#ObjectSchema'.definitions)
-function _jm_f_9(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     // .'$schema#ObjectSchema'.definitions
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -206,7 +192,7 @@ function _jm_f_9(val, path, rep)
 }
 
 // check json_model_17_map_dependencies (.'$schema#ObjectSchema'.dependencies)
-function _jm_f_10(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     // .'$schema#ObjectSchema'.dependencies
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -244,7 +230,7 @@ function _jm_f_10(val, path, rep)
 }
 
 // check json_model_17_map_dependentRequired (.'$schema#ObjectSchema'.dependentRequired)
-function _jm_f_11(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     // .'$schema#ObjectSchema'.dependentRequired
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -269,7 +255,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check json_model_17_map_dependentSchemas (.'$schema#ObjectSchema'.dependentSchemas)
-function _jm_f_12(val, path, rep)
+function _jm_f_10(val, path, rep)
 {
     // .'$schema#ObjectSchema'.dependentSchemas
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -294,7 +280,7 @@ function _jm_f_12(val, path, rep)
 }
 
 // check json_model_17_map_deprecated (.'$schema#ObjectSchema'.deprecated)
-function _jm_f_13(val, path, rep)
+function _jm_f_11(val, path, rep)
 {
     // .'$schema#ObjectSchema'.deprecated
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -304,7 +290,7 @@ function _jm_f_13(val, path, rep)
 }
 
 // check json_model_17_map_description (.'$schema#ObjectSchema'.description)
-function _jm_f_14(val, path, rep)
+function _jm_f_12(val, path, rep)
 {
     // .'$schema#ObjectSchema'.description
     let res = (typeof val === 'string' || val instanceof String)
@@ -314,7 +300,7 @@ function _jm_f_14(val, path, rep)
 }
 
 // check json_model_17_map_enum (.'$schema#ObjectSchema'.enum)
-function _jm_f_15(val, path, rep)
+function _jm_f_13(val, path, rep)
 {
     // .'$schema#ObjectSchema'.enum
     let res = Array.isArray(val)
@@ -324,7 +310,7 @@ function _jm_f_15(val, path, rep)
 }
 
 // check json_model_17_map_examples (.'$schema#ObjectSchema'.examples)
-function _jm_f_16(val, path, rep)
+function _jm_f_14(val, path, rep)
 {
     // .'$schema#ObjectSchema'.examples
     let res = Array.isArray(val)
@@ -334,7 +320,7 @@ function _jm_f_16(val, path, rep)
 }
 
 // check json_model_17_map_exclusiveMaximum (.'$schema#ObjectSchema'.exclusiveMaximum)
-function _jm_f_17(val, path, rep)
+function _jm_f_15(val, path, rep)
 {
     // .'$schema#ObjectSchema'.exclusiveMaximum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -344,7 +330,7 @@ function _jm_f_17(val, path, rep)
 }
 
 // check json_model_17_map_exclusiveMinimum (.'$schema#ObjectSchema'.exclusiveMinimum)
-function _jm_f_18(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     // .'$schema#ObjectSchema'.exclusiveMinimum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -354,7 +340,7 @@ function _jm_f_18(val, path, rep)
 }
 
 // check json_model_17_map_format (.'$schema#ObjectSchema'.format)
-function _jm_f_19(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     // .'$schema#ObjectSchema'.format
     let res = (typeof val === 'string' || val instanceof String)
@@ -364,7 +350,7 @@ function _jm_f_19(val, path, rep)
 }
 
 // check json_model_17_map_items (.'$schema#ObjectSchema'.items)
-function _jm_f_20(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     // .'$schema#ObjectSchema'.items
     // .'$schema#ObjectSchema'.items.'|'.0
@@ -387,7 +373,7 @@ function _jm_f_20(val, path, rep)
 }
 
 // check json_model_17_map_maximum (.'$schema#ObjectSchema'.maximum)
-function _jm_f_21(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     // .'$schema#ObjectSchema'.maximum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -397,7 +383,7 @@ function _jm_f_21(val, path, rep)
 }
 
 // check json_model_17_map_minimum (.'$schema#ObjectSchema'.minimum)
-function _jm_f_22(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     // .'$schema#ObjectSchema'.minimum
     let res = (typeof val === 'number' || val instanceof Number)
@@ -407,7 +393,7 @@ function _jm_f_22(val, path, rep)
 }
 
 // check json_model_17_map_multipleOf (.'$schema#ObjectSchema'.multipleOf)
-function _jm_f_23(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     // .'$schema#ObjectSchema'.multipleOf
     let res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0
@@ -417,7 +403,7 @@ function _jm_f_23(val, path, rep)
 }
 
 // check json_model_17_map_pattern (.'$schema#ObjectSchema'.pattern)
-function _jm_f_24(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     // .'$schema#ObjectSchema'.pattern
     let res = (typeof val === 'string' || val instanceof String)
@@ -427,7 +413,7 @@ function _jm_f_24(val, path, rep)
 }
 
 // check json_model_17_map_patternProperties (.'$schema#ObjectSchema'.patternProperties)
-function _jm_f_25(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     // .'$schema#ObjectSchema'.patternProperties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -452,7 +438,7 @@ function _jm_f_25(val, path, rep)
 }
 
 // check json_model_17_map_properties (.'$schema#ObjectSchema'.properties)
-function _jm_f_26(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     // .'$schema#ObjectSchema'.properties
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
@@ -477,7 +463,7 @@ function _jm_f_26(val, path, rep)
 }
 
 // check json_model_17_map_readOnly (.'$schema#ObjectSchema'.readOnly)
-function _jm_f_27(val, path, rep)
+function _jm_f_25(val, path, rep)
 {
     // .'$schema#ObjectSchema'.readOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -487,7 +473,7 @@ function _jm_f_27(val, path, rep)
 }
 
 // check json_model_17_map_title (.'$schema#ObjectSchema'.title)
-function _jm_f_28(val, path, rep)
+function _jm_f_26(val, path, rep)
 {
     // .'$schema#ObjectSchema'.title
     let res = (typeof val === 'string' || val instanceof String)
@@ -497,7 +483,7 @@ function _jm_f_28(val, path, rep)
 }
 
 // check json_model_17_map_type (.'$schema#ObjectSchema'.type)
-function _jm_f_29(val, path, rep)
+function _jm_f_27(val, path, rep)
 {
     // .'$schema#ObjectSchema'.type
     // .'$schema#ObjectSchema'.type.'|'.0
@@ -520,7 +506,7 @@ function _jm_f_29(val, path, rep)
 }
 
 // check json_model_17_map_uniqueItems (.'$schema#ObjectSchema'.uniqueItems)
-function _jm_f_30(val, path, rep)
+function _jm_f_28(val, path, rep)
 {
     // .'$schema#ObjectSchema'.uniqueItems
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -530,7 +516,7 @@ function _jm_f_30(val, path, rep)
 }
 
 // check json_model_17_map_writeOnly (.'$schema#ObjectSchema'.writeOnly)
-function _jm_f_31(val, path, rep)
+function _jm_f_29(val, path, rep)
 {
     // .'$schema#ObjectSchema'.writeOnly
     let res = (typeof val === 'boolean' || val instanceof Boolean)
@@ -555,7 +541,7 @@ function json_model_17(val, path, rep)
         let lpath_0 = path ? path.concat([prop]) : null
         if ((pfun = json_model_17_map.get(prop)))
         {
-            // handle 59 may props
+            // handle 57 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_0 : null), rep))
             {
                 rep !== null && rep.push(["invalid optional prop value [.'$schema#ObjectSchema']", (path ? lpath_0 : null)])
@@ -730,52 +716,50 @@ export function check_model_init()
         json_model_17_map.set("additionalProperties", json_model_18)
         json_model_17_map.set("allOf", json_model_15)
         json_model_17_map.set("anyOf", json_model_15)
-        json_model_17_map.set("const", _jm_f_5)
         json_model_17_map.set("contains", json_model_18)
-        json_model_17_map.set("contentEncoding", _jm_f_6)
-        json_model_17_map.set("contentMediaType", _jm_f_7)
+        json_model_17_map.set("contentEncoding", _jm_f_5)
+        json_model_17_map.set("contentMediaType", _jm_f_6)
         json_model_17_map.set("contentSchema", json_model_18)
-        json_model_17_map.set("default", _jm_f_8)
-        json_model_17_map.set("definitions", _jm_f_9)
-        json_model_17_map.set("dependencies", _jm_f_10)
-        json_model_17_map.set("dependentRequired", _jm_f_11)
-        json_model_17_map.set("dependentSchemas", _jm_f_12)
-        json_model_17_map.set("deprecated", _jm_f_13)
-        json_model_17_map.set("description", _jm_f_14)
+        json_model_17_map.set("definitions", _jm_f_7)
+        json_model_17_map.set("dependencies", _jm_f_8)
+        json_model_17_map.set("dependentRequired", _jm_f_9)
+        json_model_17_map.set("dependentSchemas", _jm_f_10)
+        json_model_17_map.set("deprecated", _jm_f_11)
+        json_model_17_map.set("description", _jm_f_12)
         json_model_17_map.set("else", json_model_18)
-        json_model_17_map.set("enum", _jm_f_15)
-        json_model_17_map.set("examples", _jm_f_16)
-        json_model_17_map.set("exclusiveMaximum", _jm_f_17)
-        json_model_17_map.set("exclusiveMinimum", _jm_f_18)
-        json_model_17_map.set("format", _jm_f_19)
+        json_model_17_map.set("enum", _jm_f_13)
+        json_model_17_map.set("examples", _jm_f_14)
+        json_model_17_map.set("exclusiveMaximum", _jm_f_15)
+        json_model_17_map.set("exclusiveMinimum", _jm_f_16)
+        json_model_17_map.set("format", _jm_f_17)
         json_model_17_map.set("if", json_model_18)
-        json_model_17_map.set("items", _jm_f_20)
+        json_model_17_map.set("items", _jm_f_18)
         json_model_17_map.set("maxContains", json_model_13)
         json_model_17_map.set("maxItems", json_model_13)
         json_model_17_map.set("maxLength", json_model_13)
         json_model_17_map.set("maxProperties", json_model_13)
-        json_model_17_map.set("maximum", _jm_f_21)
+        json_model_17_map.set("maximum", _jm_f_19)
         json_model_17_map.set("minContains", json_model_13)
         json_model_17_map.set("minItems", json_model_13)
         json_model_17_map.set("minLength", json_model_13)
         json_model_17_map.set("minProperties", json_model_13)
-        json_model_17_map.set("minimum", _jm_f_22)
-        json_model_17_map.set("multipleOf", _jm_f_23)
+        json_model_17_map.set("minimum", _jm_f_20)
+        json_model_17_map.set("multipleOf", _jm_f_21)
         json_model_17_map.set("not", json_model_18)
         json_model_17_map.set("oneOf", json_model_15)
-        json_model_17_map.set("pattern", _jm_f_24)
-        json_model_17_map.set("patternProperties", _jm_f_25)
-        json_model_17_map.set("properties", _jm_f_26)
+        json_model_17_map.set("pattern", _jm_f_22)
+        json_model_17_map.set("patternProperties", _jm_f_23)
+        json_model_17_map.set("properties", _jm_f_24)
         json_model_17_map.set("propertyNames", json_model_18)
-        json_model_17_map.set("readOnly", _jm_f_27)
+        json_model_17_map.set("readOnly", _jm_f_25)
         json_model_17_map.set("required", json_model_12)
         json_model_17_map.set("then", json_model_18)
-        json_model_17_map.set("title", _jm_f_28)
-        json_model_17_map.set("type", _jm_f_29)
+        json_model_17_map.set("title", _jm_f_26)
+        json_model_17_map.set("type", _jm_f_27)
         json_model_17_map.set("unevaluatedItems", json_model_18)
         json_model_17_map.set("unevaluatedProperties", json_model_18)
-        json_model_17_map.set("uniqueItems", _jm_f_30)
-        json_model_17_map.set("writeOnly", _jm_f_31)
+        json_model_17_map.set("uniqueItems", _jm_f_28)
+        json_model_17_map.set("writeOnly", _jm_f_29)
         _jm_cst_0.add("array")
         _jm_cst_0.add("boolean")
         _jm_cst_0.add("integer")

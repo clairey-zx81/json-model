@@ -29,7 +29,6 @@ export interface schema {
 	description?: string
 	format?: string
 	contentEncoding?: string
-	default?: any
 	divisibleBy?: number
 	disallow?: string
 	extends?: (string | string[])

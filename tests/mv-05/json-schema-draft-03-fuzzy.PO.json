@@ -71,7 +71,6 @@
       "?uniqueItems": true,
       "?title": "",
       "?description": "",
-      "?default": "$ANY",
       "?divisibleBy": 1.0,
       "?disallow": {
         "|": [

@@ -18,7 +18,6 @@
         "description": {
           "type": "string"
         },
-        "default": true,
         "multipleOf": {
           "type": "number",
           "exclusiveMinimum": 0.0

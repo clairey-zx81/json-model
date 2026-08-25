@@ -28,7 +28,6 @@ export interface schema {
 	description?: string
 	format?: string
 	contentEncoding?: string
-	default?: any
 	maxDecimal?: number
 	disallow?: (string | string[])
 	extends?: (string | string[])
