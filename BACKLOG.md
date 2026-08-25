@@ -5,12 +5,12 @@
 - [x] bench: fix standard cron runs
 - [x] bench: minor report styling
 - [x] pr: improve bench artifact discussion
+- [x] tests: ~run dyn per-model instead of per-dir~ not needed, load balancing is ok
+- [x] tests: ~run language per-model instead of per-dir~ idem
 - [ ] front: merge many internal options to trigrams
 - [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
-- [ ] tests: run dyn per model instead of per-dir
-- [ ] tests: run language per model instead of per-dir
 - [ ] static: use combined type test and value extraction when available?
 - [ ] c-backend: factor out str extraction in or-list in more cases
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
