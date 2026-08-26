@@ -1248,6 +1248,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     taken: set[str] = set()
     try:
         valid = simplest(model, resolver=resolver, url=url, extend=extend)
+        tests.append("# simplest")
         tests.append([True, valid])
         taken.add(json.dumps(valid, sort_keys=True))
     except Vacuous as e:

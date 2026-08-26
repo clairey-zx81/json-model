@@ -858,7 +858,12 @@ def jmc_script(xargs: list[str]|None = None) -> int:
         if not items:
             return "[]"
         pad = " " * args.indent
-        lines = ",\n".join(pad + json.dumps(i, sort_keys=args.sort) for i in items)
+        lines = ""
+        for i, item in enumerate(items):
+            lines += pad + json.dumps(item, sort_keys=args.sort)
+            if i + 1 < len(items):
+                paired = isinstance(item, str) and isinstance(items[i + 1], list)
+                lines += ",\n" if paired else ",\n\n"
         return f"[\n{lines}\n]"
 
     # actual output
