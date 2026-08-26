@@ -95,6 +95,13 @@ function json_model_1(val, path, rep)
                 return false
             continue
         }
+        else if (prop == "auto.diverse")
+        {
+            res = (typeof pval === 'boolean' || pval instanceof Boolean)
+            if (! res)
+                return false
+            continue
+        }
         if (prop.startsWith("#"))
         {
             res = (typeof pval === 'string' || pval instanceof String)

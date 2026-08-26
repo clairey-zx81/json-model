@@ -33,6 +33,9 @@
   "# .[\"?ts\"] present",
   [true, {"ts": false}],
 
+  "# .[\"?auto.diverse\"] present",
+  [true, {"auto.diverse": false}],
+
   "# .[\"/^#/\"] present",
   [true, {"#": ""}],
 
@@ -47,6 +50,9 @@
 
   "# .[\"?ts\"] invalid",
   [false, {"ts": null}],
+
+  "# .[\"?auto.diverse\"] invalid",
+  [false, {"auto.diverse": null}],
 
   "# .[\"/^#/\"] invalid",
   [false, {"#": null}],

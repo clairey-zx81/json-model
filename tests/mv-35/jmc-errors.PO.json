@@ -8,6 +8,7 @@
   "?c": "$ErrorIndex",
   "?py": "$ErrorIndex",
   "?ts": true,
+  "?auto.diverse": true,
   "/^#/s": "",
   "#": "JsonModel 1",
   "$": {

@@ -45,6 +45,9 @@
     },
     "ts": {
       "type": "boolean"
+    },
+    "auto.diverse": {
+      "type": "boolean"
     }
   },
   "additionalProperties": false

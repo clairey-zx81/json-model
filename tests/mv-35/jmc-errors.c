@@ -36,9 +36,16 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         uint32_t hash_0 = (*((uint32_t *) (prop))) & 0xffff;
-        if (hash_0 <= 0x6c70)
+        if (hash_0 <= 0x7173)
         {
             if (jm_str_eq_7(prop, 0x0000616d65686373LL))
+            {
+                res = json_model_2(pval, NULL, NULL);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_4(prop, 0x006c7173))
             {
                 res = json_model_2(pval, NULL, NULL);
                 if (unlikely(! res))
@@ -83,13 +90,6 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     return false;
                 continue;
             }
-            else if (jm_str_eq_4(prop, 0x006c7173))
-            {
-                res = json_model_2(pval, NULL, NULL);
-                if (unlikely(! res))
-                    return false;
-                continue;
-            }
             else if (jm_str_eq_3(prop, 0x00007970))
             {
                 res = json_model_2(pval, NULL, NULL);
@@ -98,6 +98,13 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 continue;
             }
             else if (jm_str_eq_3(prop, 0x00007374))
+            {
+                res = json_is_boolean(pval);
+                if (unlikely(! res))
+                    return false;
+                continue;
+            }
+            else if (jm_str_eq_8(prop, 0x7669642e6f747561LL) && jm_str_eq_5(prop + 8, 0x0000000065737265LL))
             {
                 res = json_is_boolean(pval);
                 if (unlikely(! res))

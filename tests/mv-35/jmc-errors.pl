@@ -10,6 +10,7 @@ use constant JMC_VERSION => "2";
 
 sub json_model_2($$$);
 sub _jm_f_0($$$);
+sub _jm_f_1($$$);
 my %json_model_1_map;
 sub json_model_1($$$);
 my %check_model_map;
@@ -32,6 +33,12 @@ sub json_model_2($$$)
 }
 
 sub _jm_f_0($$$)
+{
+    my ($val, $path, $rep) = @_;
+    return jm_is_boolean($val);
+}
+
+sub _jm_f_1($$$)
 {
     my ($val, $path, $rep) = @_;
     return jm_is_boolean($val);
@@ -76,6 +83,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %json_model_1_map = (
+            "auto.diverse" => \&_jm_f_0,
             "c" => \&json_model_2,
             "dynpy" => \&json_model_2,
             "java" => \&json_model_2,
@@ -84,7 +92,7 @@ sub check_model_init()
             "py" => \&json_model_2,
             "schema" => \&json_model_2,
             "sql" => \&json_model_2,
-            "ts" => \&_jm_f_0,
+            "ts" => \&_jm_f_1,
         );
         %check_model_map = (
             "" => \&json_model_1,

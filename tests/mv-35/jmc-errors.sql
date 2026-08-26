@@ -32,10 +32,17 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+CREATE OR REPLACE FUNCTION _jm_f_1(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN JSONB_TYPEOF(val) = 'boolean';
+END;
+$$ LANGUAGE PLpgSQL;
+
 CREATE OR REPLACE FUNCTION json_model_1_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"c":"json_model_2","dynpy":"json_model_2","java":"json_model_2","js":"json_model_2","pl":"json_model_2","py":"json_model_2","schema":"json_model_2","sql":"json_model_2","ts":"_jm_f_0"}';
+  map JSONB := JSONB '{"auto.diverse":"_jm_f_0","c":"json_model_2","dynpy":"json_model_2","java":"json_model_2","js":"json_model_2","pl":"json_model_2","py":"json_model_2","schema":"json_model_2","sql":"json_model_2","ts":"_jm_f_1"}';
 BEGIN
   RETURN map->>name;
 END;

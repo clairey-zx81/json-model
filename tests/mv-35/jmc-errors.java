@@ -109,6 +109,13 @@ public class jmc_errors extends ModelChecker
                     return false;
                 continue;
             }
+            else if (prop.compareTo("auto.diverse") == 0)
+            {
+                res = json.isBoolean(pval);
+                if (! res)
+                    return false;
+                continue;
+            }
             if (prop.startsWith("#"))
             {
                 res = json.isString(pval);

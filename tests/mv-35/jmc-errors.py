@@ -80,6 +80,11 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
             continue
+        elif prop == "auto.diverse":
+            res = isinstance(pval, bool)
+            if not res:
+                return False
+            continue
         if prop.startswith("#"):
             res = isinstance(pval, str)
             if not res:
