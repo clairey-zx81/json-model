@@ -107,6 +107,10 @@ auto:
 clean.auto:
 	$(MAKE) TARGET=clean.auto $(D.clean.auto)
 
+.PHONY: check.diverges
+check.diverges:
+	./check-diverges.sh
+
 # show statistics about tests
 .PHONY: stats
 stats:
