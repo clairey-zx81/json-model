@@ -1,3 +1,4 @@
 {
-  "ts": true
+  "ts": true,
+  "auto.diverse": true
 }

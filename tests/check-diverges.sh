@@ -1,10 +1,5 @@
-#! /bin/bash
-#
 # Report backend divergences found in generated *.auto.check files,
-# with the offending test vector when the matching *.auto.json is available
-#
-# usage: [VERBOSE=1] check-diverges.sh [file-or-directory ...]
-#
+# findings on a model whose *.errors.json holds "auto.diverse": true are known
 
 targets=("$@")
 [ ${#targets[@]} -eq 0 ] && targets=(.)
@@ -47,16 +42,41 @@ for item in data:
 PY
 }
 
-checks=0 files=0 findings=0
+diverse() {
+    local errors=$1
+    [ -f "$errors" ] || return 1
+    python3 - "$errors" <<'PY'
+import json, sys
+try:
+    data = json.load(open(sys.argv[1]))
+except Exception:
+    sys.exit(1)
+sys.exit(0 if data.get("auto.diverse") is True else 1)
+PY
+}
+
+checks=0 files=0 findings=0 kfiles=0 kfindings=0
 while IFS= read -r check ; do
     checks=$((checks + 1))
     hits=$(grep -E 'DISAGREEMENT|MISMATCH' "$check")
     [ -z "$hits" ] && continue
-    files=$((files + 1))
-    echo "== $check"
+    if diverse "${check%.auto.check}.errors.json" ; then
+        known=1 ; kfiles=$((kfiles + 1))
+    else
+        known="" ; files=$((files + 1))
+    fi
+    if [ -n "$known" ] && [ -z "$VERBOSE" ] ; then
+        kfindings=$((kfindings + $(echo "$hits" | wc -l)))
+        continue
+    fi
+    echo "== $check${known:+  (auto.diverse)}"
     auto=${check%.check}.json
     while IFS= read -r line ; do
-        findings=$((findings + 1))
+        if [ -n "$known" ] ; then
+            kfindings=$((kfindings + 1))
+        else
+            findings=$((findings + 1))
+        fi
         echo "  $line"
         index=$(expr "$line" : '\[\([0-9]*\)\]')
         [ -z "$index" ] || vector "$auto" "$index"
@@ -68,6 +88,7 @@ if [ $checks -eq 0 ] ; then
     exit 2
 fi
 
-echo "$checks check files: $findings findings in $files files" >&2
+echo "$checks check files: $findings findings in $files files" \
+     "($kfindings known in $kfiles files)" >&2
 
 [ $findings -eq 0 ]
