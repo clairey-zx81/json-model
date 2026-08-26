@@ -1,0 +1,39 @@
+[
+  "# generated from luhn.model.json",
+
+  "# simplest",
+  [true, "4111111111111111"],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"@\"] bad",
+  [false, "411111111111111"],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

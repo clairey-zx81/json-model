@@ -1,0 +1,39 @@
+[
+  "# generated from reref_0.model.json",
+
+  "# FAILED invalid model",
+
+  "# FAILED optional value no document to alter: unsupported extended regex model: /'($character:\\w+)'.*'($character:\\w+)'/X",
+
+  "# FAILED branch value no document to alter: unsupported extended regex model: /'($character:\\w+)'.*'($character:\\w+)'/X",
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

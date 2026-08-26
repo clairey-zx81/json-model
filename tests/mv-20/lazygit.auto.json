@@ -1,0 +1,1583 @@
+[
+  "# generated from lazygit.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?gui\"][\"?sidePanelWidth\"][\"<=\"] bound",
+  [true, {"gui": {"sidePanelWidth": 1.0}}],
+
+  "# .[\"$\"].colorArray[\">=\"] bound",
+  [true, {"gui": {"theme": {"activeBorderColor": ["black"]}}}],
+
+  "# .[\"?git\"][\"?paging\"][\"?pager\"][\">=\"] bound",
+  [true, {"git": {"paging": {"pager": "a"}}}],
+
+  "# .[\"$\"].neString[\">=\"] bound",
+  [true, {"git": {"mainBranches": ["a"]}}],
+
+  "# .[\"?gui\"] present",
+  [true, {"gui": {}}],
+
+  "# .[\"?git\"] present",
+  [true, {"git": {}}],
+
+  "# .[\"?os\"] present",
+  [true, {"os": {}}],
+
+  "# .[\"?refresher\"] present",
+  [true, {"refresher": {}}],
+
+  "# .[\"?update\"] present",
+  [true, {"update": {}}],
+
+  "# .[\"?confirmOnQuit\"] present",
+  [true, {"confirmOnQuit": false}],
+
+  "# .[\"?quitOnTopLevelReturn\"] present",
+  [true, {"quitOnTopLevelReturn": false}],
+
+  "# .[\"?disableStartupPopups\"] present",
+  [true, {"disableStartupPopups": false}],
+
+  "# .[\"?notARepository\"] present",
+  [true, {"notARepository": "prompt"}],
+
+  "# .[\"?promptToReturnFromSubprocess\"] present",
+  [true, {"promptToReturnFromSubprocess": false}],
+
+  "# .[\"?keybinding\"] present",
+  [true, {"keybinding": {}}],
+
+  "# .[\"?services\"] present",
+  [true, {"services": {}}],
+
+  "# .[\"?customCommands\"] present",
+  [true, {"customCommands": []}],
+
+  "# .[\"?gui\"][\"?windowSize\"] present",
+  [true, {"gui": {"windowSize": "normal"}}],
+
+  "# .[\"?gui\"][\"?scrollHeight\"] present",
+  [true, {"gui": {"scrollHeight": 1}}],
+
+  "# .[\"?gui\"][\"?scrollPastBottom\"] present",
+  [true, {"gui": {"scrollPastBottom": false}}],
+
+  "# .[\"?gui\"][\"?sidePanelWidth\"] present",
+  [true, {"gui": {"sidePanelWidth": 0.0}}],
+
+  "# .[\"?gui\"][\"?expandFocusedSidePanel\"] present",
+  [true, {"gui": {"expandFocusedSidePanel": false}}],
+
+  "# .[\"?gui\"][\"?mainPanelSplitMode\"] present",
+  [true, {"gui": {"mainPanelSplitMode": "horizontal"}}],
+
+  "# .[\"?gui\"][\"?language\"] present",
+  [true, {"gui": {"language": "auto"}}],
+
+  "# .[\"?gui\"][\"?timeFormat\"] present",
+  [true, {"gui": {"timeFormat": ""}}],
+
+  "# .[\"?gui\"][\"?shortTimeFormat\"] present",
+  [true, {"gui": {"shortTimeFormat": ""}}],
+
+  "# .[\"?gui\"][\"?theme\"] present",
+  [true, {"gui": {"theme": {}}}],
+
+  "# .[\"?gui\"][\"?commitLength\"] present",
+  [true, {"gui": {"commitLength": {}}}],
+
+  "# .[\"?gui\"][\"?mouseEvents\"] present",
+  [true, {"gui": {"mouseEvents": false}}],
+
+  "# .[\"?gui\"][\"?skipDiscardChangeWarning\"] present",
+  [true, {"gui": {"skipDiscardChangeWarning": false}}],
+
+  "# .[\"?gui\"][\"?skipStashWarning\"] present",
+  [true, {"gui": {"skipStashWarning": false}}],
+
+  "# .[\"?gui\"][\"?showFileTree\"] present",
+  [true, {"gui": {"showFileTree": false}}],
+
+  "# .[\"?gui\"][\"?showListFooter\"] present",
+  [true, {"gui": {"showListFooter": false}}],
+
+  "# .[\"?gui\"][\"?showRandomTip\"] present",
+  [true, {"gui": {"showRandomTip": false}}],
+
+  "# .[\"?gui\"][\"?showBranchCommitHash\"] present",
+  [true, {"gui": {"showBranchCommitHash": false}}],
+
+  "# .[\"?gui\"][\"?showBottomLine\"] present",
+  [true, {"gui": {"showBottomLine": false}}],
+
+  "# .[\"?gui\"][\"?showCommandLog\"] present",
+  [true, {"gui": {"showCommandLog": false}}],
+
+  "# .[\"?gui\"][\"?nerdFontsVersion\"] present",
+  [true, {"gui": {"nerdFontsVersion": "2"}}],
+
+  "# .[\"?gui\"][\"?commandLogSize\"] present",
+  [true, {"gui": {"commandLogSize": 0}}],
+
+  "# .[\"?gui\"][\"?splitDiff\"] present",
+  [true, {"gui": {"splitDiff": "auto"}}],
+
+  "# .[\"?gui\"][\"?skipRewordInEditorWarning\"] present",
+  [true, {"gui": {"skipRewordInEditorWarning": false}}],
+
+  "# .[\"?gui\"][\"?border\"] present",
+  [true, {"gui": {"border": "single"}}],
+
+  "# .[\"?gui\"][\"?animateExplosion\"] present",
+  [true, {"gui": {"animateExplosion": false}}],
+
+  "# .[\"?gui\"][\"?authorColors\"] present",
+  [true, {"gui": {"authorColors": {}}}],
+
+  "# .[\"?gui\"][\"?branchColors\"] present",
+  [true, {"gui": {"branchColors": {}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?inactiveBorderColor\"] present",
+  [true, {"gui": {"theme": {"inactiveBorderColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?searchingActiveBorderColor\"] present",
+  [true, {"gui": {"theme": {"searchingActiveBorderColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?optionsTextColor\"] present",
+  [true, {"gui": {"theme": {"optionsTextColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?selectedLineBgColor\"] present",
+  [true, {"gui": {"theme": {"selectedLineBgColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?selectedRangeBgColor\"] present",
+  [true, {"gui": {"theme": {"selectedRangeBgColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?cherryPickedCommitBgColor\"] present",
+  [true, {"gui": {"theme": {"cherryPickedCommitBgColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?cherryPickedCommitFgColor\"] present",
+  [true, {"gui": {"theme": {"cherryPickedCommitFgColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?unstagedChangesColor\"] present",
+  [true, {"gui": {"theme": {"unstagedChangesColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"?defaultFgColor\"] present",
+  [true, {"gui": {"theme": {"defaultFgColor": ["black"]}}}],
+
+  "# .[\"?gui\"][\"?commitLength\"][\"?show\"] present",
+  [true, {"gui": {"commitLength": {"show": false}}}],
+
+  "# .[\"?gui\"][\"?authorColors\"][\"/./\"] present",
+  [true, {"gui": {"authorColors": {"a": "black"}}}],
+
+  "# .[\"?gui\"][\"?branchColors\"][\"/./\"] present",
+  [true, {"gui": {"branchColors": {"a": "black"}}}],
+
+  "# .[\"?git\"][\"?paging\"] present",
+  [true, {"git": {"paging": {}}}],
+
+  "# .[\"?git\"][\"?commit\"] present",
+  [true, {"git": {"commit": {}}}],
+
+  "# .[\"?git\"][\"?merging\"] present",
+  [true, {"git": {"merging": {}}}],
+
+  "# .[\"?git\"][\"?log\"] present",
+  [true, {"git": {"log": {}}}],
+
+  "# .[\"?git\"][\"?skipHookPrefix\"] present",
+  [true, {"git": {"skipHookPrefix": ""}}],
+
+  "# .[\"?git\"][\"?mainBranches\"] present",
+  [true, {"git": {"mainBranches": []}}],
+
+  "# .[\"?git\"][\"?autoFetch\"] present",
+  [true, {"git": {"autoFetch": false}}],
+
+  "# .[\"?git\"][\"?autoRefresh\"] present",
+  [true, {"git": {"autoRefresh": false}}],
+
+  "# .[\"?git\"][\"?fetchAll\"] present",
+  [true, {"git": {"fetchAll": false}}],
+
+  "# .[\"?git\"][\"?branchLogCmd\"] present",
+  [true, {"git": {"branchLogCmd": ""}}],
+
+  "# .[\"?git\"][\"?allBranchesLogCmd\"] present",
+  [true, {"git": {"allBranchesLogCmd": ""}}],
+
+  "# .[\"?git\"][\"?overrideGpg\"] present",
+  [true, {"git": {"overrideGpg": false}}],
+
+  "# .[\"?git\"][\"?disableForcePushing\"] present",
+  [true, {"git": {"disableForcePushing": false}}],
+
+  "# .[\"?git\"][\"?parseEmoji\"] present",
+  [true, {"git": {"parseEmoji": false}}],
+
+  "# .[\"?git\"][\"?diffContextSize\"] present",
+  [true, {"git": {"diffContextSize": 0}}],
+
+  "# .[\"?git\"][\"?commitPrefixes\"] present",
+  [true, {"git": {"commitPrefixes": {}}}],
+
+  "# .[\"?git\"][\"?paging\"][\"?colorArg\"] present",
+  [true, {"git": {"paging": {"colorArg": "always"}}}],
+
+  "# .[\"?git\"][\"?paging\"][\"?useConfig\"] present",
+  [true, {"git": {"paging": {"useConfig": false}}}],
+
+  "# .[\"?git\"][\"?commit\"][\"?signOff\"] present",
+  [true, {"git": {"commit": {"signOff": false}}}],
+
+  "# .[\"?git\"][\"?merging\"][\"?manualCommit\"] present",
+  [true, {"git": {"merging": {"manualCommit": false}}}],
+
+  "# .[\"?git\"][\"?merging\"][\"?args\"] present",
+  [true, {"git": {"merging": {"args": ""}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?order\"] present",
+  [true, {"git": {"log": {"order": "date-order"}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?showGraph\"] present",
+  [true, {"git": {"log": {"showGraph": "always"}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?showWholeGraph\"] present",
+  [true, {"git": {"log": {"showWholeGraph": false}}}],
+
+  "# .[\"?git\"][\"?commitPrefixes\"][\"/./\"] present",
+  [true, {"git": {"commitPrefixes": {"a": {"pattern": "a", "replace": "a"}}}}],
+
+  "# .[\"?os\"][\"?copyToClipboardCmd\"] present",
+  [true, {"os": {"copyToClipboardCmd": ""}}],
+
+  "# .[\"?os\"][\"?editPreset\"] present",
+  [true, {"os": {"editPreset": "vim"}}],
+
+  "# .[\"?os\"][\"?edit\"] present",
+  [true, {"os": {"edit": ""}}],
+
+  "# .[\"?os\"][\"?editAtLine\"] present",
+  [true, {"os": {"editAtLine": ""}}],
+
+  "# .[\"?os\"][\"?editAtLineAndWait\"] present",
+  [true, {"os": {"editAtLineAndWait": ""}}],
+
+  "# .[\"?os\"][\"?open\"] present",
+  [true, {"os": {"open": ""}}],
+
+  "# .[\"?os\"][\"?openLink\"] present",
+  [true, {"os": {"openLink": ""}}],
+
+  "# .[\"?refresher\"][\"?refreshInterval\"] present",
+  [true, {"refresher": {"refreshInterval": 0}}],
+
+  "# .[\"?refresher\"][\"?fetchInterval\"] present",
+  [true, {"refresher": {"fetchInterval": 0}}],
+
+  "# .[\"?update\"][\"?method\"] present",
+  [true, {"update": {"method": "prompt"}}],
+
+  "# .[\"?update\"][\"?days\"] present",
+  [true, {"update": {"days": 0}}],
+
+  "# .[\"?keybinding\"][\"?universal\"] present",
+  [true, {"keybinding": {"universal": {}}}],
+
+  "# .[\"?keybinding\"][\"?status\"] present",
+  [true, {"keybinding": {"status": {}}}],
+
+  "# .[\"?keybinding\"][\"?files\"] present",
+  [true, {"keybinding": {"files": {}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"] present",
+  [true, {"keybinding": {"branches": {}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"] present",
+  [true, {"keybinding": {"commits": {}}}],
+
+  "# .[\"?keybinding\"][\"?stash\"] present",
+  [true, {"keybinding": {"stash": {}}}],
+
+  "# .[\"?keybinding\"][\"?commitFiles\"] present",
+  [true, {"keybinding": {"commitFiles": {}}}],
+
+  "# .[\"?keybinding\"][\"?main\"] present",
+  [true, {"keybinding": {"main": {}}}],
+
+  "# .[\"?keybinding\"][\"?submodules\"] present",
+  [true, {"keybinding": {"submodules": {}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?quit\"] present",
+  [true, {"keybinding": {"universal": {"quit": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?quit-alt1\"] present",
+  [true, {"keybinding": {"universal": {"quit-alt1": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?return\"] present",
+  [true, {"keybinding": {"universal": {"return": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?quitWithoutChangingDirectory\"] present",
+  [true, {"keybinding": {"universal": {"quitWithoutChangingDirectory": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?togglePanel\"] present",
+  [true, {"keybinding": {"universal": {"togglePanel": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?prevItem\"] present",
+  [true, {"keybinding": {"universal": {"prevItem": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?nextItem\"] present",
+  [true, {"keybinding": {"universal": {"nextItem": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?prevItem-alt\"] present",
+  [true, {"keybinding": {"universal": {"prevItem-alt": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?nextItem-alt\"] present",
+  [true, {"keybinding": {"universal": {"nextItem-alt": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?prevPage\"] present",
+  [true, {"keybinding": {"universal": {"prevPage": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?nextPage\"] present",
+  [true, {"keybinding": {"universal": {"nextPage": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?gotoTop\"] present",
+  [true, {"keybinding": {"universal": {"gotoTop": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?gotoBottom\"] present",
+  [true, {"keybinding": {"universal": {"gotoBottom": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?scrollLeft\"] present",
+  [true, {"keybinding": {"universal": {"scrollLeft": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?scrollRight\"] present",
+  [true, {"keybinding": {"universal": {"scrollRight": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?prevBlock\"] present",
+  [true, {"keybinding": {"universal": {"prevBlock": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?nextBlock\"] present",
+  [true, {"keybinding": {"universal": {"nextBlock": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?prevBlock-alt\"] present",
+  [true, {"keybinding": {"universal": {"prevBlock-alt": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?nextBlock-alt\"] present",
+  [true, {"keybinding": {"universal": {"nextBlock-alt": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?jumpToBlock\"] present",
+  [true, {"keybinding": {"universal": {"jumpToBlock": []}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?nextMatch\"] present",
+  [true, {"keybinding": {"universal": {"nextMatch": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?prevMatch\"] present",
+  [true, {"keybinding": {"universal": {"prevMatch": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?optionMenu\"] present",
+  [true, {"keybinding": {"universal": {"optionMenu": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?optionMenu-alt1\"] present",
+  [true, {"keybinding": {"universal": {"optionMenu-alt1": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?select\"] present",
+  [true, {"keybinding": {"universal": {"select": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?goInto\"] present",
+  [true, {"keybinding": {"universal": {"goInto": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?openRecentRepos\"] present",
+  [true, {"keybinding": {"universal": {"openRecentRepos": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?confirm\"] present",
+  [true, {"keybinding": {"universal": {"confirm": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?remove\"] present",
+  [true, {"keybinding": {"universal": {"remove": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?new\"] present",
+  [true, {"keybinding": {"universal": {"new": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?edit\"] present",
+  [true, {"keybinding": {"universal": {"edit": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?openFile\"] present",
+  [true, {"keybinding": {"universal": {"openFile": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?scrollUpMain\"] present",
+  [true, {"keybinding": {"universal": {"scrollUpMain": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?scrollDownMain\"] present",
+  [true, {"keybinding": {"universal": {"scrollDownMain": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?scrollUpMain-alt1\"] present",
+  [true, {"keybinding": {"universal": {"scrollUpMain-alt1": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?scrollDownMain-alt1\"] present",
+  [true, {"keybinding": {"universal": {"scrollDownMain-alt1": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?scrollUpMain-alt2\"] present",
+  [true, {"keybinding": {"universal": {"scrollUpMain-alt2": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?scrollDownMain-alt2\"] present",
+  [true, {"keybinding": {"universal": {"scrollDownMain-alt2": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?executeCustomCommand\"] present",
+  [true, {"keybinding": {"universal": {"executeCustomCommand": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?createRebaseOptionsMenu\"] present",
+  [true, {"keybinding": {"universal": {"createRebaseOptionsMenu": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?pushFiles\"] present",
+  [true, {"keybinding": {"universal": {"pushFiles": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?pullFiles\"] present",
+  [true, {"keybinding": {"universal": {"pullFiles": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?refresh\"] present",
+  [true, {"keybinding": {"universal": {"refresh": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?createPatchOptionsMenu\"] present",
+  [true, {"keybinding": {"universal": {"createPatchOptionsMenu": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?nextTab\"] present",
+  [true, {"keybinding": {"universal": {"nextTab": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?prevTab\"] present",
+  [true, {"keybinding": {"universal": {"prevTab": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?nextScreenMode\"] present",
+  [true, {"keybinding": {"universal": {"nextScreenMode": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?prevScreenMode\"] present",
+  [true, {"keybinding": {"universal": {"prevScreenMode": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?undo\"] present",
+  [true, {"keybinding": {"universal": {"undo": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?redo\"] present",
+  [true, {"keybinding": {"universal": {"redo": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?filteringMenu\"] present",
+  [true, {"keybinding": {"universal": {"filteringMenu": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?diffingMenu\"] present",
+  [true, {"keybinding": {"universal": {"diffingMenu": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?diffingMenu-alt\"] present",
+  [true, {"keybinding": {"universal": {"diffingMenu-alt": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?copyToClipboard\"] present",
+  [true, {"keybinding": {"universal": {"copyToClipboard": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?submitEditorText\"] present",
+  [true, {"keybinding": {"universal": {"submitEditorText": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?extrasMenu\"] present",
+  [true, {"keybinding": {"universal": {"extrasMenu": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?toggleWhitespaceInDiffView\"] present",
+  [true, {"keybinding": {"universal": {"toggleWhitespaceInDiffView": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?increaseContextInDiffView\"] present",
+  [true, {"keybinding": {"universal": {"increaseContextInDiffView": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?decreaseContextInDiffView\"] present",
+  [true, {"keybinding": {"universal": {"decreaseContextInDiffView": null}}}],
+
+  "# .[\"?keybinding\"][\"?status\"][\"?checkForUpdate\"] present",
+  [true, {"keybinding": {"status": {"checkForUpdate": null}}}],
+
+  "# .[\"?keybinding\"][\"?status\"][\"?recentRepos\"] present",
+  [true, {"keybinding": {"status": {"recentRepos": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?commitChanges\"] present",
+  [true, {"keybinding": {"files": {"commitChanges": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?commitChangesWithoutHook\"] present",
+  [true, {"keybinding": {"files": {"commitChangesWithoutHook": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?amendLastCommit\"] present",
+  [true, {"keybinding": {"files": {"amendLastCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?commitChangesWithEditor\"] present",
+  [true, {"keybinding": {"files": {"commitChangesWithEditor": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?ignoreFile\"] present",
+  [true, {"keybinding": {"files": {"ignoreFile": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?refreshFiles\"] present",
+  [true, {"keybinding": {"files": {"refreshFiles": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?stashAllChanges\"] present",
+  [true, {"keybinding": {"files": {"stashAllChanges": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?viewStashOptions\"] present",
+  [true, {"keybinding": {"files": {"viewStashOptions": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?toggleStagedAll\"] present",
+  [true, {"keybinding": {"files": {"toggleStagedAll": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?viewResetOptions\"] present",
+  [true, {"keybinding": {"files": {"viewResetOptions": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?fetch\"] present",
+  [true, {"keybinding": {"files": {"fetch": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?toggleTreeView\"] present",
+  [true, {"keybinding": {"files": {"toggleTreeView": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?openMergeTool\"] present",
+  [true, {"keybinding": {"files": {"openMergeTool": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"?openStatusFilter\"] present",
+  [true, {"keybinding": {"files": {"openStatusFilter": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?createPullRequest\"] present",
+  [true, {"keybinding": {"branches": {"createPullRequest": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?viewPullRequestOptions\"] present",
+  [true, {"keybinding": {"branches": {"viewPullRequestOptions": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?checkoutBranchByName\"] present",
+  [true, {"keybinding": {"branches": {"checkoutBranchByName": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?forceCheckoutBranch\"] present",
+  [true, {"keybinding": {"branches": {"forceCheckoutBranch": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?rebaseBranch\"] present",
+  [true, {"keybinding": {"branches": {"rebaseBranch": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?renameBranch\"] present",
+  [true, {"keybinding": {"branches": {"renameBranch": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?mergeIntoCurrentBranch\"] present",
+  [true, {"keybinding": {"branches": {"mergeIntoCurrentBranch": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?viewGitFlowOptions\"] present",
+  [true, {"keybinding": {"branches": {"viewGitFlowOptions": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?fastForward\"] present",
+  [true, {"keybinding": {"branches": {"fastForward": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?createTag\"] present",
+  [true, {"keybinding": {"branches": {"createTag": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?pushTag\"] present",
+  [true, {"keybinding": {"branches": {"pushTag": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?setUpstream\"] present",
+  [true, {"keybinding": {"branches": {"setUpstream": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"?fetchRemote\"] present",
+  [true, {"keybinding": {"branches": {"fetchRemote": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?squashDown\"] present",
+  [true, {"keybinding": {"commits": {"squashDown": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?renameCommit\"] present",
+  [true, {"keybinding": {"commits": {"renameCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?renameCommitWithEditor\"] present",
+  [true, {"keybinding": {"commits": {"renameCommitWithEditor": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?viewResetOptions\"] present",
+  [true, {"keybinding": {"commits": {"viewResetOptions": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?markCommitAsFixup\"] present",
+  [true, {"keybinding": {"commits": {"markCommitAsFixup": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?createFixupCommit\"] present",
+  [true, {"keybinding": {"commits": {"createFixupCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?squashAboveCommits\"] present",
+  [true, {"keybinding": {"commits": {"squashAboveCommits": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?moveDownCommit\"] present",
+  [true, {"keybinding": {"commits": {"moveDownCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?moveUpCommit\"] present",
+  [true, {"keybinding": {"commits": {"moveUpCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?amendToCommit\"] present",
+  [true, {"keybinding": {"commits": {"amendToCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?pickCommit\"] present",
+  [true, {"keybinding": {"commits": {"pickCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?revertCommit\"] present",
+  [true, {"keybinding": {"commits": {"revertCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?cherryPickCopy\"] present",
+  [true, {"keybinding": {"commits": {"cherryPickCopy": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?cherryPickCopyRange\"] present",
+  [true, {"keybinding": {"commits": {"cherryPickCopyRange": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?pasteCommits\"] present",
+  [true, {"keybinding": {"commits": {"pasteCommits": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?tagCommit\"] present",
+  [true, {"keybinding": {"commits": {"tagCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?checkoutCommit\"] present",
+  [true, {"keybinding": {"commits": {"checkoutCommit": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?resetCherryPick\"] present",
+  [true, {"keybinding": {"commits": {"resetCherryPick": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?copyCommitMessageToClipboard\"] present",
+  [true, {"keybinding": {"commits": {"copyCommitMessageToClipboard": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?openLogMenu\"] present",
+  [true, {"keybinding": {"commits": {"openLogMenu": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"?viewBisectOptions\"] present",
+  [true, {"keybinding": {"commits": {"viewBisectOptions": null}}}],
+
+  "# .[\"?keybinding\"][\"?stash\"][\"?popStash\"] present",
+  [true, {"keybinding": {"stash": {"popStash": null}}}],
+
+  "# .[\"?keybinding\"][\"?stash\"][\"?renameStash\"] present",
+  [true, {"keybinding": {"stash": {"renameStash": null}}}],
+
+  "# .[\"?keybinding\"][\"?commitFiles\"][\"?checkoutCommitFile\"] present",
+  [true, {"keybinding": {"commitFiles": {"checkoutCommitFile": null}}}],
+
+  "# .[\"?keybinding\"][\"?main\"][\"?toggleDragSelect\"] present",
+  [true, {"keybinding": {"main": {"toggleDragSelect": null}}}],
+
+  "# .[\"?keybinding\"][\"?main\"][\"?toggleDragSelect-alt\"] present",
+  [true, {"keybinding": {"main": {"toggleDragSelect-alt": null}}}],
+
+  "# .[\"?keybinding\"][\"?main\"][\"?toggleSelectHunk\"] present",
+  [true, {"keybinding": {"main": {"toggleSelectHunk": null}}}],
+
+  "# .[\"?keybinding\"][\"?main\"][\"?pickBothHunks\"] present",
+  [true, {"keybinding": {"main": {"pickBothHunks": null}}}],
+
+  "# .[\"?keybinding\"][\"?submodules\"][\"?init\"] present",
+  [true, {"keybinding": {"submodules": {"init": null}}}],
+
+  "# .[\"?keybinding\"][\"?submodules\"][\"?update\"] present",
+  [true, {"keybinding": {"submodules": {"update": null}}}],
+
+  "# .[\"?keybinding\"][\"?submodules\"][\"?bulkMenu\"] present",
+  [true, {"keybinding": {"submodules": {"bulkMenu": null}}}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?subprocess\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "subprocess": false}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?prompts\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": []}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?loadingText\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "loadingText": ""}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?description\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "description": ""}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?stream\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "stream": false}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?showOutput\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "showOutput": false}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?after\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "after": {}}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?initialValue\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "initialValue": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?suggestions\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": "authors"}}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][1][\"?body\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "confirm", "title": "", "key": "", "body": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][2].options[\"@\"][0][\"?description\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [{"value": "a", "description": ""}]}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][2].options[\"@\"][0][\"?name\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [{"value": "a", "name": ""}]}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][3][\"?filter\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": "", "filter": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][3][\"?valueFormat\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": "", "valueFormat": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][3][\"?labelFormat\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": "", "labelFormat": ""}]}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?after\"][\"?checkForConflicts\"] present",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "after": {"checkForConflicts": false}}]}],
+
+  "# FAILED optional value .[\"?services\"][\"/./\"] present: unsupported regex construct: NOT_LITERAL",
+
+  "# .[\"?gui\"][\"?windowSize\"][\"|\"][1] branch",
+  [true, {"gui": {"windowSize": "half"}}],
+
+  "# .[\"?gui\"][\"?windowSize\"][\"|\"][2] branch",
+  [true, {"gui": {"windowSize": "full"}}],
+
+  "# .[\"?gui\"][\"?mainPanelSplitMode\"][\"|\"][1] branch",
+  [true, {"gui": {"mainPanelSplitMode": "flexible"}}],
+
+  "# .[\"?gui\"][\"?mainPanelSplitMode\"][\"|\"][2] branch",
+  [true, {"gui": {"mainPanelSplitMode": "vertical"}}],
+
+  "# .[\"?gui\"][\"?language\"][\"|\"][1] branch",
+  [true, {"gui": {"language": "en"}}],
+
+  "# .[\"?gui\"][\"?language\"][\"|\"][2] branch",
+  [true, {"gui": {"language": "zh-CN"}}],
+
+  "# .[\"?gui\"][\"?language\"][\"|\"][3] branch",
+  [true, {"gui": {"language": "zh-TW"}}],
+
+  "# .[\"?gui\"][\"?language\"][\"|\"][4] branch",
+  [true, {"gui": {"language": "pl"}}],
+
+  "# .[\"?gui\"][\"?language\"][\"|\"][5] branch",
+  [true, {"gui": {"language": "nl"}}],
+
+  "# .[\"?gui\"][\"?language\"][\"|\"][6] branch",
+  [true, {"gui": {"language": "ja"}}],
+
+  "# .[\"?gui\"][\"?language\"][\"|\"][7] branch",
+  [true, {"gui": {"language": "ko"}}],
+
+  "# .[\"?gui\"][\"?language\"][\"|\"][8] branch",
+  [true, {"gui": {"language": "ru"}}],
+
+  "# .[\"$\"].color[\"|\"][1] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["red"]}}}],
+
+  "# .[\"$\"].color[\"|\"][2] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["green"]}}}],
+
+  "# .[\"$\"].color[\"|\"][3] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["yellow"]}}}],
+
+  "# .[\"$\"].color[\"|\"][4] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["blue"]}}}],
+
+  "# .[\"$\"].color[\"|\"][5] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["magenta"]}}}],
+
+  "# .[\"$\"].color[\"|\"][6] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["cyan"]}}}],
+
+  "# .[\"$\"].color[\"|\"][7] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["white"]}}}],
+
+  "# .[\"$\"].color[\"|\"][8] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["bold"]}}}],
+
+  "# .[\"$\"].color[\"|\"][9] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["default"]}}}],
+
+  "# .[\"$\"].color[\"|\"][10] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["reverse"]}}}],
+
+  "# .[\"$\"].color[\"|\"][11] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["underline"]}}}],
+
+  "# .[\"$\"].color[\"|\"][12] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["strikethrough"]}}}],
+
+  "# .[\"$\"].color[\"|\"][13] branch",
+  [true, {"gui": {"theme": {"activeBorderColor": ["#000000"]}}}],
+
+  "# .[\"?gui\"][\"?nerdFontsVersion\"][\"|\"][1] branch",
+  [true, {"gui": {"nerdFontsVersion": "3"}}],
+
+  "# .[\"?gui\"][\"?nerdFontsVersion\"][\"|\"][2] branch",
+  [true, {"gui": {"nerdFontsVersion": ""}}],
+
+  "# .[\"?gui\"][\"?splitDiff\"][\"|\"][1] branch",
+  [true, {"gui": {"splitDiff": "always"}}],
+
+  "# .[\"?gui\"][\"?border\"][\"|\"][1] branch",
+  [true, {"gui": {"border": "double"}}],
+
+  "# .[\"?gui\"][\"?border\"][\"|\"][2] branch",
+  [true, {"gui": {"border": "rounded"}}],
+
+  "# .[\"?gui\"][\"?border\"][\"|\"][3] branch",
+  [true, {"gui": {"border": "hidden"}}],
+
+  "# .[\"?git\"][\"?paging\"][\"?colorArg\"][\"|\"][1] branch",
+  [true, {"git": {"paging": {"colorArg": "never"}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?order\"][\"|\"][1] branch",
+  [true, {"git": {"log": {"order": "author-date-order"}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?order\"][\"|\"][2] branch",
+  [true, {"git": {"log": {"order": "topo-order"}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?order\"][\"|\"][3] branch",
+  [true, {"git": {"log": {"order": "default"}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?showGraph\"][\"|\"][1] branch",
+  [true, {"git": {"log": {"showGraph": "never"}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?showGraph\"][\"|\"][2] branch",
+  [true, {"git": {"log": {"showGraph": "when-maximised"}}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][1] branch",
+  [true, {"os": {"editPreset": "nvim"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][2] branch",
+  [true, {"os": {"editPreset": "emacs"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][3] branch",
+  [true, {"os": {"editPreset": "nano"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][4] branch",
+  [true, {"os": {"editPreset": "vscode"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][5] branch",
+  [true, {"os": {"editPreset": "sublime"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][6] branch",
+  [true, {"os": {"editPreset": "bbedit"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][7] branch",
+  [true, {"os": {"editPreset": "kakoune"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][8] branch",
+  [true, {"os": {"editPreset": "helix"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][9] branch",
+  [true, {"os": {"editPreset": "xcode"}}],
+
+  "# .[\"?os\"][\"?editPreset\"][\"|\"][10] branch",
+  [true, {"os": {"editPreset": ""}}],
+
+  "# .[\"?update\"][\"?method\"][\"|\"][1] branch",
+  [true, {"update": {"method": "background"}}],
+
+  "# .[\"?update\"][\"?method\"][\"|\"][2] branch",
+  [true, {"update": {"method": "never"}}],
+
+  "# .[\"?notARepository\"][\"|\"][1] branch",
+  [true, {"notARepository": "create"}],
+
+  "# .[\"?notARepository\"][\"|\"][2] branch",
+  [true, {"notARepository": "skip"}],
+
+  "# .[\"?notARepository\"][\"|\"][3] branch",
+  [true, {"notARepository": "quit"}],
+
+  "# .[\"$\"].keybinding[\"|\"][1] branch",
+  [true, {"keybinding": {"universal": {"quit": ""}}}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][0] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][1] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "files"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][2] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "worktrees"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][3] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "localBranches"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][4] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "remotes"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][5] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "remoteBranches"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][6] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "tags"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][7] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "commits"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][8] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "reflogCommits"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][9] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "subCommits"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][10] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "commitFiles"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][11] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "stash"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context[\"|\"][12] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "global"}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][1] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "confirm", "title": "", "key": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][2] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": []}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][3] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?suggestions\"][\"|\"][1] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"command": ""}}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?suggestions\"][\"|\"][0].preset[\"|\"][1] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": "branches"}}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?suggestions\"][\"|\"][0].preset[\"|\"][2] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": "files"}}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?suggestions\"][\"|\"][0].preset[\"|\"][3] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": "refs"}}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?suggestions\"][\"|\"][0].preset[\"|\"][4] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": "remotes"}}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?suggestions\"][\"|\"][0].preset[\"|\"][5] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": "remoteBranches"}}]}]}],
+
+  "# .[\"$\"].Prompts[\"|\"][0][\"?suggestions\"][\"|\"][0].preset[\"|\"][6] branch",
+  [true, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": "tags"}}]}]}],
+
+  "# .[\"?gui\"][\"?sidePanelWidth\"][\"<=\"]",
+  [false, {"gui": {"sidePanelWidth": 2.0}}],
+
+  "# .[\"$\"].colorArray[\">=\"]",
+  [false, {"gui": {"theme": {"activeBorderColor": []}}}],
+
+  "# .[\"$\"].colorArray[\"!\"]",
+  [false, {"gui": {"theme": {"activeBorderColor": ["black", "black"]}}}],
+
+  "# .[\"?git\"][\"?paging\"][\"?pager\"][\">=\"]",
+  [false, {"git": {"paging": {"pager": ""}}}],
+
+  "# .[\"$\"].stringArray[\"!\"]",
+  [false, {"git": {"mainBranches": ["a", "a"]}}],
+
+  "# .[\"$\"].neString[\">=\"]",
+  [false, {"git": {"mainBranches": [""]}}],
+
+  "# .[\"?customCommands\"][\"!\"]",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status"}, {"key": null, "command": "", "context": "status"}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].options[\"!\"]",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [{"value": "a"}, {"value": "a"}]}]}]}],
+
+  "# .[\"?gui\"] invalid",
+  [false, {"gui": null}],
+
+  "# .[\"?gui\"][\"?windowSize\"] invalid",
+  [false, {"gui": {"windowSize": null}}],
+
+  "# .[\"?gui\"][\"?scrollHeight\"] invalid",
+  [false, {"gui": {"scrollHeight": null}}],
+
+  "# .[\"?gui\"][\"?scrollPastBottom\"] invalid",
+  [false, {"gui": {"scrollPastBottom": null}}],
+
+  "# .[\"?gui\"][\"?sidePanelWidth\"][\"@\"] invalid",
+  [false, {"gui": {"sidePanelWidth": null}}],
+
+  "# .[\"?gui\"][\"?expandFocusedSidePanel\"] invalid",
+  [false, {"gui": {"expandFocusedSidePanel": null}}],
+
+  "# .[\"?gui\"][\"?mainPanelSplitMode\"] invalid",
+  [false, {"gui": {"mainPanelSplitMode": null}}],
+
+  "# .[\"?gui\"][\"?language\"] invalid",
+  [false, {"gui": {"language": null}}],
+
+  "# .[\"?gui\"][\"?timeFormat\"] invalid",
+  [false, {"gui": {"timeFormat": null}}],
+
+  "# .[\"?gui\"][\"?shortTimeFormat\"] invalid",
+  [false, {"gui": {"shortTimeFormat": null}}],
+
+  "# .[\"?gui\"][\"?theme\"] invalid",
+  [false, {"gui": {"theme": null}}],
+
+  "# .[\"$\"].colorArray[\"@\"] invalid",
+  [false, {"gui": {"theme": {"activeBorderColor": null}}}],
+
+  "# .[\"$\"].color invalid",
+  [false, {"gui": {"theme": {"activeBorderColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][0] invalid",
+  [false, {"gui": {"theme": {"inactiveBorderColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][1] invalid",
+  [false, {"gui": {"theme": {"searchingActiveBorderColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][2] invalid",
+  [false, {"gui": {"theme": {"optionsTextColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][3] invalid",
+  [false, {"gui": {"theme": {"selectedLineBgColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][4] invalid",
+  [false, {"gui": {"theme": {"selectedRangeBgColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][5] invalid",
+  [false, {"gui": {"theme": {"cherryPickedCommitBgColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][6] invalid",
+  [false, {"gui": {"theme": {"cherryPickedCommitFgColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][7] invalid",
+  [false, {"gui": {"theme": {"unstagedChangesColor": [null]}}}],
+
+  "# .[\"$\"].color[\"|\"][8] invalid",
+  [false, {"gui": {"theme": {"defaultFgColor": [null]}}}],
+
+  "# .[\"?gui\"][\"?commitLength\"] invalid",
+  [false, {"gui": {"commitLength": null}}],
+
+  "# .[\"?gui\"][\"?commitLength\"][\"?show\"] invalid",
+  [false, {"gui": {"commitLength": {"show": null}}}],
+
+  "# .[\"?gui\"][\"?mouseEvents\"] invalid",
+  [false, {"gui": {"mouseEvents": null}}],
+
+  "# .[\"?gui\"][\"?skipDiscardChangeWarning\"] invalid",
+  [false, {"gui": {"skipDiscardChangeWarning": null}}],
+
+  "# .[\"?gui\"][\"?skipStashWarning\"] invalid",
+  [false, {"gui": {"skipStashWarning": null}}],
+
+  "# .[\"?gui\"][\"?showFileTree\"] invalid",
+  [false, {"gui": {"showFileTree": null}}],
+
+  "# .[\"?gui\"][\"?showListFooter\"] invalid",
+  [false, {"gui": {"showListFooter": null}}],
+
+  "# .[\"?gui\"][\"?showRandomTip\"] invalid",
+  [false, {"gui": {"showRandomTip": null}}],
+
+  "# .[\"?gui\"][\"?showBranchCommitHash\"] invalid",
+  [false, {"gui": {"showBranchCommitHash": null}}],
+
+  "# .[\"?gui\"][\"?showBottomLine\"] invalid",
+  [false, {"gui": {"showBottomLine": null}}],
+
+  "# .[\"?gui\"][\"?showCommandLog\"] invalid",
+  [false, {"gui": {"showCommandLog": null}}],
+
+  "# .[\"?gui\"][\"?nerdFontsVersion\"] invalid",
+  [false, {"gui": {"nerdFontsVersion": null}}],
+
+  "# .[\"?gui\"][\"?commandLogSize\"] invalid",
+  [false, {"gui": {"commandLogSize": null}}],
+
+  "# .[\"?gui\"][\"?splitDiff\"] invalid",
+  [false, {"gui": {"splitDiff": null}}],
+
+  "# .[\"?gui\"][\"?skipRewordInEditorWarning\"] invalid",
+  [false, {"gui": {"skipRewordInEditorWarning": null}}],
+
+  "# .[\"?gui\"][\"?border\"] invalid",
+  [false, {"gui": {"border": null}}],
+
+  "# .[\"?gui\"][\"?animateExplosion\"] invalid",
+  [false, {"gui": {"animateExplosion": null}}],
+
+  "# .[\"?gui\"][\"?authorColors\"] invalid",
+  [false, {"gui": {"authorColors": null}}],
+
+  "# .[\"$\"].color[\"|\"][9] invalid",
+  [false, {"gui": {"authorColors": {"a": null}}}],
+
+  "# .[\"?gui\"][\"?branchColors\"] invalid",
+  [false, {"gui": {"branchColors": null}}],
+
+  "# .[\"$\"].color[\"|\"][10] invalid",
+  [false, {"gui": {"branchColors": {"a": null}}}],
+
+  "# .[\"?git\"] invalid",
+  [false, {"git": null}],
+
+  "# .[\"?git\"][\"?paging\"] invalid",
+  [false, {"git": {"paging": null}}],
+
+  "# .[\"?git\"][\"?paging\"][\"?colorArg\"] invalid",
+  [false, {"git": {"paging": {"colorArg": null}}}],
+
+  "# .[\"?git\"][\"?paging\"][\"?useConfig\"] invalid",
+  [false, {"git": {"paging": {"useConfig": null}}}],
+
+  "# .[\"?git\"][\"?paging\"][\"?pager\"][\"@\"] invalid",
+  [false, {"git": {"paging": {"pager": null}}}],
+
+  "# .[\"?git\"][\"?commit\"] invalid",
+  [false, {"git": {"commit": null}}],
+
+  "# .[\"?git\"][\"?commit\"][\"?signOff\"] invalid",
+  [false, {"git": {"commit": {"signOff": null}}}],
+
+  "# .[\"?git\"][\"?merging\"] invalid",
+  [false, {"git": {"merging": null}}],
+
+  "# .[\"?git\"][\"?merging\"][\"?manualCommit\"] invalid",
+  [false, {"git": {"merging": {"manualCommit": null}}}],
+
+  "# .[\"?git\"][\"?merging\"][\"?args\"] invalid",
+  [false, {"git": {"merging": {"args": null}}}],
+
+  "# .[\"?git\"][\"?log\"] invalid",
+  [false, {"git": {"log": null}}],
+
+  "# .[\"?git\"][\"?log\"][\"?order\"] invalid",
+  [false, {"git": {"log": {"order": null}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?showGraph\"] invalid",
+  [false, {"git": {"log": {"showGraph": null}}}],
+
+  "# .[\"?git\"][\"?log\"][\"?showWholeGraph\"] invalid",
+  [false, {"git": {"log": {"showWholeGraph": null}}}],
+
+  "# .[\"?git\"][\"?skipHookPrefix\"] invalid",
+  [false, {"git": {"skipHookPrefix": null}}],
+
+  "# .[\"$\"].stringArray[\"@\"] invalid",
+  [false, {"git": {"mainBranches": null}}],
+
+  "# .[\"$\"].neString[\"@\"] invalid",
+  [false, {"git": {"mainBranches": [null]}}],
+
+  "# .[\"?git\"][\"?autoFetch\"] invalid",
+  [false, {"git": {"autoFetch": null}}],
+
+  "# .[\"?git\"][\"?autoRefresh\"] invalid",
+  [false, {"git": {"autoRefresh": null}}],
+
+  "# .[\"?git\"][\"?fetchAll\"] invalid",
+  [false, {"git": {"fetchAll": null}}],
+
+  "# .[\"?git\"][\"?branchLogCmd\"] invalid",
+  [false, {"git": {"branchLogCmd": null}}],
+
+  "# .[\"?git\"][\"?allBranchesLogCmd\"] invalid",
+  [false, {"git": {"allBranchesLogCmd": null}}],
+
+  "# .[\"?git\"][\"?overrideGpg\"] invalid",
+  [false, {"git": {"overrideGpg": null}}],
+
+  "# .[\"?git\"][\"?disableForcePushing\"] invalid",
+  [false, {"git": {"disableForcePushing": null}}],
+
+  "# .[\"?git\"][\"?parseEmoji\"] invalid",
+  [false, {"git": {"parseEmoji": null}}],
+
+  "# .[\"?git\"][\"?diffContextSize\"] invalid",
+  [false, {"git": {"diffContextSize": null}}],
+
+  "# .[\"?git\"][\"?commitPrefixes\"] invalid",
+  [false, {"git": {"commitPrefixes": null}}],
+
+  "# .[\"?git\"][\"?commitPrefixes\"][\"/./\"] invalid",
+  [false, {"git": {"commitPrefixes": {"a": null}}}],
+
+  "# .[\"?os\"] invalid",
+  [false, {"os": null}],
+
+  "# .[\"?os\"][\"?copyToClipboardCmd\"] invalid",
+  [false, {"os": {"copyToClipboardCmd": null}}],
+
+  "# .[\"?os\"][\"?editPreset\"] invalid",
+  [false, {"os": {"editPreset": null}}],
+
+  "# .[\"?os\"][\"?edit\"] invalid",
+  [false, {"os": {"edit": null}}],
+
+  "# .[\"?os\"][\"?editAtLine\"] invalid",
+  [false, {"os": {"editAtLine": null}}],
+
+  "# .[\"?os\"][\"?editAtLineAndWait\"] invalid",
+  [false, {"os": {"editAtLineAndWait": null}}],
+
+  "# .[\"?os\"][\"?open\"] invalid",
+  [false, {"os": {"open": null}}],
+
+  "# .[\"?os\"][\"?openLink\"] invalid",
+  [false, {"os": {"openLink": null}}],
+
+  "# .[\"?refresher\"] invalid",
+  [false, {"refresher": null}],
+
+  "# .[\"?refresher\"][\"?refreshInterval\"] invalid",
+  [false, {"refresher": {"refreshInterval": null}}],
+
+  "# .[\"?refresher\"][\"?fetchInterval\"] invalid",
+  [false, {"refresher": {"fetchInterval": null}}],
+
+  "# .[\"?update\"] invalid",
+  [false, {"update": null}],
+
+  "# .[\"?update\"][\"?method\"] invalid",
+  [false, {"update": {"method": null}}],
+
+  "# .[\"?update\"][\"?days\"] invalid",
+  [false, {"update": {"days": null}}],
+
+  "# .[\"?confirmOnQuit\"] invalid",
+  [false, {"confirmOnQuit": null}],
+
+  "# .[\"?quitOnTopLevelReturn\"] invalid",
+  [false, {"quitOnTopLevelReturn": null}],
+
+  "# .[\"?disableStartupPopups\"] invalid",
+  [false, {"disableStartupPopups": null}],
+
+  "# .[\"?notARepository\"] invalid",
+  [false, {"notARepository": null}],
+
+  "# .[\"?promptToReturnFromSubprocess\"] invalid",
+  [false, {"promptToReturnFromSubprocess": null}],
+
+  "# .[\"?keybinding\"] invalid",
+  [false, {"keybinding": null}],
+
+  "# .[\"?keybinding\"][\"?universal\"] invalid",
+  [false, {"keybinding": {"universal": null}}],
+
+  "# .[\"$\"].keybinding invalid",
+  [false, {"keybinding": {"universal": {"quit": true}}}],
+
+  "# .[\"$\"].keybinding[\"|\"][0] invalid",
+  [false, {"keybinding": {"universal": {"quit-alt1": true}}}],
+
+  "# .[\"$\"].keybinding[\"|\"][1] invalid",
+  [false, {"keybinding": {"universal": {"return": true}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?jumpToBlock\"] invalid",
+  [false, {"keybinding": {"universal": {"jumpToBlock": null}}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"?optionMenu\"] invalid",
+  [false, {"keybinding": {"universal": {"optionMenu": true}}}],
+
+  "# .[\"?keybinding\"][\"?status\"] invalid",
+  [false, {"keybinding": {"status": null}}],
+
+  "# .[\"?keybinding\"][\"?files\"] invalid",
+  [false, {"keybinding": {"files": null}}],
+
+  "# .[\"?keybinding\"][\"?branches\"] invalid",
+  [false, {"keybinding": {"branches": null}}],
+
+  "# .[\"?keybinding\"][\"?commits\"] invalid",
+  [false, {"keybinding": {"commits": null}}],
+
+  "# .[\"?keybinding\"][\"?stash\"] invalid",
+  [false, {"keybinding": {"stash": null}}],
+
+  "# .[\"?keybinding\"][\"?commitFiles\"] invalid",
+  [false, {"keybinding": {"commitFiles": null}}],
+
+  "# .[\"?keybinding\"][\"?main\"] invalid",
+  [false, {"keybinding": {"main": null}}],
+
+  "# .[\"?keybinding\"][\"?submodules\"] invalid",
+  [false, {"keybinding": {"submodules": null}}],
+
+  "# .[\"?services\"] invalid",
+  [false, {"services": null}],
+
+  "# .[\"?services\"][\"/./\"] invalid",
+  [false, {"services": {"a": null}}],
+
+  "# .[\"?customCommands\"][\"@\"] invalid",
+  [false, {"customCommands": null}],
+
+  "# .[\"?customCommands\"][\"@\"][0] invalid",
+  [false, {"customCommands": [null]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].command invalid",
+  [false, {"customCommands": [{"key": null, "command": null, "context": "status"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": null}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?subprocess\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "subprocess": null}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?prompts\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": null}]}],
+
+  "# .[\"$\"].Prompts invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [null]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0].type invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": null, "title": "", "key": ""}]}]}],
+
+  "# .[\"$\"][\"custom-commands-prompts-title-property\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": null, "key": ""}]}]}],
+
+  "# .[\"$\"][\"custom-commands-prompts-key-property\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0][\"?initialValue\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "initialValue": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0][\"?suggestions\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0][\"?suggestions\"][\"^\"][0].preset invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": null}}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0][\"?suggestions\"][\"^\"][1].command invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"command": null}}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][1][\"?body\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "confirm", "title": "", "key": "", "body": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].type invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": null, "title": "", "key": "", "options": []}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].options[\"@\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].options[\"@\"][0] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [null]}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].options[\"@\"][0][\"?description\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [{"value": "a", "description": null}]}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].options[\"@\"][0][\"?name\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [{"value": "a", "name": null}]}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3].type invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": null, "title": "", "key": "", "command": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3].command invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3][\"?filter\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": "", "filter": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3][\"?valueFormat\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": "", "valueFormat": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3][\"?labelFormat\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": "", "labelFormat": null}]}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?loadingText\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "loadingText": null}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?description\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "description": null}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?stream\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "stream": null}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?showOutput\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "showOutput": null}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?after\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "after": null}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?after\"][\"?checkForConflicts\"] invalid",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "after": {"checkForConflicts": null}}]}],
+
+  "# .[\"?git\"][\"?commitPrefixes\"][\"/./\"].pattern missing",
+  [false, {"git": {"commitPrefixes": {"a": {"replace": "a"}}}}],
+
+  "# .[\"?git\"][\"?commitPrefixes\"][\"/./\"].replace missing",
+  [false, {"git": {"commitPrefixes": {"a": {"pattern": "a"}}}}],
+
+  "# .[\"?customCommands\"][\"@\"][0].key missing",
+  [false, {"customCommands": [{"command": "", "context": "status"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].command missing",
+  [false, {"customCommands": [{"key": null, "context": "status"}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0].context missing",
+  [false, {"customCommands": [{"key": null, "command": ""}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0].type missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"title": "", "key": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0].title missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "key": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0].key missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0][\"?suggestions\"][\"^\"][0].preset missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {}}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][1].title missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "confirm", "key": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][1].key missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "confirm", "title": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].type missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"title": "", "key": "", "options": []}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].title missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "key": "", "options": []}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].key missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "options": []}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].options missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].options[\"@\"][0].value missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [{}]}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3].type missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"title": "", "key": "", "command": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3].title missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "key": "", "command": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3].key missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "command": ""}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3].command missing",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": ""}]}]}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# .[\"?gui\"][\"no-such-prop\"] extra",
+  [false, {"gui": {"no-such-prop": null}}],
+
+  "# .[\"?gui\"][\"?theme\"][\"no-such-prop\"] extra",
+  [false, {"gui": {"theme": {"no-such-prop": null}}}],
+
+  "# .[\"?gui\"][\"?commitLength\"][\"no-such-prop\"] extra",
+  [false, {"gui": {"commitLength": {"no-such-prop": null}}}],
+
+  "# .[\"?git\"][\"no-such-prop\"] extra",
+  [false, {"git": {"no-such-prop": null}}],
+
+  "# .[\"?git\"][\"?paging\"][\"no-such-prop\"] extra",
+  [false, {"git": {"paging": {"no-such-prop": null}}}],
+
+  "# .[\"?git\"][\"?commit\"][\"no-such-prop\"] extra",
+  [false, {"git": {"commit": {"no-such-prop": null}}}],
+
+  "# .[\"?git\"][\"?merging\"][\"no-such-prop\"] extra",
+  [false, {"git": {"merging": {"no-such-prop": null}}}],
+
+  "# .[\"?git\"][\"?log\"][\"no-such-prop\"] extra",
+  [false, {"git": {"log": {"no-such-prop": null}}}],
+
+  "# .[\"?git\"][\"?commitPrefixes\"][\"/./\"][\"no-such-prop\"] extra",
+  [false, {"git": {"commitPrefixes": {"a": {"pattern": "a", "replace": "a", "no-such-prop": null}}}}],
+
+  "# .[\"?os\"][\"no-such-prop\"] extra",
+  [false, {"os": {"no-such-prop": null}}],
+
+  "# .[\"?refresher\"][\"no-such-prop\"] extra",
+  [false, {"refresher": {"no-such-prop": null}}],
+
+  "# .[\"?update\"][\"no-such-prop\"] extra",
+  [false, {"update": {"no-such-prop": null}}],
+
+  "# .[\"?keybinding\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"no-such-prop": null}}],
+
+  "# .[\"?keybinding\"][\"?universal\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"universal": {"no-such-prop": null}}}],
+
+  "# .[\"?keybinding\"][\"?status\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"status": {"no-such-prop": null}}}],
+
+  "# .[\"?keybinding\"][\"?files\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"files": {"no-such-prop": null}}}],
+
+  "# .[\"?keybinding\"][\"?branches\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"branches": {"no-such-prop": null}}}],
+
+  "# .[\"?keybinding\"][\"?commits\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"commits": {"no-such-prop": null}}}],
+
+  "# .[\"?keybinding\"][\"?stash\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"stash": {"no-such-prop": null}}}],
+
+  "# .[\"?keybinding\"][\"?commitFiles\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"commitFiles": {"no-such-prop": null}}}],
+
+  "# .[\"?keybinding\"][\"?main\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"main": {"no-such-prop": null}}}],
+
+  "# .[\"?keybinding\"][\"?submodules\"][\"no-such-prop\"] extra",
+  [false, {"keybinding": {"submodules": {"no-such-prop": null}}}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "no-such-prop": null}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "no-such-prop": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0][\"?suggestions\"][\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"preset": "authors", "no-such-prop": null}}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][0][\"?suggestions\"][\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "input", "title": "", "key": "", "suggestions": {"command": "", "no-such-prop": null}}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "confirm", "title": "", "key": "", "no-such-prop": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [], "no-such-prop": null}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][2].options[\"@\"][0][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menu", "title": "", "key": "", "options": [{"value": "a", "no-such-prop": null}]}]}]}],
+
+  "# .[\"$\"].Prompts[\"^\"][3][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "prompts": [{"type": "menuFromCommand", "title": "", "key": "", "command": "", "no-such-prop": null}]}]}],
+
+  "# .[\"?customCommands\"][\"@\"][0][\"?after\"][\"no-such-prop\"] extra",
+  [false, {"customCommands": [{"key": null, "command": "", "context": "status", "after": {"no-such-prop": null}}]}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"?keybinding\"][\"?universal\"][\"?jumpToBlock\"][0]: $ANY accepts every value",
+
+  "# SKIPPED extra value .[\"?gui\"][\"?authorColors\"]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"?gui\"][\"?branchColors\"]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"?git\"][\"?commitPrefixes\"]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"?services\"]: every extra property is valid",
+
+  "# SKIPPED root value {}: valid for the model"
+]

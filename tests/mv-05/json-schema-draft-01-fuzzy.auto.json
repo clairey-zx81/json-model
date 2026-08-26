@@ -1,0 +1,237 @@
+[
+  "# generated from json-schema-draft-01-fuzzy.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"$\"].schema[\"?enum\"][\">=\"] bound",
+  [true, {"enum": [{}]}],
+
+  "# .[\"$\"].schema[\"?type\"] present",
+  [true, {"type": []}],
+
+  "# .[\"$\"].schema[\"?properties\"] present",
+  [true, {"properties": {}}],
+
+  "# .[\"$\"].schema[\"?items\"] present",
+  [true, {"items": []}],
+
+  "# .[\"$\"].schema[\"?optional\"] present",
+  [true, {"optional": false}],
+
+  "# .[\"$\"].schema[\"?additionalProperties\"] present",
+  [true, {"additionalProperties": false}],
+
+  "# .[\"$\"].schema[\"?requires\"] present",
+  [true, {"requires": ""}],
+
+  "# .[\"$\"].schema[\"?minimum\"] present",
+  [true, {"minimum": 0.0}],
+
+  "# .[\"$\"].schema[\"?maximum\"] present",
+  [true, {"maximum": 0.0}],
+
+  "# .[\"$\"].schema[\"?minimumCanEqual\"] present",
+  [true, {"minimumCanEqual": false}],
+
+  "# .[\"$\"].schema[\"?maximumCanEqual\"] present",
+  [true, {"maximumCanEqual": false}],
+
+  "# .[\"$\"].schema[\"?minItems\"] present",
+  [true, {"minItems": 0}],
+
+  "# .[\"$\"].schema[\"?maxItems\"] present",
+  [true, {"maxItems": 0}],
+
+  "# .[\"$\"].schema[\"?pattern\"] present",
+  [true, {"pattern": ""}],
+
+  "# .[\"$\"].schema[\"?minLength\"] present",
+  [true, {"minLength": 0}],
+
+  "# .[\"$\"].schema[\"?maxLength\"] present",
+  [true, {"maxLength": 0}],
+
+  "# .[\"$\"].schema[\"?title\"] present",
+  [true, {"title": ""}],
+
+  "# .[\"$\"].schema[\"?description\"] present",
+  [true, {"description": ""}],
+
+  "# .[\"$\"].schema[\"?format\"] present",
+  [true, {"format": ""}],
+
+  "# .[\"$\"].schema[\"?contentEncoding\"] present",
+  [true, {"contentEncoding": ""}],
+
+  "# .[\"$\"].schema[\"?default\"] present",
+  [true, {"default": {}}],
+
+  "# .[\"$\"].schema[\"?maxDecimal\"] present",
+  [true, {"maxDecimal": 0}],
+
+  "# .[\"$\"].schema[\"?disallow\"] present",
+  [true, {"disallow": ""}],
+
+  "# .[\"$\"].schema[\"?extends\"] present",
+  [true, {"extends": []}],
+
+  "# .[\"$\"].schema[\"?id\"] present",
+  [true, {"id": ""}],
+
+  "# .[\"$\"].schema[\"?$schema\"] present",
+  [true, {"$schema": ""}],
+
+  "# FAILED optional value .[\"$\"].schema[\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"$\"].schema[\"?properties\"][\"\"] present: cannot resolve $Schema: 1: cannot find definition for \"Schema\" ([])",
+
+  "# .[\"$\"].schema[\"?type\"][\"|\"][1][0][\"|\"][0] branch",
+  [true, {"type": [""]}],
+
+  "# .[\"$\"].schema[\"?disallow\"][\"|\"][1] branch",
+  [true, {"disallow": []}],
+
+  "# FAILED branch value .[\"$\"].schema[\"?type\"][\"|\"][0] branch: cannot resolve $allTypes: 1: cannot find definition for \"allTypes\" ([])",
+
+  "# FAILED branch value .[\"$\"].schema[\"?type\"][\"|\"][1][0][\"|\"][1] branch: cannot resolve $Schema: 1: cannot find definition for \"Schema\" ([])",
+
+  "# FAILED branch value .[\"$\"].schema[\"?items\"][\"|\"][0] branch: cannot resolve $Schema: 1: cannot find definition for \"Schema\" ([])",
+
+  "# FAILED branch value .[\"$\"].schema[\"?additionalProperties\"][\"|\"][1] branch: cannot resolve $Schema: 1: cannot find definition for \"Schema\" ([])",
+
+  "# FAILED branch value .[\"$\"].schema[\"?requires\"][\"|\"][1] branch: cannot resolve $Schema: 1: cannot find definition for \"Schema\" ([])",
+
+  "# FAILED branch value .[\"$\"].schema[\"?extends\"][\"|\"][0] branch: cannot resolve $Schema: 1: cannot find definition for \"Schema\" ([])",
+
+  "# .[\"$\"].schema[\"?type\"][\"|\"][1][0][\"|\"][0] invalid",
+  [false, {"type": [null]}],
+
+  "# .[\"$\"].schema[\"?optional\"] invalid",
+  [false, {"optional": null}],
+
+  "# .[\"$\"].schema[\"?additionalProperties\"][\"|\"][0] invalid",
+  [false, {"additionalProperties": null}],
+
+  "# .[\"$\"].schema[\"?requires\"][\"|\"][0] invalid",
+  [false, {"requires": null}],
+
+  "# .[\"$\"].schema[\"?minimum\"] invalid",
+  [false, {"minimum": null}],
+
+  "# .[\"$\"].schema[\"?maximum\"] invalid",
+  [false, {"maximum": null}],
+
+  "# .[\"$\"].schema[\"?minimumCanEqual\"] invalid",
+  [false, {"minimumCanEqual": null}],
+
+  "# .[\"$\"].schema[\"?maximumCanEqual\"] invalid",
+  [false, {"maximumCanEqual": null}],
+
+  "# .[\"$\"].schema[\"?minItems\"] invalid",
+  [false, {"minItems": null}],
+
+  "# .[\"$\"].schema[\"?maxItems\"] invalid",
+  [false, {"maxItems": null}],
+
+  "# .[\"$\"].schema[\"?pattern\"] invalid",
+  [false, {"pattern": null}],
+
+  "# .[\"$\"].schema[\"?minLength\"] invalid",
+  [false, {"minLength": null}],
+
+  "# .[\"$\"].schema[\"?maxLength\"] invalid",
+  [false, {"maxLength": null}],
+
+  "# .[\"$\"].schema[\"?enum\"][\"@\"] invalid",
+  [false, {"enum": null}],
+
+  "# .[\"$\"].schema[\"?title\"] invalid",
+  [false, {"title": null}],
+
+  "# .[\"$\"].schema[\"?description\"] invalid",
+  [false, {"description": null}],
+
+  "# .[\"$\"].schema[\"?format\"] invalid",
+  [false, {"format": null}],
+
+  "# .[\"$\"].schema[\"?contentEncoding\"] invalid",
+  [false, {"contentEncoding": null}],
+
+  "# .[\"$\"].schema[\"?maxDecimal\"] invalid",
+  [false, {"maxDecimal": null}],
+
+  "# .[\"$\"].schema[\"?disallow\"] invalid",
+  [false, {"disallow": null}],
+
+  "# .[\"$\"].schema[\"?disallow\"][\"|\"][1][0] invalid",
+  [false, {"disallow": [null]}],
+
+  "# .[\"$\"].schema[\"?id\"] invalid",
+  [false, {"id": null}],
+
+  "# .[\"$\"].schema[\"?$schema\"] invalid",
+  [false, {"$schema": null}],
+
+  "# .[\"$\"].schema[\"?pattern\"] bad",
+  [false, {"pattern": "["}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?enum\"][\"@\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].schema: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?type\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?type\"][\"|\"][1]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?type\"][\"|\"][1][0]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?properties\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?items\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?items\"][\"|\"][1]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?additionalProperties\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?requires\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?extends\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].schema[\"?extends\"][\"|\"][1]: no type breaks the model here",
+
+  "# SKIPPED extra value .[\"$\"].schema: object is open",
+
+  "# SKIPPED extra value .[\"$\"].schema[\"?properties\"]: every extra property is valid",
+
+  "# SKIPPED root value {}: valid for the model"
+]

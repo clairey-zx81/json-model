@@ -1,0 +1,44 @@
+[
+  "# generated from varlen-1.model.json",
+
+  "# simplest",
+  [true, ["", {}, {}]],
+
+  "# .[\">=\"]",
+  [false, ["", {}]],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"@\"][0] invalid",
+  [false, [null, {}, {}]],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED invalid value .[\"@\"][1]: $ANY accepts every value"
+]

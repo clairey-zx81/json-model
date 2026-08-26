@@ -1,0 +1,345 @@
+[
+  "# generated from json-schema-draft-03.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?enum\"][\">=\"] bound",
+  [true, {"enum": [{}]}],
+
+  "# .[\"?type\"] present",
+  [true, {"type": "null"}],
+
+  "# .[\"?properties\"] present",
+  [true, {"properties": {}}],
+
+  "# .[\"?patternProperties\"] present",
+  [true, {"patternProperties": {}}],
+
+  "# .[\"?additionalProperties\"] present",
+  [true, {"additionalProperties": false}],
+
+  "# .[\"?items\"] present",
+  [true, {"items": {}}],
+
+  "# .[\"?additionalItems\"] present",
+  [true, {"additionalItems": false}],
+
+  "# .[\"?dependencies\"] present",
+  [true, {"dependencies": {}}],
+
+  "# .[\"?required\"] present",
+  [true, {"required": false}],
+
+  "# .[\"?minimum\"] present",
+  [true, {"minimum": 0.0}],
+
+  "# .[\"?maximum\"] present",
+  [true, {"maximum": 0.0}],
+
+  "# .[\"?exclusiveMaximum\"] present",
+  [true, {"exclusiveMaximum": false}],
+
+  "# .[\"?exclusiveMinimum\"] present",
+  [true, {"exclusiveMinimum": false}],
+
+  "# .[\"?minItems\"] present",
+  [true, {"minItems": 0}],
+
+  "# .[\"?maxItems\"] present",
+  [true, {"maxItems": 0}],
+
+  "# .[\"?pattern\"] present",
+  [true, {"pattern": ""}],
+
+  "# .[\"?minLength\"] present",
+  [true, {"minLength": 0}],
+
+  "# .[\"?maxLength\"] present",
+  [true, {"maxLength": 0}],
+
+  "# .[\"?uniqueItems\"] present",
+  [true, {"uniqueItems": false}],
+
+  "# .[\"?title\"] present",
+  [true, {"title": ""}],
+
+  "# .[\"?description\"] present",
+  [true, {"description": ""}],
+
+  "# .[\"?format\"] present",
+  [true, {"format": "date-time"}],
+
+  "# .[\"?default\"] present",
+  [true, {"default": {}}],
+
+  "# .[\"?divisibleBy\"] present",
+  [true, {"divisibleBy": 1.0}],
+
+  "# .[\"?disallow\"] present",
+  [true, {"disallow": ""}],
+
+  "# .[\"?extends\"] present",
+  [true, {"extends": {}}],
+
+  "# .[\"?id\"] present",
+  [true, {"id": ""}],
+
+  "# .[\"?$schema\"] present",
+  [true, {"$schema": ""}],
+
+  "# .[\"?$ref\"] present",
+  [true, {"$ref": ""}],
+
+  "# .[\"?properties\"][\"\"] present",
+  [true, {"properties": {"a": {}}}],
+
+  "# .[\"?patternProperties\"][\"\"] present",
+  [true, {"patternProperties": {"a": {}}}],
+
+  "# .[\"?dependencies\"][\"\"] present",
+  [true, {"dependencies": {"a": ""}}],
+
+  "# .[\"?type\"][\"|\"][1] branch",
+  [true, {"type": []}],
+
+  "# .[\"$\"].allTypes[\"|\"][1] branch",
+  [true, {"type": "boolean"}],
+
+  "# .[\"$\"].allTypes[\"|\"][2] branch",
+  [true, {"type": "integer"}],
+
+  "# .[\"$\"].allTypes[\"|\"][3] branch",
+  [true, {"type": "number"}],
+
+  "# .[\"$\"].allTypes[\"|\"][4] branch",
+  [true, {"type": "string"}],
+
+  "# .[\"$\"].allTypes[\"|\"][5] branch",
+  [true, {"type": "array"}],
+
+  "# .[\"$\"].allTypes[\"|\"][6] branch",
+  [true, {"type": "object"}],
+
+  "# .[\"$\"].allTypes[\"|\"][7] branch",
+  [true, {"type": "any"}],
+
+  "# .[\"?type\"][\"|\"][1][0][\"|\"][0] branch",
+  [true, {"type": [""]}],
+
+  "# .[\"?type\"][\"|\"][1][0][\"|\"][1] branch",
+  [true, {"type": [{}]}],
+
+  "# .[\"?additionalProperties\"][\"|\"][1] branch",
+  [true, {"additionalProperties": {}}],
+
+  "# .[\"?items\"][\"|\"][1] branch",
+  [true, {"items": []}],
+
+  "# .[\"?additionalItems\"][\"|\"][1] branch",
+  [true, {"additionalItems": {}}],
+
+  "# .[\"?format\"][\"|\"][1] branch",
+  [true, {"format": "date"}],
+
+  "# .[\"?format\"][\"|\"][2] branch",
+  [true, {"format": "time"}],
+
+  "# .[\"?format\"][\"|\"][3] branch",
+  [true, {"format": "utc-millisec"}],
+
+  "# .[\"?format\"][\"|\"][4] branch",
+  [true, {"format": "regex"}],
+
+  "# .[\"?format\"][\"|\"][5] branch",
+  [true, {"format": "color"}],
+
+  "# .[\"?format\"][\"|\"][6] branch",
+  [true, {"format": "style"}],
+
+  "# .[\"?format\"][\"|\"][7] branch",
+  [true, {"format": "phone"}],
+
+  "# .[\"?format\"][\"|\"][8] branch",
+  [true, {"format": "uri"}],
+
+  "# .[\"?format\"][\"|\"][9] branch",
+  [true, {"format": "email"}],
+
+  "# .[\"?format\"][\"|\"][10] branch",
+  [true, {"format": "ip-address"}],
+
+  "# .[\"?format\"][\"|\"][11] branch",
+  [true, {"format": "ipv6"}],
+
+  "# .[\"?format\"][\"|\"][12] branch",
+  [true, {"format": "host-name"}],
+
+  "# .[\"?disallow\"][\"|\"][1] branch",
+  [true, {"disallow": []}],
+
+  "# .[\"$\"].distinctSchemaArray[\"@\"][0][\"|\"][0] branch",
+  [true, {"disallow": [""]}],
+
+  "# .[\"$\"].distinctSchemaArray[\"@\"][0][\"|\"][1] branch",
+  [true, {"disallow": [{}]}],
+
+  "# .[\"?extends\"][\"|\"][1] branch",
+  [true, {"extends": []}],
+
+  "# .[\"?enum\"][\">=\"]",
+  [false, {"enum": []}],
+
+  "# .[\"?enum\"][\"!\"]",
+  [false, {"enum": [{}, {}]}],
+
+  "# .[\"$\"].distinctSchemaArray[\"!\"]",
+  [false, {"disallow": ["", ""]}],
+
+  "# .[\"?type\"] invalid",
+  [false, {"type": null}],
+
+  "# .[\"?type\"][\"|\"][1][0][\"|\"][0] invalid",
+  [false, {"type": [null]}],
+
+  "# .[\"?properties\"] invalid",
+  [false, {"properties": null}],
+
+  "# .[\"?patternProperties\"] invalid",
+  [false, {"patternProperties": null}],
+
+  "# .[\"?additionalProperties\"][\"|\"][0] invalid",
+  [false, {"additionalProperties": null}],
+
+  "# .[\"?items\"][\"|\"][1] invalid",
+  [false, {"items": null}],
+
+  "# .[\"?additionalItems\"][\"|\"][0] invalid",
+  [false, {"additionalItems": null}],
+
+  "# .[\"?dependencies\"] invalid",
+  [false, {"dependencies": null}],
+
+  "# .[\"?required\"] invalid",
+  [false, {"required": null}],
+
+  "# .[\"?minimum\"] invalid",
+  [false, {"minimum": null}],
+
+  "# .[\"?maximum\"] invalid",
+  [false, {"maximum": null}],
+
+  "# .[\"?exclusiveMaximum\"] invalid",
+  [false, {"exclusiveMaximum": null}],
+
+  "# .[\"?exclusiveMinimum\"] invalid",
+  [false, {"exclusiveMinimum": null}],
+
+  "# .[\"?minItems\"] invalid",
+  [false, {"minItems": null}],
+
+  "# .[\"?maxItems\"] invalid",
+  [false, {"maxItems": null}],
+
+  "# .[\"?pattern\"] invalid",
+  [false, {"pattern": null}],
+
+  "# .[\"?minLength\"] invalid",
+  [false, {"minLength": null}],
+
+  "# .[\"?maxLength\"] invalid",
+  [false, {"maxLength": null}],
+
+  "# .[\"?enum\"][\"@\"] invalid",
+  [false, {"enum": null}],
+
+  "# .[\"?uniqueItems\"] invalid",
+  [false, {"uniqueItems": null}],
+
+  "# .[\"?title\"] invalid",
+  [false, {"title": null}],
+
+  "# .[\"?description\"] invalid",
+  [false, {"description": null}],
+
+  "# .[\"?format\"] invalid",
+  [false, {"format": null}],
+
+  "# .[\"?divisibleBy\"] invalid",
+  [false, {"divisibleBy": null}],
+
+  "# .[\"?disallow\"] invalid",
+  [false, {"disallow": null}],
+
+  "# .[\"$\"].distinctSchemaArray[\"@\"][0][\"|\"][0] invalid",
+  [false, {"disallow": [null]}],
+
+  "# .[\"?extends\"][\"|\"][1] invalid",
+  [false, {"extends": null}],
+
+  "# .[\"?id\"] invalid",
+  [false, {"id": null}],
+
+  "# .[\"?$schema\"] invalid",
+  [false, {"$schema": null}],
+
+  "# .[\"?$ref\"] invalid",
+  [false, {"$ref": null}],
+
+  "# .[\"?pattern\"] bad",
+  [false, {"pattern": "["}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"?enum\"][\"@\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?type\"][\"|\"][1][0]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"?additionalProperties\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"?items\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"?additionalItems\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].distinctSchemaArray[\"@\"][0]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"?extends\"]: no type breaks the model here",
+
+  "# SKIPPED extra value .[\"?properties\"]: object is open",
+
+  "# SKIPPED extra value .[\"?patternProperties\"]: object is open",
+
+  "# SKIPPED extra value .[\"?dependencies\"]: object is open",
+
+  "# SKIPPED root value {}: valid for the model"
+]

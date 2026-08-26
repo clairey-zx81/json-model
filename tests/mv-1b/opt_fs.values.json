@@ -1,7 +1,5 @@
 [
   "strict floats",
   [ true, -3.14 ],
-  [ false, -42 ],
-  [ false, null ],
   [ false, "NaN" ]
 ]

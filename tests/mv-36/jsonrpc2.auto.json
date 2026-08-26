@@ -1,0 +1,226 @@
+[
+  "# generated from jsonrpc2.model.json",
+
+  "# simplest",
+  [true, {"jsonrpc": "2.0", "method": "a"}],
+
+  "# .[\"$\"].BatchRequest[\">=\"] bound",
+  [true, [{"jsonrpc": "2.0", "method": "a", "id": null}]],
+
+  "# .[\"$\"].BatchResponse[\">=\"] bound",
+  [true, [{"jsonrpc": "2.0", "id": null, "result": {}}]],
+
+  "# .[\"$\"].Notification[\"?params\"] present",
+  [true, {"jsonrpc": "2.0", "method": "a", "params": []}],
+
+  "# .[\"$\"].Notification[\"?params\"][\"|\"][1][\"\"] present",
+  [true, {"jsonrpc": "2.0", "method": "a", "params": {"a": {}}}],
+
+  "# .[\"$\"].Request[\"?params\"] present",
+  [true, {"jsonrpc": "2.0", "method": "a", "id": null, "params": []}],
+
+  "# .[\"$\"].Request[\"?params\"][\"|\"][1][\"\"] present",
+  [true, {"jsonrpc": "2.0", "method": "a", "id": null, "params": {"a": {}}}],
+
+  "# .[\"$\"].Error.error[\"?data\"] present",
+  [true, {"jsonrpc": "2.0", "id": null, "error": {"code": 0, "message": "", "data": {}}}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"jsonrpc": "2.0", "id": null, "result": {}}],
+
+  "# .[\"$\"].ClientMessage[\"|\"][1] branch",
+  [true, {"jsonrpc": "2.0", "method": "a", "id": null}],
+
+  "# .[\"$\"].Notification[\"?params\"][\"|\"][1] branch",
+  [true, {"jsonrpc": "2.0", "method": "a", "params": {}}],
+
+  "# .[\"$\"].Id[\"|\"][1] branch",
+  [true, {"jsonrpc": "2.0", "method": "a", "id": 0}],
+
+  "# .[\"$\"].Id[\"|\"][2] branch",
+  [true, {"jsonrpc": "2.0", "method": "a", "id": ""}],
+
+  "# .[\"$\"].Request[\"?params\"][\"|\"][1] branch",
+  [true, {"jsonrpc": "2.0", "method": "a", "id": null, "params": {}}],
+
+  "# .[\"$\"].BatchRequest[\"@\"][0][\"|\"][1] branch",
+  [true, [{"jsonrpc": "2.0", "method": "a"}]],
+
+  "# .[\"$\"].ServerMessage[\"|\"][1] branch",
+  [true, {"jsonrpc": "2.0", "id": null, "error": {"code": 0, "message": ""}}],
+
+  "# .[\"$\"].BatchResponse[\"@\"][0][\"|\"][1] branch",
+  [true, [{"jsonrpc": "2.0", "id": null, "error": {"code": 0, "message": ""}}]],
+
+  "# .[\"$\"].BatchRequest[\">=\"]",
+  [false, []],
+
+  "# .[\"$\"].BatchResponse[\">=\"]",
+  [false, []],
+
+  "# .[\"$\"].ClientMessage invalid",
+  [false, null],
+
+  "# .[\"$\"].Notification.jsonrpc invalid",
+  [false, {"jsonrpc": null, "method": "a"}],
+
+  "# .[\"$\"].Notification.method invalid",
+  [false, {"jsonrpc": "2.0", "method": null}],
+
+  "# .[\"$\"].Notification[\"?params\"] invalid",
+  [false, {"jsonrpc": "2.0", "method": "a", "params": null}],
+
+  "# .[\"$\"].Request[\"@\"].jsonrpc invalid",
+  [false, {"jsonrpc": null, "method": "a", "id": null}],
+
+  "# .[\"$\"].Request[\"@\"].method invalid",
+  [false, {"jsonrpc": "2.0", "method": null, "id": null}],
+
+  "# .[\"$\"].Id invalid",
+  [false, {"jsonrpc": "2.0", "method": "a", "id": true}],
+
+  "# .[\"$\"].Request[\"@\"][\"?params\"] invalid",
+  [false, {"jsonrpc": "2.0", "method": "a", "id": null, "params": null}],
+
+  "# .[\"$\"].BatchRequest[\"@\"][0] invalid",
+  [false, [null]],
+
+  "# .[\"$\"].Id[\"|\"][0] invalid",
+  [false, [{"jsonrpc": "2.0", "method": "a", "id": true}]],
+
+  "# .[\"$\"].Request[\"@\"][\"?params\"][\"|\"][0] invalid",
+  [false, [{"jsonrpc": "2.0", "method": "a", "id": null, "params": null}]],
+
+  "# .[\"$\"].Notification[\"?params\"][\"|\"][0] invalid",
+  [false, [{"jsonrpc": "2.0", "method": "a", "params": null}]],
+
+  "# .[\"$\"].Response.jsonrpc invalid",
+  [false, {"jsonrpc": null, "id": null, "result": {}}],
+
+  "# .[\"$\"].Id[\"|\"][1] invalid",
+  [false, {"jsonrpc": "2.0", "id": true, "result": {}}],
+
+  "# .[\"$\"].Error.jsonrpc invalid",
+  [false, {"jsonrpc": null, "id": null, "error": {"code": 0, "message": ""}}],
+
+  "# .[\"$\"].Id[\"|\"][2] invalid",
+  [false, {"jsonrpc": "2.0", "id": true, "error": {"code": 0, "message": ""}}],
+
+  "# .[\"$\"].Error.error invalid",
+  [false, {"jsonrpc": "2.0", "id": null, "error": null}],
+
+  "# .[\"$\"].Error.error.code invalid",
+  [false, {"jsonrpc": "2.0", "id": null, "error": {"code": null, "message": ""}}],
+
+  "# .[\"$\"].Error.error.message invalid",
+  [false, {"jsonrpc": "2.0", "id": null, "error": {"code": 0, "message": null}}],
+
+  "# .[\"$\"].Notification.jsonrpc missing",
+  [false, {"method": "a"}],
+
+  "# .[\"$\"].Notification.method missing",
+  [false, {"jsonrpc": "2.0"}],
+
+  "# .[\"$\"].Request[\"@\"].jsonrpc missing",
+  [false, {"method": "a", "id": null}],
+
+  "# .[\"$\"].Request[\"@\"].method missing",
+  [false, {"jsonrpc": "2.0", "id": null}],
+
+  "# .[\"$\"].Response.jsonrpc missing",
+  [false, {"id": null, "result": {}}],
+
+  "# .[\"$\"].Response.id missing",
+  [false, {"jsonrpc": "2.0", "result": {}}],
+
+  "# .[\"$\"].Error.jsonrpc missing",
+  [false, {"id": null, "error": {"code": 0, "message": ""}}],
+
+  "# .[\"$\"].Error.id missing",
+  [false, {"jsonrpc": "2.0", "error": {"code": 0, "message": ""}}],
+
+  "# .[\"$\"].Error.error.code missing",
+  [false, {"jsonrpc": "2.0", "id": null, "error": {"message": ""}}],
+
+  "# .[\"$\"].Error.error.message missing",
+  [false, {"jsonrpc": "2.0", "id": null, "error": {"code": 0}}],
+
+  "# .[\"$\"].Response.result missing",
+  [false, [{"jsonrpc": "2.0", "id": null}]],
+
+  "# .[\"$\"].Notification[\"no-such-prop\"] extra",
+  [false, {"jsonrpc": "2.0", "method": "a", "no-such-prop": null}],
+
+  "# .[\"$\"].Request[\"@\"][\"no-such-prop\"] extra",
+  [false, {"jsonrpc": "2.0", "method": "a", "id": null, "no-such-prop": null}],
+
+  "# .[\"$\"].Request[\"@\"][\"no-such-property\"] extra",
+  [false, [{"jsonrpc": "2.0", "method": "a", "id": null, "no-such-property": null}]],
+
+  "# .[\"$\"].Notification[\"no-such-property\"] extra",
+  [false, [{"jsonrpc": "2.0", "method": "a", "no-such-property": null}]],
+
+  "# .[\"$\"].Response[\"no-such-prop\"] extra",
+  [false, {"jsonrpc": "2.0", "id": null, "result": {}, "no-such-prop": null}],
+
+  "# .[\"$\"].Error[\"no-such-prop\"] extra",
+  [false, {"jsonrpc": "2.0", "id": null, "error": {"code": 0, "message": ""}, "no-such-prop": null}],
+
+  "# .[\"$\"].Error.error[\"no-such-prop\"] extra",
+  [false, {"jsonrpc": "2.0", "id": null, "error": {"code": 0, "message": "", "no-such-prop": null}}],
+
+  "# .[\"$\"].Response[\"no-such-property\"] extra",
+  [false, [{"jsonrpc": "2.0", "id": null, "result": {}, "no-such-property": null}]],
+
+  "# .[\"$\"].Error[\"no-such-property\"] extra",
+  [false, [{"jsonrpc": "2.0", "id": null, "error": {"code": 0, "message": ""}, "no-such-property": null}]],
+
+  "# .[\"$\"].Error.error[\"no-such-property\"] extra",
+  [false, [{"jsonrpc": "2.0", "id": null, "error": {"code": 0, "message": "", "no-such-property": null}}]],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED invalid value .[\"$\"].Notification[\"?params\"][\"|\"][0][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Request[\"@\"][\"?params\"][\"|\"][0][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Request[\"@\"][\"?params\"][\"|\"][0][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Notification[\"?params\"][\"|\"][0][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response.result: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Error.error[\"?data\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response.result: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Error.error[\"?data\"]: $ANY accepts every value",
+
+  "# SKIPPED missing value .[\"$\"].Request[\"@\"].id: dropping id is still valid",
+
+  "# SKIPPED extra value .[\"$\"].Notification[\"?params\"][\"|\"][1]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Request[\"@\"][\"?params\"][\"|\"][1]: object is open"
+]

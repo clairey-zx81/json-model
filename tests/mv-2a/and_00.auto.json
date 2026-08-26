@@ -1,0 +1,78 @@
+[
+  "# generated from and_00.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?s\"] present",
+  [true, {"s": ""}],
+
+  "# .[\"?i\"] present",
+  [true, {"i": 1}],
+
+  "# .[\"?b\"] present",
+  [true, {"b": false}],
+
+  "# .[\"/^d/\"] present",
+  [true, {"d": ""}],
+
+  "# .[\"/^e/\"] present",
+  [true, {"e": 1}],
+
+  "# .[\"\"] present",
+  [true, {"a": {}}],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"&\"][0][\"?s\"] invalid",
+  [false, {"s": null}],
+
+  "# .[\"&\"][1][\"?i\"] invalid",
+  [false, {"i": null}],
+
+  "# .[\"&\"][2][\"?b\"] invalid",
+  [false, {"b": null}],
+
+  "# .[\"&\"][3][\"/^d/\"] invalid",
+  [false, {"d": null}],
+
+  "# .[\"&\"][4][\"/^e/\"] invalid",
+  [false, {"e": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED extra value .[\"&\"][0]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][1]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][2]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][3]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][4]: object is open",
+
+  "# SKIPPED root value {}: valid for the model"
+]

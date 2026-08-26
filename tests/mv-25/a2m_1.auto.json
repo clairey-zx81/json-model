@@ -1,0 +1,63 @@
+[
+  "# generated from a2m_1.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"$\"].merge[\"?a\"] present",
+  [true, {"a": 0}],
+
+  "# .[\"$\"].merge[\"?b\"] present",
+  [true, {"b": 0}],
+
+  "# .[\"$\"].merge[\"\"] present",
+  [true, {"aa": {}}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"c": 1}],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"$\"].Oa[\"?a\"] invalid",
+  [false, {"a": null}],
+
+  "# .[\"$\"].Ob[\"?b\"] invalid",
+  [false, {"b": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"$\"].nomerge[\"&\"][1].c: no type breaks the model here",
+
+  "# SKIPPED missing value .[\"$\"].nomerge[\"&\"][1].c: dropping c is still valid",
+
+  "# SKIPPED extra value .[\"$\"].Oa: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Ob: object is open",
+
+  "# SKIPPED extra value .[\"$\"].nomerge[\"&\"][1]: every extra property is valid",
+
+  "# SKIPPED root value {}: valid for the model"
+]

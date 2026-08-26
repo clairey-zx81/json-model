@@ -1,5 +1,4 @@
 [
-  [ true, {} ],
   [ true, {
       "https://comics.net/Susie": true,
       "https://comics.net/Hobbes": false
@@ -14,6 +13,5 @@
   ],
   [ false, "pas un objet" ],
   [ false, [ "pas", "un",  "objet" ] ],
-  [ false, null ],
   [ false, 42 ]
 ]

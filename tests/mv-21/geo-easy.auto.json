@@ -1,0 +1,380 @@
+[
+  "# generated from geo-easy.model.json",
+
+  "# simplest",
+  [true, {"type": "GeometryCollection", "geometries": []}],
+
+  "# .[\"$\"].position[\">=\"] bound",
+  [true, {"type": "Point", "coordinates": [0.0, 0.0]}],
+
+  "# .[\"$\"].position[\"<=\"] bound",
+  [true, {"type": "Point", "coordinates": [0.0, 0.0, 0.0]}],
+
+  "# .[\"$\"].coord_array[\">=\"] bound",
+  [true, {"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]]}],
+
+  "# .[\"$\"].linear_ring[\">=\"] bound",
+  [true, {"type": "Polygon", "coordinates": [[[0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]]}],
+
+  "# .[\"$\"].GeometryCollection[\"?bbox\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [], "bbox": []}],
+
+  "# .[\"$\"].GeometryCollection[\"\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [], "a": {}}],
+
+  "# .[\"$\"].Point[\"?bbox\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "Point", "coordinates": [0.0, 0.0], "bbox": []}]}],
+
+  "# .[\"$\"].Point[\"\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "Point", "coordinates": [0.0, 0.0], "a": {}}]}],
+
+  "# .[\"$\"].MultiPoint[\"?bbox\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiPoint", "coordinates": [], "bbox": []}]}],
+
+  "# .[\"$\"].MultiPoint[\"\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiPoint", "coordinates": [], "a": {}}]}],
+
+  "# .[\"$\"].LineString[\"?bbox\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]], "bbox": []}]}],
+
+  "# .[\"$\"].LineString[\"\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]], "a": {}}]}],
+
+  "# .[\"$\"].MultiLineString[\"?bbox\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiLineString", "coordinates": [], "bbox": []}]}],
+
+  "# .[\"$\"].MultiLineString[\"\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiLineString", "coordinates": [], "a": {}}]}],
+
+  "# .[\"$\"].Polygon[\"?bbox\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "Polygon", "coordinates": [], "bbox": []}]}],
+
+  "# .[\"$\"].Polygon[\"\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "Polygon", "coordinates": [], "a": {}}]}],
+
+  "# .[\"$\"].MultiPolygon[\"?bbox\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiPolygon", "coordinates": [], "bbox": []}]}],
+
+  "# .[\"$\"].MultiPolygon[\"\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiPolygon", "coordinates": [], "a": {}}]}],
+
+  "# .[\"$\"].Feature[\"?id\"] present",
+  [true, {"type": "Feature", "geometry": null, "properties": null, "id": ""}],
+
+  "# .[\"$\"].Feature[\"?bbox\"] present",
+  [true, {"type": "Feature", "geometry": null, "properties": null, "bbox": []}],
+
+  "# .[\"$\"].Feature[\"\"] present",
+  [true, {"type": "Feature", "geometry": null, "properties": null, "a": {}}],
+
+  "# .[\"$\"].Feature.properties[\"|\"][1][\"\"] present",
+  [true, {"type": "Feature", "geometry": null, "properties": {"a": {}}}],
+
+  "# .[\"$\"].FeatureCollection[\"?bbox\"] present",
+  [true, {"type": "FeatureCollection", "features": [], "bbox": []}],
+
+  "# .[\"$\"].FeatureCollection[\"\"] present",
+  [true, {"type": "FeatureCollection", "features": [], "a": {}}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"type": "Feature", "geometry": null, "properties": null}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"type": "FeatureCollection", "features": []}],
+
+  "# .[\"$\"].geometry[\"|\"][0] branch",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "Point", "coordinates": [0.0, 0.0]}]}],
+
+  "# .[\"$\"].geometry[\"|\"][1] branch",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiPoint", "coordinates": []}]}],
+
+  "# .[\"$\"].geometry[\"|\"][2] branch",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]]}]}],
+
+  "# .[\"$\"].geometry[\"|\"][3] branch",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiLineString", "coordinates": []}]}],
+
+  "# .[\"$\"].geometry[\"|\"][4] branch",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "Polygon", "coordinates": []}]}],
+
+  "# .[\"$\"].geometry[\"|\"][5] branch",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "MultiPolygon", "coordinates": []}]}],
+
+  "# .[\"$\"].Feature.geometry[\"|\"][1] branch",
+  [true, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [0.0, 0.0]}, "properties": null}],
+
+  "# .[\"$\"].Feature.geometry[\"|\"][2] branch",
+  [true, {"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": []}, "properties": null}],
+
+  "# .[\"$\"].Feature.properties[\"|\"][1] branch",
+  [true, {"type": "Feature", "geometry": null, "properties": {}}],
+
+  "# .[\"$\"].Feature[\"?id\"][\"|\"][1] branch",
+  [true, {"type": "Feature", "geometry": null, "properties": null, "id": 0.0}],
+
+  "# .[\"$\"].Feature.geometry[\"|\"][0] branch",
+  [true, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": null, "properties": null}]}],
+
+  "# .[\"$\"].position[\">=\"]",
+  [false, {"type": "Point", "coordinates": [0.0]}],
+
+  "# .[\"$\"].position[\"<=\"]",
+  [false, {"type": "Point", "coordinates": [0.0, 0.0, 0.0, 0.0]}],
+
+  "# .[\"$\"].coord_array[\">=\"]",
+  [false, {"type": "LineString", "coordinates": [[0.0, 0.0]]}],
+
+  "# .[\"$\"].linear_ring[\">=\"]",
+  [false, {"type": "Polygon", "coordinates": [[[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]]}],
+
+  "# .[\"$\"].geometry invalid",
+  [false, null],
+
+  "# .[\"$\"].Point.type invalid",
+  [false, {"type": null, "coordinates": [0.0, 0.0]}],
+
+  "# .[\"$\"].position[\"@\"] invalid",
+  [false, {"type": "Point", "coordinates": null}],
+
+  "# .[\"$\"].position[\"@\"][0] invalid",
+  [false, {"type": "Point", "coordinates": [null]}],
+
+  "# .[\"$\"].Point[\"?bbox\"] invalid",
+  [false, {"type": "Point", "coordinates": [0.0, 0.0], "bbox": null}],
+
+  "# .[\"$\"].Point[\"?bbox\"][0] invalid",
+  [false, {"type": "Point", "coordinates": [0.0, 0.0], "bbox": [null]}],
+
+  "# .[\"$\"].MultiPoint.type invalid",
+  [false, {"type": null, "coordinates": []}],
+
+  "# .[\"$\"].MultiPoint.coordinates invalid",
+  [false, {"type": "MultiPoint", "coordinates": null}],
+
+  "# .[\"$\"].MultiPoint[\"?bbox\"] invalid",
+  [false, {"type": "MultiPoint", "coordinates": [], "bbox": null}],
+
+  "# .[\"$\"].MultiPoint[\"?bbox\"][0] invalid",
+  [false, {"type": "MultiPoint", "coordinates": [], "bbox": [null]}],
+
+  "# .[\"$\"].LineString.type invalid",
+  [false, {"type": null, "coordinates": [[0.0, 0.0], [0.0, 0.0]]}],
+
+  "# .[\"$\"].coord_array[\"@\"] invalid",
+  [false, {"type": "LineString", "coordinates": null}],
+
+  "# .[\"$\"].LineString[\"?bbox\"] invalid",
+  [false, {"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]], "bbox": null}],
+
+  "# .[\"$\"].LineString[\"?bbox\"][0] invalid",
+  [false, {"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]], "bbox": [null]}],
+
+  "# .[\"$\"].MultiLineString.coordinates invalid",
+  [false, {"type": "MultiLineString", "coordinates": null}],
+
+  "# .[\"$\"].MultiLineString[\"?bbox\"] invalid",
+  [false, {"type": "MultiLineString", "coordinates": [], "bbox": null}],
+
+  "# .[\"$\"].MultiLineString[\"?bbox\"][0] invalid",
+  [false, {"type": "MultiLineString", "coordinates": [], "bbox": [null]}],
+
+  "# .[\"$\"].Polygon.coordinates invalid",
+  [false, {"type": "Polygon", "coordinates": null}],
+
+  "# .[\"$\"].linear_ring[\"@\"] invalid",
+  [false, {"type": "Polygon", "coordinates": [null]}],
+
+  "# .[\"$\"].Polygon[\"?bbox\"] invalid",
+  [false, {"type": "Polygon", "coordinates": [], "bbox": null}],
+
+  "# .[\"$\"].Polygon[\"?bbox\"][0] invalid",
+  [false, {"type": "Polygon", "coordinates": [], "bbox": [null]}],
+
+  "# .[\"$\"].MultiPolygon.coordinates invalid",
+  [false, {"type": "MultiPolygon", "coordinates": null}],
+
+  "# .[\"$\"].MultiPolygon.coordinates[0] invalid",
+  [false, {"type": "MultiPolygon", "coordinates": [null]}],
+
+  "# .[\"$\"].MultiPolygon[\"?bbox\"] invalid",
+  [false, {"type": "MultiPolygon", "coordinates": [], "bbox": null}],
+
+  "# .[\"$\"].MultiPolygon[\"?bbox\"][0] invalid",
+  [false, {"type": "MultiPolygon", "coordinates": [], "bbox": [null]}],
+
+  "# .[\"$\"].GeometryCollection.type invalid",
+  [false, {"type": null, "geometries": []}],
+
+  "# .[\"$\"].GeometryCollection.geometries invalid",
+  [false, {"type": "GeometryCollection", "geometries": null}],
+
+  "# .[\"$\"].Point invalid",
+  [false, {"type": "GeometryCollection", "geometries": [null]}],
+
+  "# .[\"$\"].MultiLineString.type invalid",
+  [false, {"type": "GeometryCollection", "geometries": [{"type": null, "coordinates": []}]}],
+
+  "# .[\"$\"].GeometryCollection[\"?bbox\"] invalid",
+  [false, {"type": "GeometryCollection", "geometries": [], "bbox": null}],
+
+  "# .[\"$\"].GeometryCollection[\"?bbox\"][0] invalid",
+  [false, {"type": "GeometryCollection", "geometries": [], "bbox": [null]}],
+
+  "# .[\"$\"].Feature.type invalid",
+  [false, {"type": null, "geometry": null, "properties": null}],
+
+  "# .[\"$\"].Feature.geometry invalid",
+  [false, {"type": "Feature", "geometry": true, "properties": null}],
+
+  "# .[\"$\"].Polygon.type invalid",
+  [false, {"type": "Feature", "geometry": {"type": null, "coordinates": []}, "properties": null}],
+
+  "# .[\"$\"].MultiPoint invalid",
+  [false, {"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": [null]}, "properties": null}],
+
+  "# .[\"$\"].MultiPolygon.type invalid",
+  [false, {"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": [{"type": null, "coordinates": []}]}, "properties": null}],
+
+  "# .[\"$\"].Feature.properties invalid",
+  [false, {"type": "Feature", "geometry": null, "properties": true}],
+
+  "# .[\"$\"].Feature[\"?id\"] invalid",
+  [false, {"type": "Feature", "geometry": null, "properties": null, "id": null}],
+
+  "# .[\"$\"].Feature[\"?bbox\"] invalid",
+  [false, {"type": "Feature", "geometry": null, "properties": null, "bbox": null}],
+
+  "# .[\"$\"].Feature[\"?bbox\"][0] invalid",
+  [false, {"type": "Feature", "geometry": null, "properties": null, "bbox": [null]}],
+
+  "# .[\"$\"].FeatureCollection.type invalid",
+  [false, {"type": null, "features": []}],
+
+  "# .[\"$\"].FeatureCollection.features invalid",
+  [false, {"type": "FeatureCollection", "features": null}],
+
+  "# .[\"$\"].Feature invalid",
+  [false, {"type": "FeatureCollection", "features": [null]}],
+
+  "# .[\"$\"].Feature.geometry[\"|\"][0] invalid",
+  [false, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": true, "properties": null}]}],
+
+  "# .[\"$\"].LineString invalid",
+  [false, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": [null]}, "properties": null}]}],
+
+  "# .[\"$\"].Feature.properties[\"|\"][0] invalid",
+  [false, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": null, "properties": true}]}],
+
+  "# .[\"$\"].Feature[\"?id\"][\"|\"][0] invalid",
+  [false, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": null, "properties": null, "id": null}]}],
+
+  "# .[\"$\"].FeatureCollection[\"?bbox\"] invalid",
+  [false, {"type": "FeatureCollection", "features": [], "bbox": null}],
+
+  "# .[\"$\"].FeatureCollection[\"?bbox\"][0] invalid",
+  [false, {"type": "FeatureCollection", "features": [], "bbox": [null]}],
+
+  "# .[\"$\"].Point.type missing",
+  [false, {"coordinates": [0.0, 0.0]}],
+
+  "# .[\"$\"].Point.coordinates missing",
+  [false, {"type": "Point"}],
+
+  "# .[\"$\"].MultiPoint.type missing",
+  [false, {"coordinates": []}],
+
+  "# .[\"$\"].MultiPoint.coordinates missing",
+  [false, {"type": "MultiPoint"}],
+
+  "# .[\"$\"].LineString.type missing",
+  [false, {"coordinates": [[0.0, 0.0], [0.0, 0.0]]}],
+
+  "# .[\"$\"].LineString.coordinates missing",
+  [false, {"type": "LineString"}],
+
+  "# .[\"$\"].MultiLineString.coordinates missing",
+  [false, {"type": "MultiLineString"}],
+
+  "# .[\"$\"].Polygon.coordinates missing",
+  [false, {"type": "Polygon"}],
+
+  "# .[\"$\"].MultiPolygon.coordinates missing",
+  [false, {"type": "MultiPolygon"}],
+
+  "# .[\"$\"].GeometryCollection.type missing",
+  [false, {"geometries": []}],
+
+  "# .[\"$\"].GeometryCollection.geometries missing",
+  [false, {"type": "GeometryCollection"}],
+
+  "# .[\"$\"].MultiLineString.type missing",
+  [false, {"type": "GeometryCollection", "geometries": [{"coordinates": []}]}],
+
+  "# .[\"$\"].Feature.type missing",
+  [false, {"geometry": null, "properties": null}],
+
+  "# .[\"$\"].Feature.geometry missing",
+  [false, {"type": "Feature", "properties": null}],
+
+  "# .[\"$\"].Feature.properties missing",
+  [false, {"type": "Feature", "geometry": null}],
+
+  "# .[\"$\"].Polygon.type missing",
+  [false, {"type": "Feature", "geometry": {"coordinates": []}, "properties": null}],
+
+  "# .[\"$\"].MultiPolygon.type missing",
+  [false, {"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": [{"coordinates": []}]}, "properties": null}],
+
+  "# .[\"$\"].FeatureCollection.type missing",
+  [false, {"features": []}],
+
+  "# .[\"$\"].FeatureCollection.features missing",
+  [false, {"type": "FeatureCollection"}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED extra value .[\"$\"].Point: object is open",
+
+  "# SKIPPED extra value .[\"$\"].MultiPoint: object is open",
+
+  "# SKIPPED extra value .[\"$\"].LineString: object is open",
+
+  "# SKIPPED extra value .[\"$\"].MultiLineString: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Polygon: object is open",
+
+  "# SKIPPED extra value .[\"$\"].MultiPolygon: object is open",
+
+  "# SKIPPED extra value .[\"$\"].GeometryCollection: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Feature: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Feature.properties[\"|\"][1]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].FeatureCollection: object is open"
+]

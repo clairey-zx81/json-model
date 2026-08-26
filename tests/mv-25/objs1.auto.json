@@ -1,0 +1,45 @@
+[
+  "# generated from objs1.model.json",
+
+  "# simplest",
+  [true, {"foo": {"stuff": []}}],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"@\"].foo missing",
+  [false, {}],
+
+  "# .[\"@\"][\"no-such-prop\"] extra",
+  [false, {"foo": {"stuff": []}, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"$\"].objs0[\"@\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"$\"].objs0[\"@\"].stuff: no type breaks the model here",
+
+  "# SKIPPED extra value .[\"$\"].objs0[\"@\"]: every extra property is valid"
+]

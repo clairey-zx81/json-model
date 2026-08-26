@@ -1,0 +1,57 @@
+[
+  "# generated from mrg_03.model.json",
+
+  "# simplest",
+  [true, {"a": 1, "b": "", "c": 1.0}],
+
+  "# .a invalid",
+  [false, {"a": null, "b": "", "c": 1.0}],
+
+  "# .b invalid",
+  [false, {"a": 1, "b": null, "c": 1.0}],
+
+  "# .c invalid",
+  [false, {"a": 1, "b": "", "c": null}],
+
+  "# .a missing",
+  [false, {"b": "", "c": 1.0}],
+
+  "# .b missing",
+  [false, {"a": 1, "c": 1.0}],
+
+  "# .c missing",
+  [false, {"a": 1, "b": ""}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"a": 1, "b": "", "c": 1.0, "no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

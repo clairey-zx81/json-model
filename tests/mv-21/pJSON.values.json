@@ -1,5 +1,4 @@
 [
-  [ true,  "null" ],
   [ true,  "true" ],
   [ true,  "false" ],
   [ true,  "-42" ],
@@ -23,7 +22,6 @@
   [ true,  "\"좋은 아침이에요 !\"" ],
   [ true,  "\"\\u5432 = 吲\"" ],
   [ true,  "   {   \"hi\"   :   [   1,   \"Susie\" ]  , \"Hi\"  :   null   }   " ],
-  [ false, "" ],
   [ false, "  \n\n\t\t\r\r\f\f  " ],
   [ false, "[" ],
   [ false, "1.2E" ],
@@ -32,13 +30,8 @@
   [ false, "\"unclosed string" ],
   [ false, "\"unfinished unicode \\u123\"" ],
   [ false, "\"bad unicode \\uXXXX\"" ],
-  [ false, null ],
-  [ false, true ],
-  [ false, false ],
   [ false, 42 ],
   [ false, 3.1415927 ],
-  [ false, [] ],
   [ false, [1, "expected"] ],
-  [ false, {} ],
   [ false, {"un": "expected"} ]
 ]

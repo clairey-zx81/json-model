@@ -1,0 +1,101 @@
+[
+  "# generated from alts-1.model.json",
+
+  "# simplest",
+  [true, {"v": 1, "t": "a"}],
+
+  "# .[\"$\"].oA[\"\"] present",
+  [true, {"v": 1, "t": "a", "a": {}}],
+
+  "# .[\"$\"].oB[\"\"] present",
+  [true, {"v": 1, "t": "b", "a": {}}],
+
+  "# .[\"$\"].oX[\"\"] present",
+  [true, {"v": 1, "t": "e", "a": {}}],
+
+  "# .[\"$\"].oL[\"\"] present",
+  [true, {"v": 1, "t": "d", "a": {}}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"v": 1, "t": "b"}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"v": 1, "t": "e"}],
+
+  "# .[\"$\"].oB[\"!t\"][\"|\"][1] branch",
+  [true, {"v": 1, "t": "c"}],
+
+  "# .[\"$\"].oC[\"|\"][1] branch",
+  [true, {"v": 1, "t": "d"}],
+
+  "# .[\"$\"].oX.t[\"|\"][1] branch",
+  [true, {"v": 1, "t": "f"}],
+
+  "# .[\"$\"].oA invalid",
+  [false, null],
+
+  "# .[\"$\"].oA._v invalid",
+  [false, {"v": null, "t": "a"}],
+
+  "# .[\"$\"].oA._t invalid",
+  [false, {"v": 1, "t": null}],
+
+  "# .[\"$\"].oB[\"!v\"] invalid",
+  [false, {"v": null, "t": "b"}],
+
+  "# .[\"$\"].oX.v invalid",
+  [false, {"v": null, "t": "e"}],
+
+  "# .[\"$\"].oL.v invalid",
+  [false, {"v": null, "t": "d"}],
+
+  "# .[\"$\"].oA._v missing",
+  [false, {"t": "a"}],
+
+  "# .[\"$\"].oA._t missing",
+  [false, {"v": 1}],
+
+  "# .[\"$\"].oB[\"!v\"] missing",
+  [false, {"t": "b"}],
+
+  "# .[\"$\"].oX.v missing",
+  [false, {"t": "e"}],
+
+  "# .[\"$\"].oL.v missing",
+  [false, {"t": "d"}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED extra value .[\"$\"].oA: object is open",
+
+  "# SKIPPED extra value .[\"$\"].oB: object is open",
+
+  "# SKIPPED extra value .[\"$\"].oX: object is open",
+
+  "# SKIPPED extra value .[\"$\"].oL: object is open"
+]

@@ -1,0 +1,320 @@
+[
+  "# generated from json-schema-draft-04.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"$\"].stringArray[\">=\"] bound",
+  [true, {"required": [""]}],
+
+  "# .[\"?enum\"][\">=\"] bound",
+  [true, {"enum": [{}]}],
+
+  "# .[\"$\"].typeArray[\">=\"] bound",
+  [true, {"type": ["null"]}],
+
+  "# .[\"?id\"] present",
+  [true, {"id": ""}],
+
+  "# .[\"?$schema\"] present",
+  [true, {"$schema": ""}],
+
+  "# .[\"?title\"] present",
+  [true, {"title": ""}],
+
+  "# .[\"?description\"] present",
+  [true, {"description": ""}],
+
+  "# .[\"?default\"] present",
+  [true, {"default": {}}],
+
+  "# .[\"?multipleOf\"] present",
+  [true, {"multipleOf": 1.0}],
+
+  "# .[\"?maximum\"] present",
+  [true, {"maximum": 0.0}],
+
+  "# .[\"?exclusiveMaximum\"] present",
+  [true, {"exclusiveMaximum": false}],
+
+  "# .[\"?minimum\"] present",
+  [true, {"minimum": 0.0}],
+
+  "# .[\"?exclusiveMinimum\"] present",
+  [true, {"exclusiveMinimum": false}],
+
+  "# .[\"?maxLength\"] present",
+  [true, {"maxLength": 0}],
+
+  "# .[\"?minLength\"] present",
+  [true, {"minLength": 0}],
+
+  "# .[\"?pattern\"] present",
+  [true, {"pattern": ""}],
+
+  "# .[\"?additionalItems\"] present",
+  [true, {"additionalItems": false}],
+
+  "# .[\"?items\"] present",
+  [true, {"items": {}}],
+
+  "# .[\"?maxItems\"] present",
+  [true, {"maxItems": 0}],
+
+  "# .[\"?minItems\"] present",
+  [true, {"minItems": 0}],
+
+  "# .[\"?uniqueItems\"] present",
+  [true, {"uniqueItems": false}],
+
+  "# .[\"?maxProperties\"] present",
+  [true, {"maxProperties": 0}],
+
+  "# .[\"?minProperties\"] present",
+  [true, {"minProperties": 0}],
+
+  "# .[\"?additionalProperties\"] present",
+  [true, {"additionalProperties": false}],
+
+  "# .[\"?definitions\"] present",
+  [true, {"definitions": {}}],
+
+  "# .[\"?properties\"] present",
+  [true, {"properties": {}}],
+
+  "# .[\"?patternProperties\"] present",
+  [true, {"patternProperties": {}}],
+
+  "# .[\"?dependencies\"] present",
+  [true, {"dependencies": {}}],
+
+  "# .[\"?type\"] present",
+  [true, {"type": "null"}],
+
+  "# .[\"?format\"] present",
+  [true, {"format": ""}],
+
+  "# .[\"?allOf\"] present",
+  [true, {"allOf": [{}]}],
+
+  "# .[\"?anyOf\"] present",
+  [true, {"anyOf": [{}]}],
+
+  "# .[\"?oneOf\"] present",
+  [true, {"oneOf": [{}]}],
+
+  "# .[\"?not\"] present",
+  [true, {"not": {}}],
+
+  "# .[\"?$ref\"] present",
+  [true, {"$ref": "https://json-model.org/"}],
+
+  "# .[\"?definitions\"][\"\"] present",
+  [true, {"definitions": {"a": {}}}],
+
+  "# .[\"?properties\"][\"\"] present",
+  [true, {"properties": {"a": {}}}],
+
+  "# .[\"?patternProperties\"][\"\"] present",
+  [true, {"patternProperties": {"a": {}}}],
+
+  "# .[\"?dependencies\"][\"\"] present",
+  [true, {"dependencies": {"a": {}}}],
+
+  "# .[\"?additionalItems\"][\"|\"][1] branch",
+  [true, {"additionalItems": {}}],
+
+  "# .[\"?items\"][\"|\"][1] branch",
+  [true, {"items": [{}]}],
+
+  "# .[\"?additionalProperties\"][\"|\"][1] branch",
+  [true, {"additionalProperties": {}}],
+
+  "# .[\"$\"].simpleTypes[\"|\"][1] branch",
+  [true, {"type": "boolean"}],
+
+  "# .[\"$\"].simpleTypes[\"|\"][2] branch",
+  [true, {"type": "integer"}],
+
+  "# .[\"$\"].simpleTypes[\"|\"][3] branch",
+  [true, {"type": "number"}],
+
+  "# .[\"$\"].simpleTypes[\"|\"][4] branch",
+  [true, {"type": "string"}],
+
+  "# .[\"$\"].simpleTypes[\"|\"][5] branch",
+  [true, {"type": "array"}],
+
+  "# .[\"$\"].simpleTypes[\"|\"][6] branch",
+  [true, {"type": "object"}],
+
+  "# .[\"$\"].schemaArray[\">=\"]",
+  [false, {"items": []}],
+
+  "# .[\"$\"].stringArray[\">=\"]",
+  [false, {"required": []}],
+
+  "# .[\"$\"].stringArray[\"!\"]",
+  [false, {"required": ["", ""]}],
+
+  "# .[\"?enum\"][\">=\"]",
+  [false, {"enum": []}],
+
+  "# .[\"?enum\"][\"!\"]",
+  [false, {"enum": [{}, {}]}],
+
+  "# .[\"$\"].typeArray[\">=\"]",
+  [false, {"type": []}],
+
+  "# .[\"$\"].typeArray[\"!\"]",
+  [false, {"type": ["null", "null"]}],
+
+  "# .[\"?id\"] invalid",
+  [false, {"id": null}],
+
+  "# .[\"?$schema\"] invalid",
+  [false, {"$schema": null}],
+
+  "# .[\"?title\"] invalid",
+  [false, {"title": null}],
+
+  "# .[\"?description\"] invalid",
+  [false, {"description": null}],
+
+  "# .[\"?multipleOf\"] invalid",
+  [false, {"multipleOf": null}],
+
+  "# .[\"?maximum\"] invalid",
+  [false, {"maximum": null}],
+
+  "# .[\"?exclusiveMaximum\"] invalid",
+  [false, {"exclusiveMaximum": null}],
+
+  "# .[\"?minimum\"] invalid",
+  [false, {"minimum": null}],
+
+  "# .[\"?exclusiveMinimum\"] invalid",
+  [false, {"exclusiveMinimum": null}],
+
+  "# .[\"?maxLength\"] invalid",
+  [false, {"maxLength": null}],
+
+  "# .[\"?minLength\"] invalid",
+  [false, {"minLength": null}],
+
+  "# .[\"?pattern\"] invalid",
+  [false, {"pattern": null}],
+
+  "# .[\"?additionalItems\"][\"|\"][0] invalid",
+  [false, {"additionalItems": null}],
+
+  "# .[\"$\"].schemaArray[\"@\"] invalid",
+  [false, {"items": null}],
+
+  "# .[\"?maxItems\"] invalid",
+  [false, {"maxItems": null}],
+
+  "# .[\"?minItems\"] invalid",
+  [false, {"minItems": null}],
+
+  "# .[\"?uniqueItems\"] invalid",
+  [false, {"uniqueItems": null}],
+
+  "# .[\"?maxProperties\"] invalid",
+  [false, {"maxProperties": null}],
+
+  "# .[\"?minProperties\"] invalid",
+  [false, {"minProperties": null}],
+
+  "# .[\"$\"].stringArray[\"@\"] invalid",
+  [false, {"required": null}],
+
+  "# .[\"$\"].stringArray[\"@\"][0] invalid",
+  [false, {"required": [null]}],
+
+  "# .[\"?additionalProperties\"][\"|\"][0] invalid",
+  [false, {"additionalProperties": null}],
+
+  "# .[\"?definitions\"] invalid",
+  [false, {"definitions": null}],
+
+  "# .[\"?properties\"] invalid",
+  [false, {"properties": null}],
+
+  "# .[\"?patternProperties\"] invalid",
+  [false, {"patternProperties": null}],
+
+  "# .[\"?dependencies\"] invalid",
+  [false, {"dependencies": null}],
+
+  "# .[\"?enum\"][\"@\"] invalid",
+  [false, {"enum": null}],
+
+  "# .[\"?type\"] invalid",
+  [false, {"type": null}],
+
+  "# .[\"$\"].simpleTypes invalid",
+  [false, {"type": [null]}],
+
+  "# .[\"?format\"] invalid",
+  [false, {"format": null}],
+
+  "# .[\"?$ref\"] invalid",
+  [false, {"$ref": null}],
+
+  "# .[\"?pattern\"] bad",
+  [false, {"pattern": "["}],
+
+  "# .[\"?$ref\"] bad",
+  [false, {"$ref": "https://json model.org/"}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?enum\"][\"@\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?additionalItems\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"?items\"]: no type breaks the model here",
+
+  "# SKIPPED invalid value .[\"?additionalProperties\"]: no type breaks the model here",
+
+  "# SKIPPED extra value .[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"?properties\"]: object is open",
+
+  "# SKIPPED extra value .[\"?patternProperties\"]: object is open",
+
+  "# SKIPPED extra value .[\"?dependencies\"]: object is open",
+
+  "# SKIPPED root value {}: valid for the model"
+]

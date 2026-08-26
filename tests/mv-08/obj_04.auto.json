@@ -1,0 +1,10 @@
+[
+  "# generated from obj_04.model.json",
+
+  "# simplest",
+  [true, "1970-01-01"],
+
+  "# FAILED bound values: cannot enter model: {'#': 'add a definition', '@': '$bla'}",
+
+  "# FAILED invalid model"
+]

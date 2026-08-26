@@ -1,0 +1,54 @@
+[
+  "# generated from escaped.model.json",
+
+  "# simplest",
+  [true, "\n"],
+
+  "# .[\"|\"][1] branch",
+  [true, "\t"],
+
+  "# .[\"|\"][2] branch",
+  [true, "\\"],
+
+  "# .[\"|\"][3] branch",
+  [true, "'"],
+
+  "# .[\"|\"][4] branch",
+  [true, "\f"],
+
+  "# .[\"|\"][5] branch",
+  [true, "\""],
+
+  "# .[\"|\"][6] branch",
+  [true, "\r"],
+
+  "# .[\"|\"][0] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

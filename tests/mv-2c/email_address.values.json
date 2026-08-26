@@ -4,7 +4,6 @@
   [ true,  "root+10@localhost" ],
   [ true,  "Jean-Baptiste.Poquelin@comedie-francaise.fr" ],
   [ true,  "susie.derkins@comics.net" ],
-  [ false, "" ],
   [ false, "@" ],
   [ false, "@foo" ],
   [ false, "foo@" ],
@@ -12,13 +11,7 @@
   "# KO root@comédie.fr",
   "# KO ê@json-model.org",
   "# misc types",
-  [ false, null ],
-  [ false, true ],
-  [ false, false ],
-  [ false, -42 ],
   [ false, 3.1415927 ],
-  [ false, [] ],
   [ false, [1, "expected"] ],
-  [ false, {} ],
   [ false, {"un": "expected"} ]
 ]

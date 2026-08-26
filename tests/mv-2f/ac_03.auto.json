@@ -1,0 +1,40 @@
+[
+  "# generated from ac_03.model.json",
+
+  "# simplest",
+  [true, []],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"&\"][0][0] invalid",
+  [false, [null]],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED invalid value .[\"&\"][1][0]: $ANY accepts every value",
+
+  "# SKIPPED root value []: valid for the model"
+]

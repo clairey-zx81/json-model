@@ -1,5 +1,4 @@
 [
-  [ true, 42 ],
   [ false, "forty-two" ],
   [ false, 42.0 ]
 ]

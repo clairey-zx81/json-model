@@ -1,0 +1,46 @@
+[
+  "# generated from may_open.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?hello\"] present",
+  [true, {"hello": ""}],
+
+  "# .[\"\"] present",
+  [true, {"a": {}}],
+
+  "# .[\"?hello\"] invalid",
+  [false, {"hello": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED extra value .: object is open",
+
+  "# SKIPPED root value {}: valid for the model"
+]

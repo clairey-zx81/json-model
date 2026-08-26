@@ -1,0 +1,69 @@
+[
+  "# generated from inline-or-rec.model.json",
+
+  "# simplest",
+  [true, {"t": "a", "a": 1}],
+
+  "# .[\"$\"].ab[\"|\"][1] branch",
+  [true, {"t": "b", "b": 1}],
+
+  "# .[\"$\"].ab invalid",
+  [false, null],
+
+  "# .[\"$\"].ab[\"|\"][0].t invalid",
+  [false, {"t": null, "a": 1}],
+
+  "# .[\"$\"].ab[\"|\"][0].a invalid",
+  [false, {"t": "a", "a": null}],
+
+  "# .[\"$\"].ab[\"|\"][1].t invalid",
+  [false, {"t": null, "b": 1}],
+
+  "# .[\"$\"].ab[\"|\"][1].b invalid",
+  [false, {"t": "b", "b": null}],
+
+  "# .[\"$\"].ab[\"|\"][0].t missing",
+  [false, {"a": 1}],
+
+  "# .[\"$\"].ab[\"|\"][0].a missing",
+  [false, {"t": "a"}],
+
+  "# .[\"$\"].ab[\"|\"][1].t missing",
+  [false, {"b": 1}],
+
+  "# .[\"$\"].ab[\"|\"][1].b missing",
+  [false, {"t": "b"}],
+
+  "# .[\"$\"].ab[\"|\"][0][\"no-such-prop\"] extra",
+  [false, {"t": "a", "a": 1, "no-such-prop": null}],
+
+  "# .[\"$\"].ab[\"|\"][1][\"no-such-prop\"] extra",
+  [false, {"t": "b", "b": 1, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

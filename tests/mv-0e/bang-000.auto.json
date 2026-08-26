@@ -1,0 +1,75 @@
+[
+  "# generated from bang-000.model.json",
+
+  "# simplest",
+  [true, {"!": 0, "_": false, "a": 0, "?": 0.0, "/": 17}],
+
+  "# .[\"?b\"] present",
+  [true, {"!": 0, "_": false, "a": 0, "?": 0.0, "/": 17, "b": null}],
+
+  "# .[\"!!\"] invalid",
+  [false, {"!": null, "_": false, "a": 0, "?": 0.0, "/": 17}],
+
+  "# .[\"!_\"] invalid",
+  [false, {"!": 0, "_": null, "a": 0, "?": 0.0, "/": 17}],
+
+  "# .a invalid",
+  [false, {"!": 0, "_": false, "a": null, "?": 0.0, "/": 17}],
+
+  "# .[\"!?\"] invalid",
+  [false, {"!": 0, "_": false, "a": 0, "?": null, "/": 17}],
+
+  "# .[\"!/\"] invalid",
+  [false, {"!": 0, "_": false, "a": 0, "?": 0.0, "/": null}],
+
+  "# .[\"?b\"] invalid",
+  [false, {"!": 0, "_": false, "a": 0, "?": 0.0, "/": 17, "b": true}],
+
+  "# .[\"!!\"] missing",
+  [false, {"_": false, "a": 0, "?": 0.0, "/": 17}],
+
+  "# .[\"!_\"] missing",
+  [false, {"!": 0, "a": 0, "?": 0.0, "/": 17}],
+
+  "# .a missing",
+  [false, {"!": 0, "_": false, "?": 0.0, "/": 17}],
+
+  "# .[\"!?\"] missing",
+  [false, {"!": 0, "_": false, "a": 0, "/": 17}],
+
+  "# .[\"!/\"] missing",
+  [false, {"!": 0, "_": false, "a": 0, "?": 0.0}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"!": 0, "_": false, "a": 0, "?": 0.0, "/": 17, "no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

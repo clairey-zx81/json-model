@@ -1,0 +1,41 @@
+[
+  "# generated from xoropt-003.model.json",
+
+  "# simplest",
+  [true, false],
+
+  "# .[\"$\"].Aa[\"|\"][1] branch",
+  [true, 1],
+
+  "# .[\"$\"].Aa[\"|\"][2] branch",
+  [true, 1.0],
+
+  "# .[\"$\"].Aa[\"|\"][3] branch",
+  [true, "a"],
+
+  "# .[\"$\"].Aa invalid",
+  [false, null],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED root value true: valid for the model",
+
+  "# SKIPPED root value false: valid for the model",
+
+  "# SKIPPED root value 3.14: valid for the model",
+
+  "# SKIPPED root value \"abc\": valid for the model"
+]

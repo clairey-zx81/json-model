@@ -1,0 +1,50 @@
+[
+  "# generated from and_inc_03.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?a\"] present",
+  [true, {"a": "a"}],
+
+  "# .[\"?b\"] present",
+  [true, {"b": "b"}],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"&\"][0][\"?a\"] invalid",
+  [false, {"a": null}],
+
+  "# .[\"&\"][0][\"?b\"] invalid",
+  [false, {"b": null}],
+
+  "# .[\"&\"][0][\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED root value {}: valid for the model"
+]

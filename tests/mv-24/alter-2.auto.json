@@ -1,0 +1,114 @@
+[
+  "# generated from alter-2.model.json",
+
+  "# simplest",
+  [true, {"t": "a", "a": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][1] branch",
+  [true, {"u": "b", "bc": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][2] branch",
+  [true, {"u": "d", "d": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][3] branch",
+  [true, {"t": "e", "efg": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][1].u[\"|\"][1] branch",
+  [true, {"u": "c", "bc": ""}],
+
+  "# .[\"$\"].efg.t[\"|\"][1] branch",
+  [true, {"t": "f", "efg": ""}],
+
+  "# .[\"$\"].efg.t[\"|\"][2] branch",
+  [true, {"t": "g", "efg": ""}],
+
+  "# .[\"$\"].alternative invalid",
+  [false, null],
+
+  "# .[\"$\"].alternative[\"^\"][0].t invalid",
+  [false, {"t": null, "a": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][0].a invalid",
+  [false, {"t": "a", "a": null}],
+
+  "# .[\"$\"].alternative[\"^\"][1].u invalid",
+  [false, {"u": null, "bc": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][1].bc invalid",
+  [false, {"u": "b", "bc": null}],
+
+  "# .[\"$\"].d.u invalid",
+  [false, {"u": null, "d": ""}],
+
+  "# .[\"$\"].d.d invalid",
+  [false, {"u": "d", "d": null}],
+
+  "# .[\"$\"].efg.t invalid",
+  [false, {"t": null, "efg": ""}],
+
+  "# .[\"$\"].efg.efg invalid",
+  [false, {"t": "e", "efg": null}],
+
+  "# .[\"$\"].alternative[\"^\"][0].t missing",
+  [false, {"a": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][0].a missing",
+  [false, {"t": "a"}],
+
+  "# .[\"$\"].alternative[\"^\"][1].u missing",
+  [false, {"bc": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][1].bc missing",
+  [false, {"u": "b"}],
+
+  "# .[\"$\"].d.u missing",
+  [false, {"d": ""}],
+
+  "# .[\"$\"].d.d missing",
+  [false, {"u": "d"}],
+
+  "# .[\"$\"].efg.t missing",
+  [false, {"efg": ""}],
+
+  "# .[\"$\"].efg.efg missing",
+  [false, {"t": "e"}],
+
+  "# .[\"$\"].alternative[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"t": "a", "a": "", "no-such-prop": null}],
+
+  "# .[\"$\"].alternative[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"u": "b", "bc": "", "no-such-prop": null}],
+
+  "# .[\"$\"].d[\"no-such-prop\"] extra",
+  [false, {"u": "d", "d": "", "no-such-prop": null}],
+
+  "# .[\"$\"].efg[\"no-such-prop\"] extra",
+  [false, {"t": "e", "efg": "", "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

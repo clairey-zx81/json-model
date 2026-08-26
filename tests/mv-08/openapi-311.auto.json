@@ -1,0 +1,1813 @@
+[
+  "# generated from openapi-311.model.json",
+
+  "# simplest",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}}],
+
+  "# .[\"$\"].OpenAPI[\"?jsonSchemaDialect\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "jsonSchemaDialect": "https://json-model.org/"}],
+
+  "# .[\"$\"].OpenAPI[\"?servers\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": []}],
+
+  "# .[\"$\"].OpenAPI[\"?paths\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {}}],
+
+  "# .[\"$\"].OpenAPI[\"?webhooks\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "webhooks": {}}],
+
+  "# .[\"$\"].OpenAPI[\"?components\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {}}],
+
+  "# .[\"$\"].OpenAPI[\"?security\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "security": []}],
+
+  "# .[\"$\"].OpenAPI[\"?tags\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": []}],
+
+  "# .[\"$\"].OpenAPI[\"?externalDocs\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "externalDocs": {"url": "https://json-model.org/"}}],
+
+  "# .[\"$\"].OpenAPI[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "x-": {}}],
+
+  "# .[\"$\"].Info[\"?summary\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "summary": ""}}],
+
+  "# .[\"$\"].Info[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "description": ""}}],
+
+  "# .[\"$\"].Info[\"?termsOfService\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "termsOfService": ""}}],
+
+  "# .[\"$\"].Info[\"?contact\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {}}}],
+
+  "# .[\"$\"].Info[\"?license\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "identifier": ""}}}],
+
+  "# .[\"$\"].Info[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "x-": {}}}],
+
+  "# .[\"$\"].Contact[\"?name\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"name": ""}}}],
+
+  "# .[\"$\"].Contact[\"?url\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"url": "https://json-model.org/"}}}],
+
+  "# .[\"$\"].Contact[\"?email\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"email": ""}}}],
+
+  "# .[\"$\"].Contact[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"x-": {}}}}],
+
+  "# .[\"$\"].License[\"|\"][0][\"/^x\\\\-.*$/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "identifier": "", "x-": {}}}}],
+
+  "# .[\"$\"].License[\"|\"][1][\"/^x\\\\-.*$/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "url": "https://json-model.org/", "x-": {}}}}],
+
+  "# .[\"$\"].Server[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": "https://json-model.org/", "description": ""}]}],
+
+  "# .[\"$\"].Server[\"?variables\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": "https://json-model.org/", "variables": {}}]}],
+
+  "# .[\"$\"].Server[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": "https://json-model.org/", "x-": {}}]}],
+
+  "# .[\"$\"].Server[\"?variables\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": "https://json-model.org/", "variables": {"a": {"default": ""}}}]}],
+
+  "# .[\"$\"].Paths[\"/^//\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {}}}],
+
+  "# .[\"$\"].Paths[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"x-": {}}}],
+
+  "# .[\"$\"].PathItem[\"?$ref\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"$ref": "https://json-model.org/"}}}],
+
+  "# .[\"$\"].PathItem[\"?summary\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"summary": ""}}}],
+
+  "# .[\"$\"].PathItem[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"description": ""}}}],
+
+  "# .[\"$\"].PathItem[\"?get\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {}}}}],
+
+  "# .[\"$\"].PathItem[\"?put\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {}}}}],
+
+  "# .[\"$\"].PathItem[\"?post\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {}}}}],
+
+  "# .[\"$\"].PathItem[\"?delete\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"delete": {}}}}],
+
+  "# .[\"$\"].PathItem[\"?options\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"options": {}}}}],
+
+  "# .[\"$\"].PathItem[\"?head\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"head": {}}}}],
+
+  "# .[\"$\"].PathItem[\"?patch\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"patch": {}}}}],
+
+  "# .[\"$\"].PathItem[\"?trace\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"trace": {}}}}],
+
+  "# .[\"$\"].PathItem[\"?servers\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"servers": []}}}],
+
+  "# .[\"$\"].PathItem[\"?parameters\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"parameters": []}}}],
+
+  "# .[\"$\"].PathItem[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"x-": {}}}}],
+
+  "# .[\"$\"].Operation[\"?tags\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"tags": []}}}}],
+
+  "# .[\"$\"].Operation[\"?summary\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"summary": ""}}}}],
+
+  "# .[\"$\"].Operation[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"description": ""}}}}],
+
+  "# .[\"$\"].Operation[\"?externalDocs\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": {"url": "https://json-model.org/"}}}}}],
+
+  "# .[\"$\"].Operation[\"?operationId\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"operationId": ""}}}}],
+
+  "# .[\"$\"].Operation[\"?parameters\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": []}}}}],
+
+  "# .[\"$\"].Operation[\"?requestBody\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {}}}}}],
+
+  "# .[\"$\"].Operation[\"?responses\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {}}}}}],
+
+  "# .[\"$\"].Operation[\"?callbacks\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"callbacks": {}}}}}],
+
+  "# .[\"$\"].Operation[\"?deprecated\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"deprecated": false}}}}],
+
+  "# .[\"$\"].Operation[\"?security\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"security": []}}}}],
+
+  "# .[\"$\"].Operation[\"?servers\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"servers": []}}}}],
+
+  "# .[\"$\"].Operation[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"x-": {}}}}}],
+
+  "# .[\"$\"].ExternalDocumentation[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": {"url": "https://json-model.org/", "description": ""}}}}}],
+
+  "# .[\"$\"].ExternalDocumentation[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": {"url": "https://json-model.org/", "x-": {}}}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "description": ""}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?required\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "required": false}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?deprecated\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "deprecated": false}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?allowEmptyValue\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "allowEmptyValue": false}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?style\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "style": "matrix"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?explode\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "explode": false}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?allowReserved\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "allowReserved": false}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?schema\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?example\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "example": {}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?examples\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "examples": {}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "x-": {}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$id\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$id": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$schema\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$schema": "https://json-schema.org/draft/2020-12/schema"}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$ref\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$ref": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$anchor\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$anchor": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$dynamicRef\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$dynamicRef": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$dynamicAnchor\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$dynamicAnchor": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$vocabulary\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$vocabulary": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$comment\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$comment": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$defs\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$defs": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?prefixItems\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"prefixItems": [false]}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?items\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"items": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?contains\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"contains": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?additionalProperties\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"additionalProperties": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?properties\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"properties": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?patternProperties\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"patternProperties": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?dependentSchemas\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"dependentSchemas": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?propertyNames\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"propertyNames": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?if\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"if": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?then\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"then": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?else\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"else": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?not\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"not": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?allOf\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"allOf": [false]}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?anyOf\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"anyOf": [false]}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?oneOf\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"oneOf": [false]}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?unevaluatedItems\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"unevaluatedItems": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?unevaluatedProperties\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"unevaluatedProperties": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?type\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"type": "array"}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?const\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"const": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?enum\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"enum": []}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?multipleOf\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"multipleOf": 1.0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?maximum\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"maximum": 0.0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?exclusiveMaximum\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"exclusiveMaximum": 0.0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?minimum\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"minimum": 0.0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?exclusiveMinimum\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"exclusiveMinimum": 0.0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?maxLength\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"maxLength": 0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?minLength\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"minLength": 0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?pattern\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"pattern": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?maxItems\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"maxItems": 0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?minItems\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"minItems": 0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?uniqueItems\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"uniqueItems": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?maxContains\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"maxContains": 0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?minContains\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"minContains": 0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?maxProperties\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"maxProperties": 0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?minProperties\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"minProperties": 0}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?required\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"required": []}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?dependentRequired\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"dependentRequired": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?title\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"title": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"description": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?default\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"default": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?deprecated\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"deprecated": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?readOnly\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"readOnly": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?writeOnly\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"writeOnly": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?examples\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"examples": []}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?format\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"format": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?contentEncoding\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"contentEncoding": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?contentMediaType\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"contentMediaType": ""}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?contentSchema\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"contentSchema": false}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?discriminator\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": ""}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?externalDocs\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"externalDocs": {"url": "https://json-model.org/"}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?xml\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?example\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"example": {}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$vocabulary": {"https://json-model.org/": false}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?$defs\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$defs": {"a": false}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?properties\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"properties": {"a": false}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?patternProperties\"][\"$REGEX\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"patternProperties": {"": false}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?dependentSchemas\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"dependentSchemas": {"a": false}}}]}}}}],
+
+  "# .[\"$\"].Schema[\"?dependentRequired\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"dependentRequired": {"a": []}}}]}}}}],
+
+  "# .[\"$\"].Discriminator[\"?mapping\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": "", "mapping": {}}}}]}}}}],
+
+  "# .[\"$\"].Discriminator[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": "", "x-": {}}}}]}}}}],
+
+  "# .[\"$\"].Discriminator[\"?mapping\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": "", "mapping": {"a": ""}}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?name\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"name": ""}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?namespace\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"namespace": ""}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?prefix\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"prefix": ""}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?attribute\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"attribute": false}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?wrapped\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"wrapped": false}}}]}}}}],
+
+  "# .[\"$\"].xml[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"x-": {}}}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?examples\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "examples": {"a": {}}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?content\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "content": {}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?content\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "content": {"a": {}}}]}}}}],
+
+  "# .[\"$\"].Reference[\"?summary\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"$ref": "", "summary": ""}]}}}}],
+
+  "# .[\"$\"].Reference[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"$ref": "", "description": ""}]}}}}],
+
+  "# .[\"$\"].RequestBody[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"description": ""}}}}}],
+
+  "# .[\"$\"].RequestBody[\"?content\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"content": {}}}}}}],
+
+  "# .[\"$\"].RequestBody[\"?required\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"required": false}}}}}],
+
+  "# .[\"$\"].RequestBody[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"x-": {}}}}}}],
+
+  "# .[\"$\"].RequestBody[\"?content\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"content": {"a": {}}}}}}}],
+
+  "# .[\"$\"].Responses[\"/^[1-5](\\\\d\\\\d|XX)$/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {}}}}}}],
+
+  "# .[\"$\"].Responses[\"?default\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"default": {}}}}}}],
+
+  "# .[\"$\"].Responses[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"x-": {}}}}}}],
+
+  "# .[\"$\"].Response[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"description": ""}}}}}}],
+
+  "# .[\"$\"].Response[\"?headers\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"headers": {}}}}}}}],
+
+  "# .[\"$\"].Response[\"?content\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"content": {}}}}}}}],
+
+  "# .[\"$\"].Response[\"?links\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"links": {}}}}}}}],
+
+  "# .[\"$\"].Response[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"x-": {}}}}}}}],
+
+  "# .[\"$\"].Response[\"?headers\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"headers": {"a": {}}}}}}}}],
+
+  "# .[\"$\"].Response[\"?content\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"content": {"a": {}}}}}}}}],
+
+  "# .[\"$\"].Response[\"?links\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"links": {"a": {"operationRef": ""}}}}}}}}],
+
+  "# .[\"$\"].Operation[\"?callbacks\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"callbacks": {"a": {}}}}}}],
+
+  "# .[\"$\"].SecurityRequirement[\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"security": [{"a": []}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "description": ""}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?required\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "required": false}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?deprecated\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "deprecated": false}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?allowEmptyValue\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "allowEmptyValue": false}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "x-": {}}]}}}}],
+
+  "# .[\"$\"].OpenAPI[\"?webhooks\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "webhooks": {"a": {}}}],
+
+  "# .[\"$\"].Components[\"?schemas\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"schemas": {}}}],
+
+  "# .[\"$\"].Components[\"?responses\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"responses": {}}}],
+
+  "# .[\"$\"].Components[\"?parameters\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"parameters": {}}}],
+
+  "# .[\"$\"].Components[\"?examples\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"examples": {}}}],
+
+  "# .[\"$\"].Components[\"?requestBodies\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"requestBodies": {}}}],
+
+  "# .[\"$\"].Components[\"?headers\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"headers": {}}}],
+
+  "# .[\"$\"].Components[\"?securitySchemes\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"securitySchemes": {}}}],
+
+  "# .[\"$\"].Components[\"?links\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"links": {}}}],
+
+  "# .[\"$\"].Components[\"?callbacks\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"callbacks": {}}}],
+
+  "# .[\"$\"].Components[\"?pathItems\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"pathItems": {}}}],
+
+  "# .[\"$\"].Components[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"x-": {}}}],
+
+  "# .[\"$\"].Components[\"?schemas\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"schemas": {"a": {}}}}],
+
+  "# .[\"$\"].Components[\"?responses\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"responses": {"a": {}}}}],
+
+  "# .[\"$\"].Components[\"?parameters\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"parameters": {"a": {"name": "", "in": "query"}}}}],
+
+  "# .[\"$\"].Components[\"?examples\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"examples": {"a": {}}}}],
+
+  "# .[\"$\"].Components[\"?requestBodies\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"requestBodies": {"a": {}}}}],
+
+  "# .[\"$\"].Components[\"?headers\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"headers": {"a": {}}}}],
+
+  "# .[\"$\"].Components[\"?securitySchemes\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"securitySchemes": {"a": {"type": "apiKey", "name": "", "in": "query"}}}}],
+
+  "# .[\"$\"].Components[\"?links\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"links": {"a": {"operationRef": ""}}}}],
+
+  "# .[\"$\"].Components[\"?callbacks\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"callbacks": {"a": {}}}}],
+
+  "# .[\"$\"].Components[\"?pathItems\"][\"\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"pathItems": {"a": {}}}}],
+
+  "# .[\"$\"].Tag[\"?description\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": [{"name": "", "description": ""}]}],
+
+  "# .[\"$\"].Tag[\"?externalDocs\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": [{"name": "", "externalDocs": {"url": "https://json-model.org/"}}]}],
+
+  "# .[\"$\"].Tag[\"/^x-/\"] present",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": [{"name": "", "x-": {}}]}],
+
+  "# .[\"$\"].License[\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "url": "https://json-model.org/"}}}],
+
+  "# .[\"$\"].Operation[\"?parameters\"][0][\"|\"][0] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query"}]}}}}],
+
+  "# .[\"$\"].Operation[\"?parameters\"][0][\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"$ref": ""}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in[\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "header"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in[\"|\"][2] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "path"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in[\"|\"][3] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "cookie"}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "style": "label"}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][2] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "style": "form"}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][3] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "style": "simple"}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][4] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "style": "spaceDelimited"}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][5] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "style": "pipeDelimited"}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][6] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "style": "deepObject"}]}}}}],
+
+  "# .[\"$\"].Schema[\"?type\"][\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"type": ["array"]}}]}}}}],
+
+  "# .[\"$\"].Operation[\"?requestBody\"][\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"$ref": ""}}}}}],
+
+  "# .[\"$\"].Responses[\"/^[1-5](\\\\d\\\\d|XX)$/\"][\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"$ref": ""}}}}}}],
+
+  "# .[\"$\"].Responses[\"?default\"][\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"default": {"$ref": ""}}}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in[\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "header"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in[\"|\"][2] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "path"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in[\"|\"][3] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "cookie"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": "query"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in[\"|\"][0] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"delete": {"parameters": [{"name": "", "in": "query"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in[\"|\"][0] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"options": {"parameters": [{"name": "", "in": "query"}]}}}}],
+
+  "# .[\"$\"].PathItem[\"?parameters\"][0][\"|\"][0] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"parameters": [{"name": "", "in": "query"}]}}}],
+
+  "# .[\"$\"].PathItem[\"?parameters\"][0][\"|\"][1] branch",
+  [true, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"parameters": [{"$ref": ""}]}}}],
+
+  "# .[\"$\"].OpenAPI invalid",
+  [false, null],
+
+  "# .[\"$\"].OpenAPI.openapi invalid",
+  [false, {"openapi": null, "info": {"title": "", "version": ""}}],
+
+  "# .[\"$\"].Info invalid",
+  [false, {"openapi": "3.1.0", "info": null}],
+
+  "# .[\"$\"].Info.title invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": null, "version": ""}}],
+
+  "# .[\"$\"].Info[\"?summary\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "summary": null}}],
+
+  "# .[\"$\"].Info[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "description": null}}],
+
+  "# .[\"$\"].Info[\"?termsOfService\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "termsOfService": null}}],
+
+  "# .[\"$\"].Contact invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": null}}],
+
+  "# .[\"$\"].Contact[\"?name\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"name": null}}}],
+
+  "# .[\"$\"].Contact[\"?url\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"url": null}}}],
+
+  "# .[\"$\"].Contact[\"?email\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"email": null}}}],
+
+  "# .[\"$\"].License invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": null}}],
+
+  "# .[\"$\"].License[\"|\"][0].name invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": null, "identifier": ""}}}],
+
+  "# .[\"$\"].License[\"|\"][0].identifier invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "identifier": null}}}],
+
+  "# .[\"$\"].License[\"|\"][1].name invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": null, "url": "https://json-model.org/"}}}],
+
+  "# .[\"$\"].License[\"|\"][1].url invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "url": null}}}],
+
+  "# .[\"$\"].Info.version invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": null}}],
+
+  "# .[\"$\"].OpenAPI[\"?jsonSchemaDialect\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "jsonSchemaDialect": null}],
+
+  "# .[\"$\"].OpenAPI[\"?servers\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": null}],
+
+  "# .[\"$\"].Server invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [null]}],
+
+  "# .[\"$\"].Server.url invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": null}]}],
+
+  "# .[\"$\"].Server[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": "https://json-model.org/", "description": null}]}],
+
+  "# .[\"$\"].Server[\"?variables\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": "https://json-model.org/", "variables": null}]}],
+
+  "# .[\"$\"].Paths invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": null}],
+
+  "# .[\"$\"].PathItem invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": null}}],
+
+  "# .[\"$\"].PathItem[\"?$ref\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"$ref": null}}}],
+
+  "# .[\"$\"].PathItem[\"?summary\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"summary": null}}}],
+
+  "# .[\"$\"].PathItem[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"description": null}}}],
+
+  "# .[\"$\"].Operation invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": null}}}],
+
+  "# .[\"$\"].Operation[\"?tags\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"tags": null}}}}],
+
+  "# .[\"$\"].Operation[\"?tags\"][0] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"tags": [null]}}}}],
+
+  "# .[\"$\"].Operation[\"?summary\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"summary": null}}}}],
+
+  "# .[\"$\"].Operation[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"description": null}}}}],
+
+  "# .[\"$\"].ExternalDocumentation invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": null}}}}],
+
+  "# .[\"$\"].ExternalDocumentation[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": {"url": "https://json-model.org/", "description": null}}}}}],
+
+  "# .[\"$\"].ExternalDocumentation.url invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": {"url": null}}}}}],
+
+  "# .[\"$\"].Operation[\"?operationId\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"operationId": null}}}}],
+
+  "# .[\"$\"].Operation[\"?parameters\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": null}}}}],
+
+  "# .[\"$\"].Operation[\"?parameters\"][0] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [null]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].name invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": null, "in": "query"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "description": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?required\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "required": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?deprecated\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "deprecated": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?allowEmptyValue\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "allowEmptyValue": null}]}}}}],
+
+  "# .[\"$\"].Style invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "style": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?explode\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "explode": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?allowReserved\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "allowReserved": null}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": null}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?$schema\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$schema": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?$vocabulary\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$vocabulary": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?$comment\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$comment": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?$defs\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$defs": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?properties\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"properties": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?patternProperties\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"patternProperties": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?dependentSchemas\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"dependentSchemas": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?type\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"type": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?enum\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"enum": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?multipleOf\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"multipleOf": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?maximum\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"maximum": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?exclusiveMaximum\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"exclusiveMaximum": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?minimum\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"minimum": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?exclusiveMinimum\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"exclusiveMinimum": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?pattern\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"pattern": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?uniqueItems\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"uniqueItems": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?dependentRequired\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"dependentRequired": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?title\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"title": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"description": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?deprecated\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"deprecated": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?readOnly\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"readOnly": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?writeOnly\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"writeOnly": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?examples\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"examples": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?format\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"format": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?contentEncoding\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"contentEncoding": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?contentMediaType\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"contentMediaType": null}}]}}}}],
+
+  "# .[\"$\"].Discriminator invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": null}}]}}}}],
+
+  "# .[\"$\"].Discriminator.propertyName invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": null}}}]}}}}],
+
+  "# .[\"$\"].Discriminator[\"?mapping\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": "", "mapping": null}}}]}}}}],
+
+  "# .[\"$\"].xml invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": null}}]}}}}],
+
+  "# .[\"$\"].xml[\"?name\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"name": null}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?namespace\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"namespace": null}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?prefix\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"prefix": null}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?attribute\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"attribute": null}}}]}}}}],
+
+  "# .[\"$\"].xml[\"?wrapped\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"wrapped": null}}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"?examples\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "examples": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?content\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "content": null}]}}}}],
+
+  "# .[\"$\"].Reference[\"_$ref\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"$ref": null}]}}}}],
+
+  "# .[\"$\"].Reference[\"?summary\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"$ref": "", "summary": null}]}}}}],
+
+  "# .[\"$\"].Reference[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"$ref": "", "description": null}]}}}}],
+
+  "# .[\"$\"].Operation[\"?requestBody\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": null}}}}],
+
+  "# .[\"$\"].RequestBody[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"description": null}}}}}],
+
+  "# .[\"$\"].RequestBody[\"?content\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"content": null}}}}}],
+
+  "# .[\"$\"].RequestBody[\"?required\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"required": null}}}}}],
+
+  "# .[\"$\"].Responses invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": null}}}}],
+
+  "# .[\"$\"].Responses[\"/^[1-5](\\\\d\\\\d|XX)$/\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": null}}}}}],
+
+  "# .[\"$\"].Response[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"description": null}}}}}}],
+
+  "# .[\"$\"].Response[\"?headers\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"headers": null}}}}}}],
+
+  "# .[\"$\"].Response[\"?content\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"content": null}}}}}}],
+
+  "# .[\"$\"].Response[\"?links\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"links": null}}}}}}],
+
+  "# .[\"$\"].Responses[\"?default\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"default": null}}}}}],
+
+  "# .[\"$\"].Operation[\"?callbacks\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"callbacks": null}}}}],
+
+  "# .[\"$\"].Operation[\"?deprecated\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"deprecated": null}}}}],
+
+  "# .[\"$\"].Operation[\"?security\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"security": null}}}}],
+
+  "# .[\"$\"].SecurityRequirement invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"security": [null]}}}}],
+
+  "# .[\"$\"].Operation[\"?servers\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"servers": null}}}}],
+
+  "# .[\"$\"].Parameter invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [null]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in[\"|\"][0] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": null}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][0] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "style": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].name invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": null, "in": "query"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "description": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?required\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "required": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?deprecated\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "deprecated": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"?allowEmptyValue\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "allowEmptyValue": null}]}}}}],
+
+  "# .[\"$\"].RequestBody invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"requestBody": null}}}}],
+
+  "# .[\"$\"].Response invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"responses": {"100": null}}}}}],
+
+  "# .[\"$\"].Reference invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"responses": {"default": null}}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [null]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in[\"|\"][1] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": null}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][1] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": "query", "style": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in[\"|\"][2] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"delete": {"parameters": [{"name": "", "in": null}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][2] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"delete": {"parameters": [{"name": "", "in": "query", "style": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"delete": {"parameters": [null]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in[\"|\"][3] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"options": {"parameters": [{"name": "", "in": null}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][3] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"options": {"parameters": [{"name": "", "in": "query", "style": null}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][4] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"head": {"parameters": [{"name": "", "in": "query", "style": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"head": {"parameters": [{"name": "", "in": null}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][5] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"patch": {"parameters": [{"name": "", "in": "query", "style": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in[\"|\"][0] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"patch": {"parameters": [{"name": "", "in": null}]}}}}],
+
+  "# .[\"$\"].Style[\"|\"][6] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"trace": {"parameters": [{"name": "", "in": "query", "style": null}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in[\"|\"][1] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"trace": {"parameters": [{"name": "", "in": null}]}}}}],
+
+  "# .[\"$\"].PathItem[\"?servers\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"servers": null}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in[\"|\"][2] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"servers": [{"parameters": [{"name": "", "in": null}]}]}}}],
+
+  "# .[\"$\"].PathItem[\"?parameters\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"parameters": null}}}],
+
+  "# .[\"$\"].PathItem[\"?parameters\"][0] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"parameters": [null]}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in[\"|\"][3] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"parameters": [{"name": "", "in": null}]}}}],
+
+  "# .[\"$\"].OpenAPI[\"?webhooks\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "webhooks": null}],
+
+  "# .[\"$\"].Components invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": null}],
+
+  "# .[\"$\"].Components[\"?schemas\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"schemas": null}}],
+
+  "# .[\"$\"].Components[\"?responses\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"responses": null}}],
+
+  "# .[\"$\"].Components[\"?parameters\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"parameters": null}}],
+
+  "# .[\"$\"].Components[\"?examples\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"examples": null}}],
+
+  "# .[\"$\"].Components[\"?requestBodies\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"requestBodies": null}}],
+
+  "# .[\"$\"].Components[\"?headers\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"headers": null}}],
+
+  "# .[\"$\"].Components[\"?securitySchemes\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"securitySchemes": null}}],
+
+  "# .[\"$\"].Components[\"?links\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"links": null}}],
+
+  "# .[\"$\"].Components[\"?callbacks\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"callbacks": null}}],
+
+  "# .[\"$\"].Components[\"?pathItems\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"pathItems": null}}],
+
+  "# .[\"$\"].OpenAPI[\"?security\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "security": null}],
+
+  "# .[\"$\"].OpenAPI[\"?tags\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": null}],
+
+  "# .[\"$\"].Tag invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": [null]}],
+
+  "# .[\"$\"].Tag.name invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": [{"name": null}]}],
+
+  "# .[\"$\"].Tag[\"?description\"] invalid",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": [{"name": "", "description": null}]}],
+
+  "# .[\"$\"].Contact[\"?url\"] bad",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"url": "https://json model.org/"}}}],
+
+  "# .[\"$\"].License[\"|\"][1].url bad",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "url": "https://json model.org/"}}}],
+
+  "# .[\"$\"].OpenAPI[\"?jsonSchemaDialect\"] bad",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "jsonSchemaDialect": "https://json model.org/"}],
+
+  "# .[\"$\"].Server.url bad",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": "https://json model.org/"}]}],
+
+  "# .[\"$\"].PathItem[\"?$ref\"] bad",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"$ref": "https://json model.org/"}}}],
+
+  "# .[\"$\"].ExternalDocumentation.url bad",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": {"url": "https://json model.org/"}}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?pattern\"] bad",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"pattern": "["}}]}}}}],
+
+  "# .[\"$\"].OpenAPI.openapi missing",
+  [false, {"info": {"title": "", "version": ""}}],
+
+  "# .[\"$\"].OpenAPI.info missing",
+  [false, {"openapi": "3.1.0"}],
+
+  "# .[\"$\"].Info.title missing",
+  [false, {"openapi": "3.1.0", "info": {"version": ""}}],
+
+  "# .[\"$\"].Info.version missing",
+  [false, {"openapi": "3.1.0", "info": {"title": ""}}],
+
+  "# .[\"$\"].License[\"|\"][0].name missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"identifier": ""}}}],
+
+  "# .[\"$\"].License[\"|\"][0].identifier missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": ""}}}],
+
+  "# .[\"$\"].License[\"|\"][1].name missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"url": "https://json-model.org/"}}}],
+
+  "# .[\"$\"].Server.url missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{}]}],
+
+  "# .[\"$\"].ExternalDocumentation.url missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": {}}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].name missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"in": "query"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0].in missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": ""}]}}}}],
+
+  "# .[\"$\"].Discriminator.propertyName missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {}}}]}}}}],
+
+  "# .[\"$\"].Reference[\"_$ref\"] missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].name missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"in": "query"}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1].in missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": ""}]}}}}],
+
+  "# .[\"$\"].Tag.name missing",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": [{}]}],
+
+  "# .[\"$\"].OpenAPI[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "no-such-prop": null}],
+
+  "# .[\"$\"].Info[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "no-such-prop": null}}],
+
+  "# .[\"$\"].Contact[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "contact": {"no-such-prop": null}}}],
+
+  "# .[\"$\"].License[\"|\"][0][\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "identifier": "", "no-such-prop": null}}}],
+
+  "# .[\"$\"].License[\"|\"][1][\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": "", "license": {"name": "", "url": "https://json-model.org/", "no-such-prop": null}}}],
+
+  "# .[\"$\"].Server[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "servers": [{"url": "https://json-model.org/", "no-such-prop": null}]}],
+
+  "# .[\"$\"].Paths[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"no-such-prop": null}}],
+
+  "# .[\"$\"].PathItem[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"no-such-prop": null}}}],
+
+  "# .[\"$\"].Operation[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"no-such-prop": null}}}}],
+
+  "# .[\"$\"].ExternalDocumentation[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"externalDocs": {"url": "https://json-model.org/", "no-such-prop": null}}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "no-such-prop": null}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"no-such-prop": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"$vocabulary": {"no-such-prop": null}}}]}}}}],
+
+  "# .[\"$\"].Discriminator[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": "", "no-such-prop": null}}}]}}}}],
+
+  "# .[\"$\"].ExternalDocumentation[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"externalDocs": {"url": "https://json-model.org/", "no-such-property": null}}}]}}}}],
+
+  "# .[\"$\"].xml[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"no-such-prop": null}}}]}}}}],
+
+  "# .[\"$\"].Reference[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"parameters": [{"$ref": "", "no-such-prop": null}]}}}}],
+
+  "# .[\"$\"].RequestBody[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"no-such-prop": null}}}}}],
+
+  "# .[\"$\"].Reference[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"requestBody": {"$ref": "", "no-such-property": null}}}}}],
+
+  "# .[\"$\"].Responses[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"no-such-prop": null}}}}}],
+
+  "# .[\"$\"].Response[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"no-such-prop": null}}}}}}],
+
+  "# .[\"$\"].Reference[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"100": {"$ref": "", "no-such-property1": null}}}}}}],
+
+  "# .[\"$\"].Response[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"responses": {"default": {"no-such-property": null}}}}}}],
+
+  "# .[\"$\"].Server[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"get": {"servers": [{"url": "https://json-model.org/", "no-such-property": null}]}}}}],
+
+  "# .[\"$\"].Operation[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"no-such-property": null}}}}],
+
+  "# .[\"$\"].ExternalDocumentation[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"externalDocs": {"url": "https://json-model.org/", "no-such-property1": null}}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "no-such-property": null}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "schema": {"no-such-property": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?$vocabulary\"][\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "schema": {"$vocabulary": {"no-such-property": null}}}]}}}}],
+
+  "# .[\"$\"].Discriminator[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": "", "no-such-property": null}}}]}}}}],
+
+  "# .[\"$\"].xml[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"no-such-property": null}}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"parameters": [{"name": "", "in": "query", "no-such-prop": null}]}}}}],
+
+  "# .[\"$\"].RequestBody[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"requestBody": {"no-such-property": null}}}}}],
+
+  "# .[\"$\"].Responses[\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"responses": {"no-such-property": null}}}}}],
+
+  "# .[\"$\"].Response[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"responses": {"100": {"no-such-property1": null}}}}}}],
+
+  "# .[\"$\"].Server[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"put": {"servers": [{"url": "https://json-model.org/", "no-such-property1": null}]}}}}],
+
+  "# .[\"$\"].Operation[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"no-such-property1": null}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][0][\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": "query", "no-such-property1": null}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": "query", "schema": {"no-such-property1": null}}]}}}}],
+
+  "# .[\"$\"].Schema[\"@\"][\"?$vocabulary\"][\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": "query", "schema": {"$vocabulary": {"no-such-property1": null}}}]}}}}],
+
+  "# .[\"$\"].Discriminator[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": "query", "schema": {"discriminator": {"propertyName": "", "no-such-property1": null}}}]}}}}],
+
+  "# .[\"$\"].xml[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": "query", "schema": {"xml": {"no-such-property1": null}}}]}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"no-such-property\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"parameters": [{"name": "", "in": "query", "no-such-property": null}]}}}}],
+
+  "# .[\"$\"].RequestBody[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"requestBody": {"no-such-property1": null}}}}}],
+
+  "# .[\"$\"].Responses[\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"post": {"responses": {"no-such-property1": null}}}}}],
+
+  "# .[\"$\"].Parameter[\"|\"][1][\"no-such-property1\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "paths": {"/": {"delete": {"parameters": [{"name": "", "in": "query", "no-such-property1": null}]}}}}],
+
+  "# .[\"$\"].Components[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "components": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Tag[\"no-such-prop\"] extra",
+  [false, {"openapi": "3.1.0", "info": {"title": "", "version": ""}, "tags": [{"name": "", "no-such-prop": null}]}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED invalid value .[\"$\"].Contact[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].License[\"|\"][0][\"/^x\\\\-.*$/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].License[\"|\"][1][\"/^x\\\\-.*$/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Info[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].RequestBody[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Response[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Responses[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Server[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Operation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?const\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?enum\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Discriminator[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].xml[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Schema[\"@\"][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"?example\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][0][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Parameter[\"|\"][1][\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].PathItem[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Paths[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Components[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Tag[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].ExternalDocumentation[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].OpenAPI[\"/^x-/\"]: $ANY accepts every value",
+
+  "# SKIPPED extra value .[\"$\"].Server[\"?variables\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Schema[\"@\"][\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Schema[\"@\"][\"?properties\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Schema[\"@\"][\"?patternProperties\"]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Schema[\"@\"][\"?dependentSchemas\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Schema[\"@\"][\"?dependentRequired\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Discriminator[\"?mapping\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Parameter[\"|\"][0][\"?examples\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Parameter[\"|\"][1][\"?content\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].RequestBody[\"?content\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Response[\"?headers\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Response[\"?content\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Response[\"?links\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Reference: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Operation[\"?callbacks\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].SecurityRequirement: object is open",
+
+  "# SKIPPED extra value .[\"$\"].ExternalDocumentation: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Response: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Server: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Operation: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Parameter[\"|\"][0]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Schema[\"@\"]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Schema[\"@\"][\"?$vocabulary\"]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Discriminator: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].xml: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].RequestBody: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Responses: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].Parameter[\"|\"][1]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].OpenAPI[\"?webhooks\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?schemas\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?responses\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?parameters\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?examples\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?requestBodies\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?headers\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?securitySchemes\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?links\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?callbacks\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Components[\"?pathItems\"]: object is open"
+]

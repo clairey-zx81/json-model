@@ -1,0 +1,81 @@
+[
+  "# generated from objs0.model.json",
+
+  "# simplest",
+  [true, {"stuff": []}],
+
+  "# .[\"$\"].furniture[\"|\"][0] branch",
+  [true, {"stuff": [{"t": "table", "legs": 1}]}],
+
+  "# .[\"$\"].furniture[\"|\"][1] branch",
+  [true, {"stuff": [{"t": "chair", "color": ""}]}],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"@\"].stuff invalid",
+  [false, {"stuff": null}],
+
+  "# .[\"$\"].furniture invalid",
+  [false, {"stuff": [null]}],
+
+  "# .[\"$\"].table.t invalid",
+  [false, {"stuff": [{"t": null, "legs": 1}]}],
+
+  "# .[\"$\"].table.legs invalid",
+  [false, {"stuff": [{"t": "table", "legs": null}]}],
+
+  "# .[\"$\"].chair.t invalid",
+  [false, {"stuff": [{"t": null, "color": ""}]}],
+
+  "# .[\"$\"].chair.color invalid",
+  [false, {"stuff": [{"t": "chair", "color": null}]}],
+
+  "# .[\"@\"].stuff missing",
+  [false, {}],
+
+  "# .[\"$\"].table.t missing",
+  [false, {"stuff": [{"legs": 1}]}],
+
+  "# .[\"$\"].table.legs missing",
+  [false, {"stuff": [{"t": "table"}]}],
+
+  "# .[\"$\"].chair.t missing",
+  [false, {"stuff": [{"color": ""}]}],
+
+  "# .[\"$\"].chair.color missing",
+  [false, {"stuff": [{"t": "chair"}]}],
+
+  "# .[\"@\"][\"no-such-prop\"] extra",
+  [false, {"stuff": [], "no-such-prop": null}],
+
+  "# .[\"$\"].table[\"no-such-prop\"] extra",
+  [false, {"stuff": [{"t": "table", "legs": 1, "no-such-prop": null}]}],
+
+  "# .[\"$\"].chair[\"no-such-prop\"] extra",
+  [false, {"stuff": [{"t": "chair", "color": "", "no-such-prop": null}]}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

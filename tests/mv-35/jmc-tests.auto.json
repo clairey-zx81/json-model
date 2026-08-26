@@ -1,0 +1,60 @@
+[
+  "# generated from jmc-tests.model.json",
+
+  "# simplest",
+  [true, []],
+
+  "# .[\"$\"].Test[\"|\"][0] branch",
+  [true, ["a"]],
+
+  "# .[\"$\"].Test[\"|\"][1] branch",
+  [true, [[false, {}]]],
+
+  "# .[\"$\"].Test[\"|\"][2] branch",
+  [true, [[false, "", {}]]],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"$\"].Test invalid",
+  [false, [null]],
+
+  "# .[\"$\"].Test2[0] invalid",
+  [false, [[null, {}]]],
+
+  "# .[\"$\"].Test3[0] invalid",
+  [false, [[null, "", {}]]],
+
+  "# .[\"$\"].Test3[1] invalid",
+  [false, [[false, null, {}]]],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED invalid value .[\"$\"].Test2[1]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Test3[2]: $ANY accepts every value",
+
+  "# SKIPPED root value []: valid for the model"
+]

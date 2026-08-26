@@ -1,0 +1,377 @@
+[
+  "# generated from geo.model.json",
+
+  "# simplest",
+  [true, {"type": "Point", "coordinates": [0.0, 0.0]}],
+
+  "# .[\"$\"].position[\"<=\"] bound",
+  [true, {"type": "Point", "coordinates": [0.0, 0.0, 0.0]}],
+
+  "# .[\"$\"].coord_array[\">=\"] bound",
+  [true, {"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]]}],
+
+  "# .[\"$\"].linear_ring[\">=\"] bound",
+  [true, {"type": "Polygon", "coordinates": [[[0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]]}],
+
+  "# .[\"$\"].geometry[\"|\"][0][\"?bbox\"] present",
+  [true, {"type": "Point", "coordinates": [0.0, 0.0], "bbox": []}],
+
+  "# .[\"$\"].geometry[\"|\"][0][\"\"] present",
+  [true, {"type": "Point", "coordinates": [0.0, 0.0], "a": {}}],
+
+  "# .[\"$\"].geometry[\"|\"][1][\"?bbox\"] present",
+  [true, {"type": "MultiPoint", "coordinates": [], "bbox": []}],
+
+  "# .[\"$\"].geometry[\"|\"][1][\"\"] present",
+  [true, {"type": "MultiPoint", "coordinates": [], "a": {}}],
+
+  "# .[\"$\"].geometry[\"|\"][2][\"?bbox\"] present",
+  [true, {"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]], "bbox": []}],
+
+  "# .[\"$\"].geometry[\"|\"][2][\"\"] present",
+  [true, {"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]], "a": {}}],
+
+  "# .[\"$\"].geometry[\"|\"][3][\"?bbox\"] present",
+  [true, {"type": "MultiLineString", "coordinates": [], "bbox": []}],
+
+  "# .[\"$\"].geometry[\"|\"][3][\"\"] present",
+  [true, {"type": "MultiLineString", "coordinates": [], "a": {}}],
+
+  "# .[\"$\"].geometry[\"|\"][4][\"?bbox\"] present",
+  [true, {"type": "Polygon", "coordinates": [], "bbox": []}],
+
+  "# .[\"$\"].geometry[\"|\"][4][\"\"] present",
+  [true, {"type": "Polygon", "coordinates": [], "a": {}}],
+
+  "# .[\"$\"].geometry[\"|\"][5][\"?bbox\"] present",
+  [true, {"type": "MultiPolygon", "coordinates": [], "bbox": []}],
+
+  "# .[\"$\"].geometry[\"|\"][5][\"\"] present",
+  [true, {"type": "MultiPolygon", "coordinates": [], "a": {}}],
+
+  "# .[\"$\"].GeometryCollection[\"?bbox\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [], "bbox": []}],
+
+  "# .[\"$\"].GeometryCollection[\"\"] present",
+  [true, {"type": "GeometryCollection", "geometries": [], "a": {}}],
+
+  "# .[\"$\"].Feature[\"?id\"] present",
+  [true, {"type": "Feature", "geometry": null, "properties": null, "id": ""}],
+
+  "# .[\"$\"].Feature[\"?bbox\"] present",
+  [true, {"type": "Feature", "geometry": null, "properties": null, "bbox": []}],
+
+  "# .[\"$\"].Feature[\"\"] present",
+  [true, {"type": "Feature", "geometry": null, "properties": null, "a": {}}],
+
+  "# .[\"$\"].Feature.properties[\"|\"][1][\"\"] present",
+  [true, {"type": "Feature", "geometry": null, "properties": {"a": {}}}],
+
+  "# .[\"$\"].FeatureCollection[\"?bbox\"] present",
+  [true, {"type": "FeatureCollection", "features": [], "bbox": []}],
+
+  "# .[\"$\"].FeatureCollection[\"\"] present",
+  [true, {"type": "FeatureCollection", "features": [], "a": {}}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"type": "GeometryCollection", "geometries": []}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"type": "Feature", "geometry": null, "properties": null}],
+
+  "# .[\"|\"][3] branch",
+  [true, {"type": "FeatureCollection", "features": []}],
+
+  "# .[\"$\"].geometry[\"|\"][1] branch",
+  [true, {"type": "MultiPoint", "coordinates": []}],
+
+  "# .[\"$\"].geometry[\"|\"][3] branch",
+  [true, {"type": "MultiLineString", "coordinates": []}],
+
+  "# .[\"$\"].geometry[\"|\"][4] branch",
+  [true, {"type": "Polygon", "coordinates": []}],
+
+  "# .[\"$\"].geometry[\"|\"][5] branch",
+  [true, {"type": "MultiPolygon", "coordinates": []}],
+
+  "# .[\"$\"].geometry[\"|\"][0] branch",
+  [true, {"type": "GeometryCollection", "geometries": [{"type": "Point", "coordinates": [0.0, 0.0]}]}],
+
+  "# .[\"$\"].Feature.geometry[\"|\"][1] branch",
+  [true, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [0.0, 0.0]}, "properties": null}],
+
+  "# .[\"$\"].Feature.geometry[\"|\"][2] branch",
+  [true, {"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": []}, "properties": null}],
+
+  "# .[\"$\"].Feature.properties[\"|\"][1] branch",
+  [true, {"type": "Feature", "geometry": null, "properties": {}}],
+
+  "# .[\"$\"].Feature[\"?id\"][\"|\"][1] branch",
+  [true, {"type": "Feature", "geometry": null, "properties": null, "id": 0.0}],
+
+  "# .[\"$\"].Feature.geometry[\"|\"][0] branch",
+  [true, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": null, "properties": null}]}],
+
+  "# .[\"$\"].position[\">=\"]",
+  [false, {"type": "Point", "coordinates": [0.0]}],
+
+  "# .[\"$\"].position[\"<=\"]",
+  [false, {"type": "Point", "coordinates": [0.0, 0.0, 0.0, 0.0]}],
+
+  "# .[\"$\"].coord_array[\">=\"]",
+  [false, {"type": "LineString", "coordinates": [[0.0, 0.0]]}],
+
+  "# .[\"$\"].linear_ring[\">=\"]",
+  [false, {"type": "Polygon", "coordinates": [[[0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]]}],
+
+  "# .[\"$\"].geometry invalid",
+  [false, null],
+
+  "# .[\"$\"].geometry[\"^\"][0].type invalid",
+  [false, {"type": null, "coordinates": [0.0, 0.0]}],
+
+  "# .[\"$\"].position[\"@\"] invalid",
+  [false, {"type": "Point", "coordinates": null}],
+
+  "# .[\"$\"].position[\"@\"][0] invalid",
+  [false, {"type": "Point", "coordinates": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][0][\"?bbox\"] invalid",
+  [false, {"type": "Point", "coordinates": [0.0, 0.0], "bbox": null}],
+
+  "# .[\"$\"].geometry[\"^\"][0][\"?bbox\"][0] invalid",
+  [false, {"type": "Point", "coordinates": [0.0, 0.0], "bbox": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][1].type invalid",
+  [false, {"type": null, "coordinates": []}],
+
+  "# .[\"$\"].geometry[\"^\"][1].coordinates invalid",
+  [false, {"type": "MultiPoint", "coordinates": null}],
+
+  "# .[\"$\"].geometry[\"^\"][1][\"?bbox\"] invalid",
+  [false, {"type": "MultiPoint", "coordinates": [], "bbox": null}],
+
+  "# .[\"$\"].geometry[\"^\"][1][\"?bbox\"][0] invalid",
+  [false, {"type": "MultiPoint", "coordinates": [], "bbox": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][2].type invalid",
+  [false, {"type": null, "coordinates": [[0.0, 0.0], [0.0, 0.0]]}],
+
+  "# .[\"$\"].coord_array[\"@\"] invalid",
+  [false, {"type": "LineString", "coordinates": null}],
+
+  "# .[\"$\"].geometry[\"^\"][2][\"?bbox\"] invalid",
+  [false, {"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]], "bbox": null}],
+
+  "# .[\"$\"].geometry[\"^\"][2][\"?bbox\"][0] invalid",
+  [false, {"type": "LineString", "coordinates": [[0.0, 0.0], [0.0, 0.0]], "bbox": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][3].coordinates invalid",
+  [false, {"type": "MultiLineString", "coordinates": null}],
+
+  "# .[\"$\"].geometry[\"^\"][3][\"?bbox\"] invalid",
+  [false, {"type": "MultiLineString", "coordinates": [], "bbox": null}],
+
+  "# .[\"$\"].geometry[\"^\"][3][\"?bbox\"][0] invalid",
+  [false, {"type": "MultiLineString", "coordinates": [], "bbox": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][4].coordinates invalid",
+  [false, {"type": "Polygon", "coordinates": null}],
+
+  "# .[\"$\"].linear_ring[\"@\"] invalid",
+  [false, {"type": "Polygon", "coordinates": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][4][\"?bbox\"] invalid",
+  [false, {"type": "Polygon", "coordinates": [], "bbox": null}],
+
+  "# .[\"$\"].geometry[\"^\"][4][\"?bbox\"][0] invalid",
+  [false, {"type": "Polygon", "coordinates": [], "bbox": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][5].coordinates invalid",
+  [false, {"type": "MultiPolygon", "coordinates": null}],
+
+  "# .[\"$\"].geometry[\"^\"][5].coordinates[0] invalid",
+  [false, {"type": "MultiPolygon", "coordinates": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][5][\"?bbox\"] invalid",
+  [false, {"type": "MultiPolygon", "coordinates": [], "bbox": null}],
+
+  "# .[\"$\"].geometry[\"^\"][5][\"?bbox\"][0] invalid",
+  [false, {"type": "MultiPolygon", "coordinates": [], "bbox": [null]}],
+
+  "# .[\"$\"].GeometryCollection.type invalid",
+  [false, {"type": null, "geometries": []}],
+
+  "# .[\"$\"].GeometryCollection.geometries invalid",
+  [false, {"type": "GeometryCollection", "geometries": null}],
+
+  "# .[\"$\"].geometry[\"^\"][0] invalid",
+  [false, {"type": "GeometryCollection", "geometries": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][3].type invalid",
+  [false, {"type": "GeometryCollection", "geometries": [{"type": null, "coordinates": []}]}],
+
+  "# .[\"$\"].GeometryCollection[\"?bbox\"] invalid",
+  [false, {"type": "GeometryCollection", "geometries": [], "bbox": null}],
+
+  "# .[\"$\"].GeometryCollection[\"?bbox\"][0] invalid",
+  [false, {"type": "GeometryCollection", "geometries": [], "bbox": [null]}],
+
+  "# .[\"$\"].Feature.type invalid",
+  [false, {"type": null, "geometry": null, "properties": null}],
+
+  "# .[\"$\"].Feature.geometry invalid",
+  [false, {"type": "Feature", "geometry": true, "properties": null}],
+
+  "# .[\"$\"].geometry[\"^\"][4].type invalid",
+  [false, {"type": "Feature", "geometry": {"type": null, "coordinates": []}, "properties": null}],
+
+  "# .[\"$\"].geometry[\"^\"][1] invalid",
+  [false, {"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": [null]}, "properties": null}],
+
+  "# .[\"$\"].geometry[\"^\"][5].type invalid",
+  [false, {"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": [{"type": null, "coordinates": []}]}, "properties": null}],
+
+  "# .[\"$\"].Feature.properties invalid",
+  [false, {"type": "Feature", "geometry": null, "properties": true}],
+
+  "# .[\"$\"].Feature[\"?id\"] invalid",
+  [false, {"type": "Feature", "geometry": null, "properties": null, "id": null}],
+
+  "# .[\"$\"].Feature[\"?bbox\"] invalid",
+  [false, {"type": "Feature", "geometry": null, "properties": null, "bbox": null}],
+
+  "# .[\"$\"].Feature[\"?bbox\"][0] invalid",
+  [false, {"type": "Feature", "geometry": null, "properties": null, "bbox": [null]}],
+
+  "# .[\"$\"].FeatureCollection.type invalid",
+  [false, {"type": null, "features": []}],
+
+  "# .[\"$\"].FeatureCollection.features invalid",
+  [false, {"type": "FeatureCollection", "features": null}],
+
+  "# .[\"$\"].Feature invalid",
+  [false, {"type": "FeatureCollection", "features": [null]}],
+
+  "# .[\"$\"].Feature.geometry[\"|\"][0] invalid",
+  [false, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": true, "properties": null}]}],
+
+  "# .[\"$\"].geometry[\"^\"][2] invalid",
+  [false, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": [null]}, "properties": null}]}],
+
+  "# .[\"$\"].Feature.properties[\"|\"][0] invalid",
+  [false, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": null, "properties": true}]}],
+
+  "# .[\"$\"].Feature[\"?id\"][\"|\"][0] invalid",
+  [false, {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": null, "properties": null, "id": null}]}],
+
+  "# .[\"$\"].FeatureCollection[\"?bbox\"] invalid",
+  [false, {"type": "FeatureCollection", "features": [], "bbox": null}],
+
+  "# .[\"$\"].FeatureCollection[\"?bbox\"][0] invalid",
+  [false, {"type": "FeatureCollection", "features": [], "bbox": [null]}],
+
+  "# .[\"$\"].geometry[\"^\"][0].type missing",
+  [false, {"coordinates": [0.0, 0.0]}],
+
+  "# .[\"$\"].geometry[\"^\"][0].coordinates missing",
+  [false, {"type": "Point"}],
+
+  "# .[\"$\"].geometry[\"^\"][1].type missing",
+  [false, {"coordinates": []}],
+
+  "# .[\"$\"].geometry[\"^\"][1].coordinates missing",
+  [false, {"type": "MultiPoint"}],
+
+  "# .[\"$\"].geometry[\"^\"][2].type missing",
+  [false, {"coordinates": [[0.0, 0.0], [0.0, 0.0]]}],
+
+  "# .[\"$\"].geometry[\"^\"][2].coordinates missing",
+  [false, {"type": "LineString"}],
+
+  "# .[\"$\"].geometry[\"^\"][3].coordinates missing",
+  [false, {"type": "MultiLineString"}],
+
+  "# .[\"$\"].geometry[\"^\"][4].coordinates missing",
+  [false, {"type": "Polygon"}],
+
+  "# .[\"$\"].geometry[\"^\"][5].coordinates missing",
+  [false, {"type": "MultiPolygon"}],
+
+  "# .[\"$\"].GeometryCollection.type missing",
+  [false, {"geometries": []}],
+
+  "# .[\"$\"].GeometryCollection.geometries missing",
+  [false, {"type": "GeometryCollection"}],
+
+  "# .[\"$\"].geometry[\"^\"][3].type missing",
+  [false, {"type": "GeometryCollection", "geometries": [{"coordinates": []}]}],
+
+  "# .[\"$\"].Feature.type missing",
+  [false, {"geometry": null, "properties": null}],
+
+  "# .[\"$\"].Feature.geometry missing",
+  [false, {"type": "Feature", "properties": null}],
+
+  "# .[\"$\"].Feature.properties missing",
+  [false, {"type": "Feature", "geometry": null}],
+
+  "# .[\"$\"].geometry[\"^\"][4].type missing",
+  [false, {"type": "Feature", "geometry": {"coordinates": []}, "properties": null}],
+
+  "# .[\"$\"].geometry[\"^\"][5].type missing",
+  [false, {"type": "Feature", "geometry": {"type": "GeometryCollection", "geometries": [{"coordinates": []}]}, "properties": null}],
+
+  "# .[\"$\"].FeatureCollection.type missing",
+  [false, {"features": []}],
+
+  "# .[\"$\"].FeatureCollection.features missing",
+  [false, {"type": "FeatureCollection"}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED extra value .[\"$\"].geometry[\"^\"][0]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].geometry[\"^\"][1]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].geometry[\"^\"][2]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].geometry[\"^\"][3]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].geometry[\"^\"][4]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].geometry[\"^\"][5]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].GeometryCollection: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Feature: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Feature.properties[\"|\"][1]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].FeatureCollection: object is open"
+]

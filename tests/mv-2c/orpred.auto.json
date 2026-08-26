@@ -1,0 +1,45 @@
+[
+  "# generated from orpred.model.json",
+
+  "# simplest",
+  [true, "1970-01-01"],
+
+  "# .[\"|\"][1] branch",
+  [true, "00:00:00"],
+
+  "# .[\"|\"][0] invalid",
+  [false, null],
+
+  "# .[\"|\"][0] bad",
+  [false, "1970-13-45"],
+
+  "# .[\"|\"][1] bad",
+  [false, "25:00:00"],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

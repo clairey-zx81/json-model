@@ -1,0 +1,10 @@
+[
+  "# generated from json-schema-draft-tighter-loose.model.json",
+
+  "# simplest",
+  [true, {"$schema": ""}],
+
+  "# FAILED bound values: cannot enter model: {'#': 'JSON Model for a Very Tight JSON Schema, Loosed a bit...",
+
+  "# FAILED invalid model"
+]

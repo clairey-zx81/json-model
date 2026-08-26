@@ -1,0 +1,39 @@
+[
+  "# generated from ex_07.model.json",
+
+  "# simplest",
+  [true, [0, "", "a"]],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"$\"].Ex07 invalid",
+  [false, [0, "", null]],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

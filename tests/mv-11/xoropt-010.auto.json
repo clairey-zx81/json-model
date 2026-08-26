@@ -1,0 +1,65 @@
+[
+  "# generated from xoropt-010.model.json",
+
+  "# simplest",
+  [true, {"b": 0, "a": ""}],
+
+  "# .[\"|\"][1][\"?a\"] present",
+  [true, {"b": 0, "a": {}}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"b": 0}],
+
+  "# .[\"^\"][0] invalid",
+  [false, null],
+
+  "# .[\"^\"][0].b invalid",
+  [false, {"b": null, "a": ""}],
+
+  "# .[\"^\"][0].a invalid",
+  [false, {"b": 0, "a": null}],
+
+  "# .[\"^\"][1].b invalid",
+  [false, {"b": null}],
+
+  "# .[\"^\"][0].b missing",
+  [false, {"a": ""}],
+
+  "# .[\"^\"][1].b missing",
+  [false, {}],
+
+  "# .[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"b": 0, "a": "", "no-such-prop": null}],
+
+  "# .[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"b": 0, "no-such-prop": null}],
+
+  "# .[\"^\"][1][\"?a\"][\"no-such-prop\"] extra",
+  [false, {"b": 0, "a": {"no-such-prop": null}}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED missing value .[\"^\"][0].a: dropping a is still valid"
+]

@@ -1,0 +1,380 @@
+[
+  "# generated from jsound.model.json",
+
+  "# simplest",
+  [true, {"types": []}],
+
+  "# .[\"$\"].Schema[\"?metadata\"] present",
+  [true, {"types": [], "metadata": {}}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?name\"] present",
+  [true, {"types": [], "metadata": {"name": ""}}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?previous\"] present",
+  [true, {"types": [], "metadata": {"previous": ""}}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?date\"] present",
+  [true, {"types": [], "metadata": {"date": ""}}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?authors\"] present",
+  [true, {"types": [], "metadata": {"authors": []}}],
+
+  "# .[\"$\"].Atomic[\"?name\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "name": ""}]}],
+
+  "# .[\"$\"].Atomic[\"?pattern\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "pattern": ""}]}],
+
+  "# .[\"$\"].Atomic[\"?length\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "length": 0}]}],
+
+  "# .[\"$\"].Atomic[\"?minLength\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "minLength": 0}]}],
+
+  "# .[\"$\"].Atomic[\"?maxLength\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "maxLength": 0}]}],
+
+  "# .[\"$\"].Atomic[\"?totalDigits\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "totalDigits": 0}]}],
+
+  "# .[\"$\"].Atomic[\"?fractionDigits\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "fractionDigits": 0}]}],
+
+  "# .[\"$\"].Atomic[\"?maxInclusive\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "maxInclusive": null}]}],
+
+  "# .[\"$\"].Atomic[\"?maxExclusive\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "maxExclusive": null}]}],
+
+  "# .[\"$\"].Atomic[\"?minInclusive\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "minInclusive": null}]}],
+
+  "# .[\"$\"].Atomic[\"?minExclusive\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "minExclusive": null}]}],
+
+  "# .[\"$\"].Atomic[\"?enumeration\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "enumeration": []}]}],
+
+  "# .[\"$\"].Atomic[\"?explicitTypeZone\"] present",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "explicitTypeZone": "required"}]}],
+
+  "# .[\"$\"].Object[\"?name\"] present",
+  [true, {"types": [{"kind": "object", "name": ""}]}],
+
+  "# .[\"$\"].Object[\"?baseType\"] present",
+  [true, {"types": [{"kind": "object", "baseType": ""}]}],
+
+  "# .[\"$\"].Object[\"?content\"] present",
+  [true, {"types": [{"kind": "object", "content": []}]}],
+
+  "# .[\"$\"].Object[\"?closed\"] present",
+  [true, {"types": [{"kind": "object", "closed": false}]}],
+
+  "# .[\"$\"].Fields[\"?required\"] present",
+  [true, {"types": [{"kind": "object", "content": [{"name": "", "type": "", "required": false}]}]}],
+
+  "# .[\"$\"].Fields[\"?default\"] present",
+  [true, {"types": [{"kind": "object", "content": [{"name": "", "type": "", "default": {}}]}]}],
+
+  "# .[\"$\"].Fields[\"?unique\"] present",
+  [true, {"types": [{"kind": "object", "content": [{"name": "", "type": "", "unique": false}]}]}],
+
+  "# .[\"$\"].Array[\"?name\"] present",
+  [true, {"types": [{"kind": "array", "name": ""}]}],
+
+  "# .[\"$\"].Array[\"?baseType\"] present",
+  [true, {"types": [{"kind": "array", "baseType": ""}]}],
+
+  "# .[\"$\"].Array[\"?content\"] present",
+  [true, {"types": [{"kind": "array", "content": ""}]}],
+
+  "# .[\"$\"].Array[\"?minLength\"] present",
+  [true, {"types": [{"kind": "array", "minLength": 0}]}],
+
+  "# .[\"$\"].Array[\"?maxLength\"] present",
+  [true, {"types": [{"kind": "array", "maxLength": 0}]}],
+
+  "# .[\"$\"].Union[\"?baseType\"] present",
+  [true, {"types": [{"name": "", "kind": "union", "content": [], "baseType": ""}]}],
+
+  "# .[\"$\"].Type[\"|\"][0] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "string"}]}],
+
+  "# .[\"$\"].Type[\"|\"][1] branch",
+  [true, {"types": [{"kind": "object"}]}],
+
+  "# .[\"$\"].Type[\"|\"][2] branch",
+  [true, {"types": [{"kind": "array"}]}],
+
+  "# .[\"$\"].Type[\"|\"][3] branch",
+  [true, {"types": [{"name": "", "kind": "union", "content": []}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][1] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "decimal"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][2] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "integer"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][3] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "double"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][4] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "boolean"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][5] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "anyURI"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][6] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "base64Binary"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][7] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "hexBinary"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][8] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "date"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][9] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "dateTime"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][10] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "time"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][11] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "dateTimeStamp"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][12] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "duration"}]}],
+
+  "# .[\"$\"][\"atomic-types\"][\"|\"][13] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "null"}]}],
+
+  "# .[\"$\"].atomic[\"|\"][1] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "maxInclusive": false}]}],
+
+  "# .[\"$\"].atomic[\"|\"][2] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "maxInclusive": 0}]}],
+
+  "# .[\"$\"].atomic[\"|\"][3] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "maxInclusive": 0.0}]}],
+
+  "# .[\"$\"].atomic[\"|\"][4] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "maxInclusive": ""}]}],
+
+  "# .[\"$\"].Atomic[\"?explicitTypeZone\"][\"|\"][1] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "explicitTypeZone": "prohibited"}]}],
+
+  "# .[\"$\"].Atomic[\"?explicitTypeZone\"][\"|\"][2] branch",
+  [true, {"types": [{"kind": "atomic", "baseType": "string", "explicitTypeZone": "optional"}]}],
+
+  "# .[\"$\"][\"type-or-ref\"][\"|\"][0] branch",
+  [true, {"types": [{"kind": "object", "content": [{"name": "", "type": ""}]}]}],
+
+  "# .[\"$\"][\"type-or-ref\"][\"|\"][1] branch",
+  [true, {"types": [{"kind": "object", "content": [{"name": "", "type": {"kind": "atomic", "baseType": "string"}}]}]}],
+
+  "# .[\"$\"].Schema invalid",
+  [false, null],
+
+  "# .[\"$\"].Schema[\"?metadata\"] invalid",
+  [false, {"types": [], "metadata": null}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?name\"] invalid",
+  [false, {"types": [], "metadata": {"name": null}}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?previous\"] invalid",
+  [false, {"types": [], "metadata": {"previous": null}}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?date\"] invalid",
+  [false, {"types": [], "metadata": {"date": null}}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?authors\"] invalid",
+  [false, {"types": [], "metadata": {"authors": null}}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"?authors\"][0] invalid",
+  [false, {"types": [], "metadata": {"authors": [null]}}],
+
+  "# .[\"$\"].Schema.types invalid",
+  [false, {"types": null}],
+
+  "# .[\"$\"].Type invalid",
+  [false, {"types": [null]}],
+
+  "# .[\"$\"].Atomic[\"?name\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "name": null}]}],
+
+  "# .[\"$\"].Atomic.kind invalid",
+  [false, {"types": [{"kind": null, "baseType": "string"}]}],
+
+  "# .[\"$\"][\"atomic-types\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": null}]}],
+
+  "# .[\"$\"].Atomic[\"?pattern\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "pattern": null}]}],
+
+  "# .[\"$\"].Atomic[\"?length\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "length": null}]}],
+
+  "# .[\"$\"].Atomic[\"?minLength\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "minLength": null}]}],
+
+  "# .[\"$\"].Atomic[\"?maxLength\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "maxLength": null}]}],
+
+  "# .[\"$\"].Atomic[\"?totalDigits\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "totalDigits": null}]}],
+
+  "# .[\"$\"].Atomic[\"?fractionDigits\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "fractionDigits": null}]}],
+
+  "# .[\"$\"].atomic invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "maxInclusive": []}]}],
+
+  "# .[\"$\"].atomic[\"|\"][0] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "maxExclusive": []}]}],
+
+  "# .[\"$\"].atomic[\"|\"][1] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "minInclusive": []}]}],
+
+  "# .[\"$\"].atomic[\"|\"][2] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "minExclusive": []}]}],
+
+  "# .[\"$\"].Atomic[\"?enumeration\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "enumeration": null}]}],
+
+  "# .[\"$\"].atomic[\"|\"][3] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "enumeration": [[]]}]}],
+
+  "# .[\"$\"].Atomic[\"?explicitTypeZone\"] invalid",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "explicitTypeZone": null}]}],
+
+  "# .[\"$\"].Object[\"?name\"] invalid",
+  [false, {"types": [{"kind": "object", "name": null}]}],
+
+  "# .[\"$\"].Object.kind invalid",
+  [false, {"types": [{"kind": null}]}],
+
+  "# .[\"$\"].Object[\"?baseType\"] invalid",
+  [false, {"types": [{"kind": "object", "baseType": null}]}],
+
+  "# .[\"$\"].Object[\"?content\"] invalid",
+  [false, {"types": [{"kind": "object", "content": null}]}],
+
+  "# .[\"$\"].Fields invalid",
+  [false, {"types": [{"kind": "object", "content": [null]}]}],
+
+  "# .[\"$\"].Fields.name invalid",
+  [false, {"types": [{"kind": "object", "content": [{"name": null, "type": ""}]}]}],
+
+  "# .[\"$\"][\"type-or-ref\"] invalid",
+  [false, {"types": [{"kind": "object", "content": [{"name": "", "type": null}]}]}],
+
+  "# .[\"$\"].Fields[\"?required\"] invalid",
+  [false, {"types": [{"kind": "object", "content": [{"name": "", "type": "", "required": null}]}]}],
+
+  "# .[\"$\"].Fields[\"?unique\"] invalid",
+  [false, {"types": [{"kind": "object", "content": [{"name": "", "type": "", "unique": null}]}]}],
+
+  "# .[\"$\"].Object[\"?closed\"] invalid",
+  [false, {"types": [{"kind": "object", "closed": null}]}],
+
+  "# .[\"$\"].Array[\"?name\"] invalid",
+  [false, {"types": [{"kind": "array", "name": null}]}],
+
+  "# .[\"$\"].Array[\"?baseType\"] invalid",
+  [false, {"types": [{"kind": "array", "baseType": null}]}],
+
+  "# .[\"$\"][\"type-or-ref\"][\"|\"][0] invalid",
+  [false, {"types": [{"kind": "array", "content": null}]}],
+
+  "# .[\"$\"].Array[\"?minLength\"] invalid",
+  [false, {"types": [{"kind": "array", "minLength": null}]}],
+
+  "# .[\"$\"].Array[\"?maxLength\"] invalid",
+  [false, {"types": [{"kind": "array", "maxLength": null}]}],
+
+  "# .[\"$\"].Union.name invalid",
+  [false, {"types": [{"name": null, "kind": "union", "content": []}]}],
+
+  "# .[\"$\"].Union.kind invalid",
+  [false, {"types": [{"name": "", "kind": null, "content": []}]}],
+
+  "# .[\"$\"].Union[\"?baseType\"] invalid",
+  [false, {"types": [{"name": "", "kind": "union", "content": [], "baseType": null}]}],
+
+  "# .[\"$\"].Union.content invalid",
+  [false, {"types": [{"name": "", "kind": "union", "content": null}]}],
+
+  "# .[\"$\"].Schema.types missing",
+  [false, {}],
+
+  "# .[\"$\"].Atomic.kind missing",
+  [false, {"types": [{"baseType": "string"}]}],
+
+  "# .[\"$\"].Atomic.baseType missing",
+  [false, {"types": [{"kind": "atomic"}]}],
+
+  "# .[\"$\"].Object.kind missing",
+  [false, {"types": [{}]}],
+
+  "# .[\"$\"].Fields.name missing",
+  [false, {"types": [{"kind": "object", "content": [{"type": ""}]}]}],
+
+  "# .[\"$\"].Fields.type missing",
+  [false, {"types": [{"kind": "object", "content": [{"name": ""}]}]}],
+
+  "# .[\"$\"].Union.name missing",
+  [false, {"types": [{"kind": "union", "content": []}]}],
+
+  "# .[\"$\"].Union.kind missing",
+  [false, {"types": [{"name": "", "content": []}]}],
+
+  "# .[\"$\"].Union.content missing",
+  [false, {"types": [{"name": "", "kind": "union"}]}],
+
+  "# .[\"$\"].Schema[\"no-such-prop\"] extra",
+  [false, {"types": [], "no-such-prop": null}],
+
+  "# .[\"$\"].Schema[\"?metadata\"][\"no-such-prop\"] extra",
+  [false, {"types": [], "metadata": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Atomic[\"no-such-prop\"] extra",
+  [false, {"types": [{"kind": "atomic", "baseType": "string", "no-such-prop": null}]}],
+
+  "# .[\"$\"].Object[\"no-such-prop\"] extra",
+  [false, {"types": [{"kind": "object", "no-such-prop": null}]}],
+
+  "# .[\"$\"].Fields[\"no-such-prop\"] extra",
+  [false, {"types": [{"kind": "object", "content": [{"name": "", "type": "", "no-such-prop": null}]}]}],
+
+  "# .[\"$\"].Array[\"no-such-prop\"] extra",
+  [false, {"types": [{"kind": "array", "no-such-prop": null}]}],
+
+  "# .[\"$\"].Union[\"no-such-prop\"] extra",
+  [false, {"types": [{"name": "", "kind": "union", "content": [], "no-such-prop": null}]}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"$\"].Fields[\"?default\"]: $ANY accepts every value"
+]

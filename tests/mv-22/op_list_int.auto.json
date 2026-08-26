@@ -1,0 +1,126 @@
+[
+  "# generated from op_list_int.model.json",
+
+  "# simplest",
+  [true, {"t": 0, "z": 1}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"t": 2, "p": 1}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"t": 1, "i": 1}],
+
+  "# .[\"|\"][3] branch",
+  [true, {"t": 10, "d": 1}],
+
+  "# .[\"|\"][1].t[\"|\"][1] branch",
+  [true, {"t": 4, "p": 1}],
+
+  "# .[\"|\"][1].t[\"|\"][2] branch",
+  [true, {"t": 6, "p": 1}],
+
+  "# .[\"|\"][1].t[\"|\"][3] branch",
+  [true, {"t": 8, "p": 1}],
+
+  "# .[\"|\"][2].t[\"|\"][1] branch",
+  [true, {"t": 3, "i": 1}],
+
+  "# .[\"|\"][2].t[\"|\"][2] branch",
+  [true, {"t": 5, "i": 1}],
+
+  "# .[\"|\"][2].t[\"|\"][3] branch",
+  [true, {"t": 7, "i": 1}],
+
+  "# .[\"|\"][2].t[\"|\"][4] branch",
+  [true, {"t": 9, "i": 1}],
+
+  "# .[\"^\"][0] invalid",
+  [false, null],
+
+  "# .[\"^\"][0].t invalid",
+  [false, {"t": null, "z": 1}],
+
+  "# .[\"^\"][0].z invalid",
+  [false, {"t": 0, "z": null}],
+
+  "# .[\"^\"][1].t invalid",
+  [false, {"t": null, "p": 1}],
+
+  "# .[\"^\"][1].p invalid",
+  [false, {"t": 2, "p": null}],
+
+  "# .[\"^\"][2].t invalid",
+  [false, {"t": null, "i": 1}],
+
+  "# .[\"^\"][2].i invalid",
+  [false, {"t": 1, "i": null}],
+
+  "# .[\"^\"][3].t invalid",
+  [false, {"t": null, "d": 1}],
+
+  "# .[\"^\"][3].d invalid",
+  [false, {"t": 10, "d": null}],
+
+  "# .[\"^\"][0].t missing",
+  [false, {"z": 1}],
+
+  "# .[\"^\"][0].z missing",
+  [false, {"t": 0}],
+
+  "# .[\"^\"][1].t missing",
+  [false, {"p": 1}],
+
+  "# .[\"^\"][1].p missing",
+  [false, {"t": 2}],
+
+  "# .[\"^\"][2].t missing",
+  [false, {"i": 1}],
+
+  "# .[\"^\"][2].i missing",
+  [false, {"t": 1}],
+
+  "# .[\"^\"][3].t missing",
+  [false, {"d": 1}],
+
+  "# .[\"^\"][3].d missing",
+  [false, {"t": 10}],
+
+  "# .[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"t": 0, "z": 1, "no-such-prop": null}],
+
+  "# .[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"t": 2, "p": 1, "no-such-prop": null}],
+
+  "# .[\"^\"][2][\"no-such-prop\"] extra",
+  [false, {"t": 1, "i": 1, "no-such-prop": null}],
+
+  "# .[\"^\"][3][\"no-such-prop\"] extra",
+  [false, {"t": 10, "d": 1, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

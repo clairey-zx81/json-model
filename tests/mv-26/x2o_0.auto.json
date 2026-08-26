@@ -1,0 +1,57 @@
+[
+  "# generated from x2o_0.model.json",
+
+  "# simplest",
+  [true, {"t": "a"}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"t": "b"}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"t": ""}],
+
+  "# .[\"|\"][1].t[\"|\"][1] branch",
+  [true, {"t": "c"}],
+
+  "# .[\"^\"][0] invalid",
+  [false, null],
+
+  "# .[\"^\"][0].t invalid",
+  [false, {"t": null}],
+
+  "# .[\"^\"][0].t missing",
+  [false, {}],
+
+  "# .[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"t": "a", "no-such-prop": null}],
+
+  "# .[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"t": "b", "no-such-prop": null}],
+
+  "# .[\"^\"][2][\"no-such-prop\"] extra",
+  [false, {"t": "", "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

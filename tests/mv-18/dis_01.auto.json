@@ -1,0 +1,87 @@
+[
+  "# generated from dis_01.model.json",
+
+  "# simplest",
+  [true, {"tag": 18, "a": ""}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"tag": 42, "b": ""}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"tag": 1024, "c": ""}],
+
+  "# .[\"|\"][0] invalid",
+  [false, null],
+
+  "# .[\"|\"][0].tag invalid",
+  [false, {"tag": null, "a": ""}],
+
+  "# .[\"|\"][0].a invalid",
+  [false, {"tag": 18, "a": null}],
+
+  "# .[\"|\"][1].tag invalid",
+  [false, {"tag": null, "b": ""}],
+
+  "# .[\"|\"][1].b invalid",
+  [false, {"tag": 42, "b": null}],
+
+  "# .[\"|\"][2].tag invalid",
+  [false, {"tag": null, "c": ""}],
+
+  "# .[\"|\"][2].c invalid",
+  [false, {"tag": 1024, "c": null}],
+
+  "# .[\"|\"][0].tag missing",
+  [false, {"a": ""}],
+
+  "# .[\"|\"][0].a missing",
+  [false, {"tag": 18}],
+
+  "# .[\"|\"][1].tag missing",
+  [false, {"b": ""}],
+
+  "# .[\"|\"][1].b missing",
+  [false, {"tag": 42}],
+
+  "# .[\"|\"][2].tag missing",
+  [false, {"c": ""}],
+
+  "# .[\"|\"][2].c missing",
+  [false, {"tag": 1024}],
+
+  "# .[\"|\"][0][\"no-such-prop\"] extra",
+  [false, {"tag": 18, "a": "", "no-such-prop": null}],
+
+  "# .[\"|\"][1][\"no-such-prop\"] extra",
+  [false, {"tag": 42, "b": "", "no-such-prop": null}],
+
+  "# .[\"|\"][2][\"no-such-prop\"] extra",
+  [false, {"tag": 1024, "c": "", "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

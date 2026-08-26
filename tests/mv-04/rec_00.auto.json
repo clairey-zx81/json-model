@@ -1,0 +1,41 @@
+[
+  "# generated from rec_00.model.json",
+
+  "# simplest",
+  [true, false],
+
+  "# .[\"$\"].obj[\"\"] present",
+  [true, {"a": false}],
+
+  "# .[\"$\"].rec[\"|\"][1] branch",
+  [true, {}],
+
+  "# .[\"$\"].rec invalid",
+  [false, null],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED extra value .[\"$\"].obj: object is open",
+
+  "# SKIPPED root value true: valid for the model",
+
+  "# SKIPPED root value false: valid for the model",
+
+  "# SKIPPED root value {}: valid for the model"
+]

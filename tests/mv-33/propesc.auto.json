@@ -1,0 +1,80 @@
+[
+  "# generated from propesc.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?\\n\"] present",
+  [true, {"\n": 1}],
+
+  "# .[\"?\\t\"] present",
+  [true, {"\t": 1}],
+
+  "# .[\"?\\\\\"] present",
+  [true, {"\\": 1}],
+
+  "# .[\"?'\"] present",
+  [true, {"'": 1}],
+
+  "# .[\"?\\f\"] present",
+  [true, {"\f": 1}],
+
+  "# .[\"?\\\"\"] present",
+  [true, {"\"": 1}],
+
+  "# .[\"?\\r\"] present",
+  [true, {"\r": 1}],
+
+  "# .[\"?\\n\"] invalid",
+  [false, {"\n": null}],
+
+  "# .[\"?\\t\"] invalid",
+  [false, {"\t": null}],
+
+  "# .[\"?\\\\\"] invalid",
+  [false, {"\\": null}],
+
+  "# .[\"?'\"] invalid",
+  [false, {"'": null}],
+
+  "# .[\"?\\f\"] invalid",
+  [false, {"\f": null}],
+
+  "# .[\"?\\\"\"] invalid",
+  [false, {"\"": null}],
+
+  "# .[\"?\\r\"] invalid",
+  [false, {"\r": null}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED root value {}: valid for the model"
+]

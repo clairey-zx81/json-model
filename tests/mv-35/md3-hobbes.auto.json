@@ -1,0 +1,63 @@
+[
+  "# generated from md3-hobbes.model.json",
+
+  "# simplest",
+  [true, {"name": "a", "birth": "1970-01-01"}],
+
+  "# .[\"?friends\"] present",
+  [true, {"name": "a", "birth": "1970-01-01", "friends": []}],
+
+  "# .name invalid",
+  [false, {"name": null, "birth": "1970-01-01"}],
+
+  "# .birth invalid",
+  [false, {"name": "a", "birth": null}],
+
+  "# .[\"?friends\"] invalid",
+  [false, {"name": "a", "birth": "1970-01-01", "friends": null}],
+
+  "# .[\"?friends\"][0] invalid",
+  [false, {"name": "a", "birth": "1970-01-01", "friends": [null]}],
+
+  "# .birth bad",
+  [false, {"name": "a", "birth": "1970-13-45"}],
+
+  "# .name missing",
+  [false, {"birth": "1970-01-01"}],
+
+  "# .birth missing",
+  [false, {"name": "a"}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"name": "a", "birth": "1970-01-01", "no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

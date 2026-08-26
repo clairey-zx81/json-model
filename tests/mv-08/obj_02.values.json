@@ -1,5 +1,4 @@
 [
-  [ true,  [] ],
   [ true,  [0] ],
   [ true,  [0, 1, 2 ,3] ],
   [ true,  [0.0] ],
@@ -9,19 +8,14 @@
   [ true,  [true, false, true, true, false] ],
   [ true,  ["https://wikipedia.fr"] ],
   [ true,  ["https://wikipedia.fr", "https://localhost:8080/"] ],
-  [ false, [null] ],
-  [ false, true ],
-  [ false, false ],
   [ false, [-42] ],
   [ false, [-3.1415927] ],
   [ false, ["not an url"] ],
   [ false, [{}] ],
   [ false, [[]] ],
-  [ false, null ],
   [ false, 42 ],
   [ false, 3.1415927 ],
   [ false, "unexpected" ],
-  [ false, {} ],
   [ false, {"un": "expected"} ],
   [ false, [0, true, 0.0, "https://wikimedia.org"] ]
 ]

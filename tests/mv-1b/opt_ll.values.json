@@ -5,11 +5,7 @@
   [ true, {"i": 42.0, "f": 42} ],
   [ true, {"i": 42, "f": 42} ],
   [ false, {"i": null, "f": false} ],
-  [ false, null ],
-  [ false, true ],
   [ false, "NaN" ],
-  [ false, [] ],
   [ false, [42, 42.5] ],
-  [ false, {} ],
   [ false, {"not": "expected"} ]
 ]

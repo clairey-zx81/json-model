@@ -1,7 +1,5 @@
 [
-  [ true, false ],
   [ true, "https://json-model.org/models/json-model" ],
-  [ true, {} ],
   [ true, {
             "https://comics.net/Susie": true,
             "https://comics.net/Calvin": true,

@@ -1,0 +1,43 @@
+[
+  "# generated from propesc2.model.json",
+
+  "# simplest",
+  [true, {"foo\nbar": {}}],
+
+  "# .[\"\"] present",
+  [true, {"foo\nbar": {}, "a": {}}],
+
+  "# .[\"_foo\\nbar\"] missing",
+  [false, {}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"_foo\\nbar\"]: $ANY accepts every value",
+
+  "# SKIPPED extra value .: object is open"
+]

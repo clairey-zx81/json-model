@@ -1,15 +1,9 @@
 [
-  [ true,  "Susie" ],
   [ true,  "Hello Susie" ],
   [ false, "Susie!" ],
   [ false, "usie" ],
-  [ false, "" ],
-  [ false, null ],
-  [ false, true ],
   [ false, 42 ],
   [ false, 3.1415927 ],
-  [ false, [] ],
   [ false, ["Susie"] ],
-  [ false, {} ],
   [ false, {"Susie": "Susie"} ]
 ]

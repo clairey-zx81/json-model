@@ -1,0 +1,170 @@
+[
+  "# generated from many_may.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?a\"] present",
+  [true, {"a": ""}],
+
+  "# .[\"?aaa\"] present",
+  [true, {"aaa": ""}],
+
+  "# .[\"?abc\"] present",
+  [true, {"abc": ""}],
+
+  "# .[\"?bcd\"] present",
+  [true, {"bcd": ""}],
+
+  "# .[\"?cdef\"] present",
+  [true, {"cdef": ""}],
+
+  "# .[\"?calvin\"] present",
+  [true, {"calvin": ""}],
+
+  "# .[\"?def\"] present",
+  [true, {"def": ""}],
+
+  "# .[\"?foo\"] present",
+  [true, {"foo": ""}],
+
+  "# .[\"?hobbes\"] present",
+  [true, {"hobbes": ""}],
+
+  "# .[\"?moe\"] present",
+  [true, {"moe": ""}],
+
+  "# .[\"?saxo\"] present",
+  [true, {"saxo": ""}],
+
+  "# .[\"?stuff\"] present",
+  [true, {"stuff": ""}],
+
+  "# .[\"?swap\"] present",
+  [true, {"swap": ""}],
+
+  "# .[\"?susie\"] present",
+  [true, {"susie": ""}],
+
+  "# .[\"?wtf\"] present",
+  [true, {"wtf": ""}],
+
+  "# .[\"?zoo\"] present",
+  [true, {"zoo": ""}],
+
+  "# .[\"?zee\"] present",
+  [true, {"zee": ""}],
+
+  "# .[\"?Calvin\"] present",
+  [true, {"Calvin": ""}],
+
+  "# .[\"?Susie\"] present",
+  [true, {"Susie": ""}],
+
+  "# .[\"?Hobbes\"] present",
+  [true, {"Hobbes": ""}],
+
+  "# .[\"?Moe\"] present",
+  [true, {"Moe": ""}],
+
+  "# .[\"?Rosalyn\"] present",
+  [true, {"Rosalyn": ""}],
+
+  "# .[\"?a\"] invalid",
+  [false, {"a": null}],
+
+  "# .[\"?aaa\"] invalid",
+  [false, {"aaa": null}],
+
+  "# .[\"?abc\"] invalid",
+  [false, {"abc": null}],
+
+  "# .[\"?bcd\"] invalid",
+  [false, {"bcd": null}],
+
+  "# .[\"?cdef\"] invalid",
+  [false, {"cdef": null}],
+
+  "# .[\"?calvin\"] invalid",
+  [false, {"calvin": null}],
+
+  "# .[\"?def\"] invalid",
+  [false, {"def": null}],
+
+  "# .[\"?foo\"] invalid",
+  [false, {"foo": null}],
+
+  "# .[\"?hobbes\"] invalid",
+  [false, {"hobbes": null}],
+
+  "# .[\"?moe\"] invalid",
+  [false, {"moe": null}],
+
+  "# .[\"?saxo\"] invalid",
+  [false, {"saxo": null}],
+
+  "# .[\"?stuff\"] invalid",
+  [false, {"stuff": null}],
+
+  "# .[\"?swap\"] invalid",
+  [false, {"swap": null}],
+
+  "# .[\"?susie\"] invalid",
+  [false, {"susie": null}],
+
+  "# .[\"?wtf\"] invalid",
+  [false, {"wtf": null}],
+
+  "# .[\"?zoo\"] invalid",
+  [false, {"zoo": null}],
+
+  "# .[\"?zee\"] invalid",
+  [false, {"zee": null}],
+
+  "# .[\"?Calvin\"] invalid",
+  [false, {"Calvin": null}],
+
+  "# .[\"?Susie\"] invalid",
+  [false, {"Susie": null}],
+
+  "# .[\"?Hobbes\"] invalid",
+  [false, {"Hobbes": null}],
+
+  "# .[\"?Moe\"] invalid",
+  [false, {"Moe": null}],
+
+  "# .[\"?Rosalyn\"] invalid",
+  [false, {"Rosalyn": null}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED root value {}: valid for the model"
+]

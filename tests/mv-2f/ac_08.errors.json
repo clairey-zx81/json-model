@@ -1,6 +1,6 @@
 {
   "#": "fun fact: . in regex covers \\r for js/java but not for pl/c/py/sql",
-  "js": [ 3 ],
-  "java": [ 3 ],
+  "js": [ 2 ],
+  "java": [ 2 ],
   "ts": true
 }

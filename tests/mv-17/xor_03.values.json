@@ -7,7 +7,6 @@
   [ true,  true ],
   [ true,  false ],
   [ true,  "hello world!" ],
-  [ true,  {} ],
   [ true,  {"x": "whatever"} ],
   [ true,  [] ],
   [ true,  ["any", "thing"] ]

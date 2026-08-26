@@ -6,13 +6,9 @@
   [ false, { "hello": "world!" } ],
   [ false, { "tag": null, "a": "unexpected tag value type" } ],
   [ false, { "tag": {}, "a": "unexpected tag value type" } ],
-  [ false, null ],
-  [ false, false ],
   [ false, 42 ],
   [ false, -3.14159 ],
   [ false, "not an obj" ],
-  [ false, [] ],
-  [ false, {} ],
   [ false, ["tag", "a"] ],
   [ false, {"t": 18, "a": "dix-huit" } ]
 ]

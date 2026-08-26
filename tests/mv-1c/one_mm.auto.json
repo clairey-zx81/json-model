@@ -1,0 +1,48 @@
+[
+  "# generated from one_mm.model.json",
+
+  "# simplest",
+  [true, {"must": 0}],
+
+  "# .[\"?may\"] present",
+  [true, {"must": 0, "may": false}],
+
+  "# .must invalid",
+  [false, {"must": null}],
+
+  "# .[\"?may\"] invalid",
+  [false, {"must": 0, "may": null}],
+
+  "# .must missing",
+  [false, {}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"must": 0, "no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

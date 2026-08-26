@@ -1,0 +1,41 @@
+[
+  "# generated from scp_00.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?a\"] present",
+  [true, {"a": ""}],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"@\"][\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED root value {}: valid for the model"
+]

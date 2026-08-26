@@ -1,0 +1,34 @@
+[
+  "# generated from string_1.model.json",
+
+  "# simplest",
+  [true, ""],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED root value \"\": valid for the model",
+
+  "# SKIPPED root value \"abc\": valid for the model"
+]

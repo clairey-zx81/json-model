@@ -1,0 +1,44 @@
+[
+  "# generated from typed_and_00.model.json",
+
+  "# simplest",
+  [true, {"bla": 1}],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"$\"].foo.bla invalid",
+  [false, {"bla": null}],
+
+  "# .[\"$\"].foo.bla missing",
+  [false, {}],
+
+  "# .[\"$\"].foo[\"no-such-prop\"] extra",
+  [false, {"bla": 1, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED extra value .[\"&\"][0]: object is open"
+]

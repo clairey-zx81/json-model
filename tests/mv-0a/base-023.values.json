@@ -1,5 +1,4 @@
 [
-  [ true,  "" ],
   [ true,  "1" ],
   [ true,  "12" ],
   [ true,  "123" ],
@@ -7,12 +6,7 @@
   [ true,  "12345" ],
   [ false, "123456" ],
   [ false, "this string is too long!" ],
-  [ false, null ],
-  [ false, true ],
-  [ false, false ],
   [ false, 42 ],
   [ false, 2 ],
-  [ false, 3.1415927 ],
-  [ false, [] ],
-  [ false, {} ]
+  [ false, 3.1415927 ]
 ]

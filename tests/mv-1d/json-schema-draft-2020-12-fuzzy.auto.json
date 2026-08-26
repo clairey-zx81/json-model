@@ -1,0 +1,184 @@
+[
+  "# generated from json-schema-draft-2020-12-fuzzy.model.json",
+
+  "# simplest",
+  [true, false],
+
+  "# FAILED bound values: no constraint bound: no bound reached for >= in model: ['$Schema']; no bound reached for ! in model: ['']",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$id\"] present: adding $id is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$schema\"] present: adding $schema is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$ref\"] present: adding $ref is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$anchor\"] present: adding $anchor is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$dynamicRef\"] present: adding $dynamicRef is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$dynamicAnchor\"] present: adding $dynamicAnchor is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$vocabulary\"] present: adding $vocabulary is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$comment\"] present: adding $comment is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$defs\"] present: adding $defs is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?prefixItems\"] present: adding prefixItems is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?items\"] present: adding items is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?contains\"] present: adding contains is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?additionalProperties\"] present: adding additionalProperties is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?properties\"] present: adding properties is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?patternProperties\"] present: adding patternProperties is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?dependentSchemas\"] present: adding dependentSchemas is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?propertyNames\"] present: adding propertyNames is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?if\"] present: adding if is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?then\"] present: adding then is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?else\"] present: adding else is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?not\"] present: adding not is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?allOf\"] present: adding allOf is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?anyOf\"] present: adding anyOf is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?oneOf\"] present: adding oneOf is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?unevaluatedItems\"] present: adding unevaluatedItems is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?unevaluatedProperties\"] present: adding unevaluatedProperties is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?type\"] present: adding type is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?const\"] present: adding const is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?enum\"] present: adding enum is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?multipleOf\"] present: adding multipleOf is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?maximum\"] present: adding maximum is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?exclusiveMaximum\"] present: adding exclusiveMaximum is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?minimum\"] present: adding minimum is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?exclusiveMinimum\"] present: adding exclusiveMinimum is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?maxLength\"] present: adding maxLength is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?minLength\"] present: adding minLength is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?pattern\"] present: adding pattern is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?maxItems\"] present: adding maxItems is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?minItems\"] present: adding minItems is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?uniqueItems\"] present: adding uniqueItems is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?maxContains\"] present: adding maxContains is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?minContains\"] present: adding minContains is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?maxProperties\"] present: adding maxProperties is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?minProperties\"] present: adding minProperties is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?required\"] present: adding required is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?dependentRequired\"] present: adding dependentRequired is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?title\"] present: adding title is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?description\"] present: adding description is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?default\"] present: adding default is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?deprecated\"] present: adding deprecated is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?readOnly\"] present: adding readOnly is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?writeOnly\"] present: adding writeOnly is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?examples\"] present: adding examples is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?format\"] present: adding format is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?contentEncoding\"] present: adding contentEncoding is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?contentMediaType\"] present: adding contentMediaType is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?contentSchema\"] present: adding contentSchema is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?definitions\"] present: adding definitions is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?dependencies\"] present: adding dependencies is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$recursiveAnchor\"] present: adding $recursiveAnchor is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$recursiveRef\"] present: adding $recursiveRef is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$vocabulary\"][\"$URI\"] present: adding https://json-model.org/ is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?$defs\"][\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?properties\"][\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?patternProperties\"][\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?dependentSchemas\"][\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?dependentRequired\"][\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?definitions\"][\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"$\"].ObjectSchema[\"?dependencies\"][\"\"] present: adding a is not valid",
+
+  "# FAILED branch value .[\"$\"].Schema[\"|\"][1] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].ObjectSchema[\"?type\"][\"|\"][0] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].ObjectSchema[\"?type\"][\"|\"][1] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][0] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][1] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][2] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][3] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][4] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][5] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][6] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][0] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][1] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][2] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][3] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][4] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][5] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].simpleTypes[\"|\"][6] branch: the alternative is not valid here",
+
+  "# FAILED invalid model"
+]

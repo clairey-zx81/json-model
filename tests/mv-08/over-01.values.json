@@ -1,5 +1,4 @@
 [
-  [ true,  {} ],
   [ false, {"foo": "initial foo"} ],
   [ true,  {"foo": "rewritten foo"} ],
   [ false, {"un": "expected"} ],

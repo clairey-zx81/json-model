@@ -1,0 +1,66 @@
+[
+  "# generated from xoropt-015.model.json",
+
+  "# simplest",
+  [true, 0],
+
+  "# .[\"$\"].Ee[\"|\"][0][\"?Z\"] present",
+  [true, {"X": "", "Z": ""}],
+
+  "# .[\"$\"].Ee[\"|\"][1][\"?Z\"] present",
+  [true, {"Y": "", "Z": ""}],
+
+  "# .[\"$\"].Mm[\"|\"][1] branch",
+  [true, {"X": ""}],
+
+  "# .[\"$\"].Vv[\"|\"][1] branch",
+  [true, ""],
+
+  "# .[\"$\"].Ee[\"|\"][1] branch",
+  [true, {"Y": ""}],
+
+  "# .[\"$\"].Mm invalid",
+  [false, null],
+
+  "# .[\"$\"].Ee[\"^\"][0].X invalid",
+  [false, {"X": null}],
+
+  "# .[\"$\"].Ee[\"^\"][0][\"?Z\"] invalid",
+  [false, {"X": "", "Z": null}],
+
+  "# .[\"$\"].Ee[\"^\"][1].Y invalid",
+  [false, {"Y": null}],
+
+  "# .[\"$\"].Ee[\"^\"][1][\"?Z\"] invalid",
+  [false, {"Y": "", "Z": null}],
+
+  "# .[\"$\"].Ee[\"^\"][0].X missing",
+  [false, {}],
+
+  "# .[\"$\"].Ee[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"X": "", "no-such-prop": null}],
+
+  "# .[\"$\"].Ee[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"Y": "", "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED root value -42: valid for the model",
+
+  "# SKIPPED root value \"\": valid for the model",
+
+  "# SKIPPED root value \"abc\": valid for the model"
+]

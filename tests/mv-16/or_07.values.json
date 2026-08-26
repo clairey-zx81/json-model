@@ -1,8 +1,6 @@
 [
-  [ true,  null ],
   [ true,  -42 ],
   [ true,  "hello world!" ],
   [ false, 3.14156 ],
-  [ false, [] ],
   [ false, {"name": "Susie", "age": 6} ]
 ]

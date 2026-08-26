@@ -1,0 +1,45 @@
+[
+  "# generated from redund.model.json",
+
+  "# simplest",
+  [true, 100],
+
+  "# .[\"<=\"] bound",
+  [true, 999],
+
+  "# .[\">=\"]",
+  [false, 99],
+
+  "# .[\"<=\"]",
+  [false, 1000],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

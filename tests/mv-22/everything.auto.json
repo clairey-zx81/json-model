@@ -1,0 +1,1491 @@
+[
+  "# generated from everything.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?tuple\"][\"?t1\"][\"=\"] bound",
+  [true, {"tuple": {"t1": [0]}}],
+
+  "# .[\"?tuple\"][\"?t4\"][\">=\"] bound",
+  [true, {"tuple": {"t4": ["", 0]}}],
+
+  "# .[\"?constraints\"][\"?cii0\"][\"=\"] bound",
+  [true, {"constraints": {"cii0": 10}}],
+
+  "# .[\"?constraints\"][\"?cii1\"][\"!=\"] bound",
+  [true, {"constraints": {"cii1": 11}}],
+
+  "# .[\"?constraints\"][\"?cii1\"][\">=\"] bound",
+  [true, {"constraints": {"cii1": 8}}],
+
+  "# .[\"?constraints\"][\"?cii1\"][\"<=\"] bound",
+  [true, {"constraints": {"cii1": 12}}],
+
+  "# .[\"?constraints\"][\"?cii2\"][\">\"] bound",
+  [true, {"constraints": {"cii2": 8}}],
+
+  "# .[\"?constraints\"][\"?cii2\"][\"<\"] bound",
+  [true, {"constraints": {"cii2": 9}}],
+
+  "# .[\"?constraints\"][\"?cin0\"][\"=\"] bound",
+  [true, {"constraints": {"cin0": 10.0}}],
+
+  "# .[\"?constraints\"][\"?cin1\"][\">=\"] bound",
+  [true, {"constraints": {"cin1": 8.0}}],
+
+  "# .[\"?constraints\"][\"?cin1\"][\"<=\"] bound",
+  [true, {"constraints": {"cin1": 12.0}}],
+
+  "# .[\"?constraints\"][\"?cis0\"][\"=\"] bound",
+  [true, {"constraints": {"cis0": "aaaaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis1\"][\"!=\"] bound",
+  [true, {"constraints": {"cis1": "aaaaaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis1\"][\">=\"] bound",
+  [true, {"constraints": {"cis1": "aaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis1\"][\"<=\"] bound",
+  [true, {"constraints": {"cis1": "aaaaaaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis2\"][\">\"] bound",
+  [true, {"constraints": {"cis2": "aaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis2\"][\"<\"] bound",
+  [true, {"constraints": {"cis2": "aaaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cia0\"][\"=\"] bound",
+  [true, {"constraints": {"cia0": [0, 0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cia1\"][\"!=\"] bound",
+  [true, {"constraints": {"cia1": [0, 0, 0, 0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cia1\"][\">=\"] bound",
+  [true, {"constraints": {"cia1": [0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cia2\"][\">\"] bound",
+  [true, {"constraints": {"cia2": [0, 0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cia2\"][\"<\"] bound",
+  [true, {"constraints": {"cia2": [0, 0, 0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cio0\"][\"=\"] bound",
+  [true, {"constraints": {"cio0": {"a": {}, "aa": {}}}}],
+
+  "# .[\"?constraints\"][\"?cio1\"][\"!=\"] bound",
+  [true, {"constraints": {"cio1": {"a": {}, "aa": {}, "aaa": {}}}}],
+
+  "# .[\"?constraints\"][\"?cio1\"][\">=\"] bound",
+  [true, {"constraints": {"cio1": {"a": {}}}}],
+
+  "# .[\"?constraints\"][\"?cio2\"][\">\"] bound",
+  [true, {"constraints": {"cio2": {"a": {}, "aa": {}, "aaa": {}}}}],
+
+  "# .[\"?constraints\"][\"?cio2\"][\"<\"] bound",
+  [true, {"constraints": {"cio2": {"a": {}, "aa": {}, "aaa": {}, "aaaa": {}}}}],
+
+  "# .[\"?constraints\"][\"?cni0\"][\"=\"] bound",
+  [true, {"constraints": {"cni0": 42}}],
+
+  "# .[\"?constraints\"][\"?cni1\"][\"!=\"] bound",
+  [true, {"constraints": {"cni1": 43}}],
+
+  "# .[\"?constraints\"][\"?cni1\"][\"<=\"] bound",
+  [true, {"constraints": {"cni1": 99}}],
+
+  "# .[\"?constraints\"][\"?cni1\"][\">=\"] bound",
+  [true, {"constraints": {"cni1": 1}}],
+
+  "# .[\"?constraints\"][\"?cni2\"][\">\"] bound",
+  [true, {"constraints": {"cni2": 42}}],
+
+  "# .[\"?constraints\"][\"?cnn0\"][\"=\"] bound",
+  [true, {"constraints": {"cnn0": 42.1}}],
+
+  "# .[\"?constraints\"][\"?cnn1\"][\"<=\"] bound",
+  [true, {"constraints": {"cnn1": 43.0}}],
+
+  "# .[\"?constraints\"][\"?cnn1\"][\">=\"] bound",
+  [true, {"constraints": {"cnn1": 42.0}}],
+
+  "# .[\"?predefs\"] present",
+  [true, {"predefs": {}}],
+
+  "# .[\"?null\"] present",
+  [true, {"null": {}}],
+
+  "# .[\"?bool\"] present",
+  [true, {"bool": {}}],
+
+  "# .[\"?int\"] present",
+  [true, {"int": {}}],
+
+  "# .[\"?float\"] present",
+  [true, {"float": {}}],
+
+  "# .[\"?string\"] present",
+  [true, {"string": {}}],
+
+  "# .[\"?array\"] present",
+  [true, {"array": {}}],
+
+  "# .[\"?tuple\"] present",
+  [true, {"tuple": {}}],
+
+  "# .[\"?object\"] present",
+  [true, {"object": {}}],
+
+  "# .[\"?enum\"] present",
+  [true, {"enum": {}}],
+
+  "# .[\"?or\"] present",
+  [true, {"or": {}}],
+
+  "# .[\"?xor\"] present",
+  [true, {"xor": {}}],
+
+  "# .[\"?and\"] present",
+  [true, {"and": {}}],
+
+  "# .[\"?merge\"] present",
+  [true, {"merge": {}}],
+
+  "# .[\"?constraints\"] present",
+  [true, {"constraints": {}}],
+
+  "# .[\"?predefs\"][\"?DATE\"] present",
+  [true, {"predefs": {"DATE": "1970-01-01"}}],
+
+  "# .[\"?predefs\"][\"?DATETIME\"] present",
+  [true, {"predefs": {"DATETIME": "1970-01-01T00:00:00"}}],
+
+  "# .[\"?predefs\"][\"?TIME\"] present",
+  [true, {"predefs": {"TIME": "00:00:00"}}],
+
+  "# .[\"?predefs\"][\"?DURATION\"] present",
+  [true, {"predefs": {"DURATION": "PT0S"}}],
+
+  "# .[\"?predefs\"][\"?JSON\"] present",
+  [true, {"predefs": {"JSON": "null"}}],
+
+  "# .[\"?predefs\"][\"?JSONPT\"] present",
+  [true, {"predefs": {"JSONPT": ""}}],
+
+  "# .[\"?predefs\"][\"?REGEX\"] present",
+  [true, {"predefs": {"REGEX": ""}}],
+
+  "# .[\"?predefs\"][\"?EXREG\"] present",
+  [true, {"predefs": {"EXREG": ""}}],
+
+  "# .[\"?predefs\"][\"?UUID\"] present",
+  [true, {"predefs": {"UUID": "00000000-0000-0000-0000-000000000000"}}],
+
+  "# .[\"?predefs\"][\"?URL\"] present",
+  [true, {"predefs": {"URL": "https://json-model.org/"}}],
+
+  "# .[\"?predefs\"][\"?URI\"] present",
+  [true, {"predefs": {"URI": "https://json-model.org/"}}],
+
+  "# .[\"?predefs\"][\"?HOST\"] present",
+  [true, {"predefs": {"HOST": "json-model.org"}}],
+
+  "# .[\"?predefs\"][\"?IP4\"] present",
+  [true, {"predefs": {"IP4": "0.0.0.0"}}],
+
+  "# .[\"?predefs\"][\"?IP6\"] present",
+  [true, {"predefs": {"IP6": "::"}}],
+
+  "# .[\"?predefs\"][\"?EMAIL\"] present",
+  [true, {"predefs": {"EMAIL": "susie@json-model.org"}}],
+
+  "# .[\"?predefs\"][\"?ETH\"] present",
+  [true, {"predefs": {"ETH": "00:00:00:00:00:00"}}],
+
+  "# .[\"?predefs\"][\"?NULL\"] present",
+  [true, {"predefs": {"NULL": null}}],
+
+  "# .[\"?predefs\"][\"?BOOL\"] present",
+  [true, {"predefs": {"BOOL": false}}],
+
+  "# .[\"?predefs\"][\"?BOOLEAN\"] present",
+  [true, {"predefs": {"BOOLEAN": false}}],
+
+  "# .[\"?predefs\"][\"?INT\"] present",
+  [true, {"predefs": {"INT": 0}}],
+
+  "# .[\"?predefs\"][\"?INTEGER\"] present",
+  [true, {"predefs": {"INTEGER": 0}}],
+
+  "# .[\"?predefs\"][\"?I32\"] present",
+  [true, {"predefs": {"I32": 0}}],
+
+  "# .[\"?predefs\"][\"?I64\"] present",
+  [true, {"predefs": {"I64": 0}}],
+
+  "# .[\"?predefs\"][\"?U32\"] present",
+  [true, {"predefs": {"U32": 0}}],
+
+  "# .[\"?predefs\"][\"?U64\"] present",
+  [true, {"predefs": {"U64": 0}}],
+
+  "# .[\"?predefs\"][\"?FLOAT\"] present",
+  [true, {"predefs": {"FLOAT": 0.0}}],
+
+  "# .[\"?predefs\"][\"?F32\"] present",
+  [true, {"predefs": {"F32": 0.0}}],
+
+  "# .[\"?predefs\"][\"?F64\"] present",
+  [true, {"predefs": {"F64": 0.0}}],
+
+  "# .[\"?predefs\"][\"?NUMBER\"] present",
+  [true, {"predefs": {"NUMBER": 0}}],
+
+  "# .[\"?predefs\"][\"?STRING\"] present",
+  [true, {"predefs": {"STRING": ""}}],
+
+  "# .[\"?predefs\"][\"?ANY\"] present",
+  [true, {"predefs": {"ANY": {}}}],
+
+  "# .[\"?null\"][\"?n0\"] present",
+  [true, {"null": {"n0": null}}],
+
+  "# .[\"?null\"][\"?n1\"] present",
+  [true, {"null": {"n1": null}}],
+
+  "# .[\"?null\"][\"?n2\"] present",
+  [true, {"null": {"n2": null}}],
+
+  "# .[\"?bool\"][\"?b0\"] present",
+  [true, {"bool": {"b0": false}}],
+
+  "# .[\"?bool\"][\"?b1\"] present",
+  [true, {"bool": {"b1": false}}],
+
+  "# .[\"?bool\"][\"?b2\"] present",
+  [true, {"bool": {"b2": false}}],
+
+  "# .[\"?bool\"][\"?b3\"] present",
+  [true, {"bool": {"b3": true}}],
+
+  "# .[\"?bool\"][\"?b4\"] present",
+  [true, {"bool": {"b4": false}}],
+
+  "# .[\"?bool\"][\"?b5\"] present",
+  [true, {"bool": {"b5": false}}],
+
+  "# .[\"?int\"][\"?i0\"] present",
+  [true, {"int": {"i0": 0}}],
+
+  "# .[\"?int\"][\"?i1\"] present",
+  [true, {"int": {"i1": 1}}],
+
+  "# .[\"?int\"][\"?i2\"] present",
+  [true, {"int": {"i2": 0}}],
+
+  "# .[\"?int\"][\"?i3\"] present",
+  [true, {"int": {"i3": 0}}],
+
+  "# .[\"?int\"][\"?i4\"] present",
+  [true, {"int": {"i4": 0}}],
+
+  "# .[\"?int\"][\"?i5\"] present",
+  [true, {"int": {"i5": 0}}],
+
+  "# .[\"?int\"][\"?i6\"] present",
+  [true, {"int": {"i6": 0}}],
+
+  "# .[\"?int\"][\"?i7\"] present",
+  [true, {"int": {"i7": 0}}],
+
+  "# .[\"?int\"][\"?i8\"] present",
+  [true, {"int": {"i8": 0}}],
+
+  "# .[\"?int\"][\"?i9\"] present",
+  [true, {"int": {"i9": 42}}],
+
+  "# .[\"?int\"][\"?ia\"] present",
+  [true, {"int": {"ia": -42}}],
+
+  "# .[\"?float\"][\"?f0\"] present",
+  [true, {"float": {"f0": 0.0}}],
+
+  "# .[\"?float\"][\"?f1\"] present",
+  [true, {"float": {"f1": 1.0}}],
+
+  "# .[\"?float\"][\"?f2\"] present",
+  [true, {"float": {"f2": 0.0}}],
+
+  "# .[\"?float\"][\"?f3\"] present",
+  [true, {"float": {"f3": 0.0}}],
+
+  "# .[\"?float\"][\"?f4\"] present",
+  [true, {"float": {"f4": 0.0}}],
+
+  "# .[\"?float\"][\"?f5\"] present",
+  [true, {"float": {"f5": 0.0}}],
+
+  "# .[\"?float\"][\"?f6\"] present",
+  [true, {"float": {"f6": 3.1415927}}],
+
+  "# .[\"?float\"][\"?f7\"] present",
+  [true, {"float": {"f7": 1e+100}}],
+
+  "# .[\"?float\"][\"?f8\"] present",
+  [true, {"float": {"f8": -42.1}}],
+
+  "# .[\"?string\"][\"?s0\"] present",
+  [true, {"string": {"s0": ""}}],
+
+  "# .[\"?string\"][\"?s1\"] present",
+  [true, {"string": {"s1": ""}}],
+
+  "# .[\"?string\"][\"?s2\"] present",
+  [true, {"string": {"s2": "Susie"}}],
+
+  "# .[\"?string\"][\"?s3\"] present",
+  [true, {"string": {"s3": "Calvin"}}],
+
+  "# .[\"?string\"][\"?s4\"] present",
+  [true, {"string": {"s4": "Calvin"}}],
+
+  "# .[\"?array\"][\"?a0\"] present",
+  [true, {"array": {"a0": []}}],
+
+  "# .[\"?array\"][\"?a1\"] present",
+  [true, {"array": {"a1": []}}],
+
+  "# .[\"?array\"][\"?a2\"] present",
+  [true, {"array": {"a2": []}}],
+
+  "# .[\"?array\"][\"?a3\"] present",
+  [true, {"array": {"a3": []}}],
+
+  "# .[\"?array\"][\"?a4\"] present",
+  [true, {"array": {"a4": []}}],
+
+  "# .[\"?tuple\"][\"?t0\"] present",
+  [true, {"tuple": {"t0": []}}],
+
+  "# .[\"?tuple\"][\"?t2\"] present",
+  [true, {"tuple": {"t2": [0, 0]}}],
+
+  "# .[\"?tuple\"][\"?t3\"] present",
+  [true, {"tuple": {"t3": [false, 0, ""]}}],
+
+  "# .[\"?object\"][\"?o0\"] present",
+  [true, {"object": {"o0": {}}}],
+
+  "# .[\"?object\"][\"?o1\"] present",
+  [true, {"object": {"o1": {"a": 0, "b": 0, "c": 0}}}],
+
+  "# .[\"?object\"][\"?o2\"] present",
+  [true, {"object": {"o2": {}}}],
+
+  "# .[\"?object\"][\"?o3\"] present",
+  [true, {"object": {"o3": {}}}],
+
+  "# .[\"?object\"][\"?o4\"] present",
+  [true, {"object": {"o4": {}}}],
+
+  "# .[\"?object\"][\"?o5\"] present",
+  [true, {"object": {"o5": {}}}],
+
+  "# .[\"?object\"][\"?o6\"] present",
+  [true, {"object": {"o6": {}}}],
+
+  "# .[\"?object\"][\"?o2\"][\"?a\"] present",
+  [true, {"object": {"o2": {"a": 0}}}],
+
+  "# .[\"?object\"][\"?o3\"][\"/^a/\"] present",
+  [true, {"object": {"o3": {"a": 0}}}],
+
+  "# .[\"?object\"][\"?o4\"][\"$DATE\"] present",
+  [true, {"object": {"o4": {"1970-01-01": ""}}}],
+
+  "# .[\"?object\"][\"?o5\"][\"\"] present",
+  [true, {"object": {"o5": {"a": 0}}}],
+
+  "# .[\"?object\"][\"?o6\"][\"\"] present",
+  [true, {"object": {"o6": {"a": {}}}}],
+
+  "# .[\"?enum\"][\"?e0\"] present",
+  [true, {"enum": {"e0": true}}],
+
+  "# .[\"?enum\"][\"?e1\"] present",
+  [true, {"enum": {"e1": 200}}],
+
+  "# .[\"?enum\"][\"?e2\"] present",
+  [true, {"enum": {"e2": "Susie"}}],
+
+  "# .[\"?enum\"][\"?e3\"] present",
+  [true, {"enum": {"e3": "Susie"}}],
+
+  "# .[\"?or\"][\"?o0\"] present",
+  [true, {"or": {"o0": false}}],
+
+  "# .[\"?or\"][\"?o1\"] present",
+  [true, {"or": {"o1": "1970-01-01"}}],
+
+  "# .[\"?or\"][\"?o2\"] present",
+  [true, {"or": {"o2": 0}}],
+
+  "# .[\"?or\"][\"?o2\"][\"|\"][3][\"\"] present",
+  [true, {"or": {"o2": {"a": {}}}}],
+
+  "# .[\"?xor\"][\"?x0\"] present",
+  [true, {"xor": {"x0": false}}],
+
+  "# .[\"?xor\"][\"?x1\"] present",
+  [true, {"xor": {"x1": "a"}}],
+
+  "# .[\"?xor\"][\"?x3\"] present",
+  [true, {"xor": {"x3": {}}}],
+
+  "# .[\"?merge\"][\"?m0\"] present",
+  [true, {"merge": {"m0": {"a": 0}}}],
+
+  "# .[\"?merge\"][\"?m1\"] present",
+  [true, {"merge": {"m1": {"a": 0, "b": 1}}}],
+
+  "# .[\"?merge\"][\"?m2\"] present",
+  [true, {"merge": {"m2": {"a": 0, "b": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"] present",
+  [true, {"merge": {"m3": {"a": 0, "c": 1}}}],
+
+  "# .[\"?merge\"][\"?m4\"] present",
+  [true, {"merge": {"m4": {"a": 0, "b": 0, "c": 0, "d": 0}}}],
+
+  "# .[\"?merge\"][\"?m0\"][\"?b\"] present",
+  [true, {"merge": {"m0": {"a": 0, "b": 0}}}],
+
+  "# .[\"?constraints\"][\"?cin2\"] present",
+  [true, {"constraints": {"cin2": 8.0}}],
+
+  "# .[\"?constraints\"][\"?cua0\"] present",
+  [true, {"constraints": {"cua0": []}}],
+
+  "# FAILED optional value .[\"?xor\"][\"?x2\"] present: no alternative satisfies ^: [-1, 0]",
+
+  "# FAILED optional value .[\"?and\"][\"?a0\"] present: no alternative satisfies &: ['$DATE', '/^2020-/']",
+
+  "# FAILED optional value .[\"?constraints\"][\"?cnn2\"] present: empty constraint range: {'>': 42.0, '<': 43.0}",
+
+  "# FAILED optional value .[\"?constraints\"][\"?css0\"] present: unsupported string comparison constraint: {'=': 'Susie'}",
+
+  "# FAILED optional value .[\"?constraints\"][\"?css1\"] present: unsupported string comparison constraint: {'!=': 'Hobbes', '>=': 'A', '<=': 'Z'}",
+
+  "# FAILED optional value .[\"?constraints\"][\"?css2\"] present: unsupported string comparison constraint: {'>': 'A', '<': 'Z'}",
+
+  "# FAILED optional value .[\"?constraints\"][\"?cio0\"][\"@\"][\"\"] present: adding a is not valid",
+
+  "# FAILED optional value .[\"?constraints\"][\"?cio2\"][\"@\"][\"\"] present: adding a is not valid",
+
+  "# .[\"?bool\"][\"?b5\"][\"|\"][1] branch",
+  [true, {"bool": {"b5": true}}],
+
+  "# .[\"?enum\"][\"?e0\"][\"|\"][1] branch",
+  [true, {"enum": {"e0": false}}],
+
+  "# .[\"?enum\"][\"?e1\"][\"|\"][1] branch",
+  [true, {"enum": {"e1": 201}}],
+
+  "# .[\"?enum\"][\"?e1\"][\"|\"][2] branch",
+  [true, {"enum": {"e1": 204}}],
+
+  "# .[\"?enum\"][\"?e2\"][\"|\"][1] branch",
+  [true, {"enum": {"e2": "Calvin"}}],
+
+  "# .[\"?enum\"][\"?e2\"][\"|\"][2] branch",
+  [true, {"enum": {"e2": "Hobbes"}}],
+
+  "# .[\"?enum\"][\"?e3\"][\"|\"][1] branch",
+  [true, {"enum": {"e3": 42}}],
+
+  "# .[\"?enum\"][\"?e3\"][\"|\"][2] branch",
+  [true, {"enum": {"e3": true}}],
+
+  "# .[\"?enum\"][\"?e3\"][\"|\"][3] branch",
+  [true, {"enum": {"e3": null}}],
+
+  "# .[\"?or\"][\"?o0\"][\"|\"][1] branch",
+  [true, {"or": {"o0": 0}}],
+
+  "# .[\"?or\"][\"?o1\"][\"|\"][1] branch",
+  [true, {"or": {"o1": "00:00:00"}}],
+
+  "# .[\"?or\"][\"?o2\"][\"|\"][1] branch",
+  [true, {"or": {"o2": "00000000-0000-0000-0000-000000000000"}}],
+
+  "# .[\"?or\"][\"?o2\"][\"|\"][2] branch",
+  [true, {"or": {"o2": []}}],
+
+  "# .[\"?or\"][\"?o2\"][\"|\"][3] branch",
+  [true, {"or": {"o2": {}}}],
+
+  "# .[\"?xor\"][\"?x0\"][\"|\"][1] branch",
+  [true, {"xor": {"x0": 0}}],
+
+  "# .[\"?xor\"][\"?x1\"][\"^\"][1] branch",
+  [true, {"xor": {"x1": "z"}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][1] branch",
+  [true, {"merge": {"m1": {"a": 0, "c": 1}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"|\"][1] branch",
+  [true, {"merge": {"m2": {"a": 0, "c": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"|\"][1] branch",
+  [true, {"merge": {"m3": {"a": 0, "d": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"|\"][2] branch",
+  [true, {"merge": {"m3": {"b": 0, "c": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"|\"][3] branch",
+  [true, {"merge": {"m3": {"b": 0, "d": 1}}}],
+
+  "# FAILED branch value .[\"?xor\"][\"?x2\"][\"^\"][0] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"?xor\"][\"?x2\"][\"^\"][1] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"?xor\"][\"?x3\"][\"^\"][1] branch: the alternative is not valid here",
+
+  "# .[\"?tuple\"][\"?t1\"][\"=\"]",
+  [false, {"tuple": {"t1": [0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cii0\"][\"=\"]",
+  [false, {"constraints": {"cii0": 11}}],
+
+  "# .[\"?constraints\"][\"?cii1\"][\"!=\"]",
+  [false, {"constraints": {"cii1": 10}}],
+
+  "# .[\"?constraints\"][\"?cii1\"][\">=\"]",
+  [false, {"constraints": {"cii1": 7}}],
+
+  "# .[\"?constraints\"][\"?cii1\"][\"<=\"]",
+  [false, {"constraints": {"cii1": 13}}],
+
+  "# .[\"?constraints\"][\"?cii2\"][\">\"]",
+  [false, {"constraints": {"cii2": 7}}],
+
+  "# .[\"?constraints\"][\"?cii2\"][\"<\"]",
+  [false, {"constraints": {"cii2": 10}}],
+
+  "# .[\"?constraints\"][\"?cin0\"][\"=\"]",
+  [false, {"constraints": {"cin0": 11.0}}],
+
+  "# .[\"?constraints\"][\"?cin1\"][\"!=\"]",
+  [false, {"constraints": {"cin1": 10.0}}],
+
+  "# .[\"?constraints\"][\"?cin1\"][\">=\"]",
+  [false, {"constraints": {"cin1": 7.0}}],
+
+  "# .[\"?constraints\"][\"?cin1\"][\"<=\"]",
+  [false, {"constraints": {"cin1": 13.0}}],
+
+  "# .[\"?constraints\"][\"?cin2\"][\">\"]",
+  [false, {"constraints": {"cin2": 7.0}}],
+
+  "# .[\"?constraints\"][\"?cin2\"][\"<\"]",
+  [false, {"constraints": {"cin2": 10.0}}],
+
+  "# .[\"?constraints\"][\"?cis0\"][\"=\"]",
+  [false, {"constraints": {"cis0": "aaaaaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis1\"][\"!=\"]",
+  [false, {"constraints": {"cis1": "aaaaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis1\"][\">=\"]",
+  [false, {"constraints": {"cis1": "aaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis1\"][\"<=\"]",
+  [false, {"constraints": {"cis1": "aaaaaaaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis2\"][\">\"]",
+  [false, {"constraints": {"cis2": "aaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cis2\"][\"<\"]",
+  [false, {"constraints": {"cis2": "aaaaaaaaaa"}}],
+
+  "# .[\"?constraints\"][\"?cia0\"][\"=\"]",
+  [false, {"constraints": {"cia0": [0, 0, 0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cia1\"][\"!=\"]",
+  [false, {"constraints": {"cia1": [0, 0, 0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cia1\"][\">=\"]",
+  [false, {"constraints": {"cia1": [0]}}],
+
+  "# .[\"?constraints\"][\"?cia1\"][\"<=\"]",
+  [false, {"constraints": {"cia1": [0, 0, 0, 0, 0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cia2\"][\">\"]",
+  [false, {"constraints": {"cia2": [0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cia2\"][\"<\"]",
+  [false, {"constraints": {"cia2": [0, 0, 0, 0, 0]}}],
+
+  "# .[\"?constraints\"][\"?cio0\"][\"=\"]",
+  [false, {"constraints": {"cio0": {}}}],
+
+  "# .[\"?constraints\"][\"?cio1\"][\">=\"]",
+  [false, {"constraints": {"cio1": {}}}],
+
+  "# .[\"?constraints\"][\"?cio2\"][\">\"]",
+  [false, {"constraints": {"cio2": {}}}],
+
+  "# .[\"?constraints\"][\"?cni0\"][\"=\"]",
+  [false, {"constraints": {"cni0": 43}}],
+
+  "# .[\"?constraints\"][\"?cni1\"][\"<=\"]",
+  [false, {"constraints": {"cni1": 100}}],
+
+  "# .[\"?constraints\"][\"?cni1\"][\">=\"]",
+  [false, {"constraints": {"cni1": 0}}],
+
+  "# .[\"?constraints\"][\"?cni2\"][\">\"]",
+  [false, {"constraints": {"cni2": 41}}],
+
+  "# .[\"?constraints\"][\"?cni2\"][\"<\"]",
+  [false, {"constraints": {"cni2": 43}}],
+
+  "# .[\"?constraints\"][\"?cnn0\"][\"=\"]",
+  [false, {"constraints": {"cnn0": 43.1}}],
+
+  "# .[\"?constraints\"][\"?cnn1\"][\"!=\"]",
+  [false, {"constraints": {"cnn1": 42.5}}],
+
+  "# .[\"?constraints\"][\"?cnn1\"][\"<=\"]",
+  [false, {"constraints": {"cnn1": 44.0}}],
+
+  "# .[\"?constraints\"][\"?cnn1\"][\">=\"]",
+  [false, {"constraints": {"cnn1": 41.0}}],
+
+  "# .[\"?constraints\"][\"?cnn2\"][\">\"]",
+  [false, {"constraints": {"cnn2": 42.0}}],
+
+  "# .[\"?constraints\"][\"?cnn2\"][\"<\"]",
+  [false, {"constraints": {"cnn2": 43.0}}],
+
+  "# .[\"?constraints\"][\"?cua0\"][\"!\"]",
+  [false, {"constraints": {"cua0": [{}, {}]}}],
+
+  "# .[\"?predefs\"] invalid",
+  [false, {"predefs": null}],
+
+  "# .[\"?predefs\"][\"?DATE\"] invalid",
+  [false, {"predefs": {"DATE": null}}],
+
+  "# .[\"?predefs\"][\"?DATETIME\"] invalid",
+  [false, {"predefs": {"DATETIME": null}}],
+
+  "# .[\"?predefs\"][\"?TIME\"] invalid",
+  [false, {"predefs": {"TIME": null}}],
+
+  "# .[\"?predefs\"][\"?DURATION\"] invalid",
+  [false, {"predefs": {"DURATION": null}}],
+
+  "# .[\"?predefs\"][\"?JSON\"] invalid",
+  [false, {"predefs": {"JSON": null}}],
+
+  "# .[\"?predefs\"][\"?JSONPT\"] invalid",
+  [false, {"predefs": {"JSONPT": null}}],
+
+  "# .[\"?predefs\"][\"?REGEX\"] invalid",
+  [false, {"predefs": {"REGEX": null}}],
+
+  "# .[\"?predefs\"][\"?EXREG\"] invalid",
+  [false, {"predefs": {"EXREG": null}}],
+
+  "# .[\"?predefs\"][\"?UUID\"] invalid",
+  [false, {"predefs": {"UUID": null}}],
+
+  "# .[\"?predefs\"][\"?URL\"] invalid",
+  [false, {"predefs": {"URL": null}}],
+
+  "# .[\"?predefs\"][\"?URI\"] invalid",
+  [false, {"predefs": {"URI": null}}],
+
+  "# .[\"?predefs\"][\"?HOST\"] invalid",
+  [false, {"predefs": {"HOST": null}}],
+
+  "# .[\"?predefs\"][\"?IP4\"] invalid",
+  [false, {"predefs": {"IP4": null}}],
+
+  "# .[\"?predefs\"][\"?IP6\"] invalid",
+  [false, {"predefs": {"IP6": null}}],
+
+  "# .[\"?predefs\"][\"?EMAIL\"] invalid",
+  [false, {"predefs": {"EMAIL": null}}],
+
+  "# .[\"?predefs\"][\"?ETH\"] invalid",
+  [false, {"predefs": {"ETH": null}}],
+
+  "# .[\"?predefs\"][\"?NULL\"] invalid",
+  [false, {"predefs": {"NULL": true}}],
+
+  "# .[\"?predefs\"][\"?BOOL\"] invalid",
+  [false, {"predefs": {"BOOL": null}}],
+
+  "# .[\"?predefs\"][\"?BOOLEAN\"] invalid",
+  [false, {"predefs": {"BOOLEAN": null}}],
+
+  "# .[\"?predefs\"][\"?INT\"] invalid",
+  [false, {"predefs": {"INT": null}}],
+
+  "# .[\"?predefs\"][\"?INTEGER\"] invalid",
+  [false, {"predefs": {"INTEGER": null}}],
+
+  "# .[\"?predefs\"][\"?I32\"] invalid",
+  [false, {"predefs": {"I32": null}}],
+
+  "# .[\"?predefs\"][\"?I64\"] invalid",
+  [false, {"predefs": {"I64": null}}],
+
+  "# .[\"?predefs\"][\"?U32\"] invalid",
+  [false, {"predefs": {"U32": null}}],
+
+  "# .[\"?predefs\"][\"?U64\"] invalid",
+  [false, {"predefs": {"U64": null}}],
+
+  "# .[\"?predefs\"][\"?FLOAT\"] invalid",
+  [false, {"predefs": {"FLOAT": null}}],
+
+  "# .[\"?predefs\"][\"?F32\"] invalid",
+  [false, {"predefs": {"F32": null}}],
+
+  "# .[\"?predefs\"][\"?F64\"] invalid",
+  [false, {"predefs": {"F64": null}}],
+
+  "# .[\"?predefs\"][\"?NUMBER\"] invalid",
+  [false, {"predefs": {"NUMBER": null}}],
+
+  "# .[\"?predefs\"][\"?STRING\"] invalid",
+  [false, {"predefs": {"STRING": null}}],
+
+  "# .[\"?predefs\"][\"?NONE\"] invalid",
+  [false, {"predefs": {"NONE": null}}],
+
+  "# .[\"?null\"] invalid",
+  [false, {"null": null}],
+
+  "# .[\"?null\"][\"?n0\"] invalid",
+  [false, {"null": {"n0": true}}],
+
+  "# .[\"?null\"][\"?n1\"] invalid",
+  [false, {"null": {"n1": true}}],
+
+  "# .[\"?null\"][\"?n2\"] invalid",
+  [false, {"null": {"n2": true}}],
+
+  "# .[\"?bool\"] invalid",
+  [false, {"bool": null}],
+
+  "# .[\"?bool\"][\"?b0\"] invalid",
+  [false, {"bool": {"b0": null}}],
+
+  "# .[\"?bool\"][\"?b1\"] invalid",
+  [false, {"bool": {"b1": null}}],
+
+  "# .[\"?bool\"][\"?b2\"] invalid",
+  [false, {"bool": {"b2": null}}],
+
+  "# .[\"?bool\"][\"?b3\"] invalid",
+  [false, {"bool": {"b3": null}}],
+
+  "# .[\"?bool\"][\"?b4\"] invalid",
+  [false, {"bool": {"b4": null}}],
+
+  "# .[\"?bool\"][\"?b5\"] invalid",
+  [false, {"bool": {"b5": null}}],
+
+  "# .[\"?int\"] invalid",
+  [false, {"int": null}],
+
+  "# .[\"?int\"][\"?i0\"] invalid",
+  [false, {"int": {"i0": null}}],
+
+  "# .[\"?int\"][\"?i1\"] invalid",
+  [false, {"int": {"i1": null}}],
+
+  "# .[\"?int\"][\"?i2\"] invalid",
+  [false, {"int": {"i2": null}}],
+
+  "# .[\"?int\"][\"?i3\"] invalid",
+  [false, {"int": {"i3": null}}],
+
+  "# .[\"?int\"][\"?i4\"] invalid",
+  [false, {"int": {"i4": null}}],
+
+  "# .[\"?int\"][\"?i5\"] invalid",
+  [false, {"int": {"i5": null}}],
+
+  "# .[\"?int\"][\"?i6\"] invalid",
+  [false, {"int": {"i6": null}}],
+
+  "# .[\"?int\"][\"?i7\"] invalid",
+  [false, {"int": {"i7": null}}],
+
+  "# .[\"?int\"][\"?i8\"] invalid",
+  [false, {"int": {"i8": null}}],
+
+  "# .[\"?int\"][\"?i9\"] invalid",
+  [false, {"int": {"i9": null}}],
+
+  "# .[\"?int\"][\"?ia\"] invalid",
+  [false, {"int": {"ia": null}}],
+
+  "# .[\"?float\"] invalid",
+  [false, {"float": null}],
+
+  "# .[\"?float\"][\"?f0\"] invalid",
+  [false, {"float": {"f0": null}}],
+
+  "# .[\"?float\"][\"?f1\"] invalid",
+  [false, {"float": {"f1": null}}],
+
+  "# .[\"?float\"][\"?f2\"] invalid",
+  [false, {"float": {"f2": null}}],
+
+  "# .[\"?float\"][\"?f3\"] invalid",
+  [false, {"float": {"f3": null}}],
+
+  "# .[\"?float\"][\"?f4\"] invalid",
+  [false, {"float": {"f4": null}}],
+
+  "# .[\"?float\"][\"?f5\"] invalid",
+  [false, {"float": {"f5": null}}],
+
+  "# .[\"?float\"][\"?f6\"] invalid",
+  [false, {"float": {"f6": null}}],
+
+  "# .[\"?float\"][\"?f7\"] invalid",
+  [false, {"float": {"f7": null}}],
+
+  "# .[\"?float\"][\"?f8\"] invalid",
+  [false, {"float": {"f8": null}}],
+
+  "# .[\"?string\"] invalid",
+  [false, {"string": null}],
+
+  "# .[\"?string\"][\"?s0\"] invalid",
+  [false, {"string": {"s0": null}}],
+
+  "# .[\"?string\"][\"?s1\"] invalid",
+  [false, {"string": {"s1": null}}],
+
+  "# .[\"?string\"][\"?s2\"] invalid",
+  [false, {"string": {"s2": null}}],
+
+  "# .[\"?string\"][\"?s3\"] invalid",
+  [false, {"string": {"s3": null}}],
+
+  "# .[\"?string\"][\"?s4\"] invalid",
+  [false, {"string": {"s4": null}}],
+
+  "# .[\"?array\"] invalid",
+  [false, {"array": null}],
+
+  "# .[\"?array\"][\"?a0\"] invalid",
+  [false, {"array": {"a0": null}}],
+
+  "# .[\"?array\"][\"?a0\"][0] invalid",
+  [false, {"array": {"a0": [null]}}],
+
+  "# .[\"?array\"][\"?a1\"] invalid",
+  [false, {"array": {"a1": null}}],
+
+  "# .[\"?array\"][\"?a1\"][0] invalid",
+  [false, {"array": {"a1": [null]}}],
+
+  "# .[\"?array\"][\"?a2\"] invalid",
+  [false, {"array": {"a2": null}}],
+
+  "# .[\"?array\"][\"?a2\"][0] invalid",
+  [false, {"array": {"a2": [null]}}],
+
+  "# .[\"?array\"][\"?a3\"] invalid",
+  [false, {"array": {"a3": null}}],
+
+  "# .[\"?array\"][\"?a3\"][0] invalid",
+  [false, {"array": {"a3": [null]}}],
+
+  "# .[\"?array\"][\"?a4\"] invalid",
+  [false, {"array": {"a4": null}}],
+
+  "# .[\"?tuple\"] invalid",
+  [false, {"tuple": null}],
+
+  "# .[\"?tuple\"][\"?t0\"] invalid",
+  [false, {"tuple": {"t0": null}}],
+
+  "# .[\"?tuple\"][\"?t1\"][\"@\"] invalid",
+  [false, {"tuple": {"t1": null}}],
+
+  "# .[\"?tuple\"][\"?t1\"][\"@\"][0] invalid",
+  [false, {"tuple": {"t1": [null]}}],
+
+  "# .[\"?tuple\"][\"?t2\"] invalid",
+  [false, {"tuple": {"t2": null}}],
+
+  "# .[\"?tuple\"][\"?t2\"][0] invalid",
+  [false, {"tuple": {"t2": [null, 0]}}],
+
+  "# .[\"?tuple\"][\"?t2\"][1] invalid",
+  [false, {"tuple": {"t2": [0, null]}}],
+
+  "# .[\"?tuple\"][\"?t3\"] invalid",
+  [false, {"tuple": {"t3": null}}],
+
+  "# .[\"?tuple\"][\"?t3\"][0] invalid",
+  [false, {"tuple": {"t3": [null, 0, ""]}}],
+
+  "# .[\"?tuple\"][\"?t3\"][1] invalid",
+  [false, {"tuple": {"t3": [false, null, ""]}}],
+
+  "# .[\"?tuple\"][\"?t3\"][2] invalid",
+  [false, {"tuple": {"t3": [false, 0, null]}}],
+
+  "# .[\"?tuple\"][\"?t4\"][\"@\"] invalid",
+  [false, {"tuple": {"t4": null}}],
+
+  "# .[\"?tuple\"][\"?t4\"][\"@\"][0] invalid",
+  [false, {"tuple": {"t4": [null, 0]}}],
+
+  "# .[\"?tuple\"][\"?t4\"][\"@\"][1] invalid",
+  [false, {"tuple": {"t4": ["", null]}}],
+
+  "# .[\"?object\"] invalid",
+  [false, {"object": null}],
+
+  "# .[\"?object\"][\"?o0\"] invalid",
+  [false, {"object": {"o0": null}}],
+
+  "# .[\"?object\"][\"?o1\"] invalid",
+  [false, {"object": {"o1": null}}],
+
+  "# .[\"?object\"][\"?o1\"].a invalid",
+  [false, {"object": {"o1": {"a": null, "b": 0, "c": 0}}}],
+
+  "# .[\"?object\"][\"?o1\"]._b invalid",
+  [false, {"object": {"o1": {"a": 0, "b": null, "c": 0}}}],
+
+  "# .[\"?object\"][\"?o1\"][\"!c\"] invalid",
+  [false, {"object": {"o1": {"a": 0, "b": 0, "c": null}}}],
+
+  "# .[\"?object\"][\"?o2\"] invalid",
+  [false, {"object": {"o2": null}}],
+
+  "# .[\"?object\"][\"?o2\"][\"?a\"] invalid",
+  [false, {"object": {"o2": {"a": null}}}],
+
+  "# .[\"?object\"][\"?o3\"] invalid",
+  [false, {"object": {"o3": null}}],
+
+  "# .[\"?object\"][\"?o3\"][\"/^a/\"] invalid",
+  [false, {"object": {"o3": {"a": null}}}],
+
+  "# .[\"?object\"][\"?o4\"] invalid",
+  [false, {"object": {"o4": null}}],
+
+  "# .[\"?object\"][\"?o5\"] invalid",
+  [false, {"object": {"o5": null}}],
+
+  "# .[\"?object\"][\"?o6\"] invalid",
+  [false, {"object": {"o6": null}}],
+
+  "# .[\"?enum\"] invalid",
+  [false, {"enum": null}],
+
+  "# .[\"?enum\"][\"?e0\"] invalid",
+  [false, {"enum": {"e0": null}}],
+
+  "# .[\"?enum\"][\"?e1\"] invalid",
+  [false, {"enum": {"e1": null}}],
+
+  "# .[\"?enum\"][\"?e2\"] invalid",
+  [false, {"enum": {"e2": null}}],
+
+  "# .[\"?enum\"][\"?e3\"] invalid",
+  [false, {"enum": {"e3": 0}}],
+
+  "# .[\"?or\"] invalid",
+  [false, {"or": null}],
+
+  "# .[\"?or\"][\"?o0\"] invalid",
+  [false, {"or": {"o0": null}}],
+
+  "# .[\"?or\"][\"?o1\"] invalid",
+  [false, {"or": {"o1": null}}],
+
+  "# .[\"?or\"][\"?o2\"] invalid",
+  [false, {"or": {"o2": null}}],
+
+  "# .[\"?xor\"] invalid",
+  [false, {"xor": null}],
+
+  "# .[\"?xor\"][\"?x0\"] invalid",
+  [false, {"xor": {"x0": null}}],
+
+  "# .[\"?xor\"][\"?x1\"] invalid",
+  [false, {"xor": {"x1": null}}],
+
+  "# .[\"?xor\"][\"?x2\"] invalid",
+  [false, {"xor": {"x2": null}}],
+
+  "# .[\"?xor\"][\"?x3\"] invalid",
+  [false, {"xor": {"x3": 0}}],
+
+  "# .[\"?and\"] invalid",
+  [false, {"and": null}],
+
+  "# .[\"?and\"][\"?a0\"] invalid",
+  [false, {"and": {"a0": null}}],
+
+  "# .[\"?merge\"] invalid",
+  [false, {"merge": null}],
+
+  "# .[\"?merge\"][\"?m0\"] invalid",
+  [false, {"merge": {"m0": null}}],
+
+  "# .[\"?merge\"][\"?m0\"].a invalid",
+  [false, {"merge": {"m0": {"a": null}}}],
+
+  "# .[\"?merge\"][\"?m0\"][\"?b\"] invalid",
+  [false, {"merge": {"m0": {"a": 0, "b": null}}}],
+
+  "# .[\"?merge\"][\"?m1\"] invalid",
+  [false, {"merge": {"m1": null}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][0].a invalid",
+  [false, {"merge": {"m1": {"a": null, "b": 1}}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][0].b invalid",
+  [false, {"merge": {"m1": {"a": 0, "b": null}}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][1].a invalid",
+  [false, {"merge": {"m1": {"a": null, "c": 1}}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][1].c invalid",
+  [false, {"merge": {"m1": {"a": 0, "c": null}}}],
+
+  "# .[\"?merge\"][\"?m2\"] invalid",
+  [false, {"merge": {"m2": null}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][0].a invalid",
+  [false, {"merge": {"m2": {"a": null, "b": 1}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][0].b invalid",
+  [false, {"merge": {"m2": {"a": 0, "b": null}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][1].a invalid",
+  [false, {"merge": {"m2": {"a": null, "c": 1}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][1].c invalid",
+  [false, {"merge": {"m2": {"a": 0, "c": null}}}],
+
+  "# .[\"?merge\"][\"?m3\"] invalid",
+  [false, {"merge": {"m3": null}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][0].a invalid",
+  [false, {"merge": {"m3": {"a": null, "c": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][0].c invalid",
+  [false, {"merge": {"m3": {"a": 0, "c": null}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][1].a invalid",
+  [false, {"merge": {"m3": {"a": null, "d": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][1].d invalid",
+  [false, {"merge": {"m3": {"a": 0, "d": null}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][2].b invalid",
+  [false, {"merge": {"m3": {"b": null, "c": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][2].c invalid",
+  [false, {"merge": {"m3": {"b": 0, "c": null}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][3].b invalid",
+  [false, {"merge": {"m3": {"b": null, "d": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][3].d invalid",
+  [false, {"merge": {"m3": {"b": 0, "d": null}}}],
+
+  "# .[\"?merge\"][\"?m4\"] invalid",
+  [false, {"merge": {"m4": null}}],
+
+  "# .[\"?merge\"][\"?m4\"].a invalid",
+  [false, {"merge": {"m4": {"a": null, "b": 0, "c": 0, "d": 0}}}],
+
+  "# .[\"?merge\"][\"?m4\"].b invalid",
+  [false, {"merge": {"m4": {"a": 0, "b": null, "c": 0, "d": 0}}}],
+
+  "# .[\"?merge\"][\"?m4\"].c invalid",
+  [false, {"merge": {"m4": {"a": 0, "b": 0, "c": null, "d": 0}}}],
+
+  "# .[\"?merge\"][\"?m4\"].d invalid",
+  [false, {"merge": {"m4": {"a": 0, "b": 0, "c": 0, "d": null}}}],
+
+  "# .[\"?constraints\"] invalid",
+  [false, {"constraints": null}],
+
+  "# .[\"?constraints\"][\"?cii0\"][\"@\"] invalid",
+  [false, {"constraints": {"cii0": null}}],
+
+  "# .[\"?constraints\"][\"?cii1\"][\"@\"] invalid",
+  [false, {"constraints": {"cii1": null}}],
+
+  "# .[\"?constraints\"][\"?cii2\"][\"@\"] invalid",
+  [false, {"constraints": {"cii2": null}}],
+
+  "# .[\"?constraints\"][\"?cin0\"][\"@\"] invalid",
+  [false, {"constraints": {"cin0": null}}],
+
+  "# .[\"?constraints\"][\"?cin1\"][\"@\"] invalid",
+  [false, {"constraints": {"cin1": null}}],
+
+  "# .[\"?constraints\"][\"?cin2\"][\"@\"] invalid",
+  [false, {"constraints": {"cin2": null}}],
+
+  "# .[\"?constraints\"][\"?cis0\"][\"@\"] invalid",
+  [false, {"constraints": {"cis0": null}}],
+
+  "# .[\"?constraints\"][\"?cis1\"][\"@\"] invalid",
+  [false, {"constraints": {"cis1": null}}],
+
+  "# .[\"?constraints\"][\"?cis2\"][\"@\"] invalid",
+  [false, {"constraints": {"cis2": null}}],
+
+  "# .[\"?constraints\"][\"?cia0\"][\"@\"] invalid",
+  [false, {"constraints": {"cia0": null}}],
+
+  "# .[\"?constraints\"][\"?cia0\"][\"@\"][0] invalid",
+  [false, {"constraints": {"cia0": [null]}}],
+
+  "# .[\"?constraints\"][\"?cia1\"][\"@\"] invalid",
+  [false, {"constraints": {"cia1": null}}],
+
+  "# .[\"?constraints\"][\"?cia1\"][\"@\"][0] invalid",
+  [false, {"constraints": {"cia1": [null]}}],
+
+  "# .[\"?constraints\"][\"?cia2\"][\"@\"] invalid",
+  [false, {"constraints": {"cia2": null}}],
+
+  "# .[\"?constraints\"][\"?cia2\"][\"@\"][0] invalid",
+  [false, {"constraints": {"cia2": [null]}}],
+
+  "# .[\"?constraints\"][\"?cio0\"][\"@\"] invalid",
+  [false, {"constraints": {"cio0": null}}],
+
+  "# .[\"?constraints\"][\"?cio1\"][\"@\"] invalid",
+  [false, {"constraints": {"cio1": null}}],
+
+  "# .[\"?constraints\"][\"?cio2\"][\"@\"] invalid",
+  [false, {"constraints": {"cio2": null}}],
+
+  "# .[\"?constraints\"][\"?cni0\"][\"@\"] invalid",
+  [false, {"constraints": {"cni0": null}}],
+
+  "# .[\"?constraints\"][\"?cni1\"][\"@\"] invalid",
+  [false, {"constraints": {"cni1": null}}],
+
+  "# .[\"?constraints\"][\"?cni2\"][\"@\"] invalid",
+  [false, {"constraints": {"cni2": null}}],
+
+  "# .[\"?constraints\"][\"?cnn0\"][\"@\"] invalid",
+  [false, {"constraints": {"cnn0": null}}],
+
+  "# .[\"?constraints\"][\"?cnn1\"][\"@\"] invalid",
+  [false, {"constraints": {"cnn1": null}}],
+
+  "# .[\"?constraints\"][\"?cnn2\"][\"@\"] invalid",
+  [false, {"constraints": {"cnn2": null}}],
+
+  "# .[\"?constraints\"][\"?css0\"][\"@\"] invalid",
+  [false, {"constraints": {"css0": null}}],
+
+  "# .[\"?constraints\"][\"?css1\"][\"@\"] invalid",
+  [false, {"constraints": {"css1": null}}],
+
+  "# .[\"?constraints\"][\"?css2\"][\"@\"] invalid",
+  [false, {"constraints": {"css2": null}}],
+
+  "# .[\"?constraints\"][\"?cua0\"][\"@\"] invalid",
+  [false, {"constraints": {"cua0": null}}],
+
+  "# .[\"?predefs\"][\"?DATE\"] bad",
+  [false, {"predefs": {"DATE": "1970-13-45"}}],
+
+  "# .[\"?predefs\"][\"?DATETIME\"] bad",
+  [false, {"predefs": {"DATETIME": "1970-01-01T25:00:00"}}],
+
+  "# .[\"?predefs\"][\"?TIME\"] bad",
+  [false, {"predefs": {"TIME": "25:00:00"}}],
+
+  "# .[\"?predefs\"][\"?DURATION\"] bad",
+  [false, {"predefs": {"DURATION": "P"}}],
+
+  "# .[\"?predefs\"][\"?JSON\"] bad",
+  [false, {"predefs": {"JSON": "{"}}],
+
+  "# .[\"?predefs\"][\"?JSONPT\"] bad",
+  [false, {"predefs": {"JSONPT": "a"}}],
+
+  "# .[\"?predefs\"][\"?REGEX\"] bad",
+  [false, {"predefs": {"REGEX": "["}}],
+
+  "# .[\"?predefs\"][\"?EXREG\"] bad",
+  [false, {"predefs": {"EXREG": "["}}],
+
+  "# .[\"?predefs\"][\"?UUID\"] bad",
+  [false, {"predefs": {"UUID": "00000000-0000-0000-0000-00000000000"}}],
+
+  "# .[\"?predefs\"][\"?URL\"] bad",
+  [false, {"predefs": {"URL": "https://json model.org/"}}],
+
+  "# .[\"?predefs\"][\"?URI\"] bad",
+  [false, {"predefs": {"URI": "https://json model.org/"}}],
+
+  "# .[\"?predefs\"][\"?HOST\"] bad",
+  [false, {"predefs": {"HOST": "json model.org"}}],
+
+  "# .[\"?predefs\"][\"?IP4\"] bad",
+  [false, {"predefs": {"IP4": "256.0.0.1"}}],
+
+  "# .[\"?predefs\"][\"?IP6\"] bad",
+  [false, {"predefs": {"IP6": "xyz::"}}],
+
+  "# .[\"?predefs\"][\"?EMAIL\"] bad",
+  [false, {"predefs": {"EMAIL": "susie@@json-model.org"}}],
+
+  "# .[\"?predefs\"][\"?ETH\"] bad",
+  [false, {"predefs": {"ETH": "00:00:00:00:00"}}],
+
+  "# .[\"?predefs\"][\"?U32\"] bad",
+  [false, {"predefs": {"U32": -1}}],
+
+  "# .[\"?predefs\"][\"?U64\"] bad",
+  [false, {"predefs": {"U64": -1}}],
+
+  "# .[\"?int\"][\"?i7\"] bad",
+  [false, {"int": {"i7": -1}}],
+
+  "# .[\"?int\"][\"?i8\"] bad",
+  [false, {"int": {"i8": -1}}],
+
+  "# .[\"?array\"][\"?a2\"][0] bad",
+  [false, {"array": {"a2": ["1970-13-45"]}}],
+
+  "# .[\"?or\"][\"?o1\"][\"|\"][0] bad",
+  [false, {"or": {"o1": "1970-13-45"}}],
+
+  "# .[\"?or\"][\"?o1\"][\"|\"][1] bad",
+  [false, {"or": {"o1": "25:00:00"}}],
+
+  "# .[\"?or\"][\"?o2\"][\"|\"][1] bad",
+  [false, {"or": {"o2": "00000000-0000-0000-0000-00000000000"}}],
+
+  "# .[\"?and\"][\"?a0\"][\"&\"][0] bad",
+  [false, {"and": {"a0": "1970-13-45"}}],
+
+  "# .[\"?object\"][\"?o1\"].a missing",
+  [false, {"object": {"o1": {"b": 0, "c": 0}}}],
+
+  "# .[\"?object\"][\"?o1\"]._b missing",
+  [false, {"object": {"o1": {"a": 0, "c": 0}}}],
+
+  "# .[\"?object\"][\"?o1\"][\"!c\"] missing",
+  [false, {"object": {"o1": {"a": 0, "b": 0}}}],
+
+  "# .[\"?merge\"][\"?m0\"].a missing",
+  [false, {"merge": {"m0": {}}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][0].a missing",
+  [false, {"merge": {"m1": {"b": 1}}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][0].b missing",
+  [false, {"merge": {"m1": {"a": 0}}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][1].a missing",
+  [false, {"merge": {"m1": {"c": 1}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][0].a missing",
+  [false, {"merge": {"m2": {"b": 1}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][0].b missing",
+  [false, {"merge": {"m2": {"a": 0}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][1].a missing",
+  [false, {"merge": {"m2": {"c": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][0].a missing",
+  [false, {"merge": {"m3": {"c": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][0].c missing",
+  [false, {"merge": {"m3": {"a": 0}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][1].a missing",
+  [false, {"merge": {"m3": {"d": 1}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][2].c missing",
+  [false, {"merge": {"m3": {"b": 0}}}],
+
+  "# .[\"?merge\"][\"?m4\"].a missing",
+  [false, {"merge": {"m4": {"b": 0, "c": 0, "d": 0}}}],
+
+  "# .[\"?merge\"][\"?m4\"].b missing",
+  [false, {"merge": {"m4": {"a": 0, "c": 0, "d": 0}}}],
+
+  "# .[\"?merge\"][\"?m4\"].c missing",
+  [false, {"merge": {"m4": {"a": 0, "b": 0, "d": 0}}}],
+
+  "# .[\"?merge\"][\"?m4\"].d missing",
+  [false, {"merge": {"m4": {"a": 0, "b": 0, "c": 0}}}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# .[\"?predefs\"][\"no-such-prop\"] extra",
+  [false, {"predefs": {"no-such-prop": null}}],
+
+  "# .[\"?null\"][\"no-such-prop\"] extra",
+  [false, {"null": {"no-such-prop": null}}],
+
+  "# .[\"?bool\"][\"no-such-prop\"] extra",
+  [false, {"bool": {"no-such-prop": null}}],
+
+  "# .[\"?int\"][\"no-such-prop\"] extra",
+  [false, {"int": {"no-such-prop": null}}],
+
+  "# .[\"?float\"][\"no-such-prop\"] extra",
+  [false, {"float": {"no-such-prop": null}}],
+
+  "# .[\"?string\"][\"no-such-prop\"] extra",
+  [false, {"string": {"no-such-prop": null}}],
+
+  "# .[\"?array\"][\"no-such-prop\"] extra",
+  [false, {"array": {"no-such-prop": null}}],
+
+  "# .[\"?tuple\"][\"no-such-prop\"] extra",
+  [false, {"tuple": {"no-such-prop": null}}],
+
+  "# .[\"?object\"][\"no-such-prop\"] extra",
+  [false, {"object": {"no-such-prop": null}}],
+
+  "# .[\"?object\"][\"?o0\"][\"no-such-prop\"] extra",
+  [false, {"object": {"o0": {"no-such-prop": null}}}],
+
+  "# .[\"?object\"][\"?o1\"][\"no-such-prop\"] extra",
+  [false, {"object": {"o1": {"a": 0, "b": 0, "c": 0, "no-such-prop": null}}}],
+
+  "# .[\"?object\"][\"?o2\"][\"no-such-prop\"] extra",
+  [false, {"object": {"o2": {"no-such-prop": null}}}],
+
+  "# .[\"?object\"][\"?o3\"][\"no-such-prop\"] extra",
+  [false, {"object": {"o3": {"no-such-prop": null}}}],
+
+  "# .[\"?object\"][\"?o4\"][\"no-such-prop\"] extra",
+  [false, {"object": {"o4": {"no-such-prop": null}}}],
+
+  "# .[\"?enum\"][\"no-such-prop\"] extra",
+  [false, {"enum": {"no-such-prop": null}}],
+
+  "# .[\"?or\"][\"no-such-prop\"] extra",
+  [false, {"or": {"no-such-prop": null}}],
+
+  "# .[\"?xor\"][\"no-such-prop\"] extra",
+  [false, {"xor": {"no-such-prop": null}}],
+
+  "# .[\"?and\"][\"no-such-prop\"] extra",
+  [false, {"and": {"no-such-prop": null}}],
+
+  "# .[\"?merge\"][\"no-such-prop\"] extra",
+  [false, {"merge": {"no-such-prop": null}}],
+
+  "# .[\"?merge\"][\"?m0\"][\"no-such-prop\"] extra",
+  [false, {"merge": {"m0": {"a": 0, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][0][\"no-such-prop\"] extra",
+  [false, {"merge": {"m1": {"a": 0, "b": 1, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m1\"][\"|\"][1][\"no-such-prop\"] extra",
+  [false, {"merge": {"m1": {"a": 0, "c": 1, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"merge": {"m2": {"a": 0, "b": 1, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m2\"][\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"merge": {"m2": {"a": 0, "c": 1, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"merge": {"m3": {"a": 0, "c": 1, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"merge": {"m3": {"a": 0, "d": 1, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][2][\"no-such-prop\"] extra",
+  [false, {"merge": {"m3": {"b": 0, "c": 1, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m3\"][\"^\"][3][\"no-such-prop\"] extra",
+  [false, {"merge": {"m3": {"b": 0, "d": 1, "no-such-prop": null}}}],
+
+  "# .[\"?merge\"][\"?m4\"][\"no-such-prop\"] extra",
+  [false, {"merge": {"m4": {"a": 0, "b": 0, "c": 0, "d": 0, "no-such-prop": null}}}],
+
+  "# .[\"?constraints\"][\"no-such-prop\"] extra",
+  [false, {"constraints": {"no-such-prop": null}}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"?predefs\"][\"?ANY\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?array\"][\"?a4\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?or\"][\"?o2\"][\"|\"][2][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?xor\"][\"?x3\"][\"^\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?constraints\"][\"?cua0\"][\"@\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?xor\"][\"?x3\"][\"^\"][1]: no type breaks the model here",
+
+  "# SKIPPED extra value .[\"?object\"][\"?o5\"]: object is open",
+
+  "# SKIPPED extra value .[\"?object\"][\"?o6\"]: object is open",
+
+  "# SKIPPED extra value .[\"?or\"][\"?o2\"][\"|\"][3]: object is open",
+
+  "# SKIPPED extra value .[\"?constraints\"][\"?cio0\"][\"@\"]: object is open",
+
+  "# SKIPPED extra value .[\"?constraints\"][\"?cio1\"][\"@\"]: object is open",
+
+  "# SKIPPED extra value .[\"?constraints\"][\"?cio2\"][\"@\"]: object is open",
+
+  "# SKIPPED root value {}: valid for the model"
+]

@@ -1,0 +1,54 @@
+[
+  "# generated from xoropt-011.model.json",
+
+  "# simplest",
+  [true, {"a": 10}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"a": 1}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"a": 0}],
+
+  "# .[\"^\"][0] invalid",
+  [false, null],
+
+  "# .[\"^\"][0].a invalid",
+  [false, {"a": null}],
+
+  "# .[\"^\"][0].a missing",
+  [false, {}],
+
+  "# .[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"a": 10, "no-such-prop": null}],
+
+  "# .[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"a": 1, "no-such-prop": null}],
+
+  "# .[\"^\"][2][\"no-such-prop\"] extra",
+  [false, {"a": 0, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

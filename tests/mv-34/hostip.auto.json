@@ -1,0 +1,49 @@
+[
+  "# generated from hostip.model.json",
+
+  "# simplest",
+  [true, "json-model.org"],
+
+  "# .[\"|\"][1] branch",
+  [true, "0.0.0.0"],
+
+  "# .[\"|\"][2] branch",
+  [true, "::"],
+
+  "# .[\"|\"][0] invalid",
+  [false, null],
+
+  "# .[\"|\"][0] bad",
+  [false, "json model.org"],
+
+  "# .[\"|\"][2] bad",
+  [false, "xyz::"],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED bad value .[\"|\"][1]: the $IP4 violation is still valid",
+
+  "# SKIPPED root value \"abc\": valid for the model"
+]

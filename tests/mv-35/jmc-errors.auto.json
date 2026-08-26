@@ -1,0 +1,85 @@
+[
+  "# generated from jmc-errors.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# FAILED bound values: no constraint bound: no bound reached for ! in model: [0]",
+
+  "# .[\"?schema\"] present",
+  [true, {"schema": []}],
+
+  "# .[\"?dynpy\"] present",
+  [true, {"dynpy": []}],
+
+  "# .[\"?js\"] present",
+  [true, {"js": []}],
+
+  "# .[\"?sql\"] present",
+  [true, {"sql": []}],
+
+  "# .[\"?pl\"] present",
+  [true, {"pl": []}],
+
+  "# .[\"?java\"] present",
+  [true, {"java": []}],
+
+  "# .[\"?c\"] present",
+  [true, {"c": []}],
+
+  "# .[\"?py\"] present",
+  [true, {"py": []}],
+
+  "# .[\"?ts\"] present",
+  [true, {"ts": false}],
+
+  "# .[\"/^#/\"] present",
+  [true, {"#": ""}],
+
+  "# .[\"$\"].ErrorIndex[\"!\"]",
+  [false, {"schema": [0, 0]}],
+
+  "# .[\"$\"].ErrorIndex[\"@\"] invalid",
+  [false, {"schema": null}],
+
+  "# .[\"$\"].ErrorIndex[\"@\"][0] invalid",
+  [false, {"schema": [null]}],
+
+  "# .[\"?ts\"] invalid",
+  [false, {"ts": null}],
+
+  "# .[\"/^#/\"] invalid",
+  [false, {"#": null}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED root value {}: valid for the model"
+]

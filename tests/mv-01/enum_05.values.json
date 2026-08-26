@@ -1,10 +1,4 @@
 [
-  [ true, null ],
-  [ true, 200 ],
-  [ true, "Susie" ],
-  [ true, 3.1415927 ],
   [ false, "Hobbes" ],
-  [ false, false ],
-  [ false, [ "not", "a", "scalar" ] ],
-  [ false, {} ]
+  [ false, [ "not", "a", "scalar" ] ]
 ]

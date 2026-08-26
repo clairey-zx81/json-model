@@ -1,0 +1,417 @@
+[
+  "# generated from part_cset.model.json",
+
+  "# simplest",
+  [true, "00"],
+
+  "# .[\"|\"][1] branch",
+  [true, "01"],
+
+  "# .[\"|\"][2] branch",
+  [true, "02"],
+
+  "# .[\"|\"][3] branch",
+  [true, "03"],
+
+  "# .[\"|\"][4] branch",
+  [true, "04"],
+
+  "# .[\"|\"][5] branch",
+  [true, "05"],
+
+  "# .[\"|\"][6] branch",
+  [true, "06"],
+
+  "# .[\"|\"][7] branch",
+  [true, "07"],
+
+  "# .[\"|\"][8] branch",
+  [true, "08"],
+
+  "# .[\"|\"][9] branch",
+  [true, "09"],
+
+  "# .[\"|\"][10] branch",
+  [true, "0a"],
+
+  "# .[\"|\"][11] branch",
+  [true, "0b"],
+
+  "# .[\"|\"][12] branch",
+  [true, "0c"],
+
+  "# .[\"|\"][13] branch",
+  [true, "0d"],
+
+  "# .[\"|\"][14] branch",
+  [true, "0e"],
+
+  "# .[\"|\"][15] branch",
+  [true, "0f"],
+
+  "# .[\"|\"][16] branch",
+  [true, "10"],
+
+  "# .[\"|\"][17] branch",
+  [true, "11"],
+
+  "# .[\"|\"][18] branch",
+  [true, "12"],
+
+  "# .[\"|\"][19] branch",
+  [true, "13"],
+
+  "# .[\"|\"][20] branch",
+  [true, "14"],
+
+  "# .[\"|\"][21] branch",
+  [true, "15"],
+
+  "# .[\"|\"][22] branch",
+  [true, "16"],
+
+  "# .[\"|\"][23] branch",
+  [true, "17"],
+
+  "# .[\"|\"][24] branch",
+  [true, "18"],
+
+  "# .[\"|\"][25] branch",
+  [true, "19"],
+
+  "# .[\"|\"][26] branch",
+  [true, "1a"],
+
+  "# .[\"|\"][27] branch",
+  [true, "1b"],
+
+  "# .[\"|\"][28] branch",
+  [true, "1c"],
+
+  "# .[\"|\"][29] branch",
+  [true, "1d"],
+
+  "# .[\"|\"][30] branch",
+  [true, "1e"],
+
+  "# .[\"|\"][31] branch",
+  [true, "1f"],
+
+  "# .[\"|\"][32] branch",
+  [true, "20"],
+
+  "# .[\"|\"][33] branch",
+  [true, "21"],
+
+  "# .[\"|\"][34] branch",
+  [true, "22"],
+
+  "# .[\"|\"][35] branch",
+  [true, "23"],
+
+  "# .[\"|\"][36] branch",
+  [true, "24"],
+
+  "# .[\"|\"][37] branch",
+  [true, "25"],
+
+  "# .[\"|\"][38] branch",
+  [true, "26"],
+
+  "# .[\"|\"][39] branch",
+  [true, "27"],
+
+  "# .[\"|\"][40] branch",
+  [true, "28"],
+
+  "# .[\"|\"][41] branch",
+  [true, "29"],
+
+  "# .[\"|\"][42] branch",
+  [true, "2a"],
+
+  "# .[\"|\"][43] branch",
+  [true, "2b"],
+
+  "# .[\"|\"][44] branch",
+  [true, "2c"],
+
+  "# .[\"|\"][45] branch",
+  [true, "2d"],
+
+  "# .[\"|\"][46] branch",
+  [true, "2e"],
+
+  "# .[\"|\"][47] branch",
+  [true, "2f"],
+
+  "# .[\"|\"][48] branch",
+  [true, "30"],
+
+  "# .[\"|\"][49] branch",
+  [true, "31"],
+
+  "# .[\"|\"][50] branch",
+  [true, "32"],
+
+  "# .[\"|\"][51] branch",
+  [true, "33"],
+
+  "# .[\"|\"][52] branch",
+  [true, "34"],
+
+  "# .[\"|\"][53] branch",
+  [true, "35"],
+
+  "# .[\"|\"][54] branch",
+  [true, "36"],
+
+  "# .[\"|\"][55] branch",
+  [true, "37"],
+
+  "# .[\"|\"][56] branch",
+  [true, "38"],
+
+  "# .[\"|\"][57] branch",
+  [true, "39"],
+
+  "# .[\"|\"][58] branch",
+  [true, "3a"],
+
+  "# .[\"|\"][59] branch",
+  [true, "3b"],
+
+  "# .[\"|\"][60] branch",
+  [true, "3c"],
+
+  "# .[\"|\"][61] branch",
+  [true, "3d"],
+
+  "# .[\"|\"][62] branch",
+  [true, "3e"],
+
+  "# .[\"|\"][63] branch",
+  [true, "3f"],
+
+  "# .[\"|\"][64] branch",
+  [true, "40"],
+
+  "# .[\"|\"][65] branch",
+  [true, "41"],
+
+  "# .[\"|\"][66] branch",
+  [true, "42"],
+
+  "# .[\"|\"][67] branch",
+  [true, "43"],
+
+  "# .[\"|\"][68] branch",
+  [true, "44"],
+
+  "# .[\"|\"][69] branch",
+  [true, "45"],
+
+  "# .[\"|\"][70] branch",
+  [true, "46"],
+
+  "# .[\"|\"][71] branch",
+  [true, "47"],
+
+  "# .[\"|\"][72] branch",
+  [true, "48"],
+
+  "# .[\"|\"][73] branch",
+  [true, "49"],
+
+  "# .[\"|\"][74] branch",
+  [true, "4a"],
+
+  "# .[\"|\"][75] branch",
+  [true, "4b"],
+
+  "# .[\"|\"][76] branch",
+  [true, "4c"],
+
+  "# .[\"|\"][77] branch",
+  [true, "4d"],
+
+  "# .[\"|\"][78] branch",
+  [true, "4e"],
+
+  "# .[\"|\"][79] branch",
+  [true, "4f"],
+
+  "# .[\"|\"][80] branch",
+  [true, "50"],
+
+  "# .[\"|\"][81] branch",
+  [true, "51"],
+
+  "# .[\"|\"][82] branch",
+  [true, "52"],
+
+  "# .[\"|\"][83] branch",
+  [true, "53"],
+
+  "# .[\"|\"][84] branch",
+  [true, "54"],
+
+  "# .[\"|\"][85] branch",
+  [true, "55"],
+
+  "# .[\"|\"][86] branch",
+  [true, "56"],
+
+  "# .[\"|\"][87] branch",
+  [true, "57"],
+
+  "# .[\"|\"][88] branch",
+  [true, "58"],
+
+  "# .[\"|\"][89] branch",
+  [true, "59"],
+
+  "# .[\"|\"][90] branch",
+  [true, "5a"],
+
+  "# .[\"|\"][91] branch",
+  [true, "5b"],
+
+  "# .[\"|\"][92] branch",
+  [true, "5c"],
+
+  "# .[\"|\"][93] branch",
+  [true, "5d"],
+
+  "# .[\"|\"][94] branch",
+  [true, "5e"],
+
+  "# .[\"|\"][95] branch",
+  [true, "5f"],
+
+  "# .[\"|\"][96] branch",
+  [true, "60"],
+
+  "# .[\"|\"][97] branch",
+  [true, "61"],
+
+  "# .[\"|\"][98] branch",
+  [true, "62"],
+
+  "# .[\"|\"][99] branch",
+  [true, "63"],
+
+  "# .[\"|\"][100] branch",
+  [true, "64"],
+
+  "# .[\"|\"][101] branch",
+  [true, "65"],
+
+  "# .[\"|\"][102] branch",
+  [true, "66"],
+
+  "# .[\"|\"][103] branch",
+  [true, "67"],
+
+  "# .[\"|\"][104] branch",
+  [true, "68"],
+
+  "# .[\"|\"][105] branch",
+  [true, "69"],
+
+  "# .[\"|\"][106] branch",
+  [true, "6a"],
+
+  "# .[\"|\"][107] branch",
+  [true, "6b"],
+
+  "# .[\"|\"][108] branch",
+  [true, "6c"],
+
+  "# .[\"|\"][109] branch",
+  [true, "6d"],
+
+  "# .[\"|\"][110] branch",
+  [true, "6e"],
+
+  "# .[\"|\"][111] branch",
+  [true, "6f"],
+
+  "# .[\"|\"][112] branch",
+  [true, "70"],
+
+  "# .[\"|\"][113] branch",
+  [true, "71"],
+
+  "# .[\"|\"][114] branch",
+  [true, "72"],
+
+  "# .[\"|\"][115] branch",
+  [true, "73"],
+
+  "# .[\"|\"][116] branch",
+  [true, "74"],
+
+  "# .[\"|\"][117] branch",
+  [true, "75"],
+
+  "# .[\"|\"][118] branch",
+  [true, "76"],
+
+  "# .[\"|\"][119] branch",
+  [true, "77"],
+
+  "# .[\"|\"][120] branch",
+  [true, "78"],
+
+  "# .[\"|\"][121] branch",
+  [true, "79"],
+
+  "# .[\"|\"][122] branch",
+  [true, "7a"],
+
+  "# .[\"|\"][123] branch",
+  [true, "7b"],
+
+  "# .[\"|\"][124] branch",
+  [true, "7c"],
+
+  "# .[\"|\"][125] branch",
+  [true, "7d"],
+
+  "# .[\"|\"][126] branch",
+  [true, "7e"],
+
+  "# .[\"|\"][127] branch",
+  [true, "7f"],
+
+  "# .[\"|\"][0] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

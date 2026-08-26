@@ -1,0 +1,102 @@
+[
+  "# generated from l10n.model.json",
+
+  "# simplest",
+  [true, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"/^#/\"] present",
+  [true, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model", "#": ""}],
+
+  "# .[\"_$\"][\"?\"] present",
+  [true, {"$": {"Model": "$https://json-model.org/models/json-model", "": "https://json-model.org/"}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"_%\"][\"/^#/\"] present",
+  [true, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {"#": ""}, "@": "$Model"}],
+
+  "# .[\"_%\"][\"/^\\\\..+$/\"] present",
+  [true, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {".a": "#"}, "@": "$Model"}],
+
+  "# .[\"/^#/\"] invalid",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model", "#": null}],
+
+  "# .[\"_$\"] invalid",
+  [false, {"$": null, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"_$\"][\"?\"] invalid",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model", "": null}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"_$\"]._Model invalid",
+  [false, {"$": {"Model": null}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"_~\"] invalid",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": null, "%": {}, "@": "$Model"}],
+
+  "# .[\"_%\"] invalid",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": null, "@": "$Model"}],
+
+  "# .[\"_%\"][\"/^#/\"] invalid",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {"#": null}, "@": "$Model"}],
+
+  "# .[\"_%\"][\"/^\\\\..+$/\"] invalid",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {".a": null}, "@": "$Model"}],
+
+  "# .[\"_@\"] invalid",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {}, "@": null}],
+
+  "# .[\"_$\"][\"?\"] bad",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model", "": "https://json model.org/"}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"_$\"] missing",
+  [false, {"~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"_~\"] missing",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "%": {}, "@": "$Model"}],
+
+  "# .[\"_%\"] missing",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "@": "$Model"}],
+
+  "# .[\"_@\"] missing",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {}}],
+
+  "# .[\"_$\"]._Model missing",
+  [false, {"$": {}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model", "no-such-prop": null}],
+
+  "# .[\"_$\"][\"no-such-prop\"] extra",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model", "no-such-prop": null}, "~": "https://json-model.org/models/l10n", "%": {}, "@": "$Model"}],
+
+  "# .[\"_%\"][\"no-such-prop\"] extra",
+  [false, {"$": {"Model": "$https://json-model.org/models/json-model"}, "~": "https://json-model.org/models/l10n", "%": {"no-such-prop": null}, "@": "$Model"}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

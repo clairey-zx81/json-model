@@ -1,6 +1,4 @@
 [
-  [ true, null ],
   [ false, 42 ],
-  [ false, [] ],
   [ false, "not null" ]
 ]

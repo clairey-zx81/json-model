@@ -1,0 +1,42 @@
+[
+  "# generated from ppp-001.model.json",
+
+  "# simplest",
+  [true, {"a": 0}],
+
+  "# .a invalid",
+  [false, {"a": null}],
+
+  "# .a missing",
+  [false, {}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"a": 0, "no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

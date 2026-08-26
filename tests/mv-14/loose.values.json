@@ -3,7 +3,6 @@
   [ true, {"li": 42} ],
   [ true, {"li": 42.0} ],
   [ false, {"li": 42.5} ],
-  [ false, {"li": null} ],
   [ false, {"li": true} ],
   [ false, {"li": "not a number"} ],
   [ false, {"li": []} ],

@@ -1,0 +1,51 @@
+[
+  "# generated from objs2.model.json",
+
+  "# simplest",
+  [true, {"x": 0.0, "y": 0.0}],
+
+  "# .[\"$\"].bla invalid",
+  [false, null],
+
+  "# .[\"$\"].bla.x invalid",
+  [false, {"x": null, "y": 0.0}],
+
+  "# .[\"$\"].bla.y invalid",
+  [false, {"x": 0.0, "y": null}],
+
+  "# .[\"$\"].bla.x missing",
+  [false, {"y": 0.0}],
+
+  "# .[\"$\"].bla.y missing",
+  [false, {"x": 0.0}],
+
+  "# .[\"$\"].bla[\"no-such-prop\"] extra",
+  [false, {"x": 0.0, "y": 0.0, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

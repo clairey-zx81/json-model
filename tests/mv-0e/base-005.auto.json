@@ -1,0 +1,48 @@
+[
+  "# generated from base-005.model.json",
+
+  "# simplest",
+  [true, {"b": 0}],
+
+  "# .[\"?a\"] present",
+  [true, {"b": 0, "a": 0}],
+
+  "# .b invalid",
+  [false, {"b": null}],
+
+  "# .[\"?a\"] invalid",
+  [false, {"b": 0, "a": null}],
+
+  "# .b missing",
+  [false, {}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"b": 0, "no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

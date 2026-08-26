@@ -11,15 +11,9 @@
   [ false, {"!": 42, "_": false, "/": 17 } ],
   [ false, {"!": 42, "_": false, "a": 18 } ],
   [ false, {"a": 18, "/": 17, "b": null } ],
-  [ false, {} ],
   [ false, {"un": "expected"} ],
-  [ false, null ],
-  [ false, true ],
-  [ false, false ],
   [ false, 42 ],
   [ false, 3.1415927 ],
-  [ false, "" ],
   [ false, "unexpected" ],
-  [ false, [] ],
   [ false, [1, "expected"] ]
 ]

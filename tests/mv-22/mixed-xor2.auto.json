@@ -1,0 +1,105 @@
+[
+  "# generated from mixed-xor2.model.json",
+
+  "# simplest",
+  [true, {"t": "m", "moe": 1}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"t": "h", "hob": 1}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"t": "c", "cal": 1}],
+
+  "# .[\"$\"].cs[\"|\"][1] branch",
+  [true, {"t": "s", "sus": 1}],
+
+  "# .[\"^\"][0] invalid",
+  [false, null],
+
+  "# .[\"^\"][0].t invalid",
+  [false, {"t": null, "moe": 1}],
+
+  "# .[\"^\"][0].moe invalid",
+  [false, {"t": "m", "moe": null}],
+
+  "# .[\"^\"][1].t invalid",
+  [false, {"t": null, "hob": 1}],
+
+  "# .[\"^\"][1].hob invalid",
+  [false, {"t": "h", "hob": null}],
+
+  "# .[\"$\"].cs[\"^\"][0].t invalid",
+  [false, {"t": null, "cal": 1}],
+
+  "# .[\"$\"].cs[\"^\"][0].cal invalid",
+  [false, {"t": "c", "cal": null}],
+
+  "# .[\"$\"].cs[\"^\"][1].t invalid",
+  [false, {"t": null, "sus": 1}],
+
+  "# .[\"$\"].cs[\"^\"][1].sus invalid",
+  [false, {"t": "s", "sus": null}],
+
+  "# .[\"^\"][0].t missing",
+  [false, {"moe": 1}],
+
+  "# .[\"^\"][0].moe missing",
+  [false, {"t": "m"}],
+
+  "# .[\"^\"][1].t missing",
+  [false, {"hob": 1}],
+
+  "# .[\"^\"][1].hob missing",
+  [false, {"t": "h"}],
+
+  "# .[\"$\"].cs[\"^\"][0].t missing",
+  [false, {"cal": 1}],
+
+  "# .[\"$\"].cs[\"^\"][0].cal missing",
+  [false, {"t": "c"}],
+
+  "# .[\"$\"].cs[\"^\"][1].t missing",
+  [false, {"sus": 1}],
+
+  "# .[\"$\"].cs[\"^\"][1].sus missing",
+  [false, {"t": "s"}],
+
+  "# .[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"t": "m", "moe": 1, "no-such-prop": null}],
+
+  "# .[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"t": "h", "hob": 1, "no-such-prop": null}],
+
+  "# .[\"$\"].cs[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"t": "c", "cal": 1, "no-such-prop": null}],
+
+  "# .[\"$\"].cs[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"t": "s", "sus": 1, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

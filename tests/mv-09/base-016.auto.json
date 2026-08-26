@@ -1,0 +1,40 @@
+[
+  "# generated from base-016.model.json",
+
+  "# simplest",
+  [true, null],
+
+  "# .[\"|\"][1] branch",
+  [true, ""],
+
+  "# .[\"|\"][2] branch",
+  [true, false],
+
+  "# .[\"|\"][0] invalid",
+  [false, 0],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED root value null: valid for the model",
+
+  "# SKIPPED root value true: valid for the model",
+
+  "# SKIPPED root value false: valid for the model",
+
+  "# SKIPPED root value \"\": valid for the model",
+
+  "# SKIPPED root value \"abc\": valid for the model"
+]

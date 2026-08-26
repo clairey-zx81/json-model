@@ -1,0 +1,93 @@
+[
+  "# generated from xor_ob03.model.json",
+
+  "# simplest",
+  [true, {"movie": {"t": "fr", "titre": ""}}],
+
+  "# .movie[\"|\"][1] branch",
+  [true, {"movie": {"t": "en", "title": ""}}],
+
+  "# .movie[\"|\"][2] branch",
+  [true, {"movie": {"t": "ru", "suti": ""}}],
+
+  "# .movie invalid",
+  [false, {"movie": null}],
+
+  "# .movie[\"^\"][0].t invalid",
+  [false, {"movie": {"t": null, "titre": ""}}],
+
+  "# .movie[\"^\"][0].titre invalid",
+  [false, {"movie": {"t": "fr", "titre": null}}],
+
+  "# .movie[\"^\"][1].t invalid",
+  [false, {"movie": {"t": null, "title": ""}}],
+
+  "# .movie[\"^\"][1].title invalid",
+  [false, {"movie": {"t": "en", "title": null}}],
+
+  "# .movie[\"^\"][2].t invalid",
+  [false, {"movie": {"t": null, "suti": ""}}],
+
+  "# .movie[\"^\"][2].suti invalid",
+  [false, {"movie": {"t": "ru", "suti": null}}],
+
+  "# .movie missing",
+  [false, {}],
+
+  "# .movie[\"^\"][0].t missing",
+  [false, {"movie": {"titre": ""}}],
+
+  "# .movie[\"^\"][0].titre missing",
+  [false, {"movie": {"t": "fr"}}],
+
+  "# .movie[\"^\"][1].t missing",
+  [false, {"movie": {"title": ""}}],
+
+  "# .movie[\"^\"][1].title missing",
+  [false, {"movie": {"t": "en"}}],
+
+  "# .movie[\"^\"][2].t missing",
+  [false, {"movie": {"suti": ""}}],
+
+  "# .movie[\"^\"][2].suti missing",
+  [false, {"movie": {"t": "ru"}}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"movie": {"t": "fr", "titre": ""}, "no-such-prop": null}],
+
+  "# .movie[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"movie": {"t": "fr", "titre": "", "no-such-prop": null}}],
+
+  "# .movie[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"movie": {"t": "en", "title": "", "no-such-prop": null}}],
+
+  "# .movie[\"^\"][2][\"no-such-prop\"] extra",
+  [false, {"movie": {"t": "ru", "suti": "", "no-such-prop": null}}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

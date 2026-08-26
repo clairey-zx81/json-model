@@ -1,0 +1,57 @@
+[
+  "# generated from ac_09.model.json",
+
+  "# simplest",
+  [true, []],
+
+  "# .[\"|\"][1][\"/^[a-zA-Z]+$/\"] present",
+  [true, {"a": "bla"}],
+
+  "# .[\"|\"][1] branch",
+  [true, {}],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"&\"][0][\"^\"][0][0] invalid",
+  [false, [null]],
+
+  "# .[\"&\"][0][\"^\"][1][\"&\"][1][\"/^[a-zA-Z]+$/\"] invalid",
+  [false, {"a": null}],
+
+  "# .[\"&\"][0][\"^\"][1][\"&\"][0][\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"&\"][0][\"^\"][1][\"&\"][0][\"/^[a-zA-Z]+$/\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"&\"][1][\"|\"][0][0]: $ANY accepts every value",
+
+  "# SKIPPED extra value .[\"&\"][0][\"^\"][1][\"&\"][1]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][1][\"|\"][1]: object is open",
+
+  "# SKIPPED root value []: valid for the model",
+
+  "# SKIPPED root value {}: valid for the model"
+]

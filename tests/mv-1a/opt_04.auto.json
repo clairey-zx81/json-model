@@ -1,0 +1,10 @@
+[
+  "# generated from opt_04.model.json",
+
+  "# simplest",
+  [true, {"a": 1, "b": 1}],
+
+  "# FAILED bound values: unsupported model",
+
+  "# FAILED invalid model"
+]

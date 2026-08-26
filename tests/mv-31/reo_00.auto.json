@@ -1,0 +1,42 @@
+[
+  "# generated from reo_00.model.json",
+
+  "# simplest",
+  [true, "hello"],
+
+  "# .[\"|\"][1] branch",
+  [true, "world"],
+
+  "# .[\"|\"][2] branch",
+  [true, "!"],
+
+  "# .[\"|\"][0] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

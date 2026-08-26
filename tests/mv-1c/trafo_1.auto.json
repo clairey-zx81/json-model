@@ -1,0 +1,51 @@
+[
+  "# generated from trafo_1.model.json",
+
+  "# simplest",
+  [true, {"ua": 0, "ub": 0}],
+
+  "# .[\"$\"].un invalid",
+  [false, null],
+
+  "# .[\"$\"].un.ua invalid",
+  [false, {"ua": null, "ub": 0}],
+
+  "# .[\"$\"].un.ub invalid",
+  [false, {"ua": 0, "ub": null}],
+
+  "# .[\"$\"].un.ua missing",
+  [false, {"ub": 0}],
+
+  "# .[\"$\"].un.ub missing",
+  [false, {"ua": 0}],
+
+  "# .[\"$\"].un[\"no-such-prop\"] extra",
+  [false, {"ua": 0, "ub": 0, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

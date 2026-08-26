@@ -1,0 +1,51 @@
+[
+  "# generated from loose_strict.model.json",
+
+  "# simplest",
+  [true, {"li": 0, "si": 0}],
+
+  "# .[\"$\"].combined invalid",
+  [false, null],
+
+  "# .[\"$\"].combined.li invalid",
+  [false, {"li": null, "si": 0}],
+
+  "# .[\"$\"].combined.si invalid",
+  [false, {"li": 0, "si": null}],
+
+  "# .[\"$\"].combined.li missing",
+  [false, {"si": 0}],
+
+  "# .[\"$\"].combined.si missing",
+  [false, {"li": 0}],
+
+  "# .[\"$\"].combined[\"no-such-prop\"] extra",
+  [false, {"li": 0, "si": 0, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

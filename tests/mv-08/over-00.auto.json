@@ -1,0 +1,44 @@
+[
+  "# generated from over-00.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"$\"].Foo[\"?foo\"] present",
+  [true, {"foo": "initial foo"}],
+
+  "# .[\"$\"].Foo invalid",
+  [false, null],
+
+  "# .[\"$\"].Foo[\"?foo\"] invalid",
+  [false, {"foo": null}],
+
+  "# .[\"$\"].Foo[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED root value {}: valid for the model"
+]

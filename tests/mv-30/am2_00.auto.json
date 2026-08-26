@@ -1,0 +1,46 @@
+[
+  "# generated from am2_00.model.json",
+
+  "# simplest",
+  [true, null],
+
+  "# .[\"|\"][3][\"\"] present",
+  [true, {"a": {}}],
+
+  "# .[\"|\"][1] branch",
+  [true, []],
+
+  "# .[\"|\"][2] branch",
+  [true, ""],
+
+  "# .[\"|\"][3] branch",
+  [true, {}],
+
+  "# .[\"|\"][0] invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# SKIPPED invalid value .[\"|\"][1][0]: $ANY accepts every value",
+
+  "# SKIPPED extra value .[\"|\"][3]: object is open",
+
+  "# SKIPPED root value null: valid for the model",
+
+  "# SKIPPED root value \"\": valid for the model",
+
+  "# SKIPPED root value \"abc\": valid for the model",
+
+  "# SKIPPED root value []: valid for the model",
+
+  "# SKIPPED root value [1]: valid for the model",
+
+  "# SKIPPED root value {}: valid for the model"
+]

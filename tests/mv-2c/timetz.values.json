@@ -1,13 +1,7 @@
 [
-  [ false, -42 ],
   [ false, 3.1415927 ],
-  [ false, {} ],
   [ false, {"un": "expected"} ],
-  [ false, [] ],
   [ false, [1, "expected"] ],
-  [ false, true ],
-  [ false, false ],
-  [ false, null ],
   [ true,  "08:30:06Z" ],
   [ false, "008:030:006Z" ],
   [ false, "8:3:6Z" ],

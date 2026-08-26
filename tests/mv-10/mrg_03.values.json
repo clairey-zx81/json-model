@@ -6,13 +6,8 @@
   [ false, {"b": "Hobbes", "c": 42.1} ],
   [ false, {"a": 18, "c": 42.2} ],
   [ false, {"a": 18, "b": "Calvin"} ],
-  [ false, {} ],
   [ false, {"not": "expected"} ],
-  [ false, null ],
-  [ false, false ],
-  [ false, -42 ],
   [ false, -3.1415927 ],
   [ false, "not an obj" ],
-  [ false, [] ],
   [ false, ["not", "an", "obj"] ]
 ]

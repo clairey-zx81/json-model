@@ -1,0 +1,82 @@
+[
+  "# generated from objs5.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?f0\"] present",
+  [true, {"f0": {}}],
+
+  "# .[\"?f1\"] present",
+  [true, {"f1": {}}],
+
+  "# .[\"?f2\"] present",
+  [true, {"f2": {}}],
+
+  "# .[\"?f3\"] present",
+  [true, {"f3": {}}],
+
+  "# .[\"?f4\"] present",
+  [true, {"f4": {}}],
+
+  "# .[\"?f5\"] present",
+  [true, {"f5": {}}],
+
+  "# .[\"?f6\"] present",
+  [true, {"f6": {}}],
+
+  "# .[\"?f7\"] present",
+  [true, {"f7": {}}],
+
+  "# .[\"?f8\"] present",
+  [true, {"f8": {}}],
+
+  "# .[\"?f9\"] present",
+  [true, {"f9": {}}],
+
+  "# .[\"$\"].empty invalid",
+  [false, {"f0": null}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# .[\"$\"].empty[\"no-such-prop\"] extra",
+  [false, {"f0": {"no-such-prop": null}}],
+
+  "# .[\"$\"].empty[\"no-such-property\"] extra",
+  [false, {"f1": {"no-such-property": null}}],
+
+  "# .[\"$\"].empty[\"no-such-property1\"] extra",
+  [false, {"f2": {"no-such-property1": null}}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED extra value .[\"$\"].empty: every extra property is valid",
+
+  "# SKIPPED root value {}: valid for the model"
+]

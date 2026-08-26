@@ -1,0 +1,171 @@
+[
+  "# generated from many_must.model.json",
+
+  "# simplest",
+  [true, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._ invalid",
+  [false, {"": null, "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._aaa invalid",
+  [false, {"": "", "aaa": null, "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._abc invalid",
+  [false, {"": "", "aaa": "", "abc": null, "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._bcd invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": null, "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._cdef invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": null, "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._calvin invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": null, "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._def invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": null, "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._foo invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": null, "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._hobbes invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": null, "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._moe invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": null, "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._surprise invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": null, "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._stu invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": null, "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._stuff invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": null, "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._susie invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": null, "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._wtf invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": null, "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._zoo invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": null, "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._zee invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": null, "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._Calvin invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": null, "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._Susie invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": null, "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._Hobbes invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": null, "Moe": "", "Rosalyn": ""}],
+
+  "# ._Moe invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": null, "Rosalyn": ""}],
+
+  "# ._Rosalyn invalid",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": null}],
+
+  "# ._ missing",
+  [false, {"aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._aaa missing",
+  [false, {"": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._abc missing",
+  [false, {"": "", "aaa": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._bcd missing",
+  [false, {"": "", "aaa": "", "abc": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._cdef missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._calvin missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._def missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._foo missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._hobbes missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._moe missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._surprise missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._stu missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._stuff missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._susie missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._wtf missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._zoo missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._zee missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._Calvin missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._Susie missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Hobbes": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._Hobbes missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Moe": "", "Rosalyn": ""}],
+
+  "# ._Moe missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Rosalyn": ""}],
+
+  "# ._Rosalyn missing",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": ""}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"": "", "aaa": "", "abc": "", "bcd": "", "cdef": "", "calvin": "", "def": "", "foo": "", "hobbes": "", "moe": "", "surprise": "", "stu": "", "stuff": "", "susie": "", "wtf": "", "zoo": "", "zee": "", "Calvin": "", "Susie": "", "Hobbes": "", "Moe": "", "Rosalyn": "", "no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

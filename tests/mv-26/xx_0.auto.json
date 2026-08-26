@@ -1,0 +1,51 @@
+[
+  "# generated from xx_0.model.json",
+
+  "# FAILED invalid model",
+
+  "# FAILED optional value no document to alter: no alternative satisfies ^: [{'|': ['_hello', '_world', '_!']}, '_hello']",
+
+  "# .[\"^\"][0][\"|\"][1] branch",
+  [true, "world"],
+
+  "# .[\"^\"][0][\"|\"][2] branch",
+  [true, "!"],
+
+  "# FAILED branch value no document to alter: no alternative satisfies ^: [{'|': ['_hello', '_world', '_!']}, '_hello']",
+
+  "# FAILED branch value .[\"^\"][0] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][1] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][0][\"|\"][0] branch: the alternative is not valid here",
+
+  "# .[\"^\"][0] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

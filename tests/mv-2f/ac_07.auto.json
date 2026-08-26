@@ -1,0 +1,57 @@
+[
+  "# generated from ac_07.model.json",
+
+  "# simplest",
+  [true, {"a": 1}],
+
+  "# .[\"?b\"] present",
+  [true, {"a": 1, "b": 1}],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"&\"][0].a invalid",
+  [false, {"a": null}],
+
+  "# .[\"&\"][0][\"?b\"] invalid",
+  [false, {"a": 1, "b": null}],
+
+  "# .[\"&\"][1][\"?b\"] invalid",
+  [false, {"b": null}],
+
+  "# .[\"&\"][1][\"?c\"] invalid",
+  [false, {"c": null}],
+
+  "# .[\"&\"][0].a missing",
+  [false, {}],
+
+  "# .[\"&\"][0][\"no-such-prop\"] extra",
+  [false, {"a": 1, "no-such-prop": null}],
+
+  "# .[\"&\"][1][\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

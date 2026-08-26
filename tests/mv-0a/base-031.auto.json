@@ -1,0 +1,42 @@
+[
+  "# generated from base-031.model.json",
+
+  "# simplest",
+  [true, {"bibi": []}],
+
+  "# .[\"$\"].bibi invalid",
+  [false, null],
+
+  "# .[\"$\"].bibi.bibi invalid",
+  [false, {"bibi": null}],
+
+  "# .[\"$\"].bibi.bibi missing",
+  [false, {}],
+
+  "# .[\"$\"].bibi[\"no-such-prop\"] extra",
+  [false, {"bibi": [], "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]]
+]

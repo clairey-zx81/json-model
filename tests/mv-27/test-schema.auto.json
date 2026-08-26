@@ -1,0 +1,145 @@
+[
+  "# generated from test-schema.model.json",
+
+  "# simplest",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}]}]],
+
+  "# .[\"$\"].TestCase[\"?specification\"][\">\"] bound",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"core": "0"}]}]],
+
+  "# .[\"$\"].TestCase[\"?comment\"] present",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "comment": ""}]],
+
+  "# .[\"$\"].Test[\"?comment\"] present",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false, "comment": ""}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"?validation\"] present",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"validation": "0"}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"?ecma262\"] present",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"ecma262": "0"}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"?perl5\"] present",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"perl5": ""}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"?quote\"] present",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"quote": ""}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"/^rfc\\\\d+$/\"] present",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"rfc0": "0"}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"/^iso\\\\d+$/\"] present",
+  [true, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"iso0": "0"}]}]],
+
+  "# .[\">\"]",
+  [false, []],
+
+  "# .[\"$\"].TestCase.tests[\">\"]",
+  [false, [{"description": "", "schema": {}, "tests": []}]],
+
+  "# .[\"$\"].TestCase[\"?specification\"][\">\"]",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": []}]],
+
+  "# .[\"$\"].TestCase[\"?specification\"][\"!\"]",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"core": "0"}, {"core": "0"}]}]],
+
+  "# .[\"$\"].Specification[\">\"]",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{}]}]],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"$\"].TestCase invalid",
+  [false, [null]],
+
+  "# .[\"$\"].TestCase.description invalid",
+  [false, [{"description": null, "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}]}]],
+
+  "# .[\"$\"].TestCase[\"?comment\"] invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "comment": null}]],
+
+  "# .[\"$\"].TestCase.tests[\"@\"] invalid",
+  [false, [{"description": "", "schema": {}, "tests": null}]],
+
+  "# .[\"$\"].Test invalid",
+  [false, [{"description": "", "schema": {}, "tests": [null]}]],
+
+  "# .[\"$\"].Test.description invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": null, "data": {}, "valid": false}]}]],
+
+  "# .[\"$\"].Test[\"?comment\"] invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false, "comment": null}]}]],
+
+  "# .[\"$\"].Test.valid invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": null}]}]],
+
+  "# .[\"$\"].TestCase[\"?specification\"][\"@\"] invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": null}]],
+
+  "# .[\"$\"].Specification[\"@\"] invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [null]}]],
+
+  "# .[\"$\"].Version invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"core": null}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"?perl5\"] invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"core": "0", "perl5": null}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"?quote\"] invalid",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"core": "0", "quote": null}]}]],
+
+  "# .[\"$\"].TestCase.description missing",
+  [false, [{"schema": {}, "tests": [{"description": "", "data": {}, "valid": false}]}]],
+
+  "# .[\"$\"].TestCase.schema missing",
+  [false, [{"description": "", "tests": [{"description": "", "data": {}, "valid": false}]}]],
+
+  "# .[\"$\"].TestCase.tests missing",
+  [false, [{"description": "", "schema": {}}]],
+
+  "# .[\"$\"].Test.description missing",
+  [false, [{"description": "", "schema": {}, "tests": [{"data": {}, "valid": false}]}]],
+
+  "# .[\"$\"].Test.data missing",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "valid": false}]}]],
+
+  "# .[\"$\"].Test.valid missing",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}}]}]],
+
+  "# .[\"$\"].TestCase[\"no-such-prop\"] extra",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "no-such-prop": null}]],
+
+  "# .[\"$\"].Test[\"no-such-prop\"] extra",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false, "no-such-prop": null}]}]],
+
+  "# .[\"$\"].Specification[\"@\"][\"no-such-prop\"] extra",
+  [false, [{"description": "", "schema": {}, "tests": [{"description": "", "data": {}, "valid": false}], "specification": [{"no-such-prop": null}]}]],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED invalid value .[\"$\"].TestCase.schema: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Test.data: $ANY accepts every value"
+]

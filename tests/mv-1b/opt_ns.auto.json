@@ -1,0 +1,51 @@
+[
+  "# generated from opt_ns.model.json",
+
+  "# simplest",
+  [true, {"i": 0, "f": 0.0}],
+
+  "# .i invalid",
+  [false, {"i": null, "f": 0.0}],
+
+  "# .f invalid",
+  [false, {"i": 0, "f": null}],
+
+  "# .i missing",
+  [false, {"f": 0.0}],
+
+  "# .f missing",
+  [false, {"i": 0}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"i": 0, "f": 0.0, "no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

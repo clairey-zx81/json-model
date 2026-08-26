@@ -1,0 +1,60 @@
+[
+  "# generated from ac_05.model.json",
+
+  "# simplest",
+  [true, {"a": ""}],
+
+  "# .[\"?b\"] present",
+  [true, {"a": "", "b": ""}],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"&\"][1].a invalid",
+  [false, {"a": null}],
+
+  "# .[\"&\"][2][\"?b\"] invalid",
+  [false, {"b": null}],
+
+  "# .[\"&\"][1].a missing",
+  [false, {}],
+
+  "# .[\"&\"][0][\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"&\"][0][\"?a\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"&\"][0][\"?b\"]: $ANY accepts every value",
+
+  "# SKIPPED extra value .[\"&\"][1]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][2]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][3]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][4]: every extra property is valid"
+]

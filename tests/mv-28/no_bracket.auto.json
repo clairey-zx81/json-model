@@ -1,0 +1,37 @@
+[
+  "# generated from no_bracket.model.json",
+
+  "# FAILED invalid model",
+
+  "# FAILED optional value no document to alter: unsupported regex character class item: NEGATE",
+
+  "# FAILED branch value no document to alter: unsupported regex character class item: NEGATE",
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED root value \"\": valid for the model",
+
+  "# SKIPPED root value \"abc\": valid for the model"
+]

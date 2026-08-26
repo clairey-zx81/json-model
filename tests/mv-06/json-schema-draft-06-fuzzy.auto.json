@@ -1,0 +1,10 @@
+[
+  "# generated from json-schema-draft-06-fuzzy.model.json",
+
+  "# simplest",
+  [true, false],
+
+  "# FAILED bound values: cannot enter model: {'#': 'JSON Model for JSON Schema Draft 06 (fuzzy version)',...",
+
+  "# FAILED invalid model"
+]

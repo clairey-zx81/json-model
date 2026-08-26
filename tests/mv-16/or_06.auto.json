@@ -1,0 +1,38 @@
+[
+  "# generated from or_06.model.json",
+
+  "# simplest",
+  [true, "Susie"],
+
+  "# .[\"|\"][1] branch",
+  [true, "a"],
+
+  "# .[\"|\"][0] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED root value \"abc\": valid for the model"
+]

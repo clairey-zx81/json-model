@@ -1,0 +1,69 @@
+[
+  "# generated from tag01.model.json",
+
+  "# simplest",
+  [true, {"t": true, "a": 0}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"t": false, "b": 0}],
+
+  "# .[\"$\"].Aa invalid",
+  [false, null],
+
+  "# .[\"$\"].Aa.t invalid",
+  [false, {"t": null, "a": 0}],
+
+  "# .[\"$\"].Aa.a invalid",
+  [false, {"t": true, "a": null}],
+
+  "# .[\"$\"].Bb.t invalid",
+  [false, {"t": null, "b": 0}],
+
+  "# .[\"$\"].Bb.b invalid",
+  [false, {"t": false, "b": null}],
+
+  "# .[\"$\"].Aa.t missing",
+  [false, {"a": 0}],
+
+  "# .[\"$\"].Aa.a missing",
+  [false, {"t": true}],
+
+  "# .[\"$\"].Bb.t missing",
+  [false, {"b": 0}],
+
+  "# .[\"$\"].Bb.b missing",
+  [false, {"t": false}],
+
+  "# .[\"$\"].Aa[\"no-such-prop\"] extra",
+  [false, {"t": true, "a": 0, "no-such-prop": null}],
+
+  "# .[\"$\"].Bb[\"no-such-prop\"] extra",
+  [false, {"t": false, "b": 0, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

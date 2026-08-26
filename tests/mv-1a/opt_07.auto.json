@@ -1,0 +1,87 @@
+[
+  "# generated from opt_07.model.json",
+
+  "# simplest",
+  [true, {"d": 1, "val": 0}],
+
+  "# .[\"|\"][1] branch",
+  [true, {"d": 2, "val": ""}],
+
+  "# .[\"|\"][2] branch",
+  [true, {"d": 3, "val": false}],
+
+  "# .[\"^\"][0] invalid",
+  [false, null],
+
+  "# .[\"^\"][0].d invalid",
+  [false, {"d": null, "val": 0}],
+
+  "# .[\"^\"][0].val invalid",
+  [false, {"d": 1, "val": null}],
+
+  "# .[\"^\"][1].d invalid",
+  [false, {"d": null, "val": ""}],
+
+  "# .[\"^\"][1].val invalid",
+  [false, {"d": 2, "val": null}],
+
+  "# .[\"^\"][2].d invalid",
+  [false, {"d": null, "val": false}],
+
+  "# .[\"^\"][2].val invalid",
+  [false, {"d": 3, "val": null}],
+
+  "# .[\"^\"][0].d missing",
+  [false, {"val": 0}],
+
+  "# .[\"^\"][0].val missing",
+  [false, {"d": 1}],
+
+  "# .[\"^\"][1].d missing",
+  [false, {"val": ""}],
+
+  "# .[\"^\"][1].val missing",
+  [false, {"d": 2}],
+
+  "# .[\"^\"][2].d missing",
+  [false, {"val": false}],
+
+  "# .[\"^\"][2].val missing",
+  [false, {"d": 3}],
+
+  "# .[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"d": 1, "val": 0, "no-such-prop": null}],
+
+  "# .[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"d": 2, "val": "", "no-such-prop": null}],
+
+  "# .[\"^\"][2][\"no-such-prop\"] extra",
+  [false, {"d": 3, "val": false, "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

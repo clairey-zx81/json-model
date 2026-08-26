@@ -1,0 +1,53 @@
+[
+  "# generated from str_eq.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?\"] present",
+  [true, {"": {}}],
+
+  "# .[\"?hello\"] present",
+  [true, {"hello": {}}],
+
+  "# .[\"?quite-a-long-property-name\"] present",
+  [true, {"quite-a-long-property-name": {}}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"?\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?hello\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"?quite-a-long-property-name\"]: $ANY accepts every value",
+
+  "# SKIPPED root value {}: valid for the model"
+]

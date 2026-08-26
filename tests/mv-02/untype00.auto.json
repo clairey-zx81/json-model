@@ -1,0 +1,43 @@
+[
+  "# generated from untype00.model.json",
+
+  "# simplest",
+  [true, 10],
+
+  "# FAILED branch value .[\"@\"][\"|\"][0] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"@\"][\"|\"][1] branch: the alternative is not valid here",
+
+  "# .[\">=\"]",
+  [false, 9],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

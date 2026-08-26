@@ -1,0 +1,48 @@
+[
+  "# generated from ex_02.model.json",
+
+  "# simplest",
+  [true, ["Susie", "Susie", "Susie", "Susie"]],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"$\"].x1[\"@\"] invalid",
+  [false, [null, "Susie", "Susie", "Susie"]],
+
+  "# .[\"$\"].x2[\"@\"] invalid",
+  [false, ["Susie", null, "Susie", "Susie"]],
+
+  "# .[\"$\"].__external_0[\"@\"] invalid",
+  [false, ["Susie", "Susie", null, "Susie"]],
+
+  "# .[\"$\"].x3[\"@\"] invalid",
+  [false, ["Susie", "Susie", "Susie", null]],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

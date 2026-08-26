@@ -1,12 +1,9 @@
 [
   [ true, true ],
-  [ true, false ],
-  [ true, {} ],
   [ true, { "a": true } ],
   [ true, { "a": true, "b": false } ],
   [ true, { "a": true, "b": { "c": false } } ],
   [ true, { "a": true, "b": { "c": { "d": true } } } ],
-  [ false, null ],
   [ false, 42 ],
   [ false, -3.14159 ],
   [ false, "not a valid stuff" ],

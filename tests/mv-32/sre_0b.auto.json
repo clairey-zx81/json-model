@@ -1,0 +1,56 @@
+[
+  "# generated from sre_0b.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"?l\"] present",
+  [true, {"l": "a0"}],
+
+  "# .[\"?u\"] present",
+  [true, {"u": "A"}],
+
+  "# .[\"?i\"] present",
+  [true, {"i": "a-"}],
+
+  "# .[\"?l\"] invalid",
+  [false, {"l": null}],
+
+  "# .[\"?u\"] invalid",
+  [false, {"u": null}],
+
+  "# .[\"?i\"] invalid",
+  [false, {"i": null}],
+
+  "# .[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED root value {}: valid for the model"
+]

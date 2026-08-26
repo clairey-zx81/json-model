@@ -1,0 +1,51 @@
+[
+  "# generated from ex_01.model.json",
+
+  "# simplest",
+  [true, {"a": "Susie", "b": "Susie"}],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"$\"].x1[\"@\"] invalid",
+  [false, {"a": null, "b": "Susie"}],
+
+  "# .[\"$\"].x2[\"@\"] invalid",
+  [false, {"a": "Susie", "b": null}],
+
+  "# .[\"@\"].a missing",
+  [false, {"b": "Susie"}],
+
+  "# .[\"@\"].b missing",
+  [false, {"a": "Susie"}],
+
+  "# .[\"@\"][\"no-such-prop\"] extra",
+  [false, {"a": "Susie", "b": "Susie", "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

@@ -1,5 +1,4 @@
 [
-  [ true,  {} ],
   [ true,  {"a": "a"} ],
   [ true,  {"a": "B"} ],
   [ true,  {"b": "9"} ],
@@ -8,14 +7,9 @@
   [ false, {"b": ""} ],
   [ false, {"b": "_"} ],
   [ false, {"a": "abc_def"} ],
-  [ false, "" ],
   [ false, "hello world" ],
-  [ false, null ],
-  [ false, true ],
-  [ false, false ],
   [ false, 42 ],
   [ false, 3.1415927 ],
-  [ false, [] ],
   [ false, [1, "expected"] ],
   [ false, {"un": "expected"} ],
   [ false, {"a": "Calvin", "b": "Susie", "un": "expected"} ]

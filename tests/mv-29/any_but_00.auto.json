@@ -1,0 +1,59 @@
+[
+  "# generated from any_but_00.model.json",
+
+  "# simplest",
+  [true, null],
+
+  "# .[\"|\"][6][\"?b\"] present",
+  [true, {"a": "", "b": ""}],
+
+  "# .[\"|\"][1] branch",
+  [true, false],
+
+  "# .[\"|\"][2] branch",
+  [true, 0],
+
+  "# .[\"|\"][3] branch",
+  [true, 0.0],
+
+  "# .[\"|\"][4] branch",
+  [true, ""],
+
+  "# .[\"|\"][5] branch",
+  [true, []],
+
+  "# .[\"|\"][6] branch",
+  [true, {"a": ""}],
+
+  "# .[\"|\"][0] invalid",
+  [false, {}],
+
+  "# .[\"|\"][6].a invalid",
+  [false, {"a": null}],
+
+  "# .[\"|\"][6][\"?b\"] invalid",
+  [false, {"a": "", "b": null}],
+
+  "# .[\"|\"][6][\"no-such-prop\"] extra",
+  [false, {"a": "", "no-such-prop": null}],
+
+  "# SKIPPED invalid value .[\"|\"][5][0]: $ANY accepts every value",
+
+  "# SKIPPED root value null: valid for the model",
+
+  "# SKIPPED root value true: valid for the model",
+
+  "# SKIPPED root value false: valid for the model",
+
+  "# SKIPPED root value -42: valid for the model",
+
+  "# SKIPPED root value 3.14: valid for the model",
+
+  "# SKIPPED root value \"\": valid for the model",
+
+  "# SKIPPED root value \"abc\": valid for the model",
+
+  "# SKIPPED root value []: valid for the model",
+
+  "# SKIPPED root value [1]: valid for the model"
+]

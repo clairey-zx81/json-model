@@ -1,0 +1,44 @@
+[
+  "# generated from enum_05.model.json",
+
+  "# simplest",
+  [true, 200],
+
+  "# .[\"|\"][1] branch",
+  [true, "Susie"],
+
+  "# .[\"|\"][2] branch",
+  [true, null],
+
+  "# .[\"|\"][3] branch",
+  [true, 3.1415927],
+
+  "# .[\"|\"][0] invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}],
+
+  "# SKIPPED root value null: valid for the model"
+]

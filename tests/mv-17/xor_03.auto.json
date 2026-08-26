@@ -1,0 +1,10 @@
+[
+  "# generated from xor_03.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# FAILED branch value .[\"^\"][1] branch: the alternative is not valid here",
+
+  "# FAILED invalid model"
+]

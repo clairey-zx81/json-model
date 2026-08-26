@@ -1,0 +1,58 @@
+[
+  "# generated from muma-0.model.json",
+
+  "# simplest",
+  [true, {"name": ""}],
+
+  "# .[\"?born\"] present",
+  [true, {"name": "", "born": "1970-01-01"}],
+
+  "# .[\"?useless\"] present",
+  [true, {"name": "", "useless": {}}],
+
+  "# .[\"\"] present",
+  [true, {"name": "", "a": {}}],
+
+  "# .name invalid",
+  [false, {"name": null}],
+
+  "# .[\"?born\"] invalid",
+  [false, {"name": "", "born": null}],
+
+  "# .[\"?born\"] bad",
+  [false, {"name": "", "born": "1970-13-45"}],
+
+  "# .name missing",
+  [false, {}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"?useless\"]: $ANY accepts every value",
+
+  "# SKIPPED extra value .: object is open"
+]

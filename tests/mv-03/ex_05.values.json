@@ -1,8 +1,5 @@
 [
   [ true, 42 ],
   [ true, "Calvin" ],
-  [ false, [ 18, "Hobbes" ] ],
-  [ false, null ],
-  [ false, false ],
-  [ false, {} ]
+  [ false, [ 18, "Hobbes" ] ]
 ]

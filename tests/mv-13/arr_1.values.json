@@ -1,5 +1,1 @@
-[
-  [ true,  [] ],
-  [ false, null ],
-  [ false, [ 1 ] ]
-]
+[]

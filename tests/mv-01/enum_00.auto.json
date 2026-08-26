@@ -1,0 +1,61 @@
+[
+  "# generated from enum_00.model.json",
+
+  "# simplest",
+  [true, "Susie"],
+
+  "# .[\"^\"][1] branch",
+  [true, "Castafiore"],
+
+  "# .[\"$\"].p1[\"|\"][1] branch",
+  [true, "Calvin"],
+
+  "# .[\"$\"].p1[\"|\"][2] branch",
+  [true, "Hobbes"],
+
+  "# .[\"$\"].p1[\"|\"][3] branch",
+  [true, "Moe"],
+
+  "# .[\"$\"].p2[\"|\"][1] branch",
+  [true, "Haddock"],
+
+  "# .[\"$\"].p2[\"|\"][2] branch",
+  [true, "Milou"],
+
+  "# .[\"$\"].p2[\"|\"][3] branch",
+  [true, "Tintin"],
+
+  "# FAILED branch value .[\"$\"].p1[\"|\"][4] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"$\"].p2[\"|\"][4] branch: the alternative is not valid here",
+
+  "# .[\"$\"].p1 invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

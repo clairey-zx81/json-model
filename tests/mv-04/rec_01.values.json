@@ -1,11 +1,7 @@
 [
   [ true,  {"hello": {"world": {}}, "Susie": {"Calvin": {}, "Hobbes": {}}} ],
-  [ true,  {} ],
   [ true,  {"Susie": {}} ],
   [ false, "Hello World!" ],
-  [ false, [] ],
   [ false, {"Susie": "Calvin"} ],
-  [ false, null ],
-  [ false, false ],
   [ false, 42 ]
 ]

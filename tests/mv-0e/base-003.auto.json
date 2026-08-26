@@ -1,0 +1,10 @@
+[
+  "# generated from base-003.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# FAILED bound values: unsupported model",
+
+  "# FAILED invalid model"
+]

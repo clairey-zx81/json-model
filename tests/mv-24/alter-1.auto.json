@@ -1,0 +1,150 @@
+[
+  "# generated from alter-1.model.json",
+
+  "# simplest",
+  [true, {"t": "a", "a": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][1] branch",
+  [true, {"t": "b", "bc": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][2] branch",
+  [true, {"t": "g", "g": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][3] branch",
+  [true, {"t": "h", "hi": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][4] branch",
+  [true, {"t": "d", "d": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][5] branch",
+  [true, {"t": "e", "ef": ""}],
+
+  "# .[\"$\"].alternative[\"|\"][1].t[\"|\"][1] branch",
+  [true, {"t": "c", "bc": ""}],
+
+  "# .[\"$\"].h_ou_i[\"|\"][1] branch",
+  [true, {"t": "i", "hi": ""}],
+
+  "# .[\"$\"].ef.t[\"|\"][1] branch",
+  [true, {"t": "f", "ef": ""}],
+
+  "# .[\"$\"].alternative invalid",
+  [false, null],
+
+  "# .[\"$\"].alternative[\"^\"][0].t invalid",
+  [false, {"t": null, "a": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][0].a invalid",
+  [false, {"t": "a", "a": null}],
+
+  "# .[\"$\"].alternative[\"^\"][1].t invalid",
+  [false, {"t": null, "bc": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][1].bc invalid",
+  [false, {"t": "b", "bc": null}],
+
+  "# .[\"$\"].g invalid",
+  [false, {"t": null, "g": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][2].g invalid",
+  [false, {"t": "g", "g": null}],
+
+  "# .[\"$\"].h_ou_i invalid",
+  [false, {"t": null, "hi": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][3].hi invalid",
+  [false, {"t": "h", "hi": null}],
+
+  "# .[\"$\"].d.t invalid",
+  [false, {"t": null, "d": ""}],
+
+  "# .[\"$\"].d.d invalid",
+  [false, {"t": "d", "d": null}],
+
+  "# .[\"$\"].ef.t invalid",
+  [false, {"t": null, "ef": ""}],
+
+  "# .[\"$\"].ef.ef invalid",
+  [false, {"t": "e", "ef": null}],
+
+  "# .[\"$\"].alternative[\"^\"][0].t missing",
+  [false, {"a": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][0].a missing",
+  [false, {"t": "a"}],
+
+  "# .[\"$\"].alternative[\"^\"][1].t missing",
+  [false, {"bc": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][1].bc missing",
+  [false, {"t": "b"}],
+
+  "# .[\"$\"].alternative[\"^\"][2].t missing",
+  [false, {"g": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][2].g missing",
+  [false, {"t": "g"}],
+
+  "# .[\"$\"].alternative[\"^\"][3].t missing",
+  [false, {"hi": ""}],
+
+  "# .[\"$\"].alternative[\"^\"][3].hi missing",
+  [false, {"t": "h"}],
+
+  "# .[\"$\"].d.t missing",
+  [false, {"d": ""}],
+
+  "# .[\"$\"].d.d missing",
+  [false, {"t": "d"}],
+
+  "# .[\"$\"].ef.t missing",
+  [false, {"ef": ""}],
+
+  "# .[\"$\"].ef.ef missing",
+  [false, {"t": "e"}],
+
+  "# .[\"$\"].alternative[\"^\"][0][\"no-such-prop\"] extra",
+  [false, {"t": "a", "a": "", "no-such-prop": null}],
+
+  "# .[\"$\"].alternative[\"^\"][1][\"no-such-prop\"] extra",
+  [false, {"t": "b", "bc": "", "no-such-prop": null}],
+
+  "# .[\"$\"].alternative[\"^\"][2][\"no-such-prop\"] extra",
+  [false, {"t": "g", "g": "", "no-such-prop": null}],
+
+  "# .[\"$\"].alternative[\"^\"][3][\"no-such-prop\"] extra",
+  [false, {"t": "h", "hi": "", "no-such-prop": null}],
+
+  "# .[\"$\"].d[\"no-such-prop\"] extra",
+  [false, {"t": "d", "d": "", "no-such-prop": null}],
+
+  "# .[\"$\"].ef[\"no-such-prop\"] extra",
+  [false, {"t": "e", "ef": "", "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

@@ -1,0 +1,2051 @@
+[
+  "# generated from json-schema-draft-tight.model.json",
+
+  "# simplest",
+  [true, {"$schema": ""}],
+
+  "# .[\"$\"].Null[\"?$schema\"] present",
+  [true, {"type": "null", "$schema": ""}],
+
+  "# .[\"$\"].Null[\"?$id\"] present",
+  [true, {"$schema": "", "type": "null", "$id": ""}],
+
+  "# .[\"$\"].Null[\"?$comment\"] present",
+  [true, {"$schema": "", "type": "null", "$comment": ""}],
+
+  "# .[\"$\"].Null[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "type": "null", "$vocabulary": {}}],
+
+  "# .[\"$\"].Null[\"?title\"] present",
+  [true, {"$schema": "", "type": "null", "title": ""}],
+
+  "# .[\"$\"].Null[\"?default\"] present",
+  [true, {"$schema": "", "type": "null", "default": {}}],
+
+  "# .[\"$\"].Null[\"?examples\"] present",
+  [true, {"$schema": "", "type": "null", "examples": []}],
+
+  "# .[\"$\"].Null[\"?description\"] present",
+  [true, {"$schema": "", "type": "null", "description": ""}],
+
+  "# .[\"$\"].Null[\"?$anchor\"] present",
+  [true, {"$schema": "", "type": "null", "$anchor": ""}],
+
+  "# .[\"$\"].Null[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "type": "null", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Null[\"?deprecated\"] present",
+  [true, {"$schema": "", "type": "null", "deprecated": false}],
+
+  "# .[\"$\"].Null[\"?readOnly\"] present",
+  [true, {"$schema": "", "type": "null", "readOnly": false}],
+
+  "# .[\"$\"].Null[\"?writeOnly\"] present",
+  [true, {"$schema": "", "type": "null", "writeOnly": false}],
+
+  "# .[\"$\"].Null[\"?$defs\"] present",
+  [true, {"$schema": "", "type": "null", "$defs": {}}],
+
+  "# .[\"$\"].Null[\"?id\"] present",
+  [true, {"$schema": "", "type": "null", "id": ""}],
+
+  "# .[\"$\"].Null[\"?definitions\"] present",
+  [true, {"$schema": "", "type": "null", "definitions": {}}],
+
+  "# .[\"$\"].Null[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "type": "null", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Null[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "type": "null", "$defs": {"a": false}}],
+
+  "# .[\"$\"].Null[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "type": "null", "definitions": {"a": false}}],
+
+  "# .[\"$\"].Bool[\"?$schema\"] present",
+  [true, {"type": "boolean", "$schema": ""}],
+
+  "# .[\"$\"].Bool[\"?$id\"] present",
+  [true, {"$schema": "", "type": "boolean", "$id": ""}],
+
+  "# .[\"$\"].Bool[\"?$comment\"] present",
+  [true, {"$schema": "", "type": "boolean", "$comment": ""}],
+
+  "# .[\"$\"].Bool[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "type": "boolean", "$vocabulary": {}}],
+
+  "# .[\"$\"].Bool[\"?title\"] present",
+  [true, {"$schema": "", "type": "boolean", "title": ""}],
+
+  "# .[\"$\"].Bool[\"?default\"] present",
+  [true, {"$schema": "", "type": "boolean", "default": {}}],
+
+  "# .[\"$\"].Bool[\"?examples\"] present",
+  [true, {"$schema": "", "type": "boolean", "examples": []}],
+
+  "# .[\"$\"].Bool[\"?description\"] present",
+  [true, {"$schema": "", "type": "boolean", "description": ""}],
+
+  "# .[\"$\"].Bool[\"?$anchor\"] present",
+  [true, {"$schema": "", "type": "boolean", "$anchor": ""}],
+
+  "# .[\"$\"].Bool[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "type": "boolean", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Bool[\"?deprecated\"] present",
+  [true, {"$schema": "", "type": "boolean", "deprecated": false}],
+
+  "# .[\"$\"].Bool[\"?readOnly\"] present",
+  [true, {"$schema": "", "type": "boolean", "readOnly": false}],
+
+  "# .[\"$\"].Bool[\"?writeOnly\"] present",
+  [true, {"$schema": "", "type": "boolean", "writeOnly": false}],
+
+  "# .[\"$\"].Bool[\"?$defs\"] present",
+  [true, {"$schema": "", "type": "boolean", "$defs": {}}],
+
+  "# .[\"$\"].Bool[\"?id\"] present",
+  [true, {"$schema": "", "type": "boolean", "id": ""}],
+
+  "# .[\"$\"].Bool[\"?definitions\"] present",
+  [true, {"$schema": "", "type": "boolean", "definitions": {}}],
+
+  "# .[\"$\"].Bool[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "type": "boolean", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Bool[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "type": "boolean", "$defs": {"a": false}}],
+
+  "# .[\"$\"].Bool[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "type": "boolean", "definitions": {"a": false}}],
+
+  "# .[\"$\"].Const[\"?$schema\"] present",
+  [true, {"const": null, "$schema": ""}],
+
+  "# .[\"$\"].Const[\"?$id\"] present",
+  [true, {"$schema": "", "const": null, "$id": ""}],
+
+  "# .[\"$\"].Const[\"?$comment\"] present",
+  [true, {"$schema": "", "const": null, "$comment": ""}],
+
+  "# .[\"$\"].Const[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "const": null, "$vocabulary": {}}],
+
+  "# .[\"$\"].Const[\"?title\"] present",
+  [true, {"$schema": "", "const": null, "title": ""}],
+
+  "# .[\"$\"].Const[\"?default\"] present",
+  [true, {"$schema": "", "const": null, "default": {}}],
+
+  "# .[\"$\"].Const[\"?examples\"] present",
+  [true, {"$schema": "", "const": null, "examples": []}],
+
+  "# .[\"$\"].Const[\"?description\"] present",
+  [true, {"$schema": "", "const": null, "description": ""}],
+
+  "# .[\"$\"].Const[\"?$anchor\"] present",
+  [true, {"$schema": "", "const": null, "$anchor": ""}],
+
+  "# .[\"$\"].Const[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "const": null, "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Const[\"?deprecated\"] present",
+  [true, {"$schema": "", "const": null, "deprecated": false}],
+
+  "# .[\"$\"].Const[\"?readOnly\"] present",
+  [true, {"$schema": "", "const": null, "readOnly": false}],
+
+  "# .[\"$\"].Const[\"?writeOnly\"] present",
+  [true, {"$schema": "", "const": null, "writeOnly": false}],
+
+  "# .[\"$\"].Const[\"?$defs\"] present",
+  [true, {"$schema": "", "const": null, "$defs": {}}],
+
+  "# .[\"$\"].Const[\"?id\"] present",
+  [true, {"$schema": "", "const": null, "id": ""}],
+
+  "# .[\"$\"].Const[\"?definitions\"] present",
+  [true, {"$schema": "", "const": null, "definitions": {}}],
+
+  "# .[\"$\"].Const[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "const": null, "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Const[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "const": null, "$defs": {"a": false}}],
+
+  "# .[\"$\"].Const[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "const": null, "definitions": {"a": false}}],
+
+  "# .[\"$\"].Enum[\"?$schema\"] present",
+  [true, {"enum": [], "$schema": ""}],
+
+  "# .[\"$\"].Enum[\"?$id\"] present",
+  [true, {"$schema": "", "enum": [], "$id": ""}],
+
+  "# .[\"$\"].Enum[\"?$comment\"] present",
+  [true, {"$schema": "", "enum": [], "$comment": ""}],
+
+  "# .[\"$\"].Enum[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "enum": [], "$vocabulary": {}}],
+
+  "# .[\"$\"].Enum[\"?title\"] present",
+  [true, {"$schema": "", "enum": [], "title": ""}],
+
+  "# .[\"$\"].Enum[\"?default\"] present",
+  [true, {"$schema": "", "enum": [], "default": {}}],
+
+  "# .[\"$\"].Enum[\"?examples\"] present",
+  [true, {"$schema": "", "enum": [], "examples": []}],
+
+  "# .[\"$\"].Enum[\"?description\"] present",
+  [true, {"$schema": "", "enum": [], "description": ""}],
+
+  "# .[\"$\"].Enum[\"?$anchor\"] present",
+  [true, {"$schema": "", "enum": [], "$anchor": ""}],
+
+  "# .[\"$\"].Enum[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "enum": [], "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Enum[\"?deprecated\"] present",
+  [true, {"$schema": "", "enum": [], "deprecated": false}],
+
+  "# .[\"$\"].Enum[\"?readOnly\"] present",
+  [true, {"$schema": "", "enum": [], "readOnly": false}],
+
+  "# .[\"$\"].Enum[\"?writeOnly\"] present",
+  [true, {"$schema": "", "enum": [], "writeOnly": false}],
+
+  "# .[\"$\"].Enum[\"?$defs\"] present",
+  [true, {"$schema": "", "enum": [], "$defs": {}}],
+
+  "# .[\"$\"].Enum[\"?id\"] present",
+  [true, {"$schema": "", "enum": [], "id": ""}],
+
+  "# .[\"$\"].Enum[\"?definitions\"] present",
+  [true, {"$schema": "", "enum": [], "definitions": {}}],
+
+  "# .[\"$\"].Enum[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "enum": [], "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Enum[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "enum": [], "$defs": {"a": false}}],
+
+  "# .[\"$\"].Enum[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "enum": [], "definitions": {"a": false}}],
+
+  "# .[\"$\"].Integer[\"?$schema\"] present",
+  [true, {"type": "integer", "$schema": ""}],
+
+  "# .[\"$\"].Integer[\"?$id\"] present",
+  [true, {"$schema": "", "type": "integer", "$id": ""}],
+
+  "# .[\"$\"].Integer[\"?$comment\"] present",
+  [true, {"$schema": "", "type": "integer", "$comment": ""}],
+
+  "# .[\"$\"].Integer[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "type": "integer", "$vocabulary": {}}],
+
+  "# .[\"$\"].Integer[\"?title\"] present",
+  [true, {"$schema": "", "type": "integer", "title": ""}],
+
+  "# .[\"$\"].Integer[\"?default\"] present",
+  [true, {"$schema": "", "type": "integer", "default": {}}],
+
+  "# .[\"$\"].Integer[\"?examples\"] present",
+  [true, {"$schema": "", "type": "integer", "examples": []}],
+
+  "# .[\"$\"].Integer[\"?description\"] present",
+  [true, {"$schema": "", "type": "integer", "description": ""}],
+
+  "# .[\"$\"].Integer[\"?$anchor\"] present",
+  [true, {"$schema": "", "type": "integer", "$anchor": ""}],
+
+  "# .[\"$\"].Integer[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "type": "integer", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Integer[\"?deprecated\"] present",
+  [true, {"$schema": "", "type": "integer", "deprecated": false}],
+
+  "# .[\"$\"].Integer[\"?readOnly\"] present",
+  [true, {"$schema": "", "type": "integer", "readOnly": false}],
+
+  "# .[\"$\"].Integer[\"?writeOnly\"] present",
+  [true, {"$schema": "", "type": "integer", "writeOnly": false}],
+
+  "# .[\"$\"].Integer[\"?$defs\"] present",
+  [true, {"$schema": "", "type": "integer", "$defs": {}}],
+
+  "# .[\"$\"].Integer[\"?id\"] present",
+  [true, {"$schema": "", "type": "integer", "id": ""}],
+
+  "# .[\"$\"].Integer[\"?definitions\"] present",
+  [true, {"$schema": "", "type": "integer", "definitions": {}}],
+
+  "# .[\"$\"].Integer[\"?minimum\"] present",
+  [true, {"$schema": "", "type": "integer", "minimum": 0.0}],
+
+  "# .[\"$\"].Integer[\"?maximum\"] present",
+  [true, {"$schema": "", "type": "integer", "maximum": 0.0}],
+
+  "# .[\"$\"].Integer[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "type": "integer", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Integer[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "type": "integer", "$defs": {"a": false}}],
+
+  "# .[\"$\"].Integer[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "type": "integer", "definitions": {"a": false}}],
+
+  "# .[\"$\"].Number[\"?$schema\"] present",
+  [true, {"type": "number", "$schema": ""}],
+
+  "# .[\"$\"].Number[\"?$id\"] present",
+  [true, {"$schema": "", "type": "number", "$id": ""}],
+
+  "# .[\"$\"].Number[\"?$comment\"] present",
+  [true, {"$schema": "", "type": "number", "$comment": ""}],
+
+  "# .[\"$\"].Number[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "type": "number", "$vocabulary": {}}],
+
+  "# .[\"$\"].Number[\"?title\"] present",
+  [true, {"$schema": "", "type": "number", "title": ""}],
+
+  "# .[\"$\"].Number[\"?default\"] present",
+  [true, {"$schema": "", "type": "number", "default": {}}],
+
+  "# .[\"$\"].Number[\"?examples\"] present",
+  [true, {"$schema": "", "type": "number", "examples": []}],
+
+  "# .[\"$\"].Number[\"?description\"] present",
+  [true, {"$schema": "", "type": "number", "description": ""}],
+
+  "# .[\"$\"].Number[\"?$anchor\"] present",
+  [true, {"$schema": "", "type": "number", "$anchor": ""}],
+
+  "# .[\"$\"].Number[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "type": "number", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Number[\"?deprecated\"] present",
+  [true, {"$schema": "", "type": "number", "deprecated": false}],
+
+  "# .[\"$\"].Number[\"?readOnly\"] present",
+  [true, {"$schema": "", "type": "number", "readOnly": false}],
+
+  "# .[\"$\"].Number[\"?writeOnly\"] present",
+  [true, {"$schema": "", "type": "number", "writeOnly": false}],
+
+  "# .[\"$\"].Number[\"?$defs\"] present",
+  [true, {"$schema": "", "type": "number", "$defs": {}}],
+
+  "# .[\"$\"].Number[\"?id\"] present",
+  [true, {"$schema": "", "type": "number", "id": ""}],
+
+  "# .[\"$\"].Number[\"?definitions\"] present",
+  [true, {"$schema": "", "type": "number", "definitions": {}}],
+
+  "# .[\"$\"].Number[\"?minimum\"] present",
+  [true, {"$schema": "", "type": "number", "minimum": 0.0}],
+
+  "# .[\"$\"].Number[\"?maximum\"] present",
+  [true, {"$schema": "", "type": "number", "maximum": 0.0}],
+
+  "# .[\"$\"].Number[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "type": "number", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Number[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "type": "number", "$defs": {"a": false}}],
+
+  "# .[\"$\"].Number[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "type": "number", "definitions": {"a": false}}],
+
+  "# .[\"$\"].String[\"?$schema\"] present",
+  [true, {"type": "string", "$schema": ""}],
+
+  "# .[\"$\"].String[\"?$id\"] present",
+  [true, {"$schema": "", "type": "string", "$id": ""}],
+
+  "# .[\"$\"].String[\"?$comment\"] present",
+  [true, {"$schema": "", "type": "string", "$comment": ""}],
+
+  "# .[\"$\"].String[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "type": "string", "$vocabulary": {}}],
+
+  "# .[\"$\"].String[\"?title\"] present",
+  [true, {"$schema": "", "type": "string", "title": ""}],
+
+  "# .[\"$\"].String[\"?default\"] present",
+  [true, {"$schema": "", "type": "string", "default": {}}],
+
+  "# .[\"$\"].String[\"?examples\"] present",
+  [true, {"$schema": "", "type": "string", "examples": []}],
+
+  "# .[\"$\"].String[\"?description\"] present",
+  [true, {"$schema": "", "type": "string", "description": ""}],
+
+  "# .[\"$\"].String[\"?$anchor\"] present",
+  [true, {"$schema": "", "type": "string", "$anchor": ""}],
+
+  "# .[\"$\"].String[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "type": "string", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].String[\"?deprecated\"] present",
+  [true, {"$schema": "", "type": "string", "deprecated": false}],
+
+  "# .[\"$\"].String[\"?readOnly\"] present",
+  [true, {"$schema": "", "type": "string", "readOnly": false}],
+
+  "# .[\"$\"].String[\"?writeOnly\"] present",
+  [true, {"$schema": "", "type": "string", "writeOnly": false}],
+
+  "# .[\"$\"].String[\"?$defs\"] present",
+  [true, {"$schema": "", "type": "string", "$defs": {}}],
+
+  "# .[\"$\"].String[\"?id\"] present",
+  [true, {"$schema": "", "type": "string", "id": ""}],
+
+  "# .[\"$\"].String[\"?definitions\"] present",
+  [true, {"$schema": "", "type": "string", "definitions": {}}],
+
+  "# .[\"$\"].String[\"?pattern\"] present",
+  [true, {"$schema": "", "type": "string", "pattern": ""}],
+
+  "# .[\"$\"].String[\"?minLength\"] present",
+  [true, {"$schema": "", "type": "string", "minLength": 0}],
+
+  "# .[\"$\"].String[\"?maxLength\"] present",
+  [true, {"$schema": "", "type": "string", "maxLength": 0}],
+
+  "# .[\"$\"].String[\"?format\"] present",
+  [true, {"$schema": "", "type": "string", "format": "uri"}],
+
+  "# .[\"$\"].String[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "type": "string", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].String[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "type": "string", "$defs": {"a": false}}],
+
+  "# .[\"$\"].String[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "type": "string", "definitions": {"a": false}}],
+
+  "# .[\"$\"].Array[\"?$schema\"] present",
+  [true, {"type": "array", "$schema": ""}],
+
+  "# .[\"$\"].Array[\"?$id\"] present",
+  [true, {"$schema": "", "type": "array", "$id": ""}],
+
+  "# .[\"$\"].Array[\"?$comment\"] present",
+  [true, {"$schema": "", "type": "array", "$comment": ""}],
+
+  "# .[\"$\"].Array[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "type": "array", "$vocabulary": {}}],
+
+  "# .[\"$\"].Array[\"?title\"] present",
+  [true, {"$schema": "", "type": "array", "title": ""}],
+
+  "# .[\"$\"].Array[\"?default\"] present",
+  [true, {"$schema": "", "type": "array", "default": {}}],
+
+  "# .[\"$\"].Array[\"?examples\"] present",
+  [true, {"$schema": "", "type": "array", "examples": []}],
+
+  "# .[\"$\"].Array[\"?description\"] present",
+  [true, {"$schema": "", "type": "array", "description": ""}],
+
+  "# .[\"$\"].Array[\"?$anchor\"] present",
+  [true, {"$schema": "", "type": "array", "$anchor": ""}],
+
+  "# .[\"$\"].Array[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "type": "array", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Array[\"?deprecated\"] present",
+  [true, {"$schema": "", "type": "array", "deprecated": false}],
+
+  "# .[\"$\"].Array[\"?readOnly\"] present",
+  [true, {"$schema": "", "type": "array", "readOnly": false}],
+
+  "# .[\"$\"].Array[\"?writeOnly\"] present",
+  [true, {"$schema": "", "type": "array", "writeOnly": false}],
+
+  "# .[\"$\"].Array[\"?$defs\"] present",
+  [true, {"$schema": "", "type": "array", "$defs": {}}],
+
+  "# .[\"$\"].Array[\"?id\"] present",
+  [true, {"$schema": "", "type": "array", "id": ""}],
+
+  "# .[\"$\"].Array[\"?definitions\"] present",
+  [true, {"$schema": "", "type": "array", "definitions": {}}],
+
+  "# .[\"$\"].Array[\"?prefixItems\"] present",
+  [true, {"$schema": "", "type": "array", "prefixItems": []}],
+
+  "# .[\"$\"].Array[\"?items\"] present",
+  [true, {"$schema": "", "type": "array", "items": false}],
+
+  "# .[\"$\"].Array[\"?additionalItems\"] present",
+  [true, {"$schema": "", "type": "array", "additionalItems": false}],
+
+  "# .[\"$\"].Array[\"?unevaluatedItems\"] present",
+  [true, {"$schema": "", "type": "array", "unevaluatedItems": false}],
+
+  "# .[\"$\"].Array[\"?minItems\"] present",
+  [true, {"$schema": "", "type": "array", "minItems": 0}],
+
+  "# .[\"$\"].Array[\"?maxItems\"] present",
+  [true, {"$schema": "", "type": "array", "maxItems": 0}],
+
+  "# .[\"$\"].Array[\"?uniqueItems\"] present",
+  [true, {"$schema": "", "type": "array", "uniqueItems": false}],
+
+  "# .[\"$\"].Array[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "type": "array", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Array[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "type": "array", "$defs": {"a": false}}],
+
+  "# .[\"$\"].Array[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "type": "array", "definitions": {"a": false}}],
+
+  "# .[\"$\"].Object[\"?$schema\"] present",
+  [true, {"type": "object", "$schema": ""}],
+
+  "# .[\"$\"].Object[\"?$id\"] present",
+  [true, {"$schema": "", "type": "object", "$id": ""}],
+
+  "# .[\"$\"].Object[\"?$comment\"] present",
+  [true, {"$schema": "", "type": "object", "$comment": ""}],
+
+  "# .[\"$\"].Object[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "type": "object", "$vocabulary": {}}],
+
+  "# .[\"$\"].Object[\"?title\"] present",
+  [true, {"$schema": "", "type": "object", "title": ""}],
+
+  "# .[\"$\"].Object[\"?default\"] present",
+  [true, {"$schema": "", "type": "object", "default": {}}],
+
+  "# .[\"$\"].Object[\"?examples\"] present",
+  [true, {"$schema": "", "type": "object", "examples": []}],
+
+  "# .[\"$\"].Object[\"?description\"] present",
+  [true, {"$schema": "", "type": "object", "description": ""}],
+
+  "# .[\"$\"].Object[\"?$anchor\"] present",
+  [true, {"$schema": "", "type": "object", "$anchor": ""}],
+
+  "# .[\"$\"].Object[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "type": "object", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Object[\"?deprecated\"] present",
+  [true, {"$schema": "", "type": "object", "deprecated": false}],
+
+  "# .[\"$\"].Object[\"?readOnly\"] present",
+  [true, {"$schema": "", "type": "object", "readOnly": false}],
+
+  "# .[\"$\"].Object[\"?writeOnly\"] present",
+  [true, {"$schema": "", "type": "object", "writeOnly": false}],
+
+  "# .[\"$\"].Object[\"?$defs\"] present",
+  [true, {"$schema": "", "type": "object", "$defs": {}}],
+
+  "# .[\"$\"].Object[\"?id\"] present",
+  [true, {"$schema": "", "type": "object", "id": ""}],
+
+  "# .[\"$\"].Object[\"?definitions\"] present",
+  [true, {"$schema": "", "type": "object", "definitions": {}}],
+
+  "# .[\"$\"].Object[\"?properties\"] present",
+  [true, {"$schema": "", "type": "object", "properties": {}}],
+
+  "# .[\"$\"].Object[\"?required\"] present",
+  [true, {"$schema": "", "type": "object", "required": []}],
+
+  "# .[\"$\"].Object[\"?additionalProperties\"] present",
+  [true, {"$schema": "", "type": "object", "additionalProperties": false}],
+
+  "# .[\"$\"].Object[\"?unevaluatedProperties\"] present",
+  [true, {"$schema": "", "type": "object", "unevaluatedProperties": false}],
+
+  "# .[\"$\"].Object[\"?minProperties\"] present",
+  [true, {"$schema": "", "type": "object", "minProperties": 0}],
+
+  "# .[\"$\"].Object[\"?maxProperties\"] present",
+  [true, {"$schema": "", "type": "object", "maxProperties": 0}],
+
+  "# .[\"$\"].Object[\"?patternProperties\"] present",
+  [true, {"$schema": "", "type": "object", "patternProperties": {}}],
+
+  "# .[\"$\"].Object[\"?propertyNames\"] present",
+  [true, {"$schema": "", "type": "object", "propertyNames": {"type": "null"}}],
+
+  "# .[\"$\"].Object[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "type": "object", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Object[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "type": "object", "$defs": {"a": false}}],
+
+  "# .[\"$\"].Object[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "type": "object", "definitions": {"a": false}}],
+
+  "# .[\"$\"].Object[\"?properties\"][\"\"] present",
+  [true, {"$schema": "", "type": "object", "properties": {"a": false}}],
+
+  "# .[\"$\"].Object[\"?patternProperties\"][\"$REGEX\"] present",
+  [true, {"$schema": "", "type": "object", "patternProperties": {"": false}}],
+
+  "# .[\"$\"].AllOf[\"?$schema\"] present",
+  [true, {"allOf": [], "$schema": ""}],
+
+  "# .[\"$\"].AllOf[\"?$id\"] present",
+  [true, {"$schema": "", "allOf": [], "$id": ""}],
+
+  "# .[\"$\"].AllOf[\"?$comment\"] present",
+  [true, {"$schema": "", "allOf": [], "$comment": ""}],
+
+  "# .[\"$\"].AllOf[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "allOf": [], "$vocabulary": {}}],
+
+  "# .[\"$\"].AllOf[\"?title\"] present",
+  [true, {"$schema": "", "allOf": [], "title": ""}],
+
+  "# .[\"$\"].AllOf[\"?default\"] present",
+  [true, {"$schema": "", "allOf": [], "default": {}}],
+
+  "# .[\"$\"].AllOf[\"?examples\"] present",
+  [true, {"$schema": "", "allOf": [], "examples": []}],
+
+  "# .[\"$\"].AllOf[\"?description\"] present",
+  [true, {"$schema": "", "allOf": [], "description": ""}],
+
+  "# .[\"$\"].AllOf[\"?$anchor\"] present",
+  [true, {"$schema": "", "allOf": [], "$anchor": ""}],
+
+  "# .[\"$\"].AllOf[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "allOf": [], "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].AllOf[\"?deprecated\"] present",
+  [true, {"$schema": "", "allOf": [], "deprecated": false}],
+
+  "# .[\"$\"].AllOf[\"?readOnly\"] present",
+  [true, {"$schema": "", "allOf": [], "readOnly": false}],
+
+  "# .[\"$\"].AllOf[\"?writeOnly\"] present",
+  [true, {"$schema": "", "allOf": [], "writeOnly": false}],
+
+  "# .[\"$\"].AllOf[\"?$defs\"] present",
+  [true, {"$schema": "", "allOf": [], "$defs": {}}],
+
+  "# .[\"$\"].AllOf[\"?id\"] present",
+  [true, {"$schema": "", "allOf": [], "id": ""}],
+
+  "# .[\"$\"].AllOf[\"?definitions\"] present",
+  [true, {"$schema": "", "allOf": [], "definitions": {}}],
+
+  "# .[\"$\"].AllOf[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "allOf": [], "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].AllOf[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "allOf": [], "$defs": {"a": false}}],
+
+  "# .[\"$\"].AllOf[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "allOf": [], "definitions": {"a": false}}],
+
+  "# .[\"$\"].AnyOf[\"?$schema\"] present",
+  [true, {"anyOf": [], "$schema": ""}],
+
+  "# .[\"$\"].AnyOf[\"?$id\"] present",
+  [true, {"$schema": "", "anyOf": [], "$id": ""}],
+
+  "# .[\"$\"].AnyOf[\"?$comment\"] present",
+  [true, {"$schema": "", "anyOf": [], "$comment": ""}],
+
+  "# .[\"$\"].AnyOf[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "anyOf": [], "$vocabulary": {}}],
+
+  "# .[\"$\"].AnyOf[\"?title\"] present",
+  [true, {"$schema": "", "anyOf": [], "title": ""}],
+
+  "# .[\"$\"].AnyOf[\"?default\"] present",
+  [true, {"$schema": "", "anyOf": [], "default": {}}],
+
+  "# .[\"$\"].AnyOf[\"?examples\"] present",
+  [true, {"$schema": "", "anyOf": [], "examples": []}],
+
+  "# .[\"$\"].AnyOf[\"?description\"] present",
+  [true, {"$schema": "", "anyOf": [], "description": ""}],
+
+  "# .[\"$\"].AnyOf[\"?$anchor\"] present",
+  [true, {"$schema": "", "anyOf": [], "$anchor": ""}],
+
+  "# .[\"$\"].AnyOf[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "anyOf": [], "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].AnyOf[\"?deprecated\"] present",
+  [true, {"$schema": "", "anyOf": [], "deprecated": false}],
+
+  "# .[\"$\"].AnyOf[\"?readOnly\"] present",
+  [true, {"$schema": "", "anyOf": [], "readOnly": false}],
+
+  "# .[\"$\"].AnyOf[\"?writeOnly\"] present",
+  [true, {"$schema": "", "anyOf": [], "writeOnly": false}],
+
+  "# .[\"$\"].AnyOf[\"?$defs\"] present",
+  [true, {"$schema": "", "anyOf": [], "$defs": {}}],
+
+  "# .[\"$\"].AnyOf[\"?id\"] present",
+  [true, {"$schema": "", "anyOf": [], "id": ""}],
+
+  "# .[\"$\"].AnyOf[\"?definitions\"] present",
+  [true, {"$schema": "", "anyOf": [], "definitions": {}}],
+
+  "# .[\"$\"].AnyOf[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "anyOf": [], "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].AnyOf[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "anyOf": [], "$defs": {"a": false}}],
+
+  "# .[\"$\"].AnyOf[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "anyOf": [], "definitions": {"a": false}}],
+
+  "# .[\"$\"].OneOf[\"?$schema\"] present",
+  [true, {"oneOf": [], "$schema": ""}],
+
+  "# .[\"$\"].OneOf[\"?$id\"] present",
+  [true, {"$schema": "", "oneOf": [], "$id": ""}],
+
+  "# .[\"$\"].OneOf[\"?$comment\"] present",
+  [true, {"$schema": "", "oneOf": [], "$comment": ""}],
+
+  "# .[\"$\"].OneOf[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "oneOf": [], "$vocabulary": {}}],
+
+  "# .[\"$\"].OneOf[\"?title\"] present",
+  [true, {"$schema": "", "oneOf": [], "title": ""}],
+
+  "# .[\"$\"].OneOf[\"?default\"] present",
+  [true, {"$schema": "", "oneOf": [], "default": {}}],
+
+  "# .[\"$\"].OneOf[\"?examples\"] present",
+  [true, {"$schema": "", "oneOf": [], "examples": []}],
+
+  "# .[\"$\"].OneOf[\"?description\"] present",
+  [true, {"$schema": "", "oneOf": [], "description": ""}],
+
+  "# .[\"$\"].OneOf[\"?$anchor\"] present",
+  [true, {"$schema": "", "oneOf": [], "$anchor": ""}],
+
+  "# .[\"$\"].OneOf[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "oneOf": [], "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].OneOf[\"?deprecated\"] present",
+  [true, {"$schema": "", "oneOf": [], "deprecated": false}],
+
+  "# .[\"$\"].OneOf[\"?readOnly\"] present",
+  [true, {"$schema": "", "oneOf": [], "readOnly": false}],
+
+  "# .[\"$\"].OneOf[\"?writeOnly\"] present",
+  [true, {"$schema": "", "oneOf": [], "writeOnly": false}],
+
+  "# .[\"$\"].OneOf[\"?$defs\"] present",
+  [true, {"$schema": "", "oneOf": [], "$defs": {}}],
+
+  "# .[\"$\"].OneOf[\"?id\"] present",
+  [true, {"$schema": "", "oneOf": [], "id": ""}],
+
+  "# .[\"$\"].OneOf[\"?definitions\"] present",
+  [true, {"$schema": "", "oneOf": [], "definitions": {}}],
+
+  "# .[\"$\"].OneOf[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "oneOf": [], "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].OneOf[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "oneOf": [], "$defs": {"a": false}}],
+
+  "# .[\"$\"].OneOf[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "oneOf": [], "definitions": {"a": false}}],
+
+  "# .[\"$\"].Ref[\"?$schema\"] present",
+  [true, {"$ref": "https://json-model.org/", "$schema": ""}],
+
+  "# .[\"$\"].Ref[\"?$id\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "$id": ""}],
+
+  "# .[\"$\"].Ref[\"?$comment\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "$comment": ""}],
+
+  "# .[\"$\"].Ref[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "$vocabulary": {}}],
+
+  "# .[\"$\"].Ref[\"?title\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "title": ""}],
+
+  "# .[\"$\"].Ref[\"?default\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "default": {}}],
+
+  "# .[\"$\"].Ref[\"?examples\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "examples": []}],
+
+  "# .[\"$\"].Ref[\"?description\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "description": ""}],
+
+  "# .[\"$\"].Ref[\"?$anchor\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "$anchor": ""}],
+
+  "# .[\"$\"].Ref[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].Ref[\"?deprecated\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "deprecated": false}],
+
+  "# .[\"$\"].Ref[\"?readOnly\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "readOnly": false}],
+
+  "# .[\"$\"].Ref[\"?writeOnly\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "writeOnly": false}],
+
+  "# .[\"$\"].Ref[\"?$defs\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "$defs": {}}],
+
+  "# .[\"$\"].Ref[\"?id\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "id": ""}],
+
+  "# .[\"$\"].Ref[\"?definitions\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "definitions": {}}],
+
+  "# .[\"$\"].Ref[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].Ref[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "$defs": {"a": false}}],
+
+  "# .[\"$\"].Ref[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "$ref": "https://json-model.org/", "definitions": {"a": false}}],
+
+  "# .[\"$\"].DynRef[\"?$schema\"] present",
+  [true, {"$dynamicRef": "https://json-model.org/", "$schema": ""}],
+
+  "# .[\"$\"].DynRef[\"?$id\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "$id": ""}],
+
+  "# .[\"$\"].DynRef[\"?$comment\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "$comment": ""}],
+
+  "# .[\"$\"].DynRef[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "$vocabulary": {}}],
+
+  "# .[\"$\"].DynRef[\"?title\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "title": ""}],
+
+  "# .[\"$\"].DynRef[\"?default\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "default": {}}],
+
+  "# .[\"$\"].DynRef[\"?examples\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "examples": []}],
+
+  "# .[\"$\"].DynRef[\"?description\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "description": ""}],
+
+  "# .[\"$\"].DynRef[\"?$anchor\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "$anchor": ""}],
+
+  "# .[\"$\"].DynRef[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].DynRef[\"?deprecated\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "deprecated": false}],
+
+  "# .[\"$\"].DynRef[\"?readOnly\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "readOnly": false}],
+
+  "# .[\"$\"].DynRef[\"?writeOnly\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "writeOnly": false}],
+
+  "# .[\"$\"].DynRef[\"?$defs\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "$defs": {}}],
+
+  "# .[\"$\"].DynRef[\"?id\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "id": ""}],
+
+  "# .[\"$\"].DynRef[\"?definitions\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "definitions": {}}],
+
+  "# .[\"$\"].DynRef[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].DynRef[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "$defs": {"a": false}}],
+
+  "# .[\"$\"].DynRef[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "$dynamicRef": "https://json-model.org/", "definitions": {"a": false}}],
+
+  "# .[\"$\"].metas[\"?$id\"] present",
+  [true, {"$schema": "", "$id": ""}],
+
+  "# .[\"$\"].metas[\"?$comment\"] present",
+  [true, {"$schema": "", "$comment": ""}],
+
+  "# .[\"$\"].metas[\"?$vocabulary\"] present",
+  [true, {"$schema": "", "$vocabulary": {}}],
+
+  "# .[\"$\"].metas[\"?title\"] present",
+  [true, {"$schema": "", "title": ""}],
+
+  "# .[\"$\"].metas[\"?default\"] present",
+  [true, {"$schema": "", "default": {}}],
+
+  "# .[\"$\"].metas[\"?examples\"] present",
+  [true, {"$schema": "", "examples": []}],
+
+  "# .[\"$\"].metas[\"?description\"] present",
+  [true, {"$schema": "", "description": ""}],
+
+  "# .[\"$\"].metas[\"?$anchor\"] present",
+  [true, {"$schema": "", "$anchor": ""}],
+
+  "# .[\"$\"].metas[\"?$dynamicAnchor\"] present",
+  [true, {"$schema": "", "$dynamicAnchor": ""}],
+
+  "# .[\"$\"].metas[\"?deprecated\"] present",
+  [true, {"$schema": "", "deprecated": false}],
+
+  "# .[\"$\"].metas[\"?readOnly\"] present",
+  [true, {"$schema": "", "readOnly": false}],
+
+  "# .[\"$\"].metas[\"?writeOnly\"] present",
+  [true, {"$schema": "", "writeOnly": false}],
+
+  "# .[\"$\"].metas[\"?$defs\"] present",
+  [true, {"$schema": "", "$defs": {}}],
+
+  "# .[\"$\"].metas[\"?id\"] present",
+  [true, {"$schema": "", "id": ""}],
+
+  "# .[\"$\"].metas[\"?definitions\"] present",
+  [true, {"$schema": "", "definitions": {}}],
+
+  "# .[\"$\"].metas[\"?$vocabulary\"][\"$URI\"] present",
+  [true, {"$schema": "", "$vocabulary": {"https://json-model.org/": false}}],
+
+  "# .[\"$\"].metas[\"?$defs\"][\"\"] present",
+  [true, {"$schema": "", "$defs": {"a": false}}],
+
+  "# .[\"$\"].metas[\"?definitions\"][\"\"] present",
+  [true, {"$schema": "", "definitions": {"a": false}}],
+
+  "# FAILED optional value .[\"$\"].RootSchema[\"&\"][0][\"\"] present: adding a is not valid",
+
+  "# .[\"$\"].const[\"|\"][1] branch",
+  [true, {"$schema": "", "const": false}],
+
+  "# .[\"$\"].const[\"|\"][2] branch",
+  [true, {"$schema": "", "const": 0}],
+
+  "# .[\"$\"].const[\"|\"][3] branch",
+  [true, {"$schema": "", "const": 0.0}],
+
+  "# .[\"$\"].const[\"|\"][4] branch",
+  [true, {"$schema": "", "const": ""}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][1] branch",
+  [true, {"$schema": "", "type": "string", "format": "uri-reference"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][2] branch",
+  [true, {"$schema": "", "type": "string", "format": "iri"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][3] branch",
+  [true, {"$schema": "", "type": "string", "format": "iri-reference"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][4] branch",
+  [true, {"$schema": "", "type": "string", "format": "date"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][5] branch",
+  [true, {"$schema": "", "type": "string", "format": "time"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][6] branch",
+  [true, {"$schema": "", "type": "string", "format": "date-time"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][7] branch",
+  [true, {"$schema": "", "type": "string", "format": "ipv4"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][8] branch",
+  [true, {"$schema": "", "type": "string", "format": "ipv6"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][9] branch",
+  [true, {"$schema": "", "type": "string", "format": "regex"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][10] branch",
+  [true, {"$schema": "", "type": "string", "format": "uuid"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][11] branch",
+  [true, {"$schema": "", "type": "string", "format": "hostname"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][12] branch",
+  [true, {"$schema": "", "type": "string", "format": "email"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][13] branch",
+  [true, {"$schema": "", "type": "string", "format": "idn-hostname"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][14] branch",
+  [true, {"$schema": "", "type": "string", "format": "idn-email"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][15] branch",
+  [true, {"$schema": "", "type": "string", "format": "duration"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][16] branch",
+  [true, {"$schema": "", "type": "string", "format": "int32"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][17] branch",
+  [true, {"$schema": "", "type": "string", "format": "int64"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][18] branch",
+  [true, {"$schema": "", "type": "string", "format": "uint"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][19] branch",
+  [true, {"$schema": "", "type": "string", "format": "uint32"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][20] branch",
+  [true, {"$schema": "", "type": "string", "format": "uint64"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][21] branch",
+  [true, {"$schema": "", "type": "string", "format": "json-pointer"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][22] branch",
+  [true, {"$schema": "", "type": "string", "format": "relative-json-pointer"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][23] branch",
+  [true, {"$schema": "", "type": "string", "format": "byte"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][24] branch",
+  [true, {"$schema": "", "type": "string", "format": "double"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][25] branch",
+  [true, {"$schema": "", "type": "string", "format": "int"}],
+
+  "# .[\"$\"].String[\"?format\"][\"|\"][26] branch",
+  [true, {"$schema": "", "type": "string", "format": "mime-type"}],
+
+  "# .[\"$\"].Schema[\"|\"][0] branch",
+  [true, {"$schema": "", "type": "array", "prefixItems": [false]}],
+
+  "# .[\"$\"].Schema[\"|\"][1] branch",
+  [true, {"$schema": "", "type": "array", "prefixItems": [{"type": "null"}]}],
+
+  "# .[\"$\"].Array[\"?items\"][\"|\"][1] branch",
+  [true, {"$schema": "", "type": "array", "items": []}],
+
+  "# .[\"$\"].RootSchema invalid",
+  [false, null],
+
+  "# .[\"$\"].RootSchema[\"&\"][0][\"_$schema\"] invalid",
+  [false, {"$schema": null}],
+
+  "# .[\"$\"].Null.type invalid",
+  [false, {"type": null}],
+
+  "# .[\"$\"].Null[\"?$schema\"] invalid",
+  [false, {"type": "null", "$schema": null}],
+
+  "# .[\"$\"].Null[\"?$id\"] invalid",
+  [false, {"type": "null", "$id": null}],
+
+  "# .[\"$\"].Null[\"?$comment\"] invalid",
+  [false, {"type": "null", "$comment": null}],
+
+  "# .[\"$\"].Null[\"?$vocabulary\"] invalid",
+  [false, {"type": "null", "$vocabulary": null}],
+
+  "# .[\"$\"].Null[\"?title\"] invalid",
+  [false, {"type": "null", "title": null}],
+
+  "# .[\"$\"].Null[\"?examples\"] invalid",
+  [false, {"type": "null", "examples": null}],
+
+  "# .[\"$\"].Null[\"?description\"] invalid",
+  [false, {"type": "null", "description": null}],
+
+  "# .[\"$\"].Null[\"?$anchor\"] invalid",
+  [false, {"type": "null", "$anchor": null}],
+
+  "# .[\"$\"].Null[\"?$dynamicAnchor\"] invalid",
+  [false, {"type": "null", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Null[\"?deprecated\"] invalid",
+  [false, {"type": "null", "deprecated": null}],
+
+  "# .[\"$\"].Null[\"?readOnly\"] invalid",
+  [false, {"type": "null", "readOnly": null}],
+
+  "# .[\"$\"].Null[\"?writeOnly\"] invalid",
+  [false, {"type": "null", "writeOnly": null}],
+
+  "# .[\"$\"].Null[\"?$defs\"] invalid",
+  [false, {"type": "null", "$defs": null}],
+
+  "# .[\"$\"].Null[\"?id\"] invalid",
+  [false, {"type": "null", "id": null}],
+
+  "# .[\"$\"].Null[\"?definitions\"] invalid",
+  [false, {"type": "null", "definitions": null}],
+
+  "# .[\"$\"].Bool[\"?$schema\"] invalid",
+  [false, {"type": "boolean", "$schema": null}],
+
+  "# .[\"$\"].Bool[\"?$id\"] invalid",
+  [false, {"type": "boolean", "$id": null}],
+
+  "# .[\"$\"].Bool[\"?$comment\"] invalid",
+  [false, {"type": "boolean", "$comment": null}],
+
+  "# .[\"$\"].Bool[\"?$vocabulary\"] invalid",
+  [false, {"type": "boolean", "$vocabulary": null}],
+
+  "# .[\"$\"].Bool[\"?title\"] invalid",
+  [false, {"type": "boolean", "title": null}],
+
+  "# .[\"$\"].Bool[\"?examples\"] invalid",
+  [false, {"type": "boolean", "examples": null}],
+
+  "# .[\"$\"].Bool[\"?description\"] invalid",
+  [false, {"type": "boolean", "description": null}],
+
+  "# .[\"$\"].Bool[\"?$anchor\"] invalid",
+  [false, {"type": "boolean", "$anchor": null}],
+
+  "# .[\"$\"].Bool[\"?$dynamicAnchor\"] invalid",
+  [false, {"type": "boolean", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Bool[\"?deprecated\"] invalid",
+  [false, {"type": "boolean", "deprecated": null}],
+
+  "# .[\"$\"].Bool[\"?readOnly\"] invalid",
+  [false, {"type": "boolean", "readOnly": null}],
+
+  "# .[\"$\"].Bool[\"?writeOnly\"] invalid",
+  [false, {"type": "boolean", "writeOnly": null}],
+
+  "# .[\"$\"].Bool[\"?$defs\"] invalid",
+  [false, {"type": "boolean", "$defs": null}],
+
+  "# .[\"$\"].Bool[\"?id\"] invalid",
+  [false, {"type": "boolean", "id": null}],
+
+  "# .[\"$\"].Bool[\"?definitions\"] invalid",
+  [false, {"type": "boolean", "definitions": null}],
+
+  "# .[\"$\"].const invalid",
+  [false, {"const": []}],
+
+  "# .[\"$\"].const[\"|\"][0] invalid",
+  [false, {"const": true}],
+
+  "# .[\"$\"].const[\"|\"][1] invalid",
+  [false, {"const": null}],
+
+  "# .[\"$\"].Const[\"?$schema\"] invalid",
+  [false, {"const": null, "$schema": null}],
+
+  "# .[\"$\"].Const[\"?$id\"] invalid",
+  [false, {"const": null, "$id": null}],
+
+  "# .[\"$\"].Const[\"?$comment\"] invalid",
+  [false, {"const": null, "$comment": null}],
+
+  "# .[\"$\"].Const[\"?$vocabulary\"] invalid",
+  [false, {"const": null, "$vocabulary": null}],
+
+  "# .[\"$\"].Const[\"?title\"] invalid",
+  [false, {"const": null, "title": null}],
+
+  "# .[\"$\"].Const[\"?examples\"] invalid",
+  [false, {"const": null, "examples": null}],
+
+  "# .[\"$\"].Const[\"?description\"] invalid",
+  [false, {"const": null, "description": null}],
+
+  "# .[\"$\"].Const[\"?$anchor\"] invalid",
+  [false, {"const": null, "$anchor": null}],
+
+  "# .[\"$\"].Const[\"?$dynamicAnchor\"] invalid",
+  [false, {"const": null, "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Const[\"?deprecated\"] invalid",
+  [false, {"const": null, "deprecated": null}],
+
+  "# .[\"$\"].Const[\"?readOnly\"] invalid",
+  [false, {"const": null, "readOnly": null}],
+
+  "# .[\"$\"].Const[\"?writeOnly\"] invalid",
+  [false, {"const": null, "writeOnly": null}],
+
+  "# .[\"$\"].Const[\"?$defs\"] invalid",
+  [false, {"const": null, "$defs": null}],
+
+  "# .[\"$\"].Const[\"?id\"] invalid",
+  [false, {"const": null, "id": null}],
+
+  "# .[\"$\"].Const[\"?definitions\"] invalid",
+  [false, {"const": null, "definitions": null}],
+
+  "# .[\"$\"].enum invalid",
+  [false, {"enum": null}],
+
+  "# .[\"$\"].enum[\"|\"][0][0] invalid",
+  [false, {"enum": [null]}],
+
+  "# .[\"$\"].Enum[\"?$schema\"] invalid",
+  [false, {"enum": [], "$schema": null}],
+
+  "# .[\"$\"].Enum[\"?$id\"] invalid",
+  [false, {"enum": [], "$id": null}],
+
+  "# .[\"$\"].Enum[\"?$comment\"] invalid",
+  [false, {"enum": [], "$comment": null}],
+
+  "# .[\"$\"].Enum[\"?$vocabulary\"] invalid",
+  [false, {"enum": [], "$vocabulary": null}],
+
+  "# .[\"$\"].Enum[\"?title\"] invalid",
+  [false, {"enum": [], "title": null}],
+
+  "# .[\"$\"].Enum[\"?examples\"] invalid",
+  [false, {"enum": [], "examples": null}],
+
+  "# .[\"$\"].Enum[\"?description\"] invalid",
+  [false, {"enum": [], "description": null}],
+
+  "# .[\"$\"].Enum[\"?$anchor\"] invalid",
+  [false, {"enum": [], "$anchor": null}],
+
+  "# .[\"$\"].Enum[\"?$dynamicAnchor\"] invalid",
+  [false, {"enum": [], "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Enum[\"?deprecated\"] invalid",
+  [false, {"enum": [], "deprecated": null}],
+
+  "# .[\"$\"].Enum[\"?readOnly\"] invalid",
+  [false, {"enum": [], "readOnly": null}],
+
+  "# .[\"$\"].Enum[\"?writeOnly\"] invalid",
+  [false, {"enum": [], "writeOnly": null}],
+
+  "# .[\"$\"].Enum[\"?$defs\"] invalid",
+  [false, {"enum": [], "$defs": null}],
+
+  "# .[\"$\"].Enum[\"?id\"] invalid",
+  [false, {"enum": [], "id": null}],
+
+  "# .[\"$\"].Enum[\"?definitions\"] invalid",
+  [false, {"enum": [], "definitions": null}],
+
+  "# .[\"$\"].Integer[\"?$schema\"] invalid",
+  [false, {"type": "integer", "$schema": null}],
+
+  "# .[\"$\"].Integer[\"?$id\"] invalid",
+  [false, {"type": "integer", "$id": null}],
+
+  "# .[\"$\"].Integer[\"?$comment\"] invalid",
+  [false, {"type": "integer", "$comment": null}],
+
+  "# .[\"$\"].Integer[\"?$vocabulary\"] invalid",
+  [false, {"type": "integer", "$vocabulary": null}],
+
+  "# .[\"$\"].Integer[\"?title\"] invalid",
+  [false, {"type": "integer", "title": null}],
+
+  "# .[\"$\"].Integer[\"?examples\"] invalid",
+  [false, {"type": "integer", "examples": null}],
+
+  "# .[\"$\"].Integer[\"?description\"] invalid",
+  [false, {"type": "integer", "description": null}],
+
+  "# .[\"$\"].Integer[\"?$anchor\"] invalid",
+  [false, {"type": "integer", "$anchor": null}],
+
+  "# .[\"$\"].Integer[\"?$dynamicAnchor\"] invalid",
+  [false, {"type": "integer", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Integer[\"?deprecated\"] invalid",
+  [false, {"type": "integer", "deprecated": null}],
+
+  "# .[\"$\"].Integer[\"?readOnly\"] invalid",
+  [false, {"type": "integer", "readOnly": null}],
+
+  "# .[\"$\"].Integer[\"?writeOnly\"] invalid",
+  [false, {"type": "integer", "writeOnly": null}],
+
+  "# .[\"$\"].Integer[\"?$defs\"] invalid",
+  [false, {"type": "integer", "$defs": null}],
+
+  "# .[\"$\"].Integer[\"?id\"] invalid",
+  [false, {"type": "integer", "id": null}],
+
+  "# .[\"$\"].Integer[\"?definitions\"] invalid",
+  [false, {"type": "integer", "definitions": null}],
+
+  "# .[\"$\"].Integer[\"?minimum\"] invalid",
+  [false, {"type": "integer", "minimum": null}],
+
+  "# .[\"$\"].Integer[\"?maximum\"] invalid",
+  [false, {"type": "integer", "maximum": null}],
+
+  "# .[\"$\"].Number[\"?$schema\"] invalid",
+  [false, {"type": "number", "$schema": null}],
+
+  "# .[\"$\"].Number[\"?$id\"] invalid",
+  [false, {"type": "number", "$id": null}],
+
+  "# .[\"$\"].Number[\"?$comment\"] invalid",
+  [false, {"type": "number", "$comment": null}],
+
+  "# .[\"$\"].Number[\"?$vocabulary\"] invalid",
+  [false, {"type": "number", "$vocabulary": null}],
+
+  "# .[\"$\"].Number[\"?title\"] invalid",
+  [false, {"type": "number", "title": null}],
+
+  "# .[\"$\"].Number[\"?examples\"] invalid",
+  [false, {"type": "number", "examples": null}],
+
+  "# .[\"$\"].Number[\"?description\"] invalid",
+  [false, {"type": "number", "description": null}],
+
+  "# .[\"$\"].Number[\"?$anchor\"] invalid",
+  [false, {"type": "number", "$anchor": null}],
+
+  "# .[\"$\"].Number[\"?$dynamicAnchor\"] invalid",
+  [false, {"type": "number", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Number[\"?deprecated\"] invalid",
+  [false, {"type": "number", "deprecated": null}],
+
+  "# .[\"$\"].Number[\"?readOnly\"] invalid",
+  [false, {"type": "number", "readOnly": null}],
+
+  "# .[\"$\"].Number[\"?writeOnly\"] invalid",
+  [false, {"type": "number", "writeOnly": null}],
+
+  "# .[\"$\"].Number[\"?$defs\"] invalid",
+  [false, {"type": "number", "$defs": null}],
+
+  "# .[\"$\"].Number[\"?id\"] invalid",
+  [false, {"type": "number", "id": null}],
+
+  "# .[\"$\"].Number[\"?definitions\"] invalid",
+  [false, {"type": "number", "definitions": null}],
+
+  "# .[\"$\"].Number[\"?minimum\"] invalid",
+  [false, {"type": "number", "minimum": null}],
+
+  "# .[\"$\"].Number[\"?maximum\"] invalid",
+  [false, {"type": "number", "maximum": null}],
+
+  "# .[\"$\"].String[\"?$schema\"] invalid",
+  [false, {"type": "string", "$schema": null}],
+
+  "# .[\"$\"].String[\"?$id\"] invalid",
+  [false, {"type": "string", "$id": null}],
+
+  "# .[\"$\"].String[\"?$comment\"] invalid",
+  [false, {"type": "string", "$comment": null}],
+
+  "# .[\"$\"].String[\"?$vocabulary\"] invalid",
+  [false, {"type": "string", "$vocabulary": null}],
+
+  "# .[\"$\"].String[\"?title\"] invalid",
+  [false, {"type": "string", "title": null}],
+
+  "# .[\"$\"].String[\"?examples\"] invalid",
+  [false, {"type": "string", "examples": null}],
+
+  "# .[\"$\"].String[\"?description\"] invalid",
+  [false, {"type": "string", "description": null}],
+
+  "# .[\"$\"].String[\"?$anchor\"] invalid",
+  [false, {"type": "string", "$anchor": null}],
+
+  "# .[\"$\"].String[\"?$dynamicAnchor\"] invalid",
+  [false, {"type": "string", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].String[\"?deprecated\"] invalid",
+  [false, {"type": "string", "deprecated": null}],
+
+  "# .[\"$\"].String[\"?readOnly\"] invalid",
+  [false, {"type": "string", "readOnly": null}],
+
+  "# .[\"$\"].String[\"?writeOnly\"] invalid",
+  [false, {"type": "string", "writeOnly": null}],
+
+  "# .[\"$\"].String[\"?$defs\"] invalid",
+  [false, {"type": "string", "$defs": null}],
+
+  "# .[\"$\"].String[\"?id\"] invalid",
+  [false, {"type": "string", "id": null}],
+
+  "# .[\"$\"].String[\"?definitions\"] invalid",
+  [false, {"type": "string", "definitions": null}],
+
+  "# .[\"$\"].String[\"?pattern\"] invalid",
+  [false, {"type": "string", "pattern": null}],
+
+  "# .[\"$\"].String[\"?minLength\"] invalid",
+  [false, {"type": "string", "minLength": null}],
+
+  "# .[\"$\"].String[\"?maxLength\"] invalid",
+  [false, {"type": "string", "maxLength": null}],
+
+  "# .[\"$\"].String[\"?format\"] invalid",
+  [false, {"type": "string", "format": null}],
+
+  "# .[\"$\"].Array[\"?$schema\"] invalid",
+  [false, {"type": "array", "$schema": null}],
+
+  "# .[\"$\"].Array[\"?$id\"] invalid",
+  [false, {"type": "array", "$id": null}],
+
+  "# .[\"$\"].Array[\"?$comment\"] invalid",
+  [false, {"type": "array", "$comment": null}],
+
+  "# .[\"$\"].Array[\"?$vocabulary\"] invalid",
+  [false, {"type": "array", "$vocabulary": null}],
+
+  "# .[\"$\"].Array[\"?title\"] invalid",
+  [false, {"type": "array", "title": null}],
+
+  "# .[\"$\"].Array[\"?examples\"] invalid",
+  [false, {"type": "array", "examples": null}],
+
+  "# .[\"$\"].Array[\"?description\"] invalid",
+  [false, {"type": "array", "description": null}],
+
+  "# .[\"$\"].Array[\"?$anchor\"] invalid",
+  [false, {"type": "array", "$anchor": null}],
+
+  "# .[\"$\"].Array[\"?$dynamicAnchor\"] invalid",
+  [false, {"type": "array", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Array[\"?deprecated\"] invalid",
+  [false, {"type": "array", "deprecated": null}],
+
+  "# .[\"$\"].Array[\"?readOnly\"] invalid",
+  [false, {"type": "array", "readOnly": null}],
+
+  "# .[\"$\"].Array[\"?writeOnly\"] invalid",
+  [false, {"type": "array", "writeOnly": null}],
+
+  "# .[\"$\"].Array[\"?$defs\"] invalid",
+  [false, {"type": "array", "$defs": null}],
+
+  "# .[\"$\"].Array[\"?id\"] invalid",
+  [false, {"type": "array", "id": null}],
+
+  "# .[\"$\"].Array[\"?definitions\"] invalid",
+  [false, {"type": "array", "definitions": null}],
+
+  "# .[\"$\"].schemaArray invalid",
+  [false, {"type": "array", "prefixItems": null}],
+
+  "# .[\"$\"].Schema invalid",
+  [false, {"type": "array", "prefixItems": [null]}],
+
+  "# .[\"$\"].Array[\"?items\"] invalid",
+  [false, {"type": "array", "items": null}],
+
+  "# .[\"$\"].Schema[\"|\"][0] invalid",
+  [false, {"type": "array", "items": [null]}],
+
+  "# .[\"$\"].Array[\"?minItems\"] invalid",
+  [false, {"type": "array", "minItems": null}],
+
+  "# .[\"$\"].Array[\"?maxItems\"] invalid",
+  [false, {"type": "array", "maxItems": null}],
+
+  "# .[\"$\"].Array[\"?uniqueItems\"] invalid",
+  [false, {"type": "array", "uniqueItems": null}],
+
+  "# .[\"$\"].Object[\"?$schema\"] invalid",
+  [false, {"type": "object", "$schema": null}],
+
+  "# .[\"$\"].Object[\"?$id\"] invalid",
+  [false, {"type": "object", "$id": null}],
+
+  "# .[\"$\"].Object[\"?$comment\"] invalid",
+  [false, {"type": "object", "$comment": null}],
+
+  "# .[\"$\"].Object[\"?$vocabulary\"] invalid",
+  [false, {"type": "object", "$vocabulary": null}],
+
+  "# .[\"$\"].Object[\"?title\"] invalid",
+  [false, {"type": "object", "title": null}],
+
+  "# .[\"$\"].Object[\"?examples\"] invalid",
+  [false, {"type": "object", "examples": null}],
+
+  "# .[\"$\"].Object[\"?description\"] invalid",
+  [false, {"type": "object", "description": null}],
+
+  "# .[\"$\"].Object[\"?$anchor\"] invalid",
+  [false, {"type": "object", "$anchor": null}],
+
+  "# .[\"$\"].Object[\"?$dynamicAnchor\"] invalid",
+  [false, {"type": "object", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Object[\"?deprecated\"] invalid",
+  [false, {"type": "object", "deprecated": null}],
+
+  "# .[\"$\"].Object[\"?readOnly\"] invalid",
+  [false, {"type": "object", "readOnly": null}],
+
+  "# .[\"$\"].Object[\"?writeOnly\"] invalid",
+  [false, {"type": "object", "writeOnly": null}],
+
+  "# .[\"$\"].Object[\"?$defs\"] invalid",
+  [false, {"type": "object", "$defs": null}],
+
+  "# .[\"$\"].Object[\"?id\"] invalid",
+  [false, {"type": "object", "id": null}],
+
+  "# .[\"$\"].Object[\"?definitions\"] invalid",
+  [false, {"type": "object", "definitions": null}],
+
+  "# .[\"$\"].Object[\"?properties\"] invalid",
+  [false, {"type": "object", "properties": null}],
+
+  "# .[\"$\"].Object[\"?required\"] invalid",
+  [false, {"type": "object", "required": null}],
+
+  "# .[\"$\"].Object[\"?required\"][0] invalid",
+  [false, {"type": "object", "required": [null]}],
+
+  "# .[\"$\"].Object[\"?minProperties\"] invalid",
+  [false, {"type": "object", "minProperties": null}],
+
+  "# .[\"$\"].Object[\"?maxProperties\"] invalid",
+  [false, {"type": "object", "maxProperties": null}],
+
+  "# .[\"$\"].Object[\"?patternProperties\"] invalid",
+  [false, {"type": "object", "patternProperties": null}],
+
+  "# .[\"$\"].AllOf[\"?$schema\"] invalid",
+  [false, {"allOf": [], "$schema": null}],
+
+  "# .[\"$\"].AllOf[\"?$id\"] invalid",
+  [false, {"allOf": [], "$id": null}],
+
+  "# .[\"$\"].AllOf[\"?$comment\"] invalid",
+  [false, {"allOf": [], "$comment": null}],
+
+  "# .[\"$\"].AllOf[\"?$vocabulary\"] invalid",
+  [false, {"allOf": [], "$vocabulary": null}],
+
+  "# .[\"$\"].AllOf[\"?title\"] invalid",
+  [false, {"allOf": [], "title": null}],
+
+  "# .[\"$\"].AllOf[\"?examples\"] invalid",
+  [false, {"allOf": [], "examples": null}],
+
+  "# .[\"$\"].AllOf[\"?description\"] invalid",
+  [false, {"allOf": [], "description": null}],
+
+  "# .[\"$\"].AllOf[\"?$anchor\"] invalid",
+  [false, {"allOf": [], "$anchor": null}],
+
+  "# .[\"$\"].AllOf[\"?$dynamicAnchor\"] invalid",
+  [false, {"allOf": [], "$dynamicAnchor": null}],
+
+  "# .[\"$\"].AllOf[\"?deprecated\"] invalid",
+  [false, {"allOf": [], "deprecated": null}],
+
+  "# .[\"$\"].AllOf[\"?readOnly\"] invalid",
+  [false, {"allOf": [], "readOnly": null}],
+
+  "# .[\"$\"].AllOf[\"?writeOnly\"] invalid",
+  [false, {"allOf": [], "writeOnly": null}],
+
+  "# .[\"$\"].AllOf[\"?$defs\"] invalid",
+  [false, {"allOf": [], "$defs": null}],
+
+  "# .[\"$\"].AllOf[\"?id\"] invalid",
+  [false, {"allOf": [], "id": null}],
+
+  "# .[\"$\"].AllOf[\"?definitions\"] invalid",
+  [false, {"allOf": [], "definitions": null}],
+
+  "# .[\"$\"].AnyOf[\"?$schema\"] invalid",
+  [false, {"anyOf": [], "$schema": null}],
+
+  "# .[\"$\"].AnyOf[\"?$id\"] invalid",
+  [false, {"anyOf": [], "$id": null}],
+
+  "# .[\"$\"].AnyOf[\"?$comment\"] invalid",
+  [false, {"anyOf": [], "$comment": null}],
+
+  "# .[\"$\"].AnyOf[\"?$vocabulary\"] invalid",
+  [false, {"anyOf": [], "$vocabulary": null}],
+
+  "# .[\"$\"].AnyOf[\"?title\"] invalid",
+  [false, {"anyOf": [], "title": null}],
+
+  "# .[\"$\"].AnyOf[\"?examples\"] invalid",
+  [false, {"anyOf": [], "examples": null}],
+
+  "# .[\"$\"].AnyOf[\"?description\"] invalid",
+  [false, {"anyOf": [], "description": null}],
+
+  "# .[\"$\"].AnyOf[\"?$anchor\"] invalid",
+  [false, {"anyOf": [], "$anchor": null}],
+
+  "# .[\"$\"].AnyOf[\"?$dynamicAnchor\"] invalid",
+  [false, {"anyOf": [], "$dynamicAnchor": null}],
+
+  "# .[\"$\"].AnyOf[\"?deprecated\"] invalid",
+  [false, {"anyOf": [], "deprecated": null}],
+
+  "# .[\"$\"].AnyOf[\"?readOnly\"] invalid",
+  [false, {"anyOf": [], "readOnly": null}],
+
+  "# .[\"$\"].AnyOf[\"?writeOnly\"] invalid",
+  [false, {"anyOf": [], "writeOnly": null}],
+
+  "# .[\"$\"].AnyOf[\"?$defs\"] invalid",
+  [false, {"anyOf": [], "$defs": null}],
+
+  "# .[\"$\"].AnyOf[\"?id\"] invalid",
+  [false, {"anyOf": [], "id": null}],
+
+  "# .[\"$\"].AnyOf[\"?definitions\"] invalid",
+  [false, {"anyOf": [], "definitions": null}],
+
+  "# .[\"$\"].OneOf[\"?$schema\"] invalid",
+  [false, {"oneOf": [], "$schema": null}],
+
+  "# .[\"$\"].OneOf[\"?$id\"] invalid",
+  [false, {"oneOf": [], "$id": null}],
+
+  "# .[\"$\"].OneOf[\"?$comment\"] invalid",
+  [false, {"oneOf": [], "$comment": null}],
+
+  "# .[\"$\"].OneOf[\"?$vocabulary\"] invalid",
+  [false, {"oneOf": [], "$vocabulary": null}],
+
+  "# .[\"$\"].OneOf[\"?title\"] invalid",
+  [false, {"oneOf": [], "title": null}],
+
+  "# .[\"$\"].OneOf[\"?examples\"] invalid",
+  [false, {"oneOf": [], "examples": null}],
+
+  "# .[\"$\"].OneOf[\"?description\"] invalid",
+  [false, {"oneOf": [], "description": null}],
+
+  "# .[\"$\"].OneOf[\"?$anchor\"] invalid",
+  [false, {"oneOf": [], "$anchor": null}],
+
+  "# .[\"$\"].OneOf[\"?$dynamicAnchor\"] invalid",
+  [false, {"oneOf": [], "$dynamicAnchor": null}],
+
+  "# .[\"$\"].OneOf[\"?deprecated\"] invalid",
+  [false, {"oneOf": [], "deprecated": null}],
+
+  "# .[\"$\"].OneOf[\"?readOnly\"] invalid",
+  [false, {"oneOf": [], "readOnly": null}],
+
+  "# .[\"$\"].OneOf[\"?writeOnly\"] invalid",
+  [false, {"oneOf": [], "writeOnly": null}],
+
+  "# .[\"$\"].OneOf[\"?$defs\"] invalid",
+  [false, {"oneOf": [], "$defs": null}],
+
+  "# .[\"$\"].OneOf[\"?id\"] invalid",
+  [false, {"oneOf": [], "id": null}],
+
+  "# .[\"$\"].OneOf[\"?definitions\"] invalid",
+  [false, {"oneOf": [], "definitions": null}],
+
+  "# .[\"$\"].Ref[\"!$ref\"] invalid",
+  [false, {"$ref": null}],
+
+  "# .[\"$\"].Ref[\"?$schema\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "$schema": null}],
+
+  "# .[\"$\"].Ref[\"?$id\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "$id": null}],
+
+  "# .[\"$\"].Ref[\"?$comment\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "$comment": null}],
+
+  "# .[\"$\"].Ref[\"?$vocabulary\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "$vocabulary": null}],
+
+  "# .[\"$\"].Ref[\"?title\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "title": null}],
+
+  "# .[\"$\"].Ref[\"?examples\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "examples": null}],
+
+  "# .[\"$\"].Ref[\"?description\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "description": null}],
+
+  "# .[\"$\"].Ref[\"?$anchor\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "$anchor": null}],
+
+  "# .[\"$\"].Ref[\"?$dynamicAnchor\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].Ref[\"?deprecated\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "deprecated": null}],
+
+  "# .[\"$\"].Ref[\"?readOnly\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "readOnly": null}],
+
+  "# .[\"$\"].Ref[\"?writeOnly\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "writeOnly": null}],
+
+  "# .[\"$\"].Ref[\"?$defs\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "$defs": null}],
+
+  "# .[\"$\"].Ref[\"?id\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "id": null}],
+
+  "# .[\"$\"].Ref[\"?definitions\"] invalid",
+  [false, {"$ref": "https://json-model.org/", "definitions": null}],
+
+  "# .[\"$\"].DynRef[\"!$dynamicRef\"] invalid",
+  [false, {"$dynamicRef": null}],
+
+  "# .[\"$\"].DynRef[\"?$schema\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "$schema": null}],
+
+  "# .[\"$\"].DynRef[\"?$id\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "$id": null}],
+
+  "# .[\"$\"].DynRef[\"?$comment\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "$comment": null}],
+
+  "# .[\"$\"].DynRef[\"?$vocabulary\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "$vocabulary": null}],
+
+  "# .[\"$\"].DynRef[\"?title\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "title": null}],
+
+  "# .[\"$\"].DynRef[\"?examples\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "examples": null}],
+
+  "# .[\"$\"].DynRef[\"?description\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "description": null}],
+
+  "# .[\"$\"].DynRef[\"?$anchor\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "$anchor": null}],
+
+  "# .[\"$\"].DynRef[\"?$dynamicAnchor\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "$dynamicAnchor": null}],
+
+  "# .[\"$\"].DynRef[\"?deprecated\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "deprecated": null}],
+
+  "# .[\"$\"].DynRef[\"?readOnly\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "readOnly": null}],
+
+  "# .[\"$\"].DynRef[\"?writeOnly\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "writeOnly": null}],
+
+  "# .[\"$\"].DynRef[\"?$defs\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "$defs": null}],
+
+  "# .[\"$\"].DynRef[\"?id\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "id": null}],
+
+  "# .[\"$\"].DynRef[\"?definitions\"] invalid",
+  [false, {"$dynamicRef": "https://json-model.org/", "definitions": null}],
+
+  "# .[\"$\"].metas[\"?$id\"] invalid",
+  [false, {"$id": null}],
+
+  "# .[\"$\"].metas[\"?$comment\"] invalid",
+  [false, {"$comment": null}],
+
+  "# .[\"$\"].metas[\"?$vocabulary\"] invalid",
+  [false, {"$vocabulary": null}],
+
+  "# .[\"$\"].metas[\"?title\"] invalid",
+  [false, {"title": null}],
+
+  "# .[\"$\"].metas[\"?examples\"] invalid",
+  [false, {"examples": null}],
+
+  "# .[\"$\"].metas[\"?description\"] invalid",
+  [false, {"description": null}],
+
+  "# .[\"$\"].metas[\"?$anchor\"] invalid",
+  [false, {"$anchor": null}],
+
+  "# .[\"$\"].metas[\"?$dynamicAnchor\"] invalid",
+  [false, {"$dynamicAnchor": null}],
+
+  "# .[\"$\"].metas[\"?deprecated\"] invalid",
+  [false, {"deprecated": null}],
+
+  "# .[\"$\"].metas[\"?readOnly\"] invalid",
+  [false, {"readOnly": null}],
+
+  "# .[\"$\"].metas[\"?writeOnly\"] invalid",
+  [false, {"writeOnly": null}],
+
+  "# .[\"$\"].metas[\"?$defs\"] invalid",
+  [false, {"$defs": null}],
+
+  "# .[\"$\"].metas[\"?id\"] invalid",
+  [false, {"id": null}],
+
+  "# .[\"$\"].metas[\"?definitions\"] invalid",
+  [false, {"definitions": null}],
+
+  "# .[\"$\"].String[\"?pattern\"] bad",
+  [false, {"type": "string", "pattern": "["}],
+
+  "# .[\"$\"].Ref[\"!$ref\"] bad",
+  [false, {"$ref": "https://json model.org/"}],
+
+  "# .[\"$\"].DynRef[\"!$dynamicRef\"] bad",
+  [false, {"$dynamicRef": "https://json model.org/"}],
+
+  "# .[\"$\"].RootSchema[\"&\"][0][\"_$schema\"] missing",
+  [false, {}],
+
+  "# .[\"$\"].Null[\"no-such-prop\"] extra",
+  [false, {"type": "null", "no-such-prop": null}],
+
+  "# .[\"$\"].Null[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"type": "null", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Bool[\"no-such-prop\"] extra",
+  [false, {"type": "boolean", "no-such-prop": null}],
+
+  "# .[\"$\"].Bool[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"type": "boolean", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Const[\"no-such-prop\"] extra",
+  [false, {"const": null, "no-such-prop": null}],
+
+  "# .[\"$\"].Const[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"const": null, "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Enum[\"no-such-prop\"] extra",
+  [false, {"enum": [], "no-such-prop": null}],
+
+  "# .[\"$\"].Enum[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"enum": [], "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Integer[\"no-such-prop\"] extra",
+  [false, {"type": "integer", "no-such-prop": null}],
+
+  "# .[\"$\"].Integer[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"type": "integer", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Number[\"no-such-prop\"] extra",
+  [false, {"type": "number", "no-such-prop": null}],
+
+  "# .[\"$\"].Number[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"type": "number", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].String[\"no-such-prop\"] extra",
+  [false, {"type": "string", "no-such-prop": null}],
+
+  "# .[\"$\"].String[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"type": "string", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Array[\"no-such-prop\"] extra",
+  [false, {"type": "array", "no-such-prop": null}],
+
+  "# .[\"$\"].Array[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"type": "array", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Object[\"no-such-prop\"] extra",
+  [false, {"type": "object", "no-such-prop": null}],
+
+  "# .[\"$\"].Object[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"type": "object", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].AllOf[\"no-such-prop\"] extra",
+  [false, {"allOf": [], "no-such-prop": null}],
+
+  "# .[\"$\"].AllOf[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"allOf": [], "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].AnyOf[\"no-such-prop\"] extra",
+  [false, {"anyOf": [], "no-such-prop": null}],
+
+  "# .[\"$\"].AnyOf[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"anyOf": [], "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].OneOf[\"no-such-prop\"] extra",
+  [false, {"oneOf": [], "no-such-prop": null}],
+
+  "# .[\"$\"].OneOf[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"oneOf": [], "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].Ref[\"no-such-prop\"] extra",
+  [false, {"$ref": "https://json-model.org/", "no-such-prop": null}],
+
+  "# .[\"$\"].Ref[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"$ref": "https://json-model.org/", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].DynRef[\"no-such-prop\"] extra",
+  [false, {"$dynamicRef": "https://json-model.org/", "no-such-prop": null}],
+
+  "# .[\"$\"].DynRef[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"$dynamicRef": "https://json-model.org/", "$vocabulary": {"no-such-prop": null}}],
+
+  "# .[\"$\"].metas[\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# .[\"$\"].metas[\"?$vocabulary\"][\"no-such-prop\"] extra",
+  [false, {"$vocabulary": {"no-such-prop": null}}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"$\"].Null[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Null[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Bool[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Bool[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Const[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Const[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Enum[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Enum[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Integer[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Integer[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Number[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Number[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].String[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].String[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Array[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Array[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Object[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Object[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].AllOf[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].AllOf[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].AnyOf[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].AnyOf[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].OneOf[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].OneOf[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Ref[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].Ref[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].DynRef[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].DynRef[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].metas[\"?default\"]: $ANY accepts every value",
+
+  "# SKIPPED invalid value .[\"$\"].metas[\"?examples\"][0]: $ANY accepts every value",
+
+  "# SKIPPED extra value .[\"$\"].RootSchema[\"&\"][0]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Null[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Null[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Bool[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Bool[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Const[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Const[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Enum[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Enum[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Integer[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Integer[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Number[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Number[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].String[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].String[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Array[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Array[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Object[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Object[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Object[\"?properties\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Object[\"?patternProperties\"]: every extra property is valid",
+
+  "# SKIPPED extra value .[\"$\"].AllOf[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].AllOf[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].AnyOf[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].AnyOf[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].OneOf[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].OneOf[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Ref[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].Ref[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].DynRef[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].DynRef[\"?definitions\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].metas[\"?$defs\"]: object is open",
+
+  "# SKIPPED extra value .[\"$\"].metas[\"?definitions\"]: object is open"
+]

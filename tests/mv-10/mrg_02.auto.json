@@ -1,0 +1,60 @@
+[
+  "# generated from mrg_02.model.json",
+
+  "# simplest",
+  [true, {"a": "cst_01", "b": "cst_01", "e": "cst_02", "f": "cst_02", "c": "cst_01", "d": "cst_01"}],
+
+  "# .[\"@\"] invalid",
+  [false, null],
+
+  "# .[\"$\"].t invalid",
+  [false, {"a": "cst_01", "b": "cst_01", "e": null, "f": "cst_02", "c": "cst_01", "d": "cst_01"}],
+
+  "# .[\"@\"].a missing",
+  [false, {"b": "cst_01", "e": "cst_02", "f": "cst_02", "c": "cst_01", "d": "cst_01"}],
+
+  "# .[\"@\"].b missing",
+  [false, {"a": "cst_01", "e": "cst_02", "f": "cst_02", "c": "cst_01", "d": "cst_01"}],
+
+  "# .[\"@\"].e missing",
+  [false, {"a": "cst_01", "b": "cst_01", "f": "cst_02", "c": "cst_01", "d": "cst_01"}],
+
+  "# .[\"@\"].f missing",
+  [false, {"a": "cst_01", "b": "cst_01", "e": "cst_02", "c": "cst_01", "d": "cst_01"}],
+
+  "# .[\"@\"].c missing",
+  [false, {"a": "cst_01", "b": "cst_01", "e": "cst_02", "f": "cst_02", "d": "cst_01"}],
+
+  "# .[\"@\"].d missing",
+  [false, {"a": "cst_01", "b": "cst_01", "e": "cst_02", "f": "cst_02", "c": "cst_01"}],
+
+  "# .[\"@\"][\"no-such-prop\"] extra",
+  [false, {"a": "cst_01", "b": "cst_01", "e": "cst_02", "f": "cst_02", "c": "cst_01", "d": "cst_01", "no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

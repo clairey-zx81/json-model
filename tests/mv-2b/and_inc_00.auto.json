@@ -1,0 +1,48 @@
+[
+  "# generated from and_inc_00.model.json",
+
+  "# simplest",
+  [true, {}],
+
+  "# .[\"/^foo/\"] present",
+  [true, {"foo": ""}],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"&\"][1][\"/^foo/\"] invalid",
+  [false, {"foo": null}],
+
+  "# .[\"&\"][0][\"no-such-prop\"] extra",
+  [false, {"no-such-prop": null}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"&\"][0][\"/^foo/\"]: $ANY accepts every value",
+
+  "# SKIPPED extra value .[\"&\"][1]: object is open",
+
+  "# SKIPPED root value {}: valid for the model"
+]

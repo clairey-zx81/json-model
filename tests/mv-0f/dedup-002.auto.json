@@ -1,0 +1,57 @@
+[
+  "# generated from dedup-002.model.json",
+
+  "# FAILED invalid model",
+
+  "# FAILED optional value no document to alter: no alternative satisfies ^: [0, 0, 0, 1, 1, 1, '', '', '']",
+
+  "# FAILED branch value no document to alter: no alternative satisfies ^: [0, 0, 0, 1, 1, 1, '', '', '']",
+
+  "# FAILED branch value .[\"^\"][0] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][1] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][2] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][3] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][4] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][5] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][6] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][7] branch: the alternative is not valid here",
+
+  "# FAILED branch value .[\"^\"][8] branch: the alternative is not valid here",
+
+  "# .[\"^\"][0] invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# {} root invalid",
+  [false, {}]
+]

@@ -1,0 +1,20 @@
+# xoropt-015.auto.json
+[0] py=PASS js=PASS pl=PASS c=PASS java=PASS
+[1] py=PASS js=PASS pl=PASS c=PASS java=PASS
+[2] py=PASS js=PASS pl=PASS c=PASS java=PASS
+[3] py=PASS js=PASS pl=PASS c=PASS java=PASS
+[4] py=PASS js=PASS pl=PASS c=PASS java=PASS
+[5] py=PASS js=PASS pl=PASS c=PASS java=PASS
+[6] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[7] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[8] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[9] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[10] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[11] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[12] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[13] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[14] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[15] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[16] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[17] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL
+[18] py=FAIL js=FAIL pl=FAIL c=FAIL java=FAIL

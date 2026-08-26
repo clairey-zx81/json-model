@@ -1,0 +1,50 @@
+[
+  "# generated from base-014.model.json",
+
+  "# simplest",
+  [true, {"nom": ""}],
+
+  "# .[\"?age\"] present",
+  [true, {"nom": "", "age": 0}],
+
+  "# .[\"\"] present",
+  [true, {"nom": "", "a": ""}],
+
+  "# ._nom invalid",
+  [false, {"nom": null}],
+
+  "# .[\"?age\"] invalid",
+  [false, {"nom": "", "age": null}],
+
+  "# ._nom missing",
+  [false, {}],
+
+  "# null root invalid",
+  [false, null],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED extra value .: object is open"
+]

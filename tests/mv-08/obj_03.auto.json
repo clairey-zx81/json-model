@@ -1,0 +1,10 @@
+[
+  "# generated from obj_03.model.json",
+
+  "# simplest",
+  [true, []],
+
+  "# FAILED bound values: cannot enter model: {'@': '$foo#ls0'}",
+
+  "# FAILED invalid model"
+]

@@ -1,0 +1,83 @@
+[
+  "# generated from and_02.model.json",
+
+  "# simplest",
+  [true, {"s": "", "b": false, "f": 1.0}],
+
+  "# .[\"&\"][0][\"/^z/\"] present",
+  [true, {"s": "", "b": false, "f": 1.0, "z": {}}],
+
+  "# .[\"&\"][0][\"?u\"] present",
+  [true, {"s": "", "b": false, "f": 1.0, "u": 1}],
+
+  "# .[\"&\"][0][\"/^d[a-z]/\"] present",
+  [true, {"s": "", "b": false, "f": 1.0, "da": ""}],
+
+  "# .[\"&\"][0][\"\"] present",
+  [true, {"s": "", "b": false, "f": 1.0, "a": {}}],
+
+  "# .[\"&\"][1][\"/^d[0-9]/\"] present",
+  [true, {"s": "", "b": false, "f": 1.0, "d0": 1}],
+
+  "# .[\"&\"][0] invalid",
+  [false, null],
+
+  "# .[\"&\"][0].s invalid",
+  [false, {"s": null}],
+
+  "# .[\"&\"][1][\"?u\"] invalid",
+  [false, {"u": null}],
+
+  "# .[\"&\"][2]._b invalid",
+  [false, {"b": null}],
+
+  "# .[\"&\"][3][\"!f\"] invalid",
+  [false, {"f": null}],
+
+  "# .[\"&\"][4][\"/^d[a-z]/\"] invalid",
+  [false, {"da": null}],
+
+  "# .[\"&\"][5][\"/^d[0-9]/\"] invalid",
+  [false, {"d0": null}],
+
+  "# .[\"&\"][0].s missing",
+  [false, {}],
+
+  "# true root invalid",
+  [false, true],
+
+  "# false root invalid",
+  [false, false],
+
+  "# -42 root invalid",
+  [false, -42],
+
+  "# 3.14 root invalid",
+  [false, 3.14],
+
+  "# \"\" root invalid",
+  [false, ""],
+
+  "# \"abc\" root invalid",
+  [false, "abc"],
+
+  "# [] root invalid",
+  [false, []],
+
+  "# [1] root invalid",
+  [false, [1]],
+
+  "# SKIPPED invalid value .[\"&\"][0][\"/^z/\"]: $ANY accepts every value",
+
+  "# SKIPPED extra value .[\"&\"][0]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][1]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][2]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][3]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][4]: object is open",
+
+  "# SKIPPED extra value .[\"&\"][5]: object is open"
+]
