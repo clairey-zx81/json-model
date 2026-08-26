@@ -821,33 +821,35 @@ def _without(model: ModelType, path: list) -> ModelType:
     return result
 
 def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
-           jm: JsonModel, seen: frozenset[str]):
+           jm: JsonModel, seen: frozenset[str], notes: list[str]|None = None):
     """Violation sites, as model path, value path, branch frames and properties."""
     if isinstance(model, str):
         name = model[1:]
         if model.startswith("$") and name in jm._defs._syms and name not in seen:
             yield from _sites(jm._defs._syms[name]._model, ["$", name], vpath,
-                              frames, jm, seen | {name})
+                              frames, jm, seen | {name}, notes)
         elif model != "$ANY" and (not model.startswith("$") or name in PREDEFS):
             yield mpath, vpath, frames, {"@": model}
+        elif model == "$ANY" and notes is not None:
+            notes.append(f"invalid value {_jqpath(mpath)}: $ANY accepts every value")
     elif isinstance(model, list):
         yield mpath, vpath, frames, {"@": model}
         items = [(i, m) for i, m in enumerate(model)
                  if not (isinstance(m, str) and m.startswith("#"))]
         if len(items) > 1:
             for n, (i, item) in enumerate(items):
-                yield from _sites(item, mpath + [i], vpath + [n], frames, jm, seen)
+                yield from _sites(item, mpath + [i], vpath + [n], frames, jm, seen, notes)
         elif items:
             i, item = items[0]
             yield from _sites(item, mpath + [i], vpath + [0],
-                              frames + [(vpath, {"@": model, ">=": 1})], jm, seen)
+                              frames + [(vpath, {"@": model, ">=": 1})], jm, seen, notes)
     elif isinstance(model, dict):
         props = {p: m for p, m in model.items() if not p.startswith("#")}
         others = set(props) - {"@"}
         if "@" in props and others <= _CONSTRAINTS:
             if others:
                 yield mpath, vpath, frames, props
-            yield from _sites(props["@"], mpath + ["@"], vpath, frames, jm, seen)
+            yield from _sites(props["@"], mpath + ["@"], vpath, frames, jm, seen, notes)
         elif set(props) in ({"|"}, {"^"}, {"&"}):
             op = next(iter(props))
             yield mpath, vpath, frames, {"@": model}
@@ -855,7 +857,7 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
                 if isinstance(alt, str) and alt.startswith("#"):
                     continue
                 yield from _sites(alt, mpath + [op, index], vpath,
-                                  frames + [(vpath, alt)], jm, seen)
+                                  frames + [(vpath, alt)], jm, seen, notes)
         elif not set(props) & (_OPERATORS | _ROOT_KEYS):
             yield mpath, vpath, frames, {"@": model}
             named = {p[1:] if p.startswith(("!", "?", "_")) else p
@@ -873,7 +875,7 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
                     name = prop[1:] if prop.startswith(("!", "?", "_")) else prop
                     inner = (frames + [(vpath + [name], sub)] if prop.startswith("?")
                              else frames)
-                yield from _sites(sub, mpath + [prop], vpath + [name], inner, jm, seen)
+                yield from _sites(sub, mpath + [prop], vpath + [name], inner, jm, seen, notes)
     else:
         yield mpath, vpath, frames, {"@": model}
 
@@ -927,11 +929,18 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
                url: str = "", extend: bool = False) -> dict[str, Jsonable]:
     """Generate a value breaking one constraint, type or property of a model."""
+    return _violations(model, jm, seen, resolver, url, extend)[0]
+
+def _violations(model: ModelType, jm: JsonModel|None = None,
+                seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
+                url: str = "", extend: bool = False) -> tuple[dict[str, Jsonable], list[str]]:
+    """Generate a value breaking each constraint, and why some sites were skipped."""
     vjm, vmodel = jm, model
+    skipped: list[str] = []
     if jm is None:
         jm, model = _compile(model, False, resolver, url, extend)
         vjm, vmodel = _compile(vmodel, True, resolver, url, extend)
-    sites = list(_sites(model, [], [], [], jm, frozenset()))
+    sites = list(_sites(model, [], [], [], jm, frozenset(), skipped))
     defs = _defs(jm)
     if not sites:
         if all(_verify(v, model, jm, defs) is True for v in _TYPE_VIOLATIONS):
@@ -940,6 +949,13 @@ def violations(model: ModelType, jm: JsonModel|None = None,
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
     doc = None
+
+    def skip(note: str):
+        """Record a case which cannot exist for this model."""
+        reasons.append(note)
+        if note not in skipped:
+            skipped.append(note)
+
     if any(f[0][0] if f else v for _, v, f, _ in sites):
         try:
             doc = simplest(model, jm, seen)
@@ -972,7 +988,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
             if _verify(value, vmodel, vjm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
             else:
-                reasons.append(f"{key}: no value isolates the constraint")
+                skip(f"constraint value {key}: no value isolates it")
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
     for mpath, vpath, frames, props in sites:
         key = f"{_jqpath(mpath)} invalid"
@@ -995,7 +1011,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 taken.add(json.dumps(value, sort_keys=True))
                 break
         else:
-            reasons.append(f"{key}: no type violates {_brief(props['@'])}")
+            skip(f"invalid value {_jqpath(mpath)}: no type breaks the model here")
     for mpath, vpath, frames, props in sites:
         key = f"{_jqpath(mpath)} bad" if mpath else "bad"
         if set(props) - {"@"} or key in values:
@@ -1017,7 +1033,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
             values[key] = value
             taken.add(json.dumps(value, sort_keys=True))
         else:
-            reasons.append(f"{key}: {target} violation is still valid")
+            skip(f"bad value {_jqpath(mpath)}: the {target} violation is still valid")
     for mpath, vpath, frames, node in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
@@ -1031,8 +1047,13 @@ def violations(model: ModelType, jm: JsonModel|None = None,
             if key in values or name not in built:
                 continue
             sub = {p: v for p, v in built.items() if p != name}
-            if _verify(sub, _optional(node, prop, name), jm, defs) is not True:
-                reasons.append(f"{key}: dropping {name} does not match the model")
+            verdict = _verify(sub, _optional(node, prop, name), jm, defs)
+            if verdict is not True:
+                if verdict is False:
+                    skip(f"missing value {_jqpath(mpath + [prop])}: "
+                         f"dropping {name} does not match the model")
+                else:
+                    reasons.append(f"{key}: cannot check dropping {name}")
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
@@ -1047,9 +1068,11 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
             else:
-                reasons.append(f"{key}: dropping {name} is still valid")
+                skip(f"missing value {_jqpath(mpath + [prop])}: "
+                     f"dropping {name} is still valid")
     for mpath, vpath, frames, node in _object_sites(sites):
         if not _closed(node, jm):
+            skip(f"extra value {_jqpath(mpath)}: object is open")
             continue
         try:
             built = simplest(node, jm, seen)
@@ -1080,10 +1103,15 @@ def violations(model: ModelType, jm: JsonModel|None = None,
                 taken.add(json.dumps(value, sort_keys=True))
                 break
         else:
-            reasons.append(f"{_jqpath(mpath)}: no extra property violates the model")
+            skip(f"extra value {_jqpath(mpath)}: every extra property is valid")
     for candidate in _ROOT_TYPES:
         dumped = json.dumps(candidate, sort_keys=True)
-        if dumped in taken or _verify(candidate, vmodel, vjm) is not False:
+        if dumped in taken:
+            continue
+        verdict = _verify(candidate, vmodel, vjm)
+        if verdict is not False:
+            if verdict is True:
+                skip(f"root value {dumped}: valid for the model")
             continue
         values[f"{dumped} root invalid"] = copy.deepcopy(candidate)
         taken.add(dumped)
@@ -1092,7 +1120,7 @@ def violations(model: ModelType, jm: JsonModel|None = None,
             reasons.append("no violation site could be used")
         raise UnsupportedValue(f"no constraint could be violated: {_joined(reasons)}")
     else:
-        return values
+        return values, skipped
 
 def bounds(model: ModelType, jm: JsonModel|None = None,
            seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
@@ -1288,10 +1316,12 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             reasons.append(str(e))
             tests.append(f"# FAILED {step} values: {e}")
     try:
-        for key, value in violations(model, resolver=resolver, url=url,
-                                     extend=extend).items():
+        broken, skipped = _violations(model, resolver=resolver, url=url, extend=extend)
+        for key, value in broken.items():
             tests.append(f"# {key}")
             tests.append([False, value])
+        for reason in skipped:
+            tests.append(f"# SKIPPED {reason}")
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
