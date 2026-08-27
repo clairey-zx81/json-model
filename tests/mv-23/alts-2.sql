@@ -5,14 +5,6 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
--- object .'$a'.''.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN JSONB_TYPEOF(val) = 'object' AND jm_object_size(val) = 0;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $a (.'$a')
 CREATE OR REPLACE FUNCTION json_model_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -28,9 +20,7 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
     -- .'$a'.''
-    -- .'$a'.''.'|'.0
-    -- .'$a'.''.'|'.1
-    res := json_model_3(pval, NULL, NULL) OR _jm_obj_0(pval, NULL, NULL);
+    res := json_model_2(pval, NULL, NULL);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -39,22 +29,12 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$r'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN JSONB_TYPEOF(val) = 'object' AND jm_object_size(val) = 0;
-END;
-$$ LANGUAGE PLpgSQL;
-
 -- check $r (.'$r')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .'$r'
-  -- .'$r'.'|'.0
-  -- .'$r'.'|'.1
-  RETURN json_model_2(val, NULL, NULL) OR _jm_obj_1(val, NULL, NULL);
+  RETURN json_model_2(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -63,14 +43,14 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .
-  RETURN json_model_3(val, NULL, NULL);
+  RETURN json_model_2(val, NULL, NULL);
 END;
 $$ LANGUAGE PLpgSQL;
 
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_3","a":"json_model_2","r":"json_model_3"}';
+  map JSONB := JSONB '{"":"json_model_2","a":"json_model_2","r":"json_model_2"}';
 BEGIN
   RETURN map->>name;
 END;

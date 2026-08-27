@@ -5,27 +5,11 @@
     "a": {
       "type": "object",
       "additionalProperties": {
-        "anyOf": [
-          {
-            "$ref": "#/$defs/r"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
+        "$ref": "#/$defs/r"
       }
     },
     "r": {
-      "anyOf": [
-        {
-          "$ref": "#/$defs/a"
-        },
-        {
-          "type": "object",
-          "additionalProperties": false
-        }
-      ]
+      "$ref": "#/$defs/a"
     }
   },
   "$ref": "#/$defs/r"

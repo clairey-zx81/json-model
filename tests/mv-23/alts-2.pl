@@ -12,32 +12,10 @@ use JSON::JsonModel;
 use constant JMC_VERSION => "2";
 
 
-sub _jm_obj_0($$$);
 sub json_model_2($$$);
-sub _jm_obj_1($$$);
 sub json_model_3($$$);
 sub json_model_1($$$);
 my %check_model_map;
-
-# object .'$a'.''.'|'.1
-sub _jm_obj_0($$$)
-{
-    my ($val, $path, $rep) = @_;
-    unless (jm_is_object($val))
-    {
-        push @$rep, ["not an object [.'\$a'.''.'|'.1]", $path] if defined $rep;
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        push @$rep, ["expecting empty object [.'\$a'.''.'|'.1]", $path] if defined $rep;
-        return 0;
-    }
-}
 
 # check $a (.'$a')
 sub json_model_2($$$)
@@ -57,46 +35,14 @@ sub json_model_2($$$)
         my $lpath_0 = defined $path ? [@{$path}, $prop] : undef;
         # handle other props
         # .'$a'.''
-        # .'$a'.''.'|'.0
-        $res = json_model_3($pval, defined $path ? $lpath_0 : undef, $rep);
+        $res = json_model_2($pval, defined $path ? $lpath_0 : undef, $rep);
         unless ($res)
         {
-            push @$rep, ["unexpected value for model \"\$r\" [.'\$a'.''.'|'.0]", defined $path ? $lpath_0 : undef] if defined $rep;
-            # .'$a'.''.'|'.1
-            $res = _jm_obj_0($pval, defined $path ? $lpath_0 : undef, $rep);
-            push @$rep, ["unexpected element [.'\$a'.''.'|'.1]", defined $path ? $lpath_0 : undef] if defined $rep and not $res;
-        }
-        if ($res)
-        {
-            @$rep = () if defined $rep;
-        }
-        else
-        {
-            push @$rep, ["no model matched [.'\$a'.''.'|']", defined $path ? $lpath_0 : undef] if defined $rep;
+            push @$rep, ["unexpected value for model \"\$r\" [.'\$a'.'']", defined $path ? $lpath_0 : undef] if defined $rep;
             return 0;
         }
     }
     return 1;
-}
-
-# object .'$r'.'|'.1
-sub _jm_obj_1($$$)
-{
-    my ($val, $path, $rep) = @_;
-    unless (jm_is_object($val))
-    {
-        push @$rep, ["not an object [.'\$r'.'|'.1]", $path] if defined $rep;
-        return 0;
-    }
-    if (jm_obj_size($val) == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        push @$rep, ["expecting empty object [.'\$r'.'|'.1]", $path] if defined $rep;
-        return 0;
-    }
 }
 
 # check $r (.'$r')
@@ -104,23 +50,8 @@ sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     # .'$r'
-    # .'$r'.'|'.0
     my $res = json_model_2($val, $path, $rep);
-    unless ($res)
-    {
-        push @$rep, ["unexpected value for model \"\$a\" [.'\$r'.'|'.0]", $path] if defined $rep;
-        # .'$r'.'|'.1
-        $res = _jm_obj_1($val, $path, $rep);
-        push @$rep, ["unexpected element [.'\$r'.'|'.1]", $path] if defined $rep and not $res;
-    }
-    if ($res)
-    {
-        @$rep = () if defined $rep;
-    }
-    else
-    {
-        push @$rep, ["no model matched [.'\$r'.'|']", $path] if defined $rep;
-    }
+    push @$rep, ["unexpected value for model \"\$a\" [.'\$r']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -129,7 +60,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     # .
-    my $res = json_model_3($val, $path, $rep);
+    my $res = json_model_2($val, $path, $rep);
     push @$rep, ["unexpected value for model \"\$r\" [.]", $path] if defined $rep and not $res;
     return $res;
 }
@@ -145,9 +76,9 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            "" => \&json_model_3,
+            "" => \&json_model_2,
             "a" => \&json_model_2,
-            "r" => \&json_model_3,
+            "r" => \&json_model_2,
         );
     }
 }

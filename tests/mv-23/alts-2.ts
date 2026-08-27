@@ -2,16 +2,10 @@
 // for ./alts-2
 // see https://json-model.org/
 
-export interface a_JM__1 {
-}
-
 export interface a {
-	[key: string]: (r | a_JM__1)
+	[key: string]: r
 }
 
-export interface r_1 {
-}
-
-export type r = (a | r_1)
+export type r = a
 
 export type RootModel = r

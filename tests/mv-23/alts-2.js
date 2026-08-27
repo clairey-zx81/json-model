@@ -11,23 +11,6 @@ const JSON_MODEL_VERSION = "2";
 
 export var check_model_map = new Map()
 
-// object .'$a'.''.'|'.1
-function _jm_obj_0(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$a'.''.'|'.1]", path])
-        return false
-    }
-    if (Object.keys(val).length == 0)
-        return true
-    else
-    {
-        rep !== null && rep.push(["expecting empty object [.'$a'.''.'|'.1]", path])
-        return false
-    }
-}
-
 // check $a (.'$a')
 function json_model_2(val, path, rep)
 {
@@ -43,66 +26,23 @@ function json_model_2(val, path, rep)
         let lpath_0 = path ? path.concat([prop]) : null
         // handle other props
         // .'$a'.''
-        // .'$a'.''.'|'.0
-        res = json_model_3(pval, (path ? lpath_0 : null), rep)
+        res = json_model_2(pval, (path ? lpath_0 : null), rep)
         if (! res)
         {
-            rep !== null && rep.push(["unexpected value for model \"$r\" [.'$a'.''.'|'.0]", (path ? lpath_0 : null)])
-            // .'$a'.''.'|'.1
-            res = _jm_obj_0(pval, (path ? lpath_0 : null), rep)
-            if (! res)
-                rep !== null && rep.push(["unexpected element [.'$a'.''.'|'.1]", (path ? lpath_0 : null)])
-        }
-        if (res)
-        {
-            if (rep !== null) rep.length = 0
-        }
-        else
-        {
-            rep !== null && rep.push(["no model matched [.'$a'.''.'|']", (path ? lpath_0 : null)])
+            rep !== null && rep.push(["unexpected value for model \"$r\" [.'$a'.'']", (path ? lpath_0 : null)])
             return false
         }
     }
     return true
 }
 
-// object .'$r'.'|'.1
-function _jm_obj_1(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$r'.'|'.1]", path])
-        return false
-    }
-    if (Object.keys(val).length == 0)
-        return true
-    else
-    {
-        rep !== null && rep.push(["expecting empty object [.'$r'.'|'.1]", path])
-        return false
-    }
-}
-
 // check $r (.'$r')
 function json_model_3(val, path, rep)
 {
     // .'$r'
-    // .'$r'.'|'.0
     let res = json_model_2(val, path, rep)
     if (! res)
-    {
-        rep !== null && rep.push(["unexpected value for model \"$a\" [.'$r'.'|'.0]", path])
-        // .'$r'.'|'.1
-        res = _jm_obj_1(val, path, rep)
-        if (! res)
-            rep !== null && rep.push(["unexpected element [.'$r'.'|'.1]", path])
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-        rep !== null && rep.push(["no model matched [.'$r'.'|']", path])
+        rep !== null && rep.push(["unexpected value for model \"$a\" [.'$r']", path])
     return res
 }
 
@@ -110,7 +50,7 @@ function json_model_3(val, path, rep)
 function json_model_1(val, path, rep)
 {
     // .
-    let res = json_model_3(val, path, rep)
+    let res = json_model_2(val, path, rep)
     if (! res)
         rep !== null && rep.push(["unexpected value for model \"$r\" [.]", path])
     return res
@@ -126,9 +66,9 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", json_model_3)
+        check_model_map.set("", json_model_2)
         check_model_map.set("a", json_model_2)
-        check_model_map.set("r", json_model_3)
+        check_model_map.set("r", json_model_2)
     }
 }
 
