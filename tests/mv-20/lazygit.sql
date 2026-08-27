@@ -1337,7 +1337,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_cst_10(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  constants JSONB = JSONB '["2","3"]';
+  constants JSONB = JSONB '["2","3",""]';
 BEGIN
   RETURN constants @> value;
 END;
@@ -1348,7 +1348,7 @@ CREATE OR REPLACE FUNCTION _jm_f_30(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   -- .gui.nerdFontsVersion
-  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_10(val) OR JSONB_TYPEOF(val) = 'string';
+  RETURN JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_10(val);
 END;
 $$ LANGUAGE PLpgSQL;
 
@@ -2010,7 +2010,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_cst_14(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  constants JSONB = JSONB '["vim","nvim","emacs","nano","vscode","sublime","bbedit","kakoune","helix","xcode"]';
+  constants JSONB = JSONB '["vim","nvim","emacs","nano","vscode","sublime","bbedit","kakoune","helix","xcode",""]';
 BEGIN
   RETURN constants @> value;
 END;
@@ -2040,7 +2040,7 @@ BEGIN
     ELSEIF prop = 'editPreset' THEN
       -- handle may editPreset property
       -- .os.editPreset
-      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_14(pval) OR JSONB_TYPEOF(pval) = 'string';
+      res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_14(pval);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

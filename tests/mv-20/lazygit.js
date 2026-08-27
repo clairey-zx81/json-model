@@ -999,26 +999,7 @@ function _jm_f_10(val, path, rep)
     // .gui.nerdFontsVersion
     let res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_6.has(val)
     if (! res)
-    {
         rep !== null && rep.push(["value not in enum [.gui.nerdFontsVersion.'|']", path])
-        res = (typeof val === 'string' || val instanceof String)
-        if (res)
-        {
-            // .gui.nerdFontsVersion.'|'.0
-            res = true
-            if (res)
-            {
-                if (rep !== null) rep.length = 0
-            }
-            else
-            {
-                rep !== null && rep.push(["unexpected value for model \"\" [.gui.nerdFontsVersion.'|'.0]", path])
-                rep !== null && rep.push(["no model matched [.gui.nerdFontsVersion.'|']", path])
-            }
-        }
-        else
-            rep !== null && rep.push(["unexpected type [.gui.nerdFontsVersion.'|']", path])
-    }
     return res
 }
 
@@ -1912,26 +1893,6 @@ function _jm_obj_15(val, path, rep)
             if (! res)
             {
                 rep !== null && rep.push(["value not in enum [.os.editPreset.'|']", (path ? lpath_16 : null)])
-                res = (typeof pval === 'string' || pval instanceof String)
-                if (res)
-                {
-                    // .os.editPreset.'|'.0
-                    res = true
-                    if (res)
-                    {
-                        if (rep !== null) rep.length = 0
-                    }
-                    else
-                    {
-                        rep !== null && rep.push(["unexpected value for model \"\" [.os.editPreset.'|'.0]", (path ? lpath_16 : null)])
-                        rep !== null && rep.push(["no model matched [.os.editPreset.'|']", (path ? lpath_16 : null)])
-                    }
-                }
-                else
-                    rep !== null && rep.push(["unexpected type [.os.editPreset.'|']", (path ? lpath_16 : null)])
-            }
-            if (! res)
-            {
                 rep !== null && rep.push(["invalid optional prop value [.os.editPreset]", (path ? lpath_16 : null)])
                 return false
             }
@@ -3459,6 +3420,7 @@ export function check_model_init()
         _jm_cst_5.add("vertical")
         _jm_cst_6.add("2")
         _jm_cst_6.add("3")
+        _jm_cst_6.add("")
         _jm_cst_7.add("auto")
         _jm_cst_7.add("always")
         _jm_cst_8.add("normal")
@@ -3511,6 +3473,7 @@ export function check_model_init()
         _jm_cst_12.add("kakoune")
         _jm_cst_12.add("helix")
         _jm_cst_12.add("xcode")
+        _jm_cst_12.add("")
         _jm_cst_13.add("prompt")
         _jm_cst_13.add("background")
         _jm_cst_13.add("never")

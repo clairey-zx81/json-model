@@ -1206,17 +1206,6 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_10
     if not res:
         rep is None or rep.append(("value not in enum [.gui.nerdFontsVersion.'|']", path))
-        res = isinstance(val, str)
-        if res:
-            # .gui.nerdFontsVersion.'|'.0
-            res = True
-            if res:
-                rep is None or rep.clear()
-            else:
-                rep is None or rep.append(("unexpected value for model \"\" [.gui.nerdFontsVersion.'|'.0]", path))
-                rep is None or rep.append(("no model matched [.gui.nerdFontsVersion.'|']", path))
-        else:
-            rep is None or rep.append(("unexpected type [.gui.nerdFontsVersion.'|']", path))
     return res
 
 # check _jm_f_19_map_scrollHeight (.gui.scrollHeight)
@@ -1866,18 +1855,6 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
             res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_14
             if not res:
                 rep is None or rep.append(("value not in enum [.os.editPreset.'|']", lpath_28 if path is not None else None))
-                res = isinstance(pval, str)
-                if res:
-                    # .os.editPreset.'|'.0
-                    res = True
-                    if res:
-                        rep is None or rep.clear()
-                    else:
-                        rep is None or rep.append(("unexpected value for model \"\" [.os.editPreset.'|'.0]", lpath_28 if path is not None else None))
-                        rep is None or rep.append(("no model matched [.os.editPreset.'|']", lpath_28 if path is not None else None))
-                else:
-                    rep is None or rep.append(("unexpected type [.os.editPreset.'|']", lpath_28 if path is not None else None))
-            if not res:
                 rep is None or rep.append(("invalid optional prop value [.os.editPreset]", lpath_28 if path is not None else None))
                 return False
             continue
@@ -2115,7 +2092,7 @@ def check_model_init():
         global _jm_cst_9
         _jm_cst_9 = {'flexible', 'horizontal', 'vertical'}
         global _jm_cst_10
-        _jm_cst_10 = {'2', '3'}
+        _jm_cst_10 = {'', '2', '3'}
         global _jm_cst_11
         _jm_cst_11 = {'always', 'auto'}
         global _jm_cst_12
@@ -2273,7 +2250,7 @@ def check_model_init():
         global _jm_cst_13
         _jm_cst_13 = {'create', 'prompt', 'quit', 'skip'}
         global _jm_cst_14
-        _jm_cst_14 = {'bbedit', 'emacs', 'helix', 'kakoune', 'nano', 'nvim', 'sublime', 'vim', 'vscode', 'xcode'}
+        _jm_cst_14 = {'', 'bbedit', 'emacs', 'helix', 'kakoune', 'nano', 'nvim', 'sublime', 'vim', 'vscode', 'xcode'}
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = re.compile("^[^:]+:[^:]+$")
         _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None

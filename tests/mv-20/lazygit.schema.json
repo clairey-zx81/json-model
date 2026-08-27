@@ -382,16 +382,10 @@
           "type": "boolean"
         },
         "nerdFontsVersion": {
-          "anyOf": [
-            {
-              "const": "2"
-            },
-            {
-              "const": "3"
-            },
-            {
-              "type": "string"
-            }
+          "enum": [
+            "2",
+            "3",
+            ""
           ]
         },
         "commandLogSize": {
@@ -572,40 +566,18 @@
           "type": "string"
         },
         "editPreset": {
-          "anyOf": [
-            {
-              "const": "vim"
-            },
-            {
-              "const": "nvim"
-            },
-            {
-              "const": "emacs"
-            },
-            {
-              "const": "nano"
-            },
-            {
-              "const": "vscode"
-            },
-            {
-              "const": "sublime"
-            },
-            {
-              "const": "bbedit"
-            },
-            {
-              "const": "kakoune"
-            },
-            {
-              "const": "helix"
-            },
-            {
-              "const": "xcode"
-            },
-            {
-              "type": "string"
-            }
+          "enum": [
+            "vim",
+            "nvim",
+            "emacs",
+            "nano",
+            "vscode",
+            "sublime",
+            "bbedit",
+            "kakoune",
+            "helix",
+            "xcode",
+            ""
           ]
         },
         "edit": {

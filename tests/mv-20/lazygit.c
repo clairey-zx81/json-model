@@ -1287,7 +1287,8 @@ static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *r
 static INLINE bool _jm_cst_6_str_test(const char *s)
 {
     return
-           jm_str_eq_2(s, 0x00000032)  // "2"
+           jm_str_eq_0(s)  // ""
+        || jm_str_eq_2(s, 0x00000032)  // "2"
         || jm_str_eq_2(s, 0x00000033)  // "3"
 
     ;
@@ -1465,28 +1466,6 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
                     if (unlikely(! res))
                     {
                         if (rep) jm_report_add_entry(rep, "value not in enum [.gui.nerdFontsVersion.'|']", (path ? &lpath_8 : NULL));
-                        res = json_is_string(pval);
-                        if (likely(res))
-                        {
-                            // .gui.nerdFontsVersion.'|'.0
-                            res = true;
-                            if (likely(res))
-                            {
-                                if (rep) jm_report_free_entries(rep);
-                            }
-                            else
-                            {
-                                if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.gui.nerdFontsVersion.'|'.0]", (path ? &lpath_8 : NULL));
-                                if (rep) jm_report_add_entry(rep, "no model matched [.gui.nerdFontsVersion.'|']", (path ? &lpath_8 : NULL));
-                            }
-                        }
-                        else
-                        {
-                            if (rep) jm_report_add_entry(rep, "unexpected type [.gui.nerdFontsVersion.'|']", (path ? &lpath_8 : NULL));
-                        }
-                    }
-                    if (unlikely(! res))
-                    {
                         if (rep) jm_report_add_entry(rep, "invalid optional prop value [.gui.nerdFontsVersion]", (path ? &lpath_8 : NULL));
                         return false;
                     }
@@ -1788,7 +1767,8 @@ static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *re
 static INLINE bool _jm_cst_9_str_test(const char *s)
 {
     return
-           jm_str_eq_4(s, 0x006d6976)  // "vim"
+           jm_str_eq_0(s)  // ""
+        || jm_str_eq_4(s, 0x006d6976)  // "vim"
         || jm_str_eq_5(s, 0x000000006f6e616eLL)  // "nano"
         || jm_str_eq_5(s, 0x000000006d69766eLL)  // "nvim"
         || jm_str_eq_6(s, 0x0000007363616d65LL)  // "emacs"
@@ -1869,28 +1849,6 @@ static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *r
                 if (unlikely(! res))
                 {
                     if (rep) jm_report_add_entry(rep, "value not in enum [.os.editPreset.'|']", (path ? &lpath_13 : NULL));
-                    res = json_is_string(pval);
-                    if (likely(res))
-                    {
-                        // .os.editPreset.'|'.0
-                        res = true;
-                        if (likely(res))
-                        {
-                            if (rep) jm_report_free_entries(rep);
-                        }
-                        else
-                        {
-                            if (rep) jm_report_add_entry(rep, "unexpected value for model \"\" [.os.editPreset.'|'.0]", (path ? &lpath_13 : NULL));
-                            if (rep) jm_report_add_entry(rep, "no model matched [.os.editPreset.'|']", (path ? &lpath_13 : NULL));
-                        }
-                    }
-                    else
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected type [.os.editPreset.'|']", (path ? &lpath_13 : NULL));
-                    }
-                }
-                if (unlikely(! res))
-                {
                     if (rep) jm_report_add_entry(rep, "invalid optional prop value [.os.editPreset]", (path ? &lpath_13 : NULL));
                     return false;
                 }

@@ -98,7 +98,7 @@
     "?showBranchCommitHash": true,
     "?showBottomLine": true,
     "?showCommandLog": true,
-    "?nerdFontsVersion": { "|": [ "2", "3", "" ] },
+    "?nerdFontsVersion": { "|": [ "2", "3", "_" ] },
     "?commandLogSize": 0,
     "?splitDiff": { "|": [ "auto", "always" ] },
     "?skipRewordInEditorWarning": true,
@@ -144,7 +144,7 @@
   "?os": {
     "?copyToClipboardCmd": "",
     "?editPreset": {
-      "|": ["vim", "nvim", "emacs", "nano", "vscode", "sublime", "bbedit", "kakoune", "helix", "xcode", ""]
+      "|": ["vim", "nvim", "emacs", "nano", "vscode", "sublime", "bbedit", "kakoune", "helix", "xcode", "_"]
     },
     "?edit": "",
     "?editAtLine": "",

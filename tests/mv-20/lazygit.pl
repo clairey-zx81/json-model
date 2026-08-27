@@ -1832,29 +1832,7 @@ sub _jm_f_30($$$)
     my ($val, $path, $rep) = @_;
     # .gui.nerdFontsVersion
     my $res = jm_is_string($val) && exists $_jm_cst_10{$val};
-    unless ($res)
-    {
-        push @$rep, ["value not in enum [.gui.nerdFontsVersion.'|']", $path] if defined $rep;
-        $res = jm_is_string($val);
-        if ($res)
-        {
-            # .gui.nerdFontsVersion.'|'.0
-            $res = 1;
-            if ($res)
-            {
-                @$rep = () if defined $rep;
-            }
-            else
-            {
-                push @$rep, ["unexpected value for model \"\" [.gui.nerdFontsVersion.'|'.0]", $path] if defined $rep;
-                push @$rep, ["no model matched [.gui.nerdFontsVersion.'|']", $path] if defined $rep;
-            }
-        }
-        else
-        {
-            push @$rep, ["unexpected type [.gui.nerdFontsVersion.'|']", $path] if defined $rep;
-        }
-    }
+    push @$rep, ["value not in enum [.gui.nerdFontsVersion.'|']", $path] if defined $rep and not $res;
     return $res;
 }
 
@@ -2596,28 +2574,6 @@ sub _jm_f_61($$$)
             unless ($res)
             {
                 push @$rep, ["value not in enum [.os.editPreset.'|']", defined $path ? $lpath_28 : undef] if defined $rep;
-                $res = jm_is_string($pval);
-                if ($res)
-                {
-                    # .os.editPreset.'|'.0
-                    $res = 1;
-                    if ($res)
-                    {
-                        @$rep = () if defined $rep;
-                    }
-                    else
-                    {
-                        push @$rep, ["unexpected value for model \"\" [.os.editPreset.'|'.0]", defined $path ? $lpath_28 : undef] if defined $rep;
-                        push @$rep, ["no model matched [.os.editPreset.'|']", defined $path ? $lpath_28 : undef] if defined $rep;
-                    }
-                }
-                else
-                {
-                    push @$rep, ["unexpected type [.os.editPreset.'|']", defined $path ? $lpath_28 : undef] if defined $rep;
-                }
-            }
-            unless ($res)
-            {
                 push @$rep, ["invalid optional prop value [.os.editPreset]", defined $path ? $lpath_28 : undef] if defined $rep;
                 return 0;
             }
@@ -3008,6 +2964,7 @@ sub check_model_init()
         %_jm_cst_10 = (
             "2" => 1,
             "3" => 1,
+            "" => 1,
         );
         %_jm_cst_11 = (
             "auto" => 1,
@@ -3203,6 +3160,7 @@ sub check_model_init()
             "kakoune" => 1,
             "helix" => 1,
             "xcode" => 1,
+            "" => 1,
         );
         %_jm_cst_15 = (
             "prompt" => 1,

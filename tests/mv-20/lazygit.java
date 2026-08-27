@@ -1864,25 +1864,6 @@ public class lazygit extends ModelChecker
         if (! res)
         {
             if (rep != null) rep.addEntry("value not in enum [.gui.nerdFontsVersion.'|']", path);
-            res = json.isString(val);
-            if (res)
-            {
-                // .gui.nerdFontsVersion.'|'.0
-                res = true;
-                if (res)
-                {
-                    if (rep != null) rep.clearEntries();
-                }
-                else
-                {
-                    if (rep != null) rep.addEntry("unexpected value for model \"\" [.gui.nerdFontsVersion.'|'.0]", path);
-                    if (rep != null) rep.addEntry("no model matched [.gui.nerdFontsVersion.'|']", path);
-                }
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("unexpected type [.gui.nerdFontsVersion.'|']", path);
-            }
         }
         return res;
     }
@@ -2879,28 +2860,6 @@ public class lazygit extends ModelChecker
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("value not in enum [.os.editPreset.'|']", (path != null ? lpath_28 : null));
-                    res = json.isString(pval);
-                    if (res)
-                    {
-                        // .os.editPreset.'|'.0
-                        res = true;
-                        if (res)
-                        {
-                            if (rep != null) rep.clearEntries();
-                        }
-                        else
-                        {
-                            if (rep != null) rep.addEntry("unexpected value for model \"\" [.os.editPreset.'|'.0]", (path != null ? lpath_28 : null));
-                            if (rep != null) rep.addEntry("no model matched [.os.editPreset.'|']", (path != null ? lpath_28 : null));
-                        }
-                    }
-                    else
-                    {
-                        if (rep != null) rep.addEntry("unexpected type [.os.editPreset.'|']", (path != null ? lpath_28 : null));
-                    }
-                }
-                if (! res)
-                {
                     if (rep != null) rep.addEntry("invalid optional prop value [.os.editPreset]", (path != null ? lpath_28 : null));
                     return false;
                 }
@@ -3279,6 +3238,7 @@ public class lazygit extends ModelChecker
             _jm_cst_10_set = new HashSet<Object>();
             _jm_cst_10_set.add(json.safeJSON("\"2\""));
             _jm_cst_10_set.add(json.safeJSON("\"3\""));
+            _jm_cst_10_set.add(json.safeJSON("\"\""));
             _jm_cst_11_set = new HashSet<Object>();
             _jm_cst_11_set.add(json.safeJSON("\"auto\""));
             _jm_cst_11_set.add(json.safeJSON("\"always\""));
@@ -3442,6 +3402,7 @@ public class lazygit extends ModelChecker
             _jm_cst_14_set.add(json.safeJSON("\"kakoune\""));
             _jm_cst_14_set.add(json.safeJSON("\"helix\""));
             _jm_cst_14_set.add(json.safeJSON("\"xcode\""));
+            _jm_cst_14_set.add(json.safeJSON("\"\""));
             _jm_re_2_pat = Pattern.compile("^[^:]+:[^:]+$");
             _jm_cst_15_set = new HashSet<Object>();
             _jm_cst_15_set.add(json.safeJSON("\"prompt\""));
