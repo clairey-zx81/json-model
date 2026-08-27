@@ -9,13 +9,17 @@ jtd.values.json[7]: PASS
 jtd.values.json[8]: PASS
 jtd.values.json[9]: PASS
 jtd.values.json[10]: PASS
-jtd.values.json[11]: FAIL (un: unexpected prop [.'$RootSchema'.'|'.8]; : unexpected element [.'$RootSchema'.'|'.8]; : no model matched [.'$RootSchema'.'|'])
-jtd.values.json[12]: FAIL (: unexpected type [.'$RootSchema'.'|'])
-jtd.values.json[13]: FAIL (: unexpected type [.'$RootSchema'.'|'])
-jtd.values.json[14]: FAIL (: unexpected type [.'$RootSchema'.'|'])
-jtd.values.json[15]: FAIL (: unexpected type [.'$RootSchema'.'|'])
+jtd.values.json[11]: FAIL (additionalProperties: unexpected prop [.'$RootSchema'.'|'.8]; : unexpected element [.'$RootSchema'.'|'.8]; : no model matched [.'$RootSchema'.'|'])
+jtd.values.json[12]: FAIL (enum: unexpected array size [.'$RootSchema'.'|'.2.enum]; enum: invalid mandatory prop value [.'$RootSchema'.'|'.2.enum]; : unexpected element [.'$RootSchema'.'|'.2]; : no model matched [.'$RootSchema'.'|'])
+jtd.values.json[13]: FAIL (enum: invalid mandatory prop value [.'$RootSchema'.'|'.2.enum]; : unexpected element [.'$RootSchema'.'|'.2]; : no model matched [.'$RootSchema'.'|'])
+jtd.values.json[14]: FAIL (enum: unexpected prop [.'$RootSchema'.'|'.0]; : unexpected element [.'$RootSchema'.'|'.0]; : no model matched [.'$RootSchema'.'|'])
+jtd.values.json[15]: FAIL (un: unexpected prop [.'$RootSchema'.'|'.8]; : unexpected element [.'$RootSchema'.'|'.8]; : no model matched [.'$RootSchema'.'|'])
 jtd.values.json[16]: FAIL (: unexpected type [.'$RootSchema'.'|'])
 jtd.values.json[17]: FAIL (: unexpected type [.'$RootSchema'.'|'])
 jtd.values.json[18]: FAIL (: unexpected type [.'$RootSchema'.'|'])
 jtd.values.json[19]: FAIL (: unexpected type [.'$RootSchema'.'|'])
 jtd.values.json[20]: FAIL (: unexpected type [.'$RootSchema'.'|'])
+jtd.values.json[21]: FAIL (: unexpected type [.'$RootSchema'.'|'])
+jtd.values.json[22]: FAIL (: unexpected type [.'$RootSchema'.'|'])
+jtd.values.json[23]: FAIL (: unexpected type [.'$RootSchema'.'|'])
+jtd.values.json[24]: FAIL (: unexpected type [.'$RootSchema'.'|'])

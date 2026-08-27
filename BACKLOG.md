@@ -95,7 +95,6 @@
 - [ ] static: close may/must? merge with open?
 - [ ] static: add a dynamic test for different strategies in object checking
 - [ ] backend: refactor ir optimizations
-- [ ] command: add direct ir to lang conversion
 - [ ] artifact: make work with dind (docker compose?)
 - [ ] static: recognize already compile objects and reuse function esp under no-reporting?
 - [ ] tests: add non regression tests to docker build
