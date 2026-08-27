@@ -1,0 +1,4 @@
+{
+  "#": "simplify list to string only",
+  "|": [ "", "$DATE", "/^[a-z]+$/", "_Susie", {"@": "", ">=": 3} ]
+}

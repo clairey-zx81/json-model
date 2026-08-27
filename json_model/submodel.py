@@ -1,7 +1,7 @@
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
 from .mtypes import Jsonable, JsonObject, ValueType
 from .model import JsonModel
-from .utils import log
+from .utils import log, model_eq
 from . import utils
 from . import predefs
 
@@ -68,12 +68,12 @@ def structure(model: ModelType) -> str|None:
 
 # TODO memoize?
 def is_submodel(jm: JsonModel, m1: ModelType, m2: ModelType) -> bool:
-    """Tell whether m1 is a submodel of m2."""
+    """Tell whether m1 is a submodel of m2, i.e. is stricter than m2."""
 
-    # log.debug(f"submodel: m1={m1} m2={m2}")
+    # log.debug(f"submodel 0: m1={m1} m2={m2}")
 
     # quick shortcut
-    if m1 == m2 or m1 == "$NONE" or m2 == "$ANY":
+    if model_eq(m1, m2) or m1 == "$NONE" or m2 == "$ANY":
         return True
     if m2 == "$NONE":
         return False
@@ -86,8 +86,10 @@ def is_submodel(jm: JsonModel, m1: ModelType, m2: ModelType) -> bool:
     # and normalize
     m1, m2 = normalizeModel(m1), normalizeModel(m2)
 
+    # log.debug(f"submodel 1: m1={m1} m2={m2}")
+
     # shortcut again
-    if m1 == m2 or m1 == "$NONE" or m2 == "$ANY":
+    if model_eq(m1, m2) or m1 == "$NONE" or m2 == "$ANY":
         return True
     if m2 == "$NONE":
         return False
@@ -103,8 +105,17 @@ def is_submodel(jm: JsonModel, m1: ModelType, m2: ModelType) -> bool:
 
     struc1 = structure(m1)
     if struc1 and struc1 in "&|^":
-        # TODO check ^?
-        return all(is_submodel(jm, m, m2) for m in m1[struc1] if not is_comment(m))
+        # BEWARE of empty lists!
+        if len(m1[struc1]) == 0:
+            # NOTE partial eval should do it
+            # | => $NONE
+            if struc1 in "|^":
+                return True
+            # & => ANY... hopefully will be optimized later?
+            return False
+        else:
+            return all(is_submodel(jm, m, m2) for m in m1[struc1] if not is_comment(m))
+
     if struc1 and struc1 == "@":
         # it is safe to ignore constraints
         return is_submodel(jm, m1["@"], m2)
@@ -116,11 +127,12 @@ def is_submodel(jm: JsonModel, m1: ModelType, m2: ModelType) -> bool:
     if not typed1:
         return False
 
-    if isinstance(m2, (int, float)):
+    if isinstance(m2, (int, float)) and not isinstance(m2, bool):
         assert m2 in (-1, 0, 1, -1.0, 0.0, 1.0)
         typed2, t2 = utils.model_type(m2, [])
         assert typed2
-        if isinstance(m1, (int, float)):
+        # log.warning(f"m1={m1} t1={t1} m2={m2} t2={t2} {t1 is t2}")
+        if isinstance(m1, (int, float)) and not isinstance(m1, bool):
             assert m1 in (-1, 0, 1, -1.0, 0.0, 1.0)
             return m1 >= m2 if t1 is t2 else False
         elif const1:
