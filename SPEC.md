@@ -665,6 +665,8 @@ JSON Model meta-model is available [here](https://json-model.org/models/json-mod
   - import override operator for objects? `<`
   - expand constrained models?
   - what predefs should be relevant to typical use cases?
+  - drop redundant "!" sentinel char for properties?
+  - property and string sentinels could be mandatory to avoid considering values as models
 
 - **From JSON Model v1 to v2**
 
