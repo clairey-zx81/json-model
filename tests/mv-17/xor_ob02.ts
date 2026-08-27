@@ -35,18 +35,18 @@ export type Cc = (Cc_0 | Cc_1)
 /* props: a/b a/c b/c */
 export interface RootModel_0 {
 	a: number
-	b: number
+	c: number
 }
 
 export interface RootModel_1 {
+	b: number
 	a: number
-	c: number
 }
 
 export interface RootModel_2 {
+	b: number
 	a: number
 	c: number
-	b: number
 }
 
 export interface RootModel_3 {

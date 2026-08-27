@@ -102,24 +102,6 @@
           "type": "integer",
           "minimum": 0
         },
-        "b": {
-          "type": "integer",
-          "minimum": 0
-        }
-      },
-      "required": [
-        "a",
-        "b"
-      ],
-      "additionalProperties": false
-    },
-    {
-      "type": "object",
-      "properties": {
-        "a": {
-          "type": "integer",
-          "minimum": 0
-        },
         "c": {
           "type": "integer",
           "minimum": 0
@@ -134,6 +116,28 @@
     {
       "type": "object",
       "properties": {
+        "b": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "a": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "b",
+        "a"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "b": {
+          "type": "integer",
+          "minimum": 0
+        },
         "a": {
           "type": "integer",
           "minimum": 0
@@ -141,16 +145,12 @@
         "c": {
           "type": "integer",
           "minimum": 0
-        },
-        "b": {
-          "type": "integer",
-          "minimum": 0
         }
       },
       "required": [
+        "b",
         "a",
-        "c",
-        "b"
+        "c"
       ],
       "additionalProperties": false
     },

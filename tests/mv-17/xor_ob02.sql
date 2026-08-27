@@ -255,7 +255,16 @@ BEGIN
   -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'a' THEN
+    IF prop = 'b' THEN
+      -- handle must b property
+      must_count := must_count + 1;
+      -- .'|'.2.b
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+      CONTINUE;
+    ELSEIF prop = 'a' THEN
       -- handle must a property
       must_count := must_count + 1;
       -- .'|'.2.a
@@ -268,15 +277,6 @@ BEGIN
       -- handle must c property
       must_count := must_count + 1;
       -- .'|'.2.c
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-      CONTINUE;
-    ELSEIF prop = 'b' THEN
-      -- handle must b property
-      must_count := must_count + 1;
-      -- .'|'.2.b
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
@@ -301,19 +301,19 @@ BEGIN
   -- value known to be an object
   must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = 'a' THEN
-      -- handle must a property
+    IF prop = 'b' THEN
+      -- handle must b property
       must_count := must_count + 1;
-      -- .'|'.1.a
+      -- .'|'.1.b
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'c' THEN
-      -- handle must c property
+    ELSEIF prop = 'a' THEN
+      -- handle must a property
       must_count := must_count + 1;
-      -- .'|'.1.c
+      -- .'|'.1.a
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
@@ -347,10 +347,10 @@ BEGIN
         RETURN FALSE;
       END IF;
       CONTINUE;
-    ELSEIF prop = 'b' THEN
-      -- handle must b property
+    ELSEIF prop = 'c' THEN
+      -- handle must c property
       must_count := must_count + 1;
-      -- .'|'.0.b
+      -- .'|'.0.c
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
