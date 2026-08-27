@@ -157,7 +157,7 @@ on a set of test vectors.
 - Number of test vector JSON values: _${n_values}_
 - All tested JSON values (including models, generated schemas and IR, and test suite schemas): _${all_values}_
 
-Over _150,000_ checks are performed when running non-regression tests:
+Over _170,000_ assertion checks are performed when running non-regression tests:
 generated files, values validated in various languages…
 
 [Example models](https://json-model.org/MODELS) cover typical use cases and demonstrate
