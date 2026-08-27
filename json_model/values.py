@@ -17,6 +17,7 @@ from .runtime.types import EntryCheckFun
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
 _JQ_NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
+_MODEL_NAME_RE = re.compile(r"^[^\s\[\]\"]+$")
 _CONSTANTS = {"=null": None, "=true": True, "=false": False}
 _CATEGORIES = {
     _parser.CATEGORY_DIGIT: "0",
@@ -25,6 +26,7 @@ _CATEGORIES = {
 }
 _ANY_CHAR = "a"
 _OPERATORS = {"@", "|", "&", "^", "!", "=", "!=", "<", "<=", ">", ">="}
+_UNION_OPS = {"|", "^", "&"}
 _ROOT_KEYS = {"$", "%", "~"}
 _COMPARISONS = {"=", "!=", "<", "<=", ">", ">="}
 _CONSTRAINTS = _COMPARISONS | {"!"}
@@ -797,6 +799,31 @@ def _jqpath(path: list) -> str:
             steps.append(f"[{json.dumps(str(step))}]")
     return "." + "".join(steps) if steps[0][0] == "[" else "".join(steps)
 
+def _mpath(path: list) -> str:
+    """Readable model path, written in JSON Model syntax."""
+    steps: list[str] = []
+    index = 0
+    while index < len(path):
+        step = path[index]
+        follow = path[index + 1] if index + 1 < len(path) else None
+        index += 1
+        if isinstance(step, int) and not isinstance(step, bool):
+            steps.append(f"[{step}]")
+            continue
+        name = str(step)
+        if name in _UNION_OPS and isinstance(follow, int) and not isinstance(follow, bool):
+            steps.append(f".{name}{follow}")
+            index += 1
+        elif name == "$" and isinstance(follow, str):
+            steps.append(f".${follow}")
+            index += 1
+        elif _MODEL_NAME_RE.match(name):
+            steps.append(f".{name}")
+        else:
+            steps.append(f"[{json.dumps(name)}]")
+    text = "".join(steps)
+    return "." + text if not text or text[0] == "[" else text
+
 def _replaced(doc: Jsonable, path: list, value: Jsonable) -> Jsonable:
     """Copy of a document with one position set to a value."""
     result = copy.deepcopy(doc)
@@ -820,10 +847,10 @@ def _without(model: ModelType, path: list) -> ModelType:
             node = node[step]
         if not isinstance(node, (dict, list)):
             raise UnsupportedValue(
-                f"cannot remove {_jqpath(path)} from an imported definition")
+                f"cannot remove {_mpath(path)} from an imported definition")
         del node[path[-1]]
     except (KeyError, IndexError, TypeError) as e:
-        raise UnsupportedValue(f"cannot remove {_jqpath(path)} from model: {e}")
+        raise UnsupportedValue(f"cannot remove {_mpath(path)} from model: {e}")
     return result
 
 def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
@@ -837,7 +864,7 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
         elif model != "$ANY" and (not model.startswith("$") or name in PREDEFS):
             yield mpath, vpath, frames, {"@": model}
         elif model == "$ANY" and notes is not None:
-            notes.append(f"invalid value {_jqpath(mpath)}: $ANY accepts every value")
+            notes.append(f"invalid value {_mpath(mpath)}: $ANY accepts every value")
     elif isinstance(model, list):
         yield mpath, vpath, frames, {"@": model}
         items = [(i, m) for i, m in enumerate(model)
@@ -969,7 +996,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             reasons.append(f"no document to alter: {e}")
     for mpath, vpath, frames, props in sites:
         ops = set(props) - {"@"}
-        if not ops or all(_jqpath(mpath + [op]) in values for op in ops):
+        if not ops or all(_mpath(mpath + [op]) in values for op in ops):
             continue
         try:
             subs = _violations_constrained(props, jm, seen)
@@ -977,7 +1004,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             reasons.append(str(e))
             continue
         for op, sub in subs.items():
-            key = _jqpath(mpath + [op])
+            key = _mpath(mpath + [op])
             if key in values:
                 continue
             try:
@@ -997,7 +1024,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 skip(f"constraint value {key}: no value isolates it")
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
     for mpath, vpath, frames, props in sites:
-        key = f"{_jqpath(mpath)} invalid"
+        key = f"{_mpath(mpath)} invalid"
         if not mpath or set(props) - {"@"} or key in values:
             continue
         for candidate in _TYPE_VIOLATIONS:
@@ -1017,9 +1044,9 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 taken.add(json.dumps(value, sort_keys=True))
                 break
         else:
-            skip(f"invalid value {_jqpath(mpath)}: no type breaks the model here")
+            skip(f"invalid value {_mpath(mpath)}: no type breaks the model here")
     for mpath, vpath, frames, props in sites:
-        key = f"{_jqpath(mpath)} bad" if mpath else "bad"
+        key = f"{_mpath(mpath)} bad" if mpath else "bad"
         if set(props) - {"@"} or key in values:
             continue
         target = props["@"]
@@ -1039,24 +1066,24 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             values[key] = value
             taken.add(json.dumps(value, sort_keys=True))
         else:
-            skip(f"bad value {_jqpath(mpath)}: the {target} violation is still valid")
+            skip(f"bad value {_mpath(mpath)}: the {target} violation is still valid")
     for mpath, vpath, frames, node in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue as e:
-            reasons.append(f"{_jqpath(mpath)}: no object to shrink: {e}")
+            reasons.append(f"{_mpath(mpath)}: no object to shrink: {e}")
             continue
         if not isinstance(built, dict):
             continue
         for prop, name in _mandatory(node):
-            key = f"{_jqpath(mpath + [prop])} missing"
+            key = f"{_mpath(mpath + [prop])} missing"
             if key in values or name not in built:
                 continue
             sub = {p: v for p, v in built.items() if p != name}
             verdict = _verify(sub, _optional(node, prop, name), jm, defs)
             if verdict is not True:
                 if verdict is False:
-                    skip(f"missing value {_jqpath(mpath + [prop])}: "
+                    skip(f"missing value {_mpath(mpath + [prop])}: "
                          f"dropping {name} does not match the model")
                 else:
                     reasons.append(f"{key}: cannot check dropping {name}")
@@ -1074,21 +1101,21 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
             else:
-                skip(f"missing value {_jqpath(mpath + [prop])}: "
+                skip(f"missing value {_mpath(mpath + [prop])}: "
                      f"dropping {name} is still valid")
     for mpath, vpath, frames, node in _object_sites(sites):
         if not _closed(node, jm):
-            skip(f"extra value {_jqpath(mpath)}: object is open")
+            skip(f"extra value {_mpath(mpath)}: object is open")
             continue
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue as e:
-            reasons.append(f"{_jqpath(mpath)}: no object to extend: {e}")
+            reasons.append(f"{_mpath(mpath)}: no object to extend: {e}")
             continue
         if not isinstance(built, dict):
             continue
         for name in _EXTRA_NAMES:
-            key = f"{_jqpath(mpath + [name])} extra"
+            key = f"{_mpath(mpath + [name])} extra"
             if name in built or key in values:
                 continue
             sub = {**built, name: None}
@@ -1109,7 +1136,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 taken.add(json.dumps(value, sort_keys=True))
                 break
         else:
-            skip(f"extra value {_jqpath(mpath)}: every extra property is valid")
+            skip(f"extra value {_mpath(mpath)}: every extra property is valid")
     for candidate in _ROOT_TYPES:
         dumped = json.dumps(candidate, sort_keys=True)
         if dumped in taken:
@@ -1149,7 +1176,7 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
             reasons.append(f"no document to alter: {e}")
     for mpath, vpath, frames, props in sites:
         ops = set(props) - {"@"}
-        if not ops or all(_jqpath(mpath + [op]) in values for op in ops):
+        if not ops or all(_mpath(mpath + [op]) in values for op in ops):
             continue
         try:
             subs = _bounds_constrained(props, jm, seen)
@@ -1157,7 +1184,7 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
             reasons.append(str(e))
             continue
         for op, sub in subs.items():
-            key = _jqpath(mpath + [op])
+            key = _mpath(mpath + [op])
             if key in values:
                 continue
             try:
@@ -1200,12 +1227,12 @@ def optionals(model: ModelType, jm: JsonModel|None = None,
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue as e:
-            reasons.append(f"{_jqpath(mpath)}: no object to extend: {e}")
+            reasons.append(f"{_mpath(mpath)}: no object to extend: {e}")
             continue
         if not isinstance(built, dict):
             continue
         for prop, name, submodel in props:
-            key = f"{_jqpath(mpath + [prop])} present"
+            key = f"{_mpath(mpath + [prop])} present"
             if key in values or name in built:
                 continue
             try:
@@ -1250,7 +1277,7 @@ def branches(model: ModelType, jm: JsonModel|None = None,
         for index, alt in enumerate(node[op]):
             if isinstance(alt, str) and alt.startswith("#"):
                 continue
-            key = f"{_jqpath(mpath + [op, index])} branch"
+            key = f"{_mpath(mpath + [op, index])} branch"
             if key in values:
                 continue
             try:
