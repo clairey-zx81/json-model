@@ -1157,6 +1157,12 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
            seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
            url: str = "", extend: bool = False) -> dict[str, Jsonable]:
     """Generate a value on the bound of each constraint of a model."""
+    return _all_bounds(model, jm, seen, resolver, url, extend)[0]
+
+def _all_bounds(model: ModelType, jm: JsonModel|None = None,
+                seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
+                url: str = "", extend: bool = False) -> tuple[dict[str, Jsonable], list[str]]:
+    """Generate a value on each constraint bound, and why some bounds were skipped."""
     vjm, vmodel = jm, model
     if jm is None:
         jm, model = _compile(model, False, resolver, url, extend)
@@ -1166,6 +1172,7 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
         raise UnsupportedValue(f"cannot enter model: {_brief(model)}")
     values: dict[str, Jsonable] = {}
     reasons: list[str] = []
+    skipped: list[str] = []
     doc = None
     if any(f[0][0] if f else v for _, v, f, _ in sites):
         try:
@@ -1194,12 +1201,14 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
                 continue
             if _verify(value, vmodel, vjm) is True:
                 values[key] = value
+            else:
+                skipped.append(f"{key}: the value does not verify here")
     if not values:
-        if not reasons:
+        if not reasons and not skipped:
             raise Vacuous("no constraint bound: no constraint in model")
-        raise UnsupportedValue(f"no constraint bound: {_joined(reasons)}")
+        raise UnsupportedValue(f"no constraint bound: {_joined(reasons + skipped)}")
     else:
-        return values
+        return values, skipped
 
 def optionals(model: ModelType, jm: JsonModel|None = None,
               seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
@@ -1316,14 +1325,16 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         reasons.append(str(e))
         tests.append("# FAILED invalid model")
     try:
-        for key, value in bounds(model, resolver=resolver, url=url,
-                                 extend=extend).items():
+        found, skipped = _all_bounds(model, resolver=resolver, url=url, extend=extend)
+        for key, value in found.items():
             dumped = json.dumps(value, sort_keys=True)
             if dumped in taken:
                 continue
             taken.add(dumped)
             tests.append(f"# {key} bound")
             tests.append([True, value])
+        for reason in skipped:
+            tests.append(f"# FAILED bound value {reason}")
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
