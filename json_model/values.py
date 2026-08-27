@@ -801,23 +801,29 @@ def _replaced(doc: Jsonable, path: list, value: Jsonable) -> Jsonable:
     """Copy of a document with one position set to a value."""
     result = copy.deepcopy(doc)
     node = result
-    for step in path[:-1]:
-        node = node[step]
-    node[path[-1]] = value
+    try:
+        for step in path[:-1]:
+            node = node[step]
+        node[path[-1]] = value
+    except (KeyError, IndexError, TypeError) as e:
+        raise UnsupportedValue(f"cannot set {_jqpath(path)} in document: {e}")
     return result
 
 def _without(model: ModelType, path: list) -> ModelType:
     """Copy of a model with one position removed."""
     result = copy.deepcopy(model)
     node = result
-    for step in path[:-1]:
+    try:
+        for step in path[:-1]:
+            if not isinstance(node, (dict, list)):
+                break
+            node = node[step]
         if not isinstance(node, (dict, list)):
-            break
-        node = node[step]
-    if not isinstance(node, (dict, list)):
-        raise UnsupportedValue(
-            f"cannot remove {_jqpath(path)} from an imported definition")
-    del node[path[-1]]
+            raise UnsupportedValue(
+                f"cannot remove {_jqpath(path)} from an imported definition")
+        del node[path[-1]]
+    except (KeyError, IndexError, TypeError) as e:
+        raise UnsupportedValue(f"cannot remove {_jqpath(path)} from model: {e}")
     return result
 
 def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
@@ -980,7 +986,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                     rest, rdefs = model, _without(defs, mpath[1:] + [op])
                 else:
                     rest, rdefs = _without(model, mpath + [op]), defs
-            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+            except UnsupportedValue as e:
 
                 reasons.append(str(e))
 
@@ -999,7 +1005,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(copy.deepcopy(candidate), vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+            except UnsupportedValue as e:
 
                 reasons.append(str(e))
 
@@ -1022,7 +1028,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         try:
             value = _document(copy.deepcopy(_PREDEF_VIOLATIONS[target]),
                               vpath, frames, doc, jm, seen)
-        except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+        except UnsupportedValue as e:
 
             reasons.append(str(e))
 
@@ -1057,7 +1063,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+            except UnsupportedValue as e:
 
                 reasons.append(str(e))
 
@@ -1091,7 +1097,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+            except UnsupportedValue as e:
 
                 reasons.append(str(e))
 
@@ -1156,7 +1162,7 @@ def bounds(model: ModelType, jm: JsonModel|None = None,
                 continue
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
-            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+            except UnsupportedValue as e:
 
                 reasons.append(str(e))
 
@@ -1207,7 +1213,7 @@ def optionals(model: ModelType, jm: JsonModel|None = None,
                 found = _validated(sub, vpath, frames, doc, model, jm, seen, taken)
             except Vacuous:
                 continue
-            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+            except UnsupportedValue as e:
                 reasons.append(f"{key}: {e}")
                 continue
             if not found:
@@ -1252,7 +1258,7 @@ def branches(model: ModelType, jm: JsonModel|None = None,
                 found = _validated(sub, vpath, frames, doc, model, jm, seen, taken)
             except Vacuous:
                 continue
-            except (UnsupportedValue, KeyError, IndexError, TypeError) as e:
+            except UnsupportedValue as e:
                 reasons.append(f"{key}: {e}")
                 continue
             if not found:
