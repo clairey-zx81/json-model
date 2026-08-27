@@ -17,7 +17,7 @@ from .runtime.types import EntryCheckFun
 
 _NUMBER_RE = re.compile(r"^=-?\d+(\.\d+)?([Ee][-+]?\d+)?$")
 _JQ_NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
-_MODEL_NAME_RE = re.compile(r"^[^\s\[\]\"]+$")
+_MODEL_NAME_RE = re.compile(r"^[^\s\[\]'\"]+$")
 _CONSTANTS = {"=null": None, "=true": True, "=false": False}
 _CATEGORIES = {
     _parser.CATEGORY_DIGIT: "0",
@@ -416,7 +416,8 @@ def _simplest_constrained(props: ModelObject, jm: JsonModel, seen: frozenset[str
         value = _pick(lo, hi, ops, step, 0.0 if is_float else 0)
         return float(value) if is_float else int(value)
     lo, hi = _bounds(ops, 1, 0)
-    if (lo is None or len(base) >= lo) and (hi is None or len(base) <= hi):
+    if ((lo is None or len(base) >= lo) and (hi is None or len(base) <= hi)
+            and not ("!=" in ops and len(base) == ops["!="])):
         return base
     length = int(_pick(lo, hi, ops, 1, 0))
     target, jm, seen = _resolved(target, jm, seen)
@@ -820,7 +821,7 @@ def _mpath(path: list) -> str:
         elif _MODEL_NAME_RE.match(name):
             steps.append(f".{name}")
         else:
-            steps.append(f"[{json.dumps(name)}]")
+            steps.append(f".'{name}'")
     text = "".join(steps)
     return "." + text if not text or text[0] == "[" else text
 
