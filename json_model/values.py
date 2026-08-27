@@ -26,7 +26,7 @@ _CATEGORIES = {
 }
 _ANY_CHAR = "a"
 _OPERATORS = {"@", "|", "&", "^", "!", "=", "!=", "<", "<=", ">", ">="}
-_UNION_OPS = {"|", "^", "&"}
+_QUOTED_OPS = _OPERATORS - {"@"}
 _ROOT_KEYS = {"$", "%", "~"}
 _COMPARISONS = {"=", "!=", "<", "<=", ">", ">="}
 _CONSTRAINTS = _COMPARISONS | {"!"}
@@ -812,16 +812,13 @@ def _mpath(path: list) -> str:
             steps.append(f"[{step}]")
             continue
         name = str(step)
-        if name in _UNION_OPS and isinstance(follow, int) and not isinstance(follow, bool):
-            steps.append(f".{name}{follow}")
-            index += 1
-        elif name == "$" and isinstance(follow, str):
+        if name == "$" and isinstance(follow, str):
             steps.append(f".${follow}")
             index += 1
-        elif _MODEL_NAME_RE.match(name):
-            steps.append(f".{name}")
-        else:
+        elif name in _QUOTED_OPS or not _MODEL_NAME_RE.match(name):
             steps.append(f".'{name}'")
+        else:
+            steps.append(f".{name}")
     text = "".join(steps)
     return "." + text if not text or text[0] == "[" else text
 
