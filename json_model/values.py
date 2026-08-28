@@ -423,6 +423,15 @@ def _ultimate(jm: JsonModel, model: ModelType) -> set[type]|None:
         kinds = kinds | {int}
     return kinds
 
+def _rejected(target: str, value: Jsonable) -> bool:
+    """Whether a predefined model certainly rejects a value.
+
+    Reuses the format checkers written for property names, which decide a string
+    against a predef without building a checker.
+    """
+    return (isinstance(value, str) and target in _PREDEF_NAMES
+            and not _PREDEF_NAMES[target](value))
+
 def _mistyped(value: Jsonable, kinds: set[type]|None) -> bool:
     """Whether a value certainly cannot match a model accepting these types."""
     return kinds is not None and type(value) not in kinds
@@ -1277,6 +1286,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         target = props["@"]
         if not isinstance(target, str) or target not in _PREDEF_VIOLATIONS:
             continue
+        proven = not branched and _rejected(target, _PREDEF_VIOLATIONS[target])
         try:
             value = _document(copy.deepcopy(_PREDEF_VIOLATIONS[target]),
                               vpath, frames, doc, jm, seen)
@@ -1287,10 +1297,10 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             continue
         if json.dumps(value, sort_keys=True) in taken:
             continue
-        elif unverified is not None or _verify(value, vmodel, vjm) is False:
+        elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
             values[key] = value
             taken.add(json.dumps(value, sort_keys=True))
-            if unverified is not None:
+            if unverified is not None and not proven:
                 unverified.add(key)
         else:
             skip(f"bad value {_mpath(mpath)}: the {target} violation is still valid")
