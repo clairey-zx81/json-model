@@ -2,6 +2,8 @@
 # Generate values from model
 #
 import copy
+import datetime
+import ipaddress
 import json
 import math
 import re
@@ -25,6 +27,19 @@ _CATEGORIES = {
     _parser.CATEGORY_SPACE: " ",
 }
 _ANY_CHAR = "a"
+_NAME_CHARS = "abcdefghijklmnopqrstuvwxyz"
+_ANY_NAME_PREDEFS = {"$ANY", "$STRING"}
+_NO_NAME_PREDEFS = {
+    "$NULL", "$NONE", "$BOOL", "$BOOLEAN", "$INT", "$INTEGER", "$I32", "$I64",
+    "$U32", "$U64", "$FLOAT", "$F32", "$F64", "$NUMBER",
+}
+_DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+_UUID_RE = re.compile(r"[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}")
+_ETH_RE = re.compile(r"(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}")
+_SEMVER_RE = re.compile(r"\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?")
+_CARD_RE = re.compile(r"\d{12,19}")
+_DURATION_RE = re.compile(r"P(?!$)(\d+Y)?(\d+M)?(\d+D)?(T(?!$)(\d+H)?(\d+M)?(\d+(\.\d+)?S)?)?")
+_JSONPT_RE = re.compile(r"(/([^/~]|~[01])*)*")
 _OPERATORS = {"@", "|", "&", "^", "!", "=", "!=", "<", "<=", ">", ">="}
 _QUOTED_OPS = _OPERATORS - {"@"}
 _ROOT_KEYS = {"$", "%", "~"}
@@ -336,19 +351,118 @@ def _sized(target: ModelType, base: Jsonable, length: int, unique: bool,
             raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
     return values
 
-def _names(prop: str, count: int, taken: set[str], jm: JsonModel) -> list[str]:
-    """Distinct property names matching a catch-all or pattern property model."""
+def _parses(parser, name: str) -> bool:
+    """Whether a reference parser accepts a name."""
     try:
-        seed = _ANY_CHAR if prop == "" else _simplest_regex(prop)
+        parser(name)
+        return True
+    except Exception:
+        return False
+
+def _iso_time(name: str, zoned: bool|None = None) -> bool:
+    """Whether a name is an ISO time, allowing the 23:59:60 leap second."""
+    probe = "23:59:59" + name[8:] if name.startswith("23:59:60") else name
+    try:
+        parsed = datetime.time.fromisoformat(probe)
+    except ValueError:
+        return False
+    return zoned is None or (parsed.tzinfo is not None) is zoned
+
+def _luhn(name: str) -> bool:
+    """Whether a name is a card number passing the Luhn checksum."""
+    if _CARD_RE.fullmatch(name) is None:
+        return False
+    total, double = 0, False
+    for char in reversed(name):
+        digit = int(char)
+        total += digit * 2 - 9 if double and digit > 4 else digit * 2 if double else digit
+        double = not double
+    return total % 10 == 0
+
+_PREDEF_NAMES = {
+    "$DATE": lambda n: _DATE_RE.fullmatch(n) is not None
+                       and _parses(datetime.date.fromisoformat, n),
+    "$TIME": _iso_time,
+    "$TIMETZ": lambda n: _iso_time(n, True),
+    "$DATETIME": lambda n: _parses(datetime.datetime.fromisoformat, n),
+    "$UUID": lambda n: _UUID_RE.fullmatch(n) is not None,
+    "$IP4": lambda n: _parses(ipaddress.IPv4Address, n),
+    "$IP6": lambda n: "%" not in n and _parses(ipaddress.IPv6Address, n),
+    "$JSON": lambda n: _parses(json.loads, n),
+    "$ETH": lambda n: _ETH_RE.fullmatch(n) is not None,
+    "$SEMVER": lambda n: _SEMVER_RE.fullmatch(n) is not None,
+    "$CARD": _luhn,
+    "$DURATION": lambda n: _DURATION_RE.fullmatch(n) is not None,
+    "$JSONPT": lambda n: _JSONPT_RE.fullmatch(n) is not None,
+    "$REGEX": lambda n: _parses(re.compile, n),
+}
+
+def _matches(name: str, prop: str) -> bool|None:
+    """Whether a name matches an object model property key, None if undecided.
+
+    Independent of the compiler, so that a disagreement shows up as a test failure.
+    """
+    if prop == "" or prop in _ANY_NAME_PREDEFS:
+        return True
+    elif prop.startswith("#") or prop in _NO_NAME_PREDEFS:
+        return False
+    elif prop in _PREDEF_NAMES:
+        return _PREDEF_NAMES[prop](name)
+    elif prop.startswith("/"):
+        if "/" not in prop[1:]:
+            return None
+        pattern, opts = prop[1:].rsplit("/", 1)
+        if "X" in opts:
+            return None
+        source = f"(?{opts}){pattern}" if opts else pattern
+        try:
+            return re.compile(source).search(name) is not None
+        except re.error:
+            return None
+    elif prop.startswith("$"):
+        return None
+    else:
+        return name == (prop[1:] if prop.startswith(("!", "?", "_")) else prop)
+
+def _outranking(node: ModelObject, prop: str) -> list[str]:
+    """Property keys the model applies before a catch-all or pattern key.
+
+    A named property wins over a predefined one, which wins over any pattern,
+    and patterns apply in declaration order, so a generated name matching one of
+    these belongs to that key instead.
+    """
+    keys = [p for p in node if not p.startswith("#")]
+    literals = [p for p in keys if p != "" and not p.startswith(("/", "$"))]
+    predefs = [p for p in keys if p.startswith("$")]
+    patterns = [p for p in keys if p.startswith("/")]
+    if prop == "":
+        return literals + predefs + patterns
+    elif prop in patterns:
+        return literals + predefs + patterns[:patterns.index(prop)]
+    else:
+        return []
+
+def _names(prop: str, count: int, taken: set[str],
+           outranking: list[str] = []) -> list[str]:
+    """Distinct property names matching a catch-all or pattern property model.
+
+    A catch-all accepts any name, so fall back on further starting letters when
+    an earlier key claims every name built from the first one.
+    """
+    try:
+        seeds = list(_NAME_CHARS) if prop == "" else [_simplest_regex(prop)]
     except UnsupportedValue:
         return []
-    names = []
-    for i in range(count + len(taken) + 1):
-        name = seed + _ANY_CHAR * i
-        if name not in taken and _verify(name, prop, jm) is True:
-            names.append(name)
-            if len(names) >= count:
-                break
+    names: list[str] = []
+    for seed in seeds:
+        for i in range(count + len(taken) + 1):
+            name = seed + _ANY_CHAR * i
+            if (name not in names and name not in taken
+                    and _matches(name, prop) is True
+                    and not any(_matches(name, other) is True for other in outranking)):
+                names.append(name)
+                if len(names) >= count:
+                    return names
     return names
 
 def _grown(target: ModelType, base: ModelObject, length: int,
@@ -369,7 +483,8 @@ def _grown(target: ModelType, base: ModelObject, length: int,
         if len(value) >= length:
             break
         elif prop == "" or prop.startswith("/"):
-            for name in _names(prop, length - len(value), set(value), jm):
+            for name in _names(prop, length - len(value), set(value),
+                               _outranking(target, prop)):
                 value[name] = simplest(submodel, jm, seen)
     if len(value) != length:
         raise UnsupportedValue(f"cannot reach {length} properties: {target}")
@@ -553,10 +668,8 @@ def _property_name(prop: str, taken: set[str]) -> str:
     name = _simplest_regex(prop)
     if name not in taken:
         return name
-    pattern, opts = prop[1:].rsplit("/", 1)
-    regex = re.compile(f"(?{opts}){pattern}" if opts else pattern)
     for suffix in ("0", "00", "000"):
-        if name + suffix not in taken and regex.search(name + suffix):
+        if name + suffix not in taken and _matches(name + suffix, prop) is True:
             return name + suffix
     raise UnsupportedValue(f"no free property name for {prop}")
 
@@ -744,7 +857,8 @@ def _optional_props(node: ModelObject, jm: JsonModel,
         elif prop.startswith("?"):
             props.append((prop, prop[1:], sub))
         elif prop == "" or prop.startswith("/"):
-            props.extend((prop, name, sub) for name in _names(prop, 1, named, jm))
+            props.extend((prop, name, sub)
+                         for name in _names(prop, 1, named, _outranking(node, prop)))
         elif prop.startswith("$"):
             try:
                 name = simplest(prop, jm, seen)
