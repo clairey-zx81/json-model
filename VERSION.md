@@ -1,5 +1,23 @@
 # JSON Model Compiler Versions
 
+## 2.0.59 on 2026-08-28
+
+- bench: fix standard cron runs
+- bench: minor report styling
+- pr: improve bench artifact discussion
+- tests: ~run dyn per-model instead of per-dir~ not needed, load balancing is ok
+- tests: ~run language per-model instead of per-dir~ idem
+- pr: improve JSTS test results alignment between all backends (minor diffs remain)
+- optim: regex list of words to enum
+- optim: remove props which match the default
+- models: add example model for JTD (JSON Type Definition)
+- tests: fix directory display by using str params
+- pr: update check count in about page
+- optim: simplify subtypes in or-lists
+- optim: fix more model comparison issues related to python `==` operator
+- container: improve build caching by combining ADD + RUN git ...
+- bench: check minimum generated file sizes
+
 ## 2.0.58 on 2026-08-24
 
 - pr: improve bench script

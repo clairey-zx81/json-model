@@ -2,21 +2,6 @@
 
 ## Current Tasks
 
-- [x] bench: fix standard cron runs
-- [x] bench: minor report styling
-- [x] pr: improve bench artifact discussion
-- [x] tests: ~run dyn per-model instead of per-dir~ not needed, load balancing is ok
-- [x] tests: ~run language per-model instead of per-dir~ idem
-- [x] pr: improve JSTS test results alignment between all backends (minor diffs remain)
-- [x] optim: regex list of words to enum
-- [x] optim: remove props which match the default
-- [x] models: add example model for JTD (JSON Type Definition)
-- [x] tests: fix directory display by using str params
-- [x] pr: update check count in about page
-- [x] optim: simplify subtypes in or-lists
-- [x] optim: fix more model comparison issues related to python `==` operator
-- [x] container: improve build caching by combining ADD + RUN git ...
-- [x] bench: check minimum generated file sizes
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] pr: add _known limitations_ stuff
 - [ ] front: merge many internal options to trigrams
