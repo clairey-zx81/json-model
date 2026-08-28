@@ -17,8 +17,8 @@ RUN /app/venv/bin/pip install setuptools-git-versioning
 # JMC
 #
 # ADD + git fetch trick helps with docker build caching
-ADD --keep-git-dir https://github.com/clairey-zx81/json-model.git /app/json-model
-RUN cd /app/json-model && git fetch --unshallow && git checkout ${JMC}
+ADD --keep-git-dir "https://github.com/clairey-zx81/json-model.git#${JMC}" /app/json-model
+RUN cd /app/json-model && git fetch --unshallow && git tag -d ${JMC} && git checkout ${JMC}
 RUN git config --system --add safe.directory /app/json-model
 
 # install py
@@ -27,8 +27,8 @@ RUN /app/venv/bin/pip install -e ./json-model
 #
 # JSU
 #
-ADD --keep-git-dir https://github.com/zx80/json-schema-utils.git /app/json-schema-utils
-RUN cd /app/json-schema-utils && git fetch --unshallow && git checkout ${JSU}
+ADD --keep-git-dir "https://github.com/zx80/json-schema-utils.git#${JSU}" /app/json-schema-utils
+RUN cd /app/json-schema-utils && git fetch --unshallow && git tag -d ${JSU} && git checkout ${JSU}
 RUN git config --system --add safe.directory /app/json-schema-utils
 
 # install py
