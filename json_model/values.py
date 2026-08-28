@@ -576,6 +576,26 @@ def _needed(model: ModelType, defs: ModelObject) -> set[str]:
                 pending.append(defs[name])
     return keep
 
+def _ultimate(jm: JsonModel, model: ModelType) -> type|None:
+    """Ultimate JSON type of a model, None when several are possible."""
+    try:
+        return analyze.ultimate_type(jm, model)
+    except Exception:
+        return None
+
+def _mistyped(value: Jsonable, utype: type|None) -> bool:
+    """Whether a value certainly cannot match a model of this ultimate type.
+
+    Independent of the compiler. An int may still match a float type, because
+    $NUMBER accepts both, so that pair stays undecided.
+    """
+    if utype is None:
+        return False
+    elif utype is float and type(value) is int:
+        return False
+    else:
+        return type(value) is not utype
+
 def _verify(value: Jsonable, model: ModelType, jm: JsonModel,
             defs: ModelObject|None = None) -> bool|None:
     """Whether a value matches a model, None when no checker can be built."""
@@ -1139,8 +1159,10 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         key = f"{_mpath(mpath)} invalid"
         if not mpath or set(props) - {"@"} or key in values:
             continue
+        target = _ultimate(jm, props["@"])
         for candidate in _TYPE_VIOLATIONS:
-            if _verify(candidate, props["@"], jm, defs) is not False:
+            if (not _mistyped(candidate, target)
+                    and _verify(candidate, props["@"], jm, defs) is not False):
                 continue
             try:
                 value = _document(copy.deepcopy(candidate), vpath, frames, doc, jm, seen)
@@ -1249,11 +1271,12 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
         else:
             skip(f"extra value {_mpath(mpath)}: every extra property is valid")
+    utype = _ultimate(vjm, vmodel)
     for candidate in _ROOT_TYPES:
         dumped = json.dumps(candidate, sort_keys=True)
         if dumped in taken:
             continue
-        verdict = _verify(candidate, vmodel, vjm)
+        verdict = False if _mistyped(candidate, utype) else _verify(candidate, vmodel, vjm)
         if verdict is not False:
             if verdict is True:
                 skip(f"root value {dumped}: valid for the model")
