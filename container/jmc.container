@@ -8,23 +8,37 @@ LABEL description="JSON Model Compiler"
 ARG JMC=main
 ARG JSU=main
 
-# actual application stuff
-# direct install json-model and json-schema-utils from github
-# pip install json-model-compiler json-schema-utils
-# npm install json_model_runtime
-RUN curl -s "https://api.github.com/repos/clairey-zx81/json-model/commits/${JMC}" | \
-    jq -c "{jmc: .sha}" >> /app/commits.jsonl
-RUN git clone -b $JMC https://github.com/clairey-zx81/json-model.git
-RUN /app/venv/bin/pip install -e ./json-model
-RUN npm install file:./json-model/json_model/runtime/js
-# RUN ls -la node_modules
-# RUN rm -rf ./json-model  # no, editable
+# needed with git history to compute the version
+RUN /app/venv/bin/pip install setuptools-git-versioning
 
-RUN curl -s "https://api.github.com/repos/zx80/json-schema-utils/commits/${JSU}" | \
-    jq -c "{jsu: .sha}" >> /app/commits.jsonl
-RUN git clone -b $JSU https://github.com/zx80/json-schema-utils.git
+#
+# actual application stuff is installed from sources
+#
+# JMC
+#
+# ADD + git fetch trick helps with docker build caching
+ADD --keep-git-dir https://github.com/clairey-zx81/json-model.git /app/json-model
+RUN cd /app/json-model && git fetch --unshallow && git checkout ${JMC}
+RUN git config --system --add safe.directory /app/json-model
+
+# install py
+RUN /app/venv/bin/pip install -e ./json-model
+
+#
+# JSU
+#
+ADD --keep-git-dir https://github.com/zx80/json-schema-utils.git /app/json-schema-utils
+RUN cd /app/json-schema-utils && git fetch --unshallow && git checkout ${JSU}
+RUN git config --system --add safe.directory /app/json-schema-utils
+
+# install py
 RUN /app/venv/bin/pip install -e ./json-schema-utils
+
+# jmc runtime
 ENV jmc_rt=/app/json-model/json_model/runtime
+
+# install js
+RUN npm install file:$jmc_rt/js
 
 # compile java runtime
 RUN make -C $jmc_rt/java jar
@@ -34,8 +48,8 @@ ENV CLASSPATH=$CLASSPATH:$jmc_rt/java/json-model.jar
 RUN make CC=clang -C $jmc_rt/c compile
 
 # fix perms to allow any uid to read/write
-RUN find /app -type d -print | xargs chmod a+rwx
-RUN find /app -type f -print | xargs chmod a+rw
+RUN find /app -type d -print0 | xargs -0 chmod a+rwx
+RUN find /app -type f -print0 | xargs -0 chmod a+rw
 
 RUN mkdir /app/workspace
 WORKDIR /app/workspace

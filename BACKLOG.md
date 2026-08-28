@@ -15,6 +15,7 @@
 - [x] pr: update check count in about page
 - [x] optim: simplify subtypes in or-lists
 - [x] optim: fix more model comparison issues related to python `==` operator
+- [x] container: improve build caching by combining ADD + RUN git ...
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] pr: add _known limitations_ stuff
 - [ ] front: merge many internal options to trigrams

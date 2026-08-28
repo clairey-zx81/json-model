@@ -45,8 +45,10 @@ pod.cleaner:
 #
 # POD (docker ou podman)
 #
-BASE.cache  =
-JMC.cache   = --no-cache
+# consider: --no-cache
+JMC.opts  =
+BASE.pots =
+
 JMC     = $(BRANCH)
 JSU     = $(BRANCH)  # for consistency use same branch as JMC
 
@@ -54,12 +56,12 @@ JSU     = $(BRANCH)  # for consistency use same branch as JMC
 pod.build: .build.base .build.jmc
 
 .build.base: base.container
-	$(POD) build $(BASE.cache) -t jmc-base -f base.container . && date -Iseconds > $@
+	$(POD) build $(BASE.opts) -t jmc-base -f base.container . && date -Iseconds > $@
 	$(POD) tag jmc-base $(ZX80)/jmc-base:latest
 	$(POD) tag jmc-base $(ZX80)/jmc-base:26.04
 
 .build.jmc: jmc.container
-	$(POD) build $(JMC.cache) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
+	$(POD) build $(JMC.opts) --build-arg JMC=$(JMC) --build-arg JSU=$(JSU) \
 	    -t jmc -f jmc.container . && date -Iseconds > $@
 
 .PHONY: pod.run
