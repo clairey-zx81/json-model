@@ -142,7 +142,12 @@ if [ "$run" ] ; then
     test -f $file || err 9 "missing generated file: $file"
   done
 
-  # TODO improve run checks?!
+  # check minimal sizes
+  msize=$(stat --format "%s" $bench_id/$bench_id.md)
+  [ "$msize" -ge 8192 ] || err 9 "small generated file: $bench_id.md"
+
+  jsize=$(stat --format "%s" $bench_id/$bench_id.json)
+  [ "$jsize" -ge 4096 ] || err 9 "small generated file: $bench_id.json"
 
   # record benchmark version
   if [ "$check" ] ; then
