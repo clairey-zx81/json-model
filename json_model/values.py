@@ -371,6 +371,10 @@ def _mistyped(value: Jsonable, utype: type|None) -> bool:
     else:
         return type(value) is not utype
 
+def _justified(utype: type|None) -> list[Jsonable]:
+    """Type violations the oracle can justify first, so a marked value is a last resort."""
+    return sorted(_TYPE_VIOLATIONS, key=lambda candidate: not _mistyped(candidate, utype))
+
 def _parses(parser, name: str) -> bool:
     """Whether a reference parser accepts a name."""
     try:
@@ -683,13 +687,16 @@ def _simplest_string(model: str, jm: JsonModel, seen: frozenset[str]) -> Jsonabl
     else:
         return model
 
-def _property_name(prop: str, taken: set[str]) -> str:
-    """Property name matching a pattern property, avoiding named properties."""
+def _property_name(prop: str, taken: set[str], outranking: list[str] = []) -> str:
+    """Property name matching a pattern property, free of any other key of the object."""
+    def usable(name: str) -> bool:
+        return (name not in taken
+                and not any(_matches(name, other) is True for other in outranking))
     name = _simplest_regex(prop)
-    if name not in taken:
+    if usable(name):
         return name
     for suffix in ("0", "00", "000"):
-        if name + suffix not in taken and _matches(name + suffix, prop) is True:
+        if usable(name + suffix) and _matches(name + suffix, prop) is True:
             return name + suffix
     raise UnsupportedValue(f"no free property name for {prop}")
 
@@ -904,7 +911,7 @@ def _closed(node: ModelObject, jm: JsonModel) -> bool:
 
 def _object_sites(sites: list):
     """Sites which target a plain object model."""
-    for mpath, vpath, frames, props in sites:
+    for mpath, vpath, frames, props, branched in sites:
         node = props["@"]
         if (not set(props) - {"@"} and isinstance(node, dict)
                 and not set(node) & (_OPERATORS | _ROOT_KEYS)):
@@ -912,7 +919,7 @@ def _object_sites(sites: list):
 
 def _alternatives(sites: list):
     """Sites which target a union model."""
-    for mpath, vpath, frames, props in sites:
+    for mpath, vpath, frames, props, branched in sites:
         node = props["@"]
         if set(props) - {"@"} or not isinstance(node, dict):
             continue
@@ -986,45 +993,54 @@ def _without(model: ModelType, path: list) -> ModelType:
     return result
 
 def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
-           jm: JsonModel, seen: frozenset[str], notes: list[str]|None = None):
-    """Violation sites, as model path, value path, branch frames and properties."""
+           jm: JsonModel, seen: frozenset[str], notes: list[str]|None = None,
+           branched: bool = False):
+    """Violation sites, as model path, value path, branch frames, properties and branching.
+
+    A site is branched when it lies under an alternative of a union or a xor, where
+    breaking the model at that position leaves the document free to match elsewhere.
+    """
     if isinstance(model, str):
         name = model[1:]
         if model.startswith("$") and name in jm._defs._syms and name not in seen:
             yield from _sites(jm._defs._syms[name]._model, ["$", name], vpath,
-                              frames, jm, seen | {name}, notes)
+                              frames, jm, seen | {name}, notes, branched)
         elif model != "$ANY" and (not model.startswith("$") or name in PREDEFS):
-            yield mpath, vpath, frames, {"@": model}
+            yield mpath, vpath, frames, {"@": model}, branched
         elif model == "$ANY" and notes is not None:
             notes.append(f"invalid value {_mpath(mpath)}: $ANY accepts every value")
     elif isinstance(model, list):
-        yield mpath, vpath, frames, {"@": model}
+        yield mpath, vpath, frames, {"@": model}, branched
         items = [(i, m) for i, m in enumerate(model)
                  if not (isinstance(m, str) and m.startswith("#"))]
         if len(items) > 1:
             for n, (i, item) in enumerate(items):
-                yield from _sites(item, mpath + [i], vpath + [n], frames, jm, seen, notes)
+                yield from _sites(item, mpath + [i], vpath + [n], frames, jm, seen,
+                                  notes, branched)
         elif items:
             i, item = items[0]
             yield from _sites(item, mpath + [i], vpath + [0],
-                              frames + [(vpath, {"@": model, ">=": 1})], jm, seen, notes)
+                              frames + [(vpath, {"@": model, ">=": 1})], jm, seen,
+                              notes, branched)
     elif isinstance(model, dict):
         props = {p: m for p, m in model.items() if not p.startswith("#")}
         others = set(props) - {"@"}
         if "@" in props and others <= _CONSTRAINTS:
             if others:
-                yield mpath, vpath, frames, props
-            yield from _sites(props["@"], mpath + ["@"], vpath, frames, jm, seen, notes)
+                yield mpath, vpath, frames, props, branched
+            yield from _sites(props["@"], mpath + ["@"], vpath, frames, jm, seen,
+                              notes, branched)
         elif set(props) in ({"|"}, {"^"}, {"&"}):
             op = next(iter(props))
-            yield mpath, vpath, frames, {"@": model}
+            yield mpath, vpath, frames, {"@": model}, branched
             for index, alt in enumerate(props[op]):
                 if isinstance(alt, str) and alt.startswith("#"):
                     continue
                 yield from _sites(alt, mpath + [op, index], vpath,
-                                  frames + [(vpath, alt)], jm, seen, notes)
+                                  frames + [(vpath, alt)], jm, seen, notes,
+                                  branched or op != "&")
         elif not set(props) & (_OPERATORS | _ROOT_KEYS):
-            yield mpath, vpath, frames, {"@": model}
+            yield mpath, vpath, frames, {"@": model}, branched
             named = {p[1:] if p.startswith(("!", "?", "_")) else p
                      for p in props if p and not p.startswith(("/", "$"))}
             for prop, sub in props.items():
@@ -1032,7 +1048,7 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
                     continue
                 elif prop.startswith("/"):
                     try:
-                        name = _property_name(prop, named)
+                        name = _property_name(prop, named, _outranking(props, prop))
                     except UnsupportedValue:
                         continue
                     inner = frames + [(vpath + [name], sub)]
@@ -1040,9 +1056,10 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
                     name = prop[1:] if prop.startswith(("!", "?", "_")) else prop
                     inner = (frames + [(vpath + [name], sub)] if prop.startswith("?")
                              else frames)
-                yield from _sites(sub, mpath + [prop], vpath + [name], inner, jm, seen, notes)
+                yield from _sites(sub, mpath + [prop], vpath + [name], inner, jm, seen,
+                                  notes, branched)
     else:
-        yield mpath, vpath, frames, {"@": model}
+        yield mpath, vpath, frames, {"@": model}, branched
 
 def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
               jm: JsonModel, seen: frozenset[str]) -> Jsonable:
@@ -1131,12 +1148,12 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
         if note not in skipped:
             skipped.append(note)
 
-    if any(f[0][0] if f else v for _, v, f, _ in sites):
+    if any(f[0][0] if f else v for _, v, f, _, _ in sites):
         try:
             doc = simplest(model, jm, seen)
         except UnsupportedValue as e:
             reasons.append(f"no document to alter: {e}")
-    for mpath, vpath, frames, props in sites:
+    for mpath, vpath, frames, props, branched in sites:
         ops = set(props) - {"@"}
         if not ops or all(_mpath(mpath + [op]) in values for op in ops):
             continue
@@ -1168,12 +1185,13 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             else:
                 skip(f"constraint value {key}: no value isolates it")
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
-    for mpath, vpath, frames, props in sites:
+    for mpath, vpath, frames, props, branched in sites:
         key = f"{_mpath(mpath)} invalid"
         if not mpath or set(props) - {"@"} or key in values:
             continue
         target = _ultimate(jm, props["@"])
-        for candidate in _TYPE_VIOLATIONS:
+        for candidate in (_justified(target) if unverified is not None
+                          else _TYPE_VIOLATIONS):
             if not _mistyped(candidate, target) and (
                     unverified is None
                     and _verify(candidate, props["@"], jm, defs) is not False):
@@ -1190,12 +1208,13 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             elif unverified is not None or _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
-                if unverified is not None:
+                if unverified is not None and not (_mistyped(candidate, target)
+                                                   and not branched):
                     unverified.add(key)
                 break
         else:
             skip(f"invalid value {_mpath(mpath)}: no type breaks the model here")
-    for mpath, vpath, frames, props in sites:
+    for mpath, vpath, frames, props, branched in sites:
         key = f"{_mpath(mpath)} bad" if mpath else "bad"
         if set(props) - {"@"} or key in values:
             continue
@@ -1342,12 +1361,12 @@ def _all_bounds(model: ModelType, jm: JsonModel|None = None,
     reasons: list[str] = []
     skipped: list[str] = []
     doc = None
-    if any(f[0][0] if f else v for _, v, f, _ in sites):
+    if any(f[0][0] if f else v for _, v, f, _, _ in sites):
         try:
             doc = simplest(model, jm, seen)
         except UnsupportedValue as e:
             reasons.append(f"no document to alter: {e}")
-    for mpath, vpath, frames, props in sites:
+    for mpath, vpath, frames, props, branched in sites:
         ops = set(props) - {"@"}
         if not ops or all(_mpath(mpath + [op]) in values for op in ops):
             continue
