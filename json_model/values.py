@@ -29,6 +29,14 @@ _CATEGORIES = {
 _ANY_CHAR = "a"
 _NAME_CHARS = "abcdefghijklmnopqrstuvwxyz"
 _ANY_NAME_PREDEFS = {"$ANY", "$STRING"}
+_TYPE_PREDEFS = {
+    "$NULL": {type(None)}, "$NONE": set(),
+    "$BOOL": {bool}, "$BOOLEAN": {bool},
+    "$INT": {int}, "$INTEGER": {int}, "$I32": {int}, "$I64": {int},
+    "$U32": {int}, "$U64": {int},
+    "$FLOAT": {float}, "$F32": {float}, "$F64": {float},
+    "$NUMBER": {int, float},
+}
 _NO_NAME_PREDEFS = {
     "$NULL", "$NONE", "$BOOL", "$BOOLEAN", "$INT", "$INTEGER", "$I32", "$I64",
     "$U32", "$U64", "$FLOAT", "$F32", "$F64", "$NUMBER",
@@ -351,25 +359,73 @@ def _sized(target: ModelType, base: Jsonable, length: int, unique: bool,
             raise UnsupportedValue(f"unique constraint needs {length} distinct values: {target}")
     return values
 
-def _ultimate(jm: JsonModel, model: ModelType) -> type|None:
-    """Ultimate JSON type of a model, None when several are possible."""
+def _typed(jm: JsonModel, model: ModelType, seen: frozenset[str]) -> set[type]|None:
+    """JSON types a model accepts, None when they cannot be enumerated."""
+    if isinstance(model, str):
+        if model in _TYPE_PREDEFS:
+            return set(_TYPE_PREDEFS[model])
+        elif model == "$ANY":
+            return None
+        elif model.startswith("$"):
+            name = model[1:]
+            if name in jm._defs._syms:
+                if model in seen:
+                    return None
+                node = jm._defs._syms[name]
+                return _typed(node, node._model, seen | {model})
+            return {str} if name in PREDEFS else None
+        elif model.startswith("="):
+            return ({type(None)} if model == "=null" else
+                    {bool} if model in ("=true", "=false") else
+                    {float} if "." in model else {int})
+        else:
+            return {str}
+    elif isinstance(model, list):
+        return {list}
+    elif isinstance(model, dict):
+        props = {p: m for p, m in model.items() if not p.startswith("#")}
+        if "@" in props:
+            return _typed(jm, props["@"], seen)
+        elif "|" in props or "^" in props:
+            op = "|" if "|" in props else "^"
+            found: set[type] = set()
+            for alt in props[op]:
+                if isinstance(alt, str) and alt.startswith("#"):
+                    continue
+                kinds = _typed(jm, alt, seen)
+                if kinds is None:
+                    return None
+                found |= kinds
+            return found
+        elif "&" in props:
+            shared: set[type]|None = None
+            for alt in props["&"]:
+                if isinstance(alt, str) and alt.startswith("#"):
+                    continue
+                kinds = _typed(jm, alt, seen)
+                if kinds is not None:
+                    shared = kinds if shared is None else shared & kinds
+            return shared
+        elif set(props) & _ROOT_KEYS:
+            return None
+        else:
+            return {dict}
+    else:
+        return {type(model)} if not isinstance(model, bool) else {bool}
+
+def _ultimate(jm: JsonModel, model: ModelType) -> set[type]|None:
+    """JSON types a model accepts, widened for a loose float model."""
     try:
-        return analyze.ultimate_type(jm, model)
+        kinds = _typed(jm, model, frozenset())
     except Exception:
         return None
+    if kinds is not None and float in kinds and jm._loose_float:
+        kinds = kinds | {int}
+    return kinds
 
-def _mistyped(value: Jsonable, utype: type|None) -> bool:
-    """Whether a value certainly cannot match a model of this ultimate type.
-
-    Independent of the compiler. An int may still match a float type, because
-    $NUMBER accepts both, so that pair stays undecided.
-    """
-    if utype is None:
-        return False
-    elif utype is float and type(value) is int:
-        return False
-    else:
-        return type(value) is not utype
+def _mistyped(value: Jsonable, kinds: set[type]|None) -> bool:
+    """Whether a value certainly cannot match a model accepting these types."""
+    return kinds is not None and type(value) not in kinds
 
 def _justified(utype: type|None) -> list[Jsonable]:
     """Type violations the oracle can justify first, so a marked value is a last resort."""
