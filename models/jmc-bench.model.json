@@ -12,7 +12,9 @@
       "#.label": "tool name",
       "label": "",
       "#.data": "per-case relative speed",
-      "data": [ "$Perf" ]
+      "data": [ "$Perf" ],
+      "#.speed": "aggregated relative speed",
+      "?speed": 0.0
     }
   },
   "@": [ "$Bench" ]

@@ -82,7 +82,13 @@
         const resp = await fetch(source)
         const res = await resp.json()
         // data model: [ {"label": "", "data": [0.0]} ]
-        const data = res.map((x) => { return {...x, fill: true} })
+        const data = res.map((x) => {
+          return {
+            data: x.data,
+            label: x.label + (x.speed ? (" — " + x.speed.toFixed(3)) : ""),
+            fill: true
+          }
+        })
 
         // only keep used bench indexes
         let indexes = []

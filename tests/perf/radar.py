@@ -37,7 +37,8 @@ LABEL = {
 radar = []
 for t in sorted(tools):
     radar.append({
-        "label": LABEL[t] + f" - {perf_geo["blaze"] / perf_geo[t]:.02f}",
+        "label": LABEL[t],
+        "speed": perf_geo["blaze"] / perf_geo[t],
         "data": [ float(v) for v in perf_speed.groupby("tool").get_group(t).values ]
     })
 
