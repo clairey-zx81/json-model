@@ -2,10 +2,16 @@
 
 ## Current Tasks
 
+- [ ] bench: use uc for external tools
+- [ ] bench: add ajv reference?
+- [ ] bench: add corvus reference?
+- [ ] bench: case failures handling needs some fixing (test!)
+- [ ] bench: add stddev performance computation
+- [ ] bench: improve resilience to bad overhead estimation
+- [ ] bench: collect JSON parse times for comparison with validation times
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] pr: add _known limitations_ stuff
 - [ ] front: merge many internal options to trigrams
-- [ ] bench: case failures handling needs some fixing
 - [ ] tests: check more bad urls (eg bad %-escape)
 - [ ] tests: check pydantic generated classes
 - [ ] static: use combined type test and value extraction when available?
@@ -22,9 +28,6 @@
 - [ ] perf: drop and/or merge identical results when comparing
 - [ ] backend: check `mv-34/mu` test case which may require some utf normalization
 - [ ] runtime: count graphemes instead of characters? for Java, see `java.text.BreakIterator`
-- [ ] bench: add stddev performance computation
-- [ ] bench: improve resilience to bad overhead estimation
-- [ ] bench: collect JSON parse times for comparison with validation times
 - [ ] pr: better document optimizations, eg add compiler optimization page
 - [ ] static: improve startswith pattern recognition `/^xyz.*/`
 - [ ] c-backend: factor out str extraction in or-list in more cases
