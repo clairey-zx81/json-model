@@ -51,7 +51,7 @@ EOF
 # script directory
 script_dir=$(dirname $0)
 
-DEFAULT_TASK="bcvsy"
+DEFAULT_TASK="Bcvsy"
 
 # defaults
 PARA=8 LOOP=1000 RUNS=3 ID="benchmark" TASK=$DEFAULT_TASK
@@ -234,11 +234,11 @@ tasks=""
 [[ $TASK =~ y ]] && tasks+=" jmc-py"
 [[ $TASK =~ s ]] && tasks+=" jmc-js"
 [[ $TASK =~ [v123] ]] && tasks+=" jmc-java"
-[[ $TASK =~ b ]] && tasks+=" blaze" show_opts+=" --performance=blaze --no-best"
+[[ $TASK =~ B ]] && tasks+=" blaze" show_opts+=" --performance=blaze --no-best"
 [[ $TASK =~ c ]] && tasks+=" jmc-c"
 
-# standard comparison: include both blaze and jmc
-[[ $TASK =~ b && $TASK =~ [cv123syl] ]] && show_opts+=" --standard"
+# standard comparison: include both blaze and some jmc
+[[ $TASK =~ B && $TASK =~ [cv123syl] ]] && show_opts+=" --standard"
 
 # tell report about tools to include
 show_opts+=" --tools=$TASK"

@@ -91,7 +91,7 @@ bench c hol --no-homogeneous-list
 bench c iro --no-ir-optimize
 
 # for reference
-bench b blz
+bench B blz
 
 # again
 bench c ref

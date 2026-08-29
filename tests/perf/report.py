@@ -28,7 +28,7 @@ arg("--alpha", "-a", type=float, default=0.05,
 arg("--cache", "-C", default=None,
     help="file to keep statistical tests results")
 arg("--sort", "-s", default="ga", choices=["ab", "bs", "ls", "ga"],
-    help="sort tools by criterion, default is \"bs\"")
+    help="sort tools by criterion (ab=alphabetical, bs=byte speed, ls=line speed, ga=geometrical average), default is \"bs\"")
 arg("--iterations", "-i", type=int, default=0,
     help="expected number of measures for each test case")
 # verbosity control
@@ -42,7 +42,7 @@ arg("--progress", "-p", default=False, action="store_true",
 arg("--hide", default=False, action="store_true",
     help="hide uneffective options from report, default is not")
 arg("--tools", default=".",
-    help="report about these tools, in . * / or [bc123vsyl]+")
+    help="report about these tools, in . * / or [Bc123vsyl]+")
 arg("--unshift", "-u", action="store_true", default=False,
     help="unshift measure overhead estimation from reported measures, default is not")
 arg("--compact", "-c", action="store_true", default=False,
@@ -86,18 +86,21 @@ dobetter = args.performance != "best"
 #
 
 TOOL_SHORTCUT: dict[str, str] = {
-    ".": "bc123sy",   # old report
-    "%": "bcvsy",     # new report
-    "*": "bc123syl",  # everything
-    "/": "bcvsyl",    # every once
+    ".": "Bc123sy",   # old report
+    "%": "Bcvsy",     # new report
+    "*": "Bc123syl",  # everything
+    "/": "Bcvsyl",    # every once
 }
 
 if args.tools in TOOL_SHORTCUT:
     args.tools = TOOL_SHORTCUT[args.tools]
 
 # tools to report details
+# task letter -> task, column, description
 TOOLS: dict[str, tuple[str, str, str]] = {
-    "b": ("blaze", "blaze", "**blaze** is Sourcemeta Blaze CLI (external reference, in C++)"),
+    # external references
+    "B": ("blaze", "_blaze_", "**blaze** is Sourcemeta Blaze CLI (external reference, in C++)"),
+    # JMC stuff
     "c": ("jmc-c", "c", "**c** is JMC for C"),
     "v": ("jmc-java-gson", "java", "**java** is JMC for Java with GSON"),
     "1": ("jmc-java-gson", "jv1", "**jv1** is JMC for Java with GSON"),
@@ -271,7 +274,7 @@ for t in tools:
         TOOL[t] = t
 
 if args.standard:
-    assert args.tools and "b" in args.tools and "c" in args.tools
+    assert args.tools and "B" in args.tools and "c" in args.tools
 
 # and list of cases
 cases: list[str] = sorted(
