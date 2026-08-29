@@ -5,14 +5,15 @@
 - [x] pr: submit jm site to awesome docsify
 - [x] bench: show rounded minutes run time
 - [x] clang: remove useless empty line from string constant set functions
+- [x] bench: use uc for external tools, report in italic
 - [x] bench: show versions of used languages, not all
-- [ ] bench: use uc for external tools
 - [ ] bench: add ajv reference?
 - [ ] bench: add corvus reference?
 - [ ] bench: case failures handling needs some fixing (test!)
 - [ ] bench: add stddev performance computation
 - [ ] bench: improve resilience to bad overhead estimation
 - [ ] bench: collect JSON parse times for comparison with validation times
+- [ ] bench: radar data with added speed property
 - [ ] export: generate a [katydid](https://katydid.github.io/) expression, for a compatible subset
 - [ ] pr: add _known limitations_ stuff
 - [ ] front: merge many internal options to trigrams
