@@ -56,3 +56,6 @@ bads.check.out:
 # catchall to ignore anything else
 %:
 	# skip
+
+clean.%:
+	# skip
