@@ -17,7 +17,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
            jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
         || jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
         || jm_str_eq_7(s, 0x0000736562626f48LL)  // "Hobbes"
-
     ;
 }
 

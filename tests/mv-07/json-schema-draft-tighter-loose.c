@@ -516,7 +516,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_8(s, 0x656665722d697269LL) && jm_str_eq_6(s + 8, 0x00000065636e6572LL)  // "iri-reference"
         || jm_str_eq_8(s, 0x656665722d697275LL) && jm_str_eq_6(s + 8, 0x00000065636e6572LL)  // "uri-reference"
         || jm_str_eq_8(s, 0x65766974616c6572LL) && jm_str_eq_8(s + 8, 0x6f702d6e6f736a2dLL) && jm_str_eq_6(s + 16, 0x0000007265746e69LL)  // "relative-json-pointer"
-
     ;
 }
 

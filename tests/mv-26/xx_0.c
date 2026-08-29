@@ -17,7 +17,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
            jm_str_eq_2(s, 0x00000021)  // "!"
         || jm_str_eq_6(s, 0x0000006f6c6c6568LL)  // "hello"
         || jm_str_eq_6(s, 0x000000646c726f77LL)  // "world"
-
     ;
 }
 

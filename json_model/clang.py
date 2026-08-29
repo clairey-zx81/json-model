@@ -852,8 +852,8 @@ class CLangJansson(Language):
         elif nparts == 2:
             first, second = min(part_code.keys()), max(part_code.keys())
             return (f"({self.num_cmp(var, '<=', first, True, True)}) "
-                    f"? (\n           {part_code[first]}        ) "
-                    f": (\n           {part_code[second]}        )")
+                    f"? (\n           {part_code[first]}\n        ) "
+                    f": (\n           {part_code[second]}\n        )")
         else:
             limit = list(sorted(part_code.keys()))[nparts // 2 - 1]
             _ex = self._part_expr
@@ -879,8 +879,8 @@ class CLangJansson(Language):
             hash_size, partitions = 0, {0: names}
 
         part_code = {
-            p: "        || ".join(
-                (_str_cmp("s", json.dumps(s), self._byte_order, True) + f"  // {self.esc(s)}\n")
+            p: "\n        || ".join(
+                (_str_cmp("s", json.dumps(s), self._byte_order, True) + f"  // {self.esc(s)}")
                     for s in sorted(strs, key=lambda s: (len(s), s)))
                         for p, strs in partitions.items()
         }

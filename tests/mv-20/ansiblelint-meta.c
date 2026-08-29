@@ -197,7 +197,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_4(s, 0x00312e37)  // "7.1"
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -334,7 +333,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_2(s, 0x00000032)  // "2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
-
     ;
 }
 
@@ -419,7 +417,6 @@ static INLINE bool _jm_cst_2_str_test(const char *s)
         || jm_str_eq_8(s, 0x0032312e37313032LL)  // "2017.12"
         || jm_str_eq_8(s, 0x0033302e38313032LL)  // "2018.03"
         || jm_str_eq_8(s, 0x74616469646e6143LL) && jm_str_eq_2(s + 8, 0x00000065)  // "Candidate"
-
     ;
 }
 
@@ -558,7 +555,6 @@ static INLINE bool _jm_cst_3_str_test(const char *s)
         || jm_str_eq_4(s, 0x00382e31)  // "1.8"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000032312e32LL)  // "2.12"
-
     ;
 }
 
@@ -701,7 +697,6 @@ static INLINE bool _jm_cst_4_str_test(const char *s)
         || jm_str_eq_4(s, 0x00342e33)  // "3.4"
         || jm_str_eq_4(s, 0x00352e33)  // "3.5"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -783,7 +778,6 @@ static INLINE bool _jm_cst_5_str_test(const char *s)
         || jm_str_eq_8(s, 0x0068637465727473LL)  // "stretch"
         || jm_str_eq_8(s, 0x6d726f776b6f6f62LL) && jm_str_eq_0(s + 8)  // "bookworm"
         || jm_str_eq_8(s, 0x657965736c6c7562LL) && jm_str_eq_0(s + 8)  // "bullseye"
-
     ;
 }
 
@@ -857,7 +851,6 @@ static INLINE bool _jm_cst_6_str_test(const char *s)
         || jm_str_eq_2(s, 0x00000039)  // "9"
         || jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -933,7 +926,6 @@ static INLINE bool _jm_cst_7_str_test(const char *s)
         || jm_str_eq_8(s, 0x00666c75776f6562LL)  // "beowulf"
         || jm_str_eq_8(s, 0x617265616d696863LL) && jm_str_eq_0(s + 8)  // "chimaera"
         || jm_str_eq_8(s, 0x73756c6164656164LL) && jm_str_eq_0(s + 8)  // "daedalus"
-
     ;
 }
 
@@ -1011,7 +1003,6 @@ static INLINE bool _jm_cst_8_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e36)  // "6.2"
         || jm_str_eq_4(s, 0x00342e36)  // "6.4"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -1089,7 +1080,6 @@ static INLINE bool _jm_cst_9_str_test(const char *s)
         || jm_str_eq_2(s, 0x00000039)  // "9"
         || jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -1187,7 +1177,6 @@ static INLINE bool _jm_cst_10_str_test(const char *s)
         || jm_str_eq_3(s, 0x00003134)  // "41"
         || jm_str_eq_3(s, 0x00003234)  // "42"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -1284,7 +1273,6 @@ static INLINE bool _jm_cst_11_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
         || jm_str_eq_5(s, 0x00000000322e3331LL)  // "13.2"
         || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
-
     ;
 }
 
@@ -1612,7 +1600,6 @@ static INLINE bool _jm_cst_12_str_test(const char *s)
            jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_3(s, 0x00003131)  // "11"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -1819,7 +1806,6 @@ static INLINE bool _jm_cst_13_str_test(const char *s)
         || jm_str_eq_5(s, 0x0000000031323032LL)  // "2021"
         || jm_str_eq_5(s, 0x0000000032323032LL)  // "2022"
         || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
-
     ;
 }
 
@@ -1899,7 +1885,6 @@ static INLINE bool _jm_cst_14_str_test(const char *s)
         || jm_str_eq_6(s, 0x00000033312e3031LL)  // "10.13"
         || jm_str_eq_6(s, 0x00000034312e3031LL)  // "10.14"
         || jm_str_eq_6(s, 0x00000035312e3031LL)  // "10.15"
-
     ;
 }
 
@@ -1972,7 +1957,6 @@ static INLINE bool _jm_cst_15_str_test(const char *s)
            jm_str_eq_2(s, 0x00000037)  // "7"
         || jm_str_eq_2(s, 0x00000038)  // "8"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -2114,7 +2098,6 @@ static INLINE bool _jm_cst_16_str_test(const char *s)
         || jm_str_eq_4(s, 0x00332e39)  // "9.3"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000302e3031LL)  // "10.0"
-
     ;
 }
 
@@ -2203,7 +2186,6 @@ static INLINE bool _jm_cst_17_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x00332e37)  // "7.3"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -2281,7 +2263,6 @@ static INLINE bool _jm_cst_18_str_test(const char *s)
         || jm_str_eq_6(s, 0x00000033302e3232LL)  // "22.03"
         || jm_str_eq_6(s, 0x00000035302e3332LL)  // "23.05"
         || jm_str_eq_6(s, 0x00000030312e3432LL)  // "24.10"
-
     ;
 }
 
@@ -2378,7 +2359,6 @@ static INLINE bool _jm_cst_19_str_test(const char *s)
         || jm_str_eq_4(s, 0x00342e39)  // "9.4"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000030312e38LL)  // "8.10"
-
     ;
 }
 
@@ -2454,7 +2434,6 @@ static INLINE bool _jm_cst_20_str_test(const char *s)
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00302e39)  // "9.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -2537,7 +2516,6 @@ static INLINE bool _jm_cst_21_str_test(const char *s)
         || jm_str_eq_4(s, 0x00312e39)  // "9.1"
         || jm_str_eq_4(s, 0x00322e39)  // "9.2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -2628,7 +2606,6 @@ static INLINE bool _jm_cst_22_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000003450533531LL)  // "15SP4"
         || jm_str_eq_6(s, 0x0000003550533531LL)  // "15SP5"
         || jm_str_eq_6(s, 0x0000003650533531LL)  // "15SP6"
-
     ;
 }
 
@@ -2768,7 +2745,6 @@ static INLINE bool _jm_cst_23_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000322e3131LL)  // "11.2"
         || jm_str_eq_5(s, 0x00000000332e3131LL)  // "11.3"
         || jm_str_eq_5(s, 0x00000000342e3131LL)  // "11.4"
-
     ;
 }
 
@@ -2843,7 +2819,6 @@ static INLINE bool _jm_cst_24_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e36)  // "6.2"
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -2919,7 +2894,6 @@ static INLINE bool _jm_cst_25_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000302e3331LL)  // "13.0"
         || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
         || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
-
     ;
 }
 
@@ -3168,7 +3142,6 @@ static INLINE bool _jm_cst_27_str_test(const char *s)
         || jm_str_eq_7(s, 0x0000325232313032LL)  // "2012R2"
         || jm_str_eq_8(s, 0x0034367838303032LL)  // "2008x64"
         || jm_str_eq_8(s, 0x0036387838303032LL)  // "2008x86"
-
     ;
 }
 
@@ -3373,7 +3346,6 @@ static INLINE bool _jm_cst_28_str_test(const char *s)
         || jm_str_eq_8(s, 0x616e696c61746143LL) && jm_str_eq_0(s + 8)  // "Catalina"
         || jm_str_eq_8(s, 0x79657265746e6f4dLL) && jm_str_eq_0(s + 8)  // "Monterey"
         || jm_str_eq_8(s, 0x6569532d68676948LL) && jm_str_eq_4(s + 8, 0x00617272)  // "High-Sierra"
-
     ;
 }
 
@@ -3458,7 +3430,6 @@ static INLINE bool _jm_cst_29_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000312e3234LL)  // "42.1"
         || jm_str_eq_5(s, 0x00000000322e3234LL)  // "42.2"
         || jm_str_eq_5(s, 0x00000000332e3234LL)  // "42.3"
-
     ;
 }
 
@@ -3599,7 +3570,6 @@ static INLINE bool _jm_cst_30_str_test(const char *s)
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -3676,7 +3646,6 @@ static INLINE bool _jm_cst_31_str_test(const char *s)
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -4054,7 +4023,6 @@ static INLINE bool _jm_cst_32_str_test(const char *s)
         || jm_str_eq_7(s, 0x0000325232313032LL)  // "2012R2"
         || jm_str_eq_8(s, 0x0034367838303032LL)  // "2008x64"
         || jm_str_eq_8(s, 0x0036387838303032LL)  // "2008x86"
-
     ;
 }
 
@@ -4129,7 +4097,6 @@ static INLINE bool _jm_cst_33_str_test(const char *s)
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -4266,7 +4233,6 @@ static INLINE bool _jm_cst_34_str_test(const char *s)
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x00302e38)  // "8.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -4442,7 +4408,6 @@ static INLINE bool _jm_cst_36_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000302e3331LL)  // "13.0"
         || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
         || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
-
     ;
 }
 
@@ -4515,7 +4480,6 @@ static INLINE bool _jm_cst_37_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e36)  // "6.2"
         || jm_str_eq_4(s, 0x00302e37)  // "7.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -4591,7 +4555,6 @@ static INLINE bool _jm_cst_38_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000322e3131LL)  // "11.2"
         || jm_str_eq_5(s, 0x00000000332e3131LL)  // "11.3"
         || jm_str_eq_5(s, 0x00000000342e3131LL)  // "11.4"
-
     ;
 }
 
@@ -4741,7 +4704,6 @@ static INLINE bool _jm_cst_39_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000003450533531LL)  // "15SP4"
         || jm_str_eq_6(s, 0x0000003550533531LL)  // "15SP5"
         || jm_str_eq_6(s, 0x0000003650533531LL)  // "15SP6"
-
     ;
 }
 
@@ -4822,7 +4784,6 @@ static INLINE bool _jm_cst_40_str_test(const char *s)
         || jm_str_eq_4(s, 0x00312e39)  // "9.1"
         || jm_str_eq_4(s, 0x00322e39)  // "9.2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -4895,7 +4856,6 @@ static INLINE bool _jm_cst_41_str_test(const char *s)
         || jm_str_eq_4(s, 0x00312e38)  // "8.1"
         || jm_str_eq_4(s, 0x00302e39)  // "9.0"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -5051,7 +5011,6 @@ static INLINE bool _jm_cst_42_str_test(const char *s)
         || jm_str_eq_4(s, 0x00342e39)  // "9.4"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000030312e38LL)  // "8.10"
-
     ;
 }
 
@@ -5128,7 +5087,6 @@ static INLINE bool _jm_cst_43_str_test(const char *s)
         || jm_str_eq_6(s, 0x00000033302e3232LL)  // "22.03"
         || jm_str_eq_6(s, 0x00000035302e3332LL)  // "23.05"
         || jm_str_eq_6(s, 0x00000030312e3432LL)  // "24.10"
-
     ;
 }
 
@@ -5211,7 +5169,6 @@ static INLINE bool _jm_cst_44_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000312e3234LL)  // "42.1"
         || jm_str_eq_5(s, 0x00000000322e3234LL)  // "42.2"
         || jm_str_eq_5(s, 0x00000000332e3234LL)  // "42.3"
-
     ;
 }
 
@@ -5299,7 +5256,6 @@ static INLINE bool _jm_cst_45_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x00332e37)  // "7.3"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -5431,7 +5387,6 @@ static INLINE bool _jm_cst_46_str_test(const char *s)
            jm_str_eq_2(s, 0x00000037)  // "7"
         || jm_str_eq_2(s, 0x00000038)  // "8"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -5509,7 +5464,6 @@ static INLINE bool _jm_cst_47_str_test(const char *s)
         || jm_str_eq_6(s, 0x00000033312e3031LL)  // "10.13"
         || jm_str_eq_6(s, 0x00000034312e3031LL)  // "10.14"
         || jm_str_eq_6(s, 0x00000035312e3031LL)  // "10.15"
-
     ;
 }
 
@@ -5586,7 +5540,6 @@ static INLINE bool _jm_cst_48_str_test(const char *s)
         || jm_str_eq_8(s, 0x616e696c61746143LL) && jm_str_eq_0(s + 8)  // "Catalina"
         || jm_str_eq_8(s, 0x79657265746e6f4dLL) && jm_str_eq_0(s + 8)  // "Monterey"
         || jm_str_eq_8(s, 0x6569532d68676948LL) && jm_str_eq_4(s + 8, 0x00617272)  // "High-Sierra"
-
     ;
 }
 
@@ -5664,7 +5617,6 @@ static INLINE bool _jm_cst_49_str_test(const char *s)
         || jm_str_eq_5(s, 0x0000000031323032LL)  // "2021"
         || jm_str_eq_5(s, 0x0000000032323032LL)  // "2022"
         || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
-
     ;
 }
 
@@ -5857,7 +5809,6 @@ static INLINE bool _jm_cst_50_str_test(const char *s)
            jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_3(s, 0x00003131)  // "11"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -6200,7 +6151,6 @@ static INLINE bool _jm_cst_51_str_test(const char *s)
         || jm_str_eq_5(s, 0x00000000312e3331LL)  // "13.1"
         || jm_str_eq_5(s, 0x00000000322e3331LL)  // "13.2"
         || jm_str_eq_5(s, 0x00000000302e3431LL)  // "14.0"
-
     ;
 }
 
@@ -6296,7 +6246,6 @@ static INLINE bool _jm_cst_52_str_test(const char *s)
         || jm_str_eq_3(s, 0x00003134)  // "41"
         || jm_str_eq_3(s, 0x00003234)  // "42"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -6432,7 +6381,6 @@ static INLINE bool _jm_cst_53_str_test(const char *s)
         || jm_str_eq_2(s, 0x00000039)  // "9"
         || jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -6508,7 +6456,6 @@ static INLINE bool _jm_cst_54_str_test(const char *s)
         || jm_str_eq_4(s, 0x00322e36)  // "6.2"
         || jm_str_eq_4(s, 0x00342e36)  // "6.4"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -6583,7 +6530,6 @@ static INLINE bool _jm_cst_55_str_test(const char *s)
         || jm_str_eq_8(s, 0x00666c75776f6562LL)  // "beowulf"
         || jm_str_eq_8(s, 0x617265616d696863LL) && jm_str_eq_0(s + 8)  // "chimaera"
         || jm_str_eq_8(s, 0x73756c6164656164LL) && jm_str_eq_0(s + 8)  // "daedalus"
-
     ;
 }
 
@@ -6655,7 +6601,6 @@ static INLINE bool _jm_cst_56_str_test(const char *s)
         || jm_str_eq_2(s, 0x00000039)  // "9"
         || jm_str_eq_3(s, 0x00003031)  // "10"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -6735,7 +6680,6 @@ static INLINE bool _jm_cst_57_str_test(const char *s)
         || jm_str_eq_8(s, 0x0068637465727473LL)  // "stretch"
         || jm_str_eq_8(s, 0x6d726f776b6f6f62LL) && jm_str_eq_0(s + 8)  // "bookworm"
         || jm_str_eq_8(s, 0x657965736c6c7562LL) && jm_str_eq_0(s + 8)  // "bullseye"
-
     ;
 }
 
@@ -6812,7 +6756,6 @@ static INLINE bool _jm_cst_58_str_test(const char *s)
         || jm_str_eq_4(s, 0x00332e39)  // "9.3"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x00000000302e3031LL)  // "10.0"
-
     ;
 }
 
@@ -6888,7 +6831,6 @@ static INLINE bool _jm_cst_59_str_test(const char *s)
         || jm_str_eq_4(s, 0x00342e33)  // "3.4"
         || jm_str_eq_4(s, 0x00352e33)  // "3.5"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -7023,7 +6965,6 @@ static INLINE bool _jm_cst_60_str_test(const char *s)
         || jm_str_eq_4(s, 0x00382e31)  // "1.8"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000032312e32LL)  // "2.12"
-
     ;
 }
 
@@ -7219,7 +7160,6 @@ static INLINE bool _jm_cst_61_str_test(const char *s)
         || jm_str_eq_2(s, 0x00000032)  // "2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
         || jm_str_eq_5(s, 0x0000000033323032LL)  // "2023"
-
     ;
 }
 
@@ -7302,7 +7242,6 @@ static INLINE bool _jm_cst_62_str_test(const char *s)
         || jm_str_eq_8(s, 0x0032312e37313032LL)  // "2017.12"
         || jm_str_eq_8(s, 0x0033302e38313032LL)  // "2018.03"
         || jm_str_eq_8(s, 0x74616469646e6143LL) && jm_str_eq_2(s + 8, 0x00000065)  // "Candidate"
-
     ;
 }
 
@@ -7435,7 +7374,6 @@ static INLINE bool _jm_cst_63_str_test(const char *s)
         || jm_str_eq_4(s, 0x00312e37)  // "7.1"
         || jm_str_eq_4(s, 0x00322e37)  // "7.2"
         || jm_str_eq_4(s, 0x006c6c61)  // "all"
-
     ;
 }
 
@@ -9010,7 +8948,6 @@ static INLINE bool _jm_cst_64_str_test(const char *s)
     return
            jm_str_eq_3(s, 0x00006768)  // "hg"
         || jm_str_eq_4(s, 0x00746967)  // "git"
-
     ;
 }
 

@@ -19,7 +19,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
            jm_str_eq_2(s, 0x00000058)  // "X"
         || jm_str_eq_3(s, 0x00005858)  // "XX"
         || jm_str_eq_4(s, 0x00585858)  // "XXX"
-
     ;
 }
 

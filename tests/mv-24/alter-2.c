@@ -62,7 +62,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
            jm_str_eq_2(s, 0x00000065)  // "e"
         || jm_str_eq_2(s, 0x00000066)  // "f"
         || jm_str_eq_2(s, 0x00000067)  // "g"
-
     ;
 }
 
@@ -144,7 +143,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
     return
            jm_str_eq_2(s, 0x00000062)  // "b"
         || jm_str_eq_2(s, 0x00000063)  // "c"
-
     ;
 }
 

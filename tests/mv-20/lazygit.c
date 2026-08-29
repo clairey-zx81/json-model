@@ -92,7 +92,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_8(s, 0x0065737265766572LL)  // "reverse"
         || jm_str_eq_8(s, 0x6e696c7265646e75LL) && jm_str_eq_2(s + 8, 0x00000065)  // "underline"
         || jm_str_eq_8(s, 0x6874656b69727473LL) && jm_str_eq_6(s + 8, 0x0000006867756f72LL)  // "strikethrough"
-
     ;
 }
 
@@ -210,7 +209,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000007475706e69LL)  // "input"
         || jm_str_eq_8(s, 0x006d7269666e6f63LL)  // "confirm"
         || jm_str_eq_8(s, 0x6d6f7246756e656dLL) && jm_str_eq_8(s + 8, 0x00646e616d6d6f43LL)  // "menuFromCommand"
-
     ;
 }
 
@@ -365,7 +363,6 @@ static INLINE bool _jm_cst_2_str_test(const char *s)
         || jm_str_eq_8(s, 0x007365746f6d6572LL)  // "remotes"
         || jm_str_eq_8(s, 0x736568636e617262LL) && jm_str_eq_0(s + 8)  // "branches"
         || jm_str_eq_8(s, 0x724265746f6d6572LL) && jm_str_eq_7(s + 8, 0x0000736568636e61LL)  // "remoteBranches"
-
     ;
 }
 
@@ -1029,7 +1026,6 @@ static INLINE bool _jm_cst_3_str_test(const char *s)
            jm_str_eq_8(s, 0x656c626978656c66LL) && jm_str_eq_0(s + 8)  // "flexible"
         || jm_str_eq_8(s, 0x6c61636974726576LL) && jm_str_eq_0(s + 8)  // "vertical"
         || jm_str_eq_8(s, 0x746e6f7a69726f68LL) && jm_str_eq_3(s + 8, 0x00006c61)  // "horizontal"
-
     ;
 }
 
@@ -1107,7 +1103,6 @@ static INLINE bool _jm_cst_4_str_test(const char *s)
            jm_str_eq_5(s, 0x000000006c6c7566LL)  // "full"
         || jm_str_eq_5(s, 0x00000000666c6168LL)  // "half"
         || jm_str_eq_7(s, 0x00006c616d726f6eLL)  // "normal"
-
     ;
 }
 
@@ -1123,7 +1118,6 @@ static INLINE bool _jm_cst_5_str_test(const char *s)
         || jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
         || jm_str_eq_6(s, 0x0000004e432d687aLL)  // "zh-CN"
         || jm_str_eq_6(s, 0x00000057542d687aLL)  // "zh-TW"
-
     ;
 }
 
@@ -1290,7 +1284,6 @@ static INLINE bool _jm_cst_6_str_test(const char *s)
            jm_str_eq_0(s)  // ""
         || jm_str_eq_2(s, 0x00000032)  // "2"
         || jm_str_eq_2(s, 0x00000033)  // "3"
-
     ;
 }
 
@@ -1299,7 +1292,6 @@ static INLINE bool _jm_cst_7_str_test(const char *s)
     return
            jm_str_eq_5(s, 0x000000006f747561LL)  // "auto"
         || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
-
     ;
 }
 
@@ -1310,7 +1302,6 @@ static INLINE bool _jm_cst_8_str_test(const char *s)
         || jm_str_eq_7(s, 0x00006e6564646968LL)  // "hidden"
         || jm_str_eq_7(s, 0x0000656c676e6973LL)  // "single"
         || jm_str_eq_8(s, 0x006465646e756f72LL)  // "rounded"
-
     ;
 }
 
@@ -1778,7 +1769,6 @@ static INLINE bool _jm_cst_9_str_test(const char *s)
         || jm_str_eq_7(s, 0x000065646f637376LL)  // "vscode"
         || jm_str_eq_8(s, 0x00656e756f6b616bLL)  // "kakoune"
         || jm_str_eq_8(s, 0x00656d696c627573LL)  // "sublime"
-
     ;
 }
 
@@ -1952,7 +1942,6 @@ static INLINE bool _jm_cst_10_str_test(const char *s)
            jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
         || jm_str_eq_7(s, 0x000074706d6f7270LL)  // "prompt"
         || jm_str_eq_8(s, 0x756f72676b636162LL) && jm_str_eq_3(s + 8, 0x0000646e)  // "background"
-
     ;
 }
 
@@ -2007,7 +1996,6 @@ static INLINE bool _jm_cst_11_str_test(const char *s)
     return
            jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
         || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
-
     ;
 }
 
@@ -2267,7 +2255,6 @@ static INLINE bool _jm_cst_12_str_test(const char *s)
         || jm_str_eq_8(s, 0x64726f2d65746164LL) && jm_str_eq_3(s + 8, 0x00007265)  // "date-order"
         || jm_str_eq_8(s, 0x64726f2d6f706f74LL) && jm_str_eq_3(s + 8, 0x00007265)  // "topo-order"
         || jm_str_eq_8(s, 0x642d726f68747561LL) && jm_str_eq_8(s + 8, 0x6564726f2d657461LL) && jm_str_eq_2(s + 16, 0x00000072)  // "author-date-order"
-
     ;
 }
 
@@ -2277,7 +2264,6 @@ static INLINE bool _jm_cst_13_str_test(const char *s)
            jm_str_eq_6(s, 0x000000726576656eLL)  // "never"
         || jm_str_eq_7(s, 0x0000737961776c61LL)  // "always"
         || jm_str_eq_8(s, 0x78616d2d6e656877LL) && jm_str_eq_7(s + 8, 0x0000646573696d69LL)  // "when-maximised"
-
     ;
 }
 
@@ -2594,7 +2580,6 @@ static INLINE bool _jm_cst_14_str_test(const char *s)
         || jm_str_eq_5(s, 0x0000000070696b73LL)  // "skip"
         || jm_str_eq_7(s, 0x0000657461657263LL)  // "create"
         || jm_str_eq_7(s, 0x000074706d6f7270LL)  // "prompt"
-
     ;
 }
 
@@ -4602,7 +4587,6 @@ static INLINE bool _jm_cst_15_str_test(const char *s)
         || jm_str_eq_8(s, 0x6172426c61636f6cLL) && jm_str_eq_6(s + 8, 0x000000736568636eLL)  // "localBranches"
         || jm_str_eq_8(s, 0x6f43676f6c666572LL) && jm_str_eq_6(s + 8, 0x0000007374696d6dLL)  // "reflogCommits"
         || jm_str_eq_8(s, 0x724265746f6d6572LL) && jm_str_eq_7(s + 8, 0x0000736568636e61LL)  // "remoteBranches"
-
     ;
 }
 
