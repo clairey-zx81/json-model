@@ -440,7 +440,7 @@ or deselect tools for easier comparisons.
 - **node version:** $(jmc exec node --version|head -1)
 - **javac version:** $(jmc exec javac --version|head -1)
 - **perl version:** $(jmc exec perl -e 'print "$^V\n"'|head -1)
-- **duration:** $SECONDS seconds
+- **duration:** $SECONDS seconds (about $(( ( $SECONDS + 30 ) / 60 )) minutes)
 
 ## Parameters
 
