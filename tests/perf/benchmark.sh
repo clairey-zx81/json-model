@@ -431,15 +431,26 @@ or deselect tools for easier comparisons.
 - **docker version:** $(docker --version | cut -d' ' -f 3-)
 - **jmc version:** $(jmc --version)
 - **jsu version:** $(jmc exec jsu-compile --version)
-- **jsonschema-cli version:** $(js-cli --version)
 - **jsonschema-benchmark version:** $(GIT_DIR=./jsb/.git git rev-parse --short=8 HEAD), $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l) unique tests
 - **benchmark script version:** $version
-- **cc version:** $(jmc exec cc --version|head -1)
-- **clang version:** $(jmc exec clang --version|head -1)
-- **python version:** $(jmc exec python --version|head -1)
-- **node version:** $(jmc exec node --version|head -1)
-- **javac version:** $(jmc exec javac --version|head -1)
-- **perl version:** $(jmc exec perl -e 'print "$^V\n"'|head -1)
+EOF
+
+[[ $TASK =~ b ]] && echo "- **jsonschema-cli version:** $(js-cli --version)"
+
+if [[ $TASK =~ c ]] ; then
+  if [[ "$JMC_OPTS" =~ clang ]] ; then
+    echo "- **clang version:** $(jmc exec clang --version|head -1)"
+  else
+    echo "- **cc version:** $(jmc exec cc --version|head -1)"
+  fi
+fi
+
+[[ $TASK =~ y ]] && echo "- **python version:** $(jmc exec python --version|head -1)"
+[[ $TASK =~ s ]] && echo "- **node version:** $(jmc exec node --version|head -1)"
+[[ $TASK =~ [v123] ]] && echo "- **javac version:** $(jmc exec javac --version|head -1)"
+[[ $TASK =~ l ]] && echo "- **perl version:** $(jmc exec perl -e 'print "$^V\n"'|head -1)"
+
+cat << EOF >> "$ID.md"
 - **duration:** $SECONDS seconds (about $(( ( $SECONDS + 30 ) / 60 )) minutes)
 
 ## Parameters
