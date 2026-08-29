@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] pr: submit jm site to awesome docsify
 - [ ] bench: use uc for external tools
 - [ ] bench: add ajv reference?
 - [ ] bench: add corvus reference?
