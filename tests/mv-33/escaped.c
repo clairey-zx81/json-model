@@ -21,7 +21,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_2(s, 0x00000022)  // "\""
         || jm_str_eq_2(s, 0x00000027)  // "'"
         || jm_str_eq_2(s, 0x0000005c)  // "\\"
-
     ;
 }
 

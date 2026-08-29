@@ -2310,7 +2310,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
-
     ;
 }
 
@@ -2448,7 +2447,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_8(s, 0x656a624f70656564LL) && jm_str_eq_3(s + 8, 0x00007463)  // "deepObject"
         || jm_str_eq_8(s, 0x696c654465706970LL) && jm_str_eq_6(s + 8, 0x000000646574696dLL)  // "pipeDelimited"
         || jm_str_eq_8(s, 0x6c65446563617073LL) && jm_str_eq_7(s + 8, 0x0000646574696d69LL)  // "spaceDelimited"
-
     ;
 }
 
@@ -2673,7 +2671,6 @@ static INLINE bool _jm_cst_2_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
-
     ;
 }
 
@@ -2842,7 +2839,6 @@ static INLINE bool _jm_cst_3_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
-
     ;
 }
 
@@ -5858,7 +5854,6 @@ static INLINE bool _jm_cst_4_str_test(const char *s)
            jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
-
     ;
 }
 
@@ -6232,7 +6227,6 @@ static INLINE bool _jm_cst_5_str_test(const char *s)
            jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
-
     ;
 }
 
@@ -7057,7 +7051,6 @@ static INLINE bool _jm_cst_6_str_test(const char *s)
         || jm_str_eq_7(s, 0x0000676e69727473LL)  // "string"
         || jm_str_eq_8(s, 0x006e61656c6f6f62LL)  // "boolean"
         || jm_str_eq_8(s, 0x0072656765746e69LL)  // "integer"
-
     ;
 }
 

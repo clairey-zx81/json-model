@@ -344,7 +344,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_8(s, 0x00474e4952545324LL)  // "$STRING"
         || jm_str_eq_8(s, 0x52454745544e4924LL) && jm_str_eq_0(s + 8)  // "$INTEGER"
         || jm_str_eq_8(s, 0x4d49544554414424LL) && jm_str_eq_2(s + 8, 0x00000045)  // "$DATETIME"
-
     ;
 }
 

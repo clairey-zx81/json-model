@@ -696,7 +696,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_7(s, 0x00007463656a626fLL)  // "object"
         || jm_str_eq_7(s, 0x0000676e69727473LL)  // "string"
         || jm_str_eq_8(s, 0x006e61656c6f6f62LL)  // "boolean"
-
     ;
 }
 
@@ -820,7 +819,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_8(s, 0x64497463656a626fLL) && jm_str_eq_0(s + 8)  // "objectId"
         || jm_str_eq_8(s, 0x6d617473656d6974LL) && jm_str_eq_2(s + 8, 0x00000070)  // "timestamp"
         || jm_str_eq_8(s, 0x697263736176616aLL) && jm_str_eq_3(s + 8, 0x00007470)  // "javascript"
-
     ;
 }
 

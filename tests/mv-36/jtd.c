@@ -163,7 +163,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_8(s, 0x00323374616f6c66LL)  // "float32"
         || jm_str_eq_8(s, 0x00343674616f6c66LL)  // "float64"
         || jm_str_eq_8(s, 0x6d617473656d6974LL) && jm_str_eq_2(s + 8, 0x00000070)  // "timestamp"
-
     ;
 }
 
@@ -1392,7 +1391,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_8(s, 0x00323374616f6c66LL)  // "float32"
         || jm_str_eq_8(s, 0x00343674616f6c66LL)  // "float64"
         || jm_str_eq_8(s, 0x6d617473656d6974LL) && jm_str_eq_2(s + 8, 0x00000070)  // "timestamp"
-
     ;
 }
 
@@ -2366,7 +2364,6 @@ static INLINE bool _jm_cst_2_str_test(const char *s)
         || jm_str_eq_8(s, 0x00323374616f6c66LL)  // "float32"
         || jm_str_eq_8(s, 0x00343674616f6c66LL)  // "float64"
         || jm_str_eq_8(s, 0x6d617473656d6974LL) && jm_str_eq_2(s + 8, 0x00000070)  // "timestamp"
-
     ;
 }
 

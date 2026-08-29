@@ -2265,7 +2265,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
-
     ;
 }
 
@@ -2434,7 +2433,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
-
     ;
 }
 
@@ -2722,7 +2720,6 @@ static INLINE bool _jm_cst_2_str_test(const char *s)
         || jm_str_eq_8(s, 0x656a624f70656564LL) && jm_str_eq_3(s + 8, 0x00007463)  // "deepObject"
         || jm_str_eq_8(s, 0x696c654465706970LL) && jm_str_eq_6(s + 8, 0x000000646574696dLL)  // "pipeDelimited"
         || jm_str_eq_8(s, 0x6c65446563617073LL) && jm_str_eq_7(s + 8, 0x0000646574696d69LL)  // "spaceDelimited"
-
     ;
 }
 
@@ -4250,7 +4247,6 @@ static INLINE bool _jm_cst_3_str_test(const char *s)
            jm_str_eq_6(s, 0x0000007972657571LL)  // "query"
         || jm_str_eq_7(s, 0x000065696b6f6f63LL)  // "cookie"
         || jm_str_eq_7(s, 0x0000726564616568LL)  // "header"
-
     ;
 }
 
@@ -6062,7 +6058,6 @@ static INLINE bool _jm_cst_5_str_test(const char *s)
         || jm_str_eq_8(s, 0x00474e4952545324LL)  // "$STRING"
         || jm_str_eq_8(s, 0x52454745544e4924LL) && jm_str_eq_0(s + 8)  // "$INTEGER"
         || jm_str_eq_8(s, 0x4d49544554414424LL) && jm_str_eq_2(s + 8, 0x00000045)  // "$DATETIME"
-
     ;
 }
 
