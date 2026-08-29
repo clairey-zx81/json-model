@@ -22,7 +22,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_6(s, 0x0000006569737553LL)  // "Susie"
         || jm_str_eq_7(s, 0x00006e69766c6143LL)  // "Calvin"
         || jm_str_eq_7(s, 0x0000736562626f48LL)  // "Hobbes"
-
     ;
 }
 
@@ -46,7 +45,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_7(s, 0x00006e69746e6954LL)  // "Tintin"
         || jm_str_eq_8(s, 0x006b636f64646148LL)  // "Haddock"
         || jm_str_eq_8(s, 0x6f69666174736143LL) && jm_str_eq_3(s + 8, 0x00006572)  // "Castafiore"
-
     ;
 }
 

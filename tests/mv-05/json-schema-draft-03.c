@@ -28,7 +28,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_7(s, 0x0000676e69727473LL)  // "string"
         || jm_str_eq_8(s, 0x006e61656c6f6f62LL)  // "boolean"
         || jm_str_eq_8(s, 0x0072656765746e69LL)  // "integer"
-
     ;
 }
 
@@ -227,7 +226,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
         || jm_str_eq_8(s, 0x6d616e2d74736f68LL) && jm_str_eq_2(s + 8, 0x00000065)  // "host-name"
         || jm_str_eq_8(s, 0x65726464612d7069LL) && jm_str_eq_3(s + 8, 0x00007373)  // "ip-address"
         || jm_str_eq_8(s, 0x6c6c696d2d637475LL) && jm_str_eq_5(s + 8, 0x0000000063657369LL)  // "utc-millisec"
-
     ;
 }
 

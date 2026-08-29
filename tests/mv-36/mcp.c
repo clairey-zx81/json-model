@@ -51,7 +51,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_8(s, 0x2d33302d35323032LL) && jm_str_eq_3(s + 8, 0x00003632)  // "2025-03-26"
         || jm_str_eq_8(s, 0x2d36302d35323032LL) && jm_str_eq_3(s + 8, 0x00003831)  // "2025-06-18"
         || jm_str_eq_8(s, 0x2d31312d35323032LL) && jm_str_eq_3(s + 8, 0x00003532)  // "2025-11-25"
-
     ;
 }
 

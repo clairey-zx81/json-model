@@ -133,7 +133,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
         || jm_str_eq_8(s, 0x5f616c6c697a6f6dLL) && jm_str_eq_4(s + 8, 0x00315f31)  // "mozilla_1_1"
         || jm_str_eq_8(s, 0x756f735f6e65706fLL) && jm_str_eq_4(s + 8, 0x00656372)  // "open_source"
         || jm_str_eq_8(s, 0x6972747365726e75LL) && jm_str_eq_5(s + 8, 0x0000000064657463LL)  // "unrestricted"
-
     ;
 }
 
@@ -297,7 +296,6 @@ static INLINE bool _jm_cst_1_str_test(const char *s)
            jm_str_eq_7(s, 0x0000656c62617473LL)  // "stable"
         || jm_str_eq_8(s, 0x00676e6974736574LL)  // "testing"
         || jm_str_eq_8(s, 0x656c626174736e75LL) && jm_str_eq_0(s + 8)  // "unstable"
-
     ;
 }
 
@@ -583,7 +581,6 @@ static INLINE bool _jm_cst_2_str_test(const char *s)
         || jm_str_eq_8(s, 0x00706f6c65766564LL)  // "develop"
         || jm_str_eq_8(s, 0x00656d69746e7572LL)  // "runtime"
         || jm_str_eq_8(s, 0x72756769666e6f63LL) && jm_str_eq_2(s + 8, 0x00000065)  // "configure"
-
     ;
 }
 
@@ -606,7 +603,6 @@ static INLINE bool _jm_cst_3_str_test(const char *s)
         || jm_str_eq_8(s, 0x7374736567677573LL) && jm_str_eq_0(s + 8)  // "suggests"
         || jm_str_eq_8(s, 0x7463696c666e6f63LL) && jm_str_eq_2(s + 8, 0x00000073)  // "conflicts"
         || jm_str_eq_8(s, 0x6e656d6d6f636572LL) && jm_str_eq_3(s + 8, 0x00007364)  // "recommends"
-
     ;
 }
 

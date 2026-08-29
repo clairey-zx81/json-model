@@ -67,7 +67,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
     return
            jm_str_eq_2(s, 0x00000062)  // "b"
         || jm_str_eq_2(s, 0x00000063)  // "c"
-
     ;
 }
 

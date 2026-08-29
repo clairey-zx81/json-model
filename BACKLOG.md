@@ -4,6 +4,7 @@
 
 - [x] pr: submit jm site to awesome docsify
 - [x] bench: show rounded minutes run time
+- [x] clang: remove useless empty line from string constant set functions
 - [ ] bench: show versions of used languages, not all
 - [ ] bench: use uc for external tools
 - [ ] bench: add ajv reference?

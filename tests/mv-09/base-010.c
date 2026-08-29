@@ -17,7 +17,6 @@ static INLINE bool _jm_cst_0_str_test(const char *s)
            jm_str_eq_6(s, 0x00000069646e754cLL)  // "Lundi"
         || jm_str_eq_6(s, 0x000000696472614dLL)  // "Mardi"
         || jm_str_eq_8(s, 0x696465726372654dLL) && jm_str_eq_0(s + 8)  // "Mercredi"
-
     ;
 }
 
