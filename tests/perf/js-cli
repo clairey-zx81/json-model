@@ -3,8 +3,10 @@
 # run jsonschema command in a container
 #
 # env:
-# - POD: container command
-# - JSC_POD_OPTS: additional pod options
+# - POD: container command (docker)
+# - JSC: container tag (latest)
+# - JSC_POD_OPTS: additional pod options ()
+# - WORKDIR: work directory to mount as "/workspace" (.)
 
 pod=${POD:-docker}
 
