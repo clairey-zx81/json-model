@@ -67,7 +67,7 @@ clean.js:
 
 .PHONY: clean.site
 clean.site:
-	$(RM) site/MODELS.md site/JMC.md site/ABOUT.md site/BENCH.md .about.md
+	$(RM) site/models.json site/JMC.md site/ABOUT.md site/BENCH.md .about.md
 	$(RM) -r _site
 
 .PHONY: clean.py
@@ -140,17 +140,16 @@ check.sanity: venv/.dev
 #
 # Docsify Web Site: https://json-model.org/
 #
-site/MODELS.md: Makefile models/
+site/models.json: $(wildcard models/*.model.json)
 	{
-	  echo "# JSON Model Examples"
-	  echo
-	  for model in models/*.model.json ; do
-	    title=$$(jq -r '."#"' < $$model | sed 's/\s*.JSON_MODEL.*//')
-	    doc=$$(jq -r '."#.doc"' < $$model)
-	    if [ "$$doc" = "null" ] ; then doc="" ; else doc=" – $$doc" ; fi
-	    echo "- [$$title]($$model ':ignore')$$doc"
+	  first=1
+	  echo "["
+	  for model in $^ ; do
+	    [ "$$first" ] && first= || echo ","
+	    jq "{title: .\"#\", doc: .\"#.doc\", model: \"$${model}\"}" $${model}
 	  done
-	} > $@
+	  echo "]"
+	} | jq 'map(if .doc == null then del(.doc) else . end)' > $@
 
 # pod2markdown: libpod-markdown-perl
 site/JMC.md: json_model/data/jmc.pod
@@ -160,7 +159,7 @@ site/BENCH.md: ./bench.sh
 	./$< > $@
 
 # generate twice to include the about page in the counts
-site/ABOUT.md: ./about.sh site/JMC.md site/MODELS.md site/BENCH.md
+site/ABOUT.md: ./about.sh site/JMC.md site/BENCH.md
 	./$< > $@
 	./$< > .about.md
 	mv .about.md $@
@@ -188,7 +187,7 @@ www: build.site
 -include local.mk
 
 .PHONY: build.site
-build.site: site/MODELS.md site/JMC.md site/ABOUT.md site/BENCH.md
+build.site: site/models.json site/JMC.md site/ABOUT.md site/BENCH.md
 
 .PHONY: publish.site
 publish.site: build.site

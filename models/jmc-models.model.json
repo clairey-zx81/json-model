@@ -1,0 +1,12 @@
+{
+  "#": "JMC web site list of models",
+  "#.doc": "JSON format use for docsify [models](https://json-model.org/MODELS) dynamic page",
+  "$": {
+    "Model": {
+      "_title": "/./",
+      "?doc": "",
+      "_model": "/^models\\/[-a-zA-Z0-9]+\\.model\\.json$/"
+    }
+  },
+  "@": [ "$Model" ]
+}
