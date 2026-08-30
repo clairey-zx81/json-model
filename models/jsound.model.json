@@ -1,5 +1,8 @@
 {
-  "#": "JSON Model for JSound (DOES NOT WORK, THEIR META SEEMS BROKEN)",
+  "#": "JSON Model for JSound",
+  "#.doc": "JSound 2.0 verbose syntax",
+  "#.url": "https://www.jsoniq.org/docs/JSound2/2.0/html-single/JSound/",
+  "#.note": "this does not work on their meta model, which seems broken",
   "$": {
     "Schema": {
       "?metadata": {
