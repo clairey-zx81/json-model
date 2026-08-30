@@ -1,5 +1,6 @@
 {
-  "#": "JMC Intermediate Representation",
+  "#": "JMC IR",
+  "#.doc": "compiler code generation intermediate representation",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/jmc-ir",

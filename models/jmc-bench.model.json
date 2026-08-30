@@ -1,5 +1,6 @@
 {
-  "#": "JMC Benchmark generated radar data",
+  "#": "JMC Benchmark Radar",
+  "#.doc": "datastructure for [JMC Bench](https://json-model.org/BENCH) radar data",
   "#.url": "https://json-model.org/BENCH",
   "$": {
     "": "https://json-model.org/models/jmc-bench",
@@ -13,7 +14,7 @@
       "label": "",
       "#.data": "per-case relative speed",
       "data": [ "$Perf" ],
-      "#.speed": "aggregated relative speed",
+      "#.speed": "aggregated relative-to-reference speed",
       "?speed": 0.0
     }
   },

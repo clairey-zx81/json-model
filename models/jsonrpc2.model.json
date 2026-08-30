@@ -1,5 +1,6 @@
 {
   "#": "JSON-RPC 2.0 Protocol",
+  "#.doc": "wire protocol for remote procedure calls (2010)",
   "#.url": "https://www.jsonrpc.org/specification",
   "~": "https://json-model.org/models/json-model",
   "$": {

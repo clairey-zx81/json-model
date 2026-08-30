@@ -1,5 +1,6 @@
 {
   "#": "JMC Test Vectors",
+  "#.doc": "manually or automatically generated expected result and test values",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/jmc-tests",
