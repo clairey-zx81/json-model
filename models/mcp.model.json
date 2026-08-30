@@ -1,5 +1,6 @@
 {
   "#": "MCP - Model Context Protocol",
+  "#.doc": "message format between an LLM and external tools",
   "~": "https://json-model.org/models/json-model",
   "#.url": "https://modelcontextprotocol.io/specification",
   "$": {

@@ -1,5 +1,6 @@
 {
-  "#": "JSON model for https://cypress.io Test Runner's configuration file",
+  "#": "JSON model for Cypress configuration",
+  "#.doc": "Test Runner's configuration file format for [Cypress](https://cypress.io/)",
   "#.ref": "https://docs.cypress.io/app/references/configuration",
   "#.note": "JSON configuration format, which seems now to be .js or .ts",
   "~": "https://json-model.org/models/json-model",
