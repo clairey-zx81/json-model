@@ -11,7 +11,7 @@ package-lock.json
 node_modules/
 *.values.csv
 jmc.1
-site/MODELS.md
+site/models.json
 site/JMC.md
 site/ABOUT.md
 site/BENCH.md

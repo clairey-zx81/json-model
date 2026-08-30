@@ -7,9 +7,9 @@ https://json-model.org/DOCKER.md
 https://json-model.org/DOC.md
 https://json-model.org/HOWTO.md
 https://json-model.org/JMC.md
-https://json-model.org/MODELS.md
 https://json-model.org/PUBS.md
 https://json-model.org/README.md
 https://json-model.org/SPEC.md
 https://json-model.org/TUTO.md
 https://json-model.org/VERSION.md
+https://json-model.org/models.json
