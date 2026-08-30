@@ -2,14 +2,15 @@
 
 ## Current Tasks
 
-- [x] pr: submit jm site to awesome docsify
+- [x] pr: jm site added to [awesome docsify](https://github.com/docsifyjs/awesome-docsify/commit/3950ece64978f41294463e1a2b12e809c65a6379)
 - [x] bench: show rounded minutes run time
 - [x] clang: remove useless empty line from string constant set functions
 - [x] bench: use uc for external tools, report in italic
 - [x] bench: show versions of used languages, not all
 - [x] bench: radar data with added speed property
-- [x] model: add "#.doc" to some example models
+- [x] model: improve internal doc for some example models
 - [x] model: simplify JSTS model with `$SEMVER`
+- [x] pr: generate model examples pages from json
 - [ ] bench: add ajv reference?
 - [ ] bench: add corvus reference?
 - [ ] bench: case failures handling needs some fixing (test!)

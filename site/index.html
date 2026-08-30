@@ -32,6 +32,17 @@
         mergeNavbar: true,
         routerMode: "history",
         routes: {
+	      // generate model list page on the fly, based on json list
+	      "/MODELS": (path, _m, next) => {
+            fetch("/models.json")
+              .then(res => res.json())
+              .then(data => {
+                let lines = data.map(m => `- [${m.title.replace(/\s*.JSON_MODEL.*/, "")}](${m.model})${m.doc ? " — " + m.doc : ""}`)
+                return "# JSON Model Examples\n\n" + lines.join("\n") + "\n"
+              })
+              .catch(err => (`## Error: ${err}`))
+              .then(next)
+          },
           // generate per-model page markdown on the fly
           "/models/.*": (path, _m, next) => {
             fetch(path)
