@@ -8,6 +8,8 @@
 - [x] bench: use uc for external tools, report in italic
 - [x] bench: show versions of used languages, not all
 - [x] bench: radar data with added speed property
+- [x] model: add "#.doc" to some example models
+- [x] model: simplify JSTS model with `$SEMVER`
 - [ ] bench: add ajv reference?
 - [ ] bench: add corvus reference?
 - [ ] bench: case failures handling needs some fixing (test!)

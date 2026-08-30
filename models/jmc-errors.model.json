@@ -1,5 +1,6 @@
 {
   "#": "JMC Expected Test Errors",
+  "#.doc": "record expected language-dependent errors for non-regression tests",
   "$": {
     "ErrorIndex": { "@": [ 0 ], "!": true }
   },
