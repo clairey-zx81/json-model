@@ -15,7 +15,7 @@ RUN apk add git bash bash-completion jq lscpu pythonispython3 gron py3-pandas py
 RUN mkdir /app /workspace && chmod a+rx /app /workspace
 COPY . /app
 COPY .version /app
-RUN chmod a+r /app/* && chmod a+x /app/*.sh /app/*.py /app/jmc /app/js-cli
+RUN chmod a+r /app/* && chmod a+x /app/*.sh /app/*.py /app/jmc /app/js-cli /app/ajv-cli
 ENV PATH=$PATH:/app
 WORKDIR /workspace
 ENV POD=docker

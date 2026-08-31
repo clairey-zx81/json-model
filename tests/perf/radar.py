@@ -24,7 +24,8 @@ tools = perf.index.get_level_values("tool").unique()
 # cases = perf.index.get_level_values("case").unique()
 
 LABEL = {
-    "blaze": "Blaze CLI",
+    "blaze": "Blaze CLI C++",
+    "ajv": "AJV CLI JS",
     "jmc-c": "JMC C",
     "jmc-java-gson": "JMC Java GSON",
     "jmc-java-jackson": "JMC Java Jackson",

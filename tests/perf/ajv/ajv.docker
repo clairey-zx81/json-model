@@ -11,6 +11,11 @@ RUN echo \
      "ajv-cli: $(jq -r '.packages."node_modules/ajv-cli".version' ./package-lock.json);" \
      "ajv: $(jq -r '.packages."node_modules/ajv".version' ./package-lock.json)" \
      > .version
+# fix perms
+RUN chmod a+rx *.sh
+RUN find . -type d -print0 | xargs -0 chmod a+rx
+RUN find . -type f -print0 | xargs -0 chmod a+r
+# setup entry point
 ENV PATH=/app/node_modules/.bin:$PATH
 RUN mkdir /app/workspace
 WORKDIR /app/workspace
