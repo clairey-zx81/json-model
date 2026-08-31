@@ -1,0 +1,41 @@
+#! /bin/bash
+#
+# run jsonschema command in a container
+#
+# env:
+# - POD: container command (docker)
+# - AJV: container tag (latest)
+# - AJV_POD_OPTS: additional pod options ()
+# - WORKDIR: work directory to mount as "/app/workspace" (.)
+
+pod=${POD:-docker}
+
+container_image="zx80/ajv-cli:${AJV:-latest}"
+container_root="$pod run --rm --name ajv_cli_$$ -v ${WORKDIR:-.}:/app/workspace $AJV_POD_OPTS"
+
+if [ "$pod" = "docker" ] ; then
+  container_root+=" --hostname=$(hostname)"
+elif [ "$pod" = "podman" ] ; then
+  # container_root+=" -e HOSTNAME=$(hostname)"
+  container_root+=" --uts=private --hostname=$(hostname)"
+else
+  echo "unexpected container command: $pod" >&2
+  exit 1
+fi
+
+container_user="$container_root --user $(id -u):$(id -g) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro"
+
+if [ "$#" -ge 1 -a "$1" = "shell" ] ; then
+  shift 1
+  # FIXME -t may be a bad idea
+  exec $container_user -it --entrypoint /bin/bash $container_image "$@"
+elif [ "$#" -ge 1 -a "$1" = "root" ] ; then
+  shift 1
+  # FIXME -t may be a bad idea
+  exec $container_root -it --entrypoint /bin/bash $container_image "$@"
+elif [ "$#" -ge 1 -a "$1" = "echo" ] ; then
+  shift 1
+  echo $container_user $container_image "$@"
+else
+  exec $container_user $container_image "$@"
+fi
