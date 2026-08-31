@@ -441,67 +441,41 @@ def _mistyped(value: Jsonable, kinds: set[type]|None) -> bool:
     """Whether a value certainly cannot match a model accepting these types."""
     return kinds is not None and type(value) not in kinds
 
-def _submodel(jm: JsonModel, model: ModelType, path: list) -> ModelType|None:
-    """Model governing one position of a value, None when it is not decided."""
-    current, steps, seen = model, list(path), set()
-    while True:
-        if isinstance(current, str) and current.startswith("$"):
-            name = current[1:]
-            if name not in jm._defs._syms:
-                return None if steps else current
-            elif current in seen:
-                return None
-            seen.add(current)
-            current = jm._defs._syms[name]._model
-            continue
-        if isinstance(current, dict):
-            props = {p: m for p, m in current.items() if not p.startswith("#")}
-            if "@" in props and set(props) - {"@"} <= _CONSTRAINTS:
-                current = props["@"]
-                continue
-        if not steps:
-            return current
-        step = steps.pop(0)
-        if isinstance(current, list):
-            items = [m for m in current
-                     if not (isinstance(m, str) and m.startswith("#"))]
-            if isinstance(step, bool) or not isinstance(step, int):
-                return None
-            elif len(items) == 1:
-                current = items[0]
-            elif 0 <= step < len(items):
-                current = items[step]
-            else:
-                return None
-        elif isinstance(current, dict):
-            props = {p: m for p, m in current.items() if not p.startswith("#")}
-            if set(props) & (_OPERATORS | _ROOT_KEYS) or not isinstance(step, str):
-                return None
-            found = None
-            for prop, sub in props.items():
-                if prop == "" or prop.startswith(("/", "$")):
-                    continue
-                elif (prop[1:] if prop.startswith(("!", "?", "_")) else prop) == step:
-                    found = (prop, sub)
-                    break
-            if found is None or _outranking(props, found[0]):
-                return None
-            current = found[1]
-        else:
-            return None
-
-def _rejected_everywhere(jm: JsonModel, node: ModelObject, path: list,
-                         value: Jsonable) -> bool:
-    """Whether every alternative of a disjunction rejects a value at this path."""
-    op = next(iter(node))
-    alts = [a for a in node[op] if not (isinstance(a, str) and a.startswith("#"))]
-    if not alts:
-        return False
-    for alt in alts:
-        target = _submodel(jm, alt, path)
-        if target is None or not _mistyped(value, _ultimate(jm, target)):
+def _rejects(jm: JsonModel, model: ModelType, path: list, value: Jsonable,
+             seen: frozenset[str] = frozenset()) -> bool:
+    """Whether a model certainly rejects a value at one of its positions."""
+    if isinstance(model, str) and model.startswith("$") and model[1:] in jm._defs._syms:
+        if model in seen:
             return False
-    return True
+        node = jm._defs._syms[model[1:]]
+        return _rejects(node, node._model, path, value, seen | {model})
+    props = ({p: m for p, m in model.items() if not p.startswith("#")}
+             if isinstance(model, dict) else {})
+    if "@" in props and set(props) - {"@"} <= _CONSTRAINTS:
+        return _rejects(jm, props["@"], path, value, seen)
+    elif set(props) in ({"|"}, {"^"}, {"&"}):
+        op = next(iter(props))
+        alts = [a for a in props[op] if not (isinstance(a, str) and a.startswith("#"))]
+        enough = any if op == "&" else all
+        return bool(alts) and enough(_rejects(jm, alt, path, value, seen) for alt in alts)
+    elif not path:
+        return _mistyped(value, _ultimate(jm, model))
+    elif isinstance(model, list):
+        items = [m for m in model if not (isinstance(m, str) and m.startswith("#"))]
+        step = path[0]
+        if isinstance(step, bool) or not isinstance(step, int):
+            return False
+        elif len(items) == 1:
+            return _rejects(jm, items[0], path[1:], value, seen)
+        elif 0 <= step < len(items):
+            return _rejects(jm, items[step], path[1:], value, seen)
+        else:
+            return False
+    elif props and not set(props) & (_OPERATORS | _ROOT_KEYS) and isinstance(path[0], str):
+        target = _claiming(props, path[0])
+        return target is not None and _rejects(jm, target, path[1:], value, seen)
+    else:
+        return False
 
 def _justified(utype: type|None) -> list[Jsonable]:
     """Type violations the oracle can justify first, so a marked value is a last resort."""
@@ -608,6 +582,16 @@ def _unclaimed(node: ModelObject, name: str) -> bool:
     """Whether no key of an object model can hold this property name."""
     return all(_matches(name, prop) is False
                for prop in node if not prop.startswith("#"))
+
+def _claiming(node: ModelObject, name: str) -> ModelType|None:
+    """Model a property name falls under, None when no key claims it or one is undecided."""
+    for prop in _outranking(node, "") + ([""] if "" in node else []):
+        verdict = _matches(name, prop)
+        if verdict is None:
+            return None
+        elif verdict:
+            return node[prop]
+    return None
 
 def _outranking(node: ModelObject, prop: str) -> list[str]:
     """Property keys the model applies before a catch-all or pattern key.
@@ -1363,8 +1347,8 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 continue
             proven = _mistyped(candidate, target) and (
                 disjunction is None
-                or _rejected_everywhere(jm, disjunction[1],
-                                        vpath[len(disjunction[0]):], candidate))
+                or _rejects(jm, disjunction[1],
+                            vpath[len(disjunction[0]):], candidate))
             try:
                 value = _document(copy.deepcopy(candidate), vpath, frames, doc, jm, seen)
             except UnsupportedValue as e:
