@@ -53,6 +53,11 @@ _QUOTED_OPS = _OPERATORS - {"@"}
 _ROOT_KEYS = {"$", "%", "~"}
 _COMPARISONS = {"=", "!=", "<", "<=", ">", ">="}
 _CONSTRAINTS = _COMPARISONS | {"!"}
+_BREAKING = {
+    "=": lambda m, b: m != b, "!=": lambda m, b: m == b,
+    "<": lambda m, b: m >= b, "<=": lambda m, b: m > b,
+    ">": lambda m, b: m <= b, ">=": lambda m, b: m < b,
+}
 _INT_VIOLATIONS = {
     ">=": lambda n: math.ceil(n) - 1, ">": lambda n: math.floor(n),
     "<=": lambda n: math.floor(n) + 1, "<": lambda n: math.ceil(n),
@@ -439,6 +444,30 @@ def _mistyped(value: Jsonable, kinds: set[type]|None) -> bool:
 def _justified(utype: type|None) -> list[Jsonable]:
     """Type violations the oracle can justify first, so a marked value is a last resort."""
     return sorted(_TYPE_VIOLATIONS, key=lambda candidate: not _mistyped(candidate, utype))
+
+def _measured(value: Jsonable) -> int|float|None:
+    """What a constraint compares: a number itself, otherwise a length."""
+    if isinstance(value, bool):
+        return None
+    elif isinstance(value, (int, float)):
+        return value
+    elif isinstance(value, (str, list, dict)):
+        return len(value)
+    else:
+        return None
+
+def _breaks(op: str, bound: Jsonable, value: Jsonable) -> bool:
+    """Whether a value certainly violates one constraint of an object model."""
+    if op in _COMPARISONS:
+        measure = _measured(value)
+        if measure is None or isinstance(bound, bool) or not isinstance(bound, (int, float)):
+            return False
+        return _BREAKING[op](measure, bound)
+    elif op == "!" and bound is True and isinstance(value, list):
+        dumped = [json.dumps(item, sort_keys=True) for item in value]
+        return len(set(dumped)) < len(dumped)
+    else:
+        return False
 
 def _parses(parser, name: str) -> bool:
     """Whether a reference parser accepts a name."""
@@ -1236,6 +1265,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             key = _mpath(mpath + [op])
             if key in values:
                 continue
+            proven = not branched and _breaks(op, props[op], sub)
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
                 if mpath and mpath[0] == "$":
@@ -1247,9 +1277,10 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 reasons.append(str(e))
 
                 continue
-            if unverified is not None:
+            if proven or unverified is not None:
                 values[key] = value
-                unverified.add(key)
+                if unverified is not None and not proven:
+                    unverified.add(key)
             elif _verify(value, vmodel, vjm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
             else:
