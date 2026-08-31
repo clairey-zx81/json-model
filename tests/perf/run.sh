@@ -8,6 +8,7 @@ export TMPDIR=.
 
 # container wrappers
 js_cli=js-cli
+ajv_cli=ajv-cli
 jmc=jmc
 jsu_compile="$jmc exec jsu-compile"
 
@@ -55,6 +56,7 @@ Environment:
 - JMC_JAVA_LIBS: java JSON libraries, in GSON Jackson JSONP, default is all
 - JSU_OPTS: jsu compiler options override
 - JSC: jsonschema blaze cli container tag
+- AJV: ajv cli container tag
 - PATH: where to find "jmc" and "js-cli" wrappers
 - WORKDIR: working directory to use
 - JSB_DIR: jsonschema benchmark directory
@@ -69,7 +71,10 @@ EOF
 # defaults
 LOOP=1000 TASK="all"
 # command options
-jsu_opts_2=" $JSU_OPTS" jmc_opts_2= blaze_cmp_opts= blaze_val_opts=
+jsu_opts_2=" $JSU_OPTS"
+jmc_opts_2=
+ajv_cmp_opts=" --messages=false --code-optimize=2 --strict=false" ajv_val_opts=
+blaze_cmp_opts= blaze_val_opts=
 
 # handle options
 while [[ "$1" == -* ]] ; do
@@ -126,7 +131,7 @@ case $TARGET in
   all) targets="blaze jsu jmc-c jmc-js jmc-java jmc-py jmc-pl" ;;
   jmc) targets="jsu jmc-c jmc-js jmc-java jmc-py jmc-pl" ;;
   jmc-c|jmc-js|jmc-java|jmc-py|jmc-pl) targets="jsu $TARGET" ;;
-  blaze) targets="blaze" ;;
+  blaze|ajv) targets=$TARGET ;;
   *) err 1 "unexpected target: $TARGET" ;;
 esac
 
@@ -215,6 +220,15 @@ for dir ; do
       echo "## blaze ko: $blaze_ko"
     }
 
+    # ajv compilation
+    [ "$do_cmp" -a $trg = "ajv" ] && {
+      echo "## $dir ajv compile"
+      ctime "$name,ajv,$now," "$prefix" ajv \
+        $ajv_cli compile $ajv_cmp_opts -s $dir/schema.json -o ${prefix}_ajv.cjs
+      ajv_ko=$?
+      echo "## ajv ko: $ajv_ko"
+    }
+
     # schema to model
     [ "$do_cmp" -a "$trg" = "jsu" ] && {
       echo "## $dir jsu compile"
@@ -289,6 +303,12 @@ for dir ; do
       $js_cli validate $blaze_val_opts -m ${prefix}.blaze.json -b -l $LOOP \
         $dir/schema.json $dir/instances.jsonl \
           > ${prefix}_blaze.out
+    }
+
+    [ "$trg" = "ajv" -a "$ajv_ko" -eq 0 ] && {
+      echo "## $dir ajv run"
+      $ajv_cli node $ajv_val_opts ${prefix}_ajv.cjs -T $LOOP --jsonl $dir/instances.jsonl \
+        2> ${prefix}_ajv.out
     }
 
     [ "$trg" = "jmc-c" -a "$jmc_out_ko" -eq 0 ] && {

@@ -11,7 +11,7 @@ docker build -t zx80/ajv-cli -f ajv.docker .
 Using the docker wrapper:
 
 ```sh
-ajv-cli compile --messages=false --code-optimize=2 -s foo.schema.json -o foo.cjs
+ajv-cli compile --messages=false --code-optimize=2 --strict=false -s foo.schema.json -o foo.cjs
 ajv-cli node foo.cjs -T 1000 *.json
 ```
 
