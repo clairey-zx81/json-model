@@ -1193,7 +1193,7 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
         elif model != "$ANY" and (not model.startswith("$") or name in PREDEFS):
             yield mpath, vpath, frames, {"@": model}, disjunction
         elif model == "$ANY" and notes is not None:
-            notes.append(f"invalid value {_mpath(mpath)}: $ANY accepts every value")
+            notes.append(f"{_mpath(mpath)} invalid: $ANY accepts every value")
     elif isinstance(model, list):
         yield mpath, vpath, frames, {"@": model}, disjunction
         items = [(i, m) for i, m in enumerate(model)
@@ -1372,7 +1372,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             elif _verify(value, vmodel, vjm) is False and _verify(value, rest, jm, rdefs) is True:
                 values[key] = value
             else:
-                skip(f"constraint value {key}: no value isolates it")
+                skip(f"{key}: no value isolates it")
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
     for mpath, vpath, frames, props, disjunction in sites:
         key = f"{_mpath(mpath)} invalid"
@@ -1405,7 +1405,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                     unverified.add(key)
                 break
         else:
-            skip(f"invalid value {_mpath(mpath)}: no type breaks the model here")
+            skip(f"{key}: no type breaks the model here")
     for mpath, vpath, frames, props, disjunction in sites:
         key = f"{_mpath(mpath)} bad" if mpath else "bad"
         if set(props) - {"@"} or key in values:
@@ -1430,7 +1430,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             if unverified is not None and not proven:
                 unverified.add(key)
         else:
-            skip(f"bad value {_mpath(mpath)}: the {target} violation is still valid")
+            skip(f"{key}: the {target} violation is still valid")
     for mpath, vpath, frames, node, disjunction in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
@@ -1450,8 +1450,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 _verify(sub, _optional(node, prop, name), jm, defs)
             if verdict is not True:
                 if verdict is False:
-                    skip(f"missing value {_mpath(mpath + [prop])}: "
-                         f"dropping {name} does not match the model")
+                    skip(f"{key}: dropping {name} does not match the model")
                 else:
                     reasons.append(f"{key}: cannot check dropping {name}")
                 continue
@@ -1470,11 +1469,10 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 if unverified is not None and not proven:
                     unverified.add(key)
             else:
-                skip(f"missing value {_mpath(mpath + [prop])}: "
-                     f"dropping {name} is still valid")
+                skip(f"{key}: dropping {name} is still valid")
     for mpath, vpath, frames, node, disjunction in _object_sites(sites):
         if not _closed(node, jm):
-            skip(f"extra value {_mpath(mpath)}: object is open")
+            skip(f"{_mpath(mpath)} extra: object is open")
             continue
         try:
             built = simplest(node, jm, seen)
@@ -1509,7 +1507,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                     unverified.add(key)
                 break
         else:
-            skip(f"extra value {_mpath(mpath)}: every extra property is valid")
+            skip(f"{_mpath(mpath)} extra: every extra property is valid")
     always = _anything(vjm, vmodel)
     for candidate in _ROOT_TYPES:
         dumped = json.dumps(candidate, sort_keys=True)
@@ -1521,14 +1519,14 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             verdict = True
         elif unverified is not None:
             verdict = False
-            unverified.add(f"{dumped} root invalid")
+            unverified.add(f".{dumped} root invalid")
         else:
             verdict = _verify(candidate, vmodel, vjm)
         if verdict is not False:
             if verdict is True:
-                skip(f"root value {dumped}: valid for the model")
+                skip(f".{dumped} root: valid for the model")
             continue
-        values[f"{dumped} root invalid"] = copy.deepcopy(candidate)
+        values[f".{dumped} root invalid"] = copy.deepcopy(candidate)
         taken.add(dumped)
     if not values:
         if not reasons:
@@ -1591,7 +1589,7 @@ def _all_bounds(model: ModelType, jm: JsonModel|None = None,
             elif _verify(value, vmodel, vjm) is True:
                 values[key] = value
             else:
-                skipped.append(f"{key}: the value does not verify here")
+                skipped.append(f"{key} bound: the value does not verify here")
     if not values:
         if not reasons and not skipped:
             raise Vacuous("no constraint bound: no constraint in model")
@@ -1615,7 +1613,7 @@ def optionals(model: ModelType, jm: JsonModel|None = None,
     except Vacuous:
         raise
     except UnsupportedValue as e:
-        reasons.append(f"no document to alter: {e}")
+        reasons.append(f"optional values: no document to alter: {e}")
     taken = set() if doc is None else {json.dumps(doc, sort_keys=True)}
     for mpath, vpath, frames, node, disjunction in _object_sites(sites):
         props = _optional_props(node, jm, seen)
@@ -1624,7 +1622,7 @@ def optionals(model: ModelType, jm: JsonModel|None = None,
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue as e:
-            reasons.append(f"{_mpath(mpath)}: no object to extend: {e}")
+            reasons.append(f"{_mpath(mpath)} optional: no object to extend: {e}")
             continue
         if not isinstance(built, dict):
             continue
@@ -1670,7 +1668,7 @@ def branches(model: ModelType, jm: JsonModel|None = None,
     except Vacuous:
         raise
     except UnsupportedValue as e:
-        reasons.append(f"no document to alter: {e}")
+        reasons.append(f"branch values: no document to alter: {e}")
     taken = set() if doc is None else {json.dumps(doc, sort_keys=True)}
     for mpath, vpath, frames, node, op in _alternatives(sites):
         for index, alt in enumerate(node[op]):
@@ -1703,7 +1701,12 @@ def branches(model: ModelType, jm: JsonModel|None = None,
 
 def _label(key: str, marks: set[str], suffix: str = "") -> str:
     """Comment introducing a test vector, marked when the compiler was not asked."""
-    return f"# UNVERIFIED {key}{suffix}" if key in marks else f"# {key}{suffix}"
+    return f"# {key}{suffix} UNVERIFIED" if key in marks else f"# {key}{suffix}"
+
+def _note(reason: str, warn: str) -> str:
+    """Comment about a missing test vector, path and explanation before the warning."""
+    head, sep, detail = reason.partition(": ")
+    return f"# {head} {warn}{sep}{detail}"
 
 def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             extend: bool = False, unverified: bool = False) -> list:
@@ -1724,7 +1727,7 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        tests.append("# FAILED invalid model")
+        tests.append("# invalid model FAILED")
     try:
         marks: set[str] = set()
         found, skipped = _all_bounds(model, resolver=resolver, url=url, extend=extend,
@@ -1737,12 +1740,12 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             tests.append(_label(key, marks, " bound"))
             tests.append([True, value])
         for reason in skipped:
-            tests.append(f"# FAILED bound value {reason}")
+            tests.append(_note(reason, "FAILED"))
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        tests.append(f"# FAILED bound values: {e}")
+        tests.append(_note(f"bound values: {e}", "FAILED"))
     for step, generate in (("optional", optionals), ("branch", branches)):
         try:
             step_marks: set[str] = set()
@@ -1756,12 +1759,12 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
                 tests.append(_label(key, step_marks))
                 tests.append([True, value])
             for reason in skipped:
-                tests.append(f"# FAILED {step} value {reason}")
+                tests.append(_note(reason, "FAILED"))
         except Vacuous as e:
             reasons.append(str(e))
         except UnsupportedValue as e:
             reasons.append(str(e))
-            tests.append(f"# FAILED {step} values: {e}")
+            tests.append(_note(f"{step} values: {e}", "FAILED"))
     try:
         broken_marks: set[str] = set()
         broken, skipped = _violations(model, resolver=resolver, url=url, extend=extend,
@@ -1770,12 +1773,12 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
             tests.append(_label(key, broken_marks))
             tests.append([False, value])
         for reason in skipped:
-            tests.append(f"# SKIPPED {reason}")
+            tests.append(_note(reason, "SKIPPED"))
     except Vacuous as e:
         reasons.append(str(e))
     except UnsupportedValue as e:
         reasons.append(str(e))
-        tests.append("# FAILED invalid model")
+        tests.append("# invalid model FAILED")
     if not any(isinstance(t, list) for t in tests):
         raise UnsupportedValue(f"no test vector: {_joined(reasons)}")
     return tests
