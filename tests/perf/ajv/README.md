@@ -17,6 +17,7 @@ ajv-cli node foo.cjs -T 1000 *.json
 
 ## TODO
 
+- cleanup main function: remove test vector handling
 - check for optimization options
 - actually strip error messaging
 - handle errors
