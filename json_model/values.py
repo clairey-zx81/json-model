@@ -441,6 +441,21 @@ def _mistyped(value: Jsonable, kinds: set[type]|None) -> bool:
     """Whether a value certainly cannot match a model accepting these types."""
     return kinds is not None and type(value) not in kinds
 
+def _refuses(jm: JsonModel, model: ModelType, value: Jsonable) -> bool:
+    """Whether a model certainly rejects a value, by type, format or structure."""
+    if _mistyped(value, _ultimate(jm, model)):
+        return True
+    elif isinstance(model, str):
+        return _rejected(model, value)
+    elif isinstance(model, dict) and isinstance(value, dict):
+        node = {p: m for p, m in model.items() if not p.startswith("#")}
+        if set(node) & (_OPERATORS | _ROOT_KEYS):
+            return False
+        return (any(name not in value for _, name in _mandatory(node))
+                or any(_unclaimed(node, name) for name in value))
+    else:
+        return False
+
 def _rejects(jm: JsonModel, model: ModelType, path: list, value: Jsonable,
              seen: frozenset[str] = frozenset()) -> bool:
     """Whether a model certainly rejects a value at one of its positions."""
@@ -452,6 +467,9 @@ def _rejects(jm: JsonModel, model: ModelType, path: list, value: Jsonable,
     props = ({p: m for p, m in model.items() if not p.startswith("#")}
              if isinstance(model, dict) else {})
     if "@" in props and set(props) - {"@"} <= _CONSTRAINTS:
+        if not path and any(_breaks(op, props[op], value)
+                            for op in props if op != "@"):
+            return True
         return _rejects(jm, props["@"], path, value, seen)
     elif set(props) in ({"|"}, {"^"}, {"&"}):
         op = next(iter(props))
@@ -459,7 +477,7 @@ def _rejects(jm: JsonModel, model: ModelType, path: list, value: Jsonable,
         enough = any if op == "&" else all
         return bool(alts) and enough(_rejects(jm, alt, path, value, seen) for alt in alts)
     elif not path:
-        return _mistyped(value, _ultimate(jm, model))
+        return _refuses(jm, model, value)
     elif isinstance(model, list):
         items = [m for m in model if not (isinstance(m, str) and m.startswith("#"))]
         step = path[0]
@@ -474,6 +492,27 @@ def _rejects(jm: JsonModel, model: ModelType, path: list, value: Jsonable,
     elif props and not set(props) & (_OPERATORS | _ROOT_KEYS) and isinstance(path[0], str):
         target = _claiming(props, path[0])
         return target is not None and _rejects(jm, target, path[1:], value, seen)
+    else:
+        return False
+
+def _anything(jm: JsonModel, model: ModelType,
+              seen: frozenset[str] = frozenset()) -> bool:
+    """Whether a model certainly accepts every value."""
+    if isinstance(model, str) and model.startswith("$"):
+        name = model[1:]
+        if name not in jm._defs._syms:
+            return model == "$ANY"
+        elif model in seen:
+            return False
+        node = jm._defs._syms[name]
+        return _anything(node, node._model, seen | {model})
+    props = ({p: m for p, m in model.items() if not p.startswith("#")}
+             if isinstance(model, dict) else {})
+    if "@" in props and not set(props) - {"@"}:
+        return _anything(jm, props["@"], seen)
+    elif set(props) == {"|"}:
+        return any(_anything(jm, alt, seen) for alt in props["|"]
+                   if not (isinstance(alt, str) and alt.startswith("#")))
     else:
         return False
 
@@ -1313,7 +1352,8 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             key = _mpath(mpath + [op])
             if key in values:
                 continue
-            proven = disjunction is None and _breaks(op, props[op], sub)
+            proven = (_breaks(op, props[op], sub) if disjunction is None else
+                      _rejects(jm, disjunction[1], vpath[len(disjunction[0]):], sub))
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
                 if mpath and mpath[0] == "$":
@@ -1399,12 +1439,13 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             continue
         if not isinstance(built, dict):
             continue
-        proven = disjunction is None
         for prop, name in _mandatory(node):
             key = f"{_mpath(mpath + [prop])} missing"
             if key in values or name not in built:
                 continue
             sub = {p: v for p, v in built.items() if p != name}
+            proven = (disjunction is None or
+                      _rejects(jm, disjunction[1], vpath[len(disjunction[0]):], sub))
             verdict = True if unverified is not None else \
                 _verify(sub, _optional(node, prop, name), jm, defs)
             if verdict is not True:
@@ -1447,7 +1488,8 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             if name in built or key in values:
                 continue
             sub = {**built, name: None}
-            proven = disjunction is None and _unclaimed(node, name)
+            proven = (_unclaimed(node, name) if disjunction is None else
+                      _rejects(jm, disjunction[1], vpath[len(disjunction[0]):], sub))
             if unverified is None and (_verify(sub, node, jm, defs) is not False
                                        or _verify(sub, _opened(node), jm, defs) is not True):
                 continue
@@ -1468,13 +1510,15 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
         else:
             skip(f"extra value {_mpath(mpath)}: every extra property is valid")
-    utype = _ultimate(vjm, vmodel)
+    always = _anything(vjm, vmodel)
     for candidate in _ROOT_TYPES:
         dumped = json.dumps(candidate, sort_keys=True)
         if dumped in taken:
             continue
-        if _mistyped(candidate, utype):
+        if _rejects(vjm, vmodel, [], candidate):
             verdict = False
+        elif always:
+            verdict = True
         elif unverified is not None:
             verdict = False
             unverified.add(f"{dumped} root invalid")
