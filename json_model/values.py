@@ -1311,8 +1311,12 @@ def violations(model: ModelType, jm: JsonModel|None = None,
 def _violations(model: ModelType, jm: JsonModel|None = None,
                 seen: frozenset[str] = frozenset(), resolver: Resolver|None = None,
                 url: str = "", extend: bool = False,
-                unverified: set[str]|None = None) -> tuple[dict[str, Jsonable], list[str]]:
-    """Generate a value breaking each constraint, and why some sites were skipped."""
+                unverified: set[str]|None = None,
+                valid: frozenset[str] = frozenset()) -> tuple[dict[str, Jsonable], list[str]]:
+    """Generate a value breaking each constraint, and why some sites were skipped.
+
+    Values already generated as valid, as JSON dumps, are known to match the model.
+    """
     vjm, vmodel = jm, model
     skipped: list[str] = []
     if jm is None:
@@ -1516,7 +1520,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             continue
         if _rejects(vjm, vmodel, [], candidate):
             verdict = False
-        elif always:
+        elif always or dumped in valid:
             verdict = True
         elif unverified is not None:
             verdict = False
@@ -1784,7 +1788,8 @@ def vectors(model: ModelType, resolver: Resolver|None = None, url: str = "",
     try:
         broken_marks: set[str] = set()
         broken, skipped = _violations(model, resolver=resolver, url=url, extend=extend,
-                                      unverified=broken_marks if unverified else None)
+                                      unverified=broken_marks if unverified else None,
+                                      valid=frozenset(taken))
         for key, value in broken.items():
             entries.append((1, _path(key), [_label(key, broken_marks), [False, value]]))
         for reason in skipped:
