@@ -1,4 +1,5 @@
 .*-build.*
+.ajv.build
 .version
 tmp/
 jsb/
