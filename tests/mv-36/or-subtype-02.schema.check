@@ -1,0 +1,11 @@
+./or-subtype-02.values.json[0]: PASS
+./or-subtype-02.values.json[1]: PASS
+./or-subtype-02.values.json[2]: PASS
+./or-subtype-02.values.json[3]: PASS
+./or-subtype-02.values.json[4]: FAIL
+./or-subtype-02.values.json[5]: FAIL
+./or-subtype-02.values.json[6]: FAIL
+./or-subtype-02.values.json[7]: FAIL
+./or-subtype-02.values.json[8]: FAIL
+./or-subtype-02.values.json[9]: FAIL
+./or-subtype-02.values.json[10]: FAIL
