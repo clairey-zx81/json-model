@@ -1,0 +1,14 @@
+{
+  "name": "jmc-ajv-bench",
+  "description": "JMC Benchmark AJV Wrapper",
+  "version": "2.0.60",
+  "author": "",
+  "license": "CC0-1.0",
+  "type": "module",
+  "dependencies": {
+    "jmc-ajv-bench": "file://./src",
+    "ajv": "^8.20.0",
+    "ajv-cli": "^5.0.0",
+    "prettier": "^3.9.0"
+  }
+}

@@ -1,0 +1,17 @@
+#
+# container definition for ajv-cli/ajv
+#
+FROM node:latest
+RUN apt update && apt install -y jq vim && apt clean
+COPY . /app
+WORKDIR /app
+RUN npm install
+# RUN npm list > .version
+RUN echo \
+     "ajv-cli: $(jq -r '.packages."node_modules/ajv-cli".version' ./package-lock.json);" \
+     "ajv: $(jq -r '.packages."node_modules/ajv".version' ./package-lock.json)" \
+     > .version
+ENV PATH=/app/node_modules/.bin:$PATH
+RUN mkdir /app/workspace
+WORKDIR /app/workspace
+ENTRYPOINT ["/app/ajv-wrapper.sh"]

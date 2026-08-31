@@ -11,7 +11,9 @@
 - [x] model: improve internal doc for some example models
 - [x] model: simplify JSTS model with `$SEMVER`
 - [x] pr: generate model examples pages from json
-- [ ] bench: add ajv reference?
+- [x] bench: add ajv cli docker and wrapper
+- [ ] bench: add ajv reference
+- [ ] bench: collect error runs?
 - [ ] bench: add corvus reference?
 - [ ] bench: case failures handling needs some fixing (test!)
 - [ ] bench: add stddev performance computation
