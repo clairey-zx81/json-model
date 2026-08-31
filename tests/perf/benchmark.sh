@@ -440,21 +440,24 @@ or deselect tools for easier comparisons.
 - **benchmark script version:** $version
 EOF
 
-[[ $TASK =~ B ]] && echo "- **jsonschema-cli version:** $(js-cli --version)"
-[[ $TASK =~ A ]] && echo "- **ajv-cli version:** $(ajv-cli --version)"
+# per-backend versions
+{
+  [[ $TASK =~ B ]] && echo "- **jsonschema-cli version:** $(js-cli --version)"
+  [[ $TASK =~ A ]] && echo "- **ajv-cli version:** $(ajv-cli --version)"
 
-if [[ $TASK =~ c ]] ; then
-  if [[ "$JMC_OPTS" =~ clang ]] ; then
-    echo "- **clang version:** $(jmc exec clang --version|head -1)"
-  else
-    echo "- **cc version:** $(jmc exec cc --version|head -1)"
+  if [[ $TASK =~ c ]] ; then
+    if [[ "$JMC_OPTS" =~ clang ]] ; then
+      echo "- **clang version:** $(jmc exec clang --version|head -1)"
+    else
+      echo "- **cc version:** $(jmc exec cc --version|head -1)"
+    fi
   fi
-fi
 
-[[ $TASK =~ y ]] && echo "- **python version:** $(jmc exec python --version|head -1)"
-[[ $TASK =~ s ]] && echo "- **node version:** $(jmc exec node --version|head -1)"
-[[ $TASK =~ [v123] ]] && echo "- **javac version:** $(jmc exec javac --version|head -1)"
-[[ $TASK =~ l ]] && echo "- **perl version:** $(jmc exec perl -e 'print "$^V\n"'|head -1)"
+  [[ $TASK =~ y ]] && echo "- **python version:** $(jmc exec python --version|head -1)"
+  [[ $TASK =~ s ]] && echo "- **node version:** $(jmc exec node --version|head -1)"
+  [[ $TASK =~ [v123] ]] && echo "- **javac version:** $(jmc exec javac --version|head -1)"
+  [[ $TASK =~ l ]] && echo "- **perl version:** $(jmc exec perl -e 'print "$^V\n"'|head -1)"
+} >> "$ID.md"
 
 cat <<EOF >> "$ID.md"
 - **duration:** $SECONDS seconds (about $(( ( $SECONDS + 30 ) / 60 )) minutes)
@@ -464,9 +467,12 @@ cat <<EOF >> "$ID.md"
 - **container command:** $POD
 EOF
 
-[[ $TASK =~ [cv123syl] ]] && echo "- **jmc container version:** $JMC ($(pod_id docker.io/zx80/jmc:$JMC))"
-[[ $TASK =~ B ]] && echo "- **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))"
-[[ $TASK =~ A ]] && echo "- **ajv container version:** $AJV ($(pod_id docker.io/zx80/ajv-cli:$AJV))"
+# per-container versions
+{
+  [[ $TASK =~ [cv123syl] ]] && echo "- **jmc container version:** $JMC ($(pod_id docker.io/zx80/jmc:$JMC))"
+  [[ $TASK =~ B ]] && echo "- **jsc container version:** $JSC ($(pod_id ghcr.io/sourcemeta/jsonschema:$JSC))"
+  [[ $TASK =~ A ]] && echo "- **ajv container version:** $AJV ($(pod_id docker.io/zx80/ajv-cli:$AJV))"
+} >> "$ID.md"
 
 cat <<EOF >> "$ID.md"
 - **benchmark parallelism:** $PARA
