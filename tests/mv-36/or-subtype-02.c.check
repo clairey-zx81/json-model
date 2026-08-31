@@ -1,0 +1,11 @@
+or-subtype-02.values.json[0]: PASS
+or-subtype-02.values.json[1]: PASS
+or-subtype-02.values.json[2]: PASS
+or-subtype-02.values.json[3]: PASS
+or-subtype-02.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: not an object [.'|'.2]; .: unexpected element [.'|'.1]; .: not an object [.'|'.1]; .: unexpected value for model "" [.'|'.0])
+or-subtype-02.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: not an object [.'|'.2]; .: unexpected element [.'|'.1]; .: not an object [.'|'.1]; .: unexpected value for model "" [.'|'.0])
+or-subtype-02.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: not an object [.'|'.2]; .: unexpected element [.'|'.1]; .: not an object [.'|'.1]; .: unexpected value for model "" [.'|'.0])
+or-subtype-02.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: not an object [.'|'.2]; .: unexpected element [.'|'.1]; .: not an object [.'|'.1]; .: unexpected value for model "" [.'|'.0])
+or-subtype-02.values.json[8]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: not an object [.'|'.2]; .: unexpected element [.'|'.1]; .: not an object [.'|'.1]; .: unexpected value for model "" [.'|'.0])
+or-subtype-02.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: not an object [.'|'.2]; .: unexpected element [.'|'.1]; .: not an object [.'|'.1]; .: unexpected value for model "" [.'|'.0])
+or-subtype-02.values.json[10]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.2]; .: not an object [.'|'.2]; .: unexpected element [.'|'.1]; .: not an object [.'|'.1]; .: unexpected value for model "" [.'|'.0])
