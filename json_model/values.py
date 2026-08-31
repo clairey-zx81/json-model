@@ -441,6 +441,68 @@ def _mistyped(value: Jsonable, kinds: set[type]|None) -> bool:
     """Whether a value certainly cannot match a model accepting these types."""
     return kinds is not None and type(value) not in kinds
 
+def _submodel(jm: JsonModel, model: ModelType, path: list) -> ModelType|None:
+    """Model governing one position of a value, None when it is not decided."""
+    current, steps, seen = model, list(path), set()
+    while True:
+        if isinstance(current, str) and current.startswith("$"):
+            name = current[1:]
+            if name not in jm._defs._syms:
+                return None if steps else current
+            elif current in seen:
+                return None
+            seen.add(current)
+            current = jm._defs._syms[name]._model
+            continue
+        if isinstance(current, dict):
+            props = {p: m for p, m in current.items() if not p.startswith("#")}
+            if "@" in props and set(props) - {"@"} <= _CONSTRAINTS:
+                current = props["@"]
+                continue
+        if not steps:
+            return current
+        step = steps.pop(0)
+        if isinstance(current, list):
+            items = [m for m in current
+                     if not (isinstance(m, str) and m.startswith("#"))]
+            if isinstance(step, bool) or not isinstance(step, int):
+                return None
+            elif len(items) == 1:
+                current = items[0]
+            elif 0 <= step < len(items):
+                current = items[step]
+            else:
+                return None
+        elif isinstance(current, dict):
+            props = {p: m for p, m in current.items() if not p.startswith("#")}
+            if set(props) & (_OPERATORS | _ROOT_KEYS) or not isinstance(step, str):
+                return None
+            found = None
+            for prop, sub in props.items():
+                if prop == "" or prop.startswith(("/", "$")):
+                    continue
+                elif (prop[1:] if prop.startswith(("!", "?", "_")) else prop) == step:
+                    found = (prop, sub)
+                    break
+            if found is None or _outranking(props, found[0]):
+                return None
+            current = found[1]
+        else:
+            return None
+
+def _rejected_everywhere(jm: JsonModel, node: ModelObject, path: list,
+                         value: Jsonable) -> bool:
+    """Whether every alternative of a disjunction rejects a value at this path."""
+    op = next(iter(node))
+    alts = [a for a in node[op] if not (isinstance(a, str) and a.startswith("#"))]
+    if not alts:
+        return False
+    for alt in alts:
+        target = _submodel(jm, alt, path)
+        if target is None or not _mistyped(value, _ultimate(jm, target)):
+            return False
+    return True
+
 def _justified(utype: type|None) -> list[Jsonable]:
     """Type violations the oracle can justify first, so a marked value is a last resort."""
     return sorted(_TYPE_VIOLATIONS, key=lambda candidate: not _mistyped(candidate, utype))
@@ -1010,15 +1072,15 @@ def _closed(node: ModelObject, jm: JsonModel) -> bool:
 
 def _object_sites(sites: list):
     """Sites which target a plain object model."""
-    for mpath, vpath, frames, props, branched in sites:
+    for mpath, vpath, frames, props, disjunction in sites:
         node = props["@"]
         if (not set(props) - {"@"} and isinstance(node, dict)
                 and not set(node) & (_OPERATORS | _ROOT_KEYS)):
-            yield mpath, vpath, frames, node, branched
+            yield mpath, vpath, frames, node, disjunction
 
 def _alternatives(sites: list):
     """Sites which target a union model."""
-    for mpath, vpath, frames, props, branched in sites:
+    for mpath, vpath, frames, props, disjunction in sites:
         node = props["@"]
         if set(props) - {"@"} or not isinstance(node, dict):
             continue
@@ -1093,53 +1155,55 @@ def _without(model: ModelType, path: list) -> ModelType:
 
 def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
            jm: JsonModel, seen: frozenset[str], notes: list[str]|None = None,
-           branched: bool = False):
-    """Violation sites, as model path, value path, branch frames, properties and branching.
+           disjunction: tuple[list, ModelObject]|None = None):
+    """Violation sites, as model path, value path, branch frames, properties and disjunction.
 
-    A site is branched when it lies under an alternative of a union or a xor, where
-    breaking the model at that position leaves the document free to match elsewhere.
+    A site under an alternative of a union or a xor carries the outermost one, as the
+    value path where it applies and its node: breaking the model there only invalidates
+    the document when every alternative of that operator rejects the value.
     """
     if isinstance(model, str):
         name = model[1:]
         if model.startswith("$") and name in jm._defs._syms and name not in seen:
             yield from _sites(jm._defs._syms[name]._model, ["$", name], vpath,
-                              frames, jm, seen | {name}, notes, branched)
+                              frames, jm, seen | {name}, notes, disjunction)
         elif model != "$ANY" and (not model.startswith("$") or name in PREDEFS):
-            yield mpath, vpath, frames, {"@": model}, branched
+            yield mpath, vpath, frames, {"@": model}, disjunction
         elif model == "$ANY" and notes is not None:
             notes.append(f"invalid value {_mpath(mpath)}: $ANY accepts every value")
     elif isinstance(model, list):
-        yield mpath, vpath, frames, {"@": model}, branched
+        yield mpath, vpath, frames, {"@": model}, disjunction
         items = [(i, m) for i, m in enumerate(model)
                  if not (isinstance(m, str) and m.startswith("#"))]
         if len(items) > 1:
             for n, (i, item) in enumerate(items):
                 yield from _sites(item, mpath + [i], vpath + [n], frames, jm, seen,
-                                  notes, branched)
+                                  notes, disjunction)
         elif items:
             i, item = items[0]
             yield from _sites(item, mpath + [i], vpath + [0],
                               frames + [(vpath, {"@": model, ">=": 1})], jm, seen,
-                              notes, branched)
+                              notes, disjunction)
     elif isinstance(model, dict):
         props = {p: m for p, m in model.items() if not p.startswith("#")}
         others = set(props) - {"@"}
         if "@" in props and others <= _CONSTRAINTS:
             if others:
-                yield mpath, vpath, frames, props, branched
+                yield mpath, vpath, frames, props, disjunction
             yield from _sites(props["@"], mpath + ["@"], vpath, frames, jm, seen,
-                              notes, branched)
+                              notes, disjunction)
         elif set(props) in ({"|"}, {"^"}, {"&"}):
             op = next(iter(props))
-            yield mpath, vpath, frames, {"@": model}, branched
+            yield mpath, vpath, frames, {"@": model}, disjunction
+            inner = (disjunction if disjunction is not None or op == "&"
+                     else (vpath, props))
             for index, alt in enumerate(props[op]):
                 if isinstance(alt, str) and alt.startswith("#"):
                     continue
                 yield from _sites(alt, mpath + [op, index], vpath,
-                                  frames + [(vpath, alt)], jm, seen, notes,
-                                  branched or op != "&")
+                                  frames + [(vpath, alt)], jm, seen, notes, inner)
         elif not set(props) & (_OPERATORS | _ROOT_KEYS):
-            yield mpath, vpath, frames, {"@": model}, branched
+            yield mpath, vpath, frames, {"@": model}, disjunction
             named = {p[1:] if p.startswith(("!", "?", "_")) else p
                      for p in props if p and not p.startswith(("/", "$"))}
             for prop, sub in props.items():
@@ -1156,9 +1220,9 @@ def _sites(model: ModelType, mpath: list, vpath: list, frames: list,
                     inner = (frames + [(vpath + [name], sub)] if prop.startswith("?")
                              else frames)
                 yield from _sites(sub, mpath + [prop], vpath + [name], inner, jm, seen,
-                                  notes, branched)
+                                  notes, disjunction)
     else:
-        yield mpath, vpath, frames, {"@": model}, branched
+        yield mpath, vpath, frames, {"@": model}, disjunction
 
 def _document(sub: Jsonable, vpath: list, frames: list, doc: Jsonable,
               jm: JsonModel, seen: frozenset[str]) -> Jsonable:
@@ -1252,7 +1316,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             doc = simplest(model, jm, seen)
         except UnsupportedValue as e:
             reasons.append(f"no document to alter: {e}")
-    for mpath, vpath, frames, props, branched in sites:
+    for mpath, vpath, frames, props, disjunction in sites:
         ops = set(props) - {"@"}
         if not ops or all(_mpath(mpath + [op]) in values for op in ops):
             continue
@@ -1265,7 +1329,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             key = _mpath(mpath + [op])
             if key in values:
                 continue
-            proven = not branched and _breaks(op, props[op], sub)
+            proven = disjunction is None and _breaks(op, props[op], sub)
             try:
                 value = _document(sub, vpath, frames, doc, jm, seen)
                 if mpath and mpath[0] == "$":
@@ -1286,7 +1350,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             else:
                 skip(f"constraint value {key}: no value isolates it")
     taken = {json.dumps(v, sort_keys=True) for v in values.values()}
-    for mpath, vpath, frames, props, branched in sites:
+    for mpath, vpath, frames, props, disjunction in sites:
         key = f"{_mpath(mpath)} invalid"
         if not mpath or set(props) - {"@"} or key in values:
             continue
@@ -1297,6 +1361,10 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                     unverified is None
                     and _verify(candidate, props["@"], jm, defs) is not False):
                 continue
+            proven = _mistyped(candidate, target) and (
+                disjunction is None
+                or _rejected_everywhere(jm, disjunction[1],
+                                        vpath[len(disjunction[0]):], candidate))
             try:
                 value = _document(copy.deepcopy(candidate), vpath, frames, doc, jm, seen)
             except UnsupportedValue as e:
@@ -1309,20 +1377,19 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             elif unverified is not None or _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
-                if unverified is not None and not (_mistyped(candidate, target)
-                                                   and not branched):
+                if unverified is not None and not proven:
                     unverified.add(key)
                 break
         else:
             skip(f"invalid value {_mpath(mpath)}: no type breaks the model here")
-    for mpath, vpath, frames, props, branched in sites:
+    for mpath, vpath, frames, props, disjunction in sites:
         key = f"{_mpath(mpath)} bad" if mpath else "bad"
         if set(props) - {"@"} or key in values:
             continue
         target = props["@"]
         if not isinstance(target, str) or target not in _PREDEF_VIOLATIONS:
             continue
-        proven = not branched and _rejected(target, _PREDEF_VIOLATIONS[target])
+        proven = disjunction is None and _rejected(target, _PREDEF_VIOLATIONS[target])
         try:
             value = _document(copy.deepcopy(_PREDEF_VIOLATIONS[target]),
                               vpath, frames, doc, jm, seen)
@@ -1340,7 +1407,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 unverified.add(key)
         else:
             skip(f"bad value {_mpath(mpath)}: the {target} violation is still valid")
-    for mpath, vpath, frames, node, branched in _object_sites(sites):
+    for mpath, vpath, frames, node, disjunction in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue as e:
@@ -1348,7 +1415,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             continue
         if not isinstance(built, dict):
             continue
-        proven = not branched
+        proven = disjunction is None
         for prop, name in _mandatory(node):
             key = f"{_mpath(mpath + [prop])} missing"
             if key in values or name not in built:
@@ -1380,7 +1447,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             else:
                 skip(f"missing value {_mpath(mpath + [prop])}: "
                      f"dropping {name} is still valid")
-    for mpath, vpath, frames, node, branched in _object_sites(sites):
+    for mpath, vpath, frames, node, disjunction in _object_sites(sites):
         if not _closed(node, jm):
             skip(f"extra value {_mpath(mpath)}: object is open")
             continue
@@ -1396,7 +1463,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             if name in built or key in values:
                 continue
             sub = {**built, name: None}
-            proven = not branched and _unclaimed(node, name)
+            proven = disjunction is None and _unclaimed(node, name)
             if unverified is None and (_verify(sub, node, jm, defs) is not False
                                        or _verify(sub, _opened(node), jm, defs) is not True):
                 continue
@@ -1470,7 +1537,7 @@ def _all_bounds(model: ModelType, jm: JsonModel|None = None,
             doc = simplest(model, jm, seen)
         except UnsupportedValue as e:
             reasons.append(f"no document to alter: {e}")
-    for mpath, vpath, frames, props, branched in sites:
+    for mpath, vpath, frames, props, disjunction in sites:
         ops = set(props) - {"@"}
         if not ops or all(_mpath(mpath + [op]) in values for op in ops):
             continue
@@ -1522,7 +1589,7 @@ def optionals(model: ModelType, jm: JsonModel|None = None,
     except UnsupportedValue as e:
         reasons.append(f"no document to alter: {e}")
     taken = set() if doc is None else {json.dumps(doc, sort_keys=True)}
-    for mpath, vpath, frames, node, branched in _object_sites(sites):
+    for mpath, vpath, frames, node, disjunction in _object_sites(sites):
         props = _optional_props(node, jm, seen)
         if not props:
             continue
