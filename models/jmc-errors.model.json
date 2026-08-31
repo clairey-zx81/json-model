@@ -14,7 +14,7 @@
   "?py": "$ErrorIndex",
   "#.ts": "Whether the jmc command can fail when generating the interface",
   "?ts": true,
-  "?auto.diverse": true,
+  "?auto.errors": { "@": [ "" ], "!": true },
   "#.#": "Embedded comment strings",
   "/^#/": ""
 }

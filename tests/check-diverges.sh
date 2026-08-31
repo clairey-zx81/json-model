@@ -1,5 +1,5 @@
 # Report backend divergences found in generated *.auto.check files,
-# findings on a model whose *.errors.json holds "auto.diverse": true are known
+# findings on a model whose *.errors.json holds a non-empty "auto.errors" are known
 
 targets=("$@")
 [ ${#targets[@]} -eq 0 ] && targets=(.)
@@ -51,7 +51,8 @@ try:
     data = json.load(open(sys.argv[1]))
 except Exception:
     sys.exit(1)
-sys.exit(0 if data.get("auto.diverse") is True else 1)
+errors = data.get("auto.errors")
+sys.exit(0 if isinstance(errors, list) and errors else 1)
 PY
 }
 
@@ -69,7 +70,7 @@ while IFS= read -r check ; do
         kfindings=$((kfindings + $(echo "$hits" | wc -l)))
         continue
     fi
-    echo "== $check${known:+  (auto.diverse)}"
+    echo "== $check${known:+  (auto.errors)}"
     auto=${check%.check}.json
     while IFS= read -r line ; do
         if [ -n "$known" ] ; then

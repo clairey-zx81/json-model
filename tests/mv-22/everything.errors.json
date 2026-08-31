@@ -1,4 +1,4 @@
 {
   "ts": true,
-  "auto.diverse": true
+  "auto.errors": ["c", "py"]
 }

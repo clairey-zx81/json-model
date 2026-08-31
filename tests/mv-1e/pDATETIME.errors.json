@@ -1,1 +1,1 @@
-{"sql": [13], "java": [7, 8], "auto.diverse": true}
+{"sql": [13], "java": [7, 8], "auto.errors": ["c", "py"]}
