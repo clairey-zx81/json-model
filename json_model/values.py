@@ -513,6 +513,11 @@ def _matches(name: str, prop: str) -> bool|None:
     else:
         return name == (prop[1:] if prop.startswith(("!", "?", "_")) else prop)
 
+def _unclaimed(node: ModelObject, name: str) -> bool:
+    """Whether no key of an object model can hold this property name."""
+    return all(_matches(name, prop) is False
+               for prop in node if not prop.startswith("#"))
+
 def _outranking(node: ModelObject, prop: str) -> list[str]:
     """Property keys the model applies before a catch-all or pattern key.
 
@@ -980,7 +985,7 @@ def _object_sites(sites: list):
         node = props["@"]
         if (not set(props) - {"@"} and isinstance(node, dict)
                 and not set(node) & (_OPERATORS | _ROOT_KEYS)):
-            yield mpath, vpath, frames, node
+            yield mpath, vpath, frames, node, branched
 
 def _alternatives(sites: list):
     """Sites which target a union model."""
@@ -1304,7 +1309,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 unverified.add(key)
         else:
             skip(f"bad value {_mpath(mpath)}: the {target} violation is still valid")
-    for mpath, vpath, frames, node in _object_sites(sites):
+    for mpath, vpath, frames, node, branched in _object_sites(sites):
         try:
             built = simplest(node, jm, seen)
         except UnsupportedValue as e:
@@ -1312,6 +1317,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             continue
         if not isinstance(built, dict):
             continue
+        proven = not branched
         for prop, name in _mandatory(node):
             key = f"{_mpath(mpath + [prop])} missing"
             if key in values or name not in built:
@@ -1335,15 +1341,15 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 continue
-            elif unverified is not None or _verify(value, vmodel, vjm) is False:
+            elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
-                if unverified is not None:
+                if unverified is not None and not proven:
                     unverified.add(key)
             else:
                 skip(f"missing value {_mpath(mpath + [prop])}: "
                      f"dropping {name} is still valid")
-    for mpath, vpath, frames, node in _object_sites(sites):
+    for mpath, vpath, frames, node, branched in _object_sites(sites):
         if not _closed(node, jm):
             skip(f"extra value {_mpath(mpath)}: object is open")
             continue
@@ -1359,6 +1365,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             if name in built or key in values:
                 continue
             sub = {**built, name: None}
+            proven = not branched and _unclaimed(node, name)
             if unverified is None and (_verify(sub, node, jm, defs) is not False
                                        or _verify(sub, _opened(node), jm, defs) is not True):
                 continue
@@ -1371,10 +1378,10 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
                 break
             if json.dumps(value, sort_keys=True) in taken:
                 break
-            elif unverified is not None or _verify(value, vmodel, vjm) is False:
+            elif proven or unverified is not None or _verify(value, vmodel, vjm) is False:
                 values[key] = value
                 taken.add(json.dumps(value, sort_keys=True))
-                if unverified is not None:
+                if unverified is not None and not proven:
                     unverified.add(key)
                 break
         else:
@@ -1484,7 +1491,7 @@ def optionals(model: ModelType, jm: JsonModel|None = None,
     except UnsupportedValue as e:
         reasons.append(f"no document to alter: {e}")
     taken = set() if doc is None else {json.dumps(doc, sort_keys=True)}
-    for mpath, vpath, frames, node in _object_sites(sites):
+    for mpath, vpath, frames, node, branched in _object_sites(sites):
         props = _optional_props(node, jm, seen)
         if not props:
             continue
