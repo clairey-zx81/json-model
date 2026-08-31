@@ -1511,6 +1511,7 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
     always = _anything(vjm, vmodel)
     for candidate in _ROOT_TYPES:
         dumped = json.dumps(candidate, sort_keys=True)
+        shown = f"'{candidate}'" if isinstance(candidate, str) else dumped
         if dumped in taken:
             continue
         if _rejects(vjm, vmodel, [], candidate):
@@ -1519,14 +1520,14 @@ def _violations(model: ModelType, jm: JsonModel|None = None,
             verdict = True
         elif unverified is not None:
             verdict = False
-            unverified.add(f".{dumped} root invalid")
+            unverified.add(f".{shown} root invalid")
         else:
             verdict = _verify(candidate, vmodel, vjm)
         if verdict is not False:
             if verdict is True:
-                skip(f".{dumped} root: valid for the model")
+                skip(f".{shown} root: valid for the model")
             continue
-        values[f".{dumped} root invalid"] = copy.deepcopy(candidate)
+        values[f".{shown} root invalid"] = copy.deepcopy(candidate)
         taken.add(dumped)
     if not values:
         if not reasons:
