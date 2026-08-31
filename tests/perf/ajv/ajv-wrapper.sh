@@ -3,6 +3,14 @@
 # AJV wrapper for benchmarking purposes
 #
 
+err()
+{
+  local status=$1
+  shift
+  echo "$0 error: $@" >&2
+  exit $status
+}
+
 helper()
 {
   local status=$1
@@ -11,7 +19,7 @@ helper()
   exit $status
 }
 
-# intersept option
+# intercept an option
 get_opt()
 {
   local opt=$1 next= o=
@@ -41,7 +49,7 @@ case "$1" in
   optim|compile)
     shift
     # TODO clarify ES5/EC6 CJS/EMS options (--code-es5 --code-esm)
-    # TODO allow removing reporting code
+    # TODO allow removing reporting code, --messages=false does not do the trick
     # NOTE --code-source=true: standalone version
     # set useful optimizations options with "optim"
     [ "$1" = "optim" ] && ajv_opts="--messages=false --code-optimize=2 --strict=false" || ajv_opts=""
@@ -49,10 +57,15 @@ case "$1" in
     output=$(get_opt "-o" "$@")
     # actual compilation
     ajv compile $ajv_opts "$@"
+    [ $? -eq 0 ] || err $? "ajv compile failed"
     # add benchmarkint main & prettyprint
     [ "$output" ] && {
+      test -s "$output" || err $? "ajv compile empty result"
+      input=$(get_opt "-s" "$@")
       {
         echo
+        echo
+        echo "// test schema \"$input\""
         echo 'async function main() {'
         # echo '  const jab = await import("jmc-ajv-bench")'
         echo '  const jab = require("jmc-ajv-bench")'
@@ -60,7 +73,7 @@ case "$1" in
         echo '}'
         echo 'main()'
       } >> $output
-      prettier --write "$output"
+      prettier --write "$output" || err $? "prettier failed"
     }
     ;;
   *)
